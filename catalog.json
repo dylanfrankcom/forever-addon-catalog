@@ -1,0 +1,456 @@
+{
+  "$schema": "./schema/catalog.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "forever": {
+    "gameVersion": "1.60.1",
+    "interface": "16001",
+    "curseforgeVersionTypeId": 88568
+  },
+  "addons": [
+    {
+      "id": "auctionator",
+      "name": "Auctionator",
+      "author": "plusmouse, Borjamacare",
+      "summary": "Faster auction house searching, shopping lists and price history.",
+      "tags": [
+        "auction-house",
+        "economy"
+      ],
+      "homepage": "https://addons.wago.io/addons/auctionator",
+      "sources": [
+        {
+          "type": "wago",
+          "slug": "auctionator"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 6124
+        }
+      ],
+      "folders": [
+        "Auctionator"
+      ],
+      "tocPath": "Auctionator/Auctionator.toc",
+      "savedVariables": [
+        "AUCTIONATOR_CONFIG",
+        "AUCTIONATOR_SAVEDVARS",
+        "AUCTIONATOR_SHOPPING_LISTS",
+        "AUCTIONATOR_PRICE_DATABASE",
+        "AUCTIONATOR_POSTING_HISTORY",
+        "AUCTIONATOR_VENDOR_PRICE_CACHE",
+        "AUCTIONATOR_RECENT_SEARCHES",
+        "AUCTIONATOR_SELLING_GROUPS",
+        "AUCTIONATOR_CHARACTER_CONFIG"
+      ],
+      "notes": "plusmouse's add-ons download from Wago: the author disabled CurseForge API downloads. CurseForge's published hashes are used to cross-check the Wago file. Works with LibAHTab when it's installed (not in the catalog yet)."
+    },
+    {
+      "id": "baganator",
+      "name": "Baganator",
+      "author": "plusmouse",
+      "summary": "Combined bags and bank with search, sorting and item levels.",
+      "tags": [
+        "bags",
+        "inventory"
+      ],
+      "homepage": "https://addons.wago.io/addons/baganator",
+      "sources": [
+        {
+          "type": "wago",
+          "slug": "baganator"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 914482
+        }
+      ],
+      "folders": [
+        "Baganator"
+      ],
+      "tocPath": "Baganator/Baganator.toc",
+      "requires": [
+        "syndicator"
+      ],
+      "savedVariables": [
+        "BAGANATOR_CONFIG",
+        "BAGANATOR_DATA",
+        "BAGANATOR_CURRENT_PROFILE"
+      ],
+      "notes": "plusmouse's add-ons download from Wago: the author disabled CurseForge API downloads. CurseForge's published hashes are used to cross-check the Wago file. Needs Syndicator, although its .toc lists it as optional."
+    },
+    {
+      "id": "blizzmove",
+      "name": "BlizzMove",
+      "author": "Kiatra, zaCade, Numy",
+      "summary": "Move and resize the game's default windows.",
+      "tags": [
+        "ui"
+      ],
+      "homepage": "https://www.curseforge.com/wow/addons/blizzmove",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 17809
+        }
+      ],
+      "folders": [
+        "BlizzMove",
+        "BlizzMove_Debug"
+      ],
+      "tocPath": "BlizzMove/BlizzMove.toc",
+      "savedVariables": [
+        "BlizzMoveDB"
+      ],
+      "notes": "Installs BlizzMove and its load-on-demand debugging plugin together."
+    },
+    {
+      "id": "chattynator",
+      "name": "Chattynator",
+      "author": "plusmouse",
+      "summary": "A replacement chat window with tabs, search and a message log.",
+      "tags": [
+        "chat"
+      ],
+      "homepage": "https://addons.wago.io/addons/chattynator",
+      "sources": [
+        {
+          "type": "wago",
+          "slug": "chattynator"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1273281
+        }
+      ],
+      "folders": [
+        "Chattynator"
+      ],
+      "tocPath": "Chattynator/Chattynator.toc",
+      "conflicts": [
+        "wim"
+      ],
+      "savedVariables": [
+        "CHATTYNATOR_CONFIG",
+        "CHATTYNATOR_MESSAGE_LOG",
+        "CHATTYNATOR_CURRENT_PROFILE",
+        "CHATTYNATOR_COMMAND_HISTORY"
+      ],
+      "notes": "plusmouse's add-ons download from Wago: the author disabled CurseForge API downloads. CurseForge's published hashes are used to cross-check the Wago file. Handles whispers too, so it overlaps with WIM."
+    },
+    {
+      "id": "dungeonjournal",
+      "name": "DungeonJournal",
+      "author": "Exehn",
+      "summary": "A journal of Forever's dungeons and raids: bosses, abilities and loot.",
+      "tags": [
+        "dungeons",
+        "loot"
+      ],
+      "homepage": "https://www.curseforge.com/wow/addons/dungeonjournal",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 1707971
+        }
+      ],
+      "folders": [
+        "ForeverDungeonJournal"
+      ],
+      "tocPath": "ForeverDungeonJournal/ForeverDungeonJournal.toc",
+      "savedVariables": [
+        "ForeverDungeonJournalDB",
+        "ForeverDungeonJournalCharacterDB"
+      ],
+      "notes": "Its folder is ForeverDungeonJournal. It sends a version-check message to other players who have it."
+    },
+    {
+      "id": "gatherlite",
+      "name": "GatherLite",
+      "author": "Wuild",
+      "summary": "Records herb, ore and treasure nodes on the map and minimap.",
+      "tags": [
+        "gathering",
+        "map",
+        "minimap"
+      ],
+      "homepage": "https://www.curseforge.com/wow/addons/gatherlite",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 334918
+        }
+      ],
+      "folders": [
+        "GatherLite"
+      ],
+      "tocPath": "GatherLite/GatherLite.toc",
+      "optional": [
+        "openmap"
+      ],
+      "savedVariables": [
+        "GatherLiteSettings",
+        "GatherLiteConfigCharacter"
+      ],
+      "notes": "CurseForge only: the GitHub repo's releases have no files and stop at 7.6.3."
+    },
+    {
+      "id": "hidingbar",
+      "name": "HidingBar",
+      "author": "sfmict",
+      "summary": "Gathers minimap and data broker buttons into a bar that stays hidden until needed.",
+      "tags": [
+        "minimap",
+        "ui"
+      ],
+      "homepage": "https://github.com/sfmict/HidingBar",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "sfmict/HidingBar",
+          "assetPattern": "^HidingBar-.*\\.zip$"
+        },
+        {
+          "type": "wago",
+          "slug": "hidingbar"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 369265
+        }
+      ],
+      "folders": [
+        "HidingBar",
+        "HidingBar_Options"
+      ],
+      "tocPath": "HidingBar/HidingBar.toc",
+      "savedVariables": [
+        "HidingBarDB",
+        "HidingBarDBChar"
+      ],
+      "notes": "HidingBar_Options is a load-on-demand settings add-on that needs HidingBar. The author disabled CurseForge API downloads; CurseForge is listed for its hashes."
+    },
+    {
+      "id": "needroll",
+      "name": "NeedRoll",
+      "author": "mikebvs",
+      "summary": "Browse dungeon and raid loot tables, in the style of AtlasLoot.",
+      "tags": [
+        "loot",
+        "dungeons"
+      ],
+      "homepage": "https://www.curseforge.com/wow/addons/needroll",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 1731901
+        }
+      ],
+      "folders": [
+        "NeedRoll"
+      ],
+      "tocPath": "NeedRoll/NeedRoll.toc",
+      "savedVariables": [
+        "NeedRollDB"
+      ]
+    },
+    {
+      "id": "openmap",
+      "name": "OpenMap",
+      "author": "OpenMap contributors",
+      "summary": "A continuous, zoomable world map, with Questie's icons when Questie is installed.",
+      "tags": [
+        "map"
+      ],
+      "homepage": "https://github.com/openmap-world/openmap",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "openmap-world/openmap",
+          "assetPattern": "^OpenMap-.*\\.zip$",
+          "excludePattern": "retail"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1735937
+        }
+      ],
+      "folders": [
+        "OpenMap"
+      ],
+      "tocPath": "OpenMap/OpenMap.toc",
+      "optional": [
+        "questie"
+      ],
+      "savedVariables": [
+        "OpenMapDB",
+        "OpenMapCharDB"
+      ],
+      "notes": "Large download (about 175 MB). New textures need a game restart, not just /reload."
+    },
+    {
+      "id": "questie",
+      "name": "Questie",
+      "author": "Aero, Logon, Muehe, TheCrux and others",
+      "summary": "Shows quests, objectives and quest givers on the map and minimap.",
+      "tags": [
+        "quests",
+        "map"
+      ],
+      "homepage": "https://github.com/Questie/Questie",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Questie/Questie",
+          "assetPattern": "^Questie-.*\\.zip$",
+          "excludePattern": "release\\.json"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 334372
+        }
+      ],
+      "folders": [
+        "Questie",
+        "QuestieDB",
+        "QuestieTrace"
+      ],
+      "tocPath": "Questie/Questie_Forever.toc",
+      "savedVariables": [
+        "QuestieConfig",
+        "QuestieProfilerEnabled",
+        "QuestieConfigCharacter",
+        "QuestieTrace",
+        "QuestieTraceDumps",
+        "QuestieTraceCharacter"
+      ],
+      "notes": "One zip installs three folders: Questie, QuestieDB (its quest database) and QuestieTrace (an optional tracing tool)."
+    },
+    {
+      "id": "syndicator",
+      "name": "Syndicator",
+      "author": "plusmouse",
+      "summary": "Keeps track of items across your characters, for Baganator and others.",
+      "tags": [
+        "bags",
+        "inventory"
+      ],
+      "homepage": "https://addons.wago.io/addons/syndicator",
+      "sources": [
+        {
+          "type": "wago",
+          "slug": "syndicator"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 988370
+        }
+      ],
+      "folders": [
+        "Syndicator"
+      ],
+      "tocPath": "Syndicator/Syndicator.toc",
+      "savedVariables": [
+        "SYNDICATOR_CONFIG",
+        "SYNDICATOR_DATA",
+        "SYNDICATOR_SUMMARIES"
+      ],
+      "notes": "plusmouse's add-ons download from Wago: the author disabled CurseForge API downloads. CurseForge's published hashes are used to cross-check the Wago file."
+    },
+    {
+      "id": "whatstraining",
+      "name": "What's Training?",
+      "author": "Sveng",
+      "summary": "Lists the spells your class trainer can teach you, in the spellbook.",
+      "tags": [
+        "trainer",
+        "spells"
+      ],
+      "homepage": "https://github.com/fusionpit/WhatsTraining",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "fusionpit/WhatsTraining",
+          "assetPattern": "^WhatsTraining-.*\\.zip$",
+          "excludePattern": "release\\.json"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 324944
+        }
+      ],
+      "folders": [
+        "WhatsTraining"
+      ],
+      "tocPath": "WhatsTraining/WhatsTraining.toc",
+      "savedVariables": [
+        "WT_SpellbookIcon",
+        "WT_Minimap",
+        "WT_WeaponGrouping",
+        "WT_ShowKnownWeaponSkills",
+        "WT_SpellDisplay",
+        "WT_SideBySide",
+        "WT_ScrollTwoPages",
+        "WT_FloatingFramePoint",
+        "WT_WaypointProvider",
+        "WT_ProfessionTabPosition",
+        "WT_ProfessionIcon",
+        "WT_HideProfessionTab",
+        "WT_TrainAll",
+        "WT_EnableProfessions",
+        "WT_LearnedPetAbilities",
+        "WT_NeedsToOpenBeastTraining",
+        "WT_IgnoredSpells",
+        "WT_PriceFaction",
+        "WT_HideWeaponSkillSwitcher",
+        "WT_Crafting"
+      ],
+      "notes": "\"Train All\" is opt-in (/wt options)."
+    },
+    {
+      "id": "wim",
+      "name": "WIM (WoW Instant Messenger)",
+      "author": "Pazza, Sylvanaar, MysticalOS, Humfras",
+      "summary": "Whispers in separate instant-messenger windows, with history.",
+      "tags": [
+        "chat"
+      ],
+      "homepage": "https://github.com/Legacy-of-Sylvanaar/wow-instant-messenger",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Legacy-of-Sylvanaar/wow-instant-messenger",
+          "assetPattern": "^WIM-.*\\.zip$",
+          "excludePattern": "release\\.json"
+        },
+        {
+          "type": "wago",
+          "slug": "wim-wow-instant-messenger-v3"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 7474
+        }
+      ],
+      "folders": [
+        "WIM"
+      ],
+      "tocPath": "WIM/WIM.toc",
+      "conflicts": [
+        "chattynator"
+      ],
+      "savedVariables": [
+        "WIM3_Data",
+        "WIM3_Cache",
+        "WIM3_Filters",
+        "WIM3_ChatFilters",
+        "WIM3_History",
+        "WIM3_HistoryArchive",
+        "WIM3_HistorySchema",
+        "WIM3_DebugLog",
+        "WIM3_Snapshots"
+      ],
+      "notes": "Releases often. Overlaps with Chattynator's whisper handling."
+    }
+  ]
+}
