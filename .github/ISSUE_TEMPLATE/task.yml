@@ -1,0 +1,34 @@
+name: Task
+description: One small change an agent can pick up once it's labelled ready.
+labels: []
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What
+      description: The change, in a few sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What it's for, or what goes wrong without it.
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: How anyone can tell it's finished (tests, behaviour, screenshots).
+      placeholder: "- [ ] ...\n- [ ] Tests cover ..."
+    validations:
+      required: true
+  - type: textarea
+    id: out
+    attributes:
+      label: Out of scope
+      description: Related things this issue should not do.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Links, files, decisions, the PowerShell app's equivalent.

@@ -1,0 +1,21 @@
+name: Add an add-on
+description: Suggest an add-on for the catalog.
+labels: ["catalog-entry"]
+body:
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: Its GitHub, CurseForge or Wago page.
+    validations:
+      required: true
+  - type: textarea
+    id: forever
+    attributes:
+      label: Works on Forever?
+      description: Which release lists the Forever Interface in its .toc, and anything you know about how it runs.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Other sources, required add-ons, conflicts.

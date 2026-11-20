@@ -1,0 +1,9 @@
+bin/
+obj/
+artifacts/
+.tools/
+.vs/
+.vscode/
+.claude/worktrees/
+.claude/settings.local.json
+Thumbs.db

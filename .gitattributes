@@ -1,0 +1,8 @@
+# Normalized in the repo; Windows line endings in the working tree for Windows-only files.
+* text=auto
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.sln text eol=crlf
+*.png binary
+*.ico binary
+*.zip binary
