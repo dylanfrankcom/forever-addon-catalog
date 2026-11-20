@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dylanfrankcom/forever-addon-catalog/schema/catalog.schema.json",
+  "title": "Forever Add-on Catalog",
+  "description": "The add-ons Forever Add-on Manager can find and install for WoW Forever. Rules the schema can't express (unique IDs, references between entries, folders claimed twice) are checked by scripts/validate.cs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "version", "forever", "addons"],
+  "properties": {
+    "$schema": {
+      "description": "Optional link to this schema, for editors.",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "description": "The format version. The app refuses a catalog whose schemaVersion it doesn't know.",
+      "const": 1
+    },
+    "version": {
+      "description": "The catalog's own version, bumped whenever entries change, so the app can say what's new.",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "forever": { "$ref": "#/$defs/forever" },
+    "addons": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/addon" }
+    }
+  },
+  "$defs": {
+    "id": {
+      "description": "Lowercase letters and digits, words joined by single hyphens. Stable: never changed, never reused.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "idList": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "folder": {
+      "description": "A top-level AddOns folder. No paths, no leading dot, and never a protected (Spoken) folder.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]*$",
+      "maxLength": 128,
+      "not": { "pattern": "^[Ss][Pp][Oo][Kk][Ee][Nn]" }
+    },
+    "folderList": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/folder" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "tocPath": {
+      "description": "The .toc to read the Interface from, relative to the zip's top level, with forward slashes (\"Questie_Forever.toc\" or \"OpenMap/OpenMap.toc\").",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+(/[A-Za-z0-9_.-]+)*\\.toc$"
+    },
+    "forever": {
+      "description": "The WoW Forever client the catalog was checked against. Updated by hand when the client patches.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gameVersion", "interface", "curseforgeVersionTypeId"],
+      "properties": {
+        "gameVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "interface": { "type": "string", "pattern": "^[0-9]{5,6}$" },
+        "curseforgeVersionTypeId": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "githubSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "repo", "assetPattern"],
+      "properties": {
+        "type": { "const": "github" },
+        "repo": {
+          "description": "owner/name. The release GitHub flags as Latest is used, never a pre-release.",
+          "type": "string",
+          "pattern": "^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$"
+        },
+        "assetPattern": {
+          "description": "Regular expression (.NET) the release asset's file name must match.",
+          "type": "string",
+          "minLength": 1
+        },
+        "excludePattern": {
+          "description": "Regular expression (.NET) for asset names to skip even when assetPattern matches.",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "curseforgeSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "projectId"],
+      "properties": {
+        "type": { "const": "curseforge" },
+        "projectId": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "wagoSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "slug"],
+      "properties": {
+        "type": { "const": "wago" },
+        "slug": {
+          "description": "The add-on's slug in https://addons.wago.io/addons/<slug>.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        }
+      }
+    },
+    "source": {
+      "oneOf": [
+        { "$ref": "#/$defs/githubSource" },
+        { "$ref": "#/$defs/curseforgeSource" },
+        { "$ref": "#/$defs/wagoSource" }
+      ]
+    },
+    "withdrawn": {
+      "description": "A release the app never offers.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["release", "reason"],
+      "properties": {
+        "release": { "description": "The release as the source names it: a GitHub tag, a CurseForge file ID or a Wago release.", "type": "string", "minLength": 1 },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "override": {
+      "description": "Changes that apply from a given release on, for when an add-on adds or renames a folder or moves its .toc.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["releaseFrom"],
+      "minProperties": 2,
+      "properties": {
+        "releaseFrom": { "type": "string", "minLength": 1 },
+        "folders": { "$ref": "#/$defs/folderList" },
+        "tocPath": { "$ref": "#/$defs/tocPath" }
+      }
+    },
+    "addon": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "summary", "sources", "folders"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "author": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "summary": { "description": "One sentence in our own words, not copied from the add-on's page.", "type": "string", "minLength": 1, "maxLength": 200 },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "uniqueItems": true
+        },
+        "homepage": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "sources": {
+          "description": "In order of preference.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/source" },
+          "minItems": 1
+        },
+        "folders": { "$ref": "#/$defs/folderList" },
+        "tocPath": { "$ref": "#/$defs/tocPath" },
+        "requires": { "description": "Catalog IDs that must be installed too.", "$ref": "#/$defs/idList" },
+        "optional": { "description": "Catalog IDs it works with when they're installed.", "$ref": "#/$defs/idList" },
+        "conflicts": { "description": "Catalog IDs it overlaps with. A warning, not a blocker.", "$ref": "#/$defs/idList" },
+        "savedVariables": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$" },
+          "uniqueItems": true
+        },
+        "notes": { "type": "string", "maxLength": 1000 },
+        "withdrawn": { "type": "array", "items": { "$ref": "#/$defs/withdrawn" } },
+        "overrides": { "type": "array", "items": { "$ref": "#/$defs/override" } }
+      }
+    }
+  }
+}
