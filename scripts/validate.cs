@@ -7,26 +7,45 @@
 //   powershell -ExecutionPolicy Bypass -File ..\ForeverAddonManager\dev.ps1 dotnet run scripts/validate.cs                 # ./catalog.json
 //   powershell -ExecutionPolicy Bypass -File ..\ForeverAddonManager\dev.ps1 dotnet run scripts/validate.cs -- path/to/file  # another file
 //   powershell -ExecutionPolicy Bypass -File ..\ForeverAddonManager\dev.ps1 dotnet run scripts/validate.cs -- --self-test   # scripts/test-data
+//   ... dotnet run scripts/validate.cs -- catalog.json --base base.json   # also: entries changed => version bumped
 //
-// Exit code 0 when valid, 1 when not (or when a self-test case doesn't give the expected result).
+// Exit code 0 when valid, 1 when not (or when a self-test case doesn't give the expected result), 2 for bad arguments.
 // The schema is found by walking up from the catalog file to a folder holding schema/catalog.schema.json.
 
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using Json.Schema;
 
-if (args.Length == 1 && args[0] == "--self-test")
+if (args is ["--self-test"])
 {
     return SelfTest.Run();
 }
-if (args.Length > 1 || (args.Length == 1 && args[0].StartsWith('-')))
+
+string? catalogArg = null;
+string? baseArg = null;
+for (var i = 0; i < args.Length; i++)
 {
-    Console.Error.WriteLine("Usage: dotnet run scripts/validate.cs [catalog.json | --self-test]");
-    return 2;
+    if (args[i] == "--base" && i + 1 < args.Length)
+    {
+        baseArg = args[++i];
+    }
+    else if (!args[i].StartsWith('-') && catalogArg is null)
+    {
+        catalogArg = args[i];
+    }
+    else
+    {
+        Console.Error.WriteLine("Usage: dotnet run scripts/validate.cs [catalog.json] [--base <previous catalog.json>] | --self-test");
+        return 2;
+    }
 }
 
-var path = Path.GetFullPath(args.Length == 1 ? args[0] : "catalog.json");
+var path = Path.GetFullPath(catalogArg ?? "catalog.json");
 var problems = CatalogValidator.Validate(path);
+if (problems.Count == 0 && baseArg is not null)
+{
+    problems.AddRange(VersionBump.Check(Path.GetFullPath(baseArg), path));
+}
 foreach (var p in problems)
 {
     Console.Error.WriteLine($"{p.Code}: {p.Message}");
@@ -308,7 +327,24 @@ static class SelfTest
             }
             Console.WriteLine($"{(verdict == "ok" ? "ok  " : "FAIL")} {name}{(verdict == "ok" ? "" : "  " + verdict)}");
         }
-        Console.WriteLine($"{cases.Count - failures}/{cases.Count} cases passed.");
+        var bumpDir = Path.Combine(dir, "bump");
+        var bumpCases = Directory.Exists(bumpDir)
+            ? Directory.GetFiles(bumpDir, "*.head.json").OrderBy(f => f, StringComparer.Ordinal).ToList()
+            : [];
+        foreach (var head in bumpCases)
+        {
+            var name = Path.GetFileName(head)[..^".head.json".Length];
+            var problems = VersionBump.Check(head[..^".head.json".Length] + ".base.json", head);
+            var expectFail = name.StartsWith("invalid-", StringComparison.Ordinal);
+            var ok = expectFail ? problems.Any(p => p.Code == "version-not-bumped") : problems.Count == 0;
+            if (!ok)
+            {
+                failures++;
+            }
+            Console.WriteLine($"{(ok ? "ok  " : "FAIL")} bump/{name}{(ok ? "" : "  got " + (problems.Count == 0 ? "no problems" : string.Join("; ", problems.Select(p => p.Code))))}");
+        }
+        var total = cases.Count + bumpCases.Count;
+        Console.WriteLine($"{total - failures}/{total} cases passed.");
         return failures == 0 && cases.Count > 0 ? 0 : 1;
     }
 
@@ -330,4 +366,44 @@ static class SelfTest
         }
         return null;
     }
+}
+
+/// <summary>
+/// On a PR: when the entries or the forever block changed from the base branch's catalog, the version must go up.
+/// A missing or empty base file (the first catalog) needs no bump.
+/// </summary>
+static class VersionBump
+{
+    public static List<Problem> Check(string basePath, string headPath)
+    {
+        if (!File.Exists(basePath) || new FileInfo(basePath).Length == 0)
+        {
+            return [];
+        }
+        JsonNode? before;
+        try
+        {
+            before = JsonNode.Parse(File.ReadAllText(basePath));
+        }
+        catch (JsonException)
+        {
+            // The base was broken; the head has just passed validation, so there's nothing to compare.
+            return [];
+        }
+        var after = JsonNode.Parse(File.ReadAllText(headPath))!;
+
+        var changed = !JsonNode.DeepEquals(before?["addons"], after["addons"])
+            || !JsonNode.DeepEquals(before?["forever"], after["forever"]);
+        if (!changed)
+        {
+            return [];
+        }
+        var oldVersion = Semver((string?)before?["version"]);
+        var newVersion = Semver((string?)after["version"]);
+        return oldVersion is not null && newVersion is not null && newVersion.CompareTo(oldVersion) <= 0
+            ? [new("version-not-bumped", $"Entries changed but version stayed at {after["version"]} (was {before?["version"]}). Bump it.")]
+            : [];
+    }
+
+    static Version? Semver(string? text) => Version.TryParse(text, out var v) ? v : null;
 }

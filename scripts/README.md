@@ -21,8 +21,12 @@ Checks `catalog.json` (or a file given after `--`):
 
 Exit code 0 when valid, 1 when not.
 
+**`--base <file>`** also checks the version: if the entries or the `forever` block differ from that earlier catalog, `version` must go up (`version-not-bumped`). CI passes the catalog from the PR's base branch.
+
 **`--self-test`** runs every file in `test-data/`:
 - `valid-*.json` must pass.
 - `invalid-<code>[-detail].json` must fail with that code (`schema`, `json`, or one of the codes above). For example, `invalid-folder-claimed-twice-case.json` expects `folder-claimed-twice`.
+
+Version-bump cases are pairs in `test-data/bump/`: `<name>.base.json` and `<name>.head.json`, where `invalid-*` expects `version-not-bumped`.
 
 Add a case for every new rule.

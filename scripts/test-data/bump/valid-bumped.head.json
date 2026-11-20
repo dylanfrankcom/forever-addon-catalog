@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.1",
+  "forever": {
+    "gameVersion": "1.60.1",
+    "interface": "16001",
+    "curseforgeVersionTypeId": 88568
+  },
+  "addons": [
+    {
+      "id": "x",
+      "name": "X",
+      "summary": "Changed.",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 1
+        }
+      ],
+      "folders": [
+        "X"
+      ]
+    }
+  ]
+}

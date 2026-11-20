@@ -10,7 +10,8 @@ The list of add-ons [Forever Add-on Manager](https://github.com/dylanfrankcom/fo
 | Path | What |
 |---|---|
 | `catalog.json` | One entry per add-on: its sources (GitHub, CurseForge, Wago), folders, required and optional add-ons, conflicts, notes and withdrawn releases. |
-| `schema/catalog.schema.json` | The format, checked on every PR. |
+| `schema/catalog.schema.json` | The format. |
+| `.github/workflows/validate.yml` | Runs the validator's self-test and validates `catalog.json` on every push and PR; on a PR, changed entries must come with a version bump. |
 | `scripts/` | Validation, and later the release checker. Both are .NET file-based programs. |
 | `status.json` | Written by the checker job, never by hand: which releases list the Forever Interface (phase 6). |
 
