@@ -2,18 +2,18 @@
 
 The list of add-ons [Forever Add-on Manager](https://github.com/dylanfrankcom/forever-addon-manager) can find and install for WoW Forever.
 
-> **Status:** being set up (phase 1 of [the plan](https://github.com/dylanfrankcom/forever-addon-manager/blob/main/docs/PLAN.md)).
+> **Status:** live. The app reads this catalog at start and before each update check.
 >
 > Not affiliated with or endorsed by Blizzard Entertainment. Every add-on belongs to its author; entries only say where the author publishes it.
 
-## What's here (once phase 1 lands)
+## What's here
 | Path | What |
 |---|---|
 | `catalog.json` | One entry per add-on: its sources (GitHub, CurseForge, Wago), folders, required and optional add-ons, conflicts, notes and withdrawn releases. |
 | `schema/catalog.schema.json` | The format. |
 | `.github/workflows/validate.yml` | Runs the validator's self-test and validates `catalog.json` on every push and PR; on a PR, changed entries must come with a version bump. |
 | `scripts/` | Validation, and later the release checker. Both are .NET file-based programs. |
-| `status.json` | Written by the checker job, never by hand: which releases list the Forever Interface (phase 6). |
+| `status.json` | Written by the checker job, never by hand: which releases list the Forever Interface (coming with the catalog checker, app 0.6.0). |
 
 The full format is in section 2 of the plan.
 
