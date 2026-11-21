@@ -1,21 +1,56 @@
 name: Add an add-on
 description: Suggest an add-on for the catalog.
-labels: ["catalog-entry"]
+labels: ["catalog-entry", "triage"]
 body:
-  - type: input
-    id: link
+  - type: markdown
     attributes:
-      label: Link
-      description: Its GitHub, CurseForge or Wago page.
+      value: |
+        Thanks! Only add-ons whose current release lists WoW Forever's Interface in its `.toc` can be listed. Every detail below is checked before an entry is added, so fill in what you know and leave the rest blank.
+  - type: input
+    id: name
+    attributes:
+      label: Add-on
+      description: Its name, and its author if you know it.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Where it's published
+      description: Every page you know of. GitHub (with releases), CurseForge and Wago.
+      placeholder: |
+        GitHub: https://github.com/...
+        CurseForge: https://www.curseforge.com/wow/addons/...
+        Wago: https://addons.wago.io/addons/...
     validations:
       required: true
   - type: textarea
     id: forever
     attributes:
       label: Works on Forever?
-      description: Which release lists the Forever Interface in its .toc, and anything you know about how it runs.
+      description: Which release lists the Forever Interface in its `.toc` (the file name and its `## Interface:` line), and anything you know about how it runs.
+  - type: input
+    id: folders
+    attributes:
+      label: Folders
+      description: The folders it installs into AddOns, if you know them.
+  - type: input
+    id: license
+    attributes:
+      label: Licence
+      description: As its author states it (for example MIT or GPL-3.0). Leave blank if none is stated.
+  - type: input
+    id: issues
+    attributes:
+      label: Where to report problems
+      description: The author's issue tracker, if there is one.
+  - type: input
+    id: sponsor
+    attributes:
+      label: Support the author
+      description: A page where the author asks for support (GitHub Sponsors, Ko-fi, Patreon …), if they list one.
   - type: textarea
     id: notes
     attributes:
       label: Notes
-      description: Other sources, required add-ons, conflicts.
+      description: Required add-ons, optional ones, conflicts, anything else.

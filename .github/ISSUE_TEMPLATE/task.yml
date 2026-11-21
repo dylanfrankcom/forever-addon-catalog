@@ -1,6 +1,6 @@
 name: Task
-description: One small change an agent can pick up once it's labelled ready.
-labels: []
+description: Planned work for the maintainer. To ask for an add-on, use the "Add an add-on" form.
+labels: ["triage"]
 body:
   - type: textarea
     id: what
@@ -31,4 +31,4 @@ body:
     id: notes
     attributes:
       label: Notes
-      description: Links, files, decisions, the PowerShell app's equivalent.
+      description: Links, files, related issues.
