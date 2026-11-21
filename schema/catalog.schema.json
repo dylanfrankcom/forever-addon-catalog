@@ -156,6 +156,7 @@
           "uniqueItems": true
         },
         "homepage": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "sponsor": { "description": "One page where people can support the author, as the author lists it: their GitHub Sponsors page, else the first FUNDING.yml link, else the donation link on their CurseForge or Wago page. Left out when the author lists none.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
         "sources": {
           "description": "In order of preference.",
           "type": "array",

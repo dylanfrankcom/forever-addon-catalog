@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 1,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001",
@@ -18,6 +18,7 @@
         "economy"
       ],
       "homepage": "https://addons.wago.io/addons/auctionator",
+      "sponsor": "https://buymeacoffee.com/plusmouse",
       "sources": [
         {
           "type": "wago",
@@ -55,6 +56,7 @@
         "inventory"
       ],
       "homepage": "https://addons.wago.io/addons/baganator",
+      "sponsor": "https://buymeacoffee.com/plusmouse",
       "sources": [
         {
           "type": "wago",
@@ -88,6 +90,7 @@
         "ui"
       ],
       "homepage": "https://www.curseforge.com/wow/addons/blizzmove",
+      "sponsor": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FF9F9GTXMG392",
       "sources": [
         {
           "type": "curseforge",
@@ -113,6 +116,7 @@
         "chat"
       ],
       "homepage": "https://addons.wago.io/addons/chattynator",
+      "sponsor": "https://buymeacoffee.com/plusmouse",
       "sources": [
         {
           "type": "wago",
@@ -148,6 +152,7 @@
         "loot"
       ],
       "homepage": "https://www.curseforge.com/wow/addons/dungeonjournal",
+      "sponsor": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KJKKXW2ND6WD6",
       "sources": [
         {
           "type": "curseforge",
@@ -175,6 +180,7 @@
         "minimap"
       ],
       "homepage": "https://www.curseforge.com/wow/addons/gatherlite",
+      "sponsor": "https://www.patreon.com/Wuild",
       "sources": [
         {
           "type": "curseforge",
@@ -263,6 +269,7 @@
         "map"
       ],
       "homepage": "https://github.com/openmap-world/openmap",
+      "sponsor": "https://ko-fi.com/jiforever",
       "sources": [
         {
           "type": "github",
@@ -298,6 +305,7 @@
         "map"
       ],
       "homepage": "https://github.com/Questie/Questie",
+      "sponsor": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JCUBJWKT395ME",
       "sources": [
         {
           "type": "github",
@@ -336,6 +344,7 @@
         "inventory"
       ],
       "homepage": "https://addons.wago.io/addons/syndicator",
+      "sponsor": "https://buymeacoffee.com/plusmouse",
       "sources": [
         {
           "type": "wago",
@@ -416,6 +425,7 @@
         "chat"
       ],
       "homepage": "https://github.com/Legacy-of-Sylvanaar/wow-instant-messenger",
+      "sponsor": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3952099",
       "sources": [
         {
           "type": "github",
@@ -462,6 +472,7 @@
         "economy"
       ],
       "homepage": "https://github.com/brunobasas/CraftersJournal",
+      "sponsor": "https://buymeacoffee.com/brunobasas",
       "sources": [
         {
           "type": "github",
