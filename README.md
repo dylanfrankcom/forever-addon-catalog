@@ -23,7 +23,7 @@ The full format, with a description of every field, is in [`schema/catalog.schem
 - **No protected add-ons:** no entry may name a `Spoken*` folder or `.spoken-manager`.
 
 ## Contributing
-Know an add-on that works on Forever? Ask for it with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. Each entry is checked (the release, its `.toc`, its sources and links) before it's added. Questions go to [Discussions](https://github.com/dylanfrankcom/forever-addon-catalog/discussions). Pull requests from outside the project aren't accepted: see [CONTRIBUTING.md](CONTRIBUTING.md).
+Know an add-on that works on Forever? Ask for it with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. Each entry is checked (the release, its `.toc`, its sources and links) before it's added. Questions are welcome as issues, with the Question form. Pull requests from outside the project aren't accepted: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 The catalog and the app are free and open source, take no donations, and are developed by AI agents (Claude Code) under the maintainer's direction.
 

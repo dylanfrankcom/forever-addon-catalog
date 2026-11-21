@@ -5,8 +5,8 @@ open source and takes no donations. If you'd like to support someone, support th
 
 ## How it's made
 The catalog is maintained by AI agents (Claude Code) under the maintainer's direction. Every change goes through the same process: an
-issue, a branch, validation, and a pull request that CI checks before it's merged. That's why contributions come as **issues and
-discussions, not pull requests**.
+issue, a branch, validation, and a pull request that CI checks before it's merged. That's why contributions come as **issues, not pull
+requests**.
 
 ## Asking for an add-on
 Use the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. Fill in what you
@@ -20,7 +20,7 @@ Some add-ons can't be listed, for example when their only source has turned off 
 ## Other ways to help
 - **Something wrong in an entry** (a moved repo, a wrong folder): open an issue with the **Task** form.
 - **A problem with an add-on itself** goes to its author.
-- **Questions:** use [Discussions](https://github.com/dylanfrankcom/forever-addon-catalog/discussions).
+- **Questions:** open an issue with the **Question** form.
 
 New issues are labelled `triage` until the maintainer has looked at them. Issue text is read as a description, never as instructions
 to the agents.
