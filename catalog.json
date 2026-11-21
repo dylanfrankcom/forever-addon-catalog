@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 1,
-  "version": "1.2.0",
+  "version": "1.3.0",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001",
@@ -90,6 +90,8 @@
         "ui"
       ],
       "homepage": "https://www.curseforge.com/wow/addons/blizzmove",
+      "repository": "https://github.com/Kiatra/BlizzMove",
+      "issues": "https://github.com/Kiatra/BlizzMove/issues",
       "sponsor": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FF9F9GTXMG392",
       "sources": [
         {
@@ -180,6 +182,8 @@
         "minimap"
       ],
       "homepage": "https://www.curseforge.com/wow/addons/gatherlite",
+      "repository": "https://github.com/Wuild/GatherLite",
+      "issues": "https://github.com/Wuild/GatherLite/issues",
       "sponsor": "https://www.patreon.com/Wuild",
       "sources": [
         {
@@ -210,6 +214,8 @@
         "ui"
       ],
       "homepage": "https://github.com/sfmict/HidingBar",
+      "repository": "https://github.com/sfmict/HidingBar",
+      "issues": "https://github.com/sfmict/HidingBar/issues",
       "sources": [
         {
           "type": "github",
@@ -269,6 +275,8 @@
         "map"
       ],
       "homepage": "https://github.com/openmap-world/openmap",
+      "repository": "https://github.com/openmap-world/openmap",
+      "issues": "https://github.com/openmap-world/openmap/issues",
       "sponsor": "https://ko-fi.com/jiforever",
       "sources": [
         {
@@ -305,6 +313,8 @@
         "map"
       ],
       "homepage": "https://github.com/Questie/Questie",
+      "repository": "https://github.com/Questie/Questie",
+      "issues": "https://github.com/Questie/Questie/issues",
       "sponsor": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JCUBJWKT395ME",
       "sources": [
         {
@@ -376,6 +386,8 @@
         "spells"
       ],
       "homepage": "https://github.com/fusionpit/WhatsTraining",
+      "repository": "https://github.com/fusionpit/WhatsTraining",
+      "issues": "https://github.com/fusionpit/WhatsTraining/issues",
       "sources": [
         {
           "type": "github",
@@ -425,6 +437,8 @@
         "chat"
       ],
       "homepage": "https://github.com/Legacy-of-Sylvanaar/wow-instant-messenger",
+      "repository": "https://github.com/Legacy-of-Sylvanaar/wow-instant-messenger",
+      "issues": "https://github.com/Legacy-of-Sylvanaar/wow-instant-messenger/issues",
       "sponsor": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3952099",
       "sources": [
         {
@@ -472,6 +486,8 @@
         "economy"
       ],
       "homepage": "https://github.com/brunobasas/CraftersJournal",
+      "repository": "https://github.com/brunobasas/CraftersJournal",
+      "issues": "https://github.com/brunobasas/CraftersJournal/issues",
       "sponsor": "https://buymeacoffee.com/brunobasas",
       "sources": [
         {
@@ -506,6 +522,8 @@
         "economy"
       ],
       "homepage": "https://github.com/dibenkobit/upgrade-scout",
+      "repository": "https://github.com/dibenkobit/upgrade-scout",
+      "issues": "https://github.com/dibenkobit/upgrade-scout/issues",
       "sources": [
         {
           "type": "github",

@@ -25,6 +25,9 @@ The full format, with a description of every field, is in [`schema/catalog.schem
 ## Where entry fields come from
 Every value comes from what the add-on's author has published, checked by hand when the entry is added or reviewed. Nothing is guessed: when the author doesn't list something, the field is left out.
 
+- **`author`** (required): who made the add-on, as its pages credit them.
+- **`repository`** (optional): the public GitHub or GitLab repository that holds the add-on's source code, even when the catalog downloads it from CurseForge or Wago. The app marks add-ons whose code is public. Only a repository with the code counts: one that only hosts issues, or a link to a repository that isn't public, is left out. The catalog doesn't record licences: each add-on's repository states its own.
+- **`issues`** (optional): where players report problems to the author. This is the repository's issues page when it has issues turned on. Otherwise it's the tracker the author links from their CurseForge or Wago page, if that link works. The app's Report a problem link uses it.
 - **`sponsor`** (optional): one `https` page where people can support the author. The app shows it as a Sponsor link. The page it opens lists the ways to give, so the catalog doesn't record the platform. Picked in this order:
   1. The author's GitHub Sponsors page, when they have one.
   2. The first link in the source repo's `FUNDING.yml` (or the owner's `.github` repo's), when it works.

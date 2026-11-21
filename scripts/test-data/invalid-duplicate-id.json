@@ -10,6 +10,7 @@
     {
       "id": "x",
       "name": "X",
+      "author": "Test",
       "summary": "Test entry.",
       "sources": [
         {
@@ -24,6 +25,7 @@
     {
       "id": "x",
       "name": "X",
+      "author": "Test",
       "summary": "Test entry.",
       "sources": [
         {

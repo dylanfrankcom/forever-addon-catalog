@@ -29,6 +29,8 @@
         "bags"
       ],
       "homepage": "https://addons.wago.io/addons/syndicator",
+      "repository": "https://gitlab.com/group/subgroup/syndicator",
+      "issues": "https://gitlab.com/group/subgroup/syndicator/-/issues",
       "sponsor": "https://github.com/sponsors/example",
       "savedVariables": [
         "SYNDICATOR_CONFIG"
@@ -37,6 +39,9 @@
     {
       "id": "baganator",
       "name": "Baganator",
+      "author": "Test",
+      "repository": "https://github.com/plusmouse/Baganator",
+      "issues": "https://github.com/plusmouse/Baganator/issues",
       "summary": "Test entry.",
       "sources": [
         {

@@ -144,11 +144,11 @@
     "addon": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "name", "summary", "sources", "folders"],
+      "required": ["id", "name", "author", "summary", "sources", "folders"],
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "name": { "type": "string", "minLength": 1, "maxLength": 100 },
-        "author": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "author": { "description": "Who made the add-on, as its pages credit them.", "type": "string", "minLength": 1, "maxLength": 200 },
         "summary": { "description": "One sentence in our own words, not copied from the add-on's page.", "type": "string", "minLength": 1, "maxLength": 200 },
         "tags": {
           "type": "array",
@@ -156,6 +156,8 @@
           "uniqueItems": true
         },
         "homepage": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "repository": { "description": "The public GitHub or GitLab repository that holds the add-on's source code, whatever its licence. Never one that only hosts issues. Left out when the code isn't public.", "type": "string", "format": "uri", "pattern": "^https://(github\\.com/[A-Za-z0-9-]+/[A-Za-z0-9._-]+|gitlab\\.com/[A-Za-z0-9._-]+(/[A-Za-z0-9._-]+)+)$" },
+        "issues": { "description": "Where players report problems to the author: the repository's issues when it has them turned on, else the tracker the author links from their CurseForge or Wago page. Left out when there isn't a working one.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
         "sponsor": { "description": "One page where people can support the author, as the author lists it: their GitHub Sponsors page, else the first FUNDING.yml link, else the donation link on their CurseForge or Wago page. Left out when the author lists none.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
         "sources": {
           "description": "In order of preference.",
