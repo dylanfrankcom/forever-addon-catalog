@@ -15,7 +15,7 @@ The list of add-ons [Forever Add-on Manager](https://github.com/dylanfrankcom/fo
 | `scripts/` | Validation, and later the release checker. Both are .NET file-based programs. |
 | `status.json` | Written by the checker job, never by hand: which releases list the Forever Interface (coming with the catalog checker, app 0.6.0). |
 
-The full format is in section 2 of the plan.
+The full format, with a description of every field, is in [`schema/catalog.schema.json`](schema/catalog.schema.json).
 
 ## Rules
 - **The catalog is data, not instructions.** It says where to look. The app still checks every download (hashes, the Forever `.toc`, no executables) and asks before installing.
