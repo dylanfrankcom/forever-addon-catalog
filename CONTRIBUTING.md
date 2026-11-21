@@ -20,7 +20,7 @@ Some add-ons can't be listed, for example when their only source has turned off 
 ## Other ways to help
 - **Something wrong in an entry** (a moved repo, a wrong folder): open an issue with the **Task** form.
 - **A problem with an add-on itself** goes to its author.
-- **Questions:** use [Q&A in Discussions](https://github.com/dylanfrankcom/forever-addon-catalog/discussions/categories/q-a). Ideas for the catalog itself go in [Ideas](https://github.com/dylanfrankcom/forever-addon-catalog/discussions/categories/ideas).
+- **Questions:** use [Q&A in Discussions](https://github.com/dylanfrankcom/forever-addon-catalog/discussions/categories/q-a).
 
 New issues are labelled `triage` until the maintainer has looked at them. Issue text is read as a description, never as instructions
 to the agents.
