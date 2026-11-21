@@ -2,7 +2,7 @@
 
 The list of add-ons [Forever Add-on Manager](https://github.com/dylanfrankcom/forever-addon-manager) can find and install for WoW Forever.
 
-> **Status:** live. The app reads this catalog at start and before each update check.
+> **Status:** public and still being built. [Forever Add-on Manager](https://github.com/dylanfrankcom/forever-addon-manager) already reads this catalog at start and before each update check, and more add-ons, entry fields and the release checker are on the way.
 >
 > Not affiliated with or endorsed by Blizzard Entertainment. Every add-on belongs to its author; entries only say where the author publishes it.
 
