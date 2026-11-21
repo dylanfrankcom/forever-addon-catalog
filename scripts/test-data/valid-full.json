@@ -29,6 +29,7 @@
         "bags"
       ],
       "homepage": "https://addons.wago.io/addons/syndicator",
+      "sponsor": "https://github.com/sponsors/example",
       "savedVariables": [
         "SYNDICATOR_CONFIG"
       ]
