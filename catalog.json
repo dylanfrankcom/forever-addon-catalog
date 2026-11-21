@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001",
@@ -451,6 +451,74 @@
         "WIM3_Snapshots"
       ],
       "notes": "Releases often. Overlaps with Chattynator's whisper handling."
+    },
+    {
+      "id": "craftersjournal",
+      "name": "Crafter's Journal",
+      "author": "Bruno",
+      "summary": "The cheapest way to level each profession and collect its recipes, with where to get each recipe.",
+      "tags": [
+        "professions",
+        "economy"
+      ],
+      "homepage": "https://github.com/brunobasas/CraftersJournal",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "brunobasas/CraftersJournal",
+          "assetPattern": "^CraftersJournal-.*-forever\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1752523
+        }
+      ],
+      "folders": [
+        "CraftersJournal"
+      ],
+      "tocPath": "CraftersJournal/CraftersJournal.toc",
+      "optional": [
+        "auctionator",
+        "questie"
+      ],
+      "savedVariables": [
+        "CraftersJournalDB"
+      ]
+    },
+    {
+      "id": "upgradescout",
+      "name": "Upgrade Scout",
+      "author": "Nikita Snetkov",
+      "summary": "Finds gear upgrades and consumables on the auction house that you can use and afford.",
+      "tags": [
+        "auction-house",
+        "economy"
+      ],
+      "homepage": "https://github.com/dibenkobit/upgrade-scout",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "dibenkobit/upgrade-scout",
+          "assetPattern": "^UpgradeScout-.*-forever\\.zip$"
+        },
+        {
+          "type": "wago",
+          "slug": "upgrade-scout"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1802323
+        }
+      ],
+      "folders": [
+        "UpgradeScout"
+      ],
+      "tocPath": "UpgradeScout/UpgradeScout.toc",
+      "savedVariables": [
+        "UpgradeScoutDB",
+        "UpgradeScoutCharDB"
+      ],
+      "notes": "Listed instead of Cheap Upgrades, which does the same job but is on CurseForge only: the catalog prefers add-ons with several sources."
     }
   ]
 }
