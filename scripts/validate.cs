@@ -1,5 +1,6 @@
 #:package JsonSchema.Net@9.7.0
 #:property PublishAot=false
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 // Validates catalog.json: the schema, plus the rules a schema can't express.
 //
