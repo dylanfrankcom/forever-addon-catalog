@@ -10,6 +10,7 @@
     {
       "id": "questie",
       "name": "Questie",
+      "author": "Test",
       "summary": "Test entry.",
       "sources": [
         {

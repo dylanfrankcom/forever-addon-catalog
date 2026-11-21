@@ -9,6 +9,7 @@
   "addons": [
     {
       "name": "X",
+      "author": "Test",
       "summary": "Test entry.",
       "sources": [
         {

@@ -10,6 +10,7 @@
     {
       "id": "Bad_ID",
       "name": "Bad_Id",
+      "author": "Test",
       "summary": "Test entry.",
       "sources": [
         {
