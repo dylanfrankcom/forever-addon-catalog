@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 1,
-  "version": "1.3.0",
+  "version": "1.4.0",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001",
@@ -94,6 +94,11 @@
       "issues": "https://github.com/Kiatra/BlizzMove/issues",
       "sponsor": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FF9F9GTXMG392",
       "sources": [
+        {
+          "type": "github",
+          "repo": "Kiatra/BlizzMove",
+          "assetPattern": "^BlizzMove-v.*\\.zip$"
+        },
         {
           "type": "curseforge",
           "projectId": 17809
@@ -256,6 +261,10 @@
         {
           "type": "curseforge",
           "projectId": 1731901
+        },
+        {
+          "type": "wago",
+          "slug": "needroll"
         }
       ],
       "folders": [
