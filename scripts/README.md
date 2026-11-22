@@ -17,6 +17,7 @@ Checks `catalog.json` (or a file given after `--`):
    - `unknown-reference`: `requires`, `optional` or `conflicts` names an ID that isn't in the catalog.
    - `self-reference`: an entry lists itself.
    - `folder-claimed-twice`: two entries claim the same folder, ignoring case and including `overrides`.
+   - `author-not-one-name`: `author` lists several people or a group (a comma, a semicolon, "&", "and others" or "contributors") instead of the add-on's main author.
 
 Exit code 0 when valid, 1 when not.
 
