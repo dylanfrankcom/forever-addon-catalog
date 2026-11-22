@@ -4,6 +4,8 @@
 - IDs are unique.
 - `requires`, `optional` and `conflicts` name existing IDs.
 - No two entries claim the same folder.
+- `added` is a real day and not in the future.
+- On a PR, compared with the base branch: changed entries come with a `version` bump, and new entries have `added`.
 
 ## Top level
 | Field | What |
@@ -24,6 +26,7 @@
 | `tocPath` | | The `.toc` to read the Interface from, relative to the zip's top level (`Questie_Forever.toc`, `OpenMap/OpenMap.toc`). Without it, the app looks for `<Folder>_Forever.toc`, `<Folder>-Forever.toc`, `<Folder>_Camelot.toc`, `<Folder>-Camelot.toc`, then `<Folder>.toc` in the first folder (Camelot is the Forever client's own name). |
 | `author` | | One name: the add-on's main author, or the owner of its listing on its first source (the Wago or CurseForge author, else the GitHub owner). Not a list of contributors or a group: the validator refuses a comma, a semicolon, "&", "and others" or "contributors". |
 | `tags` | | From the [fixed list](#tags), main tag first (see below). |
+| `added` | for new entries | The day the entry joined the catalog, `YYYY-MM-DD` (`2026-11-20`). The app sorts by it. Optional in the format, but on a PR the validator requires it on every new entry. |
 | `homepage` | | The add-on's main page, `https://` only. |
 | `requires` | | IDs that must be installed too. Browse offers them together. |
 | `optional` | | IDs it works with when they're there. Listed, not added. |
@@ -69,6 +72,7 @@ Regexes use .NET syntax, matched against the file name only.
   "author": "plusmouse",
   "summary": "Bag and bank replacement with search and sorting.",
   "tags": ["bags"],
+  "added": "2026-11-20",
   "sources": [
     { "type": "wago", "slug": "baganator" },
     { "type": "curseforge", "projectId": 914482 }

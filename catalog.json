@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 1,
-  "version": "1.5.0",
+  "version": "1.6.0",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001",
@@ -16,6 +16,7 @@
       "tags": [
         "auction-house"
       ],
+      "added": "2026-11-20",
       "homepage": "https://addons.wago.io/addons/auctionator",
       "sponsor": "https://buymeacoffee.com/plusmouse",
       "sources": [
@@ -53,6 +54,7 @@
       "tags": [
         "bags"
       ],
+      "added": "2026-11-20",
       "homepage": "https://addons.wago.io/addons/baganator",
       "sponsor": "https://buymeacoffee.com/plusmouse",
       "sources": [
@@ -87,6 +89,7 @@
       "tags": [
         "ui"
       ],
+      "added": "2026-11-20",
       "homepage": "https://www.curseforge.com/wow/addons/blizzmove",
       "repository": "https://github.com/Kiatra/BlizzMove",
       "issues": "https://github.com/Kiatra/BlizzMove/issues",
@@ -120,6 +123,7 @@
       "tags": [
         "chat"
       ],
+      "added": "2026-11-20",
       "homepage": "https://addons.wago.io/addons/chattynator",
       "sponsor": "https://buymeacoffee.com/plusmouse",
       "sources": [
@@ -156,6 +160,7 @@
         "dungeons",
         "loot"
       ],
+      "added": "2026-11-20",
       "homepage": "https://www.curseforge.com/wow/addons/dungeonjournal",
       "sponsor": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KJKKXW2ND6WD6",
       "sources": [
@@ -183,6 +188,7 @@
         "professions",
         "map"
       ],
+      "added": "2026-11-20",
       "homepage": "https://www.curseforge.com/wow/addons/gatherlite",
       "repository": "https://github.com/Wuild/GatherLite",
       "issues": "https://github.com/Wuild/GatherLite/issues",
@@ -215,6 +221,7 @@
         "ui",
         "map"
       ],
+      "added": "2026-11-20",
       "homepage": "https://github.com/sfmict/HidingBar",
       "repository": "https://github.com/sfmict/HidingBar",
       "issues": "https://github.com/sfmict/HidingBar/issues",
@@ -253,6 +260,7 @@
         "loot",
         "dungeons"
       ],
+      "added": "2026-11-20",
       "homepage": "https://www.curseforge.com/wow/addons/needroll",
       "sources": [
         {
@@ -280,6 +288,7 @@
       "tags": [
         "map"
       ],
+      "added": "2026-11-20",
       "homepage": "https://github.com/openmap-world/openmap",
       "repository": "https://github.com/openmap-world/openmap",
       "issues": "https://github.com/openmap-world/openmap/issues",
@@ -318,6 +327,7 @@
         "quests",
         "map"
       ],
+      "added": "2026-11-20",
       "homepage": "https://github.com/Questie/Questie",
       "repository": "https://github.com/Questie/Questie",
       "issues": "https://github.com/Questie/Questie/issues",
@@ -358,6 +368,7 @@
       "tags": [
         "bags"
       ],
+      "added": "2026-11-20",
       "homepage": "https://addons.wago.io/addons/syndicator",
       "sponsor": "https://buymeacoffee.com/plusmouse",
       "sources": [
@@ -389,6 +400,7 @@
       "tags": [
         "class"
       ],
+      "added": "2026-11-20",
       "homepage": "https://github.com/fusionpit/WhatsTraining",
       "repository": "https://github.com/fusionpit/WhatsTraining",
       "issues": "https://github.com/fusionpit/WhatsTraining/issues",
@@ -440,6 +452,7 @@
       "tags": [
         "chat"
       ],
+      "added": "2026-11-20",
       "homepage": "https://github.com/Legacy-of-Sylvanaar/wow-instant-messenger",
       "repository": "https://github.com/Legacy-of-Sylvanaar/wow-instant-messenger",
       "issues": "https://github.com/Legacy-of-Sylvanaar/wow-instant-messenger/issues",
@@ -489,6 +502,7 @@
         "professions",
         "auction-house"
       ],
+      "added": "2026-11-21",
       "homepage": "https://github.com/brunobasas/CraftersJournal",
       "repository": "https://github.com/brunobasas/CraftersJournal",
       "issues": "https://github.com/brunobasas/CraftersJournal/issues",
@@ -524,6 +538,7 @@
       "tags": [
         "auction-house"
       ],
+      "added": "2026-11-21",
       "homepage": "https://github.com/dibenkobit/upgrade-scout",
       "repository": "https://github.com/dibenkobit/upgrade-scout",
       "issues": "https://github.com/dibenkobit/upgrade-scout/issues",
