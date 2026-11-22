@@ -13,7 +13,7 @@
     },
     "schemaVersion": {
       "description": "The format version. The app refuses a catalog whose schemaVersion it doesn't know.",
-      "const": 1
+      "const": 2
     },
     "version": {
       "description": "The catalog's own version, bumped whenever entries change, so the app can say what's new.",
@@ -163,7 +163,13 @@
         "homepage": { "type": "string", "format": "uri", "pattern": "^https://" },
         "repository": { "description": "The public GitHub or GitLab repository that holds the add-on's source code, whatever its licence. Never one that only hosts issues. Left out when the code isn't public.", "type": "string", "format": "uri", "pattern": "^https://(github\\.com/[A-Za-z0-9-]+/[A-Za-z0-9._-]+|gitlab\\.com/[A-Za-z0-9._-]+(/[A-Za-z0-9._-]+)+)$" },
         "issues": { "description": "Where players report problems to the author: the repository's issues when it has them turned on, else the tracker the author links from their CurseForge or Wago page. Left out when there isn't a working one.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
-        "sponsor": { "description": "One page where people can support the author, as the author lists it: their GitHub Sponsors page, else the first FUNDING.yml link, else the donation link on their CurseForge or Wago page. Left out when the author lists none.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
+        "sponsor": {
+          "description": "Every page where the author asks for support, as the author lists them, most preferred first: their GitHub Sponsors page, the links in FUNDING.yml, the Donate button on their CurseForge or Wago page, then the other support links they list there. Left out when the author lists none.",
+          "type": "array",
+          "items": { "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
         "icon": { "description": "A small square image (PNG or JPEG) for the add-on, from its author's own repository or add-on page, only where that site's terms allow showing it in another app. Left out otherwise; the app shows a placeholder.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
         "sources": {
           "description": "In order of preference.",

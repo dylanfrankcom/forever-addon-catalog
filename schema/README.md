@@ -1,4 +1,4 @@
-# Catalog format (schema 1)
+# Catalog format (schema 2)
 
 `catalog.schema.json` is the format of `catalog.json`, as JSON Schema 2020-12. Rules the schema can't express are checked by `scripts/validate.cs`:
 - IDs are unique.
@@ -10,7 +10,7 @@
 ## Top level
 | Field | What |
 |---|---|
-| `schemaVersion` | Always `1` for this format. The app refuses a catalog whose `schemaVersion` it doesn't know. |
+| `schemaVersion` | Always `2` for this format. The app refuses a catalog whose `schemaVersion` it doesn't know and keeps using the copy it has. Format 2 (catalog 2.0.0) made `sponsor` a list; format 1's was one link. |
 | `version` | The catalog's own version (`1.4.0`). Bump it whenever entries change; the app uses it to say what's new. |
 | `forever` | The client the catalog was checked against: `gameVersion` (`1.60.1`), `interface` (`16001`), `curseforgeVersionTypeId` (CurseForge's ID for that game version). Updated by hand when the client patches. |
 | `addons` | The entries. |
@@ -28,6 +28,7 @@
 | `tags` | | From the [fixed list](#tags), main tag first (see below). |
 | `added` | for new entries | The day the entry joined the catalog, `YYYY-MM-DD` (`2026-11-20`). The app sorts by it. Optional in the format, but on a PR the validator requires it on every new entry. |
 | `homepage` | | The add-on's main page, `https://` only. |
+| `sponsor` | | Every page where the author asks for support, `https://` only, most preferred first. Where they come from: the [README](../README.md#where-entry-fields-come-from). |
 | `requires` | | IDs that must be installed too. Browse offers them together. |
 | `optional` | | IDs it works with when they're there. Listed, not added. |
 | `conflicts` | | IDs it overlaps with. A warning, never a blocker. |

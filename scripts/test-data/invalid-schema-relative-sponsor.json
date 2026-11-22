@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "version": "1.0.0",
   "forever": {
     "gameVersion": "1.60.1",
@@ -21,7 +21,7 @@
       "folders": [
         "X"
       ],
-      "sponsor": "/sponsors/someone"
+      "sponsor": ["/sponsors/someone"]
     }
   ]
 }
