@@ -34,7 +34,8 @@
       "sponsor": "https://github.com/sponsors/example",
       "savedVariables": [
         "SYNDICATOR_CONFIG"
-      ]
+      ],
+      "icon": "https://example.com/icon.png"
     },
     {
       "id": "baganator",
