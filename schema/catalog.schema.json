@@ -99,7 +99,17 @@
       "required": ["type", "projectId"],
       "properties": {
         "type": { "const": "curseforge" },
-        "projectId": { "type": "integer", "minimum": 1 }
+        "projectId": { "type": "integer", "minimum": 1 },
+        "downloadPage": {
+          "description": "The page where the player downloads the Forever release by hand: the project's files page, filtered to the right game version when CurseForge allows it. Only when the project's front page would lead to the wrong file.",
+          "type": "string",
+          "pattern": "^https://www\\.curseforge\\.com/wow/addons/[a-z0-9]+(-[a-z0-9]+)*/files(/all)?(\\?[^\\s#]*)?$"
+        },
+        "downloadHint": {
+          "description": "How to recognise the Forever download on that page, for the player (\"the file whose name ends in -forever\"). Only when the page alone doesn't make it clear.",
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "wagoSource": {
@@ -112,6 +122,16 @@
           "description": "The add-on's slug in https://addons.wago.io/addons/<slug>.",
           "type": "string",
           "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "downloadPage": {
+          "description": "The page where the player downloads the Forever release by hand: the add-on's versions page, filtered to the right game version when Wago allows it. Only when the add-on's front page would lead to the wrong file.",
+          "type": "string",
+          "pattern": "^https://addons\\.wago\\.io/addons/[a-z0-9]+(-[a-z0-9]+)*/versions(\\?[^\\s#]*)?$"
+        },
+        "downloadHint": {
+          "description": "How to recognise the Forever download on that page, for the player (\"the file whose name ends in -forever\"). Only when the page alone doesn't make it clear.",
+          "type": "string",
+          "minLength": 1
         }
       }
     },

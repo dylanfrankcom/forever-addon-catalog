@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 2,
+  "version": "1.0.0",
+  "forever": {
+    "gameVersion": "1.60.1",
+    "interface": "16001",
+    "curseforgeVersionTypeId": 88568
+  },
+  "addons": [
+    {
+      "id": "questie",
+      "name": "Questie",
+      "author": "Test",
+      "summary": "Test entry.",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "a/b",
+          "assetPattern": "x",
+          "downloadPage": "https://www.curseforge.com/wow/addons/questie/files"
+        }
+      ],
+      "folders": [
+        "Questie",
+        "QuestieDB"
+      ]
+    }
+  ]
+}
