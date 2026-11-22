@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 2,
-  "version": "2.0.0",
+  "version": "2.1.0",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001",
@@ -187,7 +187,8 @@
       "sources": [
         {
           "type": "curseforge",
-          "projectId": 1707971
+          "projectId": 1707971,
+          "downloadPage": "https://www.curseforge.com/wow/addons/dungeonjournal/files/all?gameVersionTypeId=88568"
         }
       ],
       "folders": [
@@ -219,7 +220,8 @@
       "sources": [
         {
           "type": "curseforge",
-          "projectId": 334918
+          "projectId": 334918,
+          "downloadPage": "https://www.curseforge.com/wow/addons/gatherlite/files/all?gameVersionTypeId=88568"
         }
       ],
       "folders": [
@@ -328,7 +330,8 @@
         },
         {
           "type": "curseforge",
-          "projectId": 1735937
+          "projectId": 1735937,
+          "downloadPage": "https://www.curseforge.com/wow/addons/openmap/files/all?gameVersionTypeId=88568"
         }
       ],
       "folders": [
