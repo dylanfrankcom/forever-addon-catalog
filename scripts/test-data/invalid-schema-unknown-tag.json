@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "forever": {
+    "gameVersion": "1.60.1",
+    "interface": "16001",
+    "curseforgeVersionTypeId": 88568
+  },
+  "addons": [
+    {
+      "id": "syndicator",
+      "name": "Syndicator",
+      "summary": "Test entry.",
+      "sources": [
+        {
+          "type": "wago",
+          "slug": "syndicator"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 988370
+        }
+      ],
+      "folders": [
+        "Syndicator"
+      ],
+      "author": "plusmouse",
+      "tags": [
+        "inventory"
+      ],
+      "homepage": "https://addons.wago.io/addons/syndicator",
+      "repository": "https://gitlab.com/group/subgroup/syndicator",
+      "issues": "https://gitlab.com/group/subgroup/syndicator/-/issues",
+      "sponsor": "https://github.com/sponsors/example",
+      "savedVariables": [
+        "SYNDICATOR_CONFIG"
+      ],
+      "icon": "https://example.com/icon.png"
+    },
+    {
+      "id": "baganator",
+      "name": "Baganator",
+      "author": "Test",
+      "repository": "https://github.com/plusmouse/Baganator",
+      "issues": "https://github.com/plusmouse/Baganator/issues",
+      "summary": "Test entry.",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "plusmouse/Baganator",
+          "assetPattern": "^Baganator-.*\\.zip$",
+          "excludePattern": "retail"
+        }
+      ],
+      "folders": [
+        "Baganator"
+      ],
+      "requires": [
+        "syndicator"
+      ],
+      "conflicts": [],
+      "optional": [],
+      "tocPath": "Baganator/Baganator.toc",
+      "notes": "Test.",
+      "withdrawn": [
+        {
+          "release": "861",
+          "reason": "Test."
+        }
+      ],
+      "overrides": [
+        {
+          "releaseFrom": "900",
+          "folders": [
+            "Baganator",
+            "Baganator_Extras"
+          ]
+        }
+      ]
+    }
+  ]
+}

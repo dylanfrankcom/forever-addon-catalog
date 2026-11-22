@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 1,
-  "version": "1.4.1",
+  "version": "1.5.0",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001",
@@ -14,8 +14,7 @@
       "author": "plusmouse",
       "summary": "Faster auction house searching, shopping lists and price history.",
       "tags": [
-        "auction-house",
-        "economy"
+        "auction-house"
       ],
       "homepage": "https://addons.wago.io/addons/auctionator",
       "sponsor": "https://buymeacoffee.com/plusmouse",
@@ -52,8 +51,7 @@
       "author": "plusmouse",
       "summary": "Combined bags and bank with search, sorting and item levels.",
       "tags": [
-        "bags",
-        "inventory"
+        "bags"
       ],
       "homepage": "https://addons.wago.io/addons/baganator",
       "sponsor": "https://buymeacoffee.com/plusmouse",
@@ -182,9 +180,8 @@
       "author": "Wuild",
       "summary": "Records herb, ore and treasure nodes on the map and minimap.",
       "tags": [
-        "gathering",
-        "map",
-        "minimap"
+        "professions",
+        "map"
       ],
       "homepage": "https://www.curseforge.com/wow/addons/gatherlite",
       "repository": "https://github.com/Wuild/GatherLite",
@@ -215,8 +212,8 @@
       "author": "sfmict",
       "summary": "Gathers minimap and data broker buttons into a bar that stays hidden until needed.",
       "tags": [
-        "minimap",
-        "ui"
+        "ui",
+        "map"
       ],
       "homepage": "https://github.com/sfmict/HidingBar",
       "repository": "https://github.com/sfmict/HidingBar",
@@ -359,8 +356,7 @@
       "author": "plusmouse",
       "summary": "Keeps track of items across your characters, for Baganator and others.",
       "tags": [
-        "bags",
-        "inventory"
+        "bags"
       ],
       "homepage": "https://addons.wago.io/addons/syndicator",
       "sponsor": "https://buymeacoffee.com/plusmouse",
@@ -391,8 +387,7 @@
       "author": "Sveng",
       "summary": "Lists the spells your class trainer can teach you, in the spellbook.",
       "tags": [
-        "trainer",
-        "spells"
+        "class"
       ],
       "homepage": "https://github.com/fusionpit/WhatsTraining",
       "repository": "https://github.com/fusionpit/WhatsTraining",
@@ -492,7 +487,7 @@
       "summary": "The cheapest way to level each profession and collect its recipes, with where to get each recipe.",
       "tags": [
         "professions",
-        "economy"
+        "auction-house"
       ],
       "homepage": "https://github.com/brunobasas/CraftersJournal",
       "repository": "https://github.com/brunobasas/CraftersJournal",
@@ -527,8 +522,7 @@
       "author": "Nikita Snetkov",
       "summary": "Finds gear upgrades and consumables on the auction house that you can use and afford.",
       "tags": [
-        "auction-house",
-        "economy"
+        "auction-house"
       ],
       "homepage": "https://github.com/dibenkobit/upgrade-scout",
       "repository": "https://github.com/dibenkobit/upgrade-scout",

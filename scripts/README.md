@@ -11,7 +11,7 @@ Don't run plain `dotnet run`: without `dev.ps1`'s settings, NuGet puts packages 
 
 ## validate.cs
 Checks `catalog.json` (or a file given after `--`):
-1. **The schema** (`schema/catalog.schema.json`).
+1. **The schema** (`schema/catalog.schema.json`), which also holds the fixed list of tags.
 2. **The rules the schema can't express:**
    - `duplicate-id`: the same ID is used twice.
    - `unknown-reference`: `requires`, `optional` or `conflicts` names an ID that isn't in the catalog.
@@ -26,6 +26,8 @@ Exit code 0 when valid, 1 when not.
 **`--self-test`** runs every file in `test-data/`:
 - `valid-*.json` must pass.
 - `invalid-<code>[-detail].json` must fail with that code (`schema`, `json`, or one of the codes above). For example, `invalid-folder-claimed-twice-case.json` expects `folder-claimed-twice`.
+
+It also checks that the Add an add-on form's Tags dropdown offers exactly the schema's tags, in the same order (`issue-form-tags`).
 
 Version-bump cases are pairs in `test-data/bump/`: `<name>.base.json` and `<name>.head.json`, where `invalid-*` expects `version-not-bumped`.
 
