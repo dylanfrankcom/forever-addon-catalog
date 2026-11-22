@@ -20,7 +20,7 @@
 | `name` | yes | Display name. |
 | `summary` | yes | One sentence, in our own words. |
 | `sources` | yes | Where to get it, in order of preference (see below). At least one. |
-| `folders` | yes | Every top-level AddOns folder it installs. Several-folder add-ons list all of them (Questie, QuestieDB, QuestieTrace); they're always installed, updated and removed together. Never a `Spoken*` folder. |
+| `folders` | yes | Every top-level AddOns folder it installs. Several-folder add-ons list all of them (Questie, QuestieDB, QuestieTrace); they're always installed, updated and removed together. No paths and no leading dot. |
 | `tocPath` | | The `.toc` to read the Interface from, relative to the zip's top level (`Questie_Forever.toc`, `OpenMap/OpenMap.toc`). Without it, the app looks for `<Folder>_Forever.toc`, `<Folder>-Forever.toc`, then `<Folder>.toc` in the first folder. |
 | `author` | | As the add-on credits it. |
 | `tags` | | Lowercase words for Browse's filters (`bags`, `quests`, `chat`). |

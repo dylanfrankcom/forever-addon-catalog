@@ -142,10 +142,6 @@ static class CatalogValidator
             var allFolders = Strings(addon["folders"]).Concat((addon["overrides"]?.AsArray() ?? []).SelectMany(o => Strings(o!["folders"])));
             foreach (var folder in allFolders.Distinct(StringComparer.OrdinalIgnoreCase))
             {
-                if (IsProtected(folder))
-                {
-                    problems.Add(new("protected-folder", $"'{id}' names the protected folder '{folder}'. Spoken is managed by its own app."));
-                }
                 if (folderOwners.TryGetValue(folder, out var owner) && owner != id)
                 {
                     problems.Add(new("folder-claimed-twice", $"'{folder}' is claimed by both '{owner}' and '{id}'."));
@@ -175,12 +171,7 @@ static class CatalogValidator
         }
         foreach (var (keyword, message) in node.Errors ?? new Dictionary<string, string>())
         {
-            if (keyword == "not")
-            {
-                // The schema's only "not" is the folder rule.
-                yield return (node.InstanceLocation.ToString(), "is a protected folder (Spoken*). Spoken is managed by its own app.");
-            }
-            else if (!ContainerKeywords.Contains(keyword))
+            if (!ContainerKeywords.Contains(keyword))
             {
                 yield return (node.InstanceLocation.ToString(), message);
             }
@@ -235,9 +226,6 @@ static class CatalogValidator
         }
         return schema;
     }
-
-    static bool IsProtected(string folder) =>
-        folder.StartsWith("spoken", StringComparison.OrdinalIgnoreCase) || folder.Equals(".spoken-manager", StringComparison.OrdinalIgnoreCase);
 
     static IEnumerable<string> Strings(JsonNode? node) =>
         node is JsonArray array ? array.Select(n => (string)n!) : [];
@@ -350,7 +338,7 @@ static class SelfTest
     }
 
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
-    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "protected-folder", "folder-claimed-twice"];
+    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice"];
 
     static string ExpectedCode(string rest, List<Problem> _) =>
         Codes.Where(c => rest == c || rest.StartsWith(c + "-", StringComparison.Ordinal)).OrderByDescending(c => c.Length).FirstOrDefault() ?? rest;

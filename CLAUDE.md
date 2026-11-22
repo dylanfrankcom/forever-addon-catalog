@@ -9,7 +9,6 @@ The add-on catalog for [Forever Add-on Manager](https://github.com/dylanfrankcom
 
 ## Rules for the catalog
 - **IDs are lowercase, stable, never changed and never reused.** The app's library refers to entries by ID.
-- **No protected add-ons:** no entry may name a `Spoken*` folder or `.spoken-manager`, and validation rejects it.
 - **Prefer add-ons with several sources:** when two add-ons do the same job, list the one available from more of GitHub, CurseForge and Wago (Upgrade Scout over Cheap Upgrades). A single-source add-on with no such alternative can still be listed.
 - **Sources in order of preference:** GitHub (`repo`, `assetPattern`, `excludePattern`), CurseForge (`projectId`), Wago (`slug`).
   - Track GitHub's "Latest" release, by its flag, not its name.
