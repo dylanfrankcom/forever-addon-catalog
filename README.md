@@ -28,10 +28,11 @@ Every value comes from what the add-on's author has published, checked by hand w
 - **`added`** (required on new entries): the day the entry joined the catalog. Entries from before the field existed have the date of the commit that first added them.
 - **`repository`** (optional): the public GitHub or GitLab repository that holds the add-on's source code, even when the catalog downloads it from CurseForge or Wago. The app marks add-ons whose code is public. Only a repository with the code counts: one that only hosts issues, or a link to a repository that isn't public, is left out. The catalog doesn't record licences: each add-on's repository states its own.
 - **`issues`** (optional): where players report problems to the author. This is the repository's issues page when it has issues turned on. Otherwise it's the tracker the author links from their CurseForge or Wago page, if that link works. The app's Report a problem link uses it.
-- **`sponsor`** (optional): one `https` page where people can support the author. The app shows it as a Sponsor link. The page it opens lists the ways to give, so the catalog doesn't record the platform. Picked in this order:
+- **`sponsor`** (optional): a list of the `https` pages where people can support the author (Patreon, Ko-fi, Buy Me a Coffee, PayPal, GitHub Sponsors …). The app shows each as its own link, grouped by author. Only pages the author lists themselves are included, never guessed, and a page that's listed under two addresses is included once. They're in this order:
   1. The author's GitHub Sponsors page, when they have one.
-  2. The first link in the source repo's `FUNDING.yml` (or the owner's `.github` repo's), when it works.
-  3. The donation link on the add-on's CurseForge or Wago page.
+  2. The links in the source repo's `FUNDING.yml` (or the owner's `.github` repo's), in its order.
+  3. The Donate button on the add-on's CurseForge or Wago page.
+  4. Any other support links the author lists on those pages, in the page's order.
 - **`icon`** (optional): an `https` link to a small square image (PNG or JPEG) for the add-on, shown on its cards in the app. It comes from the author: their own repository or their add-on page, and only when that site's terms allow showing it in another app. Nothing is drawn or made up here, and no game art. When in doubt it's left out, and the app shows a placeholder.
 
 ## Contributing

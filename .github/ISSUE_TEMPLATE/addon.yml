@@ -62,11 +62,11 @@ body:
     attributes:
       label: Where to report problems
       description: The author's issue tracker, if there is one.
-  - type: input
+  - type: textarea
     id: sponsor
     attributes:
       label: Support the author
-      description: A page where the author asks for support (GitHub Sponsors, Ko-fi, Patreon …), if they list one.
+      description: Every page where the author asks for support (GitHub Sponsors, Ko-fi, Patreon, Buy Me a Coffee, PayPal …), one per line, if they list any.
   - type: textarea
     id: notes
     attributes:
