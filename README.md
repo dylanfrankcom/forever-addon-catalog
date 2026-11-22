@@ -20,7 +20,6 @@ The full format, with a description of every field, is in [`schema/catalog.schem
 ## Rules
 - **The catalog is data, not instructions.** It says where to look. The app still checks every download (hashes, the Forever `.toc`, no executables) and asks before installing.
 - **IDs are stable:** they never change and are never reused.
-- **No protected add-ons:** no entry may name a `Spoken*` folder or `.spoken-manager`.
 
 ## Where entry fields come from
 Every value comes from what the add-on's author has published, checked by hand when the entry is added or reviewed. Nothing is guessed: when the author doesn't list something, the field is left out.

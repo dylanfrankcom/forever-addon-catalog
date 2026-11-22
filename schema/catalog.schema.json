@@ -39,11 +39,10 @@
       "uniqueItems": true
     },
     "folder": {
-      "description": "A top-level AddOns folder. No paths, no leading dot, and never a protected (Spoken) folder.",
+      "description": "A top-level AddOns folder. No paths and no leading dot.",
       "type": "string",
       "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]*$",
-      "maxLength": 128,
-      "not": { "pattern": "^[Ss][Pp][Oo][Kk][Ee][Nn]" }
+      "maxLength": 128
     },
     "folderList": {
       "type": "array",
