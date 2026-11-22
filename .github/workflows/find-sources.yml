@@ -1,0 +1,49 @@
+name: find-sources
+
+# Looks on GitHub for an add-on's other sources and writes them to the job summary for a person to confirm.
+# Run it by hand: give a catalog entry's ID, a suggested add-on's folder, or neither for every entry.
+# It only reads: it never edits catalog.json, comments or opens anything.
+
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: "A catalog entry's ID (blank: every entry)"
+        required: false
+        default: ""
+      folder:
+        description: "Or a suggested add-on's folder, as it installs into AddOns"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: find-sources
+  cancel-in-progress: false
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+  DOTNET_NOLOGO: "1"
+
+jobs:
+  find:
+    name: Find other sources
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Find other sources
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ID: ${{ inputs.id }}
+          FOLDER: ${{ inputs.folder }}
+        run: |
+          set -- --summary "$GITHUB_STEP_SUMMARY"
+          if [ -n "$ID" ]; then set -- "$@" --id "$ID"; fi
+          if [ -n "$FOLDER" ]; then set -- "$@" --folder "$FOLDER"; fi
+          dotnet run scripts/find-sources.cs -- "$@"

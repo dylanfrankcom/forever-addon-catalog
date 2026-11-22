@@ -31,6 +31,8 @@ jobs:
           global-json-file: global.json
       - name: Self-test
         run: dotnet run scripts/validate.cs -- --self-test
+      - name: Self-test find-sources
+        run: dotnet run scripts/find-sources.cs -- --self-test
       - name: Validate catalog.json
         env:
           BASE_REF: ${{ github.base_ref }}
