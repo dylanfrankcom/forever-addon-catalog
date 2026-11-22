@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 1,
-  "version": "1.4.0",
+  "version": "1.4.1",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001",
@@ -11,7 +11,7 @@
     {
       "id": "auctionator",
       "name": "Auctionator",
-      "author": "plusmouse, Borjamacare",
+      "author": "plusmouse",
       "summary": "Faster auction house searching, shopping lists and price history.",
       "tags": [
         "auction-house",
@@ -84,7 +84,7 @@
     {
       "id": "blizzmove",
       "name": "BlizzMove",
-      "author": "Kiatra, zaCade, Numy",
+      "author": "Numy",
       "summary": "Move and resize the game's default windows.",
       "tags": [
         "ui"
@@ -278,7 +278,7 @@
     {
       "id": "openmap",
       "name": "OpenMap",
-      "author": "OpenMap contributors",
+      "author": "jigrobbulus",
       "summary": "A continuous, zoomable world map, with Questie's icons when Questie is installed.",
       "tags": [
         "map"
@@ -315,7 +315,7 @@
     {
       "id": "questie",
       "name": "Questie",
-      "author": "Aero, Logon, Muehe, TheCrux and others",
+      "author": "BreakBB",
       "summary": "Shows quests, objectives and quest givers on the map and minimap.",
       "tags": [
         "quests",
@@ -440,7 +440,7 @@
     {
       "id": "wim",
       "name": "WIM (WoW Instant Messenger)",
-      "author": "Pazza, Sylvanaar, MysticalOS, Humfras",
+      "author": "Pazza",
       "summary": "Whispers in separate instant-messenger windows, with history.",
       "tags": [
         "chat"

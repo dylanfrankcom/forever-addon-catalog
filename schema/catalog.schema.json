@@ -147,7 +147,7 @@
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "name": { "type": "string", "minLength": 1, "maxLength": 100 },
-        "author": { "description": "Who made the add-on, as its pages credit them.", "type": "string", "minLength": 1, "maxLength": 200 },
+        "author": { "description": "One name: the add-on's main author, or the owner of its listing on its first source. Not a list or a group.", "type": "string", "minLength": 1, "maxLength": 200 },
         "summary": { "description": "One sentence in our own words, not copied from the add-on's page.", "type": "string", "minLength": 1, "maxLength": 200 },
         "tags": {
           "type": "array",

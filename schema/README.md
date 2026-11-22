@@ -21,8 +21,8 @@
 | `summary` | yes | One sentence, in our own words. |
 | `sources` | yes | Where to get it, in order of preference (see below). At least one. |
 | `folders` | yes | Every top-level AddOns folder it installs. Several-folder add-ons list all of them (Questie, QuestieDB, QuestieTrace); they're always installed, updated and removed together. No paths and no leading dot. |
-| `tocPath` | | The `.toc` to read the Interface from, relative to the zip's top level (`Questie_Forever.toc`, `OpenMap/OpenMap.toc`). Without it, the app looks for `<Folder>_Forever.toc`, `<Folder>-Forever.toc`, then `<Folder>.toc` in the first folder. |
-| `author` | | As the add-on credits it. |
+| `tocPath` | | The `.toc` to read the Interface from, relative to the zip's top level (`Questie_Forever.toc`, `OpenMap/OpenMap.toc`). Without it, the app looks for `<Folder>_Forever.toc`, `<Folder>-Forever.toc`, `<Folder>_Camelot.toc`, `<Folder>-Camelot.toc`, then `<Folder>.toc` in the first folder (Camelot is the Forever client's own name). |
+| `author` | | One name: the add-on's main author, or the owner of its listing on its first source (the Wago or CurseForge author, else the GitHub owner). Not a list of contributors or a group: the validator refuses a comma, a semicolon, "&", "and others" or "contributors". |
 | `tags` | | Lowercase words for Browse's filters (`bags`, `quests`, `chat`). |
 | `homepage` | | The add-on's main page, `https://` only. |
 | `requires` | | IDs that must be installed too. Browse offers them together. |

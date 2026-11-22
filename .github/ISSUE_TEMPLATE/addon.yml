@@ -10,7 +10,7 @@ body:
     id: name
     attributes:
       label: Add-on
-      description: Its name, and its author if you know it.
+      description: Its name, and its main author if you know it (one name, not every contributor).
     validations:
       required: true
   - type: textarea

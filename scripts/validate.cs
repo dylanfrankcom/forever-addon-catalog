@@ -124,6 +124,13 @@ static class CatalogValidator
         {
             var id = (string)addon["id"]!;
 
+            // One name: the add-on's main author, not a list of contributors or a group.
+            var author = (string)addon["author"]!;
+            if (NotOneName(author))
+            {
+                problems.Add(new("author-not-one-name", $"'{id}' author '{author}' should be one name: the add-on's main author."));
+            }
+
             foreach (var field in new[] { "requires", "optional", "conflicts" })
             {
                 foreach (var target in Strings(addon[field]))
@@ -154,6 +161,12 @@ static class CatalogValidator
         }
         return Dedupe(problems);
     }
+
+    /// <summary>A list or a group rather than one person: a comma, a semicolon, "&amp;", "and others" or "contributors".</summary>
+    static bool NotOneName(string author) =>
+        author.IndexOfAny([',', ';', '&']) >= 0
+        || author.Contains(" and others", StringComparison.OrdinalIgnoreCase)
+        || author.Contains("contributors", StringComparison.OrdinalIgnoreCase);
 
     // Keywords that only say "something below failed": the failure below is reported instead.
     static readonly HashSet<string> ContainerKeywords = ["properties", "items", "$ref", "allOf", "anyOf", "oneOf", "$defs"];
@@ -338,7 +351,7 @@ static class SelfTest
     }
 
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
-    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice"];
+    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name"];
 
     static string ExpectedCode(string rest, List<Problem> _) =>
         Codes.Where(c => rest == c || rest.StartsWith(c + "-", StringComparison.Ordinal)).OrderByDescending(c => c.Length).FirstOrDefault() ?? rest;
