@@ -31,6 +31,7 @@ Every value comes from what the add-on's author has published, checked by hand w
   1. The author's GitHub Sponsors page, when they have one.
   2. The first link in the source repo's `FUNDING.yml` (or the owner's `.github` repo's), when it works.
   3. The donation link on the add-on's CurseForge or Wago page.
+- **`icon`** (optional): an `https` link to a small square image (PNG or JPEG) for the add-on, shown on its cards in the app. It comes from the author: their own repository or their add-on page, and only when that site's terms allow showing it in another app. Nothing is drawn or made up here, and no game art. When in doubt it's left out, and the app shows a placeholder.
 
 ## Contributing
 Know an add-on that works on Forever? Ask for it with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. Each entry is checked (the release, its `.toc`, its sources and links) before it's added. Questions are welcome as issues, with the Question form.
