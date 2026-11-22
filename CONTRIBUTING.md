@@ -17,6 +17,8 @@ current release lists the Forever Interface are listed.
 Some add-ons can't be listed, for example when their only source has turned off downloads by other apps. They get an issue labelled
 `unavailable` that says what would make it possible (the [Add-on that can't be listed](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=unavailable.yml) form). Comments there are welcome when something changes.
 
+If it's your own add-on, see [For add-on authors](README.md#for-add-on-authors) too: publishing GitHub releases gives players one-click installs and updates.
+
 ## Other ways to help
 - **Something wrong in an entry** (a moved repo, a wrong folder): open an issue with the **Task** form.
 - **A problem with an add-on itself** goes to its author.

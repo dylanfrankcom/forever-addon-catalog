@@ -35,6 +35,14 @@ Every value comes from what the add-on's author has published, checked by hand w
   4. Any other support links the author lists on those pages, in the page's order.
 - **`icon`** (optional): an `https` link to a small square image (PNG or JPEG) for the add-on, shown on its cards in the app. It comes from the author: their own repository or their add-on page, and only when that site's terms allow showing it in another app. Nothing is drawn or made up here, and no game art. When in doubt it's left out, and the app shows a placeholder.
 
+## For add-on authors
+Thanks for making add-ons for Forever. A few things that make life easier for players who use the app:
+
+- **GitHub releases install in one click.** The app installs and updates add-ons straight from a GitHub release. When an add-on is only on CurseForge or Wago, the player downloads the zip from that site themselves and hands it to the app, every update. If you publish there, attaching the same zip to a GitHub release gives players the one-click path. The [BigWigs packager](https://github.com/BigWigsMods/packager) can do it in the same run as your CurseForge and Wago uploads: give it a GitHub token and it creates the release too.
+- **List the Forever Interface in your `.toc`.** Only add-ons whose current release lists it are in the catalog. Separate files per game version are fine: a name that says which one is Forever's (ending in `-forever`, say) helps players pick the right file.
+- **Suggesting your own add-on** works like any other request: the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form.
+- **Your support page comes first.** Entries link to the support pages and issue tracker you list yourself (see `sponsor` and `issues` above). The catalog and the app take no donations, so any support goes to you.
+- **Something wrong in your entry** (a moved repo, a new folder): open an issue with the **Task** form.
 ## Contributing
 Know an add-on that works on Forever? Ask for it with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. Each entry is checked (the release, its `.toc`, its sources and links) before it's added. Questions are welcome as issues, with the Question form.
 
