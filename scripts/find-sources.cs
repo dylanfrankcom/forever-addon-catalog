@@ -3,7 +3,7 @@
 
 // Looks for an add-on's other sources on GitHub and writes a report for a person to confirm. It never edits catalog.json.
 //
-// Run it through the app repo's dev.ps1, so NuGet stays in Documents\Developer\.tools:
+// Run it through the app repo's dev.ps1 (see scripts/README.md), so NuGet stays in the dev tools folder:
 //   ... dotnet run scripts/find-sources.cs                          # every entry in ./catalog.json
 //   ... dotnet run scripts/find-sources.cs -- --id questie          # one entry
 //   ... dotnet run scripts/find-sources.cs -- --folder GatherLite   # a suggested add-on, by the folder it installs
