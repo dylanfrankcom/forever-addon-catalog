@@ -1,0 +1,39 @@
+name: Add-on that can't be listed
+description: An add-on that works on Forever but that the app can't download, for example when its only source has turned off downloads by other apps.
+labels: ["unavailable", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! This records an add-on that can't be listed yet, and what would make it possible. If you're not sure it can't be listed, use the "Add an add-on" form instead: it gets checked either way.
+  - type: textarea
+    id: addon
+    attributes:
+      label: Add-on
+      description: Its name, every page you know of, and its CurseForge project ID if it has one.
+      placeholder: |
+        Name: ...
+        CurseForge: https://www.curseforge.com/wow/addons/... (project ID ...)
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it can't be listed
+      description: For example, CurseForge downloads by other apps are turned off, it has no GitHub or Wago source, or its current release doesn't list the Forever Interface in its `.toc`.
+    validations:
+      required: true
+  - type: textarea
+    id: possible
+    attributes:
+      label: What would make it possible
+      description: What the author could do, in order of preference.
+      value: |
+        1. Publish the source on GitHub with releases (open source).
+        2. Turn on third-party downloads (the API) on CurseForge.
+        3. Publish it on Wago.
+  - type: textarea
+    id: alternative
+    attributes:
+      label: Alternative
+      description: An add-on in the catalog that does the same job, if you know one.
