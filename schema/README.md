@@ -63,6 +63,13 @@ Adding a tag is a schema change, made in a PR with the app's icon for it. The [A
 | `curseforge` | `projectId`. The newest stable (release-type) file that lists `forever.gameVersion`. |
 | `wago` | `slug`, as in `https://addons.wago.io/addons/<slug>`. Newest stable release. |
 
+CurseForge and Wago sources can also say where a player downloads the Forever release by hand, for the app's **Open download page** button. On both sites the newest upload is often for another game flavor, so the front page can lead to the wrong file. Both fields are optional; leave them out when the front page gets it right.
+
+| Field | What |
+|---|---|
+| `downloadPage` | The files page to open instead of the front page, filtered to the Forever game version where the site allows it. CurseForge: `https://www.curseforge.com/wow/addons/<project>/files` or `/files/all`, with an optional query. Wago: `https://addons.wago.io/addons/<slug>/versions`, with an optional query. The validator refuses any other host or path. |
+| `downloadHint` | One short sentence telling the player which file to pick, when the page alone doesn't make it clear ("the file whose name ends in -forever"). |
+
 Regexes use .NET syntax, matched against the file name only.
 
 ## Example
