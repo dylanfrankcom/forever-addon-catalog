@@ -33,7 +33,9 @@ Every value comes from what the add-on's author has published, checked by hand w
   3. The donation link on the add-on's CurseForge or Wago page.
 
 ## Contributing
-Know an add-on that works on Forever? Ask for it with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. Each entry is checked (the release, its `.toc`, its sources and links) before it's added. Questions are welcome as issues, with the Question form. Pull requests from outside the project aren't accepted: see [CONTRIBUTING.md](CONTRIBUTING.md).
+Know an add-on that works on Forever? Ask for it with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. Each entry is checked (the release, its `.toc`, its sources and links) before it's added. Questions are welcome as issues, with the Question form.
+
+Some add-ons work on Forever but can't be listed, for example when their only source has turned off downloads by other apps. They're recorded as issues labelled [`unavailable`](https://github.com/dylanfrankcom/forever-addon-catalog/issues?q=label%3Aunavailable) (there's an [Add-on that can't be listed](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=unavailable.yml) form), each saying what would make it possible. Comments there are welcome when an author changes something. Pull requests from outside the project aren't accepted: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 The catalog and the app are free and open source, take no donations, and are developed by AI agents (Claude Code) under the maintainer's direction.
 

@@ -15,7 +15,7 @@ page. Before an entry is added, the release is downloaded and its `.toc` read, a
 current release lists the Forever Interface are listed.
 
 Some add-ons can't be listed, for example when their only source has turned off downloads by other apps. They get an issue labelled
-`unavailable` that says what would make it possible. Comments there are welcome when something changes.
+`unavailable` that says what would make it possible (the [Add-on that can't be listed](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=unavailable.yml) form). Comments there are welcome when something changes.
 
 ## Other ways to help
 - **Something wrong in an entry** (a moved repo, a wrong folder): open an issue with the **Task** form.
