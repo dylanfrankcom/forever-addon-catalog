@@ -34,6 +34,24 @@ body:
     attributes:
       label: Folders
       description: The folders it installs into AddOns, if you know them.
+  - type: dropdown
+    id: tags
+    attributes:
+      label: Tags
+      description: What it's for, from the catalog's tags. If it does several things, say in Notes which is its main one.
+      multiple: true
+      options:
+        - "auction-house: buying, selling and pricing at the auction house"
+        - "bags: bags, the bank and items across characters"
+        - "chat: chat windows, whispers and messages"
+        - "class: your class's spells and abilities, trainers and talents"
+        - "combat: damage and threat meters, cooldowns, combat text"
+        - "dungeons: dungeons and raids, their bosses, abilities and groups"
+        - "loot: loot tables, drops and rolling for loot"
+        - "map: the world map and the minimap"
+        - "professions: professions and gathering, recipes, skill-ups, nodes"
+        - "quests: quests, objectives and quest givers"
+        - "ui: moving, hiding and arranging the game's windows, bars and buttons"
   - type: input
     id: license
     attributes:

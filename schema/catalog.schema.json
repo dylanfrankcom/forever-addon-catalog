@@ -33,6 +33,10 @@
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
       "maxLength": 64
     },
+    "tag": {
+      "description": "One of the catalog's tags. Adding one is a schema change, so the app can give it an icon at the same time.",
+      "enum": ["auction-house", "bags", "chat", "class", "combat", "dungeons", "loot", "map", "professions", "quests", "ui"]
+    },
     "idList": {
       "type": "array",
       "items": { "$ref": "#/$defs/id" },
@@ -150,8 +154,9 @@
         "author": { "description": "One name: the add-on's main author, or the owner of its listing on its first source. Not a list or a group.", "type": "string", "minLength": 1, "maxLength": 200 },
         "summary": { "description": "One sentence in our own words, not copied from the add-on's page.", "type": "string", "minLength": 1, "maxLength": 200 },
         "tags": {
+          "description": "From the fixed list (schema/README.md). The first is the add-on's main tag: the app shows its icon when the add-on has none.",
           "type": "array",
-          "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "items": { "$ref": "#/$defs/tag" },
           "uniqueItems": true
         },
         "homepage": { "type": "string", "format": "uri", "pattern": "^https://" },
