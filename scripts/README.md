@@ -17,11 +17,12 @@ Checks `catalog.json` (or a file given after `--`):
    - `unknown-reference`: `requires`, `optional` or `conflicts` names an ID that isn't in the catalog.
    - `self-reference`: an entry lists itself.
    - `folder-claimed-twice`: two entries claim the same folder, ignoring case and including `overrides`.
+   - `added-date`: `added` isn't a real day (`2026-02-30`) or is in the future.
    - `author-not-one-name`: `author` lists several people or a group (a comma, a semicolon, "&", "and others" or "contributors") instead of the add-on's main author.
 
 Exit code 0 when valid, 1 when not.
 
-**`--base <file>`** also checks the version: if the entries or the `forever` block differ from that earlier catalog, `version` must go up (`version-not-bumped`). CI passes the catalog from the PR's base branch.
+**`--base <file>`** also compares with that earlier catalog: if the entries or the `forever` block differ, `version` must go up (`version-not-bumped`), and every entry that's new must have `added` (`added-missing`). CI passes the catalog from the PR's base branch.
 
 **`--self-test`** runs every file in `test-data/`:
 - `valid-*.json` must pass.
@@ -29,6 +30,6 @@ Exit code 0 when valid, 1 when not.
 
 It also checks that the Add an add-on form's Tags dropdown offers exactly the schema's tags, in the same order (`issue-form-tags`).
 
-Version-bump cases are pairs in `test-data/bump/`: `<name>.base.json` and `<name>.head.json`, where `invalid-*` expects `version-not-bumped`.
+Version-bump cases are pairs in `test-data/bump/`: `<name>.base.json` and `<name>.head.json`, where `invalid-added-missing-*` expects `added-missing` and any other `invalid-*` expects `version-not-bumped`.
 
 Add a case for every new rule.

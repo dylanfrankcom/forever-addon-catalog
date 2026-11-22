@@ -8,7 +8,7 @@
 //   powershell -ExecutionPolicy Bypass -File ..\ForeverAddonManager\dev.ps1 dotnet run scripts/validate.cs                 # ./catalog.json
 //   powershell -ExecutionPolicy Bypass -File ..\ForeverAddonManager\dev.ps1 dotnet run scripts/validate.cs -- path/to/file  # another file
 //   powershell -ExecutionPolicy Bypass -File ..\ForeverAddonManager\dev.ps1 dotnet run scripts/validate.cs -- --self-test   # scripts/test-data
-//   ... dotnet run scripts/validate.cs -- catalog.json --base base.json   # also: entries changed => version bumped
+//   ... dotnet run scripts/validate.cs -- catalog.json --base base.json   # also: entries changed => version bumped, new entries => "added"
 //
 // Exit code 0 when valid, 1 when not (or when a self-test case doesn't give the expected result), 2 for bad arguments.
 // The schema is found by walking up from the catalog file to a folder holding schema/catalog.schema.json.
@@ -129,6 +129,20 @@ static class CatalogValidator
             if (NotOneName(author))
             {
                 problems.Add(new("author-not-one-name", $"'{id}' author '{author}' should be one name: the add-on's main author."));
+            }
+
+            // A real day, and not after today (a day's grace for time zones).
+            if (addon["added"] is JsonValue addedValue)
+            {
+                var added = (string)addedValue!;
+                if (!DateOnly.TryParseExact(added, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var day))
+                {
+                    problems.Add(new("added-date", $"'{id}' added '{added}' isn't a real date."));
+                }
+                else if (day > DateOnly.FromDateTime(DateTime.UtcNow).AddDays(1))
+                {
+                    problems.Add(new("added-date", $"'{id}' added {added} is in the future."));
+                }
             }
 
             foreach (var field in new[] { "requires", "optional", "conflicts" })
@@ -338,8 +352,8 @@ static class SelfTest
         {
             var name = Path.GetFileName(head)[..^".head.json".Length];
             var problems = VersionBump.Check(head[..^".head.json".Length] + ".base.json", head);
-            var expectFail = name.StartsWith("invalid-", StringComparison.Ordinal);
-            var ok = expectFail ? problems.Any(p => p.Code == "version-not-bumped") : problems.Count == 0;
+            var expected = name.StartsWith("invalid-", StringComparison.Ordinal) ? BumpCode(name["invalid-".Length..]) : null;
+            var ok = expected is not null ? problems.Any(p => p.Code == expected) : problems.Count == 0;
             if (!ok)
             {
                 failures++;
@@ -358,7 +372,11 @@ static class SelfTest
     }
 
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
-    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name"];
+    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date"];
+
+    // bump/invalid-added-missing-*.head.json expects "added-missing"; any other invalid bump case "version-not-bumped".
+    static string BumpCode(string rest) =>
+        rest.StartsWith("added-missing", StringComparison.Ordinal) ? "added-missing" : "version-not-bumped";
 
     static string ExpectedCode(string rest, List<Problem> _) =>
         Codes.Where(c => rest == c || rest.StartsWith(c + "-", StringComparison.Ordinal)).OrderByDescending(c => c.Length).FirstOrDefault() ?? rest;
@@ -434,8 +452,8 @@ static class IssueFormTags
 }
 
 /// <summary>
-/// On a PR: when the entries or the forever block changed from the base branch's catalog, the version must go up.
-/// A missing or empty base file (the first catalog) needs no bump.
+/// On a PR, against the base branch's catalog: when the entries or the forever block changed, the version must go up,
+/// and every new entry must have "added". A missing or empty base file (the first catalog) needs neither.
 /// </summary>
 static class VersionBump
 {
@@ -463,11 +481,25 @@ static class VersionBump
         {
             return [];
         }
+        var problems = new List<Problem>();
         var oldVersion = Semver((string?)before?["version"]);
         var newVersion = Semver((string?)after["version"]);
-        return oldVersion is not null && newVersion is not null && newVersion.CompareTo(oldVersion) <= 0
-            ? [new("version-not-bumped", $"Entries changed but version stayed at {after["version"]} (was {before?["version"]}). Bump it.")]
-            : [];
+        if (oldVersion is not null && newVersion is not null && newVersion.CompareTo(oldVersion) <= 0)
+        {
+            problems.Add(new("version-not-bumped", $"Entries changed but version stayed at {after["version"]} (was {before?["version"]}). Bump it."));
+        }
+
+        // A new entry says when it joined.
+        var oldIds = (before?["addons"] as JsonArray ?? []).Select(a => (string?)a?["id"]).ToHashSet(StringComparer.Ordinal);
+        foreach (var addon in after["addons"] as JsonArray ?? [])
+        {
+            var id = (string?)addon?["id"];
+            if (id is not null && !oldIds.Contains(id) && addon?["added"] is null)
+            {
+                problems.Add(new("added-missing", $"'{id}' is new, so it needs \"added\": the day it joined the catalog."));
+            }
+        }
+        return problems;
     }
 
     static Version? Semver(string? text) => Version.TryParse(text, out var v) ? v : null;

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "version": "9.9.9",
+  "forever": {
+    "gameVersion": "1.60.1",
+    "interface": "16001",
+    "curseforgeVersionTypeId": 88568
+  },
+  "addons": [
+    {
+      "id": "x",
+      "name": "X",
+      "author": "Test",
+      "summary": "Test.",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 1
+        }
+      ],
+      "folders": [
+        "X"
+      ]
+    },
+    {
+      "id": "y",
+      "name": "Y",
+      "author": "Test",
+      "summary": "Test.",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 1
+        }
+      ],
+      "folders": [
+        "Y"
+      ]
+    }
+  ]
+}
