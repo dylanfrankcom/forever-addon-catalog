@@ -325,24 +325,24 @@ static class SelfTest
             string verdict;
             if (name.StartsWith("valid-", StringComparison.Ordinal))
             {
-                verdict = problems.Count == 0 ? "ok" : "FAIL: expected valid, got " + string.Join("; ", problems.Select(p => $"{p.Code}: {p.Message}"));
+                verdict = problems.Count == 0 ? "ok" : "expected valid, got " + string.Join("; ", problems.Select(p => $"{p.Code}: {p.Message}"));
             }
             else if (name.StartsWith("invalid-", StringComparison.Ordinal))
             {
                 var expected = ExpectedCode(name["invalid-".Length..], problems);
                 verdict = problems.Any(p => p.Code == expected)
                     ? "ok"
-                    : $"FAIL: expected '{expected}', got " + (problems.Count == 0 ? "no problems" : string.Join("; ", problems.Select(p => p.Code)));
+                    : $"expected '{expected}', got " + (problems.Count == 0 ? "no problems" : string.Join("; ", problems.Select(p => p.Code)));
             }
             else
             {
-                verdict = "FAIL: name must start with valid- or invalid-";
+                verdict = "name must start with valid- or invalid-";
             }
             if (verdict != "ok")
             {
                 failures++;
+                Console.WriteLine($"FAIL {name}  {verdict}");
             }
-            Console.WriteLine($"{(verdict == "ok" ? "ok  " : "FAIL")} {name}{(verdict == "ok" ? "" : "  " + verdict)}");
         }
         var bumpDir = Path.Combine(dir, "bump");
         var bumpCases = Directory.Exists(bumpDir)
@@ -357,15 +357,15 @@ static class SelfTest
             if (!ok)
             {
                 failures++;
+                Console.WriteLine($"FAIL bump/{name}  got " + (problems.Count == 0 ? "no problems" : string.Join("; ", problems.Select(p => p.Code))));
             }
-            Console.WriteLine($"{(ok ? "ok  " : "FAIL")} bump/{name}{(ok ? "" : "  got " + (problems.Count == 0 ? "no problems" : string.Join("; ", problems.Select(p => p.Code))))}");
         }
         var formProblem = IssueFormTags.Compare(Path.GetFullPath(Path.Combine(dir, "..", "..")));
         if (formProblem is not null)
         {
             failures++;
+            Console.WriteLine($"FAIL issue-form-tags  {formProblem}");
         }
-        Console.WriteLine($"{(formProblem is null ? "ok  " : "FAIL")} issue-form-tags{(formProblem is null ? "" : "  " + formProblem)}");
         var total = cases.Count + bumpCases.Count + 1;
         Console.WriteLine($"{total - failures}/{total} cases passed.");
         return failures == 0 && cases.Count > 0 ? 0 : 1;
