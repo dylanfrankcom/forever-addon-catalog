@@ -30,6 +30,8 @@ Exit code 0 when valid, 1 when not.
 
 It also checks that the Add an add-on form's Tags dropdown offers exactly the schema's tags, in the same order (`issue-form-tags`).
 
+It prints only the cases that fail, then how many passed.
+
 Version-bump cases are pairs in `test-data/bump/`: `<name>.base.json` and `<name>.head.json`, where `invalid-added-missing-*` expects `added-missing` and any other `invalid-*` expects `version-not-bumped`.
 
 Add a case for every new rule.
