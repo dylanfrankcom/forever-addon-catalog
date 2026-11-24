@@ -18,11 +18,14 @@ Checks `catalog.json` (or a file given after `--`):
    - `self-reference`: an entry lists itself.
    - `folder-claimed-twice`: two entries claim the same folder, ignoring case and including `overrides`.
    - `added-date`: `added` isn't a real day (`2026-02-30`) or is in the future.
-   - `author-not-one-name`: `author` lists several people or a group (a comma, a semicolon, "&", "and others" or "contributors") instead of the add-on's main author.
+   - `author-not-one-name`: an author's `name` lists several people or a group (a comma, a semicolon, "&", "and others" or "contributors") instead of the add-on's main author.
+   - `unknown-author`: an entry's `author` isn't in `authors`.
+   - `unused-author`: an author in `authors` isn't the author of any entry.
+   - `author-profile`: one of an author's `profiles` isn't on GitHub, Wago or CurseForge, or two are on the same site.
 
 Exit code 0 when valid, 1 when not.
 
-**`--base <file>`** also compares with that earlier catalog: if the entries or the `forever` block differ, `version` must go up (`version-not-bumped`), and every entry that's new must have `added` (`added-missing`). CI passes the catalog from the PR's base branch.
+**`--base <file>`** also compares with that earlier catalog: if the entries, the authors or the `forever` block differ, `version` must go up (`version-not-bumped`), and every entry that's new must have `added` (`added-missing`). CI passes the catalog from the PR's base branch.
 
 **`--self-test`** runs every file in `test-data/`:
 - `valid-*.json` must pass.

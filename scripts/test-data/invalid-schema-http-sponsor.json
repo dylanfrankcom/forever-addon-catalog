@@ -1,16 +1,23 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "version": "1.0.0",
   "forever": {
     "gameVersion": "1.60.1",
-    "interface": "16001",
-    "curseforgeVersionTypeId": 88568
+    "interface": "16001"
+  },
+  "authors": {
+    "test": {
+      "name": "Test",
+      "sponsor": [
+        "http://example.com/sponsor"
+      ]
+    }
   },
   "addons": [
     {
       "id": "x",
       "name": "X",
-      "author": "Test",
+      "author": "test",
       "summary": "Test entry.",
       "sources": [
         {
@@ -20,8 +27,7 @@
       ],
       "folders": [
         "X"
-      ],
-      "sponsor": ["http://example.com/sponsor"]
+      ]
     }
   ]
 }

@@ -66,7 +66,12 @@ body:
     id: sponsor
     attributes:
       label: Support the author
-      description: Every page where the author asks for support (GitHub Sponsors, Ko-fi, Patreon, Buy Me a Coffee, PayPal …), one per line, if they list any.
+      description: Every page where the author asks for support (GitHub Sponsors, Ko-fi, Patreon, Buy Me a Coffee, PayPal …), one per line, if they list any. They're kept with the author, for all their add-ons.
+  - type: textarea
+    id: author-links
+    attributes:
+      label: The author's own pages
+      description: The author's own site, and their profiles on GitHub, Wago and CurseForge, one per line, if you know them. Leave blank if the author is already in the catalog.
   - type: textarea
     id: notes
     attributes:
