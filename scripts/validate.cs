@@ -119,16 +119,41 @@ static class CatalogValidator
             }
         }
 
+        // Authors: one name each, profiles on GitHub, Wago or CurseForge (one per site), and every author used.
+        var authors = root["authors"]!.AsObject();
+        foreach (var (authorId, record) in authors)
+        {
+            var name = (string)record!["name"]!;
+            if (NotOneName(name))
+            {
+                problems.Add(new("author-not-one-name", $"Author '{authorId}' name '{name}' should be one name: the add-on's main author."));
+            }
+            var sites = new HashSet<string>(StringComparer.Ordinal);
+            foreach (var profile in Strings(record["profiles"]))
+            {
+                var site = ProfileSite(profile);
+                if (site is null)
+                {
+                    problems.Add(new("author-profile", $"Author '{authorId}' profile {profile} isn't on GitHub, Wago or CurseForge."));
+                }
+                else if (!sites.Add(site))
+                {
+                    problems.Add(new("author-profile", $"Author '{authorId}' has more than one {site} profile."));
+                }
+            }
+        }
+        var usedAuthors = new HashSet<string>(StringComparer.Ordinal);
+
         var folderOwners = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         foreach (var addon in addons)
         {
             var id = (string)addon["id"]!;
 
-            // One name: the add-on's main author, not a list of contributors or a group.
             var author = (string)addon["author"]!;
-            if (NotOneName(author))
+            usedAuthors.Add(author);
+            if (!authors.ContainsKey(author))
             {
-                problems.Add(new("author-not-one-name", $"'{id}' author '{author}' should be one name: the add-on's main author."));
+                problems.Add(new("unknown-author", $"'{id}' author '{author}', which isn't in \"authors\"."));
             }
 
             // A real day, and not after today (a day's grace for time zones).
@@ -173,8 +198,27 @@ static class CatalogValidator
                 }
             }
         }
+        foreach (var (authorId, _) in authors)
+        {
+            if (!usedAuthors.Contains(authorId))
+            {
+                problems.Add(new("unused-author", $"Author '{authorId}' isn't the author of any entry."));
+            }
+        }
         return Dedupe(problems);
     }
+
+    /// <summary>"GitHub", "Wago" or "CurseForge" for a profile on one of those sites; null for anywhere else.</summary>
+    static string? ProfileSite(string link) =>
+        Uri.TryCreate(link, UriKind.Absolute, out var uri) && uri.AbsolutePath.Trim('/').Length > 0
+            ? uri.Host.ToLowerInvariant() switch
+            {
+                "github.com" => "GitHub",
+                "addons.wago.io" => "Wago",
+                "www.curseforge.com" or "curseforge.com" => "CurseForge",
+                _ => null,
+            }
+            : null;
 
     /// <summary>A list or a group rather than one person: a comma, a semicolon, "&amp;", "and others" or "contributors".</summary>
     static bool NotOneName(string author) =>
@@ -372,7 +416,8 @@ static class SelfTest
     }
 
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
-    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date"];
+    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date",
+        "unknown-author", "unused-author", "author-profile"];
 
     // bump/invalid-added-missing-*.head.json expects "added-missing"; any other invalid bump case "version-not-bumped".
     static string BumpCode(string rest) =>
@@ -452,7 +497,7 @@ static class IssueFormTags
 }
 
 /// <summary>
-/// On a PR, against the base branch's catalog: when the entries or the forever block changed, the version must go up,
+/// On a PR, against the base branch's catalog: when the entries, the authors or the forever block changed, the version must go up,
 /// and every new entry must have "added". A missing or empty base file (the first catalog) needs neither.
 /// </summary>
 static class VersionBump
@@ -476,6 +521,7 @@ static class VersionBump
         var after = JsonNode.Parse(File.ReadAllText(headPath))!;
 
         var changed = !JsonNode.DeepEquals(before?["addons"], after["addons"])
+            || !JsonNode.DeepEquals(before?["authors"], after["authors"])
             || !JsonNode.DeepEquals(before?["forever"], after["forever"]);
         if (!changed)
         {
@@ -486,7 +532,7 @@ static class VersionBump
         var newVersion = Semver((string?)after["version"]);
         if (oldVersion is not null && newVersion is not null && newVersion.CompareTo(oldVersion) <= 0)
         {
-            problems.Add(new("version-not-bumped", $"Entries changed but version stayed at {after["version"]} (was {before?["version"]}). Bump it."));
+            problems.Add(new("version-not-bumped", $"Entries or authors changed but version stayed at {after["version"]} (was {before?["version"]}). Bump it."));
         }
 
         // A new entry says when it joined.

@@ -2,10 +2,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/dylanfrankcom/forever-addon-catalog/schema/catalog.schema.json",
   "title": "Forever Add-on Catalog",
-  "description": "The add-ons Forever Add-on Manager can find and install for WoW Forever. Rules the schema can't express (unique IDs, references between entries, folders claimed twice) are checked by scripts/validate.cs.",
+  "description": "The add-ons Forever Add-on Manager can find and install for WoW Forever, and their authors. Rules the schema can't express (unique IDs, references between entries and to authors, folders claimed twice, author profiles) are checked by scripts/validate.cs.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "version", "forever", "addons"],
+  "required": ["schemaVersion", "version", "forever", "authors", "addons"],
   "properties": {
     "$schema": {
       "description": "Optional link to this schema, for editors.",
@@ -13,7 +13,7 @@
     },
     "schemaVersion": {
       "description": "The format version. The app refuses a catalog whose schemaVersion it doesn't know.",
-      "const": 2
+      "const": 3
     },
     "version": {
       "description": "The catalog's own version, bumped whenever entries change, so the app can say what's new.",
@@ -21,6 +21,12 @@
       "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
     },
     "forever": { "$ref": "#/$defs/forever" },
+    "authors": {
+      "description": "Every author an entry names, keyed by a stable author ID (the same rules as add-on IDs).",
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/id" },
+      "additionalProperties": { "$ref": "#/$defs/author" }
+    },
     "addons": {
       "type": "array",
       "items": { "$ref": "#/$defs/addon" }
@@ -28,7 +34,7 @@
   },
   "$defs": {
     "id": {
-      "description": "Lowercase letters and digits, words joined by single hyphens. Stable: never changed, never reused.",
+      "description": "Lowercase letters and digits, words joined by single hyphens. Stable: never changed, never reused. Add-on IDs and author IDs follow the same rules.",
       "type": "string",
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
       "maxLength": 64
@@ -63,11 +69,36 @@
       "description": "The WoW Forever client the catalog was checked against. Updated by hand when the client patches.",
       "type": "object",
       "additionalProperties": false,
-      "required": ["gameVersion", "interface", "curseforgeVersionTypeId"],
+      "required": ["gameVersion", "interface"],
       "properties": {
         "gameVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
-        "interface": { "type": "string", "pattern": "^[0-9]{5,6}$" },
-        "curseforgeVersionTypeId": { "type": "integer", "minimum": 1 }
+        "interface": { "type": "string", "pattern": "^[0-9]{5,6}$" }
+      }
+    },
+    "link": { "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
+    "author": {
+      "description": "One author: how they're shown, and their own pages.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "description": "One name: the add-on's main author, or the owner of its listing on its first source. Not a list or a group.", "type": "string", "minLength": 1, "maxLength": 200 },
+        "homepage": { "description": "The author's own site, not an add-on's page.", "$ref": "#/$defs/link" },
+        "profiles": {
+          "description": "The author's own pages on GitHub, Wago and CurseForge, as each site writes them: at most one per site (checked by scripts/validate.cs).",
+          "type": "array",
+          "items": { "$ref": "#/$defs/link" },
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true
+        },
+        "sponsor": {
+          "description": "Every page where the author asks for support, as the author lists them, most preferred first: their GitHub Sponsors page, the links in FUNDING.yml, the Donate button on their CurseForge or Wago page, then the other support links they list there. Left out when the author lists none.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/link" },
+          "minItems": 1,
+          "uniqueItems": true
+        }
       }
     },
     "githubSource": {
@@ -171,7 +202,7 @@
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "name": { "type": "string", "minLength": 1, "maxLength": 100 },
-        "author": { "description": "One name: the add-on's main author, or the owner of its listing on its first source. Not a list or a group.", "type": "string", "minLength": 1, "maxLength": 200 },
+        "author": { "description": "The ID of its author in \"authors\".", "$ref": "#/$defs/id" },
         "summary": { "description": "One sentence in our own words, not copied from the add-on's page.", "type": "string", "minLength": 1, "maxLength": 200 },
         "tags": {
           "description": "From the fixed list (schema/README.md). The first is the add-on's main tag: the app shows its icon when the add-on has none.",
@@ -180,16 +211,9 @@
           "uniqueItems": true
         },
         "added": { "description": "The day the entry joined the catalog (YYYY-MM-DD), for sorting by date added. Optional in the format, but the validator requires it on a new entry in a PR.", "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
-        "homepage": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "homepage": { "description": "Only when the add-on's own page isn't the default: its repository, else its first source's page.", "type": "string", "format": "uri", "pattern": "^https://" },
         "repository": { "description": "The public GitHub or GitLab repository that holds the add-on's source code, whatever its licence. Never one that only hosts issues. Left out when the code isn't public.", "type": "string", "format": "uri", "pattern": "^https://(github\\.com/[A-Za-z0-9-]+/[A-Za-z0-9._-]+|gitlab\\.com/[A-Za-z0-9._-]+(/[A-Za-z0-9._-]+)+)$" },
         "issues": { "description": "Where players report problems to the author: the repository's issues when it has them turned on, else the tracker the author links from their CurseForge or Wago page. Left out when there isn't a working one.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
-        "sponsor": {
-          "description": "Every page where the author asks for support, as the author lists them, most preferred first: their GitHub Sponsors page, the links in FUNDING.yml, the Donate button on their CurseForge or Wago page, then the other support links they list there. Left out when the author lists none.",
-          "type": "array",
-          "items": { "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
-          "minItems": 1,
-          "uniqueItems": true
-        },
         "icon": { "description": "A small square image (PNG or JPEG) for the add-on, from its author's own repository or add-on page, only where that site's terms allow showing it in another app. Left out otherwise; the app shows a placeholder.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
         "sources": {
           "description": "In order of preference.",
@@ -202,11 +226,6 @@
         "requires": { "description": "Catalog IDs that must be installed too.", "$ref": "#/$defs/idList" },
         "optional": { "description": "Catalog IDs it works with when they're installed.", "$ref": "#/$defs/idList" },
         "conflicts": { "description": "Catalog IDs it overlaps with. A warning, not a blocker.", "$ref": "#/$defs/idList" },
-        "savedVariables": {
-          "type": "array",
-          "items": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$" },
-          "uniqueItems": true
-        },
         "notes": { "type": "string", "maxLength": 1000 },
         "withdrawn": { "type": "array", "items": { "$ref": "#/$defs/withdrawn" } },
         "overrides": { "type": "array", "items": { "$ref": "#/$defs/override" } }

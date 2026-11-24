@@ -3,8 +3,19 @@
   "version": "1.0.0",
   "forever": {
     "gameVersion": "1.60.1",
-    "interface": "16001",
-    "curseforgeVersionTypeId": 88568
+    "interface": "16001"
+  },
+  "authors": {
+    "plusmouse": {
+      "name": "plusmouse",
+      "sponsor": [
+        "https://github.com/sponsors/example",
+        "https://ko-fi.com/example"
+      ]
+    },
+    "test": {
+      "name": "Test"
+    }
   },
   "addons": [
     {
@@ -32,19 +43,12 @@
       "homepage": "https://addons.wago.io/addons/syndicator",
       "repository": "https://gitlab.com/group/subgroup/syndicator",
       "issues": "https://gitlab.com/group/subgroup/syndicator/-/issues",
-      "sponsor": [
-        "https://github.com/sponsors/example",
-        "https://ko-fi.com/example"
-      ],
-      "savedVariables": [
-        "SYNDICATOR_CONFIG"
-      ],
       "icon": "https://example.com/icon.png"
     },
     {
       "id": "baganator",
       "name": "Baganator",
-      "author": "Test",
+      "author": "test",
       "repository": "https://github.com/plusmouse/Baganator",
       "issues": "https://github.com/plusmouse/Baganator/issues",
       "summary": "Test entry.",

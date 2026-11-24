@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 3,
+  "version": "1.0.0",
+  "forever": {
+    "gameVersion": "1.60.1",
+    "interface": "16001"
+  },
+  "authors": {
+    "test": {
+      "name": "Test"
+    }
+  },
+  "addons": [
+    {
+      "id": "questie",
+      "name": "Questie",
+      "author": "nobody",
+      "summary": "Test entry.",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 1
+        }
+      ],
+      "folders": [
+        "Questie",
+        "QuestieDB"
+      ]
+    }
+  ]
+}

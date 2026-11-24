@@ -1,15 +1,19 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "version": "1.0.0",
   "forever": {
     "gameVersion": "1.60.1",
-    "interface": "16001",
-    "curseforgeVersionTypeId": 88568
+    "interface": "16001"
+  },
+  "authors": {
+    "test": {
+      "name": "Test"
+    }
   },
   "addons": [
     {
       "name": "X",
-      "author": "Test",
+      "author": "test",
       "summary": "Test entry.",
       "sources": [
         {
