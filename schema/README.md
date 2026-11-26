@@ -1,22 +1,21 @@
-# Catalog format (schema 3)
+# Catalog format (schema 4)
 
-`catalog.schema.json` is the format of `catalog.json`, as JSON Schema 2020-12. Rules the schema can't express are checked by `scripts/validate.cs`:
+`catalog.schema.json` is the format of `catalog.json`, as JSON Schema 2020-12. `catalog.json` is written by `scripts/generate.cs` (see [Where the catalog comes from](#where-the-catalog-comes-from)), never by hand. Rules the schema can't express are checked by `scripts/validate.cs`:
 - IDs are unique.
 - `requires`, `optional` and `conflicts` name existing IDs.
 - Every entry's `author` is in `authors`, and every author is the author of at least one entry.
 - An author's `name` is one name, and their `profiles` are on GitHub, Wago or CurseForge, at most one per site.
 - No two entries claim the same folder.
-- Each edition's `interface` is its `gameVersion`'s, a PTR's `of` is a live edition, `forever` in `editions` matches the `forever` block, every edition an entry lists is in `editions`, and its `upToDate` is right. No edition lists a `.toc` suffix twice, ignoring case.
+- Each edition's `interface` is its `gameVersion`'s, a PTR's `of` is a live edition, every edition an entry lists is in `editions`, and its `upToDate` is right. No edition lists a `.toc` suffix twice, ignoring case.
 - `added` is a real day and not in the future.
 - On a PR, compared with the base branch: changed entries or authors come with a `version` bump, and new entries have `added`.
 
 ## Top level
 | Field | What |
 |---|---|
-| `schemaVersion` | Always `3` for this format. The app refuses a catalog whose `schemaVersion` it doesn't know and keeps using the copy it has. Format 2 (catalog 2.0.0) made `sponsor` a list; format 1's was one link. Format 3 (catalog 3.0.0) gave authors a record of their own (see [Changing the format](#changing-the-format)). |
+| `schemaVersion` | Always `4` for this format. The app refuses a catalog whose `schemaVersion` it doesn't know and keeps using the copy it has. Format 2 (catalog 2.0.0) made `sponsor` a list; format 1's was one link. Format 3 (catalog 3.0.0) gave authors a record of their own. Format 4 (catalog 4.0.0) is the generated catalog: the `forever` block is gone (`editions.forever` replaces it), `editions` is required, and an entry's `homepage`, `repository` and `issues` moved into `links` (see [Changing the format](#changing-the-format)). |
 | `version` | The catalog's own version (`1.4.0`). Bump it whenever entries change; the app uses it to say what's new. |
-| `forever` | The client the catalog was checked against: `gameVersion` (`1.60.1`) and `interface` (`16001`). Updated by hand when the client patches. Kept for apps that don't read `editions` yet, and always the same as `editions.forever`. |
-| `editions` | Every edition of the game the catalog covers (see [Editions](#editions)). Added in catalog 3.1.0. |
+| `editions` | Every edition of the game the catalog covers (see [Editions](#editions)). Added in catalog 3.1.0, required from format 4. |
 | `authors` | Every author an entry names, keyed by author ID (see below). |
 | `addons` | The entries. |
 
@@ -127,23 +126,26 @@ One file for several editions is listed under each of them, with the same hash a
 ## An entry
 | Field | Required | What |
 |---|---|---|
-| `id` | yes | Lowercase words joined by hyphens (`baganator`, `wim`). Stable: never changed or reused. The app's library refers to it. |
-| `name` | yes | Display name. |
-| `summary` | yes | One sentence, in our own words. |
+| `id` | yes | Lowercase words joined by hyphens (`baganator`, `wim`). Stable: never changed or reused. The app's library refers to it. A new entry's ID is its main folder in lowercase, with anything but letters and digits turned into hyphens (`DBM-Core` → `dbm-core`, `WeakAuras` → `weakauras`); the owner is added when two add-ons share a folder name. |
+| `name` | yes | Display name: the main `.toc`'s Title, cleaned of colour codes, textures and version numbers, else the main folder. |
+| `summary` | yes | One line, from the author: the main `.toc`'s Notes, else the repository's description, else its README's first sentence. Cleaned like `name` and cut at a word to about 120 characters. An add-on with none of these isn't listed unless an override gives one. |
+| `summaries` | | The summary in other languages, from the `.toc`'s `Notes-deDE` lines and the like, keyed by the game's locale. |
 | `sources` | yes | Where to get it, in order of preference (see below). At least one. |
 | `folders` | yes | Every top-level AddOns folder it installs. Several-folder add-ons list all of them (Questie, QuestieDB, QuestieTrace); they're always installed, updated and removed together. No paths and no leading dot. |
 | `editions` | | The editions it supports and what its latest checked release lists for each (see [Editions](#editions)). Written by the generator. |
 | `tocPath` | | The `.toc` to read the Interface from, relative to the zip's top level (`Questie_Forever.toc`, `OpenMap/OpenMap.toc`). Without it, the app looks for `<Folder>_Forever.toc`, `<Folder>-Forever.toc`, `<Folder>_Camelot.toc`, `<Folder>-Camelot.toc`, then `<Folder>.toc` in the first folder (Camelot is the Forever client's own name). |
-| `author` | yes | The author's ID in `authors` (`plusmouse`). The author's name, links and support pages live in their record, once for all their add-ons. |
-| `tags` | | From the [fixed list](#tags), main tag first (see below). |
+| `author` | yes | The author's ID in `authors` (`plusmouse`). The author's name, links and support pages live in their record, once for all their add-ons. A curated record (`overrides/_authors.json`) when there is one, else one made from the repo's GitHub owner. |
+| `tags` | | From the [fixed list](#tags), main tag first (see below): the `.toc`'s Category, then the repo's topics, at most 3. |
+| `icon` | | A small square PNG: the main `.toc`'s IconTexture when it's one of the add-on's own files (never game art), converted to PNG and kept in this repo's `icons/`. Left out otherwise; the app shows its main tag's icon. |
 | `added` | for new entries | The day the entry joined the catalog, `YYYY-MM-DD` (`2026-11-20`). The app sorts by it. Optional in the format, but on a PR the validator requires it on every new entry. |
-| `homepage` | | The add-on's own page, `https://` only, only when it isn't the default. The app's default is the `repository`, else the first source's page. |
+| `links` | | The add-on's own pages: `homepage` (only when it isn't the default: the app's default is the `repository`, else the first source's page), `repository` (the public GitHub or GitLab repo with its code) and `issues` (where players report problems). All `https://`. The generator fills `repository` and `issues` from the GitHub repo. |
 | `requires` | | IDs that must be installed too. Browse offers them together. |
 | `optional` | | IDs it works with when they're there. Listed, not added. |
 | `conflicts` | | IDs it overlaps with. A warning, never a blocker. |
 | `notes` | | Anything worth knowing ("the author disabled CurseForge API downloads, so Wago comes first"). |
 | `withdrawn` | | Releases the app never offers: `{ "release": "861", "reason": "…" }`. `release` is a GitHub tag, CurseForge file ID or Wago release, as the source names it. |
 | `overrides` | | Changes from a release on: `{ "releaseFrom": "900", "folders": [...] }` and/or `tocPath`. Rare. |
+| `from` | | Where the generator took each value from (`name`: `toc-title`, `folder` or `override`; `summary`: `toc-notes`, `repo-description`, `readme` or `override`; and so on), so a wrong one is easy to trace. `"entry": "override"` marks an add-on that isn't released on GitHub, whose whole entry is an override. |
 
 ## Tags
 `tags` come from this list, and the validator refuses any other. **The first tag is the add-on's main one:** the app shows its icon on the add-on's cards when the add-on has no `icon` of its own, and suggests add-ons that share it as related, so put first what the add-on is mainly for. Add more only when they help someone find it (Questie: `quests`, `map`).
@@ -168,7 +170,7 @@ Adding a tag is a schema change, made in a PR with the app's icon for it. The [A
 | `type` | Fields |
 |---|---|
 | `github` | `repo` (`owner/name`), `assetPattern` (regex the asset's file name must match), optional `excludePattern`. The release GitHub flags as **Latest** is used, never a pre-release. |
-| `curseforge` | `projectId`. The newest stable (release-type) file that lists `forever.gameVersion`. |
+| `curseforge` | `projectId`. The newest stable (release-type) file that lists `editions.forever.gameVersion`. |
 | `wago` | `slug`, as in `https://addons.wago.io/addons/<slug>`. Newest stable release. |
 
 CurseForge and Wago sources can also say where a player downloads the Forever release by hand, for the app's **Open download page** button. On both sites the newest upload is often for another game flavor, so the front page can lead to the wrong file. Both fields are optional; leave them out when the front page gets it right.
@@ -179,6 +181,14 @@ CurseForge and Wago sources can also say where a player downloads the Forever re
 | `downloadHint` | One short sentence telling the player which file to pick, when the page alone doesn't make it clear ("the file whose name ends in -forever"). |
 
 Regexes use .NET syntax, matched against the file name only.
+
+## Where the catalog comes from
+`scripts/generate.cs` writes `catalog.json` from three things:
+1. **The release check** (`checks.json`, from `scripts/check.cs`): every add-on whose latest GitHub release passed for the catalog's scope, the Forever edition for now. Only that release's folders, `.toc` and editions are used, so nothing is listed that wasn't downloaded and checked.
+2. **Discovery** (`candidates.json`, from `scripts/discover.cs`): the repo's description, topics and `.toc` fields (Title, Notes, Author, Category, IconTexture, dependencies).
+3. **Overrides** (`overrides/<id>.json`, format `override.schema.json`): hand corrections for one entry. With `"repo"`, they correct that GitHub repo's generated entry and apply only while its release passes the check; without it, the file is the whole entry of an add-on that isn't released on GitHub. `overrides/_authors.json` (format `authors.schema.json`) holds the author records written by hand.
+
+Never listed: repos on `optout.json` (format `optout.schema.json`), compilations of unrelated add-ons, copies of an add-on already listed (same CurseForge project or folder; the one already in the catalog, else the one released for more editions, stays), and add-ons with a folder name the format doesn't allow. An entry keeps its ID and `added` date from run to run. The catalog `version` goes up a minor version when anything changes and a major version when the format does.
 
 ## Changing the format
 - **A new optional field** is a minor catalog `version` (`3.1.0`) in the same format: an app that doesn't know the field ignores it.

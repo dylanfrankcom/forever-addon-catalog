@@ -1,0 +1,35 @@
+{
+  "$schema": "../schema/authors.schema.json",
+  "$comment": "Author records written by hand: used instead of the one the generator makes from a GitHub account.",
+  "authors": {
+    "exehn": {
+      "name": "Exehn",
+      "sponsor": [
+        "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KJKKXW2ND6WD6",
+        "https://www.patreon.com/cw/DungeonJournalWoW",
+        "https://buymeacoffee.com/exehn"
+      ]
+    },
+    "mikebvs": {
+      "name": "mikebvs"
+    },
+    "plusmouse": {
+      "name": "plusmouse",
+      "sponsor": [
+        "https://buymeacoffee.com/plusmouse",
+        "https://ko-fi.com/plusmouse",
+        "https://www.patreon.com/plusmouse",
+        "https://www.paypal.com/donate/?hosted_button_id=HEVWLA4343EN8"
+      ]
+    },
+    "wuild": {
+      "name": "Wuild",
+      "profiles": [
+        "https://github.com/Wuild"
+      ],
+      "sponsor": [
+        "https://www.patreon.com/Wuild"
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "../schema/override.schema.json",
+  "name": "Syndicator",
+  "summary": "Keeps track of items across your characters, for Baganator and others.",
+  "author": "plusmouse",
+  "tags": [
+    "bags"
+  ],
+  "added": "2026-11-20",
+  "sources": [
+    {
+      "type": "wago",
+      "slug": "syndicator"
+    },
+    {
+      "type": "curseforge",
+      "projectId": 988370
+    }
+  ],
+  "folders": [
+    "Syndicator"
+  ],
+  "tocPath": "Syndicator/Syndicator.toc"
+}

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 4,
+  "version": "1.0.0",
+  "authors": {
+    "plusmouse": {
+      "name": "plusmouse",
+      "homepage": "https://example.com/",
+      "profiles": [
+        "https://github.com/example",
+        "https://addons.wago.io/user/example",
+        "https://www.curseforge.com/members/example"
+      ],
+      "sponsor": [
+        "https://github.com/sponsors/example",
+        "https://ko-fi.com/example"
+      ]
+    },
+    "test": {
+      "name": "Test"
+    }
+  },
+  "addons": [
+    {
+      "id": "syndicator",
+      "name": "Syndicator",
+      "summary": "Test entry.",
+      "sources": [
+        {
+          "type": "wago",
+          "slug": "syndicator"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 988370
+        }
+      ],
+      "links": {
+        "homepage": "https://addons.wago.io/addons/syndicator",
+        "repository": "https://gitlab.com/group/subgroup/syndicator",
+        "issues": "https://gitlab.com/group/subgroup/syndicator/-/issues"
+      },
+      "folders": [
+        "Syndicator"
+      ],
+      "author": "plusmouse",
+      "tags": [
+        "bags"
+      ],
+      "added": "2026-11-20",
+      "icon": "https://example.com/icon.png",
+      "summaries": {
+        "deDE": "Auf Deutsch."
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "summaries": "override",
+        "author": "repo-owner",
+        "tags": "toc-category",
+        "icon": "toc-icon"
+      }
+    },
+    {
+      "id": "baganator",
+      "name": "Baganator",
+      "author": "test",
+      "summary": "Test entry.",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "plusmouse/Baganator",
+          "assetPattern": "^Baganator-.*\\.zip$",
+          "excludePattern": "retail"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/plusmouse/Baganator",
+        "issues": "https://github.com/plusmouse/Baganator/issues"
+      },
+      "folders": [
+        "Baganator"
+      ],
+      "requires": [
+        "syndicator"
+      ],
+      "conflicts": [],
+      "optional": [],
+      "tocPath": "Baganator/Baganator.toc",
+      "notes": "Test.",
+      "withdrawn": [
+        {
+          "release": "861",
+          "reason": "Test."
+        }
+      ],
+      "overrides": [
+        {
+          "releaseFrom": "900",
+          "folders": [
+            "Baganator",
+            "Baganator_Extras"
+          ]
+        }
+      ]
+    }
+  ]
+}

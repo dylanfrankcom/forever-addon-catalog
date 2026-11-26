@@ -1,10 +1,6 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "version": "1.0.0",
-  "forever": {
-    "gameVersion": "1.60.1",
-    "interface": "16001"
-  },
   "editions": {
     "ptr": {
       "name": "WoW: Forever",

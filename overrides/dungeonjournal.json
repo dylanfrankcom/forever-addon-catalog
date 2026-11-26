@@ -1,0 +1,25 @@
+{
+  "$schema": "../schema/override.schema.json",
+  "name": "DungeonJournal",
+  "summary": "A journal of Forever's dungeons and raids: bosses, abilities and loot.",
+  "author": "exehn",
+  "tags": [
+    "dungeons",
+    "loot"
+  ],
+  "added": "2026-11-20",
+  "sources": [
+    {
+      "type": "curseforge",
+      "projectId": 1707971,
+      "downloadPage": "https://www.curseforge.com/wow/addons/dungeonjournal/files/all?gameVersionTypeId=88568"
+    }
+  ],
+  "folders": [
+    "ForeverDungeonJournal"
+  ],
+  "tocPath": "ForeverDungeonJournal/ForeverDungeonJournal.toc",
+  "links": {
+    "homepage": "https://www.curseforge.com/wow/addons/dungeonjournal"
+  }
+}

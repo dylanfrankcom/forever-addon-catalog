@@ -44,12 +44,13 @@ for (var i = 0; i < args.Length; i++)
 // With no file named: catalog.json, and versions.json too once the release check writes one.
 var paths = catalogArg is not null
     ? new List<string> { Path.GetFullPath(catalogArg) }
-    : new[] { "catalog.json", "versions.json" }.Select(Path.GetFullPath).Where((p, i) => i == 0 || File.Exists(p)).ToList();
+    : new[] { "catalog.json", "versions.json", "optout.json" }.Select(Path.GetFullPath).Where((p, i) => i == 0 || File.Exists(p))
+        .Concat(Directory.Exists("overrides") ? Directory.GetFiles("overrides", "*.json").Order(StringComparer.Ordinal).Select(Path.GetFullPath) : []).ToList();
 var exit = 0;
 foreach (var path in paths)
 {
     var problems = CatalogValidator.Validate(path);
-    if (problems.Count == 0 && baseArg is not null && !CatalogValidator.IsVersionsFile(path))
+    if (problems.Count == 0 && baseArg is not null && CatalogValidator.KindOf(path) == "catalog")
     {
         problems.AddRange(VersionBump.Check(Path.GetFullPath(baseArg), path));
     }
@@ -79,17 +80,18 @@ static class CatalogValidator
             return problems;
         }
 
-        var versions = IsVersionsFile(catalogPath);
-        var schemaName = versions ? "versions.schema.json" : "catalog.schema.json";
+        var kind = KindOf(catalogPath);
+        var versions = kind == "versions";
+        var schemaName = kind + ".schema.json";
         var schemaPath = FindSchema(Path.GetDirectoryName(catalogPath)!, schemaName);
         if (schemaPath is null)
         {
             problems.Add(new("missing-schema", $"No schema/{schemaName} above {catalogPath}."));
             return problems;
         }
-        if (versions)
+        if (kind != "catalog")
         {
-            // versions.schema.json refers to catalog.schema.json's definitions, so that one is loaded first.
+            // The other schemas refer to catalog.schema.json's definitions, so that one is loaded first.
             LoadSchema(Path.Combine(Path.GetDirectoryName(schemaPath)!, "catalog.schema.json"));
         }
 
@@ -130,9 +132,19 @@ static class CatalogValidator
         {
             return Dedupe(VersionsRules(root!));
         }
+        if (kind != "catalog")
+        {
+            // An override's file name is the ID of the entry it corrects.
+            var name = Path.GetFileNameWithoutExtension(catalogPath);
+            if (kind == "override" && Path.GetFileName(Path.GetDirectoryName(catalogPath)) == "overrides" && !System.Text.RegularExpressions.Regex.IsMatch(name, "^[a-z0-9]+(-[a-z0-9]+)*$"))
+            {
+                problems.Add(new("override-name", $"overrides/{name}.json: the file name must be the entry's ID."));
+            }
+            return problems;
+        }
         var addons = root!["addons"]!.AsArray().Select(a => a!.AsObject()).ToList();
 
-        // Editions: each Interface is its game version's, Forever's matches the "forever" block, and every edition an
+        // Editions: each Interface is its game version's, and every edition an
         // entry lists is defined, with upToDate saying whether it lists that edition's current Interface.
         var editions = root["editions"]?.AsObject();
         foreach (var (editionId, edition) in editions ?? [])
@@ -148,11 +160,6 @@ static class CatalogValidator
                 || sinceDay > DateOnly.FromDateTime(DateTime.UtcNow).AddDays(1))
             {
                 problems.Add(new("edition-interface", $"Edition '{editionId}' interfaceSince '{since}' isn't a real day, or is in the future."));
-            }
-            if (editionId == "forever"
-                && (gameVersion != (string?)root["forever"]?["gameVersion"] || iface != (string?)root["forever"]?["interface"]))
-            {
-                problems.Add(new("edition-forever", "Edition 'forever' doesn't match the \"forever\" block, which older apps still read."));
             }
 
             // A PTR belongs to the live edition Battle.net files it under (whatever version it runs).
@@ -289,8 +296,22 @@ static class CatalogValidator
     }
 
     /// <summary>versions.json (and test cases with "versions" in their name) rather than a catalog.</summary>
-    public static bool IsVersionsFile(string path) =>
-        Path.GetFileName(path).Contains("versions", StringComparison.OrdinalIgnoreCase);
+    public static bool IsVersionsFile(string path) => KindOf(path) == "versions";
+
+    /// <summary>
+    /// Which file this is, by its name: versions.json, optout.json, overrides/_authors.json, an override (in overrides/,
+    /// or a test case with "override" in its name) or catalog.json.
+    /// </summary>
+    public static string KindOf(string path)
+    {
+        var name = Path.GetFileName(path);
+        var inOverrides = Path.GetFileName(Path.GetDirectoryName(path)) == "overrides";
+        return name.Contains("versions", StringComparison.OrdinalIgnoreCase) ? "versions"
+            : name.Contains("optout", StringComparison.OrdinalIgnoreCase) ? "optout"
+            : name.Contains("_authors", StringComparison.OrdinalIgnoreCase) || name.Contains("curated-authors", StringComparison.OrdinalIgnoreCase) ? "authors"
+            : inOverrides || name.Contains("override-file", StringComparison.OrdinalIgnoreCase) ? "override"
+            : "catalog";
+    }
 
     /// <summary>1.60.1 gives 16001, 12.1.5 gives 120105: major * 10000 + minor * 100 + patch.</summary>
     static string InterfaceOf(string gameVersion)
@@ -532,8 +553,8 @@ static class SelfTest
 
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
     static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date",
-        "unknown-author", "unused-author", "author-profile", "edition-interface", "edition-forever", "unknown-edition", "edition-up-to-date",
-        "versions-same-file", "test-client-edition", "edition-facts"];
+        "unknown-author", "unused-author", "author-profile", "edition-interface", "unknown-edition", "edition-up-to-date",
+        "versions-same-file", "test-client-edition", "edition-facts", "override-name"];
 
     // bump/invalid-added-missing-*.head.json expects "added-missing"; any other invalid bump case "version-not-bumped".
     static string BumpCode(string rest) =>
@@ -613,7 +634,7 @@ static class IssueFormTags
 }
 
 /// <summary>
-/// On a PR, against the base branch's catalog: when the entries, the authors or the forever block changed, the version must go up,
+/// On a PR, against the base branch's catalog: when the entries or the authors changed, the version must go up,
 /// and every new entry must have "added". A missing or empty base file (the first catalog) needs neither.
 /// </summary>
 static class VersionBump
@@ -638,7 +659,6 @@ static class VersionBump
 
         var changed = !JsonNode.DeepEquals(before?["addons"], after["addons"])
             || !JsonNode.DeepEquals(before?["authors"], after["authors"])
-            || !JsonNode.DeepEquals(before?["forever"], after["forever"])
             || !JsonNode.DeepEquals(before?["editions"], after["editions"]);
         if (!changed)
         {
