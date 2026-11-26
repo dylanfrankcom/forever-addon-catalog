@@ -7,3 +7,4 @@ artifacts/
 .claude/worktrees/
 .claude/settings.local.json
 Thumbs.db
+candidates.json

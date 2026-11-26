@@ -1,0 +1,65 @@
+name: discover
+
+# Finds add-ons for every edition on public GitHub repos (scripts/discover.cs) and keeps the result, candidates.json, on
+# the `checker` branch, where the release check reads it. It never touches main and lists nothing by itself.
+# Weekly, or by hand (Actions -> discover -> Run workflow). Code search is slow (10 requests a minute), so a full run
+# takes about half an hour; "no search" only reads the known repos again.
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+    inputs:
+      search:
+        description: "Run code search (off: only read the repos already found)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: checker-data
+  cancel-in-progress: false
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+  DOTNET_NOLOGO: "1"
+
+jobs:
+  discover:
+    name: Find add-ons on GitHub
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Check out the checker branch
+        run: |
+          if git fetch --no-tags --depth=1 origin checker:refs/remotes/origin/checker; then
+            git worktree add -B checker data origin/checker
+          else
+            git worktree add --orphan -b checker data
+          fi
+      - name: Find add-ons
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SEARCH: ${{ github.event_name == 'schedule' || inputs.search }}
+        run: |
+          set -- --out data/candidates.json --summary "$GITHUB_STEP_SUMMARY"
+          if [ "$SEARCH" != "true" ]; then set -- "$@" --no-search; fi
+          dotnet run scripts/discover.cs -- "$@"
+      - name: Save candidates.json
+        working-directory: data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add candidates.json
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -q -m "Candidates $(date -u +%Y-%m-%d)"
+            git push origin checker
+          fi
