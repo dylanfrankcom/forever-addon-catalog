@@ -126,4 +126,6 @@ powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/valid
 
 **Icons:** the main `.toc`'s IconTexture, only when it points into the add-on's own folders (never game art). It's read from the checked release file (TGA, BLP or PNG), converted to PNG and kept as `icons/<id>.png`; `icons/icons.json` remembers which release each came from, so an icon is read again only when the release changes. An icon that can't be read is left out.
 
+**The main folder** (from the release check) names the entry: a folder others extend (Questie for QuestieDB), else the first that loads at start, never a `!` helper folder while there's another. The `.toc` fields discovery read (Title, Notes, icon, dependencies) are used only when that `.toc` belongs to the main folder; otherwise the entry falls back to the folder name and the repository's description.
+
 **Re-running changes only what changed:** IDs and `added` dates come from the previous `catalog.json`, entries and fields are written in a fixed order, and the version is bumped only when something changed. The report lists what was dropped and why, entries with no summary, and icons that couldn't be read.

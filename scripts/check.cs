@@ -360,8 +360,11 @@ static class Inspect
                 needs.Add(dep);
             }
         }
-        var main = loaded.FirstOrDefault(f => loaded.Any(o => o.Folder != f.Folder && o.Folder.StartsWith(f.Folder, StringComparison.OrdinalIgnoreCase))).Folder
-            ?? loaded.FirstOrDefault(f => !f.LoadOnDemand).Folder ?? loaded.FirstOrDefault().Folder;
+        // The main folder: one others extend (Questie for QuestieDB), else the first that loads at start. A folder named
+        // "!Something" is a helper the game loads first, so it's the main one only when there's nothing else.
+        var candidates = loaded.Any(f => !f.Folder.StartsWith('!')) ? loaded.Where(f => !f.Folder.StartsWith('!')).ToList() : loaded;
+        var main = candidates.FirstOrDefault(f => candidates.Any(o => o.Folder != f.Folder && o.Folder.StartsWith(f.Folder, StringComparison.OrdinalIgnoreCase))).Folder
+            ?? candidates.FirstOrDefault(f => !f.LoadOnDemand).Folder ?? candidates.FirstOrDefault().Folder;
 
         string? result = !lists ? null : reasons.Count > 0 ? "failed" : older.Count > 0 ? "not-updated" : "passed";
         var iface = result is null ? null : older.Count > 0 ? older.Max(StringComparer.Ordinal) : edition.Interface;
@@ -379,7 +382,7 @@ sealed record Download(byte[]? Bytes, string? Problem);
 static partial class Checker
 {
     /// <summary>Raised when the checks themselves change, so every release is checked again.</summary>
-    const string Version = "2";
+    const string Version = "3";
 
     /// <summary>The largest release file downloaded.</summary>
     public const long MaxFileBytes = 512L << 20;
@@ -974,6 +977,10 @@ static class SelfTest
         await Blocked("another edition's Interface", Zip(("Thing/Thing.toc", "## Interface: 11500\n")), "not 16001");
         Check("toc: only ## lines are kept, from a .toc of any size", Package.FieldLines(new StringReader("## Interface: 16001\r\nfile.lua\n" + new string('x', 3 << 20) + "\n## Title: Big\n"))
             == "## Interface: 16001\n## Title: Big\n");
+        var helper = Inspect.For(Package.Read(new MemoryStream(Zip(("!Thing_Bridge/!Thing_Bridge.toc", "## Interface: 16001\n"), ("Thing/Thing.toc", "## Interface: 16001\n")))), Forever, null);
+        Check("main: a !folder is a helper, not the main one", helper.Main == "Thing");
+        var alone = Inspect.For(Package.Read(new MemoryStream(Zip(("!Grabber/!Grabber.toc", "## Interface: 16001\n")))), Forever, null);
+        Check("main: a lone !folder is the main one", alone.Main == "!Grabber");
         await Blocked("folder without a .toc", Zip(("Thing/Thing.toc", "## Interface: 16001\n"), ("Extra/x.lua", "x")), "Extra: no .toc file");
         await Blocked("not a zip", Encoding.UTF8.GetBytes("not a zip"), "not a readable zip");
         var noZip = await Run(Candidate("forever"), Release("v3", Old), passed);

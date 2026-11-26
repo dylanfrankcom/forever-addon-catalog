@@ -156,7 +156,8 @@ static partial class Text
         }
         s = EmptyBrackets().Replace(s, "");
         s = Spaces().Replace(s, " ").Trim();
-        return s.Trim(' ', '-', '|', ':', ',', '–', '—').Trim();
+        // A leading "!" is a load-order prefix (!!!LuaWorkbench), not part of the name; a trailing one is (Ding!).
+        return s.Trim(' ', '-', '|', ':', ',', '–', '—').Trim().TrimStart('!').TrimStart();
     }
 
     /// <summary>A summary: cleaned, then cut at a word to <see cref="Settings.SummaryLength"/> characters.</summary>
@@ -179,7 +180,7 @@ static partial class Text
         return s.Length > 64 ? s[..64].TrimEnd('-') : s;
     }
 
-    [GeneratedRegex(@"\|c[0-9a-fA-F]{8}")]
+    [GeneratedRegex(@"\|c[0-9a-fA-F]{8}", RegexOptions.IgnoreCase)]
     private static partial Regex Colour();
 
     [GeneratedRegex(@"\|[TA][^|]*\|[ta]")]
@@ -299,7 +300,7 @@ static class Generator
 
     /// <summary>Many folders that don't share a name with the main one: a bundle of unrelated add-ons, not one add-on.</summary>
     /// <summary>The catalog schema's folder pattern.</summary>
-    static readonly System.Text.RegularExpressions.Regex PlainFolderPattern = new("^[A-Za-z0-9_][A-Za-z0-9_.-]*$");
+    static readonly System.Text.RegularExpressions.Regex PlainFolderPattern = new("^[A-Za-z0-9_!]([A-Za-z0-9_.! -]*[A-Za-z0-9_!-])?$");
 
     static System.Text.RegularExpressions.Regex PlainFolder() => PlainFolderPattern;
 
@@ -366,7 +367,7 @@ static class Generator
             }
             if (folders.FirstOrDefault(f => !PlainFolder().IsMatch(f)) is { } odd)
             {
-                // The schema (and the app) take plain folder names only: no spaces, no leading "!".
+                // The schema's folder names only: no paths, no leading dot, no trailing space or dot.
                 result.Drop("a folder name the catalog can't list", $"{repo} ({odd})");
                 continue;
             }
@@ -443,9 +444,10 @@ static class Generator
                 result.Drop("no summary (no .toc Notes, repository description or README, and no override)", l.Repo);
                 continue;
             }
-            deps[entry] = (Strings(l.Row["toc"]?["dependencies"]), Strings(l.Row["toc"]?["optionalDependencies"]));
+            var own = OwnToc(l.Row, l.MainFolder);
+            deps[entry] = (Strings(own["dependencies"]), Strings(own["optionalDependencies"]));
             result.Addons.Add(entry);
-            if (entry["icon"] is null && IconPath(Str(l.Row["toc"]?["iconTexture"]), l.Folders) is { } icon)
+            if (entry["icon"] is null && IconPath(Str(own["iconTexture"]), l.Folders) is { } icon)
             {
                 result.IconJobs.Add((entry, Str(l.Main["url"])!, icon));
             }
@@ -571,15 +573,38 @@ static class Generator
             : null;
     }
 
+    /// <summary>
+    /// Discovery's main .toc, when it belongs to the main folder the release check found. Otherwise it's a bundled
+    /// library's or helper's (Stubby in Auctioneer), and its Title, Notes, icon and dependencies would describe the
+    /// wrong add-on: none are used, and the entry falls back to the folder name and the repository.
+    /// </summary>
+    public static JsonObject OwnToc(JsonObject row, string mainFolder)
+    {
+        var toc = row["toc"]?.AsObject();
+        if (toc is null)
+        {
+            return new JsonObject();
+        }
+        // The repo's layout isn't the zip's (src/Thing.toc, addon/Thing/Thing.toc), so match the .toc's folder or its own
+        // name, with or without an edition suffix (Thing_Forever.toc).
+        var parts = (Str(toc["path"]) ?? "").Split('/');
+        var stem = Path.GetFileNameWithoutExtension(parts[^1]);
+        var own = parts.Length == 1
+            || parts[^2].Equals(mainFolder, StringComparison.OrdinalIgnoreCase)
+            || stem.Equals(mainFolder, StringComparison.OrdinalIgnoreCase)
+            || (stem.StartsWith(mainFolder, StringComparison.OrdinalIgnoreCase) && stem.Length > mainFolder.Length && stem[mainFolder.Length] is '_' or '-');
+        return own ? toc : new JsonObject();
+    }
+
     static JsonObject Entry(Listing l, string id, List<JsonObject> previous, List<string> editionIds, DateOnly today, Authors authors)
     {
-        var toc = l.Row["toc"]?.AsObject() ?? new JsonObject();
+        var toc = OwnToc(l.Row, l.MainFolder);
         var from = new JsonObject();
         var entry = new JsonObject { ["id"] = id };
 
         var name = Text.Clean(Str(toc["title"]), dropVersions: true);
         from["name"] = name.Length > 0 ? "toc-title" : "folder";
-        var shown = name.Length > 0 ? name : l.MainFolder;
+        var shown = name.Length > 0 ? name : l.MainFolder.TrimStart('!');
         entry["name"] = shown.Length > 100 ? shown[..100].TrimEnd() : shown;
 
         foreach (var (source, value) in new[] { ("toc-notes", Str(toc["notes"])), ("repo-description", Str(l.Row["description"])), ("readme", Str(l.Row["readme"])) })
@@ -1260,6 +1285,16 @@ static class SelfTest
     public static async Task<int> Run()
     {
         // Cleaning the author's text.
+        Check("clean: colour codes in capitals, and a leading !", Text.Clean("|CFF0294FFm|CFFBD26E5Media|r", dropVersions: true) == "mMedia"
+            && Text.Clean("!!!LuaWorkbench", dropVersions: true) == "LuaWorkbench" && Text.Clean("Ding!", dropVersions: true) == "Ding!");
+        Check("own toc: the main folder's", Generator.OwnToc(Obj("""{"toc":{"path":"Auctioneer/Auctioneer.toc","title":"A"}}"""), "Auctioneer")["title"] is not null
+            && Generator.OwnToc(Obj("""{"toc":{"path":"Thing.toc","title":"T"}}"""), "Thing")["title"] is not null
+            && Generator.OwnToc(Obj("""{"toc":{"path":"src/Thing.toc","title":"T"}}"""), "Thing")["title"] is not null
+            && Generator.OwnToc(Obj("""{"toc":{"path":"addon/Thing/Thing_Forever.toc","title":"T"}}"""), "Thing")["title"] is not null
+            && Generator.OwnToc(Obj("""{"toc":{"path":"Everbuff/EverbuffJournal.toc","title":"T"}}"""), "EverbuffJournal")["title"] is not null);
+        Check("own toc: a library's isn't used", Generator.OwnToc(Obj("""{"toc":{"path":"Stubby/Stubby.toc","title":"Stubby"}}"""), "Auctioneer").Count == 0
+            && Generator.OwnToc(Obj("""{"toc":{"path":"Thingamajig.toc","title":"T"}}"""), "Thing").Count > 0
+            && Generator.OwnToc(Obj("""{"toc":{"path":"x/Thingamajig.toc","title":"T"}}"""), "Thing").Count == 0);
         Check("clean: colours and version", Text.Clean("|cff00ff00Questie|r v12.1.1", dropVersions: true) == "Questie");
         Check("clean: textures and conditions", Text.Clean("|TInterface\\Icons\\X:16|t Foo [AllowLoadGameType classic]", dropVersions: true) == "Foo");
         Check("clean: version in brackets", Text.Clean("Bar (1.2.3)", dropVersions: true) == "Bar" && Text.Clean("Atlas 2 Loot", dropVersions: true) == "Atlas 2 Loot");
@@ -1289,6 +1324,7 @@ static class SelfTest
             Row("f/Readme", "Readme", null, readme: "Read me first."),
             Row("g/Gone", "Gone", "Opted out."),
             Row("i/Bang", "Bang", "Odd folder."),
+            Row("j/Grabber", "Grabber", "Loads first."),
         }.ToDictionary(r => r["repo"]!.GetValue<string>(), r => r, StringComparer.OrdinalIgnoreCase);
         var checks = new List<JsonObject>
         {
@@ -1300,7 +1336,8 @@ static class SelfTest
             Check_("e/LibFoo", ["LibFoo"], "forever"),
             Check_("f/Readme", ["Readme"], "forever"),
             Check_("g/Gone", ["Gone"], "forever"),
-            Check_("i/Bang", ["!Bang"], "forever"),
+            Check_("i/Bang", ["Bang."], "forever"),
+            Check_("j/Grabber", ["!Grabber"], "forever"),
             Check_("h/RetailOnly", ["RetailOnly"], "retail"),
         };
         var overrides = new Dictionary<string, JsonObject>(StringComparer.Ordinal)
@@ -1315,11 +1352,11 @@ static class SelfTest
         var byId = result.Addons.ToDictionary(a => a["id"]!.GetValue<string>());
         Check("relations: a reference to an add-on that isn't listed is left out", Generator.Strings(byId["cfonly"]["conflicts"]).SequenceEqual(["thing"])
             && result.Notices.Any(n => n.Contains("names notlisted", StringComparison.Ordinal)));
-        Check("ids", byId.Keys.Order(StringComparer.Ordinal).SequenceEqual(["cfonly", "libfoo", "questie", "readme", "thing"]));
+        Check("ids", byId.Keys.Order(StringComparer.Ordinal).SequenceEqual(["cfonly", "grabber", "libfoo", "questie", "readme", "thing"]));
         Check("dropped", result.Dropped.Keys.Any(k => k.StartsWith("a copy", StringComparison.Ordinal)) && result.Dropped.Keys.Any(k => k.StartsWith("a compilation", StringComparison.Ordinal))
             && result.Dropped.Keys.Any(k => k.StartsWith("no summary", StringComparison.Ordinal)) && result.Dropped.ContainsKey("on the never-add list")
             && result.Dropped.Keys.Any(k => k.StartsWith("override for a repo", StringComparison.Ordinal))
-            && result.Dropped.TryGetValue("a folder name the catalog can't list", out var odd) && odd.SequenceEqual(["i/Bang (!Bang)"]));
+            && result.Dropped.TryGetValue("a folder name the catalog can't list", out var odd) && odd.SequenceEqual(["i/Bang (Bang.)"]));
         var q = byId["questie"];
         Check("rename keeps the ID and date", Str(q["added"]) == "2026-01-01" && Str(q["sources"]![0]!["repo"]) == "Questie/QuestieRenamed");
         Check("override merged", Str(q["notes"]) == "Three folders." && Str(q["author"]) == "breakbb" && Str(q["from"]!["author"]) == "override"

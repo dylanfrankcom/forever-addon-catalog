@@ -180,7 +180,7 @@ enum Verdict
 /// <summary>The matching rules, kept free of I/O so the self-test can check them.</summary>
 static class Rules
 {
-    static readonly Regex FolderName = new("^[A-Za-z0-9_][A-Za-z0-9_.-]*$");
+    static readonly Regex FolderName = new("^[A-Za-z0-9_!]([A-Za-z0-9_.! -]*[A-Za-z0-9_!-])?$");
     static readonly Regex RepoUrl = new(@"^https://github\.com/([A-Za-z0-9-]+/[A-Za-z0-9._-]+?)(?:\.git)?/?$");
 
     public static bool IsFolderName(string s) => s.Length <= 100 && FolderName.IsMatch(s);
@@ -674,7 +674,7 @@ static class SelfTest
         Check("repo url: .git and slash", Rules.RepoFromUrl("https://github.com/a/b.git") == "a/b" && Rules.RepoFromUrl("https://github.com/a/b/") == "a/b");
         Check("repo url: not GitHub", Rules.RepoFromUrl("https://gitlab.com/a/b") is null && Rules.RepoFromUrl("https://github.com/a/b/issues") is null);
         Check("main folder", Rules.MainFolder("Questie/Questie_Forever.toc", ["QuestieDB", "Questie"]) == "Questie" && Rules.MainFolder(null, ["A", "B"]) == "A");
-        Check("folder names", Rules.IsFolderName("GatherLite") && Rules.IsFolderName("Foo_Bar.Baz") && !Rules.IsFolderName("a/b") && !Rules.IsFolderName("..") && !Rules.IsFolderName("x y"));
+        Check("folder names", Rules.IsFolderName("GatherLite") && Rules.IsFolderName("Foo_Bar.Baz") && !Rules.IsFolderName("a/b") && !Rules.IsFolderName("..") && Rules.IsFolderName("x y") && Rules.IsFolderName("!BugGrabber") && !Rules.IsFolderName("x ") && !Rules.IsFolderName("x."));
 
         var cf = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { ["X-Curse-Project-ID"] = "334918" };
         Check("judge: listed", Rules.Judge(Entry("Foo", github: ["a/Foo"]), "A/foo", Release(["Other"])) == Verdict.Listed);

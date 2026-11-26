@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.0.0",
+  "version": "4.1.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -1003,7 +1003,7 @@
       ]
     },
     "danderbot": {
-      "name": "Danders",
+      "name": "DanderBot",
       "profiles": [
         "https://github.com/DanderBot"
       ]
@@ -1430,6 +1430,12 @@
         "https://github.com/flotomat"
       ]
     },
+    "flowflowflow": {
+      "name": "flowflowflow",
+      "profiles": [
+        "https://github.com/flowflowflow"
+      ]
+    },
     "foreverui-dev": {
       "name": "Syntaxlab",
       "profiles": [
@@ -1632,6 +1638,12 @@
       "name": "Haste",
       "profiles": [
         "https://github.com/hastecraft"
+      ]
+    },
+    "hayato2846": {
+      "name": "Hayato2846",
+      "profiles": [
+        "https://github.com/Hayato2846"
       ]
     },
     "hccbuddy-svg": {
@@ -1935,7 +1947,7 @@
       ]
     },
     "jiberishxd": {
-      "name": "Jiberish",
+      "name": "jiberishxd",
       "profiles": [
         "https://github.com/jiberishxd"
       ]
@@ -2076,12 +2088,6 @@
       "name": "Mooter Vision",
       "profiles": [
         "https://github.com/jwest33"
-      ]
-    },
-    "jweyant": {
-      "name": "Jweyant",
-      "profiles": [
-        "https://github.com/Jweyant"
       ]
     },
     "kaldown": {
@@ -2265,7 +2271,7 @@
       ]
     },
     "lapassetalexis": {
-      "name": "Tristabeau",
+      "name": "LapassetAlexis",
       "profiles": [
         "https://github.com/LapassetAlexis"
       ]
@@ -2379,7 +2385,7 @@
       ]
     },
     "lml-studio": {
-      "name": "Mini II - Forever - PvE",
+      "name": "LML-Studio",
       "profiles": [
         "https://github.com/LML-Studio"
       ]
@@ -2601,7 +2607,7 @@
       ]
     },
     "meorawr": {
-      "name": "LanceDH",
+      "name": "Daniel \"Meorawr\" Yates <me@meorawr.net>",
       "profiles": [
         "https://github.com/Meorawr"
       ]
@@ -2937,6 +2943,12 @@
       "name": "Yaxal @ Spineshatter",
       "profiles": [
         "https://github.com/NockHUD"
+      ]
+    },
+    "noobygains": {
+      "name": "NoobyGains",
+      "profiles": [
+        "https://github.com/NoobyGains"
       ]
     },
     "noshei": {
@@ -3284,6 +3296,12 @@
         "https://github.com/quinn-dougherty"
       ]
     },
+    "r41z0r": {
+      "name": "R41z0r",
+      "profiles": [
+        "https://github.com/R41z0r"
+      ]
+    },
     "rabblecode": {
       "name": "Rabble",
       "profiles": [
@@ -3324,6 +3342,12 @@
       "name": "Rasalas",
       "profiles": [
         "https://github.com/Rasalas"
+      ]
+    },
+    "rav-yoli": {
+      "name": "Rav Yoli",
+      "profiles": [
+        "https://github.com/rav-yoli"
       ]
     },
     "rawcard": {
@@ -3663,7 +3687,7 @@
       ]
     },
     "shyce": {
-      "name": "Shyce Cream",
+      "name": "shyce",
       "profiles": [
         "https://github.com/shyce"
       ]
@@ -4083,7 +4107,7 @@
       ]
     },
     "tgaarden": {
-      "name": "Gaar",
+      "name": "Tgaarden",
       "profiles": [
         "https://github.com/Tgaarden"
       ]
@@ -5360,6 +5384,76 @@
       }
     },
     {
+      "id": "addonlocale",
+      "name": "AddonLocale",
+      "summary": "Provides an opt-in override for the client locale that can be used by supporting addons.",
+      "summaries": {
+        "ruRU": "Предоставляет возможность переопределения клиентской локализации, которую можно использовать с помощью дополнительных…"
+      },
+      "author": "meorawr",
+      "added": "2026-11-26",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Meorawr/AddonLocale",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 694919
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Meorawr/AddonLocale"
+      },
+      "folders": [
+        "!!AddonLocale"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic": {
+          "interface": "50504",
+          "upToDate": true
+        },
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic_ptr": {
+          "interface": "50504",
+          "upToDate": true
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
+      }
+    },
+    {
       "id": "addonmrgl",
       "name": "Addon Manargl",
       "summary": "Addon Manargl mrglwglwlg!",
@@ -5425,6 +5519,37 @@
         "summary": "toc-notes",
         "author": "repo-owner",
         "icon": "toc-icon"
+      }
+    },
+    {
+      "id": "addonweight",
+      "name": "Addon Weight",
+      "summary": "How heavy each of your other addons is: the frame time it takes, the stutters it causes, the memory it holds and how…",
+      "author": "themizeguy",
+      "added": "2026-11-26",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "TheMizeGuy/WowForeverAddonWeight",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/TheMizeGuy/WowForeverAddonWeight"
+      },
+      "folders": [
+        "!!AddonWeight"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
       }
     },
     {
@@ -7778,6 +7903,57 @@
         "author": "repo-owner",
         "tags": "topics",
         "icon": "toc-icon"
+      }
+    },
+    {
+      "id": "auctioneer",
+      "name": "Auctioneer",
+      "summary": "Auctioneer addon suite for the World of Warcraft: Forever beta client (12.1.5 API) - based on profdumbbelldore's 12.x…",
+      "author": "noobygains",
+      "added": "2026-11-26",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "NoobyGains/Auctioneer-Forever",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/NoobyGains/Auctioneer-Forever"
+      },
+      "folders": [
+        "!Swatter",
+        "Auctioneer",
+        "Auctioneer_Stats_OverTime",
+        "Auctioneer_Util_DealFinder",
+        "Auctioneer_Util_Valuer",
+        "Enchantrix",
+        "Informant",
+        "SlideBar",
+        "Stubby"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120000",
+          "upToDate": false
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true
+        },
+        "retail_ptr": {
+          "interface": "120000",
+          "upToDate": false
+        },
+        "retail_ptr2": {
+          "interface": "120000",
+          "upToDate": false
+        }
+      },
+      "from": {
+        "name": "folder",
+        "summary": "repo-description",
+        "author": "repo-owner"
       }
     },
     {
@@ -12696,6 +12872,86 @@
       }
     },
     {
+      "id": "betterfriendlist",
+      "name": "BetterFriendlist",
+      "summary": "Complete replacement for WoW Friends frame - Custom groups, Raid management, Quick Join, and more!",
+      "author": "hayato2846",
+      "tags": [
+        "ui"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/betterfriendlist.png",
+      "added": "2026-11-26",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Hayato2846/BetterFriendlist",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1381771
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Hayato2846/BetterFriendlist"
+      },
+      "folders": [
+        "!BetterFriendlist_MenuBridge",
+        "BetterFriendlist"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic": {
+          "interface": "50504",
+          "upToDate": true
+        },
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true
+        },
+        "retail_ptr": {
+          "interface": "120107",
+          "upToDate": true
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic_ptr": {
+          "interface": "50504",
+          "upToDate": true
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true
+        }
+      },
+      "optional": [
+        "customnames",
+        "ellesmereui",
+        "friendlistcolors",
+        "totalrp3"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category",
+        "icon": "toc-icon"
+      }
+    },
+    {
       "id": "bettergroupfinder",
       "name": "BGF - Better Group Finder Forever",
       "summary": "Smart filters, group composition rating, favourites and message templates for the WoW Forever Group Finder.",
@@ -13463,8 +13719,8 @@
     },
     {
       "id": "bleakfibersbags-forever",
-      "name": "Lib: Ace3",
-      "summary": "AddOn development framework",
+      "name": "BleakfibersBags-Forever",
+      "summary": "High-performance all-in-one inventory and container management suite for World of Warcraft Forever with intelligent…",
       "author": "bleakfiber",
       "tags": [
         "bags"
@@ -13490,8 +13746,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner",
         "tags": "topics"
       }
@@ -13652,7 +13908,7 @@
     },
     {
       "id": "blinkiis-portraits",
-      "name": "CFF00A3FFB|CFF00B4FFl|CFF00C6FFi|CFF00D8FFn|CFF00EAFFk|CFF00F6FFi|CFF00F6FFi Portraits",
+      "name": "Blinkii Portraits",
       "summary": "Portraits for ElvUI, Cell, PB4, UUF, NDui and SUF.",
       "summaries": {
         "deDE": "Portraits für ElvUI, Cell, PB4, UUF, NDui und SUF.",
@@ -17701,6 +17957,69 @@
       }
     },
     {
+      "id": "colortoolsclasscolors",
+      "name": "ColorTools Class Colors",
+      "summary": "Custom Class Colors",
+      "author": "muhmiauwauwow",
+      "added": "2026-11-26",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "muhmiauwauWOW/ColorToolsClassColors",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1118525
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/muhmiauwauWOW/ColorToolsClassColors"
+      },
+      "folders": [
+        "!ColorToolsClassColors"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic": {
+          "interface": "50504",
+          "upToDate": true
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic_ptr": {
+          "interface": "50504",
+          "upToDate": true
+        },
+        "classic_era_ptr": {
+          "interface": "11509",
+          "upToDate": false
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
+      }
+    },
+    {
       "id": "combatcues",
       "name": "CombatCues",
       "summary": "Fading text on entering/leaving combat, and party death alerts with optional sound.",
@@ -20078,13 +20397,12 @@
     },
     {
       "id": "dandersframes",
-      "name": "DandersMover",
-      "summary": "Shared mover and anchor system for addons. Drag, snap, anchor and undo any registered UI element.",
+      "name": "DandersFrames",
+      "summary": "Customizable party and raid frame addon for World of Warcraft",
       "author": "danderbot",
       "tags": [
         "dungeons"
       ],
-      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/dandersframes.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -20125,11 +20443,10 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner",
-        "tags": "topics",
-        "icon": "toc-icon"
+        "tags": "topics"
       }
     },
     {
@@ -22566,8 +22883,8 @@
     },
     {
       "id": "dungeoncrawlerforever",
-      "name": "DungeonMap Probe",
-      "summary": "Dev tool. /dmprobe dumps API and asset availability to SavedVariables.",
+      "name": "DungeonCrawlerForever",
+      "summary": "Dungeon and raid maps, loot and boss abilities for WoW Forever, built into the default World Map (WoW addon, GPL-3.0).",
       "author": "perweum",
       "added": "2026-11-26",
       "sources": [
@@ -22590,8 +22907,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -23960,7 +24277,7 @@
     },
     {
       "id": "elvui-maui",
-      "name": "CFF29C0E3M|CFF5493FFa|CFF854FE3U|CFFA632E3I |CFFB8B8B8Installer",
+      "name": "MaUI Installer",
       "summary": "Installer for the MaUI ElvUI profile and its addon profiles.",
       "summaries": {
         "deDE": "Installer für das MaUI ElvUI-Profil und die passenden Addon-Profile.",
@@ -24030,7 +24347,8 @@
         }
       },
       "requires": [
-        "elvui"
+        "elvui",
+        "elvui-mmediatag"
       ],
       "optional": [
         "baganator",
@@ -24095,11 +24413,90 @@
         "elvui",
         "elvui-windtools"
       ],
+      "optional": [
+        "elvui-mmediatag"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
         "tags": "topics",
+        "icon": "toc-icon"
+      }
+    },
+    {
+      "id": "elvui-mmediatag",
+      "name": "mMediaTag & Tools",
+      "summary": "ElvUI Plugin from Blinkii | Support: mMediaTag@gmx.de",
+      "author": "mblinkii",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/elvui-mmediatag.png",
+      "added": "2026-11-26",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "mBlinkii/mMediaTag",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 289502
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/mBlinkii/mMediaTag"
+      },
+      "folders": [
+        "!mMT_MediaPack",
+        "ElvUI_mMediaTag"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic": {
+          "interface": "50504",
+          "upToDate": true
+        },
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic_ptr": {
+          "interface": "50504",
+          "upToDate": true
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true
+        }
+      },
+      "requires": [
+        "elvui"
+      ],
+      "optional": [
+        "jiberishicons"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
         "icon": "toc-icon"
       }
     },
@@ -27446,6 +27843,7 @@
         }
       },
       "optional": [
+        "addonlocale",
         "customnames",
         "libspecialization",
         "masque"
@@ -28146,8 +28544,8 @@
     },
     {
       "id": "forevermailfix",
-      "name": "Forever Goblin Mailer",
-      "summary": "Route profession materials, auction stock and gold between your own characters. Open a mailbox or type /fgm.",
+      "name": "ForeverMailFix",
+      "summary": "WoW Forever mailbox routing for profession alts, auction stock, and gold returns.",
       "author": "lml-studio",
       "added": "2026-11-26",
       "sources": [
@@ -28170,8 +28568,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -28887,44 +29285,9 @@
       }
     },
     {
-      "id": "foreverscout",
-      "name": "ForeverXP Guides",
-      "summary": "Free leveling guides for WoW Forever, built from player data. Requires RestedXP Guides.",
-      "author": "jweyant",
-      "added": "2026-11-26",
-      "sources": [
-        {
-          "type": "github",
-          "repo": "Jweyant/forever-xp",
-          "assetPattern": "(?i)\\.zip$"
-        }
-      ],
-      "links": {
-        "repository": "https://github.com/Jweyant/forever-xp"
-      },
-      "folders": [
-        "ForeverScout",
-        "ForeverScout_Data"
-      ],
-      "editions": {
-        "forever": {
-          "interface": "16001",
-          "upToDate": true
-        }
-      },
-      "requires": [
-        "rxpguides"
-      ],
-      "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
-        "author": "repo-owner"
-      }
-    },
-    {
       "id": "foreversearch",
-      "name": "BuffNag",
-      "summary": "Shows an icon, and pings, while a buff you chose is missing on you or your party. Configured from a tab in the Cooldown…",
+      "name": "ForeverSearch",
+      "summary": "Addons I wrote for WoW Forever",
       "author": "pietjan",
       "added": "2026-11-26",
       "sources": [
@@ -28947,8 +29310,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -29844,8 +30207,8 @@
     },
     {
       "id": "frostforge",
-      "name": "Jiberish's Frostforge",
-      "summary": "Optional sculpted unit-frame skins and fantasy portrait surrounds with Blinkii, mMediaTag, ElvUI and EllesmereUI…",
+      "name": "Frostforge",
+      "summary": "Jiberish's Frostforge: class, race and faction artwork for your Warcraft UI, with portrait surrounds, unit-frame…",
       "author": "jiberishxd",
       "tags": [
         "ui"
@@ -29882,14 +30245,9 @@
           "upToDate": false
         }
       },
-      "optional": [
-        "blinkiis-portraits",
-        "ellesmereui",
-        "elvui"
-      ],
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner",
         "tags": "topics"
       }
@@ -29968,8 +30326,8 @@
     },
     {
       "id": "gaarprofessionsforever",
-      "name": "Gaar [Cooldown Count]",
-      "summary": "Cooldown count text on action buttons, items and any cooldown swipe. /gaarcc for options.",
+      "name": "GaarProfessionsForever",
+      "summary": "World of Warcraft addon suite for Classic Era - bags, cast bars, nameplates, threat, meter, loot library and more…",
       "author": "tgaarden",
       "added": "2026-11-26",
       "sources": [
@@ -29992,8 +30350,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -30144,6 +30502,7 @@
       },
       "optional": [
         "auctionator",
+        "auctioneer",
         "elvui",
         "farmhud",
         "gathermate2-data",
@@ -34128,8 +34487,8 @@
     },
     {
       "id": "houseledger",
-      "name": "Unmaker",
-      "summary": "Every item you can disenchant, in one list that remembers what you keep. Clear the rest with one key.",
+      "name": "HouseLedger",
+      "summary": "Free, plain-Lua addons for World of Warcraft Forever. Not affiliated with Blizzard.",
       "author": "j1d2",
       "tags": [
         "auction-house"
@@ -34159,8 +34518,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner",
         "tags": "topics"
       }
@@ -35983,7 +36342,8 @@
       "optional": [
         "ellesmereui",
         "elvui",
-        "elvui-eltreumui"
+        "elvui-eltreumui",
+        "elvui-mmediatag"
       ],
       "from": {
         "name": "toc-title",
@@ -37047,6 +37407,43 @@
       }
     },
     {
+      "id": "keylayers-by-rav-yoli",
+      "name": "KeyLayers by Rav Yoli",
+      "summary": "Shortcut layers and linked interface frames.",
+      "author": "rav-yoli",
+      "added": "2026-11-26",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "rav-yoli/keylayers",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/rav-yoli/keylayers"
+      },
+      "folders": [
+        "KeyLayers by Rav Yoli"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true
+        }
+      },
+      "optional": [
+        "bartender4",
+        "glass",
+        "questie",
+        "sexymap"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
+      }
+    },
+    {
       "id": "keyring",
       "name": "Keyring",
       "summary": "Gather your addons' minimap buttons into a drawer behind one key. Choose which to gather and which to leave on the…",
@@ -37237,8 +37634,8 @@
     },
     {
       "id": "killedbysavages",
-      "name": "KBS Demo (dev)",
-      "summary": "Plays a scripted tour of the Killed by Savages board, for screen recording. Dev only, never packaged.",
+      "name": "KilledBySavages",
+      "summary": "Guild kill board for World of Warcraft: Forever",
       "author": "mouchoir",
       "tags": [
         "combat"
@@ -37264,8 +37661,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner",
         "tags": "topics"
       }
@@ -37633,8 +38030,8 @@
     },
     {
       "id": "kroolworldforever",
-      "name": "HelloForever",
-      "summary": "Minimal WoW Forever addon skeleton.",
+      "name": "KroolWorldForever",
+      "summary": "Krool World Forever: quality-of-life feature bundle addon for World of Warcraft: Forever (Quest Trash, Kill Value).…",
       "author": "krool",
       "added": "2026-11-26",
       "sources": [
@@ -37657,8 +38054,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -41717,6 +42114,75 @@
       }
     },
     {
+      "id": "luaworkbench",
+      "name": "LuaWorkbench",
+      "summary": "Lua editor with saved snippets, search and debugging tools.",
+      "summaries": {
+        "deDE": "Lua-Editor mit gespeicherten Snippets, Suche und Debugging-Werkzeugen.",
+        "esES": "Editor Lua con fragmentos guardados, búsqueda y herramientas de depuración.",
+        "esMX": "Editor Lua con fragmentos guardados, búsqueda y herramientas de depuración.",
+        "frFR": "Éditeur Lua avec extraits enregistrés, recherche et outils de débogage.",
+        "itIT": "Editor Lua con frammenti salvati, ricerca e strumenti di debug.",
+        "koKR": "저장된 스니펫, 검색 및 디버깅 도구를 갖춘 Lua 편집기.",
+        "ptBR": "Editor Lua com trechos salvos, pesquisa e ferramentas de depuração.",
+        "ruRU": "Редактор Lua с сохранёнными фрагментами, поиском и инструментами отладки.",
+        "zhCN": "提供代码片段保存、搜索和调试工具的 Lua 编辑器。",
+        "zhTW": "提供程式碼片段儲存、搜尋和除錯工具的 Lua 編輯器。"
+      },
+      "author": "r41z0r",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/luaworkbench.png",
+      "added": "2026-11-26",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "R41z0r/LuaWorkbench",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1736834
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/R41z0r/LuaWorkbench"
+      },
+      "folders": [
+        "!!!LuaWorkbench"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true
+        },
+        "retail_ptr": {
+          "interface": "120107",
+          "upToDate": true
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "icon": "toc-icon"
+      }
+    },
+    {
       "id": "luzennaforever",
       "name": "LuzennaForever",
       "summary": "Personal quality-of-life: movable one-bag with sort and reverse order, alt inventory tracking in item tooltips and an…",
@@ -41842,12 +42308,9 @@
     },
     {
       "id": "macquest",
-      "name": "SpeedLevel",
-      "summary": "Step-by-step 1-60 speed-leveling guide for WoW Forever (Horde and Alliance). Guide arrow, auto accept/turn-in, skips…",
+      "name": "MacQuest",
+      "summary": "Horde 1-60 speed-leveling guide addon for World of Warcraft: Forever (RestedXP-style, terrain-aware arrow, generated…",
       "author": "methodologist",
-      "tags": [
-        "quests"
-      ],
       "added": "2026-11-26",
       "sources": [
         {
@@ -41869,16 +42332,15 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
-        "author": "repo-owner",
-        "tags": "toc-category"
+        "name": "folder",
+        "summary": "repo-description",
+        "author": "repo-owner"
       }
     },
     {
       "id": "macroforge",
-      "name": "MacroForge Bridge (dev)",
-      "summary": "Dev tunnel: runs Queue.lua at login, keeps the result for the next /reload to write. Never shipped.",
+      "name": "MacroForge",
+      "summary": "A powerful WoW addon replacing the default macro editor — syntax analysis, autocomplete, condition builder, class…",
       "author": "kriffin",
       "added": "2026-11-26",
       "sources": [
@@ -41913,8 +42375,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -45547,7 +46009,8 @@
       },
       "optional": [
         "allthethings",
-        "auctionator"
+        "auctionator",
+        "auctioneer"
       ],
       "from": {
         "name": "toc-title",
@@ -48434,15 +48897,8 @@
     },
     {
       "id": "oneclickmount",
-      "name": "Lueur",
-      "summary": "Makes ore veins, herbs, quest objects and chests glow as you approach them, with a choice of light effects, and shows…",
-      "summaries": {
-        "deDE": "Lässt Erzadern, Kräuter, Questobjekte und Truhen aufleuchten, wenn du dich ihnen näherst, mit mehreren Lichteffekten…",
-        "esES": "Hace brillar los filones, las hierbas, los objetos de misión y los cofres cuando te acercas, con varios efectos de luz…",
-        "esMX": "Hace brillar los filones, las hierbas, los objetos de misión y los cofres cuando te acercas, con varios efectos de luz…",
-        "frFR": "Fait briller les filons, les plantes, les objets de quête et les coffres à ton approche, avec plusieurs effets de…",
-        "ruRU": "Подсвечивает рудные жилы, травы, квестовые объекты и сундуки при приближении к ним, с выбором световых эффектов, и…"
-      },
+      "name": "OneClickMount",
+      "summary": "World of warcraft addons",
       "author": "lurx",
       "added": "2026-11-26",
       "sources": [
@@ -48477,8 +48933,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -49689,8 +50145,8 @@
     },
     {
       "id": "partydiamond",
-      "name": "SoftTarget",
-      "summary": "Controller soft targeting: LB + party button picks an ally for the next helpful spell without changing your target.…",
+      "name": "PartyDiamond",
+      "summary": "Controller addons for WoW Forever: Party Diamond (party frames in a face-button diamond) and SoftTarget (FFXIV-style…",
       "author": "secondcircle",
       "added": "2026-11-26",
       "sources": [
@@ -49714,8 +50170,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -49758,8 +50214,8 @@
     },
     {
       "id": "passthetime",
-      "name": "BankViewer",
-      "summary": "Saves information about the bank and displays it everywhere.",
+      "name": "PassTheTime",
+      "summary": "Monorepository for all my World of Warcraft Addons.",
       "author": "derpierre65",
       "added": "2026-11-26",
       "sources": [
@@ -49817,12 +50273,9 @@
           "upToDate": true
         }
       },
-      "optional": [
-        "ellesmereui"
-      ],
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -50033,8 +50486,8 @@
     },
     {
       "id": "pawn-forever",
-      "name": "WowBridge (dev)",
-      "summary": "Development tool: runs a Lua job from Job.lua on reload and saves the result, so tests need no chat typing. See…",
+      "name": "Pawn_Forever",
+      "summary": "Pawn add-on for WoW Forever: reads the tooltip lines Pawn misses (mana per 5, zone bonuses) and adds GearQuest-based…",
       "author": "turlockmike",
       "added": "2026-11-26",
       "sources": [
@@ -50057,8 +50510,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -53241,13 +53694,8 @@
     },
     {
       "id": "questcompanion",
-      "name": "Ready2Quest",
-      "summary": "Get ready before you leave town: bags, greys to sell, food, buffs, rest, durability, quests to turn in. Expedition…",
-      "summaries": {
-        "esES": "Prepárate antes de salir de la ciudad: bolsas, grises para vender, comida, beneficios, descanso, durabilidad, misiones…",
-        "esMX": "Prepárate antes de salir de la ciudad: bolsas, grises para vender, comida, beneficios, descanso, durabilidad, misiones…",
-        "frFR": "Prépare ta sortie avant de quitter la ville : sacs, gris à vendre, vivres, buffs, repos, durabilité, quêtes à rendre.…"
-      },
+      "name": "QuestCompanion",
+      "summary": "Two free WoW Forever addons (EN/FR): Quest Companion, a creature menagerie with shinies, zone seals and trainer cards…",
       "author": "lapassetalexis",
       "added": "2026-11-26",
       "sources": [
@@ -53273,13 +53721,9 @@
           "upToDate": true
         }
       },
-      "optional": [
-        "ellesmereui",
-        "elvui"
-      ],
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -56561,6 +57005,7 @@
         }
       },
       "optional": [
+        "luaworkbench",
         "masque"
       ],
       "from": {
@@ -58850,10 +59295,9 @@
     },
     {
       "id": "shyauction",
-      "name": "ShyXP",
-      "summary": "XP an hour, time to level, quest XP ready, and your reputation /shy xp",
+      "name": "ShyAuction",
+      "summary": "A family of World of Warcraft addons for WoW Forever. Quests with a route guide, maps, bags, unit frames, nameplates…",
       "author": "shyce",
-      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/shyauction.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -58909,10 +59353,9 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
-        "author": "repo-owner",
-        "icon": "toc-icon"
+        "name": "folder",
+        "summary": "repo-description",
+        "author": "repo-owner"
       }
     },
     {
@@ -61770,19 +62213,8 @@
     },
     {
       "id": "spokencommunity-test-readables-x150",
-      "name": "Spoken",
-      "summary": "Reads the game aloud: quests, gossip, places and readables. One queue, one narrator, one minimap button, and the…",
-      "summaries": {
-        "deDE": "Liest das Spiel vor: Quests, Gespräche, Orte und Lesestoff. Eine Warteschlange, ein Erzähler, ein Minimap-Button und…",
-        "esES": "Lee el juego en voz alta: Misiones, Charlas, Lugares y Lecturas. Una cola, un narrador, un botón del minimapa y los…",
-        "esMX": "Lee el juego en voz alta: Misiones, Charlas, Lugares y Lecturas. Una cola, un narrador, un botón del minimapa y los…",
-        "frFR": "Lit le jeu à voix haute : Quêtes, Discussions, Lieux et Lectures. Une file, un narrateur, un bouton de minicarte et les…",
-        "koKR": "게임을 소리 내어 읽습니다: 퀘스트, 잡담, 장소, 읽을거리. 하나의 대기열, 하나의 내레이터, 하나의 미니맵 버튼, 그리고 모든 설정.",
-        "ptBR": "Lê o jogo em voz alta: Missões, Conversas, Lugares e Leituras. Uma fila, um narrador, um botão do minimapa e as…",
-        "ruRU": "Озвучивает игру: Задания, Разговоры, Места и Тексты. Одна очередь, один рассказчик, одна кнопка у миникарты и настройки…",
-        "zhCN": "朗读游戏内容：任务、闲聊、地点和读物。一个队列、一个旁白、一个小地图按钮，以及所有设置。",
-        "zhTW": "朗讀遊戲內容：任務、閒聊、地點和讀物。一個佇列、一個旁白、一個小地圖按鈕，以及所有設定。"
-      },
+      "name": "SpokenCommunity_test-readables-x150",
+      "summary": "Voiced quest dialogue, zone lore and in-world books for World of Warcraft Forever/Classic — addons, the site behind…",
       "author": "rusty-key",
       "tags": [
         "class"
@@ -61819,13 +62251,9 @@
           "upToDate": true
         }
       },
-      "optional": [
-        "dialogueui",
-        "ellesmereui"
-      ],
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner",
         "tags": "topics"
       }
@@ -63103,8 +63531,8 @@
     },
     {
       "id": "talentshare",
-      "name": "GuildGames",
-      "summary": "Coin flip, slot machine and survivor with guild leaderboards. For fun only: no gold changes hands.",
+      "name": "TalentShare",
+      "summary": "Talentshare for guild members and ordering system",
       "author": "rubertsmann",
       "added": "2026-11-26",
       "sources": [
@@ -63127,8 +63555,8 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
+        "name": "folder",
+        "summary": "repo-description",
         "author": "repo-owner"
       }
     },
@@ -63358,6 +63786,9 @@
           "upToDate": true
         }
       },
+      "optional": [
+        "addonlocale"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -64553,6 +64984,45 @@
       "optional": [
         "whatstraining"
       ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
+      }
+    },
+    {
+      "id": "tinytooltip-remaster",
+      "name": "TinyTooltip - Remaster",
+      "summary": "TinyTooltip - Remaster",
+      "author": "flowflowflow",
+      "added": "2026-11-26",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "flowflowflow/TinyTooltip-Remaster",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/flowflowflow/TinyTooltip-Remaster"
+      },
+      "folders": [
+        "TinyTooltip - Remaster"
+      ],
+      "editions": {
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true
+        }
+      },
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -66565,12 +67035,9 @@
     },
     {
       "id": "turkeytickleui-cooking",
-      "name": "Turkey Tickle UI: XP",
-      "summary": "A tiny movable window with your XP per hour, session average, trend line and time to level.",
+      "name": "TurkeyTickleUI_Cooking",
+      "summary": "Clean, readable nameplates for WoW Forever",
       "author": "turkeytickle",
-      "tags": [
-        "ui"
-      ],
       "added": "2026-11-26",
       "sources": [
         {
@@ -66596,10 +67063,9 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
-        "author": "repo-owner",
-        "tags": "toc-category"
+        "name": "folder",
+        "summary": "repo-description",
+        "author": "repo-owner"
       }
     },
     {
