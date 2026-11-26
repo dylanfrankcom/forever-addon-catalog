@@ -8,3 +8,4 @@ artifacts/
 .claude/settings.local.json
 Thumbs.db
 candidates.json
+checks.json
