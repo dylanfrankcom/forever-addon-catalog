@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dylanfrankcom/forever-addon-catalog/schema/override.schema.json",
+  "title": "Forever Add-on Catalog: an override",
+  "description": "overrides/<id>.json: hand corrections the generator applies to the entry with this ID. With \"repo\", they apply to that GitHub repo's generated entry and are used only while its release passes the release check. Without it, the file is a complete entry for an add-on that isn't released on GitHub (name, author, summary, sources and folders are then needed). Never read by the app.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "repo": {
+      "description": "owner/name of the GitHub repo whose generated entry this corrects.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$"
+    },
+    "name": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/name"
+    },
+    "summary": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/summary"
+    },
+    "summaries": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/summaries"
+    },
+    "author": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/author"
+    },
+    "tags": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/tags"
+    },
+    "icon": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/icon"
+    },
+    "added": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/added"
+    },
+    "sources": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/sources"
+    },
+    "links": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/links"
+    },
+    "folders": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/folders"
+    },
+    "tocPath": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/tocPath"
+    },
+    "requires": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/requires"
+    },
+    "optional": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/optional"
+    },
+    "conflicts": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/conflicts"
+    },
+    "notes": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/notes"
+    },
+    "withdrawn": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/withdrawn"
+    },
+    "overrides": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/overrides"
+    }
+  }
+}

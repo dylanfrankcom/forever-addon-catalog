@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dylanfrankcom/forever-addon-catalog/schema/authors.schema.json",
+  "title": "Forever Add-on Catalog: curated authors",
+  "description": "overrides/_authors.json: author records written by hand (names, profiles, support links), used instead of the one the generator makes from a GitHub account. Only authors an entry names reach catalog.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "authors"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "authors": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "catalog.schema.json#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "catalog.schema.json#/$defs/author"
+      }
+    }
+  }
+}

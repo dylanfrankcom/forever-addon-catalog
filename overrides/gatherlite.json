@@ -1,0 +1,30 @@
+{
+  "$schema": "../schema/override.schema.json",
+  "name": "GatherLite",
+  "summary": "Records herb, ore and treasure nodes on the map and minimap.",
+  "author": "wuild",
+  "tags": [
+    "professions",
+    "map"
+  ],
+  "added": "2026-11-20",
+  "sources": [
+    {
+      "type": "curseforge",
+      "projectId": 334918,
+      "downloadPage": "https://www.curseforge.com/wow/addons/gatherlite/files/all?gameVersionTypeId=88568"
+    }
+  ],
+  "folders": [
+    "GatherLite"
+  ],
+  "tocPath": "GatherLite/GatherLite.toc",
+  "optional": [
+    "openmap"
+  ],
+  "links": {
+    "homepage": "https://www.curseforge.com/wow/addons/gatherlite",
+    "repository": "https://github.com/Wuild/GatherLite",
+    "issues": "https://github.com/Wuild/GatherLite/issues"
+  }
+}

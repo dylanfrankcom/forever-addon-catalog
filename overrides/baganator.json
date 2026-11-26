@@ -1,0 +1,27 @@
+{
+  "$schema": "../schema/override.schema.json",
+  "name": "Baganator",
+  "summary": "Combined bags and bank with search, sorting and item levels.",
+  "author": "plusmouse",
+  "tags": [
+    "bags"
+  ],
+  "added": "2026-11-20",
+  "sources": [
+    {
+      "type": "wago",
+      "slug": "baganator"
+    },
+    {
+      "type": "curseforge",
+      "projectId": 914482
+    }
+  ],
+  "folders": [
+    "Baganator"
+  ],
+  "tocPath": "Baganator/Baganator.toc",
+  "requires": [
+    "syndicator"
+  ]
+}

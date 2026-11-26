@@ -82,6 +82,8 @@ A row has the repo, the editions whose current Interface one of its `.toc` files
 
 Dropped: forks, archived repos, repos that are gone, repos where no `.toc` lists a current Interface, and repos on the never-add list, `optout.json` (`owner/name` for one repo, `owner` for a whole account). One repo is one row, whichever editions it ships for; a renamed repo found under both names is one row.
 
+Code search misses some repos, so the repos the catalog already lists (its GitHub sources, and each override's `repo`) are read on every run as well, their `.toc` files found in the repo's root and one folder down. Forks are dropped, except one an override names: a person checked, through an issue, that it's the maintained continuation of an abandoned add-on. Every `## Interface` line of a `.toc` counts (a first line can be packager placeholders).
+
 Re-running changes only what changed: the rows are sorted and written the same way each time, the previous run's repos are read again even if search misses them, and a repo that can't be read this time keeps its previous row. The report (also the job summary) counts the repos per edition and the drops, and names any capped or failed search.
 
 ## check.cs
@@ -102,8 +104,26 @@ For each repo, read-only and with official APIs only:
 3. **The download:** its size must be what GitHub lists, its SHA-256 is recorded, and where GitHub publishes a digest the two must match. Release files come from GitHub's download host without the token.
 4. **The inspection,** the same checks the app makes when it installs: no entry outside the add-on's folder, no programs (`.exe`, `.dll`, scripts and the like), at least one folder, and for each edition the `.toc` it reads (`tocSuffixes` in order, then the plain `.toc`, with load conditions for its `gameTypes`) in every folder (one only another folder lists as optional may lack it), listing its Interface. The rules are in `schema/README.md`, "How an edition reads an add-on".
 
+A `.toc` of any size is read (some add-ons keep their data in it); only its `##` lines count.
+
 Each edition gets a result: **passed**; **not-updated** (it lists an older Interface: an earlier patch, or a PTR's live edition's); or **failed**, with the reason. An edition the release isn't for gets none. `needs` lists required add-ons the file doesn't ship.
 
 A release is checked once, and again only when the checks or the editions change (`rules`). Each edition keeps its last good release (`good`) until a newer one passes or isn't updated yet, so a failing release is never listed and the one before it stays. A release or file that can't be read this run (network, API) keeps the last result and is tried again next run.
 
 `checks.json`: `checked` (when), `scope`, and `repos`, one per repo: `release`, `published`, `state` (`checked`, `held`, `pre-release`, `no-release` or `error`, with a `reason`), `checkedAt`, `rules`, `results` and `good` by edition (`file`, `url`, `size`, `sha256`, `interface`, `folders`, `main`, `needs`; `good` adds `release`, `published`, `upToDate` and `checkedAt`).
+
+## generate.cs
+Writes `catalog.json` and `icons/` from `checks.json`, `candidates.json`, `overrides/` and `optout.json`. How each field is chosen is in `schema/README.md`, "Where the catalog comes from" and "An entry". Run it after `check.cs`, then validate:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/generate.cs                     # catalog.json and icons/
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/generate.cs -- --no-icons        # keep icons/ as it is
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/generate.cs -- --self-test
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/validate.cs
+```
+
+**Scope:** the first generated catalog lists Forever add-ons only. The scope is one setting (`Settings.Scope`); every edition's results are already in `checks.json`.
+
+**Icons:** the main `.toc`'s IconTexture, only when it points into the add-on's own folders (never game art). It's read from the checked release file (TGA, BLP or PNG), converted to PNG and kept as `icons/<id>.png`; `icons/icons.json` remembers which release each came from, so an icon is read again only when the release changes. An icon that can't be read is left out.
+
+**Re-running changes only what changed:** IDs and `added` dates come from the previous `catalog.json`, entries and fields are written in a fixed order, and the version is bumped only when something changed. The report lists what was dropped and why, entries with no summary, and icons that couldn't be read.

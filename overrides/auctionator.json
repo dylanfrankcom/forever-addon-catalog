@@ -1,0 +1,24 @@
+{
+  "$schema": "../schema/override.schema.json",
+  "name": "Auctionator",
+  "summary": "Faster auction house searching, shopping lists and price history.",
+  "author": "plusmouse",
+  "tags": [
+    "auction-house"
+  ],
+  "added": "2026-11-20",
+  "sources": [
+    {
+      "type": "wago",
+      "slug": "auctionator"
+    },
+    {
+      "type": "curseforge",
+      "projectId": 6124
+    }
+  ],
+  "folders": [
+    "Auctionator"
+  ],
+  "tocPath": "Auctionator/Auctionator.toc"
+}

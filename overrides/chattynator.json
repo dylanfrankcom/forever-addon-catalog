@@ -1,0 +1,27 @@
+{
+  "$schema": "../schema/override.schema.json",
+  "name": "Chattynator",
+  "summary": "A replacement chat window with tabs, search and a message log.",
+  "author": "plusmouse",
+  "tags": [
+    "chat"
+  ],
+  "added": "2026-11-20",
+  "sources": [
+    {
+      "type": "wago",
+      "slug": "chattynator"
+    },
+    {
+      "type": "curseforge",
+      "projectId": 1273281
+    }
+  ],
+  "folders": [
+    "Chattynator"
+  ],
+  "tocPath": "Chattynator/Chattynator.toc",
+  "conflicts": [
+    "wim"
+  ]
+}

@@ -1,9 +1,32 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "version": "1.0.0",
-  "forever": {
-    "gameVersion": "1.60.1",
-    "interface": "16001"
+  "editions": {
+    "forever": {
+      "name": "WoW: Forever",
+      "shortName": "Forever",
+      "product": "wowf",
+      "folder": "_forever_",
+      "gameVersion": "1.60.1",
+      "interface": "16001",
+      "interfaceSince": "2026-10-13",
+      "tocSuffixes": [
+        "_Forever",
+        "-Forever",
+        "_Camelot",
+        "-Camelot"
+      ],
+      "gameTypes": [
+        "camelot"
+      ],
+      "packagerFlavors": [
+        "camelot",
+        "forever"
+      ],
+      "fileWords": [
+        "forever"
+      ]
+    }
   },
   "authors": {
     "plusmouse": {
@@ -32,6 +55,11 @@
           "projectId": 988370
         }
       ],
+      "links": {
+        "homepage": "https://addons.wago.io/addons/syndicator",
+        "repository": "https://gitlab.com/group/subgroup/syndicator",
+        "issues": "https://gitlab.com/group/subgroup/syndicator/-/issues"
+      },
       "folders": [
         "Syndicator"
       ],
@@ -39,17 +67,12 @@
       "tags": [
         "inventory"
       ],
-      "homepage": "https://addons.wago.io/addons/syndicator",
-      "repository": "https://gitlab.com/group/subgroup/syndicator",
-      "issues": "https://gitlab.com/group/subgroup/syndicator/-/issues",
       "icon": "https://example.com/icon.png"
     },
     {
       "id": "baganator",
       "name": "Baganator",
       "author": "test",
-      "repository": "https://github.com/plusmouse/Baganator",
-      "issues": "https://github.com/plusmouse/Baganator/issues",
       "summary": "Test entry.",
       "sources": [
         {
@@ -59,6 +82,10 @@
           "excludePattern": "retail"
         }
       ],
+      "links": {
+        "repository": "https://github.com/plusmouse/Baganator",
+        "issues": "https://github.com/plusmouse/Baganator/issues"
+      },
       "folders": [
         "Baganator"
       ],

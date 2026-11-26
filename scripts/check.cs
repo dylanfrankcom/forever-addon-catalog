@@ -207,7 +207,8 @@ sealed partial class Package
     /// <summary>The most an add-on zip may expand to, and its most entries: the app's limits.</summary>
     public const long MaxUncompressedBytes = 4L << 30;
     public const int MaxEntries = 200_000;
-    const int MaxTocBytes = 1 << 20;
+    /// <summary>The most of a .toc's ## lines kept. The file itself can be any size: some add-ons put their data in it.</summary>
+    const int MaxTocFieldChars = 1 << 20;
 
     static readonly HashSet<string> BlockedExtensions = new(StringComparer.OrdinalIgnoreCase)
     {
@@ -251,11 +252,11 @@ sealed partial class Package
             {
                 programs.Add(name);
             }
-            if (parts.Length == 2 && parts[1].EndsWith(".toc", StringComparison.OrdinalIgnoreCase) && entry.Length <= MaxTocBytes)
+            if (parts.Length == 2 && parts[1].EndsWith(".toc", StringComparison.OrdinalIgnoreCase))
             {
                 using var reader = new StreamReader(entry.Open(), Encoding.UTF8);
                 var tocs = package.Tocs.TryGetValue(parts[0], out var t) ? t : package.Tocs[parts[0]] = new(StringComparer.OrdinalIgnoreCase);
-                tocs[parts[1]] = reader.ReadToEnd();
+                tocs[parts[1]] = FieldLines(reader);
             }
         }
         if (unsafeEntries.Count > 0)
@@ -275,6 +276,20 @@ sealed partial class Package
             package.Blockers.Add("no add-on folder");
         }
         return package;
+    }
+
+    /// <summary>A .toc's ## lines, read line by line: the rest (file lists, or data some add-ons keep there) is skipped.</summary>
+    public static string FieldLines(TextReader reader)
+    {
+        var text = new StringBuilder();
+        while (reader.ReadLine() is { } line)
+        {
+            if (line.TrimStart('\uFEFF').StartsWith("##", StringComparison.Ordinal) && text.Length + line.Length < MaxTocFieldChars)
+            {
+                text.Append(line).Append('\n');
+            }
+        }
+        return text.ToString();
     }
 
     [GeneratedRegex(@"(^|/)\.\.(/|$)")]
@@ -364,7 +379,7 @@ sealed record Download(byte[]? Bytes, string? Problem);
 static partial class Checker
 {
     /// <summary>Raised when the checks themselves change, so every release is checked again.</summary>
-    const string Version = "1";
+    const string Version = "2";
 
     /// <summary>The largest release file downloaded.</summary>
     public const long MaxFileBytes = 512L << 20;
@@ -957,6 +972,8 @@ static class SelfTest
         await Blocked("no .toc for the edition", Zip(("Thing/Thing_Mainline.toc", "## Interface: 120105\n")), "no .toc for this edition");
         await Blocked("Interface not listed", Zip(("Thing/Thing.toc", "## Interface: 11509\n")), "not 16001");
         await Blocked("another edition's Interface", Zip(("Thing/Thing.toc", "## Interface: 11500\n")), "not 16001");
+        Check("toc: only ## lines are kept, from a .toc of any size", Package.FieldLines(new StringReader("## Interface: 16001\r\nfile.lua\n" + new string('x', 3 << 20) + "\n## Title: Big\n"))
+            == "## Interface: 16001\n## Title: Big\n");
         await Blocked("folder without a .toc", Zip(("Thing/Thing.toc", "## Interface: 16001\n"), ("Extra/x.lua", "x")), "Extra: no .toc file");
         await Blocked("not a zip", Encoding.UTF8.GetBytes("not a zip"), "not a readable zip");
         var noZip = await Run(Candidate("forever"), Release("v3", Old), passed);

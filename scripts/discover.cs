@@ -9,7 +9,8 @@
 //   ... dotnet run scripts/discover.cs -- --edition forever          # one edition (repeatable), for a quicker run
 //   ... dotnet run scripts/discover.cs -- --no-search                # only re-read the repos already in candidates.json
 //   ... dotnet run scripts/discover.cs -- --self-test                # offline tests
-// Options: --catalog <file> (default ./catalog.json), --optout <file> (default ./optout.json), --out <file> (default
+// Options: --catalog <file> (default ./catalog.json), --optout <file> (default ./optout.json), --overrides <folder>
+// (default ./overrides), --out <file> (default
 // ./candidates.json, also read as the previous run), --summary <file> (also append the report there, as the workflow does
 // with $GITHUB_STEP_SUMMARY).
 //
@@ -18,6 +19,11 @@
 //    1,000-result cap. Code search allows 10 requests a minute, so requests are spaced 7 seconds apart.
 // 2. GraphQL, 10 repos a query: last push, archived or fork, description and topics, the latest release and its files,
 //    the newest tags, .pkgmeta, and the .toc files themselves (read again at HEAD, so a stale search index doesn't count).
+// 3. README.md's first sentence, only for repos whose main .toc has no Notes and that have no description: the
+//    generator's last fallback for a summary. (Reading every README makes the queries heavy enough to time out.)
+// Repos the catalog already lists (its GitHub sources, and the "repo" of each file in overrides/) are read every run too:
+// code search misses some repos. Their .toc files are found from the repo's tree (the root and one folder down). Forks
+// are dropped, except one an override names: a person checked it's the maintained continuation of an add-on.
 // Repos from the previous run are read again even when search misses them, and a repo whose read fails keeps its
 // previous row, so a re-run changes only what changed. Repos on the never-add list (optout.json) are skipped.
 // Exit code 0 when candidates.json was written, 1 when an input can't be read, 2 for bad arguments or no token.
@@ -28,13 +34,14 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Text.RegularExpressions;
 
 if (args is ["--self-test"])
 {
     return await SelfTest.Run();
 }
 
-string catalogArg = "catalog.json", optoutArg = "optout.json", outArg = "candidates.json";
+string catalogArg = "catalog.json", optoutArg = "optout.json", outArg = "candidates.json", overridesArg = "overrides";
 string? summaryArg = null;
 var search = true;
 var onlyEditions = new List<string>();
@@ -44,6 +51,7 @@ for (var i = 0; i < args.Length; i++)
     switch (args[i])
     {
         case "--catalog" when value is not null: catalogArg = value; i++; break;
+        case "--overrides" when value is not null: overridesArg = value; i++; break;
         case "--optout" when value is not null: optoutArg = value; i++; break;
         case "--out" when value is not null: outArg = value; i++; break;
         case "--summary" when value is not null: summaryArg = value; i++; break;
@@ -65,9 +73,15 @@ if (string.IsNullOrWhiteSpace(token))
 SortedDictionary<string, string> editions;
 OptOut optout;
 Dictionary<string, JsonObject> previous;
+List<string> seeds, forks;
 try
 {
-    editions = Inputs.Editions(JsonNode.Parse(File.ReadAllText(catalogArg))!);
+    var catalogNode = JsonNode.Parse(File.ReadAllText(catalogArg))!;
+    editions = Inputs.Editions(catalogNode);
+    var overrideNodes = Directory.Exists(overridesArg)
+        ? Directory.GetFiles(overridesArg, "*.json").Order(StringComparer.Ordinal).Select(f => JsonNode.Parse(File.ReadAllText(f))).ToList() : [];
+    seeds = Inputs.Seeds(catalogNode, overrideNodes);
+    forks = Inputs.Seeds(JsonNode.Parse("{}")!, overrideNodes);
     optout = File.Exists(optoutArg) ? OptOut.Parse(File.ReadAllText(optoutArg)) : new([]);
     previous = File.Exists(outArg) ? Candidates.Read(File.ReadAllText(outArg)) : new(StringComparer.OrdinalIgnoreCase);
 }
@@ -102,6 +116,15 @@ foreach (var (repo, row) in previous)
         paths.Add(toc!["path"]!.GetValue<string>());
     }
 }
+var unseen = seeds.Where(s => !found.ContainsKey(s)).ToList();
+if (unseen.Count > 0)
+{
+    Console.Error.WriteLine($"Listing the .toc files of {unseen.Count} known repos search missed ...");
+    foreach (var (repo, paths) in await github.ListTocsAsync(unseen))
+    {
+        found[repo] = new(paths, StringComparer.Ordinal);
+    }
+}
 foreach (var repo in found.Keys.Where(optout.Covers).ToList())
 {
     found.Remove(repo);
@@ -110,7 +133,8 @@ foreach (var repo in found.Keys.Where(optout.Covers).ToList())
 
 Console.Error.WriteLine($"Reading {found.Count} repos ...");
 var reads = await github.ReadReposAsync(found, log);
-var rows = Candidates.Build(found.Keys, reads, previous, editions, optout, log);
+var rows = Candidates.Build(found.Keys, reads, previous, editions, optout, log, forks);
+await github.ReadReadmesAsync(rows, previous);
 File.WriteAllText(outArg, Candidates.Write(editions, rows));
 
 var report = log.Report(rows, editions, search);
@@ -174,6 +198,15 @@ sealed class RunLog
 
 static class Inputs
 {
+    /// <summary>The GitHub repos the catalog already knows: its GitHub sources and the overrides' "repo", once each.</summary>
+    public static List<string> Seeds(JsonNode catalog, IEnumerable<JsonNode?> overrides) =>
+        (catalog["addons"]?.AsArray() ?? [])
+            .SelectMany(a => a?["sources"]?.AsArray() ?? [])
+            .Where(s => s?["type"]?.GetValue<string>() == "github")
+            .Select(s => s!["repo"]?.GetValue<string>())
+            .Concat(overrides.Select(o => o?["repo"]?.GetValue<string>()))
+            .OfType<string>().Where(r => r.Contains('/')).Distinct(StringComparer.OrdinalIgnoreCase).Order(StringComparer.OrdinalIgnoreCase).ToList();
+
     /// <summary>Each live edition's ID and current Interface, from catalog.json's <c>editions</c>. Test clients (with <c>of</c>) come later.</summary>
     public static SortedDictionary<string, string> Editions(JsonNode catalog)
     {
@@ -220,7 +253,10 @@ sealed record OptOut(IReadOnlyList<string> Entries)
 
 static class Toc
 {
-    /// <summary>The <c>## Key: Value</c> lines of a .toc; the first of a key wins, keys ignore case.</summary>
+    /// <summary>
+    /// The <c>## Key: Value</c> lines of a .toc; the first of a key wins, keys ignore case. Interface is the exception: the
+    /// values of every Interface line are kept, joined with commas (a first line can be packager placeholders).
+    /// </summary>
     public static Dictionary<string, string> Parse(string text)
     {
         var fields = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
@@ -237,9 +273,14 @@ static class Toc
                 continue;
             }
             var key = line[2..colon].Trim();
-            if (key.Length > 0)
+            var value = line[(colon + 1)..].Trim();
+            if (key.Equals("Interface", StringComparison.OrdinalIgnoreCase) && fields.TryGetValue(key, out var before))
             {
-                fields.TryAdd(key, line[(colon + 1)..].Trim());
+                fields[key] = before + "," + value;
+            }
+            else if (key.Length > 0)
+            {
+                fields.TryAdd(key, value);
             }
         }
         return fields;
@@ -249,7 +290,9 @@ static class Toc
         (value ?? "").Split(',').Select(s => s.Trim()).Where(s => s.Length > 0).Distinct(StringComparer.OrdinalIgnoreCase).ToList();
 
     public static List<string> Interfaces(IReadOnlyDictionary<string, string> fields) =>
-        fields.TryGetValue("Interface", out var v) ? List(v) : [];
+        fields.TryGetValue("Interface", out var v)
+            ? v.Split([',', ' ', '\t'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Where(s => s.All(char.IsAsciiDigit)).Distinct().ToList()
+            : [];
 
     /// <summary>Required dependencies: <c>Dependencies</c>, <c>RequiredDeps</c> and any <c>Dep…</c> key.</summary>
     public static List<string> Dependencies(IReadOnlyDictionary<string, string> fields) =>
@@ -365,9 +408,10 @@ static class Candidates
     /// gone; a repo missing from it couldn't be read, and keeps its previous row.
     /// </summary>
     public static List<JsonObject> Build(IEnumerable<string> repos, IReadOnlyDictionary<string, JsonNode?> reads, IReadOnlyDictionary<string, JsonObject> previous,
-        IReadOnlyDictionary<string, string> editions, OptOut optout, RunLog log)
+        IReadOnlyDictionary<string, string> editions, OptOut optout, RunLog log, IEnumerable<string>? known = null)
     {
         var rows = new Dictionary<string, JsonObject>(StringComparer.OrdinalIgnoreCase);
+        var knownRepos = new HashSet<string>(known ?? [], StringComparer.OrdinalIgnoreCase);
         foreach (var repo in repos)
         {
             if (!reads.TryGetValue(repo, out var node))
@@ -379,7 +423,7 @@ static class Candidates
                 }
                 continue;
             }
-            var (row, reason) = Row(repo, node, editions);
+            var (row, reason) = Row(repo, node, editions, knownRepos.Contains(repo));
             if (row is null)
             {
                 log.Drop(repo, reason!);
@@ -413,14 +457,17 @@ static class Candidates
         return merged;
     }
 
-    /// <summary>One repo's row from its GraphQL node, or why it's dropped.</summary>
-    public static (JsonObject? Row, string? Reason) Row(string repo, JsonNode? node, IReadOnlyDictionary<string, string> editions)
+    /// <summary>
+    /// One repo's row from its GraphQL node, or why it's dropped. A fork is dropped unless an override names it
+    /// (<paramref name="known"/>): one is added only after a person checks it's the maintained continuation of an add-on.
+    /// </summary>
+    public static (JsonObject? Row, string? Reason) Row(string repo, JsonNode? node, IReadOnlyDictionary<string, string> editions, bool known = false)
     {
         if (node is null)
         {
             return (null, "gone or private");
         }
-        if (node["isFork"]?.GetValue<bool>() == true)
+        if (node["isFork"]?.GetValue<bool>() == true && !known)
         {
             return (null, "a fork");
         }
@@ -468,6 +515,7 @@ static class Candidates
             ["defaultBranch"] = node["defaultBranchRef"]?["name"]?.GetValue<string>(),
             ["pushedAt"] = node["pushedAt"]?.GetValue<string>(),
             ["pkgmeta"] = node["pkgmeta"] is not null,
+            ["readme"] = null, // filled in afterwards, only for repos with no other summary
             ["toc"] = new JsonObject
             {
                 ["path"] = current[0].Path,
@@ -626,6 +674,60 @@ sealed class GitHub : IDisposable
         return reads;
     }
 
+    /// <summary>The .toc files in each repo's root and one folder down, 10 repos a query. A repo that can't be read is left out.</summary>
+    public async Task<Dictionary<string, List<string>>> ListTocsAsync(IReadOnlyList<string> repos)
+    {
+        var result = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
+        for (var start = 0; start < repos.Count; start += BatchSize)
+        {
+            var chunk = repos.Skip(start).Take(BatchSize).ToList();
+            var json = await SendAsync(() => new HttpRequestMessage(HttpMethod.Post, "graphql")
+            {
+                Content = new StringContent(new JsonObject { ["query"] = GraphQl.TreeQuery(chunk) }.ToJsonString(), Encoding.UTF8, "application/json"),
+            }, $"tree {chunk[0]} ...");
+            for (var i = 0; i < chunk.Count; i++)
+            {
+                if (json?["data"]?[$"r{i}"] is { } node && GraphQl.TocPaths(node) is { Count: > 0 } paths)
+                {
+                    result[chunk[i]] = paths;
+                }
+            }
+        }
+        return result;
+    }
+
+    /// <summary>
+    /// README.md's first sentence for the rows with no other summary (no .toc Notes, no description), 10 repos a query.
+    /// A README that can't be read this time keeps the previous run's sentence.
+    /// </summary>
+    public async Task ReadReadmesAsync(List<JsonObject> rows, IReadOnlyDictionary<string, JsonObject> previous)
+    {
+        var wanted = rows.Where(r => r["toc"]?["notes"] is null && r["description"] is null).ToList();
+        for (var start = 0; start < wanted.Count; start += BatchSize)
+        {
+            var chunk = wanted.Skip(start).Take(BatchSize).ToList();
+            var q = new StringBuilder("query {\n");
+            for (var i = 0; i < chunk.Count; i++)
+            {
+                var repo = chunk[i]["repo"]!.GetValue<string>();
+                var slash = repo.IndexOf('/');
+                q.Append($"r{i}: repository(owner: {JsonSerializer.Serialize(repo[..slash])}, name: {JsonSerializer.Serialize(repo[(slash + 1)..])}) {{ readme: object(expression: \"HEAD:README.md\") {{ ... on Blob {{ text }} }} }}\n");
+            }
+            var query = q.Append('}').ToString();
+            var json = await SendAsync(() => new HttpRequestMessage(HttpMethod.Post, "graphql")
+            {
+                Content = new StringContent(new JsonObject { ["query"] = query }.ToJsonString(), Encoding.UTF8, "application/json"),
+            }, $"readme {chunk[0]["repo"]} ...");
+            for (var i = 0; i < chunk.Count; i++)
+            {
+                var repo = chunk[i]["repo"]!.GetValue<string>();
+                chunk[i]["readme"] = json?["data"]?[$"r{i}"] is { } node
+                    ? Readme.FirstSentence(node["readme"]?["text"]?.GetValue<string>())
+                    : previous.GetValueOrDefault(repo)?["readme"]?.GetValue<string>();
+            }
+        }
+    }
+
     public void Dispose() => http.Dispose();
 }
 
@@ -643,6 +745,26 @@ static class GraphQl
         """;
 
     static string Literal(string s) => JsonSerializer.Serialize(s);
+
+    /// <summary>Each repo's root tree and the trees of its folders, for finding .toc files.</summary>
+    public static string TreeQuery(IReadOnlyList<string> repos)
+    {
+        var q = new StringBuilder("query {\n");
+        for (var i = 0; i < repos.Count; i++)
+        {
+            var slash = repos[i].IndexOf('/');
+            q.Append($"r{i}: repository(owner: {Literal(repos[i][..slash])}, name: {Literal(repos[i][(slash + 1)..])}) {{ root: object(expression: \"HEAD:\") {{ ... on Tree {{ entries {{ path type object {{ ... on Tree {{ entries {{ path type }} }} }} }} }} }} }}\n");
+        }
+        return q.Append('}').ToString();
+    }
+
+    /// <summary>The .toc paths in a <see cref="TreeQuery"/> result for one repo.</summary>
+    public static List<string> TocPaths(JsonNode repo) =>
+        (repo["root"]?["entries"]?.AsArray() ?? [])
+            .SelectMany(e => e?["type"]?.GetValue<string>() == "tree"
+                ? (e["object"]?["entries"]?.AsArray() ?? []).Select(f => f?["type"]?.GetValue<string>() == "blob" ? f["path"]?.GetValue<string>() : null)
+                : [e?["type"]?.GetValue<string>() == "blob" ? e["path"]?.GetValue<string>() : null])
+            .OfType<string>().Where(path => path.EndsWith(".toc", StringComparison.OrdinalIgnoreCase)).Order(StringComparer.Ordinal).ToList();
 
     public static string Query(IReadOnlyList<string> repos, IReadOnlyList<List<string>> paths)
     {
@@ -696,6 +818,61 @@ static class GraphQl
     }
 }
 
+/// <summary>A README's first sentence of plain text: the generator's last fallback for an add-on's summary.</summary>
+static partial class Readme
+{
+    public static string? FirstSentence(string? markdown)
+    {
+        if (string.IsNullOrWhiteSpace(markdown))
+        {
+            return null;
+        }
+        var inCode = false;
+        var paragraph = new List<string>();
+        foreach (var raw in markdown.Replace("\r", "").Split('\n'))
+        {
+            var line = raw.Trim();
+            if (line.StartsWith("```", StringComparison.Ordinal))
+            {
+                inCode = !inCode;
+                continue;
+            }
+            // Headings, quotes, tables, lists, rules, images and badges, and HTML end a paragraph without being one.
+            var skip = inCode || line.Length == 0 || line[0] is '#' or '>' or '|' or '-' or '*' or '<' or '!' or '=' || Image().IsMatch(line);
+            if (skip)
+            {
+                if (paragraph.Count > 0)
+                {
+                    break;
+                }
+                continue;
+            }
+            paragraph.Add(line);
+        }
+        var text = Link().Replace(string.Join(" ", paragraph), "$1");
+        text = Emphasis().Replace(text, "").Trim();
+        if (!text.Any(char.IsLetter))
+        {
+            return null;
+        }
+        var end = SentenceEnd().Match(text);
+        var sentence = end.Success ? text[..(end.Index + 1)] : text;
+        return sentence.Length > 300 ? sentence[..300].TrimEnd() : sentence;
+    }
+
+    [GeneratedRegex(@"!\[[^\]]*\]\([^)]*\)")]
+    private static partial Regex Image();
+
+    [GeneratedRegex(@"\[([^\]]*)\]\([^)]*\)")]
+    private static partial Regex Link();
+
+    [GeneratedRegex(@"[*_`]+")]
+    private static partial Regex Emphasis();
+
+    [GeneratedRegex(@"[.!?](\s|$)")]
+    private static partial Regex SentenceEnd();
+}
+
 static class SelfTest
 {
     static int failures;
@@ -739,6 +916,8 @@ static class SelfTest
         Check("toc: first key wins, ignoring case", toc["Title"] == "Thing");
         Check("toc: dependencies from every key, once", Toc.Dependencies(toc).SequenceEqual(["Ace3", "LibStub", "Other"]));
         Check("toc: no interface", Toc.Interfaces(Toc.Parse("## Title: X")).Count == 0);
+        Check("toc: every Interface line, placeholders skipped", Toc.Interfaces(Toc.Parse("## Interface: @toc-version-retail@, @toc-version-classic@\n## Interface: 120000, 16001\n## Interface: 16001 11509"))
+            .SequenceEqual(["120000", "16001", "11509"]));
         var order = new[] { "a/b/Thing.toc", "Thing_Mainline.toc", "Thing.toc", "Libs/Lib.toc" }.Order(Comparer<string>.Create(Toc.Compare)).ToList();
         Check("toc: shallowest, then shortest", order.SequenceEqual(["Thing.toc", "Thing_Mainline.toc", "Libs/Lib.toc", "a/b/Thing.toc"]));
 
@@ -772,12 +951,15 @@ static class SelfTest
         Check("row: release and digest", row["latestRelease"]!["tag"]!.GetValue<string>() == "v2"
             && row["latestRelease"]!["assets"]![0]!["digest"]!.GetValue<string>() == "sha256:00ff" && row["latestRelease"]!["assets"]![0]!["size"]!.GetValue<long>() == 1234);
         Check("row: tags, lightweight and annotated", row["tags"]![0]!["date"]!.GetValue<string>() == "2026-11-19T09:00:00Z" && row["tags"]![1]!["date"]!.GetValue<string>() == "2026-10-01T09:00:00Z");
+        Check("readme: first sentence", Readme.FirstSentence("# Thing\n[![badge](x)](y)\n\n<img src=x>\nThing **tracks** your [quests](https://x). It also maps.\nMore.\n") == "Thing tracks your quests.");
+        Check("readme: none", Readme.FirstSentence("# Title\n\n![shot](a.png)\n```\ncode.\n```\n") is null && Readme.FirstSentence(null) is null);
         Check("row: repo, topics, .pkgmeta", row["repo"]!.GetValue<string>() == "A/B" && row["topics"]!.AsArray().Select(t => t!.GetValue<string>()).SequenceEqual(["addon", "wow"]) && row["pkgmeta"]!.GetValue<bool>());
 
         Check("drop: gone", Candidates.Row("a/b", null, Editions).Reason == "gone or private");
         var fork = Repo("a/b", ("X.toc", "## Interface: 16001"));
         fork["isFork"] = true;
         Check("drop: fork", Candidates.Row("a/b", fork, Editions).Reason == "a fork");
+        Check("keep: a fork an override names", Candidates.Row("a/b", fork, Editions, known: true).Row is not null);
         var archived = Repo("a/b", ("X.toc", "## Interface: 16001"));
         archived["isArchived"] = true;
         Check("drop: archived", Candidates.Row("a/b", archived, Editions).Reason == "archived");
@@ -825,6 +1007,17 @@ static class SelfTest
         Check("graphql: .toc texts gathered", results[0].Node!["tocFiles"]!.AsArray().Count == 2 && results[0].Node!["tocFiles"]![1]!["text"] is null);
         Check("graphql: NOT_FOUND is gone, other errors unread", results.Count == 2 && results[1] is ("gone/x", null));
         Check("graphql: no data, nothing read", !GraphQl.Results(["a/b"], [[]], null).Any());
+        Check("graphql: tree query", GraphQl.TreeQuery(["a/b"]).Contains("r0: repository(owner: \"a\", name: \"b\") { root: object(expression: \"HEAD:\")"));
+        var tree = JsonNode.Parse("""
+            { "root": { "entries": [
+              { "path": "Thing.toc", "type": "blob" }, { "path": "README.md", "type": "blob" }, { "path": "Odd.toc", "type": "tree", "object": { "entries": [] } },
+              { "path": "Sub", "type": "tree", "object": { "entries": [ { "path": "Sub/Sub_Forever.toc", "type": "blob" }, { "path": "Sub/x.lua", "type": "blob" } ] } } ] } }
+            """)!;
+        Check("graphql: .toc paths from the root and one folder down", GraphQl.TocPaths(tree).SequenceEqual(["Sub/Sub_Forever.toc", "Thing.toc"]));
+        var seeds = Inputs.Seeds(JsonNode.Parse("""
+            { "addons": [ { "sources": [ { "type": "github", "repo": "A/b" }, { "type": "curseforge", "projectId": 1 } ] }, { "sources": [ { "type": "github", "repo": "c/d" } ] } ] }
+            """)!, [JsonNode.Parse("""{ "repo": "a/B" }"""), JsonNode.Parse("""{ "name": "No repo" }"""), JsonNode.Parse("""{ "repo": "e/f" }""")]);
+        Check("inputs: seeds from GitHub sources and overrides, once each", seeds.SequenceEqual(["A/b", "c/d", "e/f"]));
 
         // Search: halves the size range until each part is under the cap, and reads every page.
         var files = Enumerable.Range(0, 3500).Select(i => (Repo: $"o/r{i % 1700}", Path: $"f{i}.toc", Size: (long)(i % 50) * 37 + 100)).ToList();
