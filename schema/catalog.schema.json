@@ -55,9 +55,9 @@
       "uniqueItems": true
     },
     "folder": {
-      "description": "A top-level AddOns folder. No paths and no leading dot.",
+      "description": "A top-level AddOns folder. Letters, digits, _ . - and !, and spaces inside: a leading ! makes the game load it first (!BugGrabber). No paths, no leading dot, and no trailing space or dot (Windows drops those).",
       "type": "string",
-      "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]*$",
+      "pattern": "^[A-Za-z0-9_!]([A-Za-z0-9_.! -]*[A-Za-z0-9_!-])?$",
       "maxLength": 128
     },
     "folderList": {
