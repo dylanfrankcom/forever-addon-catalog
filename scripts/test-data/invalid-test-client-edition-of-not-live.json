@@ -35,7 +35,6 @@
     },
     "retail_ptr": {
       "of": "classic_era_ptr",
-      "kind": "ptr",
       "name": "World of Warcraft (Retail) PTR",
       "shortName": "Retail PTR",
       "product": "wowt",

@@ -44,47 +44,23 @@
     },
     "retail_ptr": {
       "of": "retail",
-      "kind": "ptr",
-      "name": "World of Warcraft (Retail) PTR",
-      "shortName": "Retail PTR",
+      "name": "PTR (Midnight 12.1.7)",
+      "shortName": "PTR 12.1.7",
       "product": "wowt",
       "folder": "_ptr_",
       "gameVersion": "12.1.7",
       "interface": "120107",
       "interfaceSince": "2026-10-13"
     },
-    "retail_ptr2": {
-      "of": "retail",
-      "kind": "ptr2",
-      "name": "World of Warcraft (Retail) PTR 2",
-      "shortName": "Retail PTR 2",
-      "product": "wowxptr",
-      "folder": "_xptr_",
-      "gameVersion": "12.2.0",
-      "interface": "120200",
-      "interfaceSince": "2026-10-13"
-    },
     "classic_era_ptr": {
-      "of": "anniversary",
-      "kind": "ptr",
-      "name": "Burning Crusade Anniversary PTR",
-      "shortName": "TBC Anniversary PTR",
+      "of": "classic_era",
+      "name": "PTR (Classic Era)",
+      "shortName": "PTR Classic Era",
       "product": "wow_classic_era_ptr",
       "folder": "_classic_era_ptr_",
       "gameVersion": "2.5.6",
       "interface": "20506",
-      "interfaceSince": "2026-10-13"
-    },
-    "classic_beta": {
-      "of": "forever",
-      "kind": "beta",
-      "name": "WoW: Forever Beta",
-      "shortName": "Forever Beta",
-      "product": "wow_classic_beta",
-      "folder": "_classic_beta_",
-      "gameVersion": "1.60.1",
-      "interface": "16001",
-      "interfaceSince": "2026-10-13"
+      "interfaceSince": "2026-06-25"
     }
   },
   "authors": {
