@@ -35,6 +35,8 @@ jobs:
         run: dotnet run scripts/find-sources.cs -- --self-test
       - name: Self-test discover
         run: dotnet run scripts/discover.cs -- --self-test
+      - name: Self-test check
+        run: dotnet run scripts/check.cs -- --self-test
       - name: Validate catalog.json
         env:
           BASE_REF: ${{ github.base_ref }}

@@ -68,10 +68,10 @@ Finds add-ons for every edition on public GitHub repos and writes `candidates.js
 
 ```powershell
 $env:GITHUB_TOKEN = (gh auth token)
-powershell -ExecutionPolicy Bypass -File ..pp\dev.ps1 dotnet run scripts/discover.cs                        # every edition
-powershell -ExecutionPolicy Bypass -File ..pp\dev.ps1 dotnet run scripts/discover.cs -- --edition forever   # one edition
-powershell -ExecutionPolicy Bypass -File ..pp\dev.ps1 dotnet run scripts/discover.cs -- --no-search         # read the known repos again
-powershell -ExecutionPolicy Bypass -File ..pp\dev.ps1 dotnet run scripts/discover.cs -- --self-test
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs                        # every edition
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --edition forever   # one edition
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --no-search         # read the known repos again
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --self-test
 ```
 
 Official APIs only, read-only:
@@ -83,3 +83,27 @@ A row has the repo, the editions whose current Interface one of its `.toc` files
 Dropped: forks, archived repos, repos that are gone, repos where no `.toc` lists a current Interface, and repos on the never-add list, `optout.json` (`owner/name` for one repo, `owner` for a whole account). One repo is one row, whichever editions it ships for; a renamed repo found under both names is one row.
 
 Re-running changes only what changed: the rows are sorted and written the same way each time, the previous run's repos are read again even if search misses them, and a repo that can't be read this time keeps its previous row. The report (also the job summary) counts the repos per edition and the drops, and names any capped or failed search.
+
+## check.cs
+Checks the latest release of each add-on discovery found (`candidates.json`) and writes `checks.json`, which the generator lists add-ons from. It never edits `catalog.json`. The **check** workflow runs it every 6 hours (or by hand) and keeps `checks.json` on the `checker` branch, beside `candidates.json`. While the catalog repo is private, the **discover** and **check** workflows are turned off, so they use no Actions minutes: run both scripts locally, and their files stay in your checkout.
+
+```powershell
+$env:GITHUB_TOKEN = (gh auth token)
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/check.cs                          # every candidate in scope
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/check.cs -- --repo owner/name     # one repo
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/check.cs -- --self-test           # made-up releases, offline
+```
+
+**Scope** (`--scope`, default `forever`): only candidates that support that edition are checked, each for every edition its release ships for. `--scope all` checks every candidate.
+
+For each repo, read-only and with official APIs only:
+1. **GitHub's Latest release,** read with GraphQL, 25 repos a query (one REST request per repo would pass the Actions token's hourly limit). Pre-releases (GitHub's flag, or `alpha` / `beta` in the tag) are skipped. A release published less than `--hold-hours` ago (default 6) is held back, so a release pulled quickly (after an account compromise, say) never reaches players.
+2. **Each edition's file:** the only `.zip`, else the one the packager's `release.json` lists for the edition's `packagerFlavors` (never a no-lib build), else the only one whose name has one of its `fileWords`.
+3. **The download:** its size must be what GitHub lists, its SHA-256 is recorded, and where GitHub publishes a digest the two must match. Release files come from GitHub's download host without the token.
+4. **The inspection,** the same checks the app makes when it installs: no entry outside the add-on's folder, no programs (`.exe`, `.dll`, scripts and the like), at least one folder, and for each edition the `.toc` it reads (`tocSuffixes` in order, then the plain `.toc`, with load conditions for its `gameTypes`) in every folder (one only another folder lists as optional may lack it), listing its Interface. The rules are in `schema/README.md`, "How an edition reads an add-on".
+
+Each edition gets a result: **passed**; **not-updated** (it lists an older Interface: an earlier patch, or a PTR's live edition's); or **failed**, with the reason. An edition the release isn't for gets none. `needs` lists required add-ons the file doesn't ship.
+
+A release is checked once, and again only when the checks or the editions change (`rules`). Each edition keeps its last good release (`good`) until a newer one passes or isn't updated yet, so a failing release is never listed and the one before it stays. A release or file that can't be read this run (network, API) keeps the last result and is tried again next run.
+
+`checks.json`: `checked` (when), `scope`, and `repos`, one per repo: `release`, `published`, `state` (`checked`, `held`, `pre-release`, `no-release` or `error`, with a `reason`), `checkedAt`, `rules`, `results` and `good` by edition (`file`, `url`, `size`, `sha256`, `interface`, `folders`, `main`, `needs`; `good` adds `release`, `published`, `upToDate` and `checkedAt`).
