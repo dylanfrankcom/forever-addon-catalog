@@ -1,0 +1,4 @@
+{
+  "$comment": "The never-add list: repos (owner/name) or whole accounts (owner) whose add-ons are never listed. Discovery skips them.",
+  "repos": []
+}
