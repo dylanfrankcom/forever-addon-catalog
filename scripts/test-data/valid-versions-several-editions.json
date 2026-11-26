@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "checked": "2026-11-26T04:00:00Z",
+  "addons": {
+    "questie": {
+      "classic_era": {
+        "release": "v12.1.1",
+        "file": "Questie-v12.1.1.zip",
+        "url": "https://github.com/example/addon/releases/download/v12.1.1/Questie-v12.1.1.zip",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "interface": "11509",
+        "published": "2026-11-20"
+      },
+      "forever": {
+        "release": "v12.1.1",
+        "file": "Questie-v12.1.1.zip",
+        "url": "https://github.com/example/addon/releases/download/v12.1.1/Questie-v12.1.1.zip",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "interface": "16001",
+        "published": "2026-11-20"
+      }
+    }
+  }
+}

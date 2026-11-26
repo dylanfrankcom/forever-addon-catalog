@@ -6,6 +6,7 @@
 - Every entry's `author` is in `authors`, and every author is the author of at least one entry.
 - An author's `name` is one name, and their `profiles` are on GitHub, Wago or CurseForge, at most one per site.
 - No two entries claim the same folder.
+- Each edition's `interface` is its `gameVersion`'s, `forever` in `editions` matches the `forever` block, every edition an entry lists is in `editions`, and its `upToDate` is right.
 - `added` is a real day and not in the future.
 - On a PR, compared with the base branch: changed entries or authors come with a `version` bump, and new entries have `added`.
 
@@ -14,9 +15,69 @@
 |---|---|
 | `schemaVersion` | Always `3` for this format. The app refuses a catalog whose `schemaVersion` it doesn't know and keeps using the copy it has. Format 2 (catalog 2.0.0) made `sponsor` a list; format 1's was one link. Format 3 (catalog 3.0.0) gave authors a record of their own (see [Changing the format](#changing-the-format)). |
 | `version` | The catalog's own version (`1.4.0`). Bump it whenever entries change; the app uses it to say what's new. |
-| `forever` | The client the catalog was checked against: `gameVersion` (`1.60.1`) and `interface` (`16001`). Updated by hand when the client patches. |
+| `forever` | The client the catalog was checked against: `gameVersion` (`1.60.1`) and `interface` (`16001`). Updated by hand when the client patches. Kept for apps that don't read `editions` yet, and always the same as `editions.forever`. |
+| `editions` | Every edition of the game the catalog covers (see [Editions](#editions)). Added in catalog 3.1.0. |
 | `authors` | Every author an entry names, keyed by author ID (see below). |
 | `addons` | The entries. |
+
+## Editions
+`editions` is keyed by a fixed edition ID, in Battle.net's order. The app takes every edition's names and current Interface from here, so the next Classic expansion renames an edition, or moves its Interface, without an app update. Adding an edition ID is a schema change.
+
+| ID | `name` | `shortName` | `product` | `folder` |
+|---|---|---|---|---|
+| `retail` | World of Warcraft (Retail) | Retail | `wow` | `_retail_` |
+| `classic` | Mists of Pandaria Classic | MoP Classic | `wow_classic` | `_classic_` |
+| `anniversary` | Burning Crusade Anniversary | TBC Anniversary | `wow_anniversary` | `_anniversary_` |
+| `classic_era` | World of Warcraft Classic | Classic Era | `wow_classic_era` | `_classic_era_` |
+| `forever` | WoW: Forever | Forever | `wowf` | `_forever_` |
+
+| Field | What |
+|---|---|
+| `name` | Battle.net's name, with "(Retail)" added to World of Warcraft. |
+| `shortName` | For tight places: labels on rows and the edition switcher. |
+| `product` | The product code in Battle.net's `.build.info`. |
+| `folder` | The edition's folder in the `World of Warcraft` folder; its AddOns folder is `<folder>\Interface\AddOns`. |
+| `gameVersion` | The live client's version (`12.1.5`). |
+| `interface` | That version's Interface: major × 10000 + minor × 100 + patch (`12.1.5` is `120105`, `1.60.1` is `16001`). The validator checks the sum. |
+| `interfaceSince` | The day the live client moved to this Interface, `YYYY-MM-DD`. An add-on whose latest checked release still lists the previous one stays listed for 60 days from this day, marked "Not updated for 12.1.5 yet", then only under "Include out of date" until a release lists the current one. Installed copies are never affected. |
+
+Test clients (PTR, beta) aren't editions yet.
+
+An entry's `editions` says which editions it supports, keyed by edition ID, each with the `interface` its latest checked release lists for that edition and whether that's the edition's current one (`upToDate`). The catalog's generator writes it; an entry without it is a Forever add-on, as in format 3 before 3.1.0.
+
+```json
+"editions": {
+  "retail": { "interface": "120105", "upToDate": true },
+  "classic_era": { "interface": "11508", "upToDate": false }
+}
+```
+
+## Checked releases: versions.json
+`versions.schema.json` is the format of `versions.json`, which the release check writes: the latest checked release of each add-on for each edition, so the app finds updates without asking GitHub. `addons` is keyed by catalog ID, then by edition ID.
+
+| Field | What |
+|---|---|
+| `release` | The release as the source names it (a GitHub tag). |
+| `file` | The release file's name. |
+| `url` | Where it downloads from, `https://` only. |
+| `sha256` | The file's SHA-256 in lowercase hex. The app refuses a download that doesn't match. |
+| `interface` | The Interface the file's `.toc` lists for this edition. |
+| `published` | The day the release was published. |
+
+One file for several editions is listed under each of them, with the same hash and link (the validator checks). A release with one file per edition lists each edition's own file.
+
+```json
+{
+  "schemaVersion": 1,
+  "checked": "2026-11-26T04:00:00Z",
+  "addons": {
+    "questie": {
+      "classic_era": { "release": "v12.1.1", "file": "Questie-v12.1.1.zip", "url": "https://github.com/Questie/Questie/releases/download/v12.1.1/Questie-v12.1.1.zip", "sha256": "…", "interface": "11509", "published": "2026-11-20" },
+      "forever": { "release": "v12.1.1", "file": "Questie-v12.1.1.zip", "url": "https://github.com/Questie/Questie/releases/download/v12.1.1/Questie-v12.1.1.zip", "sha256": "…", "interface": "16001", "published": "2026-11-20" }
+    }
+  }
+}
+```
 
 ## An author
 `authors` is keyed by a stable author ID, with the same rules as an add-on's `id`: lowercase words joined by hyphens (`plusmouse`, `nikita-snetkov`), never changed or reused. Every author an entry names has a record, so the app can group their add-ons and give them a page, and every record is used by at least one entry.
@@ -47,6 +108,7 @@
 | `summary` | yes | One sentence, in our own words. |
 | `sources` | yes | Where to get it, in order of preference (see below). At least one. |
 | `folders` | yes | Every top-level AddOns folder it installs. Several-folder add-ons list all of them (Questie, QuestieDB, QuestieTrace); they're always installed, updated and removed together. No paths and no leading dot. |
+| `editions` | | The editions it supports and what its latest checked release lists for each (see [Editions](#editions)). Written by the generator. |
 | `tocPath` | | The `.toc` to read the Interface from, relative to the zip's top level (`Questie_Forever.toc`, `OpenMap/OpenMap.toc`). Without it, the app looks for `<Folder>_Forever.toc`, `<Folder>-Forever.toc`, `<Folder>_Camelot.toc`, `<Folder>-Camelot.toc`, then `<Folder>.toc` in the first folder (Camelot is the Forever client's own name). |
 | `author` | yes | The author's ID in `authors` (`plusmouse`). The author's name, links and support pages live in their record, once for all their add-ons. |
 | `tags` | | From the [fixed list](#tags), main tag first (see below). |

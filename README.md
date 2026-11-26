@@ -14,6 +14,7 @@ The list of add-ons [Forever Add-on Manager](https://github.com/dylanfrankcom/fo
 | `.github/workflows/validate.yml` | Runs the validator's self-test and validates `catalog.json` on every push and PR; on a PR, changed entries must come with a version bump. |
 | `scripts/` | Validation, and later the release checker. Both are .NET file-based programs. |
 | `status.json` | Written by the checker job, never by hand: which releases list the Forever Interface (coming with the catalog checker, app 0.6.0). |
+| `versions.json` | Written by the release check, never by hand: the latest checked release of each add-on for each edition, with its hash (coming with the release check). Its format is `schema/versions.schema.json`. |
 
 The full format, with a description of every field, is in [`schema/catalog.schema.json`](schema/catalog.schema.json).
 

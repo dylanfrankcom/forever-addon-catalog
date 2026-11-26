@@ -10,7 +10,7 @@ powershell -ExecutionPolicy Bypass -File ..\ForeverAddonManager\dev.ps1 dotnet r
 Don't run plain `dotnet run`: without `dev.ps1`'s settings, NuGet puts packages in `%UserProfile%\.nuget`, and .NET adds its tools folder to your PATH.
 
 ## validate.cs
-Checks `catalog.json` (or a file given after `--`):
+Checks `catalog.json`, and `versions.json` when there is one (or a file given after `--`; a file with "versions" in its name is checked as a versions file):
 1. **The schema** (`schema/catalog.schema.json`), which also holds the fixed list of tags.
 2. **The rules the schema can't express:**
    - `duplicate-id`: the same ID is used twice.
@@ -22,10 +22,15 @@ Checks `catalog.json` (or a file given after `--`):
    - `unknown-author`: an entry's `author` isn't in `authors`.
    - `unused-author`: an author in `authors` isn't the author of any entry.
    - `author-profile`: one of an author's `profiles` isn't on GitHub, Wago or CurseForge, or two are on the same site.
+   - `edition-interface`: an edition's `interface` isn't its `gameVersion`'s, or its `interfaceSince` isn't a real day or is in the future.
+   - `edition-forever`: `editions.forever` doesn't match the `forever` block.
+   - `unknown-edition`: an entry lists an edition that isn't in `editions`.
+   - `edition-up-to-date`: an entry's `upToDate` for an edition doesn't match whether it lists that edition's current Interface.
+   - `versions-same-file` (versions.json): the same file of the same release is listed under two editions with a different hash or link.
 
 Exit code 0 when valid, 1 when not.
 
-**`--base <file>`** also compares with that earlier catalog: if the entries, the authors or the `forever` block differ, `version` must go up (`version-not-bumped`), and every entry that's new must have `added` (`added-missing`). CI passes the catalog from the PR's base branch.
+**`--base <file>`** also compares with that earlier catalog: if the entries, the authors, the `forever` block or the `editions` differ, `version` must go up (`version-not-bumped`), and every entry that's new must have `added` (`added-missing`). CI passes the catalog from the PR's base branch.
 
 **`--self-test`** runs every file in `test-data/`:
 - `valid-*.json` must pass.
