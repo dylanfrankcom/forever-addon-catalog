@@ -6,7 +6,7 @@
 - Every entry's `author` is in `authors`, and every author is the author of at least one entry.
 - An author's `name` is one name, and their `profiles` are on GitHub, Wago or CurseForge, at most one per site.
 - No two entries claim the same folder.
-- Each edition's `interface` is its `gameVersion`'s, `forever` in `editions` matches the `forever` block, every edition an entry lists is in `editions`, and its `upToDate` is right.
+- Each edition's `interface` is its `gameVersion`'s, a test client belongs to the live edition whose version it runs, `forever` in `editions` matches the `forever` block, every edition an entry lists is in `editions`, and its `upToDate` is right.
 - `added` is a real day and not in the future.
 - On a PR, compared with the base branch: changed entries or authors come with a `version` bump, and new entries have `added`.
 
@@ -41,7 +41,17 @@
 | `interface` | That version's Interface: major × 10000 + minor × 100 + patch (`12.1.5` is `120105`, `1.60.1` is `16001`). The validator checks the sum. |
 | `interfaceSince` | The day the live client moved to this Interface, `YYYY-MM-DD`. An add-on whose latest checked release still lists the previous one stays listed for 60 days from this day, marked "Not updated for 12.1.5 yet", then only under "Include out of date" until a release lists the current one. Installed copies are never affected. |
 
-Test clients (PTR, beta) aren't editions yet.
+### Test clients
+PTR and beta clients are editions too, with two more fields: `of`, the live edition they belong to, and `kind` (`ptr`, `ptr2` or `beta`). A test client belongs to the edition whose version it runs, not the one its product is named after: the same major version, and the nearest minor when several share it (a PTR on 12.2.0 is Retail's; 1.15 is Classic Era's and 1.60 Forever's). When it moves to another edition's version, `of` changes with it. The validator checks both. A beta that isn't running keeps the version it last had; the app shows a test client only when it's installed.
+
+| ID | `of` today | `name` | `product` | `folder` |
+|---|---|---|---|---|
+| `retail_ptr` | `retail` | World of Warcraft (Retail) PTR | `wowt` | `_ptr_` |
+| `retail_ptr2` | `retail` | World of Warcraft (Retail) PTR 2 | `wowxptr` | `_xptr_` |
+| `retail_beta` | `retail` | World of Warcraft (Retail) Beta | `wow_beta` | `_beta_` |
+| `classic_ptr` | `classic` | Mists of Pandaria Classic PTR | `wow_classic_ptr` | `_classic_ptr_` |
+| `classic_era_ptr` | `anniversary` (it runs 2.5.6) | Burning Crusade Anniversary PTR | `wow_classic_era_ptr` | `_classic_era_ptr_` |
+| `classic_beta` | `forever` (it runs 1.60.1) | WoW: Forever Beta | `wow_classic_beta` | `_classic_beta_` |
 
 An entry's `editions` says which editions it supports, keyed by edition ID, each with the `interface` its latest checked release lists for that edition and whether that's the edition's current one (`upToDate`). The catalog's generator writes it; an entry without it is a Forever add-on, as in format 3 before 3.1.0.
 

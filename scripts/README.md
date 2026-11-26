@@ -23,6 +23,7 @@ Checks `catalog.json`, and `versions.json` when there is one (or a file given af
    - `unused-author`: an author in `authors` isn't the author of any entry.
    - `author-profile`: one of an author's `profiles` isn't on GitHub, Wago or CurseForge, or two are on the same site.
    - `edition-interface`: an edition's `interface` isn't its `gameVersion`'s, or its `interfaceSince` isn't a real day or is in the future.
+   - `test-client-edition`: a test client's `of` isn't a live edition, or isn't the one its version matches (same major, nearest minor).
    - `edition-forever`: `editions.forever` doesn't match the `forever` block.
    - `unknown-edition`: an entry lists an edition that isn't in `editions`.
    - `edition-up-to-date`: an entry's `upToDate` for an edition doesn't match whether it lists that edition's current Interface.

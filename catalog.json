@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 3,
-  "version": "3.1.0",
+  "version": "3.2.0",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001"
@@ -51,6 +51,72 @@
       "gameVersion": "1.60.1",
       "interface": "16001",
       "interfaceSince": "2026-10-13"
+    },
+    "retail_ptr": {
+      "of": "retail",
+      "kind": "ptr",
+      "name": "World of Warcraft (Retail) PTR",
+      "shortName": "Retail PTR",
+      "product": "wowt",
+      "folder": "_ptr_",
+      "gameVersion": "12.1.7",
+      "interface": "120107",
+      "interfaceSince": "2026-10-15"
+    },
+    "retail_ptr2": {
+      "of": "retail",
+      "kind": "ptr2",
+      "name": "World of Warcraft (Retail) PTR 2",
+      "shortName": "Retail PTR 2",
+      "product": "wowxptr",
+      "folder": "_xptr_",
+      "gameVersion": "12.1.5",
+      "interface": "120105",
+      "interfaceSince": "2026-09-03"
+    },
+    "retail_beta": {
+      "of": "retail",
+      "kind": "beta",
+      "name": "World of Warcraft (Retail) Beta",
+      "shortName": "Retail Beta",
+      "product": "wow_beta",
+      "folder": "_beta_",
+      "gameVersion": "12.0.1",
+      "interface": "120001",
+      "interfaceSince": "2025-12-12"
+    },
+    "classic_ptr": {
+      "of": "classic",
+      "kind": "ptr",
+      "name": "Mists of Pandaria Classic PTR",
+      "shortName": "MoP Classic PTR",
+      "product": "wow_classic_ptr",
+      "folder": "_classic_ptr_",
+      "gameVersion": "5.5.4",
+      "interface": "50504",
+      "interfaceSince": "2026-04-18"
+    },
+    "classic_era_ptr": {
+      "of": "anniversary",
+      "kind": "ptr",
+      "name": "Burning Crusade Anniversary PTR",
+      "shortName": "TBC Anniversary PTR",
+      "product": "wow_classic_era_ptr",
+      "folder": "_classic_era_ptr_",
+      "gameVersion": "2.5.6",
+      "interface": "20506",
+      "interfaceSince": "2026-06-25"
+    },
+    "classic_beta": {
+      "of": "forever",
+      "kind": "beta",
+      "name": "WoW: Forever Beta",
+      "shortName": "Forever Beta",
+      "product": "wow_classic_beta",
+      "folder": "_classic_beta_",
+      "gameVersion": "1.60.1",
+      "interface": "16001",
+      "interfaceSince": "2026-09-16"
     }
   },
   "authors": {

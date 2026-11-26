@@ -154,6 +154,21 @@ static class CatalogValidator
             {
                 problems.Add(new("edition-forever", "Edition 'forever' doesn't match the \"forever\" block, which older apps still read."));
             }
+
+            // A test client belongs to the live edition whose version it runs.
+            if (edition["of"] is JsonValue ofValue)
+            {
+                var of = (string)ofValue!;
+                var live = (editions ?? []).Where(e => e.Value!["of"] is null).ToList();
+                if (!live.Any(e => e.Key == of))
+                {
+                    problems.Add(new("test-client-edition", $"Test client '{editionId}' is of '{of}', which isn't a live edition in \"editions\"."));
+                }
+                else if (EditionForVersion(live, gameVersion) is var matched && matched != of)
+                {
+                    problems.Add(new("test-client-edition", $"Test client '{editionId}' runs {gameVersion}, which is {(matched is null ? "no live edition's version" : $"'{matched}''s")}, not '{of}''s."));
+                }
+            }
         }
         foreach (var addon in addons)
         {
@@ -274,6 +289,27 @@ static class CatalogValidator
     /// <summary>versions.json (and test cases with "versions" in their name) rather than a catalog.</summary>
     public static bool IsVersionsFile(string path) =>
         Path.GetFileName(path).Contains("versions", StringComparison.OrdinalIgnoreCase);
+
+    /// <summary>
+    /// The live edition a version belongs to: the same major version, and the nearest minor when several share it
+    /// (12.2.0 is Retail's; 1.15 is Classic Era's and 1.60 Forever's). Null when no live edition has that major.
+    /// </summary>
+    static string? EditionForVersion(List<KeyValuePair<string, JsonNode?>> live, string gameVersion)
+    {
+        var (major, minor) = MajorMinor(gameVersion);
+        return live
+            .Select(e => (e.Key, Version: MajorMinor((string)e.Value!["gameVersion"]!)))
+            .Where(e => e.Version.Major == major)
+            .OrderBy(e => Math.Abs(e.Version.Minor - minor))
+            .Select(e => e.Key)
+            .FirstOrDefault();
+    }
+
+    static (int Major, int Minor) MajorMinor(string gameVersion)
+    {
+        var parts = gameVersion.Split('.').Select(int.Parse).ToArray();
+        return (parts[0], parts[1]);
+    }
 
     /// <summary>1.60.1 gives 16001, 12.1.5 gives 120105: major * 10000 + minor * 100 + patch.</summary>
     static string InterfaceOf(string gameVersion)
@@ -516,7 +552,7 @@ static class SelfTest
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
     static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date",
         "unknown-author", "unused-author", "author-profile", "edition-interface", "edition-forever", "unknown-edition", "edition-up-to-date",
-        "versions-same-file"];
+        "versions-same-file", "test-client-edition"];
 
     // bump/invalid-added-missing-*.head.json expects "added-missing"; any other invalid bump case "version-not-bumped".
     static string BumpCode(string rest) =>
