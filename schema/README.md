@@ -6,7 +6,7 @@
 - Every entry's `author` is in `authors`, and every author is the author of at least one entry.
 - An author's `name` is one name, and their `profiles` are on GitHub, Wago or CurseForge, at most one per site.
 - No two entries claim the same folder.
-- Each edition's `interface` is its `gameVersion`'s, a PTR's `of` is a live edition, `forever` in `editions` matches the `forever` block, every edition an entry lists is in `editions`, and its `upToDate` is right.
+- Each edition's `interface` is its `gameVersion`'s, a PTR's `of` is a live edition, `forever` in `editions` matches the `forever` block, every edition an entry lists is in `editions`, and its `upToDate` is right. No edition lists a `.toc` suffix twice, ignoring case.
 - `added` is a real day and not in the future.
 - On a PR, compared with the base branch: changed entries or authors come with a `version` bump, and new entries have `added`.
 
@@ -40,6 +40,29 @@
 | `gameVersion` | The live client's version (`12.1.5`). |
 | `interface` | That version's Interface: major × 10000 + minor × 100 + patch (`12.1.5` is `120105`, `1.60.1` is `16001`). The validator checks the sum. |
 | `interfaceSince` | The day the live client moved to this Interface, `YYYY-MM-DD`. An add-on whose latest checked release still lists the previous one stays listed for 60 days from this day, marked "Not updated for 12.1.5 yet", then only under "Include out of date" until a release lists the current one. Installed copies are never affected. |
+| `tocSuffixes` | The `.toc` suffixes the edition loads, most preferred first (see [How an edition reads an add-on](#how-an-edition-reads-an-add-on)). Added in catalog 3.4.0. |
+| `gameTypes` | The game type names its `[AllowLoadGameType]` / `[ExcludeLoadGameType]` load conditions use. Added in catalog 3.4.0. |
+| `packagerFlavors` | The flavors the common packager's `release.json` gives this edition's files. Added in catalog 3.4.0. |
+| `fileWords` | Words in a release file's name that mark it as this edition's. Added in catalog 3.4.0. |
+
+### How an edition reads an add-on
+The app and this repo's release checker both follow these fields, so they never disagree about which file an edition reads. When Blizzard adds an expansion or a PTR moves to another version, only the edition's entry changes.
+
+- **Which `.toc`:** for an add-on folder `<F>`, the edition reads `<F><suffix>.toc` for the first of its `tocSuffixes` that exists, in order, and otherwise the plain `<F>.toc`. File names ignore case, so the validator refuses two suffixes that differ only in case. Every suffix starts with `_` or `-`.
+- **Load conditions:** a `## Key: value` line may end with `[AllowLoadGameType a, b]` or `[ExcludeLoadGameType a, b]`. The line applies to the edition only when every `Allow` condition names one of its `gameTypes` and no `Exclude` condition does; lines that don't apply are ignored. For a key given more than once, the last line that applies wins.
+- **The Interface line:** `## Interface:` may list several values, separated by commas, spaces or tabs (`## Interface: 11509, 50504, 16001`). The add-on supports the edition when one of them is the edition's `interface`.
+- **Which file in a release:** when the release has the common packager's `release.json`, the edition's file is the one whose flavor is in its `packagerFlavors`. Otherwise, a release with one file per edition is matched by `fileWords` in the file name, and a release with a single file uses that file for every edition.
+- **PTRs** list the values of the version they run: PTR (Classic Era) on 2.5.6 reads `_TBC` files, like TBC Anniversary.
+
+| Edition | `tocSuffixes` | `gameTypes` | `packagerFlavors` | `fileWords` |
+|---|---|---|---|---|
+| `retail`, `retail_ptr`, `retail_ptr2` | `_Mainline`, `-Mainline` | `mainline`, `standard` | `mainline`, `retail` | `mainline`, `retail` |
+| `classic`, `classic_ptr` | `_Mists`, `_Classic`, `-Mists` | `mists` | `mists` | `mists`, `mop` |
+| `anniversary`, `classic_era_ptr` | `_TBC`, `_BCC`, `_Classic`, `-TBC`, `-BCC` | `tbc` | `bcc`, `tbc` | `tbc`, `bcc`, `anniversary` |
+| `classic_era` | `_Vanilla`, `_Classic`, `-Vanilla`, `-Classic` | `vanilla`, `classic` | `classic`, `vanilla` | `vanilla`, `era` |
+| `forever` | `_Forever`, `-Forever`, `_Camelot`, `-Camelot` | `camelot` | `camelot`, `forever` | `forever` |
+
+"Camelot" is the Forever client's own name: add-ons built with the common packager ship `_Camelot.toc` files with Forever's Interface. `_Classic` is read by every Classic edition; `-Classic` only by Classic Era.
 
 ### PTRs
 The PTRs Battle.net offers are editions too, with one more field: `of`, the live edition Battle.net files the PTR under. That stays so even when the PTR runs another edition's version (today PTR (Classic Era) runs 2.5.6); the app checks add-ons against the version a PTR runs. The validator checks that `of` is a live edition. Betas aren't listed: Battle.net shows them only to invited accounts. The app manages PTRs only when the player turns them on.

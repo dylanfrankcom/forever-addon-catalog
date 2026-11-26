@@ -13,7 +13,23 @@
       "folder": "_forever_",
       "gameVersion": "1.60.1",
       "interface": "16001",
-      "interfaceSince": "2026-10-13"
+      "interfaceSince": "2026-10-13",
+      "tocSuffixes": [
+        "_Mainline",
+        "-Mainline"
+      ],
+      "gameTypes": [
+        "mainline",
+        "standard"
+      ],
+      "packagerFlavors": [
+        "mainline",
+        "retail"
+      ],
+      "fileWords": [
+        "mainline",
+        "retail"
+      ]
     }
   },
   "authors": {

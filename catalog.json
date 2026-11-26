@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 3,
-  "version": "3.3.0",
+  "version": "3.4.0",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001"
@@ -14,7 +14,23 @@
       "folder": "_retail_",
       "gameVersion": "12.1.5",
       "interface": "120105",
-      "interfaceSince": "2026-10-13"
+      "interfaceSince": "2026-10-13",
+      "tocSuffixes": [
+        "_Mainline",
+        "-Mainline"
+      ],
+      "gameTypes": [
+        "mainline",
+        "standard"
+      ],
+      "packagerFlavors": [
+        "mainline",
+        "retail"
+      ],
+      "fileWords": [
+        "mainline",
+        "retail"
+      ]
     },
     "classic": {
       "name": "Mists of Pandaria Classic",
@@ -23,7 +39,22 @@
       "folder": "_classic_",
       "gameVersion": "5.5.4",
       "interface": "50504",
-      "interfaceSince": "2026-06-02"
+      "interfaceSince": "2026-06-02",
+      "tocSuffixes": [
+        "_Mists",
+        "_Classic",
+        "-Mists"
+      ],
+      "gameTypes": [
+        "mists"
+      ],
+      "packagerFlavors": [
+        "mists"
+      ],
+      "fileWords": [
+        "mists",
+        "mop"
+      ]
     },
     "anniversary": {
       "name": "Burning Crusade Anniversary",
@@ -32,7 +63,26 @@
       "folder": "_anniversary_",
       "gameVersion": "2.5.6",
       "interface": "20506",
-      "interfaceSince": "2026-07-07"
+      "interfaceSince": "2026-07-07",
+      "tocSuffixes": [
+        "_TBC",
+        "_BCC",
+        "_Classic",
+        "-TBC",
+        "-BCC"
+      ],
+      "gameTypes": [
+        "tbc"
+      ],
+      "packagerFlavors": [
+        "bcc",
+        "tbc"
+      ],
+      "fileWords": [
+        "tbc",
+        "bcc",
+        "anniversary"
+      ]
     },
     "classic_era": {
       "name": "World of Warcraft Classic",
@@ -41,7 +91,25 @@
       "folder": "_classic_era_",
       "gameVersion": "1.15.9",
       "interface": "11509",
-      "interfaceSince": "2026-07-21"
+      "interfaceSince": "2026-07-21",
+      "tocSuffixes": [
+        "_Vanilla",
+        "_Classic",
+        "-Vanilla",
+        "-Classic"
+      ],
+      "gameTypes": [
+        "vanilla",
+        "classic"
+      ],
+      "packagerFlavors": [
+        "classic",
+        "vanilla"
+      ],
+      "fileWords": [
+        "vanilla",
+        "era"
+      ]
     },
     "forever": {
       "name": "WoW: Forever",
@@ -50,7 +118,23 @@
       "folder": "_forever_",
       "gameVersion": "1.60.1",
       "interface": "16001",
-      "interfaceSince": "2026-10-13"
+      "interfaceSince": "2026-10-13",
+      "tocSuffixes": [
+        "_Forever",
+        "-Forever",
+        "_Camelot",
+        "-Camelot"
+      ],
+      "gameTypes": [
+        "camelot"
+      ],
+      "packagerFlavors": [
+        "camelot",
+        "forever"
+      ],
+      "fileWords": [
+        "forever"
+      ]
     },
     "retail_ptr": {
       "of": "retail",
@@ -60,7 +144,23 @@
       "folder": "_ptr_",
       "gameVersion": "12.1.7",
       "interface": "120107",
-      "interfaceSince": "2026-10-15"
+      "interfaceSince": "2026-10-15",
+      "tocSuffixes": [
+        "_Mainline",
+        "-Mainline"
+      ],
+      "gameTypes": [
+        "mainline",
+        "standard"
+      ],
+      "packagerFlavors": [
+        "mainline",
+        "retail"
+      ],
+      "fileWords": [
+        "mainline",
+        "retail"
+      ]
     },
     "retail_ptr2": {
       "of": "retail",
@@ -70,7 +170,23 @@
       "folder": "_xptr_",
       "gameVersion": "12.1.5",
       "interface": "120105",
-      "interfaceSince": "2026-09-03"
+      "interfaceSince": "2026-09-03",
+      "tocSuffixes": [
+        "_Mainline",
+        "-Mainline"
+      ],
+      "gameTypes": [
+        "mainline",
+        "standard"
+      ],
+      "packagerFlavors": [
+        "mainline",
+        "retail"
+      ],
+      "fileWords": [
+        "mainline",
+        "retail"
+      ]
     },
     "classic_ptr": {
       "of": "classic",
@@ -80,7 +196,22 @@
       "folder": "_classic_ptr_",
       "gameVersion": "5.5.4",
       "interface": "50504",
-      "interfaceSince": "2026-04-18"
+      "interfaceSince": "2026-04-18",
+      "tocSuffixes": [
+        "_Mists",
+        "_Classic",
+        "-Mists"
+      ],
+      "gameTypes": [
+        "mists"
+      ],
+      "packagerFlavors": [
+        "mists"
+      ],
+      "fileWords": [
+        "mists",
+        "mop"
+      ]
     },
     "classic_era_ptr": {
       "of": "classic_era",
@@ -90,7 +221,26 @@
       "folder": "_classic_era_ptr_",
       "gameVersion": "2.5.6",
       "interface": "20506",
-      "interfaceSince": "2026-06-25"
+      "interfaceSince": "2026-06-25",
+      "tocSuffixes": [
+        "_TBC",
+        "_BCC",
+        "_Classic",
+        "-TBC",
+        "-BCC"
+      ],
+      "gameTypes": [
+        "tbc"
+      ],
+      "packagerFlavors": [
+        "bcc",
+        "tbc"
+      ],
+      "fileWords": [
+        "tbc",
+        "bcc",
+        "anniversary"
+      ]
     }
   },
   "authors": {

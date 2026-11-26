@@ -164,6 +164,13 @@ static class CatalogValidator
                     problems.Add(new("test-client-edition", $"PTR '{editionId}' is of '{of}', which isn't a live edition in \"editions\"."));
                 }
             }
+
+            // How it reads an add-on: .toc names ignore case, so two suffixes that differ only in case are one.
+            var suffixes = edition["tocSuffixes"]?.AsArray().Select(s => (string)s!).ToList() ?? [];
+            foreach (var twice in suffixes.GroupBy(s => s, StringComparer.OrdinalIgnoreCase).Where(g => g.Count() > 1))
+            {
+                problems.Add(new("edition-facts", $"Edition '{editionId}' lists the .toc suffix '{twice.Key}' more than once (.toc names ignore case)."));
+            }
         }
         foreach (var addon in addons)
         {
@@ -526,7 +533,7 @@ static class SelfTest
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
     static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date",
         "unknown-author", "unused-author", "author-profile", "edition-interface", "edition-forever", "unknown-edition", "edition-up-to-date",
-        "versions-same-file", "test-client-edition"];
+        "versions-same-file", "test-client-edition", "edition-facts"];
 
     // bump/invalid-added-missing-*.head.json expects "added-missing"; any other invalid bump case "version-not-bumped".
     static string BumpCode(string rest) =>

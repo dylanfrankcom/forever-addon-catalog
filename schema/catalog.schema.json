@@ -91,7 +91,7 @@
       "description": "One edition of the game. The app takes its names from here, so a new Classic expansion renames an edition without an app update.",
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "shortName", "product", "folder", "gameVersion", "interface", "interfaceSince"],
+      "required": ["name", "shortName", "product", "folder", "gameVersion", "interface", "interfaceSince", "tocSuffixes", "gameTypes", "packagerFlavors", "fileWords"],
       "properties": {
         "of": { "description": "For a PTR: the live edition Battle.net files it under, even when it runs another edition's version. Left out for a live edition.", "$ref": "#/$defs/editionId" },
         "name": { "description": "Battle.net's name, with (Retail) added to World of Warcraft; a PTR's as Battle.net lists it (PTR (Classic Era)).", "type": "string", "minLength": 1, "maxLength": 60 },
@@ -100,9 +100,14 @@
         "folder": { "description": "The edition's folder in the World of Warcraft folder.", "type": "string", "pattern": "^_[a-z_]+_$" },
         "gameVersion": { "description": "The live client's version.", "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
         "interface": { "description": "The Interface number of gameVersion (1.60.1 gives 16001, 12.1.5 gives 120105).", "$ref": "#/$defs/interface" },
-        "interfaceSince": { "description": "The day the live client moved to this Interface (YYYY-MM-DD), for the 60 days an add-on not updated for it yet stays listed.", "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+        "interfaceSince": { "description": "The day the live client moved to this Interface (YYYY-MM-DD), for the 60 days an add-on not updated for it yet stays listed.", "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "tocSuffixes": { "description": "The .toc suffixes the edition loads, most preferred first: <Folder><suffix>.toc for each in order, then the plain <Folder>.toc. A PTR lists the version it runs.", "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[_-][A-Za-z]+$" } },
+        "gameTypes": { "description": "The game type names its [AllowLoadGameType] and [ExcludeLoadGameType] load conditions use.", "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/lowerWord" } },
+        "packagerFlavors": { "description": "The flavors the common packager's release.json gives this edition's files.", "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/lowerWord" } },
+        "fileWords": { "description": "Words in a release file's name that mark it as this edition's.", "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/lowerWord" } }
       }
     },
+    "lowerWord": { "type": "string", "pattern": "^[a-z][a-z0-9]*$" },
     "addonEdition": {
       "description": "An add-on on one edition: what its latest checked release lists for it.",
       "type": "object",
