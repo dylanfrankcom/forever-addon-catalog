@@ -13,7 +13,23 @@
       "folder": "_forever_",
       "gameVersion": "1.60.2",
       "interface": "16002",
-      "interfaceSince": "2026-10-13"
+      "interfaceSince": "2026-10-13",
+      "tocSuffixes": [
+        "_Forever",
+        "-Forever",
+        "_Camelot",
+        "-Camelot"
+      ],
+      "gameTypes": [
+        "camelot"
+      ],
+      "packagerFlavors": [
+        "camelot",
+        "forever"
+      ],
+      "fileWords": [
+        "forever"
+      ]
     }
   },
   "authors": {
