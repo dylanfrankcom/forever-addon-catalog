@@ -21,6 +21,13 @@
       "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
     },
     "forever": { "$ref": "#/$defs/forever" },
+    "editions": {
+      "description": "Every edition of the game the catalog covers, keyed by edition ID, in Battle.net's order: names and the live client each was checked against. Optional in format 3 (added in catalog 3.1.0); the validator requires it when an entry lists editions.",
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/editionId" },
+      "additionalProperties": { "$ref": "#/$defs/edition" },
+      "minProperties": 1
+    },
     "authors": {
       "description": "Every author an entry names, keyed by a stable author ID (the same rules as add-on IDs).",
       "type": "object",
@@ -73,6 +80,36 @@
       "properties": {
         "gameVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
         "interface": { "type": "string", "pattern": "^[0-9]{5,6}$" }
+      }
+    },
+    "editionId": {
+      "description": "A fixed edition ID. Adding one is a schema change.",
+      "enum": ["retail", "classic", "anniversary", "classic_era", "forever"]
+    },
+    "interface": { "type": "string", "pattern": "^[0-9]{5,6}$" },
+    "edition": {
+      "description": "One edition of the game. The app takes its names from here, so a new Classic expansion renames an edition without an app update.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "shortName", "product", "folder", "gameVersion", "interface", "interfaceSince"],
+      "properties": {
+        "name": { "description": "Battle.net's name, with (Retail) added to World of Warcraft.", "type": "string", "minLength": 1, "maxLength": 60 },
+        "shortName": { "description": "For tight places: labels and the edition switcher.", "type": "string", "minLength": 1, "maxLength": 20 },
+        "product": { "description": "The product code in Battle.net's .build.info.", "type": "string", "pattern": "^[a-z_]+$" },
+        "folder": { "description": "The edition's folder in the World of Warcraft folder.", "type": "string", "pattern": "^_[a-z_]+_$" },
+        "gameVersion": { "description": "The live client's version.", "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "interface": { "description": "The Interface number of gameVersion (1.60.1 gives 16001, 12.1.5 gives 120105).", "$ref": "#/$defs/interface" },
+        "interfaceSince": { "description": "The day the live client moved to this Interface (YYYY-MM-DD), for the 60 days an add-on not updated for it yet stays listed.", "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+      }
+    },
+    "addonEdition": {
+      "description": "An add-on on one edition: what its latest checked release lists for it.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["interface", "upToDate"],
+      "properties": {
+        "interface": { "description": "The Interface the release lists for this edition.", "$ref": "#/$defs/interface" },
+        "upToDate": { "description": "Whether that is the edition's current Interface (checked by scripts/validate.cs).", "type": "boolean" }
       }
     },
     "link": { "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
@@ -223,6 +260,13 @@
         },
         "folders": { "$ref": "#/$defs/folderList" },
         "tocPath": { "$ref": "#/$defs/tocPath" },
+        "editions": {
+          "description": "The editions it supports, keyed by edition ID, each with the Interface its latest checked release lists. Written by the catalog's generator.",
+          "type": "object",
+          "propertyNames": { "$ref": "#/$defs/editionId" },
+          "additionalProperties": { "$ref": "#/$defs/addonEdition" },
+          "minProperties": 1
+        },
         "requires": { "description": "Catalog IDs that must be installed too.", "$ref": "#/$defs/idList" },
         "optional": { "description": "Catalog IDs it works with when they're installed.", "$ref": "#/$defs/idList" },
         "conflicts": { "description": "Catalog IDs it overlaps with. A warning, not a blocker.", "$ref": "#/$defs/idList" },

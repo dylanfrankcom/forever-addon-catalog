@@ -41,18 +41,29 @@ for (var i = 0; i < args.Length; i++)
     }
 }
 
-var path = Path.GetFullPath(catalogArg ?? "catalog.json");
-var problems = CatalogValidator.Validate(path);
-if (problems.Count == 0 && baseArg is not null)
+// With no file named: catalog.json, and versions.json too once the release check writes one.
+var paths = catalogArg is not null
+    ? new List<string> { Path.GetFullPath(catalogArg) }
+    : new[] { "catalog.json", "versions.json" }.Select(Path.GetFullPath).Where((p, i) => i == 0 || File.Exists(p)).ToList();
+var exit = 0;
+foreach (var path in paths)
 {
-    problems.AddRange(VersionBump.Check(Path.GetFullPath(baseArg), path));
+    var problems = CatalogValidator.Validate(path);
+    if (problems.Count == 0 && baseArg is not null && !CatalogValidator.IsVersionsFile(path))
+    {
+        problems.AddRange(VersionBump.Check(Path.GetFullPath(baseArg), path));
+    }
+    foreach (var p in problems)
+    {
+        Console.Error.WriteLine($"{p.Code}: {p.Message}");
+    }
+    Console.WriteLine(problems.Count == 0 ? $"{Path.GetFileName(path)} is valid." : $"{problems.Count} problem(s) in {Path.GetFileName(path)}.");
+    if (problems.Count > 0)
+    {
+        exit = 1;
+    }
 }
-foreach (var p in problems)
-{
-    Console.Error.WriteLine($"{p.Code}: {p.Message}");
-}
-Console.WriteLine(problems.Count == 0 ? $"{Path.GetFileName(path)} is valid." : $"{problems.Count} problem(s) in {Path.GetFileName(path)}.");
-return problems.Count == 0 ? 0 : 1;
+return exit;
 
 /// <summary>One thing wrong with a catalog. Codes are stable, so tests can expect them.</summary>
 record Problem(string Code, string Message);
@@ -68,11 +79,18 @@ static class CatalogValidator
             return problems;
         }
 
-        var schemaPath = FindSchema(Path.GetDirectoryName(catalogPath)!);
+        var versions = IsVersionsFile(catalogPath);
+        var schemaName = versions ? "versions.schema.json" : "catalog.schema.json";
+        var schemaPath = FindSchema(Path.GetDirectoryName(catalogPath)!, schemaName);
         if (schemaPath is null)
         {
-            problems.Add(new("missing-schema", $"No schema/catalog.schema.json above {catalogPath}."));
+            problems.Add(new("missing-schema", $"No schema/{schemaName} above {catalogPath}."));
             return problems;
+        }
+        if (versions)
+        {
+            // versions.schema.json refers to catalog.schema.json's definitions, so that one is loaded first.
+            LoadSchema(Path.Combine(Path.GetDirectoryName(schemaPath)!, "catalog.schema.json"));
         }
 
         JsonNode? root;
@@ -108,7 +126,52 @@ static class CatalogValidator
         }
 
         // 2. Rules the schema can't express.
+        if (versions)
+        {
+            return Dedupe(VersionsRules(root!));
+        }
         var addons = root!["addons"]!.AsArray().Select(a => a!.AsObject()).ToList();
+
+        // Editions: each Interface is its game version's, Forever's matches the "forever" block, and every edition an
+        // entry lists is defined, with upToDate saying whether it lists that edition's current Interface.
+        var editions = root["editions"]?.AsObject();
+        foreach (var (editionId, edition) in editions ?? [])
+        {
+            var gameVersion = (string)edition!["gameVersion"]!;
+            var iface = (string)edition["interface"]!;
+            if (InterfaceOf(gameVersion) != iface)
+            {
+                problems.Add(new("edition-interface", $"Edition '{editionId}' interface {iface} isn't game version {gameVersion}'s ({InterfaceOf(gameVersion)})."));
+            }
+            var since = (string)edition["interfaceSince"]!;
+            if (!DateOnly.TryParseExact(since, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var sinceDay)
+                || sinceDay > DateOnly.FromDateTime(DateTime.UtcNow).AddDays(1))
+            {
+                problems.Add(new("edition-interface", $"Edition '{editionId}' interfaceSince '{since}' isn't a real day, or is in the future."));
+            }
+            if (editionId == "forever"
+                && (gameVersion != (string?)root["forever"]?["gameVersion"] || iface != (string?)root["forever"]?["interface"]))
+            {
+                problems.Add(new("edition-forever", "Edition 'forever' doesn't match the \"forever\" block, which older apps still read."));
+            }
+        }
+        foreach (var addon in addons)
+        {
+            foreach (var (editionId, listed) in addon["editions"]?.AsObject() ?? [])
+            {
+                var id = (string)addon["id"]!;
+                if (editions?[editionId] is not JsonObject edition)
+                {
+                    problems.Add(new("unknown-edition", $"'{id}' lists edition '{editionId}', which isn't in \"editions\"."));
+                    continue;
+                }
+                var current = (string)listed!["interface"]! == (string)edition["interface"]!;
+                if ((bool)listed["upToDate"]! != current)
+                {
+                    problems.Add(new("edition-up-to-date", $"'{id}' edition '{editionId}' says upToDate {(bool)listed["upToDate"]!}, but it lists {listed["interface"]} and the edition is at {edition["interface"]}."));
+                }
+            }
+        }
         var ids = new HashSet<string>(StringComparer.Ordinal);
         foreach (var addon in addons)
         {
@@ -206,6 +269,41 @@ static class CatalogValidator
             }
         }
         return Dedupe(problems);
+    }
+
+    /// <summary>versions.json (and test cases with "versions" in their name) rather than a catalog.</summary>
+    public static bool IsVersionsFile(string path) =>
+        Path.GetFileName(path).Contains("versions", StringComparison.OrdinalIgnoreCase);
+
+    /// <summary>1.60.1 gives 16001, 12.1.5 gives 120105: major * 10000 + minor * 100 + patch.</summary>
+    static string InterfaceOf(string gameVersion)
+    {
+        var parts = gameVersion.Split('.').Select(int.Parse).ToArray();
+        return (parts[0] * 10000 + parts[1] * 100 + parts[2]).ToString(System.Globalization.CultureInfo.InvariantCulture);
+    }
+
+    /// <summary>
+    /// versions.json: one file listed under several editions (the same name in the same release) is the same file, so
+    /// it has one hash and one link.
+    /// </summary>
+    static List<Problem> VersionsRules(JsonNode root)
+    {
+        var problems = new List<Problem>();
+        foreach (var (id, byEdition) in root["addons"]!.AsObject())
+        {
+            var seen = new Dictionary<(string Release, string File), (string Sha, string Url, string Edition)>();
+            foreach (var (editionId, release) in byEdition!.AsObject())
+            {
+                var key = ((string)release!["release"]!, (string)release["file"]!);
+                var value = ((string)release["sha256"]!, (string)release["url"]!, editionId);
+                if (seen.TryGetValue(key, out var first) && (first.Sha != value.Item1 || first.Url != value.Item2))
+                {
+                    problems.Add(new("versions-same-file", $"'{id}' lists {key.Item2} of {key.Item1} under '{first.Edition}' and '{editionId}' with a different hash or link."));
+                }
+                seen.TryAdd(key, value);
+            }
+        }
+        return problems;
     }
 
     /// <summary>"GitHub", "Wago" or "CurseForge" for a profile on one of those sites; null for anywhere else.</summary>
@@ -331,11 +429,11 @@ static class CatalogValidator
 
     static List<Problem> Dedupe(List<Problem> problems) => problems.Distinct().ToList();
 
-    static string? FindSchema(string start)
+    static string? FindSchema(string start, string name)
     {
         for (var dir = new DirectoryInfo(start); dir is not null; dir = dir.Parent)
         {
-            var candidate = Path.Combine(dir.FullName, "schema", "catalog.schema.json");
+            var candidate = Path.Combine(dir.FullName, "schema", name);
             if (File.Exists(candidate))
             {
                 return candidate;
@@ -417,7 +515,8 @@ static class SelfTest
 
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
     static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date",
-        "unknown-author", "unused-author", "author-profile"];
+        "unknown-author", "unused-author", "author-profile", "edition-interface", "edition-forever", "unknown-edition", "edition-up-to-date",
+        "versions-same-file"];
 
     // bump/invalid-added-missing-*.head.json expects "added-missing"; any other invalid bump case "version-not-bumped".
     static string BumpCode(string rest) =>
@@ -522,7 +621,8 @@ static class VersionBump
 
         var changed = !JsonNode.DeepEquals(before?["addons"], after["addons"])
             || !JsonNode.DeepEquals(before?["authors"], after["authors"])
-            || !JsonNode.DeepEquals(before?["forever"], after["forever"]);
+            || !JsonNode.DeepEquals(before?["forever"], after["forever"])
+            || !JsonNode.DeepEquals(before?["editions"], after["editions"]);
         if (!changed)
         {
             return [];

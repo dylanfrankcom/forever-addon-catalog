@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 3,
+  "version": "1.0.0",
+  "forever": {
+    "gameVersion": "1.60.1",
+    "interface": "16001"
+  },
+  "editions": {
+    "retail": {
+      "name": "World of Warcraft (Retail)",
+      "shortName": "Retail",
+      "product": "wow",
+      "folder": "_retail_",
+      "gameVersion": "12.1.5",
+      "interface": "120100",
+      "interfaceSince": "2026-10-13"
+    },
+    "forever": {
+      "name": "WoW: Forever",
+      "shortName": "Forever",
+      "product": "wowf",
+      "folder": "_forever_",
+      "gameVersion": "1.60.1",
+      "interface": "16001",
+      "interfaceSince": "2026-10-13"
+    }
+  },
+  "authors": {
+    "test": {
+      "name": "Test"
+    }
+  },
+  "addons": [
+    {
+      "id": "questie",
+      "name": "Questie",
+      "author": "test",
+      "summary": "Test entry.",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 1
+        }
+      ],
+      "folders": [
+        "Questie",
+        "QuestieDB"
+      ]
+    }
+  ]
+}

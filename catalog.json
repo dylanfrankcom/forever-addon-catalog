@@ -1,10 +1,57 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 3,
-  "version": "3.0.0",
+  "version": "3.1.0",
   "forever": {
     "gameVersion": "1.60.1",
     "interface": "16001"
+  },
+  "editions": {
+    "retail": {
+      "name": "World of Warcraft (Retail)",
+      "shortName": "Retail",
+      "product": "wow",
+      "folder": "_retail_",
+      "gameVersion": "12.1.5",
+      "interface": "120105",
+      "interfaceSince": "2026-10-13"
+    },
+    "classic": {
+      "name": "Mists of Pandaria Classic",
+      "shortName": "MoP Classic",
+      "product": "wow_classic",
+      "folder": "_classic_",
+      "gameVersion": "5.5.4",
+      "interface": "50504",
+      "interfaceSince": "2026-06-02"
+    },
+    "anniversary": {
+      "name": "Burning Crusade Anniversary",
+      "shortName": "TBC Anniversary",
+      "product": "wow_anniversary",
+      "folder": "_anniversary_",
+      "gameVersion": "2.5.6",
+      "interface": "20506",
+      "interfaceSince": "2026-07-07"
+    },
+    "classic_era": {
+      "name": "World of Warcraft Classic",
+      "shortName": "Classic Era",
+      "product": "wow_classic_era",
+      "folder": "_classic_era_",
+      "gameVersion": "1.15.9",
+      "interface": "11509",
+      "interfaceSince": "2026-07-21"
+    },
+    "forever": {
+      "name": "WoW: Forever",
+      "shortName": "Forever",
+      "product": "wowf",
+      "folder": "_forever_",
+      "gameVersion": "1.60.1",
+      "interface": "16001",
+      "interfaceSince": "2026-10-13"
+    }
   },
   "authors": {
     "breakbb": {

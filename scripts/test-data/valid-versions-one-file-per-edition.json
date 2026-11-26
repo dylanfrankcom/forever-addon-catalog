@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "checked": "2026-11-26T04:00:00Z",
+  "addons": {
+    "details": {
+      "retail": {
+        "release": "20251120",
+        "file": "Details-20251120-mainline.zip",
+        "url": "https://github.com/example/addon/releases/download/20251120/Details-20251120-mainline.zip",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "interface": "120105",
+        "published": "2026-11-20"
+      },
+      "classic_era": {
+        "release": "20251120",
+        "file": "Details-20251120-classic.zip",
+        "url": "https://github.com/example/addon/releases/download/20251120/Details-20251120-classic.zip",
+        "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "interface": "11509",
+        "published": "2026-11-20"
+      }
+    }
+  }
+}
