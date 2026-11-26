@@ -6,7 +6,7 @@
 - Every entry's `author` is in `authors`, and every author is the author of at least one entry.
 - An author's `name` is one name, and their `profiles` are on GitHub, Wago or CurseForge, at most one per site.
 - No two entries claim the same folder.
-- Each edition's `interface` is its `gameVersion`'s, a test client belongs to the live edition whose version it runs, `forever` in `editions` matches the `forever` block, every edition an entry lists is in `editions`, and its `upToDate` is right.
+- Each edition's `interface` is its `gameVersion`'s, a PTR's `of` is a live edition, `forever` in `editions` matches the `forever` block, every edition an entry lists is in `editions`, and its `upToDate` is right.
 - `added` is a real day and not in the future.
 - On a PR, compared with the base branch: changed entries or authors come with a `version` bump, and new entries have `added`.
 
@@ -41,26 +41,17 @@
 | `interface` | That version's Interface: major × 10000 + minor × 100 + patch (`12.1.5` is `120105`, `1.60.1` is `16001`). The validator checks the sum. |
 | `interfaceSince` | The day the live client moved to this Interface, `YYYY-MM-DD`. An add-on whose latest checked release still lists the previous one stays listed for 60 days from this day, marked "Not updated for 12.1.5 yet", then only under "Include out of date" until a release lists the current one. Installed copies are never affected. |
 
-### Test clients
-PTR and beta clients are editions too, with two more fields: `of`, the live edition they belong to, and `kind` (`ptr`, `ptr2` or `beta`). A test client belongs to the edition whose version it runs, not the one its product is named after: the same major version, and the nearest minor when several share it (a PTR on 12.2.0 is Retail's; 1.15 is Classic Era's and 1.60 Forever's). When it moves to another edition's version, `of` changes with it. The validator checks both. A beta that isn't running keeps the version it last had; the app shows a test client only when it's installed.
+### PTRs
+The PTRs Battle.net offers are editions too, with one more field: `of`, the live edition Battle.net files the PTR under. That stays so even when the PTR runs another edition's version (today PTR (Classic Era) runs 2.5.6); the app checks add-ons against the version a PTR runs. The validator checks that `of` is a live edition. Betas aren't listed: Battle.net shows them only to invited accounts. The app manages PTRs only when the player turns them on.
 
-| ID | `of` today | `name` | `product` | `folder` |
-|---|---|---|---|---|
-| `retail_ptr` | `retail` | World of Warcraft (Retail) PTR | `wowt` | `_ptr_` |
-| `retail_ptr2` | `retail` | World of Warcraft (Retail) PTR 2 | `wowxptr` | `_xptr_` |
-| `retail_beta` | `retail` | World of Warcraft (Retail) Beta | `wow_beta` | `_beta_` |
-| `classic_ptr` | `classic` | Mists of Pandaria Classic PTR | `wow_classic_ptr` | `_classic_ptr_` |
-| `classic_era_ptr` | `anniversary` (it runs 2.5.6) | Burning Crusade Anniversary PTR | `wow_classic_era_ptr` | `_classic_era_ptr_` |
-| `classic_beta` | `forever` (it runs 1.60.1) | WoW: Forever Beta | `wow_classic_beta` | `_classic_beta_` |
+| ID | `of` | `name` | `shortName` | `product` | `folder` |
+|---|---|---|---|---|---|
+| `classic_ptr` | `classic` | PTR (MoP Classic) | PTR MoP Classic | `wow_classic_ptr` | `_classic_ptr_` |
+| `classic_era_ptr` | `classic_era` | PTR (Classic Era) | PTR Classic Era | `wow_classic_era_ptr` | `_classic_era_ptr_` |
+| `retail_ptr` | `retail` | PTR (Midnight 12.1.7) | PTR 12.1.7 | `wowt` | `_ptr_` |
+| `retail_ptr2` | `retail` | PTR (Midnight 12.1.5) | PTR 12.1.5 | `wowxptr` | `_xptr_` |
 
-An entry's `editions` says which editions it supports, keyed by edition ID, each with the `interface` its latest checked release lists for that edition and whether that's the edition's current one (`upToDate`). The catalog's generator writes it; an entry without it is a Forever add-on, as in format 3 before 3.1.0.
-
-```json
-"editions": {
-  "retail": { "interface": "120105", "upToDate": true },
-  "classic_era": { "interface": "11508", "upToDate": false }
-}
-```
+Battle.net puts the expansion and version in a Retail PTR's name, so the name changes with each patch: it's updated here with its `gameVersion`.
 
 ## Checked releases: versions.json
 `versions.schema.json` is the format of `versions.json`, which the release check writes: the latest checked release of each add-on for each edition, so the app finds updates without asking GitHub. `addons` is keyed by catalog ID, then by edition ID.

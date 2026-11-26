@@ -33,15 +33,43 @@
       "interface": "16001",
       "interfaceSince": "2026-10-13"
     },
+    "anniversary": {
+      "name": "Burning Crusade Anniversary",
+      "shortName": "TBC Anniversary",
+      "product": "wow_anniversary",
+      "folder": "_anniversary_",
+      "gameVersion": "2.5.6",
+      "interface": "20506",
+      "interfaceSince": "2026-10-13"
+    },
     "retail_ptr": {
       "of": "retail",
-      "kind": "ptr",
-      "name": "World of Warcraft (Retail) PTR",
-      "shortName": "Retail PTR",
+      "name": "PTR (Midnight 12.1.7)",
+      "shortName": "PTR 12.1.7",
       "product": "wowt",
       "folder": "_ptr_",
-      "gameVersion": "5.5.4",
-      "interface": "50504",
+      "gameVersion": "12.1.7",
+      "interface": "120107",
+      "interfaceSince": "2026-10-13"
+    },
+    "classic_era_ptr": {
+      "of": "classic_era",
+      "name": "PTR (Classic Era)",
+      "shortName": "PTR Classic Era",
+      "product": "wow_classic_era_ptr",
+      "folder": "_classic_era_ptr_",
+      "gameVersion": "2.5.6",
+      "interface": "20506",
+      "interfaceSince": "2026-06-25"
+    },
+    "retail_beta": {
+      "of": "retail",
+      "name": "Beta",
+      "shortName": "PTR 12.1.7",
+      "product": "wowt",
+      "folder": "_ptr_",
+      "gameVersion": "12.1.7",
+      "interface": "120107",
       "interfaceSince": "2026-10-13"
     }
   },
@@ -78,6 +106,10 @@
         "forever": {
           "interface": "16001",
           "upToDate": true
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false
         }
       }
     }
