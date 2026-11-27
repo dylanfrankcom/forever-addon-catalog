@@ -354,6 +354,7 @@
           "properties": {
             "name": { "description": "The app's name, as its author writes it.", "type": "string", "minLength": 1, "maxLength": 60 },
             "url": { "description": "The app's page.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
+            "folders": { "description": "Every folder the app installs, so they're all left to it: folder names, or a name ending in * for every folder starting with it (Spoken*). Includes packs the catalog doesn't list. Left out, it's the entry's own folders.", "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "maxLength": 128, "pattern": "^[A-Za-z0-9_!]([A-Za-z0-9_.! -]*[A-Za-z0-9_!-])?\\*?$" } },
             "marker": { "description": "A folder or file name in AddOns that shows the app is in use (.spoken-manager): a plain name, no path separators or wildcards.", "type": "string", "pattern": "^(?!\\.{1,2}$)[^/\\\\:*?\"<>|\\u0000-\\u001f]{1,100}$" }
           },
           "required": ["name", "url"],

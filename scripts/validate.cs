@@ -424,6 +424,22 @@ static class CatalogValidator
                 }
             }
         }
+        // An own app's folder patterns cover only its own entry's folders and folders no entry has.
+        foreach (var addon in addons)
+        {
+            var id = (string)addon["id"]!;
+            foreach (var pattern in Strings(addon["ownApp"]?["folders"]))
+            {
+                var prefix = pattern.EndsWith('*') ? pattern[..^1] : null;
+                foreach (var (folder, owner) in folderOwners)
+                {
+                    if (owner != id && (prefix is null ? string.Equals(folder, pattern, StringComparison.OrdinalIgnoreCase) : folder.StartsWith(prefix, StringComparison.OrdinalIgnoreCase)))
+                    {
+                        problems.Add(new("own-app-folder", $"'{id}' ownApp folder '{pattern}' covers '{folder}', which is '{owner}'s."));
+                    }
+                }
+            }
+        }
         foreach (var (authorId, _) in authors)
         {
             if (!usedAuthors.Contains(authorId))
@@ -694,7 +710,7 @@ static class SelfTest
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
     static readonly string[] Codes = ["schema", "json", "details-html", "details-link", "details-id", "details-unlisted", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date", "released-date",
         "unknown-author", "unused-author", "author-profile", "edition-interface", "unknown-edition", "edition-up-to-date",
-        "versions-same-file", "test-client-edition", "edition-facts", "override-name"];
+        "versions-same-file", "test-client-edition", "edition-facts", "override-name", "own-app-folder"];
 
     // bump/invalid-added-missing-*.head.json expects "added-missing"; any other invalid bump case "version-not-bumped".
     static string BumpCode(string rest) =>

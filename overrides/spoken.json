@@ -5,7 +5,8 @@
   "ownApp": {
     "name": "Spoken Manager",
     "url": "https://spoken.quest/#install",
-    "marker": ".spoken-manager"
+    "marker": ".spoken-manager",
+    "folders": ["Spoken*"]
   },
   "linkOnly": {
     "url": "https://spoken.quest/#install"

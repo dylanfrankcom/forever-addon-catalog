@@ -58,7 +58,8 @@
       "ownApp": {
         "name": "Spoken Manager",
         "url": "https://example.com/spoken-manager",
-        "marker": ".spoken-manager"
+        "marker": ".spoken-manager",
+        "folders": ["Spoken*", "SpokenExtras"]
       }
     }
   ]
