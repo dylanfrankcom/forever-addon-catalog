@@ -52,6 +52,7 @@ The app and this repo's release checker both follow these fields, so they never 
 - **The Interface line:** `## Interface:` may list several values, separated by commas, spaces or tabs (`## Interface: 11509, 50504, 16001`). The add-on supports the edition when one of them is the edition's `interface`.
 - **Which file in a release:** when the release has the common packager's `release.json`, the edition's file is the one whose flavor is in its `packagerFlavors`. Otherwise, a release with one file per edition is matched by `fileWords` in the file name, and a release with a single file uses that file for every edition.
 - **PTRs** list the values of the version they run: PTR (Classic Era) on 2.5.6 reads `_TBC` files, like TBC Anniversary.
+- **Folders made for other editions:** a release made for every edition can carry folders only some of them load (Deadly Boss Mods' Midnight modules list only Retail's Interface). For an edition, a folder whose `.toc` lists only Interfaces that other editions accept is left out: the edition's `folders` lists the ones it installs, and the app installs only those. Never the add-on's main folder, never a folder one that stays requires (the release then fails for that edition), and never a folder whose Interface no edition accepts (that's out of date, and fails as before). Left-out folders get every safety check all the same.
 
 | Edition | `tocSuffixes` | `gameTypes` | `packagerFlavors` | `fileWords` |
 |---|---|---|---|---|
@@ -87,6 +88,7 @@ Battle.net puts the expansion and version in a Retail PTR's name, so the name ch
 | `sha256` | The file's SHA-256 in lowercase hex. The app refuses a download that doesn't match. |
 | `interface` | The Interface the file's `.toc` lists for this edition. |
 | `upToDate` | Whether that's the edition's current Interface; false for a release that isn't updated yet. |
+| `folders` | The folders this edition installs, when some of the release's are left out for it ([folders made for other editions](#how-an-edition-reads-an-add-on)). Left out, it's all of them. |
 | `published` | The day the release was published. |
 
 Only releases that passed the release check, or that it found not updated yet, are listed, after the check's 6-hour hold for new releases. `checked` is when the run that last changed the file finished: a run that finds nothing new doesn't rewrite it, so its ETag stays valid. A run that would drop more than half the listed add-ons writes neither file and keeps the last good ones. One file for several editions is listed under each of them, with the same hash and link (the validator checks). A release with one file per edition lists each edition's own file.
@@ -161,7 +163,7 @@ Authors written by hand (`overrides/_authors.json`) keep their own list, which c
 | `summaries` | | The summary in other languages, from the `.toc`'s `Notes-deDE` lines and the like, keyed by the game's locale. |
 | `sources` | yes | Where to get it, in order of preference (see below). At least one. |
 | `folders` | yes | Every top-level AddOns folder it installs. Several-folder add-ons list all of them (Questie, QuestieDB, QuestieTrace); they're always installed, updated and removed together. Letters, digits, `_`, `.`, `-`, `!` and inner spaces: a leading `!` is how an add-on loads before the others (`!BugGrabber`). No paths, no leading dot, and no trailing space or dot. |
-| `editions` | | The editions it supports and what its latest checked release lists for each (see [Editions](#editions)): its `interface`, whether that's `upToDate`, and `released`, the day (UTC) the release was published, left out when it isn't known. Written by the generator. |
+| `editions` | | The editions it supports and what its latest checked release lists for each (see [Editions](#editions)): its `interface`, whether that's `upToDate`, `released`, the day (UTC) the release was published, left out when it isn't known, and `folders`, the ones the edition installs when some of the entry's are [made for other editions](#how-an-edition-reads-an-add-on) (left out, it's all of `folders`). Written by the generator. |
 | `tocPath` | | The `.toc` to read the Interface from, relative to the zip's top level (`Questie_Forever.toc`, `OpenMap/OpenMap.toc`). Without it, the app looks for `<Folder>_Forever.toc`, `<Folder>-Forever.toc`, `<Folder>_Camelot.toc`, `<Folder>-Camelot.toc`, then `<Folder>.toc` in the first folder (Camelot is the Forever client's own name). |
 | `author` | yes | The author's ID in `authors` (`plusmouse`). The author's name, links and support pages live in their record, once for all their add-ons. A curated record (`overrides/_authors.json`) when there is one, else one made from the repo's GitHub owner. |
 | `tags` | | From the [fixed list](#tags), main tag first (see below): the `.toc`'s Category, then the repo's topics, at most 3. |

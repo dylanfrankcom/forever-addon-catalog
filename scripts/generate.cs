@@ -1095,6 +1095,16 @@ static class Generator
         return words.Length is 0 or > 100 || Fold(name).Contains(Fold(words), StringComparison.Ordinal) ? null : words;
     }
 
+    /// <summary>
+    /// The folders an edition installs when the check left some of the release's out (folders made only for other
+    /// editions), else null: then it's all of the entry's folders.
+    /// </summary>
+    public static List<string>? EditionFolders(JsonNode good)
+    {
+        var leftOut = Strings(good["leftOut"]);
+        return leftOut.Count == 0 ? null : [.. Strings(good["folders"]).Where(f => !leftOut.Contains(f, StringComparer.OrdinalIgnoreCase))];
+    }
+
     static JsonObject Entry(Listing l, string id, List<JsonObject> previous, List<string> editionIds, DateOnly today, Authors authors)
     {
         var toc = MainToc(l);
@@ -1170,6 +1180,10 @@ static class Generator
         {
             var good = l.Good[e]!;
             editions[e] = new JsonObject { ["interface"] = Str(good["interface"]), ["upToDate"] = good["upToDate"]?.GetValue<bool>() ?? false };
+            if (EditionFolders(good) is { } installs)
+            {
+                editions[e]!["folders"] = Array(installs);
+            }
             // The day (UTC) the checked release was published, for sorting by recently updated; left out, never guessed.
             if (Released(Str(good["published"])) is { } released)
             {
@@ -1388,6 +1402,10 @@ static class Versions
                 release["sha256"] = sha;
                 release["interface"] = Generator.Str(g["interface"]);
                 release["upToDate"] = g["upToDate"]?.GetValue<bool>() ?? false;
+                if (Generator.EditionFolders(g) is { } installs)
+                {
+                    release["folders"] = Generator.Array(installs);
+                }
                 release["published"] = (Generator.Str(g["published"]) ?? "")[..Math.Min(10, (Generator.Str(g["published"]) ?? "").Length)];
                 editions[edition] = release;
             }
@@ -2179,6 +2197,8 @@ static class SelfTest
             && Str(q["links"]!["issues"]) == "https://github.com/Questie/Questie/issues" && Str(q["links"]!["repository"]) == "https://github.com/Questie/QuestieRenamed");
         Check("editions", q["editions"]!.AsObject().Select(e => e.Key).SequenceEqual(["classic_era", "forever"]) && Str(q["editions"]!["forever"]!["interface"]) == "16001");
         Check("editions: the release's day", Str(q["editions"]!["forever"]!["released"]) == "2026-11-20");
+        Check("editions: folders only when some are left out", Generator.EditionFolders(Obj("""{"folders":["DBM-Core","DBM-Midnight","DBM-GUI"],"leftOut":["dbm-midnight"]}"""))!
+            .SequenceEqual(["DBM-Core", "DBM-GUI"]) && Generator.EditionFolders(Obj("""{"folders":["Thing"]}""")) is null && q["editions"]!["forever"]!["folders"] is null);
         Check("downloads: GitHub's counts, as discovery read them; none when it read none", q["downloads"] is JsonObject dl && (long)dl["total"]! == 1200
             && (long)dl["latest"]! == 300 && Str(dl["read"]) == "2026-11-26" && byId["thing"]["downloads"] is null);
         Check("released: UTC day, or none", Generator.Released("2026-11-20T23:30:00-02:00") == "2026-11-21" && Generator.Released(null) is null && Generator.Released("soon") is null);
