@@ -2,7 +2,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 // Generates catalog.json from the add-ons whose releases passed the release check (checks.json), the repos discovery
-// found (candidates.json) and the hand corrections in overrides/. Nobody writes an entry by hand any more.
+// found (candidates.json) and the hand corrections in overrides/. Nobody writes an entry by hand any more. It also writes
+// versions.json: each listed add-on's latest checked release for each edition, so the app finds updates without asking
+// GitHub. A file whose content didn't change isn't rewritten, so its ETag stays valid.
 //
 // Run it through the app repo's dev.ps1 (see scripts/README.md):
 //   ... dotnet run scripts/generate.cs                     # writes ./catalog.json and ./icons/
@@ -10,11 +12,12 @@
 // Options: --catalog <file> (default ./catalog.json: read for its editions and the IDs and dates it already gave, then
 // written), --candidates <file> (default ./candidates.json), --checks <file> (default ./checks.json), --overrides <dir>
 // (default ./overrides), --optout <file> (default ./optout.json), --icons <dir> (default ./icons), --no-icons (keep the
-// icons as they are), --summary <file>.
+// icons as they are), --versions <file> (default ./versions.json), --summary <file>.
 //
 // The listing scope is one setting, Scope below: only add-ons whose release passed for that edition are listed, each
 // with every edition its release was checked for. Widening it is a one-line change.
-// Exit code 0 when catalog.json was written, 1 when an input can't be read, 2 for bad arguments.
+// Exit code 0 when catalog.json and versions.json are up to date, 1 when an input can't be read or the run would drop
+// more than half the listed add-ons (a broken run: nothing is written, the last good files stay), 2 for bad arguments.
 
 using System.IO.Compression;
 using System.Security.Cryptography;
@@ -30,7 +33,7 @@ if (args is ["--self-test"])
 }
 
 string catalogArg = "catalog.json", candidatesArg = "candidates.json", checksArg = "checks.json", overridesArg = "overrides",
-    optoutArg = "optout.json", iconsArg = "icons";
+    optoutArg = "optout.json", iconsArg = "icons", versionsArg = "versions.json";
 string? summaryArg = null;
 var icons = true;
 for (var i = 0; i < args.Length; i++)
@@ -45,9 +48,10 @@ for (var i = 0; i < args.Length; i++)
         case "--optout" when value is not null: optoutArg = value; i++; break;
         case "--icons" when value is not null: iconsArg = value; i++; break;
         case "--summary" when value is not null: summaryArg = value; i++; break;
+        case "--versions" when value is not null: versionsArg = value; i++; break;
         case "--no-icons": icons = false; break;
         default:
-            Console.Error.WriteLine("Usage: dotnet run scripts/generate.cs [--catalog <file>] [--candidates <file>] [--checks <file>] [--overrides <dir>] [--optout <file>] [--icons <dir>] [--no-icons] [--summary <file>] | --self-test");
+            Console.Error.WriteLine("Usage: dotnet run scripts/generate.cs [--catalog <file>] [--candidates <file>] [--checks <file>] [--overrides <dir>] [--optout <file>] [--icons <dir>] [--no-icons] [--versions <file>] [--summary <file>] | --self-test");
             return 2;
     }
 }
@@ -65,6 +69,11 @@ catch (Exception e) when (e is IOException or UnauthorizedAccessException or Jso
 
 var today = DateOnly.FromDateTime(DateTime.UtcNow);
 var result = Generator.Build(inputs, today);
+if (Generator.Shrank(inputs.Catalog, result) is { } shrank)
+{
+    Console.Error.WriteLine(shrank);
+    return 1;
+}
 if (icons)
 {
     using var http = new HttpClient { Timeout = TimeSpan.FromMinutes(5) };
@@ -76,6 +85,11 @@ else
     Icons.Keep(result, inputs, iconsArg);
 }
 File.WriteAllText(catalogArg, Generator.Write(result, inputs.Catalog));
+var previousVersions = File.Exists(versionsArg) ? File.ReadAllText(versionsArg) : null;
+if (Versions.Write(result, inputs.Catalog, previousVersions, DateTime.UtcNow) is { } versions)
+{
+    File.WriteAllText(versionsArg, versions);
+}
 var report = result.Report();
 Console.Write(report);
 if (summaryArg is not null)
@@ -369,6 +383,8 @@ sealed class Result
 {
     public List<JsonObject> Addons { get; } = [];
     public JsonObject Authors { get; } = new();
+    /// <summary>Each GitHub-released entry's last good release per edition, from the release check, by entry ID.</summary>
+    public Dictionary<string, (string Repo, JsonObject Good)> Good { get; } = new(StringComparer.Ordinal);
     public SortedDictionary<string, List<string>> Dropped { get; } = new(StringComparer.Ordinal);
     public List<string> Notices { get; } = [];
     /// <summary>Icons to fetch: an entry, the release file and the image's path inside it.</summary>
@@ -407,7 +423,7 @@ static class Generator
 
     public static List<string> Strings(JsonNode? node) => node?.AsArray().Select(s => s!.GetValue<string>()).ToList() ?? [];
 
-    static string? Str(JsonNode? node) => node is JsonValue v && v.TryGetValue<string>(out var s) && s.Length > 0 ? s : null;
+    public static string? Str(JsonNode? node) => node is JsonValue v && v.TryGetValue<string>(out var s) && s.Length > 0 ? s : null;
 
     /// <summary>Many folders that don't share a name with the main one: a bundle of unrelated add-ons, not one add-on.</summary>
     /// <summary>The catalog schema's folder pattern.</summary>
@@ -505,9 +521,20 @@ static class Generator
         var used = new HashSet<string>(StringComparer.Ordinal);
         var ids = new Dictionary<Listing, string>();
         var overrideFor = new Dictionary<Listing, string>();
-        foreach (var l in kept)
+        foreach (var l in kept.ToList())
         {
-            var o = inputs.Overrides.FirstOrDefault(o => Matches(o.Value, l, byFolder: true)).Key;
+            // An override naming a repo corrects that repo only. One without (an add-on written by hand because it isn't
+            // released on GitHub) never takes a GitHub listing: a repo that shares its folder or CurseForge project is
+            // someone else's re-upload, and its files must never reach the catalog or versions.json.
+            var o = inputs.Overrides.FirstOrDefault(o => o.Value["repo"] is not null
+                ? string.Equals(Str(o.Value["repo"]), l.Repo, StringComparison.OrdinalIgnoreCase)
+                : Matches(o.Value, l, byFolder: true)).Key;
+            if (o is not null && inputs.Overrides[o]["repo"] is null)
+            {
+                result.Drop("a re-upload of an add-on listed from its own site (same folder or CurseForge project as a hand-written entry)", $"{l.Repo} ({o})");
+                kept.Remove(l);
+                continue;
+            }
             if (o is not null && !overrideFor.ContainsValue(o))
             {
                 overrideFor[l] = o;
@@ -547,6 +574,7 @@ static class Generator
         foreach (var l in kept)
         {
             var entry = Entry(l, ids[l], previous, editionIds, today, authors);
+            result.Good[ids[l]] = (l.Repo, l.Good);
             if (overrideFor.TryGetValue(l, out var o))
             {
                 Apply(entry, inputs.Overrides[o]);
@@ -887,6 +915,18 @@ static class Generator
     };
 
     /// <summary>
+    /// Why this run looks broken, or null: it would list fewer than half the add-ons the catalog lists now (a truncated
+    /// checks.json, say). Then nothing is written and the last good files stay.
+    /// </summary>
+    public static string? Shrank(JsonObject previous, Result result)
+    {
+        var before = previous["addons"]?.AsArray().Count ?? 0;
+        return before >= 20 && result.Addons.Count * 2 < before
+            ? $"This run lists {result.Addons.Count} add-ons, against {before} in the catalog now: it looks broken, so nothing was written."
+            : null;
+    }
+
+    /// <summary>
     /// The new catalog.json. Its version goes up a minor version when entries or authors changed, and a major version
     /// when the format did.
     /// </summary>
@@ -908,6 +948,85 @@ static class Generator
             ["addons"] = addons,
         };
         return root.ToJsonString(Options) + "\n";
+    }
+}
+
+/// <summary>
+/// versions.json (schema/versions.schema.json): for each listed add-on released on GitHub, its last good release for each
+/// edition the release check passed it for (or found not updated yet), after the check's hold. Keyed by ID, then edition.
+/// </summary>
+static class Versions
+{
+    public const int SchemaVersion = 1;
+
+    public static JsonObject Addons(Result result, JsonObject catalog)
+    {
+        var order = (catalog["editions"] as JsonObject)?.Select(e => e.Key).ToList() ?? [];
+        var addons = new JsonObject();
+        foreach (var (id, (repo, good)) in result.Good.OrderBy(g => g.Key, StringComparer.Ordinal))
+        {
+            // Only when the entry's own GitHub source is the repo the release was checked from.
+            var entry = result.Addons.FirstOrDefault(a => a["id"]!.GetValue<string>() == id);
+            var source = entry?["sources"]?.AsArray().OfType<JsonObject>().FirstOrDefault(s => Generator.Str(s["type"]) == "github");
+            if (source is null || !string.Equals(Generator.Str(source["repo"]), repo, StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+            var editions = new JsonObject();
+            foreach (var (edition, node) in good.OrderBy(g => order.IndexOf(g.Key) is var i && i < 0 ? int.MaxValue : i).ThenBy(g => g.Key, StringComparer.Ordinal))
+            {
+                if (node is not JsonObject g || Generator.Str(g["file"]) is not { } file || Generator.Str(g["sha256"]) is not { } sha || Generator.Str(g["url"]) is not { } url)
+                {
+                    continue;
+                }
+                var release = new JsonObject
+                {
+                    ["release"] = Generator.Str(g["release"]),
+                    ["file"] = file,
+                    ["url"] = url,
+                };
+                if (g["size"]?.GetValue<long>() is { } size)
+                {
+                    release["size"] = size;
+                }
+                release["sha256"] = sha;
+                release["interface"] = Generator.Str(g["interface"]);
+                release["upToDate"] = g["upToDate"]?.GetValue<bool>() ?? false;
+                release["published"] = (Generator.Str(g["published"]) ?? "")[..Math.Min(10, (Generator.Str(g["published"]) ?? "").Length)];
+                editions[edition] = release;
+            }
+            if (editions.Count > 0)
+            {
+                addons[id] = editions;
+            }
+        }
+        return addons;
+    }
+
+    /// <summary>The new versions.json, or null when its add-ons are the same as the previous file's (then it isn't rewritten).</summary>
+    public static string? Write(Result result, JsonObject catalog, string? previous, DateTime now)
+    {
+        var addons = Addons(result, catalog);
+        JsonNode? before = null;
+        try
+        {
+            before = previous is null ? null : JsonNode.Parse(previous);
+        }
+        catch (JsonException)
+        {
+        }
+        if (before?["schemaVersion"]?.GetValue<int>() == SchemaVersion && JsonNode.DeepEquals(before["addons"], addons))
+        {
+            return null;
+        }
+        var root = new JsonObject
+        {
+            ["$schema"] = "./schema/versions.schema.json",
+            ["schemaVersion"] = SchemaVersion,
+            ["checked"] = now.ToUniversalTime().ToString("yyyy-MM-dd'T'HH:mm:ss'Z'"),
+            ["addons"] = addons,
+        };
+        return root.ToJsonString(new JsonSerializerOptions { WriteIndented = true, IndentSize = 2, NewLine = "\n", Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping }) + "\n";
     }
 }
 
@@ -1378,6 +1497,7 @@ static class SelfTest
             {
                 ["release"] = "v1", ["published"] = "2026-11-20T10:00:00Z", ["upToDate"] = true, ["interface"] = e == "forever" ? "16001" : "11509",
                 ["url"] = $"https://github.com/{repo}/releases/download/v1/x.zip", ["folders"] = Generator.Array(folders), ["main"] = folders[0],
+                ["file"] = "x.zip", ["size"] = 1234L, ["sha256"] = new string('a', 64),
             };
         }
         return new JsonObject { ["repo"] = repo, ["state"] = "checked", ["good"] = good };
@@ -1450,6 +1570,7 @@ static class SelfTest
             Row("g/Gone", "Gone", "Opted out."),
             Row("i/Bang", "Bang", "Odd folder."),
             Row("j/Grabber", "Grabber", "Loads first."),
+            Row("k/CfOnlyMirror", "CF Only", "A re-upload."),
         }.ToDictionary(r => r["repo"]!.GetValue<string>(), r => r, StringComparer.OrdinalIgnoreCase);
         var checks = new List<JsonObject>
         {
@@ -1463,6 +1584,7 @@ static class SelfTest
             Check_("g/Gone", ["Gone"], "forever"),
             Check_("i/Bang", ["Bang."], "forever"),
             Check_("j/Grabber", ["!Grabber"], "forever"),
+            Check_("k/CfOnlyMirror", ["CfOnly"], "forever"),
             Check_("h/RetailOnly", ["RetailOnly"], "retail"),
         };
         var overrides = new Dictionary<string, JsonObject>(StringComparer.Ordinal)
@@ -1477,6 +1599,24 @@ static class SelfTest
         var byId = result.Addons.ToDictionary(a => a["id"]!.GetValue<string>());
         Check("relations: a reference to an add-on that isn't listed is left out", Generator.Strings(byId["cfonly"]["conflicts"]).SequenceEqual(["thing"])
             && result.Notices.Any(n => n.Contains("names notlisted", StringComparison.Ordinal)));
+        Check("mirror: a re-upload of a hand-written entry isn't listed", result.Dropped.TryGetValue("a re-upload of an add-on listed from its own site (same folder or CurseForge project as a hand-written entry)", out var mirrors)
+            && mirrors.SequenceEqual(["k/CfOnlyMirror (cfonly)"]) && byId["cfonly"]["sources"]!.AsArray().All(s => Generator.Str(s!["type"]) != "github"));
+        var versions = Versions.Addons(result, previous);
+        Check("versions: listed GitHub add-ons only, each checked edition", versions.Select(v => v.Key).SequenceEqual(["grabber", "libfoo", "questie", "readme", "thing"])
+            && versions["questie"]!.AsObject().Select(e => e.Key).SequenceEqual(["classic_era", "forever"]));
+        var q1 = versions["questie"]!["forever"]!;
+        Check("versions: a release's fields", Generator.Str(q1["file"]) == "x.zip" && q1["size"]!.GetValue<long>() == 1234 && Generator.Str(q1["published"]) == "2026-11-20"
+            && Generator.Str(q1["interface"]) == "16001" && q1["upToDate"]!.GetValue<bool>());
+        var versionsText = Versions.Write(result, previous, null, new DateTime(2026, 11, 26, 4, 0, 0, DateTimeKind.Utc))!;
+        Check("versions: written with the run's time", versionsText.Contains("\"checked\": \"2026-11-26T04:00:00Z\"", StringComparison.Ordinal) && versionsText.EndsWith("}\n", StringComparison.Ordinal));
+        Check("versions: an unchanged run doesn't rewrite it", Versions.Write(result, previous, versionsText, new DateTime(2026, 11, 26, 10, 0, 0, DateTimeKind.Utc)) is null);
+        Check("versions: a changed release rewrites it", Versions.Write(result, previous, versionsText.Replace("x.zip", "old.zip", StringComparison.Ordinal), DateTime.UtcNow) is not null);
+        var many = Obj("""{"addons":[]}""");
+        for (var i = 0; i < 40; i++)
+        {
+            many["addons"]!.AsArray().Add(Obj($$"""{"id":"a{{i}}"}"""));
+        }
+        Check("guard: a run that loses more than half the add-ons writes nothing", Generator.Shrank(many, result) is not null && Generator.Shrank(previous, result) is null);
         static JsonObject Fund(string repo, string ownerType, string json) => Obj($$"""{"repo":"{{repo}}","ownerType":"{{ownerType}}","funding":{{json}}}""");
         var (good, _) = Support.FromRow(Fund("a/x", "User", """[{"platform":"KO_FI","url":"https://ko-fi.com/a"},{"platform":"GITHUB","url":"https://github.com/a","sponsors":true,"ownerOrMember":true}]"""));
         Check("support: Sponsors first, the rest in order", good.SequenceEqual(["https://github.com/sponsors/a", "https://ko-fi.com/a"]));

@@ -115,7 +115,7 @@ A release is checked once, and again only when the checks or the editions change
 `checks.json`: `checked` (when), `scope`, and `repos`, one per repo: `release`, `published`, `state` (`checked`, `held`, `pre-release`, `no-release` or `error`, with a `reason`), `checkedAt`, `rules`, `results` and `good` by edition (`file`, `url`, `size`, `sha256`, `interface`, `folders`, `main`, `needs`; `good` adds `release`, `published`, `upToDate` and `checkedAt`).
 
 ## generate.cs
-Writes `catalog.json` and `icons/` from `checks.json`, `candidates.json`, `overrides/` and `optout.json`. How each field is chosen is in `schema/README.md`, "Where the catalog comes from" and "An entry". Run it after `check.cs`, then validate:
+Writes `catalog.json`, `versions.json` and `icons/` from `checks.json`, `candidates.json`, `overrides/` and `optout.json`. How each field is chosen is in `schema/README.md`, "Where the catalog comes from" and "An entry". Run it after `check.cs`, then validate:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/generate.cs                     # catalog.json and icons/
@@ -131,5 +131,7 @@ powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/valid
 **The main folder** (from the release check) names the entry: a folder others extend (Questie for QuestieDB), else the first that loads at start, never a `!` helper folder while there's another. The `.toc` fields discovery read (Title, Notes, icon, dependencies) are used only when that `.toc` belongs to the main folder; otherwise the entry falls back to the folder name and the repository's description.
 
 **Authors** made from a GitHub account get the support links from their listed repos' `FUNDING.yml` (rules in the top-level README, `sponsor`). Every refused link, and every support link that appeared, changed or went away since the last catalog, is in the report. Each entry's `links.issues` is the repo's issues page when it has issues turned on.
+
+**`versions.json`** lists each listed add-on's last good release for each edition (format in `schema/README.md`). It's rewritten only when a release changed, so its ETag stays valid between runs. A run that would list fewer than half the add-ons listed now writes nothing and exits with 1, keeping the last good files. The **check** workflow runs the generator and the validator after each check and commits the files to `main` only when they changed and passed.
 
 **Re-running changes only what changed:** IDs and `added` dates come from the previous `catalog.json`, entries and fields are written in a fixed order, and the version is bumped only when something changed. The report lists what was dropped and why, entries with no summary, and icons that couldn't be read.

@@ -16,7 +16,7 @@
       "const": 1
     },
     "checked": {
-      "description": "When the release check finished, in UTC (2026-11-26T04:00:00Z).",
+      "description": "When the run that last changed this file finished, in UTC (2026-11-26T04:00:00Z). A run that finds nothing new leaves the file as it is, so its ETag stays valid.",
       "type": "string",
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
     },
@@ -42,8 +42,10 @@
         "release": { "description": "The release as the source names it: a GitHub tag.", "type": "string", "minLength": 1 },
         "file": { "description": "The release file's name.", "type": "string", "minLength": 1, "pattern": "^[^/\\\\]+$" },
         "url": { "description": "Where the file downloads from.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
+        "size": { "description": "The file's size in bytes, as GitHub lists it.", "type": "integer", "minimum": 1 },
         "sha256": { "description": "The file's SHA-256, lowercase hex. The app refuses a download that doesn't match.", "type": "string", "pattern": "^[0-9a-f]{64}$" },
         "interface": { "description": "The Interface the file's .toc lists for this edition.", "$ref": "catalog.schema.json#/$defs/interface" },
+        "upToDate": { "description": "Whether that's the edition's current Interface. False for a release that isn't updated yet (it lists the previous patch's, or a PTR's live edition's).", "type": "boolean" },
         "published": { "description": "The day the release was published (YYYY-MM-DD).", "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
       }
     }

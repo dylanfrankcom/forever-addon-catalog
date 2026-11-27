@@ -76,18 +76,20 @@ The PTRs Battle.net offers are editions too, with one more field: `of`, the live
 Battle.net puts the expansion and version in a Retail PTR's name, so the name changes with each patch: it's updated here with its `gameVersion`.
 
 ## Checked releases: versions.json
-`versions.schema.json` is the format of `versions.json`, which the release check writes: the latest checked release of each add-on for each edition, so the app finds updates without asking GitHub. `addons` is keyed by catalog ID, then by edition ID.
+`versions.schema.json` is the format of `versions.json`, which `scripts/generate.cs` writes from the release check, beside `catalog.json`: the latest checked release of each add-on for each edition, so the app finds updates without asking GitHub. `addons` is keyed by catalog ID, then by edition ID.
 
 | Field | What |
 |---|---|
 | `release` | The release as the source names it (a GitHub tag). |
 | `file` | The release file's name. |
 | `url` | Where it downloads from, `https://` only. |
+| `size` | The file's size in bytes, as GitHub lists it. |
 | `sha256` | The file's SHA-256 in lowercase hex. The app refuses a download that doesn't match. |
 | `interface` | The Interface the file's `.toc` lists for this edition. |
+| `upToDate` | Whether that's the edition's current Interface; false for a release that isn't updated yet. |
 | `published` | The day the release was published. |
 
-One file for several editions is listed under each of them, with the same hash and link (the validator checks). A release with one file per edition lists each edition's own file.
+Only releases that passed the release check, or that it found not updated yet, are listed, after the check's 6-hour hold for new releases. `checked` is when the run that last changed the file finished: a run that finds nothing new doesn't rewrite it, so its ETag stays valid. A run that would drop more than half the listed add-ons writes neither file and keeps the last good ones. One file for several editions is listed under each of them, with the same hash and link (the validator checks). A release with one file per edition lists each edition's own file.
 
 ```json
 {
