@@ -2,6 +2,16 @@
   "$schema": "../schema/authors.schema.json",
   "$comment": "Author records written by hand: used instead of the one the generator makes from a GitHub account.",
   "authors": {
+    "avyaddons": {
+      "name": "Avyiel",
+      "profiles": [
+        "https://github.com/AvyAddons"
+      ],
+      "sponsor": [
+        "https://github.com/sponsors/lucasvienna",
+        "https://ko-fi.com/avyiel"
+      ]
+    },
     "exehn": {
       "name": "Exehn",
       "sponsor": [
@@ -20,6 +30,16 @@
         "https://ko-fi.com/plusmouse",
         "https://www.patreon.com/plusmouse",
         "https://www.paypal.com/donate/?hosted_button_id=HEVWLA4343EN8"
+      ]
+    },
+    "spartanui-wow": {
+      "name": "Wutname1",
+      "profiles": [
+        "https://github.com/spartanui-wow"
+      ],
+      "sponsor": [
+        "https://github.com/sponsors/Wutname1",
+        "https://www.patreon.com/cw/SpartanUI"
       ]
     },
     "wuild": {
