@@ -36,11 +36,12 @@ The catalog is generated (`scripts/generate.cs`): every add-on whose latest GitH
 - **`added`** (required on new entries): the day the entry joined the catalog. Entries from before the field existed have the date of the commit that first added them.
 - **`links.repository`** (optional): the public GitHub or GitLab repository that holds the add-on's source code, even when the catalog downloads it from CurseForge or Wago. The app marks add-ons whose code is public. Only a repository with the code counts: one that only hosts issues, or a link to a repository that isn't public, is left out. The catalog doesn't record licences: each add-on's repository states its own.
 - **`links.issues`** (optional): where players report problems to the author. This is the repository's issues page when it has issues turned on. Otherwise it's the tracker the author links from their CurseForge or Wago page, if that link works. The app's Report a problem link uses it.
-- **`sponsor`** (optional, in the author's record): a list of the `https` pages where people can support the author (Patreon, Ko-fi, Buy Me a Coffee, PayPal, GitHub Sponsors …). The app shows each as its own link, grouped by author. Only pages the author lists themselves are included, never guessed, and a page that's listed under two addresses is included once. They're in this order:
-  1. The author's GitHub Sponsors page, when they have one.
-  2. The links in the source repo's `FUNDING.yml` (or the owner's `.github` repo's), in its order.
-  3. The Donate button on the add-on's CurseForge or Wago page.
-  4. Any other support links the author lists on those pages, in the page's order.
+- **`sponsor`** (optional, in the author's record): a list of the `https` pages where people can support the author (Patreon, Ko-fi, Buy Me a Coffee, PayPal, GitHub Sponsors …). The app shows each as its own link, grouped by author. Only pages the author lists themselves are included, never guessed, and a page that's listed under two addresses is included once. A wrong link would send a player's money to the wrong person, so they're checked:
+  - **From the author's own repos only:** each listed repo's `FUNDING.yml` (or the owner's `.github` repo's), as GitHub reads it. Never from a fork or another account's repo.
+  - **GitHub Sponsors:** only an account that has a Sponsors listing and is the repo's owner, or a public member of the organisation that owns it. It comes first.
+  - **Everything else:** in the file's order, `https` only (an `http://` link, or one written without a scheme like `paypal.me/name`, is read as the same page over `https`), and a shortened link (bit.ly and the like) is listed as the page it leads to, found from the shortener's redirect, never as the short link.
+  - **Reported:** every refused link, and every link that appears, changes or goes away, is listed in the generator's report for the maintainer to look at.
+  - Authors written by hand (`overrides/_authors.json`) keep their own list, which can also include the Donate button on their CurseForge or Wago page.
 - **`icon`** (optional): a small square PNG for the add-on, shown on its cards in the app. It's the icon the author ships in the add-on itself (the `.toc`'s IconTexture, when it's one of the add-on's own files), converted to PNG and kept in this repo. Never game art and never drawn here; without one, the app shows the add-on's tag icon.
 
 ## For add-on authors

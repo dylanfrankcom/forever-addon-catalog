@@ -84,6 +84,8 @@ Dropped: forks, archived repos, repos that are gone, repos where no `.toc` lists
 
 Code search misses some repos, so the repos the catalog already lists (its GitHub sources, and each override's `repo`) are read on every run as well, their `.toc` files found in the repo's root and one folder down. Forks are dropped, except one an override names: a person checked, through an issue, that it's the maintained continuation of an abandoned add-on. Every `## Interface` line of a `.toc` counts (a first line can be packager placeholders).
 
+Each row also records whether the repo has issues turned on, and its `FUNDING.yml` as GitHub reads it (`fundingLinks`). For each GitHub Sponsors link, a separate pass asks GitHub whether the account has a Sponsors listing, and whether it is the repo's owner or a public member of the organisation that owns it. An answer that can't be read this run keeps the previous one.
+
 Re-running changes only what changed: the rows are sorted and written the same way each time, the previous run's repos are read again even if search misses them, and a repo that can't be read this time keeps its previous row. The report (also the job summary) counts the repos per edition and the drops, and names any capped or failed search.
 
 ## check.cs
@@ -127,5 +129,7 @@ powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/valid
 **Icons:** the main `.toc`'s IconTexture, only when it points into the add-on's own folders (never game art). It's read from the checked release file (TGA, BLP or PNG), converted to PNG and kept as `icons/<id>.png`; `icons/icons.json` remembers which release each came from, so an icon is read again only when the release changes. An icon that can't be read is left out.
 
 **The main folder** (from the release check) names the entry: a folder others extend (Questie for QuestieDB), else the first that loads at start, never a `!` helper folder while there's another. The `.toc` fields discovery read (Title, Notes, icon, dependencies) are used only when that `.toc` belongs to the main folder; otherwise the entry falls back to the folder name and the repository's description.
+
+**Authors** made from a GitHub account get the support links from their listed repos' `FUNDING.yml` (rules in the top-level README, `sponsor`). Every refused link, and every support link that appeared, changed or went away since the last catalog, is in the report. Each entry's `links.issues` is the repo's issues page when it has issues turned on.
 
 **Re-running changes only what changed:** IDs and `added` dates come from the previous `catalog.json`, entries and fields are written in a fixed order, and the version is bumped only when something changed. The report lists what was dropped and why, entries with no summary, and icons that couldn't be read.

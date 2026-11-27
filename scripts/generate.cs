@@ -254,6 +254,117 @@ sealed record Listing(string Repo, JsonObject Row, JsonObject Good, JsonObject M
     public string Owner => Repo[..Repo.IndexOf('/')];
 }
 
+/// <summary>
+/// An author's support links, from their repos' FUNDING.yml as GitHub reads it. A wrong link sends a player's money to
+/// the wrong person, so only links that pass every rule are kept, and every refusal is reported.
+/// </summary>
+static class Support
+{
+    static readonly System.Text.RegularExpressions.Regex Https = new(@"^https://[^/\s]+(/\S*)?$");
+    static readonly HashSet<string> Shorteners = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "bit.ly", "tinyurl.com", "t.co", "goo.gl", "is.gd", "ow.ly", "buff.ly", "rebrand.ly", "cutt.ly", "shorturl.at", "rb.gy", "tiny.cc",
+    };
+
+    /// <summary>
+    /// The links of one repo, or why each was refused: a GitHub Sponsors link needs a Sponsors listing and must be the
+    /// repo owner's (or a public member's of the organisation that owns it); every link must be https, and a custom one
+    /// can't be a link shortener.
+    /// </summary>
+    public static (List<string> Links, List<string> Refused) FromRow(JsonObject row)
+    {
+        var links = new List<string>();
+        var refused = new List<string>();
+        var repo = row["repo"]?.GetValue<string>() ?? "";
+        foreach (var f in row["funding"]?.AsArray().OfType<JsonObject>() ?? [])
+        {
+            var platform = f["platform"]?.GetValue<string>() ?? "";
+            var url = Upgrade(f["url"]?.GetValue<string>() ?? "");
+            if (platform == "GITHUB")
+            {
+                var m = System.Text.RegularExpressions.Regex.Match(url, @"^https://github\.com/(?:sponsors/)?([A-Za-z0-9][A-Za-z0-9-]{0,38})/?$");
+                if (!m.Success)
+                {
+                    refused.Add($"{repo}: {url} isn't a GitHub account");
+                }
+                else if (f["ownerOrMember"]?.GetValue<bool>() != true)
+                {
+                    refused.Add($"{repo}: github.com/sponsors/{m.Groups[1].Value} isn't the repo's owner or a public member of its organisation");
+                }
+                else if (f["sponsors"]?.GetValue<bool>() != true)
+                {
+                    refused.Add($"{repo}: {m.Groups[1].Value} has no GitHub Sponsors listing");
+                }
+                else
+                {
+                    links.Insert(links.Count(l => l.StartsWith("https://github.com/sponsors/", StringComparison.Ordinal)), $"https://github.com/sponsors/{m.Groups[1].Value}");
+                }
+                continue;
+            }
+            if (!Https.IsMatch(url) || !Uri.TryCreate(url, UriKind.Absolute, out var uri))
+            {
+                refused.Add($"{repo}: {url} isn't an https link");
+            }
+            else if (platform == "CUSTOM" && IsShortLink(uri))
+            {
+                // Discovery asked the shortener where it leads; the real page is listed, never the short link.
+                var resolved = f["resolved"]?.GetValue<string>();
+                if (resolved is not null && Https.IsMatch(resolved) && Uri.TryCreate(resolved, UriKind.Absolute, out var real) && !IsShortLink(real))
+                {
+                    links.Add(resolved);
+                }
+                else
+                {
+                    refused.Add($"{repo}: {url} is a link shortener that didn't resolve to an https page");
+                }
+            }
+            else
+            {
+                links.Add(url);
+            }
+        }
+        return (links, refused);
+    }
+
+    static bool IsShortLink(Uri uri) => Shorteners.Contains(uri.Host.StartsWith("www.", StringComparison.OrdinalIgnoreCase) ? uri.Host[4..] : uri.Host);
+
+    /// <summary>
+    /// The same page over https: FUNDING.yml's custom links are often written as "paypal.me/name" or "http://...". Any
+    /// other scheme is left as it is, and refused.
+    /// </summary>
+    public static string Upgrade(string url) =>
+        url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ? "https://" + url[7..]
+        : !url.Contains("://", StringComparison.Ordinal) && url.Length > 0 && !url.StartsWith('/') ? "https://" + url
+        : url;
+
+    /// <summary>An author's links from all their repos, GitHub Sponsors first, each once (case and a final "/" ignored).</summary>
+    public static (List<string> Links, List<string> Refused) ForAuthor(IEnumerable<JsonObject> rows)
+    {
+        var all = rows.OrderBy(r => r["repo"]?.GetValue<string>(), StringComparer.OrdinalIgnoreCase).Select(FromRow).ToList();
+        var links = all.SelectMany(a => a.Links).ToList();
+        var ordered = links.Where(l => l.StartsWith("https://github.com/sponsors/", StringComparison.Ordinal))
+            .Concat(links.Where(l => !l.StartsWith("https://github.com/sponsors/", StringComparison.Ordinal)))
+            .DistinctBy(l => l.TrimEnd('/').ToLowerInvariant()).ToList();
+        return (ordered, all.SelectMany(a => a.Refused).Distinct().ToList());
+    }
+
+    /// <summary>Support links that appeared, changed or went away since the previous catalog, for a person to look at.</summary>
+    public static List<string> Changes(JsonObject? before, JsonObject after)
+    {
+        var notes = new List<string>();
+        foreach (var id in (before?.Select(p => p.Key) ?? []).Union(after.Select(p => p.Key)).Order(StringComparer.Ordinal))
+        {
+            var old = Generator.Strings(before?[id]?["sponsor"]);
+            var now = Generator.Strings(after[id]?["sponsor"]);
+            if (!old.SequenceEqual(now) && (old.Count > 0 || now.Count > 0) && (before?.ContainsKey(id) == true || now.Count > 0))
+            {
+                notes.Add($"{id}: support links {(old.Count == 0 ? "added" : now.Count == 0 ? "removed" : "changed")}: {(old.Count > 0 ? string.Join(" ", old) + " -> " : "")}{(now.Count > 0 ? string.Join(" ", now) : "none")}");
+            }
+        }
+        return notes;
+    }
+}
+
 sealed class Result
 {
     public List<JsonObject> Addons { get; } = [];
@@ -432,6 +543,7 @@ static class Generator
         // 4. The entries.
         var authors = new Authors();
         var deps = new Dictionary<JsonObject, (List<string> Required, List<string> Optional)>();
+        var reposOf = new Dictionary<string, List<JsonObject>>(StringComparer.Ordinal);
         foreach (var l in kept)
         {
             var entry = Entry(l, ids[l], previous, editionIds, today, authors);
@@ -447,6 +559,8 @@ static class Generator
             var own = OwnToc(l.Row, l.MainFolder);
             deps[entry] = (Strings(own["dependencies"]), Strings(own["optionalDependencies"]));
             result.Addons.Add(entry);
+            var authorId = entry["author"]!.GetValue<string>();
+            (reposOf.TryGetValue(authorId, out var rows) ? rows : reposOf[authorId] = []).Add(l.Row);
             if (entry["icon"] is null && IconPath(Str(own["iconTexture"]), l.Folders) is { } icon)
             {
                 result.IconJobs.Add((entry, Str(l.Main["url"])!, icon));
@@ -541,9 +655,16 @@ static class Generator
             }
             else if (authors.Record(author) is { } record)
             {
+                var (links, refused) = Support.ForAuthor(reposOf.GetValueOrDefault(author) ?? []);
+                if (links.Count > 0)
+                {
+                    record["sponsor"] = Array(links);
+                }
+                result.Notices.AddRange(refused.Select(r => $"{author}: support link refused, {r}"));
                 result.Authors[author] = record;
             }
         }
+        result.Notices.AddRange(Support.Changes(inputs.Catalog["authors"] as JsonObject, result.Authors));
         result.Addons.Sort((a, b) => string.CompareOrdinal(a["id"]!.GetValue<string>(), b["id"]!.GetValue<string>()));
         return result;
     }
@@ -653,6 +774,10 @@ static class Generator
         }
         entry["sources"] = sources;
         entry["links"] = new JsonObject { ["repository"] = $"https://github.com/{l.Repo}" };
+        if (l.Row["issues"]?.GetValue<bool>() == true)
+        {
+            entry["links"]!["issues"] = $"https://github.com/{l.Repo}/issues";
+        }
         entry["folders"] = Array(l.Folders);
 
         var editions = new JsonObject();
@@ -1352,6 +1477,23 @@ static class SelfTest
         var byId = result.Addons.ToDictionary(a => a["id"]!.GetValue<string>());
         Check("relations: a reference to an add-on that isn't listed is left out", Generator.Strings(byId["cfonly"]["conflicts"]).SequenceEqual(["thing"])
             && result.Notices.Any(n => n.Contains("names notlisted", StringComparison.Ordinal)));
+        static JsonObject Fund(string repo, string ownerType, string json) => Obj($$"""{"repo":"{{repo}}","ownerType":"{{ownerType}}","funding":{{json}}}""");
+        var (good, _) = Support.FromRow(Fund("a/x", "User", """[{"platform":"KO_FI","url":"https://ko-fi.com/a"},{"platform":"GITHUB","url":"https://github.com/a","sponsors":true,"ownerOrMember":true}]"""));
+        Check("support: Sponsors first, the rest in order", good.SequenceEqual(["https://github.com/sponsors/a", "https://ko-fi.com/a"]));
+        Check("support: a Sponsors login that isn't the owner", Support.FromRow(Fund("a/x", "User", """[{"platform":"GITHUB","url":"https://github.com/b","sponsors":true,"ownerOrMember":false}]""")) is ({ Count: 0 }, [var notOwner]) && notOwner.Contains("isn't the repo's owner"));
+        Check("support: no Sponsors listing", Support.FromRow(Fund("a/x", "User", """[{"platform":"GITHUB","url":"https://github.com/a","sponsors":false,"ownerOrMember":true}]""")) is ({ Count: 0 }, [var noListing]) && noListing.Contains("no GitHub Sponsors listing"));
+        Check("support: not checked counts as no", Support.FromRow(Fund("a/x", "User", """[{"platform":"GITHUB","url":"https://github.com/a"}]""")).Links.Count == 0);
+        Check("support: custom links must be https and not a shortener", Support.FromRow(Fund("a/x", "User", """[{"platform":"CUSTOM","url":"ftp://example.com/give"},{"platform":"CUSTOM","url":"https://bit.ly/x"},{"platform":"CUSTOM","url":"https://example.com/give"}]""")) is (["https://example.com/give"], { Count: 2 }));
+        Check("support: a short link is listed as where it leads", Support.FromRow(Fund("a/x", "User", """[{"platform":"CUSTOM","url":"https://bit.ly/x","resolved":"https://ko-fi.com/a"}]""")).Links.SequenceEqual(["https://ko-fi.com/a"])
+            && Support.FromRow(Fund("a/x", "User", """[{"platform":"CUSTOM","url":"https://bit.ly/x","resolved":"https://tinyurl.com/y"}]""")).Links.Count == 0);
+        Check("support: http and scheme-less links are read as https", Support.Upgrade("http://paypal.me/a") == "https://paypal.me/a"
+            && Support.Upgrade("paypal.me/a") == "https://paypal.me/a" && Support.Upgrade("https://x.org") == "https://x.org" && Support.Upgrade("ftp://x") == "ftp://x");
+        var (merged, _) = Support.ForAuthor([Fund("a/y", "User", """[{"platform":"KO_FI","url":"https://ko-fi.com/a/"}]"""), Fund("a/x", "User", """[{"platform":"KO_FI","url":"https://ko-fi.com/A"},{"platform":"PATREON","url":"https://patreon.com/a"}]""")]);
+        Check("support: an author's links from every repo, once", merged.SequenceEqual(["https://ko-fi.com/A", "https://patreon.com/a"]));
+        var changes = Support.Changes(Obj("""{"a":{"name":"A","sponsor":["https://ko-fi.com/a"]},"b":{"name":"B","sponsor":["https://patreon.com/b"]},"c":{"name":"C"}}"""),
+            Obj("""{"a":{"name":"A","sponsor":["https://ko-fi.com/a2"]},"b":{"name":"B"},"c":{"name":"C"},"d":{"name":"D","sponsor":["https://patreon.com/d"]}}"""));
+        Check("support: changes are reported", changes.Count == 3 && changes.Any(c => c.StartsWith("a: support links changed", StringComparison.Ordinal))
+            && changes.Any(c => c.StartsWith("b: support links removed", StringComparison.Ordinal)) && changes.Any(c => c.StartsWith("d: support links added", StringComparison.Ordinal)));
         Check("ids", byId.Keys.Order(StringComparer.Ordinal).SequenceEqual(["cfonly", "grabber", "libfoo", "questie", "readme", "thing"]));
         Check("dropped", result.Dropped.Keys.Any(k => k.StartsWith("a copy", StringComparison.Ordinal)) && result.Dropped.Keys.Any(k => k.StartsWith("a compilation", StringComparison.Ordinal))
             && result.Dropped.Keys.Any(k => k.StartsWith("no summary", StringComparison.Ordinal)) && result.Dropped.ContainsKey("on the never-add list")
