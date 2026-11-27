@@ -545,6 +545,7 @@ static class Candidates
             ["pkgmeta"] = node["pkgmeta"] is not null,
             ["issues"] = node["hasIssuesEnabled"]?.GetValue<bool>() ?? false,
             ["ownerType"] = node["owner"]?["__typename"]?.GetValue<string>(),
+            ["fork"] = node["isFork"]?.GetValue<bool>() == true, // only one an override names gets this far
             ["funding"] = Funding.FromNode(node),
             ["readme"] = null, // filled in afterwards, only for repos with no other summary
             ["toc"] = TocFields(current[0].Path, current[0].Fields, null),
@@ -1138,7 +1139,8 @@ static class SelfTest
         var fork = Repo("a/b", ("X.toc", "## Interface: 16001"));
         fork["isFork"] = true;
         Check("drop: fork", Candidates.Row("a/b", fork, Editions).Reason == "a fork");
-        Check("keep: a fork an override names", Candidates.Row("a/b", fork, Editions, known: true).Row is not null);
+        Check("keep: a fork an override names, marked as a fork", Candidates.Row("a/b", fork, Editions, known: true).Row?["fork"]?.GetValue<bool>() == true
+            && row["fork"]!.GetValue<bool>() == false);
         var archived = Repo("a/b", ("X.toc", "## Interface: 16001"));
         archived["isArchived"] = true;
         Check("drop: archived", Candidates.Row("a/b", archived, Editions).Reason == "archived");

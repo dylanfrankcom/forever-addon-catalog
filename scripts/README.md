@@ -128,6 +128,21 @@ powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/detai
 - **Safe text:** everything read is untrusted. HTML becomes Markdown where it has a Markdown form (images, links, headings, bold, italic, code) and is dropped otherwise; scripts, styles, frames and comments go entirely. Links keep http(s), mailto and `#` anchors; images keep https only. Relative links and images are made absolute on GitHub. Code blocks and inline code are left as they are. The README is capped at 50,000 characters, each release's notes at 8,000 and the changelog at 20,000, cut at a paragraph and marked as cut.
 - **Re-running:** a file is rewritten only when its content changed, so its ETag stays valid. A repo that can't be read keeps its last file. A file whose add-on is no longer listed is removed (not with `--only`).
 
+## linkcheck.cs
+Checks, now and then, that each add-on's CurseForge, Wago and WoWInterface links and homepage in `catalog.json` still lead somewhere, and writes `linkchecks.json`. The **discover** workflow runs it weekly, after discovery, and keeps the file on the `checker` branch; the generator reads it (`--linkchecks`).
+
+```powershell
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/linkcheck.cs
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/linkcheck.cs -- --self-test
+```
+
+- **Polite:** one request at a time, a second apart, one try per link per run, no page scraping.
+- **CurseForge** is never requested: its site refuses automated requests, so its links are recorded as unchecked.
+- **Wago:** a HEAD request to the page; 404 or 410 is "not found".
+- **WoWInterface:** its public API, which gives the add-on's name for an ID it lists. A name that doesn't match the catalog's is reported for a person to look at, never acted on. The API leaves out whole categories (Beta-version add-ons have pages but no API entry), so an ID it doesn't list is recorded as `not-in-api`, never as "not found": the check never drops a WoWInterface link.
+- **Homepage:** a HEAD request (GET when HEAD isn't allowed).
+- Each link's record keeps its state (`ok`, `not-found`, `not-in-api`, `blocked`, `error`, `unchecked`), when it was checked and last found, and how many "not found" answers it had in a row. Only an `ok` resets that count; a blocked request or a failure never adds to it, so a link is never dropped because a site turned an automated request away. The generator leaves out a link it took from a `.toc` after 3 in a row. The report lists every link not found and every name that doesn't match.
+
 ## generate.cs
 Writes `catalog.json`, `versions.json` and `icons/` from `checks.json`, `candidates.json`, `overrides/` and `optout.json`. How each field is chosen is in `schema/README.md`, "Where the catalog comes from" and "An entry". Run it after `check.cs`, then validate:
 
