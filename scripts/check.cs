@@ -249,6 +249,8 @@ sealed partial class Package
     };
 
     public SortedSet<string> Folders { get; } = new(StringComparer.OrdinalIgnoreCase);
+    /// <summary>The WoW locales the add-on ships its own text files for (Locales/deDE.lua), outside its libraries.</summary>
+    public SortedSet<string> Locales { get; } = new(StringComparer.Ordinal);
     /// <summary>Each folder's own .toc files (directly inside it), by name, with their text.</summary>
     public Dictionary<string, Dictionary<string, string>> Tocs { get; } = new(StringComparer.OrdinalIgnoreCase);
     /// <summary>Problems that block the file for every edition.</summary>
@@ -298,6 +300,11 @@ sealed partial class Package
                 continue;
             }
             var extension = Path.GetExtension(parts[^1]);
+            if ((extension.Equals(".lua", StringComparison.OrdinalIgnoreCase) || extension.Equals(".xml", StringComparison.OrdinalIgnoreCase))
+                && !parts.Any(p => p.StartsWith("Lib", StringComparison.OrdinalIgnoreCase)) && Locale.InName(parts[^1]) is { } locale)
+            {
+                package.Locales.Add(locale);
+            }
             if (BlockedExtensions.Contains(extension))
             {
                 programs.Add(name);
@@ -509,6 +516,34 @@ static class Attestation
     }
 }
 
+/// <summary>WoW's locale codes, as add-ons name their translation files.</summary>
+static partial class Locale
+{
+    /// <summary>The locale a file's name is for (deDE.lua, Locale.frFR.xml, L_zhCN.lua), or null. enGB is enUS and ptPT ptBR, as the game reads them.</summary>
+    public static string? InName(string fileName)
+    {
+        var stem = Path.GetFileNameWithoutExtension(fileName);
+        var m = Code().Match(stem);
+        if (m.Success)
+        {
+            return m.Value switch { "enGB" => "enUS", "ptPT" => "ptBR", var c => c };
+        }
+        // Deadly Boss Mods' style: localization.de.lua, with the game's two-letter region codes.
+        var s = Short().Match(stem);
+        return !s.Success ? null : s.Groups[1].Value.ToLowerInvariant() switch
+        {
+            "en" => "enUS", "de" => "deDE", "es" => "esES", "mx" => "esMX", "fr" => "frFR", "it" => "itIT",
+            "kr" => "koKR", "br" => "ptBR", "ru" => "ruRU", "cn" => "zhCN", "tw" => "zhTW", _ => null,
+        };
+    }
+
+    [GeneratedRegex("^(?:localization|localisation|locale|locales|lang)[._-]([a-z]{2})$", RegexOptions.IgnoreCase)]
+    private static partial Regex Short();
+
+    [GeneratedRegex("(?<![A-Za-z])(enUS|enGB|deDE|esES|esMX|frFR|itIT|koKR|ptBR|ptPT|ruRU|zhCN|zhTW)(?![A-Za-z])")]
+    private static partial Regex Code();
+}
+
 sealed record EditionResult(string? Result, List<string> Reasons, string? Interface, List<string> Folders, string? Main, List<string> Needs,
     Dictionary<string, string>? MainToc = null, List<string>? LeftOut = null);
 
@@ -620,7 +655,7 @@ sealed record Download(byte[]? Bytes, string? Problem);
 static partial class Checker
 {
     /// <summary>Raised when the checks themselves change, so every release is checked again.</summary>
-    const string Version = "5"; // 4: warning signs and build records; 5: folders left out for an edition
+    const string Version = "6"; // 4: warning signs and build records; 5: folders left out for an edition; 6: locales
 
     /// <summary>The largest release file downloaded.</summary>
     public const long MaxFileBytes = 512L << 20;
@@ -787,6 +822,10 @@ static partial class Checker
             }
             row["interface"] = check.Interface;
             row["folders"] = Strings(check.Folders);
+            if (file.Package.Locales.Count > 0)
+            {
+                row["locales"] = Strings(file.Package.Locales);
+            }
             if (check.LeftOut is { Count: > 0 } leftOut)
             {
                 row["leftOut"] = Strings(leftOut); // in the zip, but not installed for this edition
@@ -1463,6 +1502,11 @@ static class SelfTest
             ("Thing/Thing.toc", "## Interface: 16001\n## Title: Thing\n## Notes: Does it\n## Dependencies: Lib\n")))), Forever, null);
         Check("main: its .toc's fields are kept", titled.Main == "Thing" && titled.MainToc!["Title"] == "Thing" && titled.MainToc["Notes"] == "Does it");
         var alone = Inspect.For(Package.Read(new MemoryStream(Zip(("!Grabber/!Grabber.toc", "## Interface: 16001\n")))), Forever, null);
+        var localized = Package.Read(new MemoryStream(Zip(("Thing/Thing.toc", "## Interface: 16001\n"), ("Thing/Locales/deDE.lua", "x"), ("Thing/Locales/enGB.lua", "x"),
+            ("Thing/Locale.frFR.xml", "<Ui/>"), ("Thing/Libs/LibBabble/zhCN.lua", "x"), ("Thing/README.koKR.md", "x"), ("Thing/Fonts/ruRUx.lua", "x"))));
+        Check("locales: translation files outside libraries, enGB as enUS", localized.Locales.SequenceEqual(["deDE", "enUS", "frFR"]));
+        Check("locales: DBM's two-letter names", Locale.InName("localization.de.lua") == "deDE" && Locale.InName("localization.tw.lua") == "zhTW"
+            && Locale.InName("localization.en.lua") == "enUS" && Locale.InName("localization.xx.lua") is null && Locale.InName("core.de.lua") is null);
         // One zip for every edition, with folders made for only some of them (DBM's Midnight modules).
         var every = Package.Read(new MemoryStream(Zip(("Thing/Thing.toc", "## Interface: 16001, 120105\n"), ("Thing_Midnight/Thing_Midnight.toc", "## Interface: 120105\n"))));
         var everyForever = Inspect.For(every, Forever, null, Editions);

@@ -632,7 +632,7 @@ sealed class Result
 static class Generator
 {
     static readonly string[] OverrideOnly = ["repo", "tagPrefix", "partOf", "$schema", "$comment"];
-    static readonly string[] FieldOrder = ["id", "name", "otherNames", "summary", "summaries", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
+    static readonly string[] FieldOrder = ["id", "name", "otherNames", "summary", "summaries", "languages", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
         "editions", "requires", "requiresFolders", "optional", "conflicts", "notes", "ownApp", "linkOnly", "withdrawn", "overrides", "from"];
 
     public static List<string> Strings(JsonNode? node) => node?.AsArray().Select(s => s!.GetValue<string>()).ToList() ?? [];
@@ -1126,6 +1126,49 @@ static class Generator
         return leftOut.Count == 0 ? null : [.. Strings(good["folders"]).Where(f => !leftOut.Contains(f, StringComparer.OrdinalIgnoreCase))];
     }
 
+    /// <summary>WoW's locales, in the order entries list them.</summary>
+    public static readonly string[] Locales = ["enUS", "deDE", "esES", "esMX", "frFR", "itIT", "koKR", "ptBR", "ruRU", "zhCN", "zhTW"];
+
+    /// <summary>
+    /// The languages an add-on's text supports: the translation files its release ships and its .toc's translated Notes,
+    /// plus English when it has translations and its own name and summary are in Latin script (the base text the
+    /// translations are made from). With neither, the script of its name and summary when that isn't Latin: Chinese,
+    /// Korean or Cyrillic. Latin script alone says nothing (English and German look alike), so the list is then empty.
+    /// </summary>
+    public static List<string> Languages(IEnumerable<string> files, IEnumerable<string> translated, string text)
+    {
+        var found = files.Concat(translated).Select(c => c switch { "enGB" => "enUS", "ptPT" => "ptBR", _ => c })
+            .Where(Locales.Contains).ToHashSet(StringComparer.Ordinal);
+        var han = text.Any(c => c is >= '\u3400' and <= '\u9fff');
+        var hangul = text.Any(c => c is >= '\uac00' and <= '\ud7af');
+        var cyrillic = text.Any(c => c is >= '\u0400' and <= '\u04ff');
+        var kana = text.Any(c => c is >= '\u3040' and <= '\u30ff');
+        var latinOnly = !han && !hangul && !cyrillic && !kana && text.Any(c => c is >= 'A' and <= 'Z' or >= 'a' and <= 'z');
+        if (found.Count > 0)
+        {
+            if (latinOnly)
+            {
+                found.Add("enUS");
+            }
+        }
+        else
+        {
+            if (han && !kana)
+            {
+                found.UnionWith(["zhCN", "zhTW"]);
+            }
+            if (hangul)
+            {
+                found.Add("koKR");
+            }
+            if (cyrillic)
+            {
+                found.Add("ruRU");
+            }
+        }
+        return [.. Locales.Where(found.Contains)];
+    }
+
     static JsonObject Entry(Listing l, string id, List<JsonObject> previous, List<string> editionIds, DateOnly today, Authors authors)
     {
         var toc = MainToc(l);
@@ -1160,6 +1203,12 @@ static class Generator
             {
                 entry["summaries"] = summaries;
             }
+        }
+
+        if (Languages(Strings(l.Main["locales"]), (toc["localizedNotes"] as JsonObject)?.Select(p => p.Key) ?? [],
+            $"{Str(entry["name"])} {Str(entry["summary"])}") is { Count: > 0 } languages)
+        {
+            entry["languages"] = Array(languages);
         }
 
         entry["author"] = authors.IdFor(l.Owner, Str(toc["author"]));
@@ -2232,6 +2281,11 @@ static class SelfTest
             && Str(t["from"]!["summary"]) == "toc-notes" && Str(t["summaries"]!["deDE"]) == "Auf Deutsch" && t["summaries"]!["xx"] is null);
         Check("new entry dated today", Str(t["added"]) == "2026-11-26");
         Check("tags", List(t["tags"]).SequenceEqual(["combat"]) && Str(t["from"]!["tags"]) == "toc-category");
+        Check("languages: translations, English as their base, and a non-Latin script alone", List(t["languages"]).SequenceEqual(["enUS", "deDE"])
+            && Generator.Languages(["deDE", "enGB"], [], "Thing").SequenceEqual(["enUS", "deDE"]) && Generator.Languages(["zhTW"], [], "金团表格").SequenceEqual(["zhTW"])
+            && Generator.Languages([], [], "BGNext 金团表格").SequenceEqual(["zhCN", "zhTW"]) && Generator.Languages([], [], "Русские звуки").SequenceEqual(["ruRU"])
+            && Generator.Languages([], [], "Plain English").Count == 0 && Generator.Languages([], ["xx", "deDE"], "Thing").SequenceEqual(["enUS", "deDE"])
+            && Generator.Languages([], [], "日本語のテキスト").Count == 0);
         Check("dependencies", List(t["requires"]).SequenceEqual(["libfoo"]) && List(t["optional"]).SequenceEqual(["questie"]));
         Check("otherNames: the repository's name as words, unless it's the name again", Generator.OtherName("l/Max-Camera-Distance", null, "<Camera> Max Distance") == "Max Camera Distance"
             && Generator.OtherName("l/MaxCameraDistance", null, "Zoom") == "Max Camera Distance" && Generator.OtherName("l/my_thing", null, "X") == "my thing"
