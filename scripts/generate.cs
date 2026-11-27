@@ -455,7 +455,8 @@ static class Tags
 }
 
 /// <summary>One add-on whose release passed for the scope edition: its discovery row and its check.</summary>
-sealed record Listing(string Repo, JsonObject Row, JsonObject Good, JsonObject Main, List<string> Folders, string MainFolder, int? CurseForge, string Published)
+sealed record Listing(string Repo, JsonObject Row, JsonObject Good, JsonObject Main, List<string> Folders, string MainFolder, int? CurseForge, string Published,
+    string? TagPrefix = null)
 {
     public string Owner => Repo[..Repo.IndexOf('/')];
 }
@@ -609,7 +610,7 @@ sealed class Result
 
 static class Generator
 {
-    static readonly string[] OverrideOnly = ["repo", "$schema", "$comment"];
+    static readonly string[] OverrideOnly = ["repo", "tagPrefix", "$schema", "$comment"];
     static readonly string[] FieldOrder = ["id", "name", "summary", "summaries", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
         "editions", "requires", "optional", "conflicts", "notes", "ownApp", "linkOnly", "withdrawn", "overrides", "from"];
 
@@ -677,6 +678,20 @@ static class Generator
                 result.Drop("no longer found by discovery", repo);
                 continue;
             }
+            // A repo that releases several add-ons is listed only by the tag prefixes its overrides name, one entry each.
+            var prefix = Str(check["tagPrefix"]);
+            var prefixes = inputs.Overrides.Values.Where(o => string.Equals(Str(o["repo"]), repo, StringComparison.OrdinalIgnoreCase))
+                .Select(o => Str(o["tagPrefix"])).OfType<string>().ToList();
+            if (prefix is null && prefixes.Count > 0)
+            {
+                result.Drop("a repo that releases several add-ons: listed by tag prefix only", repo);
+                continue;
+            }
+            if (prefix is not null && !prefixes.Contains(prefix, StringComparer.Ordinal))
+            {
+                result.Drop("a tag prefix no override names", $"{repo} {prefix}");
+                continue;
+            }
             // The author's own no, in the .toc: never listed (a yes is shown in trust.marker).
             if (Str(row["toc"]?["catalog"])?.Trim().Equals("no", StringComparison.OrdinalIgnoreCase) == true)
             {
@@ -690,7 +705,8 @@ static class Generator
                 result.Drop("a compilation of unrelated add-ons", repo);
                 continue;
             }
-            if (SeparateAddons(row, folders, mainFolder) is { Count: > 0 } separate)
+            // (Discovery read the repo's .toc files, which belong to all of its add-ons when it releases several.)
+            if (prefix is null && SeparateAddons(row, folders, mainFolder) is { Count: > 0 } separate)
             {
                 // An entry is one add-on: a release that also ships another, unrelated one is someone's collection.
                 result.Drop("a collection: the release also ships separate add-ons", $"{repo} ({mainFolder} with {string.Join(", ", separate)})");
@@ -702,7 +718,9 @@ static class Generator
                 result.Drop("a folder name the catalog can't list", $"{repo} ({odd})");
                 continue;
             }
-            listings.Add(new(repo, row, check["good"]!.AsObject(), main, folders, mainFolder, CurseForgeId(row), Str(main["published"]) ?? ""));
+            // The repo's .toc names one CurseForge project: with several add-ons, it can't be told whose.
+            listings.Add(new(repo, row, check["good"]!.AsObject(), main, folders, mainFolder, prefix is null ? CurseForgeId(row) : null,
+                Str(main["published"]) ?? "", prefix));
         }
 
         // 2. One entry per add-on: repos that share a CurseForge project or a folder are copies of one add-on.
@@ -731,7 +749,7 @@ static class Generator
             // released on GitHub) never takes a GitHub listing: a repo that shares its folder or CurseForge project is
             // someone else's re-upload, and its files must never reach the catalog or versions.json.
             var o = inputs.Overrides.FirstOrDefault(o => o.Value["repo"] is not null
-                ? string.Equals(Str(o.Value["repo"]), l.Repo, StringComparison.OrdinalIgnoreCase)
+                ? string.Equals(Str(o.Value["repo"]), l.Repo, StringComparison.OrdinalIgnoreCase) && Str(o.Value["tagPrefix"]) == l.TagPrefix
                 : Matches(o.Value, l, byFolder: true)).Key;
             if (o is not null && inputs.Overrides[o]["repo"] is null)
             {
@@ -1068,7 +1086,13 @@ static class Generator
         var old = previous.FirstOrDefault(p => Str(p["id"]) == id);
         entry["added"] = Str(old?["added"]) ?? today.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
 
-        var sources = new JsonArray(new JsonObject { ["type"] = "github", ["repo"] = l.Repo, ["assetPattern"] = @"(?i)\.zip$" });
+        var github = new JsonObject { ["type"] = "github", ["repo"] = l.Repo };
+        if (l.TagPrefix is not null)
+        {
+            github["tagPrefix"] = l.TagPrefix;
+        }
+        github["assetPattern"] = @"(?i)\.zip$";
+        var sources = new JsonArray(github);
         if (l.CurseForge is { } cf)
         {
             sources.Add(new JsonObject { ["type"] = "curseforge", ["projectId"] = cf });
@@ -1095,7 +1119,8 @@ static class Generator
         }
         entry["editions"] = editions;
         // GitHub's public download counts for the release files, as discovery read them; left out when it has none.
-        if (l.Row["downloads"] is JsonObject counts && counts["total"] is not null && counts["read"] is not null)
+        // (They're the whole repo's, so an add-on released beside others gets none.)
+        if (l.TagPrefix is null && l.Row["downloads"] is JsonObject counts && counts["total"] is not null && counts["read"] is not null)
         {
             var downloads = new JsonObject { ["total"] = counts["total"]!.DeepClone() };
             if (counts["latest"] is { } latest)
@@ -1815,6 +1840,12 @@ static class SelfTest
         return new JsonObject { ["repo"] = repo, ["state"] = "checked", ["good"] = good };
     }
 
+    static JsonObject Prefixed(JsonObject check, string prefix)
+    {
+        check["tagPrefix"] = prefix;
+        return check;
+    }
+
     static byte[] Zip(params (string Path, byte[] Bytes)[] entries)
     {
         var stream = new MemoryStream();
@@ -1991,6 +2022,27 @@ static class SelfTest
         Check("author: the wow-forever topic is a yes", Generator.Str(byId["libfoo"]["trust"]!["marker"]) == "yes");
         Check("author: link only is listed, never in versions.json", Generator.Str(byId["grabber"]["linkOnly"]!["url"]) == "https://example.com/grabber"
             && byId["grabber"].Select(p => p.Key).SkipWhile(k => k != "notes" && k != "linkOnly").First() == "linkOnly");
+        var several = new Inputs(Obj("""{"editions":{"forever":{}},"addons":[]}"""),
+            new Dictionary<string, JsonObject>(StringComparer.OrdinalIgnoreCase) { ["m/Many"] = Row("m/Many", "Many", "The repo's own notes.", curseforge: "77") },
+            [Check_("m/Many", ["Stray"], "forever"), Prefixed(Check_("m/Many", ["One"], "forever"), "one/"), Prefixed(Check_("m/Many", ["Two"], "forever"), "two/"),
+                Prefixed(Check_("m/Many", ["Three"], "forever"), "three/")],
+            new Dictionary<string, JsonObject>(StringComparer.Ordinal)
+            {
+                ["many-one"] = Obj("""{"repo":"m/Many","tagPrefix":"one/","name":"One","summary":"The first add-on."}"""),
+                ["many-two"] = Obj("""{"repo":"m/Many","tagPrefix":"two/","name":"Two","summary":"The second add-on.","requires":["many-one"]}"""),
+            }, Obj("{}"), []);
+        var manyResult = Generator.Build(several, new DateOnly(2026, 11, 26));
+        var manyIds = manyResult.Addons.Select(a => a["id"]!.GetValue<string>()).ToList();
+        var one = manyResult.Addons.FirstOrDefault(a => Str(a["id"]) == "many-one");
+        Check("tag prefix: one entry each, from its overrides", manyIds.SequenceEqual(["many-one", "many-two"])
+            && List(one?["folders"]).SequenceEqual(["One"]) && Str(one?["name"]) == "One" && one?["tagPrefix"] is null);
+        Check("tag prefix: the GitHub source names it, with no CurseForge project or download counts", one?["sources"]?.AsArray().Count == 1
+            && Str(one?["sources"]?[0]?["tagPrefix"]) == "one/" && one!["sources"]![0]!.AsObject().Select(p => p.Key).SequenceEqual(["type", "repo", "tagPrefix", "assetPattern"])
+            && one?["downloads"] is null);
+        Check("tag prefix: the repo itself and an unnamed prefix are left out",
+            manyResult.Dropped.TryGetValue("a repo that releases several add-ons: listed by tag prefix only", out var whole) && whole.SequenceEqual(["m/Many"])
+            && manyResult.Dropped.TryGetValue("a tag prefix no override names", out var unnamed) && unnamed.SequenceEqual(["m/Many three/"]));
+        Check("tag prefix: each in versions.json", Versions.Addons(manyResult, several.Catalog).Select(p => p.Key).SequenceEqual(["many-one", "many-two"]));
         Check("ownApp: from the override, after notes", Generator.Str(byId["questie"]["ownApp"]!["marker"]) == ".questie-manager"
             && byId["questie"].Select(p => p.Key).SkipWhile(k => k != "notes").Skip(1).First() == "ownApp");
         Check("trust: built by its own repo, its history and the author's marker", Generator.Str(qt["built"]) == ".github/workflows/release.yml"

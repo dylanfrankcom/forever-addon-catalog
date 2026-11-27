@@ -141,9 +141,16 @@
       "properties": {
         "type": { "const": "github" },
         "repo": {
-          "description": "owner/name. The release GitHub flags as Latest is used, never a pre-release.",
+          "description": "owner/name. The release GitHub flags as Latest is used, never a pre-release (with tagPrefix, see there).",
           "type": "string",
           "pattern": "^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$"
+        },
+        "tagPrefix": {
+          "description": "For a repo that releases several add-ons: only releases whose tag starts with this (case-sensitive) are this add-on's. The newest stable one by publish date among the repo's newest 100 releases is used instead of Latest, never a draft or pre-release; its version is the tag after the last /.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^\\S+$"
         },
         "assetPattern": {
           "description": "Regular expression (.NET) the release asset's file name must match.",

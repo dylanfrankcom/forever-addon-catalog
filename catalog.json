@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.10.0",
+  "version": "4.11.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -3907,7 +3907,7 @@
       ]
     },
     "rusty-key": {
-      "name": "test",
+      "name": "rusty",
       "profiles": [
         "https://github.com/rusty-key"
       ],
@@ -7864,6 +7864,7 @@
       "name": "Apogee Essentials",
       "summary": "Forever combat fading, gameplay errors, name mentions and group sounds.",
       "author": "notify353",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/apogeeessentials.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -7900,7 +7901,8 @@
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "curseforge": "toc"
+        "curseforge": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 374,
@@ -10929,6 +10931,7 @@
         "zhCN": "自动药水循环宏，使用治疗石或背包中的最高等级治疗药水"
       },
       "author": "ollidiemaus",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/autopotion.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -11002,7 +11005,8 @@
         "summary": "toc-notes",
         "author": "repo-owner",
         "curseforge": "toc",
-        "wago": "toc"
+        "wago": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 34641,
@@ -20689,6 +20693,7 @@
       "tags": [
         "combat"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/bufftap.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -20715,7 +20720,8 @@
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "tags": "topics"
+        "tags": "topics",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 245,
@@ -23665,6 +23671,7 @@
       "tags": [
         "combat"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/classicbestiary.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -23701,7 +23708,8 @@
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "tags": "toc-category"
+        "tags": "toc-category",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 55,
@@ -23753,6 +23761,9 @@
           "released": "2026-11-22"
         }
       },
+      "optional": [
+        "spoken"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -25371,6 +25382,7 @@
       "tags": [
         "quests"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/completao.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -25418,7 +25430,8 @@
         "summary": "toc-notes",
         "author": "repo-owner",
         "tags": "toc-category",
-        "curseforge": "toc"
+        "curseforge": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 1494,
@@ -26721,6 +26734,7 @@
         "professions",
         "quests"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/cozyfire.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -26757,7 +26771,8 @@
         "tags": "topics",
         "curseforge": "toc",
         "wago": "toc",
-        "wowinterface": "toc"
+        "wowinterface": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 35682,
@@ -29668,6 +29683,7 @@
         "zhTW": "當單獨、小隊和團隊時清除有害狀態，並可使用高級過濾和優先等級系統。"
       },
       "author": "2072",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/decursive.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -29714,7 +29730,8 @@
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "curseforge": "toc"
+        "curseforge": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 1120737,
@@ -34962,6 +34979,7 @@
       "tags": [
         "combat"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/enhanceddamagemeter.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -35011,7 +35029,8 @@
         "author": "repo-owner",
         "tags": "toc-category",
         "curseforge": "toc",
-        "wago": "toc"
+        "wago": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 1075,
@@ -35604,6 +35623,7 @@
       "name": "Everfrost",
       "summary": "Rotation HUD with automatic single-target, cleave and AoE modes, plus gear and talent hints for levels 1-60.",
       "author": "mckenna654",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/everfrost.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -35629,7 +35649,8 @@
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
-        "author": "repo-owner"
+        "author": "repo-owner",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 110,
@@ -35649,6 +35670,7 @@
       "name": "EverlookDB Bar",
       "summary": "Info bars for LibDataBroker plugins (XP, reputation, professions, performance, location, flight timer, durability…",
       "author": "quikmn",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/everlookbar.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -35674,7 +35696,8 @@
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
-        "author": "repo-owner"
+        "author": "repo-owner",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 544,
@@ -36085,6 +36108,7 @@
       "name": "Everything Quests",
       "summary": "Quest markers on the world map and minimap, quest icons on nameplates, the Quest Browser, Quest History, the Chain…",
       "author": "wheelbarrel00",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/everythingquests.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -36146,7 +36170,8 @@
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "curseforge": "toc"
+        "curseforge": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 1464,
@@ -37795,6 +37820,7 @@
         "frFR": "Guide de terrain pour la récolte : info-bulles de compétence, zones, progression, pêche et alertes."
       },
       "author": "emzime",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/fieldguide.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -37849,7 +37875,8 @@
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
-        "author": "repo-owner"
+        "author": "repo-owner",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 1,
@@ -41718,6 +41745,9 @@
           "released": "2026-11-26"
         }
       },
+      "optional": [
+        "spoken"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -43256,6 +43286,7 @@
       "tags": [
         "ui"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/frostforge.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -43303,7 +43334,8 @@
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "tags": "topics"
+        "tags": "topics",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 101,
@@ -43579,6 +43611,7 @@
       "name": "Gamepad XIV",
       "summary": "FFXIV-style controller play: cross hotbars, targeting, camera and interact.",
       "author": "mihaiflorentin",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/gamepadxiv.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -43604,7 +43637,8 @@
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
-        "author": "repo-owner"
+        "author": "repo-owner",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 766,
@@ -43645,6 +43679,7 @@
       "tags": [
         "loot"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/gargul.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -43722,7 +43757,8 @@
         "author": "repo-owner",
         "tags": "toc-category",
         "curseforge": "toc",
-        "wago": "toc"
+        "wago": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 156587,
@@ -47559,6 +47595,7 @@
         "zhTW": "我们的 Gulli 小插件集中在一处：打开、启用、停用。/gulli"
       },
       "author": "gulliby-development",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/gulli-toolkit.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -47584,7 +47621,8 @@
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
-        "author": "repo-owner"
+        "author": "repo-owner",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 49411,
@@ -53838,6 +53876,7 @@
       "name": "KerimAnka UI",
       "summary": "Settings panel for the KerimAnka UI suite for World of Warcraft: Forever.",
       "author": "kerimanka-ui",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/kerimankaui.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -53888,7 +53927,8 @@
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "curseforge": "toc"
+        "curseforge": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 105,
@@ -54718,6 +54758,7 @@
       "name": "Kiwi Farm",
       "summary": "Reset & Gold Tracker",
       "author": "michaelnpsp",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/kiwifarm.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -54791,7 +54832,8 @@
         "summary": "toc-notes",
         "author": "repo-owner",
         "curseforge": "toc",
-        "wago": "toc"
+        "wago": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 24750,
@@ -61154,6 +61196,7 @@
       "name": "MacroForge",
       "summary": "Editeur de macros complet - une fenetre unique (liste + editeur), analyse temps reel, auto-completion, sets de macros…",
       "author": "kriffin",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/macroforge.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -61194,7 +61237,8 @@
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
-        "author": "repo-owner"
+        "author": "repo-owner",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 801,
@@ -66061,6 +66105,7 @@
         "ui",
         "professions"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/midnighthelper.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -66110,7 +66155,8 @@
         "author": "repo-owner",
         "tags": "toc-category",
         "curseforge": "toc",
-        "wago": "toc"
+        "wago": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 1319,
@@ -66387,6 +66433,7 @@
       "tags": [
         "ui"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/minimapbuttonbutton.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -66464,7 +66511,8 @@
         "author": "repo-owner",
         "tags": "toc-category",
         "curseforge": "toc",
-        "wago": "toc"
+        "wago": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 190773,
@@ -70523,6 +70571,7 @@
       "tags": [
         "ui"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/nucleus.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -70587,7 +70636,8 @@
         "author": "repo-owner",
         "tags": "toc-category",
         "curseforge": "toc",
-        "wago": "toc"
+        "wago": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 58,
@@ -71556,6 +71606,7 @@
       "name": "Olympus",
       "summary": "Live census of every Olympus guild: army size, leaders and where everyone is on the map.",
       "author": "dnl-gentile",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/olympus.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -71604,7 +71655,8 @@
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "curseforge": "toc"
+        "curseforge": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 1004,
@@ -72832,6 +72884,7 @@
       "tags": [
         "combat"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/overlord.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -72864,7 +72917,8 @@
         "summary": "toc-notes",
         "author": "repo-owner",
         "tags": "topics",
-        "curseforge": "toc"
+        "curseforge": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 10689,
@@ -72884,6 +72938,7 @@
       "name": "Oxed Hub",
       "summary": "Unified interface for sounds, animations, emotes, chat messages, and toys based on in-game events",
       "author": "oxedtv",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/oxedhub.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -72949,7 +73004,8 @@
         "author": "repo-owner",
         "curseforge": "toc",
         "wago": "toc",
-        "wowinterface": "toc"
+        "wowinterface": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 1697,
@@ -74138,6 +74194,7 @@
       "name": "Pawn Forever",
       "summary": "Pawn add-on for WoW Forever: reads the Forever tooltip lines Pawn misses (mana per 5, zone bonuses, block value, ranged…",
       "author": "turlockmike",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/pawn-forever.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -74166,7 +74223,8 @@
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
-        "author": "repo-owner"
+        "author": "repo-owner",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 57,
@@ -75578,7 +75636,8 @@
       },
       "optional": [
         "phyzleveling",
-        "questie"
+        "questie",
+        "spoken"
       ],
       "from": {
         "name": "toc-title",
@@ -76408,6 +76467,7 @@
         "zhTW": "緊湊方格隊伍/團隊框架。"
       },
       "author": "doadin",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/plexus.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -76479,7 +76539,8 @@
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "curseforge": "toc"
+        "curseforge": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 38086,
@@ -91044,18 +91105,31 @@
       }
     },
     {
-      "id": "spokencommunity-test-readables-x150",
-      "name": "Spoken Audio: Readables (1.5x)",
-      "summary": "Narrated books, letters, notes and plaques for Spoken Readables. Keep it enabled: it loads with the game, and Spoken…",
+      "id": "spoken",
+      "name": "Spoken",
+      "summary": "Reads the game aloud: quests, gossip, places and readables. One queue, one narrator, one minimap button, and the…",
+      "summaries": {
+        "deDE": "Liest das Spiel vor: Quests, Gespräche, Orte und Lesestoff. Eine Warteschlange, ein Erzähler, ein Minimap-Button und…",
+        "esES": "Lee el juego en voz alta: Misiones, Charlas, Lugares y Lecturas. Una cola, un narrador, un botón del minimapa y los…",
+        "esMX": "Lee el juego en voz alta: Misiones, Charlas, Lugares y Lecturas. Una cola, un narrador, un botón del minimapa y los…",
+        "frFR": "Lit le jeu à voix haute : Quêtes, Discussions, Lieux et Lectures. Une file, un narrateur, un bouton de minicarte et les…",
+        "koKR": "게임을 소리 내어 읽습니다: 퀘스트, 잡담, 장소, 읽을거리. 하나의 대기열, 하나의 내레이터, 하나의 미니맵 버튼, 그리고 모든 설정.",
+        "ptBR": "Lê o jogo em voz alta: Missões, Conversas, Lugares e Leituras. Uma fila, um narrador, um botão do minimapa e as…",
+        "ruRU": "Озвучивает игру: Задания, Разговоры, Места и Тексты. Одна очередь, один рассказчик, одна кнопка у миникарты и настройки…",
+        "zhCN": "朗读游戏内容：任务、闲聊、地点和读物。一个队列、一个旁白、一个小地图按钮，以及所有设置。",
+        "zhTW": "朗讀遊戲內容：任務、閒聊、地點和讀物。一個佇列、一個旁白、一個小地圖按鈕，以及所有設定。"
+      },
       "author": "rusty-key",
       "tags": [
         "class"
       ],
-      "added": "2026-11-26",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/spoken.png",
+      "added": "2026-11-27",
       "sources": [
         {
           "type": "github",
           "repo": "rusty-key/spoken-wow",
+          "tagPrefix": "spoken/",
           "assetPattern": "(?i)\\.zip$"
         }
       ],
@@ -91064,7 +91138,12 @@
         "issues": "https://github.com/rusty-key/spoken-wow/issues"
       },
       "folders": [
-        "SpokenCommunity_test-readables-x150"
+        "Spoken",
+        "SpokenContributions",
+        "Spoken_Bosses",
+        "Spoken_Places",
+        "Spoken_Quests",
+        "Spoken_Readables"
       ],
       "editions": {
         "anniversary": {
@@ -91088,16 +91167,22 @@
           "released": "2026-11-25"
         }
       },
+      "optional": [
+        "spoken-places-audio",
+        "spoken-readables-audio",
+        "spoken-bosses-audio"
+      ],
+      "ownApp": {
+        "name": "Spoken Manager",
+        "url": "https://github.com/rusty-key/spoken-wow/blob/master/apps/manager/README.md",
+        "marker": ".spoken-manager"
+      },
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "tags": "topics"
-      },
-      "downloads": {
-        "total": 64896,
-        "latest": 40,
-        "read": "2026-11-27"
+        "tags": "topics",
+        "icon": "toc-icon"
       },
       "trust": {
         "repoSince": "2026-09-07",
@@ -91105,7 +91190,200 @@
         "releases": 164,
         "stars": 134,
         "marker": "yes",
-        "careful": false
+        "careful": false,
+        "ownerAddons": 3
+      }
+    },
+    {
+      "id": "spoken-bosses-audio",
+      "name": "Spoken Audio: Bosses",
+      "summary": "Narrated boss stories for Spoken Bosses. Keep it enabled: it loads with the game, and Spoken Bosses plays from it.",
+      "author": "rusty-key",
+      "tags": [
+        "class"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/spoken-bosses-audio.png",
+      "added": "2026-11-27",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "rusty-key/spoken-wow",
+          "tagPrefix": "bosses-audio/",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/rusty-key/spoken-wow",
+        "issues": "https://github.com/rusty-key/spoken-wow/issues"
+      },
+      "folders": [
+        "SpokenBossesAudio"
+      ],
+      "editions": {
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-10-31"
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-10-31"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-10-31"
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-10-31"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "topics",
+        "icon": "toc-icon"
+      },
+      "trust": {
+        "repoSince": "2026-09-07",
+        "ownerSince": "2011-11-15",
+        "releases": 164,
+        "stars": 134,
+        "marker": "yes",
+        "careful": false,
+        "ownerAddons": 3
+      }
+    },
+    {
+      "id": "spoken-places-audio",
+      "name": "Spoken Audio: Places",
+      "summary": "Narrated place lore for Spoken Places. Keep it enabled: it loads with the game, and Spoken Places plays from it. Beta…",
+      "author": "rusty-key",
+      "tags": [
+        "class"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/spoken-places-audio.png",
+      "added": "2026-11-27",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "rusty-key/spoken-wow",
+          "tagPrefix": "places-audio/",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/rusty-key/spoken-wow",
+        "issues": "https://github.com/rusty-key/spoken-wow/issues"
+      },
+      "folders": [
+        "SpokenPlacesAudio"
+      ],
+      "editions": {
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-10-31"
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-10-31"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-10-31"
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-10-31"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "topics",
+        "icon": "toc-icon"
+      },
+      "trust": {
+        "repoSince": "2026-09-07",
+        "ownerSince": "2011-11-15",
+        "releases": 164,
+        "stars": 134,
+        "marker": "yes",
+        "careful": false,
+        "ownerAddons": 3
+      }
+    },
+    {
+      "id": "spoken-readables-audio",
+      "name": "Spoken Audio: Readables",
+      "summary": "Narrated books, letters, notes and plaques for Spoken Readables. Keep it enabled: it loads with the game, and Spoken…",
+      "author": "rusty-key",
+      "tags": [
+        "class"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/spoken-readables-audio.png",
+      "added": "2026-11-27",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "rusty-key/spoken-wow",
+          "tagPrefix": "readables-audio/",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/rusty-key/spoken-wow",
+        "issues": "https://github.com/rusty-key/spoken-wow/issues"
+      },
+      "folders": [
+        "SpokenReadablesAudio"
+      ],
+      "editions": {
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-10-31"
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-10-31"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-10-31"
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-10-31"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "topics",
+        "icon": "toc-icon"
+      },
+      "trust": {
+        "repoSince": "2026-09-07",
+        "ownerSince": "2011-11-15",
+        "releases": 164,
+        "stars": 134,
+        "marker": "yes",
+        "careful": false,
+        "ownerAddons": 3
       }
     },
     {
@@ -94030,6 +94308,7 @@
       "tags": [
         "combat"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/terriblebufftracker.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -94071,7 +94350,8 @@
         "name": "toc-title",
         "summary": "toc-notes",
         "author": "repo-owner",
-        "tags": "toc-category"
+        "tags": "toc-category",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 1234,
@@ -94095,6 +94375,7 @@
       "tags": [
         "dungeons"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/terriblegroupfinder.png",
       "added": "2026-11-27",
       "sources": [
         {
@@ -94129,7 +94410,8 @@
         "author": "repo-owner",
         "tags": "toc-category",
         "curseforge": "toc",
-        "wago": "toc"
+        "wago": "toc",
+        "icon": "toc-icon"
       },
       "downloads": {
         "total": 632,

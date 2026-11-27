@@ -100,6 +100,8 @@ powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/check
 
 **Scope** (`--scope`, default `forever`): only candidates that support that edition are checked, each for every edition its release ships for. `--scope all` checks every candidate.
 
+**Repos that release several add-ons** (an override in `--overrides`, default `overrides/`, with `repo` and `tagPrefix` for each): the repo isn't read by its Latest release. Its newest 100 releases are read once (REST), and each prefix's newest stable release whose tag starts with it (case-sensitive, by publish date) is checked as a row of its own, with `tagPrefix` after `repo`. `--repo` checks every prefix of that repo.
+
 For each repo, read-only and with official APIs only:
 1. **GitHub's Latest release,** read with GraphQL, 25 repos a query (one REST request per repo would pass the Actions token's hourly limit). Pre-releases (GitHub's flag, or `alpha` / `beta` in the tag) are skipped. A release published less than `--hold-hours` ago (default 6) is held back, so a release pulled quickly (after an account compromise, say) never reaches players.
 2. **Each edition's file:** the only `.zip`, else the one the packager's `release.json` lists for the edition's `packagerFlavors` (never a no-lib build), else the only one whose name has one of its `fileWords`.

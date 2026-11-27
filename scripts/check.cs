@@ -11,7 +11,8 @@
 // Options: --catalog <file> (default ./catalog.json), --candidates <file> (default ./candidates.json), --out <file>
 // (default ./checks.json, also read as the previous run), --scope <edition id | all> (default forever: only candidates
 // that support that edition are checked, each for every edition its release ships for), --hold-hours <n> (default 6),
-// --summary <file> (also append the report there, as the workflow does with $GITHUB_STEP_SUMMARY).
+// --summary <file> (also append the report there, as the workflow does with $GITHUB_STEP_SUMMARY), --overrides <dir>
+// (default ./overrides: where a repo that releases several add-ons names each one's tag prefix).
 //
 // For each repo: read GitHub's Latest release (GraphQL, 25 repos a query), skip pre-releases, hold a new release back for --hold-hours, pick
 // each edition's file (the packager's release.json, then the edition's words in the file name, or the only .zip),
@@ -20,6 +21,9 @@
 // facts in catalog.json, rules in schema/README.md) listing its Interface. A release is checked once; it's checked
 // again only when the rules or the editions change. A repo whose release can't be read or downloaded keeps its last
 // result, and each edition keeps its last good release ("good") until a newer one passes.
+// A repo that releases several add-ons (an override with "repo" and "tagPrefix" for each) isn't read by its Latest
+// release: for each prefix, its newest stable release whose tag starts with it (case-sensitive), by publish date, among
+// the repo's newest 100 releases, is checked as a row of its own ("tagPrefix" set). The repo itself isn't checked.
 // Exit code 0 when checks.json was written, 1 when an input can't be read, 2 for bad arguments or no token.
 
 using System.IO.Compression;
@@ -37,7 +41,7 @@ if (args is ["--self-test"])
     return await SelfTest.Run();
 }
 
-string catalogArg = "catalog.json", candidatesArg = "candidates.json", outArg = "checks.json", scope = "forever";
+string catalogArg = "catalog.json", candidatesArg = "candidates.json", outArg = "checks.json", overridesArg = "overrides", scope = "forever";
 string? summaryArg = null;
 var holdHours = 6.0;
 var onlyRepos = new List<string>();
@@ -49,12 +53,13 @@ for (var i = 0; i < args.Length; i++)
         case "--catalog" when value is not null: catalogArg = value; i++; break;
         case "--candidates" when value is not null: candidatesArg = value; i++; break;
         case "--out" when value is not null: outArg = value; i++; break;
+        case "--overrides" when value is not null: overridesArg = value; i++; break;
         case "--summary" when value is not null: summaryArg = value; i++; break;
         case "--scope" when value is not null: scope = value.Trim(); i++; break;
         case "--repo" when value is not null: onlyRepos.Add(value.Trim()); i++; break;
         case "--hold-hours" when double.TryParse(value, System.Globalization.CultureInfo.InvariantCulture, out var h) && h >= 0: holdHours = h; i++; break;
         default:
-            Console.Error.WriteLine("Usage: dotnet run scripts/check.cs [--scope <edition|all>] [--repo <owner/name>]... [--hold-hours <n>] [--catalog <file>] [--candidates <file>] [--out <file>] [--summary <file>] | --self-test");
+            Console.Error.WriteLine("Usage: dotnet run scripts/check.cs [--scope <edition|all>] [--repo <owner/name>]... [--hold-hours <n>] [--catalog <file>] [--candidates <file>] [--out <file>] [--overrides <dir>] [--summary <file>] | --self-test");
             return 2;
     }
 }
@@ -69,11 +74,13 @@ if (string.IsNullOrWhiteSpace(token))
 List<Edition> editions;
 List<JsonObject> candidates;
 Dictionary<string, JsonObject> previous;
+Dictionary<string, List<string>> prefixes;
 try
 {
     editions = Edition.ReadAll(JsonNode.Parse(File.ReadAllText(catalogArg))!);
     candidates = JsonNode.Parse(File.ReadAllText(candidatesArg))!["candidates"]!.AsArray().Select(r => r!.AsObject()).ToList();
     previous = File.Exists(outArg) ? Checks.Read(File.ReadAllText(outArg)) : new(StringComparer.OrdinalIgnoreCase);
+    prefixes = Tracks.Read(overridesArg);
 }
 catch (Exception e) when (e is IOException or UnauthorizedAccessException or JsonException or InvalidOperationException or NullReferenceException or FormatException or KeyNotFoundException)
 {
@@ -100,7 +107,9 @@ if (onlyRepos.Count > 0)
         results[repo] = entry; // a partial run keeps everything it didn't check
     }
 }
-Console.Error.WriteLine($"Checking {inScope.Count} repos (scope {scope}) ...");
+var split = inScope.Where(c => prefixes.ContainsKey(c["repo"]!.GetValue<string>())).ToList();
+inScope = inScope.Except(split).ToList();
+Console.Error.WriteLine($"Checking {inScope.Count} repos, and {split.Count} that release several add-ons (scope {scope}) ...");
 for (var start = 0; start < inScope.Count; start += Releases.BatchSize)
 {
     var chunk = inScope.Skip(start).Take(Releases.BatchSize).ToList();
@@ -120,6 +129,23 @@ for (var start = 0; start < inScope.Count; start += Releases.BatchSize)
     if ((start / Releases.BatchSize) % 10 == 0)
     {
         Console.Error.WriteLine($"  {Math.Min(start + Releases.BatchSize, inScope.Count)}/{inScope.Count}");
+    }
+}
+foreach (var candidate in split)
+{
+    // One add-on per tag prefix, each from its own newest stable release (GitHub's Latest flag marks one for the whole repo).
+    var repo = candidate["repo"]!.GetValue<string>();
+    var (list, problem) = await github.ReleasesAsync(repo);
+    foreach (var prefix in prefixes[repo])
+    {
+        var key = Checks.Key(repo, prefix);
+        var before = previous.GetValueOrDefault(key)?.DeepClone().AsObject();
+        if (before is not null && onlyRepos.Count > 0)
+        {
+            before["rules"] = null;
+        }
+        var release = problem is null ? Releases.Newest(list, prefix) : null;
+        results[key] = Checks.Prefixed(await Checker.CheckAsync(new(candidate, release, problem, before, editions, rules, now, hold), github.DownloadAsync, github.BuiltByAsync), prefix);
     }
 }
 File.WriteAllText(outArg, Checks.Write(now, scope, results.Values));
@@ -883,9 +909,34 @@ static class Checks
         var rows = new Dictionary<string, JsonObject>(StringComparer.OrdinalIgnoreCase);
         foreach (var row in JsonNode.Parse(json)!["repos"]!.AsArray())
         {
-            rows[row!["repo"]!.GetValue<string>()] = row.AsObject();
+            rows[Key(row!.AsObject())] = row.AsObject();
         }
         return rows;
+    }
+
+    /// <summary>A row's key: its repo, and its tag prefix when the repo releases several add-ons (a space never appears in a repo name).</summary>
+    public static string Key(string repo, string? prefix) => prefix is null ? repo : $"{repo} {prefix}";
+
+    public static string Key(JsonObject row) => Key(row["repo"]!.GetValue<string>(), row["tagPrefix"]?.GetValue<string>());
+
+    /// <summary>A tag prefix's row: the prefix recorded after the repo, and its own reason when it has no release.</summary>
+    public static JsonObject Prefixed(JsonObject row, string prefix)
+    {
+        var fields = row.ToList();
+        row.Clear();
+        foreach (var (name, value) in fields.Where(f => f.Key != "tagPrefix"))
+        {
+            row[name] = value;
+            if (name == "repo")
+            {
+                row["tagPrefix"] = prefix;
+            }
+        }
+        if (row["state"]?.GetValue<string>() == "no-release")
+        {
+            row["reason"] = $"no stable release whose tag starts with {prefix}";
+        }
+        return row;
     }
 
     public static string Write(DateTimeOffset now, string scope, IEnumerable<JsonObject> rows) => new JsonObject
@@ -894,6 +945,7 @@ static class Checks
         ["checked"] = Checker.Stamp(now),
         ["scope"] = scope,
         ["repos"] = new JsonArray(rows.OrderBy(r => r["repo"]!.GetValue<string>(), StringComparer.OrdinalIgnoreCase)
+            .ThenBy(r => r["tagPrefix"]?.GetValue<string>() ?? "", StringComparer.Ordinal)
             .Select(r => (JsonNode)r.DeepClone()).ToArray()),
     }.ToJsonString(Options) + "\n";
 
@@ -912,7 +964,7 @@ static class Checks
             md.AppendLine($"| {edition.Id} | {Count("passed")} | {Count("not-updated")} | {Count("failed")} | {rows.Count(r => r["good"]?[edition.Id] is not null)} |");
         }
         md.AppendLine().AppendLine($"Built by a workflow in their own repo (a GitHub build record): {rows.Count(r => r["good"]?.AsObject().Any(g => g.Value?["built"] is not null) == true)} repos.");
-        var signs = rows.Select(r => (Repo: r["repo"]?.GetValue<string>(), Signs: (r["good"]?.AsObject() ?? []).SelectMany(g => g.Value?["warnings"]?.AsArray() ?? [])
+        var signs = rows.Select(r => (Repo: Key(r), Signs: (r["good"]?.AsObject() ?? []).SelectMany(g => g.Value?["warnings"]?.AsArray() ?? [])
                 .Select(w => $"{w?["sign"]?.GetValue<string>()} ({string.Join(", ", w?["files"]?.AsArray().Select(f => f?.GetValue<string>()) ?? [])})").Distinct().ToList()))
             .Where(r => r.Signs.Count > 0).OrderBy(r => r.Repo, StringComparer.OrdinalIgnoreCase).ToList();
         if (signs.Count > 0)
@@ -927,10 +979,51 @@ static class Checks
     }
 }
 
+/// <summary>The tag prefixes overrides name for repos that release several add-ons: repo → its prefixes.</summary>
+static class Tracks
+{
+    public static Dictionary<string, List<string>> Read(string dir)
+    {
+        var map = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
+        if (!Directory.Exists(dir))
+        {
+            return map;
+        }
+        foreach (var file in Directory.GetFiles(dir, "*.json").Order(StringComparer.Ordinal))
+        {
+            var node = JsonNode.Parse(File.ReadAllText(file));
+            if (node?["repo"] is JsonValue r && r.TryGetValue<string>(out var repo)
+                && node["tagPrefix"] is JsonValue t && t.TryGetValue<string>(out var prefix) && prefix.Length > 0)
+            {
+                var list = map.TryGetValue(repo, out var l) ? l : map[repo] = [];
+                if (!list.Contains(prefix, StringComparer.Ordinal))
+                {
+                    list.Add(prefix);
+                }
+            }
+        }
+        return map;
+    }
+}
+
 /// <summary>Reading Latest releases with GraphQL, in the REST API's shape (tag_name, published_at, assets ...).</summary>
 static class Releases
 {
     public const int BatchSize = 25;
+
+    /// <summary>How many of a repo's newest releases a tag prefix is looked for in (the app reads the same page).</summary>
+    public const int PrefixWindow = 100;
+
+    /// <summary>
+    /// A tag prefix's release: the newest by publish date whose tag starts with the prefix (case-sensitive), never a
+    /// draft or pre-release (by GitHub's flag or an alpha/beta tag); null when there's none.
+    /// </summary>
+    public static JsonNode? Newest(JsonArray? releases, string prefix) => (releases ?? []).OfType<JsonObject>()
+        .Where(r => r["tag_name"] is JsonValue t && t.TryGetValue<string>(out var tag) && tag.StartsWith(prefix, StringComparison.Ordinal)
+            && r["draft"]?.GetValue<bool>() != true && r["prerelease"]?.GetValue<bool>() != true && !Checker.IsPreRelease(tag)
+            && r["published_at"] is JsonValue p && p.TryGetValue<string>(out _))
+        .OrderByDescending(r => DateTimeOffset.Parse(r["published_at"]!.GetValue<string>(), System.Globalization.CultureInfo.InvariantCulture))
+        .FirstOrDefault();
 
     const string Fields = "latestRelease { tagName publishedAt isPrerelease isDraft releaseAssets(first: 50) { nodes { name size downloadUrl digest } } }";
 
@@ -1037,6 +1130,40 @@ sealed class GitHub : IDisposable
             }
         }
         return repos.ToDictionary(r => r, r => ((JsonNode?)null, (string?)last), StringComparer.OrdinalIgnoreCase);
+    }
+
+    /// <summary>A repo's newest releases (REST, one page), or why they couldn't be read.</summary>
+    public async Task<(JsonArray? Releases, string? Problem)> ReleasesAsync(string repo)
+    {
+        string? last = null;
+        for (var attempt = 0; attempt < 5; attempt++)
+        {
+            try
+            {
+                using var response = await api.GetAsync($"repos/{repo}/releases?per_page={Releases.PrefixWindow}");
+                var status = (int)response.StatusCode;
+                if (response.IsSuccessStatusCode)
+                {
+                    return (JsonNode.Parse(await response.Content.ReadAsStringAsync())?.AsArray(), null);
+                }
+                if (status == 404)
+                {
+                    return (null, "the repo is gone or private");
+                }
+                last = $"GitHub answered {status} for its releases";
+                if (status is not (403 or 429 or 500 or 502 or 503 or 504))
+                {
+                    break;
+                }
+                await Task.Delay(RetryWait(response, attempt));
+            }
+            catch (Exception e) when (e is HttpRequestException or TaskCanceledException or JsonException or InvalidOperationException)
+            {
+                last = $"its releases couldn't be read ({e.GetType().Name})";
+                await Task.Delay(TimeSpan.FromSeconds(10 * (attempt + 1)));
+            }
+        }
+        return (null, last);
     }
 
     public async Task<Download> DownloadAsync(string url)
@@ -1382,6 +1509,43 @@ static class SelfTest
         // checks.json.
         var written = Checks.Write(Now, "forever", [passed]);
         Check("checks.json", Checks.Read(written).Count == 1 && written.EndsWith("}\n", StringComparison.Ordinal) && !written.Contains('\r'));
+
+        // Repos that release several add-ons: each tag prefix's own newest stable release, and rows keyed by prefix.
+        var byPrefix = JsonNode.Parse("""
+            [
+              {"tag_name":"spoken/v2.0.0-beta.1","published_at":"2026-11-25T12:00:00Z","prerelease":false,"draft":false},
+              {"tag_name":"spoken/v1.9.0","published_at":"2026-11-24T12:00:00Z","prerelease":true,"draft":false},
+              {"tag_name":"packs/v3.0.0","published_at":"2026-11-23T12:00:00Z","prerelease":false,"draft":false},
+              {"tag_name":"spoken/v1.8.0","published_at":"2026-11-20T12:00:00Z","prerelease":false,"draft":false},
+              {"tag_name":"spoken/v1.8.1","published_at":"2026-11-22T12:00:00Z","prerelease":false,"draft":false},
+              {"tag_name":"Spoken/v9.0.0","published_at":"2026-11-26T12:00:00Z","prerelease":false,"draft":false},
+              {"tag_name":"spoken/v1.7.0","published_at":null,"prerelease":false,"draft":true},
+              {"tag_name":"v5.0.0","published_at":"2026-11-26T12:00:00Z","prerelease":false,"draft":false}
+            ]
+            """)!.AsArray();
+        Check("prefix: the newest stable by date, case-sensitive", Str(Releases.Newest(byPrefix, "spoken/")?["tag_name"]) == "spoken/v1.8.1");
+        Check("prefix: each its own", Str(Releases.Newest(byPrefix, "packs/")?["tag_name"]) == "packs/v3.0.0");
+        Check("prefix: unreleased", Releases.Newest(byPrefix, "bosses/") is null && Releases.Newest(null, "spoken/") is null);
+        var dir = Directory.CreateTempSubdirectory("check-tracks-");
+        try
+        {
+            File.WriteAllText(Path.Combine(dir.FullName, "a.json"), """{"repo":"o/many","tagPrefix":"one/"}""");
+            File.WriteAllText(Path.Combine(dir.FullName, "b.json"), """{"repo":"O/Many","tagPrefix":"two/"}""");
+            File.WriteAllText(Path.Combine(dir.FullName, "c.json"), """{"repo":"o/single"}""");
+            File.WriteAllText(Path.Combine(dir.FullName, "_authors.json"), """{"authors":{}}""");
+            var tracks = Tracks.Read(dir.FullName);
+            Check("prefix: overrides name them", tracks.Count == 1 && tracks["o/many"].SequenceEqual(["one/", "two/"]));
+        }
+        finally
+        {
+            dir.Delete(recursive: true);
+        }
+        var unreleased = Checks.Prefixed(await Checker.CheckAsync(new(Candidate("forever"), null, null, null, Editions, Rules, Now, TimeSpan.FromHours(6)),
+            _ => Task.FromResult(new Download(null, "404"))), "one/");
+        Check("prefix: its row", Str(unreleased["tagPrefix"]) == "one/" && unreleased.Select(p => p.Key).Take(2).SequenceEqual(["repo", "tagPrefix"])
+            && Str(unreleased["reason"])!.Contains("one/", StringComparison.Ordinal));
+        var rowsOf = Checks.Read(Checks.Write(Now, "forever", [unreleased, Checks.Prefixed(unreleased.DeepClone().AsObject(), "two/"), passed]));
+        Check("prefix: rows kept apart", rowsOf.Count == 3 && rowsOf.ContainsKey("a/thing one/") && rowsOf.ContainsKey("a/thing two/") && rowsOf.ContainsKey("a/thing"));
 
         Console.WriteLine(failures == 0 ? "check.cs self-test passed." : $"{failures} check(s) failed.");
         return failures == 0 ? 0 : 1;
