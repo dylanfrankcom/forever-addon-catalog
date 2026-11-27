@@ -45,7 +45,7 @@ for (var i = 0; i < args.Length; i++)
 // With no file named: catalog.json, and versions.json too once the release check writes one.
 var paths = catalogArg is not null
     ? new List<string> { Path.GetFullPath(catalogArg) }
-    : new[] { "catalog.json", "versions.json", "optout.json" }.Select(Path.GetFullPath).Where((p, i) => i == 0 || File.Exists(p))
+    : new[] { "catalog.json", "versions.json", "optout.json", "confirmed.json" }.Select(Path.GetFullPath).Where((p, i) => i == 0 || File.Exists(p))
         .Concat(Directory.Exists("overrides") ? Directory.GetFiles("overrides", "*.json").Order(StringComparer.Ordinal).Select(Path.GetFullPath) : []).ToList();
 var exit = 0;
 if (catalogArg is null && Directory.Exists("addons"))
@@ -308,6 +308,17 @@ static class CatalogValidator
         }
         foreach (var addon in addons)
         {
+            // A confirmed version is for an edition the entry lists.
+            foreach (var source in addon["sources"]?.AsArray() ?? [])
+            {
+                foreach (var (editionId, _) in source?["confirmed"]?.AsObject() ?? [])
+                {
+                    if (addon["editions"]?[editionId] is null)
+                    {
+                        problems.Add(new("confirmed-edition", $"'{addon["id"]}' {source!["type"]} has a confirmed version for '{editionId}', which the entry doesn't list."));
+                    }
+                }
+            }
             foreach (var (editionId, listed) in addon["editions"]?.AsObject() ?? [])
             {
                 var id = (string)addon["id"]!;
@@ -476,6 +487,7 @@ static class CatalogValidator
         return Path.GetFileName(Path.GetDirectoryName(path)) == "addons" || name.Contains("details-file", StringComparison.OrdinalIgnoreCase) ? "details"
             : name.Contains("versions", StringComparison.OrdinalIgnoreCase) ? "versions"
             : name.Contains("optout", StringComparison.OrdinalIgnoreCase) ? "optout"
+            : name == "confirmed.json" || name.Contains("confirmed-file", StringComparison.OrdinalIgnoreCase) ? "confirmed"
             : name.Contains("_authors", StringComparison.OrdinalIgnoreCase) || name.Contains("curated-authors", StringComparison.OrdinalIgnoreCase) ? "authors"
             : inOverrides || name.Contains("override-file", StringComparison.OrdinalIgnoreCase) ? "override"
             : "catalog";
@@ -722,7 +734,7 @@ static class SelfTest
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
     static readonly string[] Codes = ["schema", "json", "details-html", "details-link", "details-id", "details-unlisted", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date", "released-date",
         "unknown-author", "unused-author", "author-profile", "edition-interface", "unknown-edition", "edition-up-to-date",
-        "versions-same-file", "test-client-edition", "edition-facts", "override-name", "own-app-folder", "requires-folder-listed", "edition-folders"];
+        "versions-same-file", "test-client-edition", "edition-facts", "override-name", "own-app-folder", "requires-folder-listed", "edition-folders", "confirmed-edition"];
 
     // bump/invalid-added-missing-*.head.json expects "added-missing"; any other invalid bump case "version-not-bumped".
     static string BumpCode(string rest) =>

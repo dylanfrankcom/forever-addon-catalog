@@ -24,6 +24,8 @@ You don't need anything from this repository: [Forever Add-on Manager](https://g
 
 **Missing an add-on?** Ask for it with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form.
 
+**Version reports.** For add-ons from CurseForge or Wago, the app can, if you agree, report the version you downloaded so the catalog can confirm it. Nothing about you or your PC is sent: see [what's sent and how reports are confirmed](CONTRIBUTING.md#version-reports-from-the-app).
+
 ## For add-on authors
 Thanks for making add-ons for Forever.
 
@@ -65,7 +67,7 @@ Nobody writes entries by hand. Four scripts build the catalog, each with its own
 3. **The generator** lists every add-on whose release passed for WoW Forever, taking its details from what the author published. A value the author didn't publish is left out, never guessed. Hand corrections live in [`overrides/`](overrides), and the never-add list in [`optout.json`](optout.json).
 4. **Details** writes each add-on's details file.
 
-Every change is checked by the validator on its pull request.
+Every change is checked by the validator on its pull request. Versions players report for CurseForge and Wago add-ons are confirmed only through a reviewed pull request ([`confirmed.json`](confirmed.json), see [CONTRIBUTING.md](CONTRIBUTING.md#version-reports-from-the-app)).
 
 ## Contributing
 - **Ask for an add-on** with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. It's for add-ons that were missed, and for those only on CurseForge or Wago.

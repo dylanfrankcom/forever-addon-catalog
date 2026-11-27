@@ -12,7 +12,8 @@
 // Options: --catalog <file> (default ./catalog.json: read for its editions and the IDs and dates it already gave, then
 // written), --candidates <file> (default ./candidates.json), --checks <file> (default ./checks.json), --overrides <dir>
 // (default ./overrides), --optout <file> (default ./optout.json), --icons <dir> (default ./icons), --no-icons (keep the
-// icons as they are), --versions <file> (default ./versions.json), --summary <file>.
+// icons as they are), --versions <file> (default ./versions.json), --linkchecks <file> (default ./linkchecks.json),
+// --confirmed <file> (default ./confirmed.json: CurseForge and Wago versions the maintainer confirmed), --summary <file>.
 //
 // The listing scope is one setting, Scope below: only add-ons whose release passed for that edition are listed, each
 // with every edition its release was checked for. Widening it is a one-line change.
@@ -33,7 +34,7 @@ if (args is ["--self-test"])
 }
 
 string catalogArg = "catalog.json", candidatesArg = "candidates.json", checksArg = "checks.json", overridesArg = "overrides",
-    optoutArg = "optout.json", iconsArg = "icons", versionsArg = "versions.json", linkchecksArg = "linkchecks.json";
+    optoutArg = "optout.json", iconsArg = "icons", versionsArg = "versions.json", linkchecksArg = "linkchecks.json", confirmedArg = "confirmed.json";
 string? summaryArg = null;
 var icons = true;
 for (var i = 0; i < args.Length; i++)
@@ -50,9 +51,10 @@ for (var i = 0; i < args.Length; i++)
         case "--summary" when value is not null: summaryArg = value; i++; break;
         case "--versions" when value is not null: versionsArg = value; i++; break;
         case "--linkchecks" when value is not null: linkchecksArg = value; i++; break;
+        case "--confirmed" when value is not null: confirmedArg = value; i++; break;
         case "--no-icons": icons = false; break;
         default:
-            Console.Error.WriteLine("Usage: dotnet run scripts/generate.cs [--catalog <file>] [--candidates <file>] [--checks <file>] [--overrides <dir>] [--optout <file>] [--icons <dir>] [--no-icons] [--versions <file>] [--linkchecks <file>] [--summary <file>] | --self-test");
+            Console.Error.WriteLine("Usage: dotnet run scripts/generate.cs [--catalog <file>] [--candidates <file>] [--checks <file>] [--overrides <dir>] [--optout <file>] [--icons <dir>] [--no-icons] [--versions <file>] [--linkchecks <file>] [--confirmed <file>] [--summary <file>] | --self-test");
             return 2;
     }
 }
@@ -64,6 +66,10 @@ try
     if (File.Exists(linkchecksArg))
     {
         inputs = inputs with { LinkChecks = JsonNode.Parse(File.ReadAllText(linkchecksArg))!.AsObject() };
+    }
+    if (File.Exists(confirmedArg))
+    {
+        inputs = inputs with { Confirmed = JsonNode.Parse(File.ReadAllText(confirmedArg))!.AsObject() };
     }
 }
 catch (Exception e) when (e is IOException or UnauthorizedAccessException or JsonException or InvalidOperationException or NullReferenceException or FormatException or KeyNotFoundException)
@@ -304,7 +310,7 @@ static class Settings
 }
 
 sealed record Inputs(JsonObject Catalog, Dictionary<string, JsonObject> Candidates, List<JsonObject> Checks,
-    Dictionary<string, JsonObject> Overrides, JsonObject CuratedAuthors, List<string> OptOut, JsonObject? LinkChecks = null)
+    Dictionary<string, JsonObject> Overrides, JsonObject CuratedAuthors, List<string> OptOut, JsonObject? LinkChecks = null, JsonObject? Confirmed = null)
 {
     public static Inputs Read(string catalog, string candidates, string checks, string overrides, string optout)
     {
@@ -972,6 +978,7 @@ static class Generator
         }
         result.Notices.AddRange(Support.Changes(inputs.Catalog["authors"] as JsonObject, result.Authors));
         result.Notices.AddRange(SiteLinks.Settle(result.Addons, inputs.LinkChecks));
+        result.Notices.AddRange(Confirmed.Apply(result.Addons, inputs.Confirmed));
         result.Notices.AddRange(Trust.Settle(result.Addons));
         result.Addons.Sort((a, b) => string.CompareOrdinal(a["id"]!.GetValue<string>(), b["id"]!.GetValue<string>()));
         return result;
@@ -1424,6 +1431,64 @@ static class Generator
             ["addons"] = addons,
         };
         return root.ToJsonString(Options) + "\n";
+    }
+}
+
+/// <summary>
+/// confirmed.json (schema/confirmed.schema.json): versions of CurseForge and Wago add-ons that players reported through
+/// the relay and the maintainer confirmed by merging the reports workflow's pull request. Each goes on its source in
+/// catalog.json as "confirmed", by edition, for the editions the entry lists. Nothing else sets it: an override's is
+/// dropped.
+/// </summary>
+static class Confirmed
+{
+    public static List<string> Apply(List<JsonObject> addons, JsonObject? confirmed)
+    {
+        var notices = new List<string>();
+        var byId = confirmed?["addons"]?.AsObject() ?? new JsonObject();
+        var used = new HashSet<(string, string, string)>();
+        foreach (var entry in addons)
+        {
+            var id = entry["id"]!.GetValue<string>();
+            var editions = entry["editions"]?.AsObject();
+            foreach (var source in entry["sources"]?.AsArray().OfType<JsonObject>() ?? [])
+            {
+                source.Remove("confirmed");
+                var type = Generator.Str(source["type"]);
+                if (type is not ("curseforge" or "wago") || byId[id]?[type] is not JsonObject byEdition)
+                {
+                    continue;
+                }
+                var listed = new JsonObject();
+                foreach (var (edition, value) in byEdition.OrderBy(e => e.Key, StringComparer.Ordinal))
+                {
+                    if (editions?[edition] is null || value is not JsonObject v)
+                    {
+                        continue;
+                    }
+                    listed[edition] = new JsonObject { ["version"] = v["version"]?.DeepClone(), ["sha256"] = v["sha256"]?.DeepClone(), ["date"] = v["date"]?.DeepClone() };
+                    used.Add((id, type, edition));
+                }
+                if (listed.Count > 0)
+                {
+                    source["confirmed"] = listed;
+                }
+            }
+        }
+        foreach (var (id, bySource) in byId)
+        {
+            foreach (var (type, byEdition) in bySource?.AsObject() ?? [])
+            {
+                foreach (var (edition, _) in byEdition?.AsObject() ?? [])
+                {
+                    if (!used.Contains((id, type, edition)))
+                    {
+                        notices.Add($"confirmed.json: {id} {type} {edition} isn't listed in the catalog; left out");
+                    }
+                }
+            }
+        }
+        return notices;
     }
 }
 
@@ -2019,6 +2084,18 @@ static class SelfTest
 
     public static async Task<int> Run()
     {
+        // Confirmed versions from confirmed.json, on their sources.
+        var hash = new string('a', 64);
+        var withSources = Obj("""{"id":"q","editions":{"forever":{}},"sources":[{"type":"github","repo":"o/q"},{"type":"curseforge","projectId":1,"confirmed":{"forever":{"version":"old","sha256":"HASH","date":"2026-01-01"}}},{"type":"wago","slug":"q"}]}""".Replace("HASH", hash));
+        var confirmedNotices = Confirmed.Apply([withSources], Obj("""{"addons":{"q":{"curseforge":{"forever":{"version":"1.2","sha256":"HASH","date":"2026-11-20","reports":3},"retail":{"version":"1.2","sha256":"HASH","date":"2026-11-20","reports":1}}},"gone":{"wago":{"forever":{"version":"1","sha256":"HASH","date":"2026-11-20","reports":1}}}}}""".Replace("HASH", hash)));
+        var cf = withSources["sources"]![1]!;
+        Check("confirmed: on its source, for the editions the entry lists, without the report count", Str(cf["confirmed"]!["forever"]!["version"]) == "1.2"
+            && cf["confirmed"]!["forever"]!["reports"] is null && cf["confirmed"]!["retail"] is null && withSources["sources"]![2]!["confirmed"] is null);
+        Check("confirmed: one for an entry or edition that isn't listed is a notice", confirmedNotices.Count == 2
+            && confirmedNotices.Any(n => n.Contains("gone wago forever", StringComparison.Ordinal)) && confirmedNotices.Any(n => n.Contains("q curseforge retail", StringComparison.Ordinal)));
+        Confirmed.Apply([withSources], null);
+        Check("confirmed: only confirmed.json sets it", withSources["sources"]![1]!["confirmed"] is null);
+
         // Cleaning the author's text.
         Check("clean: colour codes in capitals, and a leading !", Text.Clean("|CFF0294FFm|CFFBD26E5Media|r", dropVersions: true) == "mMedia"
             && Text.Clean("!!!LuaWorkbench", dropVersions: true) == "LuaWorkbench" && Text.Clean("Ding!", dropVersions: true) == "Ding!");

@@ -23,6 +23,7 @@ The add-on catalog for [Forever Add-on Manager](https://github.com/dylanfrankcom
 - **Every change to `catalog.json` bumps its `version`** (the generator does) and passes validation.
 - **The app reads this catalog live** and carries a copy (`src\ForeverAddonManager.Core\Catalog\catalog.bundled.json` in forever-addon-manager) as the offline fallback. Refresh that copy with the app's next change.
 - **`versions.json`, `addons/` and `icons/` are generated too** (by `generate.cs` and `details.cs`). Never edit them by hand.
+- **`confirmed.json` changes only through the reports workflow's pull request,** which the maintainer reviews and merges. Never edit it by hand or merge that pull request yourself: player reports are untrusted until a person has checked them.
 - **Scripts** are .NET 11 file-based programs. Always run them through the app repo's `dev.ps1` (its main checkout sits beside this one, as `..\app`; from a worktree in the workspace's `worktrees\` folder it's `..\..\app`), never plain `dotnet`:
 
   ```powershell

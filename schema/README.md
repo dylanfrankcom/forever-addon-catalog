@@ -233,6 +233,8 @@ CurseForge and Wago sources can also say where a player downloads the Forever re
 | `downloadPage` | The files page to open instead of the front page, filtered to the Forever game version where the site allows it. CurseForge: `https://www.curseforge.com/wow/addons/<project>/files` or `/files/all`, with an optional query. Wago: `https://addons.wago.io/addons/<slug>/versions`, with an optional query. The validator refuses any other host or path. |
 | `downloadHint` | One short sentence telling the player which file to pick, when the page alone doesn't make it clear ("the file whose name ends in -forever"). |
 
+CurseForge and Wago sources can also carry `confirmed`: versions players reported downloading and the maintainer confirmed, keyed by edition ID, each with `version` (as the `.toc` gives it), `sha256` (of the zip, lowercase hex) and `date` (the day it was confirmed). It's only for editions the entry lists. The generator copies it from [`confirmed.json`](../confirmed.json) ([`confirmed.schema.json`](confirmed.schema.json)), which changes only through the reports workflow's reviewed pull request; an override can't set it. An app can treat a download whose hash matches as that version, and a newer confirmed version as an update.
+
 Regexes use .NET syntax, matched against the file name only.
 
 ## Where the catalog comes from

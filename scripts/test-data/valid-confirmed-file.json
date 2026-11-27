@@ -1,0 +1,14 @@
+{
+  "addons": {
+    "questie": {
+      "curseforge": {
+        "forever": {
+          "version": "v11.1.5",
+          "sha256": "abababababababababababababababababababababababababababababababab",
+          "date": "2026-11-20",
+          "reports": 3
+        }
+      }
+    }
+  }
+}

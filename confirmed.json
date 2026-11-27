@@ -1,0 +1,5 @@
+{
+  "$schema": "./schema/confirmed.schema.json",
+  "$comment": "Versions of CurseForge and Wago add-ons that players reported and the maintainer confirmed, by catalog ID, source and edition. Changed only by merging the reports workflow's pull request; the generator copies them into catalog.json.",
+  "addons": {}
+}
