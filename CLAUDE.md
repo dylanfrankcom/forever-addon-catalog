@@ -22,7 +22,7 @@ The add-on catalog for [Forever Add-on Manager](https://github.com/dylanfrankcom
 - **Only add-ons whose current release lists the Interface** of an edition in scope (`catalog.json`'s `editions`; Forever for now). "Might work" add-ons are not listed.
 - **Every change to `catalog.json` bumps its `version`** (the generator does) and passes validation.
 - **The app reads this catalog live** and carries a copy (`src\ForeverAddonManager.Core\Catalog\catalog.bundled.json` in forever-addon-manager) as the offline fallback. Refresh that copy with the app's next change.
-- **`status.json` is written by the checker job only.** Never edit it by hand.
+- **`versions.json`, `addons/` and `icons/` are generated too** (by `generate.cs` and `details.cs`). Never edit them by hand.
 - **Scripts** are .NET 11 file-based programs. Always run them through the app repo's `dev.ps1` (its main checkout sits beside this one, as `..\app`; from a worktree in the workspace's `worktrees\` folder it's `..\..\app`), never plain `dotnet`:
 
   ```powershell
