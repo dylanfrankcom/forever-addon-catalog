@@ -6,7 +6,7 @@
 - Every entry's `author` is in `authors`, and every author is the author of at least one entry.
 - An author's `name` is one name, and their `profiles` are on GitHub, Wago or CurseForge, at most one per site.
 - No two entries claim the same folder.
-- Each edition's `interface` is its `gameVersion`'s, a PTR's `of` is a live edition, every edition an entry lists is in `editions`, and its `upToDate` is right. No edition lists a `.toc` suffix twice, ignoring case.
+- Each edition's `interface` is its `gameVersion`'s, a PTR's `of` is a live edition, every edition an entry lists is in `editions`, its `upToDate` is right, and its `released` is a real day, not in the future. No edition lists a `.toc` suffix twice, ignoring case.
 - `added` is a real day and not in the future.
 - On a PR, compared with the base branch: changed entries or authors come with a `version` bump, and new entries have `added`.
 
@@ -134,7 +134,7 @@ Only releases that passed the release check, or that it found not updated yet, a
 | `summaries` | | The summary in other languages, from the `.toc`'s `Notes-deDE` lines and the like, keyed by the game's locale. |
 | `sources` | yes | Where to get it, in order of preference (see below). At least one. |
 | `folders` | yes | Every top-level AddOns folder it installs. Several-folder add-ons list all of them (Questie, QuestieDB, QuestieTrace); they're always installed, updated and removed together. Letters, digits, `_`, `.`, `-`, `!` and inner spaces: a leading `!` is how an add-on loads before the others (`!BugGrabber`). No paths, no leading dot, and no trailing space or dot. |
-| `editions` | | The editions it supports and what its latest checked release lists for each (see [Editions](#editions)). Written by the generator. |
+| `editions` | | The editions it supports and what its latest checked release lists for each (see [Editions](#editions)): its `interface`, whether that's `upToDate`, and `released`, the day (UTC) the release was published, left out when it isn't known. Written by the generator. |
 | `tocPath` | | The `.toc` to read the Interface from, relative to the zip's top level (`Questie_Forever.toc`, `OpenMap/OpenMap.toc`). Without it, the app looks for `<Folder>_Forever.toc`, `<Folder>-Forever.toc`, `<Folder>_Camelot.toc`, `<Folder>-Camelot.toc`, then `<Folder>.toc` in the first folder (Camelot is the Forever client's own name). |
 | `author` | yes | The author's ID in `authors` (`plusmouse`). The author's name, links and support pages live in their record, once for all their add-ons. A curated record (`overrides/_authors.json`) when there is one, else one made from the repo's GitHub owner. |
 | `tags` | | From the [fixed list](#tags), main tag first (see below): the `.toc`'s Category, then the repo's topics, at most 3. |
