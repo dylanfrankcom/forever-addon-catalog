@@ -164,6 +164,7 @@ One file per listed add-on released on GitHub, written by `scripts/details.cs`, 
 | `optional` | | IDs it works with when they're there. Listed, not added. |
 | `conflicts` | | IDs it overlaps with. A warning, never a blocker. |
 | `notes` | | Anything worth knowing ("the author disabled CurseForge API downloads, so Wago comes first"). |
+| `ownApp` | | The add-on's own app, when its author recommends one for installing and updating it (Spoken Manager for Spoken): `name`, `url` (its page, `https`) and an optional `marker`, a folder or file name the app leaves in AddOns while it's in use (`.spoken-manager`), a plain name with no path separators or wildcards. The app recommends it, and leaves the add-on to it while the marker is there, so two tools never change the same folders. From the add-on's override. |
 | `withdrawn` | | Releases the app never offers: `{ "release": "861", "reason": "…" }`. `release` is a GitHub tag, CurseForge file ID or Wago release, as the source names it. |
 | `overrides` | | Changes from a release on: `{ "releaseFrom": "900", "folders": [...] }` and/or `tocPath`. Rare. |
 | `from` | | Where the generator took each value from (`name`: `toc-title`, `folder` or `override`; `summary`: `toc-notes`, `repo-description`, `readme` or `override`; and so on), so a wrong one is easy to trace. `"entry": "override"` marks an add-on that isn't released on GitHub, whose whole entry is an override. |

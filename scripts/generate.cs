@@ -607,7 +607,7 @@ static class Generator
 {
     static readonly string[] OverrideOnly = ["repo", "$schema", "$comment"];
     static readonly string[] FieldOrder = ["id", "name", "summary", "summaries", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
-        "editions", "requires", "optional", "conflicts", "notes", "withdrawn", "overrides", "from"];
+        "editions", "requires", "optional", "conflicts", "notes", "ownApp", "withdrawn", "overrides", "from"];
 
     public static List<string> Strings(JsonNode? node) => node?.AsArray().Select(s => s!.GetValue<string>()).ToList() ?? [];
 
@@ -1958,7 +1958,7 @@ static class SelfTest
         checks[1]["good"]!["forever"]!["warnings"] = JsonNode.Parse("""[{"sign":"hidden-code","files":["Thing/x.lua"]}]""");
         var overrides = new Dictionary<string, JsonObject>(StringComparer.Ordinal)
         {
-            ["questie"] = Obj("""{"repo":"Questie/QuestieRenamed","author":"breakbb","notes":"Three folders.","links":{"issues":"https://github.com/Questie/Questie/issues"},"tags":["quests"]}"""),
+            ["questie"] = Obj("""{"repo":"Questie/QuestieRenamed","author":"breakbb","notes":"Three folders.","ownApp":{"name":"Questie Manager","url":"https://example.com/qm","marker":".questie-manager"},"links":{"issues":"https://github.com/Questie/Questie/issues"},"tags":["quests"]}"""),
             ["cfonly"] = Obj("""{"name":"CF Only","summary":"Only on CurseForge.","author":"x","sources":[{"type":"curseforge","projectId":5}],"folders":["CfOnly"],"conflicts":["thing","notlisted"]}"""),
             ["stale"] = Obj("""{"repo":"z/Stale","notes":"gone"}"""),
         };
@@ -1967,6 +1967,8 @@ static class SelfTest
         var result = Generator.Build(inputs, new DateOnly(2026, 11, 26));
         var byId = result.Addons.ToDictionary(a => a["id"]!.GetValue<string>());
         var qt = byId["questie"]["trust"]!;
+        Check("ownApp: from the override, after notes", Generator.Str(byId["questie"]["ownApp"]!["marker"]) == ".questie-manager"
+            && byId["questie"].Select(p => p.Key).SkipWhile(k => k != "notes").Skip(1).First() == "ownApp");
         Check("trust: built by its own repo, its history and the author's marker", Generator.Str(qt["built"]) == ".github/workflows/release.yml"
             && Generator.Str(qt["repoSince"]) == "2019-01-02" && Generator.Str(qt["ownerSince"]) == "2018-05-06" && (int)qt["releases"]! == 250 && (int)qt["stars"]! == 900
             && Generator.Str(qt["marker"]) == "yes" && Generator.Strings(qt["badges"]).SequenceEqual(["built"]) && qt["warnings"] is null && !(bool)qt["careful"]!);
