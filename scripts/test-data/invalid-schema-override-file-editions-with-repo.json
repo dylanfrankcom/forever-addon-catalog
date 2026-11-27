@@ -1,0 +1,9 @@
+{
+  "repo": "someone/thing",
+  "notes": "Its editions come from its checked release.",
+  "editions": {
+    "forever": {
+      "interface": "16001"
+    }
+  }
+}

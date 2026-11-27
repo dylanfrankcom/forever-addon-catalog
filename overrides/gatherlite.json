@@ -19,6 +19,11 @@
     "GatherLite"
   ],
   "tocPath": "GatherLite/GatherLite.toc",
+  "editions": {
+    "forever": {
+      "interface": "16001"
+    }
+  },
   "optional": [
     "openmap"
   ],

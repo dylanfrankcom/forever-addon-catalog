@@ -108,6 +108,10 @@ try
             File.WriteAllText(bodyPath, Proposer.Body(proposals, store));
             File.WriteAllText(factsPath, Json.Write(Proposer.Facts(proposals)));
             Console.WriteLine($"{proposals.Count} versions to confirm; {store.Suggestions.Count} suggestions waiting; dropped {pruned} old or settled messages.");
+            foreach (var line in Proposer.Unlisted(catalog, store))
+            {
+                Console.WriteLine($"  not proposed: {line}");
+            }
             return 0;
         }
     }
@@ -477,6 +481,21 @@ static class Proposer
         long Reports, string FirstSeen, string LastSeen, JsonObject? Previous, List<string> Flags);
 
     /// <summary>
+    /// Reports kept for a listed add-on and source but an edition its entry doesn't list, which are never proposed: one
+    /// line per add-on, source and edition, so they show in the run's summary instead of waiting unseen until they expire.
+    /// </summary>
+    public static List<string> Unlisted(JsonObject catalog, Store store)
+    {
+        var entries = (catalog["addons"]?.AsArray() ?? []).OfType<JsonObject>().ToDictionary(a => Json.Str(a["id"])!, StringComparer.Ordinal);
+        return store.Reports.Values.GroupBy(r => (Addon: Json.Str(r["addon"])!, Source: Json.Str(r["source"])!, Edition: Json.Str(r["edition"])!))
+            .Where(g => entries.TryGetValue(g.Key.Addon, out var entry) && Check.SiteSources(entry).ContainsKey(g.Key.Source)
+                && entry["editions"]?[g.Key.Edition] is null)
+            .OrderBy(g => g.Key.Addon, StringComparer.Ordinal).ThenBy(g => g.Key.Source, StringComparer.Ordinal).ThenBy(g => g.Key.Edition, StringComparer.Ordinal)
+            .Select(g => $"{g.Key.Addon} ({g.Key.Source}, {g.Key.Edition}): {g.Sum(r => (long)r["count"]!)} reports, but the catalog doesn't list this edition for it")
+            .ToList();
+    }
+
+    /// <summary>
     /// For each add-on, source and edition the catalog lists: the version reported most recently, and its most-reported
     /// hash. Nothing when confirmed.json already has that version and hash, or confirmed something newer than the reports.
     /// </summary>
@@ -719,6 +738,8 @@ static class Tests
         var cf = proposals.FirstOrDefault(p => p.Source == "curseforge");
         Expect("propose: the newest version, its most-reported hash, for listed editions only", proposals.Count == 2 && cf is not null
             && cf.Version == "1.2" && cf.Sha256 == A && cf.Reports == 5 && proposals.All(p => p.Edition == "forever"));
+        Expect("propose: reports for an edition the entry doesn't list are named, not dropped silently",
+            Proposer.Unlisted(catalog, store) is [var unlisted] && unlisted.StartsWith("auctionator (curseforge, retail): 1 reports", StringComparison.Ordinal));
         Expect("propose: flags disagreeing hashes and several versions", cf!.Flags.Any(f => f.Contains("hashes", StringComparison.Ordinal)) && cf.Flags.Any(f => f.Contains("versions", StringComparison.Ordinal)));
         Expect("propose: flags a single report", proposals.First(p => p.Source == "wago").Flags.Contains("one report only"));
         Proposer.Apply(confirmed, proposals, today);

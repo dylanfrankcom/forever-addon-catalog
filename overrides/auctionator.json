@@ -20,5 +20,10 @@
   "folders": [
     "Auctionator"
   ],
-  "tocPath": "Auctionator/Auctionator.toc"
+  "tocPath": "Auctionator/Auctionator.toc",
+  "editions": {
+    "forever": {
+      "interface": "16001"
+    }
+  }
 }

@@ -21,6 +21,11 @@
     "Baganator"
   ],
   "tocPath": "Baganator/Baganator.toc",
+  "editions": {
+    "forever": {
+      "interface": "16001"
+    }
+  },
   "requires": [
     "syndicator"
   ]

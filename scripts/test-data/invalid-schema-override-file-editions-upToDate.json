@@ -1,0 +1,20 @@
+{
+  "name": "Only On CurseForge",
+  "author": "someone",
+  "summary": "Does a thing.",
+  "sources": [
+    {
+      "type": "curseforge",
+      "projectId": 5
+    }
+  ],
+  "folders": [
+    "OnlyCF"
+  ],
+  "editions": {
+    "forever": {
+      "interface": "16001",
+      "upToDate": true
+    }
+  }
+}
