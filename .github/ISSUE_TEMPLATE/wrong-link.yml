@@ -1,0 +1,44 @@
+name: Wrong link
+description: An add-on's link in the catalog goes to the wrong page, a missing page, or another add-on (its CurseForge, Wago, WoWInterface, repository or issues link).
+labels: ["wrong-link", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Site links come from the IDs in the add-on's own `.toc` file, as its author wrote them, so a copied or mistyped ID gives a wrong link. A maintainer checks each report, then removes or corrects the link.
+  - type: input
+    id: addon
+    attributes:
+      label: Add-on
+      description: Its name as the app shows it.
+    validations:
+      required: true
+  - type: dropdown
+    id: which
+    attributes:
+      label: Which link
+      options:
+        - CurseForge
+        - Wago
+        - WoWInterface
+        - Repository
+        - Issues
+        - Homepage
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What's wrong
+      options:
+        - It goes to another add-on
+        - The page doesn't exist
+        - It's an old page; the add-on moved
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: The right page, if you know it, and anything else that helps.

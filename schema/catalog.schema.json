@@ -234,6 +234,9 @@
       "additionalProperties": false,
       "minProperties": 1,
       "properties": {
+        "curseforge": { "description": "Its CurseForge page, from the .toc's X-Curse-Project-ID as the author states it (see from.curseforge), or an override's.", "type": "string", "format": "uri", "pattern": "^https://(www\\.)?curseforge\\.com/\\S+$" },
+        "wago": { "description": "Its Wago Addons page, from the .toc's X-Wago-ID as the author states it, or an override's.", "type": "string", "format": "uri", "pattern": "^https://addons\\.wago\\.io/addons/[A-Za-z0-9_-]+$" },
+        "wowinterface": { "description": "Its WoWInterface page, from the .toc's X-WoWI-ID as the author states it, or an override's.", "type": "string", "format": "uri", "pattern": "^https://www\\.wowinterface\\.com/downloads/info[0-9]+\\S*$" },
         "homepage": { "description": "Only when the add-on's own page isn't the default: its repository, else its first source's page.", "type": "string", "format": "uri", "pattern": "^https://" },
         "repository": { "description": "The public GitHub or GitLab repository that holds the add-on's source code, whatever its licence. Never one that only hosts issues. Left out when the code isn't public.", "type": "string", "format": "uri", "pattern": "^https://(github\\.com/[A-Za-z0-9-]+/[A-Za-z0-9._-]+|gitlab\\.com/[A-Za-z0-9._-]+(/[A-Za-z0-9._-]+)+)$" },
         "issues": { "description": "Where players report problems to the author: the repository's issues when it has them turned on, else the tracker the author links from their CurseForge or Wago page. Left out when there isn't a working one.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" }
@@ -250,7 +253,10 @@
         "summaries": { "const": "override" },
         "author": { "enum": ["repo-owner", "override"] },
         "tags": { "enum": ["toc-category", "topics", "override"] },
-        "icon": { "enum": ["toc-icon", "override"] }
+        "icon": { "enum": ["toc-icon", "override"] },
+        "curseforge": { "description": "toc: the ID in the add-on's .toc, as its author states it, never checked with the site; override: set by a person.", "enum": ["toc", "override"] },
+        "wago": { "description": "As curseforge.", "enum": ["toc", "override"] },
+        "wowinterface": { "description": "As curseforge.", "enum": ["toc", "override"] }
       }
     },
     "addon": {

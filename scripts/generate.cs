@@ -33,7 +33,7 @@ if (args is ["--self-test"])
 }
 
 string catalogArg = "catalog.json", candidatesArg = "candidates.json", checksArg = "checks.json", overridesArg = "overrides",
-    optoutArg = "optout.json", iconsArg = "icons", versionsArg = "versions.json";
+    optoutArg = "optout.json", iconsArg = "icons", versionsArg = "versions.json", linkchecksArg = "linkchecks.json";
 string? summaryArg = null;
 var icons = true;
 for (var i = 0; i < args.Length; i++)
@@ -49,9 +49,10 @@ for (var i = 0; i < args.Length; i++)
         case "--icons" when value is not null: iconsArg = value; i++; break;
         case "--summary" when value is not null: summaryArg = value; i++; break;
         case "--versions" when value is not null: versionsArg = value; i++; break;
+        case "--linkchecks" when value is not null: linkchecksArg = value; i++; break;
         case "--no-icons": icons = false; break;
         default:
-            Console.Error.WriteLine("Usage: dotnet run scripts/generate.cs [--catalog <file>] [--candidates <file>] [--checks <file>] [--overrides <dir>] [--optout <file>] [--icons <dir>] [--no-icons] [--versions <file>] [--summary <file>] | --self-test");
+            Console.Error.WriteLine("Usage: dotnet run scripts/generate.cs [--catalog <file>] [--candidates <file>] [--checks <file>] [--overrides <dir>] [--optout <file>] [--icons <dir>] [--no-icons] [--versions <file>] [--linkchecks <file>] [--summary <file>] | --self-test");
             return 2;
     }
 }
@@ -60,6 +61,10 @@ Inputs inputs;
 try
 {
     inputs = Inputs.Read(catalogArg, candidatesArg, checksArg, overridesArg, optoutArg);
+    if (File.Exists(linkchecksArg))
+    {
+        inputs = inputs with { LinkChecks = JsonNode.Parse(File.ReadAllText(linkchecksArg))!.AsObject() };
+    }
 }
 catch (Exception e) when (e is IOException or UnauthorizedAccessException or JsonException or InvalidOperationException or NullReferenceException or FormatException or KeyNotFoundException)
 {
@@ -98,6 +103,90 @@ if (summaryArg is not null)
 }
 return 0;
 
+/// <summary>
+/// Links to an add-on's CurseForge, Wago and WoWInterface pages, from the IDs in its main .toc
+/// (X-Curse-Project-ID, X-Wago-ID, X-WoWI-ID). Neither CurseForge nor Wago can be asked automatically, so an ID is
+/// taken as the author states it ("from": "toc"), never as verified, and checked for consistency instead: none from a
+/// fork, none that two listed add-ons both claim (unless an override confirms one), and none the link check
+/// (linkchecks.json, scripts/linkcheck.cs) found missing several runs in a row. An override sets or removes a link.
+/// </summary>
+static class SiteLinks
+{
+    public static readonly (string Key, string Field, System.Text.RegularExpressions.Regex Id, Func<string, string> Url)[] Sites =
+    [
+        ("curseforge", "curseforge", new("^[1-9][0-9]{0,9}$"), id => $"https://www.curseforge.com/projects/{id}"),
+        ("wago", "wago", new("^[A-Za-z0-9]{6,12}$"), id => $"https://addons.wago.io/addons/{id}"),
+        ("wowinterface", "wowi", new("^[1-9][0-9]{0,9}$"), id => $"https://www.wowinterface.com/downloads/info{id}"),
+    ];
+
+    public static readonly HashSet<string> Keys = Sites.Select(s => s.Key).ToHashSet(StringComparer.Ordinal);
+
+    /// <summary>"Not found" answers in a row before a link is left out (a blocked or failed check never counts).</summary>
+    public const int NotFoundLimit = 3;
+
+    public static void Add(JsonObject links, JsonObject from, JsonObject toc, bool fork)
+    {
+        if (fork)
+        {
+            return; // a fork's .toc keeps the original's IDs
+        }
+        foreach (var (key, field, id, url) in Sites)
+        {
+            if (Generator.Str(toc[field])?.Trim() is { } value && id.IsMatch(value))
+            {
+                links[key] = url(value);
+                from[key] = "toc";
+            }
+        }
+    }
+
+    /// <summary>Leaves out the site links that can't be trusted; returns a notice for each.</summary>
+    public static List<string> Settle(IReadOnlyList<JsonObject> addons, JsonObject? checks)
+    {
+        var notices = new List<string>();
+        static void Remove(JsonObject entry, string key)
+        {
+            entry["links"]!.AsObject().Remove(key);
+            (entry["from"] as JsonObject)?.Remove(key);
+        }
+        foreach (var key in Keys)
+        {
+            var claims = addons.Where(a => Generator.Str(a["links"]?[key]) is not null)
+                .GroupBy(a => Generator.Str(a["links"]![key])!.ToLowerInvariant()).Where(g => g.Count() > 1);
+            foreach (var claim in claims)
+            {
+                var stated = claim.Where(a => Generator.Str(a["from"]?[key]) == "toc").ToList();
+                foreach (var entry in stated)
+                {
+                    Remove(entry, key);
+                }
+                notices.Add($"{key} link {claim.Key} is claimed by {string.Join(", ", claim.Select(a => a["id"]))}; left out of {(stated.Count > 0 ? string.Join(", ", stated.Select(a => a["id"])) : "none (overrides set it)")}");
+            }
+        }
+        foreach (var entry in addons)
+        {
+            foreach (var key in Keys)
+            {
+                if (Generator.Str(entry["links"]?[key]) is not { } url || checks?["links"]?[url] is not JsonObject check
+                    || (check["notFound"]?.GetValue<int>() ?? 0) < NotFoundLimit)
+                {
+                    continue;
+                }
+                if (Generator.Str(entry["from"]?[key]) == "toc")
+                {
+                    Remove(entry, key);
+                    notices.Add($"{entry["id"]}: {key} link {url} not found {check["notFound"]} checks in a row; left out");
+                }
+                else
+                {
+                    notices.Add($"{entry["id"]}: {key} link {url} (set by an override) not found {check["notFound"]} checks in a row");
+                }
+            }
+        }
+        return notices;
+    }
+}
+
 /// <summary>The listing scope: the one setting that decides which add-ons are listed.</summary>
 static class Settings
 {
@@ -114,7 +203,7 @@ static class Settings
 }
 
 sealed record Inputs(JsonObject Catalog, Dictionary<string, JsonObject> Candidates, List<JsonObject> Checks,
-    Dictionary<string, JsonObject> Overrides, JsonObject CuratedAuthors, List<string> OptOut)
+    Dictionary<string, JsonObject> Overrides, JsonObject CuratedAuthors, List<string> OptOut, JsonObject? LinkChecks = null)
 {
     public static Inputs Read(string catalog, string candidates, string checks, string overrides, string optout)
     {
@@ -206,7 +295,7 @@ static partial class Text
     private static partial Regex Conditions();
 
     // "v1.2.3", "1.2", "(1.0.4-beta)", "r123" ... standing alone.
-    [GeneratedRegex(@"(?<![\w.])[\(\[]?(v|r)?\d+(\.\d+)+([-_.+][0-9A-Za-z.]+)?[\)\]]?(?![\w.])|(?<![\w.])\(?v\d+\)?(?![\w.])", RegexOptions.IgnoreCase)]
+    [GeneratedRegex(@"(?<![\w.-])[\(\[]?(v|r)?\d+(\.\d+)+([-_.+][0-9A-Za-z.]+)?[\)\]]?(?![\w.])|(?<![\w.])\(?v\d+\)?(?![\w.])", RegexOptions.IgnoreCase)]
     private static partial Regex Version();
 
     [GeneratedRegex(@"\(\s*\)|\[\s*\]")]
@@ -701,6 +790,7 @@ static class Generator
             }
         }
         result.Notices.AddRange(Support.Changes(inputs.Catalog["authors"] as JsonObject, result.Authors));
+        result.Notices.AddRange(SiteLinks.Settle(result.Addons, inputs.LinkChecks));
         result.Addons.Sort((a, b) => string.CompareOrdinal(a["id"]!.GetValue<string>(), b["id"]!.GetValue<string>()));
         return result;
     }
@@ -881,6 +971,7 @@ static class Generator
         {
             entry["links"]!["issues"] = $"https://github.com/{l.Repo}/issues";
         }
+        SiteLinks.Add(entry["links"]!.AsObject(), from, toc, fork: l.Row["fork"]?.GetValue<bool>() == true);
         entry["folders"] = Array(l.Folders);
 
         var editions = new JsonObject();
@@ -919,7 +1010,18 @@ static class Generator
             {
                 foreach (var (k, v) in extra)
                 {
-                    links[k] = v?.DeepClone();
+                    // null removes a link (a wrong one a player reported); a site link set here is confirmed by a person.
+                    if (v is null)
+                    {
+                        links.Remove(k);
+                        from?.Remove(k);
+                        continue;
+                    }
+                    links[k] = v.DeepClone();
+                    if (from is not null && SiteLinks.Keys.Contains(k))
+                    {
+                        from[k] = "override";
+                    }
                 }
                 continue;
             }
@@ -1649,6 +1751,38 @@ static class SelfTest
         Check("main toc: the release's own .toc wins over the repo's", Str(released["title"]) == "Forever Scout from the zip" && Str(released["notes"]) == "Scouts."
             && Str(Generator.MainToc(scout, Obj("{}"), "ForeverScout")["title"]) == "Forever Scout");
         Check("clean: packager placeholders go", Text.Clean("Carbonite Maps @project-version@", dropVersions: true) == "Carbonite Maps");
+        Check("clean: a library's version in its name stays", Text.Clean("AceGUI-3.0: SFX Widgets", dropVersions: true) == "AceGUI-3.0: SFX Widgets"
+            && Text.Clean("Thing - 1.2.3", dropVersions: true) == "Thing");
+        JsonObject Site(string id, string? cf, string? wago, string? wowi, bool fork = false)
+        {
+            var e = new JsonObject { ["id"] = id, ["links"] = new JsonObject { ["repository"] = $"https://github.com/x/{id}" }, ["from"] = new JsonObject() };
+            SiteLinks.Add(e["links"]!.AsObject(), e["from"]!.AsObject(), new JsonObject { ["curseforge"] = cf, ["wago"] = wago, ["wowi"] = wowi }, fork);
+            return e;
+        }
+        var s1 = Site("one", "913973", "b6XV0OGp", "26644");
+        Check("site links: from the .toc's IDs, stated by the author", Str(s1["links"]!["curseforge"]) == "https://www.curseforge.com/projects/913973"
+            && Str(s1["links"]!["wago"]) == "https://addons.wago.io/addons/b6XV0OGp" && Str(s1["links"]!["wowinterface"]) == "https://www.wowinterface.com/downloads/info26644"
+            && Str(s1["from"]!["wago"]) == "toc");
+        Check("site links: malformed IDs and forks give none", Site("bad", "12a", "x y", "-1")["links"]!.AsObject().Count == 1 && Site("fork", "1", "abcdefgh", "2", fork: true)["links"]!.AsObject().Count == 1);
+        var twin = Site("twin", null, "b6XV0OGp", null);
+        var lone = Site("lone", "777", null, null);
+        var notices = SiteLinks.Settle([s1, twin, lone], null);
+        Check("site links: an ID two add-ons claim goes to neither", s1["links"]!["wago"] is null && twin["links"]!["wago"] is null && s1["from"]!["wago"] is null
+            && s1["links"]!["curseforge"] is not null && notices.Any(n => n.Contains("claimed by one, twin", StringComparison.Ordinal)));
+        var confirmed = Site("confirmed", null, null, null);
+        Generator.Apply(confirmed, Obj("""{"links":{"wago":"https://addons.wago.io/addons/SAMEone1"}}"""));
+        var copy = Site("copy", null, "SAMEone1", null);
+        SiteLinks.Settle([confirmed, copy], null);
+        Check("site links: an override confirms one claim, the copy's is dropped", Str(confirmed["links"]!["wago"]) == "https://addons.wago.io/addons/SAMEone1"
+            && Str(confirmed["from"]!["wago"]) == "override" && copy["links"]!["wago"] is null);
+        var reported = Site("reported", "5", null, null);
+        Generator.Apply(reported, Obj("""{"links":{"curseforge":null}}"""));
+        Check("site links: an override removes a wrong one", reported["links"]!["curseforge"] is null && reported["from"]!["curseforge"] is null);
+        var gone = Site("gone", null, "missing1", "11");
+        var linkChecks = Obj("""{"links":{"https://addons.wago.io/addons/missing1":{"notFound":3},"https://www.wowinterface.com/downloads/info11":{"notFound":2}}}""");
+        var goneNotices = SiteLinks.Settle([gone], linkChecks);
+        Check("site links: left out after 3 not-found checks in a row, not before", gone["links"]!["wago"] is null && gone["links"]!["wowinterface"] is not null
+            && goneNotices.Single().Contains("not found 3 checks", StringComparison.Ordinal));
         Check("clean: colours and version", Text.Clean("|cff00ff00Questie|r v12.1.1", dropVersions: true) == "Questie");
         Check("clean: textures and conditions", Text.Clean("|TInterface\\Icons\\X:16|t Foo [AllowLoadGameType classic]", dropVersions: true) == "Foo");
         Check("clean: version in brackets", Text.Clean("Bar (1.2.3)", dropVersions: true) == "Bar" && Text.Clean("Atlas 2 Loot", dropVersions: true) == "Atlas 2 Loot");
