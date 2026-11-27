@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema/override.schema.json",
+  "repo": "rusty-key/spoken-wow",
+  "tagPrefix": "spoken/",
+  "optional": [
+    "spoken-quests-audio",
+    "spoken-places-audio",
+    "spoken-readables-audio",
+    "spoken-bosses-audio"
+  ],
+  "ownApp": {
+    "name": "Spoken Manager",
+    "url": "https://github.com/rusty-key/spoken-wow/blob/master/apps/manager/README.md",
+    "marker": ".spoken-manager"
+  }
+}

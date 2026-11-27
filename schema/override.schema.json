@@ -5,6 +5,7 @@
   "description": "overrides/<id>.json: hand corrections the generator applies to the entry with this ID. With \"repo\", they apply to that GitHub repo's generated entry and are used only while its release passes the release check. Without it, the file is a complete entry for an add-on that isn't released on GitHub (name, author, summary, sources and folders are then needed). Never read by the app.",
   "type": "object",
   "additionalProperties": false,
+  "dependentRequired": { "tagPrefix": ["repo"] },
   "properties": {
     "$schema": {
       "type": "string"
@@ -16,6 +17,10 @@
       "description": "owner/name of the GitHub repo whose generated entry this corrects.",
       "type": "string",
       "pattern": "^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$"
+    },
+    "tagPrefix": {
+      "description": "With repo, for a repo that releases several add-ons: this entry is the add-on whose release tags start with it. The repo is then listed only through such overrides, one entry each.",
+      "$ref": "catalog.schema.json#/$defs/githubSource/properties/tagPrefix"
     },
     "name": {
       "$ref": "catalog.schema.json#/$defs/addon/properties/name"

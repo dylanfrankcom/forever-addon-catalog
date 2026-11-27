@@ -1,0 +1,5 @@
+{
+  "$schema": "../schema/override.schema.json",
+  "repo": "rusty-key/spoken-wow",
+  "tagPrefix": "bosses-audio/"
+}
