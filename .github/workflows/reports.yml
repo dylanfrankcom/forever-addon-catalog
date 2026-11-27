@@ -3,7 +3,11 @@ name: reports
 # Collects players' version reports and add-on suggestions from the relay (scripts/reports.cs), keeps them on the
 # `checker` branch (relay.json), and opens or updates one pull request, from the `reports/confirm` branch, that proposes
 # the reported versions in confirmed.json. Nothing is confirmed until the maintainer merges it; the next catalog build
-# then copies them into catalog.json. Daily, or by hand (Actions -> reports -> Run workflow).
+# then copies them into catalog.json. Every 10 minutes, or by hand (Actions -> reports -> Run workflow). A run whose
+# proposal is the open pull request's already changes nothing there, and the relay stores the index only when it changed.
+#
+# It has its own concurrency group: in a shared one, a pending run every 10 minutes would cancel the check workflow's
+# pending run. The workflows write different files on `checker`, so each retries a refused push (.github/push-checker.sh).
 #
 # Needs the repository variable RELAY_URL and the secret RELAY_KEY; without them it does nothing. With the secret
 # ANTHROPIC_API_KEY, Claude (Haiku 5.5) writes a short summary at the top of the pull request from the checked facts only (facts.json);
@@ -15,7 +19,7 @@ name: reports
 
 on:
   schedule:
-    - cron: "23 5 * * *"
+    - cron: "*/10 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -23,7 +27,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: checker-data
+  group: relay-reports
   cancel-in-progress: false
 
 env:
@@ -77,7 +81,7 @@ jobs:
           git add relay.json
           if ! git diff --cached --quiet; then
             git commit -q -m "Relay reports $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push origin checker
+            bash ../.github/push-checker.sh
           fi
       # Only once they're saved: the relay deletes what's marked as collected.
       - name: Mark them collected
@@ -89,18 +93,32 @@ jobs:
       - name: Propose versions to confirm
         if: steps.setup.outputs.ready == 'true'
         id: propose
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           dotnet run scripts/reports.cs -- propose --store data/relay.json --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" | tee -a "$GITHUB_STEP_SUMMARY"
           dotnet run scripts/validate.cs -- confirmed.json
-          if git diff --quiet -- confirmed.json; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+          # changed: something to propose against main. same: the open pull request proposes exactly that already.
+          pr=$(gh pr list --head reports/confirm --state open --json number --jq '.[0].number // empty')
+          echo "pr=$pr" >> "$GITHUB_OUTPUT"
+          if git diff --quiet -- confirmed.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            if [ -n "$pr" ] && git fetch --no-tags --depth=1 -q origin reports/confirm:refs/remotes/origin/reports/confirm \
+              && git diff --quiet origin/reports/confirm -- confirmed.json; then
+              echo "same=true" >> "$GITHUB_OUTPUT"
+              echo "The open pull request #$pr already proposes this: left as it is." | tee -a "$GITHUB_STEP_SUMMARY"
+            fi
+          fi
           cd data
           git add relay.json
           if ! git diff --cached --quiet; then
             git commit -q -m "Relay reports pruned $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push origin checker
+            bash ../.github/push-checker.sh
           fi
       - name: Summary by Claude
-        if: steps.propose.outputs.changed == 'true'
+        if: steps.propose.outputs.changed == 'true' && steps.propose.outputs.same != 'true'
         continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -128,12 +146,12 @@ jobs:
             echo "Claude stopped with \"$stop\": the pull request has the table only."
           fi
       - name: Open or update the pull request
-        if: steps.setup.outputs.ready == 'true'
+        if: steps.setup.outputs.ready == 'true' && steps.propose.outputs.same != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           CHANGED: ${{ steps.propose.outputs.changed }}
+          pr: ${{ steps.propose.outputs.pr }}
         run: |
-          pr=$(gh pr list --head reports/confirm --state open --json number --jq '.[0].number // empty')
           if [ "$CHANGED" != "true" ]; then
             if [ -n "$pr" ]; then
               gh pr close "$pr" --delete-branch --comment "Nothing left to confirm: these versions are confirmed already, or their reports are too old."

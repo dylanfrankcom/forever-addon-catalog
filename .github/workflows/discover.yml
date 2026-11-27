@@ -63,5 +63,5 @@ jobs:
             echo "No changes."
           else
             git commit -q -m "Candidates $(date -u +%Y-%m-%d)"
-            git push origin checker
+            bash ../.github/push-checker.sh
           fi
