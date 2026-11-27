@@ -2,14 +2,12 @@
   "$schema": "../schema/override.schema.json",
   "repo": "rusty-key/spoken-wow",
   "tagPrefix": "spoken/",
-  "optional": [
-    "spoken-places-audio",
-    "spoken-readables-audio",
-    "spoken-bosses-audio"
-  ],
   "ownApp": {
     "name": "Spoken Manager",
     "url": "https://spoken.quest/#install",
     "marker": ".spoken-manager"
+  },
+  "linkOnly": {
+    "url": "https://spoken.quest/#install"
   }
 }

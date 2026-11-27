@@ -6,5 +6,8 @@
     "name": "Spoken Manager",
     "url": "https://spoken.quest/#install",
     "marker": ".spoken-manager"
+  },
+  "linkOnly": {
+    "url": "https://spoken.quest/#install"
   }
 }
