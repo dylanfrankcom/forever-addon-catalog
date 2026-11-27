@@ -332,6 +332,15 @@
         "optional": { "description": "Catalog IDs it works with when they're installed.", "$ref": "#/$defs/idList" },
         "conflicts": { "description": "Catalog IDs it overlaps with. A warning, not a blocker.", "$ref": "#/$defs/idList" },
         "notes": { "description": "What a player should know before installing, from the add-on's override.", "type": "string", "maxLength": 1000 },
+        "linkOnly": {
+          "description": "Link only, at the author's request: listed, but the app sends players to this page to download it and never downloads the file itself. From the add-on's override.",
+          "type": "object",
+          "properties": {
+            "url": { "description": "The author's chosen download page.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" }
+          },
+          "required": ["url"],
+          "additionalProperties": false
+        },
         "ownApp": {
           "description": "The add-on's own app: one its author recommends for installing and updating it. The app recommends it and leaves the add-on to it while it's in use. From the add-on's override.",
           "type": "object",

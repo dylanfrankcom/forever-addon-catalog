@@ -145,6 +145,10 @@ static class Trust
         {
             trust["marker"] = marker;
         }
+        else if (Generator.Strings(row["topics"]).Contains("wow-forever", StringComparer.OrdinalIgnoreCase))
+        {
+            trust["marker"] = "yes"; // the opt-in topic
+        }
 
         var warnings = new SortedSet<string>(good.SelectMany(g => g["warnings"]?.AsArray() ?? []).Select(w => Generator.Str(w?["sign"])).OfType<string>(), StringComparer.Ordinal);
         if (ownerSince is { } owner && today.DayNumber - owner.DayNumber < NewOwnerDays)
@@ -327,7 +331,7 @@ sealed record Inputs(JsonObject Catalog, Dictionary<string, JsonObject> Candidat
             }
         }
         var opt = File.Exists(optout)
-            ? JsonNode.Parse(File.ReadAllText(optout))!["repos"]!.AsArray().Select(r => r!.GetValue<string>()).ToList()
+            ? JsonNode.Parse(File.ReadAllText(optout))!["repos"]!.AsArray().Select(r => Generator.Str(r!["repo"])!.Trim()).ToList()
             : [];
         return new(cat, rows, checked_, overrideFiles, authors, opt);
     }
@@ -607,7 +611,7 @@ static class Generator
 {
     static readonly string[] OverrideOnly = ["repo", "$schema", "$comment"];
     static readonly string[] FieldOrder = ["id", "name", "summary", "summaries", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
-        "editions", "requires", "optional", "conflicts", "notes", "ownApp", "withdrawn", "overrides", "from"];
+        "editions", "requires", "optional", "conflicts", "notes", "ownApp", "linkOnly", "withdrawn", "overrides", "from"];
 
     public static List<string> Strings(JsonNode? node) => node?.AsArray().Select(s => s!.GetValue<string>()).ToList() ?? [];
 
@@ -671,6 +675,12 @@ static class Generator
             if (!inputs.Candidates.TryGetValue(repo, out var row))
             {
                 result.Drop("no longer found by discovery", repo);
+                continue;
+            }
+            // The author's own no, in the .toc: never listed (a yes is shown in trust.marker).
+            if (Str(row["toc"]?["catalog"])?.Trim().Equals("no", StringComparison.OrdinalIgnoreCase) == true)
+            {
+                result.Drop("the author asked not to be listed (X-Forever-Catalog: no)", repo);
                 continue;
             }
             var folders = Strings(main["folders"]);
@@ -1266,6 +1276,10 @@ static class Versions
             // Only when the entry's own GitHub source is the repo the release was checked from.
             var entry = result.Addons.FirstOrDefault(a => a["id"]!.GetValue<string>() == id);
             var source = entry?["sources"]?.AsArray().OfType<JsonObject>().FirstOrDefault(s => Generator.Str(s["type"]) == "github");
+            if (entry?["linkOnly"] is not null)
+            {
+                continue; // the app sends players to the author's page: it never downloads the file
+            }
             if (source is null || !string.Equals(Generator.Str(source["repo"]), repo, StringComparison.OrdinalIgnoreCase))
             {
                 continue;
@@ -1924,6 +1938,7 @@ static class SelfTest
             Row("i/Bang", "Bang", "Odd folder."),
             Row("j/Grabber", "Grabber", "Loads first."),
             Row("k/CfOnlyMirror", "CF Only", "A re-upload."),
+            Row("l/NoThanks", "No Thanks", "Says no."),
         }.ToDictionary(r => r["repo"]!.GetValue<string>(), r => r, StringComparer.OrdinalIgnoreCase);
         rows["Questie/QuestieRenamed"]["downloads"] = Obj("""{"total":1200,"latest":300,"read":"2026-11-26"}""");
         foreach (var (key, value) in Obj("""{"created":"2019-01-02T00:00:00Z","ownerCreated":"2018-05-06T00:00:00Z","stars":900,"releases":{"count":250,"days":["2026-11-20","2026-11-01"]}}"""))
@@ -1931,6 +1946,8 @@ static class SelfTest
             rows["Questie/QuestieRenamed"][key] = value?.DeepClone();
         }
         rows["Questie/QuestieRenamed"]["toc"]!["catalog"] = " Yes";
+        rows["l/NoThanks"]["toc"]!["catalog"] = "No";
+        rows["e/LibFoo"]["topics"] = Generator.Array(["wow-forever"]);
         foreach (var (key, value) in Obj("""{"created":"2026-11-10T00:00:00Z","ownerCreated":"2026-10-01T00:00:00Z","stars":0,"releases":{"count":1,"days":["2026-11-12"]}}"""))
         {
             rows["a/Thing"][key] = value?.DeepClone();
@@ -1949,6 +1966,7 @@ static class SelfTest
             Check_("j/Grabber", ["!Grabber"], "forever"),
             Check_("k/CfOnlyMirror", ["CfOnly"], "forever"),
             Check_("h/RetailOnly", ["RetailOnly"], "retail"),
+            Check_("l/NoThanks", ["NoThanks"], "forever"),
         };
         foreach (var e in new[] { "forever", "classic_era" })
         {
@@ -1961,12 +1979,18 @@ static class SelfTest
             ["questie"] = Obj("""{"repo":"Questie/QuestieRenamed","author":"breakbb","notes":"Three folders.","ownApp":{"name":"Questie Manager","url":"https://example.com/qm","marker":".questie-manager"},"links":{"issues":"https://github.com/Questie/Questie/issues"},"tags":["quests"]}"""),
             ["cfonly"] = Obj("""{"name":"CF Only","summary":"Only on CurseForge.","author":"x","sources":[{"type":"curseforge","projectId":5}],"folders":["CfOnly"],"conflicts":["thing","notlisted"]}"""),
             ["stale"] = Obj("""{"repo":"z/Stale","notes":"gone"}"""),
+            ["grabber"] = Obj("""{"repo":"j/Grabber","linkOnly":{"url":"https://example.com/grabber"}}"""),
         };
         var curated = Obj("""{"breakbb":{"name":"BreakBB"},"x":{"name":"X"},"unused":{"name":"Nobody"}}""");
         var inputs = new Inputs(previous, rows, checks, overrides, curated, ["g/Gone"]);
         var result = Generator.Build(inputs, new DateOnly(2026, 11, 26));
         var byId = result.Addons.ToDictionary(a => a["id"]!.GetValue<string>());
         var qt = byId["questie"]["trust"]!;
+        Check("author: a .toc's no keeps it out", !byId.ContainsKey("nothanks")
+            && result.Dropped.TryGetValue("the author asked not to be listed (X-Forever-Catalog: no)", out var said) && said.SequenceEqual(["l/NoThanks"]));
+        Check("author: the wow-forever topic is a yes", Generator.Str(byId["libfoo"]["trust"]!["marker"]) == "yes");
+        Check("author: link only is listed, never in versions.json", Generator.Str(byId["grabber"]["linkOnly"]!["url"]) == "https://example.com/grabber"
+            && byId["grabber"].Select(p => p.Key).SkipWhile(k => k != "notes" && k != "linkOnly").First() == "linkOnly");
         Check("ownApp: from the override, after notes", Generator.Str(byId["questie"]["ownApp"]!["marker"]) == ".questie-manager"
             && byId["questie"].Select(p => p.Key).SkipWhile(k => k != "notes").Skip(1).First() == "ownApp");
         Check("trust: built by its own repo, its history and the author's marker", Generator.Str(qt["built"]) == ".github/workflows/release.yml"
@@ -1982,7 +2006,7 @@ static class SelfTest
         Check("mirror: a re-upload of a hand-written entry isn't listed", result.Dropped.TryGetValue("a re-upload of an add-on listed from its own site (same folder or CurseForge project as a hand-written entry)", out var mirrors)
             && mirrors.SequenceEqual(["k/CfOnlyMirror (cfonly)"]) && byId["cfonly"]["sources"]!.AsArray().All(s => Generator.Str(s!["type"]) != "github"));
         var versions = Versions.Addons(result, previous);
-        Check("versions: listed GitHub add-ons only, each checked edition", versions.Select(v => v.Key).SequenceEqual(["grabber", "libfoo", "questie", "readme", "thing"])
+        Check("versions: listed GitHub add-ons only, each checked edition", versions.Select(v => v.Key).SequenceEqual(["libfoo", "questie", "readme", "thing"])
             && versions["questie"]!.AsObject().Select(e => e.Key).SequenceEqual(["classic_era", "forever"]));
         var q1 = versions["questie"]!["forever"]!;
         Check("versions: a release's fields", Generator.Str(q1["file"]) == "x.zip" && q1["size"]!.GetValue<long>() == 1234 && Generator.Str(q1["published"]) == "2026-11-20"

@@ -1,0 +1,46 @@
+name: Remove my add-on, or make it link only
+description: For add-on authors. Take your add-on out of the catalog, or keep it listed but send players to your own download page.
+labels: ["author-request", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for getting in touch. You choose how your add-on appears; nothing about it is held against you.
+
+        **A request counts when** this issue is opened from the GitHub account that owns the add-on's repository, or when the repository carries the marker: a `## X-Forever-Catalog: no` line in your `.toc` (for removal), which the catalog also reads by itself on its next run. Otherwise a maintainer asks how to confirm it's yours.
+
+        - **Remove it:** the add-on comes out of the catalog and goes on the never-add list, so it's never listed again, by search or by anyone's request.
+        - **Link only:** it stays listed, but the app never downloads it: players get a link to the page you choose and download it there.
+  - type: input
+    id: addon
+    attributes:
+      label: Add-on
+      description: Its name as the app shows it.
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Repository
+      description: Its GitHub repository (https://github.com/owner/name), or "my whole account" to cover all your add-ons.
+    validations:
+      required: true
+  - type: dropdown
+    id: choice
+    attributes:
+      label: What you'd like
+      options:
+        - Remove it, and never list it again
+        - Link only, to the page below
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Your download page (for link only)
+      description: An https page where players download it (your CurseForge, Wago or own site).
+  - type: textarea
+    id: details
+    attributes:
+      label: Anything else
+      description: Optional. For example, if only some of your add-ons are meant.

@@ -1,6 +1,14 @@
 {
   "repos": [
-    "owner/name",
-    "whole-account"
+    {
+      "repo": "owner/name",
+      "reason": "The author asked, in issue 12.",
+      "date": "2026-11-26",
+      "issue": 12
+    },
+    {
+      "repo": "whole-account",
+      "reason": "The author asked for all their add-ons."
+    }
   ]
 }
