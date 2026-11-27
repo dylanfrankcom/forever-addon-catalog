@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.17.0",
+  "version": "4.18.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -17756,7 +17756,7 @@
     },
     {
       "id": "bgnext",
-      "name": "<BGNext> BGNext 金团表格",
+      "name": "BGNext 金团表格",
       "summary": "/bgn or /bgnext",
       "author": "pitcn",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/bgnext.png",
@@ -28852,7 +28852,7 @@
     },
     {
       "id": "dbm-azeroth",
-      "name": "<DBM> World Bosses (Vanilla)",
+      "name": "DBM World Bosses (Vanilla)",
       "otherNames": [
         "DBM Vanilla"
       ],
@@ -28934,7 +28934,7 @@
     },
     {
       "id": "dbm-countpack-hots",
-      "name": "<DBM Media> Countpack HotS",
+      "name": "DBM Media Countpack HotS",
       "otherNames": [
         "DBM Count Pack Hot S"
       ],
@@ -29038,7 +29038,7 @@
     },
     {
       "id": "dbm-countpack-hots-ru",
-      "name": "<DBM Media> Countpack HotS Ru",
+      "name": "DBM Media Countpack HotS Ru",
       "otherNames": [
         "DBM Count Pack Hot S Build Scripts"
       ],
@@ -29141,7 +29141,7 @@
     },
     {
       "id": "dbm-flighttimers",
-      "name": "<DBM Mod> Flight Timers",
+      "name": "DBM Mod Flight Timers",
       "otherNames": [
         "DBM Flight Timers"
       ],
@@ -29242,7 +29242,7 @@
     },
     {
       "id": "dbm-hudmap",
-      "name": "<DBM Extra> HudMap",
+      "name": "DBM Extra HudMap",
       "otherNames": [
         "DBM Hud Map"
       ],
@@ -29348,7 +29348,7 @@
     },
     {
       "id": "dbm-smgeventspack",
-      "name": "<DBM Media> SMG Events Pack",
+      "name": "DBM Media SMG Events Pack",
       "otherNames": [
         "DBM SMG Events Pack"
       ],
@@ -29452,7 +29452,7 @@
     },
     {
       "id": "dbm-soundeventspack",
-      "name": "<DBM Media> Sound Events Pack",
+      "name": "DBM Media Sound Events Pack",
       "otherNames": [
         "DBM Sound Events Pack"
       ],
@@ -52021,7 +52021,7 @@
     },
     {
       "id": "inthebinkos",
-      "name": "<in the bin> KoS List",
+      "name": "in the bin KoS List",
       "summary": "Officer-managed guild KoS list and local sighting alerts.",
       "author": "decessuss",
       "added": "2026-11-26",
@@ -64708,10 +64708,7 @@
     },
     {
       "id": "max-camera-distance",
-      "name": "<Camera> Max Distance",
-      "otherNames": [
-        "Max Camera Distance"
-      ],
+      "name": "Max Camera Distance",
       "summary": "Smart camera controls with native settings and cross-client compatibility.",
       "summaries": {
         "zhCN": "智能镜头距离，具备更安全的跨版本兼容性保护措施。"
@@ -64786,7 +64783,7 @@
         }
       },
       "from": {
-        "name": "toc-title",
+        "name": "override",
         "summary": "toc-notes",
         "author": "repo-owner",
         "curseforge": "toc",

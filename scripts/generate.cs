@@ -344,6 +344,27 @@ sealed record Inputs(JsonObject Catalog, Dictionary<string, JsonObject> Candidat
 /// <summary>Cleaning the author's own text: colour codes, textures, versions and load conditions out.</summary>
 static partial class Text
 {
+    /// <summary>
+    /// A name's leading tag in angle brackets as plain words: "&lt;DBM Core&gt; Main Core" gives "DBM Core Main Core", and a
+    /// tag that repeats the next word goes ("&lt;BGNext&gt; BGNext Raid" gives "BGNext Raid"). Square brackets stay.
+    /// </summary>
+    public static string Untag(string name)
+    {
+        var m = LeadingTag().Match(name);
+        if (!m.Success)
+        {
+            return name;
+        }
+        var tag = m.Groups[1].Value.Trim();
+        var rest = m.Groups[2].Value.Trim();
+        return rest.Length == 0 ? tag
+            : rest.StartsWith(tag, StringComparison.OrdinalIgnoreCase) && (rest.Length == tag.Length || !char.IsLetterOrDigit(rest[tag.Length])) ? rest
+            : $"{tag} {rest}";
+    }
+
+    [GeneratedRegex(@"^<([^<>]+)>\s*(.*)$")]
+    private static partial Regex LeadingTag();
+
     public static string Clean(string? text, bool dropVersions)
     {
         if (string.IsNullOrWhiteSpace(text))
@@ -1111,7 +1132,7 @@ static class Generator
         var from = new JsonObject();
         var entry = new JsonObject { ["id"] = id };
 
-        var name = Text.Clean(Str(toc["title"]), dropVersions: true);
+        var name = Text.Untag(Text.Clean(Str(toc["title"]), dropVersions: true));
         from["name"] = name.Length > 0 ? "toc-title" : "folder";
         var shown = name.Length > 0 ? name : l.MainFolder.TrimStart('!');
         entry["name"] = shown.Length > 100 ? shown[..100].TrimEnd() : shown;
@@ -2016,6 +2037,10 @@ static class SelfTest
         Check("site links: left out after 3 not-found checks in a row, not before", gone["links"]!["wago"] is null && gone["links"]!["wowinterface"] is not null
             && goneNotices.Single().Contains("not found 3 checks", StringComparison.Ordinal));
         Check("clean: colours and version", Text.Clean("|cff00ff00Questie|r v12.1.1", dropVersions: true) == "Questie");
+        Check("untag: a leading <tag> as words, a repeated one once, square brackets kept", Text.Untag("<DBM Core> Main Core") == "DBM Core Main Core"
+            && Text.Untag("<Camera> Max Distance") == "Camera Max Distance" && Text.Untag("<BGNext> BGNext 金团表格") == "BGNext 金团表格"
+            && Text.Untag("<BG> BGNext") == "BG BGNext" && Text.Untag("<Solo>") == "Solo" && Text.Untag("Titan Panel [Spacer]") == "Titan Panel [Spacer]"
+            && Text.Untag("A <b> c") == "A <b> c");
         Check("clean: textures and conditions", Text.Clean("|TInterface\\Icons\\X:16|t Foo [AllowLoadGameType classic]", dropVersions: true) == "Foo");
         Check("clean: version in brackets", Text.Clean("Bar (1.2.3)", dropVersions: true) == "Bar" && Text.Clean("Atlas 2 Loot", dropVersions: true) == "Atlas 2 Loot");
         var long_ = Text.Summary(string.Join(" ", Enumerable.Repeat("word", 60)));

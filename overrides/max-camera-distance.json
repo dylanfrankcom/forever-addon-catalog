@@ -1,0 +1,5 @@
+{
+  "$schema": "../schema/override.schema.json",
+  "repo": "LihvoDruida/Max-Camera-Distance",
+  "name": "Max Camera Distance"
+}
