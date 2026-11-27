@@ -1,4 +1,15 @@
 {
-  "reports": {},
+  "reports": {
+    "1@2026-11-27T22:53:59Z": {
+      "addon": "needroll",
+      "source": "wago",
+      "edition": "forever",
+      "version": "v2.0.2",
+      "sha256": "16a468e077e3083b68add4b36e84cb0b2744f852f991e284fa426a4361bde32c",
+      "count": 1,
+      "firstSeen": "2026-11-27T22:53:59Z",
+      "lastSeen": "2026-11-27T22:53:59Z"
+    }
+  },
   "suggestions": {}
 }
