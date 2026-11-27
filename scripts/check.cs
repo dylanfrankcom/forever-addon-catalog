@@ -115,7 +115,7 @@ for (var start = 0; start < inScope.Count; start += Releases.BatchSize)
         {
             before["rules"] = null;
         }
-        results[repo] = await Checker.CheckAsync(new(candidate, release, problem, before, editions, rules, now, hold), github.DownloadAsync);
+        results[repo] = await Checker.CheckAsync(new(candidate, release, problem, before, editions, rules, now, hold), github.DownloadAsync, github.BuiltByAsync);
     }
     if ((start / Releases.BatchSize) % 10 == 0)
     {
@@ -227,12 +227,29 @@ sealed partial class Package
     public Dictionary<string, Dictionary<string, string>> Tocs { get; } = new(StringComparer.OrdinalIgnoreCase);
     /// <summary>Problems that block the file for every edition.</summary>
     public List<string> Blockers { get; } = [];
+    /// <summary>
+    /// Warning signs, for the trust signals: <c>{ "sign": "hidden-code" | "unexpected-files", "files": [...] }</c>. They never
+    /// block the file by themselves.
+    /// </summary>
+    public List<JsonObject> Warnings { get; } = [];
+
+    /// <summary>Archives and native code: an add-on never needs them, though they can't run by themselves like programs.</summary>
+    static readonly HashSet<string> UnexpectedExtensions = new(StringComparer.OrdinalIgnoreCase)
+    {
+        ".zip", ".rar", ".7z", ".gz", ".tgz", ".tar", ".bz2", ".xz", ".cab", ".iso", ".so", ".dylib", ".bin", ".apk", ".dmg",
+        ".deb", ".rpm", ".o", ".class", ".wasm",
+    };
+
+    /// <summary>The largest .lua file scanned for hidden code.</summary>
+    const long MaxScannedLua = 8L << 20;
 
     public static Package Read(Stream zipStream)
     {
         var package = new Package();
         var unsafeEntries = new List<string>();
         var programs = new List<string>();
+        var unexpected = new List<string>();
+        var hidden = new List<string>();
         long total = 0;
         using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
         foreach (var entry in zip.Entries)
@@ -254,9 +271,22 @@ sealed partial class Package
             {
                 continue;
             }
-            if (BlockedExtensions.Contains(Path.GetExtension(parts[^1])))
+            var extension = Path.GetExtension(parts[^1]);
+            if (BlockedExtensions.Contains(extension))
             {
                 programs.Add(name);
+            }
+            else if (UnexpectedExtensions.Contains(extension))
+            {
+                unexpected.Add(name);
+            }
+            else if (extension.Equals(".lua", StringComparison.OrdinalIgnoreCase) && entry.Length <= MaxScannedLua)
+            {
+                using var lua = new StreamReader(entry.Open(), Encoding.UTF8);
+                if (Lua.HidesCode(lua.ReadToEnd()))
+                {
+                    hidden.Add(name);
+                }
             }
             if (parts.Length == 2 && parts[1].EndsWith(".toc", StringComparison.OrdinalIgnoreCase))
             {
@@ -281,6 +311,13 @@ sealed partial class Package
         {
             package.Blockers.Add("no add-on folder");
         }
+        foreach (var (sign, list) in new[] { ("hidden-code", hidden), ("unexpected-files", unexpected) })
+        {
+            if (list.Count > 0)
+            {
+                package.Warnings.Add(new JsonObject { ["sign"] = sign, ["files"] = new JsonArray(list.Order(StringComparer.Ordinal).Take(5).Select(f => (JsonNode)f).ToArray()) });
+            }
+        }
         return package;
     }
 
@@ -304,6 +341,148 @@ sealed partial class Package
 
 /// <summary>What one release file is for one edition.</summary>
 /// <param name="Result">passed, not-updated (it lists an older Interface: the live one for a PTR, or an earlier patch), failed, or null when the file isn't for this edition at all.</param>
+/// <summary>Lua that hides what it runs.</summary>
+static partial class Lua
+{
+    /// <summary>
+    /// Code hidden in encoded text: the file runs text as code (<c>loadstring</c> or <c>load</c>) and also holds a long run of
+    /// base64, of <c>\ddd</c> escapes, or a long <c>string.char</c> list. Plain add-ons have no reason for both.
+    /// </summary>
+    public static bool HidesCode(string text) => Loader().IsMatch(text) && (Base64Run().IsMatch(text) || Escapes().IsMatch(text) || CharList().IsMatch(text));
+
+    [GeneratedRegex(@"\bload(?:string)?\s*\(")]
+    private static partial Regex Loader();
+
+    [GeneratedRegex(@"[A-Za-z0-9+/]{400,}")]
+    private static partial Regex Base64Run();
+
+    [GeneratedRegex(@"(?:\\[0-9]{1,3}){80,}")]
+    private static partial Regex Escapes();
+
+    [GeneratedRegex(@"string\.char\s*\(\s*[0-9]+(?:\s*,\s*[0-9]+){79,}")]
+    private static partial Regex CharList();
+}
+
+/// <summary>
+/// GitHub artifact attestations: the build records a workflow writes for the files it builds (actions/attest-build-provenance).
+/// The catalog reads which workflow the record names; it doesn't verify the record's signature (gh attestation verify does).
+/// </summary>
+static class Attestation
+{
+    /// <summary>The workflow file in <paramref name="repo"/> that a SLSA provenance statement says built the file, or null.</summary>
+    public static string? Workflow(string repo, JsonNode? statement)
+    {
+        try
+        {
+            if (statement?["predicateType"]?.GetValue<string>() is not { } type || !type.StartsWith("https://slsa.dev/provenance/", StringComparison.Ordinal))
+            {
+                return null;
+            }
+            var workflow = statement["predicate"]?["buildDefinition"]?["externalParameters"]?["workflow"];
+            return string.Equals(workflow?["repository"]?.GetValue<string>(), $"https://github.com/{repo}", StringComparison.OrdinalIgnoreCase)
+                ? workflow?["path"]?.GetValue<string>() : null;
+        }
+        catch (InvalidOperationException)
+        {
+            return null; // a field of the wrong type
+        }
+    }
+
+    /// <summary>The in-toto statement a Sigstore bundle carries, or null.</summary>
+    public static JsonNode? Statement(JsonNode? bundle)
+    {
+        try
+        {
+            return bundle?["dsseEnvelope"]?["payload"]?.GetValue<string>() is { } payload ? JsonNode.Parse(Convert.FromBase64String(payload)) : null;
+        }
+        catch (Exception e) when (e is FormatException or JsonException or InvalidOperationException)
+        {
+            return null;
+        }
+    }
+
+    /// <summary>Snappy's block format, which GitHub stores attestation bundles in.</summary>
+    public static byte[] Unsnappy(ReadOnlySpan<byte> data)
+    {
+        var at = 0;
+        long length = 0;
+        for (var shift = 0; ; shift += 7)
+        {
+            if (at >= data.Length || shift > 28)
+            {
+                throw new InvalidDataException("bad snappy length");
+            }
+            var b = data[at++];
+            length |= (long)(b & 0x7f) << shift;
+            if (b < 0x80)
+            {
+                break;
+            }
+        }
+        if (length > 64 << 20)
+        {
+            throw new InvalidDataException("snappy data too large");
+        }
+        var output = new byte[length];
+        var o = 0;
+        while (at < data.Length)
+        {
+            var tag = data[at++];
+            int len, offset;
+            switch (tag & 3)
+            {
+                case 0:
+                    len = (tag >> 2) + 1;
+                    if (len > 60)
+                    {
+                        var bytes = len - 60;
+                        len = 0;
+                        for (var i = 0; i < bytes; i++)
+                        {
+                            len |= data[at++] << (8 * i);
+                        }
+                        len++;
+                    }
+                    if (len < 0 || at + len > data.Length || o + len > output.Length)
+                    {
+                        throw new InvalidDataException("bad snappy literal");
+                    }
+                    data.Slice(at, len).CopyTo(output.AsSpan(o));
+                    at += len;
+                    o += len;
+                    continue;
+                case 1:
+                    len = ((tag >> 2) & 7) + 4;
+                    offset = ((tag >> 5) << 8) | data[at++];
+                    break;
+                case 2:
+                    len = (tag >> 2) + 1;
+                    offset = data[at] | (data[at + 1] << 8);
+                    at += 2;
+                    break;
+                default:
+                    len = (tag >> 2) + 1;
+                    offset = data[at] | (data[at + 1] << 8) | (data[at + 2] << 16) | (data[at + 3] << 24);
+                    at += 4;
+                    break;
+            }
+            if (offset <= 0 || offset > o || o + len > output.Length)
+            {
+                throw new InvalidDataException("bad snappy copy");
+            }
+            for (var i = 0; i < len; i++, o++)
+            {
+                output[o] = output[o - offset]; // copies may overlap
+            }
+        }
+        if (o != output.Length)
+        {
+            throw new InvalidDataException("short snappy data");
+        }
+        return output;
+    }
+}
+
 sealed record EditionResult(string? Result, List<string> Reasons, string? Interface, List<string> Folders, string? Main, List<string> Needs,
     Dictionary<string, string>? MainToc = null);
 
@@ -389,7 +568,7 @@ sealed record Download(byte[]? Bytes, string? Problem);
 static partial class Checker
 {
     /// <summary>Raised when the checks themselves change, so every release is checked again.</summary>
-    const string Version = "3";
+    const string Version = "4"; // 4: warning signs and build records
 
     /// <summary>The largest release file downloaded.</summary>
     public const long MaxFileBytes = 512L << 20;
@@ -434,7 +613,8 @@ static partial class Checker
         return named.Count == 1 ? named[0] : null;
     }
 
-    public static async Task<JsonObject> CheckAsync(CheckInput input, Func<string, Task<Download>> download)
+    /// <param name="builtBy">The workflow in the repo whose build record names a file's SHA-256, or null (see <see cref="Attestation"/>).</param>
+    public static async Task<JsonObject> CheckAsync(CheckInput input, Func<string, Task<Download>> download, Func<string, string, Task<string?>>? builtBy = null)
     {
         var repo = input.Candidate["repo"]!.GetValue<string>();
         var supports = input.Candidate["editions"]?.AsArray().Select(e => e!.GetValue<string>()).ToHashSet() ?? [];
@@ -504,7 +684,7 @@ static partial class Checker
         }
 
         var results = new JsonObject();
-        var files = new Dictionary<string, (JsonObject Asset, string Sha, Package? Package, string? Problem)>(StringComparer.OrdinalIgnoreCase);
+        var files = new Dictionary<string, (JsonObject Asset, string Sha, Package? Package, string? Problem, string? Built)>(StringComparer.OrdinalIgnoreCase);
         foreach (var edition in input.Editions)
         {
             var of = edition.Of is null ? null : input.Editions.FirstOrDefault(e => e.Id == edition.Of);
@@ -526,7 +706,8 @@ static partial class Checker
                 {
                     return Keep("error", $"{name}: {problem.Value.Text}", tag, published); // try again next run
                 }
-                files[name] = file = (asset, sha ?? "", package, problem?.Text);
+                var built = problem is null && sha is not null && builtBy is not null ? await builtBy(repo, sha) : null;
+                files[name] = file = (asset, sha ?? "", package, problem?.Text, built);
             }
             if (file.Problem is not null || file.Package!.Blockers.Count > 0)
             {
@@ -559,6 +740,14 @@ static partial class Checker
             if (check.MainToc is { } fields)
             {
                 row["toc"] = MainToc(fields);
+            }
+            if (file.Built is { } workflow)
+            {
+                row["built"] = workflow;
+            }
+            if (file.Package.Warnings.Count > 0)
+            {
+                row["warnings"] = new JsonArray(file.Package.Warnings.Select(w => (JsonNode)w.DeepClone()).ToArray());
             }
             results[edition.Id] = row;
         }
@@ -722,6 +911,18 @@ static class Checks
             int Count(string result) => rows.Count(r => r["results"]?[edition.Id]?["result"]?.GetValue<string>() == result);
             md.AppendLine($"| {edition.Id} | {Count("passed")} | {Count("not-updated")} | {Count("failed")} | {rows.Count(r => r["good"]?[edition.Id] is not null)} |");
         }
+        md.AppendLine().AppendLine($"Built by a workflow in their own repo (a GitHub build record): {rows.Count(r => r["good"]?.AsObject().Any(g => g.Value?["built"] is not null) == true)} repos.");
+        var signs = rows.Select(r => (Repo: r["repo"]?.GetValue<string>(), Signs: (r["good"]?.AsObject() ?? []).SelectMany(g => g.Value?["warnings"]?.AsArray() ?? [])
+                .Select(w => $"{w?["sign"]?.GetValue<string>()} ({string.Join(", ", w?["files"]?.AsArray().Select(f => f?.GetValue<string>()) ?? [])})").Distinct().ToList()))
+            .Where(r => r.Signs.Count > 0).OrderBy(r => r.Repo, StringComparer.OrdinalIgnoreCase).ToList();
+        if (signs.Count > 0)
+        {
+            md.AppendLine().AppendLine("### Warning signs").AppendLine().AppendLine("For a person to look at; they don't stop a release by themselves.").AppendLine();
+            foreach (var (repo, list) in signs)
+            {
+                md.AppendLine($"- {repo}: {string.Join("; ", list)}");
+            }
+        }
         return md.AppendLine().ToString();
     }
 }
@@ -869,6 +1070,53 @@ sealed class GitHub : IDisposable
         return new(null, last);
     }
 
+    /// <summary>
+    /// The workflow in <paramref name="repo"/> that built a release file, from GitHub's artifact attestations for its
+    /// SHA-256 (one REST request, plus the bundle when GitHub stores it apart); null when none says so or they can't be read.
+    /// </summary>
+    public async Task<string?> BuiltByAsync(string repo, string sha)
+    {
+        for (var attempt = 0; attempt < 3; attempt++)
+        {
+            try
+            {
+                using var response = await api.GetAsync($"repos/{repo}/attestations/sha256:{sha}");
+                var status = (int)response.StatusCode;
+                if (status is 403 or 429 or 500 or 502 or 503 or 504)
+                {
+                    await Task.Delay(RetryWait(response, attempt));
+                    continue;
+                }
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null; // 404: no attestations
+                }
+                foreach (var a in (JsonNode.Parse(await response.Content.ReadAsStringAsync())?["attestations"]?.AsArray() ?? []).OfType<JsonObject>())
+                {
+                    var bundle = a["bundle"];
+                    if (bundle is null && a["bundle_url"]?.GetValue<string>() is { } url && url.StartsWith("https://", StringComparison.Ordinal))
+                    {
+                        using var blob = await files.GetAsync(url); // a signed storage link: no token
+                        if (blob.IsSuccessStatusCode)
+                        {
+                            bundle = JsonNode.Parse(Attestation.Unsnappy(await blob.Content.ReadAsByteArrayAsync()));
+                        }
+                    }
+                    if (Attestation.Workflow(repo, Attestation.Statement(bundle)) is { } workflow)
+                    {
+                        return workflow;
+                    }
+                }
+                return null;
+            }
+            catch (Exception e) when (e is HttpRequestException or TaskCanceledException or JsonException or InvalidDataException or InvalidOperationException or IndexOutOfRangeException)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(5 * (attempt + 1)));
+            }
+        }
+        return null;
+    }
+
     static TimeSpan RetryWait(HttpResponseMessage response, int attempt)
     {
         if (response.Headers.RetryAfter?.Delta is { } delta)
@@ -948,14 +1196,26 @@ static class SelfTest
         new() { ["repo"] = "a/thing", ["editions"] = new JsonArray(editions.Select(e => (JsonNode)e).ToArray()) };
 
     static Task<JsonObject> Run(JsonObject candidate, (JsonNode Release, Dictionary<string, byte[]> Files) release, JsonObject? previous = null,
-        string? problem = null, bool offline = false) =>
+        string? problem = null, bool offline = false, Func<string, string, Task<string?>>? builtBy = null) =>
         Checker.CheckAsync(new(candidate, problem is null ? release.Release : null, problem, previous, Editions, Rules, Now, TimeSpan.FromHours(6)),
             url => Task.FromResult(offline ? new Download(null, "offline")
-                : release.Files.TryGetValue(url, out var b) ? new Download(b, null) : new Download(null, "404")));
+                : release.Files.TryGetValue(url, out var b) ? new Download(b, null) : new Download(null, "404")), builtBy);
 
     static string? Result(JsonObject entry, string edition) => entry["results"]?[edition]?["result"]?.GetValue<string>();
     static string Reason(JsonObject entry, string edition) => entry["results"]?[edition]?["reason"]?.GetValue<string>() ?? "";
     static string? Str(JsonNode? node) => node?.GetValue<string>();
+    static bool Throws(Action action)
+    {
+        try
+        {
+            action();
+            return false;
+        }
+        catch (Exception)
+        {
+            return true;
+        }
+    }
 
     public static async Task<int> Run()
     {
@@ -981,6 +1241,32 @@ static class SelfTest
         Check("pick: unclear", Checker.Pick(["T-a.zip", "T-b.zip"], null, Forever) is null);
         Check("pre-release tags", Checker.IsPreRelease("v1.2-beta2") && Checker.IsPreRelease("1.0.Alpha") && !Checker.IsPreRelease("v1.2.3") && !Checker.IsPreRelease("alphabet-1"));
         Check("scope", Checker.InScope(Candidate("forever"), "forever") && !Checker.InScope(Candidate("retail"), "forever") && Checker.InScope(Candidate("retail"), "all"));
+
+        // Warning signs and build records.
+        var blob = new string('A', 300) + "+/" + new string('z', 200);
+        Check("lua: loadstring on encoded text hides code", Lua.HidesCode($"local s = \"{blob}\"\nloadstring(decode(s))()")
+            && Lua.HidesCode("local f = load(string.char(" + string.Join(", ", Enumerable.Repeat("65", 90)) + "))")
+            && Lua.HidesCode("loadstring(\"" + string.Concat(Enumerable.Repeat("\\104", 90)) + "\")"));
+        Check("lua: either alone doesn't", !Lua.HidesCode($"local data = \"{blob}\"") && !Lua.HidesCode("local f = loadstring(userCode)")
+            && !Lua.HidesCode($"C_AddOns.LoadAddOn(\"x\") local d = \"{blob}\""));
+        var withSigns = Zip(("Thing/Thing.toc", "## Interface: 16001\n"), ("Thing/Core.lua", $"loadstring(\"{blob}\")"), ("Thing/Libs/extra.zip", "PK"), ("Thing/ok.lua", "print(1)"));
+        var warned = await Run(Candidate("forever"), Release("v3", Old, ("Thing-v3.zip", withSigns, null)),
+            builtBy: (repo, sha) => Task.FromResult(repo == "a/thing" && sha.Length == 64 ? ".github/workflows/release.yml" : null));
+        var warnedForever = warned["good"]!["forever"]!;
+        Check("warnings: hidden code and unexpected files are recorded, the release still passes", Result(warned, "forever") == "passed"
+            && warnedForever["warnings"]!.AsArray().Select(w => Str(w!["sign"]) + ":" + Str(w["files"]![0])).SequenceEqual(["hidden-code:Thing/Core.lua", "unexpected-files:Thing/Libs/extra.zip"]));
+        Check("built: the workflow its build record names", Str(warnedForever["built"]) == ".github/workflows/release.yml");
+        var report = Checks.Report([warned], "forever", Editions);
+        Check("report: warning signs and build records", report.Contains("### Warning signs") && report.Contains("a/thing: hidden-code (Thing/Core.lua)")
+            && report.Contains("own repo (a GitHub build record): 1 repos"));
+        var statement = JsonNode.Parse("""{ "predicateType": "https://slsa.dev/provenance/v1", "predicate": { "buildDefinition": { "externalParameters": { "workflow": { "repository": "https://github.com/A/Thing", "path": ".github/workflows/release.yml" } } } } }""");
+        Check("attestation: the repo's own workflow", Attestation.Workflow("a/thing", statement) == ".github/workflows/release.yml"
+            && Attestation.Workflow("b/other", statement) is null && Attestation.Workflow("a/thing", JsonNode.Parse("""{ "predicateType": "https://in-toto.io/attestation/release/v0.1" }""")) is null);
+        var bundle = new JsonObject { ["dsseEnvelope"] = new JsonObject { ["payload"] = Convert.ToBase64String(Encoding.UTF8.GetBytes(statement!.ToJsonString())) } };
+        Check("attestation: the statement in a bundle", Attestation.Workflow("a/thing", Attestation.Statement(bundle)) == ".github/workflows/release.yml"
+            && Attestation.Statement(new JsonObject { ["dsseEnvelope"] = new JsonObject { ["payload"] = "not base64!" } }) is null);
+        Check("snappy: literals and overlapping copies", Encoding.ASCII.GetString(Attestation.Unsnappy([9, 0x08, (byte)'a', (byte)'b', (byte)'c', 0x09, 0x03])) == "abcabcabc");
+        Check("snappy: bad data is refused", Throws(() => Attestation.Unsnappy([9, 0x08, (byte)'a'])) && Throws(() => Attestation.Unsnappy([3, 0x09, 0x05])));
 
         // A release that passes, for each edition it ships for.
         var good = Zip(("Thing/Thing.toc", "## Interface: 11509, 16001\n## Dependencies: Ace3, Blizzard_Foo, ThingLib\n"),
