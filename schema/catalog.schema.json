@@ -39,6 +39,27 @@
     }
   },
   "$defs": {
+    "confirmed": {
+      "description": "Versions players reported downloading from this source and the maintainer confirmed (confirmed.json), keyed by edition ID: what an up-to-date install of it looks like. Written by the generator; never set by hand or in an override.",
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/editionId" },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["version", "sha256", "date"],
+        "properties": {
+          "version": { "$ref": "#/$defs/reportedVersion" },
+          "sha256": { "description": "The SHA-256 of the zip players downloaded, lowercase hex.", "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "date": { "description": "The day the maintainer confirmed it (YYYY-MM-DD).", "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+        }
+      },
+      "minProperties": 1
+    },
+    "reportedVersion": {
+      "description": "A version as the add-on's .toc gives it: 1 to 64 letters, digits, spaces and . _ + - ( ), starting with a letter or digit.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9 ._+()-]{0,63}$"
+    },
     "id": {
       "description": "Lowercase letters and digits, words joined by single hyphens. Stable: never changed, never reused. Add-on IDs and author IDs follow the same rules.",
       "type": "string",
@@ -181,7 +202,8 @@
           "description": "How to recognise the Forever download on that page, for the player (\"the file whose name ends in -forever\"). Only when the page alone doesn't make it clear.",
           "type": "string",
           "minLength": 1
-        }
+        },
+        "confirmed": { "$ref": "#/$defs/confirmed" }
       }
     },
     "wagoSource": {
@@ -204,7 +226,8 @@
           "description": "How to recognise the Forever download on that page, for the player (\"the file whose name ends in -forever\"). Only when the page alone doesn't make it clear.",
           "type": "string",
           "minLength": 1
-        }
+        },
+        "confirmed": { "$ref": "#/$defs/confirmed" }
       }
     },
     "source": {

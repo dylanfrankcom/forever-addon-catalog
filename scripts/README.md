@@ -27,6 +27,7 @@ Checks `catalog.json`, and `versions.json` when there is one (or a file given af
    - `edition-forever`: `editions.forever` doesn't match the `forever` block.
    - `unknown-edition`: an entry lists an edition that isn't in `editions`.
    - `edition-up-to-date`: an entry's `upToDate` for an edition doesn't match whether it lists that edition's current Interface.
+   - `confirmed-edition`: a source's `confirmed` names an edition the entry doesn't list.
    - `versions-same-file` (versions.json): the same file of the same release is listed under two editions with a different hash or link.
 
 Exit code 0 when valid, 1 when not.
@@ -148,8 +149,22 @@ powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/linkc
 - **Homepage:** a HEAD request (GET when HEAD isn't allowed).
 - Each link's record keeps its state (`ok`, `not-found`, `not-in-api`, `blocked`, `error`, `unchecked`), when it was checked and last found, and how many "not found" answers it had in a row. Only an `ok` resets that count; a blocked request or a failure never adds to it, so a link is never dropped because a site turned an automated request away. The generator leaves out a link it took from a `.toc` after 3 in a row. The report lists every link not found and every name that doesn't match.
 
+## reports.cs
+Version reports and add-on suggestions that players send through the relay (see [CONTRIBUTING.md](../CONTRIBUTING.md#version-reports-from-the-app)). The **reports** workflow runs it daily: `collect`, then `done` once the store is saved on the `checker` branch (`relay.json`), then `propose`, and opens or updates one pull request from `reports/confirm`.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/reports.cs -- propose --store <relay.json>
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/reports.cs -- --self-test
+```
+
+- **collect** sends the relay the catalog's index (the editions, and each add-on with a CurseForge or Wago source), takes the waiting messages, checks every field again and keeps the good ones. The relay's address and key come from `RELAY_URL` and `RELAY_KEY`, never from arguments; it must be https (or http to this machine, for a relay run locally). Every message with an ID is marked collected, refused ones too, so a bad one doesn't come back.
+- **Checked again:** a report's add-on must be listed with that source, its edition known, its version 1 to 64 letters, digits, spaces and `. _ + - ( )` starting with a letter or digit, its hash 64 hex digits, its count and dates sane. A suggestion's project, name (plain text, no `< > @ \` or backticks), folders and `.toc` fields are checked the same way; a bad `.toc` field is left out.
+- **The store** keys each message by the relay's ID and first-seen time. The relay counts repeats and sends a message again with its higher count, so a message collected again replaces what was kept.
+- **done** tells the relay what was collected. It runs only after the store is saved: the relay deletes what's marked.
+- **propose**, for each add-on, source and edition the entry lists: the version reported most recently and its most-reported hash, unless `confirmed.json` has them already or confirmed something after the last report. It writes them into `confirmed.json` with the day and the report count, the pull request's text (`--body`) with a flag for anything to check first, and `--facts`: only checked fields, for the summary Claude writes when the workflow has an `ANTHROPIC_API_KEY`. It drops from the store what's confirmed, what's no longer listed, suggestions now listed, and anything not seen for 90 days.
+
 ## generate.cs
-Writes `catalog.json`, `versions.json` and `icons/` from `checks.json`, `candidates.json`, `overrides/` and `optout.json`. How each field is chosen is in `schema/README.md`, "Where the catalog comes from" and "An entry". Run it after `check.cs`, then validate:
+Writes `catalog.json`, `versions.json` and `icons/` from `checks.json`, `candidates.json`, `overrides/`, `optout.json` and `confirmed.json` (the confirmed CurseForge and Wago versions, copied onto their sources). How each field is chosen is in `schema/README.md`, "Where the catalog comes from" and "An entry". Run it after `check.cs`, then validate:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/generate.cs                     # catalog.json and icons/
