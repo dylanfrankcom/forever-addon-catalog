@@ -45,6 +45,7 @@ string catalogArg = "catalog.json", optoutArg = "optout.json", outArg = "candida
 string? summaryArg = null;
 var search = true;
 var onlyEditions = new List<string>();
+var onlyRepos = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 for (var i = 0; i < args.Length; i++)
 {
     var value = i + 1 < args.Length ? args[i + 1] : null;
@@ -57,8 +58,10 @@ for (var i = 0; i < args.Length; i++)
         case "--summary" when value is not null: summaryArg = value; i++; break;
         case "--edition" when value is not null: onlyEditions.Add(value.Trim()); i++; break;
         case "--no-search": search = false; break;
+        // Reads only these repos again (no search) and keeps every other row as it is.
+        case "--repo" when value is not null: onlyRepos.Add(value.Trim()); search = false; i++; break;
         default:
-            Console.Error.WriteLine("Usage: dotnet run scripts/discover.cs [--edition <id>]... [--no-search] [--catalog <file>] [--optout <file>] [--out <file>] [--summary <file>] | --self-test");
+            Console.Error.WriteLine("Usage: dotnet run scripts/discover.cs [--edition <id>]... [--no-search] [--repo <owner/name>]... [--catalog <file>] [--optout <file>] [--out <file>] [--summary <file>] | --self-test");
             return 2;
     }
 }
@@ -116,6 +119,14 @@ foreach (var (repo, row) in previous)
         paths.Add(toc!["path"]!.GetValue<string>());
     }
 }
+if (onlyRepos.Count > 0)
+{
+    foreach (var repo in found.Keys.Where(r => !onlyRepos.Contains(r)).ToList())
+    {
+        found.Remove(repo);
+    }
+    seeds = [.. onlyRepos];
+}
 var unseen = seeds.Where(s => !found.ContainsKey(s)).ToList();
 if (unseen.Count > 0)
 {
@@ -135,8 +146,14 @@ Console.Error.WriteLine($"Reading {found.Count} repos ...");
 var reads = await github.ReadReposAsync(found, log);
 var rows = Candidates.Build(found.Keys, reads, previous, editions, optout, log, forks);
 await github.ReadReadmesAsync(rows, previous);
+await github.ReadDownloadsAsync(rows, previous);
 await github.CheckSponsorsAsync(rows, previous);
 await Funding.ResolveShortLinksAsync(rows, previous);
+if (onlyRepos.Count > 0)
+{
+    var read = rows.Select(r => r["repo"]!.GetValue<string>()).ToHashSet(StringComparer.OrdinalIgnoreCase);
+    rows.AddRange(previous.Where(p => !onlyRepos.Contains(p.Key) && !read.Contains(p.Key)).Select(p => p.Value.DeepClone().AsObject()));
+}
 File.WriteAllText(outArg, Candidates.Write(editions, rows));
 
 var report = log.Report(rows, editions, search);
@@ -472,6 +489,7 @@ static class Candidates
         toc["curseforge"] = Field("X-Curse-Project-ID");
         toc["wago"] = Field("X-Wago-ID");
         toc["wowi"] = Field("X-WoWI-ID");
+        toc["catalog"] = Field("X-Forever-Catalog"); // the author's own yes or no to being listed
         toc["dependencies"] = Strings(Toc.Dependencies(fields));
         toc["optionalDependencies"] = Strings(Toc.List(Field("OptionalDeps")));
         return toc;
@@ -528,7 +546,7 @@ static class Candidates
         var listed = editions.Where(e => current.Any(t => t.Interfaces.Contains(e.Value))).Select(e => e.Key).ToList();
 
         var release = node["latestRelease"];
-        var tags = node["refs"]?["nodes"]?.AsArray().Select(t => new JsonObject
+        var tags = node["refs"]?["nodes"]?.AsArray().OfType<JsonObject>().Select(t => new JsonObject
         {
             ["name"] = t!["name"]!.GetValue<string>(),
             ["date"] = t["target"]?["committedDate"]?.GetValue<string>() ?? t["target"]?["target"]?["committedDate"]?.GetValue<string>(),
@@ -539,12 +557,17 @@ static class Candidates
             ["repo"] = node["nameWithOwner"]?.GetValue<string>() ?? repo,
             ["editions"] = Strings(listed),
             ["description"] = node["description"]?.GetValue<string>() is { Length: > 0 } d ? d : null,
-            ["topics"] = Strings(node["repositoryTopics"]?["nodes"]?.AsArray().Select(t => t!["topic"]!["name"]!.GetValue<string>()).Order(StringComparer.Ordinal) ?? Enumerable.Empty<string>()),
+            ["topics"] = Strings(node["repositoryTopics"]?["nodes"]?.AsArray().OfType<JsonObject>().Select(t => t["topic"]?["name"]?.GetValue<string>()).OfType<string>().Order(StringComparer.Ordinal) ?? Enumerable.Empty<string>()),
             ["defaultBranch"] = node["defaultBranchRef"]?["name"]?.GetValue<string>(),
             ["pushedAt"] = node["pushedAt"]?.GetValue<string>(),
             ["pkgmeta"] = node["pkgmeta"] is not null,
             ["issues"] = node["hasIssuesEnabled"]?.GetValue<bool>() ?? false,
             ["ownerType"] = node["owner"]?["__typename"]?.GetValue<string>(),
+            // History, for trust signals: when the repo and its owner's account were made, its stars, and its releases.
+            ["created"] = node["createdAt"]?.GetValue<string>(),
+            ["ownerCreated"] = node["owner"]?["createdAt"]?.GetValue<string>(),
+            ["stars"] = node["stargazerCount"]?.GetValue<int>(),
+            ["releases"] = null, // filled in afterwards by ReadDownloadsAsync, with downloads
             ["fork"] = node["isFork"]?.GetValue<bool>() == true, // only one an override names gets this far
             ["funding"] = Funding.FromNode(node),
             ["readme"] = null, // filled in afterwards, only for repos with no other summary
@@ -560,15 +583,18 @@ static class Candidates
                 ["name"] = release["name"]?.GetValue<string>(),
                 ["publishedAt"] = release["publishedAt"]?.GetValue<string>(),
                 ["prerelease"] = release["isPrerelease"]?.GetValue<bool>() ?? false,
-                ["assets"] = new JsonArray(release["releaseAssets"]?["nodes"]?.AsArray().Select(a => (JsonNode)new JsonObject
+                ["sourceLinks"] = History.SourceLinks(release["description"]?.GetValue<string>()),
+                ["assets"] = new JsonArray(release["releaseAssets"]?["nodes"]?.AsArray().OfType<JsonObject>().Select(a => (JsonNode)new JsonObject
                 {
                     ["name"] = a!["name"]!.GetValue<string>(),
                     ["size"] = a["size"]?.GetValue<long>(),
                     ["url"] = a["downloadUrl"]?.GetValue<string>(),
                     ["digest"] = a["digest"]?.GetValue<string>(),
+                    ["downloads"] = a["downloadCount"]?.GetValue<long>(),
                 }).ToArray() ?? []),
             },
             ["tags"] = new JsonArray(tags),
+            ["downloads"] = null,
         };
         return (row, null);
     }
@@ -673,9 +699,14 @@ sealed class GitHub : IDisposable
         log.Requests = searchRequests;
         var reads = new Dictionary<string, JsonNode?>(StringComparer.OrdinalIgnoreCase);
         var names = repos.Keys.Order(StringComparer.OrdinalIgnoreCase).ToList();
-        for (var start = 0; start < names.Count; start += BatchSize)
+        await ReadAsync(names, BatchSize, true);
+        return reads;
+
+        async Task ReadAsync(List<string> list, int size, bool progress)
         {
-            var chunk = names.Skip(start).Take(BatchSize).ToList();
+        for (var start = 0; start < list.Count; start += size)
+        {
+            var chunk = list.Skip(start).Take(size).ToList();
             var paths = chunk.Select(n => repos[n].Order(Comparer<string>.Create(Toc.Compare)).Take(Candidates.MaxTocs).ToList()).ToList();
             var query = GraphQl.Query(chunk, paths);
             var json = await SendAsync(() => new HttpRequestMessage(HttpMethod.Post, "graphql")
@@ -686,12 +717,12 @@ sealed class GitHub : IDisposable
             {
                 reads[name] = node;
             }
-            if ((start / BatchSize) % 20 == 0)
+            if (progress && (start / size) % 20 == 0)
             {
-                Console.Error.WriteLine($"  read {Math.Min(start + BatchSize, names.Count)}/{names.Count}");
+                Console.Error.WriteLine($"  read {Math.Min(start + size, list.Count)}/{list.Count}");
             }
         }
-        return reads;
+        }
     }
 
     /// <summary>
@@ -816,7 +847,153 @@ sealed class GitHub : IDisposable
         }
     }
 
+    /// <summary>
+    /// Every release's download counts and days, a few repos and releases a query: one query that asks for every release's
+    /// files of 10 repos at once makes GitHub time out. A repo GitHub doesn't answer 3 times in a row keeps the previous run's counts
+    /// and history, or has none: a count is never written short.
+    /// </summary>
+    public async Task ReadDownloadsAsync(List<JsonObject> rows, IReadOnlyDictionary<string, JsonObject> previous)
+    {
+        var tallies = rows.Select(r => new Downloads.Tally(r["repo"]!.GetValue<string>())).ToList();
+        var open = tallies.ToList();
+        Console.Error.WriteLine($"Counting the downloads of {open.Count} repos ...");
+        for (var queries = 1; open.Count > 0; queries++)
+        {
+            var batch = open.Take(Downloads.ReposAQuery).ToList();
+            var query = Downloads.Query(batch);
+            var json = await SendAsync(() => new HttpRequestMessage(HttpMethod.Post, "graphql")
+            {
+                Content = new StringContent(new JsonObject { ["query"] = query }.ToJsonString(), Encoding.UTF8, "application/json"),
+            }, $"downloads {batch[0].Repo} ...");
+            var errors = json?["errors"]?.AsArray() ?? [];
+            for (var i = 0; i < batch.Count; i++)
+            {
+                if (json?["data"]?[$"r{i}"]?["releases"] is { } releases && !errors.Any(e => e?["path"]?[0]?.GetValue<string>() == $"r{i}"))
+                {
+                    batch[i].Add(releases);
+                    batch[i].Misses = 0; // misses in a row: a repo with hundreds of releases needs many pages
+                }
+                else
+                {
+                    batch[i].Misses++;
+                }
+            }
+            open = open.Where(t => !t.Done && t.Misses < 3).ToList();
+            if (queries % 100 == 0)
+            {
+                Console.Error.WriteLine($"  {queries} queries, {open.Count} repos left");
+            }
+        }
+        var now = DateTime.UtcNow;
+        for (var i = 0; i < rows.Count; i++)
+        {
+            var (row, tally) = (rows[i], tallies[i]);
+            var before = tally.Done ? null : previous.GetValueOrDefault(tally.Repo);
+            row["releases"] = tally.Done ? tally.Releases() : before?["releases"]?.DeepClone();
+            row["downloads"] = tally.Done ? tally.Counts(row, now) : before?["downloads"]?.DeepClone();
+        }
+    }
+
     public void Dispose() => http.Dispose();
+}
+
+/// <summary>A repo's release history and where its latest release says its files came from, for trust signals and mirrors.</summary>
+static partial class History
+{
+    /// <summary>
+    /// The CurseForge, Wago and CurseForge file-host links in release notes (at most 10, each once): a mirror's record of
+    /// where its file came from.
+    /// </summary>
+    public static JsonArray? SourceLinks(string? notes)
+    {
+        var links = SourceLink().Matches(notes ?? "").Select(m => m.Value.TrimEnd('.', ',', ';', ':')).Distinct(StringComparer.Ordinal).Take(10).ToList();
+        return links.Count > 0 ? new JsonArray(links.Select(l => (JsonNode)l).ToArray()) : null;
+    }
+
+    [GeneratedRegex(@"https?://(?:www\.|legacy\.)?(?:curseforge\.com|(?:media|edge|mediafilez)\.forgecdn\.net|addons\.wago\.io)/[^\s)\]""'<>]+", RegexOptions.IgnoreCase)]
+    private static partial Regex SourceLink();
+}
+
+/// <summary>
+/// How often an add-on is downloaded: GitHub's own public counts for its release files (downloadCount), summed over every
+/// release (total) and over GitHub's Latest release (latest), with the day they were read, and the release history for
+/// trust signals: how many releases and the days of the newest 100 that aren't pre-releases. Nothing is tracked by the app:
+/// its installs download from GitHub, so they're already in these counts. GitHub doesn't count its source-code archives,
+/// and each release's first 30 files are counted.
+/// </summary>
+static class Downloads
+{
+    public const int ReposAQuery = 5, ReleasesAQuery = 50, FilesARelease = 30, Days = 100;
+
+    static long Files(JsonNode? assets) => (assets?["nodes"]?.AsArray() ?? []).Sum(a => a?["downloadCount"]?.GetValue<long>() ?? 0);
+
+    /// <summary>The downloads of one page of releases.</summary>
+    public static long Sum(JsonNode releases) => (releases["nodes"]?.AsArray() ?? []).Sum(r => Files(r?["releaseAssets"]));
+
+    /// <summary>The cursor of the next page of releases, or null on the last one.</summary>
+    public static string? Next(JsonNode releases) =>
+        releases["pageInfo"]?["hasNextPage"]?.GetValue<bool>() == true ? releases["pageInfo"]?["endCursor"]?.GetValue<string>() : null;
+
+    /// <summary>One repo's count, a page of releases at a time.</summary>
+    public sealed class Tally(string repo)
+    {
+        long total;
+        int count;
+        readonly List<string> days = [];
+
+        public string Repo { get; } = repo;
+        public string? Cursor { get; private set; }
+        public bool Done { get; private set; }
+        public int Misses { get; set; }
+
+        public void Add(JsonNode releases)
+        {
+            total += Sum(releases);
+            count = releases["totalCount"]?.GetValue<int>() ?? count;
+            foreach (var r in (releases["nodes"]?.AsArray() ?? []).OfType<JsonObject>())
+            {
+                if (days.Count < Days && r["isPrerelease"]?.GetValue<bool>() != true && r["publishedAt"]?.GetValue<string>() is { } published)
+                {
+                    days.Add(DateTimeOffset.Parse(published, System.Globalization.CultureInfo.InvariantCulture).UtcDateTime
+                        .ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture));
+                }
+            }
+            Cursor = Next(releases);
+            Done = Cursor is null;
+        }
+
+        public JsonObject Releases() => new() { ["count"] = count, ["days"] = new JsonArray(days.Select(d => (JsonNode)d).ToArray()) };
+
+        /// <summary>The counts, or null for a repo with no releases. <c>latest</c> is the row's latest release's files.</summary>
+        public JsonObject? Counts(JsonObject row, DateTime now)
+        {
+            if (count == 0)
+            {
+                return null;
+            }
+            var d = new JsonObject { ["total"] = total };
+            if (row["latestRelease"]?["assets"] is JsonArray assets)
+            {
+                d["latest"] = assets.Sum(a => a?["downloads"]?.GetValue<long>() ?? 0);
+            }
+            d["read"] = now.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            return d;
+        }
+    }
+
+    /// <summary>The next page of releases for each repo, from where its tally stopped.</summary>
+    public static string Query(IReadOnlyList<Tally> tallies)
+    {
+        var q = new StringBuilder("query {\n");
+        for (var i = 0; i < tallies.Count; i++)
+        {
+            var repo = tallies[i].Repo;
+            var slash = repo.IndexOf('/');
+            var after = tallies[i].Cursor is { } c ? $", after: {JsonSerializer.Serialize(c)}" : "";
+            q.Append($"r{i}: repository(owner: {JsonSerializer.Serialize(repo[..slash])}, name: {JsonSerializer.Serialize(repo[(slash + 1)..])}) {{ releases(first: {ReleasesAQuery}{after}, orderBy: {{field: CREATED_AT, direction: DESC}}) {{ totalCount pageInfo {{ hasNextPage endCursor }} nodes {{ publishedAt isPrerelease releaseAssets(first: {FilesARelease}) {{ nodes {{ downloadCount }} }} }} }} }}\n");
+        }
+        return q.Append('}').ToString();
+    }
 }
 
 /// <summary>A repo's FUNDING.yml as GitHub reads it (fundingLinks): platform and URL, in the file's order.</summary>
@@ -905,12 +1082,12 @@ static class Funding
 static class GraphQl
 {
     const string Fields = """
-        nameWithOwner description isArchived isFork pushedAt hasIssuesEnabled
-        owner { __typename login }
+        nameWithOwner description isArchived isFork pushedAt hasIssuesEnabled createdAt stargazerCount
+        owner { __typename login ... on User { createdAt } ... on Organization { createdAt } }
         fundingLinks { platform url }
         defaultBranchRef { name }
         repositoryTopics(first: 20) { nodes { topic { name } } }
-        latestRelease { tagName name publishedAt isPrerelease releaseAssets(first: 20) { nodes { name size downloadUrl digest } } }
+        latestRelease { tagName name publishedAt isPrerelease description releaseAssets(first: 50) { nodes { name size downloadUrl digest downloadCount } } }
         refs(refPrefix: "refs/tags/", first: 5, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
           nodes { name target { ... on Commit { committedDate } ... on Tag { target { ... on Commit { committedDate } } } } }
         }
@@ -1068,11 +1245,13 @@ static class SelfTest
     {
         var node = JsonNode.Parse($$"""
             {
-              "nameWithOwner": "{{name}}", "description": "A thing", "isArchived": false, "isFork": false, "pushedAt": "2026-11-20T10:00:00Z",
+              "nameWithOwner": "{{name}}", "description": "A thing", "isArchived": false, "isFork": false, "pushedAt": "2026-11-20T10:00:00Z", "createdAt": "2024-01-02T03:00:00Z", "stargazerCount": 42,
+              "owner": { "__typename": "User", "login": "a", "createdAt": "2020-05-06T00:00:00Z" },
               "defaultBranchRef": { "name": "main" },
               "repositoryTopics": { "nodes": [ { "topic": { "name": "wow" } }, { "topic": { "name": "addon" } } ] },
               "latestRelease": { "tagName": "v2", "name": "Two", "publishedAt": "2026-11-19T10:00:00Z", "isPrerelease": false,
-                "releaseAssets": { "nodes": [ { "name": "Thing-v2.zip", "size": 1234, "downloadUrl": "https://github.com/a/b/releases/download/v2/Thing-v2.zip", "digest": "sha256:00ff" } ] } },
+                "description": "Mirrored from https://www.curseforge.com/wow/addons/thing/files/123. Also https://www.curseforge.com/wow/addons/thing/files/123 and https://example.com/x",
+                "releaseAssets": { "nodes": [ { "name": "Thing-v2.zip", "size": 1234, "downloadUrl": "https://github.com/a/b/releases/download/v2/Thing-v2.zip", "digest": "sha256:00ff", "downloadCount": 7 } ] } },
               "refs": { "nodes": [ { "name": "v2", "target": { "committedDate": "2026-11-19T09:00:00Z" } }, { "name": "v1", "target": { "target": { "committedDate": "2026-10-01T09:00:00Z" } } } ] },
               "pkgmeta": { "id": "x" }
             }
@@ -1094,6 +1273,21 @@ static class SelfTest
         var order = new[] { "a/b/Thing.toc", "Thing_Mainline.toc", "Thing.toc", "Libs/Lib.toc" }.Order(Comparer<string>.Create(Toc.Compare)).ToList();
         Check("toc: shallowest, then shortest", order.SequenceEqual(["Thing.toc", "Thing_Mainline.toc", "Libs/Lib.toc", "a/b/Thing.toc"]));
 
+        // Download counts.
+        var tally = new Downloads.Tally("a/b");
+        Check("downloads: the first page's query", Downloads.Query([tally]).Contains("""r0: repository(owner: "a", name: "b") { releases(first: 50, orderBy""") && !Downloads.Query([tally]).Contains("after:"));
+        tally.Add(JsonNode.Parse("""{ "totalCount": 3, "pageInfo": { "hasNextPage": true, "endCursor": "c1" }, "nodes": [ { "publishedAt": "2026-11-19T23:30:00-02:00", "releaseAssets": { "nodes": [ { "downloadCount": 7 }, { "downloadCount": 3 } ] } }, null ] }""")!);
+        Check("downloads: more releases, the next page's query", !tally.Done && tally.Cursor == "c1" && Downloads.Query([tally]).Contains("after: \"c1\""));
+        tally.Add(JsonNode.Parse("""{ "totalCount": 3, "pageInfo": { "hasNextPage": false }, "nodes": [ { "publishedAt": "2026-10-01T10:00:00Z", "isPrerelease": true, "releaseAssets": { "nodes": [ { "downloadCount": 10 } ] } } ] }""")!);
+        var counted = tally.Counts(JsonNode.Parse("""{ "latestRelease": { "assets": [ { "downloads": 7 }, { "downloads": null } ] } }""")!.AsObject(), new DateTime(2026, 11, 26, 23, 0, 0, DateTimeKind.Utc))!;
+        Check("downloads: every page's files, the latest release's, and the day", tally.Done && (long)counted["total"]! == 20 && (long)counted["latest"]! == 7
+            && counted["read"]!.GetValue<string>() == "2026-11-26");
+        Check("downloads: the release history, pre-releases left out of the days", tally.Releases()["count"]!.GetValue<int>() == 3
+            && tally.Releases()["days"]!.AsArray().Select(d => d!.GetValue<string>()).SequenceEqual(["2026-11-20"]));
+        var empty = new Downloads.Tally("a/b");
+        empty.Add(JsonNode.Parse("""{ "totalCount": 0, "pageInfo": { "hasNextPage": false }, "nodes": [] }""")!);
+        Check("downloads: none without releases", empty.Done && empty.Counts(new JsonObject(), DateTime.UtcNow) is null && empty.Releases()["count"]!.GetValue<int>() == 0);
+
         // The never-add list.
         var optout = OptOut.Parse("""{ "repos": [ { "repo": "Someone/Thing" }, { "repo": "whole-account" } ] }""");
         Check("optout: one repo, ignoring case", optout.Covers("someone/thing") && !optout.Covers("someone/other"));
@@ -1107,10 +1301,22 @@ static class SelfTest
         var (row, reason) = Candidates.Row("a/b", Repo("A/B",
             ("Libs/LibStub/LibStub.toc", "## Interface: 120105\n## Title: LibStub"),
             ("Thing_Vanilla.toc", "## Interface: 11509\n## Title: Thing Classic"),
-            ("Thing.toc", "## Interface: 120105, 16001\n## Title: |cff00ff00Thing|r\n## Notes: Does things\n## Notes-frFR: Fait\n## Author: Someone\n## Version: 2.0\n## X-Curse-Project-ID: 123\n## X-Wago-ID: abc\n## X-WoWI-ID: 9\n## Category: Bags\n## IconTexture: Interface\\Icons\\X\n## Dependencies: Ace3\n## OptionalDeps: Masque"),
+            ("Thing.toc", "## Interface: 120105, 16001\n## Title: |cff00ff00Thing|r\n## Notes: Does things\n## Notes-frFR: Fait\n## Author: Someone\n## Version: 2.0\n## X-Curse-Project-ID: 123\n## X-Wago-ID: abc\n## X-WoWI-ID: 9\n## Category: Bags\n## IconTexture: Interface\\Icons\\X\n## Dependencies: Ace3\n## OptionalDeps: Masque\n## X-Forever-Catalog: yes"),
             ("Old.toc", "## Interface: 11508"),
             ("Deleted.toc", null)), Editions);
         Check("row: kept", row is not null && reason is null);
+        Check("row: history", row!["created"]!.GetValue<string>() == "2024-01-02T03:00:00Z" && row["ownerCreated"]!.GetValue<string>() == "2020-05-06T00:00:00Z"
+            && row["stars"]!.GetValue<int>() == 42 && row["releases"] is null && row["downloads"] is null
+            && row["latestRelease"]!["assets"]![0]!["downloads"]!.GetValue<long>() == 7);
+        Check("row: the latest release's source links, each once", row["latestRelease"]!["sourceLinks"]!.AsArray().Select(l => l!.GetValue<string>())
+            .SequenceEqual(["https://www.curseforge.com/wow/addons/thing/files/123"]) && History.SourceLinks("none here") is null);
+        Check("row: the author's catalog marker", row["toc"]!["catalog"]!.GetValue<string>() == "yes");
+        var broken = Repo("A/B", ("Thing.toc", "## Interface: 16001\n## Title: T"));
+        broken["latestRelease"]!["releaseAssets"]!["nodes"]!.AsArray().Add(null);
+        broken["refs"]!["nodes"]!.AsArray().Add(null);
+        var (partial, _) = Candidates.Row("a/b", broken, Editions);
+        Check("row: a partial answer skips what's missing", partial is not null
+            && partial["latestRelease"]!["assets"]!.AsArray().Count == 1 && partial["tags"]!.AsArray().Count == 2);
         Check("row: editions from every .toc", row!["editions"]!.AsArray().Select(e => e!.GetValue<string>()).SequenceEqual(["classic_era", "forever", "retail"]));
         Check("row: main .toc is the shallowest listing a current Interface", row["toc"]!["path"]!.GetValue<string>() == "Thing.toc");
         Check("row: .toc fields", row["toc"]!["title"]!.GetValue<string>() == "|cff00ff00Thing|r" && row["toc"]!["curseforge"]!.GetValue<string>() == "123"

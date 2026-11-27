@@ -43,6 +43,7 @@ The catalog is generated (`scripts/generate.cs`): every add-on whose latest GitH
   - **Everything else:** in the file's order, `https` only (an `http://` link, or one written without a scheme like `paypal.me/name`, is read as the same page over `https`), and a shortened link (bit.ly and the like) is listed as the page it leads to, found from the shortener's redirect, never as the short link.
   - **Reported:** every refused link, and every link that appears, changes or goes away, is listed in the generator's report for the maintainer to look at.
   - Authors written by hand (`overrides/_authors.json`) keep their own list, which can also include the Donate button on their CurseForge or Wago page.
+- **`downloads`** (optional): how often the add-on is downloaded, for sorting and its page: every release's files (`total`), the latest release's (`latest`) and the day they were read. These are only GitHub's own public download counts for release files, read once a week. The app tracks nothing: its installs download from GitHub, so they're already part of these counts. Add-ons that aren't released on GitHub have none.
 - **`icon`** (optional): a small square PNG for the add-on, shown on its cards in the app. It's the icon the author ships in the add-on itself (the `.toc`'s IconTexture, when it's one of the add-on's own files), converted to PNG and kept in this repo. Never game art and never drawn here; without one, the app shows the add-on's tag icon.
 
 ## For add-on authors
