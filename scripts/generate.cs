@@ -881,6 +881,18 @@ static class Generator
             }
             var entry = new JsonObject { ["id"] = id };
             Apply(entry, o);
+            if (o["editions"] is JsonObject hand)
+            {
+                var (editions, unknown) = HandEditions(hand, inputs.Catalog["editions"] as JsonObject ?? []);
+                foreach (var e in unknown)
+                {
+                    result.Drop("override edition the catalog doesn't cover", $"{id} ({e})");
+                }
+                if (editions.Count > 0)
+                {
+                    entry["editions"] = editions;
+                }
+            }
             entry["from"] = new JsonObject { ["entry"] = "override" };
             result.Addons.Add(entry);
         }
@@ -1288,13 +1300,42 @@ static class Generator
             ? at.UtcDateTime.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture)
             : null;
 
+    /// <summary>
+    /// An override's hand-checked editions, as the catalog lists a checked release's: in the catalog's edition order, each
+    /// with its Interface, upToDate when that is the edition's current Interface, and its folders and release day when
+    /// given. Editions the catalog doesn't cover are returned apart, to be reported.
+    /// </summary>
+    public static (JsonObject Editions, List<string> Unknown) HandEditions(JsonObject hand, JsonObject catalogEditions)
+    {
+        var editions = new JsonObject();
+        foreach (var (e, edition) in catalogEditions)
+        {
+            if (hand[e] is not JsonObject h)
+            {
+                continue;
+            }
+            var listed = new JsonObject { ["interface"] = Str(h["interface"]), ["upToDate"] = Str(h["interface"]) == Str(edition?["interface"]) };
+            if (h["folders"] is JsonArray folders)
+            {
+                listed["folders"] = folders.DeepClone();
+            }
+            if (Str(h["released"]) is { } released)
+            {
+                listed["released"] = released;
+            }
+            editions[e] = listed;
+        }
+        return (editions, hand.Select(e => e.Key).Where(e => catalogEditions[e] is null).ToList());
+    }
+
     /// <summary>An override's fields replace the generated ones (links key by key); each such value's source is "override".</summary>
     public static void Apply(JsonObject entry, JsonObject o)
     {
         var from = entry["from"] as JsonObject;
         foreach (var (key, value) in o)
         {
-            if (OverrideOnly.Contains(key))
+            // editions: only an entry made from an override takes them (HandEditions), never a checked release's.
+            if (OverrideOnly.Contains(key) || key == "editions")
             {
                 continue;
             }
@@ -2233,7 +2274,7 @@ static class SelfTest
         var overrides = new Dictionary<string, JsonObject>(StringComparer.Ordinal)
         {
             ["questie"] = Obj("""{"repo":"Questie/QuestieRenamed","author":"breakbb","notes":"Three folders.","ownApp":{"name":"Questie Manager","url":"https://example.com/qm","marker":".questie-manager"},"links":{"issues":"https://github.com/Questie/Questie/issues"},"tags":["quests"]}"""),
-            ["cfonly"] = Obj("""{"name":"CF Only","summary":"Only on CurseForge.","author":"x","sources":[{"type":"curseforge","projectId":5}],"folders":["CfOnly"],"conflicts":["thing","notlisted"]}"""),
+            ["cfonly"] = Obj("""{"name":"CF Only","summary":"Only on CurseForge.","author":"x","sources":[{"type":"curseforge","projectId":5}],"folders":["CfOnly"],"conflicts":["thing","notlisted"],"editions":{"forever":{"interface":"16001","released":"2026-11-20"},"mars":{"interface":"1"}}}"""),
             ["stale"] = Obj("""{"repo":"z/Stale","notes":"gone"}"""),
             ["grabber"] = Obj("""{"repo":"j/Grabber","linkOnly":{"url":"https://example.com/grabber"}}"""),
         };
@@ -2299,6 +2340,13 @@ static class SelfTest
         Check("trust: no history read gives no badges or warnings", byId["readme"]["trust"]!.AsObject().Select(p => p.Key).SequenceEqual(["careful"]));
         Check("relations: a reference to an add-on that isn't listed is left out", Generator.Strings(byId["cfonly"]["conflicts"]).SequenceEqual(["thing"])
             && result.Notices.Any(n => n.Contains("names notlisted", StringComparison.Ordinal)));
+        Check("override editions: listed with upToDate, the catalog's editions only, the rest reported", byId["cfonly"]["editions"]!.AsObject().Select(e => e.Key).SequenceEqual(["forever"])
+            && Str(byId["cfonly"]["editions"]!["forever"]!["interface"]) == "16001" && Str(byId["cfonly"]["editions"]!["forever"]!["released"]) == "2026-11-20"
+            && result.Dropped.TryGetValue("override edition the catalog doesn't cover", out var unknownEditions) && unknownEditions.SequenceEqual(["cfonly (mars)"]));
+        var (hand, _) = Generator.HandEditions(Obj("""{"retail":{"interface":"110000"},"forever":{"interface":"16001","folders":["CfOnly"]}}"""),
+            Obj("""{"retail":{"interface":"120105"},"classic_era":{"interface":"11508"},"forever":{"interface":"16001"}}"""));
+        Check("override editions: in the catalog's order, upToDate against each edition's current Interface", hand.Select(e => e.Key).SequenceEqual(["retail", "forever"])
+            && !hand["retail"]!["upToDate"]!.GetValue<bool>() && hand["forever"]!["upToDate"]!.GetValue<bool>() && hand["forever"]!["folders"]!.AsArray().Count == 1);
         Check("mirror: a re-upload of a hand-written entry isn't listed", result.Dropped.TryGetValue("a re-upload of an add-on listed from its own site (same folder or CurseForge project as a hand-written entry)", out var mirrors)
             && mirrors.SequenceEqual(["k/CfOnlyMirror (cfonly)"]) && byId["cfonly"]["sources"]!.AsArray().All(s => Generator.Str(s!["type"]) != "github"));
         var versions = Versions.Addons(result, previous);

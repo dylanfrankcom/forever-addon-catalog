@@ -21,6 +21,11 @@
     "Chattynator"
   ],
   "tocPath": "Chattynator/Chattynator.toc",
+  "editions": {
+    "forever": {
+      "interface": "16001"
+    }
+  },
   "conflicts": [
     "wim"
   ]

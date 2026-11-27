@@ -20,5 +20,10 @@
   "folders": [
     "Syndicator"
   ],
-  "tocPath": "Syndicator/Syndicator.toc"
+  "tocPath": "Syndicator/Syndicator.toc",
+  "editions": {
+    "forever": {
+      "interface": "16001"
+    }
+  }
 }

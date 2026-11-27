@@ -19,6 +19,11 @@
     "ForeverDungeonJournal"
   ],
   "tocPath": "ForeverDungeonJournal/ForeverDungeonJournal.toc",
+  "editions": {
+    "forever": {
+      "interface": "16001"
+    }
+  },
   "links": {
     "homepage": "https://www.curseforge.com/wow/addons/dungeonjournal"
   }

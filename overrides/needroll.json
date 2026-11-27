@@ -22,6 +22,11 @@
     "NeedRoll"
   ],
   "tocPath": "NeedRoll/NeedRoll.toc",
+  "editions": {
+    "forever": {
+      "interface": "16001"
+    }
+  },
   "links": {
     "homepage": "https://www.curseforge.com/wow/addons/needroll"
   }
