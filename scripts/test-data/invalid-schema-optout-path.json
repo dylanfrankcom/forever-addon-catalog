@@ -1,5 +1,8 @@
 {
   "repos": [
-    "owner/name/extra"
+    {
+      "repo": "owner/name/extra",
+      "reason": "x"
+    }
   ]
 }

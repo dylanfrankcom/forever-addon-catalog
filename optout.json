@@ -1,4 +1,4 @@
 {
-  "$comment": "The never-add list: repos (owner/name) or whole accounts (owner) whose add-ons are never listed. Discovery skips them.",
+  "$comment": "The never-add list: repos (owner/name) or whole accounts (owner) whose add-ons are never listed, each with its reason, the day and the issue. Discovery skips them and the generator never lists them. Entries are never removed without the author.",
   "repos": []
 }
