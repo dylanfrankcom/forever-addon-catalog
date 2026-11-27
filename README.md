@@ -15,7 +15,7 @@ The list of add-ons [Forever Add-on Manager](https://github.com/dylanfrankcom/fo
 | `addons/` | A detail file per add-on released on GitHub (`<id>.json`): its README, recent release notes, screenshots, stats, languages and technical details, which the app fetches only when the add-on is opened. Written by `scripts/details.cs`, never by hand; the format is `schema/details.schema.json`. |
 | `icons/` | Add-on icons, converted to PNG from each add-on's own `.toc` IconTexture. |
 | `schema/catalog.schema.json` | The format. |
-| `.github/workflows/validate.yml` | Runs the validator's self-test and validates `catalog.json` on every push and PR; on a PR, changed entries must come with a version bump. |
+| `.github/workflows/validate.yml` | On every PR: runs each script's self-test and validates `catalog.json`; changed entries must come with a version bump. |
 | `scripts/` | Discovery, the release check, the generator and validation: .NET file-based programs (see `scripts/README.md`). |
 | `status.json` | Written by the checker job, never by hand: which releases list the Forever Interface (coming with the catalog checker, app 0.6.0). |
 | `versions.json` | Generated with `catalog.json`, never by hand: the latest checked release of each add-on for each edition, with its size and hash, so the app finds updates without asking GitHub. Its format is `schema/versions.schema.json`. |
