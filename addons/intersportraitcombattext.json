@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "intersportraitcombattext",
+  "repo": "cassidymichael/IntersPortraitCombatText",
+  "about": "# Inter's Portrait Combat Text\n\nAdds unit frame's portrait combat text on WoW: Forever. Damage, heals, dodges, etc. Designed for players who use custom unit frames which don't have portrait combat text, or which don't have all the settings they want.\n\nThis addon creates movable areas for the combat text to appear (for self, for target, for pet), intended to be dragged over your setup's portraits, or anywhere really.\n\n## Features\n\n- Text for you, your target and your pet.\n- Font options (the game's, or any from SharedMedia), size, outline, shadow, opacity.\n- Critical hit variable size.\n- Duration for each event to be shown.\n- Choose what events show: damage, heals, misses and blocks, mana gains. Edit colours for each, or by damage type.\n- Shorten number formats options (e.g. 1,234 becomes 1.2K).\n- Preview and layout modes.\n- Profile support and export/import.\n- and more. This is a super basic addon, if you want any other features, just leave a comment and ask.\n\n## Usage\n\n`/pct` or the minimap button opens the options.\n\n`/pct lock` unlocks or locks: drag a box to move it.\n\n`/pct preview` toggles on and off the preview mode.\n\n`/ipct` also works in place of `/pct`\n\n## Disclaimers & License\n\nThis project is licensed under GPL-3.0-or-later (see [LICENSE](https://github.com/cassidymichael/IntersPortraitCombatText/blob/main/LICENSE)). TLDR: do whatever you want with the code -- learn from it, edit it, share it, whatever -- but anything built directly from this code must use the same free and open GPL license.\n\nThe bundled libraries (LibStub, CallbackHandler, LibDataBroker, LibDBIcon) keep their own licences.\n\nCreated and maintained with the help of AI tools.",
+  "releases": [
+    {
+      "tag": "v1.1.1",
+      "published": "2026-11-05",
+      "notes": "## 1.1.1 (2026-11-05)\n\n- Combat text shows again on the launch client: damage, heals and gains had stopped showing.\n- The \"Hide damage under\", \"Hide heals under\" and \"Hide gains under\" settings are gone, because the game no longer lets addons see the amounts.\n\nEarlier versions: [CHANGELOG.md](https://github.com/cassidymichael/IntersPortraitCombatText/blob/v1.1.1/CHANGELOG.md)"
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-10-04",
+      "notes": "## 1.1.0 (2026-10-04)\n\n- The options are now the addon's own window, opened with /pct or the minimap button, in place of\n  pages in the game's settings. The game's addon list keeps a button that opens it.\n- An option to hide the game's own portrait text on the default player and pet frames.\n\nEarlier versions: [CHANGELOG.md](https://github.com/cassidymichael/IntersPortraitCombatText/blob/v1.1.0/CHANGELOG.md)"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-10-04",
+      "notes": "## 1.0.0 (2026-10-04)\n\n- First release. Portrait combat text for you, your target and your pet. Placed on movable frames.\n- Fonts, sizes, colours and filters for each kind of text.\n- Profiles with export and import.\n\nEarlier versions: [CHANGELOG.md](https://github.com/cassidymichael/IntersPortraitCombatText/blob/v1.0.0/CHANGELOG.md)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-10-04",
+      "2026-10-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "IntersPortraitCombatText"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0",
+      "SharedMedia"
+    ],
+    "savedVariables": [
+      "IntersPortraitCombatTextDB"
+    ]
+  }
+}

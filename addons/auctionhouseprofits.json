@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "auctionhouseprofits",
+  "repo": "MattieTK/AuctionHouseProfits",
+  "about": "# Auction House Profits: WoW Forever add-on\n\nSource for the `AuctionHouseProfits` add-on. The folder players install is\n[`AuctionHouseProfits/`](https://github.com/MattieTK/AuctionHouseProfits/blob/main/AuctionHouseProfits/README.md), which also has the\nplayer-facing description.\n\n## Layout\n\n| Path | What it is |\n| --- | --- |\n| `AuctionHouseProfits/` | The add-on, exactly as it ships. TOC load order is authoritative. |\n| `AuctionHouseProfits/Snipe.lua`, `SnipePanel.lua` | Vendor sniper: full scan, live checks, one-press buying (protected calls run only from the Buy button or key bindings in `Bindings.xml`). |\n| `AuctionHouseProfits/Earnings.lua` | What the add-on has made you, from the per-day ledger in `Data.lua` (`ledger`, kept for good). |\n| `AuctionHouseProfits/Libs/SomethingNeedDoing/` | Vendored framework, pinned by `UPSTREAM.json`. Don't edit; update from upstream. |\n| `tests/model_test.lua` | Pure math tests. |\n| `tests/runtime_test.lua` | Loads the whole add-on against a WoW mock and drives merchant, window, AH tab and price-check flows. |\n| `tests/snd_wow.lua` | WoW boundary mock from SomethingNeedDoing v0.5.2, extended in `runtime_test.lua`. |\n| `tools/check.sh` | Syntax check, tests, then package. |\n| `media/logo.png` | CurseForge project logo (source: `media/logo.svg.html`). |\n| `tools/package.py` | Verifies versions and pinned hashes, builds `dist/AuctionHouseProfits-<version>.zip`. |\n\n## Develop\n\n```sh\nLUA=/path/to/lua5.1 LUAC=/path/to/luac5.1 sh tools/check.sh\n```\n\nTo try it in game, copy or symlink `AuctionHouseProfits/` into the WoW: Forever\n`Interface/AddOns/` folder and restart the client. A `/reload` isn't enough for a\nnewly added add-on.\n\nThe mock tests prove wiring and math, not rendering, taint or exact layout. Check those in game.\n\n## Release\n\nReleases are automatic from an annotated tag on `main`:\n\n1. Bump `## Version` in the TOC and `VERSION` in `Core.lua`, and add a matching `## x.y.z` section to `CHANGELOG.md`.\n2. Merge to `main`, then tag and push:\n   ```sh\n   git tag -a v0.1.1 -m \"Auction House Profits 0.1.1\"\n   git push origin v0.1.1\n   ```\n3. **Release addon** runs the tests and builds the zip. It publishes a GitHub Release, then uploads\n   the same zip to CurseForge for WoW Forever 1.60.1. `vX.Y.Z-alpha.N` and `-beta.N` tags upload as\n   alpha and beta files.\n\nCurseForge project: [Auction House Profits (1801565)](https://authors.curseforge.com/#/projects/1801565/files).\nUploads need `## X-Curse-Project-ID` in the TOC and the `CF_API_TOKEN` repository secret\n(CurseForge → Author Settings → API Tokens). If either is missing, the\nGitHub Release still publishes and the workflow warns that CurseForge was skipped. After fixing\nit, re-run **Release addon** with the same tag.\n\nA `curseforge-upload-pending.json` asset on a GitHub Release means an upload started but wasn't\nconfirmed. Check the project's files on CurseForge before deleting that asset and retrying. This\nstops a re-run from uploading the same version twice. The upload API only confirms CurseForge\naccepted the file; moderation approval shows on the author dashboard.",
+  "releases": [
+    {
+      "tag": "v0.5.0",
+      "name": "Auction House Profits v0.5.0",
+      "published": "2026-11-27",
+      "notes": "Built for hunting one trade good under your price.\n\n- **One key to buy or search.** Bind \"Profits page: buy under your price, or search again\" (Key Bindings → AddOns → Auction House Profits). If units at your price are showing, it buys; if not, it searches the item again. Sit on one key: no mouse travel.\n- **The item is watched.** While the Profits page is open at the auction house with your price set for a trade good, the add-on searches it again a moment after each answer, with no click, so the Buy button is ready as soon as cheap units are listed. It never searches during a purchase, waits a moment after a buy so your next press goes first, and stops when you leave the page or close the AH.\n- **Each press asks for as much as will survive others buying first.** It asks for as many as would still come within your price if others bought half the cheap units before you: never less than half, and more when they're well under your price, since each of those leaves budget for a dearer unit. At 2s with 15 listed at 1s and the next at 3s, that's all 15 rather than 8. Up to 5 it still takes them all, and each miss in a row halves it again.\n- **The sniper no longer searches in the background,** so the auction house is left to the item you're watching. Deals that need checking (estimates from the full scan, and gear whose latest search isn't its own) say **Check listings**: the first press searches the item, the second buys. After your own sniper buy or miss, that item is checked again so your next press can buy. Trade goods straight from the full scan still buy in one press."
+    },
+    {
+      "tag": "v0.4.9",
+      "name": "Auction House Profits v0.4.9",
+      "published": "2026-11-26",
+      "notes": "- **Fixed: a buy could hang on \"Buying...\" for 10 seconds.** The game doesn't hold units while it quotes you: if some are bought before your confirm reaches it, it quotes the new total and waits for another confirm (Blizzard's buy dialog shows \"price updated\"). The add-on ignored that second quote, so the purchase sat until it timed out. Now it confirms again if the new total is still within your price, and cancels if not. This applies to the sniper too.\n- **Buy under your price asks for a share, not the whole lot.** Others are after the same cheap units, and the game fills a purchase from the cheapest left. Ask for all 50 and if anyone beats you to some, the rest come from dearer listings, the total goes over your price, and the whole purchase is cancelled. So one press asks for all of them up to 5, or half when there are more (50 asks for 25). Each miss in a row halves it again, down to one, so you get some rather than none. A buy that goes through resets it, and so does changing your price.\n- **Press again straight away.** After a buy, the button offers the next share of what's left, and after a miss a smaller one, without waiting for the listings to be searched again. The price shows `~` until they are. That search now waits until you pause for a moment and never runs mid-purchase, so it doesn't hold up your next press."
+    },
+    {
+      "tag": "v0.4.8",
+      "name": "Auction House Profits v0.4.8",
+      "published": "2026-11-25",
+      "notes": "- **Fixed: Scan AH froze the game for a moment.** Each search result re-analysed every item in the list on the left, including their prices from other add-ons and their deposits, two or more times per scan. Now a search redraws only the item searched. Clicking an item in the list and buying (which changes your bags) no longer re-analyse the whole list either, so scanning and buying feel as quick as Blizzard's own refresh. Changing the filter, search, sort or settings still redraws everything."
+    },
+    {
+      "tag": "v0.4.7",
+      "name": "Auction House Profits v0.4.7",
+      "published": "2026-11-25",
+      "notes": "- **Buy under your price, in one press.** On a trade good's page in the Profits tab, set the most you'll pay each in the boxes at the top right. The **Buy** button beside **Scan AH** then says what one press gets (\"Buy 37 for 1g 11s\"): every unit listed at your price or less that you can afford, cheapest first, with no quantity to pick and no confirm step. Scan, buy, scan again, with the two buttons side by side. The game quotes the total before anything is paid. If cheaper units have gone and it comes to more than your price for all of them, the purchase is cancelled. The listings are searched again after each buy. Your price lasts until you log out or reload. Trade goods only: gear is bought one auction at a time.\n- **Post moved under \"Your price\",** the price it lists at, with a shorter **Reset** beside it, to make room for the Buy row."
+    },
+    {
+      "tag": "v0.4.6",
+      "name": "Auction House Profits v0.4.6",
+      "published": "2026-11-20",
+      "notes": "- **Items vendors refuse are left out, whatever sell price they show.** Some items show a vendor price on their tooltip, but every vendor answers \"The merchant doesn't want that item.\" The sniper no longer lists them as deals or rechecks them, and on the Profits tab unsold stacks of them aren't counted as sold to a vendor. The first is Instant Poison (Rank 1). More get added as they're reported."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-20",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AuctionHouseProfits"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator",
+      "TradeSkillMaster",
+      "Auc-Advanced"
+    ],
+    "savedVariables": [
+      "AuctionHouseProfitsDB",
+      "AuctionHouseProfitsData"
+    ]
+  }
+}

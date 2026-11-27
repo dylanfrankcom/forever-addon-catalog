@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "swingtimerfader",
+  "repo": "Nigeltve/SwingTimerFader",
+  "about": "# SwingTimerFader\n\nA World of Warcraft **Forever** addon that fades the game's built-in swing timer bars while they aren't in use.\n\n- **Melee bars** (main hand + off hand) are shown while you're auto-attacking in melee.\n- **Ranged bar** is shown while Auto Shot, a wand (Shoot) or Throw is repeating.\n- Each group fades on its own: while you melee, the ranged bar stays faded, and vice versa.\n- Bars appear **instantly** when you start attacking and fade out **smoothly** after you stop.\n- As a backup, any swing also shows its bar. If the addon missed the start of an attack (for example after a `/reload` mid-fight), the bar stays up until a full swing passes without another swing, or the fade delay, whichever is longer.\n\nThe addon only changes the bars' transparency. It doesn't move, resize or replace them, and Blizzard's own behaviour (such as the range dimming) is left alone.\n\n## Requirements\n\n- WoW Forever client (Interface `16001`)\n- The built-in swing timer turned on in the game's options\n\n## Installation\n\n1. Download the latest `SwingTimerFader-vX.Y.Z.zip` from the Releases page.\n2. Extract it into `World of Warcraft\\_forever_\\Interface\\AddOns\\`, so you end up with `AddOns\\SwingTimerFader\\SwingTimerFader.toc`.\n3. Restart the game or `/reload`.\n\n## Settings\n\nOpen **Settings → AddOns → SwingTimerFader**, or type `/stf`.\n\n| Setting | Default | Range | Saved |\n|---|---|---|---|\n| Enabled | On | – | Per character |\n| Fade delay (wait after attacking stops) | 1.5s | 0–5s | Account-wide |\n| Fade-out time | 0.5s | 0–3s | Account-wide |\n\n## Slash commands\n\n| Command | What it does |\n|---|---|\n| `/stf` | Show the addon version and open the options panel |\n| `/stf config` | Open the options panel |\n| `/stf help` | List the commands |\n| `/stf toggle` | Turn the addon on/off for this character |\n| `/stf delay <seconds>` | Set the fade delay |\n| `/stf fade <seconds>` | Set the fade-out time |\n| `/stf status` | Print the current state and whether each swing bar was found |\n\nValues outside the allowed range are capped to the nearest limit (for example `/stf delay 9` sets 5s).\n\n## Compatibility\n\nOther addons that also fade the built-in swing timer (for example FadeAnything's swing timer entries) will fight with this one. Turn those entries off.\n\n## Troubleshooting\n\n- **Bars never fade:** run `/stf status`. Each bar should show `=ok`. `missing` means the bar doesn't exist (yet), and the game's frame name may have changed. `unusable` means the bar exists but is restricted by the game, so it's left at its normal visibility. In either case please open an issue with the output.\n- **Lua errors:** enable them with `/console scriptErrors 1`, `/reload`, and include the error text in an issue.\n\n## Releasing (maintainers)\n\nRaise `## Version:` in `SwingTimerFader.toc` (format `X.Y.Z`) and push to `main`. GitHub Actions then zips the addon and publishes release `vX.Y.Z` with generated notes. Pushes where the version isn't higher than the latest release are skipped. You can also run **Actions → Create Release → Run workflow** to release the current `.toc` version if it hasn't been released yet.\n\n## Author\n\nNuggyNige",
+  "releases": [
+    {
+      "tag": "v1.0.3",
+      "name": "Release v1.0.3",
+      "published": "2026-11-06",
+      "notes": "**Full Changelog**: https://github.com/Nigeltve/SwingTimerFader/compare/v1.0.2...v1.0.3"
+    },
+    {
+      "tag": "v1.0.2",
+      "name": "Release v1.0.2",
+      "published": "2026-11-06",
+      "notes": "**Full Changelog**: https://github.com/Nigeltve/SwingTimerFader/compare/v1.0.1...v1.0.2"
+    },
+    {
+      "tag": "v1.0.1",
+      "name": "Release v1.0.1",
+      "published": "2026-11-06",
+      "notes": "**Full Changelog**: https://github.com/Nigeltve/SwingTimerFader/compare/v1.0.0...v1.0.1"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Release v1.0.0",
+      "published": "2026-11-06",
+      "notes": "**Full Changelog**: https://github.com/Nigeltve/SwingTimerFader/commits/v1.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SwingTimerFader"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "STF_DB"
+    ],
+    "savedVariablesPerCharacter": [
+      "STF_DB_CHAR"
+    ]
+  }
+}

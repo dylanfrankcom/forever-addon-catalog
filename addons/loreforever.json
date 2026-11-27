@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "id": "loreforever",
+  "repo": "mliudev/LoreForever",
+  "about": "# Lore Forever\n\nThe story behind the zones, quests, people and items around you, in game, for **World of Warcraft: Forever**.\nNarrated intros for every starting zone, capital and early dungeon, and answers to whatever you ask.\n\n**[Download the installer (Windows)](https://loreforeverwow.com/download/installer)**\n· [Zip](https://github.com/mliudev/LoreForever/releases/latest/download/LoreForever.zip) · [Website](https://loreforeverwow.com/) · [CurseForge](https://www.curseforge.com/wow/addons/lore-forever)\n\nLore Forever comes with English male narration. Other language and voice downloads include their matching\ntranslated text. On CurseForge you can also add the\n[female narrator](https://www.curseforge.com/wow/addons/lore-forever-female-narrator), quest dialogue in the\n[male](https://www.curseforge.com/wow/addons/lore-forever-quest-dialogue-male-narrator) or\n[female](https://www.curseforge.com/wow/addons/lore-forever-quest-dialogue-female-narrator) narrator's voice, and\nmale and female narration in German and Portuguese (Brasil). See all the packs on the\n[Downloads page](https://loreforeverwow.com/downloads#voices).\n\n![Lore Forever in Stormwind](https://raw.githubusercontent.com/mliudev/LoreForever/main/site/public/screenshots/01-stormwind-panel.jpg)\n\n## Install\n\n**Installer (Windows):** download\n[LoreForever-Setup.exe](https://loreforeverwow.com/download/installer)\nand run it. It finds your World of Warcraft folder and puts the add-on in `_forever_\\Interface\\AddOns`. No\nadmin rights needed. To update, run the newest installer. The installer is code-signed (publisher: Mei Liu). If\nWindows still shows \"Windows protected your PC\", click **More info**, then **Run anyway**.\n\n**One command (Windows):** press the Windows key, type `powershell`, press Enter, then paste this and press\nEnter:\n\n```powershell\nirm https://loreforeverwow.com/install.ps1 | iex\n```\n\nIt finds your World of Warcraft folder, downloads the latest release from this repo and puts it in\n`_forever_\\Interface\\AddOns`. Run it again any time to update. The script is\n[site/public/install.ps1](https://github.com/mliudev/LoreForever/blob/main/site/public/install.ps1) if you'd like to read it first.\n\n**By hand:**\n\n1. Download [LoreForever.zip](https://github.com/mliudev/LoreForever/releases/latest/download/LoreForever.zip).\n2. Open your WoW folder, then `_forever_\\Interface\\AddOns` (create `Interface\\AddOns` if it isn't there).\n3. Unzip all its folders there, with `LoreForever` and the `LoreForever_Voice_*` folders side by side. For example,\n   `...\\AddOns\\LoreForever\\LoreForever.toc` and `...\\AddOns\\LoreForever_Voice_Default\\LoreForever_Voice_Default.toc`.\n   Watch out for a doubled folder like `AddOns\\LoreForever\\LoreForever\\`: that won't load.\n4. Start the game and pick a key when it asks, or type `/lore`.\n\nIf it doesn't show up: on the character screen, click **AddOns** and tick **Load out of date AddOns**.\n\nTo update, download the new zip, unzip it over the old folders and type `/reload` in game. If an older version left a\n`LoreForever\\Audio` folder behind, you can delete it: the narration now lives in `LoreForever_Voice_Default`.\n\nOther narration voices can be installed the same way. Choose your language and voice on the\n[Downloads page](https://loreforeverwow.com/downloads#voices), then unzip every folder from its download into\n`AddOns`, including any `LoreForever_Lang_*` folder. To contribute recordings, see the\n[narrator guide](https://loreforeverwow.com/voices/guide).\n\n## Willo, your optional companion\n\nWillo is Lore Forever's free companion app for Windows, a little blue wisp of light beside your game. Chat with her\nwhile you play, click her for a chat right in game, and target a character to have them answer you themselves. She\ninstalls on her own, separate from the add-on and updated on her own: `Willo-Setup.exe` on her releases here, or from\n[loreforeverwow.com/willo](https://loreforeverwow.com/willo), and she needs a free Lore Forever account. She can also\nsync your journey and pictures to your website profile after `/reload` or logout.\nThe in-game add-on continues to work offline without Willo.\n\n## What it does\n\n- **Narrated stories.** Hear zone, capital and dungeon stories and answers in Lore Forever's recorded voices.\n- **Ask in plain English.** \"Who is Edwin VanCleef?\", \"Why is Westfall so poor?\" Suggestions appear as you type,\n  and every answer offers follow-up questions.\n- **Knows where you are.** The panel follows your zone, subzone, target and quest log.\n- **Lore on tooltips.** NPCs and mobs get a one-line story; items tell you when one of your quests needs them.\n- **Quest givers speak when enabled.** Install a separate Quest Dialogue pack and turn on **Speak quest dialogue**\n  in Options; it starts off. Hear recorded quest text, progress and thanks in the male or female narrator's voice.\n  Coverage varies; more recordings arrive with updates.\n- **Quest backstory.** A Lore button on the quest dialog and quest log.\n- **Dungeon primers.** Walk into a dungeon and get a short briefing: why you're there and who you'll face.\n- **Spoiler-safe.** Answers that give away a twist ask first, and tooltips never mention quests you don't have yet.\n- **Offline.** Everything is inside the add-on. Nothing to sign up for.\n\nCovers every zone, city and dungeon up to level 30, Zephras Isle, the Hall of Thanes and the Ruins of Lordaeron,\nplus place lore for the rest of the world, with recorded zone stories and answers.\n\n| Command | What it does |\n| --- | --- |\n| `/lore` or `/lf` | Open or close the panel |\n| `/lore <question>` | Ask straight from chat |\n| `/lore narrations` | Every narrated story, your starting area first |\n| `/lore key` / `/lore key narrate` | Choose the key that opens the panel / plays narration |\n| `/lore stop` | Stop any narration |\n| `/lore options` | Settings |\n| `/lore help` | All commands |\n\n## What's in this repo\n\n| Path | What |\n| --- | --- |\n| `addon/LoreForever/` | The add-on, exactly as it's installed. Plain Lua, no libraries. |\n| `addon/LoreForever/Data/` | The lore library and its search index, compiled from `data/`. |\n| `addon/LoreForever_Voice_Default/` | The default narration voice pack, installed next to the add-on. |\n| `data/clips.json` | The narrations a voice pack can cover. |\n| `VOICE_PACKS.md` | How to record a voice pack, and how to install one. |\n| `data/lore/` | Every lore entry as JSON (one file per zone, quest, NPC, place or topic), with its wiki sources. |\n| `data/overrides/`, `data/spoilers.json` | Hand-made corrections and the list of answers held behind a spoiler warning. |\n| `site/` | The website ([loreforeverwow.com](https://loreforeverwow.com/)). |\n| `scripts/build-release.sh` | Builds the download zip into `dist/` (it reads each add-on's file list with `scripts/load_order.py`). |\n| `scripts/audio_assets.py` | The narration recordings aren't in this repo's git: `python3 scripts/audio_assets.py fetch` downloads the ones `release/audio.json` names from the [audio release](https://github.com/mliudev/LoreForever/releases/tag/audio), so the zip builds. |\n| `release/installer/` | The Windows installer (Inno Setup). |\n| `.github/workflows/release.yml` | On a version tag, builds the zip and the installer and publishes the release. |\n| `scripts/install-addon.sh` | Copies the add-on into your Forever install from WSL (set `WOW_DIR` if it isn't found). |\n\nThe data files are built with a separate tool that isn't part of this repo, so fixes to lore text are best sent\nas issues. Code fixes are welcome as pull requests.\n\n## Feedback\n\nFound a wrong answer, or want a zone narrated? Use the [feedback form](https://loreforeverwow.com/feedback) (sign\nin with Google) or [open an issue](https://github.com/mliudev/LoreForever/issues).\n\n## License\n\n- **Code** (the `.lua`, `.xml` and `.toc` files and scripts): MIT. See [LICENSE](https://github.com/mliudev/LoreForever/blob/main/LICENSE).\n- **Lore text** (`data/` and `addon/LoreForever/Data/`): adapted from the [Warcraft Wiki](https://warcraft.wiki.gg/)\n  and shared under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Each entry names its source\n  articles.\n- **Narration audio** (`addon/LoreForever_Voice_Default/Audio/`) and the **logo**: all\n  rights reserved. They ship with the add-on for you to use in game, but please don't reuse them elsewhere.\n  Voice packs recorded by volunteers are released under CC BY-SA 4.0 (see [VOICE_PACKS.md](https://github.com/mliudev/LoreForever/blob/main/VOICE_PACKS.md)).\n\nWorld of Warcraft and Warcraft are trademarks of Blizzard Entertainment, Inc. Lore Forever is a fan project and\nis not affiliated with or endorsed by Blizzard.",
+  "releases": [
+    {
+      "tag": "v1.20.0",
+      "name": "Lore Forever 1.20.0",
+      "published": "2026-11-26",
+      "notes": "- Corrected lore in 9 entries.\n\n- **New lore and updated translations:** added 40 new lore entries and updated translations across six languages.\n\n- **Options has a new Packs tab:** every voice pack you have, one line each, and where to get more.\n  'Reset heard narrations' now sits right under 'Skip what you've heard', and you can undo it."
+    },
+    {
+      "tag": "willo-v1.27.0",
+      "name": "Willo 1.27.0",
+      "published": "2026-11-26",
+      "notes": "Willo 1.27.0: new features and fixes for Willo. She installs this update by herself the next time she checks.\n\n- **Show Willo on stream:** Willo's panels and popped-out notes now appear on your game screen for stream captures when Willo is over the game.\n- **Profession skill reminders:** ask Willo to remind you when a profession reaches a target skill level, and she'll let you know as you rank up.\n- **Full Legend free trial:** new players now experience Willo's full Legend voice and features during their 3-day free trial.\n- **Better map pins, feedback, and pronunciations:** pins land on the place you name and clear together on request, feedback routes cleanly, and pronunciation fixes are included."
+    },
+    {
+      "tag": "v1.19.0",
+      "name": "Lore Forever 1.19.0",
+      "published": "2026-11-25",
+      "notes": "- Corrected lore in 14 entries.\n\n- **New lore and updated translations:** added 40 new lore entries and updated translations across six languages."
+    },
+    {
+      "tag": "willo-v1.26.0",
+      "name": "Willo 1.26.0",
+      "published": "2026-11-25",
+      "notes": "Willo 1.26.0: fixes and improvements for Willo. She installs this update by herself the next time she checks.\n\n- **Better follow-up context and feedback:** Willo keeps track of your last exchange more reliably, routes feature requests accurately, and responds with a warmer tone.\n- **Sharing and dungeon reminder reliability:** improved friends-list screenshot sharing, voice input handling, and dungeon boss reminders."
+    },
+    {
+      "tag": "v1.18.0",
+      "name": "Lore Forever 1.18.0",
+      "published": "2026-11-25",
+      "notes": "- **Keep listening in combat:** choose in Options whether Lore Forever narration keeps playing when combat starts.\n\n- **Books keep reading after you close them:** closing an in-game book lets the current page finish, and pages you flip\n  through play in order.\n\n- **Smoother Found tab browsing:** changing filters in the Found tab keeps your scroll position and handles large\n  collections smoothly.\n\n- Titled characters like Warchief Thrall now match their lore entries reliably, alongside voice pronunciation fixes.\n\n- Corrected lore in 3 entries."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/mliudev/LoreForever/main/site/public/screenshots/01-stormwind-panel.jpg"
+  ],
+  "stats": {
+    "stars": 6,
+    "openIssues": 3,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-19",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-18",
+      "2026-11-19",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-11-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LoreForever",
+      "LoreForever_Voice_Default",
+      "LoreForever_Voice_Default_Alliance",
+      "LoreForever_Voice_Default_Horde",
+      "LoreForever_Voice_QuestGivers_Start"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "LoreForeverDB"
+    ]
+  }
+}

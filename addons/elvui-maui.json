@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "elvui-maui",
+  "repo": "mBlinkii/MaUI-ElvUI-Profile-Strings",
+  "about": "![MaUI](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Media/logo.png)\n\n# MaUI v8.5 [Tank/DD/Heal] [1440p]\n\nHere I have put together my complete ElvUI profile for you. MaUI is built for 1440p, other resolutions are scaled by the installer so the layout keeps its proportions.\n\nThe easiest way to get it is the [**MaUI Installer**](https://www.curseforge.com/wow/addons/maui) on CurseForge, it sets up the whole interface in one go. All profile strings are still here for a manual import.\n\n![MaUI in the open world](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132233.png)\n\n## Features\n- Layouts for tanks/damage dealers and healers, each with an optional Cooldown Manager variant.\n- Self-created dock bar with useful functions.\n- Profession menu.\n- Health text of group units switches between max life and percentage display in combat.\n- Rare/Elite/Boss enemies are highlighted (color of text changes).\n- Faction icon and PVP text is displayed when a teammate is PVP marked.\n- Quest log is skinned.\n- Display of the most important currencies, on top left.\n- M+ color highlighting of important units.\n- Cooldown Manager styling by mMediaTag.\n- Custom combat and role icons.\n- Portraits.\n- Bag categories for Baganator.\n- and much more.\n\n## These addons are required\n- [![ElvUI](https://img.shields.io/badge/Addon-ElvUI-orange)](https://www.tukui.org/download.php?ui=elvui)\n- [![mMediaTag](https://img.shields.io/badge/Addon-mMediaTag-blueviolet)](https://www.curseforge.com/wow/addons/elvui_mmediatag)\n\n## These addons are optional\n- [![Baganator](https://img.shields.io/badge/Addon-Baganator-blue)](https://www.curseforge.com/wow/addons/baganator)\n- [![Details](https://img.shields.io/badge/Addon-Details-lightgrey)](https://www.curseforge.com/wow/addons/details)\n- [![MaUI M+ Timer](https://img.shields.io/badge/Addon-MaUI%20M%2B%20Timer-green)](https://www.curseforge.com/wow/addons/maui-m-timer)\n\n## MaUI Installer\n[![MaUI Installer](https://img.shields.io/badge/CurseForge-MaUI%20Installer-F16436)](https://www.curseforge.com/wow/addons/maui)\n\nThe **MaUI Installer** (`ElvUI_MaUI`, version 1.0.0) is its own addon with its own installation window. It replaces ElvUI's installer and sets up MaUI step by step, you see what happens before anything is changed.\n\n### Installation\n1. Install the [MaUI Installer](https://www.curseforge.com/wow/addons/maui) together with ElvUI and mMediaTag (and the optional addons you want).\n2. Log in. On a new character the installer opens by itself, otherwise type `/maui` or use the addon compartment.\n3. Go through the steps and click **Install**.\n4. Reload your interface, done.\n\n### The steps\n- **Welcome**: a short system check of ElvUI, mMediaTag and the optional addons.\n- **ElvUI setup**: ElvUI's basic game settings (CVars) and the MaUI chat: one window on the left with the tabs General (with trade), Whisper, Group, Guild and Combat Log.\n- **Profile**: the MaUI profiles already on your account, e.g. from another character. Pick one to use it right away, or install a new one. For an outdated profile it shows how many settings an update changes and in which areas.\n- **Layout**: Tank/DD or Heal, with or without Cooldown Manager.\n- **Data panels**: the bar at the bottom (full, center only, dock only or none), the currency panel and the decorative bars.\n- **Addons**: which addon profiles to install, for Baganator the full profile or only the categories.\n- **Scale**: the UI scale for your resolution (0.5333 at 1440p), with a notice on other resolutions.\n- **Install**: a summary, every step shows live whether it worked.\n\nThe installer window hides when you enter combat and comes back on the same step afterwards.\n\n### What it sets up\n- The ElvUI profile, private and global settings.\n- mMediaTag data panel skins and the Cooldown Manager setup.\n- The UI scale.\n- The Blizzard Edit Mode layout (Retail and Forever).\n- The profiles for Details!, Baganator and MaUI M+ Timer, if those addons are installed.\n\n### Advanced mode\nTurn on the advanced mode on the layout page to install single parts of ElvUI instead, for example only the nameplates, the unit frames or the action bars. They are copied into your current ElvUI profile together with their frame positions, everything else in your profile stays as it is.\n\n### Alts and updates\n- On a new character the installer finds the MaUI profiles of your account and suggests the one you used last. The game settings and chat are set up first.\n- When a new version brings changes for your profile, you get a notice at login. It lists the changed areas and how many settings change in each, **Update** applies it right there.\n- An update only carries over what MaUI changed, your own changes stay.\n- Profiles imported by hand from the v8 or v8.5 strings can be updated too; older profiles can still be used but not updated.\n- The update is also available under `ElvUI > MaUI` in the options, together with your profile's version and status.\n\n### Game versions\nThe installer runs on Retail, Forever, Mists, TBC and Classic. MaUI is built on Retail, on the other versions the installer adapts it:\n- Datatexts that a version does not have are replaced (e.g. the M+ score becomes the mMediaTag game menu), dock buttons it does not have are left out without gaps.\n- Baganator gets its categories without the expansion and season conditions; the Old, M+, Current, Delves and Hunt categories are left out.\n- The Cooldown Manager layouts are available on Retail and Forever, the Edit Mode layout on Retail and Forever with a layout for each.\n\n### Commands\n- `/maui` or `/mauiinstall` opens the installer.\n\nIf you skip the installer on a new character, ElvUI's own installer opens as usual. The installer's source is in the [Installer Folder](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/tree/main/Installer).\n\n## Manual import\n1. Import one of the ElvUI layouts under `ElvUI > Profile > Import`:\n   - [`elvui_profile_tank-dd.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/elvui_profile_tank-dd.txt) or [`elvui_profile_tank-dd-cdm.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/elvui_profile_tank-dd-cdm.txt) (with Cooldown Manager)\n   - [`elvui_profile_heal.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/elvui_profile_heal.txt) or [`elvui_profile_heal-cdm.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/elvui_profile_heal-cdm.txt) (with Cooldown Manager)\n2. Import [`elvui_private.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/elvui_private.txt) and [`elvui_globale.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/elvui_globale.txt) the same way, click on Import and Reload.\n3. Import [`mmt_datapanels.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/mmt_datapanels.txt) under `ElvUI > mMediaTag > Cosmetic > DTPanels`, scroll down and paste the string into the text field, click on import.\n4. For a Cooldown Manager layout import [`mmt_cdm.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/mmt_cdm.txt) under `ElvUI > mMediaTag > Cooldown Manager`.\n5. Import [`blizzard.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/blizzard.txt) (Retail) or [`blizzard_forever.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/blizzard_forever.txt) (Forever) into the Blizzard Edit Mode.\n6. (Optional) Import the profiles of the addons you use:\n   - Baganator (Retail): [`baganator_profile.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/baganator_profile.txt) or only the categories [`baganator_category.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/baganator_category.txt)\n   - Baganator (Forever): [`baganator_profile_forever.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/baganator_profile_forever.txt) or only the categories [`baganator_category_forever.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/baganator_category_forever.txt)\n   - Details!: [`details.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/details.txt)\n   - MaUI M+ Timer: [`maui_mplus_timer.txt`](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/blob/main/Profile/maui_mplus_timer.txt)\n7. Check your UI Scale and set it to 0.53333... the UI is built for a resolution of 2560 x 1440. Otherwise you need to set up frames and panels by hand.\n\n## Profile string files\n- [Profile Folder](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/tree/main/Profile)\n\n## Archive\nOlder profile versions (v3 - v8.5) and legacy addons can be found here:\n- [Archive Folder](https://github.com/mBlinkii/MaUI-ElvUI-Profile-Strings/tree/main/Archive)\n\n## Discord\n[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white)](https://discord.gg/ZScRCUyqjY)\n\n## Screenshots\n\n**Open world, out of combat:** only the dock, the info panels and the action bars stay on screen.\n![Open world out of combat](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132219.png)\n\n**Group out of combat:** party frames, player and target with portraits.\n![Group out of combat](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20140103.png)\n\n**Group frames in the compact view.**\n![Group frames](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132334.png)\n\n**In a dungeon:** the party frames next to the player, cast bars and the Details! meters at the bottom right.\n![Dungeon](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132304.png)\n\n**Combat:** nameplates with highlighted targets and casts.\n![Combat](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132421.png)\n\n**Important casts** of the target are shown big in the middle.\n![Important casts](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132826.png)\n\n**Big pulls:** the M+ color highlighting of important enemies.\n![Big pull](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20133258.png)\n\n**Elite fight** with the class resource and the buffs above the player.\n![Elite fight](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20135537.png)\n\n**Bags:** the MaUI categories for Baganator.\n![Baganator](https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20131601.png)",
+  "releases": [
+    {
+      "tag": "v1.0.2",
+      "name": "MaUI Installer v1.0.2",
+      "published": "2026-11-20",
+      "notes": "## \uD83D\uDD27 Updates\n- **[ElvUI]** All four layouts use the Forever portrait textures.\n- **[Baganator]** The bag window hides the guild, lock items, grouping and swap buttons.\n- **[Installer]** The addon page scrolls when the addon profiles do not fit, with a scroll bar in your class color.\n\n## ✨ New\n- **[Chattynator]** The installer sets up Chattynator with the MaUI chat window, tabs and ElvUI skin when the addon is installed."
+    },
+    {
+      "tag": "v1.0.1",
+      "name": "MaUI Installer v1.0.1",
+      "published": "2026-11-13",
+      "notes": "## \uD83D\uDD27 Updates\n- **[ElvUI]** All four layouts use the mMT Gold datatext in the right data panel.\n- **[ElvUI]** Updated profile settings, mover positions and accent colors.\n- **[Baganator]** Updated profile and categories for Retail.\n\n## \uD83D\uDCCC Info\n- Requires mMediaTag 4.20 or newer for the new gold datatext."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132233.png",
+    "https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132219.png",
+    "https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20140103.png",
+    "https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132334.png",
+    "https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132304.png",
+    "https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132421.png",
+    "https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20132826.png",
+    "https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20133258.png",
+    "https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20135537.png",
+    "https://raw.githubusercontent.com/mBlinkii/MaUI-ElvUI-Profile-Strings/main/Screenshots/Screenshot%202026-11-01%20131601.png"
+  ],
+  "stats": {
+    "stars": 28,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-13"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "ElvUI_MaUI",
+      "ElvUI_MaUI_Data"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "ElvUI",
+      "ElvUI_mMediaTag"
+    ],
+    "optional": [
+      "Baganator",
+      "Chattynator",
+      "Details",
+      "MauiMPlusTimer",
+      "!!FunctionProfiler"
+    ],
+    "savedVariables": [
+      "MaUIInstallerDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "MaUIInstallerCharDB"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "lorescribe",
+  "repo": "EvilDrPorkChop/Lorescribe",
+  "about": "# Lorescribe\n\nA World of Warcraft addon for WoW Forever that saves quest text, books and NPC dialogue as you play, so you can skip reading in the moment and come back to it later.\n\nEverything new lands in a \"Read later\" queue. Open the library with `/ls` and read at your own pace.\n\n## What it saves\n\n- **Quests:** the description and objectives when a quest is offered (including quests you decline), the progress text when you return, and the completion text when you hand it in. All of it goes into one entry per quest.\n- **Books, letters, plaques and notes:** every page. Books are paged through automatically when you open them, so closing one on page 1 still saves the whole thing. The same book read on two characters is saved once.\n- **NPC dialogue:** the greeting text when you talk to an NPC. Short generic greetings are skipped. You can turn this off with `/ls gossip off`.\n\nIt also notes the zone, coordinates, date and which character saw it.\n\n## What it can recover from before you installed it\n\nThe first time you log in, Lorescribe reads what the game still knows:\n\n- **Quests in your log:** full description and objectives.\n- **Completed quests:** titles only. The game keeps a list of which quests you've finished but not their text. These show as \"Text not captured\" with a link to look the quest up online.\n- **Books:** nothing. The game keeps no record of what you've read. Open them again and they'll be saved.\n\nProgress and completion text can't be recovered for quests already in your log; it's saved when you hand them in.\n\n## Install\n\n1. Download the latest zip from the [releases page](https://github.com/EvilDrPorkChop/Lorescribe/releases), or install it with WowUp from this repository.\n2. Extract it into `World of Warcraft/_forever_/Interface/AddOns/`, so you end up with `.../AddOns/Lorescribe/Lorescribe.toc`.\n3. Restart the game or type `/reload`.\n\n## Using the library\n\nOpen it with `/ls`, the book button on the minimap (drag it to move it), or a key bound under Key Bindings > AddOns.\n\n- Tabs along the top: Read later, Quests, Books, Dialogue, People, Starred, All.\n- The search box looks through titles, zones, NPC names and the full text.\n- Filter by zone or character, and sort by date, zone or title.\n- Opening an entry doesn't mark it read. Use **Mark read** when you're done, or `/ls markread on` to have opening do it.\n- **Copy** opens the entry as plain text, ready for Ctrl+C. **Export** does the same for the whole list you're looking at.\n- A- and A+ change the reading text size.\n\n## People\n\nThe People tab gathers every mention of a character across your quests, books and dialogue, so you can follow someone like Arugal from the first rumour to the final quest.\n\nLorescribe learns names from:\n\n- quest givers and NPCs you talk to\n- named NPCs you target out of combat: friendly ones, plus hostile elites, rares and bosses (ordinary mobs are left out)\n- dungeon and raid bosses when the fight starts\n- every boss listed in the game's Dungeon Journal\n- names you add yourself with `/ls track <name>`\n\nNames are matched against everything you've saved, including text saved before you met them. A two-part name like \"Hamuul Runetotem\" also matches \"Hamuul\" or \"Runetotem\" alone, unless another name shares that word. Known names show as links in the reader: click one to see everywhere it's mentioned, then click an entry to read it in full.\n\nSomeone only appears under People once something you've saved mentions them. If a name is wrong or not worth following, open it and click **Hide**.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/ls` | Open or close the library |\n| `/ls scan` | Read your quest log and completed quest history again |\n| `/ls search <text>` | Open the library with a search filled in |\n| `/ls export` | Copy the current list as plain text |\n| `/ls stats` | Counts by type and how many are waiting to be read |\n| `/ls gossip on\\|off` | NPC dialogue capture |\n| `/ls paginate on\\|off` | Page through books automatically |\n| `/ls markread on\\|off` | Mark entries read when you open them |\n| `/ls track <name>` | Follow a name under People, or bring back a hidden one |\n| `/ls untrack <name>` | Hide a name from People |\n| `/ls minimap on\\|off\\|reset` | Show, hide or move back the minimap button |\n| `/ls minlength <n>` | Shortest dialogue worth saving (default 40 characters) |\n| `/ls link <url>` | Base URL for quest links (default `https://www.wowhead.com/quest=`) |\n| `/ls reset window` | Put the window back in the middle of the screen |\n| `/ls errors` | Show any errors caught this session |\n\n## Your data\n\nEverything is stored in one file shared by all your characters:\n\n`World of Warcraft/_forever_/WTF/Account/<ACCOUNT>/SavedVariables/Lorescribe.lua`\n\nIt's a plain Lua table. Back it up, or read it with your own tools outside the game. Addons can't write other files, so export inside the game is copy and paste only.\n\n## Notes\n\n- Lorescribe only listens to game events. It doesn't touch combat or protected frames.\n- If a capture ever fails, the error is recorded instead of interrupting play. `/ls errors` shows them, which is useful for bug reports.\n\n## License\n\nMIT. See [LICENSE](https://github.com/EvilDrPorkChop/Lorescribe/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.2.1",
+      "published": "2026-11-07",
+      "notes": "# Lorescribe\n\n## [v0.2.1](https://github.com/EvilDrPorkChop/Lorescribe/tree/v0.2.1) (2026-11-07)\n[Full Changelog](https://github.com/EvilDrPorkChop/Lorescribe/compare/v0.2.0...v0.2.1) [Previous Releases](https://github.com/EvilDrPorkChop/Lorescribe/releases)\n\n- Bump to 0.2.1  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Clarify the untitled quests switch and match more short forms of names  \n    The \"Untitled\" checkbox is now \"Untitled quests\" and only shows on the  \n    Quests and All tabs. The zone and character filters are hidden on People,  \n    where they do nothing.  \n    Short forms of names now come from any run of a name's words that  \n    includes a distinctive one, not just its first or last word. \"Arch Druid  \n    Hamuul Runetotem\" now matches \"Hamuul\" and \"Hamuul Runetotem\" as well as  \n    \"Runetotem\".  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-07",
+      "notes": "# Lorescribe\n\n## [v0.2.0](https://github.com/EvilDrPorkChop/Lorescribe/tree/v0.2.0) (2026-11-07)\n[Full Changelog](https://github.com/EvilDrPorkChop/Lorescribe/compare/v0.1.3...v0.2.0) [Previous Releases](https://github.com/EvilDrPorkChop/Lorescribe/releases)\n\n- Add a People tab that gathers every mention of a character  \n    Names come from quest givers and NPCs you talk to, notable NPCs you  \n    target out of combat (friendly ones, and hostile elites, rares and  \n    bosses), boss fights, the Dungeon Journal, and /ls track. They're  \n    matched against all saved text, including text saved before the name  \n    was learned, and two-part names also match on a distinctive single  \n    word (\"Hamuul\" for Hamuul Runetotem).  \n    Known names are links in the reader. A person's page lists each entry  \n    that mentions them, oldest first, with the sentence around the mention;  \n    clicking one opens it, with a link back.  \n    Existing quest givers and dialogue NPCs are added by a migration.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.1.3",
+      "published": "2026-11-07",
+      "notes": "# Lorescribe\n\n## [v0.1.3](https://github.com/EvilDrPorkChop/Lorescribe/tree/v0.1.3) (2026-11-07)\n[Full Changelog](https://github.com/EvilDrPorkChop/Lorescribe/compare/v0.1.2...v0.1.3) [Previous Releases](https://github.com/EvilDrPorkChop/Lorescribe/releases)\n\n- Fix the invisible minimap button  \n    The button's texture paths had single backslashes, which Lua reads as  \n    escapes, so none of its images loaded and it drew nothing. Use file IDs  \n    for the minimap art, as LibDBIcon does, and fix the icon path. The  \n    strata change from 0.1.2 wasn't needed and is reverted.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.1.2",
+      "published": "2026-11-07",
+      "notes": "# Lorescribe\n\n## [v0.1.2](https://github.com/EvilDrPorkChop/Lorescribe/tree/v0.1.2) (2026-11-07)\n[Full Changelog](https://github.com/EvilDrPorkChop/Lorescribe/compare/v0.1.1...v0.1.2) [Previous Releases](https://github.com/EvilDrPorkChop/Lorescribe/releases)\n\n- Draw the minimap button above the minimap  \n    On WoW Forever the button was placed correctly but drawn underneath the  \n    minimap, so it couldn't be seen. It now takes the minimap's strata if  \n    that's above MEDIUM and a frame level above it.  \n    The default position also moves from the lower left, where most addons  \n    put their buttons, to the upper left. /ls minimap reset puts it back  \n    there.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.1.1",
+      "published": "2026-11-07",
+      "notes": "# Lorescribe\n\n## [v0.1.1](https://github.com/EvilDrPorkChop/Lorescribe/tree/v0.1.1) (2026-11-07)\n[Full Changelog](https://github.com/EvilDrPorkChop/Lorescribe/compare/v0.1.0...v0.1.1) [Previous Releases](https://github.com/EvilDrPorkChop/Lorescribe/releases)\n\n- Add a minimap button  \n    The button opens the library, can be dragged around the minimap edge,  \n    and shows the unread count on hover. /ls minimap off hides it.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Lorescribe"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "LorescribeDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "LorescribeCharDB"
+    ]
+  }
+}

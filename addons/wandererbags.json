@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "wandererbags",
+  "repo": "Jaecko/wanderer-bags",
+  "about": "# Wanderer Bags\n\nYour bags and your bank in one quiet window, made for World of Warcraft Forever.\nAn extension of [Wanderer](https://github.com/Jaecko/wanderer): it needs Wanderer 1.4 or later.\n\n- All your bags in one Wanderer window (key B, or /wbags), sorted by kind or bag by bag; items keep their place while the window is open.\n- Quivers, ammo pouches, soul bags and profession bags each with their own free square.\n- A search by name, kind, level (>40, 30-40), quality, BoE or equip slot, with ! for \"without\" and | for \"or\".\n- The item level, \"BoE\", Wanderer's green arrow on what is better for you, a coin on the junk.\n- Alt+click an item for a small card: keep it (never sold), set it aside for the auction house, mark it as junk or for the bank.\n- Sections of your own, crafting reagents by profession, outfit pieces together; a section's card pins, moves, folds, sells or deposits it.\n- At a merchant, a Sell button that asks first, goes by lots of 12 (what a merchant can buy back) and leaves aside what is worth far more at the auction house.\n- The bank beside your bags at the banker (character and Warband tabs), what you marked put in on arrival, and viewable anywhere as you left it.\n- Over an item, what your other characters carry; while you search, what they have of it.\n\nDownload: [CurseForge](https://www.curseforge.com/wow/addons/wanderer-bags). Pairs with [Wanderer Auction](https://github.com/Jaecko/wanderer-auction). More on [wanderer-addon.com](https://wanderer-addon.com/).",
+  "releases": [
+    {
+      "tag": "v1.2.15",
+      "published": "2026-11-17",
+      "notes": "# Wanderer Bags 1.2.15\n\n### Changed\n- With the game's look (a choice under Wanderer's Appearance): the section headings, the guild bank's tabs and log drawn with the game's own parts, its lit and chosen rows, its dividers and colors. Needs Wanderer 1.4.89.\n\n### Fixed\n- A deposit at the bank stops when a trade window opens: the next items no longer go into the trade."
+    },
+    {
+      "tag": "v1.2.14",
+      "published": "2026-11-16",
+      "notes": "# Wanderer Bags 1.2.14\n\n### New\n- The guild bank in a Wanderer window, beside your bags: the guild's tabs with what your rank allows in each and the withdrawals you have left today, the items of the tab shown laid out as in the game, with the search of the bags (each tab says how many it holds of what you search).\n- Everything of the game's guild bank is there: take an item, put it in your bags with a right click, deposit from your bags with a right click, split a stack with Shift, drop gold on a square to deposit it, the item log, the gold log, the tab's text (written by those whose rank may), and a tab to buy for the guild master, with the game's own confirmation.\n- The guild's gold and what you may still take of it today at the foot; deposit and withdraw ask through the game's own questions. What your rank would refuse is not offered: a short line says why.\n- A link shows the game's own guild bank window, another one above it comes back; your choice is kept for this character. A new setting, \"Wanderer's guild bank in place of the game's\" (on), keeps the game's window if you prefer it.\n\n### Fixed\n- A search also looking in your other characters' bags: more than six found, the others counted (+3).\n- At a merchant or the auction house, protected items keep Shift and a click (link, split a stack) and Ctrl and a click; only selling them is held back.\n- Cooldowns show on items even where the game's newer buttons are missing; the bank always opens, even when the game is slow to show it.\n- Alt+right click on an item is the game's again (use it on yourself); Alt+left click opens its card.\n- An item Wanderer Auction turned into junk, common or better, always waits for your click at a merchant, even with Auction switched off.\n- Nothing is moved into the bank while a merchant window is open.\n\n### Changed\n- Items in one of your sections show their own sign, the padlock is for kept items only; items a quest needs show the quest's grey sign.\n- Click your gold at the bottom of the bags to take some in hand, for a trade or a letter.\n- Clearer words: \"Add to the shopping list\", \"Remove\" a section, \"Search an item...\".\n- An item one of your quests asks for shows the game's yellow question mark at its corner, easier to see than the grey one."
+    },
+    {
+      "tag": "v1.2.8",
+      "published": "2026-11-12",
+      "notes": "# Wanderer Bags 1.2.8\n\n### Changed\n- A finer look across the family: one palette for every color, clearer contrast on dark windows and on parchment, the same words in every language.\n- Controller: no keyboard numbers or mouse words shown where the controller has its own way; settings that need a mouse or a keyboard say so."
+    },
+    {
+      "tag": "v1.2.7",
+      "published": "2026-11-10",
+      "notes": "# Wanderer Bags 1.2.7\n\n### New\n- Controller support: items are used with the bottom button and taken in hand with the top one; at a merchant, the right button uses the game's own bag key. Needs Wanderer 1.4.37 or later.\n- With a controller, the left button opens an item's choices (Keep, Auction, Junk, Bank, your sections), as Alt + click does. Needs Wanderer 1.4.37 or later.\n\n### Fixed\n- No error any more when hovering an item placed in one of your sections.\n- Renaming a section by changing only its letter case now works.\n- \"Sell all\" no longer counts items that are never sold."
+    },
+    {
+      "tag": "v1.2.2",
+      "published": "2026-11-09",
+      "notes": "# Wanderer Bags 1.2.2\n\n### New\n- Wanderer Professions can show which of your other characters hold a reagent.\n\n### Changed\n- With the game's controller interface on, the top button acts as a right click on items and section titles."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-10-18",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-11",
+      "2026-10-10"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "WandererBags"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Wanderer"
+    ],
+    "optional": [
+      "WandererAuction",
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "WandererBagsDB"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "autorole",
+  "repo": "tf4482/AutoRole",
+  "about": "# AutoRole\n\nSets your group role (tank, healer, damage) automatically when you join a group, with or\nwithout dual spec.\n\n## Features\n\n- **Auto role on join** - on joining a group, your role is set to the one configured for\n  the active spec.\n- **Live change** - changing the role of the active spec while in a group sets it right away.\n- **Without dual spec** - spec 1 is your only spec; its role applies on every join.\n- **Per dual spec** - one role for spec 1 and one for spec 2; spec 2 can be set in advance\n  and applies once dual spec is learned.\n- **Remembered** - the roles are saved per character; default is \"Do not change\".\n- **Settings page** - all options in the game menu under Options > AddOns, also opened\n  from the addon compartment menu.\n- **Chat commands** - every option can also be changed by slash command.\n\n## Screenshots\n\n![Role set on joining a group](https://raw.githubusercontent.com/tf4482/AutoRole/main/docs/chat.png)\n\n![Settings page](https://raw.githubusercontent.com/tf4482/AutoRole/main/docs/settings.png)\n\n## Install\n\n1. Download `AutoRole-vX.Y.Z.zip` from the releases (or CurseForge, Wago).\n2. Unzip it into `World of Warcraft/_retail_/Interface/AddOns/`.\n3. Restart the game or type `/reload`.\n\n## Usage\n\n```text\n/autorole                     show the role per spec\n/autorole spec1 <role>        set the role for spec 1\n/autorole spec2 <role>        set the role for spec 2\n/autorole config              open the settings page\n/autorole help                list all commands\n```\n\nRoles: `none` (do not change), `tank`, `healer`, `damager`. `/ar` is a short alias.\n\n## Examples\n\n- Protection / Holy paladin: `/autorole spec1 tank` and `/autorole spec2 healer`.\n- Damage only: `/ar spec1 damager` - spec 2 stays untouched with `none`.\n- Joining a group in combat: the role is set right after combat ends.\n\n## Develop\n\nCheck the code with [Luacheck](https://github.com/lunarmodules/luacheck) before each commit\n(CI runs it on every push):\n\n```text\nluacheck .\n```\n\nRelease: push an annotated tag `vX.Y.Z`; GitHub Actions packages the addon with the\nBigWigs packager and publishes it.\n\n## License\n\nAll rights reserved, see [LICENSE](https://github.com/tf4482/AutoRole/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.1.1",
+      "published": "2026-11-21",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\nThe format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and\n[Semantic Versioning](https://semver.org/).\n\n## [0.1.1] - 2026-11-21\n\n### Changed\n\n- Target WoW Forever only (interface 16001)\n\n## [0.1.0] - 2026-11-21\n\n### Added\n\n- Set the group role automatically on joining a group, configurable per dual spec\n- Apply a changed role of the active spec right away while in a group\n- Settings page, compartment entry, and `/autorole` chat commands"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/tf4482/AutoRole/main/docs/chat.png",
+    "https://raw.githubusercontent.com/tf4482/AutoRole/main/docs/settings.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AutoRole"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "AutoRoleDB"
+    ]
+  }
+}

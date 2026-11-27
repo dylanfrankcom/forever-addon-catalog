@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "rapitwist",
+  "repo": "ivorapi/sealtwist",
+  "about": "# RapiTwist\n\nA visual seal-twisting tracker for paladins in **WoW Forever (interface 16001)**. Choose two seals and an echo goal for each. Each echo fills a matching segment on the left and right of the character. A blue **HIT** cue stays below the character while the active seal needs another echo. At the goal, the arcs, **SWAP**, and destination name turn mint green toward the lower echo goal or coral toward the higher goal. With equal goals, coral means return to First. Right-click the minimap button to position both arcs together.\n\n## Set up your pair\n\n1. Open the minimap button or type `/rapitwist`.\n2. Click the seal name in **First** or **Second** to cycle through choices. Picking the other slot's seal exchanges the pair. Click **Echo goal** in each row to cycle through one, two or three stacks.\n3. Choose **Apply and reload UI** outside combat. Closing the panel discards pending seal edits.\n\nCommand, Righteousness, Fury, Justice, Light and Wisdom use the player's native echo auras. Crusader and Martyrdom display their active state with **Manual** timing. Empty segments are dim slate. Earned echoes are cyan in the first slot and violet in the second. Upgrading to the side-arc layout centers the tracker once. The default pair is Command at three echoes and Righteousness at one.\n\n## Installation\n\nDownload [RapiTwist-1.6.8.zip](https://github.com/ivorapi/sealtwist/releases/download/v1.6.8/RapiTwist-1.6.8.zip). Extract the `RapiTwist` folder into `World of Warcraft/_forever_/Interface/AddOns/`. Enable RapiTwist in the addon list. Use `/reload` after updating from 1.3.0.\n\nWhen upgrading from SealTwist Visual 1.2.x, close WoW and move the old `SealTwistVisual` addon folder out of `Interface/AddOns`. To keep its settings, copy `WTF/Account/<account>/SavedVariables/SealTwistVisual.lua` to `RapiTwist.lua` in the same directory and rename the initial variable from `SealTwistVisualDB` to `RapiTwistDB`. Keep your existing RapiTwist settings file if present.\n\n## Controls\n\nRight-click the minimap button to move the tracker outside combat. Drag the minimap button to reposition it. The settings panel includes size, opacity and visibility controls. [All commands](https://github.com/ivorapi/sealtwist/blob/main/RapiTwist/README.txt)\n\n## Development\n\nThe addon uses Blizzard's native aura containers. The Lua tests simulate the client and exercise seal selection, stack thresholds, alerts and positioning. From the repository root, using Node.js 22, npm and PowerShell 7:\n\n```sh\nnpm ci\nnpm test\npwsh -File scripts/package.ps1\n```\n\nThe installable ZIP is written to `dist/`. [Changelog](https://github.com/ivorapi/sealtwist/blob/main/CHANGELOG.md) · [MIT license](https://github.com/ivorapi/sealtwist/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v1.6.8",
+      "name": "RapiTwist 1.6.8",
+      "published": "2026-11-25",
+      "notes": "Swap colors are now mint green to discharge and coral to return."
+    },
+    {
+      "tag": "v1.6.7",
+      "name": "RapiTwist 1.6.7",
+      "published": "2026-11-25",
+      "notes": "Coral marks the swap to the lower echo goal. Mint green marks the return to the higher goal."
+    },
+    {
+      "tag": "v1.6.6",
+      "name": "RapiTwist 1.6.6",
+      "published": "2026-11-25",
+      "notes": "HIT clears when SWAP appears and returns when the active seal needs another echo. The cue uses native aura formatting and layout."
+    },
+    {
+      "tag": "v1.6.5",
+      "name": "RapiTwist 1.6.5",
+      "published": "2026-11-25",
+      "notes": "Remove the per-frame protected IsVisible call that caused repeated Lua errors. The native aura threshold still displays the swap alert."
+    },
+    {
+      "tag": "v1.6.4",
+      "name": "RapiTwist 1.6.4",
+      "published": "2026-11-25",
+      "notes": "Earned echoes now fill cyan for the first seal and violet for the second."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RapiTwist"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Blizzard_AuraContainer"
+    ],
+    "savedVariables": [
+      "RapiTwistDB"
+    ]
+  }
+}

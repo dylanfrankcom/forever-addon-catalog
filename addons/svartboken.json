@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "svartboken",
+  "repo": "MaxHegdal/Svartboken",
+  "about": "# Svartboken\n\nAddon för WoW Forever som visar vilken spelare som gav dig killing blow i open world och delar statistik och anteckningar med ditt gäng. Mer om hur det fungerar finns i [Svartboken/README.md](https://github.com/MaxHegdal/Svartboken/blob/main/Svartboken/README.md).\n\n## För gänget\n\nLadda ner [Uppdatera-Svartboken.cmd](https://github.com/MaxHegdal/Svartboken/releases/latest/download/Uppdatera-Svartboken.cmd) och kör den en gång. Svara ja på frågan om automatisk uppdatering, så behöver du inte göra något mer.\n\nFilen laddar bara ner `Svartboken.zip` från den här sidans releaser och lägger den i `_forever_\\Interface\\AddOns\\Svartboken`. Med `Uppdatera-Svartboken.cmd tabort` stänger du av den automatiska uppdateringen.\n\n## Publicera en ny version\n\nCommitta ändringarna och kör:\n\n```\n.\\publicera.ps1 1.2.0 \"Vad som är nytt\"\n```",
+  "releases": [
+    {
+      "tag": "v1.3.0",
+      "name": "Svartboken 1.3.0",
+      "published": "2026-11-07",
+      "notes": "Efterlyst: badge och markering på nameplates när någon som dödat gänget syns, klicka för target. De du spelar i grupp med läggs automatiskt på gänglistan. Testa visar alltid ett resultat. Den dolda kanalen är borttagen."
+    },
+    {
+      "tag": "v1.1.2",
+      "name": "Svartboken 1.1.2",
+      "published": "2026-11-06",
+      "notes": "Popup när en spelares husdjur ger dödsstöten. Synk via kanal, grupp och gänglista samtidigt. Namn med efternamn fungerar överallt. Lokal diagnoslogg för felsökning."
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "Svartboken 1.1.0",
+      "published": "2026-11-06",
+      "notes": "Första versionen med uppdaterare. Förnamn och efternamn, bara spelare, automatisk kanal, anteckningar och Testa-knapp."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Svartboken"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SvartbokenDB"
+    ]
+  }
+}

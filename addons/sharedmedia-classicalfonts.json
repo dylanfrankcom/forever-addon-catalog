@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "sharedmedia-classicalfonts",
+  "repo": "Myrroddin/sharedmedia-classicalfonts",
+  "about": "# SharedMedia Classical Fonts\n\nThis addon adds fonts to [LibSharedMedia-3.0](https://www.curseforge.com/wow/addons/libsharedmedia-3-0)'s list of available fonts, which you can choose from dropdown menus in addons that support LSM.\n\n## Installation and Use\n\nDownload SharedMedia Classical Fonts from one of the following websites:\n\n- [Curseforge](https://www.curseforge.com/wow/addons/sharedmedia-classicalfonts)\n- [Wowinterface](https://www.wowinterface.com/downloads/info22318-SharedMedia_ClassicalFonts.html)\n- [Wago.io](https://addons.wago.io/addons/sharedmedia-classicalfonts)\n\nInstall this addon like every other addon, into the `\\World of Warcraft\\_game_version_\\Interface\\AddOns\\` folder. Once installed, select a font as shown in the screenshots. Dozens of addons support LSM.\n\n## Fonts Added\n\n- [Ancient Geek](https://www.dafont.com/search.php?q=ancient+geek)\n- [Augustus and Augustus Beveled](https://www.dafont.com/search.php?q=augustus)\n- [Caesar](https://www.dafont.com/caesar.font)\n- [Capitalis Type Oasis](https://www.dafont.com/capitalis-typoasis.font)\n- [Cleopatra](https://www.dafont.com/cleopatra.font)\n- [Diogenes](https://www.dafont.com/diogenes.font)\n- [Germanica](https://www.dafont.com/germanica-family.font) (plain, shadowed, embossed, fluted)\n- [Herculanum](https://www.myfonts.com/collections/herculanum-font-linotype)\n- [King Arthur Legend](https://www.dafont.com/king-arthur-legend.font)\n- [Marathon](https://www.dafont.com/marathon.font)\n- [Norse](https://www.dafont.com/norse.font) (plain and bold)\n- [Olde English](https://www.dafont.com/olde-english.font)\n- [Roman SD](https://www.dafont.com/roman-sd.font)\n- [ROMANUM EST ALL CAPS](https://www.dafont.com/romanum-est.font) (there are no lower-case characters)\n- [Triatlhon In](https://www.dafont.com/triatlhon-in.font)\n\n![fonts](https://github.com/user-attachments/assets/f39143f2-6589-451b-a36f-ca71630efeb0)\n\n## Issue Tracker\n\nFound a bug or want to suggest an improvement? [Go to GitHub](https://github.com/Myrroddin/sharedmedia-classicalfonts/issues) and tell me about it.\n\n## Sample Images from AddOns\n\nPlease note that any addon which uses LibSharedMedia-3.0 usually includes fonts, plus LSM ships with some.\n\n### BigWigs Boss Mods\n\n![bigwigs fonts](https://github.com/Myrroddin/sharedmedia-classicalfonts/assets/6456346/6ec7bb1e-bfb2-4273-980d-139298a5d563)\n\n### ElvUI\n\n![elvui fonts](https://github.com/Myrroddin/sharedmedia-classicalfonts/assets/6456346/375aebfa-31ea-4779-abd3-9130a4947700)",
+  "releases": [
+    {
+      "tag": "2.118",
+      "published": "2026-10-17",
+      "notes": "# SharedMedia Classical Fonts\n\n## [2.118](https://github.com/Myrroddin/sharedmedia-classicalfonts/tree/2.118) (2026-10-17)\n[Full Changelog](https://github.com/Myrroddin/sharedmedia-classicalfonts/compare/2.117...2.118) [Previous Releases](https://github.com/Myrroddin/sharedmedia-classicalfonts/releases)\n\n- [Retail] Bump ToC for patch 12.1.5"
+    },
+    {
+      "tag": "2.117",
+      "published": "2026-10-07",
+      "notes": "# SharedMedia Classical Fonts\n\n## [2.117](https://github.com/Myrroddin/sharedmedia-classicalfonts/tree/2.117) (2026-10-07)\n[Full Changelog](https://github.com/Myrroddin/sharedmedia-classicalfonts/compare/2.116...2.117) [Previous Releases](https://github.com/Myrroddin/sharedmedia-classicalfonts/releases)\n\n- Update README.md again  \n- Merge branch 'master' of https://github.com/Myrroddin/sharedmedia-classicalfonts  \n- [Forever] Add support  \n- Update README.md"
+    },
+    {
+      "tag": "2.116",
+      "published": "2026-08-12",
+      "notes": "# SharedMedia Classical Fonts\n\n## [2.116](https://github.com/Myrroddin/sharedmedia-classicalfonts/tree/2.116) (2026-08-12)\n[Full Changelog](https://github.com/Myrroddin/sharedmedia-classicalfonts/compare/2.115...2.116) [Previous Releases](https://github.com/Myrroddin/sharedmedia-classicalfonts/releases)\n\n- Update README  \n- [Retail] Bump Toc For patch 12.1"
+    },
+    {
+      "tag": "2.115",
+      "published": "2026-08-05",
+      "notes": "# SharedMedia Classical Fonts\n\n## [2.115](https://github.com/Myrroddin/sharedmedia-classicalfonts/tree/2.115) (2026-08-05)\n[Full Changelog](https://github.com/Myrroddin/sharedmedia-classicalfonts/compare/2.114...2.115) [Previous Releases](https://github.com/Myrroddin/sharedmedia-classicalfonts/releases)\n\n- [All] Fix typo in Herculanum font name registration"
+    },
+    {
+      "tag": "2.114",
+      "published": "2026-08-01",
+      "notes": "# SharedMedia Classical Fonts\n\n## [2.114](https://github.com/Myrroddin/sharedmedia-classicalfonts/tree/2.114) (2026-08-01)\n[Full Changelog](https://github.com/Myrroddin/sharedmedia-classicalfonts/compare/2.113...2.114) [Previous Releases](https://github.com/Myrroddin/sharedmedia-classicalfonts/releases)\n\n- Update README.md again  \n- Update README.md  \n- {All] Added Norse, Norse Bold, and Herculanum fonts  \n- [Wrath] Bump ToC for patch 3.8.2"
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/f39143f2-6589-451b-a36f-ca71630efeb0"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-17",
+    "releaseDates": [
+      "2026-10-17",
+      "2026-10-07",
+      "2026-08-12",
+      "2026-08-05",
+      "2026-08-01",
+      "2026-07-22",
+      "2026-06-17",
+      "2026-06-03",
+      "2026-04-27",
+      "2026-04-23",
+      "2026-03-04",
+      "2025-11-10",
+      "2025-10-11",
+      "2025-08-12",
+      "2025-07-23",
+      "2024-07-24",
+      "2024-07-19",
+      "2024-06-12",
+      "2024-06-11",
+      "2024-06-09",
+      "2024-05-22",
+      "2024-05-08",
+      "2024-05-02",
+      "2024-04-06",
+      "2024-03-20",
+      "2024-02-07",
+      "2024-01-17",
+      "2023-11-25",
+      "2023-11-16",
+      "2023-11-08",
+      "2023-10-16",
+      "2023-09-06",
+      "2023-08-23",
+      "2023-07-11",
+      "2023-05-06",
+      "2023-04-05",
+      "2023-03-21",
+      "2023-01-24",
+      "2022-11-15",
+      "2022-11-01",
+      "2022-10-27",
+      "2022-10-27",
+      "2022-08-16",
+      "2022-07-29",
+      "2022-05-31",
+      "2022-05-20",
+      "2022-05-12",
+      "2022-03-24",
+      "2022-02-22",
+      "2022-01-23"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "SharedMedia_ClassicalFonts"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "LibSharedMedia-3.0"
+    ]
+  }
+}

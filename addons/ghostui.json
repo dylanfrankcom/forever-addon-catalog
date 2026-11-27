@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "ghostui",
+  "repo": "Estasleyendoesto/GhostUI",
+  "about": "![](https://raw.githubusercontent.com/Estasleyendoesto/GhostUI/master/.assets/gUI_alpha.png)\n\n# gUI - GhostUI\n\n**gUI** is an addon designed to adjust the opacity of any frame in the game, including those created by other addons. It enhances the interface with dynamic features like adaptive opacity based on specific events—such as being AFK, mounted, in combat, or inside an instance.\n\nWith the introduction of Blizzard's **Edit Mode**, players gained the power to move UI elements, but the ability to control their visibility remained limited. **gUI** serves as a natural extension of Edit Mode, allowing frames to fade away and blend into the environment when they aren't needed.\n\n## Key Features\n* **Full Opacity Control:** Adjust any registered frame from $0$ to $1$ with precision.\n* **Dynamic Adaptability:** Individual and group profiles for specific events (Combat, Mount, AFK, etc.).\n* **Proximity Reveal:** Mouseover functionality to smoothly show hidden frames.\n* **Smooth Transitions:** All state changes utilize high-quality fade-in and fade-out effects.\n* **Native Integration:** Works seamlessly with the stock Blizzard UI for a clean and personalized experience.\n\n## Preview\n![gUI](https://raw.githubusercontent.com/Estasleyendoesto/GhostUI/master/.assets/Portrait.jpg)\n\n## Technical Resources\nThis project is built using Blizzard's API documentation and community-driven resources:\n* [Patch 11.0.0 API Changes](https://warcraft.wiki.gg/wiki/Patch_11.0.0/API_changes)\n* [Blizzard Menu Implementation Guide](https://www.townlong-yak.com/framexml/latest/Blizzard_Menu/11_0_0_MenuImplementationGuide.lua)\n* [Blizzard Setting Controls](https://www.townlong-yak.com/framexml/live/Blizzard_Settings_Shared/Blizzard_SettingControls.lua#932)",
+  "releases": [
+    {
+      "tag": "GhostUI-1.2.0",
+      "published": "2026-11-15",
+      "notes": "Version 1.2.0:\n\n- Updated addon and Ace3 libraries for WoW Forever compatibility\n- Added new detectors: Dead, Target, Stealth, and Resting\n- Refactored Chatbox and extracted custom fade logic into MagicFade\n- Applied performance optimizations for frame updates, mouseover checks, and memory usage\n- Added lazy loading for frame configuration widgets\n- Added support for additional Blizzard frames\n- Updated About panel links and cleaned up addon metadata and release packaging"
+    },
+    {
+      "tag": "GhostUI-1.1.02",
+      "published": "2026-08-12",
+      "notes": "Version 1.1.02:\n- Complete interface overhaul\n- Added command-line operations\n- Added performance inspector\n- Replaced chatbox fade system with a custom one instead of Blizzard's\n- Rewritten addon architecture\n- Optimized UI features\n- New events can now be easily registered\n- Each frame can now easily contain additional logic"
+    },
+    {
+      "tag": "HideUI-1.0.5.1",
+      "name": "HideUI 1.0.5.1",
+      "published": "2024-10-10",
+      "notes": "Version 1.0.5.1:\n- The word wrap mode has been changed to experimental.\n- Fixed a minor issue when turning off the addon right after entering an event."
+    },
+    {
+      "tag": "HideUI-1.0.5",
+      "name": "HideUI 1.0.5",
+      "published": "2024-10-08",
+      "notes": "Version 1.0.5:\n- The response to opacity changes has been improved.\n- The responsibilities of conflicting frames have been delegated to their respective modules.\n- Exiting combat now responds better along with the delay.\n- A significant error related to the first frame load has been fixed.\n- Unnecessary delays that worsened the experience have been removed.\n- The priority has been changed, with combat now being the highest priority, followed by instances.\n- A problem where certain frames did not update their opacity after entering or leaving an event has been corrected."
+    },
+    {
+      "tag": "HideUI-1.0.4",
+      "name": "HideUI 1.0.4",
+      "published": "2024-09-01",
+      "notes": "- Applied minor corrections to code order and readability\n- Fixed problem of not detecting new chat tabs.\n- LockDefaultAlpha() and UnlockDefaultAlpha() functions have been created to prevent the system from changing the alpha.\n- Like Cluster, Frame.lua has been created to deal with those third-party or particularly conflicting frames, and if they require full customization, they will have their own module in the /Frames folder. As an advantage, they inherit from base and Frame.\n- A speculative solution has been applied to a possibility that Bindings of Blizzard.lua has a non-existing frame registered in Data\n- Added a requirement that frame has the GetName() method when trying to add a new frame in Community.\n- The Addons keybinding section has been renamed HideUI."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Estasleyendoesto/GhostUI/master/.assets/gUI_alpha.png",
+    "https://raw.githubusercontent.com/Estasleyendoesto/GhostUI/master/.assets/Portrait.jpg"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-08-12",
+      "2024-10-10",
+      "2024-10-08",
+      "2024-09-01",
+      "2024-08-31",
+      "2024-08-28",
+      "2024-08-23",
+      "2024-08-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GhostUI"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "GhostDB"
+    ]
+  }
+}

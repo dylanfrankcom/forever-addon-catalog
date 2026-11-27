@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "id": "rxpguides",
+  "repo": "RestedXP/RXPGuides",
+  "about": "# RestedXP Guides\n\n## Overview\n\nThis is a platform to write in-game leveling guides for WoW Classic\n\n## Writing your own guides\n\nIf you wish to create your own guides using this platform you can check out this article:\nhttps://www.restedxp.com/create-your-own-restedxp-guide/",
+  "releases": [
+    {
+      "tag": "v4.11.40",
+      "published": "2026-11-23",
+      "notes": "# RestedXP Guides\n\n## [v4.11.40](https://github.com/RestedXP/RXPGuides/tree/v4.11.40) (2026-11-23)\n[Full Changelog](https://github.com/RestedXP/RXPGuides/compare/v4.11.39...v4.11.40) [Previous Releases](https://github.com/RestedXP/RXPGuides/releases)\n\n- Add missing Forever Druid statWeights  \n- l10n: refresh addon source strings (#421)  \n- Darkshore Dungeon Guide updates  \n- Minor bug fixes/adjustments  \n- Update esES Classic starter guides from Pontoon  \n- Update ptBR Classic starter guides from Pontoon  \n- Update zhCN Classic starter guides from Pontoon  \n- Update frFR Classic starter guides from Pontoon  \n- Update deDE Classic starter guides from Pontoon"
+    },
+    {
+      "tag": "v4.11.39",
+      "published": "2026-11-23",
+      "notes": "# RestedXP Guides\n\n## [v4.11.39](https://github.com/RestedXP/RXPGuides/tree/v4.11.39) (2026-11-23)\n[Full Changelog](https://github.com/RestedXP/RXPGuides/compare/v4.11.38...v4.11.39) [Previous Releases](https://github.com/RestedXP/RXPGuides/releases)\n\n- Update ItemUpgrades - Forever weights (#447)  \n    - Update tooling for Forever  \n    - Persist guessed Forever spec to DB  \n    - Fix Forever class weapons (Druids get Polearms, Rogues get 1H Axes)  \n    - Ingest Lmgd Stat Weights  \n- Reset arrow to default position, not center  \n- Fix ItemUgrade secret error  \n- Make mini frames drop moving on combat  \n    Only applies to mini frames since those have protected functions  \n- Rename Brand Menus to Theme Menus  \n- Hide world map button setting if incompatible  \n- Make Hide Waypoint Arrow take effect immediately  \n- Make Configurator description text height dynamic  \n- Add Run Guide Configurator always to v2 menu  \n- Consolidate and overhaul mini frames (#445)  \n    - Consolidate MiniFrames onto a shared widget  \n    - Update v1 style functions to Theme nomenclature  \n    - Reduce v1/legacy override/uniqueness  \n- Fix v2 theme propagation on step cards  \n- Refine Skyborne V2 Part 1 & 2 routing  \n    Part 1  \n    - Update Shen'dar cooking and weapon backup quest conditions  \n    - Add level 6 Shaman backup training  \n    - Simplify optional Blacksmithing steps and skip when stones are owned  \n    - Reposition vendor stops and reposition bag, ammunition, and repair guidance  \n    - Revise Falaath Village return waypoints and wardrobe instructions  \n    - Split Vulgara steps by Windstone ownership and add usage guidance  \n    - Rework the Western Watch deathskip and add resurrection warnings  \n    - Simplify tower navigation and revise the river-crossing helper  \n    - Update Hippogryph loops and supporting loot objective dependencies  \n    - Adjust Attuned refresh thresholds and Novice Seer waypoints  \n    - Raise Boosted Rest crafting checks to 20 Linen Cloth  \n    - Clarify crafting, buff food, and bag management during resting  \n    - Add skill requirements for Camping 101 profession quests  \n    - Reorder First Aid crafting and Fishing turn-in steps  \n    - Move the Part 1 endpoint label and remove obsolete commented steps  \n    Part 2  \n    - Add ownership checks after money checks for Zephrali purchases  \n    - Add Rogue dual-wield purchase guidance  \n    - Split Unnerving Silence routing by faction and Attuned status  \n    - Split equipment fallbacks by class and check Zephrali ownership  \n    - Replace the Catching Wind return flight with a two-step deathskip  \n    - Clarify combat, quest turn-in, and Spirit Healer instructions  \n    Add missing quest-condition comments and standardize text formatting  \n- Update ptBR Classic starter guides from Pontoon  \n- Update esES Classic starter guides from Pontoon  \n- Update zhCN Classic starter guides from Pontoon  \n- Update frFR Classic starter guides from Pontoon  \n- Update deDE Classic starter guides from Pontoon"
+    },
+    {
+      "tag": "v4.11.38",
+      "published": "2026-11-21",
+      "notes": "# RestedXP Guides\n\n## [v4.11.38](https://github.com/RestedXP/RXPGuides/tree/v4.11.38) (2026-11-21)\n[Full Changelog](https://github.com/RestedXP/RXPGuides/compare/v4.11.37...v4.11.38) [Previous Releases](https://github.com/RestedXP/RXPGuides/releases)\n\n- Handle missing leveling report export data  \n- Fix v2 .link functionality  \n- Moved some endgame games away from the unused guides section  \n- Add ItemUpgrades - Forever MVP (#443)  \n    - Enable ItemUpgrades on Forever  \n    - (Initially) Disable AH on Forever  \n- Complete Follow leader target/macro work (#442)  \n    - Complete ActiveTarget party leader work  \n    - Update RXPFollow macro logic  \n    - Consolidate PartyLeader logic  \n- Skyborne Reroute Name Update (WIP)  \n- Skyborne Reroute (WIP)  \n- Add Enable Bank Automation toggle  \n- Prevent skipgossip secret error  \n    Fixes #441  \n- Fix NPC name lookup tooltip lookup  \n    Fixes #432  \n- Protect questAutomation from hidden and invalid questIDs  \n    Fixes #433  \n- Fix profile settings overzealous buttons leak  \n    Fixes #439  \n- Fix reused timer errors  \n    Update formatting  \n    Fixes #428  \n- Preserve collapsed quest-log categories on WoW Forever (#427)  \n    Fixes #426  \n- Added Stormpike's Delivery to NE Loch section  \n- Update zhCN Classic starter guides from Pontoon  \n- Update ptBR Classic starter guides from Pontoon  \n- Update frFR Classic starter guides from Pontoon  \n- Update esES Classic starter guides from Pontoon  \n- Update deDE Classic starter guides from Pontoon  \n- Complete v2 overhaul (#438)  \n    - Rebuilt supplemental windows on the shared themed V2 frame  \n    - Overhauled the leveling report and Level Splits, including tabs, history, comparisons, and sharing  \n    - Updated configurator, menus, and step-list behavior for V2 styling and resizing  \n    - Improved shared widget themes, fonts, dropdowns, buttons, and logo scaling  \n    - Preserved the V1 link popup and fixed target dragging and configurator initialization"
+    },
+    {
+      "tag": "v4.11.37",
+      "published": "2026-11-18",
+      "notes": "# RestedXP Guides\n\n## [v4.11.37](https://github.com/RestedXP/RXPGuides/tree/v4.11.37) (2026-11-18)\n[Full Changelog](https://github.com/RestedXP/RXPGuides/compare/v4.11.36...v4.11.37) [Previous Releases](https://github.com/RestedXP/RXPGuides/releases)\n\n- Improve the Ruins of Lordaeron waypoints  \n- Added FP/zone data (forever)  \n- Added forever FP data  \n- Allowed multiple step requirements  \n- Update frFR Classic starter guides from Pontoon  \n- Update deDE Classic starter guides from Pontoon  \n- Update ptBR Classic starter guides from Pontoon  \n- Update esES Classic starter guides from Pontoon  \n- Update zhCN Classic starter guides from Pontoon  \n- Skyborne: Add Camping 101: Herbalism Turn-in change  \n- Fixed incorrect escape character substitution  \n- Add Dwarf/Gnome Priest level 10 training  \n- Add boat travel step for Skyborne Druid to Teldrassil, Remove Warrior training for Non-Warriors  \n- Remove 10 minute warning timer from Snowbound  \n- Update frFR Classic starter guides from Pontoon  \n- Update ptBR Classic starter guides from Pontoon  \n- Update esES Classic starter guides from Pontoon  \n- Update deDE Classic starter guides from Pontoon  \n- Update zhCN Classic starter guides from Pontoon  \n- Update deDE Classic starter guides from Pontoon"
+    },
+    {
+      "tag": "v4.11.36",
+      "published": "2026-11-11",
+      "notes": "# RestedXP Guides\n\n## [v4.11.36](https://github.com/RestedXP/RXPGuides/tree/v4.11.36) (2026-11-11)\n[Full Changelog](https://github.com/RestedXP/RXPGuides/compare/v4.11.35...v4.11.36) [Previous Releases](https://github.com/RestedXP/RXPGuides/releases)\n\n- Minor Elwynn/Westfall improvements  \n- Added loot sparkle option  \n- Added Riverglades FP  \n- Minor fixes/improvements 1-22 Forever  \n- Added new pre-reqs ROL dungeon guide  \n- Set forever to pre-naxx patch  \n- Fixes and improvements to 1-20 Alliance Dungeon Guide  \n- Update zhCN Classic starter guides from Pontoon  \n- Override Forever dungeon selection  \n    ensure required dungeons are obvious  \n    add disclaimer about optional dungeons  \n    Preserve non-Forever behavior  \n- Update ptBR Classic starter guides from Pontoon  \n- Update zhCN Classic starter guides from Pontoon  \n- Update frFR Classic starter guides from Pontoon  \n- Update esES Classic starter guides from Pontoon"
+    }
+  ],
+  "stats": {
+    "stars": 210,
+    "openIssues": 16,
+    "contributors": 45,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-21",
+      "2026-11-18",
+      "2026-11-11",
+      "2026-11-08",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-11-03",
+      "2026-10-29",
+      "2026-10-28",
+      "2026-10-21",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-10-07",
+      "2026-10-06",
+      "2026-10-05",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-03",
+      "2026-09-30",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-22",
+      "2026-09-22",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-20",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-18",
+      "2026-09-18",
+      "2026-09-15",
+      "2026-09-05",
+      "2026-08-30",
+      "2026-08-28",
+      "2026-08-25",
+      "2026-08-17",
+      "2026-08-17",
+      "2026-08-16",
+      "2026-07-24"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "RXPGuides"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Questie",
+      "RXPGuides_Themes"
+    ],
+    "savedVariables": [
+      "RXPData",
+      "RXPDB",
+      "RXPSettings",
+      "RXPString"
+    ],
+    "savedVariablesPerCharacter": [
+      "RXPCData",
+      "RXPCTrackingData",
+      "RXPCComms",
+      "RXPCSettings"
+    ]
+  }
+}

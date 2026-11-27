@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "partylens",
+  "repo": "danielcosta42/PartyLens",
+  "about": "# PartyLens\n\n**A group radar for WoW: Forever.**\n\nPartyLens listens to the LookingForGroup channel and to other PartyLens users, and shows every group\nthat is forming in one panel: what it runs, which roles it still needs, how fresh it is, and who leads\nit. Whisper or invite with one click.\n\nBuilt for **WoW: Forever** (interface 16001). No dependencies.\nThe TBC Anniversary edition stays on the 0.33 line.\n\n---\n\n## Groups\n\n- **The radar.** Every group lights up as a blip; new ones pop in as they appear.\n- **What each group still needs.** Tank, healer and dps pips, how full the group is, and the activity\n  (vanilla dungeons and raids plus the Forever additions: City of Dalaran, Ruins of Lordaeron,\n  Excavation Site: Wetlands, The Hall of Thanes, Manor Mistmantle).\n- **Filters.** The roles you play, LFM or LFG, activity, text search, open groups only, spam hidden.\n- **One-click actions.** Whisper (a message built from your roles), Invite (for players looking for a\n  group), Who (fills in level and class for people without the addon), Block.\n\n## Announce\n\nBuild your post from the activity, the roles you are missing and a comment. One click sends it to\nLookingForGroup and publishes it to the PartyLens network, where other users see it on their radar.\n\n**Autopilot** suggests players from the radar who fill the roles you are missing. You confirm each\ninvite and whisper; it never sends anything on its own.\n\n## Layer\n\nPartyLens reads your layer from nearby creatures and draws the layers of the zone you are in as a stack of\nplates: dots on each plate are the players heard there, lights on its edge the beacons on duty, and yours\nglows amber. Each layer goes by the game's own number for that copy of the zone, the same for every\nplayer, so \"layer 6\" in chat means the same layer to everyone. Pick a plate to see its numbers and what changed lately (a beacon went on duty, someone was\nbrought over, the layer filled up). It shows layers, never names.\n\n**Go here** asks a beacon on that layer to invite you; if it can't, the next one is asked by itself.\nAccept the invite, then click the game's prompt to switch layers (or wait about five minutes and the game\nmoves you). Leave the group with a click when you are done. Layers on Forever belong to each zone, so a\nbeacon brings you over inside the zone you are both in.\n\n**Be a beacon.** It is on by default and works while you are in the open world, out of combat, not away\nand not in someone else's group. When a player asks for your layer, a prompt drops from the top of the\nscreen (window open or not) with Invite and Decline, and a key binding invites the next one. The game\nneeds a click for every invite. Each player who arrives on your layer is one hop; hops earn ranks, from\nSpark to Legend. Turn it off in Settings.\n\n## Summon\n\nSee who in your group still needs a summon and announce it to the group with one click.\n\n---\n\n## How the network works\n\nWoW: Forever refuses addon messages on SAY and YELL, and custom channels deliver nothing. PartyLens rides\non **ChehulNet**, the mesh it shares with GuildOS and Lodestar: guild, group, and a hidden member list\nthat lets users whisper a few others of the faction, who pass a listing on at most twice.\n\nOn top of it, PartyLens users carry each other's listings: every client remembers who runs PartyLens, asks\ntwo of them for their board every 90 seconds, and sends a change to its own listing straight to a few. Someone\nwho just logged in has the board in seconds. The LookingForGroup channel fills in behind: PartyLens listings\ncome first on the radar. Nothing is sent from inside an instance.\n\nThe game requires a real click for invites, visible chat and /who, so every one of those comes from a\nbutton you press.\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/pl` or `/partylens` | Open or close the window |\n| `/pl announce` | Open Announce |\n| `/pl layer` | Open Layer |\n| `/pl help` | List the commands |\n\n## Install\n\nPut the `PartyLens` folder in `Interface/AddOns/` and restart the game (or `/reload`).\n\n## Languages\n\nThe interface is in English and Portuguese; other languages translate part of it and fall back to\nEnglish. LFG posts are understood in English, Portuguese, German, French and Spanish.\n\n---\n\n## Created by Chehul\n\nPartyLens is made by **Chehul (danielcosta42)**. If it saves you time, you can support\ndevelopment:\n\n**[Donate via PayPal](https://www.paypal.com/donate/?business=daniel.cfdutra13@gmail.com&currency_code=USD)**\n\nSource, issues and full changelog on **[GitHub](https://github.com/danielcosta42/PartyLens)**.",
+  "releases": [
+    {
+      "tag": "v1.3.1",
+      "published": "2026-11-12",
+      "notes": "# PartyLens\n\n## [v1.3.1](https://github.com/danielcosta42/PartyLens/tree/v1.3.1) (2026-11-12)\n[Full Changelog](https://github.com/danielcosta42/PartyLens/compare/v1.3.0...v1.3.1) [Previous Releases](https://github.com/danielcosta42/PartyLens/releases)\n\n- Merge pull request #13 from danielcosta42/feat/12-chehulnet-v1.4  \n    feat(net): lib ChehulNet v1.4.0, o PartyLens repassa os acampamentos do Warmth  \n- feat(net): lib ChehulNet v1.4.0, o PartyLens repassa os acampamentos do Warmth (#12)"
+    },
+    {
+      "tag": "v1.3.0",
+      "published": "2026-11-10",
+      "notes": "# PartyLens\n\n## [v1.3.0](https://github.com/danielcosta42/PartyLens/tree/v1.3.0) (2026-11-10)\n[Full Changelog](https://github.com/danielcosta42/PartyLens/compare/v1.2.0...v1.3.0) [Previous Releases](https://github.com/danielcosta42/PartyLens/releases)\n\n- feat: raros por camada e summon do reino pela rede ChehulNet (#11)  \n    Closes #9  \n    Closes #10"
+    },
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-10",
+      "notes": "# PartyLens\n\n## [v1.2.0](https://github.com/danielcosta42/PartyLens/tree/v1.2.0) (2026-11-10)\n[Full Changelog](https://github.com/danielcosta42/PartyLens/compare/v1.1.0...v1.2.0) [Previous Releases](https://github.com/danielcosta42/PartyLens/releases)\n\n- Merge pull request #8 from danielcosta42/claude/determined-sagan-ke1xpe  \n    feat(net): lib ChehulNet v1.3.0, menos chance de bloqueio do diretório  \n- feat(net): lib ChehulNet v1.3.0, menos chance de bloqueio do diretório (#7)  \n    LibChehulMesh v9 e ChehulNet v15 vindas de danielcosta42/chehulnet pelo tools/sync.sh: canal do diretório  \n    por ruleset no Forever, lista lida a cada ~10 min e só com poucos links, diretório só completando o leque,  \n    freio de sussurros perdidos e nome numerado depois de WRONG\\_PASSWORD/BANNED. DIAG nf, trip, dirch e dirage.  \n    - tools/wowstub.lua: W.directory marca a lista como recém-lida (a v9 só usa lista lida há até DIR\\_FRESH).  \n    - 1.2.0.  \n    Closes #7"
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-09",
+      "notes": "# PartyLens\n\n## [v1.1.0](https://github.com/danielcosta42/PartyLens/tree/v1.1.0) (2026-11-09)\n[Full Changelog](https://github.com/danielcosta42/PartyLens/compare/v1.0.1...v1.1.0) [Previous Releases](https://github.com/danielcosta42/PartyLens/releases)\n\n- Merge pull request #6 from danielcosta42/claude/determined-sagan-ke1xpe  \n    feat(net): lib ChehulNet v1.2.0, repasse com deduplicação e alcance medido  \n- feat(net): lib ChehulNet v1.2.0, repasse com deduplicação e alcance medido (#5)  \n    LibChehulMesh v8 e ChehulNet v14 vindas de danielcosta42/chehulnet pelo tools/sync.sh: repasse  \n    (ChehulRelay) com deduplicação e repasse para a guilda, envio por sussurro sem o sorteio de 34%,  \n    pares confirmados primeiro no leque, troca de pares imediata, e DIAG com links, pares v8, repasse  \n    e rastreio. Nada do PartyLens é marcado para repasse ainda.  \n    - tools/net.lua: os sussurros do realm saem do teste do quadro pelo REALM\\_FANOUT, já que a v8 não  \n      sorteia mais o YELL\\_PERCENT para sussurro.  \n    - 1.1.0.  \n    Closes #5"
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-09",
+      "notes": "# PartyLens\n\n## [v1.0.1](https://github.com/danielcosta42/PartyLens/tree/v1.0.1) (2026-11-09)\n[Full Changelog](https://github.com/danielcosta42/PartyLens/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/danielcosta42/PartyLens/releases)\n\n- Merge pull request #4 from danielcosta42/fix/3-lib-chehulnet-v1.1  \n    fix(net): lib ChehulNet v1.1.0, a rede volta a alcançar outras guildas (1.0.1)  \n- fix(net): lib ChehulNet v1.1.0, a rede volta a alcançar outras guildas sem o canal recusado (#3)  \n    O servidor do Forever passou a recusar (INVALID\\_NAME) o canal que a malha  \n    usava como diretório. LibChehulMesh v7 percebe a recusa e alcança quem está  \n    fora da guilda pelos pares que ouviu, com troca de pares por sussurro;  \n    ChehulNet v13 manda view e dirx no DIAG.  \n    - Wire: Mesh:PeerStore com db.meshPeers (fora do Set da API).  \n    - Quadro: sem par conhecido, sonda os pares da malha além do diretório.  \n    - Testes: os do realm agora também alcançam pares ouvidos; o quadro e o  \n      \"não\" do beacon são contados à parte.  \n    - 1.0.1.  \n    Closes #3  \n- docs: descrição da CurseForge com o que entrou na 1.0.0 (camadas pela zona, radar sem conversa, quadro do PartyLens)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 2,
+    "contributors": 2,
+    "lastRelease": "2026-11-12",
+    "releaseDates": [
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-07-17",
+      "2026-07-16",
+      "2026-07-11",
+      "2026-07-08",
+      "2026-07-07",
+      "2026-07-07",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-07-04",
+      "2026-07-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PartyLens"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "PartyLensDB"
+    ]
+  }
+}

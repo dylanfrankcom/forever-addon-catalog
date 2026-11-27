@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "warlegendraidtool",
+  "repo": "VulcanWL/WarLegendRaidTool",
+  "about": "![Logo de WaR LegenD RaidTool](https://raw.githubusercontent.com/VulcanWL/WarLegendRaidTool/main/.github/assets/logo.png)\n\n# WaR LegenD RaidTool\n\n**L'addon de la guilde WaR LegenD pour World of Warcraft Forever**\n\nRaid, butin, guilde et champs de bataille dans une seule fenêtre : `/wl`.\n\n[![Version](https://img.shields.io/github/v/release/VulcanWL/WarLegendRaidTool?style=for-the-badge&label=version&labelColor=1a1a1a&color=ce1918)](https://github.com/VulcanWL/WarLegendRaidTool/releases/latest)\n[![WoW Forever](https://img.shields.io/badge/WoW-Forever-1f7fe0?style=for-the-badge&labelColor=1a1a1a)](#installation)\n\n[Contenu](#contenu) · [Installation](#installation) · [Commandes](#commandes-principales) · [Nouveautés](https://github.com/VulcanWL/WarLegendRaidTool/blob/main/CHANGELOG.md) · [Documentation complète](https://github.com/VulcanWL/WarLegendRaidTool/blob/main/WarLegendRaidTool/README.md)\n\n---\n\n## Contenu\n\nLa fenêtre a quatre onglets, chacun avec toutes ses sections visibles.\n\n| Onglet | Section | Ce qu'on y trouve |\n| --- | --- | --- |\n| **Raid** | Organisation | Groupes de raid (presets : groupes et marques posés d'un clic), invitations, promotion auto, liste de summon, barre de marques. |\n| | Préparation | Ready check et rappel des talents, checklist des consommables, assignation des buffs, préparation des raiders, inspection du raid. |\n| | Combat | CD de raid, suivi d'auras, qui a pull, DoesItDie (tes DoT suffiront-ils à achever la cible) et journal de combat automatique. |\n| | Butin et présences | Loot Council (vote, soft-res, nombre de loots reçus), présences, tableau de bord de la guilde, recrues en essai. |\n| **JcJ** | Champs de bataille | Cadres ennemis et alliés (dissipations, contrôles), minuteurs de capture et de cimetière, historique et records des premades. |\n| | Monde ouvert | Alerte danger, compte à rebours des duels, layers de la guilde. |\n| **Guilde** | Membres | Métiers, recrutement et inactifs, la guilde par classe, carte de la guilde et transports, compagnons de leveling, classement JcJ Minotaure. |\n| | Mes personnages | Rerolls, stock des persos banque, export pour simulateurs (SimulationCraft, MythicSim, OXM). |\n| **Options** | Addon | Réglages (modules, profil, taille de la fenêtre), version, erreurs Lua, temps de chargement. |\n| | Interface | Déplacer les fenêtres, options cachées du jeu, niveaux d'objet, outils de la carte. |\n| | Petits automatismes | Qualité de vie, focus et alerte de contrôle, minuteurs, améliorations dans les sacs, tri du butin, objectif d'or, Myslot. |\n\n> [!TIP]\n> Un outil dont tu ne te sers pas s'éteint dans **Options > Réglages > Modules** : éteint, il ne fait plus rien.\n> La case « Rechercher une option... » en haut de la fenêtre trouve n'importe quel réglage.\n\n## Installation\n\n1. Télécharge `WarLegendRaidTool-<version>-forever.zip` depuis la dernière\n   [Release](https://github.com/VulcanWL/WarLegendRaidTool/releases/latest).\n2. Décompresse-le dans `World of Warcraft\\_forever_\\Interface\\AddOns\\` : tu dois y trouver quatre dossiers,\n   `WarLegendRaidTool`, `WarLegendRaidTool_Raid`, `WarLegendRaidTool_PvP` et `WarLegendRaidTool_Skyborne`.\n3. Connecte-toi (ou `/reload` en jeu), puis tape `/wl`.\n\nAvec **WowUp** : *Obtenir des addons → Installer depuis une URL* → `https://github.com/VulcanWL/WarLegendRaidTool`.\nWowUp propose ensuite chaque nouvelle version. Il faut WowUp (ou WowUp-CF) 2.24.0 ou plus récent pour trouver WoW Forever\n(2.24.1 conseillée).\n\n## Commandes principales\n\n| Commande | Effet |\n| --- | --- |\n| `/wl` | Ouvre / ferme la fenêtre (aussi `/wlrt` ou `/warlegend`). |\n| `/wl help` | Toutes les commandes dans le chat. |\n| `/rc` | Ready check (chef / assistant), sinon la fenêtre de vérification. |\n| `/wl apply [preset]` | Pose les marques et range les groupes d'un preset. |\n| `/wl loot` | Loot Council. |\n| `/wl map` | Carte de la guilde et transports. |\n| `/wl lvl` | Compagnons de leveling : les membres de la guilde proches de ton niveau, qui cherche un groupe, Inviter ou Chuchoter. |\n| `/wl pvp` | Réglages des cadres de champ de bataille. |\n| `/wl test` | Montre en même temps tous les modules allumés, pour les voir et les placer. |\n| `/wl bugs` | Erreurs Lua récentes. |\n\nLa liste complète, avec chaque option : [documentation](https://github.com/VulcanWL/WarLegendRaidTool/blob/main/WarLegendRaidTool/README.md#commandes).\n\n## Sécurité\n\n- Gratuit, code lisible, rien n'est envoyé hors du jeu.\n- Messages d'addon échangés avec ton groupe et ta guilde seulement (exception : le canal caché de Skyborne) ; tout ce qui\n  arrive des autres joueurs est borné avant d'être lu.\n- Un message reçu n'agit pas à ta place : il affiche une information ou une question à valider d'un clic (seule exception, si\n  tu l'allumes : l'invitation par mot-clé chuchoté).\n- Annonces publiques sur un clic, aucune action protégée en combat.\n\nDétail : [Sécurité](https://github.com/VulcanWL/WarLegendRaidTool/blob/main/WarLegendRaidTool/README.md#sécurité).\n\n## Nouveautés\n\nCe qui change à chaque version : [CHANGELOG.md](https://github.com/VulcanWL/WarLegendRaidTool/blob/main/CHANGELOG.md), aussi dans les notes de chaque\n[Release](https://github.com/VulcanWL/WarLegendRaidTool/releases).\n\n## Crédits\n\nDes parties viennent d'autres addons (BattleGroundEnemies, Myslot, DoesItDie, GuildMap, WarLegend v3 de Sashoof...), chacune\navec sa licence : voir [Crédits](https://github.com/VulcanWL/WarLegendRaidTool/blob/main/WarLegendRaidTool/README.md#crédits).\n\n## Développement\n\nRègles du projet : [`WarLegendRaidTool/AGENTS.md`](https://github.com/VulcanWL/WarLegendRaidTool/blob/main/WarLegendRaidTool/AGENTS.md) ; détail des modules :\n[`docs/modules.md`](https://github.com/VulcanWL/WarLegendRaidTool/blob/main/docs/modules.md) ; vérifications : `node tools/check.js` et `node tools/smoke.js` (outils dans\n[`tools/`](https://github.com/VulcanWL/WarLegendRaidTool/blob/main/tools)).",
+  "releases": [
+    {
+      "tag": "v1.41.66",
+      "name": "WarLegend RaidTool 1.41.66",
+      "published": "2026-11-16",
+      "notes": "### Corrigé\n- Chronos de CdB : barres de capture parfois absentes : la carte est relue à chaque fois (comme Capping, plus de carte\n  mémorisée à l'écran de chargement), une base déjà contestée à l'entrée ou après un /reload a sa barre, la ligne\n  « claims the Snowfall graveyard » lance la barre au lieu de l'arrêter.\n- Chronos de CdB : avec trois files d'attente il manquait une barre : toutes les files sont relues à chaque événement,\n  et une file dont l'estimation est dépassée garde sa barre pleine sans temps (elle disparaissait).\n\n**Full Changelog**: https://github.com/VulcanWL/WarLegendRaidTool/compare/v1.41.65...v1.41.66"
+    },
+    {
+      "tag": "v1.41.65",
+      "name": "WarLegend RaidTool 1.41.65",
+      "published": "2026-11-16",
+      "notes": "### Ajouté\n- Chronos de CdB : sous-onglet « Apparence » (les options de Capping) : texture, police, taille, contour, largeur,\n  hauteur, espacement, alignement du texte et du temps, icône (et son côté), temps affiché ou non, barres qui se\n  remplissent, pile vers le haut, couleurs (texte, fond, Alliance, Horde, file, autre), bouton « Apparence par défaut ».\n\n### Corrigé\n- Cadres de champ de bataille : après « Réinitialiser », la case « Afficher les cadres » suit bien le réglage remis par\n  défaut ; « Arrêter le test » en combat arrête le mode test à la fin du combat au lieu de le laisser tourner ; le\n  module désactivé n'est plus chargé par un export ou un import de profil (ce profil n'a alors pas la partie PvP) ; les\n  cadres de raid de Blizzard cachés par une déconnexion ou un plantage en plein champ de bataille reviennent à la\n  connexion suivante.\n- Cadres de champ de bataille : un deuxième joueur parti pendant le même combat ne garde plus sa ligne après le combat ;\n  un allié arrivé pendant un combat a bien son unité (portée, clic de dissipation) dès la fin du combat ; regarder un\n  onglet de faction du tableau des scores ne vide plus les cadres de l'autre camp ; l'icône de drapeau sur les cadres de\n  raid suit le porteur quand le raid se réorganise et disparaît quand il lâche le drapeau ; le tooltip de classe au survol\n  d'une ligne marche (option « Tooltips ») ; une ligne reprise pour un autre joueur ne garde plus sa barre de ressource.\n- Cadres de champ de bataille : si le jeu garde le tableau des scores secret, un message le dit une fois au lieu de\n  cadres vides sans explication.\n- Chronos de CdB (client français) : la barre « Réapparition du drapeau » ne part plus à chaque prise du drapeau,\n  seulement à sa capture.\n\n### Modifié\n- Chronos de CdB, file d'attente : une file qui dépasse son estimation garde une barre pleine sans temps au lieu de\n  disparaître ; les barres de file restent en haut de la pile ; le son de la file qui pop joue aussi quand les effets\n  sonores sont coupés (case « Son du pop de la file », cochée par défaut, sous le décompte vocal).\n- Cadres de champ de bataille à 16-40 joueurs : deux colonnes de 20 au lieu d'une colonne de 40 (qui passait sous\n  l'écran), côté alliés et côté ennemis.\n\n**Full Changelog**: https://github.com/VulcanWL/WarLegendRaidTool/compare/v1.41.64...v1.41.65"
+    },
+    {
+      "tag": "v1.41.64",
+      "name": "WarLegend RaidTool 1.41.64",
+      "published": "2026-11-11",
+      "notes": "### Corrigé\n- Depuis la mise à jour du jeu du 10/11 (build 70888) : « accepter les invitations des amis et de la guilde » reconnaît de\n  nouveau celui qui invite par son identifiant (et plus seulement par son nom), et Layers reconnaît de nouveau le groupe\n  de l'hôte qui t'a invité.\n\n**Full Changelog**: https://github.com/VulcanWL/WarLegendRaidTool/compare/v1.41.63...v1.41.64"
+    },
+    {
+      "tag": "v1.41.63",
+      "name": "WarLegend RaidTool 1.41.63",
+      "published": "2026-11-10",
+      "notes": "### Corrigé\n- Myslot : à l'import, une macro créée ne décale plus les macros déjà présentes vers les mauvais emplacements des barres\n  ni vers les mauvais raccourcis de clic.\n- Guilde > Métiers : un nom de métier reçu d'un membre qui se lit comme un nombre (« -1e999 ») n'est plus enregistré comme\n  un nombre infini dans les données sauvegardées.\n- Maj-clic sur un objet : le lien va de nouveau dans la zone de texte de l'addon qui a le curseur (recherche de recette,\n  Loot Council...), et un lien de métier maj-cliqué est de nouveau enregistré dans Guilde > Métiers.\n- Messages de l'addon retenus pendant un long combat de boss : ceux qui attendaient derrière le premier ne sont plus perdus\n  à la fin du combat (un long texte partagé arrivait incomplet).\n- Profils (Options > Profil) : une liste ou un texte invalide d'un profil collé n'est plus gardé (liste de consommables,\n  rangs, noms, modules coupés, texte avec un code d'icône ou trop long) ; avant, une liste de consommables mal formée\n  donnait une erreur à chaque appel de raid, d'une session à l'autre.\n- Niveaux d'objet : affichés aussi sur les emplacements de la banque.\n- Cadres de champ de bataille : coupés pendant un combat, ils disparaissent bien à la fin du combat.\n- Cadres de champ de bataille : après un passage par le mode test, les contrôles, les buffs manquants et l'indicateur de\n  combat s'affichent de nouveau sur tous les joueurs sans `/reload`.\n- Cadres de champ de bataille : la barre de vie d'un allié prend la couleur du type de débuff que tu peux dissiper.\n- Loot Council : après un vote, la fenêtre affiche tout de suite les candidats de l'objet suivant (un deuxième clic rapide\n  votait pour un joueur de l'objet précédent sans le montrer).\n- Cooldowns de raid : en rejoignant un groupe avec la fenêtre affichée, l'addon demande aussitôt leurs cooldowns aux\n  autres (ils restaient en « Nom? » jusqu'à ce que quelqu'un d'autre demande).\n- Inspection du raid : ton inspection d'un joueur n'est plus annulée par celles de l'onglet pendant qu'elle charge.\n- Recrues : choisir un autre rang de recrue puis revenir au bon ne remet plus toutes les dates « recrue depuis » à\n  aujourd'hui.\n- Stats de BG : une partie n'est plus enregistrée deux fois après un `/reload` ou une reconnexion sur l'écran des scores.\n- Alerte de danger : cocher une option ne vide plus l'alerte et les cadres ennemis tant que les ennemis sont à l'écran.\n- Skyborne : un nœud vu sur la minicarte n'est plus renvoyé à chaque passage quand la liste de la carte est pleine.\n- DoesItDie : après avoir coupé puis rallumé le module, les listes déroulantes de son onglet s'ouvrent de nouveau.\n\n**Full Changelog**: https://github.com/VulcanWL/WarLegendRaidTool/compare/v1.41.62...v1.41.63"
+    },
+    {
+      "tag": "v1.41.62",
+      "name": "WarLegend RaidTool 1.41.62",
+      "published": "2026-11-10",
+      "notes": "### Ajouté\n- Layers : bouton « Demander aux hôtes LayerSwap » (WoW Forever). Un clic cherche les joueurs de ta zone (la recherche\n  /who du jeu s'ouvre avec leur liste) puis leur envoie en privé la demande de l'addon LayerSwap, avec ta position sur la\n  carte comme LayerSwap (40 joueurs au plus, 8 d'un coup puis un par seconde, une recherche toutes les 30 s ; dans une zone\n  peuplée, chaque recherche suivante couvre une classe ; les hôtes qui ont déjà répondu passent en premier). Un utilisateur\n  de LayerSwap d'un autre layer de ta zone qui héberge t'invite. À côté du bouton : combien d'utilisateurs de LayerSwap\n  ont reçu la demande et combien hébergent sur un autre layer ; l'invitation d'un hôte de ton propre layer est signalée.\n  Tu acceptes toi-même, puis tu valides l'avis du jeu (ou « Changer de layer maintenant ») et tu restes dans le groupe.\n  Si aucun changement n'est annoncé 15 s après avoir rejoint, un bouton « Quitter ce groupe » apparaît (jamais pendant le\n  compte à rebours). Rien ne part tout seul, rien n'est accepté à ta place ; hors groupe et avec ton layer connu.\n\n### Corrigé\n- Layers : « Inviter sur mon layer » explique l'étape qui manquait. Depuis le lancement, rejoindre un groupe ne change pas\n  de layer tout de suite : le jeu affiche un avis avec un compte à rebours (environ 5 min) et il faut le valider (Refresh\n  Now) ou attendre. Le chuchotement d'invitation, le chat et l'onglet le disent, et l'onglet a un bouton « Changer de\n  layer maintenant » (le même que celui du jeu, hors combat) pendant le compte à rebours, même quand le changement était\n  déjà prévu avant un `/reload` ou un écran de chargement (comme l'avis du jeu depuis la build 70840).\n\n**Full Changelog**: https://github.com/VulcanWL/WarLegendRaidTool/compare/v1.41.61...v1.41.62"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 14,
+    "contributors": 2,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-07",
+      "2026-11-04",
+      "2026-11-03",
+      "2026-11-02",
+      "2026-10-30",
+      "2026-10-30",
+      "2026-10-29",
+      "2026-10-29",
+      "2026-10-29",
+      "2026-10-29",
+      "2026-10-29",
+      "2026-10-28",
+      "2026-10-27",
+      "2026-10-27",
+      "2026-10-26",
+      "2026-10-26",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-24",
+      "2026-10-24",
+      "2026-10-24",
+      "2026-10-24",
+      "2026-10-24",
+      "2026-10-24",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-22",
+      "2026-10-21",
+      "2026-10-21",
+      "2026-10-21",
+      "2026-10-21",
+      "2026-10-21",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19"
+    ]
+  },
+  "languages": [
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "WarLegendRaidTool",
+      "WarLegendRaidTool_PvP",
+      "WarLegendRaidTool_Raid",
+      "WarLegendRaidTool_Skyborne"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "EllesmereUI",
+      "Blizzard_MapCanvas",
+      "Blizzard_WorldMap"
+    ],
+    "savedVariables": [
+      "WarLegendRaidToolDB"
+    ]
+  }
+}

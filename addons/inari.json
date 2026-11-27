@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "inari",
+  "repo": "yunodu/inari",
+  "about": "[![inari](kitsune.png)](https://inari.ink/)\n\nAn EllesmereUI-based World of Warcraft user interface.\n\n  [inari.ink](https://inari.ink/)\n  ·\n  [Download](https://github.com/yunodu/inari/releases/latest)\n  ·\n  [CurseForge](https://inari.ink/)\n  ·\n  [Changelog](https://github.com/yunodu/inari/blob/main/inari/CHANGELOG.md)\n\n![Idle](https://raw.githubusercontent.com/yunodu/inari/main/screenshots/dark_idle.jpg)\n\n![Dungeon](https://raw.githubusercontent.com/yunodu/inari/main/screenshots/dark_dps_dungeon.jpg)\n\n![Raid](https://raw.githubusercontent.com/yunodu/inari/main/screenshots/color_heal_raid.jpg)\n\ninari is the installer, profiles, and extras on top of [EllesmereUI](https://www.curseforge.com/wow/addons/ellesmereui). It imports 16:9 and 21:9 layouts, player and target portraits, frame shadows, and the supporting profiles for BigWigs, EXBoss, sArena, Baganator, and DynamicCam.\n\nSetup and downloads live on **[inari.ink](https://inari.ink/)**. This repo is the addon.\n\n## Install\n\n**Coming from a version before 1.0.5?** That update is a full reinstall. Delete the previous copy of this addon from `Interface\\AddOns` and reimport the WowUp string. Settings do not carry over.\n\n1. In [WowUp](https://wowup.io/), open **My Addons → Import** and paste the string from [inari.ink/install](https://inari.ink/install).\n2. Restart World of Warcraft and log in. The installer opens, picks 16:9 or 21:9 from your monitor, and imports both layouts.\n\nIf it does not open:\n\n```\n/inari install\n```\n\nNo WowUp? Grab [inari.zip](https://github.com/yunodu/inari/releases/latest/download/inari.zip) or install from [CurseForge](https://inari.ink/). Those are inari only — EllesmereUI and the rest still have to be installed separately. A [video guide](https://www.youtube.com/watch?v=W4Ub_4-39Xk) covers the full setup.\n\n## What it does\n\n- **Layouts** — Bundled EllesmereUI profiles for 16:9 and 21:9. The installer imports both; switch later with `/inari layout 16` or `/inari layout 21`.\n- **Portraits** — Player and target portraits are built in. Blinkii's Portraits is not required.\n- **Appearance** — Dark or class coloring, health opacity, class-background tint, chat button side, and drop shadows on unit frames, resource bars, and the cooldown manager.\n- **Profiles** — Imports for BigWigs (including boss options and an inari countdown voice), EXBoss, sArena Reloaded, Baganator, DynamicCam, and Cooldown Manager.\n- **Healing** — A healing profile that activates on healer specs.\n\nRequired: **EllesmereUI** and **inari**. Optional, but what the installer styles: BigWigs / LittleWigs, EXBoss, sArena Reloaded, Baganator, DynamicCam.\n\n## Commands\n\n| Command | |\n| --- | --- |\n| `/inari` / `/iui` / `/inariui` | Settings |\n| `/inari install` | Run the installer |\n| `/inari layout 16` / `21` | Switch the active EllesmereUI layout |\n| `/inari appearance dark` / `class` | Frame coloring |\n| `/inari shadows on` / `off` | Frame shadows |\n| `/inari doctor` | Check that this EllesmereUI version has everything inari hooks into |\n| `/inari reset confirm` | Reset inari's own settings to defaults |\n| `/inari help` | Full command list |",
+  "releases": [
+    {
+      "tag": "v1.12",
+      "published": "2026-11-14",
+      "notes": "### New\n\n- **Graphic Settings** in Extras. Swap between graphics presets with one click, save your current graphics settings as your own preset, and delete the ones you no longer need. The Extras tile shows the active preset.\n- **Swap from a macro:** `/inari graphics next` cycles through the presets, `/inari graphics <name>` picks one. `/inari graphics save <name>` and `/inari graphics delete <name>` manage your own.\n- **On-screen swap button** (off by default). Turn it on in Extras or with `/inari graphics button on`, drag it wherever you like, click it to switch to the next preset.\n\n### Changes\n\n- The graphics presets moved from Setup to Extras. `/inari graphics` on its own now lists the presets instead of applying the FPS one; `/inari fps` still does that."
+    },
+    {
+      "tag": "v1.11",
+      "published": "2026-11-04",
+      "notes": "### Updated profiles\n\n- **WoW Forever:** new EllesmereUI (21:9) layout made just for Forever. You'll get an update prompt to reimport it. Retail keeps its current layout."
+    },
+    {
+      "tag": "v1.10",
+      "published": "2026-10-21",
+      "notes": "A big one! inari now works on WoW Forever and pretty much every profile got a refresh.\n\n### New\n\n- **WoW Forever support.** Same download as retail, and every Forever class gets its own Cooldown Manager layout.\n- **DynamicCam profile.** Import it from the installer, from Profiles, or with `/inari install dynamiccam`.\n- **`/inari doctor`** checks that your EllesmereUI version has everything inari needs.\n- **Reset Settings** in Setup (or `/inari reset confirm`) puts inari's own options back to default.\n- **\"Keep my own UI scale\"** in Setup, if you'd rather not have inari touch your UI scale.\n- inari now shows up in the minimap addon dropdown.\n\n### Updated profiles\n\n- New EllesmereUI (21:9), BigWigs, EXBoss and Edit Mode profiles.\n- New Rogue and Warlock Cooldown Manager layouts.\n- **16:9 players:** the updated 16:9 layout isn't ready yet, so you keep your current one for now. It's coming in a later update.\n- The update prompt now tells you what changed. Reimporting EllesmereUI saves your previous layout as `inari16:9 backup` / `inari21:9 backup` and keeps your spec assignments.\n\n### Changes\n\n- inari leaves your own EllesmereUI profiles alone and only adjusts things while an inari profile is active.\n- Chat changes you make in EllesmereUI now stick. inari only sets up the chat look during the install.\n- \"Not Now\" is remembered, both in the installer and on the update prompt. You can always open them again from Setup, Profiles, or `/inari install`.\n- Turning inari off now fully turns it off, portraits included.\n- Graphics presets and the friendly nameplate setting wait until combat ends instead of being skipped.\n- EllesmereUI's own setup window stays out of the way, since inari's installer handles it.\n\n### Fixes\n\n- Sounds, the BigWigs bar style and the countdown voice now load properly from the bundled profiles.\n- The installer no longer resets your Skyriding bar texture and size.\n- No more bright line under unit frames with a detached power bar when frame shadows are on.\n- The installer doesn't freeze anymore if a step runs into an error.\n- `/inari apply` and Reapply work even when nothing has changed.\n- `/inari install ellesmere` shows a result and doesn't import twice.\n- The installer doesn't reopen after every loading screen.\n- Someone else in your group changing spec no longer reapplies inari's settings.\n- EllesmereUI's portraits come back when you turn inari's portraits off.\n- Idle fade turns off when combat starts without a target.\n- Edit Mode import works when you already have five layouts.\n- Health opacity can't be set to 1% anymore (EllesmereUI treats that as 100%).\n\n### Removed\n\n- The Blinkii's Portraits import, since portraits are built into inari.\n- `/inari dmpos`."
+    },
+    {
+      "tag": "v1.0.6",
+      "published": "2026-08-31",
+      "notes": "**Full Changelog**: https://github.com/inariink/inari/compare/v1.0.5...v1.0.6"
+    },
+    {
+      "tag": "v1.0.5",
+      "published": "2026-08-17",
+      "notes": "## inari 1.0.5\n\n- First public release, slash commands are `/inari`, `/iui`, and `/inariui`.\n- Addon list now has a icon.\n- EllesmereUI layouts are `inari16:9` and `inari21:9`. The installer imports both and uses the one that matches your monitor.\n- Player and target portraits are built in. Blinkii's Portraits is not required anymore.\n- Appearance covers Dark Mode and Class Colored.\n- Bundled imports for BigWigs (including countdown voice and bar style), EXBoss, sArena Reloaded, Baganator, Cooldown Manager, and Edit Mode.\n- Healing profile activates on healer specs.\n- Damage Meters changed to a three-window layout.\n- Site and downloads: [inari.ink](https://inari.ink/)."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/yunodu/inari/main/screenshots/dark_idle.jpg",
+    "https://raw.githubusercontent.com/yunodu/inari/main/screenshots/dark_dps_dungeon.jpg",
+    "https://raw.githubusercontent.com/yunodu/inari/main/screenshots/color_heal_raid.jpg"
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-04",
+      "2026-10-21",
+      "2026-08-31",
+      "2026-08-17",
+      "2026-08-15",
+      "2026-08-15",
+      "2026-08-15",
+      "2026-08-09",
+      "2026-07-22",
+      "2026-07-14",
+      "2026-06-16",
+      "2026-06-15",
+      "2026-06-13",
+      "2026-06-11",
+      "2026-06-07",
+      "2026-05-27",
+      "2026-05-16",
+      "2026-05-15",
+      "2026-02-22",
+      "2026-02-22",
+      "2026-02-22",
+      "2026-02-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "inari"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "EllesmereUI",
+      "EllesmereUIUnitFrames"
+    ],
+    "optional": [
+      "EllesmereUIChat",
+      "EllesmereUIBlizzardSkin",
+      "EllesmereUIDamageMeters",
+      "EllesmereUIRaidFrames",
+      "EllesmereUINameplates",
+      "EllesmereUICooldownManager",
+      "EllesmereUIResourceBars",
+      "EllesmereUIActionBars",
+      "BigWigs",
+      "EXBoss",
+      "sArena_Reloaded",
+      "Baganator",
+      "DynamicCam"
+    ],
+    "savedVariables": [
+      "InariDB"
+    ]
+  }
+}

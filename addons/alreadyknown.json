@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "alreadyknown",
+  "repo": "ahakola/AlreadyKnown",
+  "about": "# Already Known?\n\n![Release](https://github.com/ahakola/AlreadyKnown/actions/workflows/release.yml/badge.svg)\n\nhttps://www.curseforge.com/wow/addons/alreadyknown\n\nPuts green, blue, yellow, cyan or purple tint on already known scrolls/pets/other learnable items on vendors and AH.\n\nSimple and small addon to color already known items on vendor and AH frames. Works at least on profession designs/patterns/etc, garrison plans, toys, mounts, pets and equipment blueprints.\n\nDefault color is green, but try `/alreadyknown` or `/ak` ingame to change the tint color.\n\nKnown issues:\n\n* ~~Designs/patterns/etc of already known companion pets/mounts are shown as known even if they aren't~~ Fixed in 1.12!\n* Quest based items (like equipment blueprints) - at the moment at least - has to be hard coded into addon, please let me know if you run into yet unsupported quest items sold by vendors.",
+  "releases": [
+    {
+      "tag": "1.107",
+      "published": "2026-11-25",
+      "notes": "# Already Known?\n\n## [1.107](https://github.com/ahakola/AlreadyKnown/tree/1.107) (2026-11-25)\n[Full Changelog](https://github.com/ahakola/AlreadyKnown/compare/1.106...1.107) [Previous Releases](https://github.com/ahakola/AlreadyKnown/releases)\n\n- More Forever fixes for Grimoires  \n- Improved debugging"
+    },
+    {
+      "tag": "1.106",
+      "published": "2026-11-19",
+      "notes": "# Already Known?\n\n## [1.106](https://github.com/ahakola/AlreadyKnown/tree/1.106) (2026-11-19)\n[Full Changelog](https://github.com/ahakola/AlreadyKnown/compare/1.104...1.106) [Previous Releases](https://github.com/ahakola/AlreadyKnown/releases)\n\n- Forever doesn't have HasPetSpells()  \n    - Use C\\_SpellBook.HasPetSpells() for Forever.  \n- Fix Grimoires in WoW Forever  \n    This should close CF issue #30  \n- Add addon Category to the .toc"
+    },
+    {
+      "tag": "1.105",
+      "published": "2026-11-16",
+      "notes": "# Already Known?\n\n## [1.105](https://github.com/ahakola/AlreadyKnown/tree/1.105) (2026-11-16)\n[Full Changelog](https://github.com/ahakola/AlreadyKnown/compare/1.104...1.105) [Previous Releases](https://github.com/ahakola/AlreadyKnown/releases)\n\n- Update TOC Interface version  \n- Fix Grimoires in WoW Forever  \n    This should close CF issue #30  \n- Add addon Category to the .toc"
+    },
+    {
+      "tag": "1.104",
+      "published": "2026-10-14",
+      "notes": "# Already Known?\n\n## [1.104](https://github.com/ahakola/AlreadyKnown/tree/1.104) (2026-10-14)\n[Full Changelog](https://github.com/ahakola/AlreadyKnown/compare/1.103...1.104) [Previous Releases](https://github.com/ahakola/AlreadyKnown/releases)\n\n- Merge pull request #31 from ahakola/interface-version  \n    Update TOC Interface version  \n- Update TOC Interface version"
+    },
+    {
+      "tag": "1.103",
+      "published": "2026-09-24",
+      "notes": "# Already Known?\n\n## [1.103](https://github.com/ahakola/AlreadyKnown/tree/1.103) (2026-09-24)\n[Full Changelog](https://github.com/ahakola/AlreadyKnown/compare/1.102...1.103) [Previous Releases](https://github.com/ahakola/AlreadyKnown/releases)\n\n- Add WoW Forever to the .toc  \n    Automated: Update TOC Interface version  \n- Update TOC Interface version  \n- Add support for WoW Forever  \n    - This replaces PR #29. The PR works, but this is a slightly cleaner implementation in my opinion.  \n    - Change AllowLoadGameType of AlreadyKnown.lua from 'mainline' to 'standard' to prevent loading it on Forever.  \n    - Add 'camelot' to the AllowLoadGameType for AlreadyKnownClassic.lua to load it in Forever.  \n    - Add 'forever' to the TOC Interface Updater -action."
+    }
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-19",
+      "2026-11-16",
+      "2026-10-14",
+      "2026-09-24",
+      "2026-08-12",
+      "2026-08-03",
+      "2026-07-15",
+      "2026-07-01",
+      "2026-06-21",
+      "2026-06-15",
+      "2026-04-18",
+      "2026-02-12",
+      "2026-02-02",
+      "2026-01-30",
+      "2026-01-30",
+      "2026-01-28",
+      "2026-01-21",
+      "2026-01-19",
+      "2025-11-03",
+      "2025-10-25",
+      "2025-10-13",
+      "2025-08-05",
+      "2025-07-02",
+      "2025-05-08",
+      "2025-05-02",
+      "2025-03-07",
+      "2025-01-29",
+      "2025-01-09",
+      "2024-11-20",
+      "2024-11-03",
+      "2024-09-25",
+      "2024-09-07",
+      "2024-08-20",
+      "2024-05-30",
+      "2024-05-25",
+      "2024-05-25",
+      "2024-05-08",
+      "2024-05-01",
+      "2024-04-27",
+      "2024-04-09",
+      "2024-03-11",
+      "2024-01-20",
+      "2024-01-17",
+      "2023-11-30",
+      "2023-11-08",
+      "2023-10-20",
+      "2023-09-07",
+      "2023-07-16",
+      "2023-05-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AlreadyKnown"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "AlreadyKnownSettings"
+    ]
+  }
+}

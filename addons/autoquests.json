@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "autoquests",
+  "repo": "unverz06/AutoQuests",
+  "about": "![banner](https://raw.githubusercontent.com/unverz06/AutoQuests/readme/src/AutoQuest_banner.jpg)\n\n  [![Latest release](https://img.shields.io/github/v/release/unverz06/AutoQuests?style=for-the-badge&logo=github&label=Release)](https://github.com/unverz06/AutoQuests/releases/latest)\n  [![CurseForge downloads](https://img.shields.io/curseforge/dt/686482?style=for-the-badge&logo=curseforge&label=CurseForge)](https://www.curseforge.com/wow/addons/autoquests-unverz)\n  [![Downloads](https://img.shields.io/github/downloads/unverz06/AutoQuests/total?style=for-the-badge&logo=github&label=Downloads)](https://github.com/unverz06/AutoQuests/releases)\n\n  **Takes and returns your quests automatically.**\n\n---\n\n## Compatibility\n\n| Version | Interface | Supported |\n|---------|-----------|:---------:|\n| ![Retail](https://img.shields.io/badge/-Retail-c79c6e?style=flat-square) | `120105` (12.1.5) | ✅ |\n| ![Forever](https://img.shields.io/badge/-Forever-2e9bd6?style=flat-square) | `16001` | ✅ |\n\n## Use cases\n\n| | |\n|---|---|\n| \uD83D\uDCE5 **Accept** | Single quests, multiple quests, quests from an NPC chat window (classic quests and gossip) |\n| \uD83D\uDCE4 **Turn in** | Single quests, multiple quests, quests with the continue button |\n\n## Commands\n\n| Command | Action |\n|---------|--------|\n| `/autoquest` or `/aq` | Show AutoQuests status |\n| `/autoquest on` or `/aq on` | Reactivate AutoQuests |\n| `/autoquest off` or `/aq off` | Deactivate AutoQuests |\n| `/autoquest config` or `/aq config` | Open the options panel |\n| `/aq gps` | Toggle the Quest GPS |\n| `/aq gps on` / `off` | Enable / disable the Quest GPS |\n| `/aq gps unlock` / `lock` | Unlock the GPS to drag it / lock it again |\n| `/aq gps reset` | Reset the GPS position |\n| `/aq gps test` | Play a 13 s demo of the arrival animation |\n\nYou can also enable or disable AutoQuests from **Options → AddOns → AutoQuests**. Your choice is saved between sessions.\n\n## Quest GPS\n\nAn optional arrow and distance pointing to the objective of the quest you are tracking (select a quest in the quest tracker to switch target). It is **on by default**; you can disable it in the options. The distance unit is automatic (yards on English US/GB clients, meters otherwise) or can be set to meters, feet or yards. When the game gives no position for the quest, nothing is shown. By default the game's own in-game navigation marker is hidden while the GPS is enabled, to avoid duplicates (untick \"Hide the game's distance marker\" in the options to keep it). Within 10 units (m, ft or yd) of the objective, a green check fades in and the GPS fades out after 5 seconds (when its position is locked); it comes back when you move away.\n\n> **Tip:** hold **Shift**, **Ctrl** or **Alt** to temporarily deactivate AutoQuests. It is reactivated on release.\n\n## Contributions & Thanks\n\n| Role | Who |\n|------|-----|\n| Developer | Bsmorgan, Fiote |\n| Translation | Aspatik |\n| Testing | Aspatik |\n| Financial | Jay Panchal |\n\n## How to download\n\n[![CurseForge](https://img.shields.io/badge/CurseForge-F16436?style=for-the-badge&logo=curseforge&logoColor=white)](https://www.curseforge.com/wow/addons/autoquests-unverz)\n[![Wago](https://img.shields.io/badge/Wago-C1272D?style=for-the-badge)](https://addons.wago.io/addons/autoquests)\n[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/unverz06/AutoQuests/releases)\n\n- **CurseForge** / **Wago**: also available through WowUp\n- **GitHub**: download the latest zip from the releases page\n\n## Buy a baboon for unverz06\n\n[![Buy a baboon for unverz06](https://img.shields.io/badge/Ko--fi-Buy_a_baboon_for_unverz06-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/unverz06)",
+  "releases": [
+    {
+      "tag": "3.2.0",
+      "published": "2026-11-22",
+      "notes": "- Fix conflict with Blizzard's quest dialog: auto-accept quests are now acknowledged with `AcknowledgeAutoAcceptQuest()` like the game's Accept button (no more stuck quest window / repeated quest popup)\n- PvP quests and quests that cost money are no longer accepted/completed silently: the game's confirmation popup is left to the player\n- Add a Quest GPS (on by default): an arrow and the distance to the objective of the quest tracked in the quest tracker, with meters / feet / yards, movable frame, lock and size options, an option to hide the game's own distance marker, a smooth arrow, and a green check that fades in on arrival (then the GPS fades out after 5 seconds)\n- Add `/aq gps [on|off|lock|unlock|reset]`"
+    },
+    {
+      "tag": "3.1.0",
+      "published": "2026-10-26",
+      "notes": "- Add an options panel (Options > AddOns > AutoQuests) to enable/disable AutoQuests\n- Settings are now saved between sessions (SavedVariables)\n- Add `/aq config` to open the options panel\n- Internal: functions are no longer global"
+    },
+    {
+      "tag": "3.0.2",
+      "published": "2026-10-21",
+      "notes": "- Fix Category Quests addon interface"
+    },
+    {
+      "tag": "3.0.1",
+      "published": "2026-10-14",
+      "notes": "- Fix Github CICD"
+    },
+    {
+      "tag": "2.6.0",
+      "published": "2026-02-01"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-10-26",
+      "2026-10-21",
+      "2026-10-14",
+      "2026-02-01",
+      "2026-02-01",
+      "2025-03-26",
+      "2024-09-02",
+      "2024-08-28",
+      "2024-08-28",
+      "2024-08-19",
+      "2024-08-19",
+      "2024-05-12",
+      "2024-05-12",
+      "2023-07-10",
+      "2023-07-10",
+      "2022-12-14",
+      "2022-12-04",
+      "2022-12-01",
+      "2022-11-19",
+      "2022-11-18",
+      "2022-11-04",
+      "2022-10-26",
+      "2022-10-25",
+      "2022-10-21",
+      "2022-10-17",
+      "2022-10-17",
+      "2022-10-13",
+      "2022-10-13",
+      "2022-10-13",
+      "2022-10-12",
+      "2022-10-11",
+      "2022-10-11",
+      "2022-10-11",
+      "2022-10-11",
+      "2022-10-10",
+      "2022-10-10",
+      "2022-10-09",
+      "2022-10-08",
+      "2022-10-06",
+      "2022-10-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AutoQuests"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "AutoQuestsDB"
+    ]
+  }
+}

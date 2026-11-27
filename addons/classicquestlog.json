@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "classicquestlog",
+  "repo": "yak3d/wow4e-classic-questlog",
+  "about": "# Classic Quest Log\n\n[![License](https://img.shields.io/badge/license-GPL--3.0-blue?style=for-the-badge)](https://github.com/yak3d/wow4e-classic-questlog/blob/main/LICENSE)\n[![Release](https://img.shields.io/github/v/release/yak3d/wow4e-classic-questlog?style=for-the-badge)](https://github.com/yak3d/wow4e-classic-questlog/releases)\n[![Wago](https://img.shields.io/badge/Wago-Classic%20Quest%20Log-c1272d?style=for-the-badge)](https://addons.wago.io/addons/BNBw006x)\n\nThis addon remakes the quest log from Classic instead of integrating it into the map. It does add some of the Forever UI assets like the leatherbound rewards panel, bronze bordering etc. You can switch between the single pane and double pane layout.\n\n![screenshot of the double pane layout](https://raw.githubusercontent.com/yak3d/wow4e-classic-questlog/main/docs/doublepane.png)\n\n## Install\n\nInstall it with the [Wago app](https://addons.wago.io/addons/BNBw006x), or download `ClassicQuestLog-<version>.zip` from the [releases](https://github.com/yak3d/wow4e-classic-questlog/releases) and unpack it into `World of Warcraft/<flavor>/Interface/AddOns/`.\n\n## Usage\n\n| Command            | Description                             |\n| ------------------ | --------------------------------------- |\n| `/cql`             | Toggle the quest log window (same as L) |\n| `/cql config`      | Open the settings panel                 |\n| `/cql toggle`      | Enable or disable the L takeover        |\n| `/cql help`        | Show the command list                   |\n| `/cql test <verb>` | Developer smoke tests (see below)       |\n| `/classicquestlog` | Alias for `/cql`                        |\n\nDeveloper test verbs: `dump`, `atlases`, `list`, `set <key> <value>`,\n`layout double|single`, `select <questID>`, `combat on|off`, `hooks`,\n`search <text>`.\n\n## Settings\n\nYou can find the settings and their descriptions in Settings → AddOns →\n**Classic Quest Log**:\n\n- Replace the quest log (L key)\n- Layout: double pane (default) or single pane\n- Show quest levels\n- Colour quests by difficulty\n- Show search box\n- Hide the quest panel in the World Map\n- Objective tracker clicks open this log\n\n## For addon authors\n\nThe log exposes a small public API, `ClassicQuestLogAPI` (`version = 1`), so other addons can decorate it\nwithout reaching into its internals. Forever Quest Tint is the first user.\n\n| Call                    | Returns                                                                  |\n| ----------------------- | ------------------------------------------------------------------------ |\n| `GetFrame()`            | the window, `ClassicQuestLogFrame`                                       |\n| `GetDetailFrame()`      | the quest details pane                                                   |\n| `GetDetailParchment()`  | the pane's parchment texture (the world map's quest details atlas)       |\n| `GetDetailHeader()`     | the strip along the top of the pane                                      |\n| `GetDisplayedQuestID()` | the quest the pane shows; nil when it is empty or the log is closed      |\n| `ForEachQuestRow(fn)`   | calls `fn(row, questID, titleFontString)` for each quest row in the list |\n\nChanges are announced through `EventRegistry` (`EventRegistry:RegisterCallback(name, fn, owner)`):\n\n| Event                          | Arguments                       | When                                                     |\n| ------------------------------ | ------------------------------- | -------------------------------------------------------- |\n| `ClassicQuestLog.DetailShown`  | `questID` or nil                | the pane was filled for a quest, or emptied              |\n| `ClassicQuestLog.DetailLayout` | none                            | the rewards panel changed height while the text scrolled |\n| `ClassicQuestLog.RowInit`      | `row, questID, titleFontString` | a list row was filled; its title is plain text again     |\n| `ClassicQuestLog.WindowHidden` | none                            | the window closed                                        |\n\nThe names are also in `ClassicQuestLogAPI.Events`.\n\n## Development\n\nYou need [`just`](https://github.com/casey/just), and Git Bash on Windows.\nRun `just` to list every recipe and the paths it resolved.\n\n### Install into the game\n\n1. Run `just install`. This symlinks `ClassicQuestLog/` into each flavor\n   folder listed in `FLAVORS` (`_forever_ _classic_beta_`) that exists, and\n   skips any that don't.\n2. After each edit, type `/reload` in game.\n\nThe default WoW path covers Windows, macOS, and Linux with Faugus. If your\ninstall is somewhere else, pass the path once and it is saved in `.wow_path`:\n\n```shell\njust WOW_DIR=\"/path/to/World of Warcraft\" install\n```\n\nTo install into one flavor folder only:\n\n```shell\njust install _forever_\n```\n\n### Uninstall\n\n```shell\njust uninstall            # every flavor; or: just uninstall _forever_\njust reset                # forget the cached WOW_DIR\n```\n\n### Linting\n\n```shell\njust lint\n```\n\nRuns [luacheck](https://github.com/lunarmodules/luacheck) with the bundled\n`.luacheckrc` if it is installed (`luarocks install luacheck`).\n\n### Releasing\n\nPushing a `v*` tag runs `.github/workflows/addon.yml`. It lints the addon,\nbuilds the zip with the [BigWigs packager](https://github.com/BigWigsMods/packager),\nattaches it to a GitHub release and uploads it to\n[Wago](https://addons.wago.io/addons/BNBw006x). A tag with `alpha` or `beta`\nin it becomes a prerelease.\n\nThe Wago upload needs a `WAGO_API_TOKEN` repository secret (an API key from\nyour Wago account); without it the packager skips Wago and only makes the\nGitHub release. The project ID comes from `## X-Wago-ID` in the TOC.\n\n```shell\njust release            # asks for the version, tags the latest main, pushes the tag\njust release v1.0.0     # or give it up front\n```\n\nIt fetches, checks the version is new and CI passed on the commit, asks for confirmation, then\ntags `origin/main`, pushes the tag and watches the run until the release is up.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-22",
+      "notes": "# Classic Quest Log\n\n## [v1.0.0](https://github.com/yak3d/wow4e-classic-questlog/tree/v1.0.0) (2026-11-22)\n[Full Changelog](https://github.com/yak3d/wow4e-classic-questlog/commits/v1.0.0) [Previous Releases](https://github.com/yak3d/wow4e-classic-questlog/releases)\n\n- update wago project id  \n- Merge just-release: add a just release recipe  \n- Add a just release recipe that tags the latest main and watches the release run  \n- Add support for Forever Quest Tint  \n- Document the public API in the README, PLAN and a public-api spec  \n- Add a public ClassicQuestLogAPI for other addons  \n- Initial commit"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/yak3d/wow4e-classic-questlog/main/docs/doublepane.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ClassicQuestLog"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Spoken_Quests",
+      "Spoken"
+    ],
+    "savedVariables": [
+      "ClassicQuestLogDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ClassicQuestLogCharDB"
+    ]
+  }
+}

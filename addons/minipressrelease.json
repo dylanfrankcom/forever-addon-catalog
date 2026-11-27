@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "minipressrelease",
+  "repo": "Verubato/mini-press-release",
+  "about": "# MiniPressRelease\n\nSimple addon that configures your key presses and mouse clicks to invoke actions on both press down and up. This essentially increases your chance of landing spells.\n\nUseful when spamming abilities such as:\n\n- Kick.\n- Sap.\n- Shadow word death.\n- Execute.\n- Touch of death.\n- Death grip.\n- Shadowmeld.\n- And just any ability when pressing it while CC'd.\n\nImagine for example:\n\n1. You are cycloned.\n2. The druid is re-casting another cyclone on you.\n3. You are spamming kick on the druid.\n4. You key press down while in cyclone, but on release you are out of the cyclone\n5. So your kick works on key up/release and thus lands on the druid, whereas before with only key down the kick wouldn't have landed.\n\nEven though most people probably use their keyboard for actions, there are sometimes reasons for clicking abilities such as 1 handed gaming while drinking/eating and those with disabilities. For these users mouse support has also been added.\n\nCredit for the original idea goes to XyzKang.\n\n[Discord](https://discord.gg/UruPTPHHxK)\n\n## Screenshots\n\n![MiniPressRelease screenshot](https://raw.githubusercontent.com/Verubato/mini-press-release/main/assets/Screenshots/Settings.png)\n\n## Download\n\nAvailable on [CurseForge](https://www.curseforge.com/wow/addons/minipressrelease).",
+  "releases": [
+    {
+      "tag": "2.7.11",
+      "published": "2026-10-13",
+      "notes": "Updated for patch 12.1.5."
+    },
+    {
+      "tag": "2.7.10",
+      "published": "2026-10-06",
+      "notes": "Fixed WoW Forever support."
+    },
+    {
+      "tag": "2.7.9",
+      "published": "2026-09-28",
+      "notes": "Added support for WoW Forever 1.6.1."
+    },
+    {
+      "tag": "2.7.8",
+      "published": "2026-08-30",
+      "notes": "- UI improvements.\n- Replaced the keybinding filter checkboxes with a filter mode dropdown."
+    },
+    {
+      "tag": "2.7.7",
+      "published": "2026-08-20",
+      "notes": "Reduced the work the shared framework code does on paths the addons use heavily."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Verubato/mini-press-release/main/assets/Screenshots/Settings.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-10-06",
+      "2026-09-28",
+      "2026-08-30",
+      "2026-08-20",
+      "2026-08-19",
+      "2026-08-16",
+      "2026-08-14",
+      "2026-08-08",
+      "2026-08-04",
+      "2026-08-02",
+      "2026-08-01",
+      "2026-07-30",
+      "2026-06-17",
+      "2026-05-09",
+      "2026-05-02",
+      "2026-05-02",
+      "2026-04-26",
+      "2026-04-17",
+      "2026-03-09",
+      "2026-03-08",
+      "2026-03-06",
+      "2026-03-06",
+      "2026-03-06",
+      "2026-03-06",
+      "2026-02-23",
+      "2026-01-21",
+      "2026-01-17",
+      "2026-01-16",
+      "2026-01-16",
+      "2026-01-16",
+      "2026-01-16",
+      "2026-01-16",
+      "2026-01-16",
+      "2026-01-14",
+      "2026-01-14",
+      "2026-01-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MiniPressRelease"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Bartender4"
+    ],
+    "savedVariablesPerCharacter": [
+      "MiniPressReleaseCharDB"
+    ]
+  }
+}

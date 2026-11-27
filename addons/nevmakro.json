@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "nevmakro",
+  "repo": "nevrion/NevMakro",
+  "about": "# NevMakro\n\nMakro-Baukasten für **WoW Forever** (Interface 16001). Makros per Klick und Drag&Drop bauen, fertige Vorschläge für deine Klasse und deine Berufe übernehmen und mit Freunden teilen. Befehl im Spiel: `/nm`\n\n**Status:** Beta. Das Addon ist bisher nur offline geprüft, Fehlermeldungen sind willkommen (siehe unten).\n\n## Installation\n\n1. Unter Releases die Datei `NevMakro-x.y.z.zip` herunterladen.\n2. Den Ordner `NevMakro` aus dem Zip nach `World of Warcraft/<Spielversion>/Interface/AddOns/` kopieren.\n3. Spiel starten oder `/reload`, dann `/nm` eingeben.\n\n## Was es kann\n\n- **Makro-Baukasten:** Makros aus Bausteinen (Zauber, Reihenfolge, Gegenstand, Pet-Befehle, Auto-Angriff, Fokus, Absteigen, eigener Befehl). Pro Baustein Ziel (Mouseover, Fokus, Selbst ...), Bedingungen (Taste, Kampf, Zielart, Pet, Tarnung, Reittier, Gruppe) und ODER-Verbindung. Zauber und Items per Drag&Drop ins Textfeld ziehen.\n- **Langes Makro:** Über die 255-Zeichen-Grenze hinaus (die Zeile im Spiel ist nur ein Klick-Button).\n- **Vorschläge:** Fertige Makros für deine Klasse, allgemeine Makros und Berufe (nur zu deinen Berufen passend).\n- **Leisten-Assistent:** Zauber auf deinen Aktionsleisten durch Makros mit Zusätzen ersetzen (Pet-Angriff, Kampf starten, Absteigen, Zauber abbrechen ...), mit Rückgängig. Befehl: `/nm leiste`\n- **Teilen:** Jedes Makro als Text-Code exportieren und Codes von Freunden importieren. Zaubernamen setzen die gleiche Spielsprache voraus.\n- Fenster mit dem Anfasser unten rechts skalierbar, Rechtsklick setzt auf 100 %.\n\n## Fehler melden\n\nVor dem Test `/console scriptErrors 1` eingeben, dann erscheint bei einem Lua-Fehler ein Fenster. Bitte den Text daraus als Issue melden, dazu Klasse und Spielsprache.\n\n## Hinweise\n\n- Makros lassen sich nicht im Kampf anlegen oder ändern (Blizzard-Einschränkung).\n- Die Zauber-IDs der Vorschläge sind noch nicht für alle Klassen im Spiel geprüft.",
+  "releases": [
+    {
+      "tag": "v0.4.2",
+      "name": "NevMakro 0.4.2 (Beta)",
+      "published": "2026-11-10",
+      "notes": "Hunter: Vorlage Pet rufen/heilen/beleben in einem Makro (tot = wiederbeleben, lebt = heilen, fehlt = rufen), mit wechselndem Symbol. Neue Bedingungen Pet ist tot / lebt im Wenn-Menü."
+    },
+    {
+      "tag": "v0.4.1",
+      "name": "NevMakro 0.4.1 (Beta)",
+      "published": "2026-11-10",
+      "notes": "Erste öffentliche Beta. Zip entpacken und den Ordner NevMakro nach Interface/AddOns kopieren. Fehler bitte als Issue melden (vorher /console scriptErrors 1)."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-10"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "NevMakro"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "NevMakroDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "NevMakroChar"
+    ]
+  }
+}

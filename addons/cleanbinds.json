@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "cleanbinds",
+  "repo": "freddiehaddad/cleanbinds",
+  "about": "# ![Clean Binds emblem](https://raw.githubusercontent.com/freddiehaddad/cleanbinds/main/Media/Icon.png)\n  Clean Binds\n\n**Know your keybinds at a glance.**\n\nLong keybinding names can get cut off on your action bars, making binds like\n**Mouse Wheel Up** and **Mouse Wheel Down** hard to tell apart. Clean Binds lets\nyou give each button a clear, short label such as **MWU** or **MWD** in **World\nof Warcraft: Forever**. Your keybindings stay exactly the same.\n\nDownload on [CurseForge](https://www.curseforge.com/wow/addons/cleanbinds) |\n[Wago](https://addons.wago.io/addons/cleanbinds) |\n[GitHub releases](https://github.com/freddiehaddad/cleanbinds/releases)\n\n## Features\n\n- **Short labels you choose.** Customize each button individually, including\n  mouse buttons, the mouse wheel, and Shift, Ctrl, or Alt combinations.\n- **Labels for MMO mice.** Use names like `N1` or `N12` for side-button keybinds\n  on a Razer Naga or similar mouse, even when those buttons are mapped to\n  keyboard keys.\n- **Blizzard's familiar action bars.** Change the text without replacing your\n  bars or changing their layout.\n- **Adjustable keybind font size.** Make labels easier to read without\n  enlarging your action buttons. Keep Blizzard's font style and colors.\n- **Optional label and macro-name hiding.** Hide keybinding labels (while\n  keeping the range indicator dot) or macro names on your action buttons without\n  changing your bindings or renaming your macros.\n- **Built into Options.** Browse buttons by action bar and preview your labels\n  as you type.\n- **Shared or character-specific settings.** Labels automatically follow WoW's\n  keybinding setting, with no extra profile selector.\n\n## Installation\n\nOn CurseForge, choose **Forever**. On Wago, choose **Classic Forever** as the\ngame version.\n\nFor a manual install, download the release ZIP from CurseForge, Wago, or GitHub\nReleases. Place the extracted **CleanBinds** folder in your WoW Forever AddOns\nfolder. Within your World of Warcraft installation, the file layout should be:\n\n```text\n_forever_\\Interface\\AddOns\\CleanBinds\\CleanBinds.toc\n```\n\nOn GitHub, choose the **CleanBinds-VERSION-forever.zip** release asset, not the\nsource-code archive.\n\nRestart WoW and enable **Clean Binds** in the AddOns list.\n\n## Set up your labels\n\n1. Type `/cleanbinds` in chat, or open **Esc -> Options -> AddOns -> Clean\n   Binds**.\n2. Choose an action bar.\n3. Click a button's **Custom label** field, enter a label such as `MWD`, and\n   press Enter. The label appears on the action button immediately.\n\nOptions **Search** can find **Enable custom labels**, **Hide keybind labels**,\n**Hide macro names**, and **Keybinding font size**. Use the Clean Binds sidebar\nto choose an action bar.\nAddon-name and bar/button search shortcuts are temporarily unavailable while\n[a search issue](https://github.com/freddiehaddad/cleanbinds/issues/9) is addressed.\n\nYour current keybindings are shown for reference; they cannot be changed here.\nHover over a binding to see its full name and any additional keys assigned to\nthat button.\n\nPress Tab or Shift+Tab to save and move between fields. Clicking elsewhere also\nsaves; Escape cancels the current edit. The preview warns if a label is too\nwide, but you can still use it.\n\nChange settings outside combat. Labels and macro-name visibility stay active in combat.\nChanges are saved automatically when you reload the UI or log out.\n\n## Hide macro names\n\nEnable **Hide macro names** on the main Clean Binds settings page to hide them\non all supported action bars. Names in the macro window and tooltips are\nunchanged. This works independently of **Enable custom labels**; uncheck it\nto show names again. **Reset This Bar** leaves this preference unchanged.\n\n## Keybinding font size\n\nUse the **Keybinding font size** slider on the main Clean Binds page to choose\na size from **10 to 14**. The step buttons allow precise changes, and returning\nthe slider to the default size restores each button's native font size.\n\nThis applies to both native and custom keybind labels, even with **Enable custom\nlabels** unchecked. Macro names, cooldown text, and button sizes are unchanged.\n**Reset This Bar** leaves the font-size setting alone.\n\n## Account-wide and character-specific labels\n\nClean Binds follows **Character Specific Key Bindings** in WoW's Keybindings\noptions. The active setup is shown at the top of each Clean Binds page.\n\n| Character Specific Key Bindings | Labels and settings |\n| --- | --- |\n| Unchecked | Shared with other characters using account-wide bindings. |\n| Checked | Saved separately for this character. |\n\n**This checkbox is set separately for each character.** Leave it unchecked on\nevery character that should share your labels. Create a shared label once, and\nthose characters use it too.\n\nA new character-specific setup starts with WoW's default labels, not copies of\nyour shared labels. **Enable custom labels**, **Hide macro names**, and\n**Keybinding font size** initially match the shared settings, then remember\nthat character's choices independently.\n\nSwitching back to account-wide bindings restores your shared labels. It does not\ncopy character-only labels into the shared setup. Each setup retains its labels\nfor when you return to it, provided the keybindings still match.\n\n## Changing and resetting settings\n\nClear a **Custom label** field to restore WoW's default text for that button.\n\nOn an action-bar page, **Reset This Bar** clears only that bar's custom labels\nafter confirmation. Other bars, font size, and macro-name visibility are\nunchanged.\n\nTo reset the entire active Clean Binds setup, select the main **Clean Binds**\npage, click **Defaults**, and choose **These Settings**. This clears all custom\nlabels, enables custom labels, shows macro names, and restores native font sizing.\n\nBoth affect **only the active account-wide or character-specific setup**.\nAn account-wide reset leaves independent character settings untouched.\n**Cancel** leaves settings unchanged.\n\n**All Settings** also resets WoW's settings and keybindings and participating\naddon settings. Choose **These Settings** to reset only Clean Binds.\n\nUncheck **Enable custom labels** to use WoW's default text without deleting your\nlabels. Each setup remembers its own on/off setting.\n\nIf you change the key shown on a button, Clean Binds clears that button's custom\nlabel in the affected setup so it does not show a misleading key. This also\napplies to key changes made while the addon was disabled. Changing only a\nsecondary binding keeps the label if the displayed key stays the same.\n\nLabels belong to buttons, not to the spells or macros placed on them. You can\nalso prepare a label for an unbound button; it appears when you assign a key.\n\n## Supported bars\n\nClean Binds supports Blizzard's **Action Bars 1-8**, **Pet Bar**, and **Stance\nBar** (listed as **Special Action Buttons** in WoW's Keybindings options).\nHidden or inactive bars can still be configured.\n\nVehicle and other temporary action bars that reuse the main bar's bindings use\nits labels rather than having a separate setup. Vehicle support is experimental.\n\nAction bars from other addons, extra-action buttons, totem bars, and flyout\nbuttons are not supported. Clean Binds is for **World of Warcraft: Forever**,\nnot other WoW versions.\n\n## Support and license\n\n[Report an issue](https://github.com/freddiehaddad/cleanbinds/issues). Include\nyour WoW version and what happened; `/cleanbinds status` shows your version,\nactive binding setup, and available action bars.\n\nClean Binds is distributed under the\n[MIT License](https://github.com/freddiehaddad/cleanbinds/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.4.1",
+      "published": "2026-11-06",
+      "notes": "# Clean Binds\n\n## [v0.4.1](https://github.com/freddiehaddad/cleanbinds/tree/v0.4.1) (2026-11-06)\n[Full Changelog](https://github.com/freddiehaddad/cleanbinds/compare/v0.4.0...v0.4.1) [Previous Releases](https://github.com/freddiehaddad/cleanbinds/releases)\n\n- refactor: remove duplicate ADDON\\_LOADED listener (#18)  \n- fix: skip proxy setting notifications in combat  \n- fix: update Forever install path and beta wording (#15)"
+    },
+    {
+      "tag": "v0.4.0",
+      "published": "2026-10-22",
+      "notes": "# Clean Binds\n\n## [v0.4.0](https://github.com/freddiehaddad/cleanbinds/tree/v0.4.0) (2026-10-22)\n[Full Changelog](https://github.com/freddiehaddad/cleanbinds/compare/v0.3.2...v0.4.0) [Previous Releases](https://github.com/freddiehaddad/cleanbinds/releases)\n\n- refactor: deduplicate preference helpers (#14)  \n- feat: add option to hide keybind labels (#13)  \n- refactor: remove main-page font preview (#12)"
+    },
+    {
+      "tag": "v0.3.2",
+      "published": "2026-10-10",
+      "notes": "# Clean Binds\n\n## [v0.3.2](https://github.com/freddiehaddad/cleanbinds/tree/v0.3.2) (2026-10-10)\n[Full Changelog](https://github.com/freddiehaddad/cleanbinds/compare/v0.3.1...v0.3.2) [Previous Releases](https://github.com/freddiehaddad/cleanbinds/releases)\n\n- fix: wait for saved bindings on startup"
+    },
+    {
+      "tag": "v0.3.1",
+      "published": "2026-10-03",
+      "notes": "# Clean Binds\n\n## [v0.3.1](https://github.com/freddiehaddad/cleanbinds/tree/v0.3.1) (2026-10-03)\n[Full Changelog](https://github.com/freddiehaddad/cleanbinds/compare/v0.3.0...v0.3.1) [Previous Releases](https://github.com/freddiehaddad/cleanbinds/releases)\n\n- fix: limit Options search to native settings (#10)  \n- fix: handle fractional font-size steps (#8)"
+    },
+    {
+      "tag": "v0.3.0",
+      "published": "2026-10-02",
+      "notes": "# Clean Binds\n\n## [v0.3.0](https://github.com/freddiehaddad/cleanbinds/tree/v0.3.0) (2026-10-02)\n[Full Changelog](https://github.com/freddiehaddad/cleanbinds/compare/v0.2.0...v0.3.0) [Previous Releases](https://github.com/freddiehaddad/cleanbinds/releases)\n\n- feat: add Options search support (#7)  \n- fix: integrate native Defaults resets"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 2,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-10-22",
+      "2026-10-10",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-09-30",
+      "2026-09-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CleanBinds"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "CleanBindsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "CleanBindsCharacterDB"
+    ]
+  }
+}

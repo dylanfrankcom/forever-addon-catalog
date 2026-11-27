@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "warpee",
+  "repo": "bdotqw/Warpee",
+  "about": "# Warpee\n\nBag and bank windows for World of Warcraft Retail (Midnight, 12.x) and WoW Forever. Grid or categories, fast, themed.\n\nCurrent addon version: **14.2**.\n\nWarband bank, guild bank skin and WoW Token features are Retail-only.\n\n## Features\n\n- **Bags in one window**, the character bank and the Warband bank as tabs in a second one.\n- **Category view** for the bags and the bank: items grouped into sections by a search each, sections gathered into named bands you fold and reorder, or the plain grid when you want it.\n- **Fourteen themes**, recolored on the fly: dark palettes and two Blizzard skins built from the game's own panels.\n- **Guild bank skin** matching the rest of the addon; its contents are not saved.\n- **Snapshots** of other characters' bags and bank, behind a shared switcher popup.\n- **Favorites row**: drag an item in to keep it one click away, reorder the row by dragging, and read the total you carry on the square, every stack in every bag added up.\n- **Pocket window** on a hotkey: a small grid of tracked items for when the full bags are overkill, with ghosts that stay behind to rebuy what ran out.\n- **Recent loot row** in the bags and the pocket, toggled on its own.\n- **Marks on the slots**, placed where you want them: item level, stack count, binding (BoE, WuE, BoA), gear set, a coin on junk and a sale mark with a padlock for locked items, each with its own corner, offset, size and growth direction, plus a countdown on anything on cooldown.\n- **Vendor sell** in one click: item level range in the options, grey junk, old consumables and raid loot optional, with guards for old runes, alchemist stones and fishing gear; BoE, warbound, enchanted and socketed gear stay in the bags. Alt + LMB marks an item for the next visit, and the same again locks it.\n- **Item counts across every character** inside the Blizzard tooltip (bags / bank / Warband / total).\n- **Search filters** by quality, slot, item type, expansion and item level, in every interface language below.\n- **Gold formats** (commas, dots, spaces, K/M), coin letters or coin icons, and a gold tooltip listing characters, with the WoW Token price in the bags.\n- **X/Y bar** for placing windows exactly, plus a position lock.\n- **Interface text** in English, Russian, German, French, Spanish, Italian, Portuguese, Korean and Chinese.\n- **Two bundled fonts** (Rubik Bold, Russo One); anything registered with LibSharedMedia also shows up.\n\n## Install\n\nCopy the `Warpee` folder into `Interface\\AddOns\\`. Fonts ship in `Media\\Fonts\\`.\n\n## Commands\n\n- `/warpee` or `/wpe` opens the options\n\nBags open on the game's own bag key; the minimap button opens the settings. The\nbank and the Warband bank open from the header of the bag window, or at a banker.\n\n## Libraries\n\nLibStub, CallbackHandler-1.0 and LibSharedMedia-3.0 live in `Libs/`, unmodified.\n\n## License\n\nAll rights reserved, in `LICENSE`. The bundled libraries and fonts keep their own licenses.\n\n## Fonts\n\nRubik Bold and Russo One are licensed under the SIL Open Font License; see Media/Fonts/OFL.txt for the full text.",
+  "releases": [
+    {
+      "tag": "v14.2",
+      "published": "2026-11-23",
+      "notes": "# Warpee\n\n## 14.2\n\nENG\n\n**Retail / Forever**\n\n- Fixed, a stack lying in pieces across the bags was listed in Recent as just received after a sort or a move: a pass that reads one bag no longer decides what counts as new.\n- Fixed, half a stack split off and carried to another bag was listed in Recent as just received: the piece is left out of the count until it lands.\n- Fixed, a piece deposited in the bank, taken back out and deposited again landed in the next slot every time instead of the one it left: the slot the deposit aims at is picked afresh for every new gesture.\n\nRU\n\n**Ритейл / Форель**\n\n- Исправлено, что стопка, лежавшая частями по сумкам, после сортировки или переноса попадала в «Недавнее» как только что полученная: проход по одной сумке больше не решает, что считать новым.\n- Исправлено, что отделённая от стопки половина, отнесённая в другую сумку, попадала в «Недавнее» как только что полученная: пока предмет в пути, он не учитывается.\n- Исправлено, что вещь, положенная в банк, взятая обратно и положенная снова, каждый раз уезжала в следующий слот вместо своего: слот для депозита теперь выбирается заново с каждым новым действием."
+    },
+    {
+      "tag": "v14.1",
+      "published": "2026-11-22",
+      "notes": "# Warpee\n\n## 14.1\n\nENG\n\n**Retail / Forever**\n\n- Fixed, the Recent row took items off wrong while the mail was emptied: each item taken now takes exactly one off.\n- Fixed, Recent cells could flicker and empty early while the bags were read one at a time: the row now redraws only after a whole sweep.\n- Fixed, a renamed equipment set kept its old name in the bags: the new one now shows at once.\n- Fixed, the bank header shifted while items were moved: every element in it now lands on the pixel grid at once.\n- Fixed, the Font row kept the name of a font whose addon was turned off: the pick is kept and comes back when that addon is enabled again.\n\nRU\n\n**Ритейл / Форель**\n\n- Исправлено некорректное списание предметов из строки «Недавние» при разборе почты: теперь каждый открытый предмет уменьшает количество ровно на единицу.\n- Исправлено мигание и преждевременное опустошение ячеек «Недавних» при последовательном чтении сумок. Теперь строка обновляется только после полного прохода.\n- Исправлено обновление названий комплектов снаряжения в сумках: после переименования новое название отображается сразу.\n- Исправлено смещение элементов в шапке банка при перемещении предметов. Все элементы теперь сразу выравниваются по пиксельной сетке.\n- Исправлено отображение выбранного шрифта после отключения аддона, из которого он был загружен. Выбор сохраняется и автоматически восстанавливается после повторного включения аддона."
+    },
+    {
+      "tag": "v14.0",
+      "published": "2026-11-20",
+      "notes": "# Warpee\n\n## 14.0\n\nENG\n\n**Retail / Forever**\n\n- Retail: fixed, the craft rank rhombus stayed on armor, weapons and profession equipment after the professions window was closed.\n- Retail: added a checkbox, \"Gear craft rank\", that turns the always-on craft rank of armor, weapons and profession equipment on and off.\n- Added an option, \"Clear recent on bags close\", that empties the Recent row as the bags go.\n- The Recent row costs a fraction of what it did to open.\n\nRU\n\n**Ритейл / Форель**\n\n- Ритейл: исправлено, ромбик тира крафта оставался на броне, оружии и снаряжении профессий после закрытия окна профессий.\n- Ритейл: добавлен чекбокс «Тир крафта снаряжения», который включает и отключает постоянное отображение тира крафта на броне, оружии и снаряжении профессий.\n- Добавлена опция «Очистка недавнего при закрытии сумок», строка пустеет вместе с закрытием сумок.\n- Строка «Недавние» стала дешевле открываться."
+    },
+    {
+      "tag": "v13.9",
+      "published": "2026-11-18",
+      "notes": "# Warpee\n\n## 13.9\n\nENG\n\n**Retail / Forever**\n\n- Ctrl + LMB on a currency no longer opens the transfer when the game would refuse it: the tip names the reason instead.\n- Transferable currencies only lists the warband's coins again even where this character holds 0 and has never earned them.\n- A coin this character has never held says so in its tip: tracking becomes available once any amount of it is transferred over.\n- The category view no longer leaves empty placeholder slots behind after the bags are reopened.\n- Reopening the bags in the category view no longer shows a stale picture when a category was renamed, switched off, reordered or folded while the bags were shut.\n- The heads of the bags, the bank and the currency list stand on the pixel grid from the first frame: switches, search boxes and labels no longer settle into place after a window opens.\n\nRU\n\n**Ритейл / Форель**\n\n- Ctrl + ЛКМ по валюте больше не уводит в перенос, если игра его отклонит: в подсказке вместо этого написана причина.\n- Фильтр «только переносимые» снова показывает валюты отряда там, где у персонажа 0 и он их ни разу не получал.\n- Если валюты у персонажа ещё нет, подсказка объясняет, что отслеживание включится после переноса: достаточно перенести на этого персонажа любое количество.\n- В виде по категориям после повторного открытия сумок больше не остаются пустые места от заглушек.\n- Повторное открытие сумок в виде категорий больше не показывает устаревшую картинку, если категорию переименовали, выключили, переставили или свернули при закрытых сумках.\n- Шапки сумок, банка и списка валют стоят на пиксельной сетке с первого кадра: кнопки, поиск и подписи больше не сдвигаются на место после открытия окна."
+    },
+    {
+      "tag": "v13.8",
+      "published": "2026-11-17",
+      "notes": "# Warpee\n\n## 13.8\n\nENG\n\n**Retail / Forever**\n\n- Reopening the bags in the category view is faster.\n- The Pocket and Popular windows open faster.\n- Fixed ragged borders in the settings at interface scales that are not whole pixels.\n- The Sort button now closes up the gaps in the Recent row right away, instead of only when the bags open or close.\n- Fixed the WoW Token price: it was not requested until the gold tooltip was first opened.\n- The pocket no longer drifts on another character: it stays against the bags or the bank, whatever height their windows have.\n\nRU\n\n**Ритейл / Форель**\n\n- Повторное открытие сумок в виде категорий ускорено.\n- Ускорено открытие окон «Карман» и «Популярное».\n- Исправлены рваные рамки в настройках при масштабах интерфейса, не кратных пикселю.\n- Кнопка сортировки теперь сразу смыкает ряд «Недавнее», а не только при открытии и закрытии сумок.\n- Исправлена цена WoW Token: она не запрашивалась до первого наведения на золото.\n- Карман больше не сбивается на другом персонаже: он остаётся прижат к сумкам или банку, какой бы высоты ни было их окно."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-20",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-10-29",
+      "2026-10-27",
+      "2026-10-25",
+      "2026-10-23",
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-09",
+      "2026-10-07",
+      "2026-10-04",
+      "2026-10-01",
+      "2026-09-30",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-24",
+      "2026-09-23",
+      "2026-09-17",
+      "2026-09-16",
+      "2026-09-15",
+      "2026-09-13",
+      "2026-09-12",
+      "2026-09-11",
+      "2026-09-11",
+      "2026-09-11",
+      "2026-09-09",
+      "2026-09-06",
+      "2026-09-04",
+      "2026-09-04",
+      "2026-09-03",
+      "2026-09-03",
+      "2026-09-03",
+      "2026-09-02",
+      "2026-09-02",
+      "2026-09-02",
+      "2026-09-02",
+      "2026-09-02",
+      "2026-09-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Warpee"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "WarpeeDB"
+    ]
+  }
+}

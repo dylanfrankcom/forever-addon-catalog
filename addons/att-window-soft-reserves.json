@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "att-window-soft-reserves",
+  "repo": "ATTWoWAddon/ATT-Window-Soft-Reserves",
+  "about": "![](https://wago-addons.ams3.digitaloceanspaces.com/thumbnails/GCM2L2Lxz2AObRXu404Oggp5zcjhBYp01XCXffPQ.png)\n\n[![Stable Release Date](https://img.shields.io/github/release-date/ATTWoWAddon/ATT-Window-Soft-Reserves?logo=github&label=Released&cacheSeconds=600)](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/releases)\n[![Build Status](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/workflows/release/badge.svg)](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/actions?workflow=release)\n[![Stable Release](https://img.shields.io/github/v/release/ATTWoWAddon/ATT-Window-Soft-Reserves?logo=github&label=Stable)](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/releases)\n![GitHub commits since latest release](https://img.shields.io/github/commits-since/ATTWoWAddon/ATT-Window-Soft-Reserves/latest?logo=github)\n\n[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/ATTWoWAddon/ATT-Window-Soft-Reserves?logo=github&label=Issues)](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/issues)\n![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/ATTWoWAddon/ATT-Window-Soft-Reserves?logo=github&label=Activity&cacheSeconds=600)\n[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/allthethings)\n[![Patreon](https://img.shields.io/badge/Patreon-F96854?&logo=patreon&logoColor=white)](https://www.patreon.com/allthethings)\n[![Twitch](https://img.shields.io/badge/Twitch-%239146FF?logo=twitch&logoColor=white)](https://www.twitch.tv/crieve)\n\n[![CurseForge](https://cf.way2muchnoise.eu/267285.svg)](https://legacy.curseforge.com/wow/addons/att-window-soft-reserves)\n![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ATTWoWAddon/ATT-Window-Soft-Reserves/total?logo=github&label=Downloads&cacheSeconds=600)\n[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=&logo=github&logoColor=white)](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves)\n[![CurseForge](https://img.shields.io/badge/CurseForge-%23F16436?logo=CurseForge&logoColor=black)](https://legacy.curseforge.com/wow/addons/att-window-soft-reserves)\n[![Wago.io](https://img.shields.io/badge/Wago.io-%231e1e1e)](https://addons.wago.io/addons/att-window-soft-reserves)\n\n## Screenshots\n![Standalone Soft Reserves Window to keep track of soft reserves for your raid!](https://raw.githubusercontent.com/ATTWoWAddon/ATT-Window-Soft-Reserves/main/.sample.png)\n![The addon is an extension for ATT that adds the ability to distribute loot with Soft Reserve and Persistence!](https://raw.githubusercontent.com/ATTWoWAddon/ATT-Window-Soft-Reserves/main/.sample2.png)\n\n## Features\n- Manage Soft Reserves via whisper or by having your raid & guild members use the addon themselves.\n- Soft Reserve data is sent to/from players in your group so that everyone sees the same thing. (Addon required)\n\n## Why do I need this addon?\n- This addon adds the Soft Reserves window to ATT. The window can help your raid manage Soft Reserves as well as Soft Reserve Persistence. The soft reserves are shown on the tooltip of items along with any persistence the player has on that item. The extension itself is fairly light weight and does not force you to loot anything in any particular way.\n\nYou can open the window using /attsr and either leave it open to have it restore or close it to open again at a later date! As with all other ATT Windows, it will recover back to its last known state on reload or relog!\n\n## Release Schedule\nNew builds will generally only include updated TOC versions and bug fixes when Blizzard breaks something.\n\n## Where do I find AllTheThings?\n- [AllTheThings](https://github.com/ATTWoWAddon/AllTheThings)\nDo you find yourself completing old content just so that you can get literally everything for your Collections? Say no more! ALL THE THINGS will help you with your endeavor by giving you the ability to track your completion for everything.\n\n## Problem? Suggestion?\nPlease visit our Discord or post an Issue on our Issue Tracker. Issues related to ATT itself should be posted to the AllTheThings Discord instead!\n\n- [Discord](https://discord.gg/allthethings)\n- [Issues](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/issues)\n- [FAQ](https://legacy.curseforge.com/wow/addons/all-the-things/pages/f-a-q)\n- [WAGO.io](https://addons.wago.io/addons/att-window-soft-reserves)\n\n## Contributors\nThank you to the contributors for the work they do and the users who have submitted suggestions and bugs in Discord or on the forums! View and follow [our contributors here](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/graphs/contributors)!\n\n## Special Thanks\n- DeadSerious -- Primary Artist for all Branding for ATT & Crieve's Twitch channel.\n\n## Support Us\nYou can donate to our [Patreon here](https://www.patreon.com/allthethings)!",
+  "releases": [
+    {
+      "tag": "1.0.4",
+      "published": "2026-11-23",
+      "notes": "# ATT-Window: Soft Reserves\n\n## [1.0.4](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/tree/1.0.4) (2026-11-23)\n[Full Changelog](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/compare/1.0.3...1.0.4) [Previous Releases](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/releases)\n\n- The Link to WoW batch files now link to WoW Forever as well."
+    },
+    {
+      "tag": "1.0.3",
+      "published": "2026-10-17",
+      "notes": "# ATT-Window: Soft Reserves\n\n## [1.0.3](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/tree/1.0.3) (2026-10-17)\n[Full Changelog](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/compare/1.0.2...1.0.3) [Previous Releases](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/releases)\n\n- [TOC] Update TOC.  \n    * Removed outdated version.  \n    * Added 12.1.5, 12.1.7.  \n- Updated WoW path for my new computer."
+    },
+    {
+      "tag": "1.0.2",
+      "published": "2026-09-21",
+      "notes": "# ATT-Window: Soft Reserves\n\n## [1.0.2](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/tree/1.0.2) (2026-09-21)\n[Full Changelog](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/compare/1.0.1...1.0.2) [Previous Releases](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/releases)\n\n- Fixed a bug involving the CHAT\\_MSG\\_ADDON event.  \n    Updated TOC for Forever."
+    },
+    {
+      "tag": "1.0.1",
+      "published": "2026-07-26",
+      "notes": "# ATT-Window: Soft Reserves\n\n## [1.0.1](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/tree/1.0.1) (2026-07-26)\n[Full Changelog](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/compare/1.0.0...1.0.1) [Previous Releases](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/releases)\n\n- [TOC] Update TOC.  \n    * Removed outdated version.  \n    * Added 1.15.9, 2.5.6, 5.5.4, 12.0.7, 12.1.0."
+    },
+    {
+      "tag": "1.0.0",
+      "published": "2026-02-15",
+      "notes": "# ATT-Window: Soft Reserves\n\n## [1.0.0](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/tree/1.0.0) (2026-02-15)\n[Full Changelog](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/commits/1.0.0) [Previous Releases](https://github.com/ATTWoWAddon/ATT-Window-Soft-Reserves/releases)\n\n- I did it again, Package-as is the devil.  \n- Updated the SoftReserves saved variable format to account for more than one item at some point in the future.  \n- Added sample screenshots  \n- Initial build."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/ATTWoWAddon/ATT-Window-Soft-Reserves/main/.sample.png",
+    "https://raw.githubusercontent.com/ATTWoWAddon/ATT-Window-Soft-Reserves/main/.sample2.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-10-17",
+      "2026-09-21",
+      "2026-07-26",
+      "2026-02-15"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "ATT-Window-Soft-Reserves"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "AllTheThings"
+    ],
+    "savedVariables": [
+      "ATTSoftReserveData"
+    ]
+  }
+}

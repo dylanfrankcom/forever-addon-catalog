@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "doesitlive",
+  "repo": "swirllyman/DoesItLive",
+  "about": "# DoesItLive\n\nSister addon to [DoesItDie](https://github.com/swirllyman/DoesItDie) for WoW Forever: shows how much your HoTs will\nstill heal on a friendly unit, how much of that is overheal, and whether they top it off.\n\n**Status:** diagnostic probe only. Type `/dil` in game for the probe commands.",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-23",
+      "notes": "# DoesItLive\n\n## v0.1.0\n\nThe first release of DoesItLive, the sister addon of DoesItDie: it shows how much healing your HoTs still have to do,\nright on the health bar, and whether they'll top the target off.\n\n- **Heal bar:** from the end of the green, the healing your HoTs still have coming, shrinking with every tick. The\n  part that would go past full health shows as a thin overheal strip along the bottom, so your real health stays\n  readable, and a plus appears at the bar's right end when your HoTs will fill it.\n- **Everywhere you heal:** your player frame, the bars under your character (personal resource display), a friendly\n  target, your pet's frame, Blizzard's party and raid frames (pet rows too) and friendly nameplates. Friendly players'\n  nameplates need their health bars on: untick \"show only name\" under friendly players in Options > Nameplates.\n- **What it tracks**, in groups you can turn on and off: HoTs on others (Rejuvenation, Regrowth, Renew, Riptide, Wild\n  Growth), heals on yourself (Siphon Life, Drain Life, Devouring Plague), heals on your pet (Mend Pet, Health Funnel),\n  group and placed heals (Healing Stream Totem, a Lightwell's renew, Penance), and bandages, food and anything else\n  whose tooltip heals over time. Amounts come from the tooltips, which already include your bonus healing. Wild\n  Growth's shrinking ticks, and which party members it reached, are estimated.\n- **Settings window** (`/dil`, or Options > AddOns > DoesItLive) with a live preview and presets (Default, Subtle, Per\n  HoT, Juicy): where it shows, what it tracks, fill style, one color or a color per HoT, outline, effects (smooth\n  motion, flash and spark when a HoT lands, glow, shine, scrolling stripes), the overheal strip, the tops-off icon and\n  an optional `+830` text.\n- **Works with other addons** like DoesItDie: EllesmereUI's unit frames and nameplates, BetterBlizzFrames' health bars,\n  and Platynator, Threat Plates, Plater and other nameplate addons. For any other unit frame addon, pick its health\n  bar on the Advanced tab.\n- `/dil hots` lists the heals being tracked; `/dil bar 800` shows a fixed amount to try out the look."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DoesItLive"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "DoesItLiveDB"
+    ]
+  }
+}

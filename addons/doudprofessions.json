@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "doudprofessions",
+  "repo": "Doudster/DoudProfessions",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-21",
+      "notes": "# Doud's Professions\n\n## [v1.1.0](https://github.com/Doudster/DoudProfessions/tree/v1.1.0) (2026-11-21)\n[Full Changelog](https://github.com/Doudster/DoudProfessions/compare/v1.0.0...v1.1.0) [Previous Releases](https://github.com/Doudster/DoudProfessions/releases)\n\n- Add cooldowns and writs tracking, merge same-name characters across realms  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-21",
+      "notes": "# Doud's Professions\n\n## [v1.0.0](https://github.com/Doudster/DoudProfessions/tree/v1.0.0) (2026-11-21)\n[Full Changelog](https://github.com/Doudster/DoudProfessions/commits/v1.0.0) [Previous Releases](https://github.com/Doudster/DoudProfessions/releases)\n\n- Add GitHub release workflow for WowUp  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Recipes: Dim unknown -> Hide unknown  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Wealth: smooth all-time graph with gold axis, timeframe buttons and hover  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Wealth: graph of the account total per day  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Crates tab: cheapest Waylaid Crates per Merchant's Favor  \n    Crate + cheapest material bundle - gold back, per Favor (Auctionator prices).  \n    Mats in bags option (part-filled bundles priced on what's missing), row and  \n    crate item tooltips, click with the AH open = shopping list + search,  \n    Shift+click = link in chat. Minimap button opens the window.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Doud's Professions standalone  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DoudProfessions"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "ProfessionsDB"
+    ]
+  }
+}

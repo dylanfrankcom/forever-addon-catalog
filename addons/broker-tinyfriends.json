@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "broker-tinyfriends",
+  "repo": "Pinta365/Broker_TinyFriends",
+  "about": "# Broker_TinyFriends - World of Warcraft Addon\n\n## Description\n\n**TinyFriends** is a lightweight WoW addon that provides a streamlined interface for viewing and interacting with your friends list. It displays your online friends in a compact, sortable list, accessible through your databroker display!\n\n* See your online friends at a glance, with essential information readily available.\n* Sort your friends by name, level, presence, note, client, or faction.\n* Left-click a member to whisper them, or right-click to invite them to a party. Either shortcut can be turned off in the options.\n\n![Image of the TinyGuild panel](https://cdn.pinta.land/broker/tinyfriends.png)\n\n## Download\n\nYou can download TinyFriends from these popular sources:\n\n* [Wago Addons](https://addons.wago.io/addons/broker-tinyfriends)\n* [CurseForge](https://www.curseforge.com/wow/addons/broker-tinyfriends)\n\n## Troubleshooting\n\nIf you encounter any issues, try these steps:\n\n* **Reload your UI:** Type `/reload` in the chat frame.\n* **Check for error messages:** Pay attention to any error messages in the chat frame. Install Bugsack and BugGrabber to get better error reporting. \n\n## Reporting Issues\n\nIf you're still unable to resolve the issue, please open an issue on the [GitHub repository](https://github.com/Pinta365/Broker_TinyFriends/issues) and include the following information:\n\n* A description of the issue.\n* Steps to reproduce the error.\n* Any relevant error messages. (Use Bugsack and BugGrabber)\n\nBy providing this information, you'll help me identify and fix bugs more efficiently, making TinyFriends even better!",
+  "releases": [
+    {
+      "tag": "1.4.3",
+      "published": "2026-11-25",
+      "notes": "# TinyFriends\n\n## [1.4.3](https://github.com/Pinta365/Broker_TinyFriends/tree/1.4.3) (2026-11-25)\n[Full Changelog](https://github.com/Pinta365/Broker_TinyFriends/compare/1.4.2...1.4.3) [Previous Releases](https://github.com/Pinta365/Broker_TinyFriends/releases)\n\n- Bump Broker\\_TinyFriends version to 1.4.3  \n- Add options to enable/disable click-to-whisper and click-to-invite features"
+    },
+    {
+      "tag": "1.4.2",
+      "published": "2026-11-21",
+      "notes": "# TinyFriends\n\n## [1.4.2](https://github.com/Pinta365/Broker_TinyFriends/tree/1.4.2) (2026-11-21)\n[Full Changelog](https://github.com/Pinta365/Broker_TinyFriends/compare/1.4.1...1.4.2) [Previous Releases](https://github.com/Pinta365/Broker_TinyFriends/releases)\n\n- Bump Broker\\_TinyFriends version to 1.4.2  \n- Fix missing class colors for druids on Classic clients  \n    GetNumClasses() returns the count of available classes on Classic (9),  \n    but class IDs are sparse (Druid is 11), so the lookup loop never reached  \n    druids. Build the lookup from LOCALIZED\\_CLASS\\_NAMES\\_MALE/FEMALE instead,  \n    which also covers gendered class names, with a widened GetClassInfo  \n    fallback.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "1.4.1",
+      "published": "2026-11-11",
+      "notes": "# TinyFriends\n\n## [1.4.1](https://github.com/Pinta365/Broker_TinyFriends/tree/1.4.1) (2026-11-11)\n[Full Changelog](https://github.com/Pinta365/Broker_TinyFriends/compare/1.4.0...1.4.1) [Previous Releases](https://github.com/Pinta365/Broker_TinyFriends/releases)\n\n- Bump Broker\\_TinyFriends version to 1.4.1  \n- Fix hover panel crash for friends without a battletag  \n    Fall back to account or character name when the battletag has no '#',  \n    and guard against a missing character name when rendering the row.  \n    Fixes #4  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "1.4.0",
+      "published": "2026-10-18",
+      "notes": "# TinyFriends\n\n## [1.4.0](https://github.com/Pinta365/Broker_TinyFriends/tree/1.4.0) (2026-10-18)\n[Full Changelog](https://github.com/Pinta365/Broker_TinyFriends/compare/1.3.3...1.4.0) [Previous Releases](https://github.com/Pinta365/Broker_TinyFriends/releases)\n\n- Bump Broker\\_TinyFriends version to 1.4.0  \n- Support for Wow:Forever  \n- Support for Wow:Forever"
+    },
+    {
+      "tag": "1.3.3",
+      "published": "2026-10-14",
+      "notes": "# TinyFriends\n\n## [1.3.3](https://github.com/Pinta365/Broker_TinyFriends/tree/1.3.3) (2026-10-14)\n[Full Changelog](https://github.com/Pinta365/Broker_TinyFriends/compare/1.3.2...1.3.3) [Previous Releases](https://github.com/Pinta365/Broker_TinyFriends/releases)\n\n- Bump Broker\\_TinyFriends version to 1.3.3"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-21",
+      "2026-11-11",
+      "2026-10-18",
+      "2026-10-14",
+      "2026-08-21",
+      "2026-08-08",
+      "2026-06-17",
+      "2026-04-19",
+      "2026-02-16",
+      "2026-02-15",
+      "2026-02-12",
+      "2026-01-31",
+      "2026-01-16",
+      "2025-12-11",
+      "2025-12-04",
+      "2025-10-08",
+      "2025-08-08",
+      "2025-08-05",
+      "2025-08-05",
+      "2025-08-05",
+      "2025-07-17",
+      "2025-06-17",
+      "2025-04-23",
+      "2025-04-10",
+      "2025-03-17",
+      "2025-03-15",
+      "2025-02-26",
+      "2025-02-08",
+      "2025-02-04",
+      "2025-01-25",
+      "2025-01-03",
+      "2025-01-03",
+      "2025-01-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Broker_TinyFriends"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "BrokerTinyFriendsDB"
+    ]
+  }
+}

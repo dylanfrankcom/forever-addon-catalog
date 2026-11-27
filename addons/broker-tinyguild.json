@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "id": "broker-tinyguild",
+  "repo": "Pinta365/Broker_TinyGuild",
+  "about": "# Broker_TinyGuild - World of Warcraft Addon\n\nNeed a quick view of your guild roster and online members? **TinyGuild** provides a compact and convenient way to access guild information right from your databroker display!\nTested with Titan Panel and Bazooka.\n\n![Image of the TinyGuild panel](https://cdn.pinta.land/broker/tinyguild.png)\n\n## Description\n\nTinyGuild is a lightweight addon that displays your guild's online members, ranks, zones, and public notes in a compact dropdown accessible from your data broker display. It allows you to:\n\n* View a list of online guild members.\n* Sort the roster by name, level, rank, zone, or public note by clicking on the headers.\n* Left-click a member to whisper them, or right-click to invite them to a party. Either shortcut can be turned off in the options.\n* Display the Guild Message of the Day.\n* See the number of online guild members at a glance.\n\nStay connected with your guild without cluttering your UI!\n\n## Download\n\nYou can download TinyGuild from these popular sources:\n\n* [Wago Addons](https://addons.wago.io/addons/broker-tinyguild)\n* [CurseForge](https://www.curseforge.com/wow/addons/broker-tinyguild)\n\n## Troubleshooting\n\nIf you encounter any issues, try these steps:\n\n* **Reload your UI:** Type `/reload` in the chat frame.\n* **Check for error messages:** Pay attention to any error messages in the chat frame. Install Bugsack and BugGrabber to get better error reporting.\n\n## Reporting Issues\n\nIf you're still unable to resolve the issue, please open an issue on the [GitHub repository](https://github.com/Pinta365/Broker_TinyGuild/issues) and include the following information:\n\n* A description of the issue.\n* Steps to reproduce the error.\n* Any relevant error messages. (Use Bugsack and BugGrabber)\n\nBy providing this information, you'll help me identify and fix bugs more efficiently, making TinyGuild even better!",
+  "releases": [
+    {
+      "tag": "1.4.1",
+      "published": "2026-11-25",
+      "notes": "# TinyGuild\n\n## [1.4.1](https://github.com/Pinta365/Broker_TinyGuild/tree/1.4.1) (2026-11-25)\n[Full Changelog](https://github.com/Pinta365/Broker_TinyGuild/compare/1.4.0...1.4.1) [Previous Releases](https://github.com/Pinta365/Broker_TinyGuild/releases)\n\n- Bump Broker\\_TinyGuild version to 1.4.1  \n- Add options to toggle click actions for whispering and inviting"
+    },
+    {
+      "tag": "1.4.0",
+      "published": "2026-10-18",
+      "notes": "# TinyGuild\n\n## [1.4.0](https://github.com/Pinta365/Broker_TinyGuild/tree/1.4.0) (2026-10-18)\n[Full Changelog](https://github.com/Pinta365/Broker_TinyGuild/compare/1.3.4...1.4.0) [Previous Releases](https://github.com/Pinta365/Broker_TinyGuild/releases)\n\n- Bump Broker\\_TinyGuild version to 1.4.0  \n- Support for Wow:Forever  \n- Support for Wow:Forever"
+    },
+    {
+      "tag": "1.3.4",
+      "published": "2026-10-14",
+      "notes": "# TinyGuild\n\n## [1.3.4](https://github.com/Pinta365/Broker_TinyGuild/tree/1.3.4) (2026-10-14)\n[Full Changelog](https://github.com/Pinta365/Broker_TinyGuild/compare/1.3.3...1.3.4) [Previous Releases](https://github.com/Pinta365/Broker_TinyGuild/releases)\n\n- Bump Broker\\_TinyGuild version to 1.3.4"
+    },
+    {
+      "tag": "1.3.3",
+      "published": "2026-08-21",
+      "notes": "# TinyGuild\n\n## [1.3.3](https://github.com/Pinta365/Broker_TinyGuild/tree/1.3.3) (2026-08-21)\n[Full Changelog](https://github.com/Pinta365/Broker_TinyGuild/compare/1.3.1...1.3.3) [Previous Releases](https://github.com/Pinta365/Broker_TinyGuild/releases)\n\n- Bump Broker\\_TinyGuild version to 1.3.3  \n- secret values handling"
+    },
+    {
+      "tag": "1.3.1",
+      "published": "2026-08-08",
+      "notes": "# TinyGuild\n\n## [1.3.1](https://github.com/Pinta365/Broker_TinyGuild/tree/1.3.1) (2026-08-08)\n[Full Changelog](https://github.com/Pinta365/Broker_TinyGuild/compare/1.3.0...1.3.1) [Previous Releases](https://github.com/Pinta365/Broker_TinyGuild/releases)\n\n- Bump Broker\\_TinyGuild version to 1.3.1"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-10-18",
+      "2026-10-14",
+      "2026-08-21",
+      "2026-08-08",
+      "2026-06-17",
+      "2026-04-19",
+      "2026-04-03",
+      "2026-03-07",
+      "2026-03-02",
+      "2026-02-22",
+      "2026-02-16",
+      "2026-02-15",
+      "2026-02-12",
+      "2026-01-31",
+      "2026-01-17",
+      "2026-01-16",
+      "2025-12-11",
+      "2025-12-04",
+      "2025-10-08",
+      "2025-08-08",
+      "2025-08-05",
+      "2025-07-17",
+      "2025-06-17",
+      "2025-04-23",
+      "2025-04-10",
+      "2025-04-08",
+      "2025-03-17",
+      "2025-03-15",
+      "2025-02-26",
+      "2025-02-08",
+      "2025-02-08",
+      "2025-02-04",
+      "2025-01-26",
+      "2025-01-03",
+      "2025-01-03",
+      "2024-12-30",
+      "2024-12-30",
+      "2024-12-29",
+      "2024-12-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Broker_TinyGuild"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "BrokerTinyGuildDB"
+    ]
+  }
+}

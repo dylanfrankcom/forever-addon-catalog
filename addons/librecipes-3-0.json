@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "librecipes-3-0",
+  "repo": "warmexx/librecipes-3-0",
+  "releases": [
+    {
+      "tag": "v44-release",
+      "published": "2026-11-16",
+      "notes": "# Lib: Recipes\n\n## [v44-release](https://github.com/warmexx/librecipes-3-0/tree/v44-release) (2026-11-16)\n[Full Changelog](https://github.com/warmexx/librecipes-3-0/commits/v44-release) [Previous Releases](https://github.com/warmexx/librecipes-3-0/releases)\n\n- Updates TOC"
+    },
+    {
+      "tag": "v43-release",
+      "published": "2026-08-26",
+      "notes": "# Lib: Recipes\n\n## [v43-release](https://github.com/warmexx/librecipes-3-0/tree/v43-release) (2026-08-26)\n[Full Changelog](https://github.com/warmexx/librecipes-3-0/commits/v43-release) [Previous Releases](https://github.com/warmexx/librecipes-3-0/releases)\n\n- Updates retail recipes"
+    },
+    {
+      "tag": "v42-release",
+      "published": "2026-02-14",
+      "notes": "# Lib: Recipes\n\n## [v42-release](https://github.com/warmexx/librecipes-3-0/tree/v42-release) (2026-02-14)\n[Full Changelog](https://github.com/warmexx/librecipes-3-0/commits/v42-release) [Previous Releases](https://github.com/warmexx/librecipes-3-0/releases)\n\n- Updates retail recipes  \n    Adds TBC recipes  \n    Moves data to separate files"
+    },
+    {
+      "tag": "v41-release",
+      "published": "2025-12-06",
+      "notes": "# Lib: Recipes\n\n## [v41-release](https://github.com/warmexx/librecipes-3-0/tree/v41-release) (2025-12-06)\n[Full Changelog](https://github.com/warmexx/librecipes-3-0/commits/v41-release) [Previous Releases](https://github.com/warmexx/librecipes-3-0/releases)\n\n- Updates TOC"
+    },
+    {
+      "tag": "v40-release",
+      "published": "2025-08-06",
+      "notes": "# Lib: Recipes\n\n## [v40-release](https://github.com/warmexx/librecipes-3-0/tree/v40-release) (2025-08-06)\n[Full Changelog](https://github.com/warmexx/librecipes-3-0/commits/v40-release) [Previous Releases](https://github.com/warmexx/librecipes-3-0/releases)\n\n- Updates retail recipes"
+    }
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-08-26",
+      "2026-02-14",
+      "2025-12-06",
+      "2025-08-06",
+      "2025-07-26",
+      "2025-06-29",
+      "2025-04-27",
+      "2024-12-30",
+      "2024-12-30",
+      "2024-08-29",
+      "2024-05-10",
+      "2024-05-04",
+      "2023-11-10",
+      "2023-07-15",
+      "2023-05-06",
+      "2023-03-26",
+      "2023-01-29",
+      "2023-01-29",
+      "2022-12-03",
+      "2022-11-19",
+      "2022-10-05",
+      "2022-09-11",
+      "2022-04-03",
+      "2021-11-07",
+      "2021-11-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LibRecipes-3.0"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "flipper",
+  "repo": "glholland/Flipper",
+  "about": "# Flipper\n\nA World of Warcraft: Forever addon that shows where the gold is: underpriced auctions, vendor flips, what to do with each item in your bags, and which crafts and recipes pay.\n\n![The Buy from vendor tab](https://raw.githubusercontent.com/glholland/Flipper/main/docs/images/buy-from-vendor.png)\n\nFlipper only reads and advises. It never buys or posts; rows hand you over to Auctionator, where you confirm the purchase or the price yourself.\n\n## What it does\n\n| Tab | Shows |\n|---|---|\n| **Deals** | Items listed at 70% or less of their usual price, with the profit from reselling at the average. |\n| **Sell to vendor** | Auctions cheaper than what a vendor pays for the item. |\n| **Buy from vendor** | Vendor goods that sell for 20%+ more on the AH, and where to buy them. |\n| **Bags** | The best use of each item you carry: auction, vendor, or craft. |\n| **Crafts** | Profit per craft for the recipes you know. |\n| **Recipes** | Recipes for sale that you don't know and that would pay for themselves. |\n| **History** | Price history for every item, plus estimated sales from full scans. |\n\nEvery item tooltip says what to do with it: keep it for your professions, craft it, disenchant it, auction it or vendor it, plus the recipes it goes into and what those lead to. See [Tooltips](https://github.com/glholland/Flipper/blob/main/docs/tooltips.md).\n\n## Install these first\n\nFlipper reads its data from other addons. **Install them before Flipper**, or most of it will be empty.\n\n| Addon | | Without it |\n|---|---|---|\n| [Auctionator](https://www.curseforge.com/wow/addons/auctionator) | **Required** | No prices: no Deals, no flips, no profits, no tooltip verdicts, no AH tab. |\n| [Questie](https://www.curseforge.com/wow/addons/questie) | Strongly recommended | Buy from vendor only knows vendors you've opened yourself; no vendor locations in tooltips. |\n| [Journalator](https://www.curseforge.com/wow/addons/journalator) | Recommended | No record of your own sales in tooltips. |\n\nUse the versions made for WoW Forever. TSM works as a price source instead of Auctionator, but the AH tab and the shared scans need Auctionator. Details: [Install guide](https://github.com/glholland/Flipper/blob/main/docs/install.md#install-these-first).\n\n## Install\n\n1. Install the addons above and log in once, then run an Auctionator scan at the auction house.\n2. Download `Flipper-<version>.zip` from [Releases](https://github.com/glholland/Flipper/releases).\n3. Unzip it into `World of Warcraft/_forever_/Interface/AddOns`, so that `AddOns/Flipper/Flipper.toc` exists.\n4. Restart the game. A `/reload` does not pick up a new addon.\n\nFull instructions, updating, and installing from source: [Install guide](https://github.com/glholland/Flipper/blob/main/docs/install.md).\n\n## First steps\n\n1. Make sure Auctionator has scanned the AH recently (Flipper's Full scan does this too).\n2. Open each of your profession windows once. Flipper reads your recipes from them.\n3. Click the **Flipper** tab at the bottom of the auction house, or type `/flip` anywhere.\n4. Press **Full scan** on most AH visits. Two full scans between 15 minutes and 12 hours apart start filling the Sold/day columns. **Quick scan** is the fast, unlimited option for the Sell to vendor list.\n\n## Documentation\n\n- [Install guide](https://github.com/glholland/Flipper/blob/main/docs/install.md): finding the AddOns folder, updating, installing from source.\n- [User guide](https://github.com/glholland/Flipper/blob/main/docs/guide.md): every tab, scanning and the slash commands.\n- [Tooltips](https://github.com/glholland/Flipper/blob/main/docs/tooltips.md): every tooltip line explained.\n- [Sales estimates](https://github.com/glholland/Flipper/blob/main/docs/sales-estimates.md): how Sold/day is worked out and how far to trust it.\n- [Data](https://github.com/glholland/Flipper/blob/main/docs/data.md): where prices, recipes and vendor information come from.\n- [Troubleshooting](https://github.com/glholland/Flipper/blob/main/docs/troubleshooting.md)\n- [Development](https://github.com/glholland/Flipper/blob/main/docs/development.md): layout, tests, CI and releases.\n\nThird-party notices are in [NOTICE](https://github.com/glholland/Flipper/blob/main/NOTICE).",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "name": "Flipper 0.2.0",
+      "published": "2026-11-14",
+      "notes": "## What's Changed\n### Other changes\n* CI/CD pipeline and documentation by @glholland in https://github.com/glholland/Flipper/pull/1\n* build(deps): Bump actions/upload-artifact from 4 to 7 by @dependabot[bot] in https://github.com/glholland/Flipper/pull/4\n* build(deps): Bump actions/setup-python from 5 to 7 by @dependabot[bot] in https://github.com/glholland/Flipper/pull/2\n* build(deps): Bump actions/checkout from 4 to 7 by @dependabot[bot] in https://github.com/glholland/Flipper/pull/3\n* Docs: README, user guide, sales estimates, data, troubleshooting, development by @glholland in https://github.com/glholland/Flipper/pull/5\n* Docs: install guide by @glholland in https://github.com/glholland/Flipper/pull/6\n* Tooltip: disenchant results and next-step crafts for every profession by @glholland in https://github.com/glholland/Flipper/pull/7\n* Scan controls: Quick scan and Full scan on every tab, shared with Auctionator by @glholland in https://github.com/glholland/Flipper/pull/8\n* Release pipeline, and a package check that keeps tests out of the addon by @glholland in https://github.com/glholland/Flipper/pull/9\n\n## New Contributors\n* @glholland made their first contribution in https://github.com/glholland/Flipper/pull/1\n* @dependabot[bot] made their first contribution in https://github.com/glholland/Flipper/pull/4\n\n**Full Changelog**: https://github.com/glholland/Flipper/commits/v0.2.0"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/glholland/Flipper/main/docs/images/buy-from-vendor.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Flipper"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator",
+      "Questie",
+      "QuestieDB",
+      "Journalator",
+      "Journalator_Statistics",
+      "TradeSkillMaster"
+    ],
+    "savedVariables": [
+      "FlipperDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "FlipperCharDB"
+    ]
+  }
+}

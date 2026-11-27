@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "xantooltiphoudini",
+  "repo": "Xruptor/xanTooltipHoudini",
+  "releases": [
+    {
+      "tag": "v5.22",
+      "published": "2026-10-13",
+      "notes": "# xanTooltipHoudini\n\n## [v5.22](https://github.com/Xruptor/xanTooltipHoudini/tree/v5.22) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/xanTooltipHoudini/compare/v5.21...v5.22) [Previous Releases](https://github.com/Xruptor/xanTooltipHoudini/releases)\n\n- chore: update TOC interface numbers → v5.22"
+    },
+    {
+      "tag": "v5.21",
+      "published": "2026-09-19",
+      "notes": "# xanTooltipHoudini\n\n## [v5.21](https://github.com/Xruptor/xanTooltipHoudini/tree/v5.21) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/xanTooltipHoudini/compare/v5.20...v5.21) [Previous Releases](https://github.com/Xruptor/xanTooltipHoudini/releases)\n\n- chore: update TOC interface numbers → v5.21  \n- This should fix the TOC Issues."
+    },
+    {
+      "tag": "v5.20",
+      "published": "2026-09-19",
+      "notes": "# xanTooltipHoudini\n\n## [v5.20](https://github.com/Xruptor/xanTooltipHoudini/tree/v5.20) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/xanTooltipHoudini/compare/v5.19...v5.20) [Previous Releases](https://github.com/Xruptor/xanTooltipHoudini/releases)\n\n- chore: update TOC interface numbers → v5.20  \n- Updated the GitHub Actions to be better at automatic processing for TOC Updates.  \n    (attempt #5)  \n- Adding a automatic TOC Updater to GitHub Workflow"
+    },
+    {
+      "tag": "v5.19",
+      "published": "2026-04-11",
+      "notes": "# xanTooltipHoudini\n\n## [v5.19](https://github.com/Xruptor/xanTooltipHoudini/tree/v5.19) (2026-04-11)\n[Full Changelog](https://github.com/Xruptor/xanTooltipHoudini/compare/v5.18...v5.19) [Previous Releases](https://github.com/Xruptor/xanTooltipHoudini/releases)\n\n- TOC Update"
+    },
+    {
+      "tag": "v5.18",
+      "published": "2026-03-02",
+      "notes": "# xanTooltipHoudini\n\n## [v5.18](https://github.com/Xruptor/xanTooltipHoudini/tree/v5.18) (2026-03-02)\n[Full Changelog](https://github.com/Xruptor/xanTooltipHoudini/compare/v5.17...v5.18) [Previous Releases](https://github.com/Xruptor/xanTooltipHoudini/releases)\n\n- Fixed Infinite Loop Bug  \n    * Fixed a bug where the Quest Title was being checked in an infinite loop causing the addon to fail and be disabled."
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-04-11",
+      "2026-03-02",
+      "2026-02-10",
+      "2026-02-06",
+      "2026-02-04",
+      "2026-01-22",
+      "2026-01-02",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-08-18",
+      "2024-07-30",
+      "2024-07-26",
+      "2024-04-09",
+      "2024-04-08",
+      "2024-04-08",
+      "2024-04-06",
+      "2023-09-18",
+      "2023-05-26",
+      "2023-01-25",
+      "2022-11-16",
+      "2022-11-10",
+      "2022-10-31",
+      "2021-09-19",
+      "2021-05-28",
+      "2021-04-06"
+    ]
+  },
+  "languages": [
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "xanTooltipHoudini"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tekDebug"
+    ],
+    "savedVariables": [
+      "XTH_DB"
+    ]
+  }
+}

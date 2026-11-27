@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "ticketchecker",
+  "repo": "goobyspace/ticketchecker",
+  "about": "WoW Addon that automatically invites people who whisper you based on a set term",
+  "releases": [
+    {
+      "tag": "1.4",
+      "published": "2026-10-14",
+      "notes": "# Ticket Checker\n\n## [1.4](https://github.com/goobyspace/ticketchecker/tree/1.4) (2026-10-14)\n[Full Changelog](https://github.com/goobyspace/ticketchecker/compare/1.3...1.4) [Previous Releases](https://github.com/goobyspace/ticketchecker/releases)\n\n- 12.1.5 toc"
+    },
+    {
+      "tag": "1.3",
+      "published": "2026-09-20",
+      "notes": "# Ticket Checker\n\n## [1.3](https://github.com/goobyspace/ticketchecker/tree/1.3) (2026-09-20)\n[Full Changelog](https://github.com/goobyspace/ticketchecker/compare/1.2...1.3) [Previous Releases](https://github.com/goobyspace/ticketchecker/releases)\n\n- Fix bnet friend whispering you on a character with friends only on  \n- forever fixes for realm names"
+    },
+    {
+      "tag": "1.2",
+      "published": "2026-09-18",
+      "notes": "# Ticket Checker\n\n## [1.2](https://github.com/goobyspace/ticketchecker/tree/1.2) (2026-09-18)\n[Full Changelog](https://github.com/goobyspace/ticketchecker/compare/1.1...1.2) [Previous Releases](https://github.com/goobyspace/ticketchecker/releases)\n\n- Add wow forever support"
+    },
+    {
+      "tag": "1.1",
+      "published": "2026-09-09",
+      "notes": "# Ticket Checker\n\n## [1.1](https://github.com/goobyspace/ticketchecker/tree/1.1) (2026-09-09)\n[Full Changelog](https://github.com/goobyspace/ticketchecker/compare/1.0...1.1) [Previous Releases](https://github.com/goobyspace/ticketchecker/releases)\n\n- Fix wago release"
+    },
+    {
+      "tag": "1.0",
+      "published": "2026-09-09",
+      "notes": "# Ticket Checker\n\n## [1.0](https://github.com/goobyspace/ticketchecker/tree/1.0) (2026-09-09)\n[Full Changelog](https://github.com/goobyspace/ticketchecker/commits/1.0) [Previous Releases](https://github.com/goobyspace/ticketchecker/releases)\n\n- Add settings page  \n- 12.1 update  \n- 12.0.7 update  \n- toc update  \n- Initial commit  \n- new github move"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-14",
+    "releaseDates": [
+      "2026-10-14",
+      "2026-09-20",
+      "2026-09-18",
+      "2026-09-09",
+      "2026-09-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TicketChecker"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "TicketCheckerVariableArray"
+    ]
+  }
+}

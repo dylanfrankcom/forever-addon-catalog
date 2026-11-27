@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "prangearview",
+  "repo": "pranavius/PranGearView",
+  "about": "# PranGearView\n\n*A customizable way to view your equipped gear within the default character UI*\n\nFeedback on this AddOn or any others that I develop/maintain is always welcome. If you enjoy using any of my AddOns and would like to support future development, it is greatly appreciated.\n\n[![Discord](https://img.shields.io/badge/join-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/rqXW2cenWg) [![Linktree](https://img.shields.io/badge/connect-000000?style=for-the-badge&logo=linktree&logoColor=43E55E)](https://discord.gg/rqXW2cenWg) [![Patreon](https://img.shields.io/badge/support-F96854?style=for-the-badge&logo=patreon)](https://patreon.com/cw/Pranavius) [![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000000)](http://buymeacoffee.com/pranavius)\n\nThis AddOn is currently compatible with both *Retail WoW* and *WoW: Forever*. Feedback via Discord or Github on ways to improve WoW: Forever support would be greatly appreciated.\n\n***\n\n## Highlights\n- Allows for a wide range of text customization (size, color, outline, and more to come!)\n- Lets you know when items are missing sockets, gems, and enchants\n- Can show gear information when inspecting players\n- Provides an interface for customizing the order of secondary and tertiary stats under the *Enhancements* category based on class and specialization\n- Shows abbreviated names for item enchants to reduce visual clutter\n- Allows quick showing/hiding of enchant text if you are only concerned with the quality of the enchant (Dragonflight enchants and onward)\n- Indicates when equipped items have embellishments\n- Option to expand Character Info window so that gear information is more easily readable\n- DataBroker integration for quick access to options via minimap icon or other DataBroker AddOns\n\n## Summary\n**PranGearView** allows you to display customized information about your character in the Character Info window. If you want to know what item level each equipped item is, whether any sockets, gems, or enchants are missing, or what each equipped item's durability is, then this AddOn will serve you well. It is designed to be used on top of Blizzard's default Character Info window with the goal of not needing to install entire UI packs to have this information available.\n\nAs mentioned earlier, this AddOn was developed to work on Blizzard's default Character Info UI, so this may cause unexpected interactions when run with other AddOns or UI packs. If you would like to report any issues, please reach out with a description of the problem along with a list of all AddOns that were enabled when this was observed. Screenshots can also be helpful in troubleshooting and fixing these types of issues.\n\n### Current Locales/Languages Supported:\n- English (`enUS`)\n- French (`frFR`)\n- Portuguese (`ptBR`)\n- German (`deDE`)\n- Russian (`ruRU`) [*partial*]\n- Traditional Chinese (`zhTW`) [*partial*]\n\n## Usage\nYou can use the options window to modify all available options. To open the options window from the Chat window, type the slash command `/pgv`.\n\n### Options Window\n\n*Some options may only be available in Retail WoW.*\n\n- **Item Level**: Display item levels for equipped items\n- **Upgrade Track**: Display upgrade tracks for equipped items\n- **Gems**: Display gem and socket information for equipped items\n- **Enchants**: Display enchant information for equipped items\n- **Durability**: Display durability percentages for equipped items\n\n#### Customization Options\n\n*Some options may only be available in Retail WoW.*\n\n- **Item Level**: Change text size, outline, and color\n  - Option to place item levels on top of equipment icons\n- **Upgrade Track**: Change text size, outline, and color\n- **Gems**: Change icon size, show missing gems and sockets, only show missing gems and sockets for max level characters\n- **Enchants**: Change text size, text outline, show missing enchants, only show missing enchants for max level characters, show or hide button to display enchant text, change text color\n- **Durability**: Change text size, show as bar, change colors used for durability thresholds\n- **Inspect Window**: Choose which information (if any) to display when inspecting other players\n- **Character Stats**: Set stat order based on class and specialization, show stats with decimal places\n- **Other Options**: Show minimap icon, Increase the size of the Character Info window, place item levels on equipment, show embellishments, show decimals for equipped item level, hide shirt & tabard info, show debugging messages (you should never need to enable this)\n\n### Slash Commands\nAll slash commands can be invoked using the prefix `/prangearview` or `/pgv`. Examples listed here use `/pgv` for brevity.\n\n*Some commands may only be available in Retail WoW. Use `/pgv help` in-game for available options.*\n\n- `/pgv`: Opens the Options window\n- `/pgv help`: List all available slash commands for the AddOn\n- `/pgv ilvl`: Toggle showing item level\n  - This is the same as clicking the **Item Level** checkbox in the Options window\n- `/pgv track`: Toggle showing upgrade track\n  - This is the same as clicking the **Upgrade Track** checkbox in the Options window\n- `/pgv gems`: Toggle showing gem info\n  - This is the same as clicking the **Gems** checkbox in the Options window\n- `/pgv ench`: Toggle showing enchant info\n  - This is the same as clicking the **Enchants** checkbox in the Options window\n- `/pgv dur`: Toggle showing durability info\n  - This is the same as clicking the **Durability** checkbox in the Options window\n- `/pgv etext`: Toggle showing enchant text in the Character Info window\n  - This is the same as clicking the **Show Enchant Text** or **Hide Enchant Text** button in the Character Info window\n- `/pgv inspect`: Toggle showing gear info when inspecting another player\n  - This is the same as clicking the **Show Gear Info on Inspect** checkbox under the **Inspect Window** section of the Options window\n- `/pgv expand`: Toggle using a larger Character Info window to view gear info\n  - This is the same as clicking the **Larger Character Info Window** checkbox under the **Other Options** section of the Options window\n- `/pgv minimap`: Show/hide the minimap icon\n  - This is the same as clicking the **Show Minimap Icon** checkbox under the **Other Options** section of the Options window\n\n## Planned Updates\nThe goal of this AddOn is to provide maximum customization capabilities on the default Blizzard UI. There is much more work to be done to help achieve this, including some of the items listed below. Suggestions and feedback on customization features are always welcome.\n\n- Increased language support (*Looking for translators!*)\n- Customizable borders for gear icons and backgrounds for the character model\n- Per-spec gear \"wishlist\" to track items you want to obtain\n- Displaying additional useful stats (such as GCD) in Character Stats pane\n- Reordering all stats in the Character Stats pane",
+  "releases": [
+    {
+      "tag": "3.1.1",
+      "published": "2026-11-07",
+      "notes": "**3.1.1**\n- **WoW: Forever:**\n  - Added item level, durability, and enchant details for the ranged slot in the Character Info and Inspect windows\n- **Retail WoW:**\n  - *Bug Fix:* Corrected the \"Reset\" button for Character Stat Order so it enables and disables immediately as stats are reordered (Retail)\n- Updated enchant text for multi-stat enchants to show \"&\" in place of \"and\" (all supported languages except Traditional Chinese)\n- Updated dependent options in the AddOn settings to appear disabled, rather than hidden, when the option they rely on is turned off\n- *Bug Fix:* Resolved Lua errors when searching the game's Options window or changing some Blizzard settings\n- *Bug Fix:* Resolved an error when scrolling past Discord settings in the Options window"
+    },
+    {
+      "tag": "3.1.0",
+      "published": "2026-10-28",
+      "notes": "**3.1.0**\n- Add support for WoW: Forever\n  - Add a chat message when the game is loaded to indicate how users can offer feedback or suggestions to the **WoW: Forever** flavor of the AddOn\n  - Option to display character item level in the bottom-left corner of the Character Info window\n  - A \"checkmark\" icon will now only be shown in place of enchant text when it is collapsed/hidden. Otherwise, the enchant text is shown and checkmark icon is completely hidden\n  - AddOn options specific to Retail WoW (Upgrade Track, Gems, Embellishments, Enlarged Character Info Window, Character Stat Order, etc.) are hidden when playing WoW: Forever\n- Update `ruRU` localizations (credit: *Mioram*)\n- Update Credits panel to display content with more visual consistency\n- Internal code updates (no functionality changes)"
+    },
+    {
+      "tag": "3.0.1",
+      "published": "2026-10-17",
+      "notes": "**3.0.1**\n- Add enchant text abbreviations for new Delve enchants (Hands)"
+    },
+    {
+      "tag": "3.0.0",
+      "published": "2026-09-21",
+      "notes": "**3.0.0**\n- **IMPORTANT NOTE:** This version of the AddOn is a ground-up rewrite of the project. Changes have been thoroughly tested and validated in-game, but some functionality may have slipped through the cracks. If any such issues are found, please report them via Discord.\n\n- Redesigned options window with dedicated pages for each section using native Blizzard options APIs\n  - Settings from previous versions should automatically be carried over\n- Stat ordering is now done via drag-and-drop\n- Added the `/pgv help` slash command to list all available commands\n- Added translations for new options text in all supported languages"
+    },
+    {
+      "tag": "2.1.1",
+      "published": "2026-08-23",
+      "notes": "**2.1.1**\n- *Bug Fix:* Resolved an issue when viewing decimal stat values due to unintended storage of secret values in the AddOn's database"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 8,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-10-28",
+      "2026-10-17",
+      "2026-09-21",
+      "2026-08-23",
+      "2026-08-06",
+      "2026-06-16",
+      "2026-06-01",
+      "2026-05-04",
+      "2026-04-26",
+      "2026-04-25",
+      "2026-04-22",
+      "2026-04-19",
+      "2026-04-18",
+      "2026-03-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PranGearView"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "PranGearViewDB"
+    ]
+  }
+}

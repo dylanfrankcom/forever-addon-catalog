@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "pvptogether",
+  "repo": "AlexAllocated/PvPTogether",
+  "releases": [
+    {
+      "tag": "v1.2.3",
+      "name": "PvPTogether 1.2.3",
+      "published": "2026-09-25",
+      "notes": "Repository housekeeping: keep local development notes outside the tracked source and release packages. Gameplay behavior is unchanged.\n\nInstall: extract `PvPTogether-1.2.3.zip` into `Interface/AddOns`, preserving the single `PvPTogether` folder.\n\nSource commit: `658f3b621dcaff50ba4ec9759b1a2644fc59b6e4`. Private library: libchev 1.2.0 at `bd83b65fcbd21d108d8f6c02677acddb30541c6a`."
+    },
+    {
+      "tag": "v1.2.2",
+      "name": "PvPTogether 1.2.2",
+      "published": "2026-09-25",
+      "notes": "Announce the installed version, supported clients and settings command once per login or UI reload. Include addon-specific CurseForge and GitHub feedback links; clicking a link opens a native-style copy window. Share message behavior and safe copy UI through private libchev 1.2.0. If link registration or the copy window is unavailable, show the full URL in chat. An unavailable welcome helper cannot interrupt normal addon startup.\n\nValidation: 118 tests pass in both orders on Lua 5.1 and 5.2, with client API checks, Lua parsing and exact library vendor verification. NoPoizen smoke simulations exercise both feedback links on all seven client/ruleset profiles. Live rendering remains a separate check.\n\nInstall: extract `PvPTogether-1.2.2.zip` into `Interface/AddOns`, preserving the single `PvPTogether` folder.\n\nSource commit: `afc72561600b349635f6bfe4b821cd3b0e927243`. Private library: libchev 1.2.0 at `bd83b65fcbd21d108d8f6c02677acddb30541c6a`."
+    },
+    {
+      "tag": "v1.2.1",
+      "name": "PvPTogether 1.2.1",
+      "published": "2026-09-25",
+      "notes": "Show Blizzard's crossed-swords icon beside PvPTogether in the AddOns list instead of the default question mark.\n\nInstall: extract `PvPTogether-1.2.1.zip` into `Interface/AddOns`, preserving the single `PvPTogether` folder.\n\nSource commit: `8517aa7cb3e0b74be90332cc70dc6e26e95e098e`. Private library: libchev 1.1.3 at `445c0cf5b3dd40d36461f6e0b9adc2feb8dfb16b`."
+    },
+    {
+      "tag": "v1.2.0",
+      "name": "PvPTogether 1.2.0",
+      "published": "2026-09-25",
+      "notes": "Declare current Classic client support and add six-client checks for category borders, native settings and cleanup. Keep Blizzard in control of native styles; all clients use the same guarded border implementation.\n\nValidation: 117 tests pass in both orders on Lua 5.1 and 5.2, with six client profiles, Lua parsing and exact private-library vendor checks. NoPoizen client smoke checks and package verification also pass. Live validation of the new adapters remains pending.\n\nSee [CLIENT_COMPATIBILITY.md](https://github.com/AlexAllocated/PvPTogether/blob/main/CLIENT_COMPATIBILITY.md) for source evidence, scope and validation limits.\n\nInstall: extract `PvPTogether-1.2.0.zip` into `Interface/AddOns`, preserving the single `PvPTogether` folder.\n\nSource commit: `989661c1f7cbc1138fef1f3d9d58f85babf60a41`. Private library: libchev 1.1.3 at `445c0cf5b3dd40d36461f6e0b9adc2feb8dfb16b`."
+    },
+    {
+      "tag": "v1.1.1",
+      "name": "PvPTogether 1.1.1",
+      "published": "2026-09-25",
+      "notes": "Keep overlapping debug consoles and their controls in one native stacking group through private libchev 1.1.3. Category menus stay with their owning console.\n\n- Retire per-category style overrides and previews. Blizzard's global nameplate settings now own all native layout and style behavior.\n- Keep party, friendly-player, and enemy-player border toggles and colors. Add a **Blizzard Nameplate Settings** button to `/pt`.\n- Remove native geometry mutations, snapshot observers, restoration journals, and style reapplication hooks. Borders use only addon-owned textures and retain guarded identity, recycling, cleanup, and deferred refresh behavior.\n- Preserve old saved style preferences as ignored data; no saved files are rewritten externally. `/reload` clears the previous runtime's geometry overrides.\n- Report native layout ownership and border refresh/cleanup status in `/pt diagnostics`.\n\nValidation: 111 offline regressions pass in both orders on Lua 5.1 and 5.2. Native frame fixtures reject all widget mutations except creating addon-owned textures. Coverage includes unreadable native geometry, native layout changes, restrictions, pooled frames, stale callbacks, disable/re-enable, and the Settings shortcut. Updated UI and gameplay behavior still require live Retail/Forever validation.\n\nInstall: extract `PvPTogether-1.1.1.zip` into `Interface/AddOns`, preserving the single `PvPTogether` folder.\n\nSource commit: `74b423e4ef7ab5d8dc3993fd43b7530ae63cfa35`. Private library: libchev 1.1.3 at `445c0cf5b3dd40d36461f6e0b9adc2feb8dfb16b`."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-09-25",
+    "releaseDates": [
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PvPTogether"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "PvPTogetherDBChar"
+    ]
+  }
+}

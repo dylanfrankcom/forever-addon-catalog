@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "soundboard-sanitycapped",
+  "repo": "zakpruitt/TwitchEmotes_SanityCapped",
+  "about": "# Twitch Emotes: Sanity Capped\n\nA custom emote pack for the TwitchEmotes addon, plus a sound pack for the Soundboard addon. Each adds the guild's own content without modifying the addon it plugs into, so both update independently.\n\nWorks on retail and WoW: Forever. Both install the same release, so the emotes and sounds are always identical on the two.\n\n## Installation\n\n1. Install TwitchEmotes for the emotes, Soundboard for the sounds, or both.\n2. In WoWUp, go to **Get Addons → Install from URL** and paste:\n   ```\n   https://github.com/zakpruitt/TwitchEmotes_SanityCapped\n   ```\n3. Turn on auto-update for the addon so new emotes and sounds arrive on their own.\n\nThe emotes and the sounds are independent. Whichever of TwitchEmotes and Soundboard you don't have, that half stays quiet and the other works as normal.\n\nEveryone needs the pack to see the emotes. Anyone without it just sees the text, like `scFuck`.\n\n## Usage\n\nType an emote name in chat, or pick one from the `:` autocomplete or the emote dropdown.\n\n| Command      | Description                       |\n| ------------ | --------------------------------- |\n| `/tesc`      | Show how many emotes loaded       |\n| `/tesc list` | List every emote with its icon    |\n\n## Sounds\n\nThe install adds a second addon folder, `Soundboard_SanityCapped`, which puts the guild's sounds in Soundboard under a **Sanity Capped** category. Play one from the Soundboard menu or type its command, like `/scmlg`. Everyone in your party, raid or guild who has the pack hears it.\n\n| Command          | Description                  |\n| ---------------- | ---------------------------- |\n| `/scsounds`      | Show how many sounds loaded  |\n| `/scsounds list` | List every sound's command   |\n\nSounds are MP3s up to 20 seconds. Add them through the site, the same as emotes: once approved, the MP3 is committed to `Soundboard_SanityCapped/Sounds/` and a release is built. To test locally, drop an MP3 in that folder and run `python tools/build_sounds.py` (no dependencies).\n\nA sound's name follows the emote rules below, then drops everything but letters and digits, because it becomes a slash command: `vine boom!.mp3` is `scVineboom`, typed `/scvineboom`.\n\n## Adding Emotes\n\n**Through the site (normal way):** upload at the emote site. Once approved, the image is committed to `tools/source/` and GitHub Actions builds and publishes a new release.\n\n**Locally (for testing):**\n\n```bash\npip install pillow\npython tools/build_emotes.py\n```\n\nDrop a `.gif`, `.png`, `.webp` or `.jpg` into `tools/source/`, run the script, then `/reload` in game. Delete an image and rebuild to remove it.\n\n## Naming\n\nThe file name becomes the chat trigger word:\n\n| File                | Trigger word    |\n| ------------------- | --------------- |\n| `cloudzUlt-128.png` | `scCloudzUlt`   |\n| `FUCK-128.png`      | `scFuck`        |\n| `catJAM_2x.gif`     | `scCatJAM`      |\n| `pepe-laugh.png`    | `scPepelaugh`   |\n\n- Size suffixes like `-128` or `_2x` are dropped.\n- Characters chat splits on (spaces and `, ' < > ? - . !`) are removed.\n- Everything gets an `sc` prefix. All-caps names are title-cased.\n\nThe same rules live in `tools/naming.py`, `server/.../Naming.java` and `server/.../naming.js`. Change all three together.\n\n## Per-Emote Options\n\nCopy `tools/emotes.json.example` to `tools/emotes.json`. Keys are file names without the extension.\n\n| Field       | Description                                        |\n| ----------- | -------------------------------------------------- |\n| `name`      | Force an exact trigger word                        |\n| `aliases`   | Extra words that post the same emote               |\n| `framerate` | Override the GIF's own timing                      |\n| `size`      | `28:28` (default), `LARGE`, `XLARGE` or `XXLARGE`  |\n| `pingpong`  | Play forwards then backwards                       |\n\n## Limits\n\n- 32×32 per frame, shown at 28×28\n- 64 frames max per animation (longer GIFs are sampled down)\n- About 30 fps max\n\n## Project Structure\n\n```\nCore.lua                       hooks the pack into TwitchEmotes\nEmoteData.lua                  generated emote table\nEmotes/                        generated .tga textures (what WoW loads)\nTwitchEmotes_SanityCapped.toc\nSoundboard_SanityCapped/       the sound pack, a second addon in the same zip\n  Sounds/                      the MP3s, the source of truth\n  SoundData.lua                generated sound table\ntools/source/                  original images, the source of truth\ntools/build_emotes.py          converts source images into textures\ntools/build_sounds.py          lists the MP3s and measures their length\ntools/naming.py                naming rules shared by both builds\nserver/                        the upload and approval site\n.github/workflows/release.yml  builds and publishes releases\n```\n\nOnly the `.toc`, Lua files, `Emotes/` and `Soundboard_SanityCapped/` ship in the release zip.",
+  "releases": [
+    {
+      "tag": "v1.17",
+      "published": "2026-11-16",
+      "notes": "Emotes in this build (`23` total):\n\n- `scBasedPi`\n- `scCloudzUlt`\n- `scDinoDance` (animated)\n- `false`\n- `scFreddyTrueBear` (animated)\n- `scFuck`\n- `scGoldenABEar`\n- `scImIn` (animated)\n- `scMlgPi`\n- `scOooo` (animated)\n- `scPewW`\n- `scPiAddiction`\n- `scPresident`\n- `scRdjHuh` (animated)\n- `scSpuggiesUlt`\n- `scTheChosen`\n- `scTheLastTrue` (animated)\n- `true`\n- `scTurtleKillOrder`\n- `scVeryBased` (animated)\n- `scVynChatting`\n- `scWeAreGathered` (animated)\n- `scWhat`\n\nSounds in this build (`1` total, played through the Soundboard addon):\n\n- `scMlg` (`/scmlg`, 15.6s)\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/TwitchEmotes_SanityCapped`"
+    },
+    {
+      "tag": "v1.16",
+      "published": "2026-11-16",
+      "notes": "Emotes in this build (`23` total):\n\n- `scBasedPi`\n- `scCloudzUlt`\n- `scDinoDance` (animated)\n- `false`\n- `scFreddyTrueBear` (animated)\n- `scFuck`\n- `scGoldenABEar`\n- `scImIn` (animated)\n- `scMlgPi`\n- `scOooo` (animated)\n- `scPewW`\n- `scPiAddiction`\n- `scPresident`\n- `scRdjHuh` (animated)\n- `scSpuggiesUlt`\n- `scTheChosen`\n- `scTheLastTrue` (animated)\n- `true`\n- `scTurtleKillOrder`\n- `scVeryBased` (animated)\n- `scVynChatting`\n- `scWeAreGathered` (animated)\n- `scWhat`\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/TwitchEmotes_SanityCapped`"
+    },
+    {
+      "tag": "v1.15",
+      "published": "2026-10-19",
+      "notes": "Emotes in this build (`23` total):\n\n- `scBasedPi`\n- `scCloudzUlt`\n- `scDinoDance` (animated)\n- `false`\n- `scFreddyTrueBear` (animated)\n- `scFuck`\n- `scGoldenABEar`\n- `scImIn` (animated)\n- `scMlgPi`\n- `scOooo` (animated)\n- `scPewW`\n- `scPiAddiction`\n- `scPresident`\n- `scRdjHuh` (animated)\n- `scSpuggiesUlt`\n- `scTheChosen`\n- `scTheLastTrue` (animated)\n- `true`\n- `scTurtleKillOrder`\n- `scVeryBased` (animated)\n- `scVynChatting`\n- `scWeAreGathered` (animated)\n- `scWhat`\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/TwitchEmotes_SanityCapped`"
+    },
+    {
+      "tag": "v1.14",
+      "published": "2026-09-27",
+      "notes": "Emotes in this build (`22` total):\n\n- `scBasedPi`\n- `scCloudzUlt`\n- `scDinoDance` (animated)\n- `false`\n- `scFreddyTrueBear` (animated)\n- `scFuck`\n- `scGoldenABEar`\n- `scImIn` (animated)\n- `scMlgPi`\n- `scOooo` (animated)\n- `scPewW`\n- `scPiAddiction`\n- `scRdjHuh` (animated)\n- `scSpuggiesUlt`\n- `scTheChosen`\n- `scTheLastTrue` (animated)\n- `true`\n- `scTurtleKillOrder`\n- `scVeryBased` (animated)\n- `scVynChatting`\n- `scWeAreGathered` (animated)\n- `scWhat`\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/TwitchEmotes_SanityCapped`"
+    },
+    {
+      "tag": "v1.13",
+      "published": "2026-09-26",
+      "notes": "Emotes in this build (`21` total):\n\n- `scBasedPi`\n- `scCloudzUlt`\n- `scDinoDance` (animated)\n- `false`\n- `scFuck`\n- `scGoldenABEar`\n- `scImIn` (animated)\n- `scMlgPi`\n- `scOooo` (animated)\n- `scPewW`\n- `scPiAddiction`\n- `scRdjHuh` (animated)\n- `scSpuggiesUlt`\n- `scTheChosen`\n- `scTheLastTrue` (animated)\n- `true`\n- `scTurtleKillOrder`\n- `scVeryBased` (animated)\n- `scVynChatting`\n- `scWeAreGathered` (animated)\n- `scWhat`\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/TwitchEmotes_SanityCapped`"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-16",
+      "2026-10-19",
+      "2026-09-27",
+      "2026-09-26",
+      "2026-09-26",
+      "2026-09-26",
+      "2026-09-22",
+      "2026-09-22",
+      "2026-09-18",
+      "2026-09-16",
+      "2026-09-16",
+      "2026-09-15",
+      "2026-09-13",
+      "2026-09-13",
+      "2026-09-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Soundboard_SanityCapped",
+      "TwitchEmotes_SanityCapped"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Soundboard"
+    ]
+  }
+}

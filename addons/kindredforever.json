@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "kindredforever",
+  "repo": "zachroberts8668/kindred",
+  "about": "# Kindred Forever\n\nA character friends list for **WoW Forever** that is separate from Battle.net. Forever has no character-based friends list, so this keeps your own account-wide list of First + Last names. It also shows presence, zone and map position for friends who run the addon too.\n\n## Install\nInstall from CurseForge (choose **WoW Forever** in the app), or download the zip from\n[Releases](https://github.com/zachroberts8668/kindred/releases) and extract it so you have\n`World of Warcraft\\_forever_\\Interface\\AddOns\\KindredForever\\KindredForever.toc`. Then restart the game.\n\nFor development, clone this repo and junction it in as `AddOns\\KindredForever`.\n\nBlizzard's interface source for Forever is mirrored at\n[Gethe/wow-ui-source, branch `forever`](https://github.com/Gethe/wow-ui-source/tree/forever), which is where the modern look's templates and atlases come from.\n\n## Releasing\nPush a tag like `v1.1.0`. The GitHub Action ([BigWigsMods/packager](https://github.com/BigWigsMods/packager))\nbuilds the zip, sets the version from the tag, creates a GitHub release and uploads to CurseForge\n(needs the `CF_API_KEY` repo secret and `## X-Curse-Project-ID` in the `.toc`).\n\n## Use\n- `/ff` (or `/kin`, or the minimap button) opens the window\n- **Add Friend** takes \"First Last\". **Add Target** adds the player you have targeted. You can also right-click any player (target, party, raid, chat name, /who) and pick **Add to Kindred**\n- Search box filters names, notes and zones. **Sort** cycles Status / Name / Level / Zone\n- Right-click a friend: Whisper, Invite, Who, Send Title Friend Request, Set Note, Move to Group, per-friend alerts, Remove\n- Right-click a group header: rename, reorder, delete, or add a friend to it\n- **Options**: hide offline, online/offline alerts, alert sound, level-up alerts, add-back prompts, map position sharing, world map dots, Friends panel tab, mail name completion, window style, minimap button\n- **Kindred tab** on Forever's Friends panel opens Kindred docked beside it\n- **Mail:** the \"To:\" box completes friend names; the friends button next to it picks from your list; right-click a friend > Send Mail\n- **Options > Window style:** Modern (matches the Friends panel) or Classic\n- `/ff alerts`, `/ff minimap`, `/ff refresh`, `/ff style`, `/ff debug`\n\n## How presence works\n| Friend… | What you see |\n|---|---|\n| is your Forever **Title Friend** | Status, level, class and zone from Battle.net (works in instances) |\n| runs the addon and has you listed | Online, level, class, zone, AFK/DND, world map dot |\n| runs the addon but hasn't added you | \"Online - hasn't added you\" (no zone) |\n| doesn't run the addon | \"Online - no addon\". Right-click > Who to look up their zone |\n| is offline | \"Offline - seen 2 days ago in Ironforge\" |\n| ran the addon but stopped answering | \"in an instance?\" (addon messages are blocked in dungeons/raids) |\n\nEvery 60 seconds the addon sends each friend a hidden addon whisper, at most 3 messages a second. Friends who are offline get checked every other round. When a friend is offline, the server's \"No player named X is currently playing\" line tells the addon so, and that line is hidden from chat. A friend has to miss two checks in a row before they show as online without the addon. Guild, group, target/mouseover and `/who` sightings fill in the rest. Weaker sources can't overrule a fresh, stronger one, and data older than about 3 minutes falls back to \"last seen\".\n\nWhen someone who has you on their list pings you and you don't have them, you get a prompt: **Add / Not Now / Never**.\n\n**Privacy:** your zone, level, class and map position go only to people on *your* list. People not on your list only learn that you're online. Map position sharing can be turned off in Options.\n\nData is account-wide (`WTF\\Account\\<account>\\SavedVariables\\KindredForever.lua`).",
+  "releases": [
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-12",
+      "notes": "# Kindred Forever\n\n## v1.2.0\n\n- **New look:** the Kindred window now matches Forever's Friends panel, with friend cards, class-coloured level and class, and the same frame, buttons and scroll bar. Prefer the old style? Options > Window style > Classic (or `/ff style`).\n- **Kindred tab on the Friends panel:** a new tab under the panel's side tabs opens Kindred right beside it. It closes along with the panel. Can be turned off in Options.\n- **Mail:** typing in the \"To:\" box completes your Kindred friends' names (Tab or Enter accepts). A friends button next to the box lets you pick from your list, and right-clicking a friend while the mailbox is open shows **Send Mail**. Can be turned off in Options.\n\n## v1.1.0\n\nFirst release.\n\n- A character friends list for WoW Forever, separate from Battle.net. Add friends by First + Last name; the list is shared across all your characters.\n- Online/offline status for every friend, with \"last seen\" time and zone.\n- Friends who also run Kindred share their level, class, zone and AFK/DND status, and show as class-colored dots on your world map.\n- Title Friends show their status, level and zone, even inside dungeons.\n- Online, offline and level-up alerts, with per-friend muting.\n- Groups, notes, search, and sorting by status, name, level or zone.\n- Right-click a friend to Whisper, Invite, Who, or send a Title Friend request.\n- \"Add to Kindred\" in player right-click menus (chat, party, raid, target, /who).\n- Add-back prompt when someone adds you: Add, Not Now or Never.\n- Privacy: your zone and map position are only shared with people on your list. Map sharing can be turned off in Options.\n- `/ff debug` opens a copyable box for bug reports.\n- Commands: `/kin`, `/ff`, `/kindredforever`."
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-07",
+      "notes": "# Kindred Forever\n\n## v1.1.0\n\nFirst release.\n\n- A character friends list for WoW Forever, separate from Battle.net. Add friends by First + Last name; the list is shared across all your characters.\n- Online/offline status for every friend, with \"last seen\" time and zone.\n- Friends who also run Kindred share their level, class, zone and AFK/DND status, and show as class-colored dots on your world map.\n- Title Friends show their status, level and zone, even inside dungeons.\n- Online, offline and level-up alerts, with per-friend muting.\n- Groups, notes, search, and sorting by status, name, level or zone.\n- Right-click a friend to Whisper, Invite, Who, or send a Title Friend request.\n- \"Add to Kindred\" in player right-click menus (chat, party, raid, target, /who).\n- Add-back prompt when someone adds you: Add, Not Now or Never.\n- Privacy: your zone and map position are only shared with people on your list. Map sharing can be turned off in Options.\n- `/ff debug` opens a copyable box for bug reports.\n- Commands: `/kin`, `/ff`, `/kindredforever`."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-12",
+    "releaseDates": [
+      "2026-11-12",
+      "2026-11-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "KindredForever"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "KindredForeverDB"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "pleebperformancepanels",
+  "repo": "grimboso/PleebPerformancePanels",
+  "releases": [
+    {
+      "tag": "v2.0",
+      "published": "2026-11-06",
+      "notes": "# Pleeb Performance Panel\n\n## [v2.0](https://github.com/grimboso/PleebPerformancePanels/tree/v2.0) (2026-11-06)\n[Full Changelog](https://github.com/grimboso/PleebPerformancePanels/compare/v1.8.5...v2.0) [Previous Releases](https://github.com/grimboso/PleebPerformancePanels/releases)\n\n- Added Forever support  \n- Register addon with Pleebug profiler  \n    Add an optional Pleebug registration for Performance Panels and load it before the addon libraries."
+    },
+    {
+      "tag": "v1.8.5",
+      "published": "2026-10-15",
+      "notes": "# Pleeb Performance Panel\n\n## [v1.8.5](https://github.com/grimboso/PleebPerformancePanels/tree/v1.8.5) (2026-10-15)\n[Full Changelog](https://github.com/grimboso/PleebPerformancePanels/compare/v1.8...v1.8.5) [Previous Releases](https://github.com/grimboso/PleebPerformancePanels/releases)\n\n- Cache snapshot formatting and throttle durability event updates  \n- Reduce snapshot refreshes and stop sampling while hidden"
+    },
+    {
+      "tag": "v1.8",
+      "published": "2026-10-08",
+      "notes": "# Pleeb Performance Panel\n\n## [v1.8](https://github.com/grimboso/PleebPerformancePanels/tree/v1.8) (2026-10-08)\n[Full Changelog](https://github.com/grimboso/PleebPerformancePanels/compare/v1.7...v1.8) [Previous Releases](https://github.com/grimboso/PleebPerformancePanels/releases)\n\n- Refine panel visibility and CPU sampling  \n    This change centralizes panel visibility in ApplyLayout and removes redundant per-frame show/hide logic. It also tightens sampling behavior by caching recent CPU values, reducing query frequency, and avoiding rolling-window trimming outside active logging. The result is less UI churn and more stable metric updates when panels or logging are disabled."
+    },
+    {
+      "tag": "v1.7",
+      "published": "2026-10-06",
+      "notes": "# Pleeb Performance Panel\n\n## [v1.7](https://github.com/grimboso/PleebPerformancePanels/tree/v1.7) (2026-10-06)\n[Full Changelog](https://github.com/grimboso/PleebPerformancePanels/compare/v1.6.1...v1.7) [Previous Releases](https://github.com/grimboso/PleebPerformancePanels/releases)\n\n- 12.1.5 ToC update  \n- Prevent independent performance panel movement when embedded in PleeBar.  \n- license update"
+    },
+    {
+      "tag": "v1.6.1",
+      "published": "2026-09-16",
+      "notes": "# Pleeb Performance Panel\n\n## [v1.6.1](https://github.com/grimboso/PleebPerformancePanels/tree/v1.6.1) (2026-09-16)\n[Full Changelog](https://github.com/grimboso/PleebPerformancePanels/compare/v1.6...v1.6.1) [Previous Releases](https://github.com/grimboso/PleebPerformancePanels/releases)\n\n- Fixed issues with auto packager"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-10-15",
+      "2026-10-08",
+      "2026-10-06",
+      "2026-09-16",
+      "2026-09-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PleebPerformancePanels"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "PleebUI",
+      "LibSharedMedia-3.0"
+    ],
+    "savedVariables": [
+      "PPPDB"
+    ]
+  }
+}

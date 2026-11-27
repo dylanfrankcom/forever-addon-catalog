@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "loottriage",
+  "repo": "Krelock/LootTriage",
+  "releases": [
+    {
+      "tag": "v1.2.1",
+      "name": "LootTriage 1.2.1",
+      "published": "2026-11-20",
+      "notes": "## LootTriage 1.2.1\n\n### New\n\n- **Baganator junk** (nothing to set). With Baganator, the items LootTriage highlights are its junk: Baganator's Junk category, junk search and junk coin follow the highlights. Raise Junk's priority in Baganator's categories to put them first. Baganator switches to LootTriage's junk by itself; pick another one in Baganator's settings to go back to gray items.\n- **XLoot** (nothing to set). The gold coins and the loot's tooltip line show in XLoot's loot window too.\n- **Mark items** (off by default). A small icon on the items in your bags that LootTriage keeps: Quest items puts the quest ! on items kept for a quest, Every kept item also marks what the Never highlight settings keep. On the **LootTriage** page.\n- **Tooltip lines** (on by default). Turn it off to keep LootTriage's lines out of item tooltips. The delete button still says what it deletes. On the **LootTriage** page.\n- **More Never highlight settings** (see each one's default). Bags and quivers and Arrows and bullets (on), Bind-on-equip gear (off), and Only for your professions under Crafting reagents (off): only the materials your professions use are kept. On the **Never highlight** page.\n\n### Changes\n\n- Mark quest items is now the Quest items choice of Mark items, on the LootTriage page (on if you had it on).\n- Items for quests in your log is on for new installs.\n- Consumables is split into Potions and elixirs, Food and drink, Bandages, Scrolls and Other consumables, and Weapons and armor into Gear you can use and Bind-on-equip gear. They start as before.\n- The settings window uses less memory: each page is made when you first open it.\n\n### Fixes\n\n- With bag addons that show their bags a moment after you open them, like DaylightUI's, the highlights now show when you open your bags with the key."
+    },
+    {
+      "tag": "v1.1.5",
+      "name": "LootTriage 1.1.5",
+      "published": "2026-11-05",
+      "notes": "## LootTriage 1.1.5\n\n### Changes\n\n- While you loot with full bags, the bag items worth deleting for your loot now sparkle with the animated proc glow. Other highlights keep the still gold border, so you can see which swaps are worth making without guessing.\n- The Animated glow setting is gone."
+    },
+    {
+      "tag": "v1.1.4",
+      "name": "LootTriage 1.1.4",
+      "published": "2026-11-05",
+      "notes": "## LootTriage 1.1.4\n\n### Fixes\n\n- Works with Plumber's Loot Window. The gold coins now show on Plumber's loot rows, your bags (Blizzard's or a bag addon like Baganator) highlight what to delete while you loot, and hovering the loot shows what to delete to make room for it. With Plumber's Loot Window on, none of this showed before.\n- Cloth, leather and other crafting reagents you loot get their coin and highlight again when you have a bag in the reagent bag slot, like a mining bag. LootTriage thought they would fit in that bag, so it showed nothing."
+    },
+    {
+      "tag": "v1.1.1",
+      "name": "LootTriage 1.1.1",
+      "published": "2026-10-26",
+      "notes": "## LootTriage 1.1.1\n\n### Changes\n\n- The code is split into smaller files and cleaned up, so it's easier to work on. Nothing changes in game."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-10-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LootTriage"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Auctionator",
+      "TradeSkillMaster",
+      "AuctionMaster",
+      "Blackthornes_TS",
+      "Baganator"
+    ],
+    "savedVariables": [
+      "LootTriageDB"
+    ]
+  }
+}

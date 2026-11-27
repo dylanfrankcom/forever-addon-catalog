@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "azerobics",
+  "repo": "emesinternet/azerobics",
+  "about": "# Azerobics\n\nAzerobics turns flight time into an exercise break in **WoW Forever**.\n\nFollow **push-ups, sit-ups, jumping jacks, or squats** while you fly.\nAuto uses your character's faction, race, and sex. You can also choose any of\nthe eight original races or Skyborne, male or female, with either background.\n\nChoose your pace, set the sound cue volume, and see your totals when you land.\nThe summary stays open until you close it.\n\n## Install\n\nCopy the `Azerobics` folder into your WoW Forever `Interface/AddOns` folder.\nEnable Azerobics in the game's addon list.\n\nFor WoW Forever beta 1.60.1.\n\n## Start\n\nThe guide opens when a flight starts. Use the minimap button or `/azerobics`\nto open it on the ground. Use `/azerobics a` for Alliance or `/azerobics h` for Horde.\n\nLeft-click the minimap button to open or close the guide. Hold the left mouse\nbutton and drag it around the minimap edge to move it. The game saves its position.\nClosing the guide during a flight cancels the workout and skips the landing summary.\nOpen it again before landing to start the guide and enable the summary again.\n\nUse the three dropdowns above the character to change the background, race,\nand sex. Select an exercise below the image, then choose a pace in the bottom\nrow. Pace changes the pause between repetitions. Drag the title area to move\nthe window.\n\nCheck **Cycle workouts** beside **Start on flights** to select the next exercise\neach time the guide opens while flying. This setting is off by default.\n\n[CurseForge](https://www.curseforge.com/wow/addons/azerobics) · [Full guide](https://github.com/emesinternet/azerobics/blob/main/Azerobics/README.md) · [Release guide](https://github.com/emesinternet/azerobics/blob/main/RELEASING.md)\n\n## In the game\n\n![Azerobics push-ups in WoW Forever. Auto selects Horde, Orc and Male.](https://raw.githubusercontent.com/emesinternet/azerobics/main/docs/screenshots/azerobics-pushups.jpg)\n\nSee the other views: [sit-ups](https://raw.githubusercontent.com/emesinternet/azerobics/main/docs/screenshots/azerobics-situps.jpg), [jumping jacks](https://raw.githubusercontent.com/emesinternet/azerobics/main/docs/screenshots/azerobics-jumping-jacks.jpg), [squats](https://raw.githubusercontent.com/emesinternet/azerobics/main/docs/screenshots/azerobics-squats.jpg), and the [Alliance background](https://raw.githubusercontent.com/emesinternet/azerobics/main/docs/screenshots/azerobics-alliance-jumping-jacks.jpg).",
+  "releases": [
+    {
+      "tag": "v1.2.0",
+      "name": "Azerobics 1.2.0",
+      "published": "2026-11-09",
+      "notes": "# Azerobics 1.2.0\n\n- Updated the window with grouped dark panels, clearer text, and matching controls.\n- Added **Cycle workouts** beside **Start on flights**. When checked, each guide opening during a flight selects the next exercise. This setting is off by default.\n- Added the Azerobics icon to the game's addon menu.\n- Added minimap button dragging. Hold the left mouse button and drag around the minimap edge. The game saves the position.\n- Closing the guide during a flight now cancels the workout and skips the landing summary. Open the guide again before landing to enable the summary again."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/emesinternet/azerobics/main/docs/screenshots/azerobics-pushups.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-09",
+    "releaseDates": [
+      "2026-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Azerobics"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "AzerobicsDB"
+    ]
+  }
+}

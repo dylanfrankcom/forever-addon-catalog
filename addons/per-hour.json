@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "per-hour",
+  "repo": "eavidaze/wow-addon-per-hour",
+  "about": "# Per Hour - WoW Forever\n\nTrack experience, honor, watched reputation and estimated net gold per minute and per hour.\nTargets **WoW Forever 1.60.1 (Interface 16001)**. In-game validation is pending.\n\n## Install\n\n1. Extract the addon into `_forever_\\Interface\\AddOns\\per-hour`.\n   The folder must contain `per-hour.toc` directly.\n2. Restart WoW and enable **Per Hour** in the AddOns list.\n\nFor local development on Windows, run `.\\scripts\\install.ps1` once to link this\ncheckout to the game's AddOns folder. Keep the checkout in place; subsequent\ncode changes only need `/reload`.\n\n## Use\n\n- Left-click the minimap clock to toggle the module menu.\n- Use `/perhour`, or right-click the minimap clock, to open **Settings**\n  for panel visibility, a shared hourly/per-minute display unit and the watched reputation.\n- Use `/perhour help` to list the available text commands.\n- Use `/perhour xp`, `gold`, `honor` or `rep` to show the corresponding tracker.\n- Check a module to show its window. Drag the minimap button to reposition it.\n- The standard minimap icon supports Leatrix and other LibDBIcon organizers; its libraries are included.\n- **Start / Pause / Resume** controls tracking; paused gains and time are excluded.\n- Drag a window's background to move it; its close button appears on hover and hides it without stopping tracking.\n- Enable **Show speedometer** under Experience in **Settings** for an XP gauge with ten scale levels.\n- Windows automatically stay apart when moved or reopened.\n- The **Options** gear menu offers **Reset** (clear and stop), **Settings** and **Announce** (share results to chat).\n- Hover over a window for session details and estimates to the next XP level or reputation standing.\n- Enable **Show estimates** in **Settings → General** to also display predictions below the rates.\n- Choose a watched faction in **Settings** or the game's reputation panel;\n  switching factions resets the reputation tracker.\n- **Gold** values eligible items with optional TSM → Auctionator → vendor pricing and a vendor minimum;\n  poor (gray) items always use vendor value. It tracks loot and rewards,\n  and subtracts consumed/delivered items, personal repairs and paid flights. Trades, mail, item purchases\n  and vendor-sale receipts are excluded. See [Gold tracking](https://github.com/eavidaze/wow-addon-per-hour/blob/main/docs/gold-tracking.md).\n- Left-click **Gold** or choose **Gold → Options → Details** to view income, expenses and event history.\n\nWindow visibility, window positions and minimap button position are saved per character.\nOne hourly/per-minute display preference applies to all windows and is saved per character.\nSessions survive reloads and logins per character. Offline time and gains are excluded;\nrunning sessions resume automatically, and manually paused sessions stay paused.\nThe top-left restore icon reports the continuity check. Hover for details; sessions\nthat need review stay paused until you choose **Resume** or **Reset**.\n\nSee [Session continuity](https://github.com/eavidaze/wow-addon-per-hour/blob/main/docs/session-continuity.md) for limitations and validation steps.\n\n## Development\n\nRun commands from the repository root:\n\n```powershell\nlua tests/forever.lua      # Lua 5.1 simulation checks\n.\\scripts\\package.ps1     # Generate the release ZIP in dist\\\n```\n\nSee [Publishing a release](https://github.com/eavidaze/wow-addon-per-hour/blob/main/docs/releasing.md) for CurseForge setup.\n\n## Credits\n\nOriginal author: José Júnior. Thanks to Zwietabak and AssisrMatheus.\n[MIT license](https://github.com/eavidaze/wow-addon-per-hour/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.6.1",
+      "published": "2026-11-21",
+      "notes": "# Per Hour\n\n## [v1.6.1](https://github.com/eavidaze/wow-addon-per-hour/tree/v1.6.1) (2026-11-21)\n[Full Changelog](https://github.com/eavidaze/wow-addon-per-hour/compare/v1.6.0...v1.6.1) [Previous Releases](https://github.com/eavidaze/wow-addon-per-hour/releases)\n\n- Merge pull request #19 from eavidaze/fix/hotfixes  \n    fix: restore minimap access and prepare v1.6.1  \n- chore: bump version to 1.6.1-forever  \n- fix: integrate the standard minimap launcher and correct slash commands (refs #16)  \n- fix: apply item rarity colors and use vendor prices for poor items"
+    },
+    {
+      "tag": "v1.6.0",
+      "published": "2026-11-21",
+      "notes": "# 1.6.0-forever\n\nTrack estimated net gold alongside XP, Honor and Reputation, and inspect the\nincome and expenses recorded during your farming session.\n\nChanges are compared with [v1.5.0](https://github.com/eavidaze/wow-addon-per-hour/releases/tag/v1.5.0),\nthe previous published Forever release. The release title and tag are `v1.6.0`.\n\n## Added\n\n- Enable **Gold** from the minimap menu or Settings to track estimated net gold\n  per hour or minute. Include looted money, quest money and received item values;\n  subtract consumables used, valuable items delivered to completed quests,\n  personal repairs and paid flights. Pause, Resume, Reset, hidden tracking,\n  per-character session persistence and Announce work with Gold as well.\n- Left-click the Gold tracker or choose **Gold → Options → Details** to open its\n  scrolling event journal. Review income, expenses and estimated net profit;\n  inspect event times, item quantities and native item/quest tooltips.\n- Value eligible items with optional **TSM → Auctionator → vendor** pricing,\n  using TSM's DBMarket or Auctionator's last scan with vendor as the minimum.\n  Neither integration is required. The item tooltip in Details identifies the\n  recorded price source and value, including portions valued at different prices.\n- Freeze item prices when recorded. Consumables and quest deliveries use the\n  oldest available recorded acquisition values first; unmatched stock receives\n  a quote when used. Selling or transferring items removes their units from\n  that allocation without adding income or a speculative expense.\n\n## Changed\n\n- Format Gold totals and announcements in gold, silver and copper, with decimal\n  gold rates in the tracker. Details uses local event clock times, quantity\n  suffixes, entry/exit arrows and distinct outgoing values.\n- Keep valid per-character rate preferences. Characters without a valid saved\n  hourly/per-minute preference now default to hourly instead of importing older\n  account-level module preferences. If only the old account preference existed,\n  select per-minute again in Settings; new modules no longer affect that choice.\n\n## Fixed\n\n- Recover pending item prices from the native cache after session verification,\n  world entry and pause/resume, including replies received while restoration was\n  pending. Accepted entries can settle while paused without counting new gains.\n- Preserve already confirmed quest deliveries across pause/resume and loading\n  screens within their original confirmation window, avoiding lost or duplicate\n  item expenses when bag updates arrive later.\n- Prevent sold, mailed, traded, banked or otherwise removed units from supplying\n  stale acquisition prices to later replacements. Stock availability survives\n  reload, including observed losses whose runtime confirmation was interrupted.\n\n## Compatibility and limitations\n\n- Targets WoW Forever 1.60.1, Interface `16001`.\n- Gold describes estimated farming value, not cash profit or guaranteed Auction\n  House proceeds. Item values count on receipt; selling them adds nothing again.\n  Mail, trade, bank transfers, purchases, buybacks, crafting and guild-funded\n  repairs remain outside income/expense accounting. Market prices are gross,\n  without Auction House commission or deposits.\n- Native item data may remain pending until loaded. Known zero-value items are\n  omitted. Existing saved prices retain their policy; no previous transactions\n  or settings are migrated or backfilled.\n- Consumption and quest deliveries require matching native actions and readable\n  bag-count decreases. Short confirmation windows, ambiguous events, gains that\n  mask losses and unobserved offline movements can leave actions unrecognized.\n  Unrecorded runtime action correlations do not survive reload.\n- Item/quest tooltips, external addon APIs, event order and protected/secret\n  values still require actual Forever validation. See [Gold tracking](https://github.com/eavidaze/wow-addon-per-hour/blob/v1.6.0/docs/gold-tracking.md)\n  for detailed accounting and detection boundaries.\n\n## Validation\n\n- Automated: 2,882 simulation checks passed with Lua 5.1 through Python's\n  `lupa.lua51` runner, covering Gold accounting, provider fallbacks, recorded\n  prices, mixed acquisition lots, pending data, quest delivery, stock retirement,\n  pause/resume, reload and Details tooltips, alongside existing tracker checks.\n- Local package: `per-hour-1.6.0-forever.zip` checked for its `per-hour/` root,\n  matching TOC version and Interface, exact-case TOC/XML load references,\n  source-file contents and excluded development files.\n- In-game validation remains pending. Verify real looting, quest turn-ins,\n  consumables, personal/guild repairs, flights, transfer exclusions, replacement\n  stock, TSM/Auctionator APIs, Details rendering and session continuity in\n  WoW Forever. Simulation results do not establish gameplay compatibility."
+    },
+    {
+      "tag": "v1.5.0",
+      "published": "2026-11-19",
+      "notes": "# Per Hour\n\n## [v1.5.0](https://github.com/eavidaze/wow-addon-per-hour/tree/v1.5.0) (2026-11-19)\n[Full Changelog](https://github.com/eavidaze/wow-addon-per-hour/compare/v1.4.0...v1.5.0) [Previous Releases](https://github.com/eavidaze/wow-addon-per-hour/releases)\n\n- Merge pull request #17 from eavidaze/feat/estimates  \n    feat: add progress estimates for release 1.5.0  \n- chore: bump version to 1.5.0-forever"
+    },
+    {
+      "tag": "v1.4.0",
+      "published": "2026-11-16",
+      "notes": "# 1.4.0-forever\n\nAdd an optional XP speedometer with a configurable scale and streamline tracking\nupdates, panel interaction and character display preferences.\n\nChanges are compared with [v1.3.1](https://github.com/eavidaze/wow-addon-per-hour/releases/tag/v1.3.1),\nthe previous published Forever release. The release title and tag are `v1.4.0`.\n\n## Added\n\n- Enable **Show speedometer** under Experience in **Settings** to display an XP\n  gauge above the existing numeric rate. Choose one of ten scale levels; changing\n  between hourly and per-minute units keeps the selected level. The gauge is\n  disabled by default and its settings are saved per character. Honor and\n  Reputation retain their numeric displays.\n\n## Changed\n\n- Use one **Per hour** or **Per minute** preference for all three trackers, saved\n  per character instead of separate account-wide choices. Both rates remain\n  available in session tooltips.\n- Show overload with a warning color and short native pointer tremors separated\n  by pauses. The pointer and its shadow move together; the numeric readout keeps\n  the actual rate above the scale maximum.\n- Refresh active tracking through one shared timer, with XP and reputation\n  events capturing gains between periodic samples. Hidden panels continue\n  tracking and synchronize their rate display when shown. Unchanged controls and\n  readouts avoid repeated interface updates.\n- Keep background dragging responsive and save changed panel and minimap\n  positions when dragging ends, when hidden during dragging, or on logout.\n- Show tracker close buttons instantly on hover, including over child controls,\n  without fading. Restore indicators also appear without fading: success hides\n  after five seconds; unresolved errors remain until **Resume** or **Reset**,\n  then hide after half a second.\n- Center compact headers and footers around their content and align nested\n  settings controls, keeping the XP gauge toggle beside its scale control.\n\n## Compatibility and limitations\n\n- Targets WoW Forever 1.60.1, Interface `16001`.\n- Preserves existing per-character layouts and saved sessions. A character\n  without a saved display unit imports the previous account choices only when\n  all three valid choices agree; mixed, missing or invalid choices default to\n  hourly. Previous account preferences remain intact for other characters.\n- The default gauge level is 5, representing 800 XP/min or approximately 50k XP/h.\n  Hourly and per-minute scale maxima are rounded and are not exact conversions.\n- Session continuity retains its 30-second played-time tolerance and depends on\n  normal logout or UI reload for disk persistence. Missing progress cannot be\n  recovered.\n\n## Validation\n\n- Automated: 1,727 simulation checks passed with Lua 5.1 through Python's\n  `lupa.lua51` runner, including character settings, XP events and level-ups,\n  reputation, Honor Points, pause/resume, restore timers, mouse routing, dragging\n  and native overload state changes. Frame simulations cover 60 and 144 FPS;\n  callback and interface-call counts do not measure actual WoW CPU time or FPS.\n- Local package: `per-hour-1.4.0-forever.zip` checked for the `per-hour/` root,\n  matching version and Interface, 33 files matching the source, 26 TOC/XML load\n  references with exact filename casing and excluded development files.\n- Complete in-game validation remains pending. Confirm gauge rendering, pointer\n  and shadow tremor, hover across controls, dragging, all settings fields and\n  reload/login behavior on two characters. See panel validation,\n  session continuity and\n  performance validation."
+    },
+    {
+      "tag": "v1.3.1",
+      "published": "2026-11-14",
+      "notes": "# Per Hour\n\n## [v1.3.1](https://github.com/eavidaze/wow-addon-per-hour/tree/v1.3.1) (2026-11-14)\n[Full Changelog](https://github.com/eavidaze/wow-addon-per-hour/compare/v1.3.0...v1.3.1) [Previous Releases](https://github.com/eavidaze/wow-addon-per-hour/releases)\n\n- Merge pull request #14 from eavidaze/fix/character-settings  \n    fix: save layout preferences per character (v1.3.1)  \n- fix: isolate character layouts in version 1.3.1-forever"
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-19",
+      "2026-11-16",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2021-06-08",
+      "2021-06-07",
+      "2021-06-06",
+      "2021-06-03",
+      "2021-06-03",
+      "2021-06-02",
+      "2021-06-02",
+      "2021-06-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "per-hour"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "TradeSkillMaster",
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "PerHourAccount_Settings"
+    ],
+    "savedVariablesPerCharacter": [
+      "PerHourCharacter_Values",
+      "PerHourCharacter_Settings"
+    ]
+  }
+}

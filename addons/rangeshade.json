@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "rangeshade",
+  "repo": "bizzal70/RangeShade",
+  "about": "# RangeShade\n\nShades action bar buttons red when your target is out of range. An addon for World of Warcraft: Forever (client 1.60.x).\n\n## What it does\n\nWhen an ability cannot reach your target, World of Warcraft only turns the small keybind text on its button red. RangeShade tints the whole icon red, so it is obvious at a glance.\n\nIt covers the eight standard action bars. When a button is back in range it gets the game's normal colour back, including the blue out-of-mana tint and the grey unusable one.\n\n## Options\n\nType `/rangeshade` (or `/rshade`) to open the options, or use the addon's entry in the minimap's addon list.\n\n| Setting | What it does | Command |\n|---|---|---|\n| Shade out-of-range buttons red | Turns the addon on or off | `/rangeshade on`, `off`, `toggle` |\n| Melee abilities too | Also shades melee attacks (see below) | `/rangeshade melee` |\n| Shading | Strong or soft red | `/rangeshade strong`, `soft` |\n\n## Melee abilities\n\nOn the Forever client the game reports melee abilities as \"in range\" however far away the target is, so RangeShade measures the distance for those itself. The shortest distance the game will measure for an addon is about 10 yards, so a melee button clears a little before you are actually close enough to hit.\n\n## Known limits\n\n- The pet bar and stance bar are not covered.\n- During combat the game restricts what addons may read. Where it will not report range, a button is left unshaded.\n- `/rangeshade debug` lists what the game reports for each button, which helps explain why one is or is not shaded.\n\n## Controller\n\nWith a game controller, the **B** button closes the RangeShade options, like the X and Escape do. While a window is open, B closes it; once it is closed, B goes back to whatever you have it set to. When a fight starts, B goes straight back to its usual job, even with the window open.\n\n## More from this author\n\nOther small addons for World of Warcraft: Forever, all free:\n\n- **[GatherLog](https://www.curseforge.com/wow/addons/gatherlog)** remembers ore, herbs, fishing pools, skinning spots, chests and rares across all your characters, and guides you back to the best spots.\n- **[MouseTip](https://www.curseforge.com/wow/addons/mousetip)** shows tooltips at your mouse cursor.\n- **[JunkMate](https://www.curseforge.com/wow/addons/junkmate)** sells junk and repairs at vendors, and warns when your gear is wearing out.\n- **[AltGlance](https://www.curseforge.com/wow/addons/altglance)** shows all your characters at a glance: level, gold, rested and where you left them.\n- **[SwiftQuest](https://www.curseforge.com/wow/addons/swiftquest)** accepts quests and hands them in as soon as you talk to the quest giver, without ever choosing a reward for you.\n- **[SessionRecap](https://www.curseforge.com/wow/addons/sessionrecap)** keeps a running tally of your play session: gold, experience per hour, quests, gathering and loot.\n- **[MacroKit](https://www.curseforge.com/wow/addons/macrokit)** adds ready-made macros for your class and spec, for all nine classes, and never overwrites your own.\n- **[ZoomPad](https://www.curseforge.com/wow/addons/zoompad)** puts big + and - buttons on screen that zoom the camera, made for the Steam Deck touchscreen.\n- **[GamepadMacros](https://www.curseforge.com/wow/addons/gamepadmacros)** adds ready-made macros for controller and Steam Deck players: heal yourself, use a quest item, save and wear gear, leave a group, emotes.\n- **[FDR - Flight Data Recorder](https://www.curseforge.com/wow/addons/fdr-flight-data-recorder)** times every flight-master flight and counts your next one down to landing.\n\n## Installing\n\nCopy this folder into `World of Warcraft\\_forever_\\Interface\\AddOns\\` as `RangeShade`, restart the game, and enable RangeShade on the character select screen.\n\n## Developing\n\n- `tools\\Link-Addon.ps1` links this folder into the game's AddOns folder, so edits are live after `/reload`.\n- `python tests/run.py` runs the tests (`pip install lupa` once). They run the addon in real Lua 5.1 against a fake of the game's API.\n- `tools\\Publish.ps1 -Message \"...\"` runs the tests and pushes to GitHub. GitHub runs the tests again on every push.\n\n## Releasing\n\n`tools\\Publish.ps1 -Message \"Release x.y.z\" -Tag vx.y.z` publishes and tags. The tag makes GitHub package the addon and attach the zip to a GitHub release.\n\nTo also upload to CurseForge and Wago, two things are needed once:\n\n1. Create the project on each site, then add its ID to `RangeShade.toc`:\n   `## X-Curse-Project-ID: 123456` and `## X-Wago-ID: abc123`.\n2. Create an upload token on each site and add it to this repository's secrets (Settings, Secrets and variables, Actions) as `CF_API_KEY` and `WAGO_API_TOKEN`.\n\nBefore each release: raise `## Version:` in `RangeShade.toc` and add the version to `CHANGELOG.md`.\n\n## Licence\n\nMIT. See `LICENSE`.",
+  "releases": [
+    {
+      "tag": "v0.2.4",
+      "published": "2026-11-22",
+      "notes": "# RangeShade\n\n## 0.2.4\n\n- **Controller:** when a fight starts, B goes straight back to its usual job, even with a RangeShade window open (it used to stay on closing the window until the fight ended). It closes the window again once the fight is over.\n\n## 0.2.3\n\n- **Controller:** the B button now closes RangeShade's window, like the X and Escape. While one is open, B closes it; once it is closed, B does whatever you have it set to again.\n\n## 0.2.2\n\n- First release on CurseForge. No changes to how the addon works.\n\n## 0.2.1\n\n- Fixed an error on every check (\"bad argument #2 to IsHarmfulAction\") that 0.2.0 raised in game and that stopped all shading.\n- If the melee check ever hits a problem again, it switches itself off with one message; ordinary range shading carries on.\n\n## 0.2.0\n\n- Melee abilities are now shaded too, using a separate distance check, because the game reports them as in range at any distance. Can be turned off.\n- `/rangeshade debug` lists what the game reports for each button.\n\n## 0.1.0\n\n- First version: shades action buttons red while their action cannot reach the target."
+    },
+    {
+      "tag": "v0.2.3",
+      "published": "2026-11-22",
+      "notes": "# RangeShade\n\n## 0.2.3\n\n- **Controller:** the B button now closes RangeShade's window, like the X and Escape. While one is open, B closes it; once it is closed, B does whatever you have it set to again.\n\n## 0.2.2\n\n- First release on CurseForge. No changes to how the addon works.\n\n## 0.2.1\n\n- Fixed an error on every check (\"bad argument #2 to IsHarmfulAction\") that 0.2.0 raised in game and that stopped all shading.\n- If the melee check ever hits a problem again, it switches itself off with one message; ordinary range shading carries on.\n\n## 0.2.0\n\n- Melee abilities are now shaded too, using a separate distance check, because the game reports them as in range at any distance. Can be turned off.\n- `/rangeshade debug` lists what the game reports for each button.\n\n## 0.1.0\n\n- First version: shades action buttons red while their action cannot reach the target."
+    },
+    {
+      "tag": "v0.2.2",
+      "published": "2026-10-14",
+      "notes": "# RangeShade\n\n## 0.2.2\n\n- First release on CurseForge. No changes to how the addon works.\n\n## 0.2.1\n\n- Fixed an error on every check (\"bad argument #2 to IsHarmfulAction\") that 0.2.0 raised in game and that stopped all shading.\n- If the melee check ever hits a problem again, it switches itself off with one message; ordinary range shading carries on.\n\n## 0.2.0\n\n- Melee abilities are now shaded too, using a separate distance check, because the game reports them as in range at any distance. Can be turned off.\n- `/rangeshade debug` lists what the game reports for each button.\n\n## 0.1.0\n\n- First version: shades action buttons red while their action cannot reach the target."
+    },
+    {
+      "tag": "v0.2.1",
+      "published": "2026-10-13",
+      "notes": "# RangeShade\n\n## 0.2.1\n\n- Fixed an error on every check (\"bad argument #2 to IsHarmfulAction\") that 0.2.0 raised in game and that stopped all shading.\n- If the melee check ever hits a problem again, it switches itself off with one message; ordinary range shading carries on.\n\n## 0.2.0\n\n- Melee abilities are now shaded too, using a separate distance check, because the game reports them as in range at any distance. Can be turned off.\n- `/rangeshade debug` lists what the game reports for each button.\n\n## 0.1.0\n\n- First version: shades action buttons red while their action cannot reach the target."
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-10-13",
+      "notes": "# RangeShade\n\n## 0.2.0\n\n- Melee abilities are now shaded too, using a separate distance check, because the game reports them as in range at any distance. Can be turned off.\n- `/rangeshade debug` lists what the game reports for each button.\n\n## 0.1.0\n\n- First version: shades action buttons red while their action cannot reach the target."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-22",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RangeShade"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "RangeShadeDB"
+    ]
+  }
+}

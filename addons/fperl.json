@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "fperl",
+  "repo": "Zeta0xD/FPerl",
+  "about": "# F-Perl\n\nUnit frames for World of Warcraft: Forever: player, pet, target, focus, target of target, party, party pets and raid. F-Perl keeps the look of the classic X-Perl unit frames, rebuilt for the Forever client. Three optional raid tools come with it: Raid Admin, Raid Helper and Raid Monitor.\n\n![F-Perl in a raid with the default layout: player, target and target of target along the top, pet, party and the raid groups down the left](https://raw.githubusercontent.com/Zeta0xD/FPerl/main/FPerl/Screenshots/default-layout.jpg)\n\nChanges in each version: https://github.com/Zeta0xD/FPerl/blob/main/CHANGELOG.md\n\n## What F-Perl does differently\n\n- Auras are drawn by the game's own aura display, so buffs and debuffs keep showing in content where the game hides aura details from addons.\n- Light on the game: frames update when the game reports a change, not by checking on a timer, and no setting or event redraws every frame when only one part changed.\n- A new options window: every option in one place, one tab per frame group, basic options first, search across all tabs, and changes take effect at once (only switching the Player, Pet or Target frame on or off needs `/reload`).\n- Layouts: named sets of positions and settings, shared by all your characters, switched in the options or with `/fperl layout <name>`.\n- A new unlock mode: unlocking shows a small toolbar with an alignment grid, snapping and labels, and a click on any frame opens a popup of its common settings. A dragged frame shows a box over all its art and lines where it will snap; labels name every movable frame; Target and Focus show you while unlocked. Changing a frame's scale keeps it where it is.\n- Automatic range fading: F-Perl picks your longest-range spells from your spellbook, so out-of-range units fade without any setup for your class.\n\n## Install\n\n1. Install F-Perl with the CurseForge app, or download the zip from CurseForge or from the latest release at https://github.com/Zeta0xD/FPerl/releases.\n2. Unpack the zip into `World of Warcraft\\_forever_\\Interface\\AddOns`. You get four folders: `FPerl`, `FPerl_RaidAdmin`, `FPerl_RaidHelper` and `FPerl_RaidMonitor`. `FPerl` is the unit frames; the other three are the raid tools, which need `FPerl` and can be left out.\n3. Start the game, or restart it if it was running.\n\n## Use\n\n- Open the options with `/fperl`, a left click on the F-Perl minimap button, or the Open button on F-Perl's page in the game's settings panel. The window has one tab per frame group. It shows the basic options; tick Show advanced options for the rest. The search box finds an option on any tab. An option that has no effect until another is on is greyed. Options cannot be changed in combat. An option that needs `/reload` is marked, with a Reload button. The window remembers its position and tab.\n- To move frames, unlock them (`/fperl unlock`, or General > Frames > Unlock frames and hide menu), drag them, then lock them again (`/fperl lock`). While unlocked, click a frame without dragging to open a popup with that frame's basic options, an All settings button that opens its tab, and a Lock button.\n- To move a frame's buffs and debuffs, unlock the frames and drag the aura blocks (the blue Buffs and Debuffs boxes), or set Buff X / Y and Debuff X / Y under Show advanced options. Both work on every frame, raid frames included.\n- Right-click one of your buffs on the Player frame to remove it.\n- Weapon enchants (rogue poisons, oils, sharpening stones) show first in the Player frame's buff line, with time left and charges, and the buffs move over while one is on; right-click one to remove it. Player > Auras > Weapon enchants switches them off. With debuffs set nearer the frame than buffs on the same side, the enchants sit left of the frame instead.\n- Hit indicators (the damage and healing numbers on a frame) show with or without the portrait. The Hit text position option puts them on the portrait's spot or on the name.\n- The Player, Pet and Target frames can each be switched off in General > Frames, which leaves Blizzard's own frame in place. The change takes effect after `/reload`.\n- A layout is a named set of positions and settings. Switch layouts in the options or with `/fperl layout <name>`.\n- Right-drag the minimap button to move it; right-click it for a short menu.\n\n## Slash commands\n\nF-Perl:\n\n| Command | What it does |\n|---|---|\n| `/fperl` | Opens the options (also `/fperl menu` and `/fperl options`). |\n| `/fperl unlock` | Unlocks the frames so they can be dragged. |\n| `/fperl lock` | Locks the frames in place. |\n| `/fperl layout` | Lists the layouts and marks the current one. |\n| `/fperl layout <name>` | Switches to that layout. |\n\nRaid Admin:\n\n| Command | What it does |\n|---|---|\n| `/rad` or `/fpadmin` | Opens the Raid Admin window. |\n| `/rad save [name]` | Saves the raid's group arrangement under that name (the game time if no name is given). |\n| `/rad load <name>` | Moves raid members back into the groups of that saved arrangement. |\n| `/rad auto` | Turns on or off showing the Raid Admin window when you are raid leader or assistant. |\n| `/raitem <item>` or `/fpitem <item>` | Asks the raid who carries that item. |\n| `/radur` | Asks the raid for equipment durability. |\n| `/raresist` or `/raresists` | Asks the raid for resistances. |\n| `/rareg` | Asks the raid for reagents. |\n\nThe `/raitem`, `/radur`, `/raresist` and `/rareg` checks open the Item Check window; raid members reply when their raid addon answers CT_RaidAssist queries.\n\nRaid Helper:\n\n| Command | What it does |\n|---|---|\n| `/fphelper assists` | Opens the assists view. |\n| `/fphelper raid` | Opens the Raid Helper (main tank targets). |\n| `/fphelper alpha raid <value>` | Sets the transparency of the Raid Helper window. |\n| `/fphelper alpha assists <value>` | Sets the transparency of the assists view. |\n| `/fphelper ctra` | Turns on or off the use of CT_RaidAssist main tank targets. |\n\nSubcommands can be shortened: `/fphelper as` is `/fphelper assists`. Raid Monitor has no slash command.\n\n## Known issues\n\n- The raid tools have not yet been reviewed for Forever.\n- Raid Helper: healer mode cannot be turned on.\n- In a vehicle, a click on the Player frame's name or portrait targets you, not the vehicle.\n\n## Reporting bugs\n\nOpen an issue at https://github.com/Zeta0xD/FPerl/issues with what you did, what you saw, and the F-Perl version you downloaded. For a Lua error, turn error display on once with `/console scriptErrors 1` and copy the full error text into the issue.\n\n## Forever-only code\n\nF-Perl is built and tested for the Forever client only. `FPerl.ForeverGame` (`FPerl/FPerl_Core.lua`) holds the Forever-only values no API check detects: the surname separator, the playable classes, and the NPC portrait setting for instances. `FPerl.ForeverAPI` (`FPerl/FPerl_Values.lua`) holds the API checks.\n\nThe raid tools (`FPerl_RaidAdmin`, `FPerl_RaidHelper`, `FPerl_RaidMonitor`) are not yet reviewed and are not a base to port from.\n\n## Credits and license\n\nF-Perl is by Zeta0xD, built for World of Warcraft: Forever in 2026. It started from the code of X-Perl UnitFrames | Revived, a continuation of Z-Perl and X-Perl, and has been rebuilt since: the options window, named layouts, frame arranging and the code's structure and names are new. The earlier versions are the work of Ziliya, Resike, Halfdays, Zek and Nymbia; F-Perl is a modified version of their work.\n\nReleased under the GNU General Public License v3 (`LICENSE`), with no warranty. Source files that carry code from the earlier versions keep their original author and license lines.",
+  "releases": [
+    {
+      "tag": "v1.4.0",
+      "published": "2026-11-20",
+      "notes": "Version 1.4.0 (edit mode compatibility)\n\n- New: F-Perl works with the game's Edit Mode.\n  - F-Perl's frames unlock while Edit Mode is open and lock again when it closes.\n  - They show Edit Mode's blue highlight boxes with their names.\n  - F-Perl and Blizzard frames snap to each other, to Edit Mode's grid, and to the screen's edges and center.\n  - General > Frames > \"Blizzard frames snap to F-Perl frames\" turns off Blizzard frames snapping to F-Perl's."
+    },
+    {
+      "tag": "v1.2.0",
+      "name": "F-Perl 1.2.0",
+      "published": "2026-11-19",
+      "notes": "1.2.0 (2026-11-18)\n- Raid target marks show on F-Perl's frames.\n- Fixed: the Ctrl setting for tooltips now shows the tooltip only while Ctrl is held.\n- Focus has its own out-of-range icon option (off by default). Its range icon and hit text follow the - Focus options, not the Target options.\n- Fixed: the out-of-range icon on the Target frame showed for units in range.\n- Fixed: frames could fade as out of range in combat.\n- Fixed: Raid > class None turned the classes back on at the next login.\n- Fixed: the buff tooltip's list of players without the buff did not refresh.\n- Fixed: the unlocked raid box did not fit the layout when sorted by class.\n- Fixed: the master looter icon stayed after master loot ended.\n- Hidden health percents round to the nearest whole number (99.6 shows 100).\n- The pet's target frame no longer takes the aura color highlight.\n- Faster layout switches and group changes.\n- Raid Helper: fixed sorting of players without a class, the focus target in the assist list, and the /fphelper usage line.\n- The Aura blacklist's \"Show if mine\" column is removed; it had no effect.\n- The minimap button's tooltip no longer shows memory use (the game's addon list shows it). The minimap menu lists Raid Admin before the Casting Monitor."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "F-Perl 1.0.0",
+      "published": "2026-10-19",
+      "notes": "v1.0.0 of F-Perl (Forever Perl)"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Zeta0xD/FPerl/main/FPerl/Screenshots/default-layout.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-19",
+      "2026-10-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FPerl",
+      "FPerl_RaidAdmin",
+      "FPerl_RaidHelper",
+      "FPerl_RaidMonitor"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Clique"
+    ],
+    "savedVariables": [
+      "FPerlDB",
+      "ZPerlConfigNew"
+    ],
+    "savedVariablesPerCharacter": [
+      "FPerlPerCharacter",
+      "FPerlRoster",
+      "ZPerlConfigSavePerCharacter",
+      "ZPerl_Roster"
+    ]
+  }
+}

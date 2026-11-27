@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "musicianextended",
+  "repo": "LenweSaralonde/MusicianExtended",
+  "about": "Musician: Extended\n==================\nThis plugin adds more instruments to [Musician](https://github.com/LenweSaralonde/Musician):\n\n* Pipe organ (*Leeds Town Hall Organ*)\n* Tonewheel organ (*Hammond B3*)\n* Nyckelharpa (*swedish keyed fiddle*)\n* Guzheng (*chinese plucked zither*)\n* Dizi (*chinese bamboo flute*)\n* Erhu (*chinese spike fiddle*)\n* Oboe\n* Saxophone (alto)\n* Sawtooth wave (*Oberheim OB-Xa*)\n* Square wave (*Oberheim OB-Xa*)\n* Synth bass (*Yamaha DX7*)\n* Electronic drum kit (*Roland TR-909*)\n* Marimba\n* Tubular bells\n\nIf you have [MusicianList](https://github.com/LenweSaralonde/MusicianList) with previously saved songs before installing this instrument pack, you'll need to manually edit each song to select the instruments from the pack you want to use.\n\nThe instruments from the pack will be substituted by standard ones for players who don't have the pack installed.\n\nMore free RAM is needed to make this extra instruments to work properly.\n\nMIDI mapping\n------------\nThe instruments are mapped to the following MIDI programs:\n\n### Melodic\n* **12.** Marimba\n* **14.** Tubular bells\n* **18.** Tonewheel organ (Rock organ)\n* **19.** Pipe organ\n* **38.** Synth bass (Synth bass 1)\n* **41.** Nyckelharpa (Viola)\n* **65.** Saxophone (Alto saxophone)\n* **68.** Oboe\n* **73.** Dizi (Flute)\n* **80.** Square wave\n* **81.** Sawtooth wave\n* **92.** Erhu (Bowed pad)\n* **107.** Guzheng (Koto)\n\n### Percussive\n* **25.** Electronic drum kit (TR-808)\n\nCaveats\n-------\n**Musician: Extended** adds a substantial number of samples. This results in longer loading times at cold start and a higher RAM usage for the sound cache.\n\nThe game's sound engine may also take longer to start, resulting in having no sound for a few seconds after first logging in.",
+  "releases": [
+    {
+      "tag": "1.6.0",
+      "name": "MusicianExtended 1.6.0",
+      "published": "2026-10-18",
+      "notes": "Changelog\n=========\n\nv1.6.0\n------\n* Updated for Musician 1.9.18.0.\n\nv1.5.0\n------\n* Remade dropdowns using the standard API.\n\nv1.4.0\n------\n* Updated for WoW Retail 12.1.0.\n\nv1.3.4\n------\n* Updated for WoW Classic Era 1.15.9 and WoW TBC Classic 2.5.6.\n\nv1.3.3\n------\n* Updated for WoW Retail 12.0.7 and MoP Classic 5.5.4.\n\nv1.3.2\n------\n* TOC bump for WoW Retail 12.0.5.\n\nv1.3.1\n------\n* TOC bump for WoW Retail 12.0.1.\n\nv1.3.0\n------\n* TOC bump for WoW Midnight 12.0.0 prepatch.\n* Added support for TBC Anniversary Classic 2.5.5.\n* TOC bump for WoW Mists of Pandaria Classic 5.5.3.\n\nv1.2.2\n------\n* Updated for WoW Retail 11.2.7, MoP Classic 5.5.2 and Classic Era 1.15.8.\n\nv1.2.1\n------\n* Updated for WoW retail patch 11.2.\n\nv1.2.0\n------\n* Updated for WoW Mists of Pandaria Classic prepatch.\n\nv1.1.5\n------\n* TOC bump for WoW retail 11.1.5 and WoW Classic Era 1.15.7.\n\nv1.1.4\n------\n* Added add-on category and group.\n* TOC bump for WoW Retail 11.1.0, WoW Classic 4.4.2 and WoW Classic Era 1.15.6.\n\nv1.1.3\n------\n* Updated for WoW retail patch 11.0.7, Cataclysm Classic 4.4.1 and Classic Era 1.15.5.\n\nv1.1.2\n------\n* Updated for WoW retail patch 11.0.2.\n\nv1.1.1\n------\n* Updated for The War Within prepatch.\n* Updated for WoW Classic patch 1.15.3.\n\nv1.1.0\n------\n* Updated for WoW Retail patch 10.2.7.\n* Updated for WoW Cataclysm Classic patch 4.4.0.\n* Updated for WoW Classic patch 1.15.2.\n\nv1.0.8\n------\n* Updated for WoW Classic patch 1.15.1.\n\nv1.0.7\n------\n* Updated for WoW Retail patch 10.2.5 and WoW Classic patch 1.15.0.\n\nv1.0.6\n------\n* Updated for WoW patch 10.1.7 and WoW Classic patch 1.14.4.\n\nv1.0.5\n------\n* Updated for WoW patch 10.1.5 and WoW Classic patch 3.4.2.\n\nv1.0.4\n------\n* Updated for WoW patch 10.1.\n\nv1.0.3\n------\n* TOC bump for WoW patch 10.0.7.\n\nv1.0.2\n------\n* Updated for the new Musician API.\n* Minor bugfixes and improvements.\n\nv1.0.1\n------\n* TOC bump for WoW patch 10.0.5.\n* TOC bump for WoW Classic patch 3.4.1.\n\nv1.0.0\n------\n* First stable release.\n* Mapped orchestra hit to tubular bells.\n* Adjusted levels for electric organ, electronic drumkit, oboe, synth bass and tubular bells.\n* TOC bump for WoW patch 10.0.2.\n\nv0.6.0\n------\n* Added synth bass.\n* Added electronic drum kit.\n\nv0.5.0\n------\n* Added square wave.\n\nv0.4.0\n------\n* Added alto saxophone.\n* Added saw wave.\n* Added electric organ.\n* Added oboe.\n* Added marimba.\n* Added tubular bells.\n* Added automatic sound cache size adjustment.\n\nv0.3.0\n------\n* Added guzheng.\n* Added dizi (chinese bamboo flute).\n* Added erhu.\n\nv0.2.0\n------\n* Added Nyckelharpa.\n* Fine-tuned pipe organ.\n\nv0.1.2\n------\n* Re-encoded pipe organ samples into proper 44.1 KHz.\n\nv0.1.1\n------\n* Added version display in player tooltip.\n\nv0.1.0\n------\n* Added pipe organ."
+    },
+    {
+      "tag": "1.5.0",
+      "name": "MusicianExtended 1.5.0",
+      "published": "2026-10-12",
+      "notes": "v1.5.0\n------\n* Remade dropdowns using the standard API.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianExtended/blob/1.5.0/CHANGELOG.md"
+    },
+    {
+      "tag": "1.4.0",
+      "name": "MusicianExtended 1.4.0",
+      "published": "2026-08-10",
+      "notes": "v1.4.0\n------\n* Updated for WoW Retail 12.1.0.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianExtended/blob/1.4.0/CHANGELOG.md"
+    },
+    {
+      "tag": "1.3.4",
+      "name": "MusicianExtended 1.3.4",
+      "published": "2026-08-03",
+      "notes": "v1.3.4\n------\n* Updated for Wow Classic Era 1.15.9 and WoW TBC Classic 2.5.6.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianExtended/blob/1.3.4/CHANGELOG.md"
+    },
+    {
+      "tag": "1.3.3",
+      "name": "MusicianExtended 1.3.3",
+      "published": "2026-06-09",
+      "notes": "v1.3.3\n------\n* Updated for Wow Retail 12.0.7 and MoP Classic 5.5.4.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianExtended/blob/1.3.3/CHANGELOG.md"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-18",
+    "releaseDates": [
+      "2026-10-18",
+      "2026-10-12",
+      "2026-08-10",
+      "2026-08-03",
+      "2026-06-09",
+      "2026-04-14",
+      "2026-02-11",
+      "2026-01-19",
+      "2025-12-03",
+      "2025-08-05",
+      "2025-07-03",
+      "2025-04-23",
+      "2025-03-02",
+      "2024-12-18",
+      "2024-08-15",
+      "2024-07-24",
+      "2024-05-08",
+      "2024-03-16",
+      "2024-01-17",
+      "2023-09-09",
+      "2023-07-09",
+      "2023-05-01",
+      "2023-03-20",
+      "2023-02-04",
+      "2023-01-24",
+      "2022-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MusicianExtended"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Musician"
+    ]
+  }
+}

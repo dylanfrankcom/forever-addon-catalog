@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "id": "musicianlist",
+  "repo": "LenweSaralonde/MusicianList",
+  "about": "MusicianList\n============\n\nLoad and save songs in game for the [Musician](https://musician.lenwe.io/) add-on.\n\nThe song list is accessible from Musician main menu on the minimap or by clicking the list button in the main import window.\n\nTo save the current song to the list, press the **Save** button in the main import window or in the song editor.\n\nHighlight a song to show the action buttons (play, rename, share, delete).\n\nType `/mus help` to get the command list.\n\nSpecial thanks to [Mystic Zaru](https://www.youtube.com/@steeldruid), [Eldorias](https://www.youtube.com/@Eldorias) and Oliira-Moonguard for the demo songs!\n\nCommand list\n------------\n\n### Open song list\n`/mus list`\n\n`/mus songs`\n\n### Save the current song\n`/mus save [<song name>]`\n\nIf omitted, the song name shown in the import field will be used.\n\n### Load a song\n`/mus load (<song name>|<song number>)`\n\n### Load and play a song\n`/mus play (<song name>|<song number>)`\n\n### Load and preview a song\n`/mus preview (<song name>|<song number>)`\n\n### Filter song name\n`/mus find <song name>`\n\n`/mus search <song name>`\n\n`/mus filter <song name>`\n\n### Delete song\n`/mus delete [(<song name>|<song number>)]`\n\n`/mus del [(<song name>|<song number>)]`\n\n`/mus remove [(<song name>|<song number>)]`\n\nIf no song name or number is specified, the currently loaded song will be deleted.\n\n### Rename song\n`/mus rename [<song number> [<new name>]]`\n\n`/mus ren [<song number> [<new name>]]`\n\n`/mus mv [<song number> [<new name>]]`\n\nIf no parameter is specified, the currently loaded song will be renamed.\n\n### Restore demo songs\n`/mus demosongs`",
+  "releases": [
+    {
+      "tag": "1.17.0",
+      "name": "MusicianList 1.17.0",
+      "published": "2026-10-18",
+      "notes": "Changelog\n=========\n\nv1.17.0\n-------\n* Rewrote emote management.\n* Reworked widgets and search edit box using standard components.\n* WoW Forever compatibility.\n\nv1.16.0\n-------\n* Remade dropdowns using the standard API.\n\nv1.15.0\n-------\n* Updated for WoW Retail 12.1.0.\n\nv1.14.2\n-------\n* Updated for WoW Classic Era 1.15.9 and WoW TBC Classic 2.5.6.\n\nv1.14.1\n-------\n* Updated for WoW Retail 12.0.7 and MoP Classic 5.5.4.\n\nv1.14.0\n-------\n* TOC bump for WoW Retail 12.0.5.\n\nv1.13.1\n-------\n* TOC bump for WoW Retail 12.0.1.\n\nv1.13.0\n-------\n* TOC bump for WoW Midnight 12.0.0 prepatch.\n* Added support for TBC Anniversary Classic 2.5.5.\n* TOC bump for WoW Mists of Pandaria Classic 5.5.3.\n\nv1.12.4\n-------\n* Updated for WoW Retail 11.2.7, MoP Classic 5.5.2 and Classic Era 1.15.8.\n* Prevent chat edit box from being closed when inserting a song link.\n* Minor bugfixes and improvements.\n\nv1.12.3\n-------\n* Fixed list frame glitch when detached from the Musician frame.\n\nv1.12.2\n-------\n* Fixed song save and rename static popups after 11.2 breaking changes.\n\nv1.12.1\n-------\n* Updated for WoW retail patch 11.2.\n\nv1.12.0\n-------\n* Updated for WoW Mists of Pandaria Classic prepatch.\n\nv1.11.5\n-------\n* TOC bump for WoW retail 11.1.5 and WoW Classic Era 1.15.7.\n\nv1.11.4\n-------\n* Added add-on category and group.\n* TOC bump for WoW Retail 11.1.0, WoW Classic 4.4.2 and WoW Classic Era 1.15.6.\n\nv1.11.3\n-------\n* Updated for WoW retail patch 11.0.7, Cataclysm Classic 4.4.1 and Classic Era 1.15.5.\n\nv1.11.2\n-------\n* Updated for WoW retail patch 11.0.2.\n\nv1.11.1\n-------\n* Updated for The War Within prepatch.\n* Updated for WoW Classic patch 1.15.3.\n\nv1.11.0\n-------\n* Updated for WoW Retail patch 10.2.7.\n* Updated for WoW Cataclysm Classic patch 4.4.0.\n* Updated for WoW Classic patch 1.15.2.\n\nv1.10.6\n-------\n* Updated for WoW Classic patch 1.15.1.\n\nv1.10.5\n-------\n* Updated for WoW Retail patch 10.2.5 and WoW Classic patch 1.15.0.\n\nv1.10.4\n-------\n* Fixed blocked actions in combat lockdown.\n\nv1.10.3\n-------\n* Updated for WoW patch 10.1.7 and WoW Classic patch 1.14.4.\n\nv1.10.2\n-------\n* Optimized memory management to address intermittent freezing.\n\nv1.10.1\n-------\n* Updated for WoW patch 10.1.5 and WoW Classic patch 3.4.2.\n\nv1.10.0\n-------\n* Updated the song list with the new 10.1 scrollbar.\n\nv1.9.15\n-------\n* Updated for WoW patch 10.1.\n\nv1.9.14\n-------\n* Musician API changes.\n\nv1.9.13\n-------\n* TOC bump for WoW patch 10.0.7.\n\nv1.9.12\n-------\n* Updated for the new Musician API.\n* Minor bugfixes and improvements.\n\nv1.9.11\n-------\n* TOC bump for WoW patch 10.0.5.\n* TOC bump for WoW Classic patch 3.4.1.\n\nv1.9.10\n-------\n* TOC bump for WoW patch 10.0.2.\n\nv1.9.9\n------\n* TOC bump for WoW patch 10.0.0.\n\nv1.9.8\n------\n* Added delay before previewing from the list to prevent note skip.\n\nv1.9.7\n------\n* Fixed rare Lua error when showing the list frame.\n\nv1.9.6\n------\n* Fixed frame position and size sometimes not being saved properly.\n\nv1.9.5\n------\n* Fixed default frame size and position.\n\nv1.9.4\n------\n* Rearranged UI code to improve maintainability.\n* Added WoW 10.0 support.\n* Minor bugfixes and improvements.\n\nv1.9.3\n------\n* Minor bugfixes and improvements.\n\nv1.9.2\n------\n* Added support for Wrath of the Lich King Classic.\n* TOC bump for WoW 9.2.7.\n\nv1.9.1\n------\n* TOC bump for WoW 9.2.5.\n\nv1.9.0\n------\n* The songs that have been played during the session are now grayed out in the list.\n\nv1.8.6\n------\n* Added keyboard binding.\n\nv1.8.5\n------\n* Fixed bug preventing to import songs in older formats into the list from a song link.\n\nv1.8.4\n------\n* TOC bump for WoW 9.2 and WoW Classic 1.14.2.\n\nv1.8.3\n------\n* German translation by Lyntharia.\n* Removed README.md images from add-on package.\n* TOC update for BC Classic 2.5.3.\n\nv1.8.2\n------\n* TOC bump for WoW Classic Era 1.14.1.\n\nv1.8.1\n------\n* TOC bump for WoW 9.1.5.\n\nv1.8.0\n------\n* Updated for Musician 1.8.\n* Updated for WoW Classic Era 1.14 and BC Classic 2.5.2.\n* Minor bugfixes and improvements.\n\nv1.7.7\n------\n* Fixed character limit when renaming a song #6\n\nv1.7.6\n------\n* Dummy version bump to force refresh CurseForge's client API.\n\nv1.7.5\n------\n* Unified version for WoW Shadowlands, WoW Classic and WoW Burning Crusade Classic.\n* Created localization for German, Spanish, Italian, Korean, Portuguese, Russian and traditional Chinese using Google Translate.\n* Minor bugfixes and improvements.\n\nv1.7.4\n------\n* Improved localization to ease up collaboration.\n\nv1.7.3\n------\n* TOC update for WoW Shadowlands patch 9.0.5\n* TOC update for WoW Classic patch 1.13.7\n\nv1.7.2\n------\n* Show song list when a song link has been imported.\n* Window positions are now properly saved.\n\nv1.7.1\n------\n* Show and hide the list frame along with the main frame when attached to each other\n* Improved localization to ease up collaboration\n\nv1.7.0\n------\n* Updated for Musician 1.7.0.0 with song links support\n* Added new demo songs by [Mystic Zaru](https://www.youtube.com/channel/UCDeGhURXdgXnCS77wh_cWDg), [Eldorias](https://www.youtube.com/channel/UC6j5rkx9SUAiHqlNYK5egAA]) and Oliira-Moonguard.\n\nv1.6.4\n------\n* Updated for WoW Shadowlands 9.0.2\n* Updated for WoW Classic 1.13.6\n\nv1.6.3\n------\n* Fixed font issue in song list\n\nv1.6.2\n------\n* Updated for WoW Shadowlands 9.0.1 prepatch\n* Set default list position under the main window\n\nv1.6.1\n------\n* Fixed updater crash from v4 if song list is empty #5\n\nv1.6.0\n------\n* Update for Musician 1.6\n* Added magnetic edges\n* Minor bugfixes and improvements\n\nv1.5.10\n-------\n* Update for WoW BfA 8.3\n\nv1.5.9\n------\n* Fixed max length for song titles in save and rename popups\n\nv1.5.8\n------\n* Update for WoW BfA 8.2.5\n* TOC update for WoW Classic 1.13.3\n\nv1.5.7\n------\n* Player can now save or rename a song when dead (Issue #4)\n\nv1.5.6\n------\n* Chinese localization by @Kalevalar\n\nv1.5.5\n------\n* Updated for Musician v1.5.5\n\nv1.5.4\n------\n* Song list can now be resized\n\nv1.5.3\n------\n* WoW 8.2 update\n\nv1.5.2\n------\n* Fixed demo songs corruption when the addon is downloaded from CurseForge\n\nv1.5.1\n------\n* Fixed row coloring when filtering is enabled\n\nv1.5.0\n------\n* Full graphical UI\n* Added song renaming\n* Bugfixes and performance improvements\n\nv1.1.0\n------\n* Updated for Musician v1.5\n* Main menu integration\n\nv1.0.1\n------\n* Updated for WoW 8.1\n\nv1.0.0\n------\n* First release\n* Add commands to Musician to list, load, save and delete songs"
+    },
+    {
+      "tag": "1.16.0",
+      "name": "MusicianList 1.16.0",
+      "published": "2026-10-12",
+      "notes": "v1.16.0\n-------\n* Remade dropdowns using the standard API.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianList/blob/1.16.0/CHANGELOG.md"
+    },
+    {
+      "tag": "1.15.0",
+      "name": "MusicianList 1.15.0",
+      "published": "2026-08-10",
+      "notes": "v1.15.0\n-------\n* Updated for WoW Retail 12.1.0.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianList/blob/1.15.0/CHANGELOG.md"
+    },
+    {
+      "tag": "1.14.2",
+      "name": "MusicianList 1.14.2",
+      "published": "2026-08-03",
+      "notes": "v1.14.2\n-------\n* Updated for Wow Classic Era 1.15.9 and WoW TBC Classic 2.5.6.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianList/blob/1.14.2/CHANGELOG.md"
+    },
+    {
+      "tag": "1.14.1",
+      "name": "MusicianList 1.14.1",
+      "published": "2026-06-09",
+      "notes": "v1.14.1\n-------\n* Updated for Wow Retail 12.0.7 and MoP Classic 5.5.4.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianList/blob/1.14.1/CHANGELOG.md"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-10-18",
+    "releaseDates": [
+      "2026-10-18",
+      "2026-10-12",
+      "2026-08-10",
+      "2026-08-03",
+      "2026-06-09",
+      "2026-04-14",
+      "2026-02-11",
+      "2026-01-19",
+      "2025-12-03",
+      "2025-08-07",
+      "2025-08-06",
+      "2025-08-05",
+      "2025-07-03",
+      "2025-04-23",
+      "2025-03-02",
+      "2024-12-18",
+      "2024-08-15",
+      "2024-07-24",
+      "2024-05-08",
+      "2024-03-16",
+      "2024-01-17",
+      "2023-10-01",
+      "2023-09-09",
+      "2023-08-09",
+      "2023-07-09",
+      "2023-05-18",
+      "2023-05-01",
+      "2023-03-27",
+      "2023-03-20",
+      "2023-02-04",
+      "2023-01-24",
+      "2022-11-15",
+      "2022-10-25",
+      "2022-10-05",
+      "2022-09-25",
+      "2022-09-18",
+      "2022-09-15",
+      "2022-09-15",
+      "2022-08-31",
+      "2022-08-16",
+      "2022-05-30",
+      "2022-05-12",
+      "2022-04-13",
+      "2022-03-08",
+      "2022-02-22",
+      "2022-01-31",
+      "2021-12-16",
+      "2021-11-04",
+      "2021-10-03",
+      "2021-08-30"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MusicianList"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Musician"
+    ],
+    "savedVariables": [
+      "MusicianList_Storage"
+    ]
+  }
+}

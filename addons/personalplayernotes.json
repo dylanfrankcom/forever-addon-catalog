@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "personalplayernotes",
+  "repo": "Limmek/PersonalPlayerNotes",
+  "about": "[![CI](https://github.com/Limmek/PersonalPlayerNotes/actions/workflows/ci.yml/badge.svg)](https://github.com/Limmek/PersonalPlayerNotes/actions/workflows/ci.yml)\n[![Interface versions](https://github.com/Limmek/PersonalPlayerNotes/actions/workflows/interface-version.yml/badge.svg)](https://github.com/Limmek/PersonalPlayerNotes/actions/workflows/interface-version.yml)\n[![Release](https://github.com/Limmek/PersonalPlayerNotes/actions/workflows/release.yml/badge.svg)](https://github.com/Limmek/PersonalPlayerNotes/actions/workflows/release.yml)\n[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Limmek/PersonalPlayerNotes/blob/master/LICENSE)\n\n# Personal Player Notes\n\n**Remember who they are.**\n\nKeep private reminders about players you meet. Add an optional note or color-coded reason for your own reference, then see it in their tooltip the next time you meet. Your information remains local to your computer and is never shared.\n\n![Tooltip preview](https://raw.githubusercontent.com/Limmek/PersonalPlayerNotes/master/Images/tooltip.png)\n\n**Download**: [CurseForge](https://www.curseforge.com/wow/addons/personal-player-notes) · [GitHub Releases](https://github.com/Limmek/PersonalPlayerNotes/releases)\n\n## Features\n\n- **Remember players** — save a personal note, choose a reason, or use both; each is optional.\n- **See it at a glance** — your notes and color-coded reasons appear when you hover over a player.\n- **Organize your list** — create your own reasons, such as \"Met in a dungeon\", \"Helpful player\", \"Crafter\", or \"Alchemy\".\n- **Add an icon** — pick an icon for a reason or an individual player from a searchable picker, shown next to it in the tooltip; you can also add your own icon image files, which always appear first in the picker.\n- **Know when they are nearby** — show a message, play a sound, or flash the screen when you hover over a listed player.\n- **Choose how alerts repeat** — get an alert once per session, or let it repeat after a delay.\n- **Make alerts recognisable** — choose different sounds for your whole list, a reason, or an individual player; you can also add your own sound files.\n- **Add players quickly** — right-click players from unit frames, chat links, and other supported places to add or edit them.\n- **Easy access** — use the minimap button or slash commands to open your settings, reasons, and player list.\n- **Use separate lists if you want** — keep different lists for different characters, or share one across them.\n- **Keep your data private** — your notes and settings stay on your computer; nothing is sent anywhere.\n\n## Supported WoW clients\n\n| Client | Version |\n|--------|---------|\n| Retail | ![Retail](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Limmek/PersonalPlayerNotes/master/.github/badges/retail.json) |\n| WoW: Forever | ![WoW Forever](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Limmek/PersonalPlayerNotes/master/.github/badges/forever.json) |\n| Classic Era (incl. Hardcore, SoM, SoD) | ![Classic Era](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Limmek/PersonalPlayerNotes/master/.github/badges/vanilla.json) |\n| Burning Crusade Classic (Anniversary) | ![TBC Anniversary](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Limmek/PersonalPlayerNotes/master/.github/badges/tbc.json) |\n| Mists of Pandaria Classic | ![Mists Classic](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Limmek/PersonalPlayerNotes/master/.github/badges/mists.json) |\n| Cataclysm Classic | Retired by Blizzard — all realms moved to Mists of Pandaria Classic on 2025-07-01 |\n\n## Installation\n\n### Via addon manager (recommended)\n\nInstall through the [CurseForge App](https://www.curseforge.com/download/app) or [WowUp](https://wowup.io/) (or any other addon manager that supports CurseForge). Search for **Personal Player Notes** and click Install.\n\n### Manual installation\n\n1. Download the latest zip from [GitHub Releases](https://github.com/Limmek/PersonalPlayerNotes/releases) or [CurseForge](https://www.curseforge.com/wow/addons/personal-player-notes).\n2. Extract the zip into your WoW `Interface/AddOns/` folder. The zip already contains the `PersonalPlayerNotes/` folder — for WoW: Forever, use `World of Warcraft/<flavor>/Interface/AddOns/PersonalPlayerNotes/`.\n3. Start or reload the game (`/reload`) and enable the addon on the character-select AddOns screen.\n\n> **Migrating from the old Shitlist addon?** Keep Shitlist installed for one login after installing Personal Player Notes — it will offer to migrate your reasons and players automatically, after which Shitlist can safely be removed.\n\n## Commands\n\n| Command | Effect |\n|---------|--------|\n| `/ppn` | Open the Blizzard AddOns options page for this addon |\n| `/ppno` or `/ppnoptions` | Open the general settings |\n| `/ppnr` or `/ppnreasons` | Manage reasons (categories) |\n| `/ppnp` or `/ppnplayers` | Manage listed players |\n| `/ppnm` or `/ppnminimap` | Toggle the minimap button |\n| `/ppndebug` | Toggle debug output |\n\n## Minimap shortcuts\n\nThe minimap button also responds directly to clicks (hover it in-game for the same list):\n\n| Click | Effect |\n|-------|--------|\n| Left-click | Open the general settings |\n| Right-click | Open the Blizzard AddOns options page |\n| Shift + Left-click | Manage reasons (categories) |\n| Ctrl + Left-click | Manage listed players |\n\n## Player alerts\n\nAlerts trigger when you hover over a listed player with alerts enabled on the player or their reason. The message shows their name in the raid-warning area, including both first and last names on WoW: Forever. In **Options > Alert** (`/ppno`), set the global defaults for **Alert message** and **Screen flash**, adjust the message's fade-in, hold, and fade-out times, and choose whether alerts repeat after a cooldown or fire once per session.\n\nUse **Message X**, **Message Y**, and **Preview** to adjust the position without moving Blizzard's raid warnings. Both values default to `0`. Where Blizzard Edit Mode can move the Raid Warning frame, the addon message follows it, plus any offsets you set.\n\nIn **Listed Players**, select a player and set **Alert message** and **Screen flash** independently to **Use global setting**, **On**, or **Off**. An explicit choice overrides only that setting for the selected player. Sound and the main alert and cooldown rules are unchanged.\n\nAlert sounds resolve in priority order:\n\n```\nPlayer's own sound override\n        ↓ (falls back to)\nPlayer's reason's sound override\n        ↓ (falls back to)\nGlobal alert sound\n```\n\nAny of the three levels can use one of the built-in sounds, or your own custom `.mp3`/`.ogg` file dropped into this addon's `Sounds/` folder.\n\nBuilt-in sounds are intentionally hardcoded in the addon (starting with `default.mp3`) so standard entries cannot disappear from settings. If more built-in sounds are added in a future release, they are added in code as additional hardcoded entries.\n\n## Reasons\n\nReasons are reusable categories (e.g. \"Met in a dungeon\", \"Helpful player\", \"Crafter\", or \"Alchemy\"). To create one, type a new name in the **Reason** field and confirm it. This works even when **None** is selected and does not change the **None** entry. Each reason has its own:\n\n- Name and tooltip color (optional)\n- Icon, shown next to the reason in the tooltip (optional)\n- Alert on/off toggle\n- Alert sound override (optional)\n\nListed players can also set their own icon and override the sound of their reason (or the global default) individually — color, icon, and sound are all optional for both reasons and listed players.\n\nYou can add your own icons from the general settings by dropping an image file (`.blp`, `.jpg`/`.jpeg`, `.png`, or `.tga`, with power-of-two dimensions e.g. 32x32 or 64x64) into this addon's `Images/` folder and registering its filename — custom icons always appear first in the icon picker, ahead of the game's own icons.\n\nA reason is entirely optional — a listed player with no reason assigned just shows their note, with no color or alert sound override.\n\n## Profiles\n\nSettings, reasons, and listed players are all stored per-profile via Ace3's standard profile system — use a separate profile per character, or share one profile across every character on your account. Profiles can be copied, reset, or deleted from the general settings.\n\n## Data storage\n\nAll data is stored locally in the `PersonalPlayerNotesDB` SavedVariables file, which contains your reasons, player notes, and settings. The addon has no sharing, publishing, or communication feature, and nothing is sent externally.\n\n## License\n\n[MIT](https://github.com/Limmek/PersonalPlayerNotes/blob/master/LICENSE)\n\n---\n\nContributing? See [.github/CONTRIBUTING.md](https://github.com/Limmek/PersonalPlayerNotes/blob/master/.github/CONTRIBUTING.md).\n\n**Personal Player Notes** — Remember who they are.",
+  "releases": [
+    {
+      "tag": "1.1.8",
+      "published": "2026-11-18",
+      "notes": "Added raid warning-style messages and screen flashes with global and per-player settings.\nFixed an issue that prevented adding a new reason when None was selected."
+    },
+    {
+      "tag": "1.1.7",
+      "published": "2026-11-13",
+      "notes": "Fixed WoW Forever player fields to display First Name and Last Name."
+    },
+    {
+      "tag": "1.1.6",
+      "published": "2026-10-16",
+      "notes": "New icon and added WoW Forever support.\nAdded settings to control where the Add/Edit Listed Player context menu entry shows up: Party & Raid members, Friends list, and Chat."
+    },
+    {
+      "tag": "1.1.5",
+      "published": "2026-09-09",
+      "notes": "Added settings to control where the Add/Edit Listed Player context menu entry shows up: Party & Raid members, Friends list, and Chat."
+    },
+    {
+      "tag": "1.1.4",
+      "published": "2026-09-06",
+      "notes": "Fixed an issue where sound was played when selected."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Limmek/PersonalPlayerNotes/master/Images/tooltip.png"
+  ],
+  "stats": {
+    "stars": 6,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-13",
+      "2026-10-16",
+      "2026-09-09",
+      "2026-09-06",
+      "2026-09-03",
+      "2026-08-28",
+      "2026-08-26",
+      "2024-08-21",
+      "2024-07-31"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "PersonalPlayerNotes"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Shitlist",
+      "Ace3",
+      "LibStub",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "CallbackHandler-1.0"
+    ],
+    "savedVariables": [
+      "PersonalPlayerNotesDB"
+    ]
+  }
+}

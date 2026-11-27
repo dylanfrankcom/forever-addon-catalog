@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "id": "storyteller",
+  "repo": "LenweSaralonde/StoryTeller",
+  "about": "StoryTeller\n===========\nA story telling addon for World of Warcraft.\n\nThis addon is designed to tell long stories for roleplaying, including emotes and macros.\n\nHow to use\n----------\nLeft click on the minimap button or type `/story` to open the main window then paste your text in the edit box.\n\nClick the **Read** button to read the selected line and jump to the next one.\n\nYou can navigate through the text lines using the buttons **<<** and **>>**.\n\nTo start over with a new text, click **Clear** to reset then paste a new text.\n\nClick **Edit** to modify the current text using the in-game editor.\n\nTips and tricks\n----------------\n* Lines longer than 256 characters are automatically split into multiple lines.\n* The text can contain emotes and macros as long as you don't use secure functions. In this case, secure function calls will be automatically commented out and ignored.\n* Click **Edit** to modify the text directly in game.\n* Blank lines and lines that starts with a comment code `--`, `//` or `#` are ignored.\n* Text lines are sent using the chat window. Add a `/s` or `/party` to the first line to be sure to send the text to the right place.",
+  "releases": [
+    {
+      "tag": "1.1.13.0",
+      "name": "StoryTeller 1.1.13.0",
+      "published": "2026-10-18",
+      "notes": "Changelog\n=========\n\nv1.1.13.0\n---------\n* Reworked widgets using standard components.\n* Reworked checkboxes to use the modern style.\n* WoW Forever compatibility.\n\nv1.1.12.0\n---------\n* Updated for WoW Midnight 12.1.5.\n\nv1.1.11.0\n---------\n* Updated for WoW Retail 12.1.0.\n\nv1.1.10.2\n---------\n* Updated for WoW Classic Era 1.15.9 and WoW TBC Classic 2.5.6.\n\nv1.1.10.1\n---------\n* Updated for WoW Retail 12.0.7 and MoP Classic 5.5.4.\n\nv1.1.10.0\n---------\n* Updated for WoW Retail 12.0.5.\n\nv1.1.9.1\n--------\n* TOC bump for WoW Retail 12.0.1.\n\nv1.1.9.0\n--------\n* TOC bump for WoW Midnight 12.0.0 prepatch.\n* Added support for TBC Anniversary Classic 2.5.5.\n* TOC bump for WoW Mists of Pandaria Classic 5.5.3.\n\nv1.1.8.2\n--------\n* Updated for WoW Retail 11.2.7, MoP Classic 5.5.2 and Classic Era 1.15.8.\n* Minor bugfixes and improvements.\n\nv1.1.8.1\n--------\n* Updated for WoW retail patch 11.2.\n\nv1.1.8.0\n--------\n* Updated for WoW Mists of Pandaria Classic prepatch.\n\nv1.1.7.5\n--------\n* TOC bump for WoW retail 11.1.5 and WoW Classic Era 1.15.7.\n\nv1.1.7.4\n--------\n* Added add-on category.\n* TOC bump for WoW Retail 11.1.0, WoW Classic 4.4.2 and WoW Classic Era 1.15.6.\n\nv1.1.7.3\n--------\n* Updated for WoW retail patch 11.0.7, Cataclysm Classic 4.4.1 and Classic Era 1.15.5.\n\nv1.1.7.2\n--------\n* Updated for WoW retail patch 11.0.2.\n\nv1.1.7.1\n--------\n* Updated for The War Within prepatch.\n* Updated for WoW Classic patch 1.15.3.\n\nv1.1.7.0\n--------\n* Updated for WoW Retail patch 10.2.7.\n* Updated for WoW Cataclysm Classic patch 4.4.0.\n* Updated for WoW Classic patch 1.15.2.\n\nv1.1.6.7\n--------\n* Fixed blocked actions in combat lockdown.\n\nv1.1.6.6\n--------\n* Updated for WoW patch 10.1.7 and WoW Classic patch 1.14.4.\n\nv1.1.6.5\n--------\n* Updated for WoW patch 10.1.\n\nv1.1.6.4\n--------\n* TOC bump for WoW patch 10.0.7.\n\nv1.1.6.3\n--------\n* TOC bump for WoW patch 10.0.5.\n* TOC bump for WoW Classic patch 3.4.1.\n\nv1.1.6.2\n--------\n* Fixed minimap button style.\n* TOC bump for WoW patch 10.0.2.\n\nv1.1.6.1\n--------\n* Fixed minimap button background.\n\nv1.1.6.0\n--------\n* Added options to disable the minimap button and menu.\n\nv1.1.5.1\n--------\n* Fixed minimap button gap.\n* Added StoryTeller button to the add-on compartment frame.\n* Adjusted close buttons size.\n\nv1.1.5.0\n--------\n* TOC bump for WoW patch 10.0.0.\n\nv1.1.4.1\n--------\n* Code cleanup.\n\nv1.1.4.0\n--------\n* Added WoW 10.0 support.\n\nv1.1.3.1\n--------\n* Minor bugfixes and improvements.\n\nv1.1.3.0\n--------\n* Added support for Wrath of the Lich King Classic.\n* TOC bump for WoW 9.2.7.\n\nv1.1.2.5\n--------\n* TOC bump for WoW 9.2.5.\n\nv1.1.2.4\n--------\n* TOC bump for WoW 9.2 and WoW Classic 1.14.2.\n\nv1.1.2.3\n--------\n* TOC bump for WoW 9.1.5.\n\nv1.1.2.2\n--------\n* Updated for WoW Classic Era 1.14 and BC Classic 2.5.2.\n* Minor fixes and improvements.\n\nv1.1.2.1\n--------\n* Dummy version bump to force refresh CurseForge's client API.\n\nv1.1.2.0\n--------\n* Unified version for WoW Shadowlands, WoW Classic and WoW Burning Crusade Classic.\n* Created localization for German, Spanish, Italian, Korean, Portuguese, Russian and traditional Chinese using Google Translate.\n* Minor bugfixes and improvements.\n\nv1.1.1.3\n--------\n* Improved localization to ease up collaboration.\n\nv1.1.1.2\n--------\n* TOC Interface bump for WoW Shadowlands 9.0.5\n* TOC update for WoW Classic patch 1.13.7\n\nv1.1.1.1\n--------\n* Updated for WoW Shadowlands 9.0.2\n* Updated for WoW Classic 1.13.6\n* Set default window position to the right\n\nv1.1.1.0\n--------\n* Updated for WoW Shadowlands 9.0.1 prepatch\n* Updated for WoW Classic 1.13.5\n* Set default window position to the right\n\nv1.1.0.10\n---------\n* Fixed minimap button issues with some 3rd party addons\n\nv1.1.0.9\n--------\n* Added russian translation by Hubbotu\n\nv1.1.0.8\n--------\n* Updated for WoW Classic 1.13.4\n\nv1.1.0.7\n--------\n* Updated for WoW BfA 8.3\n* Updated for WoW Classic 1.13.3\n\nv1.1.0.6\n--------\n* Updated for WoW BfA 8.2.5\n* HD borders! (WoW BfA)\n* Updated frames behavior to match Musician's\n\nv1.1.0.5\n--------\n* Updated for WoW 8.2\n\nv1.1.0.4\n--------\n* Frames are now clamped to screen\n\nv1.1.0.3\n--------\n* Updated for WoW 8.1\n\nv1.1.0.2\n--------\n* Updated for WoW 8.0\n\nv1.1.0.1\n--------\n* Fixed minimap button when UI is scaled (Yimiprod)\n\nv1.1\n----\n* Added edit window\n* Added minimap button\n* Added automatic line break for lines longer than 256 characters\n* Secured commands are now automatically commented out to avoid annoying error popups\n\nv1.0.1\n------\n* Smooth scrolling\n* Bugfixes\n\nv1.0\n----\n* First release.\n* The text can be copy-pasted in the editor box to be read line-by-line by clicking the **read** button.\n* Support for emote and macros."
+    },
+    {
+      "tag": "1.1.12.0",
+      "name": "StoryTeller 1.1.12.0",
+      "published": "2026-10-12",
+      "notes": "v1.1.12.0\n---------\n* Updated for WoW Midnight 12.1.5.\n\n**Full Changelog**: https://github.com/LenweSaralonde/StoryTeller/blob/1.1.12.0/CHANGELOG.md"
+    },
+    {
+      "tag": "1.1.11.0",
+      "name": "StoryTeller 1.1.11.0",
+      "published": "2026-08-10",
+      "notes": "v1.1.11.0\n---------\n* Updated for WoW Retail 12.1.0.\n\n**Full Changelog**: https://github.com/LenweSaralonde/StoryTeller/blob/1.1.11.0/CHANGELOG.md"
+    },
+    {
+      "tag": "1.1.10.2",
+      "name": "StoryTeller 1.1.10.2",
+      "published": "2026-08-03",
+      "notes": "v1.1.10.2\n---------\n* Updated for Wow Classic Era 1.15.9 and WoW TBC Classic 2.5.6.\n\n**Full Changelog**: https://github.com/LenweSaralonde/StoryTeller/blob/1.1.10.2/CHANGELOG.md"
+    },
+    {
+      "tag": "1.1.10.1",
+      "name": "StoryTeller 1.1.10.1",
+      "published": "2026-06-09",
+      "notes": "v1.1.10.1\n---------\n* Updated for Wow Retail 12.0.7 and MoP Classic 5.5.4.\n\n**Full Changelog**: https://github.com/LenweSaralonde/StoryTeller/blob/1.1.10.1/CHANGELOG.md"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 3,
+    "lastRelease": "2026-10-18",
+    "releaseDates": [
+      "2026-10-18",
+      "2026-10-12",
+      "2026-08-10",
+      "2026-08-03",
+      "2026-06-09",
+      "2026-04-14",
+      "2026-02-11",
+      "2026-01-19",
+      "2025-12-03",
+      "2025-08-05",
+      "2025-07-03",
+      "2025-04-23",
+      "2025-03-02",
+      "2024-12-18",
+      "2024-08-15",
+      "2024-07-24",
+      "2024-05-08",
+      "2023-10-01",
+      "2023-09-09",
+      "2023-05-01",
+      "2023-03-20",
+      "2023-01-24",
+      "2022-11-15",
+      "2022-11-06",
+      "2022-11-03",
+      "2022-10-27",
+      "2022-10-25",
+      "2022-09-25",
+      "2022-09-15",
+      "2022-08-31",
+      "2022-08-16",
+      "2022-05-30",
+      "2022-02-22",
+      "2021-11-04",
+      "2021-10-03",
+      "2021-07-29",
+      "2021-05-18",
+      "2021-05-02",
+      "2021-03-10",
+      "2021-03-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "StoryTeller"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "StoryTeller_Settings"
+    ],
+    "savedVariablesPerCharacter": [
+      "StoryTeller_CharacterSettings"
+    ]
+  }
+}

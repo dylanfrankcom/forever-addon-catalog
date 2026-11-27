@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "clicked",
+  "repo": "Snakybo/Clicked",
+  "about": "# Clicked\n\n![CI Status](https://github.com/Snakybo/Clicked/workflows/CI/badge.svg)\n\nClicked is a World of Warcraft addon with the goal of improving keybinds and macros. The addon adds a configuration window from where all keybinds can be configured to do _something_.\n\nThere is an extreme amount of freedom in configuring exactly _what_ a keybind does by creating bindings. A binding can do anything from casting a spell to using an item to running a custom macro. Alongside from configuring what a binding does, you are also able to specify the exact target priority for that binding and configure the conditions under which the binding should load.\n\nWhen configuring multiple bindings on one keybind, Clicked will automatically combine their functionality and allow the keybind to perform either action depending on the context.\n\nAdditionally Clicked adds support for the binding of all mouse buttons in case you prefer clicking on a unit frame to cast something.\n\n## Features\n\n* **Create keyboard and mouse button bindings for spells, items, cancelauras, and custom macros**\n* **No performance impact during gameplay**\n* **Create globally available bindings, or profile specific bindings**\n* **Easily import your action bar layout**\n* **Cast spells without action bars**\n* **Cast spells by clicking on unit frames**\n* **Easily select spells from the spellbook**\n* **Easily import the entire spellbook**\n* **Configure binding target priorities**\n* **Configure binding load conditions**\n* **Configure macro conditionals**\n* **Configure multiple bindings on the same keybind**\n* **Configure custom macros without taking up a macro slot**\n* **Configure a unit frame blacklist**\n* **Automatically unload and unlock keybinds while in a vehicle**\n* **Visualize your keybinds on a virtual keyboard**\n\n### Configure binding target priorities\n\nYou can use the binding target interface to configure the exact target priority. When the binding is activated, Clicked will try to cast the assigned spell or item on each target configured, if the conditions of a target are not met, or if the target does not exist it will try the next target until a valid target is found.\n\nYou can mix and match a variety of targets and target conditions in one binding, Clicked will automatically adjust the UI so that the targets list always makes sense, for example it won't allow targets after selecting yourself as a target, since that will not be reachable ever.\n\nA full list of all available targets:\n\n* **Default** behaves like the default behavior you would get from putting an ability on your action bar\n* **Player (you)**\n* **Target**\n* **Target of target**\n* **Mouseover target**\n* **Target of mouseover target**\n* **Focus target**\n* **Cursor position** will cast on your cursor's position, mainly for placable AoE abilities\n* **Pet**\n* **Pet target**\n* **Party 1-5**\n* **Arena 1-3**\n\nIn addition to the unit to cast on, you can also configure (optional) modifiers for that target:\n\n* **Friendly**\n* **Hostile**\n* **Alive**\n* **Dead**\n\n![Binding target configuration](https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/binding-target-config.png)\n\n### Configure binding load conditions\n\nYou can configure the exact load conditions on a per-target basis, through this interface you can specify the exact requirements that have to be met for this binding to activate. For example you can configure a binding to only load when a talent has been selected, when you're in war mode, or when you're in a specific zone.\n\nA full list of all available load conditions:\n\n* **Never load** will prevent the binding from loading entirely\n* **Player Name-Realm** checks if your name/realm matches the input\n* **Class** checks if you are of the selected class(es)\n* **Race** checks if you are of the selected race(s)\n* **Talent specialization** checks if you are in the selected talent specialization(s)\n* **Talent selected** checks if you have the selected talent(s) active\n* **PvP talent selected** checks if you have the selected PvP talent(s) active\n* **War Mode** checks if you are in the selected War Mode state\n* **(not) in zone(s)** checks if you are (not) in the specified zone(s)\n* **Spell known** checks if you can currently cast the specified spell or ability\n* **In group** checks if you are in the specified group type (solo, party, raid)\n* **Instance type** checks if you are in the specified instance type(s) (none, arena, battleground, dungeon, raid)\n* **Player in group** checks if the specified player is in your group\n* **Item equipped** checks if the specified item is equipped\n\n![Binding load conditions](https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/binding-load-config.png)\n\n### Configure macro conditionals\n\nThese map directly to the macro conditionals found [here](https://wow.gamepedia.com/Macro_conditionals). Most of them are negatable, allowing for nearly all conditional functionality macros offer without writing a single line of text.\n\n* **Stance** (or **Form**) checks if you are in the selected stance(s) or shapeshift form(s)\n* **Combat** checks if you are in the selected combat state\n* **Pet** checks if your pet is active\n* **Stealth** checks if you are stealthed\n* **Mounted** checks if you are  mounted\n* **Outdoors** checks if you are outdoors\n* **Swimming** checks if you are swimming\n* **Channeling** checks if you are channeling a specific item or spell, or just in general\n* **Flying** checks if you are flying\n* **Flyable** checks if you are in an area that permits flying\n* **Advanced flyable** (or **Dragonriding**) checks if you are in an area that permits Dragonriding\n* **Bonus bar** checks if the specified bonus bar is active\n\n### Configure multiple bindings on the same keybind\n\nYou can configure as many bindings on the same keybind as you want, Clicked will automatically and dynamically prioritize the spell, item, or macro to activate based on the configuration of all bindings sharing the same keybind.\n\n![Binding 1](https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/binding-action-config-1.png)\n![Binding 2](https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/binding-action-config-2.png)\n\nWith the above configuration, Clicked will automatically combine the Flash of Light and Crusader Strike bindings and generate a macro:\n\n```txt\n/cast [@target,help] Flash of Light; [@target,harm] Crusader Strike; [@player] Flash of Light\n```\n\n_This all happens at the time of configuration, so Clicked has no additional performance impact during gameplay at all._\n\n### Configure custom macros without taking up a macro slot\n\nIn addition to the ability to cast spells and use items, Clicked also supports creating bindings for custom macros. These custom macros benefit from all the same customizable load conditions, and aim to provide access to functionality that is more than just casting a spell or using an item.\n\nDo note that while it is also possible to create custom macros to cast spells or use items, it's not recommended to do so as they do **not** benefit from the smart targeting functionality, custom macros are usable alongside regular bindings, but their functionality is for the most part restricted to executing either before or after the automatically generated macro that is used by \"Cast a spell\" or \"Use an item\" bindings, hence it is highly recommended to use those instead.\n\n_In the case where you feel like you need to use custom macros a lot, feel free to create a [feature request](https://github.com/Snakybo/Clicked/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=) explaining what you need them for, so that functionality can be added as a built-in option._\n\n![Custom macros](https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/custom-macros.png)\n\n### Visualize your keybinds on a virtual keyboard\n\nClicked comes with a built-in key visualizer, which allows you to see all your configured keybinds on a virtual keyboard. This is useful for quickly seeing which keybinds you have configured, and are currently active. This includes keybinds that are not bound within Clicked, such as abilities on your action bars.\n\n![Key visualizer](https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/key-visualizer.png)\n\n## Installation\n\nDownload and install Clicked using any of the three available portals:\n\n* [CurseForge](https://www.curseforge.com/wow/addons/clicked)\n* [Wago](https://addons.wago.io/addons/clicked)\n* [GitHub](https://github.com/Snakybo/Clicked/releases)\n\n## Usage\n\nTo get started with Clicked, open the binding configuration window, either by typing `/clicked` in the chat frame, or by clicking on the minimap button.\n\n![Binding configuration window](https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/binding-config.png)\n\n### Slash commands\n\nThe main slash command is `/clicked`. Additionally `/cc` works as an alias for all slash commands.\n\n* Use `/clicked` to open the binding configuration window\n* Use `/clicked options` (or `opt`) to quickly navigate to user options\n* Use `/clicked dump` to generate a debugging log of the current state\n\n## Issues and support\n\nSee the GitHub [Issue tracker](https://github.com/Snakybo/Clicked/issues).\n\nPlease include the output from `/cc dump` if you have any issues, if there are any specific binding that are causing issues please include information about which ones are problematic.\n\n## Changelog\n\nSee the [changelog](https://github.com/Snakybo/Clicked/blob/master/CHANGELOG.md) on GitHub. The changelog contains release notes for all released versions, and also upcoming versions.\n\n## Credits\n\nClicked is inspired by [Clique](https://www.curseforge.com/wow/addons/clique).",
+  "releases": [
+    {
+      "tag": "v1.19.2",
+      "published": "2026-11-26",
+      "notes": "## [1.19.2] - 2026-11-26\n\n### Fixed\n\n* Fix Lua error on first login with a new profile [#324] (by [Osso])"
+    },
+    {
+      "tag": "v1.19.1",
+      "published": "2026-11-06",
+      "notes": "## [v1.19.1] - 2026-11-06\n\n### Fixed\n\n* Fix keyboard visualizer Lua error with ElvUI integration enabled\n* Fix Druid forms not appearing in macros\n\n### Changed\n\n* Always append `[harm]` to the `/startattack` command"
+    },
+    {
+      "tag": "v1.19.0",
+      "published": "2026-11-05",
+      "notes": "## [v1.19.0] - 2026-11-05\n\n### Added\n\n* Update Chinese localization [#322] (by [jokeycn])\n* Add syntax highlighting to custom macros [#98]\n* Add macro length indicator to custom macros\n* Store addon options globally instead of per profile\n* Store blacklist options globally instead of per profile\n* Add option to reset the global profile\n* Add option to export the global profile [#273]\n* Add option to select what to import\n  * Bindings (with or without keybinds)\n  * Addon options\n  * Profile overwrite\n\n### Fixed\n\n* Fix Lua error when selecting forms if multiple classes are selected\n\n### Changed\n\n* Support up to two years of profile upgrades, instead of forever\n* Use `/use` for item bindings instead of `/cast`\n* Use item IDs instead of names in macros, reducing macro length\n\n### Removed\n\n* Remove automatic load logic for item bindings, use the \"Item Equipped\" load condition instead"
+    },
+    {
+      "tag": "1.18.2",
+      "published": "2026-10-14",
+      "notes": "## [1.18.2] - 2026-10-14\n\n### Added\n\n* Add support for Midnight 12.1.5"
+    },
+    {
+      "tag": "1.18.1",
+      "published": "2026-10-02",
+      "notes": "## [1.18.1] - 2026-10-02\n\n### Added\n\n* Add French localization [#318] (by [yannlugrin])\n* Add Skyborne localization [#319] (by [yannlugrin])\n\n### Fixed\n\n* Fix Lua errors on new Forever beta update [#321]"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/binding-target-config.png",
+    "https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/binding-load-config.png",
+    "https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/binding-action-config-1.png",
+    "https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/binding-action-config-2.png",
+    "https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/custom-macros.png",
+    "https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/key-visualizer.png",
+    "https://raw.githubusercontent.com/Snakybo/Clicked/master/.github/images/binding-config.png"
+  ],
+  "stats": {
+    "stars": 46,
+    "openIssues": 19,
+    "contributors": 12,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-10-14",
+      "2026-10-02",
+      "2026-09-29",
+      "2026-09-09",
+      "2026-09-03",
+      "2026-08-12",
+      "2026-08-03",
+      "2026-07-23",
+      "2026-07-22",
+      "2026-06-18",
+      "2026-06-17",
+      "2026-05-01",
+      "2026-04-22",
+      "2026-03-10",
+      "2026-02-26",
+      "2026-02-09",
+      "2026-01-25",
+      "2026-01-23",
+      "2026-01-17",
+      "2026-01-14",
+      "2025-10-12",
+      "2025-08-13",
+      "2025-06-29",
+      "2025-04-26",
+      "2025-03-25",
+      "2024-11-07",
+      "2024-10-30",
+      "2024-09-25",
+      "2024-09-24",
+      "2024-09-22",
+      "2024-09-22",
+      "2024-09-15",
+      "2024-09-08",
+      "2024-09-06",
+      "2024-09-05",
+      "2024-08-30",
+      "2024-08-29",
+      "2024-08-18",
+      "2024-08-07",
+      "2024-08-06",
+      "2024-07-30",
+      "2024-07-30"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Clicked",
+      "ClickedMedia"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ClickedDB"
+    ]
+  }
+}

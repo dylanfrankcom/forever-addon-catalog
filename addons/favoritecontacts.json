@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "id": "favoritecontacts",
+  "repo": "exochron/Favorite-Contacts",
+  "about": "# Favorite Contacts\n\nFavorite Contacts adds a new action bar next to your Mailbox or Crafting Orders. You can place your favorite contacts in\nthese slots to fill out the input form quicker.\n\nYou can add a new contact to your favorite list just by double-clicking on a free slot or by using the context menu. The\nfavorite contact contains the contact name and a user specified icon. To delete an existing favorite contact, drag it to\na free space. You can delete or change existing contacts also via the context menu. It's possible to change the position\nof a favorite contact with drag and drop.\n\nAll addon settings and contacts are shared between all characters of the current realm.\n\nIt supports ElvUI and Masque.\n\nHave you found any bug or do you have some suggestions? Please let me know\non [GitHub](https://github.com/exochron/Favorite-Contacts/issues)\nor [curseforge](https://www.curseforge.com/wow/addons/favorite-contacts/issues). You can also help me\nto [localize the addon into your language](https://www.curseforge.com/wow/addons/favorite-contacts/localization).",
+  "releases": [
+    {
+      "tag": "2.14.3",
+      "published": "2026-11-22",
+      "notes": "# Favorite Contacts\n\n## [2.14.3](https://github.com/exochron/Favorite-Contacts/tree/2.14.3) (2026-11-22)\n[Full Changelog](https://github.com/exochron/Favorite-Contacts/compare/2.14.2...2.14.3) [Previous Releases](https://github.com/exochron/Favorite-Contacts/releases)\n\n- refactor: added some debugging data for error dumps  \n- fix(setting): empty profile for PvE in Forever [#36](https://github.com/exochron/Favorite-Contacts/issues/36)"
+    },
+    {
+      "tag": "2.14.2",
+      "published": "2026-11-21",
+      "notes": "# Favorite Contacts\n\n## [2.14.2](https://github.com/exochron/Favorite-Contacts/tree/2.14.2) (2026-11-21)\n[Full Changelog](https://github.com/exochron/Favorite-Contacts/compare/2.14.1...2.14.2) [Previous Releases](https://github.com/exochron/Favorite-Contacts/releases)\n\n- fix(setting): use separate profile for RPPvP in Forever [#32](https://github.com/exochron/Favorite-Contacts/issues/32)"
+    },
+    {
+      "tag": "2.14.1",
+      "published": "2026-11-21",
+      "notes": "# Favorite Contacts\n\n## [2.14.1](https://github.com/exochron/Favorite-Contacts/tree/2.14.1) (2026-11-21)\n[Full Changelog](https://github.com/exochron/Favorite-Contacts/compare/2.14.0...2.14.1) [Previous Releases](https://github.com/exochron/Favorite-Contacts/releases)\n\n- fix(setting): load profile based on ruleset instead of realm name in Forever [#32](https://github.com/exochron/Favorite-Contacts/issues/32)"
+    },
+    {
+      "tag": "2.14.0",
+      "published": "2026-10-23",
+      "notes": "# Favorite Contacts\n\n## [2.14.0](https://github.com/exochron/Favorite-Contacts/tree/2.14.0) (2026-10-21)\n[Full Changelog](https://github.com/exochron/Favorite-Contacts/compare/2.13.3...2.14.0) [Previous Releases](https://github.com/exochron/Favorite-Contacts/releases)\n\n- build: use stable version of AceGUI again  \n- feat: added support for Forever"
+    },
+    {
+      "tag": "2.13.3",
+      "published": "2026-08-08",
+      "notes": "# Favorite Contacts\n\n## [2.13.3](https://github.com/exochron/Favorite-Contacts/tree/2.13.3) (2026-08-08)\n[Full Changelog](https://github.com/exochron/Favorite-Contacts/compare/2.13.2...2.13.3) [Previous Releases](https://github.com/exochron/Favorite-Contacts/releases)\n\n- chore(toc): updated interface versions"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 3,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-10-23",
+      "2026-08-08",
+      "2026-04-25",
+      "2026-02-21",
+      "2026-01-18",
+      "2025-08-09",
+      "2025-06-11",
+      "2025-05-02",
+      "2025-03-08",
+      "2024-12-15",
+      "2024-11-03",
+      "2024-09-15",
+      "2024-08-29",
+      "2024-07-26",
+      "2024-07-25",
+      "2024-05-11",
+      "2024-02-03",
+      "2024-01-24",
+      "2023-11-13",
+      "2023-09-07",
+      "2023-07-11",
+      "2023-05-01",
+      "2023-03-25",
+      "2023-03-25",
+      "2022-11-24",
+      "2022-10-23",
+      "2022-09-03",
+      "2022-05-31",
+      "2022-02-22",
+      "2021-11-05",
+      "2021-05-28",
+      "2021-05-27",
+      "2020-11-18",
+      "2020-10-25",
+      "2020-10-11",
+      "2020-09-10",
+      "2019-10-04",
+      "2018-10-26",
+      "2018-04-28",
+      "2018-04-27",
+      "2018-04-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FavoriteContacts"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "FavoriteContactsSettings"
+    ]
+  }
+}

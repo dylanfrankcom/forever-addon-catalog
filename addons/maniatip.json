@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "maniatip",
+  "repo": "Pingumania/ManiaTip",
+  "about": "# ManiaTip\n\nManiaTip modifies the World of Warcraft tooltip.\n\n## Features\n- Names, borders and health bars colored by class or reaction\n- Item tooltip borders colored by quality\n- Change the reaction and guild colors\n- Show AFK, DND and offline tags as text, icon or tab\n- Show the class text in class color\n- Show the target of the unit\n- Show player titles\n- Show player realms\n- Show names in Latin letters\n- Show item and spell IDs\n- Hide the PvP line\n- Hide the faction line\n- Hide the right-click hint on unit frames\n- Change the tooltip border style\n- Change the tooltip background and border colors\n- Change the tooltip scale\n- Change the tooltip font, size, outline, shadow and smoothing\n- Change the health bar texture\n- Hide the health bar",
+  "releases": [
+    {
+      "tag": "v22",
+      "published": "2026-11-21",
+      "notes": "### v22\n* Fix a trailing dash after player names in WoW Forever"
+    },
+    {
+      "tag": "v21",
+      "published": "2026-11-11",
+      "notes": "### v21\n* Fix gray and green level colors in WoW Forever\n* Fix the health bar staying linked to the previous unit after the tooltip clears"
+    },
+    {
+      "tag": "v20",
+      "published": "2026-10-23",
+      "notes": "### v20\n* Update for patch 12.1.5"
+    },
+    {
+      "tag": "v19",
+      "published": "2026-10-22",
+      "notes": "### v19\n* Add option to hide the right-click hint on unit frames\n* Add status tag display options\n* Add tooltip border styles\n* Add font shadow and smooth text options\n* Add addon list icon\n* Merge the two faction options into a single \"Hide the faction line\" option\n* All options are now on a single page\n* Fix the NPC level line missing when the unit is not restricted"
+    },
+    {
+      "tag": "v18",
+      "published": "2026-10-03",
+      "notes": "### v18\n* Add option to show names in Latin letters, for players, realms, guilds and targets\n* Fix the AFK, DND and offline tags on player tooltips\n* Fix the level and specialization lines on player tooltips\n* Fix guild member tooltips in the Communities window for rows that were already shown"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-11",
+      "2026-10-23",
+      "2026-10-22",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-09-19",
+      "2026-08-01",
+      "2026-07-27",
+      "2026-07-26",
+      "2025-10-05",
+      "2025-04-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ManiaTip"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ManiaTipDB"
+    ]
+  }
+}

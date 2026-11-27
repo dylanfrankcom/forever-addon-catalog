@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "betterlfg",
+  "repo": "FlorianRedl/BetterLFG",
+  "about": "# Better LFG\n\nA cleaner Group Finder: see all groups and players at a glance, with more info and better filters.\n\nBetter LFG adds two tabs to the Group Finder (World of Warcraft Forever):\n\n- **Find Groups** – all open dungeon groups with leader, average level, playstyle and roles; sorting; filters for dungeons, level, playstyle and role counts; a summary of solo players by role and class; one-click whisper to the leader.\n- **Find Players** – all solo players with class, level, roles, dungeon and zone; filters for dungeons, roles, level and class; one-click invite.\n\n**See other players' item levels** – the default Group Finder shows no item level at all. Better LFG shows the item level of every group member in the group tooltip, as long as they use Better LFG too (the addons exchange it automatically via hidden addon messages). The more people use it, the more item levels you see.\n\nAlso: your own item level with a per-slot breakdown that highlights weak items, a language filter, and greyed-out delisted entries.\n\nSettings: *Options → AddOns → Better LFG*. Slash command: `/blfg`.\n\n## Releasing\n\nPush a tag (for example `v1.0.1`). The GitHub Action packages the addon with the\n[BigWigs packager](https://github.com/BigWigsMods/packager), uploads it to CurseForge\nand creates a GitHub release. The tag becomes the version in the `.toc`.",
+  "releases": [
+    {
+      "tag": "v1.3.0",
+      "published": "2026-11-11",
+      "notes": "# Better LFG\n\n## [v1.3.0](https://github.com/FlorianRedl/BetterLFG/tree/v1.3.0) (2026-11-11)\n[Full Changelog](https://github.com/FlorianRedl/BetterLFG/compare/v1.2.0...v1.3.0) [Previous Releases](https://github.com/FlorianRedl/BetterLFG/releases)\n\n- Add armor competition sort and rework the group role filters  \n    Sort by fewest armor competition (option, off by default)  \n    - New setting \"Fewest armor competition\"; when on, Group Filters gets a  \n      \"Sort by fewest armor competition\" dropdown: Off, Cloth, Leather, Mail,  \n      Plate, with the player's own type marked \"(my armor type)\"  \n    - Groups with the fewest members wearing that armor type come first; the  \n      column sort breaks ties. It only sorts, nothing is hidden  \n    - Armor type per member from class and level (Classic rules: Hunters and  \n      Shamans wear leather below 40, Warriors and Paladins mail)  \n    Find groups by role  \n    - Replaced the from/to ranges with five checkboxes in two columns:  \n      Tank/Healer/DPS available and Has tank/Has healer (ANDed; a full party  \n      is 1 tank, 1 healer, 3 DPS)  \n    - \"No groups with...\" dropdown hides groups containing chosen classes  \n    - Old saved ranges are dropped on the next save  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Remove CurseForge logo from the repository  \n    The logo is only needed on CurseForge itself, not in the repository.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-08",
+      "notes": "# Better LFG\n\n## [v1.2.0](https://github.com/FlorianRedl/BetterLFG/tree/v1.2.0) (2026-11-08)\n[Full Changelog](https://github.com/FlorianRedl/BetterLFG/compare/v1.1.0...v1.2.0) [Previous Releases](https://github.com/FlorianRedl/BetterLFG/releases)\n\n- Share filters across tabs, add B-LFG tag, spinner and window fixes  \n    Filters  \n    - Dungeon selection, \"Only dungeons for my level\", playstyles and  \n      languages are shared between Find Groups and Find Players; switching  \n      tabs updates the filter window  \n    - Find Players: playstyle filter (same dropdown as Group Filters)  \n    Lists  \n    - Small dark-blue \"B-LFG\" tag next to players known to use Better LFG  \n      (anyone who sent us an addon message; remembered for 14 days)  \n    - Blizzard's loading spinner while a search runs  \n    Window  \n    - Opening the Group Finder (key I, micro menu) shows Find Groups; option  \n      \"Open Find Groups by default\" (on by default)  \n    - Blizzard's side tab no longer stays highlighted while one of our tabs  \n      is open, also right after opening the window  \n    - Close button placed like Blizzard's and drawn above the frame border  \n      (it was there but invisible on Find Groups)  \n    - Workaround for the Group Finder overlapping the Character window on  \n      the first open per session: re-run Blizzard's own panel positioning  \n      once the Character window has its final width (out of combat only)  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-08",
+      "notes": "# Better LFG\n\n## [v1.1.0](https://github.com/FlorianRedl/BetterLFG/tree/v1.1.0) (2026-11-08)\n[Full Changelog](https://github.com/FlorianRedl/BetterLFG/compare/v1.0.0...v1.1.0) [Previous Releases](https://github.com/FlorianRedl/BetterLFG/releases)\n\n- Fix dropdown text not updating after Reset filters  \n    Blizzard's dropdowns list the ticked entries as their text and only  \n    refresh it when the menu is rebuilt. Reset now rebuilds the dungeon,  \n    playstyle and language dropdowns, and the dropdowns show a summary  \n    (\"All dungeons\", \"All playstyles\", \"2 of 4 languages\") instead of the  \n    list of ticked entries.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add language filter, live updates, smarter whispers and inspect item levels  \n    Search and lists  \n    - Languages filter in both tabs: search listings in every language, not  \n      only the client's own (the server returns only the client language when  \n      no language filter is sent, so players saw different groups)  \n    - Live updates: listings changed after a search (members, roles, average  \n      level, delisted) are re-read on the spot and their row flashes green;  \n      option \"Highlight live updates\" (on by default)  \n    - Reset filters now resets everything, including dungeons and languages  \n    Whisper message  \n    - Placeholders %level%, %race%, %class%, %name%, %ilvl% and %dungeon%  \n      (the group's dungeon(s), narrowed to the dungeon filter)  \n    - New default text and \"Restore default text\" in English, German,  \n      Spanish and French; race/class in the client language when the text  \n      matches it  \n    - Larger multi-line text box with live preview in the settings  \n    Item level  \n    - Optional item level in the normal player tooltip (off by default):  \n      players in range are inspected directly, others are asked via addon  \n      message  \n    - Note in the group tooltip that item levels need Better LFG on both sides  \n    Find Players  \n    - Classes as checkboxes in three rows instead of a dropdown  \n    - \"Min my level\" checkbox for the level filter  \n    - Languages filter placed right below the dungeon filter  \n    Fixes and polish  \n    - Group Filters border drawn above the inset (looked thinner before)  \n    - Filter window titled \"Group Filters\"  \n    - Tabs slot in below LFGForever's tab when that addon is installed  \n    - Voice chat line removed from the group tooltip  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-08",
+      "notes": "# Better LFG\n\n## [v1.0.0](https://github.com/FlorianRedl/BetterLFG/tree/v1.0.0) (2026-11-08)\n[Full Changelog](https://github.com/FlorianRedl/BetterLFG/commits/v1.0.0) [Previous Releases](https://github.com/FlorianRedl/BetterLFG/releases)\n\n- Set CurseForge project ID  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add All Rights Reserved license  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Initial release of Better LFG  \n    Group Finder addon with two tabs: Find Groups and Find Players,  \n    filters, sorting, item level via addon messages, whisper and invite  \n    actions, settings page, and BigWigs packager release workflow.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BetterLFG"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "BetterLFGDB"
+    ]
+  }
+}

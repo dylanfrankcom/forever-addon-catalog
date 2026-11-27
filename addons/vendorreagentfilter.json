@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "vendorreagentfilter",
+  "repo": "Marshall-Hallenbeck/VendorReagentFilter",
+  "about": "# Vendor Reagent Filter\n\nA World of Warcraft Forever addon (interface `16001`).\n\nIt adds a **Have Materials (except vendor reagents)** checkbox to the Filter menu of the profession window. The checkbox is directly after **Have Materials**.\n\nWhen the checkbox is selected, the recipe list shows only learned recipes for which you have all reagents that are not vendor reagents. Thus you can see what you can cook before you buy spices or water.\n\n## Install\n\nDownload the zip file of the latest release. Extract it into `World of Warcraft\\_forever_\\Interface\\AddOns`. Then type `/reload` in game.\n\nFor development, clone this repository into the `AddOns` folder with the folder name `VendorReagentFilter`.\n\n## Use\n\n1. Open a profession window, for example Cooking.\n2. Click **Filter**.\n3. Select **Have Materials (except vendor reagents)**.\n4. Keep the standard **Have Materials** checkbox clear.\n\n## Vendor reagent list\n\nThe default list contains these cooking items:\n\n| Item ID | Name |\n| --- | --- |\n| 159 | Refreshing Spring Water |\n| 1179 | Ice Cold Milk |\n| 2596 | Skin of Dwarven Stout |\n| 2665 | Stormwind Seasoning Herbs |\n| 2678 | Mild Spices |\n| 2692 | Hot Spices |\n| 2894 | Rhapsody Malt |\n| 3713 | Soothing Spices |\n| 4536 | Shiny Red Apple |\n| 17194 | Holiday Spices |\n| 17196 | Holiday Spirits |\n| 30817 | Simple Flour |\n\nThe list is saved for each account. Change it with these commands:\n\n- `/vrf list`\n- `/vrf add <item link or ID>`\n- `/vrf remove <item link or ID>`\n\n## Limits\n\n- The count in brackets beside a recipe does not include this filter.\n- The reset button on the Filter button does not clear this checkbox.\n\n## Test\n\n`tests/test_filter.lua` runs the addon file against stubs of the WoW API. Run it with a Lua interpreter from the repository root:\n\n```bash\nlua tests/test_filter.lua\n```\n\n## Release\n\nA pushed Git tag that starts with `v` starts the release workflow. The workflow uses the [BigWigsMods packager](https://github.com/BigWigsMods/packager). It makes the zip file and a GitHub release.\n\nThe workflow also uploads to CurseForge when these two items are set:\n\n- `## X-Curse-Project-ID: <project ID>` in `VendorReagentFilter.toc`.\n- The repository secret `CF_API_KEY`.\n\n```bash\ngit tag v1.0.1\n```\n\n```bash\ngit push origin v1.0.1\n```\n\n## License\n\nMIT. See `LICENSE`.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-18",
+      "notes": "# Vendor Reagent Filter\n\n## [v1.0.0](https://github.com/Marshall-Hallenbeck/VendorReagentFilter/tree/v1.0.0) (2026-11-18)\n[Full Changelog](https://github.com/Marshall-Hallenbeck/VendorReagentFilter/commits/v1.0.0) [Previous Releases](https://github.com/Marshall-Hallenbeck/VendorReagentFilter/releases)\n\n- fix: keep collapsed categories when the recipe list is rebuilt  \n    The game saves the collapsed state only when the profession window closes, and each list rebuild uses that saved state. Save the state of the current list before each rebuild. Keep the state of collapsed categories that the filter removes from the list.  \n- chore: add CurseForge project ID to TOC  \n- ci: add tag-based release workflow with BigWigsMods packager  \n    Move the addon files to the repository root so the packager finds the TOC. Pin the packager action to the v2.7.0 commit.  \n- feat: add vendor reagent filter addon for WoW Forever"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "VendorReagentFilter"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "VendorReagentFilterDB"
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "details-tww",
+  "repo": "Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin",
+  "about": "# Details! - Skin 'The War Within'\n\nWorld of Warcraft addon that adds the **'The War Within'** skin (inspired by **/u/Sm0keO**) to the\ngame's built-in damage meter and to **Details!**.\n\nView on CurseForge: [https://www.curseforge.com/wow/addons/details-skin-the-war-within](https://www.curseforge.com/wow/addons/details-skin-the-war-within)\n\n> **Version 2.0 is a complete remake.** The addon was rebuilt from scratch for Midnight and every\n> current client, and it will be maintained from now on.\n\n## Features\n\n- Skins Blizzard's damage meter: TWW header, cast bar style bars, round class icons and Friz\n  Quadrata text. Works with every Edit Mode style, the style only changes the bar size.\n- Adds a 'The War Within' skin to Details! (optional). Pick it in the Details! skin list or use\n  \"Apply to all Details! windows\" in the options; your windows are never changed on their own.\n- Default or bright bar texture.\n- Retail, Mists Classic, Anniversary, Classic Era and WoW Forever.\n\n## Installation\n\nDownload it from CurseForge or the GitHub releases and put the `Details_TWW` folder into\n`..\\World of Warcraft\\<client>\\Interface\\AddOns`.\n\n## Usage\n\n- `/tww` (or `/details_tww`) — open the options\n- `/tww loglevel <level>` — set how much the addon writes to chat (`none`, `error`, `warn`, `info`,\n  `verbose`, `debug`, `silly`)\n- `/tww reset` — reset the current profile\n\n## Development\n\nNode 20+; run `npm install` once. `npm run dev:link -- \"<WoW>/Interface/AddOns\"` links the addon\ninto a client, `/reload` picks up changes. `npm run format` formats everything, `npm run check`\nvalidates it. Releases are built by the GitHub workflows in `.github/workflows/`.\n\n## Support\n\nIf you want to support the development, like and share, but if you're feeling extra kind, you can\n[buy me a slice of pizza](https://www.buymeacoffee.com/karlheinzschneider). Thanks!\n\n## Preview\n\nBlizzard damage meter:\n\n![Blizzard damage meter](https://raw.githubusercontent.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/main/Screenshots/v2/blizzard.png)\n\nDetails!:\n\n![Details!](https://raw.githubusercontent.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/main/Screenshots/v2/details.png)\n\n## License\n\n[MIT](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v2.2",
+      "published": "2026-11-11",
+      "notes": "# Details! Skin TWW\n\n## [v2.2](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/tree/v2.2) (2026-11-11)\n[Full Changelog](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/compare/v2.1...v2.2) [Previous Releases](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/releases)\n\n- add caching, and no caching version skin"
+    },
+    {
+      "tag": "v2.1",
+      "published": "2026-11-04",
+      "notes": "# Details! Skin TWW\n\n## [v2.1](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/tree/v2.1) (2026-11-04)\n[Full Changelog](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/compare/v2.0...v2.1) [Previous Releases](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/releases)\n\n- Fix details class/spec icons for WoW Forever"
+    },
+    {
+      "tag": "v2.0",
+      "published": "2026-11-04",
+      "notes": "# Details! Skin TWW\n\n## [v2.0](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/tree/v2.0) (2026-11-04)\n[Full Changelog](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/compare/v1.3.9.10...v2.0) [Previous Releases](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/releases)\n\n- Refactor addon (#15)  \n    * init refactor into template  \n    * add blizzard skin  \n    * add details skin  \n    * add new screenshots and update .toc  \n    * Update README.md"
+    },
+    {
+      "tag": "v1.3.9.10",
+      "published": "2025-11-08",
+      "notes": "# Details! Skin TWW @project-version@\n\n## [v1.3.9.10](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/tree/v1.3.9.10) (2025-11-08)\n[Full Changelog](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/compare/v1.3.9...v1.3.9.10) [Previous Releases](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/releases)\n\n- bump .toc"
+    },
+    {
+      "tag": "v1.3.9",
+      "published": "2025-09-27",
+      "notes": "# Details! Skin TWW @project-version@\n\n## [v1.3.9](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/tree/v1.3.9) (2025-09-27)\n[Full Changelog](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/compare/v1.3.8...v1.3.9) [Previous Releases](https://github.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/releases)\n\n- bump .toc"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/main/Screenshots/v2/blizzard.png",
+    "https://raw.githubusercontent.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/main/Screenshots/v2/details.png",
+    "https://raw.githubusercontent.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/main/Screenshots/Logo.png",
+    "https://raw.githubusercontent.com/Karl-HeinzSchneider/WoW-Details-Skin-TheWarWithin/main/Screenshots/windows.png"
+  ],
+  "stats": {
+    "stars": 8,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11",
+      "2026-11-04",
+      "2026-11-04",
+      "2025-11-08",
+      "2025-09-27",
+      "2025-08-08",
+      "2025-07-15",
+      "2025-06-25",
+      "2025-05-11",
+      "2025-04-11",
+      "2025-03-13",
+      "2024-12-23",
+      "2024-12-02",
+      "2024-08-30",
+      "2024-08-17",
+      "2024-08-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Details_TWW"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Details"
+    ],
+    "savedVariables": [
+      "Details_TWWDB"
+    ]
+  }
+}

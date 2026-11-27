@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "wowreminders",
+  "repo": "d0ub7/wowreminders",
+  "about": "![](https://raw.githubusercontent.com/d0ub7/wowreminders/main/assets/icon.svg)\n\n# WoWReminders\n\nReminders for World of Warcraft: Forever. Tell the game what to nudge you about the next time you arrive somewhere.\n\n```\n/wowremind when i get to stormwind to repair my gear\n/remind me when i get to town to train my skills\n```\n\nThe same sentence works in the Reminders window. A reminder is one-shot and belongs to the character who wrote it. When it fires, you get a toast and a chat line.\n\n## Install\n\nThe addon is the `WoWReminders` folder. Copy or symlink it into:\n\n`World of Warcraft/_forever_/Interface/AddOns/WoWReminders`\n\nIt loads on Forever (interface **16001**). If the addon list marks it out of date after a patch, check the live interface with `/dump select(4, GetBuildInfo())` and put that number in `## Interface` in `WoWReminders.toc`.\n\nWowUp can install it too. Select the Forever client, choose Install from URL, and paste `https://github.com/d0ub7/wowreminders`.\n\n## Commands\n\nChat accepts `/wowremind` and `/remind`. They do the same thing. Every row below works if you swap in `/remind`. Tab does not offer either command, so Tab can still complete a guild invite or an emote.\n\nThe Reminders window also accepts a sentence that starts with `/wr`. `/wr` is not a chat command. Tab completes `/wr` to the `/wrath` emote.\n\n| Command | What it does |\n|---|---|\n| `/wowremind` | Open or close the window |\n| `/wowremind show` | Open the window |\n| `/wowremind hide` | Close the window |\n| `/wowremind when i get to <place> to <note>` | Add a reminder for the next time you arrive |\n| `/wowremind when i leave <place> to <note>` | Add a reminder for the next time you leave |\n| `/wowremind me when i get to <place> to <note>` | Same thing as get to |\n| `/wowremind me in 2 hours to <note>` | Remind you after a wait. `for` works the same as `to` |\n| `/wowremind me at 9pm to <note>` | Remind you at a clock time. `tomorrow at 8pm` works too |\n| `/wowremind list` | Print open reminders |\n| `/wowremind done <n>` | Complete the reminder numbered `n` in the list. `complete` works the same as `done` |\n| `/wowremind delete <n>` | Remove the reminder numbered `n` in the list. `remove` works the same as `delete` |\n| `/wowremind sound` | Toggle the arrival sound |\n| `/wowremind help` | Print the examples |\n\nThe place is a map name from your client, such as `stormwind` or `Stormwind Harbor`. If several maps match, the list is printed and nothing is saved. A name that is not a map, such as `goldshire`, is watched as the zone text on the minimap. `town`, `any town`, `a city`, and `any major city` mean a city, an inn, or a sanctuary: somewhere you are resting, or a sanctuary such as Booty Bay.\n\nThe number on a row is its place in the open list. Completing or deleting one renumbers the rest. Check the box to keep a reminder: a place fires again the next time you arrive, a leave reminder fires again the next time you leave, a timer fires again after the same wait, and a clock time fires again the next day at that time. The x removes it.\n\nA timer is kept as a timestamp, so logging out does not cancel it. If it comes due while you are offline, it fires the next time you are in the game. The row counts down. `in 2 hours`, `in 90 minutes`, `in 1h30m`, `in an hour`, and `in half an hour` all work. `at 9pm`, `at 9:30 pm`, `at 21:00`, `at noon`, and `tomorrow at 8pm` use the realm clock.\n\nSnooze is the button on the toast. It asks again in 10 minutes. Clicking the toast itself dismisses it.\n\nIf you write a leave reminder while you are already there, it fires on the way out. If you are somewhere else, it waits until you arrive and then leave.\n\nThe commands are English. The place itself uses the names your client already shows, so a French client matches `Hurlevent` when that is the map name. Extra languages for the command words can come later.\n\nIf you write an arrival reminder while you are already standing there, it waits until you leave and come back.\n\n## Skin\n\nThe window has its own dark amber skin. With [EllesmereUI](https://www.curseforge.com/wow/addons/ellesmereui) installed, the addon registers `WoWReminders` with `EllesmereUI.RegisterSkin` and EllesmereUI paints the window, buttons, input, and scrollbar in the player's theme. A skin error there does not stop reminders from working.\n\nAnother addon can replace the built-in colors. This is the current palette:\n\n```lua\nWoWReminders.RegisterSkin({\n  bg = { 0.102, 0.090, 0.078, 0.96 },\n  border = { 0.420, 0.290, 0.133, 1 },\n  accent = { 0.851, 0.467, 0.024, 1 },\n  accentSoft = { 0.941, 0.706, 0.161, 1 },\n  text = { 1, 0.988, 0.965, 1 },\n  muted = { 0.949, 0.929, 0.882, 1 },\n  row = { 0.141, 0.122, 0.102, 1 },\n  rowHover = { 0.188, 0.161, 0.133, 1 },\n  input = { 0.063, 0.055, 0.047, 1 },\n  buttonText = { 0.102, 0.078, 0.047, 1 },\n  font = \"Fonts\\\\FRIZQT__.TTF\", -- omit to use the game font\n})\n```\n\nCall `WoWReminders.RegisterSkin(nil)` to restore the built-in skin.\n\n## License\n\n[MIT](https://github.com/d0ub7/wowreminders/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.8",
+      "published": "2026-11-16",
+      "notes": "Chat commands stay `/wowremind` and `/remind`, but they are no longer on the tab-complete list.\n\nThat list was tainting protected chat actions. Guild invite (`C_GuildInfo.Invite`) and emotes were blocked under WoWReminders.\n\nTab will not complete these commands. The reminder window still accepts a sentence that starts with `/wr`."
+    },
+    {
+      "tag": "v1.0.7",
+      "published": "2026-11-15",
+      "notes": "Chat no longer registers `/wr`. That alias is the start of the `/wrath` emote, so Tab was completing it into a protected emote and the game blocked `PerformEmote` under WoWReminders.\n\nUse `/wowremind` or `/remind`. The reminder window still accepts a sentence that starts with `/wr`.\n\nThe readme and the in-game help list both commands, and the skin example matches the built-in palette."
+    },
+    {
+      "tag": "v1.0.6",
+      "name": "1.0.6",
+      "published": "2026-11-14",
+      "notes": "WoWReminders 1.0.6 for World of Warcraft: Forever.\n\nRemind yourself when you arrive, when you leave, after a wait, or at a realm clock time. Check a reminder to keep it. A clock time then repeats every day. Snooze on the toast asks again in 10 minutes.\n\nIn WowUp, select the Forever client, choose Install from URL, and paste https://github.com/d0ub7/wowreminders."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WoWReminders"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "EllesmereUI"
+    ],
+    "savedVariablesPerCharacter": [
+      "WoWRemindersCharDB"
+    ]
+  }
+}

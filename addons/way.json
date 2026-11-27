@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "way",
+  "repo": "psykzz/wow-way",
+  "about": "# wow-way\n\nA minimal World of Warcraft addon that adds a `/way x,y` slash command,\ndropping a world/minimap waypoint pin using the same `C_Map` user-waypoint\nAPI that powers retail's built-in map-pin feature.\n\n## Features\n\n- `/way x,y` - drop a waypoint pin on your current map at the given\n  coordinates (accepts `45.2,67.8`, `45.2 67.8`, or 0-1 fractions).\n- `/way clear` (or `/way off`) - clear the current waypoint.\n- Only registers `/way` if no other addon (e.g. TomTom) already owns that\n  slash command, so it's safe to run alongside other waypoint addons.\n- Listed under **Map** in the AddOns list with a map icon.\n\n## Installation\n\nInstall via CurseForge, Wago, or manually by downloading the latest release\nfrom GitHub.\n\n## Development\n\n### Creating a Release\n\nThis addon uses BigWigs Packager for automated releases. To create a new release:\n\n1. Update the version in your local repository\n2. Create and push a git tag:\n   ```bash\n   git tag -a v1.0.0 -m \"Release version 1.0.0\"\n   git push origin v1.0.0\n   ```\n3. The GitHub Actions workflow will automatically:\n   - Package the addon\n   - Create a GitHub release\n   - Upload to CurseForge (if `CF_API_KEY` secret is configured)\n   - Upload to Wago (if `WAGO_API_TOKEN` secret is configured)\n\n### Required Secrets\n\nTo enable automatic uploads, configure these repository secrets:\n\n- `CF_API_KEY` - CurseForge API key for uploading to CurseForge\n- `WAGO_API_TOKEN` - Wago API token for uploading to Wago Addons\n\nThe `GITHUB_TOKEN` is automatically provided by GitHub Actions.\n\n## License\n\nAll Rights Reserved",
+  "releases": [
+    {
+      "tag": "v0.0.2",
+      "published": "2026-10-01",
+      "notes": "# Way\n\n## [v0.0.2](https://github.com/psykzz/wow-way/tree/v0.0.2) (2026-10-01)\n[Full Changelog](https://github.com/psykzz/wow-way/compare/v0.0.1...v0.0.2) [Previous Releases](https://github.com/psykzz/wow-way/releases)\n\n- chore: bump version to 0.0.2  \n- feat: add addon list icon and map category"
+    },
+    {
+      "tag": "v0.0.1",
+      "published": "2026-09-25",
+      "notes": "# Way\n\n## [v0.0.1](https://github.com/psykzz/wow-way/tree/v0.0.1) (2026-09-25)\n[Full Changelog](https://github.com/psykzz/wow-way/commits/v0.0.1) [Previous Releases](https://github.com/psykzz/wow-way/releases)\n\n- Bump version to 0.0.1  \n- Add CurseForge project ID  \n- Add project logo  \n- Initial commit: Way addon (/way waypoint command)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-01",
+    "releaseDates": [
+      "2026-10-01",
+      "2026-09-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Way"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

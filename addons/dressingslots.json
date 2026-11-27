@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "dressingslots",
+  "repo": "Olabraaten/DressingSlots",
+  "about": "# DressingSlots\nTiny addon for the World of Warcraft dressing room.\n\n## Description\nIn addition to making the dressing room window resizable this addon extends the normal World of Warcraft dressing room by adding the following features to the appearance list panel;\n- Remove appearances from each slot separately in the appearance list by right clicking.\n- Remove appearances in all slots by clicking the undress button.\n- Toggle if the weapon is held or sheathed with the toggle sheathe button.",
+  "releases": [
+    {
+      "tag": "v1.5.3",
+      "name": "DressingSlots 1.5.3",
+      "published": "2026-11-05",
+      "notes": "Fix WoW Forever compatibility"
+    },
+    {
+      "tag": "v1.5.2",
+      "name": "DressingSlots 1.5.2",
+      "published": "2026-09-30",
+      "notes": "Remove old TWW compatibility.\nMake sure it works with WoW Forever Beta."
+    },
+    {
+      "tag": "v1.5.1",
+      "name": "DressingSlots 1.5.1",
+      "published": "2025-11-19",
+      "notes": "Ready for Midnight with backwards compatibility for TWW."
+    },
+    {
+      "tag": "v1.4.3",
+      "name": "DressingSlots 1.4.3",
+      "published": "2024-07-24",
+      "notes": "Updated for TWW."
+    },
+    {
+      "tag": "v1.4.2",
+      "name": "DressingSlots 1.4.2",
+      "published": "2023-03-22",
+      "notes": "Updated for patch 10.0.7."
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-09-30",
+      "2025-11-19",
+      "2024-07-24",
+      "2023-03-22",
+      "2023-01-27",
+      "2022-10-24",
+      "2022-08-20",
+      "2022-05-28",
+      "2022-02-25",
+      "2021-11-05",
+      "2021-11-03",
+      "2021-06-30",
+      "2020-11-22",
+      "2020-10-30",
+      "2020-10-28",
+      "2020-10-28",
+      "2020-08-22",
+      "2020-08-15",
+      "2020-02-05",
+      "2020-01-19",
+      "2019-12-04",
+      "2019-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DressingSlots"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "DressHeight",
+      "DressWidth"
+    ]
+  }
+}

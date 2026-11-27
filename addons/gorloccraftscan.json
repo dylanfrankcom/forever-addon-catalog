@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "gorloccraftscan",
+  "repo": "nickbock/gorloc-craftscan",
+  "about": "# Gorloc CraftScan\n\nTurn your professions into Auctionator shopping lists. Gorloc CraftScan reads the recipes your character knows, collects every reagent and crafted item, and adds them to an Auctionator shopping list. Search that list at the Auction House and Auctionator, and every crafting addon that reads its prices, is up to date for everything you craft.\n\nPart of the Gorloc suite.\n\n![The Sync tab](https://raw.githubusercontent.com/nickbock/gorloc-craftscan/main/assets/sync-tab.png)\n\n## Installation\n\nInstall with the CurseForge or Wago app. Requires World of Warcraft Retail (Midnight) or WoW Forever, and [Auctionator](https://www.curseforge.com/wow/addons/auctionator).\n\n## Usage\n\n1. Type `/gcs`, or click **CraftScan** below an open profession window.\n2. Pick a profession. All your crafting professions and Cooking are detected.\n3. Choose your options:\n   - **Recipes:** known recipes only, or all recipes the game exposes, including ones you have not learned.\n   - **Expansions:** the current expansion by default; pick others or all of them.\n   - **Shopping lists:** one combined list, or separate lists for materials and crafted items.\n4. Click **Scan & Sync**. CraftScan opens the profession, scans it, closes it again if it opened it, and adds the searches to Auctionator.\n5. At the Auction House, open Auctionator's **Shopping** tab and search the list. Creating the list alone does not refresh prices.\n\nLists are named per profession: `Gorloc - Alchemy`, or `Gorloc - Alchemy - Materials` and `Gorloc - Alchemy - Items` in separate mode.\n\n### Several characters, one list\n\nEach character adds its own recipes to the same profession list. Syncing only adds missing searches; it never removes entries, so other characters' searches and your own manual searches are kept. Searches cover all qualities of an item.\n\nThe **Characters** tab (or `/gcs history`) shows which characters and professions have been synced, with their scope, status and last sync time. Characters update only when you log into them and scan again.\n\n### If a scan is incomplete\n\nWhen the game does not return all recipe data, nothing is synced automatically. Retry **Scan & Sync**, or click **Sync available items** to add what was found. **Details** shows what was missing.\n\n## Screenshots\n\n| Characters tab | Resulting Auctionator lists |\n| --- | --- |\n| ![Characters tab with synced characters and professions](https://raw.githubusercontent.com/nickbock/gorloc-craftscan/main/assets/characters-tab.png) | ![Gorloc shopping lists in Auctionator's Shopping tab](https://raw.githubusercontent.com/nickbock/gorloc-craftscan/main/assets/auctionator-lists.png) |\n\n## Good to know\n\n- Sync never deletes searches. Remove searches you no longer need in Auctionator.\n- CraftScan does not scan the Auction House itself, calculate profit, or buy anything.\n- Reagents for optional slots, recrafting, gathering and salvage are not included, nor are currencies and items that cannot be traded.\n- The interface is English only.\n\n## Commands\n\n| Command | Opens |\n| --- | --- |\n| `/gcs` or `/gorloccraftscan` | The CraftScan window |\n| `/gcs history` | The Characters tab |\n| `/gcs debug` | Diagnostics to copy when reporting a problem |\n\n## Reporting problems\n\n[Open an issue](https://github.com/nickbock/gorloc-craftscan/issues/new/choose) and include the output of `/gcs debug`.\n\n## License\n\nCopyright (C) 2026 Tevoll. Licensed under the [GNU General Public License v3.0](https://github.com/nickbock/gorloc-craftscan/blob/main/LICENSE). Developer notes are in [docs/DEVELOPMENT.md](https://github.com/nickbock/gorloc-craftscan/blob/main/docs/DEVELOPMENT.md).",
+  "releases": [
+    {
+      "tag": "1.1.0",
+      "published": "2026-11-06",
+      "notes": "# Changelog\n\n## 1.1.0 (2026-11-06)\n\n- WoW Forever support: CraftScan now loads and scans on the Forever client (interface 16001). Requires Auctionator 341 or later. Forever exposes no expansion skill lines or unlearned recipes, so the Recipes and Expansions choices are hidden there.\n\n## 1.0.1 (2026-10-20)\n\n- Auctionator is now listed as an optional dependency, so the CurseForge app no longer installs it automatically. CraftScan still needs Auctionator to sync shopping lists.\n\n## 1.0.0 (2026-10-20)\n\nFirst public release.\n\n- Scan any detected crafting profession, including Cooking, with one click: CraftScan opens the profession, reads it, and closes it again if it opened it.\n- Known recipes only, or all recipes the game exposes; choose one, several, or all expansions.\n- Sync reagents and crafted items into Auctionator shopping lists, combined or as separate Materials and Items lists. Searches cover all qualities.\n- Sync only adds missing searches: other characters' searches and manual entries are always kept.\n- Incomplete scans never sync automatically; **Sync available items** adds what was found, and **Details** explains what was missing.\n- **Characters** tab with a table of synced characters, professions, scope, status and last sync time.\n- `/gcs`, `/gcs history` and `/gcs debug` commands.\n\nUpgrading from a local test build: saved history is converted automatically and reduced to what the Characters tab shows."
+    },
+    {
+      "tag": "1.0.1",
+      "published": "2026-10-20",
+      "notes": "# Changelog\n\n## 1.0.1 (2026-10-20)\n\n- Auctionator is now listed as an optional dependency, so the CurseForge app no longer installs it automatically. CraftScan still needs Auctionator to sync shopping lists.\n\n## 1.0.0 (2026-10-20)\n\nFirst public release.\n\n- Scan any detected crafting profession, including Cooking, with one click: CraftScan opens the profession, reads it, and closes it again if it opened it.\n- Known recipes only, or all recipes the game exposes; choose one, several, or all expansions.\n- Sync reagents and crafted items into Auctionator shopping lists, combined or as separate Materials and Items lists. Searches cover all qualities.\n- Sync only adds missing searches: other characters' searches and manual entries are always kept.\n- Incomplete scans never sync automatically; **Sync available items** adds what was found, and **Details** explains what was missing.\n- **Characters** tab with a table of synced characters, professions, scope, status and last sync time.\n- `/gcs`, `/gcs history` and `/gcs debug` commands.\n\nUpgrading from a local test build: saved history is converted automatically and reduced to what the Characters tab shows."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/nickbock/gorloc-craftscan/main/assets/sync-tab.png",
+    "https://raw.githubusercontent.com/nickbock/gorloc-craftscan/main/assets/characters-tab.png",
+    "https://raw.githubusercontent.com/nickbock/gorloc-craftscan/main/assets/auctionator-lists.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-10-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GorlocCraftScan"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "GorlocCraftScanDB"
+    ]
+  }
+}

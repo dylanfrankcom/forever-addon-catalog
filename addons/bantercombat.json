@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "bantercombat",
+  "repo": "bruno-ab/wow-addon-rppvp-interactions",
+  "about": "# BanterCombat\n\n**Version 1.0.0** · WoW Classic Era (`11507`) · WoW Forever classic beta (`16001`)\n\nPvP immersion addon: kill/death banter, Dota-style announcer (First Blood, multi-kills, Ownage, streaks), rivals, chronicle, feats, and optional addon sync.\n\n## Install\n\nCopy `BanterCombat/` into the client `Interface\\AddOns\\` folder, then `/reload`.\n\n## Announcer\n\n| Cue | When |\n|-----|------|\n| First Blood | First kill of the session; again after entering a BG |\n| Double / Triple / Ultra / Rampage | 2–5+ kills within 12 seconds |\n| Ownage | Revenge kill, or streak 6 |\n| Killing Spree … Holy Shit | Streak 3 → 10+ |\n\nVolume and channel: `/banter config`. Custom pack: put `.ogg` files in `Sounds/MyPack/` and set the folder name in Lines options.\n\n## Commands\n\n| Command | What it does |\n|---------|----------------|\n| `/banter config` | Options |\n| `/banter announce` | Preview announcer cues |\n| `/banter test` | Preview speech popup |\n| `/banter stats` | Totals |\n| `/banter hide` | Hide popup + clear queue |\n\n## Release package\n\n```powershell\npowershell -ExecutionPolicy Bypass -File scripts/pack-curseforge.ps1\n```\n\nUpload `dist/BanterCombat-1.0.0.zip`. Guide: [docs/CURSEFORGE.md](https://github.com/bruno-ab/wow-addon-rppvp-interactions/blob/main/docs/CURSEFORGE.md).\n\n## License\n\nCode and art: **All Rights Reserved** ([LICENSE](https://github.com/bruno-ab/wow-addon-rppvp-interactions/blob/main/LICENSE)).  \nAnnouncer audio: **© Valve Corporation** — `BanterCombat/Sounds/CREDITS.txt`.\n\n## Links\n\n- Source: https://github.com/bruno-ab/wow-addon-rppvp-interactions\n- Changelog: [CHANGELOG.md](https://github.com/bruno-ab/wow-addon-rppvp-interactions/blob/main/CHANGELOG.md)",
+  "releases": [
+    {
+      "tag": "v1.0.24",
+      "published": "2026-11-18",
+      "notes": "## Polish\n\n- Duel outcome by relative HP; cancels ignored; opponent remembered\n- Compendium: stuck Contas headers fixed, empty diary/rivals, shared log lines\n- Minimap menu hover; race via GUID when UnitRace is secret\n\n`/reload` after Forever sync."
+    },
+    {
+      "tag": "v1.0.23",
+      "published": "2026-11-17",
+      "notes": "## Compendium estilo Legado\n\n- Overview / Challenges / Counts / Rivals / Chronicle / PvP Diary\n- Rich `pvpLog` + duel W–L (level, zone, map, context, self/pet)\n- Race/class-gated achievements hidden when they do not apply\n\n`/reload` after Forever sync."
+    },
+    {
+      "tag": "v1.0.22",
+      "published": "2026-11-16",
+      "notes": "## Fixes\n\n- Menus opaque again on Forever (solid fill + BackdropTemplate when available).\n- Kill popup no longer stuck invisible when fade/scale animation fails.\n\n`/reload` after sync."
+    },
+    {
+      "tag": "v1.0.21",
+      "published": "2026-11-15",
+      "notes": "## Fixes\n\n- Feat toast no longer repeats **Primeiro Orc** on every kill (dated feats now persist in book.when).\n- Race tokens normalized (`Undead` → `Scourge`, race ids) so undead and other race feats/counters count correctly.\n\nReload with `/reload` after Forever sync."
+    },
+    {
+      "tag": "v1.0.20",
+      "published": "2026-11-15",
+      "notes": "## Killcam polish\n\n- Cinematic toast: dark shade, left accent stripe, soft left cue wash\n- No spaced-caps / DialogueUI parchment stack on the banner\n- Hero title only for special cues (First Blood, multi-kills, etc.); banter rises when quiet\n- Portrait crop + announcer-tinted ring; quieter flash and gold signature\n\nReload UI (\\`/reload\\`) after syncing Forever AddOns."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07"
+    ]
+  },
+  "languages": [
+    "enUS",
+    "ptBR"
+  ],
+  "technical": {
+    "folders": [
+      "BanterCombat"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "DialogueUI"
+    ],
+    "savedVariablesPerCharacter": [
+      "BanterCombatDB"
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "libutil",
+  "repo": "kapresoft/wow-lib-util",
+  "about": "[![Release Build](https://github.com/kapresoft/wow-lib-util/actions/workflows/release-build.yml/badge.svg)](https://github.com/kapresoft/wow-lib-util/actions/workflows/release-build.yml)\n\n# LibUtil by Kapresoft :: The boring code your addon needs, written once.\n> ▶ A [World of Warcraft](https://worldofwarcraft.com/) AddOn\n\n![download-count](https://cf.way2muchnoise.eu/full_1638413_downloads.svg?badge_style=for_the_badge) ![supported-wow-versions](https://cf.way2muchnoise.eu/versions/World%20of%20Warcraft%20Versions_1638413_all.svg?badge_style=for_the_badge)\n\nA shared **LibStub-based utility library** for WoW addons. This is a library addon, not a standalone player-facing addon — it provides no UI of its own and does nothing on its own once installed. Other addons (such as ActionbarPlus, DevSuite, AddonSuite, and DebugChatFrame) depend on it via CurseForge or embed/vendor its code directly.\n\n## What's included\n\n- **String** — string utility library\n- **Table** — helpers for common table operations\n- **Assertion** — lightweight runtime assertions\n- **Sequence** — sequence/iterator helpers\n- **Lua evaluator** — safe evaluation of Lua expressions\n- **Logger mixins** — structured logging helpers for addon development\n- ... and many more\n\n## Who this is for\n\nAddon developers who want to reuse common Lua/WoW-API helpers instead of reimplementing them per-addon. If you're a player who installed this directly, you likely don't need to interact with it — check which addon listed it as a dependency.\n\n## License\n[MIT](https://github.com/kapresoft/wow-lib-util/blob/main/LICENSE)\n\n### Donations\n\nIf LibUtil has made your addon development easier, consider supporting its development:\n\n- **[Paypal&trade; Donation](https://www.paypal.com/donate/?hosted_button_id=AX58YP3GSGXVU)**\n- **[Bitcoin Donation](https://www.blockchain.com/btc/address/3QQVAwJGkKHMM2oq6CLVWYgfx83TFVwp39)**\n\n## About\n\n- About the Author [(Tony Lagnada)](https://tony.resume.lagnada.com/)\n- My AddOn Portfolio Can Be Found Here [Curse Forge/Kapresoft](https://www.curseforge.com/members/kapresoft/projects)",
+  "releases": [
+    {
+      "tag": "2026.11.4",
+      "published": "2026-11-10",
+      "notes": "### LibUtil 2026.11.4\n[Release Notes](https://github.com/kapresoft/wow-lib-util/releases/tag/2026.11.4) | [Full Changelog](https://github.com/kapresoft/wow-lib-util/compare/2026.11.3...2026.11.4) | [Curse Forge](https://www.curseforge.com/wow/addons/libutil/files)\n\n#### What’s Changed\n* AddonUtil: identify the character by GUID, not name (#28) @nfet\n\n#### LibUtil-2026.11.4.zip\n```text\nsha256:ee1910c9b8e4d7ac35a7ca69335c71af6210a46a15ad903f684b941942666fa8\n```"
+    },
+    {
+      "tag": "2026.11.3",
+      "published": "2026-11-09",
+      "notes": "### LibUtil 2026.11.3\n[Release Notes](https://github.com/kapresoft/wow-lib-util/releases/tag/2026.11.3) | [Full Changelog](https://github.com/kapresoft/wow-lib-util/compare/2026.11.2...2026.11.3) | [Curse Forge](https://www.curseforge.com/wow/addons/libutil/files)\n\n#### What’s Changed\n* Add WoW Forever support to GameVersionMixin; always load Ace3.xml (#26) @nfet\n\n#### LibUtil-2026.11.3.zip\n```text\nsha256:53acdea659d383e5a2ac1fd9a42643a400fed952ce14e15b6caa913f6733a4b6\n```"
+    },
+    {
+      "tag": "2026.11.2",
+      "published": "2026-11-05",
+      "notes": "### LibUtil 2026.11.2\n[Release Notes](https://github.com/kapresoft/wow-lib-util/releases/tag/2026.11.2) | [Full Changelog](https://github.com/kapresoft/wow-lib-util/compare/2026.11.1...2026.11.2) | [Curse Forge](https://www.curseforge.com/wow/addons/libutil/files)\n\n#### What’s Changed\n* Pin Ace3 to r1424-alpha for WoW Forever development (#23) @nfet\n* Use AceConfig.OptionsTable in Lib-2-0 AceConfigUtil (#21) @nfet\n\n#### LibUtil-2026.11.2.zip\n```text\nsha256:0d6e83764abaf5d4625a2a30c039a7954ba57b5dcf03d894eb66ff20dfcc67c9\n```"
+    },
+    {
+      "tag": "2026.11.1",
+      "published": "2026-11-03",
+      "notes": "### LibUtil 2026.11.1\n[Release Notes](https://github.com/kapresoft/wow-lib-util/releases/tag/2026.11.1) | [Full Changelog](https://github.com/kapresoft/wow-lib-util/compare/2026.10.3...2026.11.1) | [Curse Forge](https://www.curseforge.com/wow/addons/libutil/files)\n\n#### What’s Changed\n* Add WoW Forever (16001) interface version to LibUtil TOC (#19) @nfet\n\n#### LibUtil-2026.11.1.zip\n```text\nsha256:8004531f2f5485d7fe01364cd49cd57bb96c4e1dfaba0fc699b696ffa9472868\n```"
+    },
+    {
+      "tag": "2026.10.3",
+      "published": "2026-10-27",
+      "notes": "### LibUtil 2026.10.3\n[Release Notes](https://github.com/kapresoft/wow-lib-util/releases/tag/2026.10.3) | [Full Changelog](https://github.com/kapresoft/wow-lib-util/compare/2026.10.2...2026.10.3) | [Curse Forge](https://www.curseforge.com/wow/addons/libutil/files)\n\n#### What’s Changed\n* Release workflow: secrets, PR permission, inline sha256 (#18) @nfet\n\n#### LibUtil-2026.10.3.zip\n```text\nsha256:647e737153ed9aaa731b393c2e3b0272a51d0273de74aa2ee849c5d335bce285\n```"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 3,
+    "contributors": 2,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-05",
+      "2026-11-03",
+      "2026-10-27",
+      "2026-10-16",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-09-01",
+      "2026-08-18",
+      "2026-08-17",
+      "2026-08-04",
+      "2026-08-04",
+      "2024-03-23",
+      "2024-02-24",
+      "2023-04-30",
+      "2022-09-30"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LibUtil"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "id": "trp3-rpnameinquests",
+  "repo": "NinerBull/tRP3_RPNameInQuests",
+  "about": "# Total RP 3: RP Name in Quest Text\nAn addon for World of Warcraft!\n\n![Info Img](https://cdn-wow.mmoui.com/preview/pvw75727.jpg)\n\n## About\nThis is an _unofficial_ module for [Total RP 3](https://github.com/Total-RP/Total-RP-3) that enhances questing immersion by putting your TRP3 Character Name (and optionally Race and Class) into Quest Text!\n\n## Features\nWith this addon, it accesses info from your currently selected Total RP 3 Character Profile, and with it:\n\n* Replaces your Character's OOC name (e.g. `Bestwarreu`) with your TRP3 IC name (e.g. `Sir Obvious Testman`) in Quests, Gossip Text, and Says/Yells/Emotes from NPCs! Alternatively, enter a Custom Name that NPCs will refer to you as.\n* Optionally, replace your OOC Race and Class Name (e.g. `Orc / Warrior`) with your TRP3 IC Race and Class (e.g. `Ogre / Brawler`) in the same text, or with your own Custom Race/Class too!\n\n## Installation\nDownload the latest version below, and unzip it in your `<warcraft>\\<_version_>\\Interface\\Addons` folder if installing manually.\n\n* [CurseForge](https://www.curseforge.com/wow/addons/trp3-rpnameinquests)\n* [WoWInterface](https://www.wowinterface.com/downloads/fileinfo.php?id=26545)\n* [Wago](https://addons.wago.io/addons/trp3-rpnameinquests)\n* [GitHub](https://github.com/NinerBull/tRP3_RPNameInQuests/releases/latest)\n* Or put `https://github.com/NinerBull/tRP3_RPNameInQuests` into your favourite Addon Manager\n\n## Configuration\nOnce installed, a new section will be added into Total RP 3's Config Window.\nYou can access it via one of the following:\n\n* From TRP3's config window, under 'Settings' > 'Quest Text'.\n* Typing `/trp3 questtext` in chat.\n* Clicking the \"RP Name in Quest Text\" option from the Addon Compartment (Retail Only)\n\nFrom here, you'll have multiple options to select from. Note that these options are OOC Character Specific, and are not tied to your TRP3 Character Profile.\n\n* Select how NPCs should address you when they say your Name. (This is \"Title + First Name + Last Name\" by default.)\n* Select what Race NPCs call you. (This is \"OOC Race Name\" by default.)\n* Select what Class NPCs call you. (This is \"OOC Class Name\" by default.)\n\nIf set as \"Custom Name/Race/Class\", fill in the text boxes underneath to use a Name/Race/Class which is seperate from your TRP3 Profile!\n\nYou can also select which text this addon modifies. Turn on/off as desired.\n\nYou can also add your TRP3 Roleplay Name/Race/Class to various UI components, such as Unit Frames and the Character Window. _Note that this may not function with other 3rd party UI addons._\n\n## Compatibility\n* **Midnight** - 12.1.5\n* **MoP Classic** - 5.5.4\n* **TBC Classic** - 2.5.6\n* **Forever** - 1.60.1\n* **Classic Era** - 1.15.9\n\nThis addon **requires** [Total RP 3](https://github.com/Total-RP/Total-RP-3) as it makes use of the RP Character Profile.\n\nI have tested this addon successfully with the following:\n* [Kerzo Classic Quest Log](https://www.curseforge.com/wow/addons/kerzo-classic-quest-log)\n* [Immersion](https://github.com/seblindfors/Immersion)\n* [Storyline](https://github.com/Total-RP/Storyline)\n* [GossipChatter](https://github.com/keyboardturner/GossipChatter)\n* [DialogueUI](https://github.com/Peterodox/YUI-Dialogue)\n* [Interaction](https://github.com/Adaptvx/Interaction)\n* [Lorewalker](https://github.com/Adaptvx/Lorewalker/)\n\nFor [Eavesdropper](https://github.com/Raenore/Eavesdropper) users, _TRP3: RP Name In Quest Text_ has priority in modifying Quest Text and NPC Speech if enabled, otherwise, Eavesdropper will modify this text instead!\n\nThis addon should hopefully be compatible with other addons that modify quest windows, chat windows, etc.\n\n## API\nYou can use the following functions in your own addons to make use of this addon's data.\n\n### Return Functions\n* `TRP3RPNameInQuests.API:ReturnRPName(renameFullName)` - Returns the character's currently chosen Quest Text RP Name. If `renameFullName` is `true`, it will give the full RP Name (Title + First Name + Last Name)\n* `TRP3RPNameInQuests.API:ReturnRPRace()` - Returns the character's currently chosen Quest Text RP Race. \n* `TRP3RPNameInQuests.API:ReturnRPClass()` - Returns the character's currently chosen Quest Text RP Class. \n* `TRP3RPNameInQuests.API:ReturnRPNameUnit(unit, withTitle)` - Returns a string with the unit's RP Name, or their regular name if they do not have a TRP3 profile. `unit` should be a valid unit stringID, e.g. `\"player\"` or `\"target\"`. If `withTitle` is `true`, it will also provide the target's RP Title.\n\n### Rename Functions\n* `TRP3RPNameInQuests.API:RPNameRename(textToRename, renameFullName)` - Returns a string, replacing the character's OOC Name with their chosen Quest Text Character Name. If `renameFullName` is `true`, it will search for the full RP Name (Title + First Name + Last Name).\n* `TRP3RPNameInQuests.API:RPClassRename(textToRename)` - Returns a string, replacing the character's OOC Class with their chosen Quest Text Class Name.\n* `TRP3RPNameInQuests.API:RPRaceRename(textToRename)` - Returns a string, replacing the character's OOC Race with their chosen Quest Text Class Name.\n* `TRP3RPNameInQuests.API:CompleteRename(textToRename)` - Returns a string, replacing the character's OOC Name, Class and Race with their chosen Quest Text formatting settings.\n\n### Modifier Settings Functions\n* `TRP3RPNameInQuests.API:IsTextModifierEnabled(thisTextModifier)` - Returns a boolean to determine if the addon is currently modifying a certain type of text content. `thisTextModifier` can be a string containing one of the following:\n\t* `questdialog` - Quest Text / Gossip Text / Quest Log\n\t* `npcspeech` - NPC Speech, such as /say and /yell\n\t* `textitems` - Text Items, such as books and plaques\n\t* `mailbox` - Mailbox items such as letters\n* `TRP3RPNameInQuests.API:IsUsingModifiedTextForType(thisTextType)` - Returns a boolean to determine if the addon is modifying the player's Name, Class or Race. `thisTextType` can be a string containing one of the following:\n\t* `name` - If the character's Name is being modified from their OOC name to their TRP3 name (or a custom name)\n\t* `class` - If the character's Class is being modified from their OOC class to their TRP3 class (or a custom class)\n\t* `race` - If the character's Race is being modified from their OOC race to their TRP3 class (or a custom race)\n\n### API Examples\nYou can check to see if the module is loaded before attempting to use any of these APIs with the following example:\n```lua\nif (TRP3_API and TRP3_API.module.isModuleLoaded(\"trp3_rpnameinquests\")) then\n\t\n\t-- # Obtaining Strings\n\tlocal thisRPName = TRP3RPNameInQuests.API:ReturnRPName()\n\tlocal thisRPRace = TRP3RPNameInQuests.API:ReturnRPRace()\n\tlocal thisRPClass = TRP3RPNameInQuests.API:ReturnRPClass()\n\n\t-- # Modifying Strings\n\t-- With an OOC Name of 'Sirtestman' and RP Name of 'Sir Obvious Testman'\n\tlocal thisText1 = TRP3RPNameInQuests.API:CompleteRename(\"My Name is Sirtestman. A pleasure to meet you.\")\n\t-- thisText1 will become \"My Name is Sir Obvious Testman. A pleasure to meet you.\"\n\t\n\t-- String variables also work.\n\tlocal thisTextString = \"My Name is Sirtestman. A pleasure to meet you.\"\n\tlocal thisText2 = TRP3RPNameInQuests.API:CompleteRename(thisTextString)\n\t\n\t-- And also functions that return strings\n\tlocal thisText3 = TRP3RPNameInQuests.API:CompleteRename(UnitName(\"player\"))\n\t\n\t-- Get the Target's RP Name\n\tlocal thisTextTarget = TRP3RPNameInQuests.API:ReturnRPNameUnit(\"target\")\n\tlocal thisTextTargetTitle = TRP3RPNameInQuests.API:ReturnRPNameUnit(\"target\", true) -- With Title\n\t\nend\n```\n\n## :warning: Caveats\nWoW's API only seems to give quest text/dialogue that already has your character's OOC Name/Class/Race in it. It does not have placeholders such as `<name>` or `<race>`.\nDue to this, the addon works by doing a find/replace for your OOC Info, and replaces it with your IC info, when enabled.\n\n**Unfortunately this has the side effect that ANY text whether intended for your character or not can be replaced,** which will be much more apparent with Custom Class/Race enabled. _This is reduced by ticking the \"Only modify Race/Class adjacent to punctuation\" option, which is enabled by default._\n\nFor example, let's say you are an **Orc OOC**, but have your IC Race set as **Ogre**, and you have the **Use Custom Class option Enabled**.\n\nRight-clicking on Overlord Najoi in Orgrimmar, he will normally say \"We be horde, all of us. Tauren, **orc**, troll, an' all da rest. Never forget dat we in dis together.\"\n\nBut if you have Custom Race enabled in this addon, he'll say \"We be horde, all of us. Tauren, **Ogre**, troll, an' all da rest. Never forget dat we in dis together.\", which is unintended.",
+  "releases": [
+    {
+      "tag": "v1.2.40",
+      "published": "2026-11-10",
+      "notes": "- For [Kerzo Classic Quest Log](https://www.curseforge.com/wow/addons/kerzo-classic-quest-log) users, the addon will no longer attempt to modify any quest text within Kerzo's Quest Log window if Kerzo's TRP3 Name Replacement is enabled, to prevent duplicate name modification."
+    },
+    {
+      "tag": "v1.2.39",
+      "published": "2026-10-27",
+      "notes": "# WoW: Forever Support\nThis update adds initial support to WoW: Forever!\n\n- You can now select your character's OOC First Name, OOC Last Name, or OOC Full Name for the name format that NPCs will call you, as well as any TRP3 Profile Names your character has.\n  - OOC First Name is set as default, which is consistent with Forever's stock behaviour.\n- An optional toggle has been added in the settings to make Blizzard's 'My Secondary Name' Nameplate option a Character Specific toggle rather than an Account Wide toggle.\n  - This is disabled by default.\n  \n- Fixed Typo in a text renaming function, thanks sw1ftly!\n- Fix for LUA error that could occur when in a raid group and the 'Use Custom Class Color' option is enabled, thanks keyboardturner!"
+    },
+    {
+      "tag": "v1.2.38",
+      "published": "2026-10-14",
+      "notes": "# WoW: Forever Support\nThis update adds initial support to WoW: Forever!\n\n- You can now select your character's OOC First Name, OOC Last Name, or OOC Full Name for the name format that NPCs will call you, as well as any TRP3 Profile Names your character has.\n  - OOC First Name is set as default, which is consistent with Forever's stock behaviour.\n- An optional toggle has been added in the settings to make Blizzard's 'My Secondary Name' Nameplate option a Character Specific toggle rather than an Account Wide toggle.\n  - This is disabled by default.\n  \n- Updated TOC for 12.1.5\n- Fixed Typo in a text renaming function, thanks sw1ftly!"
+    },
+    {
+      "tag": "v1.2.37",
+      "published": "2026-10-13",
+      "notes": "# WoW: Forever Support\nThis update adds initial support to WoW: Forever!\n\n- You can now select your character's OOC First Name, OOC Last Name, or OOC Full Name for the name format that NPCs will call you, as well as any TRP3 Profile Names your character has.\n  - OOC First Name is set as default, which is consistent with Forever's stock behaviour.\n- An optional toggle has been added in the settings to make Blizzard's 'My Secondary Name' Nameplate option a Character Specific toggle rather than an Account Wide toggle.\n  - This is disabled by default."
+    },
+    {
+      "tag": "v1.2.36",
+      "published": "2026-09-06",
+      "notes": "### Note for Eavesdropper users\nThis update includes functionality that the awesome [Eavesdropper](https://github.com/Raenore/Eavesdropper) addon - which can also modify Quest text similarly to this addon - makes use of so that both addons won't both modify Quest Text and NPC Speech twice. Priority is given to this addon if Quest Text/NPC Speech modification is enabled, otherwise Eavesdropper will modify them instead. So please make sure both addons are up to date if you use both.\nThanks to Eavesdropper's Author, [Raenore](https://github.com/Raenore/) for the help!\n\n---\n\n- Added two new API functions to check and see if certain text modifiers are enabled, [see this page for details](https://github.com/NinerBull/tRP3_RPNameInQuests#modifier-settings-functions).\n- Added more addons to check against for auto selecting Quest Text Modification Method."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-10-27",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-09-06",
+      "2026-08-10",
+      "2026-06-03",
+      "2026-04-21",
+      "2026-03-02",
+      "2026-01-25",
+      "2026-01-21",
+      "2026-01-14",
+      "2025-12-20",
+      "2025-10-30",
+      "2025-10-07",
+      "2025-08-05",
+      "2025-06-17",
+      "2025-04-21",
+      "2025-02-17",
+      "2024-11-20",
+      "2024-09-25",
+      "2024-07-22",
+      "2024-06-17",
+      "2024-06-15",
+      "2024-05-26",
+      "2024-05-15",
+      "2024-05-12",
+      "2024-05-07",
+      "2024-04-04",
+      "2024-03-19",
+      "2024-02-07",
+      "2024-01-15",
+      "2023-11-22",
+      "2023-11-07",
+      "2023-10-12",
+      "2023-10-03",
+      "2023-09-08",
+      "2023-09-05",
+      "2023-07-20",
+      "2023-07-14",
+      "2023-07-10",
+      "2023-05-31",
+      "2023-05-28",
+      "2023-05-18",
+      "2023-05-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "tRP3_RPNameInQuests"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "totalRP3"
+    ],
+    "optional": [
+      "DialogueUI",
+      "totalRP3_UnitFrames"
+    ],
+    "savedVariablesPerCharacter": [
+      "TRP3RPNameInQuests_CharVars"
+    ]
+  }
+}

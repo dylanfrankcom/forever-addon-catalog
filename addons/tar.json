@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "tar",
+  "repo": "ho0ber/Tar",
+  "about": "# Tar\nA simple addon to repeat your last /tar command in WoW: Forever",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-22",
+      "notes": "First release. Remembers the /tar commands you type in chat and repeats the last one from the TarAgain macro or a keybind."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Tar"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "TarDB"
+    ]
+  }
+}

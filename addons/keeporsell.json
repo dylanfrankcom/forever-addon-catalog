@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "keeporsell",
+  "repo": "svengabr/KeepOrSell",
+  "about": "# KeepOrSell\n\n![KeepOrSell logo](https://raw.githubusercontent.com/svengabr/KeepOrSell/main/media/logo.png)\n\nEver stood at a vendor wondering if that weird item in your bag is worth something? KeepOrSell sorts your bags into what to keep, what to put on the auction house and what's just junk.\n\n![KeepOrSell](https://raw.githubusercontent.com/svengabr/KeepOrSell/main/media/gallery/01-overview.jpg)\n\nMore screenshots are in the gallery on [CurseForge](https://www.curseforge.com/wow/addons/keeporsell).\n\n## The groups\n\n| Group | What lands there |\n| --- | --- |\n| Quest | Items a quest still needs. |\n| Open | Clams, boxes and anything else you right-click to open. |\n| Unstacked | Copies of things that don't stack, like scrolls, so you see every slot they take. |\n| Profession | Materials for recipes that still give you skill points, and those recipes. |\n| AuctionHouse | Sells on the AH for at least twice the vendor price. |\n| Junk | Grey items, cheap trade goods, gear your class can't wear, recipes you already know. |\n| For alts | Profession materials and class items one of your other characters needs. |\n| Disenchant | Enchanters only: gear whose materials are worth more than the vendor or the AH pays. |\n\nHover an item and the tooltip says which group it's in and why. When KeepOrSell isn't sure, the item stays: without an auction price nothing becomes junk, and green or better gear you can wear never does.\n\nWant to keep something it would sell? **Alt+Right-click** it in your bags.\n\n## Extras\n\n- **Destroy button:** bags full and no vendor around? One click destroys the cheapest junk. It never touches rare or better items.\n- **Loot coins:** with full bags, a gold coin marks loot that's worth more than the junk it would replace.\n- **Reward coin:** when a quest lets you pick a reward, a gold coin marks the one that sells to a vendor for the most. It doesn't judge upgrades.\n- **Bag value:** a small line shows what your junk and your auction items are worth.\n- **Warnings:** sell or destroy something KeepOrSell would keep, and chat tells you why.\n- **Price sharing:** in a group, players with KeepOrSell pass each other the newer auction prices.\n- **Filters:** `/kos export` and `/kos import` share your setup as plain text. [How filters work](https://github.com/svengabr/KeepOrSell/blob/main/docs/filters.md)\n\n## What you need\n\n| Addon | Needed? | What for |\n| --- | --- | --- |\n| [Baganator](https://www.curseforge.com/wow/addons/baganator) | yes | Shows the groups in your bags. |\n| [Auctionator](https://www.curseforge.com/wow/addons/auctionator) | yes, or Forever Ledger | Prices. Scan the auction house once. |\n| [Forever Ledger](https://www.curseforge.com/wow/addons/forever-ledger) | yes, or Auctionator | Prices too (0.29 or newer). With both, the more recent price counts. |\n| [Scrap](https://www.curseforge.com/wow/addons/scrap) | optional | Sells your junk automatically. |\n| [Questie](https://www.curseforge.com/wow/addons/questie) | optional | Keeps items for quests you haven't picked up yet, and junks quest items once their quests are done. |\n| [TradeSkillMaster](https://www.curseforge.com/wow/addons/tradeskill-master) | optional | Fills in prices the others don't have. |\n\n## Getting started\n\n1. Install it and log in. A setup window shows what's still missing and switches Baganator to category groups with one click. `/kos setup` opens it again.\n2. Scan the auction house once with Auctionator or Forever Ledger.\n3. Open each of your profession windows once, so KeepOrSell knows your recipes.\n\nAll options are under `/kos`.\n\n## About me\n\nI'm Sven. I've been a software developer for over 20 years, and I write and maintain my World of Warcraft addons in my free time. They are free and open source, and they will stay that way.\n\nFound a bug or have an idea? Open an [issue](https://github.com/svengabr/KeepOrSell/issues) or send me a DM on [CurseForge](https://www.curseforge.com/members/conoar).\n\n## Support\n\nKeepOrSell is free and always will be. If it made your game a bit nicer, you can [buy me a coffee](https://buymeacoffee.com/conoar) or send something via [PayPal](https://paypal.me/svengabr).\n\n## License\n\nGPL-3.0-or-later · Source & issues: https://github.com/svengabr/KeepOrSell",
+  "releases": [
+    {
+      "tag": "v0.25.1",
+      "published": "2026-11-25",
+      "notes": "- Scrap no longer sells what KeepOrSell keeps when only Scrap's own automatic calls it junk (\"Automatic Optimization\", which learns from your sales, or filters like \"Low Consumables\"). This covers items for quests and professions, items for alts, keep marks, class items, tools, equipment sets, usable quest rewards and keys. Items you put on Scrap's junk list yourself are still sold. Reported on CurseForge with a quest fish (Darkshore Grouper)."
+    },
+    {
+      "tag": "v0.25.0",
+      "published": "2026-11-25",
+      "notes": "- Forever Ledger as a price source (0.29 or newer): KeepOrSell reads the prices of your own Forever Ledger scans, next to Auctionator or instead of it. With both, the more recent price counts; from the same day Auctionator's does. The tooltip marks Forever Ledger prices with \"(Forever Ledger)\". \"Maximum price age\" applies to them, and they are shared in the group. Forever Ledger's prices are per item, so gear with random stats (\"of the Eagle\") gets the price of its cheapest version. Grey and white gear without an auction price counts as not worth auctioning after a full scan with Forever Ledger. Requested on CurseForge."
+    },
+    {
+      "tag": "v0.24.0",
+      "published": "2026-11-25",
+      "notes": "- The addon's creator has a \"KeepOrSell Creator\" line in the tooltip."
+    },
+    {
+      "tag": "v0.23.0",
+      "published": "2026-11-21",
+      "notes": "- Fix: items in the reagent bag were left out of the bag scan, so the bag value line showed no auction house value for reagents there (herbs, cloth …), price sharing never asked for them, and the hints and the destroy button didn't see them. Junk in the reagent bag is not destroyed to make room, since its slot only takes reagents; loot that is a crafting reagent counts as fitting while the reagent bag has a free slot.\n- Fix for the WoW: Forever patch of 20 November 2026: the game no longer tells addons the realm name. KeepOrSell now stores per-character data (recipes, account mode, setup) and shared auction prices by ruleset instead of realm; Forever has one realm per ruleset anyway. Your data moves over by itself the next time each character logs in; until then an alt that hasn't logged in since may be missing from account mode. Shared prices and full scan times start fresh.\n- Fix: RP-PvP characters were pooled with PvP characters in account mode. RP-PvP is now its own ruleset (\"RP-PvP · Horde\").\n- New option \"Coin on the quest reward worth the most gold\" (Display section, on by default): when a quest lets you choose a reward, a gold coin marks the choice that sells to a vendor for the most (vendor price × count; ties all get a coin), and its tooltip names the amount. KeepOrSell doesn't judge whether a reward is an upgrade. Works at the quest giver and in the quest log.\n- Fix: the destroy button could pick an item KeepOrSell keeps (e.g. a quest item an open quest still needs) when it was on Scrap's own junk list. The destroy button now skips every item KeepOrSell keeps (quest, profession, for alts, keep marks, class items, tools, equipment sets), whatever Scrap says.\n- Fix: the Mallet of Zul'Farrak showed as \"Quest – quest item\" although no quest needs it: it is a key that summons Gahz'rilla. A short list of keys of the quest item class (Mallet of Zul'Farrak, Scepter of Celebras, Seal of Ascension, Drakefire Amulet, Scepter of the Shifting Sands, Aqual and Eternal Quintessence) is now kept with the tooltip line \"Keep – key\", never junk, and selling or destroying one warns you. While an open quest still needs one, it stays a quest item."
+    },
+    {
+      "tag": "v0.22.1",
+      "published": "2026-11-18",
+      "notes": "- Fix: white trinkets, rings and necks counted as plain gear, so soulbound quest rewards like the Argent Dawn Commission were junked. Trinkets, rings and necks are now never plain gear, like shirts and tabards."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/svengabr/KeepOrSell/main/media/gallery/01-overview.jpg"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 3,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-21",
+      "2026-11-18",
+      "2026-11-15",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-13",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-07",
+      "2026-10-07",
+      "2026-10-07",
+      "2026-10-07",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-05",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "KeepOrSell"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Baganator",
+      "Auctionator",
+      "Scrap",
+      "QuestieDB",
+      "TradeSkillMaster",
+      "ForeverLedger"
+    ],
+    "savedVariables": [
+      "KeepOrSellDB"
+    ]
+  }
+}

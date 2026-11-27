@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "carbonite",
+  "repo": "IrcDirk/Carbonite-All-in-One-Retail-Classic",
+  "about": "# Carbonite-All-in-One-Retail-Classic\nCarbonite + Modules for WoW Retail and Classic\n\nCurse: [https://www.curseforge.com/wow/addons/carbonite-classic\n\n## Developer docs\n\n- [Architecture overview](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/blob/master/Carbonite/Docs/Architecture.md) — codebase layout, plugin refactor, map subsystem.\n- [Map Provider API](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/blob/master/Carbonite/Docs/MapProvider.md) — public surface for third-party addons to plug icons into the Carbonite map.\n\n### U can donate to help Carbonite All in One (Retail & Classic) development here:\n\n[![https://paypal.me/ircdrik](https://i.imgur.com/vpIUnxX.png)](https://paypal.me/ircdrik) or [![https://en.liberapay.com/IrcDirk/donate?currency=EUR](https://liberapay.com/assets/widgets/donate.svg)](https://en.liberapay.com/IrcDirk/donate?currency=EUR)",
+  "releases": [
+    {
+      "tag": "v12.1.0-00025",
+      "published": "2026-11-23",
+      "notes": "# Carbonite All in One (Retail & Classic)\n\n## [v12.1.0-00025](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/tree/v12.1.0-00025) (2026-11-23)\n[Full Changelog](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/compare/v12.1.0-00024...v12.1.0-00025) [Previous Releases](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/releases)\n\n- Merge pull request #628 from Thrumbar/master  \n    Attempt to patch #615  \n- Update RXP/Zygor interaction. Fix quest objectives points  \n- Update QuestWindow.lua  \n    Mists Classic Reward Banner Hotfix  \n    - Hid the duplicate title banner in the Mists Classic quest details pane that could cover XP and money rewards.  \n    - Preserved the display of genuine title rewards.  \n    Quest Title Banner Hotfix  \n    - Hid the standard title label and reward frame when the selected quest grants no title, preventing a leftover banner from appearing when switching quests.  \n    Quest Reward Overlap Test Patch  \n    - Reset the positioning of the title, XP, and reward text before the quest details pane lays out the selected quest. This addressed stale positioning when switching between quests with different rewards.  \n- Patch for error I made in previous patch  \n- Quest Level Color Test Patch  \n    I am not in a position to fully test this out.  \n    Quest level numbers now use the same Blizzard difficulty color as their quest titles in the Carbonite quest window.  \n    Cached difficulty colors refresh when the character’s level changes, so reopening the quest window after leveling up shows the updated colors without /reload.  \n- Possibly fix for Quest Givers not being displayed. Also some other small fixes"
+    },
+    {
+      "tag": "v12.1.0-00024",
+      "published": "2026-11-15",
+      "notes": "# Carbonite All in One (Retail & Classic)\n\n## [v12.1.0-00024](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/tree/v12.1.0-00024) (2026-11-15)\n[Full Changelog](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/compare/v12.1.0-00023...v12.1.0-00024) [Previous Releases](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/releases)\n\n- Quadt DB update, also fix for DJ goto click"
+    },
+    {
+      "tag": "v12.1.0-00023",
+      "published": "2026-11-09",
+      "notes": "# Carbonite All in One (Retail & Classic)\n\n## [v12.1.0-00023](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/tree/v12.1.0-00023) (2026-11-09)\n[Full Changelog](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/compare/v12.1.0-00022...v12.1.0-00023) [Previous Releases](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/releases)\n\n- Constant goto fix  \n- quest cache update for quest db, trying to fix #603 and #624  \n- Merge pull request #620 from Solovey61/master  \n    Fix LFG minimap button visibility  \n- RXP integration switch fixed. Add DungeonJournal/FojiiCore support for Forever dungeon maps  \n- Update quest db and RXP integration  \n- Fix LFG minimap button visibility"
+    },
+    {
+      "tag": "v12.1.0-00022",
+      "published": "2026-11-05",
+      "notes": "# Carbonite All in One (Retail & Classic)\n\n## [v12.1.0-00022](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/tree/v12.1.0-00022) (2026-11-02)\n[Full Changelog](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/compare/v12.1.0-00021...v12.1.0-00022) [Previous Releases](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/releases)\n\n- Merge pull request #614 from Thrumbar/master  \n    Attempt to patch issues of combined minimap remaining on screen after minimap close and Vaults of Atal'Utek   \n- Combined minimap close and reopen hotfix  \n    Hide the owned Blizzard minimap when Carbonite's map window or map canvas closes.  \n    Prevent hidden-window updates and Blizzard minimap toggles from exposing the combined minimap over other windows.  \n    Restore the minimap after reopening and a successful positioning pass in docked, full-size, and overlay modes.  \n    Honor the saved closed state during startup, preserve existing frame handlers, and install visibility hooks once.  \n    Exclude closed maps from player-arrow, breadcrumb, and gather-icon minimap layering.  \n- Fix map hover selection across all zones and expansions.  \n    Fix map hover selection across all zones and expansions.  \n        Protect active underground and layered maps.  \n        Stabilize overlapping zones, including Hillsbrad/Alterac.  \n        Preserve city priority, browsing, and phase filtering.  \n        Guard malformed hotspots and freeze navigation during menus or Alt.  \n        Consolidate shared hover logic and add regression coverage across supplied clients.  \n- Merge pull request #613 from Thrumbar/master  \n    Patch to repair  instance maps showing  \n- Patch toi repair  instance maps showing  \n    Corrected blank map rendering by preparing instance artwork before hiding background layers.  \n    Preserved the selected map ID during instance initialization and removed repeated map selection during drawing.  \n    Prevented outdoor tracking routes from moving instance artwork off screen. Cleared stale instance state that could collapse the integrated minimap after exit.  \n    Prevented outdoor textures and legacy map layers from covering instance artwork on mouseover or when movement stops.  \n    Aligned player, party, and raid markers with the displayed instance and floor, including marker sizing and interior micro-map coordinates.  \n    Fitted maps to a readable size on entry and reload, preserved manual zoom between floors, and restored outdoor zoom on exit.  \n    Corrected tile proportions, partial edge tiles, clipping, and marker alignment during panning and zooming.  \n    Kept the interior map selected instead of its outdoor entrance, added related-floor discovery, and registered new interior maps before coordinate lookups.  \n    Added artwork validation and loading retries to prevent stale textures.  \n    Preserved outdoor 3D preferences while keeping instance artwork and markers in a shared flat coordinate space."
+    },
+    {
+      "tag": "v12.1.0-00021",
+      "published": "2026-10-13",
+      "notes": "# Carbonite All in One (Retail & Classic)\n\n## [v12.1.0-00021](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/tree/v12.1.0-00021) (2026-10-13)\n[Full Changelog](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/compare/v12.1.0-00020...v12.1.0-00021) [Previous Releases](https://github.com/IrcDirk/Carbonite-All-in-One-Retail-Classic/releases)\n\n- Merge pull request #612 from Thrumbar/master  \n    Quest Watch Layout Hotfix  \n- Quest Watch Layout Hotfix  \n    Fixed overlapping minimize and close/unlock buttons in modern and legacy headers.  \n    Improved modern header spacing for the title, quest counter, and controls.  \n    Changed shared positioning to collapse toward the nearby screen edge, or toward the minimize button’s side when away from an edge.  \n    Preserved the selected edge and title position through restore, scaling, and reload.  \n    Retained independently saved full and minimized positions.  \n- Merge pull request #611 from Thrumbar/master  \n    Some shortcuts don't work anymore #608  \n- Merge branch 'IrcDirk:master' into master  \n- Merge branch 'master' of https://github.com/Thrumbar/Carbonite-All-in-One-Retail-Classic  \n- Some shortcuts don't work anymore #608  \n    Fixed Alt+M opening Carbonite instead of Blizzard’s world map when map replacement is enabled.  \n    Prevented saved secondary bindings from overwriting the Blizzard-map shortcut.  \n    Corrected modified-key handling and preserved Blizzard-map selection when Alt is released before display processing completes.  \n    Retained the reversed M/Alt+M preference and deferred binding updates during combat.  \n- Merge pull request #610 from Thrumbar/master  \n    Further refinements to profiler  \n- Merge branch 'IrcDirk:master' into master  \n- Further refinements to profiler  \n    2026-10-12 — Updates after the first profiler release  \n    This changelog covers changes after Carbonite-v12.1.0-00020-Profiler-Changed-Only.zip through Carbonite\\_Export\\_Hotfix\\_Changed\\_Only\\_vs\\_Master6\\_2026-10-12.zip. Related updates are consolidated below, newest first.  \n    Latest changed-only package  \n    - Prepared the cumulative changed-only package against Carbonite-All-in-One-Retail-Classic-master(6).zip, carrying the quest catalog integration, diagnostics redesign, and corrected Export/tooltip files.  \n    Export and tooltip hotfix  \n    - Fixed both Export errors caused by calling GetStringHeight() on an EditBox.  \n    - Sized exported reports using wrapped line count, font height, line spacing, and text insets so the complete report remains scrollable at supported text sizes.  \n    - Fixed the diagnostic tooltip SetText argument error by supplying numeric alpha before the wrapping flag.  \n    Diagnostic interface redesign  \n    - Added a shared diagnostic window with Map, Quest, and Both scopes and Overview, Functions, Compare, Help, and Export views.  \n    - Put recording state, session measurements, quest activity, and suggested next steps on Overview; moved detailed comparisons, settings, and raw reports into separate views.  \n    - Added ranked timing bars, explicit millisecond units, aligned numeric columns, and one zero-based scale within each selected view.  \n    - Added adjustable text size, screen fitting, and stable snapshots. Refresh updates the displayed measurements; changing views keeps the same snapshot.  \n    - Added the Select report → Ctrl+C workflow for copying complete reports, with client/build details, catalog counters, function timings, comparisons, and retained samples.  \n    - Replaced competing Map profiler implementations with one measurement source shared by the scoped displays. Map and Quest recording states, references, and resets remain independent.  \n    - Assigned quest-owned objective-area update timings to Quest diagnostics.  \n    - Distinguished retained samples from earlier runs from current-session measurements. Earlier samples cannot become a new idle reference or silently enter current comparisons.  \n    - Preserved earlier split Map captures within the shared sample capacity and identified older references requiring recapture.  \n    - Kept unavailable Lua heap measurements distinct from measured zero values.  \n    - Kept combined markers visible in both scopes and preserved the other scope's marker when clearing one scope.  \n    - Updated PROFILER.md with the interface workflow, measurement definitions, comparison requirements, command reference, and measurement limits.  \n    Quest catalog display integration  \n    - Integrated the supplied QuestCatalog.lua into every existing Quest client TOC and added the display bridge.  \n    - Connected quest-window and Quest Watch titles and objectives to committed catalog snapshots, with Carbonite's established quest API as the fallback when catalog data is unavailable.  \n    - Combined quest-event refresh requests and reused clean display snapshots without rescanning objectives on each read.  \n    - Added catalog scan, refresh, and combined-request counters to Quest diagnostics and copyable reports. Catalog counters continue while optional timing capture is stopped.  \n    - Corrected numeric objective-progress parsing and guarded restricted booleans and missing structured objective data.  \n    Help and addon options  \n    - Added /help profiler, /carb profiler help, and /carb help profiler command guides, preserving normal native help for other arguments.  \n    - Added options controls for recording, reports, sample capacity, markers, saved references, data clearing, and comparison self-tests.  \n    - Separated controls from command help, grouped controls into readable sections, and replaced the dense help list with selectable topics, descriptions, examples, and a numbered capture guide.  \n    - Restored Maps → Diagnostics through the Maps options provider used by modular and legacy registration. Quest diagnostics are available under Quest Module → Diagnostics.  \n    - Preserved the existing Map, Minimap, Minimap Button, and 3D View options.  \n    Separate Map and Quest profiling  \n    - Moved map/travel profiling into Carbonite and quest profiling into Carbonite.Quests, allowing Map capture to operate when Carbonite.Quests is disabled.  \n    - Added scoped Map and Quest commands, reports, recording controls, saved references, and resets. The initial split used separate sample buffers; the later catalog/UI updates consolidated storage into a shared bounded buffer.  \n    - Added quest-event counts and quest-handler timings so Quest diagnostics show quest processing alongside map activity.  \n    - Added delayed hook-installation retries for components initialized after the profiler loads.  \n    - Updated the affected client TOCs and profiler load order for the separate components.  \n- Merge pull request #609 from Thrumbar/master  \n    Quest and Map Profiler Integration  \n- Quest and Map Profiler Integration  \n    Integrated the profiler into Carbonite v12.1.0-00020 across all seven quest-module client TOCs.  \n    Added timing for quest processing, map rendering, minimap updates, tracking, routing, and travel calculations.  \n    Added call counts, average and maximum timings, slow-call detection, bounded samples, and baseline comparisons.  \n    Added /carb profiler controls and copyable diagnostic reports.  \n    Profiling starts disabled after login or reload.  \n    Included capture instructions and measurement limitations.  \n    /carb profiler\tShow profiler status.  \n    /carb profiler on\tEnable quest and map profiling.  \n    /carb profiler off\tStop profiling, keeping collected data.  \n    /carb profiler status\tShow monitoring state, saved sample count, and baseline status.  \n    /carb profiler report\tOpen the report for viewing and copying.  \n    /carb profiler export\tSame as report.  \n    /carb profiler clear\tClear samples, session timing totals, and the baseline.  \n    /carb profiler mark \tInsert a labeled marker while profiling is enabled.  \n    /carb profiler limit \tSet the save",
+      "truncated": true
+    }
+  ],
+  "stats": {
+    "stars": 57,
+    "openIssues": 59,
+    "contributors": 12,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-15",
+      "2026-11-09",
+      "2026-11-05",
+      "2026-10-13",
+      "2026-10-10",
+      "2026-10-03",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-11",
+      "2026-09-05",
+      "2026-09-01",
+      "2026-08-28",
+      "2026-08-22",
+      "2026-08-21",
+      "2026-08-21",
+      "2026-08-19",
+      "2026-08-17",
+      "2026-08-13",
+      "2026-08-11",
+      "2026-08-07",
+      "2026-07-24",
+      "2026-07-22",
+      "2026-06-25",
+      "2026-06-24",
+      "2026-06-12",
+      "2026-06-12",
+      "2026-06-11",
+      "2026-06-08",
+      "2026-06-05",
+      "2026-06-05",
+      "2026-06-04",
+      "2026-06-03",
+      "2026-06-03",
+      "2026-06-02",
+      "2026-06-02",
+      "2026-06-02",
+      "2026-06-02",
+      "2026-06-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Carbonite",
+      "Carbonite.Gathermate2_Data",
+      "Carbonite.Info",
+      "Carbonite.Notes",
+      "Carbonite.Quests",
+      "Carbonite.Warehouse"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "forever"
+    ],
+    "savedVariables": [
+      "CarbData"
+    ],
+    "savedVariablesPerCharacter": [
+      "CarbMigr"
+    ]
+  }
+}

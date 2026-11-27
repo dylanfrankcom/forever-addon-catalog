@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "id": "goatquest",
+  "repo": "GoatXYZ/GoatQuest",
+  "about": "# GoatQuest shared source\n\nOne source repository builds two independent addons. There is no extra core addon to install.\n\n| Flavor | Addon folder | Current version | Client interface |\n| --- | --- | --- | --- |\n| `forever` | `GoatQuest` | 1.4.1 | 16001 |\n| `retail` | `GoatQuestRetail` | 1.0.1 | 120100 |\n\n## Build a release\n\nFollow [Release and update process](https://github.com/GoatXYZ/GoatQuest/blob/main/RELEASING.md) for the complete manual GitHub/WowUp runbook.\nThere are no GitHub Actions.\n\nPython 3.10+ and `lupa` with its Lua 5.1 runtime are required for the offline checks.\n\n```powershell\npy -3 -m pip install -r requirements-dev.txt\npy -3 build.py all\n```\n\nThe build runs the repository tooling tests, assembles a clean test workspace for each flavor, runs its existing full offline\nsuite, and only packages when all requested suites pass. It also checks the packaged TOC/XML\ndependencies for every locale, archive integrity, private-file exclusion and folder naming.\n\nOutputs:\n\n- `dist/GoatQuest/` and `dist/GoatQuestRetail/`: installable addon folders.\n- `dist/GoatQuest-<version>-forever.zip` and `dist/GoatQuestRetail-<version>.zip`: deterministic archives.\n- Each ZIP's matching `.manifest.json`: file hashes, archive hash and test status.\n- `dist/release.json`: WowUp metadata for both flavors, generated only after a tested `all` build.\n\n`py -3 build.py --verify-release dist` verifies the five assets to upload. It also works on\na directory containing those assets downloaded from GitHub.\n\n`py -3 build.py forever` or `py -3 build.py retail` builds just that flavor. Versions remain\nindependent: edit the flavor's TOC(s) and `build-manifest.json` together. Forever's primary\nand `_Mainline` TOCs must remain identical. `--assemble-only` prepares a disposable test\nworkspace; `--skip-tests` is for development and records the skipped tests in the manifest.\nEvery build removes the previous `release.json`. Failed, single-flavor, assemble-only and\ntest-skipping builds leave it absent. Historical ZIPs may remain; upload only the assets\nlisted by a freshly verified full release, not every ZIP in `dist/`.\n\n## Where to edit\n\n- `core/`: code, UI, assets and test resources used by both clients. Edit once, test both.\n- `flavors/forever/files/`: Forever-specific source, content, TOCs, tools and tests.\n- `flavors/retail/files/`: Retail-specific source, content, TOC, tools and tests.\n- `build/`: generated complete source trees. Changes here are discarded by the next build.\n- `tools/`: repository assembly and migration tools; these are never packaged.\n\nEvery file in `core/` goes into both test workspaces. A flavor cannot silently shadow a core\nfile: the build rejects duplicate paths. Move genuinely different implementations to each\nflavor. Code/Data/Guides/Localization/Libs flavor directories stay in their flavor even when\nan individual file currently matches. The flavor release policy selects which assembled\nfiles ship; tests, authoring tools and dormant Retail code remain source-only.\n\nThe initial extraction preserved both working trees, including their uncommitted port fixes.\nThe original `../GoatQuest` and `../GoatQuestRetail` repositories remain intact as migration\ninputs. They are not needed to build this repository. `../GoatWay` is a separate addon.\n\n## Bring in remaining port-review fixes\n\n```powershell\npy -3 tools/import_sources.py\npy -3 tools/import_sources.py --apply\npy -3 build.py all\n```\n\nThe importer compares each original tree with `migration/import-state.json` and this repository.\nIt preserves changes made only here, imports changes made only in the original, and stops before\nwriting if both sides changed differently. Shared files split into flavor files when one client\nchanges. Identical files consolidate automatically. Use `--forever <path>` and `--retail <path>`\nif the originals moved. The default command only reports; `--apply` writes the reconciled source.\nOnce the port review is complete, make new product changes here rather than in the old forks.\n\n## Guide updates and personal data\n\nRetail's existing guide-sync tool is retained. Use the repository wrapper so changes land in\nthe canonical flavor source, not a disposable build:\n\n```powershell\npy -3 tools/sync_guides.py retail\npy -3 tools/sync_guides.py retail --apply\npy -3 build.py retail\n```\n\nForever's upstream importer was still a plan at extraction time; its\n`flavors/forever/files/GUIDE-IMPORT-PLAN.md` remains the reference. Import reviewed changes from\nthe original Forever tree with `tools/import_sources.py`; no generic upstream rewrite is used.\n\nPersonal `Licence.lua`/`License.lua` files are never imported, committed or packaged. Retail\nkeeps its current runtime subscription behavior; supply personal data to the installed addon\nusing its existing refresh tool, with an explicit `--target` for the installation. The detailed\nbehavior is in `flavors/retail/files/LICENCE-USAGE.md`. Builds require no personal keys.\n\nOffline checks do not replace testing in each game client. This repository is local; the build\ndoes not install, publish or upload anything. Existing per-flavor attribution and usage notes\nremain with their source.",
+  "releases": [
+    {
+      "tag": "release-2026.10.14.1",
+      "name": "GoatQuest release-2026.10.14.1",
+      "published": "2026-10-15",
+      "notes": "# GoatQuest release-2026.10.14.1\n\nGuide update for both addons from the latest upstream guide sources.\n\n| Addon | Version | Client | WowUp flavor |\n| --- | --- | --- | --- |\n| `GoatQuest` | 1.4.1 | WoW Forever (Interface 16001) | `forever` |\n| `GoatQuestRetail` | 1.0.1 | Retail (Interface 120100) | `mainline` |\n\n## Changes\n\n### GoatQuest 1.4.1 (Forever)\n- Guides updated to Classic source revision 37349 (was 37145). Five guide files changed;\n  none were added or removed:\n  - Profession guides: First Aid step wording, a corrected Bright Baubles vendor location and a\n    new weaponsmith trainer step.\n  - Sunken Temple (dungeon and raid versions): the Fetish of Hakkar collection steps are gone.\n\n### GoatQuestRetail 1.0.1 (Retail)\n- Guides updated to Retail source revision 37370 (was 37179). 17 guide files changed, mostly\n  Midnight Leveling, Dungeons, Mounts and Pets content, plus Events and the Cataclysm Alliance\n  leveling guide. None were added or removed.\n\nNo viewer or engine code changed in either addon.\n\n## Install\n- **WowUp** (2.24.0-beta.6 or later): choose *Install from URL*, enter\n  `https://github.com/GoatXYZ/GoatQuest`. Forever installs `GoatQuest` and Retail\n  installs `GoatQuestRetail`.\n- **Manual**: extract `GoatQuest-1.4.1-forever.zip` into `_classic_beta_/Interface/AddOns`, or\n  `GoatQuestRetail-1.0.1.zip` into `_retail_/Interface/AddOns`. Fully restart the game afterwards.\n\n## Validation\n- `py -3 build.py all`: tooling tests, both flavors' Lua 5.1 offline suites and package\n  dependency checks passed.\n- `py -3 build.py --verify-release dist`: checksums and release metadata verified.\n- Retail guide sync: no Zygor branding left after renaming.\n- Forever: the 208 unchanged upstream files come out byte-identical to the previous import\n  after renaming, which confirms the renaming step.\n\n## Known limitations\n- These builds have not been tested in game yet.\n- Two changed Retail guides use features the engine doesn't support yet: the step keyword\n  `family` in the Midnight achievements guide and `GetCurrentTitle` in the events guide. Neither\n  category ships in GoatQuestRetail, so this has no effect in game.\n- Retail guides need the user's own subscription data. It is not included in the ZIP; see the\n  Retail `LICENCE-USAGE.md`."
+    },
+    {
+      "tag": "release-2026.10.02.1",
+      "name": "GoatQuest release-2026.10.02.1",
+      "published": "2026-10-02",
+      "notes": "# GoatQuest release-2026.10.02.1\n\nThis is the first release from the shared GoatQuest source repository. It includes two addons:\n\n| Addon | Version | Client | WowUp flavor |\n| --- | --- | --- | --- |\n| `GoatQuest` | 1.4.0 | WoW Forever (Interface 16001) | `forever` |\n| `GoatQuestRetail` | 1.0.0 | Retail (Interface 120100) | `mainline` |\n\n## Changes\n\n### GoatQuest 1.4.0 (Forever)\n- Built from the shared source repository instead of the old standalone tree.\n- Rating buttons clear their textures with the client's `Clear*Texture` methods when available.\n- With no guide loaded, the viewer title shows the product name.\n\n### GoatQuestRetail 1.0.0 (Retail, first release)\n- Retail port of GoatQuest: the same viewer, skin, arrow/halo navigation and accent colours.\n- Leveling, Dungeons and Professions guides.\n\n## Install\n- **WowUp** (2.24.0-beta.6 or later): choose *Install from URL*, enter\n  `https://github.com/GoatXYZ/GoatQuest`. Forever installs `GoatQuest` and Retail\n  installs `GoatQuestRetail`.\n- **Manual**: extract `GoatQuest-1.4.0-forever.zip` into `_classic_beta_/Interface/AddOns`, or\n  `GoatQuestRetail-1.0.0.zip` into `_retail_/Interface/AddOns`. Fully restart the game afterwards.\n\n## Validation\n- `py -3 build.py all`: tooling tests, both flavors' Lua 5.1 offline suites and package\n  dependency checks passed.\n- `py -3 build.py --verify-release dist`: checksums and release metadata verified.\n\n## Known limitations\n- In-game testing on the current clients is still recommended after updating.\n- Retail guides need the user's own subscription data. It is not included in the ZIP; see the\n  Retail `LICENCE-USAGE.md`."
+    },
+    {
+      "tag": "v1.3.1",
+      "name": "GoatQuest 1.3.1",
+      "published": "2026-09-27",
+      "notes": "Fixes an action bar error on WoW Forever.\n\n- Steps with a \"use item\" objective (for example Tharnariun's Hope in Darkshore) no longer raise `ActionBar.lua:224: attempt to call a nil value`; the item button appears on the action bar as intended.\n- The gear finder had the same call and is fixed too.\n\nFor WoW Forever beta (Interface 16001). Download GoatQuest-1.3.1.zip and extract the GoatQuest folder into Interface/AddOns, replacing the existing addon files. Reload the UI after updating.\n\nValidation: all offline checks (including a new regression test for this path) and release ZIP integrity checks passed. In-game verification is still needed."
+    },
+    {
+      "tag": "v1.3.0",
+      "name": "GoatQuest 1.3.0",
+      "published": "2026-09-27",
+      "notes": "Pins the action bar to the top of the GoatQuest viewer.\n\n- The action bar now sits on the viewer panel's top edge instead of floating free, aligned to the panel's left or right edge according to the Action Bar Expanding option.\n- It follows the panel when you drag it, use Move frames, change the viewer size or reset positions, and it can no longer be dragged away.\n- Panel moves made in combat are never blocked; the bar catches up when combat ends.\n\nFor WoW Forever beta (Interface 16001). Download GoatQuest-1.3.0.zip and extract the GoatQuest folder into Interface/AddOns, replacing the existing addon files. Reload the UI after updating.\n\nValidation: all offline checks and release ZIP integrity checks passed. In-game verification is still needed."
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "GoatQuest 1.1.0",
+      "published": "2026-09-26",
+      "notes": "Restores multiple-step display and objective right-click menus in the GoatQuest viewer.\n\n- The Number of steps shown setting now displays 1–5 steps with full objectives and updates immediately when changed.\n- Right-click current or Along the way objectives for the existing step, quest, waypoint and completion actions.\n- Menus close when their objective disappears or the viewer is hidden.\n\nFor WoW Forever beta (Interface 16001). Download GoatQuest-1.1.0.zip and extract the GoatQuest folder into Interface/AddOns, replacing the existing addon files. Reload the UI after updating.\n\nValidation: all offline checks and release ZIP integrity checks passed. In-game verification is still needed."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-15",
+    "releaseDates": [
+      "2026-10-15",
+      "2026-10-02",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-26",
+      "2026-09-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GoatQuest"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "TomTom",
+      "GoatZyg"
+    ],
+    "savedVariables": [
+      "GoatQuestSettings"
+    ]
+  }
+}

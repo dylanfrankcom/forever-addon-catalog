@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "dbm-azeroth",
+  "repo": "DeadlyBossMods/DBM-Vanilla",
+  "about": "[https://www.patreon.com/deadlybossmods](https://www.patreon.com/deadlybossmods)\n\n## **Vanilla and Forever boss mods for DBM**\n\nVanilla WoW and Forever mods for [Deadly Boss Mods](https://www.curseforge.com/wow/addons/deadly-boss-mods)\n\n## **Features**\n\nBoss mods for all Vanilla raids (including those added in Season of Discovery and Forever)\n\nSupports both Retail and Classic\n\n## **Looking for Dungeons?**\n\nDungeon mods are now all grouped together in [DBM-Dungeons package](https://www.curseforge.com/wow/addons/deadly-boss-mods-dbm-dungeons)\n\n## **Looking for other Raid mods?**\n\nYou can find them at these links:\n\n[Battle for Azeroth Raid Mods](https://www.curseforge.com/wow/addons/deadly-boss-mods-dbm-bfa)\n\n[Shadowlands Raid Mods](https://www.curseforge.com/wow/addons/deadly-boss-mods-dbm-shadowlands)\n\n[Legion Raid Mods](https://www.curseforge.com/wow/addons/deadly-boss-mods-dbm-legion)\n\n[Warlords of Draenor Raid Mods](https://www.curseforge.com/wow/addons/deadly-boss-mods-wod)\n\n[Mists of Pandaria Raid Mods](https://www.curseforge.com/wow/addons/deadly-boss-mods-mop)\n\n[Cataclysm Raid Mods](https://www.curseforge.com/wow/addons/deadly-boss-mods-cataclysm-mods)\n\n[Wrath of the Lich King Raid Mods](https://www.curseforge.com/wow/addons/deadly-boss-mods-wotlk)\n\n[Burning Crusade Raid Mods](https://www.curseforge.com/wow/addons/deadly-boss-mods-tbc)\n\n## **Important**\n\nPlease make sure you have the latest version of [Deadly Boss Mods](https://www.curseforge.com/wow/addons/deadly-boss-mods) when updating the old content mods. This is a required dependancy",
+  "releases": [
+    {
+      "tag": "r837",
+      "published": "2026-11-23",
+      "notes": "# DBM - Vanilla and Season of Discovery\n\n## [r837](https://github.com/DeadlyBossMods/DBM-Vanilla/tree/r837) (2026-11-23)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-Vanilla/compare/r836...r837) [Previous Releases](https://github.com/DeadlyBossMods/DBM-Vanilla/releases)\n\n- BRD raid update to now make heavy use of aura sounds since it lacks timeline events and old CLEU features gone"
+    },
+    {
+      "tag": "r836",
+      "published": "2026-11-22",
+      "notes": "# DBM - Vanilla and Season of Discovery\n\n## [r836](https://github.com/DeadlyBossMods/DBM-Vanilla/tree/r836) (2026-11-22)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-Vanilla/compare/r835...r836) [Previous Releases](https://github.com/DeadlyBossMods/DBM-Vanilla/releases)\n\n- Update localization.cn.lua (#593)  \n- Update localization.cn.lua (#595)  \n- update CI  \n- Optimize memory by using toc directives for localization loading, preventing unneeded localizations from existing in memory going forward (even if they do return on first linie, they still loaded. well not anymore!)  \n- refactor: use core encounter locales (#588)"
+    },
+    {
+      "tag": "r835",
+      "published": "2026-11-03",
+      "notes": "# DBM - Vanilla and Season of Discovery\n\n## [r835](https://github.com/DeadlyBossMods/DBM-Vanilla/tree/r835) (2026-11-03)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-Vanilla/compare/r834...r835) [Previous Releases](https://github.com/DeadlyBossMods/DBM-Vanilla/releases)\n\n- Update a few world bosses (#586)  \n    * Remove uneeded antispam  \n    * remove unndeded check for dest type player  \n    * IsDestTypePlayer to avoid showing pets in the frame  \n    * Added too many  \n    * missed one  \n    * Update some world bosses  \n    * fix error  \n    * reordering  \n    * all all swirl spell ids  \n    * adjust antispam  \n    * remove swirl, its constantly being cast  \n    * specialwarning for heal for emeriss  \n    * switch order  \n    * SoD only for spell for Ysondre, add personal specialwarning for volatile infection  \n    * code alignment  \n    * fix error  \n    * reorder  \n- Update raz4 (#587)  \n    * Remove uneeded antispam  \n    * remove unndeded check for dest type player  \n    * IsDestTypePlayer to avoid showing pets in the frame  \n    * Added too many  \n    * missed one  \n    * Update Razuvious  \n    * fix error  \n    * change defaults  \n- Fix azeroth world bosses not having icon and not loading on forever"
+    },
+    {
+      "tag": "r834",
+      "published": "2026-10-26",
+      "notes": "# DBM - Vanilla and Season of Discovery\n\n## [r834](https://github.com/DeadlyBossMods/DBM-Vanilla/tree/r834) (2026-10-23)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-Vanilla/compare/r833...r834) [Previous Releases](https://github.com/DeadlyBossMods/DBM-Vanilla/releases)\n\n- Update tocs for 12.1.7 ptr  \n- Update raz3 (#585)  \n    * Remove uneeded antispam  \n    * remove unndeded check for dest type player  \n    * IsDestTypePlayer to avoid showing pets in the frame  \n    * Added too many  \n    * missed one  \n    * Update Razuvious  \n    * Make pink color darker  \n    * simplify icon code  \n    * Antispam MC end since they all break at end of fight  \n    * messed up color  \n    * Warnings only for razuvious > 5%  \n    * tank for tauntCD by default"
+    },
+    {
+      "tag": "r833",
+      "published": "2026-10-19",
+      "notes": "# DBM - Vanilla and Season of Discovery\n\n## [r833](https://github.com/DeadlyBossMods/DBM-Vanilla/tree/r833) (2026-10-19)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-Vanilla/compare/r832...r833) [Previous Releases](https://github.com/DeadlyBossMods/DBM-Vanilla/releases)\n\n- Remove DisableHardcodedOptions from vanilla modules. again. Not sure what script or user readded them, but they are removed again.  \n    Enable GenericTrash on bosses in forever"
+    }
+  ],
+  "stats": {
+    "stars": 13,
+    "openIssues": 0,
+    "contributors": 29,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-03",
+      "2026-10-26",
+      "2026-10-19",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-08",
+      "2026-08-11",
+      "2026-07-24",
+      "2026-07-24",
+      "2026-07-24",
+      "2026-07-14",
+      "2026-05-27",
+      "2026-05-23",
+      "2026-03-24",
+      "2026-03-16",
+      "2025-12-23",
+      "2025-12-01",
+      "2025-11-01",
+      "2025-10-28",
+      "2025-09-23",
+      "2025-07-01",
+      "2025-05-21",
+      "2025-05-21",
+      "2025-05-07",
+      "2025-04-30",
+      "2025-04-30",
+      "2025-04-29",
+      "2025-04-23",
+      "2025-04-22",
+      "2025-04-22",
+      "2025-04-22",
+      "2025-04-21",
+      "2025-04-19",
+      "2025-04-18",
+      "2025-04-16",
+      "2025-04-16",
+      "2025-04-15",
+      "2025-04-15",
+      "2025-04-13",
+      "2025-04-13",
+      "2025-04-12",
+      "2025-04-12",
+      "2025-04-11",
+      "2025-04-11",
+      "2025-04-10",
+      "2025-04-10"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "DBM-Azeroth",
+      "DBM-Raids-Vanilla"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "DBM-Core"
+    ],
+    "savedVariables": [
+      "DBMAzeroth_AllSavedVars"
+    ],
+    "savedVariablesPerCharacter": [
+      "DBMAzeroth_SavedStats"
+    ]
+  }
+}

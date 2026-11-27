@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverquesttint",
+  "repo": "alexdia25/forever-quest-tint",
+  "about": "# Forever Quest Tint\n\nA small addon for **World of Warcraft: Forever** that tints the quest text background a light teal, to match the Forever logo, whenever the quest was **not** part of original Classic (vanilla).\n\nVanilla quests keep the normal parchment. Everything new to Forever gets a teal gradient rising from the bottom of the page, and a small infinity-sign marker after its name in the quest log list and the objective tracker.\n\n| Quest giver window | Map & Quest Log |\n| --- | --- |\n| ![Quest giver window](https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/quest-giver.png) | ![Map and quest log](https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/quest-log.webp) |\n\n## Install\n\n1. Download the latest release zip.\n2. Extract it into the `Interface\\AddOns` folder of your World of Warcraft: Forever install, so you have `...\\Interface\\AddOns\\ForeverQuestTint`.\n3. Restart the game or type `/reload`.\n\n## Options\n\nType `/fqt`, or open **Options → AddOns → Forever Quest Tint**.\n\n- **Tint the parchment teal**: on by default.\n- **Add the WoW Forever logo**: off by default. Puts the logo in the top-right corner of the bar above the quest text. Works with or without the tint.\n- **Tint the ! and ? map icons**: on by default. The yellow ! (quest available) and ? (ready to turn in) of non-vanilla quests get a teal gradient rising from the bottom. Without Questie, only the world map's icons are tinted: the game draws its minimap icons itself, so addons can't change them. With Questie installed, its icons are tinted on both the world map and the minimap.\n- **Tint colour**: the colour of the overlay.\n- **Bottom opacity**: strength of the teal at the bottom of the page.\n- **Top opacity**: strength where the fade ends. `0%` fades out completely.\n- **Fade length**: how far up the parchment the fade reaches.\n- **Quest name marker**: an infinity sign after the name of non-vanilla quests, in the quest log list and the objective tracker.\n  - **Add the logo beside quests in the tracker**: off by default. A small WoW Forever logo at the top-right of each non-vanilla quest in the objective tracker. Works with or without the marker.\n  - Show or hide it, and put it at the start of the name instead of the end.\n  - By default it is a small icon; you can set its height, nudge it up or down to line up with the text, and adjust its spacing from the name. Or switch to a plain text symbol (up to 4 characters, so you can use any character the game's font has).\n  - By default it uses the tint colour; turn that off to pick its own colour.\n\n- **Quest objectives**: off by default. Recolours the objective lines of non-vanilla quests (in the quest log list and the tracker) from white to the tint colour, or a colour of your choice. Completed and failed objectives keep their own colours.\n\n- **Preview**: a testing aid. Forces the tint, logo and marker **on** for every quest, **off** for every quest, or back to **auto** (the normal behaviour). It isn't saved: it is back to auto after a reload or logout.\n\n### Commands\n\n- `/fqt`: open the options.\n- `/fqt preview on`, `/fqt preview off`, `/fqt preview auto`: set the preview. `/fqt preview` on its own cycles auto → on → off. `/fqt glow` works too.\n- `/fqt id`: the ID of the quest you have open, and whether the addon considers it vanilla.\n- `/fqt status`: the addon version, game interface, preview mode, and which supported UI addons were detected.\n\n## How it decides what is vanilla\n\nThe addon contains a list of the quest IDs that existed in original Classic (`VanillaQuests.lua`). Any quest not on that list is tinted. The list was generated from the Classic quest database in [Questie](https://github.com/Questie/Questie). A few genuine vanilla quests may be missing, and would show as teal. If you spot one, open an issue with the ID from `/fqt id`.\n\nOnly quests that are open in a quest window are tinted. Gossip windows have no quest ID, so they are left alone.\n\n## Other UI addons\n\nNothing to configure: the addon detects these on its own (`/fqt status` shows what it found).\n\n- **Dialogue UI**: its quest window gets the tint (matching its Brown and Dark themes) and the logo. Dialogue UI doesn't load on the Forever client out of the box: in its `DialogueUI.toc`, delete the `## X-Expansion: MAINLINE` line and add `, 16001` to the `## Interface:` line.\n- **Immersion**: the Quest Objectives and Rewards panel under its talking head gets a teal glow that fills the panel, with rounded corners to match it, and the logo in the panel's top-right corner. The talking head itself and gossip are left alone.\n- **Storyline**: its speech bubble gets a teal glow that fills the bubble, with rounded corners to match it, while it shows quest text, and the logo in the bubble's top-right corner. Gossip and the scene above the bubble are left alone.\n- **Lorewalker**: in its Classic mode, the quest page gets a soft teal glow inside the page's torn edges, its corners cut at 45 degrees like the page's (a deeper glow on its Dark theme), and the logo on the title bar. Lorewalker's fade over the buttons takes the glow's colour, so it doesn't show as a band. Gossip is left alone. Its Immersive and Story modes have no page, so they are unchanged. Lorewalker gives quests it considers new to Forever a page of its own; the tint and logo follow this addon's list.\n- **ClassicUI Forever**: its quest log window tints the selected quest's page right to its burnt edges, like the game's own quest parchment (a soft glow instead on its dark themes), and the quest name marker in its list. Its quest watch gets the marker too. On the map, the tint follows its parchment when its quest pane is on, and its dark themes get a teal glow instead of the copy of the paper. Its quest-giver window is the game's, so it is tinted as usual. Not covered yet: its combined map's quest pages, the logo in its quest log, and objective colours in its quest watch.\n- **Questie**: the yellow ! and ? of non-vanilla quests on the world map and minimap get a teal gradient rising from the bottom, like the quest window (option above), and Questie's own quest tracker gets the quest name marker. Questie's grey (low level), blue (repeatable), event and PvP icons keep their own colours, and its hover highlight still shows. Questie's quest data is built from Classic and doesn't yet cover most quests new to Forever, so many of them have no Questie icon to tint yet.\n- **EllesmereUI**: with its skin on, the quest window and quest log are flat and dark, so they get a flat teal glow instead of the parchment tint, across the whole window. Its Quest Tracker restyles Blizzard's objective tracker, so the quest name marker and objective colours work in it as usual; its own tracker style (the one it draws in place of Blizzard's) gets the quest name marker and the optional logo too. EllesmereUI shows quest names on a single line, so a long name can cut off a marker placed after it; if that happens, tick **Put the marker at the start of the name**.\n\n| Immersion | Storyline |\n| --- | --- |\n| ![Immersion's quest objectives panel with the teal glow](https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/immersion.png) | ![Storyline's speech bubble with the teal glow](https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/storyline.webp) |\n| **Lorewalker** (Dark theme) | **Dialogue UI** |\n| ![Lorewalker's quest page with the teal glow](https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/lorewalker.png) | ![Dialogue UI's quest window with the teal tint](https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/dialogueui.webp) |\n| **ClassicUI Forever** | **EllesmereUI** |\n| ![ClassicUI Forever's quest log with the teal tint and quest name markers](https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/classicui-forever.webp) | ![EllesmereUI's quest window with the flat teal glow](https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/ellesmereui.png) |\n\nUsing another quest or tracker addon? Open an issue with its name.\n\n## Game versions\n\nFor World of Warcraft: Forever only (interface `16001`). It relies on Blizzard's quest window and quest log art, so it may need updates if that changes.\n\n## Development\n\nTwo dev TOCs let a copy of this folder load elsewhere for testing, together with `/fqt preview`:\n\n- `ForeverQuestTint_Mainline.toc`: retail (Midnight), for the quest window, quest log and tracker addons.\n- `ForeverQuestTint_TBC.toc`: Burning Crusade Anniversary, for the Questie map icon tint. Questie has full TBC data and every TBC quest counts as non-vanilla, so there are plenty of icons to check. TBC's quest log is the old one, so the quest log tint doesn't apply there.\n\nTBC's world map has the game's own quest pins switched off, so the non-Questie map icon tint can only be tested on retail (or Forever).\n\nBoth are left out of release packages, so releases load on Forever only. When you change `ForeverQuestTint.toc`, make the same change below the interface line in each dev TOC.\n\n`tests/harness.lua` loads the addon against stubbed WoW frames and checks each integration (`lua5.1 tests/harness.lua .`, from the repo root). It checks behaviour, not looks, so changes still need an in-game look. `logo/make_glow_corner.py` renders the glow corner art in `Media/`.\n\n## Licence\n\nGPL-3.0-or-later. See [LICENSE](https://github.com/alexdia25/forever-quest-tint/blob/main/LICENSE). The vanilla quest list is derived from Questie's data, which is GPL-3.0 licensed.",
+  "releases": [
+    {
+      "tag": "v0.7.6",
+      "name": "Forever Quest Tint 0.7.6",
+      "published": "2026-11-16",
+      "notes": "- Works with DungeonJournal (ForeverDungeonJournal): non-vanilla quests get the marker after their name in its quest list and in the quest details, and a teal wash over the details pane. A long name that wraps keeps the marker beside its last word, and the row grows to fit. The marker is put back the moment the journal redraws its list, so it doesn't flicker when you click a quest. The addon now loads after the journal. `/fqt status` shows whether it was hooked."
+    },
+    {
+      "tag": "v0.7.5",
+      "name": "Forever Quest Tint 0.7.5",
+      "published": "2026-11-16",
+      "notes": "- Works with Pretty Wide Quest Log: on Forever, the quest details in its quest log window get a teal wash over the parchment for non-vanilla quests. The addon now loads after it. `/fqt status` shows whether it was found."
+    },
+    {
+      "tag": "v0.7.4",
+      "name": "Forever Quest Tint 0.7.4",
+      "published": "2026-11-15",
+      "notes": "- Works with EllesmereUI's own quest tracker (the new tracker it draws in place of Blizzard's, in its own style): non-vanilla quest titles get the name marker, and the optional logo beside the title.\n- Fixed the teal on the quest log (with EllesmereUI's skin) ending short of the Rewards panel: it now runs underneath it, like the unskinned log.\n- New `/fqt questie [questID]` to report how Questie's icons of non-vanilla quests look to the addon (icon type, colour, whether the teal gradient is drawn), for reporting icons that don't tint. `/fqt status` now shows whether EllesmereUI's tracker rows are hooked."
+    },
+    {
+      "tag": "v0.7.3",
+      "name": "Forever Quest Tint 0.7.3",
+      "published": "2026-11-09",
+      "notes": "- Fixed the quest name marker missing in the objective tracker for elite, dungeon, PvP and raid quests on Forever, whose tracker adds the tag after the name (\"Quest Name (Elite)\")."
+    },
+    {
+      "tag": "v0.7.2",
+      "name": "Forever Quest Tint 0.7.2",
+      "published": "2026-11-08",
+      "notes": "- Fixed the options panel sometimes showing every option unticked (or reset) while the saved options were still in effect, so unticking an option seemed to do nothing. It happened when the options were opened with the Settings window already showing another page. Thanks to the players who reported it.\n- The \"Add the logo beside quests in the tracker\" option now works in Questie's quest tracker too.\n- The preview now works as a preview: it isn't saved, and goes back to auto after a reload or logout. The options button shows its current state (Preview: auto, on or off). A preview left on by 0.7.0 or 0.7.1, which marked every quest, is cleared."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/quest-giver.png",
+    "https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/quest-log.webp",
+    "https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/immersion.png",
+    "https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/storyline.webp",
+    "https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/lorewalker.png",
+    "https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/dialogueui.webp",
+    "https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/classicui-forever.webp",
+    "https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/ellesmereui.png"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-10-31",
+      "2026-10-19",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-09-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverQuestTint"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "DialogueUI",
+      "Immersion",
+      "Storyline",
+      "Lorewalker",
+      "Questie",
+      "ClassicUIForever",
+      "EllesmereUI",
+      "EllesmereUIQuestTracker",
+      "Pretty-Wide-Quest-Log",
+      "ForeverDungeonJournal"
+    ],
+    "savedVariables": [
+      "ForeverQuestTintDB"
+    ]
+  }
+}

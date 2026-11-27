@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "seer",
+  "repo": "heto-m/wow-seer",
+  "about": "# Seer\n\nLets any AI (Claude Code, Claude Desktop, a local model) read your WoW: Forever state through an MCP server: character, gear with tooltips, bags, bank, quests, talents, the last trainer, profession, vendor or auction house window you opened, and data from addons such as Auctionator, Questie, Pawn and Polestar. Read-only: it never acts in the game.\n\n## How it works\n\nThe addon draws the state as a small colour strip in the top-left corner for under a second, and the server reads it straight from the game window, so the game never stops to save a screenshot. If the server can't read the window (no window access on that system, a covered or minimised game), the addon falls back to taking a screenshot, which the server decodes and deletes. Requests go the other way through small load-on-demand addons (\"slots\") that the addon checks every 10 s; `/reload` renews them. Like Questie, the addon tells your guild and group its version number, and says in chat when someone has a newer Seer; the server does the same when it is newer than the addon.\n\n`/seer status` in game shows what the last send cost in milliseconds.\n\n## Install\n\nSeer has two parts: the addon, and a small program (the MCP server) that your AI client starts. Both come from one command.\n\n### Windows, step by step\n\n1. Install **Node.js LTS** from [nodejs.org](https://nodejs.org/) with the default options.\n2. Close the game.\n3. Open the Start menu, type **PowerShell**, open it, paste this and press Enter:\n   ```\n   npx -y wow-seer install\n   ```\n   Wait for `Installed Seer and 1000 request slots`. If you got Seer from CurseForge, still do this step: it adds the request slots, which an addon manager can't install.\n4. Connect your AI client:\n   - **Claude Desktop**: Settings → Developer → Edit Config. Put this in `claude_desktop_config.json`, save, and restart Claude Desktop:\n     ```json\n     {\n       \"mcpServers\": {\n         \"wow-seer\": { \"command\": \"cmd\", \"args\": [\"/c\", \"npx\", \"-y\", \"wow-seer@latest\", \"serve\"] }\n       }\n     }\n     ```\n     If the file already has an `mcpServers` block, add the `\"wow-seer\"` line inside it.\n   - **Claude Code**: `claude mcp add wow-seer -- npx -y wow-seer@latest serve`\n   - **Any other MCP client**: a stdio server with the command `npx -y wow-seer@latest serve`.\n5. Start the game and type `/seer`: it should say the server is connected. Then ask your AI something like \"what's in my bags?\".\n\n### macOS and Linux\n\nSame steps in a terminal. In the Claude Desktop config use `\"command\": \"npx\", \"args\": [\"-y\", \"wow-seer@latest\", \"serve\"]`.\n\nSet `WOW_DIR` if your `_forever_` folder isn't in a default place. When Seer has to fall back to screenshots it needs them saved as PNG, and asks to switch if they are not (`/seer png` does it too).\n\n## Tools\n\n| Tool | Returns |\n|---|---|\n| `get_character` | level, money, map position, stats, gear names, talents taken, professions, BiS stat weights, dungeons entered this hour; `detail=full` adds gear tooltips |\n| `get_equipment` | equipped items with tooltip stats, optionally only some `slots`; set bonuses listed once |\n| `get_talents` | talents with points in them; `all=true` lists the whole tree |\n| `get_bags` | bag or bank contents with stacks merged; filter by `name`, `equippable_only`; Pawn values and BiS gain for gear |\n| `find_item` | where an item is (equipped, bag and slot, bank) by ID or name |\n| `get_quests` | quest log grouped by zone; filter by `zone`, `unfinished_only`; with Questie, where to turn in and where the objectives are |\n| `search_auction` | the last auction house results you saw, filtered by name, type, slot, level, price, quality |\n| `get_trainer`, `get_profession`, `get_merchant` | the last window of that kind you opened, with filters |\n| `compare_item` | an item's tooltip next to what you wear in its slot, with the stat difference |\n| `get_item` | the tooltip of any item by ID |\n| `get_prices` | Auctionator's last seen price, its age, vendor and disenchant value, for item IDs or the whole bags |\n| `get_guide` | the step your Polestar guide is on, with quests, NPCs and coordinates |\n| `get_last_fight` | damage, healing and damage taken per group member in the last fight, from the game's damage meter |\n| `get_training` | spells to learn now and in the next levels, with cost (What's Training) |\n| `get_crafting` | profession leveling plan: next steps, recipes and reagents still needed (SkillUp Forever) |\n| `get_loot` | where items drop (dungeon, boss, drop %), or a dungeon's whole loot table (AtlasLoot) |\n| `get_alts` | your other characters: level, class, money, where they logged out, rested xp, mail expiry (DataStore) |\n| `refresh` | asks the game to resend sections now (up to about 15 s) |\n| `seer_status` | connection state, slots left, decode errors |\n\nMoney is in copper.\n\nSome tools read other addons when they are installed: Auctionator (`get_prices`), Questie (quest locations), Pawn (gear values), Polestar (`get_guide`), What's Training (`get_training`), SkillUp Forever (`get_crafting`), AtlasLoot (`get_loot`, read from its files), Forever Leveling BiS (gear gain and stat weights), Nova Instance Tracker (hourly dungeon limit) and DataStore (`get_alts`). Without them those parts are just left out.\n\nThe addon includes [LibDeflate](https://github.com/SafeteeWoW/LibDeflate) (zlib licence, `addon/Seer/LibDeflate-LICENSE.txt`) to compress what it sends.\n\n## Tests\n\n```sh\nnpm install && npm test   # the end-to-end tests need lua5.1\n```",
+  "releases": [
+    {
+      "tag": "v0.6.0",
+      "published": "2026-11-22",
+      "notes": "- The server now reads Seer's data from the game window, so the addon no longer takes a screenshot on every send. It still falls back to a screenshot when the game is in the background or a message was missed.\n- Each send is spread over several frames, to avoid one long frame.\n- Bag item tooltips are cached for 2 minutes, and cleared when your gear, level or talents change.\n- `/seer status` shows how long the last send took.\n- Fixed two Seer servers both acting as the leader after a restart.\n- Step-by-step install instructions for Windows and Claude Desktop.\n\nAfter updating, close the game and run `npx -y wow-seer install` once."
+    },
+    {
+      "tag": "v0.5.4",
+      "published": "2026-11-18",
+      "notes": "## What's Changed\n* 0.5.4: fresher character data, Polestar step numbers by @heto-m in https://github.com/heto-m/wow-seer/pull/22\n\n**Full Changelog**: https://github.com/heto-m/wow-seer/compare/v0.5.3...v0.5.4"
+    },
+    {
+      "tag": "v0.5.3",
+      "published": "2026-11-18",
+      "notes": "## What's Changed\n* 0.5.3: get_trainer status fix by @heto-m in https://github.com/heto-m/wow-seer/pull/21\n\n**Full Changelog**: https://github.com/heto-m/wow-seer/compare/v0.5.2...v0.5.3"
+    },
+    {
+      "tag": "v0.5.2",
+      "published": "2026-11-18",
+      "notes": "## What's Changed\n* 0.5.2: update notice by @heto-m in https://github.com/heto-m/wow-seer/pull/20\n\n**Full Changelog**: https://github.com/heto-m/wow-seer/compare/v0.5.1...v0.5.2"
+    },
+    {
+      "tag": "v0.5.1",
+      "published": "2026-11-17",
+      "notes": "## What's Changed\n* Upload every version to CurseForge as a release by @heto-m in https://github.com/heto-m/wow-seer/pull/18\n* 0.5.1: AtlasLoot, SkillUp, Forever Leveling BiS, Nova Instance Tracker, DataStore by @heto-m in https://github.com/heto-m/wow-seer/pull/19\n\n**Full Changelog**: https://github.com/heto-m/wow-seer/compare/v0.5.0...v0.5.1"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Seer"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator",
+      "Questie",
+      "QuestieDB",
+      "Pawn",
+      "Polestar",
+      "WhatsTraining",
+      "SkillUpForever",
+      "ForeverLevelingBiS",
+      "NovaInstanceTracker",
+      "DataStore",
+      "DataStore_Characters",
+      "DataStore_Mails"
+    ],
+    "savedVariables": [
+      "SeerDB"
+    ]
+  }
+}

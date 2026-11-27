@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "sexyreputation",
+  "repo": "Addons-By-Neotron/SexyReputation",
+  "about": "# SexyReputation\n\nA fancy LDB reputation display, show faction reputation and reputation change history\n\n# Addon Description\n\nSexy Reputation is an LDB reputation display. In addition to an interactive tooltip, Sexy Reputation will also keep track of daily reputation changes as well as session changes. This is meant to be a worthy successor to FuBar_FactionFu, and much more.\nFeatures:\n\n*    Displays all factions in a tree, with the option to fold/unfold each tree.\n*    Ability to track progress of a faction in the LDB text display.\n*    Doesn't use Blizzard functionality to hide, show or track reputation (which means no other addons will mess with the display).\n*    Shows hidden reputation for certain faction groups, such as Horde and Shattrah city.\n*    Tracks historical faction gains, displaying session, today, yesterday, week and month in a tooltip as you hover over the faction.\n*    Option to only show factions that has shown a gain or a loss today\n*    Customizable colors for the reputation standing levels.\n*    Option to show standing and reputation either as a bar or as text\n*    Ability to toggle rep gains, reputation level, standing and reputation percentage on and off.\n*    Support for MoP friendship faction.\n\n# Planned Features\n\n*    Option to have alternating colors in the faction tooltip, so you can more easily follow the lines.\n*    Graphing options to visualize rep changes in the past 30 days, or more.\n*    Customizable font.\n*    Customizable reputation bar texture.\n*    Whatever else I can think of.",
+  "releases": [
+    {
+      "tag": "20261108",
+      "published": "2026-11-08",
+      "notes": "# Sexy Reputation\n\n## [20261108](https://github.com/Addons-By-Neotron/SexyReputation/tree/20261108) (2026-10-16)\n[Full Changelog](https://github.com/Addons-By-Neotron/SexyReputation/compare/20261008...20261108) [Previous Releases](https://github.com/Addons-By-Neotron/SexyReputation/releases)\n\n- Update Interface version"
+    },
+    {
+      "tag": "20261105",
+      "published": "2026-11-05",
+      "notes": "# Sexy Reputation\n\n## [20261105](https://github.com/Addons-By-Neotron/SexyReputation/tree/20261105) (2026-10-08)\n[Full Changelog](https://github.com/Addons-By-Neotron/SexyReputation/compare/20261003...20261105) [Previous Releases](https://github.com/Addons-By-Neotron/SexyReputation/releases)\n\n- Fix table recycling type check in del"
+    },
+    {
+      "tag": "20261008",
+      "published": "2026-10-08",
+      "notes": "# Sexy Reputation\n\n## [20261008](https://github.com/Addons-By-Neotron/SexyReputation/tree/20261008) (2026-10-08)\n[Full Changelog](https://github.com/Addons-By-Neotron/SexyReputation/compare/20261003...20261008) [Previous Releases](https://github.com/Addons-By-Neotron/SexyReputation/releases)\n\n- Fix table recycling type check in del"
+    },
+    {
+      "tag": "20261003",
+      "published": "2026-10-03",
+      "notes": "# Sexy Reputation\n\n## [20261003](https://github.com/Addons-By-Neotron/SexyReputation/tree/20261003) (2026-10-03)\n[Full Changelog](https://github.com/Addons-By-Neotron/SexyReputation/compare/20260813...20261003) [Previous Releases](https://github.com/Addons-By-Neotron/SexyReputation/releases)\n\n- Update Interface version  \n- * WoW Forever support."
+    },
+    {
+      "tag": "20260813",
+      "published": "2026-08-13",
+      "notes": "# Sexy Reputation\n\n## [20260813](https://github.com/Addons-By-Neotron/SexyReputation/tree/20260813) (2026-08-12)\n[Full Changelog](https://github.com/Addons-By-Neotron/SexyReputation/compare/20260308.1...20260813) [Previous Releases](https://github.com/Addons-By-Neotron/SexyReputation/releases)\n\n- Update Interface version  \n- Update Interface version"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 3,
+    "contributors": 5,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-11-05",
+      "2026-10-08",
+      "2026-10-03",
+      "2026-08-13",
+      "2026-03-08",
+      "2026-03-08",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-02-26",
+      "2026-01-19",
+      "2025-07-25",
+      "2025-07-19",
+      "2025-07-19",
+      "2025-06-03",
+      "2025-05-31",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-07-24",
+      "2024-06-01",
+      "2023-01-10",
+      "2023-01-07",
+      "2023-01-07",
+      "2022-08-30",
+      "2022-08-13",
+      "2022-08-06",
+      "2022-01-20",
+      "2022-01-20",
+      "2021-11-18",
+      "2021-11-17",
+      "2021-11-11",
+      "2021-08-16",
+      "2021-05-22",
+      "2020-09-03",
+      "2019-11-05",
+      "2019-11-03",
+      "2019-09-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SexyReputation"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDatabroker-1.1",
+      "LibMagicUtil-1.0",
+      "LibQTip-1.0",
+      "LibDataBroker-1.1",
+      "LibDropdown-1.0"
+    ],
+    "savedVariables": [
+      "SexyRepDB"
+    ]
+  }
+}

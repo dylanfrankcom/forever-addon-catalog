@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "xandurability",
+  "repo": "Xruptor/xanDurability",
+  "releases": [
+    {
+      "tag": "v6.25",
+      "published": "2026-10-28",
+      "notes": "# xanDurability\n\n## [v6.25](https://github.com/Xruptor/xanDurability/tree/v6.25) (2026-10-28)\n[Full Changelog](https://github.com/Xruptor/xanDurability/compare/v6.24...v6.25) [Previous Releases](https://github.com/Xruptor/xanDurability/releases)\n\n- Fixed a new Nil Issue  \n    - WOW API changes caused another Nil Issue  (Fixes #15)"
+    },
+    {
+      "tag": "v6.24",
+      "published": "2026-10-24",
+      "notes": "# xanDurability\n\n## [v6.24](https://github.com/Xruptor/xanDurability/tree/v6.24) (2026-10-24)\n[Full Changelog](https://github.com/Xruptor/xanDurability/compare/v6.23...v6.24) [Previous Releases](https://github.com/Xruptor/xanDurability/releases)\n\n- Fixed Nil Issue (Fixes #14)  \n- Merge remote-tracking branch 'origin/master'  \n- Nil Issue Fix  \n    - Fixed a bug where the repair amount display would return a nil value (Fixes #14)"
+    },
+    {
+      "tag": "v6.23",
+      "published": "2026-10-13",
+      "notes": "# xanDurability\n\n## [v6.23](https://github.com/Xruptor/xanDurability/tree/v6.23) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/xanDurability/compare/v6.22...v6.23) [Previous Releases](https://github.com/Xruptor/xanDurability/releases)\n\n- chore: update TOC interface numbers → v6.23"
+    },
+    {
+      "tag": "v6.22",
+      "published": "2026-09-28",
+      "notes": "# xanDurability\n\n## [v6.22](https://github.com/Xruptor/xanDurability/tree/v6.22) (2026-09-28)\n[Full Changelog](https://github.com/Xruptor/xanDurability/compare/v6.21...v6.22) [Previous Releases](https://github.com/Xruptor/xanDurability/releases)\n\n- Fixed the new hide in combat feature. (Fixes #13)"
+    },
+    {
+      "tag": "v6.21",
+      "published": "2026-09-23",
+      "notes": "# xanDurability\n\n## [v6.21](https://github.com/Xruptor/xanDurability/tree/v6.21) (2026-09-23)\n[Full Changelog](https://github.com/Xruptor/xanDurability/compare/v6.20...v6.21) [Previous Releases](https://github.com/Xruptor/xanDurability/releases)\n\n- Added a new option to hide the durability window during combat.  (Fixes #13)"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-10-28",
+    "releaseDates": [
+      "2026-10-28",
+      "2026-10-24",
+      "2026-10-13",
+      "2026-09-28",
+      "2026-09-23",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-04-11",
+      "2026-02-12",
+      "2026-02-10",
+      "2026-02-04",
+      "2026-01-25",
+      "2026-01-24",
+      "2026-01-02",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-08-18",
+      "2024-08-14",
+      "2024-07-30",
+      "2024-07-26",
+      "2024-04-08",
+      "2024-04-08",
+      "2024-04-08",
+      "2024-04-06",
+      "2023-09-18",
+      "2023-05-26",
+      "2023-01-25",
+      "2022-12-09",
+      "2022-11-26",
+      "2022-11-15",
+      "2022-11-10",
+      "2022-11-01",
+      "2022-10-31",
+      "2021-09-19",
+      "2021-05-28",
+      "2021-04-10",
+      "2021-04-06"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "XanDurability"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tekDebug"
+    ],
+    "savedVariables": [
+      "XanDUR_Opt"
+    ],
+    "savedVariablesPerCharacter": [
+      "XanDUR_DB"
+    ]
+  }
+}

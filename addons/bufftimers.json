@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "bufftimers",
+  "repo": "sandervspl/BuffTimers",
+  "releases": [
+    {
+      "tag": "v2.5.0",
+      "published": "2026-11-16",
+      "notes": "# BuffTimers\n\n## [v2.5.0](https://github.com/sandervspl/BuffTimers/tree/v2.5.0) (2026-11-16)\n[Full Changelog](https://github.com/sandervspl/BuffTimers/compare/v2.4.0...v2.5.0) [Previous Releases](https://github.com/sandervspl/BuffTimers/releases)\n\n- Add BetterBlizzFrames support  \n- Restore expiration warning fades in replacement buff renderer"
+    },
+    {
+      "tag": "v2.4.0",
+      "published": "2026-11-15",
+      "notes": "# BuffTimers\n\n## [v2.4.0](https://github.com/sandervspl/BuffTimers/tree/v2.4.0) (2026-11-14)\n[Full Changelog](https://github.com/sandervspl/BuffTimers/compare/v2.3.1...v2.4.0) [Previous Releases](https://github.com/sandervspl/BuffTimers/releases)\n\n- Handle forbidden enchant frames and defer native renderer recovery safely  \n- Remove detailed hover timer background without overlapping text  \n- Preserve temporary weapon enchant spell icons in replacement renderer  \n- Remove redundant native renderer active and disabled status text  \n- Add replacement buff renderer  \n- Preserve always-yellow timers for secret combat durations"
+    },
+    {
+      "tag": "v2.3.1",
+      "published": "2026-10-16",
+      "notes": "# BuffTimers\n\n## [v2.3.1](https://github.com/sandervspl/BuffTimers/tree/v2.3.1) (2026-10-16)\n[Full Changelog](https://github.com/sandervspl/BuffTimers/compare/v2.3.0...v2.3.1) [Previous Releases](https://github.com/sandervspl/BuffTimers/releases)\n\n- Update Retail Interface for 12.1.5 (#36)  \n    * Update Retail Interface for 12.1.5  \n    * Synchronize Retail client fixture and reference mapping"
+    },
+    {
+      "tag": "v2.3.0",
+      "published": "2026-09-26",
+      "notes": "# BuffTimers\n\n## [v2.3.0](https://github.com/sandervspl/BuffTimers/tree/v2.3.0) (2026-09-25)\n[Full Changelog](https://github.com/sandervspl/BuffTimers/compare/v2.2.2...v2.3.0) [Previous Releases](https://github.com/sandervspl/BuffTimers/releases)\n\n- Add detailed aura time on hover"
+    },
+    {
+      "tag": "v2.2.2",
+      "published": "2026-09-25",
+      "notes": "# BuffTimers\n\n## [v2.2.2](https://github.com/sandervspl/BuffTimers/tree/v2.2.2) (2026-09-25)\n[Full Changelog](https://github.com/sandervspl/BuffTimers/compare/v2.2.1...v2.2.2) [Previous Releases](https://github.com/sandervspl/BuffTimers/releases)\n\n- Fix compact aura duration text for secret combat timers"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 2,
+    "contributors": 8,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-15",
+      "2026-10-16",
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-24",
+      "2026-08-13",
+      "2026-08-12",
+      "2026-07-31",
+      "2026-04-22",
+      "2026-04-21",
+      "2026-02-01",
+      "2026-01-16",
+      "2026-01-14",
+      "2026-01-14",
+      "2026-01-14",
+      "2025-12-03",
+      "2025-11-26",
+      "2025-11-16",
+      "2025-08-08",
+      "2025-04-23",
+      "2025-03-07",
+      "2025-03-01",
+      "2025-02-27",
+      "2025-02-26",
+      "2025-02-19",
+      "2025-02-06",
+      "2025-01-08",
+      "2024-12-27",
+      "2024-11-24",
+      "2024-10-23",
+      "2024-09-29",
+      "2024-09-25",
+      "2024-09-10",
+      "2024-07-30",
+      "2024-07-10",
+      "2024-05-02",
+      "2024-05-01",
+      "2024-04-03",
+      "2024-03-20",
+      "2024-02-07",
+      "2024-01-17",
+      "2023-12-07",
+      "2023-11-12",
+      "2023-11-09",
+      "2023-10-15",
+      "2023-09-07",
+      "2023-08-24",
+      "2023-07-12"
+    ]
+  },
+  "languages": [
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "BuffTimers"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibSharedMedia-3.0"
+    ],
+    "savedVariables": [
+      "BuffTimersDB",
+      "BuffTimersNativeDB"
+    ]
+  }
+}

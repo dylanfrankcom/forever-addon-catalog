@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "hizurossharedtools",
+  "repo": "HizurosWoWAddOns/HizurosSharedTools",
+  "about": "# HizurosSharedTools\nMy little shared tools library for my addons",
+  "releases": [
+    {
+      "tag": "r66",
+      "published": "2026-11-04",
+      "notes": "# HizurosSharedTools\n\n## [r66](https://github.com/HizurosWoWAddOns/HizurosSharedTools/tree/r66) (2026-11-04)\n[Full Changelog](https://github.com/HizurosWoWAddOns/HizurosSharedTools/commits/r66) [Previous Releases](https://github.com/HizurosWoWAddOns/HizurosSharedTools/releases)\n\n- Reviced credit page generator and removed unused code."
+    },
+    {
+      "tag": "r65",
+      "published": "2026-08-12",
+      "notes": "# HizurosSharedTools\n\n## [r65](https://github.com/HizurosWoWAddOns/HizurosSharedTools/tree/r65) (2026-08-12)\n[Full Changelog](https://github.com/HizurosWoWAddOns/HizurosSharedTools/commits/r65) [Previous Releases](https://github.com/HizurosWoWAddOns/HizurosSharedTools/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r64",
+      "published": "2026-06-19",
+      "notes": "# HizurosSharedTools\n\n## [r64](https://github.com/HizurosWoWAddOns/HizurosSharedTools/tree/r64) (2026-06-19)\n[Full Changelog](https://github.com/HizurosWoWAddOns/HizurosSharedTools/commits/r64) [Previous Releases](https://github.com/HizurosWoWAddOns/HizurosSharedTools/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r63",
+      "published": "2026-06-14",
+      "notes": "# HizurosSharedTools\n\n## [r63](https://github.com/HizurosWoWAddOns/HizurosSharedTools/tree/r63) (2026-06-14)\n[Full Changelog](https://github.com/HizurosWoWAddOns/HizurosSharedTools/commits/r63) [Previous Releases](https://github.com/HizurosWoWAddOns/HizurosSharedTools/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r62",
+      "published": "2026-04-15",
+      "notes": "# HizurosSharedTools\n\n## [r62](https://github.com/HizurosWoWAddOns/HizurosSharedTools/tree/r62) (2026-04-15)\n[Full Changelog](https://github.com/HizurosWoWAddOns/HizurosSharedTools/commits/r62) [Previous Releases](https://github.com/HizurosWoWAddOns/HizurosSharedTools/releases)\n\n- Minor changes for secret values"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-08-12",
+      "2026-06-19",
+      "2026-06-14",
+      "2026-04-15",
+      "2026-03-23",
+      "2026-03-01",
+      "2026-02-28",
+      "2026-02-28",
+      "2026-02-26",
+      "2026-02-14",
+      "2026-02-14",
+      "2026-01-31",
+      "2026-01-30",
+      "2026-01-29",
+      "2026-01-20",
+      "2025-12-31",
+      "2025-08-31",
+      "2025-08-31",
+      "2025-08-10",
+      "2025-08-09",
+      "2025-07-07",
+      "2025-06-18",
+      "2025-05-22",
+      "2025-04-24",
+      "2025-03-19",
+      "2025-02-27",
+      "2025-02-26",
+      "2025-02-25",
+      "2025-02-25",
+      "2024-12-20",
+      "2024-12-20",
+      "2024-12-10",
+      "2024-12-03",
+      "2024-10-23",
+      "2024-08-13",
+      "2024-07-24",
+      "2024-07-01",
+      "2024-06-28",
+      "2024-05-13",
+      "2024-05-07",
+      "2024-05-07",
+      "2024-03-01",
+      "2024-01-21",
+      "2023-12-07",
+      "2023-11-09",
+      "2023-07-13",
+      "2023-06-26",
+      "2023-06-26",
+      "2023-04-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HizurosSharedTools"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "Ace3",
+      "LibColors-1.0"
+    ]
+  }
+}

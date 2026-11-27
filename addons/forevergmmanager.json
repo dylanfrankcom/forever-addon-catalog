@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "forevergmmanager",
+  "repo": "TortoiseBots/ForeverGMManager",
+  "about": "![ForeverGMManager icon](https://raw.githubusercontent.com/TortoiseBots/ForeverGMManager/main/docs/icon.png)\n\n# ForeverGMManager\n\nA compact GM command manager for **WoW Forever** on **ForeverCore** (`Karrz1/TrinityCore`). It turns TrinityCore's\ndot-prefixed GM commands into a searchable in-game palette with server-backed lookups, a mail composer, and two-click\nconfirmation for destructive actions.\n\n> [!NOTE]\n> **Client-side only (WIP).** Commands run through the normal GM chat-command path and respect server RBAC permissions.\n> The window, icon, colours, and minimap button are verified in-client; the full command panel still needs a complete\n> in-game pass.\n\n  ![Command search and configure](https://raw.githubusercontent.com/TortoiseBots/ForeverGMManager/main/docs/screenshots/search-configure.webp)\n\n  **Search &amp; configure** — filter 183 presets as you type and preview the exact GM command before execution (offline preview via `tools/preview`).\n\n## Installation\n\n1. Download or clone this repository into `<WoW Forever>/_forever_/Interface/AddOns/ForeverGMManager/` (so\n   `ForeverGMManager.toc` sits at the folder root).\n2. Restart the client, enable **ForeverGMManager** in **AddOns** (enable **Load out of date AddOns** if prompted).\n3. Log into a GM character and click the minimap hammer icon (**Shift-drag** to move, **Right-click** to hide) or run\n   `/fgmm` (alias `/tgmm`).\n\n## Documentation\n\n| Area | Topics |\n|---|---|\n| [Usage](https://github.com/TortoiseBots/ForeverGMManager/blob/main/knowledge/usage/index.md) | [Features & Workflow](https://github.com/TortoiseBots/ForeverGMManager/blob/main/knowledge/usage/workflow.md), [Lookup Browser](https://github.com/TortoiseBots/ForeverGMManager/blob/main/knowledge/usage/lookup-browser.md), [Safety Model](https://github.com/TortoiseBots/ForeverGMManager/blob/main/knowledge/usage/safety-model.md) |\n| [Development](https://github.com/TortoiseBots/ForeverGMManager/blob/main/knowledge/development/index.md) | [Architecture & Command Coverage](https://github.com/TortoiseBots/ForeverGMManager/blob/main/knowledge/development/architecture.md), [Server Alignment & Checks](https://github.com/TortoiseBots/ForeverGMManager/blob/main/knowledge/development/checks.md) |\n\nGenerated command reference: [`COMMANDS.md`](https://github.com/TortoiseBots/ForeverGMManager/blob/main/COMMANDS.md) (183 presets, 26 `SEARCH` mappings).\n\n## Licence\n\nReleased under **AGPL-3.0** ([`LICENSE`](https://github.com/TortoiseBots/ForeverGMManager/blob/main/LICENSE)). Original MIT-licensed code from TortoiseGMManager is documented in\n[`NOTICE.md`](https://github.com/TortoiseBots/ForeverGMManager/blob/main/NOTICE.md).\n\nThis is an unofficial community project made for educational purposes. It does not distribute game-client binaries or\nextracted game data, and is not affiliated with Blizzard Entertainment or the WoW Forever project.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "ForeverGMManager v1.0.0",
+      "published": "2026-11-24",
+      "notes": "### Commands & Presets\n- 26 additional GM commands added, filling out the in-game command list. [#3](https://github.com/TortoiseBots/ForeverGMManager/pull/3)\n- Full command reference generated from addon data: 183 commands grouped by tab, with access level and danger marks, and a server check that fails if it goes stale. [#1](https://github.com/TortoiseBots/ForeverGMManager/pull/1)\n- Command table regenerated from source; the talent-points help text now reads correctly. [#6](https://github.com/TortoiseBots/ForeverGMManager/pull/6)\n\n### Teleports\n- 114 teleport points available in the teleport tab. [#3](https://github.com/TortoiseBots/ForeverGMManager/pull/3)\n\n### Lookups & Search\n- Shift+click item links straight out of lookup results to paste into chat or mail. [#3](https://github.com/TortoiseBots/ForeverGMManager/pull/3)\n\n### Mail\n- Mail composer for sending items to players directly from the UI. [#3](https://github.com/TortoiseBots/ForeverGMManager/pull/3)\n- Target button only fills the recipient with plain names, so a secret creature name can never land in a field that gets checked and sent later. [#7](https://github.com/TortoiseBots/ForeverGMManager/pull/7)\n\n### UI & Controls\n- New addon icon and recolored palette; icons no longer render underneath their frames on the new client. [#1](https://github.com/TortoiseBots/ForeverGMManager/pull/1)\n- ON/OFF buttons now clearly show which state is active. [#1](https://github.com/TortoiseBots/ForeverGMManager/pull/1)\n- Minimap button can be hidden. [#3](https://github.com/TortoiseBots/ForeverGMManager/pull/3)\n- Fixed the Lua error when right-clicking a creature: the target pill still displays a secret name but only compares or measures it when it is a plain string. [#7](https://github.com/TortoiseBots/ForeverGMManager/pull/7)\n\n### Docs & Screenshots\n- README gets a Screenshots section with five previews (command search, favourites, item lookup, mail composer, dangerous command awaiting its second EXECUTE), redrawable via `tools/preview` after UI changes. [#4](https://github.com/TortoiseBots/ForeverGMManager/pull/4)\n- README now states the project is an unofficial community project made for educational purposes. [#5](https://github.com/TortoiseBots/ForeverGMManager/pull/5)\n- Docs retargeted to WoW Forever on ForeverCore; stale client version and build numbers dropped. [#6](https://github.com/TortoiseBots/ForeverGMManager/pull/6)\n\n### Release Tooling\n- Manual Release action: runs tests, bumps the `.toc` version (patch/minor/major/custom), tags, packs a ready-to-install zip and publishes a GitHub release listing merged PRs. [#8](https://github.com/TortoiseBots/ForeverGMManager/pull/8)\n- Release notes and `CHANGELOG.md` now written by AI from merged PRs; without an API key the release still works using GitHub's plain PR list. [#9](https://github.com/TortoiseBots/ForeverGMManager/pull/9)\n- AI changelog endpoint and model configurable via repo variables (`OPENCODE_ENDPOINT`, `OPENCODE_MODEL`) with secret fallback, plus optional `OPENCODE_REASONING_EFFORT` to control how hard the model thinks. [#10](https://github.com/TortoiseBots/ForeverGMManager/pull/10)"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/TortoiseBots/ForeverGMManager/main/docs/screenshots/search-configure.webp"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverGMManager"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "TortoiseGMManagerDB"
+    ]
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "jmap",
+  "repo": "jlelz/jMap",
+  "about": "# jMap\n## Warcraft Map mod, since 2019\n\n## License\n[![License](https://img.shields.io/badge/license-GPL-blue)](https://github.com/jlelz/jMap/blob/main/LICENSE)\n\n## Why\n- Because searching for your tiny dot on the map takes forever\n- ...and on a PvP server, it's helpful to see behind your map\n\n## How\nInterface > Addons UI\n\n## Platforms\nUI works with Classic Era, Classic Wrath and Retail\n\n## FAQ\n\n## Issues\nhttps://github.com/jlelz/jMap/issues\n\n## Screenshots\n\n  ![](https://raw.githubusercontent.com/jlelz/screens/main/wow/jMap/1.png)\n\n  ![](https://raw.githubusercontent.com/jlelz/screens/main/wow/jMap/2.png)\n\n  ![](https://raw.githubusercontent.com/jlelz/screens/main/wow/jMap/3.png)",
+  "releases": [
+    {
+      "tag": "2026.11.10.22.07.53",
+      "published": "2026-11-11",
+      "notes": "# jMap\n\n## [2026.11.10.22.07.53](https://github.com/jlelz/jMap/tree/2026.11.10.22.07.53) (2026-11-11)\n[Full Changelog](https://github.com/jlelz/jMap/compare/2026.11.07.21.36.50...2026.11.10.22.07.53) [Previous Releases](https://github.com/jlelz/jMap/releases)\n\n- screenshots"
+    },
+    {
+      "tag": "2026.11.07.21.36.50",
+      "published": "2026-11-08",
+      "notes": "# jMap\n\n## [2026.11.07.21.36.50](https://github.com/jlelz/jMap/tree/2026.11.07.21.36.50) (2026-11-08)\n[Full Changelog](https://github.com/jlelz/jMap/compare/2026.11.01.21.50.45...2026.11.07.21.36.50) [Previous Releases](https://github.com/jlelz/jMap/releases)\n\n- update to new options frame"
+    },
+    {
+      "tag": "2026.11.01.21.50.45",
+      "published": "2026-11-02",
+      "notes": "# jMap\n\n## [2026.11.01.21.50.45](https://github.com/jlelz/jMap/tree/2026.11.01.21.50.45) (2026-11-02)\n[Full Changelog](https://github.com/jlelz/jMap/compare/2026.10.18.22.27.35...2026.11.01.21.50.45) [Previous Releases](https://github.com/jlelz/jMap/releases)\n\n- update zone when moving"
+    },
+    {
+      "tag": "2026.10.18.22.27.35",
+      "published": "2026-10-19",
+      "notes": "# jMap\n\n## [2026.10.18.22.27.35](https://github.com/jlelz/jMap/tree/2026.10.18.22.27.35) (2026-10-19)\n[Full Changelog](https://github.com/jlelz/jMap/compare/2026.08.30.18.25.07...2026.10.18.22.27.35) [Previous Releases](https://github.com/jlelz/jMap/releases)\n\n- scale fix  \n- stop support for wrath and cata, preserve support for forever and retail only  \n- toc bump"
+    },
+    {
+      "tag": "2026.08.30.18.25.07",
+      "published": "2026-08-30",
+      "notes": "# jMap\n\n## [2026.08.30.18.25.07](https://github.com/jlelz/jMap/tree/2026.08.30.18.25.07) (2026-08-30)\n[Full Changelog](https://github.com/jlelz/jMap/compare/2026.08.29.12.57.10...2026.08.30.18.25.07) [Previous Releases](https://github.com/jlelz/jMap/releases)\n\n- securing hooks"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/jlelz/screens/main/wow/jMap/1.png",
+    "https://raw.githubusercontent.com/jlelz/screens/main/wow/jMap/2.png",
+    "https://raw.githubusercontent.com/jlelz/screens/main/wow/jMap/3.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11",
+      "2026-11-08",
+      "2026-11-02",
+      "2026-10-19",
+      "2026-08-30",
+      "2026-08-29",
+      "2026-08-13",
+      "2026-08-08",
+      "2026-08-08",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-06-17",
+      "2026-05-17",
+      "2026-05-15",
+      "2026-05-15",
+      "2026-04-30",
+      "2026-03-13",
+      "2026-03-10",
+      "2026-03-08",
+      "2026-03-08",
+      "2026-03-08",
+      "2026-03-08",
+      "2026-03-02",
+      "2026-03-02",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-26",
+      "2026-02-26",
+      "2026-02-22",
+      "2026-02-22",
+      "2026-02-22",
+      "2026-02-22",
+      "2026-02-21",
+      "2026-02-21",
+      "2026-02-17",
+      "2026-02-15",
+      "2026-02-14",
+      "2026-02-11",
+      "2026-02-11",
+      "2026-02-05",
+      "2026-02-05",
+      "2026-01-31",
+      "2026-01-28",
+      "2026-01-28",
+      "2026-01-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "jMap"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "jMap"
+    ]
+  }
+}

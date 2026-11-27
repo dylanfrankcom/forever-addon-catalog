@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "battlegroundspiritreleaser",
+  "repo": "BujuArena/BattlegroundSpiritReleaser",
+  "releases": [
+    {
+      "tag": "2026-10-18-release",
+      "published": "2026-10-18",
+      "notes": "# BattlegroundSpiritReleaser\n\n## [2026-10-18-release](https://github.com/BujuArena/BattlegroundSpiritReleaser/tree/2026-10-18-release) (2026-10-18)\n[Full Changelog](https://github.com/BujuArena/BattlegroundSpiritReleaser/compare/2026-02-10-release...2026-10-18-release) [Previous Releases](https://github.com/BujuArena/BattlegroundSpiritReleaser/releases)\n\n- toc update  \n- Fix nil call to removed GetSortedSelfResurrectOptions  \n- give runner write permissions to prevent packaging issues"
+    },
+    {
+      "tag": "2026-02-10-release",
+      "published": "2026-02-10",
+      "notes": "# BattlegroundSpiritReleaser\n\n## [2026-02-10-release](https://github.com/BujuArena/BattlegroundSpiritReleaser/tree/2026-02-10-release) (2026-02-10)\n[Full Changelog](https://github.com/BujuArena/BattlegroundSpiritReleaser/compare/2026-01-24-release...2026-02-10-release) [Previous Releases](https://github.com/BujuArena/BattlegroundSpiritReleaser/releases)\n\n- simplify toc files to work around packaging issues"
+    },
+    {
+      "tag": "2026-01-24-release",
+      "published": "2026-01-25",
+      "notes": "# BattlegroundSpiritReleaser\n\n## [2026-01-24-release](https://github.com/AlexFolland/BattlegroundSpiritReleaser/tree/2026-01-24-release) (2026-01-25)\n[Full Changelog](https://github.com/AlexFolland/BattlegroundSpiritReleaser/compare/2024-08-09-release...2026-01-24-release) [Previous Releases](https://github.com/AlexFolland/BattlegroundSpiritReleaser/releases)\n\n- fix and update for tww and midnight"
+    },
+    {
+      "tag": "2024-08-09-release",
+      "published": "2024-08-09",
+      "notes": "# BattlegroundSpiritReleaser\n\n## [2024-08-09-release](https://github.com/AlexFolland/BattlegroundSpiritReleaser/tree/2024-08-09-release) (2024-08-09)\n[Full Changelog](https://github.com/AlexFolland/BattlegroundSpiritReleaser/compare/2022-10-30-release-2...2024-08-09-release) [Previous Releases](https://github.com/AlexFolland/BattlegroundSpiritReleaser/releases)\n\n- fix for settings menu API change in TWW and update TOCs"
+    },
+    {
+      "tag": "2022-10-30-release-2",
+      "published": "2022-10-30",
+      "notes": "# BattlegroundSpiritReleaser\n\n## [2022-10-30-release-2](https://github.com/AlexFolland/BattlegroundSpiritReleaser/tree/2022-10-30-release-2) (2022-10-30)\n[Full Changelog](https://github.com/AlexFolland/BattlegroundSpiritReleaser/compare/2022-10-30-release...2022-10-30-release-2) [Previous Releases](https://github.com/AlexFolland/BattlegroundSpiritReleaser/releases)\n\n- update BattleGroundSpiritRelease-Mainline.toc version number  \n- use fetch-depth 0 to prevent excess release changelog entries"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-18",
+    "releaseDates": [
+      "2026-10-18",
+      "2026-02-10",
+      "2026-01-25",
+      "2024-08-09",
+      "2022-10-30",
+      "2022-10-30",
+      "2021-07-04",
+      "2021-07-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BattlegroundSpiritReleaser"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "BattlegroundSpiritReleaserDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "BattlegroundSpiritReleaserDB"
+    ]
+  }
+}

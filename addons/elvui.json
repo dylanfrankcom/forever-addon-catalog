@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "elvui",
+  "repo": "orbit0r/ElvUI-Forever",
+  "about": "# ElvUI Forever\n\n**Version:** 1.0.0  \n**Client:** World of Warcraft: Forever (`_classic_beta_`, Interface **16001**)\n\nPersonal Forever port of [ElvUI](https://github.com/tukui-org/ElvUI) (retail **v15.13** Mainline load path + Forever fixes).\n\n**Not** an official Tukui / ElvUI release. Upstream authors have not shipped a Forever build.\n\n## Install\n\n1. Download this repo or the Release zip.\n2. Copy these three folders into `World of Warcraft\\_classic_beta_\\Interface\\AddOns\\`:\n   - `ElvUI`\n   - `ElvUI_Libraries`\n   - `ElvUI_Options`\n3. Restart Forever (`WowB.exe`) or `/reload`, and enable the addons.\n\n## License\n\nSee `LICENSE.txt` / `ElvUI/LICENSE.txt`.\n\n1. Modifications for private use; **GitHub upload is allowed**.\n2. **Do not rename** the addon folders — keep `ElvUI`, `ElvUI_Libraries`, `ElvUI_Options`.\n3. Keep the copyright notice in all copies.\n\nDo **not** republish on CurseForge or Wago. We will remove this repository if the original authors request it.\n\n## Credits\n\n- ElvUI: Elv, Simpy, and Tukui contributors\n- Forever compatibility: orbit0r",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "ElvUI Forever 1.0.0",
+      "published": "2026-10-05",
+      "notes": "Forever port of ElvUI for Interface **16001**. Copy `ElvUI`, `ElvUI_Libraries`, and `ElvUI_Options` into `_classic_beta_\\Interface\\AddOns`."
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 2,
+    "contributors": 1,
+    "lastRelease": "2026-10-05",
+    "releaseDates": [
+      "2026-10-05"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ElvUI",
+      "ElvUI_Libraries",
+      "ElvUI_Options"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "ElvUI_Libraries"
+    ],
+    "optional": [
+      "SharedMedia",
+      "Tukui",
+      "Masque",
+      "BigWigs"
+    ],
+    "savedVariables": [
+      "ElvDB",
+      "ElvPrivateDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ElvCharacterDB"
+    ]
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "memento",
+  "repo": "arcane-wizard-dev/Memento",
+  "about": "# Memento\n\n[![GitHub Release](https://img.shields.io/github/v/release/arcane-wizard-dev/Memento?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Memento/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/arcane-wizard-dev/Memento?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Memento/releases)\n\n_Capture the moments that matter._\n\nMemento is a World of Warcraft addon that automatically takes screenshots of selected gameplay moments. It works in the background while you keep playing.\n\n> ⚠️ **Important!** This addon requires **Arcane Wizard: Library**. See Installation & Quick Start for installation details.\n\n## Key Features\n\n**Automated Screenshots** - Choose which events trigger a screenshot and adjust how the images are captured.\n\n**Manual Screenshots** - Take screenshots with a movable on-screen button and an optional countdown.\n\n## Features\n\nIndividual features and display options can be configured in the addon settings. Memento supports an account profile and character profiles.\n\n### Automated Screenshots\n\n#### Retail\n\n* Captures level-ups, deaths, and logins.\n* Captures first visits to open-world zones and supported instances.\n* Captures reputation rank and Renown increases.\n* Captures personal achievements, guild achievements, and achievement criteria.\n* Captures world boss victories.\n* Captures boss victories and wipes in dungeons, raids, and scenarios.\n* Captures Mythic+ dungeon completions.\n* Captures completed Traveler's Log activities.\n* Captures PvP events in duels, battlegrounds, arenas, and brawls.\n* Captures new pets, mounts, toys, recipes, and housing decor.\n* Captures special loot: items, gold, and currencies.\n* Takes screenshots at regular intervals.\n\n#### Forever\n\n* Captures level-ups, deaths, and logins.\n* Captures first visits to open-world zones and supported instances.\n* Captures reputation rank increases.\n* Captures personal achievements.\n* Captures boss victories and wipes in dungeons and raids.\n* Captures PvP events in duels and battlegrounds.\n* Captures new pets and recipes.\n* Takes screenshots at regular intervals.\n\n#### Classic\n\nShared by Classic, Burning Crusade - Classic Anniversary Edition, and Mists of Pandaria - Classic:\n\n* Captures level-ups, deaths, and logins.\n* Captures first visits to open-world zones and supported instances.\n* Captures reputation rank increases.\n* Captures completed duels.\n* Captures newly learned recipes.\n* Takes screenshots at regular intervals.\n\nAdditional events in Mists of Pandaria - Classic:\n\n* Captures personal and guild achievements.\n* Captures new pets, mounts, and toys.\n\n### Manual Screenshots\n\n* Takes screenshots from a movable on-screen button.\n* Supports a custom key binding.\n* Offers an optional countdown from 1 to 10 seconds.\n\n### Capture Settings\n\n* Each event can be activated separately.\n* Automatic and manual screenshots have separate options to hide the user interface and show a capture notice with a timestamp.\n* Supports JPEG, PNG, and TGA with adjustable JPEG quality.\n* Offers several timestamp formats for chat notifications and the capture notice.\n* A configurable sound effect can be played after a screenshot has been taken.\n* Adds an adjustable delay between the event and the screenshot.\n* In Retail and Forever, boss victories are saved, and screenshots can optionally be limited to the first victory per boss.\n* In Mists of Pandaria - Classic and Retail, screenshots can optionally be taken for achievements already earned by another character.\n\n## Supported Languages & Flavors\n\n* Languages: English, German, Russian\n* Flavors: Classic, Burning Crusade - Classic Anniversary Edition, Mists of Pandaria - Classic, Forever, Retail\n\n## Installation & Quick Start\n\n> **Required Dependency:** This addon requires **Arcane Wizard: Library**. If you install Memento via the CurseForge client, the library will be downloaded automatically. If you install the addon manually, via Wago, or through another third-party updater that does not resolve dependencies, you must download and enable the library separately.\n\nTo manage the addon, type the following commands in chat and press Enter:\n\n* Type `/mem` or `/memento` to access the addon options menu.\n* Type `/mem help` or `/memento help` to see the available chat commands and answers to frequently asked questions.\n* Type `/mem changelog` or `/memento changelog` to open the changelog.\n\n## Bugs & Feedback\n\nIf you find a bug or have a suggestion, please open a GitHub issue or leave a comment on CurseForge.\n\n## Translation Support\n\nIf you would like to localize this addon into other languages, your contribution would be very welcome. Please submit your translations directly via GitHub.",
+  "releases": [
+    {
+      "tag": "v2.52",
+      "published": "2026-11-25",
+      "notes": "## Memento\n### [v2.52](https://github.com/arcane-wizard-dev/Memento/tree/v2.52) (2026-11-25)\n[Full Changelog](https://github.com/arcane-wizard-dev/Memento/compare/v2.51...v2.52) - [Previous Releases](https://github.com/arcane-wizard-dev/Memento/releases)\n\n- Added: In-game help answers common questions and explains each chat command. Open it from the addon settings or type the addon's slash command followed by 'help'\n- Requires Arcane Wizard: Library revision 8 or later"
+    },
+    {
+      "tag": "v2.51",
+      "published": "2026-11-23",
+      "notes": "## Memento\n### [v2.51](https://github.com/arcane-wizard-dev/Memento/tree/v2.51) (2026-11-23)\n[Full Changelog](https://github.com/arcane-wizard-dev/Memento/compare/v2.50...v2.51) - [Previous Releases](https://github.com/arcane-wizard-dev/Memento/releases)\n\n- Added: Option to temporarily disable HDR for manual and automatic screenshots"
+    },
+    {
+      "tag": "v2.50",
+      "published": "2026-11-17",
+      "notes": "## Memento\n### [v2.50](https://github.com/arcane-wizard-dev/Memento/tree/v2.50) (2026-11-17)\n[Full Changelog](https://github.com/arcane-wizard-dev/Memento/compare/v2.49...v2.50) - [Previous Releases](https://github.com/arcane-wizard-dev/Memento/releases)\n\n- Added: A help command lists available slash commands, and unknown commands show a hint in chat\n- Requires Arcane Wizard: Library revision 6 or later"
+    },
+    {
+      "tag": "v2.49",
+      "published": "2026-11-14",
+      "notes": "## Memento\n### [v2.49](https://github.com/arcane-wizard-dev/Memento/tree/v2.49) (2026-11-14)\n[Full Changelog](https://github.com/arcane-wizard-dev/Memento/compare/v2.48...v2.49) - [Previous Releases](https://github.com/arcane-wizard-dev/Memento/releases)\n\n- Minor code adjustments"
+    },
+    {
+      "tag": "v2.48",
+      "published": "2026-11-10",
+      "notes": "## Memento\n### [v2.48](https://github.com/arcane-wizard-dev/Memento/tree/v2.48) (2026-11-10)\n[Full Changelog](https://github.com/arcane-wizard-dev/Memento/compare/v2.47...v2.48) - [Previous Releases](https://github.com/arcane-wizard-dev/Memento/releases)\n\n- Changed: Reworked the options menu to prevent errors in Blizzard's settings and added a button to restore default values\n- Removed: Addon options from Blizzard's settings search\n- Requires Arcane Wizard: Library revision 5 or later"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 2,
+    "contributors": 4,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-23",
+      "2026-11-17",
+      "2026-11-14",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-03",
+      "2026-11-01",
+      "2026-11-01",
+      "2026-10-29",
+      "2026-10-28",
+      "2026-10-21",
+      "2026-10-16",
+      "2026-10-14",
+      "2026-10-12",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-10-03",
+      "2026-09-27",
+      "2026-09-24",
+      "2026-09-22",
+      "2026-09-18",
+      "2026-09-13",
+      "2026-09-06",
+      "2026-08-30",
+      "2026-08-18",
+      "2026-08-14",
+      "2026-08-04",
+      "2026-07-31",
+      "2026-07-28",
+      "2026-07-26",
+      "2026-07-21",
+      "2026-07-18",
+      "2026-07-12",
+      "2026-07-09",
+      "2026-07-06",
+      "2026-07-04",
+      "2026-06-26",
+      "2026-06-19",
+      "2026-06-16",
+      "2026-06-14",
+      "2026-06-07",
+      "2026-06-01",
+      "2026-05-30",
+      "2026-05-26"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "Memento"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "ArcaneWizardLibrary"
+    ],
+    "savedVariables": [
+      "Memento_Options_v6"
+    ],
+    "savedVariablesPerCharacter": [
+      "Memento_DataBossKill",
+      "Memento_DataZone"
+    ]
+  }
+}

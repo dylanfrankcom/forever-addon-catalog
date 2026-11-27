@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "questpin",
+  "repo": "postazure/wow-addon-quest-pin",
+  "about": "# Quest Pin\n\nA WoW Forever addon (interface 16001) that keeps Blizzard's quest tracker focused on where you are.\n\n![icon](https://raw.githubusercontent.com/postazure/wow-addon-quest-pin/main/icon.png)\n\n![The tracker and quest log](https://raw.githubusercontent.com/postazure/wow-addon-quest-pin/main/screenshots/1-tracker-and-log.png)\n\n- **Zone quests are tracked automatically.** The tracker's \"Quests\" section becomes a section named after your zone, holding every quest whose objectives (or turn-in) are on this zone's map, or that the quest log files under this zone.\n- **Pin quests to keep them tracked anywhere.** Pinned quests sit at the top in a **Pinned** section, even in their own zone, with a \"Go to *Westfall* (from *Elwynn Forest*)\" line. Each quest shows once: pinned quests in Pinned, other quests in your zone in the zone section.\n- **Finished quests get their own section.** Quests from Pinned or your zone that are ready to turn in move to a **Ready to turn in** section below the zone section, with where to turn them in.\n- **Dungeons and raids count as a zone.** Inside one, the zone section is named after the instance and holds quests for any of its floors, or that the quest log files under it.\n- **Flying doesn't reshuffle the tracker.** On a flight path or a flying mount, the tracker keeps the zone you took off from. It switches to the new zone once you land.\n- **Nearest quests first.** Each section is sorted by distance. The order is updated at most every 15 seconds, so quests don't keep swapping places as you move.\n- **Click anywhere on a tracked quest** (not just its title) to open it in the quest log. Right-click for the menu.\n- Uses Blizzard's own tracker and quest log. The two sections are Blizzard's quest module with a filter, so clicking, right-click menus, POI buttons, quest items and super-tracking all work as usual.\n\n## Pinning\n\n| Where | How |\n|---|---|\n| Quest log | Click the track box, or right-click > **Pin quest** |\n| Tracker | Right-click a quest > **Pin quest** / **Unpin quest** |\n| Chat | `/qpin <quest link or ID>` |\n\nIn the quest log, a tick means **pinned**. Zone quests are tracked without a tick; ticking one moves it to the Pinned section, so it stays tracked when you leave. Unticking it puts it back in the zone section (or untracks it if it's not in your zone).\n\nIn the tracker, **Stop tracking** unpins a quest. For a zone quest, it also hides it until you leave the zone.\n\nHover a quest in the log to see where it goes and where it came from.\n\nEach zone header in the quest log shows how many of its quests are grey / green / yellow / orange / red, in those colors, next to the **+**. Colors with no quests are left out.\n\n## Commands\n\n`/qpin` (or `/questpin`) shows help and settings. Use `/qpin list` to list pinned quests and `/qpin clear` to unpin them all. These toggle a setting:\n\n- `auto`: auto-track zone quests\n- `objectives`: count a quest as \"in the zone\" if the map sends you here\n- `logzone`: count it as \"in the zone\" if the quest log files it under this zone\n- `location`: show where pinned quests go\n- `flight`: keep the last zone's quests while flying, until you land\n- `sort`: sort tracked quests by distance, nearest first\n\n## Where the location data comes from\n\n- **Where it sends you:** `GetQuestUiMapID(questID)`, which the world map uses to open a quest. It falls back to `C_QuestLog.GetNextWaypoint`.\n- **Where it came from:** the zone you were in when you accepted it, which is saved per character. For quests accepted before installing, it uses the quest log's zone header.\n\n## Development\n\n```bash\npip install lupa\npython tests/run.py\n```\n\nThis syntax-checks the Lua under 5.1 and checks widget methods against Forever's API docs (`tests/forever_widget_methods.txt`), then tests the release helpers.\n\n## Releasing\n\nA release is an annotated `v<version>` tag on main whose message is the release notes, made with the release skill (`.claude/skills/release`). Pushing the tag runs **Actions > Release**: it checks the tag matches the TOC version and `CHANGELOG.md`, tests, zips `QuestPin/`, makes the GitHub release and uploads it to CurseForge. The upload needs the `CURSEFORGE_TOKEN` secret and the `CURSEFORGE_PROJECT_ID` variable; until both are set it's skipped. The CurseForge page text is in `CURSEFORGE.md`.",
+  "releases": [
+    {
+      "tag": "v0.5.0",
+      "name": "Quest Pin 0.5.0",
+      "published": "2026-11-22",
+      "notes": "First release on CurseForge.\n\n### Features\n\n- Quests for the zone you're in are tracked automatically, and change as you travel.\n- Tick a quest in the quest log to pin it. Pinned quests stay tracked in every zone and show where to go.\n- Finished quests move to a **Ready to turn in** section. It hides when it's empty.\n- Each section is sorted by distance, nearest first. The order changes at most every 15 seconds.\n- Click anywhere on a tracked quest to open it in the quest log.\n- Zone headers in the quest log show how many quests are grey, green, yellow, orange and red.\n- Dungeons and raids count as a zone. When flying, the tracker waits until you land to switch zones.\n\n### Fixed\n\n- The tracker updates more reliably when quest progress changes."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/postazure/wow-addon-quest-pin/main/screenshots/1-tracker-and-log.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuestPin"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "QuestPinDB"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "forevermanatick",
+  "repo": "TylerAkins/forever-mana-tick",
+  "about": "# Forever Mana Tick\n\nMana and energy timing indicators for the default player power bar and personal resource display in **WoW Forever**.\n\n## Features\n\n- A spark moves from right to left for five seconds after a readable mana-cost cast or observed mana spending. Known periodic mana channels hold the countdown until the channel stops.\n- A second spark moves from left to right over an estimated two-second mana or energy regeneration cycle.\n- The spark size matches the default power bar and can be adjusted in the addon options.\n- Readable mana gains appear in blue, energy gains in yellow, and losses in purple, then fade.\n- The display switches between mana and energy. In druid cat form, the personal resource display can also show a separate mana timer on its alternate bar. Other resources hide the indicators. The selected spark size is saved account-wide. No external dependencies are required.\n- With Leatrix Plus, the **Show druid power bar** option adds a mana bar in cat and bear form. When that bar is present, the mana countdown and regeneration sweep also appear on it. Leatrix Plus is optional; without it the addon behaves as before.\n\n## Installation\n\nDownload a versioned ZIP from [GitHub Releases](https://github.com/TylerAkins/forever-mana-tick/releases). Extract the `ForeverManaTick` folder into the Forever client's `Interface/AddOns` directory, then enable **Forever Mana Tick** at character selection.\n\nThe installed layout must be `Interface/AddOns/ForeverManaTick/ForeverManaTick.toc`. Remove or disable ManaTickTrackerPlus to avoid duplicate indicators.\n\n## Compatibility and limitations\n\nThis port targets WoW Forever beta build **1.60.1.70338**, Interface **16001**. Client source and mocked runtime checks have been inspected. The personal resource display was tested in game; the full client verification checklist remains pending. Retail, Era, and other Classic clients are outside the supported scope.\n\nThe addon follows Blizzard's default player power bar and, when available, the personal resource display's primary power bar and a druid's alternate mana bar in cat form. If Leatrix Plus is loaded with **Show druid power bar** enabled, its player-frame mana bar also receives the countdown and regeneration sweep in cat and bear form. The addon finds compatible player mana bars on the player frame and any other visible player mana bar while shapeshifted; no Leatrix Plus API or dependency is required, and no sparks are added when no compatible bar is present. The personal display's sparks hide with its power bar. Replacement unit frames that hide the default bar can also stop the timing updates.\n\nAdjust the spark size under **Esc > Options > AddOns > Forever Mana Tick**. The default slider value is 100%, which uses the spark size previously shown at 150%.\n\nWhen power values are restricted, successful casts with readable mana costs can still start an estimated five-second countdown. A native mana/energy percentage curve controls the regeneration spark's opacity at full resource; its result goes directly to the display. The sweep uses a public clock and does not measure restricted regeneration ticks. Gain/loss text pauses until values become accessible, then starts from a fresh baseline.\n\nTick timing is an estimate that can synchronize to readable resource gains. Potions, refunds, and other gains can reset the cycle. Observed mana losses start the five-second countdown; events do not identify whether every loss suppresses regeneration. A spell-cost countdown can also differ from actual spending after discounts or refunds. If spell information is restricted too, that cast cannot start the countdown. At full mana or energy the regeneration spark disappears. The display does not predict a guaranteed amount of regeneration or change regeneration.\n\n## Development\n\nRun `luajit tests/runtime.lua` and `go test ./...`. Lua 5.1 can also run the runtime tests. Build an installable ZIP with `bash tools/package.sh`. Build a clean local addon directory with `go run ./cmd/fmt compile-addon`; add `--install` to copy it into the Forever beta client's AddOns folder. Use `--addons-dir /path/to/Interface/AddOns` to select a different client installation.\n\nSee [development notes](https://github.com/TylerAkins/forever-mana-tick/blob/main/docs/DEVELOPMENT.md) for source analysis and the in-game checklist, and [release setup](https://github.com/TylerAkins/forever-mana-tick/blob/main/docs/RELEASING.md) for GitHub and CurseForge setup.\n\nThe interface workflow runs Wednesdays at 12:00 UTC and can be dispatched manually. It prepares a patch-version pull request when Blizzard's Forever interface changes. Review and test compatibility before merging. Publication is disabled initially. After approval and activation, reviewed interface merges trigger patch releases; manual releases use versioned tags.\n\n## Credits and license\n\nThe installed addon is derived from ManaTickTrackerPlus by Dustin Checketts and distributed under the preserved [MIT license](https://github.com/TylerAkins/forever-mana-tick/blob/main/LICENSE). Development tooling adapted from forever-quest-markers is GPL-3.0-or-later. See [ATTRIBUTION.md](https://github.com/TylerAkins/forever-mana-tick/blob/main/ATTRIBUTION.md).",
+  "releases": [
+    {
+      "tag": "v1.2.1",
+      "published": "2026-11-21",
+      "notes": "## 1.2.1 - 2026-11-21\n\n- Ignore forbidden Blizzard frames while locating Leatrix Plus druid power bars, fixing a Lua error after combat in cat or bear form.\n\nTargets WoW Forever Interface 16001. The full client verification checklist remains pending."
+    },
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-14",
+      "notes": "## 1.2.0 - 2026-11-14\n\n- Show the mana countdown and regeneration sweep on Leatrix Plus's optional druid power bar in cat and bear form.\n- Follow every visible player mana bar in shapeshift forms, including bars that become available or change after login.\n- Handle restricted visibility, unit, texture, and atlas values without Lua errors.\n- No sparks are added when no compatible mana bar is present.\n\nTargets WoW Forever Interface 16001. Leatrix Plus compatibility was exercised in game; the full client verification checklist remains pending."
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-11",
+      "notes": "## 1.1.0 - 2026-11-11\n\n- Add synchronized countdown and regeneration sparks to the personal resource display's primary power bar when available.\n- Show separate energy and mana timers on the personal resource display in druid cat form.\n- Apply the spark size setting to each power bar.\n\nTargets WoW Forever Interface 16001. The personal resource display was tested in game; the full client verification checklist remains pending."
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-03",
+      "notes": "## 1.0.0 - 2026-11-04\n\n- Preserve the mana five-second countdown and periodic channel tracking when maximum mana changes.\n- Ignore capacity changes for inactive resources so they cannot reset the active display.\n- Exclude Go development tools and local build directories from CurseForge packages.\n\nPrepared for the November 4 launch, targeting WoW Forever Interface 16001. Gain/loss text requires readable power values. Tick timing and spell-based mana countdowns are estimates. In-game verification is pending."
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-10-18",
+      "notes": "## 0.2.0 - 2026-10-17\n\n- Add a persistent spark size slider, with the previous 150% size as the new 100% default.\n- Synchronize rogue and cat-form druid energy estimates with observed energy ticks.\n- Add a local addon compiler with an option to install directly into the Forever beta client.\n\nTargets the WoW Forever beta client. Gain/loss text requires readable power values. Tick timing and spell-based mana countdowns are estimates. In-game verification is pending."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-14",
+      "2026-11-11",
+      "2026-11-03",
+      "2026-10-18",
+      "2026-10-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverManaTick"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverManaTickDB"
+    ]
+  }
+}

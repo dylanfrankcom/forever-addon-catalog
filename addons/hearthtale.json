@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "hearthtale",
+  "repo": "salty-max/hearthtale",
+  "about": "# Hearthtale\n\nHearthtale keeps a journal for your World of Warcraft character as you play.\nQuests, close calls, new places and the people you travel with become entries\nwritten in your character's voice. Each race has its own way of telling the\nstory. On Hardcore, a death closes the journal with an epitaph and saves it\nin the Hall of the Fallen.\n\nYou can read the books in game or on **[hearthtale.app](https://hearthtale.app/)**.\nThe optional [Ravenpost](https://ravenpost-site.vercel.app/) companion\nuploads them after you log out or reload.\n\nFor Classic Era, Hardcore, Season of Discovery and World of Warcraft:\nForever. One download covers both games.\n\n## In game\n\nType `/hearthtale` or `/ht`, or click the minimap button to open the journal.\nEach login says in chat whether you're resuming an entry or starting a new\none.\nChoose an entry from the list to read it. The second tab holds the Hall of\nthe Fallen, which you can also open with `/ht hall`. The third holds your\nfellow travellers: the players you have grouped with, when and where you met,\nthe days you spent together, and a note of your own on each. They stay on your\ncomputer, never in the book or on the site.\n\nAn entry follows the time between rests. Logging out at an inn, in a city\nor by a campfire closes it. Logging out in the wild records a night outdoors\nand keeps it going. After four hours of play, the next logout closes the entry\nwherever you are. A character you already play starts with a prologue, then\nbuilds a journal from that point on.\n\nUse an entry's **Edit** button to give it your own title or add a note. You\ncan also use `/ht title [N] TEXT` and `/ht note [N] TEXT`. Leave out N to\nchange the latest entry. Your words are kept separately from the journal's\ntext.\n\nA finished entry keeps its words, even after an update improves the\nwriting. `/ht rewrite` writes the whole journal again with the current\nversion, after asking. Your titles and notes stay.\n\n## Read on hearthtale.app\n\nInstall Ravenpost and click **Sign in with Battle.net** in its window. For\nForever characters, or any character Battle.net cannot find, get\na code from **Link a character** on the site and enter `/ht link CODE` in\ngame. Your book arrives after your next logout or `/reload`.\n\nThe website is optional, and books are private unless you choose to share\nthem. Your notes stay out of a shared book and the Hall. Setup instructions\nare at [hearthtale.app/start](https://hearthtale.app/start).\n\nThe interface is available in English and French.\n\nThe journal is written in English, on any game client. On other clients the\ngame's names in it (places, creatures, people, quests, items, trades, spells)\nare kept in English too. In Forever dungeons, the journal can\nonly tell kills that a quest also counts.\n\n## Settings\n\nThe welcome page appears once per character. Open it again with\n`/ht welcome`. Settings are under **Options > AddOns > Hearthtale**, through\n`/ht settings` or by right-clicking the minimap button.\n\nChoose the alert when a book closes and the minimap button's visibility and\nposition (chat lines always show). You can mark a character as Hardcore when\nthe game cannot identify it. Settings are saved per character and can be\ntransferred with `/ht export` and `/ht import CODE`. Use `/ht minimap` to\nshow or hide the button.\n\nThe settings also offer the book's size (four steps) and paper colours (dark ink on tan paper, applied by a\nreload: the page ends with a Reload button). **Options > Key Bindings** lists **Open Hearthtale**: one key,\nor on Forever a controller button, opens and closes the journal. Nothing is bound until you choose.\n\nHearthtale shares its book style with its author's other addons, listed on\nits store page. Each addon works independently.\n\nThe full store description is in [addon/CURSEFORGE.md](https://github.com/salty-max/hearthtale/blob/main/addon/CURSEFORGE.md).\n[PLAN.md](https://github.com/salty-max/hearthtale/blob/main/PLAN.md) records the design decisions, and [CLAUDE.md](https://github.com/salty-max/hearthtale/blob/main/CLAUDE.md)\ndescribes how the journal is written and the rules its sentences follow.\n\n## Development\n\nThe addon lives in `addon/`, with its writing in `writing/`.\n\n```bash\nbun run addon:build     # Build Data_Classic.lua and Data_Forever.lua\nbun run addon:check     # Check generated files, simulations, writing and samples\nbun run addon:package   # Create dist/Hearthtale-<version>.zip\nbun run addon:seed      # Generate test characters and website samples\nbun run addon:golden save    # Save journal output before a writer refactor\nbun run addon:golden check   # Compare output after the refactor\nbun run audit           # Check game data and play through each race's quests\n```\n\nThe website lives in `apps/` and `packages/`. Run `bun install` once before\nstarting it.\n\n```bash\nbun run db             # Start local Postgres on port 5435\nbun run db:migrate\nbun run db:seed         # Load the test characters\nbun run dev            # API on port 3002, web on port 5175\nbun run check          # Run addon checks, typechecking, lint and tests\n```\n\nThe local site has a **Use the test account** button. The API uses Hono on\nBun with Postgres and Drizzle. The web app uses React, Vite and Tailwind, and\ncan be installed as a PWA. Shared data types live in `packages/shared`.\nThe site is hosted on Vercel with Neon.\n\nTo release the addon, run\n`scripts/release.sh --version X.Y.Z [--hold] NOTES.md`. The script tags and\npushes the release, and GitHub Actions publishes it on GitHub, CurseForge\nand Wago.\n\n## License\n\n[GPL-3.0-or-later](https://github.com/salty-max/hearthtale/blob/main/LICENSE). The game data comes through\n[wow-data](https://github.com/salty-max/wow-data): the game clients' tables on\n[wago.tools](https://wago.tools/), [QuestieDB](https://github.com/Questie/QuestieDB)\nand [cmangos classic-db](https://github.com/cmangos/classic-db) (GPL-3.0). The\nnames themselves belong to Blizzard.\n\nForever's own quests in `addon/Hearthtale/Forever.lua` also draw on\n[AllTheThings](https://github.com/ATTWoWAddon/AllTheThings) (MIT) for their\nrewards and prerequisites, [Wowhead](https://www.wowhead.com/forever)'s Forever\npages for their texts, levels and givers (what each quest was for, in\n`writing/why/`, is written from those texts) and the facts players share. Not\naffiliated with Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v0.15.0",
+      "published": "2026-11-14",
+      "notes": "Hearthtale 0.15.0\n\n- New: **Book size** makes the whole window larger, in four steps from Normal to Largest, and **Paper colours** show dark ink on tan paper instead of the dark look. Both are in the settings. Paper colours apply after a reload, and the settings page now ends with a Reload button and a line saying so.\n- New: a key binding. **Options > Key Bindings** lists **Open Hearthtale** under a heading of its own, so one key, or on Forever a controller button, opens and closes the journal. Nothing is bound until you choose.\n- On Forever, the window now tells the Gamepad UI that it is open, so a controller's D-pad can move across its buttons.\n- On Forever with the Gamepad UI on, the game can show its blocked-action popup after an options page opens. That is a bug in the game's own Gamepad UI. A reload clears it, and the settings page now says so.\n- The game's data is brought up to date."
+    },
+    {
+      "tag": "v0.14.3",
+      "published": "2026-11-05",
+      "notes": "More fixes for Forever.\n\n- On Forever the game sometimes hides a name, a class or a character's identity. The diary now leaves that line out and carries on, instead of raising an error.\n- A group member's class and a journal that begins under a hidden identity are handled the same way."
+    },
+    {
+      "tag": "v0.14.2",
+      "published": "2026-11-04",
+      "notes": "Fixes for Forever's launch.\n\n- Spells the Forever client removed before launch (Salvation, Blessing of Light, Revoke and a few more) still read by name in your diary.\n- The diary no longer risks an error when the game hides the quest giver's name or your specialisation."
+    },
+    {
+      "tag": "v0.14.1",
+      "published": "2026-11-04",
+      "notes": "Fixes for Forever's launch.\n\n- Spells the Forever client removed before launch (Salvation, Blessing of Light, Revoke and a few more) still read by name in your diary.\n- The diary no longer risks an error when the game hides the quest giver's name or your specialisation."
+    },
+    {
+      "tag": "v0.14.0",
+      "published": "2026-11-03",
+      "notes": "Hearthtale 0.14.0\n\n- New: the journal can be written in French. A character's journal starts in the language of the game client at its first login, French on a French client and English on any other, and keeps it.\n- New: a Journal language setting changes it, and the whole journal is written again in the other language.\n- The French journal has its own words for every deed, the race voices, and the game's own names for places, creatures, people and clans.\n- The French words ship as a second folder, Hearthtale_French, loaded only when a journal is written in French.\n- On hearthtale.app, a book is shown in its own language, French or English, and the site itself speaks French when your browser does."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-11-03",
+      "2026-11-02",
+      "2026-10-28",
+      "2026-10-26",
+      "2026-10-21",
+      "2026-10-18",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-07",
+      "2026-10-07",
+      "2026-10-07",
+      "2026-10-07",
+      "2026-10-07",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-05"
+    ]
+  },
+  "languages": [
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "Hearthtale",
+      "Hearthtale_French"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "HearthtaleSettings",
+      "HearthtaleHall",
+      "HearthtaleCollect",
+      "HearthtaleTravellers"
+    ],
+    "savedVariablesPerCharacter": [
+      "HearthtaleChar"
+    ]
+  }
+}

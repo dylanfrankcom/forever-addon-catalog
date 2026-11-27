@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "masque-fusion",
+  "repo": "SFX-WoW/Masque_Fusion",
+  "about": "[![Build][SVG-Build]][Build]\n[![Masque][SVG-Masque]][Masque]\n[![Discord][SVG-Discord]][Discord]\n[![X][SVG-X]][X]\n[![Sponsor][SVG-Sponsor]][Sponsor]\n[![PayPal][SVG-PayPal]][PayPal]\n[![Ko-fi][SVG-Kofi]][Kofi]\n\n## [About][Top]\n\n**Masque: Fusion** is an add-on for [World of Warcraft](https://worldofwarcraft.com/) that adds a set of skins for [Masque].\n\n## [Skins][Top]\n\nThis add-on contains the following skins:\n\n- **Fusion** - A fusion of [Caith] and [Entropy], resulting in a larger, metallic frame.\n- **Fusion - Inversion** - An alternate version of **Fusion** with an inverted metallic effect.\n\n## [Requirements][Top]\n\nThis add-on requires [Masque].\n\n## [Installation][Top]\n\nInstall the package through your preferred add-on manager or extract the archive to your add-ons directory.\n\n## [Credits][Top]\n\n- [Caith](https://www.wowinterface.com/forums/member.php?userid=133201) for the [their UI](https://www.wowinterface.com/downloads/info11255).\n- [Zeal](https://www.curseforge.com/members/zealvurte) for the original **Vol**skin.\n\n## [Feedback][Top]\n\nFor bug reports and suggestions, use the [issue tracker]. Direct any questions or comments to [Discord].\n\n## [Localization][Top]\n\nTo help translate this add-on, use the [localization system]. Alternatively, you can use the [issue tracker].\n\n## [Links][Top]\n\n- **Resources**\n  - [Masque][Masque]\n- **Mirrors**\n  - [GitHub]\n  - [CurseForge]\n  - [Wago.io]\n  - [WoW Interface]\n\n[//]: # (Links)\n\n[Top]: #Top (Top of the Page)\n\n[Build]: https://github.com/SFX-WoW/Masque_Fusion/actions/workflows/build-release.yml (Build Status)\n[Masque]: https://github.com/SFX-WoW/Masque (Download Masque)\n[Discord]: https://discord.gg/7MTWRgDzz8 (Join the Discord)\n[X]: https://x.com/stormfxi (Follow on X)\n[Sponsor]: https://github.com/sponsors/StormFX (Sponsor on GitHub)\n[PayPal]: https://www.paypal.com/donate/?hosted_button_id=EELAK9TC4W4KQ (Donate via PayPal)\n[Kofi]: https://ko-fi.com/StormFX (Donate via Ko-fi)\n\n[Caith]: https://github.com/SFX-WoW/Masque_Caith (Caith Skin)\n[Entropy]: https://github.com/SFX-WoW/Masque_Entropy (Entropy Skin)\n\n[Issue Tracker]: https://github.com/SFX-WoW/Masque_Fusion/issues (Report an Issue)\n[Localization System]: https://www.curseforge.com/wow/addons/masque-fusion/localization (Translate on CurseForge)\n\n[GitHub]: https://github.com/SFX-WoW/Masque_Fusion (View on GitHub)\n[CurseForge]: https://www.curseforge.com/wow/addons/masque-fusion (View on CurseForge)\n[Wago.io]: https://addons.wago.io/addons/masque-fusion (View on Wago.io)\n[WoW Interface]: https://www.wowinterface.com/downloads/info26369 (View on WoW Interface)\n\n[//]: # (Images)\n\n[SVG-Build]: https://img.shields.io/github/actions/workflow/status/SFX-WoW/Masque_Fusion/build-release.yml?label=Build&logo=github&logoColor=fff&style=flat-square\n[SVG-Masque]: https://img.shields.io/endpoint?url=https://wow.stormfx.com/img/svg/masque-skin.json\n[SVG-Discord]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/discord.json\n[SVG-X]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/x.json\n[SVG-Sponsor]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/github-sponsor.json\n[SVG-PayPal]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/paypal.json\n[SVG-Kofi]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/kofi.json",
+  "releases": [
+    {
+      "tag": "12.1.6",
+      "published": "2026-11-02",
+      "notes": "## 12.1.6\n\n### Release Notes\n\n- Updated the skin settings to reflect `AutoCast` changes."
+    },
+    {
+      "tag": "12.1.5",
+      "published": "2026-10-15",
+      "notes": "## 12.1.5\n\n### Release Notes\n\n- Updated the `Interface` version:\n  - **Midnight**: `120105`"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-02",
+    "releaseDates": [
+      "2026-11-02",
+      "2026-10-15"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "ptBR",
+    "ruRU",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Masque_Fusion"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Masque"
+    ]
+  }
+}

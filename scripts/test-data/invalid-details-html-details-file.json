@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "thing",
+  "repo": "o/thing",
+  "about": "Hi <img src=x onerror=alert(1)> there",
+  "releases": [
+    {
+      "tag": "v2",
+      "name": "Version 2",
+      "published": "2026-11-20",
+      "notes": "**Fixed** it"
+    },
+    {
+      "tag": "v1",
+      "published": "2026-10-01"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/o/thing/main/a.png",
+    "https://github.com/user-attachments/assets/1234"
+  ],
+  "stats": {
+    "stars": 12,
+    "openIssues": 3,
+    "contributors": 4,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-10-01"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "Thing"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "ThingDB"
+    ]
+  }
+}

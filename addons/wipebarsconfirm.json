@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "wipebarsconfirm",
+  "repo": "keyboardturner/WipeBarsConfirm",
+  "about": "# WipeBarsConfirm\nMakes as clickable button in both Edit Mode and the Talents frame to wipe your action bars of all abilities.\n\nEver log in to an old alt character after a billion years of taking a break and find it'd be easier to just nuke all your buttons off your action bars and begin anew? Well this may be the solution for you.\n\nThis addon creates a clickable button in Edit Mode and the Talents frame to wipe all buttons off your action bars (for your currently selected talent build).\n\nWhen the clickable button is pressed, it will open a dialog popup box asking to confirm if you wish to wipe your action bars.\n\nAdditionally this provides a chat command of \"/wipebars\" that does functionally the same thing as the clickable buttons.\n\nA link to my discord for addon projects and other things can be found [here](https://discord.gg/tA4rrmjPp8).",
+  "releases": [
+    {
+      "tag": "0.3.1",
+      "published": "2026-10-13",
+      "notes": "# 0.3.1\n\n12.1.5 toc update\n\n# 0.3.0\n\nWoW Forever testing - This is an in-development testing version. Some things may throw errors or explode.\n\n# 0.2.9\n\n12.1.0 toc update\n\n# 0.2.8\n\n12.0.7 toc update\n\n# 0.2.7\n\nRemoved all of the cool stuff that was in 2.6, aka \"0.2.6\" to commoners\n\n12.0.5 toc update\n\n# 2.6\n\nThere never was a 0.2.6. This has been an illusion all along. A lie. A scheme.\n\nAdded 592834 porkchop functions into each action button.\n\nRemoved the concept of the zero. \n\nAdded the concept of the zero back after some drama with ancient greece and fibbonacci.\n\nAdded \"e\" shortcut to delete all your trp3 data\n\nAdded 2 threats\n\nRemoved 2 threats\n\nAdjusted hunter and rogue weapon durability to rapidly decrease faster than any other class\n\n# 0.2.5\n\n12.0.1 toc update\n\n# 0.2.4\n\n12.0.0 toc update\n\n# 0.2.3\n\n11.2.7 toc udpate\n\n# 0.2.2\n\n11.2.5 toc update\n\n# 0.2.1\n\n11.2.0 toc update, remove from edit mode\n\n# 0.2.0\n\n11.1.7 toc update\n\n# 0.1.9\n\n11.1.5 toc update & addon category\n\n# 0.1.8\n\n11.1.0 toc update\n\n# 0.1.7\n\n11.0.7 toc update\n\n# 0.1.6\n\n11.0.5 toc update\n\n# 0.1.5\n\nTOC updates for TWW, adjustment to button placement on the Talent frame\n\n# 0.1.4\n\ntoc bump to 10.2.7\n\n# 0.1.3\n\ntoc bump to 10.2.6\n\n# 0.1.2\n\n10.2.5 toc bump\n\n# 0.1.1\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "0.3.0",
+      "published": "2026-09-25",
+      "notes": "# 0.3.0\n\nWoW Forever testing - This is an in-development testing version. Some things may throw errors or explode.\n\n# 0.2.9\n\n12.1.0 toc update\n\n# 0.2.8\n\n12.0.7 toc update\n\n# 0.2.7\n\nRemoved all of the cool stuff that was in 2.6, aka \"0.2.6\" to commoners\n\n12.0.5 toc update\n\n# 2.6\n\nThere never was a 0.2.6. This has been an illusion all along. A lie. A scheme.\n\nAdded 592834 porkchop functions into each action button.\n\nRemoved the concept of the zero. \n\nAdded the concept of the zero back after some drama with ancient greece and fibbonacci.\n\nAdded \"e\" shortcut to delete all your trp3 data\n\nAdded 2 threats\n\nRemoved 2 threats\n\nAdjusted hunter and rogue weapon durability to rapidly decrease faster than any other class\n\n# 0.2.5\n\n12.0.1 toc update\n\n# 0.2.4\n\n12.0.0 toc update\n\n# 0.2.3\n\n11.2.7 toc udpate\n\n# 0.2.2\n\n11.2.5 toc update\n\n# 0.2.1\n\n11.2.0 toc update, remove from edit mode\n\n# 0.2.0\n\n11.1.7 toc update\n\n# 0.1.9\n\n11.1.5 toc update & addon category\n\n# 0.1.8\n\n11.1.0 toc update\n\n# 0.1.7\n\n11.0.7 toc update\n\n# 0.1.6\n\n11.0.5 toc update\n\n# 0.1.5\n\nTOC updates for TWW, adjustment to button placement on the Talent frame\n\n# 0.1.4\n\ntoc bump to 10.2.7\n\n# 0.1.3\n\ntoc bump to 10.2.6\n\n# 0.1.2\n\n10.2.5 toc bump\n\n# 0.1.1\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "0.2.9",
+      "published": "2026-08-11",
+      "notes": "# 0.2.9\n\n12.1.0 toc update\n\n# 0.2.8\n\n12.0.7 toc update\n\n# 0.2.7\n\nRemoved all of the cool stuff that was in 2.6, aka \"0.2.6\" to commoners\n\n12.0.5 toc update\n\n# 2.6\n\nThere never was a 0.2.6. This has been an illusion all along. A lie. A scheme.\n\nAdded 592834 porkchop functions into each action button.\n\nRemoved the concept of the zero. \n\nAdded the concept of the zero back after some drama with ancient greece and fibbonacci.\n\nAdded \"e\" shortcut to delete all your trp3 data\n\nAdded 2 threats\n\nRemoved 2 threats\n\nAdjusted hunter and rogue weapon durability to rapidly decrease faster than any other class\n\n# 0.2.5\n\n12.0.1 toc update\n\n# 0.2.4\n\n12.0.0 toc update\n\n# 0.2.3\n\n11.2.7 toc udpate\n\n# 0.2.2\n\n11.2.5 toc update\n\n# 0.2.1\n\n11.2.0 toc update, remove from edit mode\n\n# 0.2.0\n\n11.1.7 toc update\n\n# 0.1.9\n\n11.1.5 toc update & addon category\n\n# 0.1.8\n\n11.1.0 toc update\n\n# 0.1.7\n\n11.0.7 toc update\n\n# 0.1.6\n\n11.0.5 toc update\n\n# 0.1.5\n\nTOC updates for TWW, adjustment to button placement on the Talent frame\n\n# 0.1.4\n\ntoc bump to 10.2.7\n\n# 0.1.3\n\ntoc bump to 10.2.6\n\n# 0.1.2\n\n10.2.5 toc bump\n\n# 0.1.1\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "0.2.8",
+      "published": "2026-06-16",
+      "notes": "# 0.2.8\n\n12.0.7 toc update\n\n# 0.2.7\n\nRemoved all of the cool stuff that was in 2.6, aka \"0.2.6\" to commoners\n\n12.0.5 toc update\n\n# 2.6\n\nThere never was a 0.2.6. This has been an illusion all along. A lie. A scheme.\n\nAdded 592834 porkchop functions into each action button.\n\nRemoved the concept of the zero. \n\nAdded the concept of the zero back after some drama with ancient greece and fibbonacci.\n\nAdded \"e\" shortcut to delete all your trp3 data\n\nAdded 2 threats\n\nRemoved 2 threats\n\nAdjusted hunter and rogue weapon durability to rapidly decrease faster than any other class\n\n# 0.2.5\n\n12.0.1 toc update\n\n# 0.2.4\n\n12.0.0 toc update\n\n# 0.2.3\n\n11.2.7 toc udpate\n\n# 0.2.2\n\n11.2.5 toc update\n\n# 0.2.1\n\n11.2.0 toc update, remove from edit mode\n\n# 0.2.0\n\n11.1.7 toc update\n\n# 0.1.9\n\n11.1.5 toc update & addon category\n\n# 0.1.8\n\n11.1.0 toc update\n\n# 0.1.7\n\n11.0.7 toc update\n\n# 0.1.6\n\n11.0.5 toc update\n\n# 0.1.5\n\nTOC updates for TWW, adjustment to button placement on the Talent frame\n\n# 0.1.4\n\ntoc bump to 10.2.7\n\n# 0.1.3\n\ntoc bump to 10.2.6\n\n# 0.1.2\n\n10.2.5 toc bump\n\n# 0.1.1\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "0.2.7",
+      "published": "2026-04-22",
+      "notes": "# 0.2.7\n\nRemoved all of the cool stuff that was in 2.6, aka \"0.2.6\" to commoners\n\n12.0.5 toc update\n\n# 2.6\n\nThere never was a 0.2.6. This has been an illusion all along. A lie. A scheme.\n\nAdded 592834 porkchop functions into each action button.\n\nRemoved the concept of the zero. \n\nAdded the concept of the zero back after some drama with ancient greece and fibbonacci.\n\nAdded \"e\" shortcut to delete all your trp3 data\n\nAdded 2 threats\n\nRemoved 2 threats\n\nAdjusted hunter and rogue weapon durability to rapidly decrease faster than any other class\n\n# 0.2.5\n\n12.0.1 toc update\n\n# 0.2.4\n\n12.0.0 toc update\n\n# 0.2.3\n\n11.2.7 toc udpate\n\n# 0.2.2\n\n11.2.5 toc update\n\n# 0.2.1\n\n11.2.0 toc update, remove from edit mode\n\n# 0.2.0\n\n11.1.7 toc update\n\n# 0.1.9\n\n11.1.5 toc update & addon category\n\n# 0.1.8\n\n11.1.0 toc update\n\n# 0.1.7\n\n11.0.7 toc update\n\n# 0.1.6\n\n11.0.5 toc update\n\n# 0.1.5\n\nTOC updates for TWW, adjustment to button placement on the Talent frame\n\n# 0.1.4\n\ntoc bump to 10.2.7\n\n# 0.1.3\n\ntoc bump to 10.2.6\n\n# 0.1.2\n\n10.2.5 toc bump\n\n# 0.1.1\n\nPackager Testing\n\n10.2 toc bump"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-25",
+      "2026-08-11",
+      "2026-06-16",
+      "2026-04-22",
+      "2026-04-21",
+      "2026-02-10",
+      "2026-01-20",
+      "2025-12-02",
+      "2025-10-07",
+      "2025-08-05",
+      "2025-06-17",
+      "2025-04-22",
+      "2025-02-25",
+      "2024-12-17",
+      "2024-10-22",
+      "2024-07-23",
+      "2024-05-07",
+      "2024-03-19",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-07-11",
+      "2023-05-02",
+      "2023-03-21",
+      "2022-12-15",
+      "2022-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WipeBarsConfirm"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "WipeBarsConfirm_DB"
+    ]
+  }
+}

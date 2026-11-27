@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "mgssounds",
+  "repo": "turleynerd/Metal-Gear-Solid-Sounds",
+  "about": "# MGSSounds\nWoW AddOn | Plays Metal Gear Solid sounds at specific times\n\nUses the command `/mgssounds`\n\nHere are the various commands:\n```\n/mgssounds help\n/mgssounds disable\n/mgssounds combat\n/mgssounds death\n/mgssounds tradeopen\n/mgssounds tradeshow\n/mgssounds tradestop\n/mgssounds lootopen\n/mgssounds lootcollect\n/mgssounds whisper\n```\n\nNote: Commands other than help will toggle the sound on/off. If you want to view the current settings, try `/dump MGSSounds_Vars`.\n\n## Supported Clients\n\n- **TBC Anniversary** (Interface 20506) via `MGSSounds.toc`\n- **WoW Forever** (Interface 16001) via `MGSSounds_Camelot.toc`\n\nOn WoW Forever the combat log is closed to addons, so the killing blow sound uses the `PARTY_KILL` event instead. Everything else works the same on both clients.\n\n## Creating a Release\n\nReleases are built by CurseForge automatic packaging (see `.pkgmeta`):\n\n1. Add an entry to `CHANGELOG.md`\n2. Push a tag such as `v1.7.0` (tags containing \"alpha\" or \"beta\" become test builds)\n3. CurseForge packages the `MGSSounds` folder, fills in `## Version` from the tag, and sets game versions from each TOC's Interface line\n\n## Tests\n\nOffline checks (Node.js required): `cd tests && npm install && npm test`",
+  "releases": [
+    {
+      "tag": "v1.7.0",
+      "name": "MGSSounds v1.7.0: WoW Forever support",
+      "published": "2026-11-13",
+      "notes": "### Added\n- **WoW Forever support**: new `MGSSounds_Camelot.toc` (Interface 16001) loads on the WoW Forever client; TBC Anniversary keeps using `MGSSounds.toc` (Interface 20506)\n- **Killing blow sound on WoW Forever**: Forever closes the combat log to addons, so killing blows there come from the `PARTY_KILL` event instead of `COMBAT_LOG_EVENT_UNFILTERED`\n  - PvP Only checks for a player GUID (`Player-...`) on Forever\n  - If the game hides who got the kill (secret values), no sound plays rather than erroring\n\n### Changed\n- `COMBAT_LOG_EVENT_UNFILTERED` is only registered on clients that allow it (TBC Anniversary); it is never registered on Forever, where doing so gets the addon blocked\n- Events are registered defensively, so an event a client doesn't know can't stop the addon from loading\n- The eating/drinking sound listens to the player's casts only (`RegisterUnitEvent`) and ignores secret spell IDs\n- Options panel works without the classic-only templates: falls back to `UICheckButtonTemplate` (with its own tooltip) and `UISliderTemplate`, and to a button that cycles audio channels if the dropdown menu is unavailable\n- TBC Anniversary behavior is unchanged\n\n### Technical\n- CurseForge automatic packaging: added `.pkgmeta`; both TOCs use `## Version: @project-version@` and `## X-Curse-Project-ID: 1326306`\n- Added offline smoke tests in `tests/` (mocked classic and Forever clients; not shipped in the package)\n\n**Install:** download `MGSSounds-v1.7.0.zip` and extract it into your `Interface\\AddOns` folder, or get it from [CurseForge](https://www.curseforge.com/projects/1326306). One zip works on both WoW Forever and TBC Anniversary."
+    },
+    {
+      "tag": "v1.6.2",
+      "name": "MGSSounds v1.6.2",
+      "published": "2026-09-07",
+      "notes": "## [v1.6.2] - 2026-09-07\n\n### Changed\n- Interface version bumped to 20506 for Burning Crusade Classic Anniversary client 2.5.6\n  - Fixes the addon showing as out of date on the 2.5.6 client"
+    },
+    {
+      "tag": "v1.6.1",
+      "name": "MGSSounds v1.6.1",
+      "published": "2026-09-07",
+      "notes": "## [v1.6.1] - 2026-09-07\n\n### Added\n- **Killing Blow PvP Only Option**: New \"PvP Only\" sub-checkbox under \"Killing Blow Sound\" in the options panel\n  - When enabled, the killing blow sound only plays when the target killed is a player character\n  - Checks `COMBATLOG_OBJECT_TYPE_PLAYER` in the destination unit flags of the `PARTY_KILL` event\n  - Disabled by default (sound plays for all killing blows)\n\n### Changed\n- **Burning Crusade Classic Anniversary Support**: Interface version bumped to 20505\n- Options panel registration and the `/mgssounds config` command now detect the available API at runtime\n  - Uses `Settings.RegisterCanvasLayoutCategory` / `Settings.OpenToCategory` when present\n  - Falls back to `InterfaceOptions_AddCategory` / `InterfaceOptionsFrame_OpenToCategory` on older clients\n  - Prints a friendly message instead of erroring if neither API is available\n\n### Technical\n- Added `killingblow_pvponly` saved variable to both global and character-specific settings (defaults to false)\n- Options panel stores the registered Settings category so it can be opened by ID\n- Killing blow debounce cancels any in-flight timer before starting a new one"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13",
+      "2026-09-07",
+      "2026-09-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MGSSounds"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "MGSSounds_GlobalVars"
+    ],
+    "savedVariablesPerCharacter": [
+      "MGSSounds_CharVars"
+    ]
+  }
+}

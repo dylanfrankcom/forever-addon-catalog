@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "classicuiforever",
+  "repo": "fallenguards/classicuiforever",
+  "about": "# ClassicUI Forever\n\nPuts the original Classic look back on top of the modern interface in World of Warcraft: Forever. Every piece has its own toggle, so you can keep any of the new stuff you like.\n\n## What it restores\n\n### Bars and buttons\n\n- The main bar with its gryphons and stone band, the micro menu and bags in their old sockets, and the old square buttons.\n- Shaded XP and reputation bars, the key ring, and Classic-sized bag slots if you want them.\n\n### Unit frames and combat\n\n- Player, target, focus, target of target, pet and party frames with the old art, elite dragons and class colors.\n- Classic cast bars, combo points, swing timers, and the breath and fatigue bars.\n- The 1.x nameplates, with the elite dragon and class colors if you like.\n- The game's damage meter in the old look.\n\n### Windows\n\n- The 1.x spellbook, quest log and character sheet, with the old reputation, skills, PvP, currency and stats tabs.\n- The classic talent window, with an option to show all three trees side by side.\n- A classic Legacy window for Forever's Legacy trees, challenges and reward track, also with its three trees side by side if you like.\n- The classic professions book, the 1.x trade skill window (or a wider double pane) and the classic trainer.\n- The social window with the old friends list, Who list, guild roster and raid tabs, and the group finder dressed to match.\n- Classic bags, or one bag for everything, with the reagent bag inside it if you like.\n- The classic world map with its quest list, and Era's quest watch.\n- The merchant, mail, quest, gossip, trade, bank and loot windows in the old metal border and stone, and the old loot roll frames.\n- The game menu and settings as the old dialogs, with the old check boxes, sliders and drop downs.\n\n### Minimap and chat\n\n- The round minimap with the old tracking, mail, zoom, calendar and clock spots.\n- Micro menu buttons as icons on the minimap ring, and a bag that collects other addons' minimap buttons.\n- The old chat look.\n\n### Themes\n\n- Dark and Bronze themes for the classic art, and a flat color look.\n\n## Move and size your windows\n\nUnlock any window with the lock in its title bar, drag it anywhere, size it from its corner grip, and click reset to put it back. Reset windows in the options puts every window back at once. Windows open side by side as they did in Era.\n\nAn optional classic edit mode layout, offered on first login, puts the bars where 1.x kept them. Your current layout and keybinds are left alone.\n\n## How it works\n\nEvery piece is a checkbox in the options window (`/fcui`) or in the game's Settings. Turn one off and the modern look comes back in place. The art is read from the game client, with bundled copies of the original Classic files as a fallback for the pieces the client no longer ships.\n\nThe addon also loads on retail, for the pieces retail has.\n\n## Commands\n\n- `/fcui` opens the options window; `/fcui settings` opens the same toggles in the game's Settings.\n- `/fcui help` lists every toggle and command; `/fcui <toggle> on|off` sets one, for example `/fcui classicBar off`.\n- `/fcui status` opens the status report: addon version, game build, the settings you changed and your other addons, to copy into a bug report.\n- `/fcui layout` creates and selects the classic edit mode layout; `/fcui prompt` shows the first-login question again.\n- `/fcui welcome` shows the welcome note again; `/fcui whatsnew` shows what changed in recent versions.\n- `/fcui legacy` opens the classic Legacy window.\n- `/fcui textures builtin|bundled` reads the art from the game client or from the copies in `media/`.\n- `/fcui reset` puts every setting back to its default.\n\n## Known limitations\n\n- **Friendly players' nameplates in dungeons and raids.** The game locks them there, so no addon can change them: they keep the game's own look and color. On Forever, the game's own setting can still give them class colors: Options > Nameplates > Nameplate Class Color > Friendly Players.\n\n## Feedback\n\nBug reports and ideas are always welcome.\n\n- Issues: https://github.com/fallenguards/classicuiforever/issues/new/choose\n- CurseForge: https://www.curseforge.com/wow/addons/classicui-forever\n- Changelog: [CHANGELOG.md](https://github.com/fallenguards/classicuiforever/blob/main/CHANGELOG.md)",
+  "releases": [
+    {
+      "tag": "v0.65.2",
+      "name": "ClassicUIForever v0.65.2",
+      "published": "2026-11-26",
+      "notes": "# ClassicUI Forever\n## Version 0.65.2 (2026-11-26)\n\n**Links:**\n- [Full Changelog](https://github.com/fallenguards/classicuiforever/blob/main/CHANGELOG.md)\n- [v0.65.2 on GitHub](https://github.com/fallenguards/classicuiforever/releases/tag/v0.65.2)\n\n---\n\n### Added\n- \"Who tab in the social window\", under \"Group finder\" in the Social options, puts Who in the social window while \"Group finder\" is unchecked.\n\n### Changed\n- The professions side tabs wear the classic look, start where the spellbook's do, and What's Training's tab stands under them, fading on hover with them.\n- What's Training on the spellbook wears the same black marble as on the professions book.\n- With \"Group finder\" unchecked, the game's group finder keeps its own Who tab and the social window shows none.\n- Collections, Legacy, and the group finder are each our classic window or the game's own, with no frame-only option under All windows.\n\n### Fixed\n- The spellbook's options arrow keeps to the right end when the search box is hidden.\n- Another addon's button on the professions window's title bar no longer covers our lock.\n- Our windows open past the side tabs of a game window beside them instead of covering them.\n- In Edit Mode, a window another addon moves is grayed out from the start of each session, not only after it first opens."
+    },
+    {
+      "tag": "v0.65.1",
+      "name": "ClassicUIForever v0.65.1",
+      "published": "2026-11-25",
+      "notes": "# ClassicUI Forever\n## Version 0.65.1 (2026-11-24)\n\n**Links:**\n- [Full Changelog](https://github.com/fallenguards/classicuiforever/blob/main/CHANGELOG.md)\n- [v0.65.1 on GitHub](https://github.com/fallenguards/classicuiforever/releases/tag/v0.65.1)\n\n---\n\n### Fixed\n- Share Quest in the quest log shares your quest with your group again.\n- With a custom theme and Textured color, the drop downs in the game's Options no longer show a stretched button inside them.\n- Action bars no longer jump sideways in a fight when a window opens while a micro button is hidden.\n- Opening the professions book from the spellbook in a fight keeps it in the spellbook's place, with no empty second pane.\n- Inspect Talents from a player's menu opens only our talents window, with no error in a fight.\n- The chat and its tabs no longer vanish when another addon resizes the chat.\n- With a custom theme and Textured color, the drop downs in our options are drawn whole again.\n- What's Training on the professions book wears the spellbook's black marble, with no lines across the list."
+    },
+    {
+      "tag": "v0.65.0",
+      "name": "ClassicUIForever v0.65.0",
+      "published": "2026-11-24",
+      "notes": "# ClassicUI Forever\n## Version 0.65.0 (2026-11-24)\n\n**Links:**\n- [Full Changelog](https://github.com/fallenguards/classicuiforever/blob/main/CHANGELOG.md)\n- [v0.65.0 on GitHub](https://github.com/fallenguards/classicuiforever/releases/tag/v0.65.0)\n\n---\n\n### Added\n- Plain empty slots, under One bag in the Bags options, makes every empty slot in the one bag look the same, as before.\n\n### Changed\n- In One bag, each empty slot shows a faded icon of the bag it belongs to, so a quiver's slots show the quiver.\n- The group finder and a window another addon opens from its side tabs share one spot, so switching tabs no longer jumps, and dragging either moves both.\n- In Edit Mode, our list of windows grays out a window another addon already moves, and its tooltip says why.\n\n### Fixed\n- Enemy players' nameplates show their class color in battlegrounds and dungeons, where they were red.\n- Bags moved in Edit Mode stay where you leave them. Bags you placed before this version stay where they are.\n- Minimap buttons that other addons place themselves sit on the minimap's edge instead of floating off it.\n- After a /who, the group finder icon on the minimap opens the group finder, not the Who list.\n- Window mover addons can drag the group finder.\n- A window dragged over the quest log or the spellbook goes over it, and the spellbook's icons no longer show through."
+    },
+    {
+      "tag": "v0.64.2",
+      "name": "ClassicUIForever v0.64.2",
+      "published": "2026-11-23",
+      "notes": "# ClassicUI Forever\n## Version 0.64.2 (2026-11-23)\n\n**Links:**\n- [Full Changelog](https://github.com/fallenguards/classicuiforever/blob/main/CHANGELOG.md)\n- [v0.64.2 on GitHub](https://github.com/fallenguards/classicuiforever/releases/tag/v0.64.2)\n\n---\n\n### Changed\n- Groundwork for ClassicUI Forever: LFG Forever, a companion addon that puts LFG Forever's window in the classic look beside the Looking For Group window. Nothing changes without it."
+    },
+    {
+      "tag": "v0.64.1",
+      "name": "ClassicUIForever v0.64.1",
+      "published": "2026-11-23",
+      "notes": "# ClassicUI Forever\n## Version 0.64.1 (2026-11-23)\n\n**Links:**\n- [Full Changelog](https://github.com/fallenguards/classicuiforever/blob/main/CHANGELOG.md)\n- [v0.64.1 on GitHub](https://github.com/fallenguards/classicuiforever/releases/tag/v0.64.1)\n\n---\n\n### Changed\n- The Legacy window's Challenges list nests its sections as the game's own window does, each class under Classes. Its search matches any word a challenge shows: its sections, name, description and steps, so searching a section's name keeps the whole section.\n- Side tabs that other addons add to the group finder, like LFG Forever's, now take the classic look and size of ours and line up under them.\n\n### Fixed\n- At max level, with no experience or reputation bar showing, bars 2 and 3 and the stance and pet bars sit down on the thin bar where experience was, as on Era, with no gap. Hide this bar on the experience bar does the same.\n- In the map's quest list, a quest title under the mouse turns white as in Era's quest log. A gray quest used to turn green.\n- The classic map's Map Options box no longer shows a red reset button on its corner. Era's dropdown has none; set the filters back in its menu."
+    }
+  ],
+  "stats": {
+    "stars": 25,
+    "openIssues": 43,
+    "contributors": 4,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ClassicUIForever"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ForeverClassicUIDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ForeverClassicUICharDB"
+    ]
+  }
+}

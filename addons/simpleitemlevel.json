@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "simpleitemlevel",
+  "repo": "kemayo/wow-simpleitemlevel",
+  "about": "# Simple Item Levels\n\nShow item levels on:\n\n* The character panel\n* The inspect panel\n* Loot windows\n* The equipment-picker flyout\n* Weapons, armor, and artifact relics in bags (built in, bagnon, baggins, inventorian)\n* Tooltips (in classic)\n\nI'm open to adding them in more places.\n\nAlso shows:\n\n* An upgrade arrow on items in your bags which you can use whose item level is higher than whatever you currently have equipped.\n* A soulbound indicator, so you can see whether something is soulbound, bind-on-equip, or warbound-until-equipped\n* Missing enchants and gems\n\n### Simple configuration\n\nFor a summary of settings:\n```/simpleilvl```\n\nTo  toggle a place to display item levels:\n```/simpleilvl [type]```\n\n...where `type` is `bags`, `character`, or `inspect`.\n\nTo disable the upgrade arrow:\n```/simpleilvl upgrades```\n\nTo change whether the text is colored by item quality or just left white:\n```/simpleilvl color```\n```",
+  "releases": [
+    {
+      "tag": "v76",
+      "published": "2026-11-22",
+      "notes": "# Simple Item Level\n\n## [v76](https://github.com/kemayo/wow-simpleitemlevel/tree/v76) (2026-11-22)\n[Full Changelog](https://github.com/kemayo/wow-simpleitemlevel/compare/v75...v76) [Previous Releases](https://github.com/kemayo/wow-simpleitemlevel/releases)\n\n- One-hand weapons could show as offhand upgrades for classes that cannot dual wield"
+    },
+    {
+      "tag": "v75",
+      "published": "2026-11-21",
+      "notes": "# Simple Item Level\n\n## [v75](https://github.com/kemayo/wow-simpleitemlevel/tree/v75) (2026-11-21)\n[Full Changelog](https://github.com/kemayo/wow-simpleitemlevel/compare/v74.1...v75) [Previous Releases](https://github.com/kemayo/wow-simpleitemlevel/releases)\n\n- Forever: the appearance settings page could error  \n    The sample item buttons used ItemButtonTemplate on all classic clients,  \n    but Forever doesn't have it. Use the template only where it exists, and  \n    the ItemButton widget otherwise.  \n- Classic: upgrade arrows ignored the weapon and armor types the player knows  \n    Use LibAppropriateItems' IsAppropriateForPlayer. A low-level hunter now  \n    gets arrows on leather, and mail they can't wear until 40 gets a red  \n    arrow. Untrained weapon types get no arrow."
+    },
+    {
+      "tag": "v74.1",
+      "published": "2026-10-16",
+      "notes": "# Simple Item Level\n\n## [v74.1](https://github.com/kemayo/wow-simpleitemlevel/tree/v74.1) (2026-10-16)\n[Full Changelog](https://github.com/kemayo/wow-simpleitemlevel/compare/v74...v74.1) [Previous Releases](https://github.com/kemayo/wow-simpleitemlevel/releases)\n\n- TOC for 12.1.5"
+    },
+    {
+      "tag": "v74",
+      "published": "2026-10-16",
+      "notes": "# Simple Item Level\n\n## [v74](https://github.com/kemayo/wow-simpleitemlevel/tree/v74) (2026-10-16)\n[Full Changelog](https://github.com/kemayo/wow-simpleitemlevel/compare/v73...v74) [Previous Releases](https://github.com/kemayo/wow-simpleitemlevel/releases)\n\n- Tweak a few other display settings for Forever  \n- Fix position of character item level in Forever"
+    },
+    {
+      "tag": "v73",
+      "published": "2026-10-05",
+      "notes": "# Simple Item Level\n\n## [v73](https://github.com/kemayo/wow-simpleitemlevel/tree/v73) (2026-10-05)\n[Full Changelog](https://github.com/kemayo/wow-simpleitemlevel/compare/v72...v73) [Previous Releases](https://github.com/kemayo/wow-simpleitemlevel/releases)\n\n- Inspecting a player could error when an item level was unknown  \n    The average item level added up the slot levels without checking them.  \n    Inspect data can be incomplete, and the sum could fail with a nil error.  \n    If any level is nil, skip the averaging until the data arrives. The core  \n    inspect-refresh should be called again when that happens."
+    }
+  ],
+  "stats": {
+    "stars": 18,
+    "openIssues": 17,
+    "contributors": 4,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-21",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-05",
+      "2026-09-27",
+      "2026-09-18",
+      "2026-09-11",
+      "2026-08-29",
+      "2026-08-22",
+      "2026-08-09",
+      "2026-06-19",
+      "2026-03-23",
+      "2026-02-11",
+      "2026-01-31",
+      "2026-01-31",
+      "2026-01-25",
+      "2026-01-23",
+      "2026-01-23",
+      "2026-01-14",
+      "2025-12-03",
+      "2025-09-15",
+      "2025-08-09",
+      "2025-08-03",
+      "2025-08-02",
+      "2025-07-13",
+      "2025-07-06",
+      "2025-07-05",
+      "2025-07-02",
+      "2025-04-30",
+      "2025-04-27",
+      "2025-03-01",
+      "2024-12-29",
+      "2024-11-01",
+      "2024-09-25",
+      "2024-09-03",
+      "2024-08-25",
+      "2024-08-15",
+      "2024-08-13",
+      "2024-08-12",
+      "2024-08-12",
+      "2024-08-12",
+      "2024-08-05",
+      "2024-08-04",
+      "2024-07-24",
+      "2024-07-15",
+      "2024-07-04",
+      "2024-05-24",
+      "2024-05-22",
+      "2024-05-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SimpleItemLevel"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibAppropriateItems-1.0"
+    ],
+    "savedVariables": [
+      "SimpleItemLevelDB"
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "dialogueui",
+  "repo": "Peterodox/YUI-Dialogue",
+  "releases": [
+    {
+      "tag": "v1.0.7-d",
+      "published": "2026-11-17",
+      "notes": "## Bug Fixes\n- You can restart a failed quest by interacting with the quest giver without abandoning the quest first.\n  -  For failed quests, the Accept button on the quest details page showed \"Quest Accepted\" and became unclickable before this patch. It now shows \"Restart\".\n- Fixed an issue where the **dungeon icon** above the quest title persisted after viewing a dungeon quest.\n- Fixed an issue where the quest difficulty showed twice on the quest details page.\n- **For 3rd-party dev:** Fixed an issue that made the recently added API `DialogueUIAPI.AddItemEvaluator` ineffective."
+    },
+    {
+      "tag": "v1.0.7-c",
+      "published": "2026-11-12",
+      "notes": "- **Hide UI:** Added an \"Enhanced Mode\" that hides any 3D portraits, nameplates, and the circular highlight below NPCs.\n  - This mode might cause compatibility issues with the base game or addons that rely on `UI.TopLevelParentShown`.\n- The following elements can now be turned off:\n  - **Experience Bar**, which appears at the bottom of the screen when you enable Hide UI.\n  - **Forever Quest Marker**, which appears on the top right of the quest details if the quest is newly added to WoW: Forever.\n  - **Quest Level/Difficulty**\n- **Item Upgrade Arrow** can be turned off as well.\n  - By default, an item is considered an upgrade if its item level is higher. It's not ideal. My apologies if you chose the wrong reward because of this.\n  - If you have installed [Pawn](https://www.curseforge.com/wow/addons/pawn), Dialogue UI will use their item evaluator.\n  - Added a new API to let 3rd-party addons add their own item evaluator. Visit `Code\\DialogueUIAPI\\ItemEvaluator.lua` for details.\n- **Gamepad UI and Camera:** The camera cannot move horizontally if Forever's Gamepad UI (Beta) is enabled. We updated the \"Camera Movement\" setting's description to inform users of this limitation.\n- **Item Tooltip:** If you prefer WoW's item tooltip, you can enable \"Use Blizzard Tooltip\" in our Settings > UI > Quest.\n\n## For 3rd-Party Devs\n- If you wish to add a quest text **translator**, **voiceover**, or an **item evaluator** for quest rewards, please check out the implementation guide in `Code\\DialogueUIAPI`."
+    },
+    {
+      "tag": "v1.0.7-b",
+      "published": "2026-11-05",
+      "notes": "## Bug Fixes\n- Quests will appear as \"Easy\" if they are 3 or more levels below you instead of 2, consistent with WoW's difficulty threshold.\n- Fixed an issue where the new Forever quest marker doesn't appear.\n\n---\nPrevious Changelog\n\n## WoW: Forever\n- **Forever Quest Marker:** Added a unique icon to distinguish Forever's new quests. The icon will appear at the top right of the quest details page.\n- **Quest level** will appear on the quest offer and the quest details page. You can choose to display the color-coded quest level (default) or the difficulty name in `Dialogue UI Settings > UI > Quest`.\n\n## All-Flavor\n- Increased the opacity of the quest and settings backgrounds for the Dark Theme to improve readability.\n- **Text Color Adjustment:** We have a mechanism to adjust the red text color on the brown parchment and dark blue on the black to increase legibility, but certain color codes escaped that. This issue has been fixed.\n- **Quest Item Display Rule Adjustment:** Non-quest items with flavor text will only be displayed once, ignoring the \"Ignore Seen Items\" checkbox.\n  - Developer Note: Some quest-related items are not strictly Quest type, so we expanded the filter to include other types. But items like junk or weekly chests should not reappear.\n\n## Gamepad\n- **Fix Reward Select:** Fixed an issue where you need to click the Confirm button 3 times to claim the reward.\n  - Developer Note: We have a mechanism to prevent claiming rewards by accidental double-press. But it didn't work correctly.\n- **New One-time Prompt:** Gamepad users who didn't choose a controller layout in the Dialogue UI settings will be prompted to do so when the UI is shown for the first time.\n- You can now press and hold D-pad UP/DOWN to navigate the settings.\n  - Developer Note: We did not collude with gamepad manufacturers to decrease your device lifespan.\n- **Help Needed:** We are working on an auto-switch device feature, and we could use your help. If you are playing on an \"uncommon\" device, such as Steam Deck, Legion Go, GeForce NOW, or even a smart oven. Please go to `Dialogue UI Settings > Control > Input Device` and show us which button mapping is suitable and what the detected device name is."
+    },
+    {
+      "tag": "v1.0.7",
+      "published": "2026-11-04",
+      "notes": "## WoW: Forever\n- **Forever Quest Marker:** Added a unique icon to distinguish Forever's new quests. The icon will appear at the top right of the quest details page.\n- **Quest level** will appear on the quest offer and the quest details page. You can choose to display the color-coded quest level (default) or the difficulty name in `Dialogue UI Settings > UI > Quest`.\n\n## All-Flavor\n- Increased the opacity of the quest and settings backgrounds for the Dark Theme to improve readability.\n- **Text Color Adjustment:** We have a mechanism to adjust the red text color on the brown parchment and dark blue on the black to increase legibility, but certain color codes escaped that. This issue has been fixed.\n- **Quest Item Display Rule Adjustment:** Non-quest items with flavor text will only be displayed once, ignoring the \"Ignore Seen Items\" checkbox.\n  - Developer Note: Some quest-related items are not strictly Quest type, so we expanded the filter to include other types. But items like junk or weekly chests should not reappear.\n\n## Gamepad\n- **Fix Reward Select:** Fixed an issue where you need to click the Confirm button 3 times to claim the reward.\n  - Developer Note: We have a mechanism to prevent claiming rewards by accidental double-press. But it didn't work correctly.\n- **New One-time Prompt:** Gamepad users who didn't choose a controller layout in the Dialogue UI settings will be prompted to do so when the UI is shown for the first time.\n- You can now press and hold D-pad UP/DOWN to navigate the settings.\n  - Developer Note: We did not collude with gamepad manufacturers to decrease your device lifespan.\n- **Help Needed:** We are working on an auto-switch device feature, and we could use your help. If you are playing on an \"uncommon\" device, such as Steam Deck, Legion Go, GeForce NOW, or even a smart oven. Please go to `Dialogue UI Settings > Control > Input Device` and show us which button mapping is suitable and what the detected device name is."
+    },
+    {
+      "tag": "v1.0.6",
+      "published": "2026-10-04",
+      "notes": "## All-Flavor\n- Fixed an issue where selecting certain auto-accepted quests (such as quests in the starting zone) didn't show the quest text but instead closed the quest window immediately.\n\n## Retail\n- Adjusted the gossip option order for [Delve-O-Bot 7001](https://www.wowhead.com/item=230850/delve-o-bot-7001), moving Midnight Delve to the top (was Khaz Algar).\n- Added a few auto-select gossip options for Delves.\n\n## Classic\n- Fixed an issue where certain normal quests (with a red backdrop) were shown as dailies (blue).\n\n## Forever\n- Compatible with the latest Beta.\n- Added item level to the reward equipment tooltip.\n- Changed the term \"Warband completed\" to \"completed with another character\", since the former only exists in Retail. \n  - Note: When you play on an alt, you will sometimes see a checkmark next to the quest title, indicating it has been completed with another character."
+    }
+  ],
+  "stats": {
+    "stars": 51,
+    "openIssues": 20,
+    "contributors": 22,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-12",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-04",
+      "2026-09-12",
+      "2026-08-29",
+      "2026-08-22",
+      "2026-08-13",
+      "2026-08-09",
+      "2026-08-08",
+      "2026-07-28",
+      "2026-07-17",
+      "2026-06-25",
+      "2026-05-24",
+      "2026-05-14",
+      "2026-05-07",
+      "2026-05-02",
+      "2026-04-28",
+      "2026-04-25",
+      "2026-04-20",
+      "2026-04-04",
+      "2026-03-24",
+      "2026-03-17",
+      "2026-03-16",
+      "2026-03-06",
+      "2026-03-04",
+      "2026-01-24",
+      "2025-12-19",
+      "2025-11-17",
+      "2025-10-30",
+      "2025-10-29",
+      "2025-10-27",
+      "2025-10-18",
+      "2025-09-11",
+      "2025-08-07",
+      "2025-08-06",
+      "2025-08-01",
+      "2025-07-08",
+      "2025-07-06",
+      "2025-07-01",
+      "2025-06-24",
+      "2025-05-17",
+      "2025-05-06",
+      "2025-04-24",
+      "2025-04-17",
+      "2025-04-05",
+      "2025-03-24",
+      "2025-03-23",
+      "2025-03-05"
+    ]
+  },
+  "languages": [
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "DialogueUI"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "DialogueUI_DB",
+      "DialogueUI_Saves"
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "id": "mountsrarity",
+  "repo": "sgade/MountsRarity",
+  "about": "# \uD83D\uDC34 MountsRarity\n\n[![GitHub Release](https://img.shields.io/github/v/release/sgade/MountsRarity?sort=semver&display_name=release&style=for-the-badge&logo=github&color=rgb(20%2C4%2C120))](https://github.com/sgade/MountsRarity/releases) [![CurseForge Game Versions](https://img.shields.io/curseforge/game-versions/918022?style=for-the-badge&logo=battledotnet)](https://www.curseforge.com/wow/addons/mountsrarity) [![CurseForge Downloads](https://img.shields.io/curseforge/dt/918022?style=for-the-badge&logo=curseforge&color=rgb(206%2C109%2C59))](https://www.curseforge.com/wow/addons/mountsrarity)\n\nA World of Warcraft addon library that provides rarity data for mounts among the playerbase.\n\n## \uD83C\uDFAF For players\n\nDownload this library addon to provide the most current database. Your addons that use this library will pick it up automatically.\n\nThe addon supports World of Warcraft Retail and World of Warcraft: Forever. Each game client only uses its own data.\n\nInternally, only the newest version of this library will be loaded and used for all addons, regardless of where it is provided from.\n\n### Addons using this library\n\n- [Mount Journal Enhanced](https://www.curseforge.com/wow/addons/mount-journal-enhanced)\n- [LiteMount](https://www.curseforge.com/wow/addons/litemount)\n- [Exquisite](https://www.curseforge.com/wow/addons/exquisite)\n- [Master Mounts - World Tour](https://www.curseforge.com/wow/addons/master-mounts-world-tour)\n- [MountCollector](https://www.curseforge.com/wow/addons/mountcollector)\n- [MountTrail](https://www.curseforge.com/wow/addons/mounttrail)\n- [Mount Buff Info](https://www.curseforge.com/wow/addons/mount-buff-info)\n- ... yours?\n\n## \uD83E\uDDD1‍\uD83D\uDCBB For addon developers\n\nThis library can be included with the deployment of your addon.\nI recommend you regularly update the version that you ship with your addon as the data is updated multiple times per week.\n\nPlayers can opt into installing this addon separately to have a more recent version available as well.\n\nMount rarities are floating point values between `0` (no player has it) and `100` (every player has it).\n\n### Retail, Forever and other game clients\n\n`MountsRarity.lua` contains the data of all supported game clients. When it loads, it selects the data of the current client:\n\n- Retail: Retail data.\n- Forever: Forever data.\n- Other clients, for example Classic: no data and no error. `GetData()` returns an empty table, and `GetRarityByID()` and `GetLastUpdated()` return `nil`.\n\nTo add Forever to your addon, you do not have to change how you include the library. If the line in your TOC file has a game type condition, permit Forever (`[AllowLoadGameType standard, camelot]`).\n\nUpdate your included copy before you add Forever to your addon. Older copies do not check the client and give Retail data on Forever.\n\n### Loading the library\n\nTo load the library, or access an already initialized instance of it, load it as a [LibStub](https://github.com/lua-wow/LibStub/) library.\n\n```lua\nlocal MountsRarity = LibStub(\"MountsRarity-2.0\")\n```\n\n### Get rarity by mount id\n\nTo get the rarity value of a mount, call `GetRarityByID(mountID)`.\n\n```lua\nlocal mountId = 6\nlocal rarity = MountsRarity:GetRarityByID(mountId)\n```\n\nThe value is `nil` if the mount is not tracked.\n\n### Get all rarity data\n\nTo get the entire dataset, organized by mount id and its rarity, call `GetData()`.\n\n```lua\nlocal data = MountsRarity:GetData()\n```\n\n### Get the data's age\n\nTo find out when the shipped rarity data was last generated, call `GetLastUpdated()`. It returns a Unix timestamp (seconds since epoch, UTC), so you can format it yourself (e.g. with `date()`) or compare it against `time()` to show a relative age.\n\n```lua\nlocal lastUpdated = MountsRarity:GetLastUpdated()\nprint(date(\"%Y-%m-%d\", lastUpdated))\n```\n\n## \uD83D\uDCCA Data source\n\nThe data source for the rarity data is [Data for Azeroth](https://www.dataforazeroth.com/collections/mounts).\n\nEvery Thursday and Sunday, a check for new data occurs. If the data changed, the check publishes a new version with updated rarity values.\n\nThe same check updates the Retail data and the Forever data. Each client has its own data block in `MountsRarity.lua`.\n\n## ⚙️ Maintenance\n\nThe addon interface version in `MountsRarity.toc` is updated from Blizzard's patch CDN.\nThe updater reads the retail mainline product, the retail PTR and beta products and the Forever product (`wowf`), then writes all different interface versions. Retail and Forever each have their own minimum version.\n\nRun the updater locally:\n\n```bash\n./scripts/update-interface-version.sh\n```\n\nVerify that the TOC is already current without writing changes:\n\n```bash\n./scripts/update-interface-version.sh --check\n```\n\nGitHub Actions runs the same updater every Tuesday and commits `MountsRarity.toc` when Blizzard has published a new interface version.\n\nUpdate the rarity data of one client, or of all clients when you do not give an argument. When the data of a client changes, the updater also sets the version (`MINOR`) to the current UTC date and time:\n\n```bash\n./scripts/update-rarities.sh [all|retail|forever]\n```\n\n## \uD83D\uDC1E Issues\n\nIf you find any issues with this project, feel free to raise them [here](https://github.com/sgade/MountsRarity/issues).",
+  "releases": [
+    {
+      "tag": "2.8.0",
+      "published": "2026-11-26",
+      "notes": "# MountsRarity\n\n## [2.8.0](https://github.com/sgade/MountsRarity/tree/2.8.0) (2026-11-26)\n[Full Changelog](https://github.com/sgade/MountsRarity/compare/2.7.26...2.8.0) [Previous Releases](https://github.com/sgade/MountsRarity/releases)\n\n- chore(data): update rarity data  \n- chore: fix inconsistent names and texts  \n    - Workflow \"Update data\": remove the old \"Data.lua\" names, commit only  \n      MountsRarity.lua, and set read-only permissions.  \n    - Workflow \"Validate sources\": run on push only for main, so a pull  \n      request does not start the validation two times.  \n    - README: use the correct name GetRarityByID, give the correct update  \n      days, fix a typo and remove a repeated sentence.  \n    - update-rarities.sh: add --help, show \"Retail\" and \"Forever\" as group  \n      names, calculate the client count, and start all client messages  \n      with the client name.  \n    - mise.toml: use the same version precision for all tools.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- ci(data): run the data update only on Thursday and Sunday (#18)  \n    Since Sep 2023, the rarity data on dataforazeroth.com changed only on  \n    Thursday and Sunday (328 of 334 slots). The runs on the other 5 days  \n    did not change data.  \n    The new time (02:47 UTC) is after the upstream publish time (before  \n    00:45 UTC) and away from the busy midnight slot, where GitHub started  \n    the runs 5 to 7 hours late.  \n    Co-authored-by: Claude Opus 5.5 <noreply@anthropic.com>  \n- chore(scripts): modernize the update scripts and use mise in CI (#17)  \n    Co-authored-by: Claude Opus 5.5 <noreply@anthropic.com>  \n- feat: add support for WoW: Forever (#16)  \n    Co-authored-by: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "2.7.26",
+      "published": "2026-11-19",
+      "notes": "# MountsRarity\n\n## [2.7.26](https://github.com/sgade/MountsRarity/tree/2.7.26) (2026-11-19)\n[Full Changelog](https://github.com/sgade/MountsRarity/compare/2.7.25...2.7.26) [Previous Releases](https://github.com/sgade/MountsRarity/releases)\n\n- chore(data): update rarity data  \n- fix(ci): create a release tag for each data update  \n    The tag step ran before the commit step and compared the latest tag  \n    with the commit of the previous run. When that commit had a tag, there  \n    were no new commits and github-tag-action v7 gave no new tag. Thus only  \n    each second data update got a tag and a release.  \n    Commit first, then calculate the tag from the new commit, then push  \n    the tag in a separate step.  \n    Co-Authored-By: Claude <noreply@anthropic.com>"
+    },
+    {
+      "tag": "2.7.25",
+      "published": "2026-11-16",
+      "notes": "# MountsRarity\n\n## [2.7.25](https://github.com/sgade/MountsRarity/tree/2.7.25) (2026-11-15)\n[Full Changelog](https://github.com/sgade/MountsRarity/compare/2.7.24...2.7.25) [Previous Releases](https://github.com/sgade/MountsRarity/releases)\n\n- chore(data): update rarity data"
+    },
+    {
+      "tag": "2.7.24",
+      "published": "2026-11-12",
+      "notes": "# MountsRarity\n\n## [2.7.24](https://github.com/sgade/MountsRarity/tree/2.7.24) (2026-11-12)\n[Full Changelog](https://github.com/sgade/MountsRarity/compare/2.7.23...2.7.24) [Previous Releases](https://github.com/sgade/MountsRarity/releases)\n\n- chore(data): update rarity data  \n- chore(data): update rarity data"
+    },
+    {
+      "tag": "2.7.23",
+      "published": "2026-11-05",
+      "notes": "# MountsRarity\n\n## [2.7.23](https://github.com/sgade/MountsRarity/tree/2.7.23) (2026-11-05)\n[Full Changelog](https://github.com/sgade/MountsRarity/compare/2.7.22...2.7.23) [Previous Releases](https://github.com/sgade/MountsRarity/releases)\n\n- chore(data): update rarity data  \n- chore(data): update rarity data"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-19",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-05",
+      "2026-10-29",
+      "2026-10-25",
+      "2026-10-22",
+      "2026-10-18",
+      "2026-10-15",
+      "2026-10-11",
+      "2026-10-08",
+      "2026-10-04",
+      "2026-10-01",
+      "2026-09-27",
+      "2026-09-24",
+      "2026-09-20",
+      "2026-09-17",
+      "2026-09-13",
+      "2026-09-10",
+      "2026-09-06",
+      "2026-09-03",
+      "2026-08-30",
+      "2026-08-27",
+      "2026-08-23",
+      "2026-08-20",
+      "2026-08-16",
+      "2026-08-13",
+      "2026-08-09",
+      "2026-08-06",
+      "2026-08-02",
+      "2026-07-30",
+      "2026-07-26",
+      "2026-07-23",
+      "2026-07-19",
+      "2026-07-16",
+      "2026-07-12",
+      "2026-07-09",
+      "2026-07-05",
+      "2026-07-02",
+      "2026-06-28",
+      "2026-06-25",
+      "2026-06-21",
+      "2026-06-18",
+      "2026-06-14",
+      "2026-06-11",
+      "2026-06-07",
+      "2026-06-04",
+      "2026-05-31",
+      "2026-05-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MountsRarity"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ]
+  }
+}

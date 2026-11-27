@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "targetedspells",
+  "repo": "ljosberinn/TargetedSpells",
+  "about": "# Targeted Spells\n\n[![](https://img.shields.io/badge/patreon-red?logo=patreon&style=for-the-badge)](https://www.patreon.com/cw/warcraftlogs)\n[![](https://shields.io/badge/discord-lightblue?logo=discord&style=for-the-badge)](https://discord.gg/C5STjYRsCD)\n\n- [Curseforge](https://www.curseforge.com/wow/addons/targetedspells)\n- [Wago](https://addons.wago.io/addons/targeted-spells)\n\n## Why?\n\n- the default UI continues to be not-so-good at communicating this info\n  - overlapping nameplates, important spell highlight being faint, targeting obscured, pick your poison\n- Spell Reflection timing gets improved significantly\n- healers have to split their attention less between nameplates and party frames\n\n## Features\n\n- deep Edit Mode integration thanks to [LibEditMode](https://github.com/p3lim-wow/LibEditMode/wiki/LibEditMode)\n  - additional exhaustive Settings menu integration\n- blizzlike look - built on top of the Cooldown Manager design\n- customization options are heavily inspired by what's available in WeakAuras - that's where the aura lived before, so resurrecting most of that functionality only makes sense\n- not vibecoded\n- performance profiled - tiny footprint and doesn't do more than it should\n- glow options for important spell highlighting\n\n### Self\n\n- customization options for:\n  - enabled state\n  - load conditions, supporting dungeons, delves, arena, battlegrounds and raids\n  - role-based load conditions: tank, healer, dps (unsurprisingly)\n  - layouting options\n    - width, height, gap, direction, sort order, grow\n  - glow important spells\n    - 4 kinds of glows\n  - show duration\n    - option for fraction of seconds\n  - font and font size\n  - show border\n  - option to selectively toggle this feature based on player role or content type\n  - option to briefly highlight interrupted spells\n    - this desaturates the frame, puts the cross raid marker on top of it, puts the interrupt source if available at the top of the frame and delays hiding by one second\n    - handy for vod review\n\n### Party\n\n- customization options for:\n  - enabled state\n  - load conditions, supporting dungeons, delves, arena, battlegrounds and raids\n  - role-based load conditions: tank, healer, dps (unsurprisingly)\n  - layouting options\n    - width, height, gap, direction, sort order, grow\n  - glow important spells\n    - 2 kinds of glows\n  - show duration\n  - font and font size\n  - option to briefly highlight interrupted spells\n    - this desaturates the frame, puts the cross raid marker on top of it, puts the interrupt source if available at the top of the frame and delays hiding by one second\n    - handy for vod review\n\n## Known Issues / Limitations\n\n### Sound / TTS\n\nIt's not possible to play a sound specifically if a spell targets the player. It's not possible to play sounds based on which spell is being cast either (e.g. \"AOE\" for an aoe spell).\n\n### Sorting\n\n**Currently not fixable as the cast time of a spell is secret.**\n\nIt's not possible to sort spells targeting a player in order of cast end, making it impossible to easily surface which spell hits first.\n\n## API\n\n### Importing / Exporting\n\n- `_G.TargetedSpellsAPI.Import(string)`\n- `_G.TargetedSpellsAPI.Export(): string`\n\n## Honorary Mentions\n\n- [Targeted Spells by Buds](https://wago.io/TargetedSpells)\n- [Targeted by Damage Spells by Causese](https://wago.io/TsFNFG1H7)\n- [Wago.tools](https://wago.tools/db2)\n- all public repositories mirroring Blizzard Interface Code\n- Krakón, Luckyone, Isaure, Ziv, Zorthas for helping me testing/translating\n\n## Legal\n\nSee [LICENSE](https://github.com/ljosberinn/TargetedSpells/blob/main/LICENSE.txt)\n\n## Tests\n\nThese are AI generated based on existing data.\n\nUse\n\n```\nwsl bash -c \"cd /mnt/c/Users/admin/Desktop/dev/TargetedSpells && ~/.luarocks/bin/busted\" 2>&1\n```",
+  "releases": [
+    {
+      "tag": "4.1.0",
+      "published": "2026-10-25",
+      "notes": "## Version 4.1.0\n\n- added Spell Icon Border for Bars"
+    },
+    {
+      "tag": "4.0.7",
+      "published": "2026-10-24",
+      "notes": "## Version 4.0.7\n\n- fix Murder Row TTS gate being incorrect"
+    },
+    {
+      "tag": "4.0.6",
+      "published": "2026-10-17",
+      "notes": "## Version 4.0.6\n\n- performance improvements by adopting new 12.1.5 API for Glows\n- improved localization for all languages"
+    },
+    {
+      "tag": "4.0.5",
+      "published": "2026-10-15",
+      "notes": "## Version 4.0.5\n\n- 12.1.5 compatibility\n- add some TTS guards for:\n  - Murder Row: all channels before first boss is engaged will not be announced\n  - Altar of Fangs: casts by the intermission adds will not be announced\n  - Temple of Sethraliss: Fixates by the intermission adds during last boss will not be announced"
+    },
+    {
+      "tag": "4.0.4",
+      "published": "2026-09-17",
+      "notes": "## Version 4.0.4\n\n- the following encounters will have less Text-to-Speech announcements:\n  - The Writhing Coil, Altar of Fangs\n  - Avatar of Sethraliss, Temple of Sethraliss\n- selecting a voice for Text-to-Speech will again play a demo of that voice\n- basic WoW: Forever support"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "contributors": 7,
+    "lastRelease": "2026-10-25",
+    "releaseDates": [
+      "2026-10-25",
+      "2026-10-24",
+      "2026-10-17",
+      "2026-10-15",
+      "2026-09-17",
+      "2026-08-17",
+      "2026-08-13",
+      "2026-08-10",
+      "2026-08-09",
+      "2026-05-30",
+      "2026-05-02",
+      "2026-04-26",
+      "2026-04-26",
+      "2026-04-26",
+      "2026-04-26",
+      "2026-04-25",
+      "2026-04-22",
+      "2026-04-14",
+      "2026-04-09",
+      "2026-04-07",
+      "2026-04-07",
+      "2026-03-19",
+      "2026-03-17",
+      "2026-03-09",
+      "2026-03-07",
+      "2026-03-06",
+      "2026-03-04",
+      "2026-03-03",
+      "2026-02-28",
+      "2026-02-27",
+      "2026-02-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TargetedSpells"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "!!AddonLocale"
+    ],
+    "savedVariables": [
+      "TargetedSpellsSaved"
+    ]
+  }
+}

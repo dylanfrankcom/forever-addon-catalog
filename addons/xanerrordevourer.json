@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "id": "xanerrordevourer",
+  "repo": "Xruptor/xanErrorDevourer",
+  "releases": [
+    {
+      "tag": "v4.16",
+      "published": "2026-10-13",
+      "notes": "# xanErrorDevourer\n\n## [v4.16](https://github.com/Xruptor/xanErrorDevourer/tree/v4.16) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/xanErrorDevourer/compare/v4.15...v4.16) [Previous Releases](https://github.com/Xruptor/xanErrorDevourer/releases)\n\n- chore: update TOC interface numbers → v4.16"
+    },
+    {
+      "tag": "v4.15",
+      "published": "2026-09-19",
+      "notes": "# xanErrorDevourer\n\n## [v4.15](https://github.com/Xruptor/xanErrorDevourer/tree/v4.15) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/xanErrorDevourer/compare/v4.14...v4.15) [Previous Releases](https://github.com/Xruptor/xanErrorDevourer/releases)\n\n- chore: update TOC interface numbers → v4.15  \n- This should fix the TOC Issues."
+    },
+    {
+      "tag": "v4.14",
+      "published": "2026-09-19",
+      "notes": "# xanErrorDevourer\n\n## [v4.14](https://github.com/Xruptor/xanErrorDevourer/tree/v4.14) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/xanErrorDevourer/compare/v4.13...v4.14) [Previous Releases](https://github.com/Xruptor/xanErrorDevourer/releases)\n\n- chore: update TOC interface numbers → v4.14  \n- Updated the GitHub Actions to be better at automatic processing for TOC Updates.  \n    (attempt #5)  \n- Adding a automatic TOC Updater to GitHub Workflow"
+    },
+    {
+      "tag": "v4.13",
+      "published": "2026-04-11",
+      "notes": "# xanErrorDevourer\n\n## [v4.13](https://github.com/Xruptor/xanErrorDevourer/tree/v4.13) (2026-04-11)\n[Full Changelog](https://github.com/Xruptor/xanErrorDevourer/compare/v4.12...v4.13) [Previous Releases](https://github.com/Xruptor/xanErrorDevourer/releases)\n\n- TOC Update"
+    },
+    {
+      "tag": "v4.12",
+      "published": "2026-02-10",
+      "notes": "# xanErrorDevourer\n\n## [v4.12](https://github.com/Xruptor/xanErrorDevourer/tree/v4.12) (2026-02-10)\n[Full Changelog](https://github.com/Xruptor/xanErrorDevourer/compare/v4.11...v4.12) [Previous Releases](https://github.com/Xruptor/xanErrorDevourer/releases)\n\n- TOC Update  \n    * Updated TOC to latest patch 120001."
+    }
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-04-11",
+      "2026-02-10",
+      "2026-02-04",
+      "2026-01-02",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-09-28",
+      "2025-08-18",
+      "2024-07-30",
+      "2024-07-26",
+      "2024-04-08",
+      "2024-04-08",
+      "2024-04-06",
+      "2023-09-18",
+      "2023-05-26",
+      "2023-01-25",
+      "2022-11-15",
+      "2022-11-10",
+      "2022-11-01",
+      "2021-09-19",
+      "2021-05-28",
+      "2021-04-06"
+    ]
+  },
+  "languages": [
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "xanErrorDevourer"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tekDebug"
+    ],
+    "savedVariables": [
+      "xErrD_DB",
+      "xErrD_CDB"
+    ]
+  }
+}

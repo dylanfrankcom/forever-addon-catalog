@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "skironcooldownmanager",
+  "repo": "Lardeck/SkironCooldownManager",
+  "about": "# SkironCooldownManager\n\nSkironCooldownManager expands upon the Blizzard's Cooldown Manager into a more flexible tracking and layout system. It provides support for specialization-based layouts, anchors and the addition of custom timers. Along with Cast & Resource Bars.\n\n## What Is It?\n\n- Reorganizes Blizzard's cooldown viewers into your own anchor layout.\n- Lets you style cooldown icons, borders, fonts, swipes, glow behavior, and buff bars.\n- Adds custom icons for spells, items, equipment slots, and cast-based timers.\n- Supports specialization-specific layouts as well as shared global anchors.\n- Includes optional resource bar and cast bar modules that can be anchored into the same setup.\n\n### Essentials, Utility, Buffs & Buff Bars.\n\n- Deconstructs the Blizzard Cooldown Managers and provides you with the most amount of customization.\n    - You can assign any of the spells within the Cooldown Managers to any number of anchors, with full control on sizing/placement.\n\n### Custom Icons and Tracking\n\n- Add custom entries for:\n  - Spells\n  - Items\n  - Equipment Slots\n  - Timers\n- Configure per-icon behavior such as:\n  - Hide Off CD.\n  - Always Show.\n- Custom Icons also can have multiple load conditions, such as Race/Class/Role.\n\n### Visual Styling\n\n- Custom Border Size & Border Colours.\n- Customizable Fonts.\n- Customizable Cooldown Swipe Colours & Fonts.\n- Custom Glows.\n- Customizable Pandemic Glows.\n- Buff Bar Styling.\n\n### Resource & Cast Bars.\n\n- Advanced Anchoring System.\n- Fully customizable.\n- Full support for all Power Types (including Tip of the Spear & similar).\n\n## Configuration Overview\n\nOpen the AddOn with `/scm`.",
+  "releases": [
+    {
+      "tag": "v1.7.2",
+      "published": "2026-11-07",
+      "notes": "### Version 1.7.2 [Release]\n\nFixes:\n\n- Fix the first combo point not showing after switching targets in Forever"
+    },
+    {
+      "tag": "v1.7.1",
+      "published": "2026-11-07",
+      "notes": "### Version 1.7.1 [Release]\n\nFixes:\n\n- Fix exporting and importing specific classes in Forever"
+    },
+    {
+      "tag": "v1.7",
+      "published": "2026-11-04",
+      "notes": "### Version 1.6.4 [Release]\n\nAdditions:\n- Add the anchor index to renamed anchor tabs\n- Add a default rune recharge color\n\nFixes:\n- Stop glows when an icon is hidden\n- Create anchors earlier to improve initialization\n- Guard against secret spell IDs\n- Fix font loading and reapply skins after changing specializations\n- Fix custom slot icons not refreshing correctly\n- Fix buff bar anchoring\n- Improve the stacks and applications configuration\n- Fix desaturation for Blizzard potion and trinket icons\n- Update item cooldowns after combat\n- Fix cooldowns set from charges\n- Improve icon dragging\n- Fix some lua errors\n- Fix resource bar hide settings\n- Move buff bars and icons to their correct category and recheck on spec change\n- Fix stuck anchor highlights\n- Reuse anchor frames and the search popup\n- Improve duplicate icon detection\n- Fix Blizzard potion and trinket icons being hidden in the options\n- Use the human form resource bar settings for Tree Form\n- Fix keypress overlay support for ElvUI and other LibActionButton addons\n- Fix stuck keypress overlays and update their settings when switching profiles"
+    }
+  ],
+  "stats": {
+    "stars": 13,
+    "openIssues": 13,
+    "contributors": 6,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-04",
+      "2026-09-07",
+      "2026-08-19",
+      "2026-08-18",
+      "2026-08-12",
+      "2026-08-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SkironCooldownManager"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Plater",
+      "Details",
+      "UnhaltedUnitFrames",
+      "CooldownViewer",
+      "SenseiClassResourceBar",
+      "ElvUI",
+      "EllesmereUIUnitFrames",
+      "BetterActionBars"
+    ],
+    "savedVariables": [
+      "SkironCooldownManagerDB"
+    ]
+  }
+}

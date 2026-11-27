@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "groupselfhide",
+  "repo": "tf4482/GroupSelfHide",
+  "about": "# GroupSelfHide\n\nHides your own frame in raid-style party frames.\n\n## Features\n\n- **Hide mode** - hides your own frame and the \"Party\" label; the gap stays.\n- **Fill mode** - also widens the other frames so the group keeps its width (2-5 players).\n- **Scope guard** - inactive in raids and with a vertical party layout; changes apply out\n  of combat only.\n- **Remembered** - settings are saved per account, or per character with one checkbox;\n  default is off.\n- **Settings page** - all options in the game menu under Options > AddOns, also opened\n  from the addon compartment menu.\n- **Chat commands** - every option can also be changed by slash command.\n\n## Screenshots\n\nBefore (own frame shown) and after (`/gsh fill`):\n\n![Before](https://raw.githubusercontent.com/tf4482/GroupSelfHide/main/docs/before.png)\n![After](https://raw.githubusercontent.com/tf4482/GroupSelfHide/main/docs/after.png)\n\n## Install\n\n1. Download `GroupSelfHide-vX.Y.Z.zip` from the\n   [releases](https://github.com/tf4482/GroupSelfHide/releases) (or CurseForge, Wago).\n2. Unzip it into `World of Warcraft/_forever_/Interface/AddOns/`.\n3. Restart the game or type `/reload`.\n\n## Usage\n\n```text\n/gsh                show the current mode\n/gsh fill           hide your frame and widen the others\n/gsh hide           hide your frame, keep the gap\n/gsh off            show your frame again\n/gsh character on   use settings for this character only\n/gsh character off  use the account settings again\n/gsh test           apply the mode once now\n/gsh reset          reset the settings to defaults\n/gsh debug on       show what the addon does, until /reload\n/gsh config         open the settings page\n/gsh help           list all commands\n```\n\n## Examples\n\n- In a 5-player party, `/gsh fill` closes the gap; the other four frames grow to the old\n  total width.\n- `/gsh hide` only hides your frame, the other frames keep their size.\n- In a raid or with vertical party frames, the mode stays saved but does nothing;\n  `/gsh` says so.\n- Typed during combat, a mode change applies right after combat.\n- `/gsh character on`, then `/gsh off` on a healer keeps the frame there while other\n  characters still hide it.\n\n## Develop\n\nCheck the code with [Luacheck](https://github.com/lunarmodules/luacheck) before each commit\n(CI runs it on every push):\n\n```text\nluacheck .\n```\n\nDeploy locally: run `deploy.bat`; it builds `release/GroupSelfHide-vX.Y.Z.zip` from `VERSION`.\n\nRelease: set `VERSION` to `X.Y.Z`, then push an annotated tag `vX.Y.Z`; GitHub Actions\npackages the addon with the BigWigs packager and publishes it.\n\n## License\n\nCopyright (c) 2026 tf4482. All rights reserved, see [LICENSE](https://github.com/tf4482/GroupSelfHide/blob/main/LICENSE).\n\nYou may download this addon and use it for personal, non-commercial play in your own game client. Without prior written permission, you may not:\n\n- redistribute or re-upload it, in whole or in part, on any site or platform\n- modify it or publish modified versions or forks\n- bundle it into compilations, addon packs, or other projects\n- use it commercially\n\nFor permissions, open an issue on GitHub.",
+  "releases": [
+    {
+      "tag": "v0.5.1",
+      "published": "2026-11-24",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\nThe format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and\n[Semantic Versioning](https://semver.org/).\n\n## [0.5.1] - 2026-11-24\n\n### Added\n\n- Releases are published on CurseForge\n\n## [0.5.0] - 2026-11-24\n\n### Added\n\n- Settings page (Esc > Options > AddOns) and addon compartment entry\n- `/gsh config` opens the settings page, `/gsh help` lists all commands\n- \"Per character\" checkbox and `/gsh character on|off`: settings per character or per\n  account (saved in the new `GroupSelfHideCharDB`; the account mode stays as it was)\n- `/gsh test` applies the mode once now, `/gsh reset` restores the defaults,\n  `/gsh debug on|off` shows what the addon does\n\n### Changed\n\n- `/gsh` shows the current mode; `/gsh fill`, `/gsh hide`, and `/gsh off` set it\n- Release zips are built on GitHub and named `GroupSelfHide-vX.Y.Z.zip`\n- WoW Forever only: the TOC no longer lists the Retail interface number\n\n### Fixed\n\n- Stutter and flicker from updates of unrelated compact frames such as raid frames and\n  nameplates; party frame updates in quick succession now apply once\n\n## [0.4.2] - 2026-11-18\n\n### Changed\n\n- README: detail license terms\n\n## [0.4.1] - 2026-11-18\n\n### Changed\n\n- README: add license section\n\n## [0.4.0] - 2026-11-07\n\n### Changed\n\n- `/gsh` is now the fill mode, `/gsh hide` the hide mode\n- Calling a command while a mode is active switches back to normal\n- Default is off\n\n### Added\n\n- Addon stays inactive in raids and with a vertical party layout\n\n### Removed\n\n- `/gsh fill` and `/gsh help`\n\n## [0.3.1] - 2026-11-07\n\n### Changed\n\n- README: add screenshots, simplify description\n\n## [0.3.0] - 2026-11-07\n\n### Added\n\n- Fill mode (`/gsh fill`) widens the other party frames to keep the group width\n- `/gsh hide` selects the plain hide mode\n- `/gsh help` prints a short usage text in the client language (German, otherwise English)\n\n## [0.2.0] - 2026-11-07\n\n### Added\n\n- Hide the \"Party\" label while the own frame is hidden\n\n## [0.1.0] - 2026-11-07\n\n### Added\n\n- Hide the player's own frame in raid-style group frames\n- `/gsh` command to toggle, persisted across sessions"
+    },
+    {
+      "tag": "v0.5.0",
+      "published": "2026-11-24",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\nThe format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and\n[Semantic Versioning](https://semver.org/).\n\n## [0.5.0] - 2026-11-24\n\n### Added\n\n- Settings page (Esc > Options > AddOns) and addon compartment entry\n- `/gsh config` opens the settings page, `/gsh help` lists all commands\n- \"Per character\" checkbox and `/gsh character on|off`: settings per character or per\n  account (saved in the new `GroupSelfHideCharDB`; the account mode stays as it was)\n- `/gsh test` applies the mode once now, `/gsh reset` restores the defaults,\n  `/gsh debug on|off` shows what the addon does\n\n### Changed\n\n- `/gsh` shows the current mode; `/gsh fill`, `/gsh hide`, and `/gsh off` set it\n- Release zips are built on GitHub and named `GroupSelfHide-vX.Y.Z.zip`\n- WoW Forever only: the TOC no longer lists the Retail interface number\n\n### Fixed\n\n- Stutter and flicker from updates of unrelated compact frames such as raid frames and\n  nameplates; party frame updates in quick succession now apply once\n\n## [0.4.2] - 2026-11-18\n\n### Changed\n\n- README: detail license terms\n\n## [0.4.1] - 2026-11-18\n\n### Changed\n\n- README: add license section\n\n## [0.4.0] - 2026-11-07\n\n### Changed\n\n- `/gsh` is now the fill mode, `/gsh hide` the hide mode\n- Calling a command while a mode is active switches back to normal\n- Default is off\n\n### Added\n\n- Addon stays inactive in raids and with a vertical party layout\n\n### Removed\n\n- `/gsh fill` and `/gsh help`\n\n## [0.3.1] - 2026-11-07\n\n### Changed\n\n- README: add screenshots, simplify description\n\n## [0.3.0] - 2026-11-07\n\n### Added\n\n- Fill mode (`/gsh fill`) widens the other party frames to keep the group width\n- `/gsh hide` selects the plain hide mode\n- `/gsh help` prints a short usage text in the client language (German, otherwise English)\n\n## [0.2.0] - 2026-11-07\n\n### Added\n\n- Hide the \"Party\" label while the own frame is hidden\n\n## [0.1.0] - 2026-11-07\n\n### Added\n\n- Hide the player's own frame in raid-style group frames\n- `/gsh` command to toggle, persisted across sessions"
+    },
+    {
+      "tag": "v0.4.2",
+      "published": "2026-11-18",
+      "notes": "### Changed\n\n- README: detail license terms"
+    },
+    {
+      "tag": "v0.4.1",
+      "published": "2026-11-18",
+      "notes": "### Changed\n\n- README: add license section"
+    },
+    {
+      "tag": "v0.4.0",
+      "published": "2026-11-07",
+      "notes": "### Changed\n\n- `/gsh` is now the fill mode, `/gsh hide` the hide mode\n- Calling a command while a mode is active switches back to normal\n- Default is off\n\n### Added\n\n- Addon stays inactive in raids and with a vertical party layout\n\n### Removed\n\n- `/gsh fill` and `/gsh help`"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/tf4482/GroupSelfHide/main/docs/before.png",
+    "https://raw.githubusercontent.com/tf4482/GroupSelfHide/main/docs/after.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GroupSelfHide"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "GroupSelfHideDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "GroupSelfHideCharDB"
+    ]
+  }
+}

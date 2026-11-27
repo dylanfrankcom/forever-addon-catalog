@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "questitemstatus",
+  "repo": "HexNeo/QuestItemStatus",
+  "about": "# QuestItemStatus\n\n**WoW: Forever** addon. Hover any item and its tooltip lists every quest the item belongs to, with your status for each one.\n\nНаведи на предмет — в подсказке появятся все квесты, связанные с ним, и статус каждого.\n\n## What it shows\n\nFor each quest where the item…\n\n| Role | Meaning |\n|---|---|\n| starts | the item starts the quest |\n| objective | the item is a quest objective |\n| required | the quest needs the item but doesn't count it as an objective |\n| provided | the quest giver hands you the item |\n\n…you get a status: **completed**, **ready to turn in**, **in log** or **not taken**. Completion is read from the game's own completed-quest history, so quests finished before you installed anything are marked correctly too.\n\n## Commands\n\n- `/qis <itemId>` or `/qis [item link]` — print the same list to chat.\n\n## Requirements\n\n- [QuestieDB](https://github.com/Questie/Questie) (installed together with Questie) — supplies the quest/item database.\n\n## Notes\n\n- For the first 5–10 seconds after login the quest index is still building; until then only \"starts quest\" entries appear.\n- Quests of the other faction are listed too.\n- Localized: English, Russian.\n\n## License\n\nMIT — see [LICENSE](https://github.com/HexNeo/QuestItemStatus/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-24",
+      "notes": "# QuestItemStatus\n\n## [v1.0.0](https://github.com/HexNeo/QuestItemStatus/tree/v1.0.0) (2026-11-24)\n[Full Changelog](https://github.com/HexNeo/QuestItemStatus/commits/v1.0.0) [Previous Releases](https://github.com/HexNeo/QuestItemStatus/releases)\n\n- Add CurseForge project ID and logo  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Initial release of QuestItemStatus  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24"
+    ]
+  },
+  "languages": [
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "QuestItemStatus"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "QuestieDB"
+    ]
+  }
+}

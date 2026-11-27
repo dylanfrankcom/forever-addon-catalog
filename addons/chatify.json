@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "chatify",
+  "repo": "LihvoDruida/Chatify",
+  "about": "# Chatify (World of Warcraft Addon)\n[![WoW Version](https://img.shields.io/badge/WoW-retail-%231488DB?style=for-the-badge&logo=worldofwarcraft&logoColor=white)](https://worldofwarcraft.blizzard.com/)\n[![CurseForge](https://img.shields.io/badge/CurseForge-Download-%23F16436?style=for-the-badge&logo=curseforge&logoColor=white)](https://www.curseforge.com/wow/addons/chatify-chat-enhancer)\n[![GitHub Release](https://img.shields.io/github/v/release/LihvoDruida/Chatify?include_prereleases&style=for-the-badge&label=Release&logo=github&logoColor=white)](https://github.com/LihvoDruida/Chatify/releases)\n![Language](https://img.shields.io/badge/Language-Lua-%232C2D72?style=for-the-badge&logo=lua&logoColor=white)\n![License](https://img.shields.io/badge/License-MIT-%23A6E22E?style=for-the-badge)\n\n**Chatify** is a lightweight, modular addon for World of Warcraft written in Lua. It cleans up the standard chat interface, adds message history, safer chat copying, spam filtering, mention controls, sound alerts, and quick channel buttons.\n\n## ✨ Features\n\n* **\uD83C\uDFA8 Visual Customization:** Configurable fonts and shadows.\n* **\uD83D\uDCDC Chat History:** Saves chat messages between sessions for a dedicated selectable History window. It never replays old lines into the live chat frame.\n* **\uD83D\uDD17 Utilities:** Clickable URLs (`discord.gg`, `youtube.com`) and ChatCopy 2.0 with selectable chat-window tabs.\n* **\uD83D\uDEE1 Spam Filter 2.0:** Blocks spam keywords and repeated messages with channel rules, whitelists, counters, and a log-only tuning mode.\n* **\uD83D\uDD14 Mention Manager:** The single place for name/text highlights and mention sounds, with custom color, sound, channel scope, case sensitivity, whole-word matching, and sound cooldown.\n* **⚙️ Settings GUI:** Built-in configuration menu (no code editing required).\n\n## \uD83D\uDCC2 Project Structure\n\nThe addon is split into logical modules for better maintainability:\n\n* `Chatify.toc` — Addon manifest (metadata and file list).\n* `Config.lua` — Default settings and variable initialization.\n* `Settings.lua` — GUI code (Options panel).\n* `ChatFilters.lua` — Safe text processing logic (URLs, spam rules, mention highlights).\n* `ChatHistory.lua` — Per-frame history store and History window data provider.\n* `ChatVisuals.lua` — Visual tweaks (fonts, hiding elements).\n* `ChatCopy.lua` — ChatCopy 2.0 popup, shared tabbed copy/history window, safe copy cache, native selection guard, and configurable chat-window tabs.\n\n## Fonts\n\nChatify registers its known chat fonts through LibSharedMedia and also keeps a built-in fallback list for clients where the LSM widget is unavailable. The settings dropdown supports Blizzard fonts plus Chatify internal font paths for Exo 2, Inter, and Inter Display variants.\n\nSupported internal filenames under `assets/Fonts/`:\n\n- `Exo2.ttf`\n- `Exo2-Regular.ttf`, `Exo2-Medium.ttf`, `Exo2-SemiBold.ttf`, `Exo2-Bold.ttf`, `Exo2-Italic.ttf`\n- `Inter-Regular.ttf`, `Inter-Medium.ttf`, `Inter-SemiBold.ttf`, `Inter-Bold.ttf`\n- `InterDisplay-Regular.ttf`, `InterDisplay-Medium.ttf`, `InterDisplay-SemiBold.ttf`, `InterDisplay-Bold.ttf`\n\nIf a selected font file is absent or cannot be loaded by the current WoW client, Chatify falls back to the active Blizzard chat font instead of breaking chat rendering.\n\n## \uD83D\uDE80 Installation (For Developers)\n\n1.  Navigate to your WoW AddOns folder:\n    * **Windows:** `World of Warcraft\\_retail_\\Interface\\AddOns`\n2.  Clone the repository:\n    ```bash\n    git clone https://github.com/LihvoDruida/Chatify.git\n    ```\n3.  Ensure the folder is named `Chatify`.\n4.  Launch the game or type `/reload` if already running.\n\n## \uD83C\uDFAE Usage\n\nYou can access the configuration menu via:\n* **Game Menu:** `Esc` -> `Options` -> `AddOns` -> `Chatify`\n* **Slash Commands:**\n    * `/chatify`\n    * `/mcm`\n\n## \uD83E\uDD1D Contributing\n\nContributions are welcome!\n1.  Fork the repository.\n2.  Create a new branch (`git checkout -b feature/NewFeature`).\n3.  Commit your changes (`git commit -m 'Add some NewFeature'`).\n4.  Push to the branch (`git push origin feature/NewFeature`).\n5.  Open a Pull Request.\n\n## Quality & Testing\n\nChatify is checked as a release product, not only as separate Lua files. The release checklist covers TOC metadata, required files, settings loading, copy window behavior, spam filters, mention alerts, saved variables, and Retail-safe chat handling.\n\nThe Ukrainian QA notes and terminology are kept in [`docs/QUALITY_AND_TESTING.md`](https://github.com/LihvoDruida/Chatify/blob/main/docs/QUALITY_AND_TESTING.md).\n\n## System messages 2.18.8\n\nOpen **Chatify → Spam & System Filters → System Messages** to control channel\nnotices, online/offline status, group membership and battle join/leave summaries\nseparately. Battle summaries and channel notices are hidden by default; status\nand group membership notices are opt-in. Player chat, countdowns and unrelated\nsystem notices remain visible. The filters follow the client's localized formats\nand leave protected messages untouched.\n\nThe reported \"players have joined the battle\" summary is produced by Blizzard's\nBattlegroundChatFilters Lua; its wording alone does not identify which addon may\nbe provoking repeated roster changes. See [`docs/SYSTEM_NOTICES_2.18.8.md`](https://github.com/LihvoDruida/Chatify/blob/main/docs/SYSTEM_NOTICES_2.18.8.md)\nfor the reproduction, fixes and limits.\n\n## UI/UX 2.18.7\n\nComposer and its help window fit the current UI viewport; the full Composer form scrolls on short displays. Copy/History uses wrapped chat-font measurements, and History search stays inside the window on long translated tab names. Settings drafts survive moving between standalone and Blizzard settings hosts. Settings, Copy and History remain accessible when channel-routing APIs are unavailable.\n\nSee [`docs/UI_UX_AUDIT_2.18.7.md`](https://github.com/LihvoDruida/Chatify/blob/main/docs/UI_UX_AUDIT_2.18.7.md) for findings, client fixtures, validation evidence and the in-game verification steps.\n\n## \uD83D\uDCDD License\n\nThis project is licensed under the MIT License - see the LICENSE file for details.\n\n## Retail Safe Mode\n\nOn modern Retail builds, Chatify avoids unsafe whisper / BNet whisper processing. Settings show the active safe-mode status so users can clearly see why these paths are limited:\n\n- History is limited to safely captured events.\n- Virtual Chat remains disabled on protected Retail builds.\n- Whisper / BN whisper auto-replies are disabled on modern Retail when Blizzard restricts those events.\n- Native direct chat selection is the recommended copy path.\n\n## Spam Filter 2.0\n\nSpam filtering remains compact but now supports channel rules, guild/friend/party/raid whitelist, repeated-message cooldown, runtime counters, and a last-20 debug log. Use **Log Only** mode to tune rules without hiding messages.\n\n## Mention Manager\n\nMention rules can target words or phrases such as `Sebas`, `RL`, or `Ключ`. Each rule can define highlight color, sound, channels, case sensitivity, whole-word matching, and sound cooldown. Name/text mention sounds are no longer configured in the generic Sounds tab; that tab only controls generic channel notifications.\n\n## ChatCopy 2.0\n\nChatCopy opens a styled copy popup for the selected Blizzard chat frame and keeps the global safe event cache only as a fallback. The popup now has its own tab strip, so users can switch between General, Party, Guild, Whisper, custom renamed windows, and duplicate window names without closing the copy panel.\n\nConfiguration options are available in **Chatify → General & Visual → Copy Chat**:\n\n- **All usable chat tabs** — show all normal chat windows that are not hidden by default.\n- **Visible or docked tabs only** — keep the copy popup focused on currently visible/docked chat windows.\n- **Manual selection only** — show only windows enabled in the per-tab checklist.\n- **Selected chat only** — keep the copy popup limited to the currently selected chat frame.\n\nCombat Log and Voice are hard-blocked from ChatCopy: they are not shown in the tab strip, cannot be enabled in the checklist, and are skipped by direct selection compatibility mode. Hidden chat windows are unchecked by default; a normal hidden custom tab can still be enabled manually if needed.\n\nThe per-tab checklist is keyed by Blizzard chat frame ID, not by display text. This means renamed tabs and duplicate names remain stable; duplicates get numbered labels in the popup.\n\n## Chat History Window\n\nThe History button is placed next to the Settings and Copy Chat buttons. On Retail, Chatify can share the main chat sidebar stack. On Classic-era clients (Vanilla, Burning Crusade Classic, Wrath/Titan and Mists Classic), Chatify uses a detached mini stack and leaves Blizzard's native scroll/menu buttons untouched so the client-specific chat buttons do not clip, overlap, or get reparented incorrectly. The window uses the same selectable popup foundation as ChatCopy, but is styled and labeled as a History viewer and reads from Chatify's saved per-frame history store only.\n\nHistory tabs follow the same rules as ChatCopy tabs: Combat Log and Voice are excluded, hidden windows stay disabled by default, renamed tabs are supported, and empty secondary tabs do not borrow messages from General. On modern Retail clients, history capture follows the same protected-payload policy as ChatCopy and avoids whisper/BN/protected event payloads. Saved history is never injected back into visible chat frames after login or `/reload`.\n\n## Safe Chat Tabs\n\nThe setup panel can create or update PM, Guild, and Raid/Guild/PM tab templates. Existing tabs are reused instead of duplicated, and the restore action only repairs the main chat groups without deleting custom windows.\n\n## Compatibility Notes\n\n- Retail 12.x uses a restricted safe path inspired by modern Prat patterns: filters stay on Blizzard's secure message pipeline, while risky direct chat-frame rewrites stay disabled.\n- ElvUI chat panels are now detected automatically. Quick channel buttons refresh after ElvUI chat layout updates and can use Auto, Standard, ElvUI, or GW2 UI skin modes without losing the default Blizzard-compatible fallback.\n- GW2 UI chat is now detected through its custom chat container flow. Quick channel buttons anchor to the rebuilt GW2 chat frame, use GW2-style textures and font, and refresh after GW2 chat settings updates without needing `/reload`.\n- Auto Reply is now actually loaded from the TOC, so its settings are no longer dead UI.\n- Extra TOC variants were added for TBC/Wrath/Vanilla packaging.\n\n## Compatibility\n- Includes `LibChatAnims` for Floating Chat Frame alert flash functions, following the Prat 3.0 approach to use animation groups instead of legacy `UIFrameFlash`.\n- See `COMPATIBILITY.md` for Retail/PTR, Forever, Era/Hardcore/SoD, TBC Anniversary,\n  Titan/Wrath, Cata and Mists targets. `/chatifycompat` prints the client and\n  available feature/API paths for live troubleshooting.\n\n## Quick Button Skin Behavior\n\nQuick chat button skins can be forced to Standard, ElvUI, or GW2 UI even if those addons are not installed. In that case Chatify applies only the visual style and keeps its normal behavior, anchors, and chat logic. Auto mode still follows detected chat UI addons when they are active.\n\n## PTR 12.1 note\n\nThis build includes a small compatibility layer for PTR clients where older embedded AceGUI checkbox code can fail on missing UI helpers. The 2.18.6 Forever audit bundle includes dependency snapshots and a clean installable archive at `dist/Chatify-2.18.6.zip`. Extract the inner archive into `Interface/AddOns/`. Other source-only checkouts may still require externals from `.pkgmeta`. See `docs/FOREVER_API_AUDIT_2.18.6.md` for validation results and remaining live-client checks.\n\n- Classic-era chat button compatibility keeps Blizzard chat controls untouched; Chatify Settings, Copy and History use a detached toolbar on BCC, Vanilla, Wrath/Titan and MoP Classic.\n\n### Forever 2.18.6 API verification\n\nForever source baseline: 1.60.1.70532, Interface 16001. The bundle includes a\npinned generated API index, targeted runtime contracts and integration probes\nagainst actual Blizzard Lua implementations. Read `docs/FOREVER_API_AUDIT_2.18.6.md`.\n`/chatifycompat` reports the live build and relevant capabilities; offline tests\ndo not certify Blizzard's taint behavior.",
+  "releases": [
+    {
+      "tag": "v4.4",
+      "published": "2026-11-21",
+      "notes": "## [4.4] - 2026-11-21\n\n### ⚙️ Miscellaneous Tasks\n\n- Remove dead code reported by luacheck\n\n- Stop shipping dev leftovers and dead TOC/Lua files\n\n### \uD83D\uDC1B Bug Fixes\n\n- Never move quick buttons to the other side when Left/Right is chosen\n\n- Migrate retired Exo 2 settings and drop the unused fonts/ dir\n\n- Keep the legacy AddMessage wrapper chain intact on toggles\n\n- Translate profile backup errors and audit locale coverage\n\n- Reuse one export/import window instead of stacking new ones\n\n### \uD83D\uDCE6 Other Changes\n\n- Make luacheck part of the required checks\n\n- Install Pillow for the asset audit\n\n- Validate every push, PR and tag; publish only after validation\n\n### \uD83D\uDE80 New Features\n\n- Make room next to every chat window with Side = Left; Right restores all\n\n- Left side makes room automatically; other sides put the chat back\n\n- Move the chat to make room for quick buttons on the chosen side\n\n- Optionally reserve screen space next to the chat for quick buttons\n\n- Keep quick chat buttons on screen automatically\n\n- Add horizontal offset for quick chat buttons\n\n### \uD83D\uDEE0️ Refactor\n\n- One combat-log query instead of two same-named functions"
+    },
+    {
+      "tag": "v4.3",
+      "published": "2026-11-12",
+      "notes": "## [4.3] - 2026-11-12\n\n### \uD83D\uDC1B Bug Fixes\n\n- Filter translated presence and channel status notices\n\n- Align chat action buttons in one native-style column\n\n- Show optional local echoes for own public-channel messages\n\n- Filter localized system notices and battle summaries\n\n### \uD83D\uDE80 New Features\n\n- Support flexible quick-chat docking without moving native chat controls"
+    },
+    {
+      "tag": "v4.2",
+      "published": "2026-10-29",
+      "notes": "## [4.2] - 2026-10-29\n\n### \uD83D\uDC1B Bug Fixes\n\n- Fit client viewports and preserve settings state\n\n- Honor client naming and API return contracts\n\n- Modernize APIs and harden release packaging"
+    },
+    {
+      "tag": "v4.1",
+      "published": "2026-10-13",
+      "notes": "## [4.1] - 2026-10-13\n\n### \uD83D\uDC1B Bug Fixes\n\n- Simplify tag-only release workflow and remove redundant publishing checks            Чи була ця розмова корисною для вас дотепер?\n\n- Fix release guard permissions and restrict publishing to new Git tags\n\n- Improve settings drafts, defaults and feature availability\n\n- Correct queue activity adapters and gate install packages\n\n- Align history rendering and harden friend and Unicode filters\n\n- Gate releases and harden profiles and chat hooks\n\n- Complete stage 1 inspection (F01-F03) & fix F16 test logic\n\n### \uD83D\uDCE6 Other Changes\n\n- ]коміт, лише текст fix(ci): allow publishing to empty GitHub releases created from new tags\n\n### \uD83D\uDE80 New Features\n\n- Responsive settings, color picker and keyboard navigation"
+    },
+    {
+      "tag": "v4.0",
+      "published": "2026-10-11",
+      "notes": "## [4.0] - 2026-10-10\n\n### \uD83D\uDC1B Bug Fixes\n\n- Harden Chatify support across WoW clients\n\n### \uD83D\uDE80 New Features\n\n- Redesign Chatify settings in Max Camera style\n\n### \uD83D\uDEE0️ Refactor\n\n- Remove unused Ace settings libraries"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-12",
+      "2026-10-29",
+      "2026-10-13",
+      "2026-10-11",
+      "2026-10-07",
+      "2026-09-23",
+      "2026-09-23",
+      "2026-09-22",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-18",
+      "2026-09-09",
+      "2026-09-01",
+      "2026-08-23",
+      "2026-08-20",
+      "2026-08-18",
+      "2026-08-17",
+      "2026-08-09",
+      "2026-08-07",
+      "2026-08-06",
+      "2026-08-05",
+      "2026-07-30",
+      "2026-07-26",
+      "2026-07-22",
+      "2026-07-08",
+      "2026-07-08",
+      "2026-06-25",
+      "2026-06-24",
+      "2026-06-19",
+      "2026-06-03",
+      "2026-05-19",
+      "2026-05-17",
+      "2026-05-16",
+      "2026-05-10",
+      "2026-05-02",
+      "2026-04-26",
+      "2026-04-24",
+      "2026-04-22",
+      "2026-04-21",
+      "2026-04-19",
+      "2026-04-12",
+      "2026-04-12",
+      "2026-04-11",
+      "2026-04-09",
+      "2026-04-07",
+      "2026-04-06",
+      "2026-04-05",
+      "2026-04-05"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Chatify"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "ElvUI",
+      "GW2_UI",
+      "LibChatAnims"
+    ],
+    "savedVariables": [
+      "ChatifyDB",
+      "ChatifyHistoryDB"
+    ]
+  }
+}

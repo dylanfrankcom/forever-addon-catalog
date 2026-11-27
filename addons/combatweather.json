@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "combatweather",
+  "repo": "Iridreth/CombatWeather",
+  "about": "# CombatWeather\n\n(For World of Warcraft - Forever)\n\nTired of not being able to find the boar killing you in a Dun Morogh snowstorm because it is turning your whole screen white?\n\nThis addon solves that problem by automatically adjusting various weather options based on your combat state so you get to enjoy a clear screen when fighting and full immersion when not, all done seamlessly and without bother. It includes customisable options so you can fine tune your experience to  your taste, and the option to disable it within instances.\n\n/combatweather - Brings up the options menu",
+  "releases": [
+    {
+      "tag": "v1.3",
+      "name": "CombatWeather v1.3",
+      "published": "2026-11-16",
+      "notes": "- Added option to disable CombatWeather when within an instance"
+    },
+    {
+      "tag": "v1.2",
+      "name": "CombatWeather v1.2",
+      "published": "2026-11-11",
+      "notes": "- Added ability to switch bloom state based on combat status."
+    },
+    {
+      "tag": "v1.1",
+      "name": "CombatWeather v1.1",
+      "published": "2026-11-08",
+      "notes": "- Fixed interaction bug when trying to initiate a whisper."
+    },
+    {
+      "tag": "v1.0",
+      "name": "CombatWeather v1.0",
+      "published": "2026-11-08",
+      "notes": "First release of CombatWeather"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-11",
+      "2026-11-08",
+      "2026-11-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CombatWeather"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "CombatWeatherDB"
+    ]
+  }
+}

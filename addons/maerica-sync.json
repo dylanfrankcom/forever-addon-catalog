@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "maerica-sync",
+  "repo": "Maerica-server/maerica-sync",
+  "about": "# Maerica Sync\n\nRead-only Classic Forever addon for [WoW Forever](https://github.com/Maerica-server/wow-forever-service). Records a character snapshot into SavedVariables; the collector on your PC posts it to the service.\n\n## Install\n\nThe collector installs this from GitHub Releases when the service catalog points at `Maerica-server/maerica-sync`. You can also unzip a release into `Interface\\AddOns\\`.\n\n## Release\n\nBump `## Version:` in `maerica-sync/maerica-sync.toc` and push to `main`. Actions zips the folder and publishes tag `v<version>`.\n\n## On disk\n\n| | |\n| --- | --- |\n| Folder / TOC | `maerica-sync` / `maerica-sync.toc` |\n| Interface | `16001` (Classic Forever) |\n| SavedVariables | `MaericaSyncDB` per character |\n\nThe addon only uses Blizzard's addon API. It does not talk to the network.",
+  "releases": [
+    {
+      "tag": "v0.2.5",
+      "name": "maerica-sync 0.2.5",
+      "published": "2026-11-15",
+      "notes": "maerica-sync 0.2.5 (e24dd6f3244d)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "maerica-sync"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "MaericaSyncDB"
+    ]
+  }
+}

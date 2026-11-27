@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "squashbuffgaps",
+  "repo": "tf4482/SquashBuffGaps",
+  "about": "# SquashBuffGaps\n\nCloses the empty slots between shown tracked buffs in the game's Cooldown Manager when\n\"Hide when inactive\" is on, for buff icons and buff bars.\n\n## Features\n\n- **Buff icons** - shown icons move together against the edge their Edit Mode direction\n  points to; hidden ones leave no gap.\n- **Buff bars** - shown bars move together; hidden ones leave no gap.\n- **Bar growth** - choose whether buff bars stack downward or upward.\n- **Fixed edges** - icons and bars stay inside the area Edit Mode shows, however many are\n  active.\n- **Follows your layout** - orientation and icon direction from Edit Mode decide the edge\n  items pack against, in the order set in the Cooldown Manager.\n- **Remembered** - settings are saved per account, or per character with one checkbox;\n  default is off.\n- **Totem fix** - out of combat, tracked totems that are no longer out disappear, even\n  when the game leaves them on screen with a frozen timer; always on.\n- **Edit Mode panel** - selecting Tracked Buffs or Tracked Bars in Edit Mode shows the\n  options right below Blizzard's settings dialog.\n- **Settings page** - all options in the game menu under Options > AddOns, also opened\n  from the addon compartment menu.\n- **Chat commands** - every option can also be changed by slash command.\n\n## Screenshots\n\nAll tracked buffs active, then one expired: the others close the gap against the right edge.\n\n![All tracked buffs active](https://raw.githubusercontent.com/tf4482/SquashBuffGaps/main/docs/icons-all-active.png)\n![One buff expired, no gap](https://raw.githubusercontent.com/tf4482/SquashBuffGaps/main/docs/icons-one-expired.png)\n\nSettings page under Options > AddOns:\n\n![Settings page](https://raw.githubusercontent.com/tf4482/SquashBuffGaps/main/docs/settings-page.png)\n\n## Install\n\n1. Download `SquashBuffGaps-vX.Y.Z.zip` from the\n   [releases](https://github.com/tf4482/SquashBuffGaps/releases) or CurseForge.\n2. Unzip it into `World of Warcraft/_forever_/Interface/AddOns/`.\n3. Restart the game or type `/reload`.\n\n## Usage\n\n```text\n/sbg              show the current state\n/sbg icons on|off close gaps between tracked buff icons\n/sbg bars on|off  close gaps between tracked buff bars\n/sbg grow down|up direction buff bars stack in\n/sbg character on use settings for this character only\n/sbg character off use the account settings again\n/sbg test         re-place the tracked buffs once now\n/sbg reset        reset the settings to defaults\n/sbg debug on     show what the addon does, until /reload\n/sbg config       open the settings page\n/sbg help         list all commands\n```\n\n## Examples\n\n- Icon direction Right, buffs 1 and 3 of 4 active: `/sbg icons on` puts both at the right\n  edge, buff 1 directly left of buff 3.\n- Icon direction Left: the same buffs pack against the left edge instead.\n- Vertical bars: `/sbg bars on` stacks the active bars without holes from the start edge.\n- Bars anchored above the player frame: `/sbg grow up` stacks them upward from the bottom.\n- In Edit Mode: click Tracked Bars, tick \"Close Gaps\" below the dialog and pick \"Up\".\n- Totemic Recall leaves some totems on screen: out of combat they disappear on their own.\n- Back to the game's own spacing: `/sbg icons off` and `/sbg bars off`.\n- Icons closed on one character only: `/sbg character on`, then `/sbg icons on`.\n\n## Develop\n\nCheck the code with [Luacheck](https://github.com/lunarmodules/luacheck) before each commit\n(CI runs it on every push):\n\n```text\nluacheck .\n```\n\nDeploy locally: run `deploy.bat`; it builds `release/SquashBuffGaps-vX.Y.Z.zip` from `VERSION`.\n\nRelease: set `VERSION` to `X.Y.Z`, then push an annotated tag `vX.Y.Z`; GitHub Actions\npackages the addon with the BigWigs packager and publishes it.\n\n## License\n\nAll rights reserved, see [LICENSE](https://github.com/tf4482/SquashBuffGaps/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-24",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\nThe format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and\n[Semantic Versioning](https://semver.org/).\n\n## [Unreleased]\n\n## [0.2.0] - 2026-11-24\n\n### Added\n\n- `Per character` checkbox and `/sbg character on|off`: settings per account or per character\n- `/sbg test`, `/sbg reset`, and `/sbg debug on|off`\n\n### Fixed\n\n- Stutter from re-placing items on every layout, show, and hide; bursts now apply once\n- Re-placing protected viewers in combat now waits until combat ends\n\n## [0.1.4] - 2026-11-24\n\n### Changed\n\n- Addon icon is now Gift of the Wild\n\n## [0.1.3] - 2026-11-21\n\n### Fixed\n\n- Bars Grow label overlapping the Close Gaps checkbox in the Edit Mode panel\n\n## [0.1.2] - 2026-11-21\n\n### Added\n\n- Screenshots in the README\n\n### Fixed\n\n- Release upload to CurseForge\n\n## [0.1.1] - 2026-11-21\n\n### Added\n\n- Publish releases on CurseForge\n\n## [0.1.0] - 2026-11-21\n\n### Added\n\n- Close gaps between shown tracked buffs (icons and bars) when `Hide when inactive` is on\n- Choose the growth direction of buff bars (down or up)\n- Options panel below the Edit Mode dialog of Tracked Buffs and Tracked Bars\n- Hide tracked totems the game leaves on screen after they are gone, out of combat"
+    },
+    {
+      "tag": "v0.1.3",
+      "published": "2026-11-21",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\nThe format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and\n[Semantic Versioning](https://semver.org/).\n\n## [0.1.3] - 2026-11-21\n\n### Fixed\n\n- Bars Grow label overlapping the Close Gaps checkbox in the Edit Mode panel\n\n## [0.1.2] - 2026-11-21\n\n### Added\n\n- Screenshots in the README\n\n### Fixed\n\n- Release upload to CurseForge\n\n## [0.1.1] - 2026-11-21\n\n### Added\n\n- Publish releases on CurseForge\n\n## [0.1.0] - 2026-11-21\n\n### Added\n\n- Close gaps between shown tracked buffs (icons and bars) when `Hide when inactive` is on\n- Choose the growth direction of buff bars (down or up)\n- Options panel below the Edit Mode dialog of Tracked Buffs and Tracked Bars\n- Hide tracked totems the game leaves on screen after they are gone, out of combat"
+    },
+    {
+      "tag": "v0.1.2",
+      "published": "2026-11-21",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\nThe format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and\n[Semantic Versioning](https://semver.org/).\n\n## [0.1.2] - 2026-11-21\n\n### Added\n\n- Screenshots in the README\n\n### Fixed\n\n- Release upload to CurseForge\n\n## [0.1.1] - 2026-11-21\n\n### Added\n\n- Publish releases on CurseForge\n\n## [0.1.0] - 2026-11-21\n\n### Added\n\n- Close gaps between shown tracked buffs (icons and bars) when `Hide when inactive` is on\n- Choose the growth direction of buff bars (down or up)\n- Options panel below the Edit Mode dialog of Tracked Buffs and Tracked Bars\n- Hide tracked totems the game leaves on screen after they are gone, out of combat"
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-21",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\nThe format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and\n[Semantic Versioning](https://semver.org/).\n\n## [0.1.0] - 2026-11-21\n\n### Added\n\n- Close gaps between shown tracked buffs (icons and bars) when \"Hide when inactive\" is on\n- Choose the growth direction of buff bars (down or up)\n- Options panel below the Edit Mode dialog of Tracked Buffs and Tracked Bars\n- Hide tracked totems the game leaves on screen after they are gone, out of combat"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/tf4482/SquashBuffGaps/main/docs/settings-page.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SquashBuffGaps"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SquashBuffGapsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "SquashBuffGapsCharDB"
+    ]
+  }
+}

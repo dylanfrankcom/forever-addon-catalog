@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "counselor",
+  "repo": "scaramuzzino/counselor",
+  "about": "![Counselor](https://raw.githubusercontent.com/scaramuzzino/counselor/main/docs/banner.png)\n\n**Gestore di gilda e maggiordomo per World of Warcraft Forever (Classic Era).**\nRoster, classifiche DPS/HPS live, raid planner, calendario, bottino e il maggiordomo *Jeeves* — dentro il gioco e sul web.\n\n![Versione](https://img.shields.io/badge/versione-0.4.0-E8B85E?style=for-the-badge)\n![Licenza](https://img.shields.io/badge/licenza-MIT-E0572E?style=for-the-badge)\n![WoW](https://img.shields.io/badge/WoW-Forever%20%C2%B7%20Classic%20Era%201.15-E8B85E?style=for-the-badge)\n![Interface](https://img.shields.io/badge/Interface-16001-444?style=for-the-badge)\n\n---\n\n## ✦ Cos'è\n\n**Counselor** è un addon di gestione gilda per *WoW Forever*, affiancato da un piccolo companion desktop e da un portale web. Porta in gioco le stesse informazioni del sito della gilda — roster, gearscore, classifiche, calendario, composizioni raid — e aggiunge un **meter danni/cure in tempo reale** e il maggiordomo **Jeeves**.\n\nL'addon è **gratuito e open source**. Vive in un'unica finestra elegante (l'*hub*): schede a sinistra, contenuto al centro, i danni live a destra.\n\n## ✦ Caratteristiche\n\n| | |\n|---|---|\n| \uD83C\uDFF0 **Hub unico** | Una sola finestra: Cruscotto, DPS/HPS, Bottino, Calendario, Raid, Jeeves, Profilo. |\n| ⚔️ **Meter DPS/HPS live** | Danni e cure in tempo reale di tutto il gruppo/raid, barre colore-classe, via l'API nativa del server. |\n| \uD83D\uDFE2 **Gilda ORA** | Chi è online adesso, in quale zona, a che livello e con quale gearscore. |\n| \uD83C\uDFA9 **Jeeves** | Il maggiordomo della gilda: consigli su classi, gear, zone, tattiche — in gioco e in chat. |\n| \uD83D\uDCE3 **Call to Arms** | I membri segnano disponibilità (giorni/orari) ed entrano nella rosa del planner. |\n| \uD83D\uDDE1️ **Raid Planner** | Scelta raid con tattiche, rosa dei disponibili, composizione con vista gear del GM. |\n| \uD83D\uDCC5 **Calendario & Bottino** | Eventi del mese e ultimi drop della gilda, sincronizzati col sito. |\n\n## ✦ Come funziona\n\nGli addon di WoW non hanno accesso alla rete: per questo Counselor usa un'architettura a tre livelli.\n\n```\n┌──────────────┐   SavedVariables   ┌──────────────────┐   HTTPS   ┌─────────────┐\n│  Addon (in    │ ─────────────────▶ │  Companion       │ ────────▶ │  Portale     │\n│  gioco, Lua)  │   (al /reload o     │  (app desktop,   │           │  web          │\n│               │    logout)          │   invisibile)    │ ◀──────── │  (roster,    │\n│  raccoglie    │ ◀───────────────── │  file-watch +    │  snapshot │   Jeeves…)   │\n│  dati & meter │   CounselorSnapshot │  upload          │           │              │\n└──────────────┘                     └──────────────────┘           └─────────────┘\n```\n\n- **Addon** — raccoglie i dati del tuo personaggio, mostra l'hub e il meter live.\n- **Companion** — piccola app desktop che gira invisibile in background: sincronizza i dati col portale (nessuna finestra, si installa da sola).\n- **Portale** — dashboard web della gilda e Jeeves.\n\n## ✦ Installazione\n\n**1. Addon** — il modo più semplice:\n- Da **CurseForge**: cerca *Counselor* e premi *Install*.\n- Oppure scarica lo ZIP da Releases e copialo in `Interface/AddOns/`.\n\n**2. Companion** (per sincronizzare i dati col sito) — scaricalo dal portale e aprilo una volta: si installa da solo e parte in background a ogni avvio del PC. Vedi [`companion/PACKAGING.md`](https://github.com/scaramuzzino/counselor/blob/main/companion/PACKAGING.md).\n\n**3. Collegamento** — registrati sul portale, genera il *pairing-code* e incollalo nella scheda **Profilo** dell'addon. Fatto: da lì tutto è automatico.\n\n## ✦ Struttura del repository\n\n```\naddon/Counselor/     L'addon in gioco (Lua) + texture\ncompanion/           Il companion desktop (Python) + script di build\ndeploy/              Script di firma, installer e packaging CurseForge\n```\n\n> Nota: il server/portale web non fa parte di questo repository open source.\n\n## ✦ Licenza\n\nDistribuito con licenza **MIT**. Vedi [`LICENSE`](https://github.com/scaramuzzino/counselor/blob/main/LICENSE).\n\n© 2026–2030 **Stefano Scaramuzzino**.",
+  "releases": [
+    {
+      "tag": "v0.4.0",
+      "name": "Counselor v0.4.0",
+      "published": "2026-11-08",
+      "notes": "## Novità v0.4.0\n\n- **Hub unico** in gioco (Cruscotto, DPS/HPS, Bottino, Calendario, Raid, Jeeves, Profilo) con estetica \"dossier\".\n- **Meter DPS/HPS live** (via C_DamageMeter) di tutto il gruppo/raid.\n- **Gilda ORA**: chi è online, dove e con quale gearscore.\n- **Package Raid**: tattiche ricche per-ruolo boss per boss, pacchetti Tank/Healer/DPS, e message-block che il raid leader invia alla chat di raid.\n- Perf per-giocatore sincronizzate col portale.\n\n**Installazione**: estrai la cartella `Counselor/` in `Interface/AddOns/`. Per la sincronizzazione col portale serve anche il Companion (dal sito)."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Counselor"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "CounselorDB",
+      "CounselorSnapshot"
+    ]
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "id": "elvui-merathilisui",
+  "repo": "Merathilis/ElvUI_MerathilisUI",
+  "about": "[![MerathilisUI - A complete, polished look for ElvUI. Plus everything it doesn't ship.](.github/media/readme/hero.png)](https://www.merathilisui.com/)\n\n![](https://img.shields.io/badge/Retail-Midnight-ff7f1a?style=for-the-badge&logo=battledotnet&logoColor=white&labelColor=1d1b19) ![](https://img.shields.io/badge/WoW_Forever-Live-ffa24d?style=for-the-badge&logo=battledotnet&logoColor=white&labelColor=1d1b19) ![](https://img.shields.io/badge/ElvUI-16.02-1784d1?style=for-the-badge&labelColor=1d1b19) ![](https://img.shields.io/badge/Version-7.47-d9480f?style=for-the-badge&labelColor=1d1b19)\n\n[![](https://img.shields.io/curseforge/dt/97589?style=for-the-badge&logo=curseforge&logoColor=white&label=CurseForge&color=f16436&labelColor=1d1b19)](https://www.curseforge.com/wow/addons/merathilis-ui) [![](https://img.shields.io/badge/Wago-Download-c1272d?style=for-the-badge&logoColor=white&labelColor=1d1b19)](https://addons.wago.io/addons/elvui-merathilisui) [![](https://img.shields.io/badge/WowUp-Download-8a5cf6?style=for-the-badge&labelColor=1d1b19)](https://wowup.io/addons/2797823) [![](https://img.shields.io/github/downloads/Merathilis/ElvUI_MerathilisUI/total?style=for-the-badge&logo=github&logoColor=white&label=GitHub&color=30363d&labelColor=1d1b19)](https://github.com/Merathilis/ElvUI_MerathilisUI/releases) [![](https://img.shields.io/discord/284626725403361281?style=for-the-badge&logo=discord&logoColor=white&label=Discord&color=5865f2&labelColor=1d1b19)](https://discord.com/invite/28We6esE9v)\n\n**[Website](https://www.merathilisui.com/)** &nbsp;·&nbsp;\n**[Download](https://www.merathilisui.com/download)** &nbsp;·&nbsp;\n**[Features](https://www.merathilisui.com/features)** &nbsp;·&nbsp;\n**[Presets](https://www.merathilisui.com/presets)** &nbsp;·&nbsp;\n**[Changelog](https://www.merathilisui.com/changelog)** &nbsp;·&nbsp;\n**[Discord](https://discord.com/invite/28We6esE9v)**\n\n![MerathilisUI on Retail and WoW Forever](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/showcase.jpg)\n\nScreenshot also shows other AddOns.\n\nMerathilisUI is a plugin for **ElvUI** on **Retail** and **WoW Forever**. It gives your interface a clean, transparent design with class-colored gradients and adds a set of modules that go beyond what ElvUI offers out of the box. Everything is modular: turn off what you don't need, keep the rest.\n\n| Why MerathilisUI? | |\n| --- | --- |\n| \uD83E\uDDED **One-click complete UI** | The installer sets up ElvUI, chat, action bars, data texts, nameplates, unit frames and profiles for popular addons. Pick **General**, **Dark** or **Gradient**. |\n| \uD83C\uDFA8 **One design everywhere** | Blizzard windows, ElvUI and supported addons get the same shadows, gradients and flat widgets, including the ElvUI options window itself. |\n| \uD83E\uDDE9 **Features ElvUI doesn't have** | Categorized bags, a full Armory, AddOn and Loadout Manager, click-casting, a chat sidebar, Mythic+ info on hover, a buff reminder and more. |\n| \uD83D\uDD27 **Actively maintained** | Regular updates for the current patch, and bugs reported on Discord get fixed. |\n\n![Features](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/header-features.png)\n\n\t\n\n\t\t\n![Armory](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-armory.webp)\n\n\t\t\n![Categorized Bags](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-bags.webp)\n\n\t\n\n\t\n\n\t\t\n![AddOn Manager](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-addon-manager.webp)\n\n\t\t\n![Loadout Manager](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-loadout-manager.webp)\n\n\t\n\n\t\n\n\t\t\n![Unit Portraits](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-portraits.webp)\n\n\t\t\n![HoverCast](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-hovercast.webp)\n\n\t\n\n\t\n\n\t\t\n![Unlock Mode](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-unlock-mode.webp)\n\n\t\t\n![Game Menu](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-game-menu.webp)\n\n\t\n\n\t\n\n\t\t\n![Chat Sidebar](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-chat.webp)\n\n\t\t\n![Minimap](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-minimap.webp)\n\n\t\n\n\t\n\n\t\t\n![Notifications](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-notifications.webp)\n\n\t\t\n![Quick Grid](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-quick-grid.webp)\n\n\t\n\n**Show the full feature list**\n\n### Bags\n\n-   **Categorized Bags** - Replaces the bag frame with a category sidebar: pinned and recent items, custom categories, sub-headers per expansion and per equipment set\n-   Merges identical stacks into one slot and shrinks the bag and bank windows to fit their contents\n-   Shows which items are part of an equipment set\n\n### Armory (Character Frame)\n\n-   Redesigned character and inspect frame with class backgrounds\n-   Item level, enchants and sockets per slot, with a warning for missing enchants\n-   Shows the highest item level you can reach with the items in your bags\n-   Built-in equipment set manager and socket panel\n\n### Chat & Minimap\n\n-   **Chat Sidebar** - Friends and guild online, durability, voice chat and copy chat in one bar next to the chat\n-   **Location Panel** - Zone text and coordinates above the minimap\n-   **Minimap Button Bar** - Collects the addon buttons from your minimap into one bar\n\n### Combat & Group Content\n\n-   **NameHover** - Unit info at your cursor; in Mythic+ it shows how much Enemy Forces an enemy is worth and your current pull progress\n-   **Buff Reminder** - Reminds you of missing raid buffs, flasks, food, runes, weapon enchants and poisons\n-   **Movement Alert** - Shows the cooldowns of your movement spells, optionally with Text to Speech\n-   **Loot Spec Manager** - Switches your loot specialization automatically per boss in raids and Mythic+\n-   **Spec Bar** - Switch your specialization with one click\n-   **Vehicle / Skyriding Bar** - Styled vehicle bar with a vigor bar and speed display\n-   **Faction Indicator** - Faction crest of the opposing faction on unit frames and nameplates\n\n### Notifications\n\n-   Rare mobs, new mail, Great Vault rewards, Call to Arms, low durability, full bags, guild events, Quick Join requests and currency cap warnings\n\n### Quality of Life\n\n-   Mail: open or delete multiple mails at once, send templates and quick attach\n-   Profession tabs, Pet Journal filter by type, tertiary stats in the auction house\n-   Copy your current transmog as a list, Wowhead links in the Achievement and World Map frame\n-   Styled game menu, AFK screen and cursor ring with GCD and cast progress\n\n### Unit Frames & Theme\n\n-   Gradient, Dark and class-colored health, power and castbars\n-   Additional styling for player, target, party, raid and boss frames\n\n![Make it your own](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/header-presets.png)\n\nThe installer comes with three layouts - **General**, **Dark** and **Gradient**. On top of that you can apply a **preset**: a ready-made look shared as a code, in game on the Presets page or from the [preset gallery](https://www.merathilisui.com/presets).\n\n\t\n\n\t\t\n![Gradient preset](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-preset-gradient.webp)\n\n\t\t\n![Dark preset](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-preset-dark.webp)\n\n\t\n\n\t\n\n\t\t\n![Minimal preset](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-preset-minimal.webp)\n\n\t\t\n![Healer preset](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-preset-healer.webp)\n\n\t\n\n![Installation](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/header-installation.png)\n\n| Step | |\n| :---: | --- |\n| **1** | **Install the requirements** - [ElvUI](https://tukui.org/elvui) and [ElvUI_WindTools](https://www.curseforge.com/wow/addons/elvui-windtools). |\n| **2** | **Install MerathilisUI** - from [CurseForge](https://www.curseforge.com/wow/addons/merathilis-ui), [Wago](https://addons.wago.io/addons/elvui-merathilisui), [WowUp](https://wowup.io/addons/2797823) or the [GitHub releases](https://github.com/Merathilis/ElvUI_MerathilisUI/releases). |\n| **3** | **Run the installer** - it starts on your first login. Pick a layout and skip any step you want to keep, or apply a preset instead. |\n\n> [!TIP]\n> Apply MerathilisUI to a new ElvUI profile, then you can always switch back. You can open the installer again at any time with the **Install** button in the MerathilisUI options.\n\n> [!WARNING]\n> Running the installer again after an update overwrites your own changes in the steps you apply.\n\n![Requirements](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/header-requirements.png)\n\n| | AddOn |\n| --- | --- |\n| **Required** | [ElvUI](https://tukui.org/elvui) · [ElvUI_WindTools](https://www.curseforge.com/wow/addons/elvui-windtools) |\n| **Recommended** | mMediaTag & Tools |\n\n![Supported AddOns](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/header-addons.png)\n\n**Profiles included for**\n\nBigWigs · Details! · ls: Toasts · Capping · TomTom · Permoks Account Manager · Skiron Cooldown Manager · WindTools · mMediaTag · Blizzard Edit Mode layout\n\n**Skins included for**\n\nBigWigs · Details! · BugSack · BagSync · Capping · Clique · ls: Toasts · Pawn · WIM · WowLua · Paragon Reputation · KeystoneLoot · and more\n\n![Community & Support](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/header-support.png)\n\nJoin the [Discord](https://discord.com/invite/28We6esE9v) and read the bug report guidelines before posting. A good report (error message, steps to reproduce, list of your addons) helps a lot. You can also open an [issue](https://github.com/Merathilis/ElvUI_MerathilisUI/issues) here on GitHub or share an idea on the [website](https://www.merathilisui.com/ideas).\n\nIf you like MerathilisUI and want to support its development:\n\n[![](https://img.shields.io/badge/Sponsor-ea4aaa?style=for-the-badge&logo=githubsponsors&logoColor=white&labelColor=1d1b19)](https://github.com/sponsors/Merathilis) [![](https://img.shields.io/badge/Patreon-f96854?style=for-the-badge&logo=patreon&logoColor=white&labelColor=1d1b19)](https://www.patreon.com/merathilisui) [![](https://img.shields.io/badge/PayPal-00457c?style=for-the-badge&logo=paypal&logoColor=white&labelColor=1d1b19)](https://paypal.me/merathilis) [![](https://img.shields.io/badge/Ko--fi-ff5e5b?style=for-the-badge&logo=kofi&logoColor=white&labelColor=1d1b19)](https://ko-fi.com/C0C2CR58G)\n\n![Credits](https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/header-credits.png)\n\nSpecial thanks to Benik for the help from the very beginning, and to Elv, Simpy, DarthPredator, Blazeflack, Azilroka and all other addon authors whose work inspired MerathilisUI. See [CREDITS.md](https://github.com/Merathilis/ElvUI_MerathilisUI/blob/development/CREDITS.md) for the full list.\n\n[![MerathilisUI](.github/media/logo.png)](https://www.merathilisui.com/)\n\nMade with ♥ by Merathilis · [merathilisui.com](https://www.merathilisui.com/) · [MIT License](https://github.com/Merathilis/ElvUI_MerathilisUI/blob/development/LICENSE.txt)",
+  "releases": [
+    {
+      "tag": "7.47",
+      "published": "2026-11-26",
+      "notes": "### Changes\n\nThe full changelog for this version is on our website: [merathilisui.com/changelog](https://merathilisui.com/changelog#v7.47)"
+    },
+    {
+      "tag": "7.46",
+      "published": "2026-11-14",
+      "notes": "### Changes\n\nThe full changelog for this version is on our website: [merathilisui.com/changelog](https://merathilisui.com/changelog#v7.46)"
+    },
+    {
+      "tag": "7.45-fix-1",
+      "published": "2026-11-07",
+      "notes": "### Changes\n\nThe full changelog for this version is on our website: [merathilisui.com/changelog](https://merathilisui.com/changelog#v7.45-fix-1)"
+    },
+    {
+      "tag": "7.45",
+      "published": "2026-11-07",
+      "notes": "### Changes\n\nThe full changelog for this version is on our website: [merathilisui.com/changelog](https://merathilisui.com/changelog#v7.45)"
+    },
+    {
+      "tag": "7.44",
+      "published": "2026-11-05",
+      "notes": "### Changes\n\nThe full changelog for this version is on our website: [merathilisui.com/changelog](https://merathilisui.com/changelog#v7.44)"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/showcase.jpg",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/header-features.png",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-armory.webp",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-bags.webp",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-addon-manager.webp",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-loadout-manager.webp",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-portraits.webp",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-hovercast.webp",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-unlock-mode.webp",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-game-menu.webp",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-chat.webp",
+    "https://raw.githubusercontent.com/Merathilis/ElvUI_MerathilisUI/development/.github/media/readme/feature-minimap.webp"
+  ],
+  "stats": {
+    "stars": 30,
+    "openIssues": 0,
+    "contributors": 28,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-14",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-05",
+      "2026-11-01",
+      "2026-10-20",
+      "2026-10-14",
+      "2026-10-10",
+      "2026-10-03",
+      "2026-10-01",
+      "2026-09-29",
+      "2026-09-25",
+      "2026-09-21",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-12",
+      "2026-09-08",
+      "2026-09-05",
+      "2026-09-04",
+      "2026-08-29",
+      "2026-08-19",
+      "2026-08-14",
+      "2026-08-14",
+      "2026-08-12",
+      "2026-07-14",
+      "2026-06-04",
+      "2026-04-22",
+      "2026-04-07",
+      "2026-04-07",
+      "2026-03-26",
+      "2026-03-23",
+      "2026-03-10",
+      "2026-03-05",
+      "2026-02-28",
+      "2026-02-28",
+      "2026-02-22",
+      "2026-02-21",
+      "2026-02-11",
+      "2026-02-08",
+      "2026-02-01",
+      "2026-01-31",
+      "2026-01-31",
+      "2026-01-27",
+      "2026-01-26",
+      "2026-01-25",
+      "2026-01-17",
+      "2025-12-21",
+      "2025-12-06",
+      "2025-11-04"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "ElvUI_MerathilisUI"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "ElvUI",
+      "ElvUI_WindTools"
+    ],
+    "optional": [
+      "SharedMedia",
+      "ElvUI_mMediaTag",
+      "Details",
+      "BigWigs",
+      "WorldQuestTab"
+    ],
+    "savedVariables": [
+      "MER_BagsInventoryDB"
+    ]
+  }
+}

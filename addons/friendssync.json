@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "friendssync",
+  "repo": "mickeygeecom/FriendsSync",
+  "about": "# FriendsSync\n\nA World of Warcraft addon for **WoW Forever** (Interface 16001) that shares levelling progress with friends who also run FriendsSync - no group needed.\n\n## Who it syncs with\n\n- Online characters on your WoW friends list (hidden addon whispers).\n- Battle.net friends playing the same game version, even on other realms.\n\nOnly messages from people on your friends lists are accepted. Both sides need the addon.\n\n## What is shared\n\n- Level, XP %, rested XP, class\n- Zone/subzone and position (distance in yards, map coords for waypoints)\n- Quest log: quest IDs and objective progress\n- RestedXP guide + current step (if RXPGuides is loaded)\n\n## Window (`/fsync`, or click the minimap button)\n\nThe eye left of the close button shows a slider that fades the window's background (drag or scroll, 0-100%);\ntext and buttons stay solid. Drag the corner grip to resize - size and position are remembered. Two tabs at the\nbottom: **Friends** and **Settings**.\n\n- **Left:** one card per synced friend - class icon, name with a level-gap badge on the right (`+2` orange = ahead\n  of you, `-1` blue = behind), level, zone, XP bar and a badge (`Nearby`, `In sync`, `3 ahead`, `2 behind`, `Other guide`).\n  Online friends come first; offline ones sit under a foldable **Offline (N)** row with their last level, zone and\n  when they were seen. **Sort:** above the list changes the order (name, level, distance, last seen).\n  Hover a card for details (realm, their FriendsSync version). **Right-click** a card for quick actions:\n  Whisper, Invite, Set waypoint, Send meet-up pin, Match guide step, Show details, Hide from FriendsSync.\n- **Right:** the selected friend, in sections:\n  - **Tip** - the single most useful suggestion (e.g. \"They're 3 steps ahead in the guide...\")\n  - **Level** - a ruler from the lower level to the higher: you (gold, above) and them (class colour, below),\n    a tick per level, the gap coloured like the badge and rested XP as a faint blue tail\n  - **Guide** - a track of the RestedXP guide: you (gold, above) and them (class colour, below).\n    The stretch between you is orange if they're ahead, blue if you're ahead, green when in sync.\n    Different guides show two progress bars. **Match step** switches your guide/step to theirs.\n    Just one line when they don't use a guide.\n  - **Quests** - foldable sections (click a header): You both have (ones you both still need first,\n    \"do it together\"), You could pick up, Only you have, They have, you already did. Quests show their level and\n    are coloured by difficulty for you; grey ones you could pick up are hidden (can be changed in Settings).\n    Click a quest to put its link in chat (party chat if you're grouped with that friend) - or into the chat\n    box you're already typing in. Right-click a quest in your own log to share it with your group.\n  - Buttons: **Invite**, **Whisper**, **Waypoint** (TomTom if installed) and **Meet here** - sends your position;\n    their FriendsSync sets a waypoint on it (both need 1.3.0 or newer). Hover any button for help - greyed-out\n    buttons say why.\n- **Bottom:** sync count and **Refresh** (re-discover friends now).\n\n## Settings\n\nOn the window's **Settings** tab, `/fsync settings`, or Esc > Options > AddOns > FriendsSync:\n\n- **Alerts:** master switch, and each kind on its own - comes online, levels up, nearby, new guide section;\n  also on screen (raid-warning style), sound, and the nearby distance (50-500 yards).\n- **Meeting up:** accept meet-up pins, version notices (when a friend's FriendsSync is newer or older than yours).\n- **Friends list:** show offline friends, sort order, hide friends who've been offline for over N days.\n- **Display:** world map dots, minimap button, button above the friends button, mini tracker (and lock it),\n  level-gap badge, background opacity, window size (80-130%).\n- **Quests:** hide grey quests you could pick up.\n- **Friends:** reset window and tracker positions, unhide friends you hid.\n\n## Mini tracker\n\nAn optional small, movable list of online synced friends - level, gap, and distance when nearby or their guide step.\nClick a friend to open their details, right-click for the quick actions. Turn it on in Settings or with `/fsync tracker`.\n\n## Friends button\n\nA small FriendsSync button sits above the game's social (friends) button by the chat window, with the number of\nsynced friends online. Click to open the window, right-click for settings. Can be turned off in Settings.\n\n## World map\n\nSynced friends who are online show as class-coloured dots on your world map (same look as OpenMap's friend dots), on their zone and the\ncontinent around it. Hover a dot for level, zone, coordinates and distance; click it to set a waypoint.\nWorks with OpenMap's stitched map too (and adds a \"FriendsSync friends\" switch to OpenMap's menu).\nFriends already on the map are not drawn twice: group members keep the map's own party dot, and friends\nOpenMap already shows (they share their location through OpenMap) keep OpenMap's dot.\nToggle in Settings or with `/fsync map`.\n\n## Minimap button\n\n- Left-click: open/close the window. Right-click: settings. Drag to move.\n- Hover for online friends with level, gap and distance.\n- Also available in the addon compartment menu. Hide it in Settings or with `/fsync minimap`.\n\n## Alerts\n\nYou're told when a friend comes online with the addon, levels up, comes within the nearby distance (150 yards by\ndefault) or starts a new guide section. Names are class-coloured and clickable (click to whisper).\nEach kind can be turned off in Settings; `/fsync notify` toggles them all.\n\n## Commands (`/fsync` or `/friendsync`)\n\n| Command | Does |\n| --- | --- |\n| `/fsync` | open/close window |\n| `/fsync settings` | open the Settings tab |\n| `/fsync tracker` | show/hide the mini tracker |\n| `/fsync ping` | re-discover friends now |\n| `/fsync list` | print synced friends to chat |\n| `/fsync status` | show who is reachable, sync count and the last error |\n| `/fsync notify` | toggle all alerts |\n| `/fsync map` | show/hide friends on the world map |\n| `/fsync minimap` | show/hide the minimap button |\n| `/fsync forget Name` | remove a saved friend |\n| `/fsync debug` | print raw sync messages |\n\n## Notes\n\n- Cross-faction sync only works via Battle.net friends; WoW friends are same faction.\n- Traffic is throttled: status every ~30s (sooner on changes/movement), quests and guide only when they change.\n- Last-known data for offline friends is kept in SavedVariables (`FriendsSyncDB`).\n\n## License\n\nMIT - see [LICENSE](https://github.com/mickeygeecom/FriendsSync/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.3.4",
+      "published": "2026-11-23",
+      "notes": "# FriendsSync - by gEE\n\n## [v1.3.4](https://github.com/mickeygeecom/FriendsSync/tree/v1.3.4) (2026-11-23)\n[Full Changelog](https://github.com/mickeygeecom/FriendsSync/compare/v1.3.3...v1.3.4) [Previous Releases](https://github.com/mickeygeecom/FriendsSync/releases)\n\n- FriendsSync 1.3.4: no online spam after /reload, no own map dot, merge duplicate friends  \n    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+    },
+    {
+      "tag": "v1.3.3",
+      "published": "2026-11-15",
+      "notes": "# FriendsSync - by gEE\n\n## [v1.3.3](https://github.com/mickeygeecom/FriendsSync/tree/v1.3.3) (2026-11-15)\n[Full Changelog](https://github.com/mickeygeecom/FriendsSync/compare/v1.3.2...v1.3.3) [Previous Releases](https://github.com/mickeygeecom/FriendsSync/releases)\n\n- FriendsSync 1.3.3: opacity slider stays open while hovered, click the eye to pin it  \n    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+    },
+    {
+      "tag": "v1.3.2",
+      "published": "2026-11-14",
+      "notes": "# FriendsSync - by gEE\n\n## [v1.3.2](https://github.com/mickeygeecom/FriendsSync/tree/v1.3.2) (2026-11-14)\n[Full Changelog](https://github.com/mickeygeecom/FriendsSync/compare/v1.3.1...v1.3.2) [Previous Releases](https://github.com/mickeygeecom/FriendsSync/releases)\n\n- FriendsSync 1.3.2: live quest objective progress  \n    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+    },
+    {
+      "tag": "v1.3.1",
+      "published": "2026-11-14",
+      "notes": "# FriendsSync - by gEE\n\n## [v1.3.1](https://github.com/mickeygeecom/FriendsSync/tree/v1.3.1) (2026-11-14)\n[Full Changelog](https://github.com/mickeygeecom/FriendsSync/compare/v1.3.0...v1.3.1) [Previous Releases](https://github.com/mickeygeecom/FriendsSync/releases)\n\n- FriendsSync 1.3.1: announce each friend level up only once  \n    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+    },
+    {
+      "tag": "v1.3.0",
+      "published": "2026-11-14",
+      "notes": "# FriendsSync - by gEE\n\n## [v1.3.0](https://github.com/mickeygeecom/FriendsSync/tree/v1.3.0) (2026-11-14)\n[Full Changelog](https://github.com/mickeygeecom/FriendsSync/compare/v1.2.3...v1.3.0) [Previous Releases](https://github.com/mickeygeecom/FriendsSync/releases)\n\n- FriendsSync 1.3.0: settings tab, social button, tracker, meet pins, clickable quests and UI polish  \n    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FriendsSync"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "RXPGuides",
+      "TomTom",
+      "OpenMap"
+    ],
+    "savedVariables": [
+      "FriendsSyncDB"
+    ]
+  }
+}

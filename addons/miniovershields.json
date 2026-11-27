@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "miniovershields",
+  "repo": "Verubato/mini-overshields",
+  "about": "# MiniOvershields\n\nSimple addon that shows overshields/absorbs on unit, player, and target frames.\n\nThis is mostly useful for:\n\n- Disc priests to see how much their shields are over absorbing.\n- Prot warriors for monitoring ignore pain.\n- Mages for ice/blazing/prismatic barrier.\n\nWorks in Midnight.\n\nThis is a brand new addon and features will be added over time.\n\nFeedback and feature requests are more than welcome!\n\n[Discord](https://discord.gg/UruPTPHHxK)\n\n## Screenshots\n\n![MiniOvershields screenshot](https://raw.githubusercontent.com/Verubato/mini-overshields/main/assets/Screenshots/Unitframe2.png)\n\n![MiniOvershields screenshot](https://raw.githubusercontent.com/Verubato/mini-overshields/main/assets/Screenshots/Unitframe1.png)\n\n![MiniOvershields screenshot](https://raw.githubusercontent.com/Verubato/mini-overshields/main/assets/Screenshots/Nameplate2.png)\n\n![MiniOvershields screenshot](https://raw.githubusercontent.com/Verubato/mini-overshields/main/assets/Screenshots/Nameplate.png)\n\n## Download\n\nAvailable on [CurseForge](https://www.curseforge.com/wow/addons/miniovershields).",
+  "releases": [
+    {
+      "tag": "2.2.8",
+      "published": "2026-10-13",
+      "notes": "Updated for patch 12.1.5."
+    },
+    {
+      "tag": "2.2.7",
+      "published": "2026-09-19",
+      "notes": "Added WoW Forever support."
+    },
+    {
+      "tag": "2.2.6",
+      "published": "2026-08-30",
+      "notes": "- UI improvements.\n- Added a settings page."
+    },
+    {
+      "tag": "2.2.5",
+      "published": "2026-08-20",
+      "notes": "Reduced CPU use on the group frame updates the addon hooks."
+    },
+    {
+      "tag": "2.2.4",
+      "published": "2026-08-16",
+      "notes": "Added a Mini category so the addon groups with the other Mini addons in the addon list."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-19",
+      "2026-08-30",
+      "2026-08-20",
+      "2026-08-16",
+      "2026-08-14",
+      "2026-08-08",
+      "2026-08-02",
+      "2026-08-01",
+      "2026-07-30",
+      "2026-06-17",
+      "2026-06-17",
+      "2026-04-18",
+      "2026-04-18",
+      "2026-03-04",
+      "2026-02-01",
+      "2026-01-31",
+      "2026-01-30",
+      "2026-01-30",
+      "2026-01-30",
+      "2026-01-30",
+      "2026-01-27",
+      "2026-01-27",
+      "2026-01-14",
+      "2026-01-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MiniOvershields"
+    ],
+    "editions": [
+      "classic",
+      "forever",
+      "retail"
+    ]
+  }
+}

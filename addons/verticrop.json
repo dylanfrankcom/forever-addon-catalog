@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "verticrop",
+  "repo": "KesaObscura/VertiCrop",
+  "about": "# VertiCrop – 9:16 vertical crop frame for YouTube Shorts, TikTok and Reels in World of Warcraft\n\n[![Release](https://img.shields.io/github/v/release/KesaObscura/VertiCrop)](https://github.com/KesaObscura/VertiCrop/releases/latest)\n[![CurseForge](https://img.shields.io/curseforge/dt/1746139?label=CurseForge)](https://www.curseforge.com/wow/addons/verticrop)\n[![License: MIT](https://img.shields.io/github/license/KesaObscura/VertiCrop)](https://github.com/KesaObscura/VertiCrop/blob/main/LICENSE)\n\nA World of Warcraft addon for **content creators**. It draws the **9:16 crop frame** of a vertical\nvideo over the game and marks the **safe zones** of **YouTube Shorts, TikTok and Instagram Reels**:\nthe parts the app covers with its top bar, captions and buttons. Place your character, cast bar,\nunit frames and the rest of your UI for vertical video **before** you record, instead of finding\nout in the editor that the important part ended up under the like button.\n\nOne download for **Retail (Midnight), Classic Era, TBC Anniversary, Wrath and Cataclysm\nClassic, Mists of Pandaria Classic and WoW Forever**. 9 languages. Tested in game on WoW Forever,\nClassic Era, TBC Anniversary and Mists of Pandaria Classic; on Retail, tell us how it works for\nyou.\n\n![Lay out your UI for 9:16 in game and see what the phone will show](https://raw.githubusercontent.com/KesaObscura/VertiCrop/main/docs/gallery/01_hero.png)\n\n| Before and after | Layout and recording mode | Works with Edit Mode |\n|---|---|---|\n| ![UI frames outside the crop, then everything inside the safe box](https://raw.githubusercontent.com/KesaObscura/VertiCrop/main/docs/gallery/02_before_after.png) | ![Safe zones while you set up, a clean frame while you record](https://raw.githubusercontent.com/KesaObscura/VertiCrop/main/docs/gallery/03_layout_and_recording.png) | ![A saved Edit Mode layout just for recording](https://raw.githubusercontent.com/KesaObscura/VertiCrop/main/docs/gallery/05_edit_mode.png) |\n\n## Features\n\n- **9:16 crop frame** in the middle of the screen, full screen height. Also **4:5** (Instagram feed),\n  **1:1** and **16:9** for ultrawide screens (21:9, 32:9).\n- **Darkened outside** (0–100 %), so you see at once what stays in the video.\n- **Dead zones** (red): the safe-zone margins of YouTube Shorts, TikTok, Instagram Reels, or **All** (the largest margin\n  of every side), with names on them.\n- **Safe box** (yellow): keep what matters inside it and it stays visible even with long\n  captions, automatic subtitles and on tall phones (19.5:9, 20:9) that cut the sides of a 9:16\n  video. Above the side buttons it steps out to the right, so the top right corner is usable.\n- **Grid**: rule-of-thirds lines and the center cross.\n- **Move combat text**: the game's own floating combat text about you (damage taken, heals\n  received) starts where you drag it: off your character, next to your unit frames, wherever it\n  reads best in the clip, and drawn above other frames. Font, colours and float mode stay the\n  game's; the game's self combat text must be on in its options.\n- **Recording mode**: hides everything inside the frame. Only the dark sides and a thin border\n  stay, **outside** the frame, so cropping the recording cuts them away. Record your gameplay with\n  the frame on. The recording key ends it with the overlay hidden, so no zones flash at the end\n  of a clip or a saved replay.\n- **Crop values for OBS** in pixels: width, height, left, right, and top and bottom when the\n  screen is narrower than the format (`/vcrop px` or the settings window). Enter them in the\n  crop of the game capture item in OBS (*Edit Transform*, Ctrl+E) or in your video editor.\n- Lines stay 1–2 screen pixels thick at any UI scale; the frame follows resolution and UI scale\n  changes.\n- **Off at every login**: a tool for setting up and recording, not for playing. `/vcrop` or your\n  key binding switches it on; all other settings are kept.\n- **Settings window** (`/vcrop opt`), also in the game's *Options → AddOns* and in the addon menu\n  at the minimap on Retail and WoW Forever (left click: settings, right click: overlay on/off). Every option explains\n  itself on hover.\n- **Key bindings** (*Options → Key Bindings*, entries starting with \"VertiCrop:\"): overlay on/off, recording mode on/off,\n  settings.\n- 9 languages: English, Deutsch, Español, Français, Русский, 한국어, Português, 简体中文, 繁體中文.\n  The addon follows your game language.\n\nThe safe zones are **approximate**: they are rounded from measured 1080×1920 layouts of the apps,\nand the apps change their layout from time to time. Check your video in the app before you post.\n\n## How to use it\n\n1. `/vcrop opt`, choose the format and the platform.\n2. Move your UI so that what matters is inside the yellow safe box and out of the red. On Retail\n   and WoW Forever save a separate Edit Mode layout just for recording; on Classic use your UI\n   addon (for example MoveAny or Bartender).\n3. Optional: tick *Move combat text*, click *Move...* and drag the box to where your own damage\n   and heal numbers should start. Numbers over enemies are drawn by the game and cannot be moved.\n4. `/vcrop rec` (or the key binding) and record the full screen: in OBS a *Game Capture* source\n   (or a *Window Capture* of the game, client area only).\n5. Crop the recording with the values from `/vcrop px` (in your editor, or in OBS, see below)\n   and scale it to 1080×1920. On a 1080p screen the 9:16 crop is only 608×1080 (on a 1366×768\n   laptop 432×768); a 1440p screen gives a sharper clip.\n\n## Tips for a UI that reads on a phone\n\n- Out of the frame: chat, minimap, quest tracker, bags and the micro menu, and every action bar\n  you do not press in the clip. They only cost space on a phone screen.\n- In the safe box: player and target frame (the target frame left of the button zone), your cast\n  bar, made bigger, and one small bar with the 4–6 spells the clip is about.\n- Raise the UI scale or the scale of the frames you keep: a phone shows the frame at about a\n  third of your monitor's width.\n- Camera a bit closer than usual, the character slightly below the middle of the frame.\n\n## Recording straight to 9:16 in OBS\n\n- **Crop afterwards:** record the full screen with recording mode on, then crop in your editor\n  with the values from `/vcrop px`. The crop is centred, so a 9:16 project with \"fill\" gives the\n  same picture.\n- **Vertical canvas:** set the OBS canvas (or a second vertical canvas, for example with the\n  Aitum Vertical plugin or the vertical output of newer OBS) to 1080×1920, add your game capture,\n  right-click it → *Transform → Edit Transform* (Ctrl+E) and enter the values from `/vcrop px` in\n  *Crop*, then *Transform → Stretch to screen*. OBS then records a ready vertical file. Do not\n  use a *Crop/Pad* filter for this: a filter belongs to the source and crops it on every canvas,\n  your 16:9 stream too.\n- **Templates for your editor:** transparent 1080×1920 PNGs with the same dead zones and safe\n  box, one per platform, in [`docs/templates`](https://github.com/KesaObscura/VertiCrop/blob/main/docs/templates) (also attached to the releases).\n  Put one on top of your clip in CapCut, DaVinci Resolve or Premiere to check the edit.\n- **Streaming in 16:9 at the same time:** your viewers see the overlay too. Use it to lay out\n  your UI, then switch it off with `/vcrop`: the crop values stay the same.\n- The values count in pixels of the game window. If OBS records in another resolution than the\n  game runs, scale them by the same factor.\n\n## Commands\n\n| Command | Does |\n|---|---|\n| `/vcrop` | overlay on/off (it starts off at every login) |\n| `/vcrop rec` | recording mode on/off |\n| `/vcrop opt` | settings window |\n| `/vcrop px` | crop values for OBS in pixels |\n| `/vcrop 9:16` / `4:5` / `1:1` / `16:9` | switch the format |\n| `/vcrop reset` | all settings back to the defaults |\n\n`/verticrop` works as well.\n\n## FAQ\n\n- **Does the frame end up in my video?** Not inside the crop. In recording mode everything the\n  addon draws sits outside the frame, and the crop cuts it away. If you also keep the full 16:9\n  recording or stream it, switch the overlay off with `/vcrop` (at 0 % darkening the thin border\n  still shows).\n- **Does it change my UI?** No. It only draws on top of the screen; it never moves, hides or\n  resizes other frames (only the game's combat text, if you tick *Move combat text*), and it does\n  not take mouse clicks.\n- **Which game versions?** Retail, Classic Era, TBC Anniversary, Wrath and Cataclysm Classic, Mists of Pandaria Classic and WoW Forever, from\n  one download.\n- **Missing a platform or a format?** Open an issue: requests are read.\n\n## Install\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/verticrop) (the CurseForge app keeps it up to date), or download a release zip and\nunpack it into `<game folder>/_retail_/Interface/AddOns/` (or `_classic_era_`, `_classic_`, or your\nWoW Forever client folder). The result must be `Interface/AddOns/VertiCrop/VertiCrop.toc`. With\nGitHub's \"Download ZIP\", rename the folder from `VertiCrop-main` to `VertiCrop`, otherwise the game\ndoes not load it.\n\n## Bug reports\n\nPlease open an [issue](https://github.com/KesaObscura/VertiCrop/issues) with your game version\n(Retail, Classic Era, ...), your screen resolution, what you did and what you expected. Lua errors\nare easiest to read with BugGrabber + BugSack.\n\n## Development\n\nPlain Lua 5.1, no libraries. Files load in TOC order: `Locale.lua` → `Core.lua` → `TextMover.lua` →\n`Options.lua`;\n`Bindings.xml` is loaded by the game. Checkboxes, radio buttons and the slider are built from\ntextures every client ships, not from Blizzard templates, because those differ between game\nversions.\n\nTests run outside the game against a small mock of the WoW API:\n\n```\nlua5.1 tests/run.lua\n```\n\nThey cover the frame and safe-zone geometry, the OBS pixel values, the overlay in every mode, the\nsettings window (every control has a tooltip), slash commands, key bindings, the TOC and the locale\ntables (every language has every key with the same placeholders). The `tests` folder is not part of\nthe release zip (see `.pkgmeta`).\n\n**Translations**: all texts are in `Locale.lua`. Every language must have exactly the keys of `enUS`\nwith the same `%d` placeholders; `tests/run.lua` checks that.\n\n## License\n\n[MIT](https://github.com/KesaObscura/VertiCrop/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v1.5.0",
+      "name": "VertiCrop 1.5.0 — move combat text",
+      "published": "2026-11-03",
+      "notes": "See the 9:16 crop of your vertical video in World of Warcraft: crop frame, YouTube Shorts / TikTok / Instagram Reels dead zones, safe box, recording mode and exact crop values for OBS.\n\n**Install:** CurseForge app, or unpack the zip into `Interface/AddOns/` (the result must be `Interface/AddOns/VertiCrop/VertiCrop.toc`).\n\n### What's new\n- **Move combat text**: your own damage and heal numbers start where you drag a small box, for example inside the 9:16 frame, drawn above other frames. Font, colours and float mode stay the game's. Safe with WoW Forever's secret combat values.\n- The frame is the OBS crop to the pixel: no border or darkening in your video.\n- Easier to read on any ground: solid red edges, light line shadows, larger labels.\n- Crop values show top and bottom when needed (16:9 on 16:10 screens, odd window sizes).\n- Recording mode is off after every login, /reload keeps it; the recording key always gives a clean frame.\n- The settings key and `/vcrop opt` open and close the window; key bindings are named \"VertiCrop: …\".\n- Options → AddOns lists the commands and keeps the VertiCrop window open.\n\nFull list: CHANGELOG.md. Bugs and wishes: https://github.com/KesaObscura/VertiCrop/issues"
+    },
+    {
+      "tag": "v1.4.1",
+      "name": "VertiCrop 1.4.1 – tooltip and right click in the addon menu",
+      "published": "2026-10-15",
+      "notes": "Addon menu at the minimap: a tooltip shows whether the overlay and recording mode are on, and what a click does. Left click opens the settings, right click switches the overlay on or off.\n\n**Install:** the CurseForge app, or unzip `VertiCrop-1.4.1.zip` into `Interface/AddOns/`.\n\n**Bugs and ideas:** [open an issue](https://github.com/KesaObscura/VertiCrop/issues) with your game version and screen resolution."
+    },
+    {
+      "tag": "v1.4.0",
+      "name": "VertiCrop 1.4.0 – 16:9 format for ultrawide screens",
+      "published": "2026-10-15",
+      "notes": "New format 16:9 for ultrawide screens (21:9, 32:9): see which part of the screen a normal YouTube video keeps, with the crop values for OBS (on 3440 × 1440: 2560 × 1440, left 440, right 440). `/vcrop 16:9` switches to it.\n\n**Install:** the CurseForge app, or unzip `VertiCrop-1.4.0.zip` into `Interface/AddOns/`.\n\n**Bugs and ideas:** [open an issue](https://github.com/KesaObscura/VertiCrop/issues) with your game version and screen resolution."
+    },
+    {
+      "tag": "v1.3.2",
+      "name": "VertiCrop 1.3.2 – settings window remembers its place",
+      "published": "2026-10-15",
+      "notes": "The settings window remembers where you dragged it, also after /reload and the next login. Reset keeps the place.\n\n**Install:** the CurseForge app, or unzip `VertiCrop-1.3.2.zip` into `Interface/AddOns/`.\n\n**Bugs and ideas:** [open an issue](https://github.com/KesaObscura/VertiCrop/issues) with your game version and screen resolution."
+    },
+    {
+      "tag": "v1.3.1",
+      "name": "VertiCrop 1.3.1 – dead zones, every setting on one line",
+      "published": "2026-10-15",
+      "notes": "The red zones are called \"Dead zones\" now — the old name \"Safe zones (red)\" read as if red were safe, next to the yellow safe box. The settings window is a little wider, and every text in it fits on one line in every language; the crop values for OBS are shown on two lines.\n\n**Install:** the CurseForge app, or unzip `VertiCrop-1.3.1.zip` into `Interface/AddOns/`.\n\n**Bugs and ideas:** [open an issue](https://github.com/KesaObscura/VertiCrop/issues) with your game version and screen resolution."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/KesaObscura/VertiCrop/main/docs/gallery/01_hero.png",
+    "https://raw.githubusercontent.com/KesaObscura/VertiCrop/main/docs/gallery/02_before_after.png",
+    "https://raw.githubusercontent.com/KesaObscura/VertiCrop/main/docs/gallery/03_layout_and_recording.png",
+    "https://raw.githubusercontent.com/KesaObscura/VertiCrop/main/docs/gallery/05_edit_mode.png"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-03",
+    "releaseDates": [
+      "2026-11-03",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-15"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "VertiCrop"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "VertiCropDB"
+    ]
+  }
+}

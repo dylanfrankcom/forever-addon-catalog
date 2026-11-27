@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "dustythready",
+  "repo": "gdevxy/dustythready",
+  "about": "![DustyThready icon](https://raw.githubusercontent.com/gdevxy/dustythready/main/Media/icon-source.jpg)\n\n# DustyThready\n\n**Tailoring + Enchanting, woven together.**\n\nA World of Warcraft *Forever* addon that tells you what to craft next, what it disenchants into,\nwhere to train, and how to turn it all into gold.\n\n---\n\n## Why\n\nTailoring and Enchanting are the classic \"no gathering needed\" pair: cloth drops from the humanoids\nyou're already killing, Tailoring turns it into green items, and Enchanting turns those greens into\nthe dust it needs to level. Guides explain this on a web page. DustyThready keeps it in the game,\nworks it out from **your** skill, bags and level, and stays out of your way.\n\nDesign rules:\n\n- **One glance is enough.** The *Today* tab answers \"what do I do now?\" for both professions.\n- **No menus to learn.** Five tabs, almost no settings.\n- **Live, not static.** Counts come from your bags and bank, prices from Auctionator's last AH scan.\n\n## Features\n\n| Tab | What it shows |\n| --- | --- |\n| **Today** | Both professions: skill bar with your trainer cap, the next recipe and how many crafts are left, your materials (have / need), a one-click **Craft** button (enchants let you pick the item to enchant first), alerts like *Train Expert now*, *Buy Formula: Minor Mana Oil*. A **Thread & Dust** card explains how your next crafts feed the other profession, and what you're short of. |\n| **Roadmap** | The full 1-300 path for each profession (Forever-specific, including the new Runecloth Cuffs and Mote of Magic recipes). Done steps fade out, your current step is highlighted (with its **Craft** button), alternatives are indented. Enchanting has a *Strange Dust* or *Magic Essence* route. **Shopping list** shows what you still need up to your current cap and can create an **Auctionator shopping list** in one click. |\n| **Disenchant** | Every green/blue/purple weapon or armor in your bags, what it will turn into (with odds), whether disenchanting beats the vendor, and a **one-click Disenchant** button. A *Cheat sheet* view shows the whole disenchant table, with your level's rows highlighted. |\n| **Where** | Your next stops (trainer, formula, pattern), every trainer by rank for your faction, recipe vendors, vendor-only supplies, and where each cloth drops by level. Click any NPC name (here, in Roadmap notes or Today alerts) to see it pinned on your world map. |\n| **Gold** | Money ideas for a low-budget player: disenchant instead of vendoring, enchant for tips (writes your trade-chat ad), sell surplus dust, crafts that sell with a live profit estimate, bolts vs raw cloth, where to farm cloth at your level. |\n\nAlso:\n\n- **Item tooltips** show what any green/blue/purple disenchants into, its value vs the vendor, and,\n  on reagents, how many your remaining steps still need.\n- **Minimap button** (drag to move; right-click opens *Disenchant*) and the **addon compartment** entry.\n\n## Install\n\nEasiest: install it from **CurseForge** with the CurseForge app.\n\nBy hand: download the zip from the latest\n[GitHub release](https://github.com/gdevxy/dustythready/releases), extract the `DustyThready` folder into\n`World of Warcraft\\_forever_\\Interface\\AddOns\\`, then restart the game or type `/reload`.\n(If you clone the repository instead, name the cloned folder `DustyThready`.)\n\nOptional: install **Auctionator** for AH prices, profit estimates and shopping lists.\n\n## Commands\n\n| Command | Does |\n| --- | --- |\n| `/dusty` | Open / close the window |\n| `/dusty de` | Open the Disenchant tab (`gold`, `road`, `where` work too) |\n| `/dusty minimap` | Show / hide the minimap button |\n| `/dusty reset` | Re-center the window |\n\n## Data sources\n\nLeveling paths, trainers, recipe sources and the disenchant table follow the WoW Forever guides on\n[wow-professions.com](https://www.wow-professions.com/forever/) (enchanting, tailoring, disenchanting\nand trainer pages). Item IDs and recipe IDs are Forever IDs. Cloth farming spots and money tips are\ncommunity knowledge. Counts are estimates: once a recipe turns yellow/green you may need a few more.\n\n## For developers\n\n- [docs/ARCHITECTURE.md](https://github.com/gdevxy/dustythready/blob/main/docs/ARCHITECTURE.md): how the code is organised, and the WoW Forever API quirks.\n- [docs/DEVELOPMENT.md](https://github.com/gdevxy/dustythready/blob/main/docs/DEVELOPMENT.md): local setup, testing checklist, how to update game data.\n- [docs/PUBLISHING.md](https://github.com/gdevxy/dustythready/blob/main/docs/PUBLISHING.md): releasing on CurseForge (and Wago / GitHub).\n- [CHANGELOG.md](https://github.com/gdevxy/dustythready/blob/main/CHANGELOG.md)\n\n## License\n\n[MIT](https://github.com/gdevxy/dustythready/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v1.1.1",
+      "published": "2026-11-23",
+      "notes": "# Changelog\n\n## v1.1.1\n\n- Recipes a trainer teaches (like Enchant Cloak - Greater Defense) now say which trainer rank teaches\n  them and who, on Today, the Roadmap, the Where tab's next stops and the Craft button's tooltip.\n  Once you've opened a profession, missing ones show as \"Not learned\" even with the window closed;\n  before that, the button says **Open** instead of offering to craft a recipe you may not have.\n- Fix: **Craft ×N** made only one when the profession wasn't open yet. Now the first click opens it\n  and the next one crafts them all.\n\n## v1.1.0\n\n- One-click crafting: a **Craft** button on the Today cards and on your current Roadmap step. It opens\n  the profession if needed and crafts what the step still needs (as far as your bags allow;\n  shift-click crafts one).\n- Enchants that go on an item let you pick the target first (bags or equipped, cheapest first), then\n  **Enchant** applies it.\n- Recipe icons on Today and the Roadmap link to chat: shift-click for the crafted item,\n  shift-right-click for the pattern/formula (or the recipe when a trainer teaches it).\n- NPC names (trainers, pattern and formula vendors, supply vendors) are links: click one to open the\n  world map on its zone with a pin on the NPC (right-click the pin to remove it). TomTom gets a\n  waypoint too. Positions come from QuestieDB's Forever data.\n- Fix: shift-right-click on a recipe icon now links the pattern (it did nothing).\n- Fix: shift-click item links and *Write my ad* use the client's current chat API.\n\n## v1.0.0\n\nFirst version.\n\n- Today tab: what to craft next for Tailoring and Enchanting, materials have/need, training and recipe alerts,\n  \"Thread & Dust\" synergy card.\n- Roadmap tab: Forever 1-300 paths for both professions (Strange Dust or Magic Essence route for Enchanting),\n  shopping list with Auctionator export.\n- Disenchant tab: bag scan with odds, value vs vendor, one-click disenchant, cheat sheet.\n- Where tab: trainers, formula and pattern vendors, supplies, cloth farming spots, filtered by faction.\n- Gold tab: money ideas with live Auctionator prices.\n- Disenchant and reagent info in item tooltips, minimap button (LibDBIcon), addon compartment entry."
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-23",
+      "notes": "# Changelog\n\n## v1.1.0\n\n- One-click crafting: a **Craft** button on the Today cards and on your current Roadmap step. It opens\n  the profession if needed and crafts what the step still needs (as far as your bags allow;\n  shift-click crafts one).\n- Enchants that go on an item let you pick the target first (bags or equipped, cheapest first), then\n  **Enchant** applies it.\n- Recipe icons on Today and the Roadmap link to chat: shift-click for the crafted item,\n  shift-right-click for the pattern/formula (or the recipe when a trainer teaches it).\n- NPC names (trainers, pattern and formula vendors, supply vendors) are links: click one to open the\n  world map on its zone with a pin on the NPC (right-click the pin to remove it). TomTom gets a\n  waypoint too. Positions come from QuestieDB's Forever data.\n- Fix: shift-right-click on a recipe icon now links the pattern (it did nothing).\n- Fix: shift-click item links and *Write my ad* use the client's current chat API.\n\n## v1.0.0\n\nFirst version.\n\n- Today tab: what to craft next for Tailoring and Enchanting, materials have/need, training and recipe alerts,\n  \"Thread & Dust\" synergy card.\n- Roadmap tab: Forever 1-300 paths for both professions (Strange Dust or Magic Essence route for Enchanting),\n  shopping list with Auctionator export.\n- Disenchant tab: bag scan with odds, value vs vendor, one-click disenchant, cheat sheet.\n- Where tab: trainers, formula and pattern vendors, supplies, cloth farming spots, filtered by faction.\n- Gold tab: money ideas with live Auctionator prices.\n- Disenchant and reagent info in item tooltips, minimap button (LibDBIcon), addon compartment entry."
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-23",
+      "notes": "# Changelog\n\n## v1.0.0\n\nFirst version.\n\n- Today tab: what to craft next for Tailoring and Enchanting, materials have/need, training and recipe alerts,\n  \"Thread & Dust\" synergy card.\n- Roadmap tab: Forever 1-300 paths for both professions (Strange Dust or Magic Essence route for Enchanting),\n  shopping list with Auctionator export.\n- Disenchant tab: bag scan with odds, value vs vendor, one-click disenchant, cheat sheet.\n- Where tab: trainers, formula and pattern vendors, supplies, cloth farming spots, filtered by faction.\n- Gold tab: money ideas with live Auctionator prices.\n- Disenchant and reagent info in item tooltips, minimap button (LibDBIcon), addon compartment entry."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DustyThready"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "DustyThreadyDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "DustyThreadyCharDB"
+    ]
+  }
+}

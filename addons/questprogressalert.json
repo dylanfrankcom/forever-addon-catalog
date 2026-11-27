@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "questprogressalert",
+  "repo": "byWulf/wow-quest-progress-alert",
+  "about": "# Quest Progress Alert\n\nTurns the small yellow quest progress text at the top of the screen (\"Glowing Crystal: 3/8\") into an eye-catching animated popup you won't miss.\n\n- **Popup cards** with icon, objective, counter, progress bar and quest name, on a dark glowing card that stands out on any background.\n- **Several things at once:** every objective gets its own card, and the cards stack. More progress on the same objective updates its card (with a \"+1\" and a little pop) instead of adding a new one.\n- **Objective complete:** the card turns green, gets a check mark, a ring burst and sparkles.\n- **Quest complete:** an extra golden \"Quest complete!\" banner once all objectives are done.\n- **Sounds** for progress, completed objectives and completed quests, each selectable or off.\n- **Real icons:** collected items show their own icon. Kill objectives show the **head of the enemy**: the addon remembers every enemy you see (target, mouseover, nameplates, targets of your group) for the session, so it also works when a group member made the kill. Unknown enemies get a skull.\n- **Questie (optional):** with [Questie](https://www.curseforge.com/wow/addons/questie) installed, the item icon shows right away even for the very first item, and objectives like \"Murlocs slain\" find the right enemies.\n\n## Supported game versions\n\n| Version | Interface |\n|---|---|\n| WoW Forever | 16001 |\n\nClassic Era and other versions are not supported.\n\n## Installation\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/quest-progress-alert), e.g. with the CurseForge app.\n\nFor a manual installation, note that the folder in your AddOns directory **must** be named `QuestProgressAlert`, otherwise WoW will not load the addon:\n\n```bash\ncd \"C:/Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns\"\ngit clone https://github.com/byWulf/wow-quest-progress-alert.git QuestProgressAlert\n```\n\nAlternatively, download the ZIP from the [releases](https://github.com/byWulf/wow-quest-progress-alert/releases) and extract it into `Interface/AddOns`.\n\nThen restart the game (a new addon is not picked up by `/reload`).\n\n## Usage\n\nEverything works right away. The options are under **Options > AddOns > Quest Progress Alert** or with `/qpa`:\n\n- which progress to show (items, kills, other objectives, quest complete, failed quests) and whether to hide the yellow default text\n- display time, display time for completed objectives, fade-out\n- number of popups at once, stack direction, size, width, spacing, position\n- font, font size, background opacity, glow, icon, enemy portraits, Questie for icons, progress bar, quest name, animations, sparkles, colors\n- sounds and sound channel\n\nCommands:\n\n- `/qpa`: options\n- `/qpa test`: shows a short test sequence\n- `/qpa move`: unlocks the position (drag the frame, right-click to lock it)\n- `/qpa reset`: resets the position\n\n## License\n\nMIT, see [LICENSE](https://github.com/byWulf/wow-quest-progress-alert/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-10",
+      "notes": "# Quest Progress Alert\n\n## [v1.2.0](https://github.com/byWulf/wow-quest-progress-alert/tree/v1.2.0) (2026-11-10)\n[Full Changelog](https://github.com/byWulf/wow-quest-progress-alert/compare/v1.1.0...v1.2.0) [Previous Releases](https://github.com/byWulf/wow-quest-progress-alert/releases)\n\n- Find item icons right away, shorten the generic objective hold  \n    Item icons now also come from Questie's item ID for the objective, so the  \n    first looted item shows its icon too. If no icon is found, the card waits  \n    100 ms for the item to arrive in the bags. The generic \"Objective  \n    Complete.\" message is held back 100 ms instead of 500 ms.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-10",
+      "notes": "# Quest Progress Alert\n\n## [v1.1.0](https://github.com/byWulf/wow-quest-progress-alert/tree/v1.1.0) (2026-11-10)\n[Full Changelog](https://github.com/byWulf/wow-quest-progress-alert/compare/v1.0.1...v1.1.0) [Previous Releases](https://github.com/byWulf/wow-quest-progress-alert/releases)\n\n- Show the enemy's head on kill objectives  \n    Every attackable NPC seen (target, mouseover, nameplates, targets of group  \n    members) is painted into its own texture and kept for the session, at most  \n    100. Kill cards borrow that portrait, also when a group member made the kill.  \n    Optionally, Questie's database maps objectives like \"Murlocs slain\" to the  \n    NPCs that count for them. The skull stays as fallback.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-10",
+      "notes": "# Quest Progress Alert\n\n## [v1.0.1](https://github.com/byWulf/wow-quest-progress-alert/tree/v1.0.1) (2026-11-10)\n[Full Changelog](https://github.com/byWulf/wow-quest-progress-alert/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/byWulf/wow-quest-progress-alert/releases)\n\n- Hold back the generic \"Objective Complete.\" message  \n    The game sends ERR\\_QUEST\\_UNKNOWN\\_COMPLETE in addition to specific messages  \n    like \"Item: 8/8\". It is now held back for 0.5 s and only shown if no  \n    specific objective completion came within 0.5 s before or after it.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-10",
+      "notes": "# Quest Progress Alert\n\n## [v1.0.0](https://github.com/byWulf/wow-quest-progress-alert/tree/v1.0.0) (2026-11-10)\n[Full Changelog](https://github.com/byWulf/wow-quest-progress-alert/commits/v1.0.0) [Previous Releases](https://github.com/byWulf/wow-quest-progress-alert/releases)\n\n- Add CurseForge project  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Use 50% background opacity by default  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Turn the progress sound off by default  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add Quest Progress Alert  \n    Shows quest progress messages (looted quest items, kills, other objectives,  \n    quest complete, quest failed) as animated popup cards instead of the yellow  \n    UIErrorsFrame text, with stacking, sounds and an options page.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "QuestProgressAlert"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Questie"
+    ],
+    "savedVariables": [
+      "QuestProgressAlertDB"
+    ]
+  }
+}

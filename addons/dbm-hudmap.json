@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "dbm-hudmap",
+  "repo": "DeadlyBossMods/DBM-HudMap",
+  "about": "[![Build Status](https://github.com/DeadlyBossMods/DBM-HudMap/workflows/CI/badge.svg)](https://github.com/DeadlyBossMods/DBM-HudMap/actions?workflow=CI)\n[![DeadlyBossMods on Discord](https://img.shields.io/badge/discord-DeadlyBossMods-738bd7.svg?style=flat)](https://discord.gg/DeadlyBossMods)\n\n[![Patreon](https://media.forgecdn.net/attachments/76/25/patreon-medium-button.png)](https://www.patreon.com/deadlybossmods)\n\nDeadly Boss Mods: HudMap\n========================\n\nDescription\n-----------\nDBM-HudMap is an optional plugin that draws an on-screen HUD map centered on your character. It provides the `DBM.HudMap` API used by DBM's `/dbm hud` command and by third-party addons.\n\nHudMap is not available inside instances or in other areas where the game restricts map positions. Boss modules no longer use it.\n\nSettings are under **Frames & Integrations > HudMap** in the DBM options.\n\nIntegration API\n---------------\nAPI version 3 exposes the `EnabledChanged` callback through `DBM.HudMap.RegisterCallback` and\n`UnregisterCallback` (CallbackHandler-1.0 conventions). The callback receives the event name and the new\nenabled boolean after the setting changes; disabling first frees the HUD's markers. This reports the\nuser setting, not map restrictions or whether the renderer is currently active. Register only while\nthe integration is active. Earlier API versions do not emit this callback.\n\nRequirements\n------------\nRequires [Deadly Boss Mods](https://curseforge.com/wow/addons/deadly-boss-mods)\n\nSupport\n-------\nhttps://deadlybossmods.com",
+  "releases": [
+    {
+      "tag": "r2",
+      "published": "2026-11-11",
+      "notes": "#  HudMap\n\n## [r2](https://github.com/DeadlyBossMods/DBM-HudMap/tree/r2) (2026-11-11)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-HudMap/compare/r1...r2) [Previous Releases](https://github.com/DeadlyBossMods/DBM-HudMap/releases)\n\n- HudMap API updates"
+    },
+    {
+      "tag": "r1",
+      "published": "2026-10-26",
+      "notes": "#  HudMap\n\n## [r1](https://github.com/DeadlyBossMods/DBM-HudMap/tree/r1) (2026-10-26)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-HudMap/commits/r1) [Previous Releases](https://github.com/DeadlyBossMods/DBM-HudMap/releases)\n\n- Add curseforge projectID  \n- Fix path  \n- Hudmap as external module"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11",
+      "2026-10-26"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "DBM-HudMap"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "DBM-Core"
+    ],
+    "savedVariables": [
+      "DBM_HudMap_Settings"
+    ]
+  }
+}

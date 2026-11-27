@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "megamacro",
+  "repo": "Sellorio/mega-macro",
+  "about": "# Mega Macro (a World of Warcraft AddOn)\n\n![Screenshot 1](https://raw.githubusercontent.com/Sellorio/mega-macro/master/Screenshot1.png)\n\nUse the `/m` command to begin your new macro experience!\n\nWorks on Retail and World of Warcraft: Forever.\n\n## What it does\n\n### More macro slots!\n\nThis AddOn seamlessly provides you with a massive increase to macro slots over the native amounts of\n120 global and 30 per-character slots that the Blizzard UI provides. How does it do this? By segmenting\nthe 150 total macro slots into 4 categories and hot-switching macros based on your Class and Specialization.\n\nThe breakdown of macro slots is as follows:\n\n| Tab        | Slots | Shared with                          |\n|------------|-------|--------------------------------------|\n| Global     | 60    | every character                      |\n| Class      | 30    | every character of that class        |\n| Spec       | 30    | every character of that class + spec |\n| Character  | 30    | just this character                  |\n\nThat's an amazing 60 slots (30 class + 30 spec) you can use to setup your macros for each specialization\nwhere previously you would be forced to fit all your class macros for all specializations into a max of 30\nslots!!\n\nI'm not just trying to be a sales person here - I've wanted this feature for ages. Especially as a Druid\nmain!\n\nOn Forever you can put talent points in any tree, so there's no Spec tab. Its 30 slots are added to the class tab,\nwhich holds 60 macros.\n\n### Shared macros across characters\n\nBuilding on the last feature, the per-class and per-specialization macros are not character specific so\nyou don't need to copy your macros around manually if you have more than one character of a particular\nclass.\n\n### Your action bars don't break\n\nEach macro keeps the same game slot for as long as it exists, so switching characters or specs won't\nscramble your bars.\n\n### Improved macro UI\n\nThe Mega Macro UI replicates the native macro UI down to every last detail **except for the following**\n**improvements**:\n\n* Searchable icon list\n* A bigger window, so you'll rarely need to scroll.\n* Syntax colouring, so commands, targets, conditions and comments are easy to tell apart\n* Hover over a condition, target, spell or command to see what it means\n* Dynamic fading so you can see what part of the macro would run based on current conditions.\n* Buttons are contextually disabled\n\n### Backups and sharing\n\n- Mega Macro backs your macros up once a day at login if anything changed. It keeps daily backups for\n  a week, weekly for a month and monthly for six months.\n- You can make a backup yourself any time from the Options tab, and restore just the tabs you want.\n- **Export Tab** gives you a code for a whole tab that you can paste to a friend (or another account)\n  and import.\n\n## Special Thanks\n\nMega Macro was made by Sellorio. Special thanks to `aurelion314` (`Cubelicious` in-game) and\n`Dannez83` for the many hours spent keeping it working since Dragonflight!",
+  "releases": [
+    {
+      "tag": "1.6.8",
+      "published": "2026-11-07",
+      "notes": "Uses far less memory, and fixes the macro editor and macro changes in combat.\n\n- **Memory:** spell icons are only scanned when you search, instead of being kept in memory all the time. You can also search icons by ID.\n- **Macro editor:** coloured text now stays lined up with what you're typing, and the doubled scrollbars are gone.\n- **Combat:** macro edits made in combat now apply when combat ends. Creating, deleting or moving macros in combat is refused with a message, and reloading in combat is handled safely."
+    },
+    {
+      "tag": "1.6.4",
+      "published": "2025-09-24",
+      "notes": "Updated support for 11.2"
+    },
+    {
+      "tag": "1.6.3",
+      "published": "2024-08-05",
+      "notes": "MegaMacro window now displays /250 instead of /255.\n\nFixed GetAbilityData returning early, preventing icons for item macros from displaying.\n\nFixed macro tooltip displaying item info for the base item iLevel instead of the equipped item iLevel.\n\nCourtesy of @bpapuni"
+    },
+    {
+      "tag": "1.6.2",
+      "published": "2024-07-24",
+      "notes": "Updating to support The War Within (11.0).\nSadly this also means macro length is limited at 255. You can thank blizzard for that one."
+    },
+    {
+      "tag": "1.6.1",
+      "published": "2024-03-24",
+      "notes": "Fixes to IsItemInRange which causes spamming and performance issues as of 10.2.6."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Sellorio/mega-macro/master/Screenshot1.png"
+  ],
+  "stats": {
+    "stars": 21,
+    "openIssues": 48,
+    "contributors": 10,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2025-09-24",
+      "2024-08-05",
+      "2024-07-24",
+      "2024-03-24",
+      "2024-01-19",
+      "2023-12-05",
+      "2022-12-14",
+      "2022-11-17",
+      "2022-10-28",
+      "2022-03-28",
+      "2022-03-17",
+      "2021-02-15",
+      "2020-12-01",
+      "2020-11-14",
+      "2020-11-02",
+      "2020-10-24",
+      "2020-10-20",
+      "2020-10-19",
+      "2020-10-18",
+      "2020-10-18",
+      "2020-10-17",
+      "2020-10-16",
+      "2020-10-14",
+      "2020-10-13",
+      "2020-10-07",
+      "2020-10-07",
+      "2020-10-05",
+      "2020-10-04",
+      "2020-10-04",
+      "2020-10-04",
+      "2020-09-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MegaMacro"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "ElvUI"
+    ],
+    "savedVariables": [
+      "MegaMacroConfig",
+      "MegaMacroGlobalData"
+    ],
+    "savedVariablesPerCharacter": [
+      "MegaMacroCharacterData"
+    ]
+  }
+}

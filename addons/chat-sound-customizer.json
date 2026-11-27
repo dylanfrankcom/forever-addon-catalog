@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "chat-sound-customizer",
+  "repo": "Canettieri/chat-sound",
+  "about": "# Chat Sound Customizer\n\nChat Sound Customizer adds configurable sound notifications to World of Warcraft chat, so you can hear incoming messages without constantly watching the chat window.\n\nChoose different sounds for incoming and outgoing messages, individual players, player groups, and chat channels. The required libraries and extra sound packs are included.\n\n## Features\n\n- Separate incoming and outgoing sounds for guild, officer, whisper, Battle.net whisper, party, raid, instance, community, say, yell, and emote messages where supported by the game client.\n- Sound settings for General, Trade, Local Defense, Newcomer Chat, and custom channels.\n- Custom sounds for individual players and user-defined groups of players.\n- An ignore list for player names and words. Matching messages do not trigger notifications.\n- A configurable notification interval to limit repeated sounds, with independent intervals for each zone or custom channel.\n- Output through the Master, Sound Effects, Music, Ambience, or Dialog audio channel.\n- Multiple chat types can be selected together to change their sounds in one step.\n- Twelve built-in CSC sounds, Murloc Aggro, and four extra sound packs containing 148 sounds.\n- Access to sounds registered by other addons through LibSharedMedia.\n- Saved configuration profiles, a minimap launcher, and temporary muting.\n- A LibDataBroker launcher for compatible display addons.\n\n## Supported game versions\n\nThe addon currently declares the following interface versions:\n\n| Game client | Interface |\n| --- | ---: |\n| Retail / Midnight | 120105 |\n| Mists of Pandaria Classic | 50504 |\n| Classic Era | 11509 |\n| WoW: Forever / Camelot | 16001 |\n\nAll four clients use the same addon folder and `.toc` file. Chat types and mentor/newcomer features depend on what the client provides.\n\nForever support includes recognition of the player's own messages using its name and surname system. In-game validation of the recent compatibility changes is still pending. If the client restricts access to a sender's name or message text, rules that depend on that information cannot inspect it; a restricted sender is treated as an incoming message.\n\n## Installation\n\n1. Extract the addon into the `Interface/AddOns` folder of the WoW client you use.\n2. Confirm that the resulting path is `Interface/AddOns/Chat_Sound_Customizer/Chat_Sound_Customizer.toc`.\n3. Enable **Chat Sound Customizer** in the game's addon list.\n4. Log in and open the configuration with `/csc ui`.\n\nKeep the `libs`, `audios`, `icons`, `modules`, and `sound-packs` folders inside `Chat_Sound_Customizer`.\n\n## How to use\n\nOpen the configuration by left-clicking the minimap icon or entering `/csc ui`. `/chatsound ui` opens the same window. The addon also registers a page in the game's addon settings.\n\n1. Open **Chat** and select the chat type you want to configure.\n2. Choose a sound for receiving messages and, optionally, another sound for sending messages. Select **None** to leave that direction silent.\n3. Choose the audio output channel and notification interval. The interval is measured in milliseconds; `1000` means one second.\n4. Use **Multi Selection** to apply a sound to several chat types together.\n\nUse **Customized** to add individual players or create groups with their own sounds. Use **Custom Channel** for named chat channels, and **Ignore List** to suppress notifications from specific players or messages containing ignored words. Option names are translated in supported locales.\n\nIgnored words are case-sensitive and matched with word boundaries. Characters such as `%`, `[` and `+` are treated literally.\n\nRight-click the minimap icon to mute or unmute the addon temporarily. Temporary mute resets after reloading the UI. The configuration also lets you hide the minimap icon and manage saved profiles.\n\n## Sound packs\n\nAll four bundled packs are **enabled by default**:\n\n| Pack | Sounds |\n| --- | ---: |\n| Effect Pack 01 | 61 |\n| Notification Pack 01 | 48 |\n| Notification Pack 02 | 27 |\n| StarCraft Pack | 12 |\n| **Total** | **148** |\n\nOpen **Sound packs** in the configuration to enable or disable individual packs, then click **Reload UI** or enter `/reload` to apply the change.\n\nPack preferences apply to all configuration profiles. Disabling a pack preserves your saved sound selections, but its sounds become unavailable after reloading until you enable it again. Enabling a pack adds its sounds to the selection lists; it does not replace your configured notifications.\n\nThe packs are integrated into the main addon and do not need separate installation. Enabled packs register their sounds with LibSharedMedia, making them available to other compatible addons as well.\n\n## Languages\n\nThe source includes English and Brazilian Portuguese text. Missing translations fall back to English. Release packaging also includes localization hooks for additional languages.\n\n## Development\n\nThe sound-pack regression tests cover enabled defaults, saved preferences, reload behavior, independent activation, registration paths, and the 148 bundled sounds. Run them from the addon directory with Lua 5.3 or later:\n\n```sh\nlua tests/sound_packs.lua\n```\n\nThe tests simulate the addon environment. Actual audio playback and client-specific behavior must be checked in WoW.\n\n## Support\n\nSee the [changelog](https://github.com/Canettieri/chat-sound/blob/master/CHANGELOG.md) for release history.\n\nPlease report problems through the [GitHub issue tracker](https://github.com/Canettieri/chat-sound/issues). Include the WoW game version, character locale, any error message, and the chat type or sound pack involved.\n\n## Credits\n\nCreated by Canettieri and Eliote.\n\n## Donations\n\nIf you would like to support continued development, you can [donate through PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=7AEAZ7XG7WVDS&lc=US&item_name=Chat%20Sound%20Customizer&currency_code=USD).",
+  "releases": [
+    {
+      "tag": "v3.1.0",
+      "published": "2026-11-19",
+      "notes": "## [3.1.0] - 2026-11-19\n\n### Added\n\n- The WoW AddOns list now shows the same horn icon as the minimap button.\n\n### Changed\n\n- Chat Sound Customizer now appears in the Chat category of the WoW AddOns list (Bate-papo in Brazilian Portuguese).\n\n### Fixed\n\n- The addon options menu now shows `Chat Sound Customizer` without underscores."
+    },
+    {
+      "tag": "v3.0.0",
+      "published": "2026-11-01",
+      "notes": "## [3.0.0] - 2026-11-01\n\nIn-game validation of audio playback and the recent Retail and Forever compatibility changes is still pending.\n\n### Added\n\n- WoW: Forever / Camelot interface declaration (16001) and outgoing-message detection using the character name and surname API, with the previous name comparison retained as a fallback.\n- Four integrated sound packs containing 148 extra sounds: Effect Pack 01 (61), Notification Pack 01 (48), Notification Pack 02 (27), and StarCraft Pack (12).\n- A Sound packs settings page with individual toggles and a Reload UI button, including Brazilian Portuguese text. All packs are enabled by default; preferences are saved across configuration profiles and applied after reloading the UI.\n- A README covering features, installation, configuration, game interfaces, sound packs, and support.\n- Sound-pack regression tests covering defaults, saved preferences, reload behavior, independent activation, registration paths, and sound counts.\n\n### Changed\n\n- Updated the Retail interface declaration from 120007 to 120105. Retained Mists of Pandaria Classic (50504) and Classic Era (11509).\n- Integrated the sound-pack definitions directly into the main addon.\n- Sound playback now reads directly from LibSharedMedia instead of depending on the sound-selection widgets' global table.\n- Excluded development tests from release packages.\n- Adopted the Keep a Changelog structure in `CHANGELOG.md` and configured tagged releases to publish only the matching version's notes.\n\n### Fixed\n\n- Ignored words now treat Lua pattern characters, such as `%`, `[` and `+`, literally while preserving existing case-sensitive word-boundary matching.\n- Zone and custom channels now use independent notification intervals, so activity in one channel does not suppress another channel's notifications through the shared CHAT_MSG_CHANNEL timer.\n- Missing or invalid sound references are skipped before playback. Failed playback attempts no longer consume the notification interval.\n- Channel-specific rules now ignore unrelated chat events and avoid inspecting restricted channel names, IDs, or sender flags.\n- Player-specific and ignore-list rules now skip invalid or restricted sender names safely.\n- Added a local fallback for clients without the secret-value inspection function.\n- Zone and Newcomer Chat settings no longer require their chat colors to be initialized before displaying their labels.\n\n### Removed\n\n- Removed the four standalone sound-pack manifests and four redundant startup files. Each integrated pack now uses one sound-definition file and its audio assets."
+    },
+    {
+      "tag": "v2.7.1",
+      "published": "2026-08-03",
+      "notes": "# Chat Sound Customizer\n\n## [v2.7.1](https://github.com/Canettieri/chat-sound/tree/v2.7.1) (2026-08-03)\n[Full Changelog](https://github.com/Canettieri/chat-sound/compare/v2.7...v2.7.1) [Previous Releases](https://github.com/Canettieri/chat-sound/releases)\n\n- (toc file) Udpated toc file"
+    },
+    {
+      "tag": "v2.7",
+      "published": "2026-02-14",
+      "notes": "# Chat Sound Customizer\n\n## [v2.7](https://github.com/Canettieri/chat-sound/tree/v2.7) (2026-02-14)\n[Full Changelog](https://github.com/Canettieri/chat-sound/compare/v2.6...v2.7) [Previous Releases](https://github.com/Canettieri/chat-sound/releases)\n\n- Update toc file  \n- Ignore events when receiving secret values"
+    },
+    {
+      "tag": "v2.6",
+      "published": "2026-01-10",
+      "notes": "# Chat Sound Customizer\n\n## [v2.6](https://github.com/Canettieri/chat-sound/tree/v2.6) (2026-01-10)\n[Full Changelog](https://github.com/Canettieri/chat-sound/compare/v2.5.2.1...v2.6) [Previous Releases](https://github.com/Canettieri/chat-sound/releases)\n\n- Update libs  \n- Update toc file"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-01",
+      "2026-08-03",
+      "2026-02-14",
+      "2026-01-10",
+      "2025-11-15",
+      "2025-11-15",
+      "2025-04-27",
+      "2025-03-01",
+      "2025-01-19",
+      "2024-12-19",
+      "2024-11-23",
+      "2024-10-14",
+      "2024-07-24",
+      "2024-07-24",
+      "2024-05-12",
+      "2024-03-20",
+      "2024-01-18",
+      "2023-11-22",
+      "2023-11-03",
+      "2023-09-20",
+      "2023-07-20",
+      "2023-05-24",
+      "2023-05-12",
+      "2023-04-02",
+      "2023-01-25",
+      "2022-12-23",
+      "2022-12-03",
+      "2022-11-16",
+      "2022-10-25",
+      "2022-09-18",
+      "2022-09-17",
+      "2022-09-05"
+    ]
+  },
+  "languages": [
+    "ptBR"
+  ],
+  "technical": {
+    "folders": [
+      "Chat_Sound_Customizer"
+    ],
+    "editions": [
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ChatSoundCustomizerDB"
+    ]
+  }
+}

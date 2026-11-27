@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "appearancetooltip",
+  "repo": "kemayo/wow-appearancetooltip",
+  "about": "# AppearanceTooltip\n\nAppearanceTooltip shows you the appearance of items that you see, to help you know whether you actually _want_ to obtain their delicious appearances for your collection. It does this by attaching a Model frame to the item tooltip, showing your character wearing the item.\n\nIt can also show an icon in various places to let you know whether you know this appearance or not. These places are:\n\n* Bags (including various bag addons)\n* Loot window\n* Encounter Journal\n* Merchants\n\nThe icon will be violet if you can learn the appearance on the current character, blue if you know the appearance but from a different item, and yellow if you don't know it but it's for another class.\n\nThe previews and item-icons will also appear for mounts, pets, and decor.\n\nSet token items will show some information about what they'll turn into, and how many of those possible appearances you've collected.\n\nLess importantly, it also improves the default UI so that the \"You don't know this appearance\" messages will appear on items which don't apply directly to your class! This means you'll be able to log into your Warrior, and tell that your Priest doesn't yet know this cool BoE appearance that just dropped.\n\nConfig is in the Interface Options, or type `/aptip`\n\nYou can choose whether to:\n\n* Show your character with your current outfit, or naked apart from your previewed item (how lewd)\n* Zoom in on the item you're previewing\n* Strategically remove some items from your character to show the previewed item (e.g. for shirts, remove your chest and tabard)\n* Only show for items your current character can actually transmog to\n* Spin the model / move it with the mousewheel\n\nAddons integrated with:\n\n* [SilverDragon](https://www.curseforge.com/wow/addons/silver-dragon)\n* [Inventorian](https://www.curseforge.com/wow/addons/inventorian)\n* [Butsu](https://www.wowinterface.com/downloads/info7976-Butsu.html)\n* [Bagnon](https://www.curseforge.com/wow/addons/bagnon)\n* [Baggins](https://www.curseforge.com/wow/addons/baggins)\n* [AdiBags](https://www.curseforge.com/wow/addons/adibags) - showing icons and offering a filter for unknown appearances",
+  "releases": [
+    {
+      "tag": "v85",
+      "published": "2026-11-16",
+      "notes": "# AppearanceTooltip\n\n## [v85](https://github.com/kemayo/wow-appearancetooltip/tree/v85) (2026-11-16)\n[Full Changelog](https://github.com/kemayo/wow-appearancetooltip/compare/v84...v85) [Previous Releases](https://github.com/kemayo/wow-appearancetooltip/releases)\n\n- TOC for 12.1.6, Forever"
+    },
+    {
+      "tag": "v84",
+      "published": "2026-08-09",
+      "notes": "# AppearanceTooltip\n\n## [v84](https://github.com/kemayo/wow-appearancetooltip/tree/v84) (2026-08-09)\n[Full Changelog](https://github.com/kemayo/wow-appearancetooltip/compare/v83...v84) [Previous Releases](https://github.com/kemayo/wow-appearancetooltip/releases)\n\n- Update TOC for 12.1.0, 2.5.6  \n- Stop relying on the deprecated GetInventorySlotInfo global  \n    12.1 moved this into C\\_PaperDollInfo.  \n- Remove two expressions that did nothing  \n    The length check on the SilverDragon loot buttons read as a guard against an  \n    empty list, but zero is true in Lua, so it always passed. The ipairs below  \n    already handles an empty table. known\\_any was set and never read.  \n- A set with no appearances could error in the sets list  \n    Dividing the collected count by a total of zero gives a nan, which ColorGradient  \n    then feeds to select as an index and errors on. Because this runs from the  \n    scroll box update, it could repeat for as long as the list is open.  \n- Set tokens with difficulty variants put a link where an itemID was wanted  \n    When a token resolved to a variant, the item we display was stored as a bare  \n    link rather than an itemID, which the model and journal calls further down  \n    don't accept. It now keeps the itemID and moves the preview cache onto the  \n    link. Caching on the link is also more accurate for normal items, because the  \n    same itemID can have a different appearance depending on its bonuses.  \n- Scrolling down over a preview could fail to rotate the model  \n    The scroll-up button was given RegisterForClicks(\"AnyDown\", \"AnyUp\") when the  \n    spin option was fixed, but the scroll-down button kept the default of  \n    LeftButtonUp. A mousewheel binding has no matching release, so the down button  \n    could never see its click.  \n- Previews could stay on screen for the previously hovered item  \n    The modifier-key check returned before it hid anything, so the model stayed up  \n    when you moved to a different item without the key held. The mount, pet and  \n    decor branches could also stop partway when the model data was missing, which  \n    left the last preview in place. Both cases now use a shared hidePreview, which  \n    also stops the positioner and spinner running against a hidden frame.  \n- Centralize a lot of overlay hiding logic  \n    Make immediate refreshes from the config work  \n- Set overlay wasn't stripping the trailing separator  \n- Disabling merchant overlays would leave overlays in place until refresh  \n    Well, it'd remove the very first overlay...  \n- Abandon earlier with IsRectValid in a way that allows retries  \n    Follow-up to bf84c3cb1bbd6c6794771ef0729fb5c43cce52da  \n- Actions: use the luacheck action instead of installing it from luarocks  \n    The lint job ran apt-get install with no apt-get update ahead of it, which  \n    fails whenever the runner image package index is stale.  \n    lunarmodules/luacheck@v1 replaces those three steps and runs the same  \n    luacheck . --no-color -q. Updates the checkout action from v2 to v7, which  \n    was still running a node version GitHub is retiring; nothing in that range  \n    affects a push-triggered workflow. Pins the packager to v2 rather than  \n    master, so an upstream change can no longer land in a release without  \n    warning; v2 is the maintained major tag, so fixes within the v2 line still  \n    arrive."
+    },
+    {
+      "tag": "v83",
+      "published": "2026-07-12",
+      "notes": "# AppearanceTooltip\n\n## [v83](https://github.com/kemayo/wow-appearancetooltip/tree/v83) (2026-07-10)\n[Full Changelog](https://github.com/kemayo/wow-appearancetooltip/compare/v82...v83) [Previous Releases](https://github.com/kemayo/wow-appearancetooltip/releases)\n\n- Guard GetCenter with IsRectValid to avoid secret value errors from forced layout"
+    },
+    {
+      "tag": "v82",
+      "published": "2026-06-19",
+      "notes": "# AppearanceTooltip\n\n## [v82](https://github.com/kemayo/wow-appearancetooltip/tree/v82) (2026-06-19)\n[Full Changelog](https://github.com/kemayo/wow-appearancetooltip/compare/v81...v82) [Previous Releases](https://github.com/kemayo/wow-appearancetooltip/releases)\n\n- TOC for 12.0.7, 5.5.4"
+    },
+    {
+      "tag": "v81",
+      "published": "2026-02-28",
+      "notes": "# AppearanceTooltip\n\n## [v81](https://github.com/kemayo/wow-appearancetooltip/tree/v81) (2026-02-28)\n[Full Changelog](https://github.com/kemayo/wow-appearancetooltip/compare/v80...v81) [Previous Releases](https://github.com/kemayo/wow-appearancetooltip/releases)\n\n- Remove 11.2.7 from the TOC, and rebuild with new LibArmorToken data"
+    }
+  ],
+  "stats": {
+    "stars": 9,
+    "openIssues": 5,
+    "contributors": 4,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-08-09",
+      "2026-07-12",
+      "2026-06-19",
+      "2026-02-28",
+      "2026-02-23",
+      "2026-02-04",
+      "2026-01-31",
+      "2026-01-29",
+      "2026-01-29",
+      "2026-01-26",
+      "2026-01-25",
+      "2026-01-24",
+      "2026-01-24",
+      "2026-01-21",
+      "2026-01-20",
+      "2026-01-14",
+      "2025-12-31",
+      "2025-12-28",
+      "2025-12-03",
+      "2025-09-14",
+      "2025-08-09",
+      "2025-08-08",
+      "2025-08-03",
+      "2025-07-24",
+      "2025-07-07",
+      "2025-07-07",
+      "2025-02-28",
+      "2024-12-29",
+      "2024-11-16",
+      "2024-11-01",
+      "2024-09-25",
+      "2024-08-23",
+      "2024-08-20",
+      "2024-08-12",
+      "2024-07-29",
+      "2024-07-28",
+      "2024-07-28",
+      "2024-07-25",
+      "2024-07-15",
+      "2024-05-22",
+      "2024-02-02",
+      "2024-01-26",
+      "2024-01-17",
+      "2023-12-27",
+      "2023-11-29",
+      "2023-11-11",
+      "2023-05-11",
+      "2023-02-11",
+      "2022-12-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AppearanceTooltip"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tekDebug",
+      "LibStub",
+      "LibArmorToken-1.0",
+      "LibAppropriateItems-1.0"
+    ],
+    "savedVariables": [
+      "AppearanceTooltipDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "AppearanceTooltipDBPC"
+    ]
+  }
+}

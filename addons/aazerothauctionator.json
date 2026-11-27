@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "aazerothauctionator",
+  "repo": "No898/azeroth-cesky-auctionator",
+  "about": "# Azeroth česky: Auctionator\n\nSamostatný český překlad [Auctionatoru](https://www.curseforge.com/wow/addons/auctionator), spravovaný projektem [Azeroth česky](https://github.com/No898/azeroth-cesky).\n\n**Verze `0.1.4` pro WoW: Forever 1.60.1 a Auctionator 345.** Přeloženo je všech **452 textů jeho lokalizačního katalogu**. Vydání obsahuje font s českými znaky a kratší popisky podle prvního testu ve hře. V seznamu addonů se modul jmenuje **Azeroth cesky: Auctionator**, používá původní herní font a stejné logo jako hlavní Azeroth česky. Kontroly katalogu a izolované testy v Lua 5.1 jsou součástí projektu; úplná herní kontrola posledních oprav fontů a rozložení ještě čeká.\n\n## Instalace\n\n1. Nainstaluj [Auctionator](https://www.curseforge.com/wow/addons/auctionator).\n2. Stáhni instalační balíček `AAzerothAuctionator-<verze>.zip` z příloh v [Releases](https://github.com/No898/azeroth-cesky-auctionator/releases). GitHub tlačítko **Code → Download ZIP** stahuje vývojové zdroje, nikoli instalační balíček.\n3. Při vypnuté hře rozbal složku `AAzerothAuctionator` do `Interface/AddOns` svého klienta WoW: Forever. Složku nepřejmenovávej.\n4. Ve výběru addonů zapni **Auctionator** i **Azeroth cesky: Auctionator** a přihlas se do hry.\n\nVýsledná struktura:\n\n```text\nInterface/AddOns/\n├── Auctionator/\n└── AAzerothAuctionator/\n    ├── AAzerothAuctionator.toc\n    ├── Translations.lua\n    ├── Fonts.lua\n    ├── CraftingInfo.lua\n    ├── Fonts/\n    │   ├── GentiumBook-Regular.ttf\n    │   └── OFL.txt\n    └── Textures/\n        └── AddonLogo.tga\n```\n\nČeština se použije automaticky. Hlavní addon **Azeroth česky není potřeba**. Pokud ho máš, panel nákladů a zisku v okně profese se řídí jeho vlajkou: šedá vlajka znamená anglické texty Auctionatoru. Pro návrat k jazyku herního klienta vypni pouze **Azeroth cesky: Auctionator** a znovu načti rozhraní. Ostatní překladové moduly Auctionatoru nech vypnuté; sdílejí jeden přepis jazyka.\n\nPři aktualizaci nahraď celou složku a úplně restartuj klienta, aby se načetla nová metadata a nezůstaly staré soubory. Rozhraní Auctionatoru používá přibalený Gentium Book se zachováním velikosti písma a barev. Seznam addonů a sdílené herní fonty se nemění; název bez diakritiky je čitelný i před přihlášením.\n\nNepřekládaná jména v seznamu překladatelů zachovávají původní font kvůli cizojazyčným znakům. Nápovědy nastavení Auctionatoru používají český font dočasně; při skrytí nebo přechodu k jinému vlastníkovi se obnoví původní font.\n\n## Co se překládá\n\n- Vlastní texty Auctionatoru: nákup, prodej, rušení aukcí, seznamy, nastavení a aukční nápovědy.\n- Nové texty, pro které ještě nemáme překlad, Auctionator automaticky doplní anglicky.\n- Názvy předmětů, kouzel a kategorií dodané hrou i některá tlačítka používající přímo texty Blizzardu zůstávají v jazyce klienta.\n- Pořadí částí data určuje Auctionator; tento modul překládá názvy měsíců a dní, ale formát data nepřepisuje.\n\nJde o komunitní překlad používající rozhraní doporučené autorem Auctionatoru. Balíček neobsahuje samotný Auctionator ani nemění jeho soubory, herní globální texty, ceny, vyhledávací údaje či uložená nastavení. Podpora dalších variant WoW zatím není ověřená; TOC cílí pouze na Forever (`16001`).\n\n## Vývoj a kontrola\n\nPotřebuješ Python 3.9 nebo novější. Při běžném hraní Python ani žádný nástroj nepotřebuješ.\n\n```sh\npython3 -m venv .venv\n.venv/bin/python -m pip install -r requirements-dev.txt\n.venv/bin/python scripts/catalog.py fetch\n.venv/bin/python scripts/catalog.py check\n.venv/bin/python -m unittest discover -s tests -v\n.venv/bin/python scripts/catalog.py package\n```\n\n`fetch` stáhne konkrétní oficiální vydání Auctionatoru a ověří SHA-256. Testy používají jeho skutečný lokalizační resolver; nepouštějí WoW. Instalační ZIP a jeho kontrolní součet vzniknou v `dist/`. Na Windows použij `.venv\\Scripts\\python.exe`.\n\nPřeklady se upravují v [`locales/csCZ.json`](https://github.com/No898/azeroth-cesky-auctionator/blob/main/locales/csCZ.json). Po úpravě spusť:\n\n```sh\npython3 scripts/catalog.py build\n```\n\nVygenerovaný `addon/AAzerothAuctionator/Translations.lua` se ukládá do repozitáře, ale neupravuje ručně. Po každé změně spusť kontroly a testy. CI navíc vytvoří instalační ZIP jako artefakt; nic automaticky nepublikuje na CurseForge.\n\nPostup aktualizace: [CONTRIBUTING.md](https://github.com/No898/azeroth-cesky-auctionator/blob/main/CONTRIBUTING.md). Kontrola ve hře: [docs/GAME_TEST.md](https://github.com/No898/azeroth-cesky-auctionator/blob/main/docs/GAME_TEST.md). Architektura: [docs/ARCHITECTURE.md](https://github.com/No898/azeroth-cesky-auctionator/blob/main/docs/ARCHITECTURE.md).\n\n## Autoři\n\nAuctionator: **plusmouse, Borjamacare a přispěvatelé původního projektu**. Český překlad: **Azeroth česky / No898**. Původní autorské údaje a odkazy na podporu Auctionatoru zůstávají zachované.\n\nPřibalený nezměněný **Gentium Book 7.000 Regular**: Copyright (c) 2003–2025 SIL Global. Licence SIL Open Font License 1.1 je v `Fonts/OFL.txt`; původ a kontrolní součty jsou v [dokumentaci](https://github.com/No898/azeroth-cesky-auctionator/blob/main/docs/ARCHITECTURE.md#font).\n\nEnglish: standalone Czech translation for Auctionator, using its supported `AUCTIONATOR_LOCALES_OVERRIDE` callback. Requires Auctionator, but not Azeroth česky. Version 0.1.4 targets WoW: Forever 1.60.1 and Auctionator 345. Full in-game verification of the latest font and layout fixes is pending.",
+  "releases": [
+    {
+      "tag": "v0.1.4",
+      "name": "Azeroth česky: Auctionator 0.1.4",
+      "published": "2026-11-12",
+      "notes": "Navázání na Auctionator 345.\n\n- Nové texty v okně Informace (**Dřívější autor**, **Získat podporu**) jsou přeložené a texty o vývoji a podpoře odpovídají novému anglickému znění. Přeloženo je všech 452 textů.\n- Pro anglického klienta (enUS) WoW Forever 1.60.1 (build 70888) a Auctionator 345.\n- Po aktualizaci úplně restartuj herního klienta.\n\n---\n\nUpdate for Auctionator 345.\n\n- New texts in the Info window (**Past Author**, **Get support**) are translated and the development and support texts follow the new English wording. All 452 texts are translated.\n- For the English (enUS) WoW Forever client 1.60.1 (build 70888) and Auctionator 345.\n- After updating, fully restart the game client."
+    },
+    {
+      "tag": "v0.1.3",
+      "name": "Azeroth česky: Auctionator 0.1.3",
+      "published": "2026-11-07",
+      "notes": "Oprava panelu nákladů a zisku v okně profese.\n\n- Řádky **K výrobě** a **Zisk** mají font s českými znaky; místo „ě“ už se neukazuje čtvereček.\n- Panel se řídí vlajkou Azeroth česky v okně profese: při šedé vlajce nebo vypnutém překladu ukáže původní anglické texty Auctionatoru. Vyžaduje příští verzi Azeroth česky; bez ní zůstává panel česky jako dosud.\n- Pro anglického klienta (enUS) WoW Forever 1.60.1 a Auctionator 341.\n- Po aktualizaci úplně restartuj herního klienta.\n\n---\n\nFix for the cost and profit panel in the profession window.\n\n- The **To Craft** and **Profit** lines use a font with Czech characters; \"ě\" no longer shows as a box.\n- The panel follows the Azeroth česky flag in the profession window: with a grey flag or translation turned off it shows Auctionator's original English texts. Requires the next Azeroth česky version; without it the panel stays Czech as before.\n- For the English (enUS) WoW Forever client 1.60.1 and Auctionator 341.\n- After updating, fully restart the game client."
+    },
+    {
+      "tag": "v0.1.2",
+      "name": "Azeroth česky: Auctionator 0.1.2",
+      "published": "2026-11-04",
+      "notes": "Podpora **Auctionatoru 341**. Anglické texty Auctionatoru se v této verzi nezměnily, všech 451 textů zůstává přeložených.\n\n- Pro anglického klienta (enUS) WoW Forever 1.60.1, aktuální build 1.60.1.70755.\n- Po aktualizaci úplně restartuj herního klienta.\n\n---\n\nSupport for **Auctionator 341**. Auctionator's English texts did not change in this version; all 451 texts stay translated.\n\n- For the English (enUS) WoW Forever client 1.60.1, current build 1.60.1.70755.\n- After updating, fully restart the game client."
+    },
+    {
+      "tag": "v0.1.1",
+      "name": "Azeroth česky: Auctionator 0.1.1",
+      "published": "2026-10-06",
+      "notes": "Opravené zobrazení popisu addonu v seznamu addonů: popis a autor jsou nyní bez diakritiky, aby je původní herní font zobrazil správně.\n\nPo aktualizaci úplně restartuj herního klienta."
+    },
+    {
+      "tag": "v0.1.0",
+      "name": "Azeroth česky: Auctionator 0.1.0",
+      "published": "2026-10-05",
+      "notes": "# Azeroth česky: Auctionator 0.1.0\n\nFirst release of the standalone Czech translation for Auctionator, targeting WoW: Forever 1.60.1 and Auctionator 340.\n\n- All 451 localization entries translated into Czech.\n- Bundled Czech font support for Auctionator windows, buttons, dynamic lists and configuration tooltips.\n- Shorter labels for limited button and column space, plus the Azeroth česky logo.\n- Auctionator is required; the main Azeroth česky addon is optional.\n\nThe translation and Lua runtime code are unchanged from reviewed alpha.6. All 28 automated tests pass. Full in-game verification of the latest font and layout fixes remains pending; other WoW variants have not been verified.\n\nInstall the attached `AAzerothAuctionator-0.1.0.zip`, keep the `AAzerothAuctionator` folder name and restart the client. For a manual update, replace the entire addon folder. Use only one Auctionator translation addon at a time.\n\n## Česky\n\nPrvní vydání českého překladu Auctionatoru: všech 451 textů, font s českou diakritikou, kratší popisky a logo Azeroth česky. Určeno pro WoW: Forever 1.60.1 a Auctionator 340.\n\nVyžaduje samostatně nainstalovaný Auctionator. Hlavní Azeroth česky není potřeba. Balíček přebírá prověřenou alpha.6; úplná herní kontrola posledních oprav fontů a rozložení ještě čeká.\n\nNainstaluj ZIP, ponech název složky `AAzerothAuctionator` a restartuj klienta. Při ruční aktualizaci nahraď celou složku addonu."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-12",
+    "releaseDates": [
+      "2026-11-12",
+      "2026-11-07",
+      "2026-11-04",
+      "2026-10-06",
+      "2026-10-05"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AAzerothAuctionator"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

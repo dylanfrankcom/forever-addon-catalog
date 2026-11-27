@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "rxp-wowforeverguide",
+  "repo": "craigory1591/wow-forever-guide",
+  "about": "# WoW Forever Guide – RestedXP leveling guides (all races & classes, 1-60)\n\nLeveling guides for **World of Warcraft: Forever** that load straight into the **RestedXP** addon.\nEvery race and class you can pick in Forever is covered, including the new Skyborne race, plus start-anywhere routes so any class can level through any starting zone of its faction. Each route is split into zone brackets (for example **14-17 Darkshore**, **24-28 Wetlands**), grouped by class, and each bracket loads the next one when you finish it.\n\n## Download\n\n1. Go to **Releases** and download **RXP_WoWForeverGuide.zip**.\n2. Close WoW.\n3. Unzip it into your WoW: Forever AddOns folder so you end up with:\n   ```\n   ...\\Interface\\AddOns\\RXP_WoWForeverGuide\\\n   ```\n   (In the Battle.net app: pick WoW: Forever, click the cog next to **Play**, **Show in Explorer**, then open `Interface\\AddOns`.)\n4. You also need the **RestedXP Guides** addon installed.\n5. Start the game. On the character screen click **AddOns** and make sure **RestedXP - WoW Forever Guide (All Classes)** is ticked.\n6. In game, open RestedXP's guide list and pick **WoW Forever - (your class)**, then your route (your race, or **Start in ...**) and the bracket for your level. Or type **/wfg** to get the brackets that fit your level straight away.\n\n## Guides\n\n| Race | Classes |\n|---|---|\n| Human | Warrior, Hunter, Mage, Rogue, Priest, Warlock, Retribution Paladin |\n| Dwarf | Warrior, Hunter, Rogue, Priest, Retribution Paladin, Shaman |\n| Night Elf | Warrior, Hunter, Rogue, Priest, Druid |\n| Gnome | Warrior, Mage, Rogue, Priest, Warlock |\n| Orc | Warrior, Hunter, Mage, Rogue, Warlock, Shaman |\n| Undead | Warrior, Mage, Rogue, Priest, Warlock, Retribution Paladin |\n| Tauren | Warrior, Hunter, Druid, Shaman |\n| Troll | Warrior, Hunter, Mage, Rogue, Priest, Warlock, Shaman |\n| High Order Skyborne (Alliance) | Warrior, Hunter, Rogue, Mage, Druid |\n| Windshaper Skyborne (Horde) | Warrior, Hunter, Rogue, Shaman, Druid |\n\n### Start anywhere\n\nWant to level somewhere other than your race's home? Every class has a **Start in ...** route through each starting\nzone of its faction:\n\n| Faction | Starting zones |\n|---|---|\n| Alliance | Elwynn Forest (Northshire), Dun Morogh (Coldridge Valley), Teldrassil (Shadowglen) |\n| Horde | Durotar (Valley of Trials), Tirisfal Glades (Deathknell), Mulgore (Camp Narache) |\n\nSo a Night Elf Druid can pick **WoW Forever - Druid > Start in Elwynn Forest** and quest through Northshire, Westfall and onwards.\nEach one starts with a \"getting there\" step that tells you how to travel to that zone from your own starting area.\n\n### How the guides work\n\nEach route follows its starting zones, then the Alliance or Horde route to 60, with the class\nquests (stances, demons, totems, pet taming, druid forms, mounts...) shown at the level you need them.\nThe route is cut into one guide per zone bracket; each bracket ends with a level checkpoint, then loads the next bracket.\nClick a step to tick it off once it's done.\n\nFor example, **WoW Forever - Druid > Night Elf route**: 1-14 Teldrassil/Darkshore, 14-17 Darkshore, 17-20 Darkshore,\n20-24 Ashenvale, 24-28 Wetlands, 28-31 Duskwood, 31-33 Hillsbrad Foothills, 33-35 Desolace, 35-38 Stranglethorn Vale,\n38-40 Dustwallow Marsh, 40-42 Tanaris, 42-45 Feralas, 45-48 The Hinterlands, 48-52 Un'Goro Crater, 52-54 Felwood,\n54-56 Western Plaguelands, 56-58 Winterspring, 58-60 Eastern Plaguelands.\n\n### Quest log sync\n\n- **Empty your quest log** (abandon everything) and a window asks which guide you want to do: one button per route for\n  your class, each on the bracket for your level.\n- **Opening a guide** (from that window or from RestedXP's list) skips what you've done and jumps to the quests in your\n  quest log. Steps are matched by quest ID, or by the quest names written in the step. With an empty log it skips the\n  steps whose quests you've already handed in.\n- **/wfg** opens the guide picker any time; **/wfg sync** jumps the open guide to your quest log again.\n\n### Rebuilding the brackets\n\nThe brackets are made from the full routes by `tools/split-brackets.cjs` (Node.js). It cuts at every `.xp` level\ncheckpoint and names each bracket after the zones it visits.\n\n## Notes\n\n- WoW: Forever is new, so some quests may have changed. Steps name the quests and the hub rather than\n  relying on quest IDs, and waypoints are approximate.\n- The Skyborne start on Zephras Isle. Its quests are new, so that part of their guides gives general directions until the isle is mapped out; from level 12 they follow the full Alliance (Westfall) or Horde (Barrens) route.\n- Quest log sync can only line up with steps that name a quest. Travel and grinding steps don't, so if the guide lands\n  a step early, click the step you're on (or type **/wfg sync** after picking up the next quest).\n- If a step doesn't match the game, open an **issue** with the guide name and the step.",
+  "releases": [
+    {
+      "tag": "v1.2",
+      "name": "WoW Forever Guide v1.2 - Start anywhere",
+      "published": "2026-11-05",
+      "notes": "Adds start-anywhere guides: every class can now level through any starting zone of its faction (Alliance: Elwynn Forest, Dun Morogh, Teldrassil - Horde: Durotar, Tirisfal Glades, Mulgore), with a getting-there step at the start. Find them under 'WoW Forever Guide - Start Anywhere'. 110 guides in total. Delete the old RXP_WoWForeverGuide folder, then unzip this into Interface\\AddOns."
+    },
+    {
+      "tag": "v1.1",
+      "name": "WoW Forever Guide v1.1 - Skyborne added",
+      "published": "2026-11-05",
+      "notes": "Adds the new Skyborne race: High Order Skyborne (Alliance: Warrior, Hunter, Rogue, Mage, Druid) and Windshaper Skyborne (Horde: Warrior, Hunter, Rogue, Shaman, Druid). 56 guides in total, 1-60 for every race and class. Delete the old RXP_WoWForeverGuide folder, then unzip this into Interface\\AddOns."
+    },
+    {
+      "tag": "v1.0",
+      "name": "WoW Forever Guide v1.0",
+      "published": "2026-11-05",
+      "notes": "1-60 RestedXP leveling guides for every race and class in WoW: Forever (46 guides). Download RXP_WoWForeverGuide.zip and unzip it into Interface\\AddOns. Needs the RestedXP Guides addon."
+    }
+  ],
+  "stats": {
+    "stars": 17,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RXP_WoWForeverGuide"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "RXPGuides"
+    ]
+  }
+}

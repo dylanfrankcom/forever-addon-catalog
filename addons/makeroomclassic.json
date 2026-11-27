@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "makeroomclassic",
+  "repo": "cloudbells/MakeRoomClassic",
+  "about": "# MakeRoomClassic\n\nConveniently displays the cheapest items in your inventory in WoW: Classic.\n\nClicking on the buttons deletes the item in your inventory (with a confirmation box). Made for personal use in hardcore WoW.",
+  "releases": [
+    {
+      "tag": "v2.2.5-release",
+      "published": "2026-11-23",
+      "notes": "# MakeRoomClassic\n\n## [v2.2.5-release](https://github.com/cloudbells/MakeRoomClassic/tree/v2.2.5-release) (2026-11-23)\n[Full Changelog](https://github.com/cloudbells/MakeRoomClassic/compare/v2.2.4-release...v2.2.5-release) [Previous Releases](https://github.com/cloudbells/MakeRoomClassic/releases)\n\n- Scan reagent bag"
+    },
+    {
+      "tag": "v2.2.4-release",
+      "published": "2026-10-25",
+      "notes": "# MakeRoomClassic\n\n## [v2.2.4-release](https://github.com/cloudbells/MakeRoomClassic/tree/v2.2.4-release) (2026-10-25)\n[Full Changelog](https://github.com/cloudbells/MakeRoomClassic/compare/v2.2.3-release...v2.2.4-release) [Previous Releases](https://github.com/cloudbells/MakeRoomClassic/releases)\n\n- Improve UX"
+    },
+    {
+      "tag": "v2.2.3-release",
+      "published": "2026-09-20",
+      "notes": "# MakeRoomClassic\n\n## [v2.2.3-release](https://github.com/cloudbells/MakeRoomClassic/tree/v2.2.3-release) (2026-09-20)\n[Full Changelog](https://github.com/cloudbells/MakeRoomClassic/compare/v2.2.2-release...v2.2.3-release) [Previous Releases](https://github.com/cloudbells/MakeRoomClassic/releases)\n\n- Fix GetCoinTextureString"
+    },
+    {
+      "tag": "v2.2.2-release",
+      "published": "2026-09-20",
+      "notes": "# MakeRoomClassic\n\n## [v2.2.2-release](https://github.com/cloudbells/MakeRoomClassic/tree/v2.2.2-release) (2026-09-20)\n[Full Changelog](https://github.com/cloudbells/MakeRoomClassic/compare/v2.2.1-release...v2.2.2-release) [Previous Releases](https://github.com/cloudbells/MakeRoomClassic/releases)\n\n- Update yet another GetItemInfo"
+    },
+    {
+      "tag": "v2.2.1-release",
+      "published": "2026-09-20",
+      "notes": "# MakeRoomClassic\n\n## [v2.2.1-release](https://github.com/cloudbells/MakeRoomClassic/tree/v2.2.1-release) (2026-09-20)\n[Full Changelog](https://github.com/cloudbells/MakeRoomClassic/compare/v2.2.0-release...v2.2.1-release) [Previous Releases](https://github.com/cloudbells/MakeRoomClassic/releases)\n\n- Update for WoW: Forever"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-10-25",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-08-04",
+      "2026-08-03",
+      "2026-08-03",
+      "2026-08-01",
+      "2026-07-22",
+      "2026-06-16",
+      "2026-06-16",
+      "2026-06-16",
+      "2024-07-14",
+      "2024-07-14",
+      "2023-08-26",
+      "2023-06-25",
+      "2023-03-18",
+      "2023-03-18",
+      "2023-03-18",
+      "2023-03-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MakeRoomClassic"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "MRCOptionsGlobal"
+    ],
+    "savedVariablesPerCharacter": [
+      "MRCOptions"
+    ]
+  }
+}

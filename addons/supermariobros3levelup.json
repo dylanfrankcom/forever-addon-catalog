@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "supermariobros3levelup",
+  "repo": "RGXMods/SuperMarioBros3LevelUp",
+  "about": "#  RGX |  Super Mario Bros 3 Level-Up!\n\n![SMB3LU Logo](https://raw.githubusercontent.com/RGXMods/SuperMarioBros3LevelUp/main/media/logo.png)\n\n## ![](https://raw.githubusercontent.com/RGXMods/SuperMarioBros3LevelUp/main/media/kiwi.gif) RGX Mods - RealmGX Community Project\n\n***\n\n## Overview\n\n**Super Mario Bros. 3 Level-Up! (SMB3LU)** replaces World of Warcraft's configured default level-up sound with a Super Mario Bros. 3-inspired \"POWER UP!\" chime whenever the player gains a level. It is a small, automatic sound addon built on RGX-Framework.\n\n![RealmGX Kiwi](https://raw.githubusercontent.com/RGXMods/SuperMarioBros3LevelUp/main/media/kiwi.gif) **The Kiwi Says:** \"It's-a me! Bwwiiiee.\"\n\n***\n\n## Deprecation Notice\n\n**This addon is no longer receiving updates.** Its functionality and Super Mario Bros. 3 sound are available in [BLU | Better Level Up!](https://www.curseforge.com/wow/addons/blu-better-level-up) and [BLU Classic | Better Level Up!](https://www.curseforge.com/wow/addons/blu-classic), which combine this sound with a larger sound collection.\n\nExisting standalone users may continue to use this repository as-is, but new installations should prefer the appropriate BLU addon.\n\n***\n\n## Behavior and Features\n\n- Plays the selected Super Mario Bros. 3-inspired sound on `PLAYER_LEVEL_UP`.\n- Provides high, medium, and low OGG variants; medium is selected by default.\n- Plays through the Master sound channel by default.\n- Requests that RGX-Framework mute the configured default level-up sound while SMB3LU is enabled.\n- Persists enablement and sound-variant choices in `SMB3LUSettings`.\n- Shows a welcome message on login while that saved preference remains enabled.\n- Includes a test command for checking playback immediately.\n\nSMB3LU does not alter leveling, experience gains, UI frames, or game data. It only handles the sound associated with the player's level-up event.\n\n***\n\n## Requirements and Compatibility\n\n`RGX-Framework` is a required dependency and must be installed and enabled. The current TOCs declare these game interfaces:\n\n| WoW flavor | TOC | Interface |\n|---|---|---:|\n| Retail | `SuperMarioBros3LevelUp.toc` | `120100` |\n| WoW Forever (Beta) | `SuperMarioBros3LevelUp_Forever.toc` | `16001` |\n| Mists of Pandaria Classic | `SuperMarioBros3LevelUp_Mists.toc` | `50504` |\n| Cataclysm Classic | `SuperMarioBros3LevelUp_Cata.toc` | `40402` |\n| Wrath Classic | `SuperMarioBros3LevelUp_Wrath.toc` | `38002` |\n| Burning Crusade Classic | `SuperMarioBros3LevelUp_TBC.toc` | `20506` |\n| Classic Era | `SuperMarioBros3LevelUp_Vanilla.toc` | `11509` |\n\nThese values describe the current release metadata. The addon is deprecated, so they are not a promise of compatibility with later game clients.\n\n***\n\n## Language Support\n\nSMB3LU ships complete in-game text for all 12 WoW client locales: **enUS** (base), **deDE**, **esES**, **esMX**, **frFR**, **itIT**, **koKR**, **ptBR**, **ptPT**, **ruRU**, **zhCN**, and **zhTW**. Chat output, command feedback, and the login welcome message are translated for each locale, and every `## X-Localizations` entry in the shipped TOCs lists exactly this set. Clients in any other or unmatched locale fall back to the enUS strings without errors.\n\n***\n\n## Installation\n\n1. Download a packaged release of SuperMarioBros3LevelUp and install RGX-Framework.\n2. Extract both addon folders into the WoW client's `Interface/AddOns` directory.\n3. Confirm that the folder is named `SuperMarioBros3LevelUp` rather than a source-archive name.\n4. Enable `RGX-Framework` and `Super Mario Bros. 3 Level-Up!` at the character-selection AddOns screen.\n\nFor the consolidated replacement, install BLU or BLU Classic instead of the standalone addon.\n\n***\n\n## ⌨Usage and Configuration\n\nSMB3LU works automatically once enabled. It has no graphical configuration panel; use `/smb3lu` commands in chat:\n\n| Command | Result |\n|---|---|\n| `/smb3lu` or `/smb3lu help` | List available commands. |\n| `/smb3lu test` | Play the selected sound variant. |\n| `/smb3lu enable` | Enable replacement playback. |\n| `/smb3lu disable` | Disable replacement playback. |\n| `/smb3lu high` | Select the high-quality file. |\n| `/smb3lu med` or `/smb3lu medium` | Select the medium-quality file. |\n| `/smb3lu low` | Select the low-quality file. |\n\nThe initial defaults are enabled, medium quality, Master-channel playback, default-sound muting, and the welcome message. Settings persist between sessions in `SMB3LUSettings`.\n\n***\n\n## Files and Runtime\n\n- `data/locales.lua` defines chat and welcome text.\n- `data/core.lua` registers the sound set, events, saved settings, and `/smb3lu` command.\n- `sounds/super_mario_bros_3_{high,med,low}.ogg` are the active playback files.\n- `media/icon.tga`, `media/logo.png`, and `media/kiwi.gif` provide addon and project artwork.\n\nAt addon load, SMB3LU initializes its RGX-Framework sound handle. At login it displays the optional welcome message. Each later `PLAYER_LEVEL_UP` event plays the selected variant when the addon is enabled, and logout allows the framework handle to finalize its state.\n\n***\n\n## Troubleshooting\n\n- If WoW marks SMB3LU as missing a dependency, install or enable `RGX-Framework`.\n- If no custom sound plays, run `/smb3lu test`, then `/smb3lu enable` and select a variant again.\n- If the default sound also plays, verify that SMB3LU and RGX-Framework both loaded without Lua errors.\n- If WoW cannot find the addon, verify the exact `Interface/AddOns/SuperMarioBros3LevelUp` folder name.\n\nBecause the standalone project is retired, migrate to BLU or BLU Classic when you prefer the consolidated sound addon.\n\n***\n\n## Project Links\n\n- [Repository](https://github.com/RGXMods/SuperMarioBros3LevelUp)\n- [Releases](https://github.com/RGXMods/SuperMarioBros3LevelUp/releases)\n- [Issues](https://github.com/RGXMods/SuperMarioBros3LevelUp/issues)\n- [Author: DonnieDice](https://github.com/donniedice)\n- [Support development](https://www.buymeacoffee.com/donniedice)\n\nThis repository is retained for existing users and historical context. Issue reports and contributions should account for the deprecation notice and the migration path above.\n\n***\n\n## Thank you for choosing  RGX Mods!",
+  "releases": [
+    {
+      "tag": "v2.0.6",
+      "name": "Super Mario Bros. 3 Level Up! v2.0.6",
+      "published": "2026-11-05",
+      "notes": "## v2.0.6 - 2026-11-05\n\n- Fixed WoW Forever: the base TOC now declares Interface 16001, which is what the Forever client reads, so the addon loads as compatible instead of out of date.\n- Removed the unused _Forever.toc file.\n\n# Non-beta Candidate: [v2.0.5](https://github.com/RGXMods/SuperMarioBros3LevelUp/blob/main/changelogs/2.0.5.md)\n\nRetail 12.1.5 / Interface `120105`; client testing and publication pending.\n\n# v2.0.4 - 2026-09-27"
+    },
+    {
+      "tag": "v2.0.5",
+      "published": "2026-10-13",
+      "notes": "# Non-beta Candidate: [v2.0.5](https://github.com/RGXMods/SuperMarioBros3LevelUp/blob/main/changelogs/2.0.5.md)\n\nRetail 12.1.5 / Interface `120105`; client testing and publication pending.\n\n# v2.0.4 - 2026-09-27\n\n## Changes\n- TOC set now covers every active WoW flavor: Retail 120100, Classic Era 11509, TBC 20506, Wrath 38002, Cataclysm 40402, Mists 50504, and WoW Forever 16001. The base TOC claims 120100,16001 so the Forever beta loads without the out-of-date flag.\n- Added missing flavor TOCs: SuperMarioBros3LevelUp_Cata.toc, SuperMarioBros3LevelUp_Mists.toc, SuperMarioBros3LevelUp_Forever.toc.\n- Aligned the version (2.0.4) across all TOCs and ADDON_VERSION in data/core.lua.\n\n# v2.0.2 - 2026-06-30\n\n## Changes\n\n- Updated for WoW Retail 12.0.7 (Interface 120007).\n\n# v2.0.0 - 2026-04-30\n\n## Changes\n\n- **Full architecture migration**: Restructured from legacy single-file to modern RGX-Framework architecture with `data/core.lua`, `data/locales.lua`, and `sounds/` directory.\n- **Migrated to RGX-Framework**: Added `RequiredDeps: RGX-Framework` to TOC. Core logic now uses `RGX:GetSound()`, `RGX:RegisterEvent()`, and `RGX:RegisterSlashCommand()`.\n- **Sound variants**: Added high/medium/low quality sound variants.\n- **Localization**: Added multi-language support (enUS, deDE, frFR, esES, ruRU).\n- **Settings**: Added persistent SavedVariables with slash commands for enable/disable, sound variant, and volume channel.\n- **RGXSound handle**: Sound playback, variant management, mute/unmute, settings, and welcome message are now handled by the RGXSound module in RGX-Framework."
+    },
+    {
+      "tag": "v2.0.4",
+      "published": "2026-09-28",
+      "notes": "# v2.0.4 - 2026-09-27\n\n## Changes\n- TOC set now covers every active WoW flavor: Retail 120100, Classic Era 11509, TBC 20506, Wrath 38002, Cataclysm 40402, Mists 50504, and WoW Forever 16001. The base TOC claims 120100,16001 so the Forever beta loads without the out-of-date flag.\n- Added missing flavor TOCs: SuperMarioBros3LevelUp_Cata.toc, SuperMarioBros3LevelUp_Mists.toc, SuperMarioBros3LevelUp_Forever.toc.\n- Aligned the version (2.0.4) across all TOCs and ADDON_VERSION in data/core.lua.\n\n# v2.0.2 - 2026-06-30\n\n## Changes\n\n- Updated for WoW Retail 12.0.7 (Interface 120007).\n\n# v2.0.0 - 2026-04-30\n\n## Changes\n\n- **Full architecture migration**: Restructured from legacy single-file to modern RGX-Framework architecture with `data/core.lua`, `data/locales.lua`, and `sounds/` directory.\n- **Migrated to RGX-Framework**: Added `RequiredDeps: RGX-Framework` to TOC. Core logic now uses `RGX:GetSound()`, `RGX:RegisterEvent()`, and `RGX:RegisterSlashCommand()`.\n- **Sound variants**: Added high/medium/low quality sound variants.\n- **Localization**: Added multi-language support (enUS, deDE, frFR, esES, ruRU).\n- **Settings**: Added persistent SavedVariables with slash commands for enable/disable, sound variant, and volume channel.\n- **RGXSound handle**: Sound playback, variant management, mute/unmute, settings, and welcome message are now handled by the RGXSound module in RGX-Framework."
+    },
+    {
+      "tag": "v2.0.3",
+      "published": "2026-08-08",
+      "notes": "# v2.0.2 - 2026-06-30\n\n## Changes\n\n- Updated for WoW Retail 12.0.7 (Interface 120007).\n\n# v2.0.0 - 2026-04-30\n\n## Changes\n\n- **Full architecture migration**: Restructured from legacy single-file to modern RGX-Framework architecture with `data/core.lua`, `data/locales.lua`, and `sounds/` directory.\n- **Migrated to RGX-Framework**: Added `RequiredDeps: RGX-Framework` to TOC. Core logic now uses `RGX:GetSound()`, `RGX:RegisterEvent()`, and `RGX:RegisterSlashCommand()`.\n- **Sound variants**: Added high/medium/low quality sound variants.\n- **Localization**: Added multi-language support (enUS, deDE, frFR, esES, ruRU).\n- **Settings**: Added persistent SavedVariables with slash commands for enable/disable, sound variant, and volume channel.\n- **RGXSound handle**: Sound playback, variant management, mute/unmute, settings, and welcome message are now handled by the RGXSound module in RGX-Framework."
+    },
+    {
+      "tag": "v2.0.2",
+      "published": "2026-06-30",
+      "notes": "# v2.0.2 - 2026-06-30\n\n## Changes\n\n- Updated for WoW Retail 12.0.7 (Interface 120007).\n\n# v2.0.0 - 2026-04-30\n\n## Changes\n\n- **Full architecture migration**: Restructured from legacy single-file to modern RGX-Framework architecture with `data/core.lua`, `data/locales.lua`, and `sounds/` directory.\n- **Migrated to RGX-Framework**: Added `RequiredDeps: RGX-Framework` to TOC. Core logic now uses `RGX:GetSound()`, `RGX:RegisterEvent()`, and `RGX:RegisterSlashCommand()`.\n- **Sound variants**: Added high/medium/low quality sound variants.\n- **Localization**: Added multi-language support (enUS, deDE, frFR, esES, ruRU).\n- **Settings**: Added persistent SavedVariables with slash commands for enable/disable, sound variant, and volume channel.\n- **RGXSound handle**: Sound playback, variant management, mute/unmute, settings, and welcome message are now handled by the RGXSound module in RGX-Framework."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/RGXMods/SuperMarioBros3LevelUp/main/media/kiwi.gif"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-10-13",
+      "2026-09-28",
+      "2026-08-08",
+      "2026-06-30",
+      "2026-04-30",
+      "2026-04-30",
+      "2026-04-30",
+      "2026-04-23",
+      "2022-11-18",
+      "2022-11-02",
+      "2022-06-01",
+      "2022-05-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SuperMarioBros3LevelUp"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "RGX-Framework"
+    ],
+    "savedVariables": [
+      "SMB3LUSettings"
+    ]
+  }
+}

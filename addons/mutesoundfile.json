@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "mutesoundfile",
+  "repo": "funkydude/MuteSoundFile",
+  "releases": [
+    {
+      "tag": "v12.1.2",
+      "published": "2026-10-22",
+      "notes": "# MuteSoundFile\n\n## [v12.1.2](https://github.com/funkydude/MuteSoundFile/tree/v12.1.2) (2026-10-22)\n[Full Changelog](https://github.com/funkydude/MuteSoundFile/compare/v12.1.1...v12.1.2) [Previous Releases](https://github.com/funkydude/MuteSoundFile/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "v12.1.1",
+      "published": "2026-10-10",
+      "notes": "# MuteSoundFile\n\n## [v12.1.1](https://github.com/funkydude/MuteSoundFile/tree/v12.1.1) (2026-10-10)\n[Full Changelog](https://github.com/funkydude/MuteSoundFile/compare/v12.1.0...v12.1.1) [Previous Releases](https://github.com/funkydude/MuteSoundFile/releases)\n\n- Cleanup"
+    },
+    {
+      "tag": "v12.1.0",
+      "published": "2026-09-19",
+      "notes": "# MuteSoundFile\n\n## [v12.1.0](https://github.com/funkydude/MuteSoundFile/tree/v12.1.0) (2026-09-19)\n[Full Changelog](https://github.com/funkydude/MuteSoundFile/compare/v12.0.6...v12.1.0) [Previous Releases](https://github.com/funkydude/MuteSoundFile/releases)\n\n- Bump toc  \n- Update workflow"
+    },
+    {
+      "tag": "v12.0.6",
+      "published": "2026-07-16",
+      "notes": "# MuteSoundFile\n\n## [v12.0.6](https://github.com/funkydude/MuteSoundFile/tree/v12.0.6) (2026-07-16)\n[Full Changelog](https://github.com/funkydude/MuteSoundFile/compare/v12.0.5...v12.0.6) [Previous Releases](https://github.com/funkydude/MuteSoundFile/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "v12.0.5",
+      "published": "2026-06-27",
+      "notes": "# MuteSoundFile\n\n## [v12.0.5](https://github.com/funkydude/MuteSoundFile/tree/v12.0.5) (2026-06-27)\n[Full Changelog](https://github.com/funkydude/MuteSoundFile/compare/v12.0.4...v12.0.5) [Previous Releases](https://github.com/funkydude/MuteSoundFile/releases)\n\n- Bump toc  \n- Update workflow"
+    }
+  ],
+  "stats": {
+    "stars": 16,
+    "openIssues": 4,
+    "contributors": 12,
+    "lastRelease": "2026-10-22",
+    "releaseDates": [
+      "2026-10-22",
+      "2026-10-10",
+      "2026-09-19",
+      "2026-07-16",
+      "2026-06-27",
+      "2026-06-10",
+      "2026-04-11",
+      "2026-04-07",
+      "2026-03-11",
+      "2026-03-10",
+      "2026-01-17",
+      "2026-01-14",
+      "2025-10-15",
+      "2025-05-02",
+      "2025-03-26",
+      "2025-03-22",
+      "2025-01-25",
+      "2024-11-21",
+      "2024-09-29",
+      "2024-09-26",
+      "2024-07-10",
+      "2024-07-10",
+      "2024-07-10",
+      "2024-07-09",
+      "2024-06-26",
+      "2024-06-26",
+      "2024-05-08",
+      "2024-05-05",
+      "2024-04-30",
+      "2024-02-10",
+      "2024-01-16",
+      "2023-11-30",
+      "2023-11-08",
+      "2023-10-11",
+      "2023-09-10",
+      "2023-08-18",
+      "2023-07-12",
+      "2023-06-21",
+      "2023-05-03",
+      "2023-03-22",
+      "2023-01-29",
+      "2022-11-15",
+      "2022-10-26",
+      "2022-08-28",
+      "2022-06-01",
+      "2022-04-24",
+      "2022-04-08",
+      "2022-03-23",
+      "2022-03-13",
+      "2022-02-23"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "MuteSoundFile",
+      "MuteSoundFile_Options"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "MuteSoundFileDB"
+    ]
+  }
+}

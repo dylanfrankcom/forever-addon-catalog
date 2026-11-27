@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "jonasaddon",
+  "repo": "jonas3456/jonas-addon",
+  "about": "# JonasAddon\n\nA small addon for **World of Warcraft: Forever** (client 1.60.1, interface 16001).\n\n## Features\n\n**Reagent tooltips.** Hover over any item used in a crafting recipe to see which recipes of *your* professions use it:\n\n```\nUsed by your professions:\n  Alchemy (37)                              skill 120\n    Rage Potion x1                                 60\n    Swiftness Potion x1                            60\n    ...\n    +32 more (hold Shift)\nAlt+click: recipe details\n```\n\n- Recipes are coloured like the profession window: red = skill too low to learn yet, then orange, yellow, green, grey.\n- The number on the right is the skill needed to learn the recipe (`?` if unknown).\n- ✓ marks recipes you have already learned. This comes from OneForAll's data, so open each profession window once to fill it in.\n- Five recipes per profession are shown. Hold **Shift** before hovering to see all of them.\n- Items your professions don't use say so, and name the professions that do use them, for example `Alchemy: Blackmouth Oil`.\n\n**Recipe details.** **Alt+left-click** an item in your bags or a chat link to open the recipe in OneForAll's Professions tab. If several recipes use the item, a menu lets you pick one. This click does nothing while the auction house is open, because Auctionator uses Alt+click there.\n\n## Requirements\n\n- [OneForAll](https://www.curseforge.com/wow/addons/oneforall). It provides the recipe data, extracted from the Forever client, and the recipe window. Without it the addon loads, but the tooltips are turned off.\n- Professions covered: Alchemy, Blacksmithing, Enchanting, Engineering, Leatherworking, Tailoring, Cooking, First Aid. Smelting (Mining) is not included in OneForAll's data.\n\n## Install\n\n### With WowUp\n\n1. Use WowUp 2.24.0 or newer (earlier versions treat Forever as Retail).\n2. Select your **WoW Forever** installation, open **Get Addons > Install from URL**, and paste `https://github.com/jonas3456/jonas-addon`.\n3. WowUp keeps it updated from new GitHub releases.\n\n### By hand\n\n1. Download `JonasAddon-<version>-forever.zip` from the [releases page](https://github.com/jonas3456/jonas-addon/releases).\n2. Extract it into `World of Warcraft/_forever_/Interface/AddOns/`. You should end up with `AddOns/JonasAddon/JonasAddon.toc`.\n3. Restart the game fully (`/reload` is not enough for a new addon).\n\n## Usage\n\n| Command | What it does |\n| --- | --- |\n| `/jonas config` | Open the options (also under Esc > Options > AddOns > JonasAddon) |\n| `/jonas debug` | Toggle debug messages in chat |\n| `/jonas info` | Show the client version and interface number |\n\nOptions: turn the addon or the reagent tooltips on or off, and enable debug output.\n\n## Development\n\n```sh\n./scripts/link.sh    # symlink JonasAddon/ into the game's AddOns folder (once)\n./scripts/build.sh   # build dist/JonasAddon-<version>-forever.zip and dist/release.json\n```\n\n- After editing a `.lua` file, `/reload` in the game is enough. Adding a file or changing the `.toc` needs a full restart.\n- Show Lua errors in game with `/console scriptErrors 1`.\n- The version comes from `## Version:` in `JonasAddon/JonasAddon.toc`. Change it there before building a new release.\n- To release: bump `## Version:`, commit, then `git tag v<version> && git push origin main v<version>`. The GitHub Action in `.github/workflows/release.yml` builds the zip and `release.json` and publishes the release that WowUp installs from. It fails if the tag does not match the `.toc` version.\n- `build.sh` checks Lua syntax (if `luac` is installed) and that every file listed in the `.toc` exists.\n- Notes on the Forever client API are in [CLAUDE.md](https://github.com/jonas3456/jonas-addon/blob/main/CLAUDE.md).\n\n### Files\n\n| File | Purpose |\n| --- | --- |\n| `JonasAddon.toc` | Addon manifest and load order |\n| `Core.lua` | Shared namespace, event handling, saved variables |\n| `Settings.lua` | Options panel |\n| `ReagentTooltip.lua` | Reagent tooltips and the Alt+click recipe menu |\n| `Main.lua` | Slash commands, login message, addon compartment button |",
+  "releases": [
+    {
+      "tag": "v0.1.1",
+      "name": "JonasAddon v0.1.1",
+      "published": "2026-11-26",
+      "notes": "**Full Changelog**: https://github.com/jonas3456/jonas-addon/commits/v0.1.1"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "JonasAddon"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "OneForAll"
+    ],
+    "savedVariables": [
+      "JonasAddonDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "JonasAddonCharDB"
+    ]
+  }
+}

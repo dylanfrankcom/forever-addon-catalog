@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "guildlayers",
+  "repo": "0xLogic/guild-layers",
+  "about": "# Guild Layers 1.6.0 — WoW Forever\n\nInstall the GuildLayers folder in Interface/AddOns on both players, enable it,\nthen open `/guildlayers` (also `/lsguild`). LayerSwap is not required. This package\ncontains independently maintained guild UI and protocol code, not LayerSwap's source.\n\n## Roster and mini bar\n\nThe roster uses aligned Member, Level/Class, Layer, Addon and Status columns with\nbounded single-line labels, alternating dark rows and compact controls. Click a row\nto request that guildmate. Main and mini panels can be dragged and stay on screen.\n\nA single-line mini bar appears at the top of the screen. **Force guild switch**\nselects a fresh, available host on another known layer in your current zone, using\nthe normal request/accept path. It cannot force the server to transfer you. If no\neligible host is known, it opens the roster and refreshes reports instead of claiming\na switch. **Roster** toggles the main panel; `/guildlayersmini` hides/shows the mini\nbar. Hover the bar for the latest request status. Positions are session-local.\n\nUI code loads in headless tests and switch logic is tested; visual verification in the client is\nstill pending. No screenshots or game restarts were performed during development.\n\n## LayerSwap compatibility\n\nGuildmates running standard LayerSwap can now appear under **Addon only** after a\nvalid `heard` reply. Rows identify Guild Layers as **[GL]** and LayerSwap as **[LS]**.\nThe standalone addon registers LayerSwap's message prefix and reads fresh reported\nlayer/zone/hosting state. Unknown layers remain unknown, but a valid unknown-layer\nreply still establishes that LayerSwap is running.\n\nWhile the panel is open, bounded direct LayerSwap requests discover missing peers\n(two candidates per five seconds, at most once per member per two minutes). These\nare real swap requests, not read-only presence queries: hosts may invite you.\nWith **Accept guild invites** enabled, invitations from verified guildmates are\naccepted automatically, including invitations provoked by discovery. Clicking a\nverified LayerSwap member uses the standard LayerSwap request. Their hosting\nswitch, zone checks and server rules still apply.\nKnown fresh Guild Layers capability takes precedence when both addons are installed.\nLayerSwap users do not need this addon to report layers or answer requests.\n\nThe header shows your current layer and the requested destination as **Layer A,\nLayer B, ...**. Letters are assigned on observation and remain stable per zone for\nthis UI session; they are local aliases, not server-wide names or guaranteed matches\nto another player's LayerSwap letters. Equivalent Forever server IDs share a letter.\nAfter requesting, the header says Requested, Switch unconfirmed after 30 seconds,\nor Layer change observed only when your observed layer matches a different requested\ndestination in the same zone. Joining a party alone does not confirm a layer change.\n\n## Updates\n\nVersion 1.2.0 and newer announce their version to online guildmates. When a newer\nversion is reported, chat and the panel show an update notice once per newer version\nper session. This is peer-reported, not an authoritative GitHub check; use the fixed\nproject release page to verify. Old 1.1 clients need one manual update to gain notices.\n\nThe release also supplies `guild_layers_update.py` (Python 3, no dependencies).\nCheck GitHub independently of guild members:\n\n```text\npython guild_layers_update.py --addons-dir \"D:/wforever/_forever_/Interface/AddOns\"\npython guild_layers_update.py --addons-dir \"D:/wforever/_forever_/Interface/AddOns\" --install\n```\n\nThe second command downloads the latest release, verifies the GitHub asset SHA256,\nvalidates ZIP paths/version, backs up replaced files, and installs them. Failed writes\nattempt restoration. Settings in WTF/SavedVariables are preserved. Run `/reload`\nafter installation; the updater never restarts the game. It does not install itself\nas a background service. A user-managed scheduled invocation can check for updates.\nThe addon itself cannot fetch GitHub or replace its own files.\n\n**Addon only**, enabled by default, filters to online members whose Guild Layers\ncapability or LayerSwap reply was received in the last 90 seconds. Hosting-off members\nstill appear. Advertisements refresh every 30 seconds; a newly opened client may\nneed to wait for the next one. This reports recent presence, not installed files.\n\nVersion 1.2.1 actively requests presence on opening the panel and uses bounded\ndirect addon-whisper queries as a fallback (two per five seconds, once per member\nper minute). Presence is independent of layer scans and combat callbacks. Both\nhosting-on and hosting-off replies count. `/guildlayers status` shows presence\nsend attempts/results and received reports. Both clients should update for the\nnew query/reply handshake; older clients only broadcast periodically.\n\n**Auto Horde escape**, disabled by default, checks once a second for a visible,\nattackable Horde player within your saved **Horde radius**, default 40 yards. Enter\n5–100 yards and press Enter to save. It chooses an available compatible host with a fresh different-layer report in the\nsame zone. No candidate, unknown/secret distance or faction, being dead, an instance,\nor an existing party/request prevents a new attempt. Attempts are spaced 60 seconds\napart, with a two-minute per-host retry delay. It never leaves an existing party.\nSuccessful joining is not reported as a layer switch until a different matching\nlayer is actually observed. The server may block transfers during combat.\n\nWhen exact distance is unavailable, a successful close-range duel-interaction\ndistance check also qualifies when the configured radius is at least ten yards.\nIf both checks are unavailable, the mode cannot\ndetect that player. Detection and transfer remain LIVE TEST PENDING, not a proven\nescape guarantee. Enemy nameplates must be visible for nameplate detection.\n\nClick an online guildmate: their addon verifies current guild membership and\nattempts an invite. **Accept guild invites** is enabled by default: every invitation\nfrom a verified current online guildmate is eligible, without a prior click and\neven during combat. Non-guild invitations are never automatically accepted. If\nyou turn this off, only invitations matching a request made in the last 20 seconds\nare accepted. Party membership is confirmed from the roster. Hosting is enabled by default;\n**Guild hosting** toggles it and persists the preference. Leaving the guild revokes\neligibility on the next action. No external website, credentials, or service is used.\n\nJoining across zones is allowed by this addon. It cannot force a cross-zone layer\ntransfer, bypass server restrictions, invite from a full party/raid, or replace a\ncurrent party. Combat no longer blocks the addon's own invite/accept attempts.\nLack of party leadership still blocks hosting.\nIf the game protects invite/accept APIs, manual interaction may still be required.\nAn API call without an error is an attempt, not proof of a completed join.\n\nLayer reports use two distinct observed creature GUIDs agreeing on the server\ncomponent for Forever. Unknown layers remain unknown until NPC evidence exists.\nReports refresh at most every 30 seconds, expire after 120 seconds, and are cleared\non zone/shard changes. Party joining and layer-transfer confirmation are separate.\nThe addon reports a confirmed join, not an instant successful layer transfer.\n\nTests use simulated two-endpoint protocol events. Real-client guild membership,\ninvite/accept API behavior, actual grouping, and layer transfer are LIVE TEST PENDING.\nNo claim of live success is made by the package.\n\nTo remove: disable/delete GuildLayers. Saved settings may be retained. Local installer\nbacks up and removes only our prior appended LayerSwap bridge/TOC entry so both UIs\ndo not run simultaneously. It does not modify stock hosting policies or guild rules.",
+  "releases": [
+    {
+      "tag": "v1.9.0",
+      "name": "Guild Layers 1.9.0",
+      "published": "2026-11-15",
+      "notes": "Guild Layers 1.9.0\n\nAdds a separate cached Armory button beside live Inspect, with character-style equipment slots, recorded item bonuses, paginated statistics and section timestamps. A remote 3D appearance is not invented; only a matching local target supplies a model.\n\nThe standalone addon cannot make HTTP requests. Use the attached guild_layers_armory_sync.py to fetch selected player profiles, then reload UI. This is snapshot sync, not live website access. The public osrs.services endpoint returned 403 during verification; the website host's --local service succeeded. Profiles without cached data show setup status. No credentials or populated character caches are shipped.\n\n66 headless tests pass. Local-source verification returned 16 gear slots and 57 statistics for Qouchi, and 19 slots and 57 statistics for Lost Thewar. In-game visual verification remains pending. Reload UI after installing and resync snapshots after addon updates."
+    },
+    {
+      "tag": "v1.8.1",
+      "name": "Guild Layers 1.8.1",
+      "published": "2026-11-15",
+      "notes": "Guild Layers 1.8.1\n\n- Inspect button beside each guildmate in the roster. Uses the normal in-game inspection window without changing target or requesting a layer switch.\n- Resolves matching target/focus/mouseover, party, raid or nameplate units. Checks eligibility and inspect distance; unavailable players show a clear status.\n- Two-second request pacing and identity recheck before dispatch. A queued inspection does not prove equipment was received.\n- 61 headless tests pass. Live inspect-window verification remains pending.\n- Automatic gold reporting and roster totals remain enabled.\n- Reload the UI after installing. Remote/offline inspection is not supported by this feature."
+    },
+    {
+      "tag": "v1.8.0",
+      "name": "Guild Layers 1.8.0",
+      "published": "2026-11-15",
+      "notes": "Guild Layers 1.8.0\n\nGold reporting is automatic while the addon is enabled, with no individual sharing toggle. This character's carried gold is visible to guild members using the addon.\n\nThe roster now has a reported-gold column and a fresh-report total below the list. The Gold mini-bar button and /guildlayers gold open details with ages and coverage.\n\nMoney changes are coalesced at five seconds; periodic refresh is 30 seconds. Reports older than 90 seconds are excluded from totals and expire after five minutes. Offline/missing members are unknown, never zero. Bank, mail, auction proceeds and unreported alts are excluded. Reports are not saved to disk or certified by the server.\n\n54 headless tests pass. Live multi-client synchronization and visual verification remain pending. Other members need this update to report. Reload the UI after installing. Use the ZIP or this release's updater; older strict updaters reject added files."
+    },
+    {
+      "tag": "v1.7.0",
+      "name": "Guild Layers 1.7.0",
+      "published": "2026-11-15",
+      "notes": "Guild Layers 1.7.0\n\n- Guild-only outdoor location sharing every five seconds, with zone-map markers and 30-second report expiry. /guildlayers mapshare toggles sharing.\n- Custom target-ping key binding and /guildlayers ping for guild members in your raid or party.\n- /guildlayers raid opens a movable target panel. Left click targets the member's target; right click sets focus. Open before combat; automatic protected targeting is not performed.\n- 40 headless tests pass. Live multi-client map placement and secure action verification remain pending.\n- Reload the UI after updating. Other members need 1.7 for the new messages.\n- This release adds files: download the ZIP or the current updater attached here; older strict updaters reject the expanded archive."
+    },
+    {
+      "tag": "v1.6.0",
+      "name": "Guild Layers 1.6.0 — Organized roster and mini switch bar",
+      "published": "2026-11-15",
+      "notes": "Guild Layers 1.6.0\n\n- Organized roster with aligned columns, alternating dark rows and compact controls.\n- Draggable top mini bar with current/destination layers, Force guild switch and Roster buttons.\n- Force guild switch selects a fresh available different-layer host in the same zone. If none is known, opens the roster and refreshes reports.\n- /guildlayersmini hides/shows the mini bar. Hover it for the latest request status.\n- 34 headless tests pass. Visual verification and live transfer remain pending; server restrictions still apply.\n- Reload the UI after updating."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GuildLayers"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "GuildLayersDB"
+    ]
+  }
+}

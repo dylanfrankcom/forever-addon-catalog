@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "bags",
+  "repo": "Harmenszoon/wow-bags",
+  "about": "# Harmenszoon's Bags\n\nHides the four locked bonus slots and the green unlock button in Blizzard's backpack when those slots are unavailable on your account. It works with both separate bags and the Combined Backpack in WoW Forever.\n\nOpen your bags normally. The remaining slots close up automatically, and newly unlocked slots appear when they become usable. Combined bags also respect collapsed groups when playing with a controller.\n\n## Installation\n\nIn WowUp, select **Get Addons**, then **Install from URL**, and paste this repository's address. [Repository URL](https://github.com/Harmenszoon/wow-bags)\n\nFor manual installation, extract the `-forever.zip` release asset into `_forever_/Interface/AddOns/` so it contains `Bags/Bags.toc`. [Download the latest release](https://github.com/Harmenszoon/wow-bags/releases/latest)",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-20",
+      "notes": "Hides unavailable bonus backpack slots and their unlock button in both bag layouts. Usable slots keep their normal order and newly unlocked slots appear automatically."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Bags"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Blizzard_UIPanels_Game"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "wandererprofessions",
+  "repo": "Jaecko/wanderer-professions",
+  "about": "# Wanderer Professions\n\nA calm, visual workbench for your professions, in place of the game's window (one click away).\nAn extension of [Wanderer](https://github.com/Jaecko/wanderer).\n\n- Your professions on a rail, every recipe with its icon, as a list or a wall of icons.\n- The chosen recipe large: its skill colors with your skill on them, where it comes from, how sure that is.\n- Reagents as cards: what the bags hold, what is missing, what waits in the bank or on another character.\n- Two or three crafts worth doing now, never a long route. A queue you start yourself.\n- Merchant's Favor planner, your characters' recipes and cooldowns, camp objects, Writs, specializations before you choose.\n- A reagent's own recipes as a tree, and the colors at another skill. Guild crafter lookup, off unless you switch it on.\n- Nothing is ever made without a click.\n\nLicence: GNU GPL 3.0 or later. More on [wanderer-addon.com](https://wanderer-addon.com/).",
+  "releases": [
+    {
+      "tag": "v1.0.12",
+      "published": "2026-11-18",
+      "notes": "# Wanderer Professions 1.0.12\n\n### Fixed\n- The item to enchant's frame follows your bags: an item sold or moved leaves it at once."
+    },
+    {
+      "tag": "v1.0.11",
+      "published": "2026-11-17",
+      "notes": "# Wanderer Professions 1.0.11\n\n### Changed\n- The item to enchant's frame closes when another recipe is chosen.\n- Enchants: the item to enchant is chosen on the workbench (its square; a click opens a frame of squares as in the bags: what you wear first, gold-framed, then what your bags hold), then laid by the game as from its own window. The amount and the queue step aside for an enchant.\n- With the game's look (a choice under Wanderer's Appearance): the Workbench (recipes, headings, the crafter's block) drawn with the game's own parts, its lit and chosen rows, its dividers and colors. Needs Wanderer 1.4.89.\n\n### Fixed\n- The item to enchant's frame closes with the workbench and when the profession changes."
+    },
+    {
+      "tag": "v1.0.10",
+      "published": "2026-11-16",
+      "notes": "# Wanderer Professions 1.0.10\n\n### New\n- Your gathering professions on the workbench's rail too (herbalism, skinning, fishing), after the others, with their skill: no need to open the game's window to see it. Those Forever gives things to make are read like the others once opened.\n\n### Changed\n- The rail draws its professions closer when there are many, so they never cover the pages under them.\n- A finer look across the family: one palette for every color, clearer contrast on dark windows and on parchment, the same words in every language.\n- The amount to make goes down with a minus and up with a plus, no longer arrows.\n- A button opens the profession book again; Shift and a click link the recipe itself; the grid shows the skill colors; up to 999 to make at once.\n- Shift+click on the big product icon or a reagent row links it; Ctrl+click tries it on.\n- Recipe rows in the list show their tooltip like the icons do; red and grey recipe names are easier to read.\n- \"Add to the shopping list\" and plainer recipe notes.\n\n### Fixed\n- A deep reagent tree (sub-crafts of sub-crafts): every line shown, drawn closer, no longer cut after eight.\n- A recipe needing a tool or a place (anvil, forge, fire) says it in red and Create waits until it is there.\n- The profession book is never opened from the workbench during a fight.\n- Guild answers about who can craft a recipe are kept only for the questions you asked."
+    },
+    {
+      "tag": "v1.0.4",
+      "published": "2026-11-12",
+      "notes": "# Wanderer Professions 1.0.4\n\n### New\n- Your gathering professions on the workbench's rail too (herbalism, skinning, fishing), after the others, with their skill: no need to open the game's window to see it. Those Forever gives things to make are read like the others once opened.\n\n### Changed\n- The rail draws its professions closer when there are many, so they never cover the pages under them.\n- A finer look across the family: one palette for every color, clearer contrast on dark windows and on parchment, the same words in every language."
+    },
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-10",
+      "notes": "# Wanderer Professions 1.0.2\n\n### New\n- With the controller's radial wheel, Professions opens the workbench in front of the game's window when the workbench replaces it; the right button closes both. Needs Wanderer 1.4.36 or later.\n\n### Fixed\n- A character whose class is not known yet no longer causes an error in the list of your characters."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-09"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "WandererProfessions"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Wanderer"
+    ],
+    "savedVariables": [
+      "WandererProfessionsAccountDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "WandererProfessionsDB"
+    ]
+  }
+}

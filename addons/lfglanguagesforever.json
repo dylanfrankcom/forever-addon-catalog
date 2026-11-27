@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "lfglanguagesforever",
+  "repo": "brndd/wow4e-lfg-language",
+  "about": "# LFG Languages Forever\n\n**Note: this is entirely vibecoded. However unlike the slop you find on Curseforge, this is less than 200 lines of code and only does one thing.**\n\nSearch for groups and players listed in multiple languages in WoW Forever 1.60.1. This allows you to see more groups.\n\n![Group Finder before applying the language filter](https://raw.githubusercontent.com/brndd/wow4e-lfg-language/master/before.png)\n\n![Group Finder after applying the language filter](https://raw.githubusercontent.com/brndd/wow4e-lfg-language/master/after.png)\n\n1. Extract the `LFGLanguagesForever` folder from the release ZIP into the Forever client's `Interface/AddOns` folder and enable it in the AddOns list. For a source checkout, create that folder and copy the root `.toc` and `.lua` files into it.\n2. Open **Group Finder → Browse**, then choose a category and, optionally, activities.\n3. Click the **Options** gear in the upper right, open **Languages**, and tick the languages you want.\n4. Once the current Browse search finishes, click **Search Again**, the refresh button beside the activity dropdown. You can also click **Search** in the Languages submenu. The results appear in the Browse list.\n\nYour game's language is always included. **Select all** includes every language the game offers. **Unselect all** returns to your game's language by itself. Blizzard's automatic Browse searches use the game's default languages. Click **Search Again** or the submenu's **Search** to apply your saved selections.",
+  "releases": [
+    {
+      "tag": "v1.2.1",
+      "published": "2026-11-15",
+      "notes": "**Full Changelog**: https://github.com/brndd/wow4e-lfg-language/commits/v1.2.1"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/brndd/wow4e-lfg-language/master/before.png",
+    "https://raw.githubusercontent.com/brndd/wow4e-lfg-language/master/after.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LFGLanguagesForever"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "LFGLanguagesForeverDB"
+    ]
+  }
+}

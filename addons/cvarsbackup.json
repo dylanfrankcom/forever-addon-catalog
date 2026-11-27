@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "cvarsbackup",
+  "repo": "Xruptor/CVarsBackup",
+  "releases": [
+    {
+      "tag": "v2.20",
+      "published": "2026-10-13",
+      "notes": "# CVarsBackup\n\n## [v2.20](https://github.com/Xruptor/CVarsBackup/tree/v2.20) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/CVarsBackup/compare/v2.19...v2.20) [Previous Releases](https://github.com/Xruptor/CVarsBackup/releases)\n\n- chore: update TOC interface numbers → v2.20"
+    },
+    {
+      "tag": "v2.19",
+      "published": "2026-09-19",
+      "notes": "# CVarsBackup\n\n## [v2.19](https://github.com/Xruptor/CVarsBackup/tree/v2.19) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/CVarsBackup/compare/v2.18...v2.19) [Previous Releases](https://github.com/Xruptor/CVarsBackup/releases)\n\n- chore: update TOC interface numbers → v2.19  \n- This should fix the TOC Issues.  \n- Fix for the Incompatibility TOC Issues."
+    },
+    {
+      "tag": "v2.18",
+      "published": "2026-09-19",
+      "notes": "# CVarsBackup\n\n## [v2.18](https://github.com/Xruptor/CVarsBackup/tree/v2.18) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/CVarsBackup/compare/v2.17...v2.18) [Previous Releases](https://github.com/Xruptor/CVarsBackup/releases)\n\n- chore: update TOC interface numbers → v2.18  \n- Updated the GitHub Actions to be better at automatic processing for TOC Updates.  \n    (attempt #5)  \n- Adding a automatic TOC Updater to GitHub Workflow"
+    },
+    {
+      "tag": "v2.17",
+      "published": "2026-04-11",
+      "notes": "# CVarsBackup\n\n## [v2.17](https://github.com/Xruptor/CVarsBackup/tree/v2.17) (2026-04-11)\n[Full Changelog](https://github.com/Xruptor/CVarsBackup/compare/v2.16...v2.17) [Previous Releases](https://github.com/Xruptor/CVarsBackup/releases)\n\n- TOC Update"
+    },
+    {
+      "tag": "v2.16",
+      "published": "2026-02-10",
+      "notes": "# CVarsBackup\n\n## [v2.16](https://github.com/Xruptor/CVarsBackup/tree/v2.16) (2026-02-10)\n[Full Changelog](https://github.com/Xruptor/CVarsBackup/compare/v2.15...v2.16) [Previous Releases](https://github.com/Xruptor/CVarsBackup/releases)\n\n- TOC Update & Code Improvements  \n    * Updated TOC to latest patch 120001.  \n- Whoops forgot to remove AceLocale"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-04-11",
+      "2026-02-10",
+      "2026-02-04",
+      "2026-01-02",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-08-18",
+      "2024-07-30",
+      "2024-07-26",
+      "2024-04-08",
+      "2024-04-06",
+      "2024-04-06",
+      "2023-11-13",
+      "2023-09-19",
+      "2023-09-18",
+      "2023-05-26",
+      "2023-01-25",
+      "2022-11-15",
+      "2022-11-10",
+      "2022-11-01",
+      "2022-11-01",
+      "2021-05-28",
+      "2021-04-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CVarsBackup"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tekDebug"
+    ],
+    "savedVariables": [
+      "CVarsBkp_DB"
+    ]
+  }
+}

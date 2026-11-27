@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "id": "plater",
+  "repo": "Tercioo/Plater-Nameplates",
+  "about": "# Plater-Nameplates\nSource code for World of Warcraft addon Plater Nameplates.\n\nGeneral Frequent Asked Questions:\nhttps://www.curseforge.com/wow/addons/plater-nameplates/pages/faq\n\nGeneral Scripting Guide:\nhttps://www.curseforge.com/wow/addons/plater-nameplates/pages/scripts\n\nThe Wago.io logo was graciously provided for use within Plater by the owner and creator of Wago.io (Oratory).",
+  "releases": [
+    {
+      "tag": "Plater-v664",
+      "published": "2026-11-15",
+      "notes": "@cont1nuity:\n- New option to enable blizzard nameplates 'advanced coloring'.\n- Some improvements to pixel perfect layout.\n- Fixing some issues with the 'Interrupt not ready' features.\n- Fixing friends coloring.\n- Fixing range checking for Forever."
+    },
+    {
+      "tag": "Plater-v663",
+      "published": "2026-11-04",
+      "notes": "@cont1nuity:\n- Adding 'interrupt not ready coloring' feature.\n- Fixing some issues around search layout and designer errors.\n- Fixing some rune display issues.\n- Fixing oversized widgets.\n- Adding options to disable aura tracking per unit type.\n- Adding option for Aura Colors to not override threat.\n- Fixing fonts on auras not applying correctly.\n- Adding support for LibOrbitGlow and 'Orbit: Media' glow types.\n- Adding last name support for WoW Forever.\n- Better handling and more options for aura coloring.\n- Some slight improvements to performance.\n- Adding CVar options for some clients.\n- Adding more dispel glow types and colors.\n- Add support for the CustomNames addon."
+    },
+    {
+      "tag": "Plater-v662",
+      "published": "2026-10-28",
+      "notes": "@cont1nuity:\n- Adding option for Aura Colors to not override threat.\n- Fixing fonts on auras not applying correctly.\n- Adding support for LibOrbitGlow and 'Orbit: Media' glow types.\n- Adding last name support for WoW Forever.\n- Better handling and more options for aura coloring.\n- Some slight improvements to performance.\n- Adding CVar options for some clients.\n- Adding more dispel glow types and colors.\n- Add support for the CustomNames addon."
+    },
+    {
+      "tag": "Plater-v661",
+      "published": "2026-10-15",
+      "notes": "@cont1nuity:\n- Fixing error for classic versions.\n- Fixing error with pixel API.\n- Bit of performance tuning on aura containers.\n- Add dispel glow option to glow the nameplate when something can be dispelled/purged/soothed.\n- Add pandemic glow options for auras.\n- Re-enable the aura consolidation, mainly for Blood Plague for DKs.\n- Adding more aura coloring options.\n- Fixing caster name option for buff special.\n- More performance logging in profiling."
+    },
+    {
+      "tag": "Plater-v660",
+      "published": "2026-10-14",
+      "notes": "@cont1nuity:\n- Fixing error with pixel API.\n- Bit of performance tuning on aura containers.\n- Add dispel glow option to glow the nameplate when something can be dispelled/purged/soothed.\n- Add pandemic glow options for auras.\n- Re-enable the aura consolidation, mainly for Blood Plague for DKs.\n- Adding more aura coloring options.\n- Fixing caster name option for buff special.\n- More performance logging in profiling."
+    }
+  ],
+  "stats": {
+    "stars": 107,
+    "openIssues": 24,
+    "contributors": 27,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-04",
+      "2026-10-28",
+      "2026-10-15",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-09-19",
+      "2026-09-13",
+      "2026-09-10",
+      "2026-08-27",
+      "2026-08-24",
+      "2026-08-18",
+      "2026-08-17",
+      "2026-08-12",
+      "2026-07-22",
+      "2026-07-08",
+      "2026-06-17",
+      "2026-05-19",
+      "2026-05-19",
+      "2026-04-22",
+      "2026-04-22",
+      "2026-04-22",
+      "2026-04-21",
+      "2026-04-21",
+      "2026-04-03",
+      "2026-03-19",
+      "2026-03-13",
+      "2026-03-04",
+      "2026-03-03",
+      "2026-03-02",
+      "2026-02-19",
+      "2026-02-14",
+      "2026-01-28",
+      "2026-01-28",
+      "2026-01-26",
+      "2026-01-26",
+      "2026-01-26",
+      "2026-01-20",
+      "2026-01-20",
+      "2026-01-14",
+      "2026-01-14",
+      "2026-01-14",
+      "2025-12-02",
+      "2025-12-02",
+      "2025-11-24",
+      "2025-11-24",
+      "2025-10-03",
+      "2025-09-01"
+    ]
+  },
+  "languages": [
+    "esES",
+    "esMX",
+    "frFR",
+    "ptBR"
+  ],
+  "technical": {
+    "folders": [
+      "Plater"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Masque",
+      "CustomNames",
+      "LibOrbitGlow-1.0"
+    ],
+    "savedVariables": [
+      "PlaterDB",
+      "PlaterLanguage",
+      "PlaterLogs",
+      "PlaterBackup"
+    ],
+    "savedVariablesPerCharacter": [
+      "PlaterDBChr"
+    ]
+  }
+}

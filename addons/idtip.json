@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "idtip",
+  "repo": "silverwind/idTip",
+  "about": "# idTip\n\nAdds various IDs to the WoW ingame tooltips.\n\n![Screenshot](https://raw.githubusercontent.com/silverwind/idTip/master/screenshot.png)\n\n## Installation\n\n- From [GitHub](https://github.com/silverwind/idTip) with [WowUp](https://github.com/WowUp/WowUp)\n- From [WoWInterface](https://www.wowinterface.com/downloads/fileinfo.php?id=17033)\n- From [Curse](https://www.curseforge.com/wow/addons/idtip)\n- From [Wago](https://addons.wago.io/addons/idtip)",
+  "releases": [
+    {
+      "tag": "12.1.10",
+      "published": "2026-11-11",
+      "notes": "* Show transmog ids on gear and mount ids on mount items and spells (silverwind)\n* Show species ids for pet items and wild battle pets (silverwind)\n* Use singular labels for lines with several ids (silverwind)\n* Show a mount's spell ID on mount tooltips (silverwind)"
+    },
+    {
+      "tag": "12.1.9",
+      "published": "2026-11-11",
+      "notes": "* Add a Single Line option and skip redundant tooltip layouts (silverwind)"
+    },
+    {
+      "tag": "12.1.8",
+      "published": "2026-11-04",
+      "notes": "* Publish releases to Wago (silverwind)"
+    },
+    {
+      "tag": "12.1.7",
+      "published": "2026-11-04",
+      "notes": "* Publish releases to Wago (silverwind)"
+    },
+    {
+      "tag": "12.1.6",
+      "published": "2026-11-04",
+      "notes": "* Set the addon list category (silverwind)"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/silverwind/idTip/master/screenshot.png"
+  ],
+  "stats": {
+    "stars": 43,
+    "openIssues": 23,
+    "contributors": 16,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-10-15",
+      "2026-08-12",
+      "2026-08-04",
+      "2026-07-24",
+      "2026-04-08",
+      "2026-04-02",
+      "2026-04-02",
+      "2026-03-20",
+      "2026-03-13",
+      "2026-03-12",
+      "2026-03-08",
+      "2026-02-05",
+      "2026-01-15",
+      "2026-01-08",
+      "2025-12-12",
+      "2025-12-11",
+      "2025-12-05",
+      "2025-12-05",
+      "2025-11-20",
+      "2025-11-20",
+      "2025-11-20",
+      "2025-08-29",
+      "2025-08-15",
+      "2025-08-12",
+      "2025-07-01",
+      "2025-06-19",
+      "2025-06-17",
+      "2025-05-01",
+      "2025-04-23",
+      "2025-04-22",
+      "2025-04-08",
+      "2025-03-14",
+      "2025-03-07",
+      "2025-02-26",
+      "2025-01-30",
+      "2024-12-18",
+      "2024-12-02",
+      "2024-12-02",
+      "2024-11-17",
+      "2024-10-23",
+      "2024-08-21",
+      "2024-08-11",
+      "2024-08-01",
+      "2024-07-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "idTip"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "idTipConfig"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "kachingonevent",
+  "repo": "tf4482/KachingOnEvent",
+  "about": "# KachingOnEvent\n\nPlays a \"kaching\" sound when one of your auctions sells, when you gather an herb, or when\nyou mine a deposit.\n\n## Features\n\n- **Auction sold** - kaching when the auction house reports that one of your auctions sold.\n- **Herb gathered** - kaching when an herb gathering cast succeeds.\n- **Ore mined** - kaching when a mining cast succeeds.\n- **Remembered** - settings are saved per account, or per character with one checkbox;\n  all three triggers are on by default.\n- **Settings page** - all options in the game menu under Options > AddOns, also opened\n  from the addon compartment menu.\n- **Chat commands** - every option can also be changed by slash command.\n\n## Screenshots\n\n![Settings page](https://raw.githubusercontent.com/tf4482/KachingOnEvent/main/docs/settings.png)\n\n## Install\n\n1. Download `KachingOnEvent-vX.Y.Z.zip` from the [releases](https://github.com/tf4482/KachingOnEvent/releases) or\n   [CurseForge](https://www.curseforge.com/projects/1823978).\n2. Unzip it into `World of Warcraft/_forever_/Interface/AddOns/`.\n3. Restart the game or type `/reload`.\n\n## Usage\n\n```text\n/kaching                    show the current state\n/kaching auction on|off     kaching when an auction sells\n/kaching herb on|off        kaching when you gather an herb\n/kaching mining on|off      kaching when you mine a deposit\n/kaching character on|off   use settings for this character only, or the account's\n/kaching test               play the kaching sound once now\n/kaching reset              reset the settings to defaults\n/kaching debug on|off       show what the addon does, until /reload\n/kaching config             open the settings page\n/kaching help               list all commands\n```\n\n## Examples\n\n- Only care about gold: `/kaching herb off` and `/kaching mining off`.\n- Your farming alt should ring on every node, your main only on sales: on the main type\n  `/kaching character on`, then `/kaching herb off` and `/kaching mining off`.\n- Check what is active: `/kaching`.\n- No sound on a sale: `/kaching test` checks the sound, `/kaching debug on` shows which\n  events arrive.\n\n## Develop\n\nCheck the code with [Luacheck](https://github.com/lunarmodules/luacheck) before each commit\n(CI runs it on every push):\n\n```text\nluacheck .\n```\n\nDeploy locally: run `deploy.bat`; it builds `release/KachingOnEvent-vX.Y.Z.zip` from `VERSION`.\n\nRelease: set `VERSION` to `X.Y.Z`, then push an annotated tag `vX.Y.Z`; GitHub Actions\npackages the addon with the BigWigs packager and publishes it.\n\n## License\n\nAll rights reserved, see [LICENSE](https://github.com/tf4482/KachingOnEvent/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-24",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\nThe format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and\n[Semantic Versioning](https://semver.org/).\n\n## [Unreleased]\n\n## [0.2.0] - 2026-11-24\n\n### Added\n\n- `/kaching test`, `/kaching reset`, and `/kaching debug on|off` commands.\n\n### Changed\n\n- Events unknown to the client are skipped instead of stopping the addon from loading.\n\n## [0.1.1] - 2026-11-24\n\n### Fixed\n\n- No sound when an auction sold: listen to the auction house notification instead of chat.\n\n## [0.1.0] - 2026-11-22\n\n### Added\n\n- Kaching sound when an auction sells, an herb is gathered, or ore is mined.\n- Settings page, addon compartment entry, and `/kaching` chat commands per trigger.\n- Account or per-character settings."
+    },
+    {
+      "tag": "v0.1.1",
+      "published": "2026-11-23",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\nThe format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and\n[Semantic Versioning](https://semver.org/).\n\n## [0.1.1] - 2026-11-24\n\n### Fixed\n\n- No sound when an auction sold: listen to the auction house notification instead of chat.\n\n## [0.1.0] - 2026-11-22\n\n### Added\n\n- Kaching sound when an auction sells, an herb is gathered, or ore is mined.\n- Settings page, addon compartment entry, and `/kaching` chat commands per trigger.\n- Account or per-character settings."
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-22",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\nThe format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and\n[Semantic Versioning](https://semver.org/).\n\n## [0.1.0] - 2026-11-22\n\n### Added\n\n- Kaching sound when an auction sells, an herb is gathered, or ore is mined.\n- Settings page, addon compartment entry, and `/kaching` chat commands per trigger.\n- Account or per-character settings."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/tf4482/KachingOnEvent/main/docs/settings.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "KachingOnEvent"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "KachingOnEventDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "KachingOnEventCharDB"
+    ]
+  }
+}

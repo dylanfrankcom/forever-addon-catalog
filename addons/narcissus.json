@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "narcissus",
+  "repo": "Peterodox/Narcissus",
+  "about": "# Narcissus\nNarcissus, World of Warcraft Add-On",
+  "releases": [
+    {
+      "tag": "v1.8.7-d",
+      "published": "2026-11-24",
+      "notes": "This is a Forever-focused update:\n- **Transmog UI:** Fixed errors that appear when you click on a saved custom set.\n- **Photo Mode:** Skyborne players should no longer see a Narcissus alert in the chat window when entering Photo Mode."
+    },
+    {
+      "tag": "v1.8.7-c",
+      "published": "2026-11-07",
+      "notes": "## Screenshot Toolbar\nLet's refresh our memory. This toolbar becomes visible when you hide the game UI and move the cursor to the bottom-left of the screen.\n- Adjusted the zoom slider's max value to Forever's.\n- Fixed an issue where the camera offset slider didn't function due to motion sickness settings.\n- Reminder: If you want to hide all names and chat bubbles after hiding the UI, you can click the Hide Texts button on the toolbar.\n\n## Forever\n- Disabled the mini talent tree that appears when inspecting another player.\n\n---\nPrevious Changelog\n\n- **Screenshot Toolbar:** Fixed an issue where the bar turned transparent when you enabled \"Top Quality\" and hovered the cursor over the MSAA slider or the Ray-traced Shadow switch.\n- **WoW: Forever:** Added a new minimap button skin that matches Forever's aesthetics."
+    },
+    {
+      "tag": "v1.8.7-b",
+      "published": "2026-11-02",
+      "notes": "- **Bottom-left Toolbar:** Fixed an issue where the bar turned transparent when you enabled \"Top Quality\" and hovered the cursor over the MSAA slider or the Ray-traced Shadow switch.\n- **WoW: Forever:** Added a new minimap button skin that matches Forever's aesthetics."
+    },
+    {
+      "tag": "v1.8.7",
+      "published": "2026-10-24",
+      "notes": "## Bug Fixes\n- **Socketing:** Fixed an error that occurred in 12.1.5 when socketing gems.\n- **Gamepad:** Fixed an error when entering combat while the Narcissus Character UI is open.\n- Fixed an error when right-clicking an empty equipment slot in the Narcissus Character UI.\n\n## Miscellaneous\n- Updated achievement data to 12.1.5.\n- Added \"Rite of the Hash'ey\" to the enchant list.\n- Compatible with **WoW: Forever**."
+    },
+    {
+      "tag": "v1.8.6-d",
+      "published": "2026-10-15",
+      "notes": "Fixed several issues that emerged with 12.1.5."
+    }
+  ],
+  "stats": {
+    "stars": 34,
+    "openIssues": 5,
+    "contributors": 7,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-07",
+      "2026-11-02",
+      "2026-10-24",
+      "2026-10-15",
+      "2026-09-15",
+      "2026-09-07",
+      "2026-08-11",
+      "2026-05-13",
+      "2026-05-12",
+      "2026-04-28",
+      "2026-04-12",
+      "2026-03-23",
+      "2026-03-17",
+      "2026-03-07",
+      "2026-02-06",
+      "2026-02-01",
+      "2026-01-20",
+      "2025-12-22",
+      "2025-11-13",
+      "2025-11-08",
+      "2025-11-02",
+      "2025-10-15",
+      "2025-10-07",
+      "2025-09-05",
+      "2025-08-29",
+      "2025-08-17",
+      "2025-08-11",
+      "2025-08-08",
+      "2025-07-28",
+      "2025-07-15",
+      "2025-06-28",
+      "2025-06-03",
+      "2025-05-12",
+      "2025-05-04",
+      "2025-04-29",
+      "2025-04-23",
+      "2025-03-28",
+      "2025-03-04",
+      "2025-02-03",
+      "2025-01-19",
+      "2024-12-28",
+      "2024-12-13",
+      "2024-12-04",
+      "2024-12-03",
+      "2024-11-13",
+      "2024-11-11",
+      "2024-11-05",
+      "2024-10-21",
+      "2024-09-18"
+    ]
+  },
+  "languages": [
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Narcissus",
+      "Narcissus_Achievements",
+      "Narcissus_BagFilter",
+      "Narcissus_Barbershop",
+      "Narcissus_Database_Item",
+      "Narcissus_Database_NPC",
+      "Narcissus_GamePad"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "NarcissusDB",
+      "NarciAchievementOptions",
+      "NarciStatisticsDB",
+      "NarciTurntableOptions",
+      "NarciCharacterProfiles",
+      "NarciPhotoModeDB",
+      "NarciDevToolOutput",
+      "NarciTransmogUIDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "NarcissusDB_PC",
+      "NarciStatisticsDB_PC"
+    ]
+  }
+}

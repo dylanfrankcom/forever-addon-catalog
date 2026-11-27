@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "issuereporthide",
+  "repo": "TheMizeGuy/WowForeverIssueReportHide",
+  "about": "# WoW Forever Issue Reporter Hide\n\nHides the beta Issue Reporter in the World of Warcraft: Forever client (beta build 1.60.x,\ninterface 16001).\n\nThe Forever beta ships Blizzard's PTR Issue Reporter: a draggable \"Issue Reporter\" box with a\nbug button that sits on screen from login on. This addon hides it and the \"Press F6 to submit an\nissue\" hints on every reporter tooltip, including items, spells, units and quests. The hint's\nblank spacer is removed too, and no keybinding reminder appears if F6 is unbound.\n\nThe pop-up surveys and F6 reporting still work: hover a unit, spell, item or quest and press F6.\nThe box's own Bug button goes with it, so use `/irh show` to file a zone bug.\n\n## Commands\n\n| Command | Effect |\n|---|---|\n| `/irh` | Toggle the reporter and tooltip hints for this session |\n| `/irh show` | Show the reporter and hints, for example to file a bug |\n| `/irh hide` | Hide the reporter and hints again |\n| `/irh status` | Say whether it is hidden |\n\nThe reporter and hints are hidden again on every login and `/reload`. Disable the addon to keep it on\nscreen.\n\nToggling dismisses an open reporter tooltip; hover its item or entry again to rebuild it.\n\n## Install\n\nCopy the `IssueReportHide` folder into the Forever client's AddOns directory:\n\n```\nC:\\Program Files (x86)\\World of Warcraft\\_classic_beta_\\Interface\\AddOns\\IssueReportHide\n```\n\nA brand-new addon is picked up at the character selection screen, not by `/reload`. Log out to\ncharacter select and back in. After editing a `.toc` file, restart the client.\n\n`scripts/deploy.sh [ssh-host] [addons-dir]` streams the folder to a Windows machine over ssh\nand checks the file count. `addons-dir` defaults to the path above and `ssh-host` to the\nauthor's machine, so pass both when deploying to your own.\n\n## How it works\n\nThe reporter is the `Blizzard_PTRFeedback` addon built into the client. Its frame,\n`PTR_IssueReporter`, is created shown and no in-game code hides it. The addon hides the frame\nas soon as it exists, again after entering the world, and post-hooks the frame's `Show` method\nso it stays hidden if a later build shows it. Hiding rather than re-parenting matters because\nBlizzard re-parents the frame while the barbershop or the house editor is open.\n\nAll reporter tooltip types share `PTR_IssueReporter.HookIntoTooltip`. It calls\n`SetCurrentTooltipReport` to register the F6 context, then adds the hint and spacer only if that\ncall returns true. This addon wraps the registration function: it keeps the original context\nand cleanup, but returns false while hidden so Blizzard skips the extra lines. Showing the\nreporter restores the original return value. This follows the Forever 1.60.1 (69913) UI source.\n\n## Release\n\nCurseForge: [WoW Forever Issue Reporter Hide](https://www.curseforge.com/wow/addons/wow-forever-issue-report-hide),\nproject `1700734`.\n\nBump `## Version` in both `.toc` files, then build the zip with the addon folder at its root:\n\n```\nzip -r -X dist/IssueReportHide-<version>.zip IssueReportHide -x '*.DS_Store' -x '*/._*'\n```\n\n`scripts/make-icon.py` (needs Pillow) converts `assets/icon-source.png` to\n`IssueReportHide/Icon.tga` for the in-game addon list and `assets/avatar.png` for the CurseForge\nproject avatar.",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "name": "WoW Forever Issue Reporter Hide 1.1.0",
+      "published": "2026-09-20",
+      "notes": "- Hide the Issue Reporter prompt and its blank spacer on every reporter tooltip, including items, spells, units and quests.\n- Keep F6 reporting and pop-up surveys available. `/irh show` restores the reporter and hints; `/irh hide` hides them again.\n- Replace the addon icon with the blue bug icon.\n- Rename the display title to **WoW Forever Issue Reporter Hide**.\n\nFor WoW Forever 1.60.1 (interface 16001). Restart the client after installing this update."
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-09-18",
+      "notes": "First release for the WoW Forever beta (interface 16001).\n\n- Hides Blizzard's on-screen Issue Reporter box on login and again after entering the world, and keeps it hidden if the client shows it again.\n- `/irh` toggles the box for the session, `/irh show` and `/irh hide` set it, `/irh status` reports it.\n- The F6 tooltip report and the pop-up surveys keep working while the box is hidden.\n\nInstall: unzip so that `IssueReportHide` sits directly in `_classic_beta_\\Interface\\AddOns`."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-09-20",
+    "releaseDates": [
+      "2026-09-20",
+      "2026-09-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "IssueReportHide"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Blizzard_PTRFeedback"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "weaponwise",
+  "repo": "Cloudmancermedia/WeaponWise",
+  "about": "# WeaponWise\n\nA World of Warcraft: Forever addon that answers one question when you hover a\nweapon: can I use this, and if not, where do I learn it?\n\n```\nCan be trained by Hanashi (Orgrimmar)\nValley of Honor (81.5, 19.6) · Cost: 10s\nNew in Forever\n\nHold Shift for other trainers\nCtrl + Right-Click to track trainer\n```\n\n## Features\n\n- **Your skill.** Weapons you know show your current skill, for example\n  \"You know this weapon skill (50/60)\".\n- **Where to train.** Weapons your class can learn show the weapon master,\n  their city and district, map coordinates, the cost, and any level\n  requirement. The first trainer listed is the one nearest to you.\n- **Other trainers.** Hold Shift to list every other trainer for that weapon.\n  The tooltip updates as you press the key.\n- **Map pins.** Ctrl + Right-Click a weapon in your bags, on your character or\n  at a merchant to pin its trainer on the map. TomTom is used if you prefer it.\n- **Forever changes.** Weapons Forever added to a class are tagged\n  \"New in Forever\": two-handed axes and maces for Shamans, one-handed axes for\n  Rogues, and polearms for Druids.\n- **Weapons you can't use** say so in red.\n\n## Install\n\nDownload the latest release from CurseForge, or a release zip from GitHub, and\nextract the `WeaponWise` folder into\n`World of Warcraft/_classic_beta_/Interface/AddOns/`.\n\nWeaponWise runs on the WoW Forever client (interface 16001). It has no\nrequired dependencies; TomTom is optional.\n\n## Settings\n\nType `/ww config` to see your settings and `/ww set <setting> <value>` to change\none, for example `/ww set showCost off`.\n\n| Setting | Default | What it does |\n|---|---|---|\n| `enabled` | on | Turns the addon on or off. |\n| `showKnown` | on | Shows your skill on weapons you know. |\n| `showTrainable` | on | Shows the trainer on weapons you can learn. |\n| `showUnavailable` | on | Shows the red line on weapons your class can't use. |\n| `showCost` | on | Shows the training cost. |\n| `showCoordinates` | on | Shows the trainer's map coordinates. |\n| `recommendNearest` | on | Lists the nearest trainer first. Off uses a fixed order. |\n| `showAlternatives` | on | Lists other trainers while Shift is held. |\n| `showHint` | on | Shows the Shift and tracking hints. |\n| `trackBinding` | `CTRL-RightButton` | The click that pins a trainer. Also accepts `ALT-LeftButton`. |\n| `preferTomTom` | off | Uses TomTom for pins instead of the built-in map pin. |\n\n## Known limitations\n\n- Clicking a weapon in the auction house or a chat link can't pin its trainer,\n  because the game doesn't pass those clicks to addons. The tracking hint is\n  hidden there.\n- \"Nearest\" means straight-line distance on your continent, not travel time.\n- Text is English only. Skills are matched by ID, which doesn't depend on the\n  client language, but only the English client has been tested.\n\n## Development\n\nCode layout:\n\n```\nCore.lua                 namespace, slash commands, events\nConfig.lua               settings\nData/                    weapon types, class weapon lists, cities, trainers\nServices/                skill checks, trainer ranking, location, map pins\nUI/                      tooltip lines and click handling\nDev/                     diagnostic commands, left out of release builds\ntools/                   release builder and trainer-capture importer\nspec/                    tests\n```\n\nThe services hold the logic and touch no game frames, so the tests call them\ndirectly against a small stand-in for the WoW API in `spec/helpers/wow_env.lua`.\n\nTests use [busted](https://lunarmodules.github.io/busted/) and linting uses\n[luacheck](https://github.com/lunarmodules/luacheck). Setup on macOS:\n\n```sh\nbrew install lua@5.4 luarocks\nluarocks --lua-version=5.4 --lua-dir=\"$(brew --prefix lua@5.4)\" install --local busted\nluarocks --lua-version=5.4 --lua-dir=\"$(brew --prefix lua@5.4)\" install --local luacheck\n```\n\nUse Lua 5.4; luacheck 1.2.0 doesn't load under Lua 5.5.\n\n```sh\nmake check                                     # lint and tests\nmake link ADDONS=\"/path/to/Interface/AddOns\"   # symlink this checkout into the game\nmake release VERSION=0.1.0                     # build dist/WeaponWise-0.1.0.zip\n```\n\nA checkout is a dev build: it loads the `Dev/` commands (`/ww probe`,\n`/ww capture`, `/ww clicktest`, `/ww pin`). `make release` builds the zip\nwithout them.\n\n## License\n\nMIT. See [LICENSE](https://github.com/Cloudmancermedia/WeaponWise/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "name": "WeaponWise 0.1.0",
+      "published": "2026-10-15",
+      "notes": "First release, for the WoW Forever client (interface 16001).\n\n- Weapon tooltips show your skill with weapons you know, for example\n  \"You know this weapon skill (50/60)\".\n- Weapons your class can learn show the weapon master, city, district,\n  coordinates, cost and any level requirement. The nearest trainer is listed\n  first.\n- Hold Shift to list other trainers for the weapon. The tooltip updates while\n  you hover.\n- Ctrl + Right-Click a weapon in your bags, on your character or at a merchant\n  to pin its trainer on the map. Uses TomTom instead if you set `preferTomTom`.\n- Weapons Forever added to a class are tagged \"New in Forever\": two-handed axes\n  and maces for Shamans, one-handed axes for Rogues, polearms for Druids.\n- Weapons your class can't use say so in red.\n- Settings through `/ww config` and `/ww set`.\n\n## Install\n\nExtract the `WeaponWise` folder from the zip into `World of Warcraft/_classic_beta_/Interface/AddOns/`."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-15",
+    "releaseDates": [
+      "2026-10-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WeaponWise"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "TomTom"
+    ],
+    "savedVariables": [
+      "WeaponWiseDB",
+      "WeaponWiseDevDB"
+    ]
+  }
+}

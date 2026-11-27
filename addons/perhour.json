@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "perhour",
+  "repo": "coylemichael/wow-perhour",
+  "about": "# PerHour\n\nA World of Warcraft Forever addon that shows your gold per hour and experience\nper hour in a small window, and the time to your next level. Each counter has\nits own Pause and Reset.\n\nOnly time spent logged in, unpaused and not AFK counts, and the totals survive\n`/reload` and logout, so the rate holds across sessions until you reset it.\n\nGold is the money you make in the world: loot, quest rewards and vendor sales,\nminus repairs and purchases. Money that moves while the mailbox, trade window,\nauction house or guild bank is open is a transfer, not farming, and is not\ncounted. Time to level is the XP you still need at the session's rate. The\nexperience counter hides itself at max level.\n\nDrag the window to move it; hover a counter for its totals. Closing the window\nkeeps it counting. If another addon has loaded LibDataBroker, the rates also\nshow on broker bars such as Titan Panel, and on a minimap button when LibDBIcon\nis loaded too.\n\n| Command | Does |\n|---|---|\n| `/goldxp` | Show or hide the window |\n| `/goldxp gold`, `/goldxp xp` | Show or hide one counter |\n| `/goldxp scale 0.8` | Resize the window (0.5 to 2) |\n| `/goldxp minimap` | Show or hide the minimap button |\n| `/goldxp reset` | Reset both counters |\n\n`/perhour` and `/ph` work too, unless another addon already uses them: other\nper-hour addons do, and whichever loads last would take them over. The addon\nsays so in chat when it leaves one alone.\n\n## Install\n\nDownload the ZIP from [Releases](https://github.com/coylemichael/wow-perhour/releases)\nand extract it into `World of Warcraft/_forever_/Interface/AddOns`.\n\n## Releasing\n\nPublishing a GitHub Release publishes the addon:\n\n```sh\ngh release create v1.1 --generate-notes\n```\n\nThe [Release workflow](https://github.com/coylemichael/wow-perhour/blob/main/.github/workflows/release.yml) checks the Lua syntax,\npackages the addon with the [BigWigsMods packager](https://github.com/BigWigsMods/packager),\nwhich writes the tag into the TOC's `## Version`, uploads it to CurseForge and\nattaches the ZIP to the release. Commits and tags alone publish nothing.\n`gh workflow run release.yml` builds the ZIP as a workflow artifact without\nuploading it anywhere.\n\nCurseForge setup, once:\n\n1. Create the project on [CurseForge](https://authors.curseforge.com/) and add\n   `## X-Curse-Project-ID: <id>` to `PerHour.toc`. Until then, releases go to\n   GitHub only.\n2. Create an [API token](https://www.curseforge.com/account/api-tokens) and save\n   it as this repository's `CF_API_KEY` secret.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-22",
+      "notes": "# PerHour\n\n## [v1.0.0](https://github.com/coylemichael/wow-perhour/tree/v1.0.0) (2026-11-22)\n[Full Changelog](https://github.com/coylemichael/wow-perhour/commits/v1.0.0) [Previous Releases](https://github.com/coylemichael/wow-perhour/releases)\n\n- Point releases at CurseForge project 1824754 (Gold and XP Per Hour)  \n- Logo as editable SVG; logo.png is exported from it with magick  \n- Add the CurseForge logo (media/, kept out of the package)  \n- Release workflow: keep the manual build's ZIP as an artifact (.release is a hidden folder)  \n- Initial import from the live AddOns folder, with a CurseForge release workflow"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PerHour"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "PerHourDB"
+    ]
+  }
+}

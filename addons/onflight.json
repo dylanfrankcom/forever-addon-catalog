@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "onflight",
+  "repo": "orionshock/OnFlight",
+  "about": "# OnFlight for WoW Forever\n\nOnFlight tracks taxi flights and learns their durations as you travel.\n\n## Features\n\n- Native Flight Destinations window with Favorites, zone browsing, live search.\n- Measured and estimated flight times in flight-map tooltips and destination rows.\n- Configurable flight timer bar.\n- Party and raid flight-status sharing.\n\n## Controls\n\n- `/onflight` opens Settings.\n- Control-drag the timer bar to move it; shift-click a timed bar to insert flight information into chat.\n- Shift-click a reachable destination or the current location to toggle its favorite status.\n- Left-click the taxi-map button to toggle Flight Destinations; right-click to toggle Settings.\n- Left-click the broker or minimap button to resend your flight announcement; right-click to open Settings.\n\n- Use **Gossip Configuration** to configure dialogue-triggered flights. **Show Diagnostic IDs** helps identify dialogue options and taxi nodes.\n\nSee [PROTOCOL.md](https://github.com/orionshock/OnFlight/blob/main/docs/PROTOCOL.md) for the public flight-status protocol.\n\n## Media control dependency\n\nThe native Settings media previews use LibSharedMediaControls-1.0. Its single\nruntime Lua file is tracked under `libs/LibSharedMediaControls-1.0` so source\ncheckouts can load it with OnFlight's existing libraries. `pkgmeta.yaml` pins the\nGit external to the same upstream revision for release packaging. When updating\nthis dependency, update the pin and tracked file together. The upstream Lua file\ncontains its MIT notice; the standalone demo and dependency copies are excluded.",
+  "releases": [
+    {
+      "tag": "v3.0.1",
+      "published": "2026-11-17",
+      "notes": "# OnFlight for WoW Forever\n\n## Updated existing functionality\n\n- Rebuilt destination browsing and configuration with native Forever frames and Settings. Existing favorites, zone browsing, search, and duration estimation remain available.\n\n## New functionality\n\n- Numeric taxi-node identity for normal flights, timing records, and favorites. Localized flight-point names are display text only.\n- A LibDataBroker flight timer and group-flight tooltip.\n- Best-effort group flight sharing."
+    },
+    {
+      "tag": "v3.0.0",
+      "published": "2026-11-09",
+      "notes": "# OnFlight for WoW Forever\n\n## Updated existing functionality\n\n- Rebuilt destination browsing and configuration with native Forever frames and Settings. Existing favorites, zone browsing, search, and duration estimation remain available.\n- Kept the timer bar's appearance options and preview controls, with clearer labels and tooltips. Flight tracking and learning continue when the bar is disabled.\n\n## New functionality\n\n- A LibDataBroker flight timer and group-flight tooltip, plus a profile-specific LibDBIcon minimap button. Left-click resends the current announcement; right-click opens Settings.\n- Best-effort group flight sharing\n\n## Release scope\n- WoW Forever only\n- Flight-duration learning and the existing route-estimation behavior are preserved."
+    },
+    {
+      "tag": "v0.2.74",
+      "published": "2026-06-04",
+      "notes": "# OnFlight\n\n## [v0.2.74](https://github.com/orionshock/OnFlight/tree/v0.2.74) (2026-06-04)\n[Full Changelog](https://github.com/orionshock/OnFlight/compare/v0.2.6...v0.2.74) [Previous Releases](https://github.com/orionshock/OnFlight/releases)\n\n- bump for Classic Mop - SoO patch  \n- Refactor font size handling and improve look-and-feel refresh logic in StatusBarModule"
+    },
+    {
+      "tag": "v0.2.6",
+      "published": "2026-02-16",
+      "notes": "# OnFlight\n\n## [v0.2.6](https://github.com/orionshock/OnFlight/tree/v0.2.6) (2026-02-16)\n[Full Changelog](https://github.com/orionshock/OnFlight/compare/v0.2.5...v0.2.6) [Previous Releases](https://github.com/orionshock/OnFlight/releases)\n\n- mop toc Update  \n- LFG\\_PROPOSAL\\_DONE is the proper event  \n- Fix node slot handling in OnFlight\\_GetEstimatedTime and improve gossip option handling  \n- LFG Queue Accept fix"
+    },
+    {
+      "tag": "v0.2.5",
+      "published": "2025-09-24",
+      "notes": "# OnFlight\n\n## [v0.2.5](https://github.com/orionshock/OnFlight/tree/v0.2.5) (2025-09-24)\n[Full Changelog](https://github.com/orionshock/OnFlight/compare/v0.2.4...v0.2.5) [Previous Releases](https://github.com/orionshock/OnFlight/releases)\n\n- Update OnFlight.toc  \n    update for MoP phase 2  \n- Fix Flight Windows order of operations.  \n- Add Shrine of Two Moons to Default Fav List"
+    }
+  ],
+  "stats": {
+    "stars": 10,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-09",
+      "2026-06-04",
+      "2026-02-16",
+      "2025-09-24",
+      "2025-07-06",
+      "2024-09-28",
+      "2024-09-23",
+      "2024-07-22",
+      "2024-05-13",
+      "2023-05-07",
+      "2023-03-12",
+      "2023-02-13",
+      "2023-02-11",
+      "2023-02-05",
+      "2023-02-03",
+      "2023-02-03",
+      "2023-02-02",
+      "2023-01-26",
+      "2023-01-26",
+      "2023-01-26",
+      "2023-01-26",
+      "2023-01-18",
+      "2022-10-07",
+      "2022-09-30",
+      "2022-09-28",
+      "2022-08-31",
+      "2022-06-12",
+      "2022-05-30",
+      "2022-05-13",
+      "2021-12-27",
+      "2021-12-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "OnFlight"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Blizzard_UIPanels_Game"
+    ],
+    "optional": [
+      "Quartz"
+    ],
+    "savedVariables": [
+      "OnFlightSV",
+      "OnFlightTaxiDebugDB"
+    ]
+  }
+}

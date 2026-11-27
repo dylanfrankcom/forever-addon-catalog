@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "id": "automaticrolecheck",
+  "repo": "jordinbrouwer/AutomaticRoleCheck",
+  "about": "# AutomaticRoleCheck\n\nLightweight approach for automatically accepting role check pop-ups.\n\n[![CurseForge](https://img.shields.io/curseforge/v/448353?label=CurseForge)](https://www.curseforge.com/wow/addons/automatic-role-check) [![Downloads](https://img.shields.io/curseforge/dt/448353?label=downloads)](https://www.curseforge.com/wow/addons/automatic-role-check) [![GitHub release](https://img.shields.io/github/v/release/jordinbrouwer/AutomaticRoleCheck?label=GitHub)](https://github.com/jordinbrouwer/AutomaticRoleCheck/releases/latest)\n\n## Usage\n\nType `/arc` to open the options window. You can also open it from the game's settings: **AutomaticRoleCheck** > **Open AutomaticRoleCheck**.\nDrag the grip in the bottom right corner to change the width and height of the window; right-click the grip to go back to the default size.\nEvery option shows a tooltip when you hover it. Most boxes have a `Reset` link that puts the settings of that box back to their defaults; click it twice to confirm.\n\n### Enabled and My role\n\n- `Enabled`: switches the addon on or off.\n- `My role`: the `Tank`, `Healer` and `Damage` roles a role check gives you when you queue. Click a role to switch it on or off (not in combat).\n- `Follow spec`: your roles follow your specialization.\n- `Set in group`: also sets your role in your group, when you change it here or join a group (not in combat).\n\n### When addon is enabled\n\n- `Disable whilst AFK`: do not accept while you are AFK.\n- `Disable once`: skip the next role check.\n- `Disable once on login`: skip the first role check after you log in.\n- `Disable once on role change`: skip the next role check after you change your role.\n\n### What to accept and Only when\n\n- `What to accept`: `Role checks`, `Role polls`, `Group invites` and `Group sign-ups`.\n- `Only when`: `When I play a tank`, `When I play a healer`, `When I play damage`, and `Where`: `Everywhere`, `Group or instance` or `Instance only`.\n\n### When it is accepted\n\nThe table has an `In combat` and an `Out of combat` column. The game doesn't let addons accept in combat, so in combat the popup waits and is accepted right after combat ends.\n\n- `Accept for me`: accept the popup for you. Off: you click the popup yourself.\n- `Hide the popup`: hide the game's popup while it waits or is accepted.\n- `Play a sound` and `Sound`: play `Raid warning`, `Ready check`, `Quest complete`, `Auction bell` or `Whisper`.\n- `Wait before accepting` (out of combat only): `No wait`, or 1, 2, 3 or 5 seconds to step in yourself.\n- `Linked`: the `Out of combat` column follows the `In combat` column. `Separate`: each column is set by itself.\n\nBy default both columns accept for you, hide the popup and play the `Ready check` sound.\n\nWhile the addon is on, the game's own ready-check sound is muted (also for normal ready checks), so only the sound you chose plays.\n\n### When addon is disabled\n\n- `/arc disable`: turn the addon off.\n- `Enable once`: accept the next role check. `/arc enable once` does the same.\n\n### Commands\n\nMessages show as toasts at the top of the screen; click a toast to close it.\n\n- `/arc`: open the options window.\n- `/arc help`: show the commands.\n- `/arc status`: show the status for the next role check.\n- `/arc enable [once]`: switch on, or with `once` for the next check only.\n- `/arc disable [once]`: switch off, or with `once` for the next check only.\n- `/arc minimap [show|hide|toggle]`: show the minimap button, hide it, or switch between the two.\n\n### Skipping next role check\n\nFor in-the-moment use, this is the fastest way to skip a single role check:\n- Hold `Shift` while the role check appears, and only that upcoming check will be skipped.\n\nIf you prefer planning ahead, you can use `/arc disable once` (or `Disable once`) before the next role check appears.\n\n### Minimap button\n\nThe check mark on the button is green when the addon is on, red when it is off, and amber while something waits for combat to end.\nBy default:\n\n- `Left-click`: switch on or off.\n- `Shift + Left-click`: hide the button.\n- `Right-click`: open the options.\n\nIn the `Minimap button` box you choose what `Left-click`, `Right-click`, `Shift + Left-click` and `Shift + Right-click` do (`Switch on or off`, `Open options`, `Skip next check`, `Hide the button` or `Nothing`), and switch `Show button`, `Colour` (the status colour of the check mark) and `Lock` (no dragging around the minimap). The tooltip of the button lists your clicks.\n\n## Screenshots\n\n![Options window: Enabled, My role, When addon is enabled, What to accept, Only when, When it is accepted and Minimap button](https://raw.githubusercontent.com/jordinbrouwer/AutomaticRoleCheck/master/docs/images/1-options.png)\n\n![A status message shown as a toast at the top of the screen](https://raw.githubusercontent.com/jordinbrouwer/AutomaticRoleCheck/master/docs/images/2-toast.png)\n\n![Commands toast from /arc help](https://raw.githubusercontent.com/jordinbrouwer/AutomaticRoleCheck/master/docs/images/3-commands.png)\n\n## Development\n\nPlease see [CONTRIBUTING](https://github.com/jordinbrouwer/AutomaticRoleCheck/blob/master/CONTRIBUTING.md) for development checks and contribution guidance.\n\n## Feedback\n\nPlease remember that I'm always working to improve the addon, so I'm interested in hearing directly from you about anything you want to share or ask. You can report this using the issues on GitHub.\nWhen reporting bugs or unexpected behavior, include your addon version and an overview of your current options.\n\n## Changelog\n\nPlease see the [CHANGELOG](https://github.com/jordinbrouwer/AutomaticRoleCheck/blob/master/CHANGELOG.md) for more information about recent changes.\n\n## License\n\nThis project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).\n\n## Support me\n\nIf you find my work valuable or just want to show your appreciation, you can buy me a coffee!\n\n[![\"Buy Me A Coffee\"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/jordinbrouwer)",
+  "releases": [
+    {
+      "tag": "2.7.1",
+      "published": "2026-11-26",
+      "notes": "### Fixed\n- Header text ends with ... and the window is no wider than its default width. ([23852d9](https://github.com/jordinbrouwer/AutomaticRoleCheck/commit/23852d986d304efd64e00511de82c768bc029c56))"
+    },
+    {
+      "tag": "2.7.0",
+      "published": "2026-11-25",
+      "notes": "### Added\n- Added a new options window of its own, opened with `/arc`: a header with the logo, a thin scroll bar, its own tooltips and a hint about `/arc help` at the bottom. The game's settings page now has a button that opens it.\n- Added resizing of the options window: drag the grip in the bottom right corner to change its width and height, right-click the grip to go back to the default size. The size is remembered.\n- Added accepting in combat: the popup waits and is accepted right after combat ends, and the minimap button shows that something is waiting.\n- Added the \"When it is accepted\" table with In combat and Out of combat columns: accept for me, hide the popup, play a sound, choose the sound, and wait before accepting (out of combat only). With \"Linked\" the Out of combat column follows the In combat column.\n- Added \"What to accept\" (role checks, role polls, group invites, group sign-ups) and \"Only when\" (when I play a tank, healer or damage, and where: everywhere, group or instance, or instance only).\n- Added the \"My role\" box: switch Tank, Healer and Damage on or off for the Group Finder, \"Follow spec\" to set the role from your specialization, and \"Set in group\" to also set your role in your group.\n- Added a \"Minimap button\" box: show the button, colour the check mark by status, lock the button in place, and choose what Left-click, Right-click, Shift + Left-click and Shift + Right-click do.\n- Added a \"Reset\" link to most option boxes that puts the settings of that box back to their defaults (click it twice).\n- Added `/arc help`, which shows the commands as keys in a message that stays until you click it.\n- Added a new logo, used for the addon icon, the options window, the messages and the minimap button.\n\n### Changed\n- Changed `/arc` to open the options window instead of listing the commands.\n- Changed all messages to show as toasts at the top of the screen instead of lines in chat.\n- Changed the minimap button: the check mark of the logo is green when the addon is on, red when it is off and amber while something waits for combat to end, and its tooltip lists the clicks as you set them.\n- Changed what happens by default out of combat: the game's popup is hidden while it is accepted, and the Ready check sound plays when it has been accepted.\n- Changed sounds: while the addon is on, the game's own ready-check sound is muted (also for normal ready checks), so only the sound you chose plays.\n- Changed the code layout into separate folders for core, window, texts and pictures.\n\n### Removed\n- Removed `/arc options`; use `/arc` to open the options window."
+    },
+    {
+      "tag": "2.6.0",
+      "published": "2026-10-07",
+      "notes": "### Added\n- Added auto-accept support for the role poll popup.\n- Added WoW Forever compatibility via interface version `16001`.\n\n### Changed\n- Updated specialization role detection to use `C_SpecializationInfo` on newer clients.\n- Updated release and CurseForge publish scripts to handle multiple TOC files."
+    },
+    {
+      "tag": "2.5.0",
+      "published": "2026-07-28",
+      "notes": "### Added\n- Added CurseForge publish step to CD so tagged releases upload automatically.\n\n### Changed\n- Updated the default name of the release.\n- Bumped version due to new patch."
+    },
+    {
+      "tag": "2.4.0",
+      "published": "2026-05-06",
+      "notes": "### Added\n- Added minimap button support to enable/disable the addon quickly.\n- Added `/arc status` command to show current addon version and status.\n- Added support for `/arc enable once` and `/arc disable once`.\n- Added missing options to the panel and updated visual.\n- Added `CONTRIBUTING.md` with local development and check guidance.\n- Added localization for user-facing strings, with English as the default and optional per-locale overrides.\n\n### Changed\n- Bumped version due to new patch.\n- Changed `/arc` to list available commands.\n- Changed slash command handling to use shared helpers and cleaner option updates.\n- Changed release packaging to use `.tmp` artifacts with stricter output validation.\n- Changed CI check execution to use simpler, script-based single-mode jobs.\n\n### Removed\n- Removed `/arc help` command (help is now shown automatically with `/arc`).\n- Removed legacy `/arc enableonce` and `/arc disableonce` command forms."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/jordinbrouwer/AutomaticRoleCheck/master/docs/images/1-options.png",
+    "https://raw.githubusercontent.com/jordinbrouwer/AutomaticRoleCheck/master/docs/images/2-toast.png",
+    "https://raw.githubusercontent.com/jordinbrouwer/AutomaticRoleCheck/master/docs/images/3-commands.png"
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-10-07",
+      "2026-07-28",
+      "2026-05-06",
+      "2026-03-16",
+      "2026-01-05",
+      "2025-10-09",
+      "2025-07-15",
+      "2025-07-14",
+      "2025-07-11",
+      "2025-02-19",
+      "2024-12-30",
+      "2024-12-02",
+      "2024-08-05",
+      "2024-08-04",
+      "2024-06-10",
+      "2024-02-12",
+      "2023-12-18",
+      "2023-08-08",
+      "2023-05-21",
+      "2023-01-30",
+      "2022-06-13",
+      "2022-02-28",
+      "2021-12-15",
+      "2021-12-15",
+      "2021-12-15",
+      "2021-12-15",
+      "2021-12-15",
+      "2021-12-15",
+      "2021-12-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AutomaticRoleCheck"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "AutomaticRoleCheck_Options"
+    ]
+  }
+}

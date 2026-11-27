@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "guildsearch",
+  "repo": "Talryn/GuildSearch",
+  "about": "Guild Search is World of Warcraft addon to help guild leaders and officers. It allows searching the guild roster, particularly the notes and officer notes. Many guilds will keep meaningful notes in those fields including the the player names for alts. It is very useful to be able to search a large guild roster to find characters. For example, with the recent rise in compromised accounts, if the right information is in the notes, it makes it easy to find all the alts of a player and demote them.\n\nIt has options to allow configuring which fields will be searched.\n\nGuild Search displays the following items:\n\n* Class-colored character name\n* Level\n* Note\n* Officer Note\n* Rank\n* Last Online \n\nYou can search the following data:\n\n* Character Name\n* Note\n* Office Note\n* Rank (off by default)\n* Class Name (off by default)\n* Realm \n\nYou can also choose to display one of the following fields:\n\n* Realm\n* Total XP\n* Weekly XP\n* Total Rank\n* Weekly Rank \n\nYou can also edit the following items for a guild member:\n\n* Public Note\n* Officer Note\n* Rank \n\nYou can bring up the search window via:\n\n* Chat command /gsearch\n* LDB launcher\n* Minimap button \n\nThe Last Online column is an approximate based on the data available in the guild roster. It will always be at least an hour off because the smallest unit of time the roster provides is hours.",
+  "releases": [
+    {
+      "tag": "12.1.5",
+      "published": "2026-10-21",
+      "notes": "# Guild Search\n\n## [12.1.5](https://github.com/Talryn/GuildSearch/tree/12.1.5) (2026-10-21)\n[Full Changelog](https://github.com/Talryn/GuildSearch/compare/12.1.0...12.1.5) [Previous Releases](https://github.com/Talryn/GuildSearch/releases)\n\n- Forever version detection."
+    },
+    {
+      "tag": "12.1.0",
+      "published": "2026-10-03",
+      "notes": "# Guild Search\n\n## [12.1.0](https://github.com/Talryn/GuildSearch/tree/12.1.0) (2026-10-03)\n[Full Changelog](https://github.com/Talryn/GuildSearch/compare/12.0.1...12.1.0) [Previous Releases](https://github.com/Talryn/GuildSearch/releases)\n\n- Update TOC for Forever."
+    },
+    {
+      "tag": "12.0.1",
+      "published": "2026-01-21",
+      "notes": "# Guild Search\n\n## [12.0.1](https://github.com/Talryn/GuildSearch/tree/12.0.1) (2026-01-21)\n[Full Changelog](https://github.com/Talryn/GuildSearch/compare/12.0.0...12.0.1) [Previous Releases](https://github.com/Talryn/GuildSearch/releases)\n\n- Update TOC, fix settings.  \n    * Update TOC versions.  \n    * Fix settings not opening."
+    },
+    {
+      "tag": "12.0.0",
+      "published": "2026-01-13",
+      "notes": "# Guild Search\n\n## [12.0.0](https://github.com/Talryn/GuildSearch/tree/12.0.0) (2026-01-12)\n[Full Changelog](https://github.com/Talryn/GuildSearch/compare/11.1.0...12.0.0) [Previous Releases](https://github.com/Talryn/GuildSearch/releases)\n\n- Update TOC, add Midnight."
+    },
+    {
+      "tag": "11.1.0",
+      "published": "2025-07-10",
+      "notes": "# Guild Search\n\n## [11.1.0](https://github.com/Talryn/GuildSearch/tree/11.1.0) (2025-05-17)\n[Full Changelog](https://github.com/Talryn/GuildSearch/compare/11.0.2...11.1.0) [Previous Releases](https://github.com/Talryn/GuildSearch/releases)\n\n- Remove deprecated \\_G assignment and cleanup.  \n- Update formatting and whitespace.  \n- Update TOC for Mists."
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 2,
+    "contributors": 3,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-10-03",
+      "2026-01-21",
+      "2026-01-13",
+      "2025-07-10",
+      "2024-08-14",
+      "2024-04-30",
+      "2023-10-12",
+      "2022-11-01",
+      "2022-10-28",
+      "2022-10-25",
+      "2022-09-26",
+      "2022-08-30",
+      "2022-08-29",
+      "2022-02-22",
+      "2021-06-29",
+      "2021-05-18",
+      "2021-04-04",
+      "2021-03-10",
+      "2021-02-02",
+      "2021-01-25",
+      "2020-11-20",
+      "2020-10-13",
+      "2020-08-30",
+      "2019-08-12",
+      "2019-06-25",
+      "2019-01-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GuildSearch"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "Alts",
+      "lib-st",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0"
+    ],
+    "savedVariables": [
+      "GuildSearchDB"
+    ]
+  }
+}

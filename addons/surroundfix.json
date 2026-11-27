@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "surroundfix",
+  "repo": "Jademalo/SurroundFix",
+  "about": "# SurroundFix\n[CurseForge](https://www.curseforge.com/wow/addons/surroundfix)  \n[Wago](https://addons.wago.io/addons/surroundfix)  \n[WoW Interface](https://www.wowinterface.com/downloads/info25251-SurroundFix.html)  \n\nSurroundFix is a simple and lightweight AddOn that fixes the problems associated with running WoW at Surround/Eyefinity/Triplewide resolutions!\n\n# Features\n- Constrains the UI to the middle display\n- Automatic vertical resolution detection\n- Automatic middle display aspect ratio detection\n- Extremely lightweight and simple, every Blizzard UI element acts as if you're just using a single display\n- Almost every addon also works, so long as their frame handling is done properly!\n- Will do nothing if using a single display, no need to disable it!\n- Ability to set a manual aspect ratio for the UI - Want 16:9 on your 21:9 monitor? No problem!\n\nConfigure various options with /sfix or /surroundfix. Typing the command will open up the Blizzard AddOn options menu, allowing you to choose Auto or from a selection of common aspect ratios. You can also set a custom aspect with \"/sfix aspect x:y\". Just type the command and any arguments for more help!\n\n![Before](https://raw.githubusercontent.com/Jademalo/SurroundFix/master/.previews/SFix%20Default.jpg)\n![After](https://raw.githubusercontent.com/Jademalo/SurroundFix/master/.previews/SFix%20Fixed.jpg)\n\nFor the curious, the mod essentially resizes the UIParent frame to the resolution of your middle monitor. This means that every UI element and AddOn sees a normal sized display rather than a crazy wide one, so they perfectly orient themselves on the middle display.\n\nThis is a much better solution than manually positioning every UI element, and also means that if you switch back to a single display your UI won't break! In fact, it can handle switching between Triplewide and single on the fly!\n\n# Known Bugs  \n- Certain AddOns will not be positioned correctly, and moving them will be strange. Unfortunately there isn't much I can do about this, since it's an issue with how the AddOn causing issues handles it's frames. Any AddOn that is designed to properly use UIParent should have no issues.\n\n- If you for some reason have a 21:9 display with two side 4:3 displays, the UI will be 16:9. It's either this or potentially have issues with bezel correction.\n\n- If the aspect is set to a compact aspect such as 4:3, after a reload the main bar will be anchored to the bottom left of the screen instead of the centre to prevent overlap with the menu bar. If you then change to a wider aspect such as 16:9, the bottom bar will be offset to the left. This is fixed after a `/reload`, and is behaviour of the default Blizzard UI.\n\n- If a UI element is moved with edit mode, it will no longer obey the UIParent positioning system. This is due to objects positioning themselves relative to `\"BOTTOM\"` or `\"TOP\"` on `UIParent` if placed in the corners, resulting in them not being adjusted by SurroundFix. The only workaround is to position them slightly above the bottom or top edges so they anchor to `\"LEFT\"` or `\"RIGHT\"`.",
+  "releases": [
+    {
+      "tag": "v5.0.5",
+      "published": "2026-11-18",
+      "notes": "# SurroundFix\n\n## [v5.0.5](https://github.com/Jademalo/SurroundFix/tree/v5.0.5) (2026-11-18)\n[Full Changelog](https://github.com/Jademalo/SurroundFix/compare/v5.0.4...v5.0.5) [Previous Releases](https://github.com/Jademalo/SurroundFix/releases)\n\n- Move screenshots to .previews for wowup  \n- Remove old funding"
+    },
+    {
+      "tag": "v5.0.4",
+      "published": "2026-10-18",
+      "notes": "# SurroundFix\n\n## [v5.0.4](https://github.com/Jademalo/SurroundFix/tree/v5.0.4) (2026-10-18)\n[Full Changelog](https://github.com/Jademalo/SurroundFix/compare/v5.0.3...v5.0.4) [Previous Releases](https://github.com/Jademalo/SurroundFix/releases)\n\n- Merge pull request #53 from Jademalo/interface-version  \n    Update Interface version  \n- Update Interface version"
+    },
+    {
+      "tag": "v5.0.3",
+      "published": "2026-10-12",
+      "notes": "# SurroundFix\n\n## [v5.0.3](https://github.com/Jademalo/SurroundFix/tree/v5.0.3) (2026-10-12)\n[Full Changelog](https://github.com/Jademalo/SurroundFix/compare/v5.0.2...v5.0.3) [Previous Releases](https://github.com/Jademalo/SurroundFix/releases)\n\n- Merge pull request #52 from Jademalo/interface-version  \n    Update Interface version  \n- Update Interface version  \n- Fix TOC updater to update for all valid versions"
+    },
+    {
+      "tag": "v5.0.2",
+      "published": "2026-10-11",
+      "notes": "# SurroundFix\n\n## [v5.0.2](https://github.com/Jademalo/SurroundFix/tree/v5.0.2) (2026-10-11)\n[Full Changelog](https://github.com/Jademalo/SurroundFix/compare/v5.0.1...v5.0.2) [Previous Releases](https://github.com/Jademalo/SurroundFix/releases)\n\n- Add a guard to only fix framerate positioning in Forever"
+    },
+    {
+      "tag": "v5.0.1",
+      "published": "2026-10-11",
+      "notes": "# SurroundFix\n\n## [v5.0.1](https://github.com/Jademalo/SurroundFix/tree/v5.0.1) (2026-10-11)\n[Full Changelog](https://github.com/Jademalo/SurroundFix/compare/v5.0.0...v5.0.1) [Previous Releases](https://github.com/Jademalo/SurroundFix/releases)\n\n- Fix Framerate positioning"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Jademalo/SurroundFix/master/.previews/SFix%20Default.jpg",
+    "https://raw.githubusercontent.com/Jademalo/SurroundFix/master/.previews/SFix%20Fixed.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-10-18",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-07",
+      "2026-08-17",
+      "2026-07-26",
+      "2026-07-12",
+      "2026-06-21",
+      "2026-06-07",
+      "2026-05-12",
+      "2026-03-21",
+      "2025-12-07",
+      "2025-10-12",
+      "2025-09-14",
+      "2025-08-11",
+      "2025-07-06",
+      "2025-06-22",
+      "2025-04-25",
+      "2025-04-13",
+      "2025-03-02",
+      "2025-02-24",
+      "2025-02-02",
+      "2024-12-24",
+      "2024-11-25",
+      "2024-11-04",
+      "2024-10-27",
+      "2024-09-30",
+      "2024-08-18",
+      "2024-07-29",
+      "2024-07-14",
+      "2024-05-20",
+      "2024-05-12",
+      "2024-05-06",
+      "2024-04-08",
+      "2024-03-24",
+      "2024-03-03",
+      "2024-01-21",
+      "2023-10-15",
+      "2023-10-01",
+      "2023-09-11",
+      "2023-07-24",
+      "2023-06-25",
+      "2023-03-19",
+      "2023-01-22",
+      "2023-01-15",
+      "2022-11-27",
+      "2022-11-21",
+      "2022-10-31"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SurroundFix"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "SfixDB"
+    ]
+  }
+}

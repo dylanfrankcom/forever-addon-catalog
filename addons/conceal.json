@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "conceal",
+  "repo": "joaoc-pires/wow-addon-conceal",
+  "about": "# Conceal\n\nConceal lowers the opacity of parts of the default UI while you're out of combat and have no target. When you enter combat, select a target, or move the mouse over a faded element, it returns to full opacity.\n\nConceal only changes the opacity of Blizzard's frames, so your Edit Mode layout is left alone.\n\n## How it works\n\nYou turn each element on separately in the settings. Once it's on, it fades out when you leave combat and clear your target, and fades back in when you enter combat or pick a target again. Hovering over an element always shows it.\n\nMost elements also have a \"Hide in combat\" option. With it on, the element stays faded during combat as well, and you hover over it when you need it.\n\n## Elements\n\n### Combat Elements\n\n- Player frame\n- Pet frame\n- Target frame\n- Buff list\n- Debuff list\n- Main hand, off hand and ranged swing timers, on clients that have them\n- Cast bar. This option turns the player cast bar off entirely and ignores the fade rules.\n\n### Cooldown Manager\n\n- Essential Cooldown Viewer\n- Utility Cooldown Viewer\n- Buff Icon Cooldown Viewer\n\n### Action Bars\n\n- Action bars 1 to 8, each with its own setting\n\nWhile a spell flyout is open (a portal or teleport list, for example), the bars stay visible until it closes.\n\n### Extra Elements\n\n- Pet action bar\n- Stance bar\n- Micro menu\n- Bags bar\n- Experience and reputation bar\n- Minimap. At 0% opacity it's hidden outright, because some of its parts ignore opacity.\n- Objective tracker\n- Social (Quick Join) button\n\n## Settings\n\nThe settings are under Options > AddOns > Conceal.\n\n- Opacity sets how visible faded elements are, from 0 to 100%.\n- Fade In Time and Fade Out Time set how long each fade takes, from 0 to 2 seconds.\n- Action Target Mode stops a target from bringing elements back, so only combat and hovering do. This helps if you play with action targeting, where you almost always have a target.\n- Every element listed above has its own checkbox, plus a \"Hide in combat\" checkbox where one applies.",
+  "releases": [
+    {
+      "tag": "2.7.0",
+      "published": "2026-09-26",
+      "notes": "## Conceal 2.7.0\n\n### Added\n\n* **Swing Timer support (WoW: Forever)** — the Main Hand, Off Hand and Ranged swing timers can now be concealed, each with its own **Hide in combat** toggle, under a new **Swing Timers** section. All are off by default, and the options only appear on clients that have swing timers. (#28)\n* **Separate Pet frame option** — the Pet frame now has its own **Enable Pet frame** and **Hide Pet frame in combat** settings instead of sharing the Player frame's. (#29)\n\n### Fixed\n\n* **Pet frame out of sync with the Player frame** — the Pet frame could stay fully visible while the Player frame was concealed, for example when summoning a pet out of combat. The two frames now fade independently and correctly. (#29)\n\n### Changed\n\n* **README** — rewritten as a user-facing description of the addon's features and settings."
+    },
+    {
+      "tag": "2.6.0",
+      "published": "2026-09-25",
+      "notes": "## Conceal 2.6.0\n\n### Added\n\n* **AddOn list category** — Conceal now appears under **User Interface** in the AddOn list instead of the uncategorized section. (#24)\n\n### Fixed\n\n* **Opacity slider performance** — dragging an Opacity slider no longer causes a large FPS drop. (#25)\n\n### Changed\n\n* **Internal cleanup** — the addon code is now split into separate files, with dead code and duplicated logic removed. It behaves the same in game and is easier to maintain. (#21, #22, #23)"
+    },
+    {
+      "tag": "2.5.0",
+      "published": "2026-09-21",
+      "notes": "## Conceal 2.5.0\n\n### Added\n\n* **Minimap support** — the Minimap can now be concealed. Fully hidden at 0 opacity and restored automatically. Includes a **Hide in combat** toggle. (#20)\n* **Bags Bar support** — the Bags Bar can now be concealed. Includes a **Hide in combat** toggle. (#20)"
+    },
+    {
+      "tag": "2.4.4",
+      "published": "2026-09-19",
+      "notes": "## Conceal 2.4.4\n\n### Fixed\n- Frames no longer stay hidden after reconnecting during combat. Conceal now reads combat state live and re-syncs on entering the world, so a mid-fight disconnect/reconnect no longer leaves the player frame and action bars stuck concealed.\n\n### Added\n- **Classic Beta (Camelot) support** — Conceal now ships a dedicated TOC for the Camelot client, so it loads without the \"out of date\" flag there.\n\n### Compatibility\n- Retail: added support for game patches **12.1.0**, **12.1.5**, and **12.1.7** (still supports 12.0.7)."
+    },
+    {
+      "tag": "2.4.1",
+      "published": "2026-02-11",
+      "notes": "Fixes issues related to 20.0.1"
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-09-26",
+    "releaseDates": [
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-21",
+      "2026-09-19",
+      "2026-02-11",
+      "2026-01-24",
+      "2026-01-22",
+      "2026-01-22",
+      "2026-01-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Conceal"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ConcealDataBase"
+    ]
+  }
+}

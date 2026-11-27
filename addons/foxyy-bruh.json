@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "foxyy-bruh",
+  "repo": "foxyybb/foxyy-bruh-addon",
+  "about": "# Foxyy Bruh\n\nSomeone says `bruh`. You say `bruh`.\n\nFoxyy Bruh is a little chat addon for **World of Warcraft: Forever** that joins\nin when someone says a word you've picked. It starts with `bruh`, but you can\nadd your own words and choose where you want it to reply.\n\n## Make it your own\n\nType **`/bruh`** to open the settings.\n\n- **Pick your words.** Add a word, switch it on or off, or remove it altogether.\n  Yes, you can remove `bruh` too.\n- **Pick your chats.** Choose guild, group and nearby chat, whispers, or the\n  public and custom channels you've joined.\n- **Keep your preferences.** Each character has its own settings, and updating\n  the addon won't reset them.\n\nTo add a word, enter it under **Words to echo** and click **Add word** or press\nEnter. The switches let you pause individual words without deleting them.\n\nIt matches a word on its own, not part of a sentence. With `bruh` enabled,\n`BRUH` gets a lowercase `bruh` reply, but `hey bruh` doesn't.\n\n**Public and custom channels start switched off.** To use one, turn on\n**Public / custom channels** and then enable the channel under **Joined channels**.\nThe other supported chats start enabled.\n\n## Installation\n\n1. Click **Code > Download ZIP** on this page and extract the download.\n2. Rename the extracted folder to `foxyy_bruh` and put it in your Forever\n   installation's `Interface/AddOns` folder. Don't put it inside another addon folder.\n3. Fully restart WoW, enable **Foxyy Bruh** in the AddOns list, and type `/bruh`.\n\nUpdating? Replace the files in the existing `foxyy_bruh` folder, then use `/reload`.\n\n## Quick commands\n\n| Command | What it does |\n| --- | --- |\n| `/bruh` | Open settings |\n| `/bruh on` | Turn the addon on |\n| `/bruh off` | Turn the addon off |\n| `/bruh status` | Check whether it's on |\n\n## A few things to know\n\n- Your own messages won't trigger a reply. There's also a **3-second cooldown\n  per chat** to keep things from getting too noisy.\n- WoW doesn't allow automatic replies everywhere. In public/custom channels and\n  outdoor say/yell, you'll get a **Send reply** button instead. Click it within\n  three seconds if you want to join in.\n- Everyone who wants to reply needs the addon. The person starting the joke doesn't.\n- Battle.net whispers and communities aren't included.\n- The cooldown helps, but several people using the addon can still start a chain\n  of replies. If it gets annoying, switch off that chat or use `/bruh off`.\n\nThis is an early version for WoW Forever and still needs in-game testing.",
+  "releases": [
+    {
+      "tag": "v1.1.1",
+      "name": "Foxyy Bruh v1.1.1",
+      "published": "2026-11-14",
+      "notes": "A little chat addon for World of Warcraft: Forever. Someone says a word you have picked, and you join in.\n\n- Add, remove, or switch individual words on and off, including bruh.\n- Choose which chats to use. Public and custom channels start switched off.\n- A 3-second cooldown per conversation helps keep echoes under control.\n- Public/custom channels and outdoor say/yell use a click-to-send prompt.\n\nInstallation: download foxyy_bruh-v1.1.1.zip below, extract it, and copy the foxyy_bruh folder into your Forever installation’s Interface/AddOns folder. Fully restart WoW, enable Foxyy Bruh, and use /bruh for settings.\n\nThis is an early release and still needs in-game testing."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "foxyy_bruh"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "FoxyyBruhDB"
+    ]
+  }
+}

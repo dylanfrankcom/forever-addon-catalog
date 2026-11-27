@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "ghost",
+  "repo": "RabbleCode/ghost",
+  "about": "# ghost\n\nghost (short for **G**reen **H**ills **o**f **S**trangle**t**horn) is a simple addon for World of Warcraft: Classic and World of Warcraft: Forever that tracks progress on the infamous Green Hills of Stranglethorn quest chain.\n\nUsage:\n\n**Standard Mode**\n\n![image](https://github.com/user-attachments/assets/a968693c-6145-487d-a12f-86c41e9605ea)\n\n- `/ghost` - Checks current character\n- `/ghost name` - Checks for character named \"name\" on the same realm as the currently logged in character\n- `/ghost name realm` - Checks for character named \"name\" on the realm named \"realm\". Supports realms with spaces in name, e.g. `/ghost Thrall Lava Lash` will search for a character named \"Thrall\" on the realm \"Lava Lash\"\n\n**Verbose Mode**\n\n![image](https://github.com/user-attachments/assets/b102bb98-7616-4e72-a035-731ab24e8361)\n\n- `/ghostv` - Checks current character\n- `/ghostv name` - Checks for character named \"name\" on the same realm as the currently logged in character\n- `/ghostv name realm` - Checks for character named \"name\" on the realm named \"realm\". Supports realms with spaces in name, e.g. `/ghost Thrall Lava Lash` will search for a character named \"Thrall\" on the realm \"Lava Lash\"\n\nor\n\n- `/gv` - Checks current character\n- `/gv name` - Checks for character named \"name\" on the same realm as the currently logged in character\n- `/gv name realm` - Checks for character named \"name\" on the realm named \"realm\". Supports realms with spaces in name, e.g. `/ghost Thrall Lava Lash` will search for a character named \"Thrall\" on the realm \"Lava Lash\"",
+  "releases": [
+    {
+      "tag": "v2.1",
+      "name": "ghost v2.1",
+      "published": "2026-11-21",
+      "notes": "Updated how addon stores Forever data in response to the Forever API changes that no longer return realm names."
+    },
+    {
+      "tag": "v2.0.1",
+      "name": "ghost v2.0.1",
+      "published": "2026-11-15",
+      "notes": "Improved check for whether the game is running as Forever or Classic."
+    },
+    {
+      "tag": "v2.0",
+      "name": "ghost v2.0",
+      "published": "2026-11-09",
+      "notes": "Resolved compatibility issues in Forever introduced by dual name and \"realmless\" feature"
+    },
+    {
+      "tag": "v1.6.1",
+      "name": "ghost v1.6.1",
+      "published": "2026-11-09",
+      "notes": "Added release metadata file for WoW Up to properly recognize releases for both flavors Classic and Forever."
+    },
+    {
+      "tag": "v1.6",
+      "name": "ghost v1.6",
+      "published": "2026-11-09",
+      "notes": "Compatibility update for Forever. Addon now supports both Classic Era and Forever"
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/a968693c-6145-487d-a12f-86c41e9605ea",
+    "https://github.com/user-attachments/assets/b102bb98-7616-4e72-a035-731ab24e8361"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-15",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2025-02-02",
+      "2024-11-19",
+      "2024-09-25",
+      "2024-04-19",
+      "2024-04-13",
+      "2024-02-23",
+      "2024-02-23",
+      "2024-02-21",
+      "2024-02-20",
+      "2024-02-20",
+      "2024-02-11",
+      "2023-07-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ghost"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "GhostCharacterProgress"
+    ]
+  }
+}

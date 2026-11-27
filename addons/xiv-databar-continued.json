@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "xiv-databar-continued",
+  "repo": "ZelionGG/XIV_Databar-Continued",
+  "about": "[![Contributors][contributors-shield]][contributors-url]\n[![Forks][forks-shield]][forks-url]\n[![Stargazers][stars-shield]][stars-url]\n[![Issues][issues-shield]][issues-url]\n[![Discord][discord-shield]][discord-url]\n[![MIT License][license-shield]][license-url]\n\n  [![Logo](icon.png)](https://github.com/ZelionGG/XIV_Databar-Continued)\n\n  \n### XIV_Databar Continued\n\n  \n\n    A databar addon for World of Warcraft (Retail and Classic)\n    \n\n    \n\n    [Report Bug](https://github.com/ZelionGG/XIV_Databar-Continued/issues)\n    ·\n    [Request Feature](https://github.com/ZelionGG/XIV_Databar-Continued/issues)\n  \n\n  \nTable of Contents\n\n  \n\n    \n[Download](#download)\n\n    \n[About The Project](#about-the-project)\n\n    \n[Slash Commands](#slash-commands)\n\n    \n[Modules](#modules)\n\n    \n[Features](#features)\n\n    \n[Roadmap](#roadmap)\n\n    \n[Credits](#credits)\n\n    \n[Localization](#localization)\n\n    \n[Contributing](#contributing)\n\n    \n[License](#license)\n\n    \n[Stars](#stars)\n\n  \n\n## Download\n\n[![CurseForge](https://cf.way2muchnoise.eu/title/787614.svg?badge_style=for_the_badge)](https://www.curseforge.com/wow/addons/xiv-databar-continued) [![Wago](https://tinyurl.com/WagoBadge)](https://addons.wago.io/addons/xiv-databar-continued)\n[![WowInterface](https://tinyurl.com/WoWInterfaceBadge)](https://www.wowinterface.com/downloads/info26826-3.7.html) [![Github Releases](https://img.shields.io/badge/GitHub%20Releases-121013?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ZelionGG/XIV_Databar-Continued/releases)\n\n([back to top](#readme-top))\n\n## About The Project\n\n[![XIVScreenshot][xiv-screenshot]](https://www.curseforge.com/wow/addons/xiv_databar-continued)\n\nPursuing the work of\u00A0MilleXIV,\u00A0[Vicious-wow](https://github.com/Vicious-wow/XIV_Databar) and [Kozoaku](https://github.com/Kozoaku/XIV_Databar).\n\nA reworking of\u00A0[SX_Databar by saxitoxin](https://www.wowinterface.com/downloads/info23745-SX_DataBar.html).\n\n([back to top](#readme-top))\n\n## Slash Commands\n* __/xivc__ or __/xivbar__ or __/xbc__ - shows/hides the GUI\n\n([back to top](#readme-top))\n\n## Modules\n\n- Micromenu\n- Durability - With iLvl display\n- Volume (Master)\n- Talent - With spec and loot spec swapping on left/right click\n- Clock\n- Tradeskills\n- Currency - With a mode for XP Bar when below level cap\n- System\n- Gold\n- Travel - Right click the left hearth to choose an alternate transport method\n\n([back to top](#readme-top))\n\n## Features\n\n- In-Game Config\n- Full profile support\n- LibSharedMedia support\n\n([back to top](#readme-top))\n\n## Roadmap\n\nSee the [open issues](https://github.com/ZelionGG/XIV_Databar-Continued/issues) for a full list of proposed features (and known issues).\n\n([back to top](#readme-top))\n\n## Credits\n\n- [https://www.wowinterface.com/downloads/info23745-SX_DataBar.html](https://github.com/ZelionGG/XIV_Databar-Continued/blob/develop/saxitoxin)\u00A0for the SX_Databar AddOn\n- u/sammojo for the idea, textures and the description of the bar\n- u/keyboardturn for updated spec icons\n- MilleXIV for reviving the project and code refactoring\n\n([back to top](#readme-top))\n\n## Localization\n\n- PhatsoTGT - German\n- Amanthuul - Russian\n- Yaoenqi - Chinese\n- [class2u](https://github.com/class2u) - Chinese (Taiwan)\n- [BrunoKrugel](https://github.com/BrunoKrugel) - Brazilian Portuguese\n\n__I am actually looking for people that want to help with localization of XIV_Databar Continued, don't hesitate to check [#10](https://github.com/ZelionGG/XIV_Databar-Continued/issues/10) and to contact me on [X (Twitter)](https://twitter.com/ZelionGG)__ \n\n([back to top](#readme-top))\n\n## Contributing\n\nContributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.\n\nIf you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag \"enhancement\".\n\n1. Fork the Project\n2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)\n3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)\n4. Push to the Branch (`git push origin feature/AmazingFeature`)\n5. Open a Pull Request\n\n**PLEASE DON'T FORGET TO PUT THE VERSION OF THE GAME (RETAIL, WOTLK CLASSIC, VANILLA CLASSIC, ...) IN YOUR ISSUE** \n\n([back to top](#readme-top))\n\n## License\n\nDistributed under the GPL-3.0 License. See `LICENSE` for more information.\n\n([back to top](#readme-top))\n\n## Stars\n\n[![Stars over time](https://starchart.cc/ZelionGG/XIV_Databar-Continued.svg?variant=adaptive)](https://starchart.cc/ZelionGG/XIV_Databar-Continued)\n\n([back to top](#readme-top))\n\n[contributors-shield]: https://img.shields.io/github/contributors/ZelionGG/XIV_Databar-Continued.svg?style=for-the-badge\n[contributors-url]: https://github.com/ZelionGG/XIV_Databar-Continued/graphs/contributors\n[forks-shield]: https://img.shields.io/github/forks/ZelionGG/XIV_Databar-Continued.svg?style=for-the-badge\n[forks-url]: https://github.com/ZelionGG/XIV_Databar-Continued/network/members\n[stars-shield]: https://img.shields.io/github/stars/ZelionGG/XIV_Databar-Continued.svg?style=for-the-badge\n[stars-url]: https://github.com/ZelionGG/XIV_Databar-Continued/stargazers\n[issues-shield]: https://img.shields.io/github/issues/ZelionGG/XIV_Databar-Continued.svg?style=for-the-badge\n[issues-url]: https://github.com/ZelionGG/XIV_Databar-Continued/issues\n[discord-shield]: https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white\n[discord-url]: https://discord.gg/g7JZNGSU32\n[license-shield]: https://img.shields.io/github/license/ZelionGG/XIV_Databar-Continued.svg?style=for-the-badge\n[license-url]: https://github.com/ZelionGG/XIV_Databar-Continued/blob/master/LICENSE.txt\n[xiv-screenshot]: https://i.ibb.co/k5r5mCg/xiv-databar-continued.png\n[Lua]: https://img.shields.io/badge/lua-000000?style=for-the-badge&logo=lua&logoColor=white\n[Lua-url]: https://www.lua.org/",
+  "releases": [
+    {
+      "tag": "5.9-fix1",
+      "published": "2026-10-15",
+      "notes": "# XIV_Databar Continued\n\n## [5.9](https://github.com/ZelionGG/XIV_Databar-Continued/releases/tag/5.9) (2026-10-15)\n\n[Full Changelog](https://github.com/ZelionGG/XIV_Databar-Continued/compare/5.8...5.9) [Previous Releases](https://github.com/ZelionGG/XIV_Databar-Continued/releases)\n\n> **Version 5.9 - Professions, Talents & 12.1.5**\n>\n> This update adds secondary professions to the **Tradeskill** module.\n> It also fixes the **Loadout switcher** in the **Talents** module (hopefully), LUA errors in **Travel**, the **Tradeskill** module on Forever, and updates the TOC for patch 12.1.5.\n\n### _Global :_\n\n- \uD83C\uDD95 _**NEW** -_ Added secondary professions (cooking, fishing, archaeology and first aid) to the **Tradeskill** module, with the **Show Secondary Professions** option and the **Show Profession Names** option.\n\n### _Retail :_\n\n- \uD83D\uDEE0️ _**IMPROVEMENT** -_ TOC update for patch 12.1.5.\n- \uD83D\uDC1E _**BUGFIX** -_ Fixed the **Loadout switcher** in the **Talents** module not showing the active loadout, not returning to it when a talent change is cancelled, and not responding the first time it is enabled.\n- \uD83D\uDC1E _**BUGFIX** -_ Fixed a LUA error in the **Travel** module caused by a removed API.\n- \uD83D\uDC1E _**BUGFIX** -_ Fixed a LUA error in **Travel** tooltips during combat.\n\n### _Forever :_\n\n- \uD83D\uDC1E _**BUGFIX** -_ Fixed a LUA error in the **Tradeskill** module which hid the **Currency** module and its XP bar."
+    },
+    {
+      "tag": "5.9",
+      "published": "2026-10-14",
+      "notes": "# XIV_Databar Continued\n\n## [5.9](https://github.com/ZelionGG/XIV_Databar-Continued/releases/tag/5.9) (2026-10-15)\n\n[Full Changelog](https://github.com/ZelionGG/XIV_Databar-Continued/compare/5.8...5.9) [Previous Releases](https://github.com/ZelionGG/XIV_Databar-Continued/releases)\n\n> **Version 5.9 - Professions, Talents & 12.1.5**\n>\n> This update adds secondary professions to the **Tradeskill** module.\n> It also fixes the **Loadout switcher** in the **Talents** module (hopefully), LUA errors in **Travel**, the **Tradeskill** module on Forever, and updates the TOC for patch 12.1.5.\n\n### _Global :_\n\n- \uD83C\uDD95 _**NEW** -_ Added secondary professions (cooking, fishing, archaeology and first aid) to the **Tradeskill** module, with the **Show Secondary Professions** option and the **Show Profession Names** option.\n\n### _Retail :_\n\n- \uD83D\uDEE0️ _**IMPROVEMENT** -_ TOC update for patch 12.1.5.\n- \uD83D\uDC1E _**BUGFIX** -_ Fixed the **Loadout switcher** in the **Talents** module not showing the active loadout, not returning to it when a talent change is cancelled, and not responding the first time it is enabled.\n- \uD83D\uDC1E _**BUGFIX** -_ Fixed a LUA error in the **Travel** module caused by a removed API.\n- \uD83D\uDC1E _**BUGFIX** -_ Fixed a LUA error in **Travel** tooltips during combat.\n\n### _Forever :_\n\n- \uD83D\uDC1E _**BUGFIX** -_ Fixed a LUA error in the **Tradeskill** module which hid the **Currency** module and its XP bar."
+    },
+    {
+      "tag": "5.8-fix1",
+      "published": "2026-09-29",
+      "notes": "# XIV_Databar Continued\n\n## [5.8](https://github.com/ZelionGG/XIV_Databar-Continued/releases/tag/5.8) (2026-09-28)\n\n[Full Changelog](https://github.com/ZelionGG/XIV_Databar-Continued/compare/5.7.2...5.8) [Previous Releases](https://github.com/ZelionGG/XIV_Databar-Continued/releases)\n\n> **Version 5.8 - Mage Portals & Forever**\n>\n> At long last, Mages get a **Travel** button for their teleports and portals.\n> This is also the first release for Forever. It is an early port, please share feedback and bug reports, it will help me a lot.\n\n### _Global :_\n\n- \uD83C\uDD95 _**NEW** -_ Added a **Mage Portals** button to **Travel**. Left-click casts the favorite spell, right-click picks another. It only shows for Mages who know at least one teleport or portal.\n\n### _Retail :_\n\n- \uD83D\uDEE0️ _**IMPROVEMENT** -_ The **M+ Teleports** icon in **Travel** now lines up with the other travel icons.\n\n### _Forever :_\n\n- \uD83D\uDD25 _**IMPORTANT** -_ Early support for Forever. If something errors, looks wrong, or is missing, please report it, it will help me a lot."
+    },
+    {
+      "tag": "5.8",
+      "published": "2026-09-28",
+      "notes": "# XIV_Databar Continued\n\n## [5.8](https://github.com/ZelionGG/XIV_Databar-Continued/releases/tag/5.8) (2026-09-28)\n\n[Full Changelog](https://github.com/ZelionGG/XIV_Databar-Continued/compare/5.7.2...5.8) [Previous Releases](https://github.com/ZelionGG/XIV_Databar-Continued/releases)\n\n> **Version 5.8 - Mage Portals & Forever**\n>\n> At long last, Mages get a **Travel** button for their teleports and portals.\n> This is also the first release for Forever. It is an early port, please share feedback and bug reports, it will help me a lot.\n\n### _Global :_\n\n- \uD83C\uDD95 _**NEW** -_ Added a **Mage Portals** button to **Travel**. Left-click casts the favorite spell, right-click picks another. It only shows for Mages who know at least one teleport or portal.\n\n### _Retail :_\n\n- \uD83D\uDEE0️ _**IMPROVEMENT** -_ The **M+ Teleports** icon in **Travel** now lines up with the other travel icons.\n\n### _Forever :_\n\n- \uD83D\uDD25 _**IMPORTANT** -_ Early support for Forever. If something errors, looks wrong, or is missing, please report it, it will help me a lot."
+    },
+    {
+      "tag": "5.7.2",
+      "published": "2026-08-16",
+      "notes": "# XIV_Databar Continued\n\n## [5.7.2](https://github.com/ZelionGG/XIV_Databar-Continued/releases/tag/5.7.2) (2026-08-16)\n\n[Full Changelog](https://github.com/ZelionGG/XIV_Databar-Continued/compare/5.7.1...5.7.2) [Previous Releases](https://github.com/ZelionGG/XIV_Databar-Continued/releases)\n\n> **Version 5.7.2 - Less Chat Spam**\n>\n> Sorry for the chat spam in 5.7. This update disables the login chat tip by default, and marks the changelog as read on the first load after a version change instead of requiring a click on **Open Changelog**.\n> It also updates the German translation (thank you **DlargeX**).\n\n### _Global :_\n\n- \uD83D\uDEE0️ _**IMPROVEMENT** -_ Sorry for the inconvenience: the login tip and repeating **Open Changelog** announce in 5.7 were too noisy.\n- \uD83D\uDEE0️ _**IMPROVEMENT** -_ The login chat tip is now disabled by default. Re-enable it by unchecking **Disable login message** under **Behavior**.\n- \uD83D\uDEE0️ _**IMPROVEMENT** -_ The version update chat announcement now marks the changelog as read on first load, instead of repeating until **Open Changelog** is clicked.\n- \uD83D\uDEE0️ _**IMPROVEMENT** -_ Updated German translation (thank you **DlargeX**)."
+    }
+  ],
+  "stats": {
+    "stars": 10,
+    "openIssues": 9,
+    "contributors": 10,
+    "lastRelease": "2026-10-15",
+    "releaseDates": [
+      "2026-10-15",
+      "2026-10-14",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-08-16",
+      "2026-08-13",
+      "2026-07-29",
+      "2026-07-29",
+      "2026-07-29",
+      "2026-07-29",
+      "2026-07-09",
+      "2026-07-08",
+      "2026-06-18",
+      "2026-05-19",
+      "2026-04-23",
+      "2026-04-14",
+      "2026-04-14",
+      "2026-04-10",
+      "2026-03-18",
+      "2026-03-18",
+      "2026-03-17",
+      "2026-03-16",
+      "2026-03-16",
+      "2026-03-15",
+      "2026-03-14",
+      "2026-03-12",
+      "2026-03-11",
+      "2026-03-09",
+      "2026-03-05",
+      "2026-03-03",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-02-27",
+      "2026-02-19",
+      "2026-02-13",
+      "2026-02-13",
+      "2026-02-13",
+      "2026-02-12",
+      "2026-02-11",
+      "2026-02-11",
+      "2026-01-27",
+      "2026-01-25",
+      "2026-01-23",
+      "2026-01-22",
+      "2026-01-18",
+      "2026-01-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "XIV_Databar_Continued"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "XIVBarDB"
+    ]
+  }
+}

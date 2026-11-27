@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "prokin-minimap",
+  "repo": "gnummers/Prokin-Minimap",
+  "about": "# Prokin-Minimap\n\nProkin-Minimap is a World of Warcraft addon for **The Burning Crusade Anniversary** and **World of Warcraft: Forever** that turns the minimap into a square using the same mask approach ElvUI uses for TBC.\n\n## Features\n\n- Square minimap mask using `Interface\\ChatFrame\\ChatFrameBackground`\n- Reports `GetMinimapShape()` as `SQUARE` for addon compatibility\n- Reapplies the square mask on world entry, minimap show, and Blizzard hybrid minimap load\n- Minimap zoom in and out with the mouse wheel\n- Uses a pfUI-style custom zone label with a server-time suffix in `[HH:MM AM/PM]` format, plus runtime-safe suppression of Blizzard minimap header widgets so the floating bar, red X, and duplicate zone text do not appear\n- Adds a draggable Prokin minimap button bordering the minimap with left-click role check, right-click options, and a hover tooltip that lists the current party or raid roles\n- Adds online Friends and Guild roster counts and member locations to the minimap button tooltip, following ElvUI's hover roster behavior\n- Adds dedicated Friends and Guild hover buttons below the minimap, to the right of the player coordinates, with class-colored online rosters and member locations\n- Shows the current session Gold Per Hour (GPH) in the Prokin minimap button tooltip\n- Uses TradeSkillMaster-style item pricing when available, with vendor fallback if TradeSkillMaster is not installed\n- Tracks gold income and expenses including repairs, postage, and crafting material costs\n- Calculates inventory worth and maintains per-character ledgers\n- Automatically tracks disenchanting transactions (item loss vs. dust/shard gain)\n- Thanks to the TradeSkillMaster authors for the pricing model inspiration\n- Adds always-visible Blizzard-style tracking and LFG proxy buttons just outside the square minimap border without letting MinimapButtonButton collect them into its tray\n- Keeps the Blizzard mail icon visible only while unread mail is waiting\n- Keeps the Blizzard PvP or battleground button outside the square minimap border only when battlefield state is active, while preserving Blizzard's native secure queue interactions\n- Lets you left-drag the visible Blizzard minimap widgets around the outside edge of the square minimap border\n- Includes MinimapButtonButton compatibility so those Blizzard widgets are not pulled into its collected button tray\n- Repositions the AutoMarkAssist minimap button to the square minimap edge without modifying AutoMarkAssist\n- Gives the Prokin button, LibDBIcon addon buttons, Blizzard tracking button, and Forever day/night icon one size and lines them up along the left border, with an option to turn this off and a slider for the spacing between them\n- Aligns GearQuest Forever's and Wowhead Looter's standalone minimap buttons with the rest of the addon icons along the left border\n- Resizable zone text, from the options window or `/pkm zonetext`\n- With icon alignment off, lets you left-drag the Forever day/night icon anywhere on the minimap\n- Lets you move Blizzard's buff icons, with debuffs following underneath, from the options window or `/pkm buffs`\n- Experimental WoW Forever Auction House upgrade scan: a **Prokin** tab on the Auction House lists the biggest upgrade and best value for every equipment slot, scored with Pawn scales or RestedXP Guides stat weights (one of them must be installed). Options picks the weights, class, specialization, required level range and stat filters. **Show** opens the listing in Blizzard's Buy view, where you confirm the purchase, and Shift+Right-click links the item in chat\n- Smart dungeon marking when you lead a 5-player dungeon group: Skull and Cross for the kill order, and crowd-control icons that match your group's Polymorph, Freezing Trap, Shackle Undead, Banish, Hibernate and Sap. It knows every 5-player dungeon boss and over 100 dangerous trash mobs (healers, summoners, fears and hard-hitting casters) to kill first. Automatic on The Burning Crusade Anniversary; on WoW Forever, Mark Pack marks a prepared pack and remains usable through combat, while Mark Mob marks a hovered NPC\n- Saved minimap size with a default of **400x400**\n\n## Compatibility\n\n- **Game versions:** The Burning Crusade Anniversary, World of Warcraft: Forever\n- **Interface:** `20506`, `16001`\n\nOn Forever, Blizzard's native queue eye replaces the LFG proxy button, so it appears only while queued and cannot be dragged. Blizzard's calendar button stays hidden, as it does on Anniversary.\n\n## Installation\n\n1. Download or clone this repository.\n2. Copy the `Prokin-Minimap` folder into:\n   `C:\\World of Warcraft\\_anniversary_\\Interface\\AddOns\\` or `C:\\World of Warcraft\\_forever_\\Interface\\AddOns\\`\n3. Start the game and enable **Prokin-Minimap** in the addon list.\n\n## Usage\n\n- `/pkm` - show the current size and command help\n- `/pkm size 400` - set the minimap to an exact square size\n- `/pkm larger` - increase size by 25\n- `/pkm larger 50` - increase size by a custom step\n- `/pkm smaller` - decrease size by 25\n- `/pkm smaller 50` - decrease size by a custom step\n- `/pkm reset` - restore the default `400x400` size\n- `/pkm zonetext 14` - set the zone text size, from 8 to 32\n- `/pkm zonetext reset` - restore the default zone text size\n- `/pkm buffs` - unlock or lock the buff icons, then drag the blue box to move them\n- `/pkm buffs reset` - clear the saved buff position, then `/reload` to restore Blizzard's position\n- `/pkm mark` - show smart marking status and your group's crowd control. Icons follow the standard convention: Skull and Cross kill first; Moon is Polymorph (Mage); Square is Freezing Trap (Hunter); Star is Sap (Rogue) or the third kill target; Diamond is Banish, Seduce or Fear (Warlock); Triangle is Hibernate or Entangling Roots (Druid) or the off-tank's elite; Circle is Shackle Undead or Mind Control (Priest), or the stack marker on your tank\n- `/pkm mark key <key>` - change the Mark Pack key (default **5**). You can also set it in Prokin Minimap Options. It marks the pack in front of you on your own, as a party leader, or as a raid leader or assistant; `/pkm mark key none` turns it off, `/pkm mark key default` restores 5. The account-wide \"Prokin Mark Pack\" macro does the same from an action bar\n- Revelation weapon enchant procs show a pulsing banner in the middle of the screen with a sound, until the buff fades or for up to 6 seconds. Turn it off with \"Show Revelation proc alert\" in Options.\n- `/pkm mark on` / `/pkm mark off` - turn smart marking on or off; `/pkm mark anyone` also marks when you are not the leader, `/pkm mark leader` restores the default\n- `/pkm mark priority` / `/pkm mark ignore` - always kill your target's NPC first, or never mark it; repeat to undo\n- `/pkm mark clear` - remove raid icons (on Forever, use the Clear All Marks key binding)\n- `/pkm resetmoon` - restore the default position of the Forever day/night icon when icon alignment is off\n- `/pkm options` - open the Prokin Minimap options window\n\n### Gold Tracking Commands\n\nThe Gold Tracker provides detailed income and expense tracking:\n\n- `/pkm ledger` - display your current character's ledger (income, expenses, breakdown)\n- `/pkm ledger <character-name>` - display a specific character's ledger\n- `/pkm expenses [limit]` - show recent expense history (default 10 entries)\n- `/pkm allcharacters` - display ledger summary for all characters on your account\n\nThe tooltip on the Prokin minimap button displays:\n- **GPH**: Gold Per Hour from realized session money changes, after tracked cash expenses\n- **Session Income**: Total gold earned\n- **Session Expense**: Total gold spent (repairs, postage, materials)\n- **Session Net**: Net income after expenses\n- **Daily Total**: Daily income\n- **Daily Expense**: Daily expenses\n- **Daily Net**: Daily net income\n- **Inventory Worth**: Total value of items in your bags\n\nThe custom zone label uses the server clock and appends the current time in the format `[HH:MM AM/PM]`.\n\nLeft-drag the visible Blizzard minimap widgets to reorganize them around the square border. Their positions are saved in `ProkinMinimapDB`, the tracking proxy still opens Blizzard's tracking menu when clicked, and the battleground queue button now uses Blizzard's native button directly so queue actions stay protected.\n\nThe Prokin minimap button starts a role check on left-click, opens the options window on right-click, and can be repositioned with Alt + Left Drag. Its tooltip shows each party or raid member's assigned role.\n\n## Gold Tracking System\n\nThe Gold Tracker provides comprehensive expense tracking alongside income tracking:\n\n### Tracked Expense Categories\n\n1. **Repairs** - Costs from repairing armor and weapons\n2. **Postage** - Mail postage fees\n3. **Crafting Materials** - Value of items consumed when crafting\n4. **Disenchanting** - Loss from disenchanting items (gain from dust/shards is tracked as income)\n5. **Item Loss** - Other item losses not categorized\n6. **Other Expenses** - Miscellaneous gold spending\n\n### How Tracking Works\n\n- **Session and daily totals** include:\n  - Looting gold and items\n  - Quest rewards\n  - Vendor sales\n  - Mail items and gold\n  - Disenchant dust/shards\n\n- **GPH** is calculated from actual changes to the character's money balance. Estimated bag-item values are excluded until they become cash, preventing unsold loot from inflating gold per hour.\n- **Item values** use TSM's `dbmarket` price when available. If TSM is absent or has no usable price, the game vendor sell price is used; items without a known sell price are omitted from estimates.\n\n- **Expenses** are tracked from:\n  - NPC repairs automatically detected via `GetRepairAllCost()`\n  - Mail postage via `GetSendMailPrice()`\n  - Crafting materials based on inventory changes\n  - Item transactions automatically tracked through inventory snapshots\n\n- **Inventory Worth** is calculated by:\n  - Scanning all bags\n  - Using TSM pricing (dbmarket) when available\n  - Falling back to vendor prices if TSM is not installed\n\n## Saved Variables\n\nThe addon stores its settings in:\n\n- `ProkinMinimapDB`\n\n## Repository\n\nGitHub: [https://github.com/gnummers/Prokin-Minimap](https://github.com/gnummers/Prokin-Minimap)\n\n## Credits\n\n- Smart marking's Classic and WoW Forever dungeon boss names come from [AKForeverTargeter](https://github.com/ajkatz/AKForeverTargeter) by Purrdee, under the MIT License (the notice is in `Prokin-Minimap-MarkerData.lua`). NPC IDs were looked up on Wowhead and cross-checked with the AzerothCore creature database.\n- Thanks to the TradeSkillMaster authors for the pricing model inspiration.\n\n## License\n\nLicensed under the GNU Affero General Public License version 3 (AGPLv3). See [LICENSE](https://github.com/gnummers/Prokin-Minimap/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.58",
+      "name": "Prokin Minimap v1.0.58",
+      "published": "2026-11-23",
+      "notes": "## Changes\n- Added an Options switch to show or hide Friends and Guild roster output in the Prokin icon tooltip.\n- Added a green and gold Guild button badge based on the supplied Friends artwork.\n- Fixed Revelation proc detection to react immediately to aura applications and refreshes, including combat log events where available.\n- GPH now uses realized session money changes; item estimates no longer count toward GPH before sale.\n- TSM item pricing safely falls back to vendor value when a market value is unavailable; without TSM, vendor values are used."
+    },
+    {
+      "tag": "v1.0.57",
+      "name": "Prokin-Minimap v1.0.57",
+      "published": "2026-11-23",
+      "notes": "Removed AutoLayer integration and all layer detection, display, logging, language-based layer tools, and layer-changing chat notices. This release includes the latest options and Revelation alert fixes."
+    },
+    {
+      "tag": "v1.0.56",
+      "name": "Prokin-Minimap v1.0.56",
+      "published": "2026-11-23",
+      "notes": "- The options window now sizes itself to fit everything in it, so the help text at the bottom is no longer cut off at the window's edge, whatever your UI scale. It also starts 40 px taller"
+    },
+    {
+      "tag": "v1.0.55",
+      "name": "Prokin-Minimap v1.0.55",
+      "published": "2026-11-22",
+      "notes": "- The Revelation proc alert is now a pulsing banner in the middle of the screen with the Revelation icon, \"REVELATION!\" and \"Next spell guaranteed crit\". It stays up to 6 seconds, or until the buff fades, and still plays a sound\n- Added a \"Show Revelation proc alert\" option to turn the alert off\n- Revelation detection also watches spell ID 1248806, from an earlier build\n- The Mark Pack key setting in Options now has Apply and Reset buttons, shows the default (5), and explains key names in its tooltip. Leaving the box empty turns the key off"
+    },
+    {
+      "tag": "v1.0.54",
+      "name": "Prokin-Minimap v1.0.54",
+      "published": "2026-11-22",
+      "notes": "- Fixed the options window layout: the Zone Text Size and Addon Icon Spacing sliders no longer overlap each other or the buff icon buttons, and the help text at the bottom now wraps inside the window instead of running off the right edge"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-05-24",
+      "2026-05-24",
+      "2026-05-24",
+      "2026-05-23",
+      "2026-05-22",
+      "2026-05-22",
+      "2026-05-21",
+      "2026-05-16",
+      "2026-05-15",
+      "2026-05-13",
+      "2026-05-13",
+      "2026-05-13",
+      "2026-05-02",
+      "2026-05-02",
+      "2026-05-02",
+      "2026-05-02",
+      "2026-05-02",
+      "2026-05-02",
+      "2026-05-01",
+      "2026-05-01",
+      "2026-05-01",
+      "2026-05-01",
+      "2026-05-01",
+      "2026-05-01",
+      "2026-05-01",
+      "2026-05-01",
+      "2026-05-01",
+      "2026-04-30"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Prokin-Minimap"
+    ],
+    "editions": [
+      "anniversary",
+      "forever"
+    ],
+    "savedVariables": [
+      "ProkinMinimapDB"
+    ]
+  }
+}

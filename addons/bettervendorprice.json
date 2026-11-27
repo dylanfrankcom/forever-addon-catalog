@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "id": "bettervendorprice",
+  "repo": "mooreatv/BetterVendorPrice",
+  "about": "![](https://raw.githubusercontent.com/mooreatv/BetterVendorPrice/master/BetterVendorPrice.png)\n\n# Better Vendor Price (BVP) - WoW Forever edition\n\nBVP shows what your items are really worth to a vendor (per item and per full stack, not just the stack you happen\nto hold) and, when your bags are full, restacks them and tells you which item is the cheapest to throw away.\n\nMade for WoW Forever, and the same version also works on retail. The Classic / Mists versions (and their MoLib\nbased code) are on the\n[legacy](https://github.com/mooreatv/BetterVendorPrice/tree/legacy) branch.\n\n## Bags full? BVP knows what to throw away\n\nBVP highlights in your bags the item that's the cheapest to get rid of. When your bags get full, it first restacks\nyour partial stacks (also into the reagent and profession bags) to free slots without losing anything, then tells\nyou in chat which item it is.\n\nIt's smarter than \"lowest vendor price\": a stack that's still filling up with what you're looting counts for what it\nwill be worth. Say you have 4 of something that sells for 3s each and 2 of something else for 4s each, and both keep\ndropping: if both stack to 5, throw away the 4, that slot is worth 15s full, the other one 20s. If they stack to 20\nand 5, it's the other way around. BVP does that math for you.\n\nIt only looks at your main bags (where loot goes), not the reagent or profession bags, skips items that can't be\nsold (Hearthstone, quest items...), and never destroys anything itself. Cheap but needed, like your fishing pole?\n`/bvp keep` and it moves on to the next one.\n\n## Tooltip info\n\nThe game's own \"Sell Price\" line is for the stack under the mouse. BVP adds only what that line doesn't tell you:\n- the price per item and how many stack together,\n- what a full stack sells for.\n\nWorks anywhere item tooltips show, including bags, vendors, item links in chat and the auction house.\n\nFor auction house prices and history in the same tooltips, also install\n[AHDB](https://www.curseforge.com/wow/addons/auction-house-database) (Auction House DataBase): BVP shows the vendor\nlines and AHDB the AH ones, no duplicates.\n\n## Commands and options\n\n- `/bvp cheapest`: restack and show the cheapest slot, anytime.\n- `/bvp restack`: merge partial stacks to free bag slots.\n- `/bvp keep`: never suggest the current cheapest item again; `/bvp keep <item>` for any item,\n  `/bvp unkeep <item>` to undo (items by link, id or exact name). `/bvp keep list`: the kept items window, drop\n  items on it or Ctrl+Right click them in the bags to keep them, X to remove.\n- `/bvp config`: options (Options > AddOns > Better Vendor Price): single line tooltip or only with Shift held,\n  highlight, chat message when the bags are full, auto restacking.\n- `/bvp` lists all commands.\n\n## More information\n\nGet the binary release using [curseforge](https://www.curseforge.com/wow/addons/better-vendor-price) client or other\naddon manager or on wowinterface.\n\nThe source of the addon resides on https://github.com/mooreatv/BetterVendorPrice\n\nReleases detail/changes are on https://github.com/mooreatv/BetterVendorPrice/releases",
+  "releases": [
+    {
+      "tag": "v2.1.4",
+      "published": "2026-11-17",
+      "notes": "# Better Vendor Price\n\n## [v2.1.4](https://github.com/mooreatv/BetterVendorPrice/tree/v2.1.4) (2026-11-17)\n[Full Changelog](https://github.com/mooreatv/BetterVendorPrice/compare/v2.1.3...v2.1.4) [Previous Releases](https://github.com/mooreatv/BetterVendorPrice/releases)\n\n- Kept items window, keep/unkeep by id, link or name (#22)  \n    - `/bvp keep list` (or the options' Kept items button) opens a kept items window: drop items on it, Ctrl+Right click them in the bags or type a name / id to keep them, X to remove  \n    - `/bvp keep <item>` takes an id, link or exact name  \n    - `/bvp unkeep <item>` takes an item off the keep list"
+    },
+    {
+      "tag": "v2.1.3",
+      "published": "2026-10-25",
+      "notes": "# Better Vendor Price\n\n## [v2.1.3](https://github.com/mooreatv/BetterVendorPrice/tree/v2.1.3) (2026-10-25)\n[Full Changelog](https://github.com/mooreatv/BetterVendorPrice/compare/v2.1.2...v2.1.3) [Previous Releases](https://github.com/mooreatv/BetterVendorPrice/releases)\n\n- Toc: retail interface 12.1.5, install.bat for the new install (#20)  \n    Interface 120105 for retail 12.1.5. install.bat installs to retail, classic beta and Forever."
+    },
+    {
+      "tag": "v2.1.2",
+      "published": "2026-10-10",
+      "notes": "# Better Vendor Price\n\n## [v2.1.2](https://github.com/mooreatv/BetterVendorPrice/tree/v2.1.2) (2026-10-10)\n[Full Changelog](https://github.com/mooreatv/BetterVendorPrice/compare/v2.1.1...v2.1.2) [Previous Releases](https://github.com/mooreatv/BetterVendorPrice/releases)\n\n- No more lua error on item tooltips in instance combat (#19)  \n    Vendor price lines no longer break tooltips (until /reload) when hovering items during combat in a dungeon."
+    },
+    {
+      "tag": "v2.1.1",
+      "published": "2026-10-09",
+      "notes": "# Better Vendor Price\n\n## [v2.1.1](https://github.com/mooreatv/BetterVendorPrice/tree/v2.1.1) (2026-10-09)\n[Full Changelog](https://github.com/mooreatv/BetterVendorPrice/compare/v2.1.0...v2.1.1) [Previous Releases](https://github.com/mooreatv/BetterVendorPrice/releases)\n\n- Options page shows the current settings on first open (was blank or unchecked until reopened) (#18)"
+    },
+    {
+      "tag": "v2.1.0",
+      "published": "2026-10-09",
+      "notes": "# Better Vendor Price\n\n## [v2.1.0](https://github.com/mooreatv/BetterVendorPrice/tree/v2.1.0) (2026-10-09)\n[Full Changelog](https://github.com/mooreatv/BetterVendorPrice/compare/v2.0.0...v2.1.0) [Previous Releases](https://github.com/mooreatv/BetterVendorPrice/releases)\n\n- Retail support, restack says what it stacked (#17)  \n    - Same version now also loads on retail (12.1.0), alongside WoW Forever  \n    - /bvp restack and auto restack list the items they merged  \n    - /bvp debug also turns on the lua errors display"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/mooreatv/BetterVendorPrice/master/BetterVendorPrice.png"
+  ],
+  "stats": {
+    "stars": 24,
+    "openIssues": 10,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-10-25",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09",
+      "2025-08-06",
+      "2025-07-14",
+      "2025-07-14",
+      "2025-07-14",
+      "2025-04-15",
+      "2025-01-28",
+      "2024-11-20",
+      "2024-09-28",
+      "2024-08-14",
+      "2024-07-25",
+      "2024-07-09",
+      "2024-06-05",
+      "2024-05-31",
+      "2024-04-02",
+      "2024-02-09",
+      "2023-11-18",
+      "2023-10-25",
+      "2023-09-06",
+      "2023-08-23",
+      "2023-06-25",
+      "2023-05-04",
+      "2023-05-04",
+      "2023-03-21",
+      "2023-01-28",
+      "2023-01-28",
+      "2022-11-20",
+      "2022-11-19",
+      "2022-10-29",
+      "2022-10-25",
+      "2022-09-05",
+      "2022-09-04",
+      "2022-07-17",
+      "2022-06-04",
+      "2022-03-26",
+      "2022-02-22",
+      "2022-02-13",
+      "2022-02-13",
+      "2021-12-19",
+      "2021-12-19",
+      "2021-09-02",
+      "2021-06-29",
+      "2021-05-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BetterVendorPrice"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "betterVendorPriceSaved"
+    ]
+  }
+}

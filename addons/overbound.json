@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "overbound",
+  "repo": "nikkisaurus/Overbound",
+  "releases": [
+    {
+      "tag": "v2.0.6",
+      "published": "2026-11-24",
+      "notes": "# Overbound\n\n## [v2.0.6](https://github.com/nikkisaurus/Overbound/tree/v2.0.6) (2026-11-24)\n[Full Changelog](https://github.com/nikkisaurus/Overbound/compare/v2.0.5...v2.0.6) [Previous Releases](https://github.com/nikkisaurus/Overbound/releases)\n\n- Update TOCs"
+    },
+    {
+      "tag": "v2.0.5",
+      "published": "2026-02-23",
+      "notes": "# Overbound\n\n## [v2.0.5](https://github.com/nikkisaurus/Overbound/tree/v2.0.5) (2026-02-23)\n[Full Changelog](https://github.com/nikkisaurus/Overbound/compare/v2.0.3...v2.0.5) [Previous Releases](https://github.com/nikkisaurus/Overbound/releases)\n\n- Remove classic package  \n- Update TOC"
+    },
+    {
+      "tag": "v2.0.3",
+      "published": "2026-01-22",
+      "notes": "# Overbound\n\n## [v2.0.3](https://github.com/nikkisaurus/Overbound/tree/v2.0.3) (2026-01-22)\n[Full Changelog](https://github.com/nikkisaurus/Overbound/compare/v2.0.2...v2.0.3) [Previous Releases](https://github.com/nikkisaurus/Overbound/releases)\n\n- Midnight TOC update"
+    },
+    {
+      "tag": "v2.0.2",
+      "published": "2023-02-02",
+      "notes": "# Overbound\n\n## [v2.0.2](https://github.com/nikkisaurus/Overbound/tree/v2.0.2) (2023-02-02)\n[Full Changelog](https://github.com/nikkisaurus/Overbound/compare/v2.0.1...v2.0.2) [Previous Releases](https://github.com/nikkisaurus/Overbound/releases)\n\n- Update TOC and fix libs  \n- Merge branch 'dragonflight' of https://github.com/nikkisaurus/overbound into dragonflight  \n- Fix macrotext bindings for DF  \n- dragonflight"
+    },
+    {
+      "tag": "v2.0.1",
+      "published": "2022-10-04",
+      "notes": "# Overbound\n\n## [v2.0.1](https://github.com/nikkisaurus/overbound/tree/v2.0.1) (2022-10-04)\n[Full Changelog](https://github.com/nikkisaurus/overbound/compare/v2.0...v2.0.1) [Previous Releases](https://github.com/nikkisaurus/overbound/releases)\n\n- TOC update  \n- Update workflows"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-02-23",
+      "2026-01-22",
+      "2023-02-02",
+      "2022-10-04",
+      "2022-09-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Overbound"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "OverboundDB",
+      "OverboundDevDB"
+    ]
+  }
+}

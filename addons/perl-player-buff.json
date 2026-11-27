@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "perl-player-buff",
+  "repo": "HgAlexx/Perl-Player-Buff",
+  "about": "**Perl Player Buff** was originally a plugin for [Global](https://www.curseforge.com/members/glow_ball/projects)'s addon [**Perl Classic Unit Frames**](https://www.curseforge.com/wow/addons/perl-classic-unit-frames).\n\n**New**: It can now be used with **many player unit frame addons**, including Blizzard.\n\n---\n\nFeel free to report any bug or request any feature [here](https://github.com/HgAlexx/Perl-Player-Buff/issues) :)\n\n---\n\n**Known issues**:\n- Weapon buffs are not working on Forever at the moment due to a Blizzard API defect\n\n---\n\n**Features**:\n\n- **New**: Will now anchor to various player unit frames, including:\n  - Blizzard default player unit frame\n  - Various Perl forks (Perl, XPerl, ZPerl, TPerl)\n  - ElvUI\n  - Shadowed Unit Frames\n  - **Please report any anchoring issue!**\n- Move buffs and debuffs around the supported player unit  frame\n- Handle weapon buffs\n- Show/hide original timer under buff/debuff\n  - With/without seconds\n- Show/hide native cooldown (support OmniCC)\n- Configurable anchor point\n- Configurable vertical and horizontal offset\n- Configurable vertical and horizontal spacing\n- Configurable scaling\n- Configurable cooldown scaling\n- Configurable buffs/debuff per row\n- Configurable maximum number of rows\n\nFeel free to request anchoring support for other addons!\n\nAll features can be configured from the Blizzard interface menu.\n\nSettings can also be changed with `/ppb command <value>`. Run `/ppb` for the command list.",
+  "releases": [
+    {
+      "tag": "73",
+      "published": "2026-10-11",
+      "notes": "* Properly fixed default BuffFrame poping back"
+    },
+    {
+      "tag": "72",
+      "published": "2026-10-11",
+      "notes": "* Updated to support new Retail and Forever API\n* Perl Player Buff will now anchor to various player unit frames, including Blizzard\n* Dropped all unused translations\n* Updated TOC"
+    },
+    {
+      "tag": "70",
+      "published": "2025-08-07",
+      "notes": "* Options can now be opened via the Perl Config panel like before\n* Fixed potential protected call issues by updated code to latest version\n* Code clean up"
+    },
+    {
+      "tag": "68",
+      "published": "2025-06-14",
+      "notes": "* Fixed native Debuff not being hidden"
+    },
+    {
+      "tag": "67",
+      "published": "2024-08-29",
+      "notes": "* Fixed call to deprecated function"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-11",
+    "releaseDates": [
+      "2026-10-11",
+      "2026-10-11",
+      "2025-08-07",
+      "2025-06-14",
+      "2024-08-29",
+      "2024-08-08",
+      "2024-05-09",
+      "2024-05-08",
+      "2023-11-21",
+      "2023-11-17",
+      "2022-10-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Perl_Player_Buff"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "Perl_Player_Buff_Settings"
+    ]
+  }
+}

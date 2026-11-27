@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "id": "healbot",
+  "repo": "davidmarshall15/Healbot",
+  "about": "HealBot Continued\n-----------------\n\n  - Visit the Healbot website for information: https://healbot.dpm15.net.\n  - Questions and bug reports on discord:  https://discord.gg/gwa6rdCeZ4\n  - Over 80 extra skins packaged and ready for import in-game.\n  - Includes Blizzard Forever - Party, Blizzard Forever - Raid 10 and Blizzard Forever - Raid 40: HealBot presets inspired by Blizzard's compact frames.\n\nBlizzard compact-frame skins\n---------------------------\n  - Open HealBot options, then Skins > Import/Export > Extra Skins.\n  - Select Blizzard Forever - Party under Group, Raid 10 under Small Raid, or Raid 40 under Large Raid, then click Import.\n  - These presets use class colours, Blizzard raid-bar textures, dark borders, a power bar and corner auras. They retain HealBot click-casting.\n  - They are visual approximations, not replacements for Blizzard's entire UI. Existing Blizzard frames remain visible; hide them separately in HealBot's skin settings if desired.\n  - Reset combat timer overrides in Skins > Frames > Icons > Native auras: set Countdown numbers to Follow skin.\n\nRole icons on HealBot frames\n---------------------------\n  - Open Skins > Frames > Icons > Extras > Class / Role and select the frame to configure.\n  - Enable Show role (Mostra ruolo). This also enables the shared class/role icon slot.\n  - Disable Only show tanks to show tank, healer and DPS icons. Enable Always enabled to keep the icon visible on healthy bars.\n  - Use Position, Anchor, Scale and the horizontal/vertical offsets in the same panel to place the icon.\n  - The Blizzard Forever presets include visible role icons by default on new imports. For an already imported skin, enable Show Class and Show role in the panel above; no reimport is required.\n  - Role icons use the same slot as class icons. Turning off Show role returns to the class icon; turning off Show Class hides the slot.\n\nDebuffs after combat on Forever\n-------------------------------\n  - Native debuff icons and configured bar colours remain active outside combat, including DoTs left over from a fight. The client updates them when auras expire or are removed.\n  - The first debuff icon row uses the same harmful-aura filter and icon limit as in combat, including debuffs you cannot dispel. HealBot's cure warnings and custom icon sets 2/3 retain their own settings.\n  - This is enabled by default on Forever. In Skins > Frames > Icons > Native auras, toggle Keep debuffs visible outside combat to change it.\n  - Debuff monitoring, bar-colour settings and Enable native buff and debuff icons still control their respective displays. If native icons are unavailable, HealBot keeps its normal icon renderer.\n\nHealth text and buff settings on Forever\n---------------------------------------\n  - Current health and Deficit use the selected number format, including K/M abbreviations and Auto. Deficit uses the client's missing-health API and keeps the minus sign; at full health it can display -0. Include percent remains an independent setting.\n  - Open Skins > Frames > Icons > Native auras (Aure native in Italian). These options apply globally to all frames and skins, so this tab does not show the frame selector or Copy to frames controls.\n  - On Forever, ordinary bars use legacy buff icons outside combat and native buff rows in combat. Their first-row count follows the skin's Max icons and the global Buff icon cap; zero disables the row. Debuffs likewise respect Max icons and Debuff icon cap.\n  - Native Custom Buffs honor Self/Everyone through separate groups without duplicating your own casts. With both scopes configured, Everyone reserves half the existing icon slots (rounded up), and Self receives the rest; unused reserved slots cannot be borrowed. My Class keeps its existing player-only native limitation.\n  - ID-only custom buffs remain independent across ranks; name-mode matching includes public spellbook/cache families. With Also in combat enabled, custom selections and exclusions update prepared groups without rebuilding the row.\n  - Countdown numbers offers Follow skin, Always show and Always hide. With Follow skin selected, use Duration in the relevant Buffs/Debuffs > Text tab; Count controls stack text independently.\n  - Maximum buff duration is in seconds: 120 excludes buffs longer than two minutes and permanent buffs; 0 means no limit, the 26.11.20 default.\n  - Use skin icon size follows each frame's skin. Uncheck it to select a global Icon size. The Priest spell filter is available for priests on Forever.\n  - Settings save automatically. Changes requiring new icons are deferred until combat ends. UI and `/hbca` commands share the same saved settings and stay synchronized; commands remain optional shortcuts.\n  - An explicit Target binding takes priority over SmartCast in this branch. To use SmartCast's out-of-combat buff/cure/resurrection selection, bind a healing spell to unmodified left-click and move Target to a modifier or another button.\n  - See [Forever frame and buff reliability](https://github.com/davidmarshall15/Healbot/blob/master/Docs/forever-frame-and-buff-reliability.md) for movement/startup behavior, caster limits and the in-game verification checklist.\n\nInstalling and Updating\n-----------------------\n  - Completely log off WoW\n  - Unzip the downloaded\n  - Copy the HealBot folders into your WoW Addons folder.\n  - Logon to WoW as your main Healer.\n  - As a priority you should open the options and configure spells, debuffs and buffs.",
+  "releases": [
+    {
+      "tag": "26.11.20",
+      "published": "2026-11-20",
+      "notes": "### v26.11.20\n- Updated extra skin Emerg 25\n- Major fixes and improvements"
+    },
+    {
+      "tag": "26.11.14",
+      "published": "2026-11-14",
+      "notes": "### v26.11.14\n- Updated extra skin Raid 40 v9\n- Minor fixes and improvements"
+    },
+    {
+      "tag": "26.11.06.2",
+      "published": "2026-11-06",
+      "notes": "### v26.11.06.2\n- Minor fixes and improvements"
+    },
+    {
+      "tag": "26.11.06",
+      "published": "2026-11-06",
+      "notes": "### v26.11.06\n- Minor fixes and improvements"
+    },
+    {
+      "tag": "26.10.30",
+      "published": "2026-10-30",
+      "notes": "### v26.10.30\n- Updated extra skin Raid 25 v9\n- Minor fixes and improvements"
+    }
+  ],
+  "stats": {
+    "stars": 37,
+    "contributors": 24,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-14",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-10-30",
+      "2026-10-23",
+      "2026-10-16",
+      "2026-10-09",
+      "2026-10-02",
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-18",
+      "2026-09-11",
+      "2026-09-07",
+      "2026-09-04",
+      "2026-08-28",
+      "2026-08-21",
+      "2026-08-14",
+      "2026-08-07",
+      "2026-07-31",
+      "2026-07-24",
+      "2026-07-17",
+      "2026-07-03",
+      "2026-06-19",
+      "2026-06-12",
+      "2026-05-29",
+      "2026-05-22",
+      "2026-05-15",
+      "2026-05-08",
+      "2026-05-01",
+      "2026-04-26",
+      "2026-04-24",
+      "2026-04-17",
+      "2026-04-10",
+      "2026-04-04",
+      "2026-04-03",
+      "2026-03-27",
+      "2026-03-20",
+      "2026-03-13",
+      "2026-03-06",
+      "2026-02-27",
+      "2026-02-20",
+      "2026-02-13",
+      "2026-02-06",
+      "2026-01-30",
+      "2026-01-23",
+      "2026-01-16",
+      "2026-01-09",
+      "2026-01-02",
+      "2025-12-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HealBot",
+      "HealBot_ExtraSkins",
+      "HealBot_Tips"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0"
+    ],
+    "savedVariables": [
+      "Healbot_Config_Skins",
+      "Healbot_Config_Aux",
+      "HealBot_Globals",
+      "HealBot_Class_Spells",
+      "HealBot_Class_Buffs",
+      "HealBot_Class_Cures",
+      "HealBot_Skins_ActionIcons",
+      "HealBot_Skins_ActionIconsData"
+    ],
+    "savedVariablesPerCharacter": [
+      "HealBot_Config",
+      "HealBot_Config_Spells",
+      "HealBot_Config_Buffs",
+      "HealBot_Config_Cures",
+      "HealBot_ActionIcons_Loadouts",
+      "HealBot_ActionIconsData_Loadouts",
+      "HealBot_Spell_Loadouts"
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "priestly",
+  "repo": "Spotnick2/priestly",
+  "about": "# Priestly Forever\n\n**Priestly** is a lightweight buff manager for priests, inspired by **PallyPower**. It tracks\n*Power Word: Fortitude*, *Divine Spirit* and *Shadow Protection* across your party or raid and lets\nyou rebuff with a single click.\n\nThis is the **World of Warcraft: Forever** edition (client 1.60.1, Interface `16001`).\n\n> **[Buffy](https://github.com/Spotnick2/Buffy) is the new consolidated version.** It combines\n> Priestly, Magely and Wildly in one addon on the same engine, and picks Priest, Mage or Druid\n> buffs for the character you log in. It starts with fresh settings rather than importing\n> Priestly's, so disable Priestly while you use it, or you get two buff windows.\n\n![Priestly buff window in a group](https://raw.githubusercontent.com/Spotnick2/priestly/main/docs/screenshots/priestly-05.gif)\n\n*Example from an earlier build; the current window has additional controls.*\n\n> **Playing TBC Classic Anniversary?** Install **v1.0.6** — the last release for that client. It\n> stays available on CurseForge and the CurseForge app will keep offering it for the Anniversary\n> game version. The Anniversary line is no longer being developed.\n\n---\n\n## Features\n\n* **One row per group, per buff** — colour-coded by how many people are missing it, with the lowest\n  remaining timer on the bar.\n* **One-click buffing** — left-click casts the group Prayer, right-click buffs the first person\n  missing it. No targeting.\n* **Works before you have the Prayers** — while you only know the single-target spells, left-click\n  simply buffs whoever needs it. Nothing is wired to a spell you do not have.\n* **Per-member popover** — mouse over a row for the full list with range indicators and per-person\n  click casting.\n* **Group-aware** — follows party and raid changes, subgroups, and pets. Hunter and Warlock pets\n  are never listed: on Forever they scale from their master.\n* **Reagent tracking** — shows the candles and Light Feathers needed by spells you know.\n* **Shadow Protection when it counts** — always, only when someone in the group already has it, or\n  only inside instances you pick.\n* **Window controls** — minimize without closing, lock its position, adjust opacity and choose\n  which side the member popover opens on.\n\n---\n\n## Usage\n\n```\n/priestly          toggle the window\n/priestly show     force open\n/priestly hide     close\n/priestly config   open the options panel\n/priestly reset    reset the window position\n/priestly pos      explain the window's saved position\n/priestly adopt    use this character's old settings for all your priests\n/priestly help     full command and click reference, then the spell names Priestly reads\n```\n\nIf a member shows `?`, note where it appears: beside the class icon it means the\nspell's range is unknown; in place of a timer it means the buff cannot be read and\nthere is no cached observation. These are independent, and neither proves a language\nproblem. For a battleground report, include a screenshot showing the column, whether\nyou are in combat, whether it recovers afterwards, and the spell-name report at the\nend of `/priestly help` (locale, game build, addon/library versions and resolved names).\n\nThe window opens on its own when you join a group.\n\nSettings persist between sessions. Buff choices and window options are shared across your priests;\nwhether the window is open is saved per character. If you previously configured different priests\nand want one character's older setup to become the shared setup, log into that character and use\n`/priestly adopt`.\n\nUse **-** in the header to minimize to a small header, and **+** to restore the\nbuff rows. This keeps the window accessible; **X** still closes it. Minimize and\nrestore wait until combat ends. The choice lasts for the current session and\nresets to expanded on `/reload` or login. Dragging, locking and resetting the\nwindow work in either mode outside combat.\n\n**Row colours:** green = everyone has it · yellow = some missing · red = nobody has it ·\ngrey `?` = buff state cannot be read right now (the client hides aura data during combat; Priestly\nkeeps counting down from the last reading instead of guessing).\n\n---\n\n## Installation\n\n### CurseForge (recommended)\n\nInstall through the CurseForge app and enable it in game.\n\n### GitHub and Wago\n\nDownload from [GitHub Releases](https://github.com/Spotnick2/priestly/releases/latest)\nor [Wago Addons](https://addons.wago.io/addons/priestly-priest-buff-manager-pally-power-style).\nBoth include the required libraries.\n\n### Manual\n\nDownload the release zip and extract it so the folder lands at:\n\n```\nWorld of Warcraft/_forever_/Interface/AddOns/Priestly/\n```\n\n---\n\n## Good to know\n\nPriestly uses single-target buffs until you learn the corresponding Prayer. It learns buff\ndurations from live auras and relearns them when the client build changes. If an instance is\nmissing from the Shadow Protection list, please report its in-game name.\n\nForever can hide aura data during combat. When it does, Priestly uses its last observation and\nshows `?` if no reliable reading is available. Window movement, closing and minimize/restore\nrequests made during combat take effect after combat ends.\n\nA world buff such as Might of Stormwind or Warchief's Blessing, or Camp Benefits, can make the\ngame refuse Power Word: Fortitude with \"A more powerful spell is already active\". When that happens\nout of combat to the rank the row casts, whether you cast it from the window, an action bar or a\nmacro, the row's single-target click moves on to the next member for up to 30 seconds, or until that\nmember's buffs change. You can still pick them from the popover. A refused lower rank, a refusal in\ncombat and one on a pet change nothing: the click aims as before.\n\nThe window's text uses the font for your game's language, so a Korean or Chinese client shows\nnames and labels as text. A Korean or Chinese character name on an English client still shows as\nboxes: the client's English font has no such characters.\n\n---\n\n## Feedback\n\nOpen an [issue on GitHub](https://github.com/Spotnick2/priestly/issues) or leave a comment on\nCurseForge. Include whether the problem happened in combat, a screenshot if the display looks\nwrong, and the lines `/priestly help` ends with: your locale, game build, Priestly and library\nversions, and the spell names Priestly reads from the client, with any it could not read flagged.\nUse `/console scriptErrors 1` to show Lua errors that the client otherwise hides.\n\n## Author\n\n**Spotnick**\n\n## License\n\nMIT — see [LICENSE](https://github.com/Spotnick2/priestly/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v2.1.3",
+      "name": "Priestly Forever 2.1.3",
+      "published": "2026-11-25",
+      "notes": "### Fixed\n- Out of combat, when the game refuses a single-target buff on a group member with \"A more\n  powerful spell is already active\" (a world buff such as Might of Stormwind or Warchief's\n  Blessing, or Camp Benefits), the row's single-target click now moves on to the next member\n  instead of trying the same one again: the left click, or the right click once you know Prayer\n  of Fortitude (which is unchanged). The refused cast can come from the window, an action bar or a\n  macro, as long as it is the rank the row casts. It tries that member again after 30 seconds, or\n  sooner if their buffs change, and you can still pick them yourself from the popover. In combat,\n  and on pets, the click aims as before. Needs LibGroupBuffs r39 (its refusal memory, LibGroupBuffs\n  #97).\n\n### Changed\n- **Checked on game build 1.60.1.71091**, the current WoW: Forever client. Nothing Priestly relies on\n  changed in this build, so there is nothing to do after updating.\n- Updated the embedded LibGroupBuffs library from r36 to r39. Apart from the fix above, the\n  window looks and behaves as before. LibGlass stays at r13. The fix was checked in game with\n  Buffy, which runs on the same LibGroupBuffs r39."
+    },
+    {
+      "tag": "v2.1.2",
+      "name": "Priestly Forever 2.1.2",
+      "published": "2026-11-22",
+      "notes": "### Fixed\n- Hunter and Warlock pets no longer count as missing Divine Spirit or Shadow Protection, or\n  appear as their click targets, as with Fortitude. On Forever these pets scale from their\n  master. Other pet types are unchanged.\n- The pet option is now **Track other pets**, and its description says which pets it covers:\n  Priestly never lists Hunter and Warlock pets, and lists other pets in your group.\n\n### Changed\n- **Checked on game build 1.60.1.71037**, the current WoW: Forever client. Nothing Priestly relies on\n  changed in this build, so there is nothing to do after updating.\n- Same libraries as v2.1.1: LibGroupBuffs r36 and LibGlass r13. The pet change has passed offline\n  tests; its in-game check follows this release."
+    },
+    {
+      "tag": "v2.1.1",
+      "name": "Priestly Forever 2.1.1",
+      "published": "2026-11-18",
+      "notes": "### Changed\n- **Checked on game build 1.60.1.70959**, the current WoW: Forever client. Nothing Priestly relies on\n  changed in this build, so there is nothing to do after updating.\n- The buff window's text now uses the font for your game's language: on a Korean or Chinese client,\n  names and labels show as text instead of empty boxes. English and other Latin-alphabet clients,\n  and Russian, keep the same font as before. A Korean or Chinese character name on an English\n  client still shows as boxes; that is a limit of the game client.\n- Updated the embedded libraries: LibGroupBuffs r34 to r36 and LibGlass r11 to r13, both included\n  in the download."
+    },
+    {
+      "tag": "v2.1.0",
+      "name": "Priestly 2.1.0",
+      "published": "2026-11-04",
+      "notes": "### Changed\n- Updated the embedded LibGroupBuffs library to r34. LibGlass stays at r11. The window looks\n  and behaves as before.\n- The spell report at the end of `/priestly help` now also counts names it cannot vouch for\n  either way (built by an older copy of the library another addon loaded), apart from names it\n  could not read from the client."
+    },
+    {
+      "tag": "v2.0.17",
+      "name": "Priestly 2.0.17",
+      "published": "2026-10-23",
+      "notes": "### Added\n- Header controls to minimize the window and restore it without closing it.\n  Requests made in combat apply when combat ends. Minimized state is session-only.\n\n### Changed\n- The buff window and popup now sit below normal UI panels, including bags.\n- Updated the embedded LibGroupBuffs library to r31 for minimize/restore controls\n  and lower window layering.\n- Updated the embedded LibGlass material from r8 to r11.\n\n### Fixed\n- `/priestly help` now distinguishes unknown spell range (`?` beside the class icon)\n  from unreadable buff state (`?` instead of a timer).\n- Hunter and Warlock pets no longer count as missing Fortitude or appear as Fortitude\n  click targets. Forever deliberately prevents these pets from receiving stat buffs.\n  Tracking for other priest buffs and other pet types is unchanged."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Spotnick2/priestly/main/docs/screenshots/priestly-05.gif"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 12,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-22",
+      "2026-11-18",
+      "2026-11-04",
+      "2026-10-23",
+      "2026-10-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Priestly"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "PriestlyAccountDB",
+      "PriestlySVCheck"
+    ],
+    "savedVariablesPerCharacter": [
+      "PriestlyDB"
+    ]
+  }
+}

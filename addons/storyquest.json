@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "storyquest",
+  "repo": "nezroy/StoryQuest",
+  "about": "# StoryQuest\n\n**StoryQuest** provides a more immersive quest dialog experience inspired by the original quest dialog interface [found in Guild Wars 2](https://github.com/nezroy/StoryQuest/blob/main/screenshots/Guild-Wars-2-Quest-Guide-Breaking-the-Blade-12.jpg?raw=true).\n\nLeft-click, spacebar, or interact key to advance text. Right-click or backspace to go back in the text.\n\n⸻\n\n### SETTINGS\n\nSettings are found in the default AddOn options location: `ESC → Options → AddOns → StoryQuest`.\n\n  - **Lock Position**: check this to prevent the StoryQuest frame from being dragged/moved.\n  - **Scale Window**: adjust the size of the StoryQuest window to your preference.\n  - **Title Style**: sets the style of the title header to be normal, thin, or transparent.\n  - **Left-Click to Accept/Complete**: controls if left-clicking anywhere in the StoryQuest window counts as clicking on the Accept and Complete Quest buttons.\n  - **Head Slot Behavior**: global and per-character override setting that lets you control if your character's head slot item is shown or if it should always be hidden.\n  - **Weapon Behavior**: global and per-character override setting that lets you control how your weapons are shown. They can be stowed (sheathed), drawn, or hidden completely.\n  - **Scale Player Model**: adjusts the size of your character model in case the default racial scales don't feel quite right for you.\n\n⸻\n\n### STORYLINE / GW2 UI\n\nIsn't this just [Storyline](https://www.curseforge.com/wow/addons/storyline)? Did you just steal the [GW2 UI](https://www.curseforge.com/wow/addons/gw2-ui)'s immersive quest interface?\n\nThis project is a straight fork of the immersive quest interface from the GW2 UI. I have been a developer on that project for years and wrote a bunch of that immersive quest code :) Lately, however, I have been leaning towards a more \"default UI\" experience and wanted to pull out the one piece I still regularly use as a standalone addon while trying to make it more \"default\" looking.\n\nStoryline is a great addon too, though the original GW2 UI's quest interface (and therefore this addon) was not inspired by or cloned from it in any way. There's no question they've grown in parallel to offer a similar experience, but I happen to like the wider, darker, simpler, foot-less style that the GW2 UI started from, so I rolled my own version of that.\n\n⸻\n\n### KNOWN ISSUES\n\nTODO\n\n⸻\n\n### SCREENSHOTS\n\n![Any news?](https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest1.jpg)\n![Objectives page](https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest2.jpg)\n![Rewards offered](https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest3.jpg)\n![Big dragons](https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest4.jpg)\n![Little dragons](https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest5.jpg)\n![Balanced reading](https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest6.jpg)\n![Sense of scales](https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest7.jpg)\n![Settings](https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/settings.jpg)",
+  "releases": [
+    {
+      "tag": "1.0.7",
+      "published": "2026-11-14",
+      "notes": "- Add classic/forever backgrounds (Darkshore)\n- Fix classic/forever backgrounds (Duskwood)"
+    },
+    {
+      "tag": "1.0.6",
+      "published": "2026-11-09",
+      "notes": "- Fix classic/forever backgrounds (Westfall, Redridge)"
+    },
+    {
+      "tag": "1.0.5",
+      "published": "2026-10-22",
+      "notes": "- Fix classic/forever backgrounds (Undercity, Ironforge)\n- Add classic/forever backgrounds (Loch Modan)"
+    },
+    {
+      "tag": "1.0.4",
+      "published": "2026-10-13",
+      "notes": "- Updated backgrounds (The Coiled Isle)\n- Update TOC for 12.1.5"
+    },
+    {
+      "tag": "1.0.3",
+      "published": "2026-10-05",
+      "notes": "- Fix secret value access on UnitName result"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest1.jpg",
+    "https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest2.jpg",
+    "https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest3.jpg",
+    "https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest4.jpg",
+    "https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest5.jpg",
+    "https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest6.jpg",
+    "https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/quest7.jpg",
+    "https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/settings.jpg",
+    "https://raw.githubusercontent.com/nezroy/StoryQuest/main/screenshots/Guild-Wars-2-Quest-Guide-Breaking-the-Blade-12.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-09",
+      "2026-10-22",
+      "2026-10-13",
+      "2026-10-05",
+      "2026-10-05",
+      "2026-09-27",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-04-18",
+      "2026-01-28",
+      "2025-11-19",
+      "2025-10-15",
+      "2025-10-08",
+      "2025-10-06",
+      "2025-10-02",
+      "2025-09-29",
+      "2025-09-28",
+      "2025-09-27",
+      "2025-08-31",
+      "2025-08-24",
+      "2025-08-21",
+      "2025-08-07",
+      "2025-08-05",
+      "2025-08-05",
+      "2025-07-31",
+      "2025-07-21",
+      "2024-09-02",
+      "2024-09-02",
+      "2024-09-01",
+      "2024-08-31"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "StoryQuest"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "_DebugLog",
+      "BugSack",
+      "ACU"
+    ],
+    "savedVariables": [
+      "STORYQUEST_DB"
+    ],
+    "savedVariablesPerCharacter": [
+      "STORYQUEST_CHAR_DB"
+    ]
+  }
+}

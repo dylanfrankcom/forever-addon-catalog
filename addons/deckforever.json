@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "deckforever",
+  "repo": "eliog/DeckForeverAddon",
+  "about": "# DeckForever (addon)\n\nSteam Deck presets for **World of Warcraft: Forever**. Pick a preset, keep it or let it revert\nafter 15 seconds, done. Every preset was measured on a Steam Deck OLED: frame rate, 1% lows and\nbattery draw, in the open world and in a capital.\n\n**Designed to go with the [DeckForever app](https://github.com/eliog/DeckForever)**, which installs\nBattle.net and WoW: Forever on the Steam Deck, adds them to the Steam library, and can repair, back\nup or uninstall the setup. The app gets the game running; this addon tunes it. The addon also works\non its own if you set up the game another way.\n\n## Presets\n\n| Preset | Frame rate | What you get | Deck TDP limit | Battery life* |\n|---|---|---|---|---|\n| **Battery** | 30 fps | lightest look, steady everywhere, even in cities | 8–10 W | ~4.3 h |\n| **Balanced** | 45 fps | Battery plus real shadows and shading | 10 W | ~3.7 h |\n| **Max FPS** | 60 fps | sharp, longer view, full power (cities ~50 fps) | Off | ~2.8 h |\n| **Max Quality** | 30 fps | everything high: lighting, shadows, reflections. Plug in; not for cities | Off | ~2.5 h |\n\n\\*Steam Deck OLED, questing. Capitals are limited by power on any handheld; Battery at 30 fps is\nthe preset that stays smooth there.\n\n## Features\n\n- **Controller friendly.** D-pad moves a focus ring, A selects, B closes, shoulders switch tabs.\n  Large buttons, no dropdowns, nothing that needs hovering.\n- **Safe to try.** Your own settings are saved before the first preset; **Restore previous** puts\n  them back. Each apply shows a 15-second Keep / Revert dialog. Nothing is changed in combat.\n- **Customize** any preset setting with steppers that use the game's own names. Changes show in\n  gold; one button resets a preset.\n- **Steam Deck tab**: the Quick Access settings (refresh rate, frame limit, TDP) that go with each\n  preset. An addon can't change those, so the tab tells you what to set.\n- **UI scale** for the 7-inch screen. The game locks its own UI Scale option in Forever; the addon\n  scales the interface instead.\n- **Reload UI** button in the window, and a **minimap button** with a quick menu.\n- Raid and battleground settings (a separate set in the game) follow the preset, a notch lower.\n\n## Commands\n\n| Command | |\n|---|---|\n| `/deckforever` | Open the window |\n| `/deckforever apply battery\\|balanced\\|performance\\|quality` | Apply a preset (`performance` is Max FPS, `quality` is Max Quality) |\n| `/deckforever restore` | Back to your own settings from before the first preset |\n| `/deckforever preview <preset>` | List what a preset would change |\n| `/deckforever customize [preset]` / `deck [preset]` | Open the Customize / Steam Deck tab |\n| `/deckforever set <preset> <setting> <value>` / `reset <preset> [setting]` | Override or reset preset values |\n| `/deckforever uiscale <0.5-1.0>\\|default` | Interface size (about 0.75 suits the Deck) |\n| `/deckforever minimap on\\|off`, `raid on\\|off`, `reminder on\\|off\\|<minutes>` | Options |\n| `/deckforever fps`, `status`, `help` | Information |\n\n## Install\n\nNew to WoW: Forever on the Deck? Start with the [DeckForever app](https://github.com/eliog/DeckForever).\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/deckforever) (search for\n*DeckForever* in the CurseForge app), or download the zip from\n[Releases](https://github.com/eliog/DeckForeverAddon/releases) and extract it into\n`World of Warcraft/_classic_beta_/Interface/AddOns/` (the client folder for WoW: Forever).\n\n## Development\n\nTests run outside the game against a small WoW API mock, seeded with a WoW: Forever `Config.wtf`:\n\n```sh\nluajit tests/run.lua\n```\n\nReleases are built by the [BigWigs packager](https://github.com/BigWigsMods/packager) when a\n`v*` tag is pushed.\n\n## License\n\n[MIT](https://github.com/eliog/DeckForeverAddon/blob/main/LICENSE)\n\n## Disclaimer\n\nDeckForever is an independent, fan-made addon. It is not affiliated with, endorsed by or supported\nby Valve Corporation or Blizzard Entertainment. Steam and Steam Deck are trademarks of Valve\nCorporation. World of Warcraft is a trademark of Blizzard Entertainment, Inc.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-10-11",
+      "notes": "# DeckForever\n\n## [v1.0.1](https://github.com/eliog/DeckForeverAddon/tree/v1.0.1) (2026-10-11)\n[Full Changelog](https://github.com/eliog/DeckForeverAddon/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/eliog/DeckForeverAddon/releases)\n\n- CurseForge project ID; README links to CurseForge  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- README: the DeckForever app and this addon are designed to go together  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-10-11",
+      "notes": "# DeckForever\n\n## [v1.0.0](https://github.com/eliog/DeckForeverAddon/tree/v1.0.0) (2026-10-11)\n[Full Changelog](https://github.com/eliog/DeckForeverAddon/commits/v1.0.0) [Previous Releases](https://github.com/eliog/DeckForeverAddon/releases)\n\n- Release workflow: permission to publish GitHub releases  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- After Keep on a Deck, open the Steam Deck tab when the Quick Access settings change  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Steam Deck tab: your preset and numbered steps instead of preset buttons; drawn ••• button  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Steam Deck tab matches the real Quick Access Performance page; window opens on the left  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Steam Deck tab: a picture of the Quick Access Performance page, set for the selected preset  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- DeckForever 1.0.0  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-11",
+    "releaseDates": [
+      "2026-10-11",
+      "2026-10-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DeckForever"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "DeckForeverDB"
+    ]
+  }
+}

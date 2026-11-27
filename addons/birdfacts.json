@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "birdfacts",
+  "repo": "awallclock/BirdFacts",
+  "about": "# BirdFacts\n\nA simple dumb addon that allows you to say / yell / raid warning a random Bird Fact\n\nMain command:\n\n/bf \n\nCommand Options:\n\ns: Sends a bird fact to the /say channel. Sets default channel to /say\n\np: Sends a bird fact to the /party channel. Sets default channel to /party\n\nra: Sends a bird fact to the /raid channel. Sets default channel to /raid\n\nrw: Sends a bird fact to the /raidwarning channel. Sets default channel to /raidwarning\n\ng: Sends a bird fact to the /guild channel. Sets default channel to /guild\n\ni or bg: Sends a bird fact to /instance or /bg channel.\n\nw or t whispers a bird fact your current target\nr whispers a bird fact to your last reply. Or you can start a new whisper and type /bf r to send them a bird fact\n\nYou can also use the numbers 1 thru 5 to send a bird fact to global channels (1 being General, 2 being Trade, 3 being World Defense, 4 and 5 being any extra channels)\n\nExample usage:\n\n/bf p: Birds have wings!\n\nContact awallclock#1397 on Bnet for any issues or if you'd like to add a bird fact!",
+  "releases": [
+    {
+      "tag": "v6.0",
+      "published": "2026-10-11",
+      "notes": "# BirdFacts\n\n## [v6.0](https://github.com/awallclock/BirdFacts/tree/v6.0) (2026-10-11)\n[Full Changelog](https://github.com/awallclock/BirdFacts/compare/v5.2.5...v6.0) [Previous Releases](https://github.com/awallclock/BirdFacts/releases)\n\n- Bump version to 6.0 and update credit  \n    Update the add-on version and replace the credited author in the options panel.  \n- Remove obsolete test-files TODO  \n- Adjust combat handling for slash commands  \n    Run the `/bf opt` and `/bf auto` actions only when out of combat, without returning early from their command branches.  \n- Update BirdFacts.toc  \n    added forever version?  \n- further tweaking bugs to fix lua errors  \n- fixed bug for when trying to output a message while in combat  \n- added new fact"
+    },
+    {
+      "tag": "v5.2.5",
+      "published": "2026-08-17",
+      "notes": "# BirdFacts\n\n## [v5.2.5](https://github.com/awallclock/BirdFacts/tree/v5.2.5) (2026-08-17)\n[Full Changelog](https://github.com/awallclock/BirdFacts/compare/v5.2.4...v5.2.5) [Previous Releases](https://github.com/awallclock/BirdFacts/releases)\n\n- updated correct version number for midnight  \n- updated Libs  \n- updated for Midnight"
+    },
+    {
+      "tag": "v5.2.4",
+      "published": "2026-07-12",
+      "notes": "# BirdFacts\n\n## [v5.2.4](https://github.com/awallclock/BirdFacts/tree/v5.2.4) (2026-07-12)\n[Full Changelog](https://github.com/awallclock/BirdFacts/compare/v5.2.2...v5.2.4) [Previous Releases](https://github.com/awallclock/BirdFacts/releases)\n\n- updated MoP Version  \n- updated version for MoP"
+    },
+    {
+      "tag": "v5.2.3",
+      "published": "2026-07-12",
+      "notes": "# BirdFacts\n\n## [v5.2.3](https://github.com/awallclock/BirdFacts/tree/v5.2.3) (2026-07-08)\n[Full Changelog](https://github.com/awallclock/BirdFacts/compare/v5.2.1...v5.2.3) [Previous Releases](https://github.com/awallclock/BirdFacts/releases)\n\n- updated tbc version number  \n- Remove fact submission link from README  \n    Removed the form link for adding facts from the README."
+    },
+    {
+      "tag": "v5.2.2",
+      "published": "2026-07-08",
+      "notes": "# BirdFacts\n\n## [v5.2.2](https://github.com/awallclock/BirdFacts/tree/v5.2.2) (2026-07-08)\n[Full Changelog](https://github.com/awallclock/BirdFacts/compare/v5.2.1...v5.2.2) [Previous Releases](https://github.com/awallclock/BirdFacts/releases)\n\n- updated tbc version number  \n- Remove fact submission link from README  \n    Removed the form link for adding facts from the README."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-11",
+    "releaseDates": [
+      "2026-10-11",
+      "2026-08-17",
+      "2026-07-12",
+      "2026-07-12",
+      "2026-07-08",
+      "2026-04-19",
+      "2026-03-20",
+      "2026-02-06",
+      "2026-02-03",
+      "2026-01-27",
+      "2025-12-10",
+      "2025-11-11",
+      "2025-09-23",
+      "2025-08-31",
+      "2025-08-29",
+      "2025-07-07",
+      "2025-03-10",
+      "2025-02-23",
+      "2024-12-03",
+      "2024-11-05",
+      "2024-10-28",
+      "2024-10-01",
+      "2024-08-26",
+      "2024-07-25",
+      "2024-06-06",
+      "2024-05-29",
+      "2024-02-13",
+      "2024-01-26",
+      "2024-01-19",
+      "2023-12-08",
+      "2023-12-01",
+      "2023-11-21",
+      "2023-11-15",
+      "2023-10-16",
+      "2023-10-10",
+      "2023-09-04",
+      "2023-08-02",
+      "2023-07-19",
+      "2023-07-19",
+      "2023-07-12",
+      "2023-06-17",
+      "2023-05-26",
+      "2023-04-19",
+      "2023-03-28",
+      "2023-03-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BirdFacts"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "forever"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "BirdFactsDB"
+    ]
+  }
+}

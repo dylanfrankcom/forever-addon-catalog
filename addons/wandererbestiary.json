@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "wandererbestiary",
+  "repo": "Jaecko/wanderer-bestiary",
+  "about": "# Wanderer Bestiary\n\nA bestiary of the creatures of the old world you may fight, dungeons and raids included, and your hunting log. Made for World of Warcraft Forever.\nAn extension of [Wanderer](https://github.com/Jaecko/wanderer): it needs Wanderer 1.4.49 or later.\n\n- Every creature with its 3D model (drag to turn it, the wheel to bring it closer), its levels, rank and kind, where it lives (a click: the way there), its health, blows, armor and spells, the gold it carries.\n- A creature you never met stays in shadow; met, its model and name appear; killed once, its strength and spells. \"Keep the surprise\" hides the level and home of a boss, rare or elite you never met.\n- Your hunting log for each character: kills, the first and last time, what you looted, the creatures that killed you, your series without dying. What the game already counted is taken in from the start.\n- Records: creatures discovered and killed, your most hunted, your nemesis, rares, elites and bosses, your most complete zone. \"Here\" shows the creatures of the zone you are in.\n- A small notice for a first elite, rare or boss, and quiet milestones. A line under a creature's name: how many you killed, or never met.\n- Kills counted carefully without the combat log, never twice, never a creature killed by another.\n- With [Wanderer Quests](https://github.com/Jaecko/wanderer-quests): a creature on a quest's sheet opens its card beside it. With [Wanderer Maps](https://github.com/Jaecko/wanderer-maps): its habitat drawn on the atlas, the creatures your quests ask for listed there.\n- Coming from KillTrack: your counts brought in, shown first, never lowered, and the import can be taken back.\n\nDownload: [CurseForge](https://www.curseforge.com/wow/addons/wanderer-bestiary). More on [wanderer-addon.com](https://wanderer-addon.com/).\n\n## Credits and licence\n\nWanderer Bestiary is free software under the GNU General Public License 3.0 or later (see LICENSE).\nIts data is generated from the [CMaNGOS classic database](https://github.com/cmangos/classic-db) (GPL-3.0)\nand [pfQuest](https://github.com/shagu/pfQuest) by Shagu (MIT): see CREDITS.md.\nWorld of Warcraft content belongs to Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v1.0.4",
+      "published": "2026-11-17",
+      "notes": "# Wanderer Bestiary 1.0.4\n\n### Changed\n- With the game's look (a choice under Wanderer's Appearance): the creature list and card drawn with the game's own parts, its lit and chosen rows, its dividers and colors. Needs Wanderer 1.4.89.\n\n### Fixed\n- The bestiary search works again (it searched for the wrong words).\n- The creature model no longer keeps turning with the mouse after its card was closed mid-drag."
+    },
+    {
+      "tag": "v1.0.3",
+      "published": "2026-11-16",
+      "notes": "# Wanderer Bestiary 1.0.3\n\n### Fixed\n- A kill at skull level now counts for the highest level brought down.\n- Records: \"Most complete zone\" stays with the counts by kind, never under the import heading.\n- \"Keep the surprise\" also hides the way to a boss, rare or elite you never met.\n- The Here list scrolls and searches smoothly, even with the bestiary open while you hunt.\n\n### Changed\n- Places on the card follow the family's clicks (Shift a map link, Ctrl a step of the route).\n- The card closes with Escape and can be moved when it stands alone.\n- Loot squares link with Shift; a search with no result says so.\n- A first kill notice shows a hunter's mark, or a skull for a boss."
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-12",
+      "notes": "# Wanderer Bestiary 1.0.0\n\nFirst public version.\n\n### New\n- A bestiary of the creatures of the world you may fight, dungeons and raids included (3,647 of them): their 3D model (dragged to turn it, the wheel to bring it closer), their levels, rank and kind, where they live (a click: the way there), their health, blows, armor and spells, the gold they carry.\n- A creature you never met stays in shadow (\"???\"); met, its model and name appear; killed once, its strength and spells.\n- Your hunting log for each character: kills, the first and last time, what you looted from each creature, the ones that killed you, your series without dying.\n- What the game already counted is taken in from the start: your kills and deaths in all, the kind you killed the most, every dungeon and raid boss you killed (as many times as the game says), the deaths from some creatures.\n- The list shows round portraits ringed in the colour of their rank (gold elite, blue rare, red boss), your kills in gold, and how much of the world you discovered on a golden line.\n- Records: creatures discovered and killed, your most hunted, your nemesis, the highest level brought down, your first kill, rares, elites and bosses, your most complete zone.\n- \"Here\" shows the creatures of the zone you are in, \"All\" every one, with a search and a kind.\n- A small notice for a first elite, rare or boss (a click opens its card), and quiet milestones (a creature killed 25, 100, 500 or 1000 times, your kills in all).\n- Kills counted carefully without the combat log: your target or a creature fighting you or your pet, seen dead and not another's; in dungeons the game's experience words and the end of a boss encounter; a corpse looted; never twice for the same kill, never a creature killed by another, a death by a player never blamed on a creature. What you loot stays light (12 items per creature).\n- \"Here\" shows how much of the zone you met and killed; Records count each kind.\n- \"Keep the surprise\": a boss, a rare or an elite you never met hides its level and where it lives.\n- A line under a creature's name (Wanderer's label, the game's tooltip): killed ×12, or never met. Never in dungeons.\n- Its habitat, point by point: \"On the atlas\" on its card draws where it lives on Wanderer Maps' atlas (the surprise kept for the bosses and rares you never met).\n- Coming from KillTrack: Records offers to bring your counts (while KillTrack is loaded too), shows what would change first, never lowers a count, and the import can be taken back.\n- With Wanderer Quests: a creature on a quest's sheet opens its card beside it. With Wanderer Maps: the creatures your quests ask for on a map are listed in the atlas, a click opens their card.\n- Works with the game's controller interface: the cross moves through the lists, the sticks turn the model and bring it closer.\n- Needs Wanderer 1.4.49 or later."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-12"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "WandererBestiary"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Wanderer"
+    ],
+    "optional": [
+      "WandererQuests",
+      "WandererMaps"
+    ],
+    "savedVariablesPerCharacter": [
+      "WandererBestiaryDB"
+    ]
+  }
+}

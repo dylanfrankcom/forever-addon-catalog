@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "id": "pandaquestdb",
+  "repo": "vem882/pqDB",
+  "about": "# PandaQuest Database\n\n> Versioned quest, world and profession data for [PandaQuest](https://github.com/vem882/pandaquest).\n\n**Related projects:** [PandaQuest](https://github.com/vem882/pandaquest) · [PandaQuest Auction](https://github.com/vem882/pqAuction) · [PandaBase](https://pd.zroot.it/)\n\nPandaQuest Database supplies the quests, NPCs, objects, items and zone data used by the\n[PandaQuest addon](https://github.com/vem882/pandaquest). It also includes quest corrections and\navailable gathering, respawn, drop and flight data for the supported game versions.\n\n## Install\n\nInstall **PandaQuest** and **PandaQuest Database** for the same World of Warcraft game version.\nKeep both enabled in the game's AddOns list. The database loads first and PandaQuest uses it when\nthe player logs in. The database needs PandaQuest to display quests, navigation and tooltips.\n\nFor manual installation, download the two packages from\n[PandaQuest Releases](https://github.com/vem882/pandaquest/releases) and extract them into the same\ngame's `Interface/AddOns` directory. The addon folders are `PandaQuest` and `PandaQuestDB`.\nRestart the game after installing or replacing addon files.\n\n| Game | Game subfolder | Database manifest |\n| --- | --- | --- |\n| Mists of Pandaria Classic | `_classic_` | `PandaQuestDB_Mists.toc` |\n| Classic Era | `_classic_era_` | `PandaQuestDB_Vanilla.toc` |\n| The Burning Crusade Classic Anniversary | `_anniversary_` | `PandaQuestDB_TBC.toc` |\n| WoW Forever | `_forever_` | `PandaQuestDB_Forever.toc`, `PandaQuestDB_Camelot.toc` |\n\nPandaQuest Auction is a separate, optional extension. PandaQuest Sync remains the optional desktop\napp for sharing opted-in observations and updating the installed community guide.\n\n## Maintaining the data\n\n`PandaQuestDB/Database` contains the shipped game data. Each game manifest loads only its own\ndataset, selected by the WoW client. Keep generated paths stable. Regenerate quest data using\n[the PandaBase generator](https://github.com/vem882/pandawow/blob/main/tools/build_db.py).\nPortal corrections and supplemental data come from the PandaBase data sync.\n\n`Database/Export.lua` exposes the selected game, data and shipped overrides to PandaQuest through\nthe versioned `PandaQuestDBData` table. The runtime query logic and the locally updated community\nguide live in PandaQuest. The main [PandaQuest repository](https://github.com/vem882/pandaquest)\nbuilds the version-matched packages from PandaQuest, this repository and\n[pqAuction](https://github.com/vem882/pqAuction).\n\n## Data sources and licence\n\nPandaQuest Database is distributed under the [GNU General Public License v3](https://github.com/vem882/pqDB/blob/main/LICENSE).\nThe generated quest, NPC, object, item and zone tables draw from\n[Questie](https://github.com/Questie/Questie), [QuestieDB](https://github.com/Questie/QuestieDB)\nand the community-observation model documented by\n[QuestieTrace](https://github.com/Questie/QuestieTrace). Thank you to the Questie community for\nits long-running research and data stewardship. PandaQuest transforms compatible data into its\nown versioned database and does not copy Questie code.\nGathering, respawn and drop seed data includes material from\n[pfQuest](https://github.com/shagu/pfQuest) under its\n[MIT licence](https://github.com/vem882/pqDB/blob/main/PandaQuestDB/licenses/pfQuest-MIT.txt).\nSee [PandaBase's source index](https://pd.zroot.it/sources) for supplemental data and credits.\n\nValidated opt-in PandaBase community observations supplement source data with coordinates, flight\ntimes, gathering and respawn measurements, and corrections. They are retained with provenance and\nreviewed before becoming shipped data.\n\nWorld of Warcraft is a trademark of Blizzard Entertainment. PandaQuest is an independent fan project.\n\nThe addon icon combines the PandaQuest logo with the WoW texture `INV_MISC_BOOK_09`. The game artwork belongs to Blizzard Entertainment.\n\nEach release includes a generated `CHANGELOG.md` in the addon folder. The same added, changed and removed sections appear on GitHub and CurseForge.",
+  "releases": [
+    {
+      "tag": "v0.2.805",
+      "name": "PandaQuestDB-0.2.805",
+      "published": "2026-11-25",
+      "notes": "# PandaQuestDB 0.2.805\n\nChanges since v0.2.804.\n\n## Summary\n\n- Data sync 0.2.805 from the PandaQuest portal (#176)\n\n## Added\n\nNo entries.\n\n## Changed\n\n- Addon `Database/Overrides/Wowhead.lua`\n- Addon `changelog.txt`\n- Repository `data-sync.json`\n\n## Removed\n\nNo entries."
+    },
+    {
+      "tag": "v0.2.804",
+      "name": "PandaQuestDB-0.2.804",
+      "published": "2026-11-25",
+      "notes": "# PandaQuestDB 0.2.804\n\nChanges since v0.2.803.\n\n## Summary\n\n- Data sync 0.2.804 from the PandaQuest portal (#175)\n\n## Added\n\nNo entries.\n\n## Changed\n\n- Addon `Database/Overrides/Wowhead.lua`\n- Addon `changelog.txt`\n- Repository `data-sync.json`\n\n## Removed\n\nNo entries."
+    },
+    {
+      "tag": "v0.2.803",
+      "name": "PandaQuestDB-0.2.803",
+      "published": "2026-11-25",
+      "notes": "# PandaQuestDB 0.2.803\n\nChanges since v0.2.802.\n\n## Summary\n\n- Data sync 0.2.803 from the PandaQuest portal (#174)\n\n## Added\n\nNo entries.\n\n## Changed\n\n- Addon `Database/Overrides/Wowhead.lua`\n- Addon `changelog.txt`\n- Repository `data-sync.json`\n\n## Removed\n\nNo entries."
+    },
+    {
+      "tag": "v0.2.802",
+      "name": "PandaQuestDB-0.2.802",
+      "published": "2026-11-25",
+      "notes": "# PandaQuestDB 0.2.802\n\nChanges since v0.2.801.\n\n## Summary\n\n- Data sync 0.2.802 from the PandaQuest portal (#173)\n\n## Added\n\nNo entries.\n\n## Changed\n\n- Addon `Database/Overrides/Wowhead.lua`\n- Addon `changelog.txt`\n- Repository `data-sync.json`\n\n## Removed\n\nNo entries."
+    },
+    {
+      "tag": "v0.2.801",
+      "name": "PandaQuestDB-0.2.801",
+      "published": "2026-11-25",
+      "notes": "# PandaQuestDB 0.2.801\n\nChanges since v0.2.800.\n\n## Summary\n\n- Data sync 0.2.801 from the PandaQuest portal (#172)\n\n## Added\n\nNo entries.\n\n## Changed\n\n- Addon `Database/Anniversary/Overrides/Wowhead.lua`\n- Addon `changelog.txt`\n- Repository `data-sync.json`\n\n## Removed\n\nNo entries."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PandaQuestDB"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

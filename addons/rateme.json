@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "rateme",
+  "repo": "drengalis/rateMe",
+  "about": "# Rate Me! — WoW Forever\n\nRate the players you group with, and see how other players have rated them.\n\nGive friendly, same-faction players 1–5 stars and up to three tags such as **+Helpful** or **-Ninja Looter**. Ratings are shared between Rate Me! users, so you can check a player's reputation before you invite them or join their group.\n\n*Reputation earned. Reputation shared.*\n\n## Installing\n\n1. Download the latest version.\n2. Copy all three folders, **RateMe**, **RateMeData** and **RateMeCommunication**, into `World of Warcraft\\_forever_\\Interface\\AddOns`.\n3. Make sure all three are enabled in the AddOns list on the character screen.\n\nWhen updating, replace all three folders, then type `/reload` or log in again.\n\n## Rating a player\n\nOpen the rating window in any of these ways:\n\n- Right-click a friendly player (their portrait, a party or raid frame, or their name in chat) and choose **Rate Me!**.\n- Target the player and type `/rateme target`.\n- Click the player in **My Ratings** in the main window.\n\nThe window shows the player's name, with their class icon and class underneath, and their community rating, which fills in as replies come back from other Rate Me! users.\n\nChoose 1–5 stars, then pick up to three tags from the Positive and Negative lists. Each positive tag is shown beside its opposite, for example **+Fair Looter** next to **-Ninja Looter**, and you can't choose both. The most commonly used pairs are listed first. Tags you've chosen turn yellow with a check mark, and tags you can't choose right now are faded. Click **Save Rating** when you're done.\n\nTo change a rating, open the window again. **Remove** deletes your rating. By default you're asked to confirm first, and you can tick \"Don't ask again\" in that box to skip the question.\n\n### Tags\n\n| Positive | Negative |\n|---|---|\n| +Leader | -Poor Leadership |\n| +Team Player | -Uncooperative |\n| +Helpful | -Elitist |\n| +Skilled | -Underperforms |\n| +Reliable | -Abandons Groups |\n| +Patient | -Impatient |\n| +Fair Looter | -Ninja Looter |\n| +Good Communicator | -Poor Communication |\n| +Well Prepared | -Unprepared |\n| +Knows Mechanics | -Ignores Mechanics |\n| +Uses Crowd Control | -Ignores Crowd Control |\n| +Good Sportsmanship | -Toxic |\n| +Shares Resources | -Resource Hog |\n| +Responsive | -Frequently AFK |\n| +Careful Pulls | -Reckless Pulls |\n| +Friendly | -Unfriendly |\n\nReviews written with older versions may still show **-Griefer** or **-Disrespects Loot Rules**. These tags can no longer be chosen.\n\n## Rating your party\n\nWhen you leave a party, a window opens listing the players you grouped with so you can rate them all at once. Click a player to choose their tags in the panel on the right. Anyone you leave unrated is skipped. Guild members aren't included.\n\n- **Not Now** or Escape closes the window. Type `/rateme party` to bring it back.\n- If you go through a loading screen (a hearthstone or a portal, for example) while the window is open, it reopens afterwards with your choices kept.\n- You can turn this window off in Settings.\n\n## Seeing other players' ratings\n\n- **Tooltips:** hover over a player to see your rating and the community rating.\n- **Community Reviews:** shows every review of a player, with each reviewer's stars and tags. Target the player and type `/rateme reviews`, or click the player in **Recent Lookups**. **Hide tags** hides one reviewer's tags if you don't want to see them.\n- **Highlights (optional):** a gold or red glow on player frames, a star with the rating beside nameplates, and a star with the rating before chat messages.\n- **Group alerts (optional):** a warning when a low-rated player joins your group.\n\n### Verified and unverified reviews\n\nA review is **Verified** when it came directly from the player who wrote it. A review passed along by another Rate Me! user is shown as **Peer supplied** (unverified). This lets you still see ratings when the original reviewer is offline.\n\nCommunity scores count only verified reviews and your own. Unverified reviews are listed but not counted, and the number of them is shown beside the score. Unverified reviews are deleted after 90 days.\n\nVerified means the review came from that character. It doesn't mean the review is fair or true. Each character counts as a separate reviewer, so someone with several characters can rate a player more than once.\n\n## The main window\n\nType `/rateme` or click the star on your minimap. The window has four tabs:\n\n- **My Ratings:** every player you've rated, with search. Click a player to change your rating.\n- **Recent Lookups:** players you recently looked up or rated. Click a player to see their Community Reviews.\n- **Recent Players:** the last 150 players you've grouped with, in a party or raid, with your rating of each. Players in your current group are listed first as \"In your group\". Click a player to rate them. The list is kept between sessions.\n- **Settings:** see below.\n\nEach player has a round class icon beside their name. Hover over it to see the class. Rating numbers are coloured from red (1) through yellow (3) to green (5).\n\nAll Rate Me! windows can be moved and resized, and they remember their position and size.\n\n## Settings\n\n- **My Ratings:** show ratings from all your characters, and ask for confirmation before removing a rating.\n- **Group Rating Alerts:** warn when a low-rated player joins your group. Choose whether to check your own ratings, community ratings or both, and the rating that triggers a warning.\n- **Player Rating Highlights:** turn on frame glows, nameplate stars and chat stars, and choose whether they use your own ratings, community ratings or both. Gold means 4.0 or higher and red means below 2.0.\n- **Post-Party Ratings:** open the party window when you leave a party.\n- **Minimap Button:** show or hide the minimap star. Drag it to move it.\n- **Communication:**\n  - Share your new, changed and removed ratings with other users.\n  - Receive ratings shared by other users.\n  - Look up a player's ratings when you hover over them.\n  - Set how many players are asked at once when looking someone up.\n- **Diagnostics:** show Rate Me! activity in chat, to help with troubleshooting.\n- **Reset to Default:** restores every setting and all window positions and sizes. Your ratings are kept.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/rateme` | Open the main window |\n| `/rateme target` | Rate your current target |\n| `/rateme reviews` | Show Community Reviews for your current target |\n| `/rateme party` | Reopen the rating window for your last party |\n| `/rateme partytest` | Preview the party window with example players (nothing is saved) |\n| `/rateme minimap show` / `hide` | Show or hide the minimap button |\n| `/rateme peers` | Show how many other Rate Me! users you're connected to |\n| `/rateme netstats` | Show communication statistics |\n| `/rateme debug` | Turn activity messages in chat on or off |\n| `/rateme help` | List the commands |\n\n## How sharing works\n\nRate Me! has no server. Ratings travel directly between players who have the addon, using the game's own addon messages. When you look up a player, Rate Me! asks other users it knows about, starting with your friends and guild members. They reply with the ratings they have. When you save a rating, it's announced to other users.\n\nThis means:\n\n- The more people who use Rate Me!, the more ratings you'll see.\n- A lookup may not find every rating that exists, especially for players few people have met.\n- Lookups and announcements are rate-limited, so the game doesn't disconnect you for sending too many messages.\n\n## Your data\n\nYour ratings and the ratings you receive are saved on your computer, in `WTF\\Account\\<your account>\\SavedVariables\\RateMeData.lua`. They're kept when you log out or reload. Back up that file if you want to keep your ratings safe.",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "name": "Rate Me! v1.1.0",
+      "published": "2026-11-25",
+      "notes": "**Full Changelog**: https://github.com/drengalis/rateMe/compare/v1.0.0...v1.1.0"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Rate Me! v1.0.0",
+      "published": "2026-11-25",
+      "notes": "**Full Changelog**: https://github.com/drengalis/rateMe/commits/v1.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RateMe",
+      "RateMeCommunication",
+      "RateMeData"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "RateMeData",
+      "RateMeCommunication"
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "masqueblizzinv",
+  "repo": "kstange/MasqueBlizzInv",
+  "about": "# About Masque Blizzard Inventory\n\nThis addon enables [Masque](https://github.com/SFX-WoW/Masque) ([CurseForge](https://www.curseforge.com/wow/addons/masque), [Wago](https://addons.wago.io/addons/masque), [WoWInterface](https://www.wowinterface.com/downloads/info12097-Masque.html)) to skin built-in WoW inventory elements.  An up-to-date version of Masque is required for it to work.\n\nIf you like the base WoW interface and don't want to use a separate bag or inventory mod, you're in the right place.\n\nYou can install this addon from [CurseForge](https://www.curseforge.com/wow/addons/masque-blizz-inventory), [Wago](https://addons.wago.io/addons/masqueblizzinv), or [WoWInterface](https://www.wowinterface.com/downloads/info26503-MasqueBlizzardInventory.html).\n\n## Features\n\nMasque Blizzard Inventory can currently skin the following elements, according to your game version:\n\n- Backpack\n- Main Bags\n- Combined Backpack\n- Reagent Bag\n- Bank (including Warband Bank)\n- Guild Bank\n- Mail\n- Merchants\n- Loot\n- Character\n- Inspect Character\n- Equipment Flyouts\n- Keyring (Classic before Cataclysm and Forever)\n- Bag Bar (Classic and Forever)\n\nEach element type is its own group so you can configure them independently from Masque's Skin Settings.\n\nThe Warband Bank and Bank use the same inventory elements in Retail, so they share skin options as well.\n\nAn additional options panel is provided to hide background and slot artwork that might clash with certain Masque skins.\n\n## Forever Support\n\nWorld of Warcraft: Forever has a unique mixture of Classic and Retail inventory features, and should be fully supported.\n\nIn Forever, bags are grouped as follows:\n\n- Main Bags includes all common bags including the Keyring\n- The Reagent Bag is always skinned independently\n- The Backpack is skinned independently unless you have enabled the Combined Backpack\n- The Combined Backpack takes over the Backpack and Main Bags, except the Keyring, which is still skinned from the Main Bags group\n- Bank Bags are now part of a combined Bank that works like the Combined Backpack and cannot be skinned independently\n\n## Classic Support\n\nClassic versions available in the US are fully supported. Elements not available in Classic will not appear in Masque's Skin Settings.\n\nIn Classic, all bags are consolidated to a single Bags group, including the Keyring. This is due to the way the game reuses Bag windows.\n\nMost interface frames in Classic are built using a single background image, rather than multiple layers, so the options to hide background and slot artwork are not feasible.  Adding this feature would require drawing replacement artwork and including it with the addon, so it is not planned.\n\nI don't play Classic so testing is somewhat limited, but I'll do my best to address bug reports promptly.\n\n## Compatibility\n\nThis addon is intended to skin the base WoW interface. Addons that heavily modify parts of the base interface may conflict. If you experience a conflict, use Masque's Skin Settings to disable the affected group and reload your UI. This should allow the other addon to control the interface without interference.\n\nIf you'd like to see Masque support in a conflicting addon, try sending a feature request to that addon's author directly.\n\n## Localization\n\nIf you'd like to help localize this addon, please submit translations [here](https://www.curseforge.com/wow/addons/masque-blizz-inventory/localization).\n\n## LLM Policy\n\nLLM (\"Generative AI\") agents are not used for development of this project and such contributions will not be accepted.\n\n## Other Mods\n\nIf you want to skin the built-in action bars as well, check out [Masque Blizzard Bars](https://github.com/kstange/MasqueBlizzBars) ([CurseForge](https://www.curseforge.com/wow/addons/masque-blizz-bars-revived), [Wago](https://addons.wago.io/addons/masqueblizzbars), [WoWInterface](https://www.wowinterface.com/downloads/info26502-MasqueBlizzardBars.html))!\n\n## Special Thanks\n\nThanks to [StormFX](https://github.com/StormFX), the author of Masque, for a ton of feedback and development tips and for creating a logo for the addon.",
+  "releases": [
+    {
+      "tag": "12.1.7.0",
+      "published": "2026-11-22",
+      "notes": "# Version 12.1.7.0\n\n- Added compatibility with Retail 12.1.7\n- Updated TOC for Retail 12.1.7\n\n# Version 12.1.5.2\n\n- Changed how Hide Slots works for the Combined Backpack to hopefully prevent errors trying to use items from bags\n\n# Version 12.1.5.1\n\n- Added compatibility with all existing supported containers in Forever\n  - Note: I haven't been able to test the Guild Bank, but it looks to be the same as Retail, so it probably works. If it doesn't, I'll fix it when I get access to one.\n- Added support for the new Bank UI in Forever\n- Removed unused Reagent Bank, Void Storage, and pre-11.2.0 Warband Bank support\n- Updated TOC for Forever 1.60.1 (beta)\n\n# Version 12.1.5.0\n\n- Updated TOC for Retail 12.1.5 (PTR)\n\n# Version 12.1.0.0\n\n- Updated TOC for Retail 12.1.0\n- Updated TOC for Burning Crusade Classic 2.5.6\n- Updated TOC for Classic Era 1.15.9\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MasqueBlizzInv/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.1.5.2",
+      "published": "2026-10-07",
+      "notes": "# Version 12.1.5.2\n\n- Changed how Hide Slots works for the Combined Backpack to hopefully prevent errors trying to use items from bags\n\n# Version 12.1.5.1\n\n- Added compatibility with all existing supported containers in Forever\n  - Note: I haven't been able to test the Guild Bank, but it looks to be the same as Retail, so it probably works. If it doesn't, I'll fix it when I get access to one.\n- Added support for the new Bank UI in Forever\n- Removed unused Reagent Bank, Void Storage, and pre-11.2.0 Warband Bank support\n- Updated TOC for Forever 1.60.1 (beta)\n\n# Version 12.1.5.0\n\n- Updated TOC for Retail 12.1.5 (PTR)\n\n# Version 12.1.0.0\n\n- Updated TOC for Retail 12.1.0\n- Updated TOC for Burning Crusade Classic 2.5.6\n- Updated TOC for Classic Era 1.15.9\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MasqueBlizzInv/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.1.5.1",
+      "published": "2026-10-04",
+      "notes": "# Version 12.1.5.1\n\n- Added compatibility with all existing supported containers in Forever\n  - Note: I haven't been able to test the Guild Bank, but it looks to be the same as Retail, so it probably works. If it doesn't, I'll fix it when I get access to one.\n- Added support for the new Bank UI in Forever\n- Removed unused Reagent Bank, Void Storage, and pre-11.2.0 Warband Bank support\n- Updated TOC for Forever 1.60.1 (beta)\n\n# Version 12.1.5.0\n\n- Updated TOC for Retail 12.1.5 (PTR)\n\n# Version 12.1.0.0\n\n- Updated TOC for Retail 12.1.0\n- Updated TOC for Burning Crusade Classic 2.5.6\n- Updated TOC for Classic Era 1.15.9\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MasqueBlizzInv/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.1.5.0",
+      "published": "2026-10-03",
+      "notes": "Note: World of Warcraft: Forever is not yet supported. Forever contains redesigned inventory interfaces not present in either Retail or Classic and will require additional time to get working. I hope to get a compatible release ready by the weekend following the official launch.\n\n# Version 12.1.5.0\n\n- Updated TOC for Retail 12.1.5 (PTR)\n\n# Version 12.1.0.0\n\n- Updated TOC for Retail 12.1.0\n- Updated TOC for Burning Crusade Classic 2.5.6\n- Updated TOC for Classic Era 1.15.9\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MasqueBlizzInv/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.1.0.0",
+      "published": "2026-08-06",
+      "notes": "# Version 12.1.0.0\n\n- Updated TOC for Retail 12.1.0\n- Updated TOC for Burning Crusade Classic 2.5.6\n- Updated TOC for Classic Era 1.15.9\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MasqueBlizzInv/wiki/Release-Notes)."
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-10-07",
+      "2026-10-04",
+      "2026-10-03",
+      "2026-08-06",
+      "2026-06-06",
+      "2026-04-18",
+      "2026-04-18",
+      "2026-01-31",
+      "2025-11-25",
+      "2025-09-22",
+      "2025-07-17",
+      "2025-07-02",
+      "2025-06-14",
+      "2025-04-08",
+      "2025-02-09",
+      "2025-01-29",
+      "2024-12-15",
+      "2024-10-22",
+      "2024-07-31",
+      "2024-07-12",
+      "2024-07-07",
+      "2024-05-07",
+      "2024-05-01",
+      "2024-03-19",
+      "2024-02-09",
+      "2024-01-16",
+      "2023-11-30",
+      "2023-11-07",
+      "2023-10-10",
+      "2023-09-05",
+      "2023-08-23",
+      "2023-07-11",
+      "2023-06-21",
+      "2023-05-02",
+      "2023-03-21",
+      "2023-02-13",
+      "2023-01-27",
+      "2023-01-24",
+      "2022-12-15"
+    ]
+  },
+  "languages": [
+    "ruRU",
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "MasqueBlizzInv"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Masque"
+    ],
+    "savedVariables": [
+      "MasqueBlizzInv"
+    ]
+  }
+}

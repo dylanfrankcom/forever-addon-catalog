@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "moneylooter",
+  "repo": "will0w7/MoneyLooter",
+  "about": "# MoneyLooter - Loot and Gold Farm Tracker Addon\n\n[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)\n\nA lightweight and fast World of Warcraft addon designed to track your gold farms. Track both raw gold and the gold value of looted items using the price source you pick in the configuration menu, TradeSkillMaster, Auctionator, Auctioneer, OribosExchange or RECrystallize, with reload protection so you don't need to worry about disconnections.\n\n## 2.1 The Transmog update: AllTheThings and Scrap integration, improvements and bug fixes\n\nIn this version MoneyLooter can tell whether an item has a unique appearance, making it easier to distinguish valuable items from ones that aren't (any unique appearance is valuable to a collector). AllTheThings is used for this, and it takes into account whether shared appearances can be obtained or not; if none of that item's appearances can be obtained except the item's own, that item counts as a unique appearance. If you don't have AllTheThings, MoneyLooter gets all the appearances from Blizzard's API, but it can't tell whether the shared appearances can be obtained or not. For now, this mode has no threshold for the item's minimum value, but if you mark it as _Junk_ in Scrap, MoneyLooter will treat it as junk even if it's a unique appearance.\n\nIn this version MoneyLooter also integrates with Scrap, so it can tell whether an item is marked as _Junk_. If so, MoneyLooter will directly mark it as an item to sell to the vendor. This check happens **before the disenchant check**, so if you want to disenchant certain items, don't mark them as _Junk_ in Scrap.\n\nMany improvements and bug fixes are included in how prices are determined, especially when it comes to disenchanting. Keep in mind that if you use **TSM** to get the disenchant price, it may not have the item cached and won't return a disenchant value. To mitigate this, MoneyLooter, in this specific case, doesn't cache the item's value and, if you get it again, will ask **TSM** for the disenchant value again.\n\nTo make this whole process easier, MoneyLooter now also includes a sell button in the top of the vendor window that sells every item MoneyLooter has marked for selling. Items are sold 12 at a time, so that if it sells something you didn't want to sell by mistake, you can get it back from the buyback. Due to Blizzard API limitations, the selling process is somewhat slow (and my implementation is a bit rough), and I'm working on improvements to make it faster without overloading Blizzard's API. **IMPORTANT**: The sell button is designed for transmog farmers, so BoP armor/weapon items will be sold, don't use this if you don't want to lose something valuable you keep in your inventory. It doesn't matter that you didn't loot it with MoneyLooter running, when you open the vendor, it will analyze **ALL** of your inventory and determine whether an item should be sold or not, using the same logic as when looting. BoP recipes are **never** sold.\n\nEnjoy your transmog farms!\n\n## New in 2.0: Configuration menu, UI scale, selectable price source, Forever support and more\n\n![MoneyLooter 2.0 Config menu](https://raw.githubusercontent.com/will0w7/MoneyLooter/main/images/MoneyLooter2.0.png)\n\nMoneyLooter 2.0 adds a proper configuration menu. Click the gear button in the bottom right corner of the addon to open it, change what you need and press _Save_ to apply the changes.\n\n**Price source:** You now choose which addon provides your item prices -> **TradeSkillMaster**, **Auctionator**, **Auctioneer**, **OribosExchange** or **RECrystallize**. There is no automatic fallback between addons anymore: only the selected addon is queried. **Make sure you select your price source in the configuration menu, TradeSkillMaster is the default.**\n\nFrom the same menu you can also configure:\n\n- **Force vendor price:** Use only the vendor sell price.\n- **Use disenchant value:** Use the disenchant value when the regular price is below your minimum threshold.\n- **Force disenchant value:** One toggle per quality (Uncommon, Rare, Epic). When enabled, that quality is always valued by its disenchant value.\n- **TSM custom string:** Your custom TSM price string, with _Validate_ and _Reset_ buttons.\n- **Minimum prices:** One threshold per quality (Poor through Epic) in gold/silver/copper. _Poor_ and _Common_ are disabled outside of retail (except for items that are not armor or weapons).\n\n**UI scale:** An account-wide setting that scales the whole interface (window, text and icons). Default `1.0`, adjustable between `0.5` and `2.0` in steps of `0.1`.\n\n**Forever support:** The Forever Beta is now supported. The client is a beta, so support for this version is also considered beta.\n\n_The sections below are historical changelog entries for earlier releases and may not reflect how the addon works today._\n\n## New in 1.11: Auto pick between disenchant value and auction value (disabled by default)\n\nNow, when enabled (using the toggle **_/ml disenchant_** or **_/moneylooter disenchant_**) the addon is going to pick the highest price between the disenchant value and the _raw_ auction value (just selling the item as is). For now, this is only enabled for Auctionator.\n\nPicking the highest value seems like a logical choice, since no one would disenchant an item with a disenchantment value of 2g and an auction price of 500g. However, I'm open to suggestions.\n\n~~This setting is account wide.~~\n\n## New in 1.8: Performance improvements, internal profiler and cache system\n\n**EMA‑based GPH calculation:** GPH (Gold Per Hour) is now computed with an EMA (Exponential Moving Average), smoothing spikes. During the first 30 seconds, an adaptive alpha is applied in the calculation to prevent sudden spikes.\n\n**Two new cache systems:**\n\n- **Item cache:** A cache that persists only during the active session (a /reload clears it) and dramatically reduces calls to WoW’s internal APIs.\n- **Price cache:** A cache that also persists only during the active session but has a **one‑hour** expiration time. It prevents unnecessary calls to other addons APIs, as price updates are uncommon during farming sessions. To purge the cache, simply run **_/reload_** to delete it completely.\n\nThese caching systems trade a small amount of extra memory for significant performance gains.\n\n**Core refactor:** A general refactor was performed on the addon, mainly in the Core module. This brings performance improvements and simplifies the code for easier maintenance.\n\n**Internal profiler:** I can now track performance regressions and improvements reliably (and everyone can, just use /ml debug to toggle on/off the debug mode, which also enables the profiler).\n\n**Translations:** Translations were added for languages that previously had no localization. They were generated with gpt‑oss. While not perfect, providing them is better than nothing (esES, esMX, enUS, ruRU already had manual translations).\n\n## New in 1.5: OribosExchange, RECrystallize and Auctioneer\n\nAdded support for OribosExchange, RECrystallize and Auctioneer.\n\n**Restored the fallback system**: In the past I disabled this system because with certain items (mainly in Retail), when TSM didn't find a price or that price was below the filter, Auctionator could return unrealistically high prices due to lack of auction data.\n\nI've received a few requests, mainly from players of the classic versions, to be able to use Auctionator while they have TSM active and since it is a \"bug\" that occurs very rarely, I'm reactivating this system and I'll see if I receive any complaints over time.\n\n**Note:** ~~Auctioneer is disabled since the addon is broken and orphaned. I would like to enable it (and complete the implementation) in the future if the developers fix it.~~ Auctioneer is now enabled and working (at least in Retail) using \"Best\" for the prices (\"Median\" by default).\n\n## New in 1.1: Summary Mode\n\n![Summary Mode](https://raw.githubusercontent.com/will0w7/MoneyLooter/main/images/MoneyLooterSummaryMode.gif)\n\nNow you can see your loot summary in a clear and organized manner. You can toggle between the loot summary and the loot list by right clicking the toggle button (right click again to come back).\n\nThanks to [loksinss](https://github.com/loksinss) ([Issue #12](https://github.com/will0w7/MoneyLooter/issues/12)) for the idea :)\n\n## New UI and MoneyLooter 1.0\n\n![New UI](https://raw.githubusercontent.com/will0w7/MoneyLooter/main/images/MoneyLooterNewUI.png)\n\nI've been working for a few days on a new UI to get rid of the old look of the previous one but keep it simple and performant, and with the release of the 1.0 here it is!\n\nThis new version comes with this flawless UI and a lot of bug fixes!\n\nI might still change a few things, but for now I'm happy with the result \uD83D\uDE42\n\n## Installation\n\nDownload the latest release from [Wago](https://addons.wago.io/addons/moneylooter), [CurseForge](https://www.curseforge.com/wow/addons/moneylooter), [WoWInterface](https://www.wowinterface.com/downloads/info26844-MoneyLooter-LootandGoldFarmTrackerAddon.html) or [GitHub](https://github.com/will0w7/MoneyLooter/releases/latest) using your favourite addon manager.\n\n## Manual Installation\n\n1. Download the latest release from the [releases](https://github.com/will0w7/MoneyLooter/releases) page.\n2. Extract the contents of the zip file into your `World of Warcraft\\VERSION\\Interface\\AddOns` directory.\n3. Launch World of Warcraft and enable the addon in the AddOns list.\n\n## Compatibility Status\n\n| Version             | Status |\n| ------------------- | ------ |\n| Retail              | ✅      |\n| Forever             | ✅      |\n| Classic Era         | ✅      |\n| Classic Hardcore    | ✅      |\n| Season of Discovery | ✅      |\n| Burning Crusade     | ✅      |\n| WOTLK               | ✅      |\n| Cataclysm           | ✅      |\n| Mists of Pandaria   | ✅      |\n\n✅ = Compatible\n\n❔ = Untested\n\n❌ = Not compatible\n\n## Price source\n\nMoneyLooter uses a single, configurable price source. Open the configuration menu (the gear button in the bottom right corner) and select the addon that will provide your item prices:\n\n- TradeSkillMaster\n- Auctionator\n- Auctioneer\n- OribosExchange (only Retail)\n- RECrystallize (only Retail, available in Wago)\n\nOnly the selected addon is queried. There is no automatic fallback between addons: if it returns no price, the vendor sell price is used instead. **Remember to select your price source in the configuration menu, TradeSkillMaster is the default.**\n\n## How items are valued\n\nWhen an item is looted, MoneyLooter determines its value in this order:\n\n1. If **Force vendor price** is enabled, the vendor sell price is always used and no other source is checked.\n2. If the item is not armor or a weapon, the quality thresholds are ignored and its price is requested directly from the configured price source. If no price is returned, the vendor sell price is used.\n3. If the item's quality is not managed, the vendor sell price is used. Uncommon (2), Rare (3) and Epic (4) are managed everywhere; Poor (0) and Common (1) are only managed in retail, and only for armor/weapons (they can be sold for transmog).\n4. Otherwise the regular price is requested from the configured price source. If it reaches the **minimum price threshold** configured for that quality, it is used.\n5. If the regular price is below the threshold (or **Force disenchant** is enabled for that quality), and the item is disenchantable (armor/weapon/jewelry of Uncommon, Rare or Epic), the disenchant value is requested instead.\n6. If nothing returns a price, the vendor sell price is used as a last resort.\n\n## Usage\n\nOnce installed login in to the game or **/reload** your interface and you will see MoneyLooter ready to be used.\n\nYou can alternate between **/ml** or **/moneylooter** for chat commands. In the following examples I will use **/ml**.\n\n        /ml: Toggle show/hide addon window\n        /ml show: Show MoneyLooter\n        /ml hide: Hide MoneyLooter\n        /ml info: Shows information about the addon\n\n**Deprecated:** The following commands change settings that are also available in the configuration menu. They will be removed as chat commands in a future version.\n\n        /ml custom: Sets a custom TSM string to be used in the price calculation. If empty, returns the custom TSM string it's currently using.\n\n        /ml forcevendorprice: This command forces the merchant's selling price to always be used, skipping addons. It's a toggle.\n\n        /ml disenchant: Toggles the use of the disenchantment value when it is higher than the direct auction price.\n\n        /ml mprice: Sets the minimum price threshold for a given quality.\n            mpricex: All available qualities.\n            mprice0: Quality 0 - Poor - Grey\n            mprice1: Quality 1 - Common - White\n            mprice2: Quality 2 - Uncommon - Green\n            mprice3: Quality 3 - Rare - Blue\n            mprice4: Quality 4 - Epic - Purple\n\nThe price format for mprice is a number followed by g(old), s(ilver) or c(opper). If you only specify the number, gold will be used by default.\n\n        /ml mprice0 50 s\n        /ml mprice1 50 s\n        /ml mprice2 5000\n        /ml mprice3 500 g\n        /ml mprice4 5 c\n\n## Configuration\n\nAll settings are configured from the in-game menu. Click the **gear button** in the bottom right corner of the addon to open it, change what you need and press **Save** to apply.\n\n- **Price source:** Choose which addon provides your item prices -> TradeSkillMaster, Auctionator, Auctioneer, OribosExchange or RECrystallize. Only the selected addon is queried; there is no automatic fallback between addons.\n- **Force vendor price:** Use only the vendor sell price, skipping all price addons.\n- **Use disenchant value:** Use the disenchant value when the regular price is below your minimum threshold.\n- **Force disenchant value:** One toggle per quality (Uncommon, Rare, Epic). When enabled, that quality is always valued by its disenchant value.\n- **TSM custom string:** Your custom TSM price string, with **Validate** and **Reset** buttons.\n- **Minimum prices:** One threshold per quality (Poor through Epic) in gold/silver/copper.\n- **UI scale:** Account-wide scaling of the whole interface, from `0.5` to `2.0` (default `1.0`).\n\nBy default, MoneyLooter sets all minimum prices to `0`, uses **TradeSkillMaster** as the price source, and the TSM string `dbmarket`.\n\nSettings are account wide, so you only have to set them once and they apply to all your characters.\n\nSome settings can still be changed with chat commands, but those commands are deprecated and will be removed in a future version, see [Usage](#usage).\n\n**Note:** For accurate item pricing using Auctionator, make sure you have scanned the auction house with it recently.\n\n## Why?\n\nWhy not? \uD83D\uDE42\n\n## History\n\nI developed this addon at the end of BFA, during the Shadowlands pre-patch for personal use and every time I come back to the game I use it, almost always unchanged or making slight changes because the Blizzard interface API has changed.\n\nI've used it in Retail, Classic, Classic Era, Classic Hardcore and SoD, but until now I've kept it for personal use (although the GitHub repository was always public).\nWith the release of TWW I decided to almost completely rewrite the addon code to make it much easier to extend the functionality, debug and make it even more efficient.\n\nSo after several days of hard work (never look at that code you wrote all those years ago and thought it was fine), I've decided to make it public, because every time I come back to the game I look for addons to track my farms and I never find anything that I really like.\n\nPlus, I think even if I leave the game, it would cost me little to no effort to keep it updated (I hope - I can confirm after more than a year without playing that the addon needed 0 maintenance, aside from toc updates).\n\n## Contributing, Translating and Issues\n\nContributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the [Issues](https://github.com/will0w7/MoneyLooter/issues) page.\n\nFeel free to report issues or doubts \uD83D\uDE0A\n\nYou can also help translate MoneyLooter! You can find the translations files inside the **locales** folder.\n\n## License\n\nThis project is licensed under the MIT License - see the [LICENSE](https://github.com/will0w7/MoneyLooter/blob/main/LICENSE) file for details.",
+  "releases": [
+    {
+      "tag": "2.1.1",
+      "published": "2026-10-15",
+      "notes": "# MoneyLooter\n\n## [2.1.1](https://github.com/will0w7/MoneyLooter/tree/2.1.1) (2026-10-15)\n[Full Changelog](https://github.com/will0w7/MoneyLooter/compare/2.1.0...2.1.1) [Previous Releases](https://github.com/will0w7/MoneyLooter/releases)\n\n- fix missing translations"
+    },
+    {
+      "tag": "2.1.0",
+      "published": "2026-10-14",
+      "notes": "# MoneyLooter\n\n## [2.1.0](https://github.com/will0w7/MoneyLooter/tree/2.1.0) (2026-10-14)\n[Full Changelog](https://github.com/will0w7/MoneyLooter/compare/2.0.0...2.1.0) [Previous Releases](https://github.com/will0w7/MoneyLooter/releases)\n\n- fix mainly for classic/forever, do not sell profession tools  \n- AllTheThings and Scrap integration, better disenchant and price logic, update changelog for the 2.1 release and debug mode  \n- ignore BoP items  \n- wip vendor button, new filters, bug fixes  \n- Merge pull request #41 from will0w7/config\\_menu  \n    2.0.0 release"
+    },
+    {
+      "tag": "2.0.0",
+      "published": "2026-09-26",
+      "notes": "# MoneyLooter\n\n## [2.0.0](https://github.com/will0w7/MoneyLooter/tree/2.0.0) (2026-09-26)\n[Full Changelog](https://github.com/will0w7/MoneyLooter/compare/1.11.1...2.0.0) [Previous Releases](https://github.com/will0w7/MoneyLooter/releases)\n\n- single toc for all game versions, Forever support, item action icons, tooltip on hover and refined loot func  \n- configurable price source, simplified price calculation and cache invalidation  \n- better disenchant system, a lot of config stuff, better price data management (config)  \n- some fixes, better config and prep for 2.0  \n- force use disenchant per-quality  \n- new config button on the UI  \n- reorder file loads and function upvalue in the core file  \n- delete UIEvents and merge it into MainUI  \n- UI renames  \n- added option to scale the whole UI  \n- new config menu for all the options available  \n- use disenchant value per character"
+    },
+    {
+      "tag": "1.11.1",
+      "published": "2026-08-31",
+      "notes": "# MoneyLooter\n\n## [1.11.1](https://github.com/will0w7/MoneyLooter/tree/1.11.1) (2026-08-31)\n[Full Changelog](https://github.com/will0w7/MoneyLooter/compare/1.11.0...1.11.1) [Previous Releases](https://github.com/will0w7/MoneyLooter/releases)\n\n- delete debug logs"
+    },
+    {
+      "tag": "1.11.0",
+      "published": "2026-08-31",
+      "notes": "# MoneyLooter\n\n## [1.11.0](https://github.com/will0w7/MoneyLooter/tree/1.11.0) (2026-08-31)\n[Full Changelog](https://github.com/will0w7/MoneyLooter/compare/1.10.7...1.11.0) [Previous Releases](https://github.com/will0w7/MoneyLooter/releases)\n\n- feat: optional disenchant value (/ml disenchant)"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/will0w7/MoneyLooter/main/images/MoneyLooter2.0.png",
+    "https://raw.githubusercontent.com/will0w7/MoneyLooter/main/images/MoneyLooterSummaryMode.gif",
+    "https://raw.githubusercontent.com/will0w7/MoneyLooter/main/images/MoneyLooterNewUI.png"
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-10-15",
+    "releaseDates": [
+      "2026-10-15",
+      "2026-10-14",
+      "2026-09-26",
+      "2026-08-31",
+      "2026-08-31",
+      "2026-08-25",
+      "2026-08-12",
+      "2026-07-12",
+      "2026-06-17",
+      "2026-06-09",
+      "2026-06-08",
+      "2026-04-01",
+      "2026-02-22",
+      "2025-12-18",
+      "2025-12-11",
+      "2025-11-18",
+      "2025-10-20",
+      "2025-08-18",
+      "2025-08-13",
+      "2025-08-13",
+      "2025-08-13",
+      "2025-08-09",
+      "2025-08-09",
+      "2025-08-08",
+      "2025-06-10",
+      "2025-06-10",
+      "2025-06-08",
+      "2025-02-27",
+      "2025-01-27",
+      "2025-01-06",
+      "2024-12-09",
+      "2024-11-20",
+      "2024-10-30",
+      "2024-10-27",
+      "2024-10-13",
+      "2024-10-06",
+      "2024-10-06",
+      "2024-09-27",
+      "2024-09-25",
+      "2024-09-20",
+      "2024-09-15",
+      "2024-09-13",
+      "2024-09-12",
+      "2024-09-11",
+      "2024-09-11",
+      "2024-09-11",
+      "2024-09-11",
+      "2024-09-11",
+      "2024-09-11",
+      "2024-09-10"
+    ]
+  },
+  "languages": [
+    "esES",
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "MoneyLooter"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "TradeSkillMaster",
+      "Auctionator",
+      "Auctioneer",
+      "OribosExchange",
+      "RECrystallize",
+      "AllTheThings",
+      "Scrap"
+    ],
+    "savedVariables": [
+      "MoneyLooterXDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "MoneyLooterDB"
+    ]
+  }
+}

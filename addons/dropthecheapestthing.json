@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "dropthecheapestthing",
+  "repo": "kemayo/wow-dropthecheapestthing",
+  "releases": [
+    {
+      "tag": "v2026.5",
+      "published": "2026-09-20",
+      "notes": "# DropTheCheapestThing\n\n## [v2026.5](https://github.com/kemayo/wow-dropthecheapestthing/tree/v2026.5) (2026-09-20)\n[Full Changelog](https://github.com/kemayo/wow-dropthecheapestthing/compare/v2026.4...v2026.5) [Previous Releases](https://github.com/kemayo/wow-dropthecheapestthing/releases)\n\n- Add profile support  \n    AceDBOptions gives the database's profiles a tab in the options. The default  \n    profile is still DEFAULT, so an existing install opens on the settings it  \n    already had, and a character that wants its own lists picks its own profile.  \n    Two places held on to a profile table instead of reading it through db, and a  \n    switch left them pointing at the profile the player just left: the merchant  \n    module's file-local db, and the minimap settings LibDBIcon keeps a reference  \n    to. Both are refreshed from the parent database's OnProfile callbacks.  \n- Show junk icon in blizzard bags as well  \n- Move the \"mark junk in bags\" toggle to the General section  \n    It doesn't have anything to do with \"what to drop\", after all.  \n    Follow-up-to: 1513f9d9215377c586e5f95924081f9d14277589  \n- An option to stop marking junk in the bag addons (#2)  \n    The switch is read inside the two callbacks rather than around the  \n    registration. Bagnon and Baganator are told about the plugin once, when they  \n    load, and neither offers a way to withdraw it, so a flag checked at  \n    registration would only take effect after a reload -- and an option that needs  \n    a reload is one people report as broken.  \n    Defaults to on, which is what everyone has today, and the toggle greys itself  \n    out when neither bag addon is loaded, the way the appearance toggle does  \n    without transmog.  \n- API: drop with sell\\_if\\_available could be confused by unsellable items  \n    If at a merchant, and the cheapest item was something unsellable, if  \n    sell\\_if\\_available was set we'd call drop\\_bagslot with drop\\_only based  \n    on the function-level sell\\_if\\_available, not the item-level sell\\_only  \n    which actually took whether it was sellable into account.  \n    This wouldn't be terrible, but it would stall selling items via the API  \n    because it'd claim it was selling it, print the message, then error \"the  \n    merchant doesn't want this item\"... and just get stuck.  \n- Bindings: also offer bindings for drop/sell/sell-or-drop  \n- Bindings: add a binding for never consider as well  \n- Bindings: move to a dedicated category  \n    Blizzard stopped `header` displaying anything back in 2022, and doesn't  \n    plan to change that (see: Stanzilla/WoWUIBugs#305). This makes a binding  \n    like \"Toggle the item under the mouse\" extremely hard to interpret when  \n    mixed with other addon bindings.  \n    Refs #34  \n    Follow-up-to: 513e44fa7d48122ebaf6528a92b59e8ec34faba5  \n- Don't load Bindings.xml in the TOC  \n    It's magic, Blizzard loads it if it's present. It being the TOC causes  \n    an error because blizzard  \n    Refs #34  \n    Follow-up-to: 513e44fa7d48122ebaf6528a92b59e8ec34faba5  \n- Auction values were used for the sale total chat summary  \n- API.Drop ignored sell\\_if\\_available  \n- A key that toggles the item under the mouse in Always Consider (#30)  \n    Built over the snippet in the issue, with the Lua moved out of the XML into  \n    config.lua -- the file that already holds db and already owns the two lists --  \n    and the message going through DEFAULT\\_CHAT\\_FRAME like the rest of the addon.  \n    No default key. The binding sits under its own header in the keybinding UI,  \n    so it is bindable to a controller button as well, which is free with Blizzard  \n    bindings and is what makes the addon usable without a mouse.  \n    .luacheckrc gains the two BINDING\\_ globals; without them luacheck fails the  \n    build with \"setting non-standard global variable\", which I checked by running  \n    your lint both ways on a scratch runner.  \n- Never consider the greys that buy the Baubleworm pets (#14)  \n    Nine grey items are the currency for the three Baubleworm pets. They look  \n    exactly like junk, and selling one costs the pet, so they go in the same  \n    hardcoded list as the Haunted Memento. Item ids are the ones in #14.  \n- Slash commands for drop and sell (#4)  \n    /dtct drop and /dtct sell do what the minimap button's clicks do, through the  \n    API that api.lua already exposes; /dtct sell all sells the list, capped at the  \n    buyback limit. Anything else opens the config, so /dtct on its own behaves as  \n    it always has.  \n- Load on World of Warcraft: Forever (interface 16001)  \n    Forever is a fourth game line beside Retail, Classic Era and the Classic  \n    expansions. Build 1.60.1 (69913) reports interface 16001, so the addon shows  \n    as out of date there and only loads with the out-of-date box ticked.  \n    No code change is needed. That client reports WOW\\_PROJECT\\_ID as  \n    WOW\\_PROJECT\\_MAINLINE, and its API is complete for everything this addon  \n    touches: C\\_Container, C\\_Item and C\\_TransmogCollection all exist. Checked in  \n    the game rather than assumed -- dropping and selling work, and the merchant  \n    hook takes.  \n    BigWigsMods/packager already maps 16??? to the forever game type, so the  \n    release workflow needs nothing.  \n- Fix quest item detection"
+    },
+    {
+      "tag": "v2026.4",
+      "published": "2026-08-09",
+      "notes": "# DropTheCheapestThing\n\n## [v2026.4](https://github.com/kemayo/wow-dropthecheapestthing/tree/v2026.4) (2026-08-09)\n[Full Changelog](https://github.com/kemayo/wow-dropthecheapestthing/compare/v2026.3...v2026.4) [Previous Releases](https://github.com/kemayo/wow-dropthecheapestthing/releases)\n\n- TOC for 12.1.0, 12.0.7, 5.5.4, 2.5.6  \n- Actions: use the luacheck action instead of installing it from luarocks  \n    The lint job ran apt-get install with no apt-get update ahead of it, which  \n    fails whenever the runner image package index is stale.  \n    lunarmodules/luacheck@v1 replaces those three steps and runs the same  \n    luacheck . --no-color -q. Updates the checkout action from v2 to v7, which  \n    was still running a node version GitHub is retiring; nothing in that range  \n    affects a push-triggered workflow. Pins the packager to v2 rather than  \n    master, so an upstream change can no longer land in a release without  \n    warning; v2 is the maintained major tag, so fixes within the v2 line still  \n    arrive."
+    },
+    {
+      "tag": "v2026.3",
+      "published": "2026-03-01",
+      "notes": "# DropTheCheapestThing\n\n## [v2026.3](https://github.com/kemayo/wow-dropthecheapestthing/tree/v2026.3) (2026-02-28)\n[Full Changelog](https://github.com/kemayo/wow-dropthecheapestthing/compare/v2026.2...v2026.3) [Previous Releases](https://github.com/kemayo/wow-dropthecheapestthing/releases)\n\n- Make the price in the vendor button tooltip slightly prettier  \n- Better sellable check that won't let items with a vendor price through  \n    There are very few items with a vendor price that can't be sold.  \n    Carefully Rolled Message (200590) from Dragonflight was my test case."
+    },
+    {
+      "tag": "v2026.2",
+      "published": "2026-01-25",
+      "notes": "# DropTheCheapestThing\n\n## [v2026.2](https://github.com/kemayo/wow-dropthecheapestthing/tree/v2026.2) (2026-01-25)\n[Full Changelog](https://github.com/kemayo/wow-dropthecheapestthing/compare/v2026.1...v2026.2) [Previous Releases](https://github.com/kemayo/wow-dropthecheapestthing/releases)\n\n- Adjust the broker plugin so that alternate merchant addons won't confuse it  \n- Directly use the new API in the merchant button  \n- Add an API usable from macros  \n- If an attempted drop fails, force a rescan of the bags  \n- Stop hardcoding the name in a few places  \n- Use new systems for opening the config frame  \n- Add the Enclave Aspirant's Hatchet to the broken transmog items list"
+    },
+    {
+      "tag": "v2026.1",
+      "published": "2026-01-14",
+      "notes": "# DropTheCheapestThing\n\n## [v2026.1](https://github.com/kemayo/wow-dropthecheapestthing/tree/v2026.1) (2026-01-14)\n[Full Changelog](https://github.com/kemayo/wow-dropthecheapestthing/compare/v2025.3...v2026.1) [Previous Releases](https://github.com/kemayo/wow-dropthecheapestthing/releases)\n\n- TOC for 2.5.5  \n- Futher midnight fix  \n- Fallback for CanTransmogItem in Midnight  \n- TOC for Midnight beta and PTR"
+    }
+  ],
+  "stats": {
+    "stars": 7,
+    "openIssues": 3,
+    "contributors": 4,
+    "lastRelease": "2026-09-20",
+    "releaseDates": [
+      "2026-09-20",
+      "2026-08-09",
+      "2026-03-01",
+      "2026-01-25",
+      "2026-01-14",
+      "2025-12-03",
+      "2025-07-02",
+      "2025-03-01",
+      "2024-12-29",
+      "2024-08-12",
+      "2024-07-31",
+      "2024-05-06",
+      "2024-05-06",
+      "2023-11-27",
+      "2023-11-10",
+      "2023-09-14",
+      "2023-02-10",
+      "2023-02-10",
+      "2022-11-15",
+      "2022-10-28",
+      "2022-09-20",
+      "2021-06-03",
+      "2020-12-17",
+      "2020-11-21",
+      "2020-10-13",
+      "2019-09-11",
+      "2019-09-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DropTheCheapestThing"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "forever"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDBIcon-1.0",
+      "tekDebug",
+      "Bagnon"
+    ],
+    "savedVariables": [
+      "DropTheCheapestThingDB"
+    ]
+  }
+}

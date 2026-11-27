@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "immersivehud",
+  "repo": "jdolmuz/ImmersiveHUD",
+  "about": "# Immersive HUD\n\nYour HUD fades away while you explore and comes back when you need it. Built for **World of Warcraft: Forever** (interface 16001).\n\n## How it works\n- Start moving, and after a moment the HUD slowly fades out.\n- It comes back instantly when you:\n  - enter combat\n  - click or target something\n  - have an enemy targeted\n  - cast a spell\n  - type in chat\n  - hover the mouse over a hidden element\n  - drop to low health\n- Stopping doesn't bring the HUD back unless you turn that option on.\n\n## Elements you can fade\nEach element has its own toggle:\n- Action bars (main, extra, stance and pet bars)\n- Player and pet frames\n- Target and focus frames\n- Party and raid frames\n- Buffs and debuffs\n- Cooldown Manager\n- Micro menu and bag bar\n- XP and reputation bars\n- Quest / objective tracker\n- Chat (windows, tabs, buttons and input box)\n- Minimap\n\nThe minimap, quest tracker, and party and raid frames stay visible by default.\n\n## Install\nCopy the `ImmersiveHUD` folder into `World of Warcraft\\_forever_\\Interface\\AddOns\\`, then `/reload`.\n\n## Settings\nOpen the settings with `/ihud`, or go to **Options → AddOns → Immersive HUD**. You can adjust:\n- how long you move before the fade starts\n- how fast the HUD fades out and back in\n- how faded \"hidden\" is\n- which events bring the HUD back\n\nThere are also keybinds to keep the HUD visible, snooze fading for 5 minutes, or turn auto-fade on and off.\n\n## Notes\n- It only changes transparency, so it's safe to use in combat. Faded buttons and keybinds still work.\n- Holding a mouse button to turn the camera doesn't count as a click.\n- Fading pauses while Edit Mode is open.\n\n## Commands\n| Command | Effect |\n|---|---|\n| `/ihud` | Open settings |\n| `/ihud on` / `off` | Turn auto-fade on or off |\n| `/ihud pin` | Keep the HUD visible |\n| `/ihud snooze [minutes]` | Keep the HUD visible for a few minutes (default 5), then resume fading |\n| `/ihud snooze off` | Cancel a snooze early |\n| `/ihud toggle <element>` | Turn fading on or off for one element |\n| `/ihud frames` | List the HUD frames the add-on found |\n| `/ihud errors` | Copy an error report |\n\n## License\nOpen source under the [MIT License](https://github.com/jdolmuz/ImmersiveHUD/blob/main/LICENSE). Provided as is, without warranty or support.",
+  "releases": [
+    {
+      "tag": "v1.0.4",
+      "name": "Immersive HUD v1.0.4",
+      "published": "2026-11-14",
+      "notes": "Immersive HUD for **World of Warcraft: Forever**. Your HUD fades while you explore and comes back for combat, clicks, targets, casting, typing, mouseover and low health.\n\n## Install\nUnzip `ImmersiveHUD-v*.zip` into `World of Warcraft\\_forever_\\Interface\\AddOns\\` and `/reload`. Type `/ihud` for settings.\n\n## Fadeable elements\nAction bars, player/pet frames, target/focus frames, party/raid frames, buffs/debuffs, Cooldown Manager, micro menu & bag bar, XP/reputation bars, quest tracker, chat (including the input box), minimap.\n\n## In this release\n- New `/ihud snooze [minutes]`: keeps the HUD visible for a while (5 minutes by default), then auto-fade resumes on its own. `/ihud snooze off` ends it early.\n- New keybind to snooze / unsnooze fading for 5 minutes.\n- `/ihud status` shows how much snooze time is left.\n\nMIT licensed, provided as is."
+    },
+    {
+      "tag": "v1.0.3",
+      "name": "Immersive HUD v1.0.3",
+      "published": "2026-11-13",
+      "notes": "Immersive HUD for **World of Warcraft: Forever**. Your HUD fades while you explore and comes back for combat, clicks, targets, casting, typing, mouseover and low health.\n\n## Install\nUnzip `ImmersiveHUD-v*.zip` into `World of Warcraft\\_forever_\\Interface\\AddOns\\` and `/reload`. Type `/ihud` for settings.\n\n## Fadeable elements\nAction bars, player/pet frames, target/focus frames, party/raid frames, buffs/debuffs, Cooldown Manager, micro menu & bag bar, XP/reputation bars, quest tracker, chat (including the input box), minimap.\n\n## In this release\n- First public release.\n- Fixed a Lua error from the mouseover check (`MouseIsOver` doesn't exist in Forever).\n- The chat input box now fades with chat.\n- Built-in error catcher: `/ihud errors` and `/ihud frames`.\n\nMIT licensed, provided as is."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ImmersiveHUD"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ImmersiveHUDDB"
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "characternotes",
+  "repo": "Talryn/CharacterNotes",
+  "about": "## Overview\n\nCharacter Notes is a World of Warcraft addon that allows you to set and manage notes on other player's characters. Notes are stored per realm so notes are shared across your characters on a realm. Notes can be set on any character name. The notes are simple and generic and are not tied to a friend, an ignored character, etc.\n\nNotes are displayed:\n\n* When that character logs on\n* When you do a /who on that character\n* In unit tooltips\n* Optionally as a hyperlink in chat\n* From a command line interface\n* From a GUI interface \n\nNotes can be set and managed:\n\n* By right-clicking on a unit frame\n* Right clicking a name in chat or in the friends list\n* From a command line interface\n* From a GUI interface\n* LDB launcher to bring up the GUI interface\n* Minimap button to bring up the GUI interface \n\n## Additional Features\n\nCharacter Notes can use LibAlts to get main-alt information. If no note is found for a character but one is found for the main of that character, it will display the note for the main.\n\nNotes can be stored for characters not from your server but you'll need to use /editnote or the \"Edit Note\" menu item due to the spaces in the name (from the server name added at the end).\n\nNote Links will add a hyperlink in chat next to any player name that you have set a note for. Clicking the \"note\" link will display the note in a tooltip.\n\n## Command-line options\n\n    /notes - Brings up the GUI\n    /searchnote  - Brings up the GUI. Optional search term allows filtering the list of notes.\n    /setnote   Sets a note for the character name specified.\n    /delnote  Deletes the note for the character name specified.\n    /getnote  Prints the note for the character name specified.\n    /editnote  Brings up a window to edit the note for the name specified or your target if no name if specified. \n    /setrating   Sets the rating for a note. (Rating: -1 = Negative, 0 = Neutral, 1 = Positive)\n    /notesexport Brings up the notes export window.\n    /notesimport Brings up the notes import window.\n\n## Import / Export\n\nVia the interface options or command line you can initiate an export or import of notes.\n\nExported notes can be used in spreadsheets, other applications, or imported into this\naddon.  The export is in the comma-separated value (CSV) format.  If you choose to Escape values, it will put double quotes around text fields.\n\nYou can also import notes into the addon.  **This feature can result in data loss.**  Backup\nyour data (the Saved Variables) before importing in case you need to restore your data if\nanything goes wrong.  You can find the file at `<WoW-Folder>\\<flavor>\\WTF\\Account\\<account>\\Saved Variables\\CharacterNotes.lua`.  Flavor is the game type such as `_retail_` or `_classic_`.\n\nIn order to import notes from this addon, when you export you **must** select all fields and turn on `Escape?` values.  Any spaces or newlines in a note will cause issues and possible corrupt the import.  Escaping the values will preserve the data.\n\nA preview window shows what will be imported giving you a chance to verify the data\nlooks correct.  By default the addon will not overwrite existing data.  If you wish to overwrite existing notes, then toggle the Overwrite Existing option.",
+  "releases": [
+    {
+      "tag": "12.1.2",
+      "published": "2026-10-21",
+      "notes": "# Character Notes\n\n## [12.1.2](https://github.com/Talryn/CharacterNotes/tree/12.1.2) (2026-10-20)\n[Full Changelog](https://github.com/Talryn/CharacterNotes/compare/12.1.1...12.1.2) [Previous Releases](https://github.com/Talryn/CharacterNotes/releases)\n\n- Fix Classic detection."
+    },
+    {
+      "tag": "12.1.1",
+      "published": "2026-10-02",
+      "notes": "# Character Notes\n\n## [12.1.1](https://github.com/Talryn/CharacterNotes/tree/12.1.1) (2026-10-02)\n[Full Changelog](https://github.com/Talryn/CharacterNotes/compare/12.1.0...12.1.1) [Previous Releases](https://github.com/Talryn/CharacterNotes/releases)\n\n- Update TOC to fix Forever issue."
+    },
+    {
+      "tag": "12.1.0",
+      "published": "2026-10-01",
+      "notes": "# Character Notes\n\n## [12.1.0](https://github.com/Talryn/CharacterNotes/tree/12.1.0) (2026-09-21)\n[Full Changelog](https://github.com/Talryn/CharacterNotes/compare/12.0.7...12.1.0) [Previous Releases](https://github.com/Talryn/CharacterNotes/releases)\n\n- Fix CharacterNotes.toc  \n- Update release.yml for permissions  \n- Update TOC.  \n- Use new naming scheme in Forever."
+    },
+    {
+      "tag": "12.0.7",
+      "published": "2026-06-02",
+      "notes": "# Character Notes\n\n## [12.0.7](https://github.com/Talryn/CharacterNotes/tree/12.0.7) (2026-06-02)\n[Full Changelog](https://github.com/Talryn/CharacterNotes/compare/12.0.6...12.0.7) [Previous Releases](https://github.com/Talryn/CharacterNotes/releases)\n\n- Fix issue where custom font was not being used for delete confirmation window.  \n- Update TOC."
+    },
+    {
+      "tag": "12.0.6",
+      "published": "2026-04-27",
+      "notes": "# Character Notes\n\n## [12.0.6](https://github.com/Talryn/CharacterNotes/tree/12.0.6) (2026-04-26)\n[Full Changelog](https://github.com/Talryn/CharacterNotes/compare/12.0.5...12.0.6) [Previous Releases](https://github.com/Talryn/CharacterNotes/releases)\n\n- Fix errors in OnTooltipSetUnit."
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 9,
+    "contributors": 9,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-10-02",
+      "2026-10-01",
+      "2026-06-02",
+      "2026-04-27",
+      "2026-03-20",
+      "2026-03-16",
+      "2026-01-27",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-13",
+      "2025-01-11",
+      "2024-09-28",
+      "2024-09-21",
+      "2024-08-14",
+      "2024-07-29",
+      "2024-07-26",
+      "2024-07-11",
+      "2024-06-01",
+      "2024-04-30",
+      "2023-10-30",
+      "2023-10-12",
+      "2022-12-17",
+      "2022-11-24",
+      "2022-11-17",
+      "2022-11-09",
+      "2022-11-01",
+      "2022-11-01",
+      "2022-10-31",
+      "2022-10-28",
+      "2022-10-25",
+      "2022-08-30",
+      "2022-08-14",
+      "2022-08-13",
+      "2022-02-22",
+      "2021-06-29",
+      "2021-05-18",
+      "2021-04-17",
+      "2021-03-10",
+      "2020-11-20",
+      "2020-10-13",
+      "2020-09-12",
+      "2020-09-01",
+      "2020-08-30",
+      "2020-04-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CharacterNotes"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDeformat-3.0",
+      "lib-st",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "LibAlts-1.0"
+    ],
+    "savedVariables": [
+      "CharacterNotesDB"
+    ]
+  }
+}

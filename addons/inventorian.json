@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "inventorian",
+  "repo": "Nevcairiel/Inventorian",
+  "releases": [
+    {
+      "tag": "12.1.5.3",
+      "published": "2026-11-21",
+      "notes": "# Inventorian\n\n## [12.1.5.3](https://github.com/Nevcairiel/Inventorian/tree/12.1.5.3) (2026-11-20)\n[Full Changelog](https://github.com/Nevcairiel/Inventorian/compare/12.1.5.2...12.1.5.3) [Previous Releases](https://github.com/Nevcairiel/Inventorian/releases)\n\n- Fix name handling on Forever"
+    },
+    {
+      "tag": "12.1.5.2",
+      "published": "2026-11-18",
+      "notes": "# Inventorian\n\n## [12.1.5.2](https://github.com/Nevcairiel/Inventorian/tree/12.1.5.2) (2026-11-17)\n[Full Changelog](https://github.com/Nevcairiel/Inventorian/compare/12.1.5.1...12.1.5.2) [Previous Releases](https://github.com/Nevcairiel/Inventorian/releases)\n\n- Pre-create item buttons for the inventory & forever bank  \n    Retail has too many bank slots for my liking to also pre-create, so  \n    leave it out for now  \n- Avoid messing with the BankPanel on Forever  \n    Avoids errors with the money frame after accessing the bank once"
+    },
+    {
+      "tag": "12.1.5.1",
+      "published": "2026-11-15",
+      "notes": "# Inventorian\n\n## [12.1.5.1](https://github.com/Nevcairiel/Inventorian/tree/12.1.5.1) (2026-11-15)\n[Full Changelog](https://github.com/Nevcairiel/Inventorian/compare/12.1.5.0...12.1.5.1) [Previous Releases](https://github.com/Nevcairiel/Inventorian/releases)\n\n- Use an explicit SetBagID call to avoid taint issues  \n    SetBagID goes through an attribute dispatcher to launder the bag id,  \n    this resolves combat item usage taint."
+    },
+    {
+      "tag": "12.1.5.0",
+      "published": "2026-11-14",
+      "notes": "# Inventorian\n\n## [12.1.5.0](https://github.com/Nevcairiel/Inventorian/tree/12.1.5.0) (2026-11-14)\n[Full Changelog](https://github.com/Nevcairiel/Inventorian/compare/12.1.0.0...12.1.5.0) [Previous Releases](https://github.com/Nevcairiel/Inventorian/releases)\n\n- Forever support  \n- Disable Account Bank on Forever  \n- Fix renamed CursorCanGoInSlot in Forever"
+    },
+    {
+      "tag": "12.1.0.0",
+      "published": "2026-08-12",
+      "notes": "# Inventorian\n\n## [12.1.0.0](https://github.com/Nevcairiel/Inventorian/tree/12.1.0.0) (2026-08-12)\n[Full Changelog](https://github.com/Nevcairiel/Inventorian/compare/12.0.0.0...12.1.0.0) [Previous Releases](https://github.com/Nevcairiel/Inventorian/releases)\n\n- Update TOC"
+    }
+  ],
+  "stats": {
+    "stars": 8,
+    "openIssues": 9,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-18",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-01-18",
+      "2025-08-06",
+      "2025-08-06",
+      "2025-04-09",
+      "2025-04-09",
+      "2024-09-06",
+      "2024-08-25",
+      "2024-08-10",
+      "2024-07-24",
+      "2024-05-01",
+      "2024-03-20",
+      "2023-10-11",
+      "2023-10-11",
+      "2023-05-03",
+      "2023-03-22",
+      "2023-01-25",
+      "2023-01-18",
+      "2022-11-17",
+      "2022-11-16",
+      "2022-11-16",
+      "2022-11-07",
+      "2022-10-25",
+      "2022-09-26",
+      "2022-08-31",
+      "2022-08-31",
+      "2022-08-18",
+      "2022-06-27",
+      "2022-02-23",
+      "2021-06-29",
+      "2021-05-17",
+      "2021-05-08",
+      "2021-03-15",
+      "2020-11-24",
+      "2020-11-18",
+      "2020-10-14",
+      "2020-10-14",
+      "2020-10-13",
+      "2020-08-31",
+      "2020-08-31",
+      "2019-09-25",
+      "2019-08-30",
+      "2019-08-30",
+      "2019-08-30",
+      "2019-08-30"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Inventorian",
+      "Inventorian_BagBrother"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibWindow-1.1",
+      "Inventorian_BagBrother",
+      "Blizzard_TokenUI",
+      "Blizzard_MoneyFrame"
+    ],
+    "savedVariables": [
+      "InventorianDB"
+    ]
+  }
+}

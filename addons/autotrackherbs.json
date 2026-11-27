@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "autotrackherbs",
+  "repo": "psykzz/wow-autotrackherbs",
+  "about": "![AutoTrackHerbs logo: herb sprig inside a tracking ring](https://raw.githubusercontent.com/psykzz/wow-autotrackherbs/main/media/logo.png)\n\n# AutoTrackHerbs\n\nAutomatically keeps **Find Herbs** minimap tracking enabled on WoW Forever.\n\n## Features\n\n- Re-enables Find Herbs after login, UI reload, resurrection, and tracking changes.\n- Finds the tracking entry by spell ID, independent of the client's language.\n- Does nothing on characters without Find Herbs.\n- Appears under **Professions** in the AddOns list with a flower icon.\n- No settings, slash commands, dependencies, or saved variables.\n\nWhile enabled, the addon intentionally turns Find Herbs back on if you disable\nit manually. Disable the addon if you want herb tracking to remain off.\n\n## Compatibility\n\nTargets the WoW Forever beta client, interface `16001`, using\n`C_Minimap.GetNumTrackingTypes`, `C_Minimap.GetTrackingInfo`, and\n`C_Minimap.SetTracking`. Retail and other Classic clients are not claimed as\nsupported without in-game testing.\n\n## Installation\n\nDownload a release zip from\n[GitHub Releases](https://github.com/psykzz/wow-autotrackherbs/releases) and extract\nthe `AutoTrackHerbs` folder into\n`World of Warcraft\\_classic_beta_\\Interface\\AddOns`.\n\nThe installed folder must contain `AutoTrackHerbs.toc` and `AutoTrackHerbs.lua`.\nRestart WoW and enable **Auto Track Herbs** in the AddOns list.\n\nFor development before the first release, copy those two files from the\nrepository into an `AutoTrackHerbs` addon folder.\n\n## Development and releases\n\nCreated from [wow-template](https://github.com/psykzz/wow-template). GitHub Actions\nchecks Lua 5.1 syntax and Luacheck on pushes to `main` and pull requests:\n\n```powershell\nluac5.1 -p AutoTrackHerbs.lua\nluacheck AutoTrackHerbs.lua\n```\n\nThe 512 × 512 logo in `media/logo.png` can be regenerated with\n`python media/generate_logo.py` (requires Pillow). It is README artwork; the\nin-game AddOns list uses the client's built-in flower icon.\n\nIn-game, test on an herbalist: turn Find Herbs off, reload the UI, and resurrect.\nTracking should return automatically. Test a non-herbalist as well, and check\nBugSack/BugGrabber for errors.\n\nTo publish releases, set the `CF_API_TOKEN` GitHub Actions repository secret to\na CurseForge API token authorized to upload to project `1735705`. After in-game\nverification, push a `v*` semantic-version tag. BigWigs Packager then creates\nthe GitHub release zip and uploads it to CurseForge for WoW Forever. The\npackager substitutes `@project-version@` in the TOC and installs the addon under\n`AutoTrackHerbs`. GitHub publishing uses the workflow's `GITHUB_TOKEN`; the\nrelease fails before packaging if `CF_API_TOKEN` is missing.\n\n## License\n\nMIT. See [LICENSE](https://github.com/psykzz/wow-autotrackherbs/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.0.1",
+      "published": "2026-10-09",
+      "notes": "# Auto Track Herbs\n\n## [v0.0.1](https://github.com/psykzz/wow-autotrackherbs/tree/v0.0.1) (2026-10-09)\n[Full Changelog](https://github.com/psykzz/wow-autotrackherbs/commits/v0.0.1) [Previous Releases](https://github.com/psykzz/wow-autotrackherbs/releases)\n\n- chore: prepare CurseForge release and branding  \n- fix: ignore unused event frame argument  \n- feat: import AutoTrackHerbs into addon template  \n- Initial commit"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-09",
+    "releaseDates": [
+      "2026-10-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AutoTrackHerbs"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

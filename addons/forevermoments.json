@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "forevermoments",
+  "repo": "adambowles/forever-moments",
+  "about": "# Forever Moments 1.0.1\n\nA standalone World of Warcraft: Forever addon that automatically takes screenshots of milestones and small discoveries. Designed to capture generously rather than miss moments. No dependencies, telemetry, or third-party libraries.\n\n## Install and update with instawow\n\nConfigure an instawow profile pointing at Forever's `_forever_/Interface/AddOns` directory. If Forever is not detected automatically, select the directory manually.\n\n```sh\ninstawow install github:adambowles/forever-moments\n```\n\nOnce installed, use `instawow update` to receive future GitHub Releases. Alternatively, enter the repository URL into an add-on manager that supports GitHub Releases.\n\n**Important:** instawow requires a published GitHub Release with an attached installable ZIP. The source-code ZIP generated automatically by GitHub is not an installable release asset. The release workflow builds the required ZIP containing `ForeverMoments/ForeverMoments.toc`, Lua files, README and LICENSE.\n\n## Install\n\nExtract `ForeverMoments/` to:\n\n`World of Warcraft/_forever_/Interface/AddOns/ForeverMoments/`\n\nThat directory must directly contain `ForeverMoments.toc`, `Core.lua`, and `Options.lua`. Restart the client and enable **Forever Moments** in the character-select AddOns menu.\n\nTarget: World of Warcraft: Forever interface **16001** (modern client, *not* WotLK 3.3.5a). In-game compatibility has not yet been verified.\n\n## Commands\n\n- `/fm` or `/moments`: open the category settings window.\n- `/fm snap`: queue a manual screenshot (obeys the active spacing interval).\n- `/fm on` and `/fm off`: enable/disable automatic screenshots.\n- `/fm status`: show successes, failures, queued triggers and periodic interval.\n\nAll settings persist account-wide; visited zones are recorded per character.\n\n## Screenshot categories\n\n| Enabled by default | Optional / disabled by default |\n| --- | --- |\n| Level-ups, personal achievements, criteria | Subzones |\n| Boss victories, boss wipes, deaths | Reputation messages |\n| PvP matches, PvP kills, duels | Guild achievements |\n| Quest turn-ins, new main zones | Login / world entry |\n| High-quality loot, learned recipes | Periodic screenshots (5 to 60 min) |\n| Renown / PvP ranks, collections, instance completions | |\n\nThe **Capture everything** preset opts into *all* categories (including subzones, reputation, and logins), lowers the gap to 1 second, saves Uncommon+ loot, enables a screenshot every five minutes and removes first-visit-only zone restrictions. The **Default** and **Only big milestones** presets are also available.\n\nOther settings: loot quality threshold, time between screenshot attempts, event delay, UI hiding (outside combat), chat notices and first-visit-only zone discovery.\n\n## Where screenshots go\n\nScreenshots are stored by the game at `_forever_/Screenshots` under your WoW install directory. The addon cannot choose the filenames or read screenshot files. For high-quality JPGs you can run `/console screenshotQuality 10` or change screenshot format in the game settings.\n\n## Known limitations\n\n- Forever uses modern WoW event hooks and protected combat data. Low-health triggers, combat-log triggers and automated rare-enemy kill detection are deliberately not implemented because they cannot reliably examine protected combat information.\n- Collection and certain instance events might not be emitted in every Forever client version. Unknown events are skipped safely rather than causing load errors.\n- Item-loot capture uses item messages and quality. It may include loot awarded to other nearby players, and uncached item details are deliberately captured to avoid misses.\n- Many events can happen close together. The addon spaces out screenshots, deduplicates identical triggers for six seconds, and discards very old queued moments. Several different milestones close together can still produce several screenshots.\n- When hiding the UI, the addon restores it after the game's screenshot event or a three-second safety timeout. It will not hide the interface during combat.\n- If the client does not fire SCREENSHOT_SUCCEEDED/FAILED, the timeout prevents lock-ups but successful captures are not counted as successes.\n- Screenshots are timestamped by the game. The one-second spacing in Capture everything avoids identical time-based filenames.\n\n## Release automation\n\nThe workflow at [`.github/workflows/release.yml`](https://github.com/adambowles/forever-moments/blob/main/.github/workflows/release.yml) runs after changes to the add-on on `main`, on version-tag pushes and when started manually from GitHub Actions.\n\nIt validates the version in `ForeverMoments.toc` against `addon.version` in `Core.lua`, packages a single top-level `ForeverMoments/` directory into `ForeverMoments-vX.Y.Z.zip`, tests the archive, uploads it as a workflow artifact, and publishes a **GitHub Release with the ZIP attached**.\n\nFor a subsequent release:\n\n1. Update `## Version` in `ForeverMoments.toc` and `addon.version` in `Core.lua` to the same new version.\n2. Commit and push to `main`.\n3. The workflow creates the `vX.Y.Z` tag, release and ZIP asset if that version has not already been published.\n\nExisting release assets are deliberately not overwritten by a same-version commit. To distribute an update through instawow, **increase the version**.\n\n## Notes for debugging\n\nEnable `Display Lua Errors` in WoW's options if a future game update changes interface functions. Check `/fm status` after `/fm snap` to confirm the screenshot success event fires, and verify a new image in your Screenshots folder.\n\nLicense: MIT. Unofficial fan addon, not associated with Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "name": "Forever Moments v1.0.1",
+      "published": "2026-10-23",
+      "notes": "**Full Changelog**: https://github.com/adambowles/forever-moments/compare/v1.0.0...v1.0.1"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Forever Moments v1.0.0",
+      "published": "2026-10-23",
+      "notes": "**Full Changelog**: https://github.com/adambowles/forever-moments/commits/v1.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-23",
+    "releaseDates": [
+      "2026-10-23",
+      "2026-10-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverMoments"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverMomentsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ForeverMomentsCharDB"
+    ]
+  }
+}

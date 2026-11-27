@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "chords",
+  "repo": "JSlomian/Chords",
+  "about": "# Chords\n\nVim-style key chords for World of Warcraft Classic. Press a key that opens a **group**, then a\nfollow-up key to cast. `X` → `1` for Searing Totem, `X` → `Q` for Magma Totem, without\nfiring whatever those keys normally do.\n\n- Groups hold spells, items, macros or other groups.\n- Opening a group shows a flyout of clickable icons next to its button, like the totem bar.\n- Only the group's own keys are intercepted. Pressing the group's key again, Escape, or using an entry closes it.\n- Works in combat: everything runs through Blizzard's secure handlers.\n\n## Use\n\n`/chords` opens the editor.\n\n1. Create a group (name = macro name, max 16 letters) and pick an icon.\n2. Add entries: click the key button, press the key, type a spell (autocomplete) or use `...` for the spellbook list.\n3. Place the group:\n   - **\"Separate action bar\" unchecked** (default): an account-wide macro is created. Click **Pick up macro** and drop it on a normal action bar slot. The flyout attaches to that slot.\n   - **Checked**: the group appears as a button on the movable Chords bar (Shift-drag to move) and uses no macro slot.\n   - Or set **Open with key** to bind a key straight to the group.\n\nEntries can also be `item:Name`, `macro:/cast ...` or `group:othername`.\n\n## Commands\n\n    /chords                         open the editor\n    /chords list\n    /chords add   \n    /chords del  [key]\n    /chords enter  <key|none>\n    /chords macro \n    /chords bar size <20-80>\n    /chords reset                   clear temporary bindings if something sticks\n    /chords debug\n\n## Limits\n\n- Group edits are not possible in combat (Blizzard restricts it).\n- No timeout: closing a group means changing key bindings, which only secure code may do in combat, and secure code has no timers.\n- Sub-group entries open by key but are not drawn as flyout icons.\n\nMIT licensed.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-23",
+      "notes": "# Chords\n\n## [v1.0.0](https://github.com/JSlomian/Chords/tree/v1.0.0) (2026-11-23)\n[Full Changelog](https://github.com/JSlomian/Chords/commits/v1.0.0) [Previous Releases](https://github.com/JSlomian/Chords/releases)\n\n- Spell ranks, cooldown swipes, on-use items in spellbook, stay-open groups  \n    - Flyout icons and editor rows show the rank that will be cast; tooltip  \n      shows \"Rank N\" in the title line  \n    - Spellbook browser: on-use items from bags/worn gear, \"Show ranks\"  \n      checkbox, scan works with C\\_SpellBook and the legacy API  \n    - Cooldown/GCD swipes on flyout icons (handles secret values in combat)  \n    - Per-group \"Stay open after cast\"  \n    - Changelog for 1.0.0  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.0.2",
+      "published": "2026-10-11",
+      "notes": "# Chords\n\n## [v0.0.2](https://github.com/JSlomian/Chords/tree/v0.0.2) (2026-10-11)\n[Full Changelog](https://github.com/JSlomian/Chords/commits/v0.0.2) [Previous Releases](https://github.com/JSlomian/Chords/releases)\n\n- Add CurseForge project ID  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.0.1",
+      "published": "2026-10-11",
+      "notes": "# Chords\n\n## [v0.0.1](https://github.com/JSlomian/Chords/tree/v0.0.1) (2026-10-11)\n[Full Changelog](https://github.com/JSlomian/Chords/commits/v0.0.1) [Previous Releases](https://github.com/JSlomian/Chords/releases)\n\n- Release packaging: pkgmeta, workflow, README, LICENSE, changelog  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-10-11",
+      "2026-10-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Chords"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "ChordsDB"
+    ]
+  }
+}

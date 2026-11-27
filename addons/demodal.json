@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "demodal",
+  "repo": "nezroy/DeModal",
+  "about": "# DeModal\n\n**DeModal** disables WoW's modal style, panel-based, automatic window management for a number of default UI windows. It allows these windows to be moved and stacked by the user like a modern window-based UI. \n\nBlizzard opted to automatically manage UI panels in a very limited fashion to control the UI on small resolutions, restricting the total number of panels that can be displayed at once and enforcing automatic positioning. With modern resolutions and window-based sensibilities, this automatic panel management now feels clunky and unnecessary.\n\nThe WoW API contains all of the underlying code needed to handle user-based window placement. It is simply not enabled for most of the default UI panels. This addon enables this built-in functionality where possible. It does not re-write or replace ANY of the default UI elements so it should remain very lightweight and widely compatible.\n\n⸻\n\n### MOVABLE WINDOWS\n  \n  - Character, Spellbook, Spec and Talents\n  - Merchants, Auction House\n  - Combined Bag, Bank Vault, Guild Bank, Void Storage\n  - NPC/Quest Dialog, Trainers\n  - Group Finder, Adventure Guide, Map and Quest Log\n  - Guild, Communities, Mailbox, Friends List\n  - Achievements, Calendar\n  - Dressing Room, Inspect, Transmogrify, Collections\n  - Garrison, Order Hall, Covenant, Soulbinds\n  - more...\n\nThe goal is to let you move anything that *looks like* a movable UI window (e.g. panels with a well-defined frame or title bar). It is not for moving intrinsic UI elements like tooltips, action bars, talking heads, unit frames, etc.\n\n⸻\n\n### SETTINGS\n\nSettings are found in the default AddOn options location: `ESC → Options → AddOns → DeModal`.\n\n  - **Save windows only for this character**: check this to save window settings only for the current character. If unchecked (default) the current character will share saved window settings with all characters.\n  - **Reset All Saved Window Settings**: click to reset all saved window settings in the current character and shared profiles. Forces a UI reload.\n  - **Merge quest, gossip, and merchant frames**: check this (default) to prevent certain frames being open at the same time, as well as to use a common position for them. This fixes some bugs caused by the Blizz UI not expecting some windows to ever be open together. For example, a gossip frame offering multiple quests doesn't always update correctly after accepting or completing a quest. Left this as an option for those who, because of other addons or whatever reason, want to keep the legacy behavior of having these completely separate, even with the possible bugginess.\n\n⸻\n\n### BLIZZMOVE\n\nIsn't this just [BlizzMove](https://www.curseforge.com/wow/addons/blizzmove)? They are similar, but BlizzMove does not fully disable the automatic panel management and does not allow unlimited panels to be open at once. For example, you cannot have the Adventure Guide and Map open at the same time in the default WoW UI *or* with BlizzMove.\n\n⸻\n\n### KNOWN ISSUES\n\nWhen certain protected panels are opened for the first time while in combat, DeModal cannot initially modify their behavior. These windows should get properly DeModal-fied once exiting combat. This is working as intended and is a fundamental limitation of working with protected frames in the WoW API.\n\n⸻\n\n### TROUBLESHOOTING\n\nIf you encounter any serious bugs or missing windows you can try resetting your saved window positions from the settings menu.\n\nIf you encounter issues and used a version of DeModal prior to 0.7.0, you can also try deleting the layout cache. Do this by logging out of Warcraft and then deleting the [layout-local.txt](https://wowpedia.fandom.com/wiki/Layout-local.txt) file from your WTF cache.\n\n⸻\n\n### SCREENSHOTS\n![A bunch of overlapping windows](https://raw.githubusercontent.com/nezroy/DeModal/main/screenshots/lots_of_windows.jpg)\n![Adventure Guide and Map at the same time? Now you can!](https://raw.githubusercontent.com/nezroy/DeModal/main/screenshots/adventure_guide_and_map.jpg)\n![Look at collections and profession recipes while shopping on the auction house](https://raw.githubusercontent.com/nezroy/DeModal/main/screenshots/collection_profession_auction.jpg)\n![TBC windows](https://raw.githubusercontent.com/nezroy/DeModal/main/screenshots/tbc_windows.jpg)",
+  "releases": [
+    {
+      "tag": "1.0.8",
+      "published": "2026-10-13",
+      "notes": "- Update TOC for 12.1.5"
+    },
+    {
+      "tag": "1.0.7",
+      "published": "2026-10-09",
+      "notes": "- Fix error with housing cornerstone visitor and purchase frame hooks\n- Add social frame support to Forever beta\n- Fix an issue on some frames where the close button is hard to click"
+    },
+    {
+      "tag": "1.0.6",
+      "published": "2026-10-09",
+      "notes": "- Add LFG frame support to Forever beta"
+    },
+    {
+      "tag": "1.0.5",
+      "published": "2026-10-05",
+      "notes": "- Fix refactoring regression in protected frame deferred setup"
+    },
+    {
+      "tag": "1.0.4",
+      "published": "2026-10-05",
+      "notes": "- Add Legacy window to Forever\n- Fix logo in packaging"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/nezroy/DeModal/main/screenshots/lots_of_windows.jpg",
+    "https://raw.githubusercontent.com/nezroy/DeModal/main/screenshots/adventure_guide_and_map.jpg",
+    "https://raw.githubusercontent.com/nezroy/DeModal/main/screenshots/collection_profession_auction.jpg",
+    "https://raw.githubusercontent.com/nezroy/DeModal/main/screenshots/tbc_windows.jpg"
+  ],
+  "stats": {
+    "stars": 12,
+    "openIssues": 29,
+    "contributors": 3,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-05",
+      "2026-10-05",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-24",
+      "2026-04-06",
+      "2026-02-10",
+      "2026-01-28",
+      "2025-11-19",
+      "2025-10-06",
+      "2025-10-01",
+      "2025-10-01",
+      "2025-09-23",
+      "2025-09-22",
+      "2025-09-07",
+      "2025-08-05",
+      "2025-07-21",
+      "2024-09-03",
+      "2024-09-01",
+      "2024-08-22",
+      "2024-07-25",
+      "2024-07-25",
+      "2022-12-09",
+      "2022-11-29",
+      "2022-11-23",
+      "2022-10-29",
+      "2022-10-27",
+      "2022-10-25",
+      "2022-06-08",
+      "2022-06-08",
+      "2022-06-08",
+      "2022-06-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DeModal"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "_DebugLog",
+      "BugSack"
+    ],
+    "savedVariables": [
+      "DEMODAL_DB"
+    ],
+    "savedVariablesPerCharacter": [
+      "DEMODAL_CHAR_DB"
+    ]
+  }
+}

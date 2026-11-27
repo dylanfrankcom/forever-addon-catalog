@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "theartfuldodgersledger",
+  "repo": "starcrossedhero/theartfuldodgersledger",
+  "about": "# The Artful Dodger's Ledger\n\nThe Artful Dodger's Ledger is a World of Warcraft addon for Rogues. It keeps an account of pilfered goods, then organizes the take into in-game reports and tables with a bit of the rogue's own voice.\n\n## Features\n\n- Records pickpocket attempts, copper, and items, with creature, difficulty, and location statistics.\n- Shows pickpocket status, estimated refresh timers, and optional loot summaries in unit tooltips.\n- Adds optional badges to target frames and nameplates, with configurable placement and size.\n- Displays pickpocket statistics on the world map.\n- Tracks lockbox and junkbox openings and provides an optional movable opener button.\n- Keeps persistent history and a separate summary for the current play session.\n- Builds a heist chronicle in the report from lifetime records and current-session totals, including the most profitable marks, busiest haunts, and common finds when available.\n- In instances with restricted unit identity, target-specific indicators are omitted; but loot can still be recorded anonymously.\n\n## Install\n\nDownload the ZIP from a release and extract it into the Retail AddOns directory:\nDownload the ZIP from a release and extract it into the AddOns directory for your WoW client, for example:\nThe addon only activates for Rogue characters. Supported client versions are listed in the TOC.\n\n```text\nWorld of Warcraft/_retail_/Interface/AddOns/\n```\n\nThe extracted folder should be named `TheArtfulDodgersLedger` and contain `TheArtfulDodgersLedger.toc`. Restart the game or enable the addon from the character-select AddOns menu.\n\n## Commands\n\n| Command | Description |\n| --- | --- |\n| `/adl help` | Show available commands. |\n| `/adl history` | Print lifetime totals and open the addon window. |\n| `/adl session` | Print current-session totals. |\n| `/adl toggle` | Open or close the addon window. |\n| `/adl debug` | Toggle debug logging; use `/adl debug on` or `/adl debug off` to set it explicitly. |\n| `/adl inspect on` | Open a scrollable capture window and record every hovered unit. Use `/adl inspect off` or **Exit Inspect** to stop. |\n| `/adl reset session` | Reset current-session statistics. |\n| `/adl reset history` | Clear all recorded history and reset the session. |\n\nThe main window can also be opened or closed from **The Artful Dodger's Ledger** entry in the AddOn Compartment, or from the minimap button on clients without an AddOn Compartment.\n\nDisplay options are available under **Settings > AddOns > The Artful Dodger's Ledger**. The addon only activates for Rogue characters; supported client versions are listed in the TOC.\n\nBadge positions default to Auto for new installations. Auto follows known default UI elements and falls back to the frame when those elements are unavailable. Existing position settings are preserved, and Auto can be selected in the display options.\n\n## Mark census\n\nThe addon includes a default seed list of NPCs known to have pockets, but treats the data it records itself as the source of truth.\n\n## License\n\nThe original addon code is licensed under the MIT License; see [LICENSE](https://github.com/starcrossedhero/theartfuldodgersledger/blob/main/LICENSE). Addon distribution must also comply with [Blizzard's UI Add-On Development Policy](https://us.forums.blizzard.com/en/wow/t/ui-add-on-development-policy/24534), including its requirement that addons be distributed free of charge. The license does not grant rights to Blizzard trademarks or game assets.",
+  "releases": [
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-16"
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-06"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-04"
+    },
+    {
+      "tag": "v0.1.0-alpha",
+      "published": "2026-11-04"
+    },
+    {
+      "tag": "v0.0.10-alpha",
+      "published": "2023-04-02"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-06",
+      "2026-11-04",
+      "2026-11-04",
+      "2023-04-02",
+      "2023-03-30",
+      "2023-03-08",
+      "2023-03-06",
+      "2023-03-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TheArtfulDodgersLedger"
+    ],
+    "editions": [
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ArtfulDodgerDB"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "threecrownsguild",
+  "repo": "luttman/ThreeCrownsGuild",
+  "about": "# ThreeCrownsGuild\n\nAn online member list and shared chat (`/tcg`) across multiple guilds on the same realm.\nCompare stats and see players from your own guild on the map with `/tc` guild tools.\nSupports WoW Forever (Interface `16xxx`) and TBC Anniversary (`20xxx`). Classic Era, Wrath,\nCataclysm, MoP, and Retail are not supported. All participants need the same version.\n\nShared chat and LFM use regular messages in the hidden transport channel. The addon encodes\nthese messages on Forever to preserve links and non-ASCII text. Players in the channel can see\nthe raw messages if they use a client without the addon. Chat and LFM send when you type or click.\nThe addon uses direct addon whispers to announce presence while you are idle and answer roster\nrequests. Inactive players are removed after ten minutes.\n\n## Installation\n\nCopy or link the folder to `Interface\\AddOns\\ThreeCrownsGuild`. The folder name must match the `.toc` file.\n\nWhen upgrading, close WoW and replace the old addon folder. To keep your history, nicknames, and settings\nwhen migrating from GuildFriends, copy `WTF\\Account\\<account>\\SavedVariables\\GuildFriends.lua` to\n`ThreeCrownsGuild.lua` in the same SavedVariables folder before starting WoW. The saved variable name\n`GuildFriendsDB` is retained so the addon can read your existing data.\n\n## Setup\n\nAn officer must add the same configuration to **Guild Info** in every participating guild\n(open the guild window with `J`):\n\n```text\nTCGc:channelname:password\nTCGp:Guild One:G1\nTCGp:Guild Two:G2\n```\n\nEach `TCGp` line contains an exact guild name and its tag. Include one line per guild, including your own.\nThe `TCG` prefix avoids conflicts with GreenWall. Older `GFc:`/`GFp:` and `MGc:`/`MGp:` prefixes also work.\n\n## Shared chat\n\nWrite in guild chat (`/g`) as usual. The addon shares your own messages with addon users in the\nconnected guilds. Synchronization is always on and you can't turn it off, so that the guilds\ncan talk and play together as one community.\nOfficer chat, regular whispers, and messages from players without the addon are not forwarded.\nThe addon window shows all of your own guild's chat, including messages from members without the addon.\nAll participants need version 0.2.0 or later for guild chat synchronization.\n\nRegular guild chat shows messages from your own guild.\nMessages from other guilds appear with a guild tag and player name in the chat window and the\naddon window. They are not forwarded into the server's guild chat.\n\n| Command | Action |\n|---|---|\n| `/tcg help` | Show chat commands |\n| `/tcg` | Open or close the addon window |\n| `/tcg text` | Send a message to all connected guilds (displayed as `[TAG] Name: text`) |\n| `/tcg tag on\\|off` | Show or hide guild tags in chat |\n| `/tcg echo on\\|off` | Show or hide shared chat in the regular chat window |\n| `/tcg settings` | Open the settings tab |\n| `/tcg window` | List your chat windows. `/tcg window <number>` prints shared chat there, `/tcg window default` goes back |\n| `/tcg surname on\\|off` | Show or hide surnames (shown by default) |\n\nThe addon window shows all online members of your own guild. For other guilds, it shows players\nrunning the addon. Click a player name to whisper, or click a guild row to collapse it.\nChat history is saved, up to 200 messages.\n\nRight-click a player and select **Set nickname** to assign a local nickname. It appears as\n`FirstName(nickname):` in chat and `FirstName(nickname)` in the member list, even when surnames\nare enabled. Clear the nickname to remove it. With `/tcg surname off`, players without a nickname\nare shown by first name only. These settings are saved for your account and apply only to the addon.\n\n## One window\n\nThe addon window has five tabs: **Chat** (with the member list), **Stats**, **Deaths**, **Level race**,\nand **Settings**. Open it with `/tcg`, with the minimap button, or from the guild window. Left-click\nthe minimap button to open or close the window, right-click it to open the settings, and drag it to\nmove it around the minimap.\n\nThe settings tab holds every setting: the skin (Flat, EllesmereUI, or Blizzard; a change needs `/reload`),\nguild sync, guild tags, surnames, chat echo, LFM notices, position and stats sharing, map dots, and the\nminimap button. It also lists your chat windows, so you can print shared chat and LFM notices in a window\nyou already have. Tick **Also print it in the default chat window** to use both.\n\n## Guild tools\n\nEvery `/tc` command also works with `/tcg`, except `hide` and `show`, so that a chat message can't change\nposition sharing. `/tcg stats` opens the stats tab, for example.\n\n| Command | Action |\n|---|---|\n| `/tc help` | Show guild tool commands |\n| `/tc` or `/tc stats` | Open the stats tab. Click a column heading to sort. |\n| `/tc deaths` | Open the deaths tab: the death breakdown by location and cause |\n| `/tc race` | Open the level race tab to compare when players reached levels 10, 20, 30, 40, 50, and 60 and how much play time it took |\n| `/tc share on\\|off` | Start or stop sharing your character's stats with your guild |\n| `/tc show` or `/tc hide` | Start or stop sharing your outdoor position with your guild |\n| `/tc pins on\\|off` | Show or hide class-colored guild dots on your world map and minimap |\n| `/tc lfm` | Open the LFM dialog, also available through the **LFM** button |\n| `/tc lfm Dungeon` | Send an LFM notification using automatically detected roles |\n| `/tc lfm on\\|off` | Show or hide LFM notifications from other guilds |\n| `/tc who` | Refresh the online member list |\n| `/tc status` or `/tc roster` | Show diagnostic information |\n\nThe leaderboard reads the game's character statistics for quests completed, creatures killed,\ndungeons and raids entered, auctions posted and purchased, and deaths. It also shows the most gold\nyour character has ever owned. A dash marks values the client doesn't provide. Guildmates with an\nolder addon version show only dashes until they update.\n\nThe level race records milestones as you reach them with the addon enabled. Each column sorts by\nthe play time it took to reach that level. Race results use the same sharing setting as guild stats.\n\nStat sharing, outdoor position sharing, and guild map dots are on by default. Use `/tc hide` to stop\nsharing your position on the current character and `/tc pins off` to hide guild dots on your account.\nGuildmates need the addon to see your position or stats. The addon keeps the latest shared stats for\noffline guildmates.\nWhen you turn stat sharing off, guildmates remove your entry when they receive the update. Map dots\nexpire after 30 seconds without an update. The minimap shows only dots within its current view radius.\n\n## Publishing to GitHub and CurseForge\n\nGitHub Actions checks the Lua code on pushes and pull requests. A version tag such as `v0.1.0`\nbuilds a ZIP containing the `ThreeCrownsGuild` folder, sets the addon version from the tag,\nand publishes a GitHub Release. Test files and workflows are excluded from the ZIP.\nPackaging uses the [BigWigs packager](https://github.com/BigWigsMods/packager).\n\nTo enable CurseForge uploads, complete this setup once:\n\n1. Create a World of Warcraft project in [CurseForge Authors](https://authors.curseforge.com/).\n2. Open the GitHub repository's **Settings → Secrets and variables → Actions**.\n3. Set the repository variable `CF_PROJECT_ID` to your project's numeric ID.\n4. Create a [CurseForge upload API token](https://www.curseforge.com/account/api-tokens)\n   and save it as the repository secret `CF_API_KEY`. Never put the token in the source code.\n\nWithout `CF_PROJECT_ID`, only the GitHub release is published, and the workflow reports a warning.\nIf a project ID is configured, an API token is also required. CurseForge may need to approve\nboth the project and uploaded files before they become available.\n\nTo publish a new version from the project folder, use a new version number each time. First, describe\nthe changes in `CHANGELOG.md`, which is shown on GitHub and CurseForge:\n\n```sh\ngit add .\ngit commit -m \"Prepare release v0.1.1\"\ngit push origin main\ngit tag -a v0.1.1 -m \"Release v0.1.1\"\ngit push origin v0.1.1\n```\n\nA regular push updates the code on GitHub. Pushing a version tag starts automatic publishing\nto CurseForge when the settings above are configured.\n\n## LFM (looking for more)\n\nClick **LFM** in the addon window or use `/tc lfm`. The dialog fills in the roles your group\nis missing, based on a five-player party: one tank, one healer, and three DPS. Click the role\nbuttons to adjust the selection.\n\nClick **Dungeons**, select one or more dungeons, and send the notification. The list shows the\ndungeons that match your level. Select **Show all level ranges** to see every dungeon. Click the\nstar on a dungeon to mark it as a favorite. Favorites are listed first and are saved for your\naccount. A notification has a size limit, so the addon asks you to select fewer dungeons if the\nselection doesn't fit.\n\nAll connected guilds receive a notification in the\nmiddle of the screen, such as `Name1, Name2 are looking for Healer + 2 DPS`, with the dungeon\nand guild tag. The notification also appears in chat with a clickable player name.\n\nRoles come from assigned group roles when the client provides them. Otherwise, the addon\nestimates them (Priest = healer, other classes = DPS), so check the dialog before sending.\nYou can send at most one notification every 30 seconds.",
+  "releases": [
+    {
+      "tag": "v1.1.1",
+      "published": "2026-11-26",
+      "notes": "## v1.1.1\n\n- The addon window now shows all chat from your own guild, even from members who don't have the addon.\n- Fixed missing `/g` messages from guild members with an older version.\n- Messages from other guilds still require the sender to have an up-to-date version."
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-26",
+      "notes": "# ThreeCrownsGuild\n\n## [v1.1.0](https://github.com/luttman/ThreeCrownsGuild/tree/v1.1.0) (2026-11-26)\n[Full Changelog](https://github.com/luttman/ThreeCrownsGuild/compare/v1.0.3...v1.1.0) [Previous Releases](https://github.com/luttman/ThreeCrownsGuild/releases)\n\n- Select dungeons from a list in LFM  \n    - Pick one or more dungeons from the Dungeons dropdown instead of typing a name.  \n    - The list shows dungeons for your level. Select Show all level ranges to see all of them.  \n    - Click a star to keep a favorite dungeon at the top of the list.  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.3",
+      "published": "2026-11-26",
+      "notes": "# ThreeCrownsGuild\n\n## [v1.0.3](https://github.com/luttman/ThreeCrownsGuild/tree/v1.0.3) (2026-11-26)\n[Full Changelog](https://github.com/luttman/ThreeCrownsGuild/compare/v1.0.2...v1.0.3) [Previous Releases](https://github.com/luttman/ThreeCrownsGuild/releases)\n\n- Guild chat sync is now always on, so that our guilds can talk and play together as one community."
+    },
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-22",
+      "notes": "# ThreeCrownsGuild\n\n## [v1.0.2](https://github.com/luttman/ThreeCrownsGuild/tree/v1.0.2) (2026-11-22)\n[Full Changelog](https://github.com/luttman/ThreeCrownsGuild/compare/v1.0.1...v1.0.2) [Previous Releases](https://github.com/luttman/ThreeCrownsGuild/releases)\n\n- Answer the channel password prompt at login  \n    - Fix the \"Please enter a password for 'Threecrownsgchat'\" popup that could appear after login.  \n    - When the client asks for a password for the shared channel, hide the popup and join again  \n      with the password from Guild Info.  \n    - Leave the popup visible if that attempt is also refused within 30 seconds, so a wrong  \n      password in Guild Info is never retried in a loop and you can still type it by hand.  \n    - Test the login join: it waits for the join delay, joins with the configured password  \n      (including a password that contains a colon), retries a failed join, never joins from a  \n      guild outside the config, and never rejoins a channel you are already in.  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-21",
+      "notes": "# ThreeCrownsGuild\n\n## [v1.0.1](https://github.com/luttman/ThreeCrownsGuild/tree/v1.0.1) (2026-11-21)\n[Full Changelog](https://github.com/luttman/ThreeCrownsGuild/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/luttman/ThreeCrownsGuild/releases)\n\n- Use the project logo as the addon icon  \n    - Add Media/Logo.tga, the CurseForge project logo as an uncompressed 32-bit TGA.  \n    - Use it for the minimap button, the guild window button and the addon list (IconTexture).  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-19",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ThreeCrownsGuild"
+    ],
+    "editions": [
+      "anniversary",
+      "forever"
+    ],
+    "savedVariables": [
+      "GuildFriendsDB"
+    ]
+  }
+}

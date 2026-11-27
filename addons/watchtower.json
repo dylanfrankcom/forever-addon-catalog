@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "watchtower",
+  "repo": "Slackluster/Watchtower",
+  "about": "# Watchtower\nA World of Warcraft addon. Download locations: [CurseForge](https://www.curseforge.com/wow/addons/watchtower) | [Wago](https://addons.wago.io/addons/watchtower)\n\n[![](https://media.forgecdn.net/attachments/1439/398/buymeacoffee-png.png)](https://www.buymeacoffee.com/Slackluster)\n\n**Watchtower (WT)** lets you keep a watchful eye on quests, tasks, currency, and more. It includes a fully customizable status tracker that lets you:\n- Track daily/weekly quest completion\n- Track if you've done your garrison invasion this week\n- Track if you've killed Rukhmar this week\n- Track if you are in Chromie Time or War Mode\n- Track when you have enough Honor to exchange for Marks of Honor\n- Track if you have the Mentor role\n- Track whatever you want, so long as the game can provide the information!\n\nThis addon is meant to be a soft replacement for non-combat WeakAuras and is intended to include more features over time to be able to do so.\n\n## If you are experiencing issues\n- Check if the issue occurs with only this addon enabled, or if the issue is a feature you can disable from the addon's settings menu.\n- If you run into any issues or if you have other feedback, feel free to join the [Discord](https://discord.gg/FwWZZ39kPX) and ask in the `#watchtower` channel, or create a [ticket on GitHub](https://github.com/Slackluster/Watchtower/issues). :)",
+  "releases": [
+    {
+      "tag": "v30",
+      "published": "2026-11-23",
+      "notes": "# Watchtower\n\n## [v30](https://github.com/Slackluster/Watchtower/tree/v30) (2026-11-23)\n[Full Changelog](https://github.com/Slackluster/Watchtower/compare/v29...v30) [Previous Releases](https://github.com/Slackluster/Watchtower/releases)\n\n- Machine-translated all untranslated strings. I still prefer this be done by humans and existing translators' work is preserved and prioritised. This should make the addon more accessible until other volunteer translators show up! :)  \n- Grab translations from my other addons  \n- Typo  \n- Load conditions! (fixes #4)"
+    },
+    {
+      "tag": "v29",
+      "published": "2026-11-21",
+      "notes": "# Watchtower\n\n## [v29](https://github.com/Slackluster/Watchtower/tree/v29) (2026-11-21)\n[Full Changelog](https://github.com/Slackluster/Watchtower/compare/v28...v29) [Previous Releases](https://github.com/Slackluster/Watchtower/releases)\n\n- The visual drag and drop indicator no longer disappears if the last entry is a group (fixes #47)  \n- Flag name no longer is replaced when the display text is adjusted (fixes #44)  \n- Maybe fix scroll getting stuck sometimes  \n- Fix editbox popout still clicking through to the Watchtower panel  \n- More returns, less indentation"
+    },
+    {
+      "tag": "v28",
+      "published": "2026-11-07",
+      "notes": "# Watchtower\n\n## [v28](https://github.com/Slackluster/Watchtower/tree/v28) (2026-11-07)\n[Full Changelog](https://github.com/Slackluster/Watchtower/compare/v12.1.5-02...v28) [Previous Releases](https://github.com/Slackluster/Watchtower/releases)\n\n- Update bug\\_report.yaml  \n- Addon comms now use cbor/base64 encoded tables, instead of precariously formatted strings (fixes #50)  \n- Update our version comms to support our new version numbering  \n- Update bug\\_report.yaml"
+    },
+    {
+      "tag": "v12.1.5-02",
+      "published": "2026-11-04",
+      "notes": "# Watchtower\n\n## [v12.1.5-02](https://github.com/Slackluster/Watchtower/tree/v12.1.5-02) (2026-10-28)\n[Full Changelog](https://github.com/Slackluster/Watchtower/compare/v12.1.5-01...v12.1.5-02) [Previous Releases](https://github.com/Slackluster/Watchtower/releases)\n\n- Fix error when opening settings  \n- Tweaked the behaviour of the New tag showing in the addon settings list  \n- Update ruRU.lua (#54)  \n- Remove some unused variable declarations  \n- Remove duplicate function call  \n- Fix internal headers  \n- Localise \"Test\"  \n- Don't skip over error messages when importing a group  \n- Proper concatenate an error message  \n- Include event variable in error handler"
+    },
+    {
+      "tag": "v12.1.5-01",
+      "published": "2026-10-14",
+      "notes": "# Watchtower\n\n## [v12.1.5-01](https://github.com/Slackluster/Watchtower/tree/v12.1.5-01) (2026-10-14)\n[Full Changelog](https://github.com/Slackluster/Watchtower/compare/v12.1.0-02...v12.1.5-01) [Previous Releases](https://github.com/Slackluster/Watchtower/releases)\n\n- TOC bump  \n- Use WOW\\_PROJECT\\_ID  \n- April Fools' feature  \n- Some more locale tweaks  \n- Some more locale tweaks  \n- Use string.format where applicable (fixes #49)  \n- Update sugar (fixes #53)"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 14,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-21",
+      "2026-11-07",
+      "2026-11-04",
+      "2026-10-14",
+      "2026-09-19",
+      "2026-08-08",
+      "2026-06-25",
+      "2026-06-17",
+      "2026-04-24",
+      "2026-04-20",
+      "2026-03-29",
+      "2026-03-27",
+      "2026-03-26",
+      "2026-03-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Watchtower"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "Watchtower_Settings",
+      "Watchtower_Flags"
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "id": "cooldownmanagerutils",
+  "repo": "d4kir92/CooldownManagerUtils",
+  "about": "# Cooldown Manager Utils\n\nCooldown Manager Utils adds missing-buff and reactive-proc reminders to World of Warcraft's built-in Cooldown Manager.\n\n## Features\n\n- Adds a **Buff Reminders** tab to the side tabs of Blizzard's Cooldown Manager settings.\n- Adds a separate **Proc Reminders** tab. On Retail it lists the Essential and Utility spells of the Cooldown Manager; on WoW Forever Warriors, Rogues, and Hunters it lists their reactive abilities (**Overpower**, **Revenge**, **Riposte**, **Mongoose Bite**, **Counterattack**). Selected abilities appear on the Proc Reminder bar only while Blizzard marks their reactive combat window active.\n- Lists active spells from all class spellbook tabs (on Retail: class and current specialization) that apply a buff to your character, independently of Blizzard's Auras tab.\n- Includes the gathering tracking abilities **Find Herbs**, **Find Minerals**, and **Find Fish** when they are available to your character. Their reminders disappear while the matching minimap tracking is active.\n- Also covers temporary weapon enchants cast by you, such as the Shaman weapon imbues (Rockbiter, Flametongue, Frostbrand, Windfury, Earthliving) and the Paladin rites. Tracked weapon enchants are checked together against every equipped weapon (main hand and, when dual wielding, off hand; shields only if a shield imbue is tracked): they stay hidden while every weapon carries one of them, otherwise the tracked enchants that are not active on any weapon are shown (or all of them, if each one is already active on another weapon).\n- **Add Buff** at the top of the Buff Reminders tab opens a search window: find a spell of your class by name or spell ID and click it to add it as a Buff Reminder. Spells added this way are marked with a warning triangle, may not work correctly, and can be removed with a right-click. Contact D4KiR on [Discord](https://discord.gg/EZUCsBfhgY) to get a missing buff or proc added properly; the link is shown below the contact note and can be copied there.\n- Sorts available entries into **Tracked Buffs/Abilities**, **Not Displayed**, and **Not Learned**. Learned entries can be moved by drag and drop; unlearned or currently unselected talent spells are shown disabled but retain their spell tooltip.\n- The **Buff Reminder** bar shows an icon for every tracked buff that is currently missing on your character. The bar is hidden while nothing is missing.\n- The separate **Expiring Buffs** bar shows selected buffs when they are missing or approaching expiration. **Seconds before expiry** controls the warning window (1–60 seconds) and is available in both the add-on options and the bar's Edit Mode settings. Both controls use the same value.\n- Group buffs (Blizzard's Group Buffs list, plus Mark of the Wild, Blessing of the Bronze, Arcane Intellect, Power Word: Fortitude, Skyfury, and Battle Shout) are also checked on every eligible party or raid member. Their reminder appears as soon as one living, connected, visible member in range is missing the buff, and the icon shows how many eligible members have it, for example `2/5` or `3/40`. Offline, dead, invisible, and out-of-range members are excluded from both numbers. Disable **Check buffs on the group** in a bar's Edit Mode settings to check only your own buffs instead. Group checking is enabled by default.\n- Paladin Blessing reminders work as one group: every eligible party or raid member needs any recognized Blessing cast by you. If one member is missing your Blessing, all selected Blessing reminders are shown; Blessings from another Paladin do not count. Blessing of Freedom and Blessing of Protection are separate personal reminders that only check your own character.\n- On WoW Forever, Paladin Seal reminders also work as one group. Any active recognized Seal hides all selected Seal reminders; when no Seal is active, they are all shown.\n- Shows spell cooldowns with a swipe and optional countdown. Each bar has a **CD threshold** slider directly below **Show timer** in Edit Mode. With Show timer enabled, reminders with longer cooldowns stay hidden and appear when the remaining cooldown reaches the threshold. The default is **5 seconds**; **0 disables the cooldown display**. This setting is separate from the buff expiration warning.\n- Shows the spell tooltip when hovering a reminder icon.\n- Hides live reminders while your character is dead, a ghost, flying, or on a flight path. The Edit Mode preview remains available.\n- Adds independently movable **Buff Reminder**, **Expiring Buffs**, and **Proc Reminder** bars to Edit Mode. The bars snap to other Edit Mode elements, screen edges, the grid, and each other like Blizzard's own frames.\n- Clicking a bar in Edit Mode opens its independent settings: orientation, icon direction, icon size (50–400%), icon padding, opacity, visibility, timer, cooldown threshold, tooltips, group buff checks, and Blizzard's proc glow (on by default). The Expiring Buffs bar also includes the expiration warning slider. Both timing sliders have explanatory tooltips. A button in that dialog leaves Edit Mode and opens the matching Cooldown Manager tab.\n- Keeps a separate reminder selection for each Cooldown Manager layout and specialization.\n- Keeps Blizzard's Cooldown Manager layout dropdown visible on both reminder tabs and provides a matching add-on-owned Revert Changes button for reminder edits made since opening the window or selecting the layout.\n\n## Supported clients\n\n- Retail (patch 12.0 and newer)\n- WoW Forever\n\nThe package also contains TOC files for the Classic clients. The add-on loads there but stays inactive.\n\n## Installation\n\n1. Copy the `CooldownManagerUtils` folder into your World of Warcraft `Interface/AddOns` directory.\n2. Enable **Cooldown Manager Utils** in the character-selection add-on list.\n3. Log in or reload the user interface.\n\n## Usage\n\n1. Open Blizzard's Cooldown Manager settings.\n2. Select the **Buff Reminders** tab, the fourth tab on the side of the window.\n3. Drag a buff from **Not Displayed** to **Tracked Buffs** to get a reminder while it is missing. Spells under **Not Learned** cannot be selected until the character learns them.\n4. Drag buffs within **Tracked Buffs** to change their order on the reminder bar.\n5. Drag a buff back to **Not Displayed** to remove its reminder.\n6. If a buff of your class is missing, click **Add Buff**, search it by name or spell ID, and click the result. It appears under **Not Displayed** with a warning triangle; right-click it to remove it again.\n\nWoW Forever Warriors can use the adjacent **Proc Reminders** tab in the same way to track **Overpower** and **Revenge**. Overpower becomes available when the target dodges one of the Warrior's attacks. Revenge becomes available when the Warrior dodges, parries, or blocks an incoming attack. Rogues can track **Riposte**, available after parrying an attack. Hunters can track **Mongoose Bite**, available after dodging an attack, and the Survival talent **Counterattack**, available after parrying an attack. The add-on follows Blizzard's activation state for these abilities, including expiration and consumption.\n\nOn Retail, the **Proc Reminders** tab lists your specialization's Essential and Utility Cooldown Manager spells. A tracked spell appears on the Proc Reminder bar while Blizzard shows its proc glow. Spells that are already Buff Reminder entries stay in the Buff Reminders tab.\n\nFor advance expiration warnings, move a buff into **Expiring Buffs** on the Buff Reminders tab. Set **Seconds before expiry** to 10 to show it during its final 10 seconds. For a spell cooldown reminder, enable **Show timer** and set **CD threshold** to 10 to show the reminder from 10 seconds remaining until the cooldown finishes. To maintain Arcane Intellect only on yourself, disable **Check buffs on the group** for its reminder bar.\n\nProc reminder glow appears only when the ability is usable, sufficient resources are available, and the cooldown is confirmed ready. If cooldown readiness is hidden by the client, the glow is suppressed.\n\nThe Cooldown Manager search box filters the currently open Buff Reminders or Proc Reminders tab by spell name. Each group can be collapsed by clicking its header.\n\nTo move a reminder bar, open Edit Mode. **Buff Reminder** shows tracked buffs, with active buffs greyed out, **Expiring Buffs** previews buffs assigned to that category, and **Proc Reminder** shows tracked reactive abilities. Each bar can be dragged and configured independently; its position is saved as soon as you release it.\n\n## Notes\n\n- Passive spells and spells without a player buff are excluded. Class and specialization flyouts are included.\n- **Not Learned** uses the reminder-eligible spell sources available for the character's class and specialization. It does not display unrelated spells from other classes or races.\n- The game does not tell add-ons directly which buff a spell applies. Spells the game does not flag as buffs (for example Thorns) are learned automatically the first time their buff from you lands on your character; they then appear in the list.\n- A buff also counts as active when an aura with the same name is on you, so other ranks or IDs of the same buff are recognized.\n- Weapon enchant spells learn their exact enchant the first time you cast them. Until then, any temporary weapon enchant counts as active for them.\n- The list of available buff spells is not refreshed during combat; it updates as soon as combat ends. Reminders themselves keep updating in combat.\n- When the game does not reveal whether an aura is active, for example in combat or in restricted content, the last known state is kept instead of showing a false reminder.\n- While an aura is hidden this way, its reminder still appears when the buff runs out: the add-on uses the last known expiration time, or the cast time plus the buff's remembered duration if you cast it during combat. The duration is remembered whenever the game reveals the buff, for example out of combat.\n- The same applies to group members: while their auras are hidden, the last known count is kept. Casting the group buff yourself during that time counts every member as buffed.\n- A buff that is cancelled or dispelled while it is hidden cannot be detected; its reminder appears once the game reveals the aura again, usually when combat ends.\n- Reminder selections and their order are saved per Cooldown Manager layout and specialization. Switching between layouts such as Starter Layout and a custom layout switches the reminder contents too. A layout the add-on has not seen yet starts with a copy of the previously active reminder setup.\n- All bar positions and each bar's settings are saved separately per Edit Mode layout in the add-on's own saved variables: account layouts and presets account-wide, character layouts per character. A new Edit Mode layout starts with a copy of the previous layout's bar settings. Changes are saved immediately and are not affected by Blizzard's \"Revert Changes\".\n\n## Localization\n\nLocale files exist for all World of Warcraft client locales:\n\n`deDE`, `enUS`, `esES`, `esMX`, `frFR`, `itIT`, `koKR`, `ptBR`, `ruRU`, `zhCN`, and `zhTW`.\n\nThe interface texts are translated for all supported locales. Translations other than English and German are machine-generated and may benefit from native-speaker review.\n\n## Author\n\nD4KiR",
+  "releases": [
+    {
+      "tag": "v0.5.22",
+      "published": "2026-11-24",
+      "notes": "# Cooldown Manager Utils by D4KiR\n\n## [v0.5.22](https://github.com/d4kir92/CooldownManagerUtils/tree/v0.5.22) (2026-11-24)\n[Full Changelog](https://github.com/d4kir92/CooldownManagerUtils/compare/v0.5.21...v0.5.22) [Previous Releases](https://github.com/d4kir92/CooldownManagerUtils/releases)\n\n- v0.5.22"
+    },
+    {
+      "tag": "v0.5.21",
+      "published": "2026-11-21",
+      "notes": "# Cooldown Manager Utils by D4KiR\n\n## [v0.5.21](https://github.com/d4kir92/CooldownManagerUtils/tree/v0.5.21) (2026-11-21)\n[Full Changelog](https://github.com/d4kir92/CooldownManagerUtils/compare/v0.5.20...v0.5.21) [Previous Releases](https://github.com/d4kir92/CooldownManagerUtils/releases)\n\n- v0.5.21  \n- Track self-debuffs, any-spell Buff Reminders, Soulstone and Overpower dodge fallback  \n    - Active Buffs and custom Buff Reminders also detect debuffs on yourself (e.g. Arcane Blast)  \n    - Add Buff accepts any spell ID and finds previously received buffs by name  \n    - Warlock Soulstone Resurrection reminder checks yourself and your group (Forever)  \n    - Boosted Rest reminder hides while rested XP is above 5% (Forever)  \n    - Overpower proc also detects target dodges without the combat log (Forever)  \n    - Updated Add Buff info text in all languages  \n    - D4Lib update"
+    },
+    {
+      "tag": "v0.5.20",
+      "published": "2026-11-20",
+      "notes": "# Cooldown Manager Utils by D4KiR\n\n## [v0.5.20](https://github.com/d4kir92/CooldownManagerUtils/tree/v0.5.20) (2026-11-20)\n[Full Changelog](https://github.com/d4kir92/CooldownManagerUtils/compare/v0.5.19...v0.5.20) [Previous Releases](https://github.com/d4kir92/CooldownManagerUtils/releases)\n\n- v0.5.20"
+    },
+    {
+      "tag": "v0.5.19",
+      "published": "2026-11-19",
+      "notes": "# Cooldown Manager Utils by D4KiR\n\n## [v0.5.19](https://github.com/d4kir92/CooldownManagerUtils/tree/v0.5.19) (2026-11-19)\n[Full Changelog](https://github.com/d4kir92/CooldownManagerUtils/compare/v0.5.18...v0.5.19) [Previous Releases](https://github.com/d4kir92/CooldownManagerUtils/releases)\n\n- v0.5.19  \n- Show Overpower proc in any stance  \n    - Overpower proc reminder and glow now also show in Berserker/Defensive Stance for 5 seconds after the target dodges  \n- d4"
+    },
+    {
+      "tag": "v0.5.18",
+      "published": "2026-11-15",
+      "notes": "# Cooldown Manager Utils by D4KiR\n\n## [v0.5.18](https://github.com/d4kir92/CooldownManagerUtils/tree/v0.5.18) (2026-11-15)\n[Full Changelog](https://github.com/d4kir92/CooldownManagerUtils/compare/v0.5.17...v0.5.18) [Previous Releases](https://github.com/d4kir92/CooldownManagerUtils/releases)\n\n- v0.5.18  \n- d4lib"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 2,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-11-02",
+      "2026-10-20",
+      "2026-10-18",
+      "2026-10-16",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-10",
+      "2026-10-04",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-01",
+      "2026-09-30",
+      "2026-09-30",
+      "2026-09-30",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-29"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "CooldownManagerUtils"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Blizzard_CooldownViewer",
+      "Blizzard_EditMode"
+    ],
+    "savedVariables": [
+      "CooldownManagerUtilsGlobalDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "CooldownManagerUtilsDB"
+    ]
+  }
+}

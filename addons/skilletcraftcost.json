@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "skilletcraftcost",
+  "repo": "zeress/SkilletCraftCost",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-18",
+      "notes": "**Full Changelog**: https://github.com/zeress/SkilletCraftCost/commits/v1.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SkilletCraftCost"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Skillet"
+    ],
+    "optional": [
+      "TradeSkillMaster"
+    ],
+    "savedVariables": [
+      "SkilletCraftCostDB"
+    ]
+  }
+}

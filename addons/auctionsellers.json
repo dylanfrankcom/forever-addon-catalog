@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "auctionsellers",
+  "repo": "HizurosWoWAddOns/AuctionSellers",
+  "about": "# AuctionSellers (WoW AddOn)\n![Build](https://img.shields.io/github/actions/workflow/status/HizurosWoWAddOns/AuctionSellers/packager.yml?style=flat-square)\n![Tag](https://img.shields.io/github/v/tag/HizurosWoWAddOns/AuctionSellers?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/AuctionSellers/total?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/AuctionSellers/latest/total?style=flat-square)\n&nbsp; &nbsp; &nbsp; &nbsp;\n[![Patreon](https://img.shields.io/badge/&zwj;-Patreon-gray?logo=patreon&color=red&style=flat-square)](https://www.patreon.com/bePatron?u=12558524)\n[![Paypal](https://img.shields.io/badge/&zwj;-Paypal-gray?logo=paypal&color=blue&style=flat-square)](https://paypal.me/hizuro)\n![Sponsors](https://img.shields.io/github/sponsors/HizurosWoWAddOns?logo=github&style=flat-square)\n\n## Description\nThe new auction house ui does not display lists of sellers for all types.\\\nThis addon will be display a list of sellers in a tooltip on price lists of a chosen item.\n\n## Feature: Highlightning\n* Guild members\n* (old / realm) friend list - Yes. They still exist. ;-)\n* BattleNet friends\n  * Can't immediately recognize all characters of your battlenet friends. Takes some time to collect names.)\n\n![Screenshot1](https://raw.githubusercontent.com/HizurosWoWAddOns/AuctionSellers/master/.github/media/auctionsellers.jpg)\n\n## Credit\nThanks at my guild master **Béauty** for here wish.\n\n## My other projects\n* [On Curseforge](https://www.curseforge.com/members/hizuro_de/projects)\n* [On Github](https://github.com/orgs/HizurosWoWAddOns/)\n\n## Disclaimer\n> World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "1.1.32-release",
+      "published": "2026-11-05",
+      "notes": "# Auction sellers\n\n## [1.1.32-release](https://github.com/HizurosWoWAddOns/AuctionSellers/tree/1.1.32-release) (2026-11-05)\n[Full Changelog](https://github.com/HizurosWoWAddOns/AuctionSellers/commits/1.1.32-release) [Previous Releases](https://github.com/HizurosWoWAddOns/AuctionSellers/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "1.1.31-release",
+      "published": "2026-08-12",
+      "notes": "# Auction sellers\n\n## [1.1.31-release](https://github.com/HizurosWoWAddOns/AuctionSellers/tree/1.1.31-release) (2026-08-12)\n[Full Changelog](https://github.com/HizurosWoWAddOns/AuctionSellers/commits/1.1.31-release) [Previous Releases](https://github.com/HizurosWoWAddOns/AuctionSellers/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "1.1.30-release",
+      "published": "2026-06-21",
+      "notes": "# Auction sellers\n\n## [1.1.30-release](https://github.com/HizurosWoWAddOns/AuctionSellers/tree/1.1.30-release) (2026-06-21)\n[Full Changelog](https://github.com/HizurosWoWAddOns/AuctionSellers/commits/1.1.30-release) [Previous Releases](https://github.com/HizurosWoWAddOns/AuctionSellers/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "1.1.29-release",
+      "published": "2026-06-14",
+      "notes": "# Auction sellers\n\n## [1.1.29-release](https://github.com/HizurosWoWAddOns/AuctionSellers/tree/1.1.29-release) (2026-06-14)\n[Full Changelog](https://github.com/HizurosWoWAddOns/AuctionSellers/commits/1.1.29-release) [Previous Releases](https://github.com/HizurosWoWAddOns/AuctionSellers/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "1.1.28-release",
+      "published": "2026-02-14",
+      "notes": "# Auction sellers\n\n## [1.1.28-release](https://github.com/HizurosWoWAddOns/AuctionSellers/tree/1.1.28-release) (2026-02-14)\n[Full Changelog](https://github.com/HizurosWoWAddOns/AuctionSellers/commits/1.1.28-release) [Previous Releases](https://github.com/HizurosWoWAddOns/AuctionSellers/releases)\n\n- update toc file; added mop classic."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/HizurosWoWAddOns/AuctionSellers/master/.github/media/auctionsellers.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-08-12",
+      "2026-06-21",
+      "2026-06-14",
+      "2026-02-14",
+      "2025-08-29",
+      "2025-08-09",
+      "2025-06-24",
+      "2025-05-22",
+      "2025-02-27",
+      "2024-12-20",
+      "2024-10-23",
+      "2024-08-14",
+      "2024-05-09",
+      "2024-01-27",
+      "2023-11-11",
+      "2023-11-10",
+      "2023-10-21",
+      "2023-08-02",
+      "2023-06-28",
+      "2023-03-25",
+      "2023-01-25",
+      "2022-09-19",
+      "2022-06-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AuctionSellers"
+    ],
+    "editions": [
+      "classic",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "LibColors-1.0"
+    ],
+    "savedVariables": [
+      "AuctionSellersBNetFriendsDB"
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "bazui",
+  "repo": "BazAddons/BazUI",
+  "about": "# BazUI\n\nThe Baz Suite as one addon, built for **World of Warcraft: Forever**.\n\nBazUI replaces a stack of separate addons (BazCore, BazWidgetDrawers, BazChat, BazBags and parts of BazBars) with a single install: one options window, one profile system, one skin.\n\n**Updated for the WoW: Forever launch.** Two clients are supported: **WoW: Forever**, which BazUI is built for, and **retail**, which is kept working alongside it. No Classic flavour is supported. The Codex is Forever only.\n\n## Modules\n\n| Module | Source | Status |\n| --- | --- | --- |\n| Core | BazCore | Ported |\n| Drawers | BazWidgetDrawers + BazWidgets + BazBrokerWidget | Ported (Minimap, Minimap Buttons, Info Bar, Zone Text, Quest Tracker, 20 pack widgets, LibDataBroker feeds as widgets; delve, Great Vault, currency and pet-journal widgets dropped) |\n| Chat | BazChat | Ported (tabbed chat replacement: channels per tab, timestamps, history, copy, combat log) |\n| Bags | BazBags | Ported (Classic bags plus keyring; categories, pinning, search) |\n| Bars | BazBars | Ported (bars, spells, items, macros, mounts, equipment sets, flyouts, keybinds; no toys or pets) |\n| Unit Frames | new (written by Codex) | Built (health, power, casting, experience and reputation as bars you create, floating or docked to an action bar or to each other; no portraits) |\n| Auras | new | Built (four rows of buffs and debuffs that float or dock to any bar, left/center/right aligned, secure right-click cancel) |\n| Notifications | BazNotificationCenter | Ported (toasts, history panel, bell; 15 sources, no Mythic+, Vault, rares, collections or talking head) |\n| Micro Menu | new | Built (Blizzard's micro buttons on a movable bar as round ring-framed icons) |\n| APS | new | Azeroth Positioning System: standalone waypoints and quest navigation, a brass-and-brown arrow, compatible /way commands, and optional TomTom/Zygor targets in one display. |\n| Map | OpenMap rendering core (MIT) | Forever's default world map with continuous cursor-anchored zoom and terrain detail fading in up close. Keeps the native window and quest log; no additional map tools. Disable OpenMap before using it. |\n\n## First run\n\nA fresh install starts with the BazUI layout: player frame centered above the bars, target frame at the top, a 14-slot bar along the bottom with a 6-slot bar either side (Blizzard's own action bar is hidden; drag your abilities onto the BazUI bars), bags docked right in categories mode, chat bottom-left, the micro menu top center, and the minimap drawer on the right. Every piece can be moved in BazUI Edit Mode or changed in Options > AddOns > BazUI. Updating never changes existing settings.\n\n## Commands\n\n- `/baz` (or `/bazui`, `/bui`) opens the options window.\n- `/bazmap` opens Map settings. **Widescreen fullscreen map** fills the available screen width when maximized; switch it off for Blizzard's original aspect ratio. Adjust terrain opacity, when terrain begins fading in, and maximum zoom. Set **Terrain opacity at full zoom** to 100% to fully cover the painted map at the deepest terrain blend. **Unexplored areas** can be hidden, dimmed, or revealed; exploration progress is unchanged. Settings apply immediately and are saved per profile; map resizing waits until combat ends.\n- `/baz errors` opens the core developer error browser: Previous/Next, Select All and Ctrl+C, Copy all, or Clear. `/baz errors all`, `/baz errors <number>`, `/baz errors clear`, and `/baz errors status` are also available. Lua errors, startup failures and blocked actions are grouped locally, with the newest 50 reports saved across reloads in `BazUIDevDB`. No extra error addon is required.\n- `/aps` opens Azeroth Positioning System settings; `/aps preview` toggles the arrow preview; `/aps status` reports connected navigation addons.\n- `/way [zone or #mapID] x y [name]` (also `/aps way`, `/tway`, `/tomtomway`) accepts pasted Wowhead coordinates without TomTom. For example: `/way Elwynn Forest 42.1 65.9 Meet here`.\n- `/wayb [name]` saves your position; `/cway` selects the closest saved waypoint; `/way list` and `/way local` list them; `/way reset all`, `/way reset away`, or `/way reset [not] zone` remove them.\n- `/aps clear` or `/way arrow clear` clears navigation; `/way arrow remove` also removes the active saved waypoint. `/ttpaste` (or `/aps paste`) imports multiple coordinate commands, one per line. The arrow is click-through; hold Shift to drag it. Quest tracker circles select a quest's next available location.\n- `/baz profile <name>`, `/baz profiles`, `/baz default <name>` manage profiles.\n- `/bwd toggle|show|hide|open <name>|list` drives the drawer.\n- `/bbg` (or `/bazbags`) toggles the bag panel; `/bbg sort`, `/bbg categorize`.\n- `/bb` (or `/bazbars`) for bars: `create`, `delete`, `duplicate`, `export`, `import`, `scale`, `padding`, `reset`.\n- `/bazframes` opens the Unit Frames options; `/bazauras` opens the Auras options (`/bazauras reset` resets the layout).\n- `/bnc` toggles the notification panel; `/bnc dnd`, `/bnc clear`, `/bnc history`, `/bnc test`.\n- `/bazmicro` opens the Micro Menu options; `/bazmicro reset` moves the bar back to the top center.\n- `/bazchat` (or `/bc`) for chat: `copy`, `clear`, `lock`, `unlock`, `restoredefaults`; `/cc` clears the active tab.\n\n## License\n\nBazUI - one addon for your whole interface in World of Warcraft\nCopyright (C) 2026 Baz Studios LLC\n\nThis program is free software; you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation; either version 2 of the License, or\n(at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along\nwith this program; if not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).\n\nThe full text is in [LICENSE](https://github.com/BazAddons/BazUI/blob/main/LICENSE), and the complete source is this\nrepository - [https://github.com/BazAddons/BazUI](https://github.com/BazAddons/BazUI).\n\n`Skin/Assets/DORISBR.TTF` is a bundled font and carries its own license,\nseparate from the addon's.",
+  "releases": [
+    {
+      "tag": "v030",
+      "published": "2026-11-09",
+      "notes": "## 030\n\n- The maximized Forever map now uses the available screen width by default. Turn off Widescreen fullscreen map in Map settings to restore the original aspect ratio. Resizing waits until combat ends.\n- Notifications, including the bell, toasts, panel and dropdowns, now sit beneath the fullscreen map and return to their normal layers when it closes or minimizes.\n- Fixed inconsistent instances-open counts between the Codex Today and Instances pages. Both now use the same level, attunement and lockout checks; dungeons with unknown level requirements are no longer counted as open. Today's Ready to run list also includes eligible ordinary dungeons."
+    },
+    {
+      "tag": "v029",
+      "published": "2026-11-09",
+      "notes": "## 029\n\n- Added a Map module for WoW Forever with continuous cursor-anchored zoom and terrain detail fading into the default world map. Keeps Blizzard's window and quest log. Disable OpenMap to let BazUI handle the map.\n- Added profile settings for terrain opacity, terrain transition start, maximum zoom, and hidden, dimmed or revealed unexplored areas. Revealing artwork does not change exploration progress.\n- Alphabetized BazUI's settings sidebar and module toggle list by display name, keeping User Manual at the bottom of the sidebar.\n- Includes the adapted OpenMap rendering core's MIT license, copyright notice and texture provenance information. Retail retains its default map."
+    },
+    {
+      "tag": "v028",
+      "published": "2026-11-09",
+      "notes": "## 028\n\n- Fixed floating Micro Menu widgets not appearing after login until Floating was toggled off and on.\n- Floating widgets now restore their saved placement even when they are not assigned to the active drawer. This also covers widgets registered later during startup; placement waits until combat ends when necessary."
+    },
+    {
+      "tag": "v027",
+      "published": "2026-11-09",
+      "notes": "## 027\n\n- Added built-in developer error reporting to BazUI's core. No separate error-catching addon is required.\n- Use **`/baz errors`** to browse runtime Lua errors, startup failures and blocked-action reports, then select and copy a report for troubleshooting. Previous/Next, Copy all and Clear controls are included.\n- Repeated errors are grouped and counted. The newest 50 reports are saved across reloads in a separate developer log, with flood protection and throttled notifications. Existing BugGrabber installations are supported.\n- Fixed aura timers overflowing into adjacent icons. Timers now stay on one line inside each icon, and font sizes are capped to fit.\n- Live aura containers now respect each row's timer visibility and font settings, matching the preview. Layout changes wait until combat ends."
+    },
+    {
+      "tag": "v026",
+      "published": "2026-11-08",
+      "notes": "## 026\n\n- Renamed the navigation module to **APS (Azeroth Positioning System)** throughout the addon, settings, quest tracker integrations and documentation.\n- Use `/aps` for settings and `/aps help` for commands. Familiar TomTom-style commands, including `/way`, `/wayb`, `/cway` and `/ttpaste`, continue to work without TomTom installed."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 3,
+    "contributors": 1,
+    "lastRelease": "2026-11-09",
+    "releaseDates": [
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-09-22",
+      "2026-09-22",
+      "2026-09-22",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-18",
+      "2026-09-18",
+      "2026-09-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BazUI"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "BazUIDB",
+      "BazUIDevDB"
+    ]
+  }
+}

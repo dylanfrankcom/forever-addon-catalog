@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "essences",
+  "repo": "ljosberinn/EvokerEssences",
+  "about": "Evoker essences as bars.\n\nFeatures:\n\n- anchors to primary cooldown manager row\n- automatically adjusts dimensions\n- pixel perfect\n- all 3 specs supported\n- Essence Burst detection for all 3 specs (glow or border color when active)\n- Imminent Destruction detection\n- dynamic colors/opacity based on\n  - whether you cast anything at all (opacity is 0.5 if you cannot)\n  - evoker class color when you can cast a spender\n  - configurable darkness when you're recharging an essence\n  - orange when you're recharging your final essence\n  - red when you're capped on essences\n- currently has two styles; @Krealle (default) and @ljosberinn, which is only active if your character name matches mine. to override it, edit `Init.lua` and add `isXeph = true` below the name check",
+  "releases": [
+    {
+      "tag": "1.3.0",
+      "published": "2026-10-21",
+      "notes": "# Essences\n\n## [1.3.0](https://github.com/ljosberinn/EvokerEssences/tree/1.3.0) (2026-10-21)\n[Full Changelog](https://github.com/ljosberinn/EvokerEssences/compare/1.2.5...1.3.0) [Previous Releases](https://github.com/ljosberinn/EvokerEssences/releases)\n\n- Merge pull request #5 from ljosberinn/feature/marching-ants-glow  \n    Feature/marching ants glow  \n- localization fixes  \n- perf improvement  \n- adopt marching ants"
+    },
+    {
+      "tag": "1.2.5",
+      "published": "2026-10-15",
+      "notes": "# Essences\n\n## [1.2.5](https://github.com/ljosberinn/EvokerEssences/tree/1.2.5) (2026-10-15)\n[Full Changelog](https://github.com/ljosberinn/EvokerEssences/compare/1.2.4...1.2.5) [Previous Releases](https://github.com/ljosberinn/EvokerEssences/releases)\n\n- 12.1.5 compat"
+    },
+    {
+      "tag": "1.2.4",
+      "published": "2026-08-23",
+      "notes": "# Essences\n\n## [1.2.4](https://github.com/ljosberinn/EvokerEssences/tree/1.2.4) (2026-08-23)\n[Full Changelog](https://github.com/ljosberinn/EvokerEssences/compare/1.2.3...1.2.4) [Previous Releases](https://github.com/ljosberinn/EvokerEssences/releases)\n\n- fix a couple bugs"
+    },
+    {
+      "tag": "1.2.3",
+      "published": "2026-08-08",
+      "notes": "# Essences\n\n## [1.2.3](https://github.com/ljosberinn/EvokerEssences/tree/1.2.3) (2026-08-08)\n[Full Changelog](https://github.com/ljosberinn/EvokerEssences/compare/1.2.2...1.2.3) [Previous Releases](https://github.com/ljosberinn/EvokerEssences/releases)\n\n- fix bugs"
+    },
+    {
+      "tag": "1.2.2",
+      "published": "2026-07-20",
+      "notes": "# Essences\n\n## [1.2.2](https://github.com/ljosberinn/EvokerEssences/tree/1.2.2) (2026-07-20)\n[Full Changelog](https://github.com/ljosberinn/EvokerEssences/compare/1.2.1...1.2.2) [Previous Releases](https://github.com/ljosberinn/EvokerEssences/releases)\n\n- perf improvements"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-10-15",
+      "2026-08-23",
+      "2026-08-08",
+      "2026-07-20",
+      "2026-07-05",
+      "2026-06-25",
+      "2026-04-22",
+      "2026-04-22",
+      "2026-04-21",
+      "2026-04-21",
+      "2026-03-22",
+      "2026-03-17",
+      "2026-03-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Essences"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Coolinator"
+    ],
+    "savedVariables": [
+      "EssencesSaved"
+    ]
+  }
+}

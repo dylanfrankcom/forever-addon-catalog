@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "dem",
+  "repo": "Emzime/Disenchant-and-More",
+  "about": "# DeM — Disenchant & More\n![How DeM works](https://raw.githubusercontent.com/Emzime/Disenchant-and-More/main/DeM-how-it-works.png)\n\n**English** | [Français](#français)\n\n**DeM** (*Disenchant & More*) is a small World of Warcraft **Forever** addon: hover an item in your bags and press a key to cast **Scroll Comprehension** (*Compréhension de parchemin*) or **Disenchant** (*Désenchanter*) on it.\n\n## Why?\n\nThe usual macro trick (`/cast` + `/click` on the hovered item) does not work well on WoW Forever:\n\n- macros are limited to 255 characters and can no longer be chained or extended by addons;\n- with a `[mod:shift]` macro, action bar addons such as ElvUI can swallow the Shift press;\n- many gaming mice send **Numpad 0**, which Windows turns into **Insert** when Shift is held — so the game never sees \"Shift\".\n\nDeM avoids all of this: no macro, no action bar. Each spell has **its own key binding**, linked to a hidden secure button that uses the hovered bag slot directly.\n\n## Installation\n\n1. Download the latest `Disenchant-and-More-x.y.z.zip` from the Releases page.\n2. Extract it into `World of Warcraft\\_forever_\\Interface\\AddOns\\` — you should get `AddOns\\DeM\\DeM.toc`.\n3. Restart the game (a `/reload` does not detect a new addon folder).\n\n> Do not use GitHub's *Code → Download ZIP*: it creates a `Disenchant-and-More-main` folder, and WoW only loads the addon if its folder is named exactly `DeM`.\n\n## Configuration\n\nBind the two actions, either:\n\n- **In the menu:** `Esc` → *Options* → *Keybindings* → *Add-ons*:\n  - *Compréhension de parchemin sur l'objet survolé*\n  - *Désenchanter sur l'objet survolé*\n- **Or with a command:**\n  ```\n  /dem bind KEY1 KEY2\n  ```\n  `KEY1` casts Scroll Comprehension, `KEY2` casts Disenchant. Example for a mouse button sending Numpad 0 (and Insert with Shift):\n  ```\n  /dem bind NUMPAD0 INSERT\n  ```\n\nNot sure what your mouse button sends? Type `/dem` to toggle debug mode: every key you press is printed in the chat. Type `/dem` again to turn it off.\n\n## Usage\n\nHover an item in your bags (default bags, ElvUI bags…) and press the key. Out of combat only.\n\n## Changing the spells\n\nThe spells are defined at the top of `DeM.lua`:\n\n```lua\nlocal SPELL_1 = \"Compréhension de parchemin\"\nlocal SPELL_2 = \"Désenchanter\"\n```\n\nUse the spell names of your client language.\n\n## Commands\n\n| Command | Effect |\n|---|---|\n| `/dem` | Toggle debug messages (shows pressed keys and actions) |\n| `/dem bind K1 K2` | Bind `K1` to spell 1 and `K2` to spell 2 |\n\n---\n\n# Français\n\n[English](#dem--disenchant--more) | **Français**\n\n**DeM** (*Disenchant & More*) est un petit addon pour World of Warcraft **Forever** : survolez un objet dans vos sacs et appuyez sur une touche pour lancer **Compréhension de parchemin** ou **Désenchanter** dessus.\n\n## Pourquoi ?\n\nL'astuce classique avec une macro (`/cast` + `/click` sur l'objet survolé) fonctionne mal sur WoW Forever :\n\n- les macros sont limitées à 255 caractères et ne peuvent plus être enchaînées ni étendues par un addon ;\n- avec une macro `[mod:shift]`, les addons de barres d'action comme ElvUI peuvent bloquer l'appui avec Shift ;\n- beaucoup de souris gaming envoient **0 du pavé numérique**, que Windows transforme en **Inser** quand Shift est enfoncé : le jeu ne voit donc jamais « Shift ».\n\nDeM contourne tout ça : ni macro, ni barre d'action. Chaque sort a **son propre raccourci clavier**, relié à un bouton sécurisé caché qui utilise directement l'emplacement du sac survolé.\n\n## Installation\n\n1. Téléchargez le dernier `Disenchant-and-More-x.y.z.zip` depuis la page Releases.\n2. Décompressez-le dans `World of Warcraft\\_forever_\\Interface\\AddOns\\` : vous devez obtenir `AddOns\\DeM\\DeM.toc`.\n3. Relancez le jeu (un `/reload` ne détecte pas un nouveau dossier d'addon).\n\n> N'utilisez pas *Code → Download ZIP* de GitHub : il crée un dossier `Disenchant-and-More-main`, et WoW ne charge l'addon que si son dossier s'appelle exactement `DeM`.\n\n## Configuration\n\nAssociez les deux actions :\n\n- **Dans le menu :** `Échap` → *Options* → *Raccourcis clavier* → *Add-ons* :\n  - *Compréhension de parchemin sur l'objet survolé*\n  - *Désenchanter sur l'objet survolé*\n- **Ou avec une commande :**\n  ```\n  /dem bind TOUCHE1 TOUCHE2\n  ```\n  `TOUCHE1` lance Compréhension de parchemin, `TOUCHE2` lance Désenchanter. Exemple pour un bouton de souris qui envoie 0 du pavé numérique (et Inser avec Shift) :\n  ```\n  /dem bind NUMPAD0 INSERT\n  ```\n\nVous ne savez pas ce qu'envoie votre bouton de souris ? Tapez `/dem` pour activer le mode diagnostic : chaque touche pressée s'affiche dans le chat. Retapez `/dem` pour le couper.\n\n## Utilisation\n\nSurvolez un objet dans vos sacs (sacs par défaut, sacs ElvUI…) et appuyez sur la touche. Hors combat uniquement.\n\n## Changer les sorts\n\nLes sorts sont définis en haut de `DeM.lua` :\n\n```lua\nlocal SPELL_1 = \"Compréhension de parchemin\"\nlocal SPELL_2 = \"Désenchanter\"\n```\n\nUtilisez les noms des sorts dans la langue de votre client.\n\n## Commandes\n\n| Commande | Effet |\n|---|---|\n| `/dem` | Active/désactive les messages de diagnostic (touches pressées et actions) |\n| `/dem bind T1 T2` | Associe `T1` au sort 1 et `T2` au sort 2 |",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "DeM 1.0.0",
+      "published": "2026-11-17",
+      "notes": "**Full Changelog**: https://github.com/Emzime/Disenchant-and-More/commits/v1.0.0"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Emzime/Disenchant-and-More/main/DeM-how-it-works.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17"
+    ]
+  },
+  "languages": [
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "DeM"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

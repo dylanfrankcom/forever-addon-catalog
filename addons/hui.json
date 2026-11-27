@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "hui",
+  "repo": "Hndrxuprt/HUI",
+  "about": "# [EN]: ActionBarsEnhanced ✨\n\n> Lightweight customization of World of Warcraft’s default action bars — no bloat, no fuss.\n\n![comparison2](https://github.com/user-attachments/assets/347ff944-bfea-448b-a90d-0d77d805ce81)\n\n[![Download](https://img.shields.io/badge/Download-Latest-blue)](https://github.com/Hndrxuprt/ActionBarsEnhanced/releases)\n\n# Beta release v2.1\n\n### Options refactoring\n- Added ability to quickly apply preinstalled or custom profiles\n- All settings moved to the Advanced tab\n- Added copy-paste functionality for settings within the same category\n- Removed options to hide Micromenu, PetBar and BagsBar. Use fade effects instead\n![image](https://github.com/user-attachments/assets/43f7adb0-1fe6-4860-a8fa-5d9b0c954e53)\n\n### CooldownManager support\n- Added **custom color for Normal state** of icons in Cooldown Viewer\n- Added **custom color for icons On Cooldown** in Cooldown Viewer\n- Added option to **remove debuff border** from BuffBar\n- Full customization for each CooldownManager frame\n- No empty slots when buffs or debuffs are inactive\n- Customizable icon padding\n- Centered layout option\n- Option to remove default icon mask and disable pandemic animations\n- Custom proc animations\n- Cooldown text customization (font, size, color)\n- Icon border styling (ElvUI-like) with color customization\n- Status-based coloring for icons: OutOfMana, OutOfRange, NotUsable\n- Buff bar sizing options\n- Buff bar: custom status bar textures with SharedMedia support\n- Buff bar: configurable growth direction\n- Buff bar: custom colors for each bar in \"Advanced Cooldown Settings\" (default Blizz settings for buff bars)\n![image](https://github.com/user-attachments/assets/59e1d742-d008-46a3-ba9e-c568d7b59a9a)\n![image](https://github.com/user-attachments/assets/ba4f0abf-cae7-4cc4-88b3-75aa51170c85)\n\n### Action Bar extra options\n- Added **centered layout** for action bars\n- Added **padding control** for action bars\n- Added **growth direction** setting for action bars\n\n## Core Features:\n\n- **\uD83C\uDFAF Custom Glow Effects:** Fully customize glow type and color for spell procs.\n  - Pixel, Action, and Autocast glows.\n  - Adjustable color and transparency.\n  - Custom animations.\n- **\uD83C\uDFAD Animation Control:** Disable distracting animations — your way.\n  - Hide cast interrupt animation.\n  - Hide spell casting animation.\n  - Hide AoE targeting reticle.\n- **\uD83C\uDFA8 Deep Customization:** Tweak everything you see.\n  - Change and recolor button border.\n  - Change and recolor button backdrop.\n  - Recolor icons based on conditions (Out of Range, No Mana).\n  - Customize button state textures (pressed, active).\n  - Adjust cooldown swipe animation.\n  - Or just add some ![colors2](https://github.com/user-attachments/assets/f59a3b1f-c388-4f10-9919-2439a8fa9b8c)\n\n![rainbow3](https://github.com/user-attachments/assets/436e2074-11b0-489e-a8ad-f8813ec55406)\n\n## \uD83D\uDD27 Installation\n\n1. Download the latest version from the [Releases](https://github.com/Hndrxuprt/ActionBarsEnhanced/releases) page.\n2. Extract the archive into your `World of Warcraft\\_retail_\\Interface\\AddOns` folder.\n3. Ensure the addon folder is named exactly `ActionBarsEnhanced` (remove any suffixes like `-main`).\n4. Launch the game and configure the addon to your liking using the command `/abe`.\n\n# [RU]: ActionBarsEnhanced ✨\n\n> Простая кастомизация стандартных панелей команд World of Warcraft без лишней нагрузки.\n\n![comparison2](https://github.com/user-attachments/assets/347ff944-bfea-448b-a90d-0d77d805ce81)\n\n[![Download](https://img.shields.io/badge/Download-Latest-blue)](https://github.com/Hndrxuprt/ActionBarsEnhanced/releases)\n\n## \uD83C\uDFA8 Особенности\n\n- **\uD83C\uDFAF Настраиваемые свечения:** Полная настройка типа и цвета свечения для прока.\n  - Pixel, Action и Autocast свечения.\n  - Настраиваемый цвет и прозрачность.\n  - Кастомные анимации.\n- **\uD83C\uDFAD Контроль анимаций:** Отключите раздражающие анимации по вкусу.\n  - Скрытие анимации прерванного каста.\n  - Скрытие анимации произнесения заклинания.\n  - Скрытие индикатора AoE (Reticle).\n- **\uD83C\uDFA8 Глубокий кастом:** Измените всё, что видите.\n  - Смена текстуры и покраска рамки кнопок.\n  - Смена текстуры и покраска фона кнопок.\n  - Покраска иконок в зависимости от условий (Out of Range, No Mana).\n  - Изменение текстур состояний кнопки (нажатая, активная).\n  - Настройка анимации кулдауна (swipe).\n  - Или просто добавь ![colors2](https://github.com/user-attachments/assets/f59a3b1f-c388-4f10-9919-2439a8fa9b8c)\n\n![rainbow3](https://github.com/user-attachments/assets/436e2074-11b0-489e-a8ad-f8813ec55406)\n\n## \uD83D\uDD27 Установка\n\n1. Скачайте последнюю версию со страницы [Releases](https://github.com/Hndrxuprt/ActionBarsEnhanced/releases).\n2. Распакуйте архив в папку `World of Warcraft\\_retail_\\Interface\\AddOns`.\n3. Убедитесь, что папка аддона называется `ActionBarsEnhanced` (без версии, например `-main`).\n4. Запустите игру и настройте аддон под себя командой /abe",
+  "releases": [
+    {
+      "tag": "v3.6.1",
+      "published": "2026-11-09",
+      "notes": "# HUI (ex-ActionBarsEnhanced)\n\n## [v3.6.1](https://github.com/Hndrxuprt/HUI/tree/v3.6.1) (2026-11-09)\n[Full Changelog](https://github.com/Hndrxuprt/HUI/compare/v3.6.0...v3.6.1) [Previous Releases](https://github.com/Hndrxuprt/HUI/releases)\n\n- v3.6.1  \n    - Cross-version profile imports now ignore abilities and spells in Custom Frames (frames are preserved but emptied when importing between Retail and Forever).  \n    - On Forever, added rank switching for spells in Custom Frames (visuals may change in future updates).  \n    - On Forever, the Warlock spell Soul Drain now displays Soul Shards as stacks on its icon when added to a Custom Frame."
+    },
+    {
+      "tag": "v3.6.0",
+      "published": "2026-11-05",
+      "notes": "# HUI (ex-ActionBarsEnhanced)\n\n## [v3.6.0](https://github.com/Hndrxuprt/HUI/tree/v3.6.0) (2026-11-05)\n[Full Changelog](https://github.com/Hndrxuprt/HUI/compare/v3.5.2...v3.6.0) [Previous Releases](https://github.com/Hndrxuprt/HUI/releases)\n\n- v3.6.0  \n    - Forever support.  \n    - Added a Pushed Texture option for CDM and Custom Frames. This texture replicates the ability push effect from action bars onto CDM and custom frames."
+    },
+    {
+      "tag": "v3.5.2",
+      "published": "2026-10-18",
+      "notes": "# HUI (ex-ActionBarsEnhanced)\n\n## [v3.5.2](https://github.com/Hndrxuprt/HUI/tree/v3.5.2) (2026-10-18)\n[Full Changelog](https://github.com/Hndrxuprt/HUI/compare/v3.5.1...v3.5.2) [Previous Releases](https://github.com/Hndrxuprt/HUI/releases)\n\n- v3.5.2  \n    - TOC bump"
+    },
+    {
+      "tag": "v3.5.1",
+      "published": "2026-10-05",
+      "notes": "# HUI (ex-ActionBarsEnhanced)\n\n## [v3.5.1](https://github.com/Hndrxuprt/HUI/tree/v3.5.1) (2026-10-05)\n[Full Changelog](https://github.com/Hndrxuprt/HUI/compare/v3.5.0...v3.5.1) [Previous Releases](https://github.com/Hndrxuprt/HUI/releases)\n\n- v3.5.1  \n    - Added a per-spell option for Custom Aura frames and bars to set the unit and aura type (helpful/harmful).  \n    **Note:** Currently, the unit is still applied to the entire aura container and taken from the first aura in the list. Full support for auras with different units will be available after patch 12.1.5."
+    },
+    {
+      "tag": "v3.5.0",
+      "published": "2026-10-02",
+      "notes": "# HUI (ex-ActionBarsEnhanced)\n\n## [v3.5.0](https://github.com/Hndrxuprt/HUI/tree/v3.5.0) (2026-10-02)\n[Full Changelog](https://github.com/Hndrxuprt/HUI/compare/v3.4.2...v3.5.0) [Previous Releases](https://github.com/Hndrxuprt/HUI/releases)\n\n- v3.5.0  \n    - For custom frames added options to smart track combat, mana and heal potions"
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/347ff944-bfea-448b-a90d-0d77d805ce81",
+    "https://github.com/user-attachments/assets/43f7adb0-1fe6-4860-a8fa-5d9b0c954e53",
+    "https://github.com/user-attachments/assets/59e1d742-d008-46a3-ba9e-c568d7b59a9a",
+    "https://github.com/user-attachments/assets/ba4f0abf-cae7-4cc4-88b3-75aa51170c85",
+    "https://github.com/user-attachments/assets/f59a3b1f-c388-4f10-9919-2439a8fa9b8c",
+    "https://github.com/user-attachments/assets/436e2074-11b0-489e-a8ad-f8813ec55406"
+  ],
+  "stats": {
+    "stars": 8,
+    "openIssues": 22,
+    "contributors": 2,
+    "lastRelease": "2026-11-09",
+    "releaseDates": [
+      "2026-11-09",
+      "2026-11-05",
+      "2026-10-18",
+      "2026-10-05",
+      "2026-10-02",
+      "2026-09-25",
+      "2026-09-06",
+      "2026-09-05",
+      "2026-09-04",
+      "2026-08-30",
+      "2026-08-29",
+      "2026-08-26",
+      "2026-08-23",
+      "2026-08-23",
+      "2026-08-21",
+      "2026-08-21",
+      "2026-08-21",
+      "2026-08-13",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-06-17",
+      "2026-05-20",
+      "2026-05-16",
+      "2026-05-11",
+      "2026-05-11",
+      "2026-05-10",
+      "2026-05-08",
+      "2026-04-21",
+      "2026-04-12",
+      "2026-04-11",
+      "2026-04-07",
+      "2026-04-06",
+      "2026-04-02",
+      "2026-04-01",
+      "2026-03-31",
+      "2026-03-29",
+      "2026-03-27",
+      "2026-03-26",
+      "2026-03-25",
+      "2026-03-24",
+      "2026-03-24",
+      "2026-03-10",
+      "2026-03-08",
+      "2026-02-13",
+      "2026-02-11",
+      "2026-02-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ActionBarsEnhanced",
+      "HUI",
+      "HUI_ActionBars",
+      "HUI_CastingBar",
+      "HUI_CooldownManagerCustom",
+      "HUI_CooldownManagerView"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ABDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ABE_FAKE_AURAS"
+    ]
+  }
+}

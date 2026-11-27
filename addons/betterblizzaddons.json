@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "betterblizzaddons",
+  "repo": "Bodify/BetterBlizzAddons",
+  "about": "# BetterBlizzAddons\n\nA simple addon that removes the unnecessary and cluttery semantic addon categories from your Addon List so you can easily find the addon you are looking for by using the power of the alphabet like *some deity* intended.\n\nIt sorts all enabled addons first at the top and then below it sorts the disabled addons. Also has a toggle to move disabled dependency addons (think Details extra addons) down below into the \"disabled territory\".\n\nThis is a standalone addon for the setting \"Improved AddonList\" that is already included in [BetterBlizzFrames](https://www.curseforge.com/wow/addons/betterblizzframes) in its Misc section.\n\n[![](https://shields.io/badge/discord-5865F2?logo=discord&style=for-the-badge&logoColor=white)](https://discord.gg/cjqVaEMm25) [![](https://shields.io/badge/patreon-red?logo=patreon&style=for-the-badge)](https://www.patreon.com/bodifydev) [![](https://shields.io/badge/paypal-00457C?logo=paypal&style=for-the-badge)](https://www.paypal.com/paypalme/bodifydev) [![](https://shields.io/badge/github-gray?logo=github&style=for-the-badge&logoColor=white)](https://github.com/Bodify/BetterBlizzAddons)\n\n![bbAddons](https://github.com/user-attachments/assets/53a8d296-ded6-4ea4-81dc-556c0c8a40d3)\n![bbAddonsDefault](https://github.com/user-attachments/assets/27bc64fa-2f51-447d-9431-d068acac1aa7)",
+  "releases": [
+    {
+      "tag": "v1.0.5",
+      "published": "2026-11-10",
+      "notes": "# BetterBlizzAddons 1.0.5\n- Fix an issue with sorting causing it to not work properly for some people."
+    },
+    {
+      "tag": "v1.0.4",
+      "published": "2026-09-19",
+      "notes": "# BetterBlizzAddons 1.0.4\n- Update toc and support WoW: Forever."
+    },
+    {
+      "tag": "v1.0.3",
+      "published": "2026-08-05",
+      "notes": "# BetterBlizzAddons 1.0.3\n## New\n- Update toc file and support for all versions of the game. Retail, Mists of Pandaria, The Burning Crusade, Vanilla."
+    },
+    {
+      "tag": "v1.0.2",
+      "published": "2026-04-25",
+      "notes": "# BetterBlizzAddons 1.0.2\n## Tweak\n- Update toc file and support TBC Classic."
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/53a8d296-ded6-4ea4-81dc-556c0c8a40d3",
+    "https://github.com/user-attachments/assets/27bc64fa-2f51-447d-9431-d068acac1aa7"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-09-19",
+      "2026-08-05",
+      "2026-04-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BetterBlizzAddons"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "BetterBlizzAddonsDB"
+    ]
+  }
+}

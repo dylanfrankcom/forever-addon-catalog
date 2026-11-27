@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "targetswapsound",
+  "repo": "keyboardturner/TargetSwapSound",
+  "about": "# TargetSwapSound\nBecause sometimes some unit frame addons (unintentionally) remove the targetting / deselect sounds.\n\nVery simple script for playing the target selection sound and deselecting a target. Many unit frame addons will (unintentionally) lose this sound as a result of replacing the target unit frame. All this does is bring if back. If you play without an addon that skins the target unit frame, you probably won't see any difference.\n\nShould work in all versions of the game including Dragonflight.\n\nA link to my discord for addon projects and other things can be found [here](https://discord.gg/tA4rrmjPp8).",
+  "releases": [
+    {
+      "tag": "3.8",
+      "published": "2026-10-13",
+      "notes": "# 3.8\n\n12.1.5 toc update\n\n# 3.7\n\nWoW Forever testing - This is an in-development testing version. Some things may throw errors or explode.\n\n# 3.6\n\nTBC toc support and classic toc updates\n\n# 3.5\n\n12.1.0 toc update\n\n# 3.4\n\n12.0.7 toc update\n\n# 3.3\n\n12.0.5 toc update\n\n# 3.2\n\n12.0.1 toc update\n\n# 3.1\n\n12.0.0 toc update\n\n# 3.0\n\n11.2.7 toc update\n\n# 2.9\n\n11.2.5 toc update\n\n# 2.8\n\n11.2.0 toc update\n\n# 2.7\n\nClassic version fix\n\n# 2.6\n\n11.1.7 toc update\n\n# 2.5\n\n11.1.5 toc update & addon category\n\n# 2.4\n\n11.1.0 toc update\n\n# 2.3\n\n11.0.7 toc update\n\n# 2.2\n\n11.0.5 toc update\n\n# 2.1\n\nTOC updates for TWW\n\n# 2.0\n\ntoc bump to 10.2.7\n\n# 1.9\n\ntoc bump to 10.2.6\n\n# 1.8\n\n10.2.5 toc bump\n\n# 1.7\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "3.7",
+      "published": "2026-09-25",
+      "notes": "# 3.7\n\nWoW Forever testing - This is an in-development testing version. Some things may throw errors or explode.\n\n# 3.6\n\nTBC toc support and classic toc updates\n\n# 3.5\n\n12.1.0 toc update\n\n# 3.4\n\n12.0.7 toc update\n\n# 3.3\n\n12.0.5 toc update\n\n# 3.2\n\n12.0.1 toc update\n\n# 3.1\n\n12.0.0 toc update\n\n# 3.0\n\n11.2.7 toc update\n\n# 2.9\n\n11.2.5 toc update\n\n# 2.8\n\n11.2.0 toc update\n\n# 2.7\n\nClassic version fix\n\n# 2.6\n\n11.1.7 toc update\n\n# 2.5\n\n11.1.5 toc update & addon category\n\n# 2.4\n\n11.1.0 toc update\n\n# 2.3\n\n11.0.7 toc update\n\n# 2.2\n\n11.0.5 toc update\n\n# 2.1\n\nTOC updates for TWW\n\n# 2.0\n\ntoc bump to 10.2.7\n\n# 1.9\n\ntoc bump to 10.2.6\n\n# 1.8\n\n10.2.5 toc bump\n\n# 1.7\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "3.6",
+      "published": "2026-08-20",
+      "notes": "# 3.6\n\nTBC toc support and classic toc updates\n\n# 3.5\n\n12.1.0 toc update\n\n# 3.4\n\n12.0.7 toc update\n\n# 3.3\n\n12.0.5 toc update\n\n# 3.2\n\n12.0.1 toc update\n\n# 3.1\n\n12.0.0 toc update\n\n# 3.0\n\n11.2.7 toc update\n\n# 2.9\n\n11.2.5 toc update\n\n# 2.8\n\n11.2.0 toc update\n\n# 2.7\n\nClassic version fix\n\n# 2.6\n\n11.1.7 toc update\n\n# 2.5\n\n11.1.5 toc update & addon category\n\n# 2.4\n\n11.1.0 toc update\n\n# 2.3\n\n11.0.7 toc update\n\n# 2.2\n\n11.0.5 toc update\n\n# 2.1\n\nTOC updates for TWW\n\n# 2.0\n\ntoc bump to 10.2.7\n\n# 1.9\n\ntoc bump to 10.2.6\n\n# 1.8\n\n10.2.5 toc bump\n\n# 1.7\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "3.5",
+      "published": "2026-08-11",
+      "notes": "# 3.5\n\n12.1.0 toc update\n\n# 3.4\n\n12.0.7 toc update\n\n# 3.3\n\n12.0.5 toc update\n\n# 3.2\n\n12.0.1 toc update\n\n# 3.1\n\n12.0.0 toc update\n\n# 3.0\n\n11.2.7 toc update\n\n# 2.9\n\n11.2.5 toc update\n\n# 2.8\n\n11.2.0 toc update\n\n# 2.7\n\nClassic version fix\n\n# 2.6\n\n11.1.7 toc update\n\n# 2.5\n\n11.1.5 toc update & addon category\n\n# 2.4\n\n11.1.0 toc update\n\n# 2.3\n\n11.0.7 toc update\n\n# 2.2\n\n11.0.5 toc update\n\n# 2.1\n\nTOC updates for TWW\n\n# 2.0\n\ntoc bump to 10.2.7\n\n# 1.9\n\ntoc bump to 10.2.6\n\n# 1.8\n\n10.2.5 toc bump\n\n# 1.7\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "3.4",
+      "published": "2026-06-16",
+      "notes": "# 3.4\n\n12.0.7 toc update\n\n# 3.3\n\n12.0.5 toc update\n\n# 3.2\n\n12.0.1 toc update\n\n# 3.1\n\n12.0.0 toc update\n\n# 3.0\n\n11.2.7 toc update\n\n# 2.9\n\n11.2.5 toc update\n\n# 2.8\n\n11.2.0 toc update\n\n# 2.7\n\nClassic version fix\n\n# 2.6\n\n11.1.7 toc update\n\n# 2.5\n\n11.1.5 toc update & addon category\n\n# 2.4\n\n11.1.0 toc update\n\n# 2.3\n\n11.0.7 toc update\n\n# 2.2\n\n11.0.5 toc update\n\n# 2.1\n\nTOC updates for TWW\n\n# 2.0\n\ntoc bump to 10.2.7\n\n# 1.9\n\ntoc bump to 10.2.6\n\n# 1.8\n\n10.2.5 toc bump\n\n# 1.7\n\nPackager Testing\n\n10.2 toc bump"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-25",
+      "2026-08-20",
+      "2026-08-11",
+      "2026-06-16",
+      "2026-04-21",
+      "2026-02-10",
+      "2026-01-20",
+      "2025-12-02",
+      "2025-10-07",
+      "2025-08-05",
+      "2025-07-23",
+      "2025-06-17",
+      "2025-04-22",
+      "2025-02-25",
+      "2024-12-17",
+      "2024-10-22",
+      "2024-07-23",
+      "2024-05-07",
+      "2024-03-19",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-07-11",
+      "2023-05-02",
+      "2023-03-21",
+      "2022-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TargetSwapSound"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

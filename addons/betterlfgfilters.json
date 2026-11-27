@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "betterlfgfilters",
+  "repo": "psykzz/wow-better-lfg",
+  "about": "# Better LFG filters for WoW Forever\n\n![Better LFG logo](https://raw.githubusercontent.com/psykzz/wow-better-lfg/main/logo.png)\n\n**Less scrolling, better groups.** Native-first role, class, and level filters\nthat fit naturally into WoW Forever's familiar LFG interface.\n\nBetter LFG extends the existing **Groups** and **Players** results instead of\nreplacing Blizzard's finder UI. It adds filters to the native options menu,\nreuses Forever's Retail-style level-range widget, and preserves the existing\n**Show All Level Ranges** option.\n\n## Filters\n\nThe filters are available from the Groups list's options cog.\n\n**Group requires**\n\n- **Needs Tank**, **Needs Healer**, and **Needs Damage** keep groups with an\n  open slot for each checked role.\n- **No \\<class\\> already in group** hides groups that already have a player of\n  your class.\n- **Has Tank** and **Has Healer** require a current member with that role.\n- **Group fit** requires enough open slots for your current group's members\n  and their assigned roles. When solo, any selected LFG role can fit.\n\n**Player requires**\n\n- **Has Tank**, **Has Healer**, and **Has DPS** keep players advertising any\n  selected role. With none selected, no role filtering is applied.\n- The **Player level** range uses the Retail-style level-range widget. The\n  minimum and maximum are inclusive, and the default 1-60 range covers the\n  in-game level range. Saved values outside this range are clamped on load.\n- **Player class** checkboxes keep any selected class. With none selected, no\n  class filtering is applied. Role, class, and level requirements combine.\n\nGroup fit is disabled with a red reason if your current group has 4 or more\nmembers, at least 2 tanks, or at least 2 healers. Filter choices are saved per\ncharacter. When upgrading, the previous **My role open** setting maps to a\nrole-specific **Needs** option if one role was selected. Blizzard's **Show All\nLevel Ranges** setting remains in the menu. Group filters only evaluate\nmulti-member group listings; player filters only evaluate solo player listings.\n\n## Install\n\n1. Place the `BetterLFGFilters` folder in `Interface\\AddOns`.\n2. Reload the game UI with `/reload`.\n3. Open Group Finder, select **Groups**, and open the options cog to change\n   the role filters.\n\nThe addon targets WoW Forever interface `16001`. It uses the client's native\n`C_LFGList.GetSearchResultMemberCounts` role and remaining-slot data.\n\n## Releases\n\nPush an annotated version tag to package the addon, create a GitHub release, and\nupload it to CurseForge project `1738917`:\n\n```powershell\ngit tag -a 0.5.0 -m \"0.5.0\"\ngit push origin 0.5.0\n```\n\nThe release workflow uses the repository secret `CURSEFORGE_API_TOKEN` for\nCurseForge uploads. GitHub's automatically provided `GITHUB_TOKEN` is used to\ncreate the GitHub release.",
+  "releases": [
+    {
+      "tag": "0.4.3",
+      "published": "2026-10-16",
+      "notes": "# Better LFG filters\n\n## [0.4.3](https://github.com/psykzz/wow-better-lfg/tree/0.4.3) (2026-10-16)\n[Full Changelog](https://github.com/psykzz/wow-better-lfg/compare/0.4.2...0.4.3) [Previous Releases](https://github.com/psykzz/wow-better-lfg/releases)\n\n- fix: show startup notice only on login"
+    },
+    {
+      "tag": "0.4.2",
+      "published": "2026-10-12",
+      "notes": "# Better LFG filters\n\n## [0.4.2](https://github.com/psykzz/wow-better-lfg/tree/0.4.2) (2026-10-12)\n[Full Changelog](https://github.com/psykzz/wow-better-lfg/compare/0.4.1...0.4.2) [Previous Releases](https://github.com/psykzz/wow-better-lfg/releases)\n\n- chore: rename saved variable"
+    },
+    {
+      "tag": "0.4.1",
+      "published": "2026-10-12",
+      "notes": "# Better LFG filters\n\n## [0.4.1](https://github.com/psykzz/wow-better-lfg/tree/0.4.1) (2026-10-12)\n[Full Changelog](https://github.com/psykzz/wow-better-lfg/compare/0.4.0...0.4.1) [Previous Releases](https://github.com/psykzz/wow-better-lfg/releases)\n\n- chore: rename addon package"
+    },
+    {
+      "tag": "0.4.0",
+      "published": "2026-10-11",
+      "notes": "# Better LFG filters\n\n## [0.4.0](https://github.com/psykzz/wow-better-lfg/tree/0.4.0) (2026-10-11)\n[Full Changelog](https://github.com/psykzz/wow-better-lfg/commits/0.4.0) [Previous Releases](https://github.com/psykzz/wow-better-lfg/releases)\n\n- ci: package addon releases on tags  \n- feat: add WoW Forever LFG filters  \n    Add native-first group and player filters for role, class, and level.  \n    Migrate saved ranges to Forever's 1-60 level cap."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-10-16",
+    "releaseDates": [
+      "2026-10-16",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-10-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BetterLFGFilters"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "BetterLFGFiltersDB"
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "chatemoji",
+  "repo": "Ironship/ChatEmoji",
+  "about": "# ChatEmoji\n\nTurns emoticons, `:shortcodes:` and real emoji characters in chat into pictures.\nFor WoW: Forever, Classic Era, TBC Anniversary, Wrath (Titan), Cataclysm, Mists and Retail.\n\n- `:)` becomes \uD83D\uDE42, `<3` a heart, `xD`, `QQ`, `o/`, `o7` and about 140 text emoticons in all\n- `:joy:`, `:fire:`, `:+1:` ... 446 pictures from Twemoji\n- emoji characters (\uD83D\uDE42 ❤️ \uD83D\uDC4D\uD83C\uDFFD) that arrive in chat are shown as pictures too\n- links, colours and normal text are left alone (`http://x.com:)`, `(8)`, `A)` stay as typed)\n- chat bubbles above characters show the pictures as well\n- `/emoji` opens a picker: click a picture to put its code in the chat box; switches and picture size\n\nPlayers without the addon see the plain text you typed.\n\nInstall: extract the ZIP into `Interface/AddOns` (the folder must be called `ChatEmoji`).\n\nPictures: [Twemoji](https://github.com/jdecked/twemoji), CC-BY 4.0 (see CREDITS.txt). Code: GPL-3.0.\n\n## Development\n\n- `python tools/build_assets.py` downloads the artwork and writes `Media/*.tga` and `Data.lua`\n- `python tools/test_addon.py` runs the addon on a mock client (needs `pip install lupa`)\n- `python tools/render_mock.py` draws an HTML preview of chat and picker from the real code\n- `python tools/package.py --check | --zip dist | --install <AddOns\\ChatEmoji>`\n- CurseForge builds from this repository through a push webhook; `.pkgmeta` says what is left out",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "name": "ChatEmoji 0.2.0",
+      "published": "2026-11-20",
+      "notes": "## ChatEmoji 0.2.0\n\nChat bubbles above characters show the pictures too.\n\n### What's new\n- Chat bubbles show the pictures. A short time after a say, yell, emote, party or NPC chat event the visible bubbles are read and their text goes through the same converter as the chat lines. Switch: \"Chat bubbles\" in `/emoji`, or `/emoji bubbles on|off`.\n\n### State\nChecked on the mock client only (179 checks, Lua 5.1). It has not been tried in the game: whether the bubble resizes around the picture, and whether the bubbles of WoW: Forever can be reached through `C_ChatBubbles.GetAllChatBubbles` at all, is still to be seen. See CHANGELOG.md for 0.1.1 and 0.1.0.\n\n### Install\nExtract the ZIP into `Interface/AddOns` (the folder is `ChatEmoji`). SHA-256 checksum is attached."
+    },
+    {
+      "tag": "v0.1.1",
+      "name": "ChatEmoji 0.1.1",
+      "published": "2026-11-20",
+      "notes": "## ChatEmoji 0.1.1\n\nFixes an error report seen with the gamepad interface.\n\n### What's new\n- The `/emoji` picker no longer opens the chat box itself. Doing that ran Blizzard's gamepad chat focus code in this addon's execution and could later be reported as `ADDON_ACTION_FORBIDDEN` for `SetPreferredGamepadInteractTarget()` when a panel such as the game menu was closed. A click now only puts the code into a chat box that is already open; otherwise it asks you to open chat first.\n\n### State\nThe cause was found by reading Blizzard's code and the change is covered by the mock client checks (157, Lua 5.1); it has not been confirmed in the game yet. See CHANGELOG.md for 0.1.0.\n\n### Install\nExtract the ZIP into `Interface/AddOns` (the folder is `ChatEmoji`). SHA-256 checksum is attached."
+    },
+    {
+      "tag": "v0.1.0",
+      "name": "ChatEmoji 0.1.0",
+      "published": "2026-11-20",
+      "notes": "## ChatEmoji 0.1.0\n\nFirst release. Emoticons, `:shortcodes:` and real emoji characters in chat are shown as pictures.\n\n### What's new\n- Emoticons such as `:)` `:D` `;)` `:(` `<3` `xD` `QQ` `o/` `o7` (about 140 in all) become pictures. They only count as whole words, so `http://x.com:)`, `(8)` and `A)` stay text.\n- `:joy:`, `:fire:`, `:+1:` and the rest of the 446 Twemoji pictures (CC-BY 4.0).\n- Emoji characters that arrive in chat are shown as pictures as well.\n- Links, colours and normal text are left alone.\n- `/emoji` opens a picker (click a picture to put its code in the chat box) with switches and the picture size.\n- The TOC lists Interface numbers for Classic Era, TBC Anniversary, Wrath (Titan), Cataclysm, Mists, Retail and WoW: Forever.\n\n### State\nThe chat conversion was seen working in WoW: Forever. The `/emoji` window and the other game versions have not been tried yet. The addon was run against a mock client (154 checks, Lua 5.1), including the fallback for clients that have no `ChatFrameUtil`.\n\n### Install\nExtract the ZIP into `Interface/AddOns` (the folder is `ChatEmoji`). SHA-256 checksum is attached."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ChatEmoji"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ChatEmojiDB"
+    ]
+  }
+}

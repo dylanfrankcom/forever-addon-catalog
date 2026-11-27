@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "quickbuyout",
+  "repo": "psykzz/wow-quickbuyout",
+  "about": "![Quick Buyout logo](https://raw.githubusercontent.com/psykzz/wow-quickbuyout/main/media/logo.png)\n\n# wow-quickbuyout\n\nA World of Warcraft addon that removes the Auction House buyout confirmation popup for enabled item categories. Clicking **Buyout** immediately purchases the selected auction, similar to TradeSkillMaster's quick buy. The cheapest auction is selected for you by default. Commodities use **Buy** to purchase the quantity shown once the server confirms a quote at or below the displayed total.\n\n## Features\n\n- **One-click buyout** - no confirmation popup for enabled item categories; armor and weapons are enabled by default.\n- **Category settings** - enable or disable individual item classes in **Options > AddOns > Quick Buyout**. Other item categories are opt-in; obsolete classes are hidden.\n- **Buys what you selected** - pick any auction in the list and Buyout purchases exactly that one.\n- **Cheapest selected by default** - when you open an item group, and after each purchase, the cheapest buyable auction (skipping your own and bid-only listings) is selected, so you can click Buyout repeatedly.\n- **Double-purchase guard** - extra clicks are ignored while a purchase is in flight, and auctions already bought are never retried while the result list catches up.\n- **Commodity support** - buy the selected quantity of linen cloth, herbs, and other commodities in enabled categories with one click. Price increases, unavailable quotes, and insufficient funds cancel the purchase with an error. Changing the item or quantity, leaving the commodity view, or closing the Auction House cancels a pending quote.\n- **Everything else unchanged** - disabled item categories, bids, and Blizzard's unique-crafted-item warning keep their normal confirmations.\n\n## Compatibility\n\nWorks only with the modern (retail-style) Auction House UI (`Blizzard_AuctionHouseUI`):\n\n- Retail\n- Mists of Pandaria Classic\n- Classic Era / Anniversary clients that use the new Auction House UI\n\nClients using the legacy Auction House UI are not supported.\n\n## Installation\n\nInstall via CurseForge, Wago, or manually by downloading the latest release from GitHub and extracting the `QuickBuyout` folder into `World of Warcraft\\<flavor>\\Interface\\AddOns\\`.\n\n## Usage\n\n1. Open the Auction House and search for an item in an enabled category (armor or weapons by default).\n2. Click the item group to see its auctions. The cheapest is selected automatically; click another row to pick a different one.\n3. Click **Buyout**. The selected auction is bought instantly, and the selection resets to the cheapest.\n\nTo change which items use quick buyout, open **Options > AddOns > Quick Buyout** and toggle the desired categories. There are no slash commands.\n\nFor linen cloth and other crafting materials, enable **Trade Goods**, open the commodity, set the quantity, then click **Buy**. Only armor and weapons are enabled by default. If the quoted total rises, the purchase is cancelled; review the refreshed prices before clicking again.\n\nIn the AddOns list, Quick Buyout appears under **Auctions** with a coin icon.\n\n## Development\n\nRun the Lua behavior tests with `python -m pip install -r requirements-test.txt` and `python -m unittest discover -s tests`.\n\n### Creating a Release\n\nThis addon uses BigWigs Packager for automated releases. To create a new release:\n\n1. Update the version in your local repository\n2. Create and push a git tag:\n   ```bash\n   git tag -a v1.2.0 -m \"Release version 1.2.0\"\n   git push origin v1.2.0\n   ```\n3. The GitHub Actions workflow will automatically:\n   - Package the addon\n   - Create a GitHub release\n   - Upload to CurseForge (if `CF_API_KEY` secret is configured and `## X-Curse-Project-ID` is set in the TOC)\n   - Upload to Wago (if `WAGO_API_TOKEN` secret is configured and `## X-Wago-ID` is set in the TOC)\n\n### Required Secrets\n\nTo enable automatic uploads, configure these repository secrets:\n\n- `CF_API_KEY` - CurseForge API key for uploading to CurseForge\n- `WAGO_API_TOKEN` - Wago API token for uploading to Wago Addons\n\nThe `GITHUB_TOKEN` is automatically provided by GitHub Actions.\n\n### Logo\n\n`media/logo.png` is the 1:1 (512x512) project logo for CurseForge and Wago. It is excluded from the packaged addon. Regenerate it with `python media/generate_logo.py` (requires Pillow).\n\n## License\n\nAll Rights Reserved",
+  "releases": [
+    {
+      "tag": "v0.0.4",
+      "published": "2026-10-01",
+      "notes": "# Quick Buyout\n\n## [v0.0.4](https://github.com/psykzz/wow-quickbuyout/tree/v0.0.4) (2026-10-01)\n[Full Changelog](https://github.com/psykzz/wow-quickbuyout/compare/v0.0.3...v0.0.4) [Previous Releases](https://github.com/psykzz/wow-quickbuyout/releases)\n\n- fix: support one-click commodity purchases  \n    Commodities use a separate buy frame and quote API, so the item-only hook never handled linen cloth. Confirm the selected quantity only when the server total does not exceed the displayed price.  \n    Keep non-gear categories opt-in and use the Auctions addon-list category."
+    },
+    {
+      "tag": "v0.0.3",
+      "published": "2026-09-28",
+      "notes": "# Quick Buyout\n\n## [v0.0.3](https://github.com/psykzz/wow-quickbuyout/tree/v0.0.3) (2026-09-28)\n[Full Changelog](https://github.com/psykzz/wow-quickbuyout/compare/v0.0.2...v0.0.3) [Previous Releases](https://github.com/psykzz/wow-quickbuyout/releases)\n\n- Merge pull request #2 from psykzz/feat/category-settings  \n    Configure quick buyout by item category"
+    },
+    {
+      "tag": "v0.0.2",
+      "published": "2026-09-26",
+      "notes": "# Quick Buyout\n\n## [v0.0.2](https://github.com/psykzz/wow-quickbuyout/tree/v0.0.2) (2026-09-26)\n[Full Changelog](https://github.com/psykzz/wow-quickbuyout/compare/v0.0.1...v0.0.2) [Previous Releases](https://github.com/psykzz/wow-quickbuyout/releases)\n\n- Fixes always selecting the cheapest option instead of selected.\n\n- feat: buy selected auction, default to cheapest  \n    Buyout now purchases the selected row. Cheapest is auto-selected on new item group, after purchase, or when selection is no longer buyable."
+    },
+    {
+      "tag": "v0.0.1",
+      "published": "2026-09-26",
+      "notes": "# Quick Buyout\n\n## [v0.0.1](https://github.com/psykzz/wow-quickbuyout/tree/v0.0.1) (2026-09-26)\n[Full Changelog](https://github.com/psykzz/wow-quickbuyout/commits/v0.0.1) [Previous Releases](https://github.com/psykzz/wow-quickbuyout/releases)\n\n- chore: add CurseForge project ID  \n- feat: initial Quick Buyout addon  \n    One-click AH buyout for armor/weapons without confirmation popup, BigWigs packager release setup, README, and CurseForge logo."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-01",
+    "releaseDates": [
+      "2026-10-01",
+      "2026-09-28",
+      "2026-09-26",
+      "2026-09-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuickBuyout"
+    ],
+    "editions": [
+      "classic",
+      "forever"
+    ],
+    "savedVariables": [
+      "QuickBuyoutDB"
+    ]
+  }
+}

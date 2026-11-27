@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "passthetime",
+  "repo": "derpierre65/WoW-Addons",
+  "releases": [
+    {
+      "tag": "PassTheTime/v0.4.0",
+      "name": "PassTheTime v0.4.0",
+      "published": "2026-11-11",
+      "notes": "**Full Changelog**: https://github.com/derpierre65/WoW-Addons/compare/PassTheTime/v0.3.0...PassTheTime/v0.4.0"
+    },
+    {
+      "tag": "BankViewer/v1.5.0",
+      "name": "BankViewer v1.5.0",
+      "published": "2026-11-11",
+      "notes": "**Full Changelog**: https://github.com/derpierre65/WoW-Addons/compare/PassTheTime/v0.3.0...BankViewer/v1.5.0"
+    },
+    {
+      "tag": "PassTheTime/v0.3.0",
+      "name": "PassTheTime v0.3.0",
+      "published": "2026-11-09",
+      "notes": "**Full Changelog**: https://github.com/derpierre65/WoW-Addons/compare/PassTheTime/v0.2.0...PassTheTime/v0.3.0"
+    },
+    {
+      "tag": "PassTheTime/v0.2.0",
+      "name": "PassTheTime v0.2.0",
+      "published": "2026-11-09",
+      "notes": "**Full Changelog**: https://github.com/derpierre65/WoW-Addons/compare/PassTheTime/v0.1.0...PassTheTime/v0.2.0"
+    },
+    {
+      "tag": "PassTheTime/v0.1.0",
+      "name": "PassTheTime v0.1.0",
+      "published": "2026-11-09",
+      "notes": "**Full Changelog**: https://github.com/derpierre65/WoW-Addons/compare/BankViewer/v1.4.1...PassTheTime/v0.1.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-05-04",
+      "2026-04-28",
+      "2026-04-12",
+      "2026-04-07",
+      "2026-04-07",
+      "2026-04-05",
+      "2026-03-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PassTheTime"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "PassTheTimeDB"
+    ]
+  }
+}

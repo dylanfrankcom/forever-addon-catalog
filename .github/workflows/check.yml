@@ -69,17 +69,20 @@ jobs:
             git commit -q -m "Checks $(date -u +%Y-%m-%dT%H:%MZ)"
             git push origin checker
           fi
-      - name: Generate the catalog and versions.json
+      - name: Generate the catalog, versions.json and detail files
         if: steps.data.outputs.ready == 'true'
         run: |
           dotnet run scripts/generate.cs -- --candidates data/candidates.json --checks data/checks.json --summary "$GITHUB_STEP_SUMMARY"
+          dotnet run scripts/details.cs -- --candidates data/candidates.json
           dotnet run scripts/validate.cs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - name: Publish them
         if: steps.data.outputs.ready == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add catalog.json versions.json icons
+          git add catalog.json versions.json icons addons
           if git diff --cached --quiet; then
             echo "The catalog and versions.json are unchanged." >> "$GITHUB_STEP_SUMMARY"
           else

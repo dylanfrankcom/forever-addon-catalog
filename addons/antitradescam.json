@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "antitradescam",
+  "repo": "psykzz/wow-antitradescam",
+  "about": "# AntiTradeScam\n\n> Very simple small addon that forces two click trades\n\nSupports WoW Forever (1.16), Classic, Wrath, and retail. No other addons or libraries are required.\n\nHow\nEnforces both parties to click an additional popup by adding and removing currency from the trade.\n\nOnce a trade has a currency, it requires the user to click the additional \"are you sure\" popup.\n\nAnything else\nNope thats the entire thing. You can review the code [directly](https://github.com/psykzz/wow-antitradescam/blob/main/core.lua).",
+  "releases": [
+    {
+      "tag": "0.0.7",
+      "published": "2026-10-12",
+      "notes": "# AntiTradeScam\n\n## [0.0.7](https://github.com/psykzz/wow-antitradescam/tree/0.0.7) (2026-10-12)\n[Full Changelog](https://github.com/psykzz/wow-antitradescam/compare/0.0.6...0.0.7) [Previous Releases](https://github.com/psykzz/wow-antitradescam/releases)\n\n- feat: support WoW Forever trades without Ace3"
+    },
+    {
+      "tag": "0.0.6",
+      "published": "2024-11-21",
+      "notes": "# AntiTradeScam\n\n## [0.0.6](https://github.com/psykzz/wow-antitradescam/tree/0.0.6) (2024-11-21)\n[Full Changelog](https://github.com/psykzz/wow-antitradescam/compare/0.0.5...0.0.6) [Previous Releases](https://github.com/psykzz/wow-antitradescam/releases)\n\n- bump toc"
+    },
+    {
+      "tag": "0.0.5",
+      "published": "2024-11-19",
+      "notes": "# AntiTradeScam\n\n## [0.0.5](https://github.com/psykzz/wow-antitradescam/tree/0.0.5) (2024-11-19)\n[Full Changelog](https://github.com/psykzz/wow-antitradescam/compare/0.0.4...0.0.5) [Previous Releases](https://github.com/psykzz/wow-antitradescam/releases)\n\n- update readme  \n- chore: update toc"
+    },
+    {
+      "tag": "0.0.4",
+      "published": "2024-11-18",
+      "notes": "# AntiTradeScam\n\n## [0.0.4](https://github.com/psykzz/wow-antitradescam/tree/0.0.4) (2024-11-18)\n[Full Changelog](https://github.com/psykzz/wow-antitradescam/compare/0.0.1...0.0.4) [Previous Releases](https://github.com/psykzz/wow-antitradescam/releases)\n\n- feat: update packager  \n- feat: update toc to upload to curseforge"
+    },
+    {
+      "tag": "0.0.3",
+      "published": "2024-11-18",
+      "notes": "# AntiTradeScam\n\n## [0.0.3](https://github.com/psykzz/wow-antitradescam/tree/0.0.3) (2024-11-18)\n[Full Changelog](https://github.com/psykzz/wow-antitradescam/commits/0.0.3) [Previous Releases](https://github.com/psykzz/wow-antitradescam/releases)\n\n- feat: add auto packager  \n- feat: add the addon  \n- Initial commit"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-12",
+    "releaseDates": [
+      "2026-10-12",
+      "2024-11-21",
+      "2024-11-19",
+      "2024-11-18",
+      "2024-11-18",
+      "2024-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AntiTradeScam"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

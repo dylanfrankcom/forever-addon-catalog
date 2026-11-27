@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "todochecklister",
+  "repo": "AssisrMatheus/TodoChecklister",
+  "about": "[![Downloads](http://cf.way2muchnoise.eu/full_341737_downloads.svg)](https://www.curseforge.com/wow/addons/todochecklister)\n[![Downloads](https://img.shields.io/github/downloads/AssisrMatheus/TodoChecklister/total)](https://github.com/AssisrMatheus/TodoChecklister/releases)\n[![Gitmoji](https://img.shields.io/badge/gitmoji-%20\uD83D\uDE1C%20\uD83D\uDE0D-FFDD67.svg)](https://gitmoji.carloscuesta.me/)\n\n# TodoChecklister\n\nA todo list for World of Warcraft. Write down the bosses to kill, the items to farm and the route to take, then tick them off.\n\n![demoGif](https://raw.githubusercontent.com/AssisrMatheus/TodoChecklister/master/demo1.2.gif)\n\n## Compatible with WoW Forever!!\n\nTodoChecklister runs on WoW: Forever.\n\nIt also runs on Retail, Classic Era, TBC Anniversary and Mists of Pandaria Classic.\n\n## Features\n\nOpen the window with the minimap button, a keybind (Esc > Options > Keybindings > AddOns) or `/todo tg`. The cog at the top of the window opens the options.\n\n1. **Track items:** shift-click an item in your bags while typing to link it. The list shows how many you carry.\n2. **Folders:** right-click an item to turn it into a folder, then drag items into it. Left-click a folder to rename it, and use its +/- button to open or close it.\n3. **Reorder:** drag any item up or down the list.\n4. **Quick add:** tick it at the top of the window and the text box stays open after Enter.\n5. **Lists:** every character on your account sees your lists. Pick the one each character shows in Displayed list, under Esc > Options > AddOns > TodoChecklister.\n6. **Share:** Export list, in the same options panel, gives you a code to send a friend. They paste it into Import list and get a copy, folders and checks included.\n7. **Objective tracker (Retail and Forever):** your list shows above your quests. Click an item to check it, a folder to open or close it, and the list name to open the window. Drag rows to reorder them. Untick Show list in the objective tracker in the options to hide it.\n8. **Long items:** the window and the tracker wrap them onto more lines. Untick Wrap long items in the options to keep each item on one line, cut with \"...\". Hover a cut item to read it whole.\n\n## Chat commands\n\n| Command | What it does |\n|---|---|\n| `/todo help` | Lists the commands in chat |\n| `/todo tg` | Opens or closes the window |\n| `/todo reload` | Resets the window size, position and scale |\n| `/todo add {text}` | Adds `{text}` to the list |\n| `/todo rmv {position}` | Removes the item at `{position}` |\n| `/todo mv {from} {to}` | Moves an item. `/todo mv 1 3` moves the first item to the third slot |\n| `/todo chk {position}` | Checks or unchecks the item at `{position}` |\n| `/todo lists` | Shows your saved lists, numbered |\n| `/todo switch {position or name}` | Displays another list. `/todo switch 2` or `/todo switch Raid night` |\n\n## Download\n\n- [CurseForge](https://www.curseforge.com/wow/addons/todochecklister/files)\n- [Wago](https://addons.wago.io/addons/todochecklister)\n- [WoWInterface: Retail & Forever](https://www.wowinterface.com/downloads/info25349-TodoChecklister.html)\n- [WoWInterface: Classic](https://www.wowinterface.com/downloads/info25348-TodoChecklister.html)\n- [GitHub releases](https://github.com/AssisrMatheus/TodoChecklister/releases)\n\nTo install by hand, extract the zip into your client's `Interface\\AddOns` folder so you end up with `AddOns\\TodoChecklister\\TodoChecklister.toc`.\n\n## Found a bug?\n\nOpen an issue on [GitHub](https://github.com/AssisrMatheus/TodoChecklister/issues). Tell us your game version, what you did and what happened.",
+  "releases": [
+    {
+      "tag": "2.3.0",
+      "published": "2026-11-14",
+      "notes": "# TodoChecklister\n\n## [2.3.0](https://github.com/AssisrMatheus/TodoChecklister/tree/2.3.0) (2026-11-14)\n[Full Changelog](https://github.com/AssisrMatheus/TodoChecklister/compare/2.2.1...2.3.0) [Previous Releases](https://github.com/AssisrMatheus/TodoChecklister/releases)\n\n- :bookmark: Version 2.3.0  \n- :sparkles: Added wrapping long items or shortening them with \"...\", and a strike through each line of checked items in the window and the objective tracker"
+    },
+    {
+      "tag": "2.2.1",
+      "published": "2026-11-08",
+      "notes": "# TodoChecklister\n\n## [2.2.1](https://github.com/AssisrMatheus/TodoChecklister/tree/2.2.1) (2026-11-08)\n[Full Changelog](https://github.com/AssisrMatheus/TodoChecklister/compare/2.2.0...2.2.1) [Previous Releases](https://github.com/AssisrMatheus/TodoChecklister/releases)\n\n- :bookmark: Version 2.2.1  \n- :ambulance: Rebuilt the objective tracker section as our own frames so it no longer taints Blizzard UI, with Questie and ElvUI support"
+    },
+    {
+      "tag": "2.2.0",
+      "published": "2026-11-08",
+      "notes": "# TodoChecklister\n\n## [2.2.0](https://github.com/AssisrMatheus/TodoChecklister/tree/2.2.0) (2026-11-08)\n[Full Changelog](https://github.com/AssisrMatheus/TodoChecklister/compare/2.1.0...2.2.0) [Previous Releases](https://github.com/AssisrMatheus/TodoChecklister/releases)\n\n- :bookmark: Version 2.2.0  \n- :sparkles: Added the list to the objective tracker, linking for quests, spells and achievements, and a settings button  \n- :bug: Fixed an \"Unrecognized XML: Binding\" error by letting the game load Bindings.xml instead of the toc"
+    },
+    {
+      "tag": "2.1.0",
+      "published": "2026-11-07",
+      "notes": "# TodoChecklister\n\n## [2.1.0](https://github.com/AssisrMatheus/TodoChecklister/tree/2.1.0) (2026-11-07)\n[Full Changelog](https://github.com/AssisrMatheus/TodoChecklister/compare/2.0.2...2.1.0) [Previous Releases](https://github.com/AssisrMatheus/TodoChecklister/releases)\n\n- :bookmark: Version 2.1.0  \n- :sparkles: Added a feature guide and a divider to the options panel  \n- :pencil: Rewrote the readme around features, commands and downloads  \n- :sparkles: Made Escape cancel editing an item  \n- :sparkles: Versioned saved data so upgrades never lose it and older versions refuse data they can't safely edit  \n- :sparkles: Added exporting and importing lists as text so players can share them across every game version  \n- :sparkles: Changed folders to be made by right click, renamed by left click and opened from their +/- button  \n- :sparkles: Added folders that group items, toggled by middle click or Shift+Enter"
+    },
+    {
+      "tag": "2.0.2",
+      "published": "2026-11-06",
+      "notes": "# TodoChecklister\n\n## [2.0.2](https://github.com/AssisrMatheus/TodoChecklister/tree/2.0.2) (2026-11-06)\n[Full Changelog](https://github.com/AssisrMatheus/TodoChecklister/compare/2.0.1...2.0.2) [Previous Releases](https://github.com/AssisrMatheus/TodoChecklister/releases)\n\n- :bookmark: Version 2.0.2  \n- :pencil: Rewrote the README and moved developer docs into CONTRIBUTING.md  \n- :wrench: Restored direct Wago uploads in the release workflow"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/AssisrMatheus/TodoChecklister/master/demo1.2.gif"
+  ],
+  "stats": {
+    "stars": 22,
+    "openIssues": 12,
+    "contributors": 2,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-06",
+      "2019-09-25",
+      "2019-09-25",
+      "2019-09-24",
+      "2019-09-23",
+      "2019-09-19",
+      "2019-09-19",
+      "2019-09-18",
+      "2019-09-18",
+      "2019-09-18",
+      "2019-09-17",
+      "2019-09-17",
+      "2019-09-17",
+      "2019-09-17",
+      "2019-09-15",
+      "2019-09-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TodoChecklister"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "LibDataBroker"
+    ],
+    "savedVariables": [
+      "TodoChecklisterDB",
+      "TodoChecklisterMapIcon",
+      "TodoChecklisterSettingsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "TodoChecklisterCharacterDB"
+    ]
+  }
+}

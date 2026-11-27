@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "bestaroundrevisited",
+  "repo": "unselfish-means/bestaround-revisited",
+  "about": "# Best Around (Revisited)\n\n**You're the best around, and now the game knows it.** Best Around (Revisited) plays a sound every\ntime you level up or earn an achievement. When you die, it plays something more fitting.\n\n## What it does\n\n- **Sounds on events.** Plays a special notification sound when a player levels, dies, or earns an achievement.\n- **Pick your own sounds.** Each event has a checklist of sounds. Check as many as you like and a random\n  one plays each time. Leave the list empty to silence that event.\n- **No pile-ups.** If the same event fires again within a few seconds, for example dying twice in a void\n  zone, the sound plays once instead of overlapping itself.\n- **Your volume, your channel.** Sounds play on the Master channel by default, or on SFX or Music if you\n  want them to follow that slider.\n\n## Setting it up\n\nType `/bar` (or `/bestaround`), or go to **Options › AddOns › BestAround Revisited**. Each event has:\n\n1. An **Enabled** checkbox.\n2. A **Sounds** list. Check the ones you want; one is picked at random.\n3. A **Test** button to hear it right away.\n\nSettings are saved per profile. Switch, copy, or reset profiles under the **Profiles** page.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/bar` | Open the options |\n| `/bar test` | Play the achievement sound |\n| `/bar test level` | Play the level-up sound |\n| `/bar test death` | Play the death sound |\n\n## Supported clients\n\nOne download works on all of these:\n\n- **Retail** (The War Within and Midnight)\n- **Mists of Pandaria Classic**\n- **Classic Era**\n- **WoW: Forever (Classic Plus)**",
+  "releases": [
+    {
+      "tag": "1.8.1",
+      "name": "Automatic CurseForge releases",
+      "published": "2026-10-06",
+      "notes": "A packaging release: the sounds and options work exactly as in 1.8.0. Best Around (Revisited) now reaches CurseForge automatically with every release, and the README in the download is a new player-friendly guide to setting it up.\n\n## Changes\n- New README: what each event does, how to pick sounds, and the commands.\n\n## Supported clients\nRetail 12.1 / 12.0.7 / 11.0.7 / 11.0.5, MoP Classic 5.5.0, Classic Era 1.15.6, WoW: Forever (Classic Plus) 1.60\n\n## Install\nDownload `BestAroundRevisited-1.8.1.zip` and extract it into `Interface\\AddOns\\`."
+    },
+    {
+      "tag": "1.8.0",
+      "name": "Pick a set of sounds per event; death sound no longer stacks",
+      "published": "2026-09-19",
+      "notes": "Each event can now play a random pick from any set of sounds you choose, and the death sound no longer stacks on top of itself when you die several times in quick succession.\n\n## Changes\n- Each event (level-up, achievement, death) now has a checklist of sounds instead of a single dropdown. Check as many as you like and a random one plays each time the event fires.\n- Leaving an event's checklist empty silences that event; the test buttons and `/bar test` will tell you in chat when nothing is selected.\n- Your existing sound choices are migrated automatically, including when you switch or copy profiles.\n- Dying repeatedly within a few seconds (e.g. spirit-healer bounces, void zones) plays the death sound once instead of overlapping copies.\n- Stopped the addon from trying to load its README as an addon file.\n\n## Supported clients\nRetail 11.0.5 / 11.0.7 / 12.0.7 / 12.1.0, Classic Beta 1.60, Classic Era 1.15.6, MoP Classic 5.5.0\n\n## Install\nDownload `BestAroundRevisited-1.8.0.zip` and extract it into `Interface\\AddOns\\`."
+    },
+    {
+      "tag": "1.7.0",
+      "name": "New sounds: Coffin Dance, Pac-Man, and more Dumb Ways to Die",
+      "published": "2026-09-19",
+      "notes": "Six new sounds to choose from — Coffin Dance, the Pac-Man death jingle, and four shorter cuts of Dumb Ways to Die — all leveled to match the existing clips.\n\n## Changes\n- Added Coffin Dance and the Pac-Man death jingle as new sound options.\n- Added four Dumb Ways to Die variants: \"hai hai hai\", the outro, a short cut, and \"so many ways\".\n- Coffin Dance and Pac-Man death are volume-matched to the existing Dumb Ways to Die clip, so switching sounds won't blast you.\n- Your current sound choices are unchanged; pick the new ones from the dropdown in `/bar`.\n\n## Supported clients\nRetail 11.0.5 / 11.0.7 / 12.0.7 / 12.1.0, Classic Beta 1.60, Classic Era 1.15.6, MoP Classic 5.5.0\n\n## Install\nDownload the zip and extract it into `Interface\\AddOns\\`."
+    },
+    {
+      "tag": "1.6.0",
+      "name": "Classic Beta 1.60 support + Ace3 r1403",
+      "published": "2026-09-18",
+      "notes": "Adds support for the WoW Forever **Classic Beta** client (1.60, interface 16001) and fixes two long-standing bugs.\n\n## Changes\n- **Classic Beta 1.60 support** — added interface `16001`.\n- **Ace3 updated to Release-r1403** — picks up upstream fixes for the 12.x / 1.60 client API changes (options panel checkboxes and tooltips no longer error).\n- **Fixed missing default sounds on fresh installs** — new profiles errored on first level-up because the default sound files resolved to nil. Existing installs were unaffected.\n- **Per-category Enabled toggles now work** — unticking Achievements / Levels / Deaths actually silences that event. Test buttons still play regardless, so you can preview a sound while it's disabled.\n\n## Supported clients\nRetail 12.1 / 12.0, Classic Beta 1.60, Classic Era 1.15, MoP Classic 5.5\n\n## Install\nDownload `BestAroundRevisited-1.6.0.zip` and extract it into `Interface\\AddOns\\` (it unpacks to `Interface\\AddOns\\BestAroundRevisited\\`)."
+    },
+    {
+      "tag": "1.5.0",
+      "name": "Midnight 12.1.0 update",
+      "published": "2026-08-13",
+      "notes": "Midnight 12.1.0 update"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-06",
+    "releaseDates": [
+      "2026-10-06",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-08-13",
+      "2026-08-04",
+      "2025-08-14",
+      "2025-08-13",
+      "2025-08-13",
+      "2025-08-13",
+      "2025-06-28",
+      "2024-11-18",
+      "2024-06-27",
+      "2024-06-27",
+      "2024-06-24",
+      "2024-06-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BestAroundRevisited"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "BestAroundRevisitedDB"
+    ]
+  }
+}

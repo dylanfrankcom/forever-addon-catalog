@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "krowi-extendedvendorui",
+  "repo": "TheKrowi/Krowi_ExtendedVendorUI",
+  "about": "![Retail](https://img.shields.io/badge/Retail-12.1.5-008833?style=for-the-badge) ![Mists](https://img.shields.io/badge/Mists-5.5.4-28ae7e?style=for-the-badge) ![TBC](https://img.shields.io/badge/TBC-2.5.6-62c907?style=for-the-badge) ![Forever](https://img.shields.io/badge/Forever-1.60.1-e6cc80?style=for-the-badge) ![Classic](https://img.shields.io/badge/Classic-1.15.9-c39361?style=for-the-badge)\n\n[![CurseForge](https://img.shields.io/badge/curseforge-download-F16436?style=for-the-badge&logo=curseforge&logoColor=white)](https://www.curseforge.com/wow/addons/krowi-extended-vendor-ui) [![Wago](https://img.shields.io/badge/Wago-Download-c1272d?style=for-the-badge)](https://addons.wago.io/addons/krowi-extended-vendor-ui)\n\n[![Discord](https://img.shields.io/badge/discord-join-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mdBFQJYeQZ) [![PayPal](https://img.shields.io/badge/paypal-donate-002991.svg?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=9QEDV37APQ6YJ)\n\nExtended Vendor UI is an addon that enhances the default vendor window with customizable layouts and powerful filtering options to help you find exactly what you're looking for.\n\nWorks on Retail, Mists of Pandaria Classic, Burning Crusade Anniversary, Classic Era and WoW Forever (not with its gamepad interface).\n\n### Features\n- **Customizable Layout**: Extend the default 5 rows, 2 columns vendor window up to 99 rows and 99 columns.\n- **Fill Direction**: Choose whether items fill the window in rows first or columns first.\n- **Search Box**: Quickly find items by name, optionally kept when you reopen the vendor or move on to another one.\n- **Filters**: Show only one kind of item: pets, mounts, toys, appearances (by armor and weapon type), appearance sets, illusions, recipes or housing decor. The last filter you used can be remembered.\n- **Custom Filter**: Create your own filter by combining multiple item types:\n  - Show only specific item types (pets, mounts, toys, etc.)\n  - Filter appearances by armor type (cloth, leather, mail, plate, cosmetic, shield)\n  - Filter appearances by weapon type (axes, swords, maces, bows, guns, wands, etc.)\n- **Hide Collected**: Hide items you've already collected:\n  - Pets\n  - Mounts\n  - Toys\n  - Appearances\n  - Appearance sets (ensembles and arsenals)\n  - Recipes, and optionally recipes your other characters know once they have opened a vendor that sells them\n  - Housing decor, in storage or placed (with configurable quantity threshold from 1-999)\n  - Anything else the game shows as Already known, such as spell books\n- **Gear Filters**: For weapons and armor: only usable items, hide armor below the best type your class can wear, and a minimum quality.\n- **Sorting**: Sort the list by name, gold price, token price or quality, or reverse it. Your choice is kept for every vendor.\n- **Token Banner**: The total cost of the items in the list (it follows the filter and search) and what you have, for gold, currencies and items. Choose need, have or both and how money and currencies are formatted, show only the gold you have, or hide currencies you have none of.\n- **Bulk Purchase**: Shift-click an item to buy several stacks at once. Shows how many you can afford, how many fit in your bags and how many the vendor has, with an optional confirmation.\n- **Easy Access**: Options button on the vendor window for quick adjustments, or use the full options menu via minimap/addon compartment icon.\n\nThe pet, appearance set and illusion filters are on Retail and WoW Forever, the housing filter on Retail only.\n\n### Fully translated into Chinese (Simplified), mostly into Russian, and partly into German, French and Italian\n\n### Compatibility\n- ElvUI and GW2 UI (not yet on WoW Forever)\n- EllesmereUI (with its merchant list mode on, Extended Vendor UI stays off)\n- Can I Mog It? (CIMI)\n- Transmog Loot Helper (12.1.5-02 or later)\n- Scrap (its button sits next to the repair buttons on Mists, TBC and Classic Era)\n- Plumber (1.9.7 or later keeps its Merchant Price off, since the token banner shows the costs)\n- Auctionator, TradeSkillMaster (TSM) and Zygor read every item of the vendor, also while a filter is active\n\nMore features can be requested via the issues system or discord.\n\nFeel free to join discord and say hi: [https://discord.gg/mdBFQJYeQZ](https://discord.gg/mdBFQJYeQZ).\n\nCreating and maintaining addons takes a lot of time. If you can miss something, feel free to drop a donation!",
+  "releases": [
+    {
+      "tag": "24.5",
+      "published": "2026-11-25",
+      "notes": "### Added\n- WoW Forever support\n- With WoW Forever's gamepad interface on, Extended Vendor UI stays off and says why in the chat\n\n### Changed\n- Krowi_Util library updated to 2.8\n- Krowi_Menu library updated to 2.2\n\n### Added (24.1)\n- Token Banner option Gold total: turn it off to see the gold you have instead of the total cost\n- Token Banner option Hide currencies you have none of, for recipe vendors that list every profession's currency\n- Gear filters for weapons and armor under every filter: Only usable items, Hide sub-optimal armor and Minimum quality\n- Hide collected option Recipes my other characters know: hides recipes your other characters know once they have opened a vendor that sells them (Retail, WoW Forever)\n- Complete Chinese (Simplified) translation\n\n### Fixed (24.1)\n- The token banner no longer keeps a currency from an earlier vendor, and no longer stops updating after an error\n- The token banner's gold total now includes items that cost gold and a currency\n- Hide collected, Housing now also hides decor you have placed\n- Transmog Loot Helper's icons show on vendor items again and follow page, filter and search changes (Transmog Loot Helper 12.1.5-02 or later)\n\n### Added (24.2)\n- Sorting by name, gold price, token price or quality, and in reverse, at the end of the filter menu\n- The repair buttons now say what they do when there is nothing to repair\n\n### Changed (24.2)\n- The token banner now shows the vendor's currencies in the order the vendor uses them\n\n### Fixed (24.2)\n- The notice shown when EllesmereUI's list mode is on now closes with its X button in combat too\n- Opening a vendor in a raid, dungeon, delve or PvP match no longer gives an error with Remember search on\n- Clicking a currency in the token banner no longer gives an error and opens the Currency tab (Mists Classic) or the PvP tab (TBC Anniversary)\n- The message for hiding the options button shows its arrows again\n- Hide collected, Illusions now hides the illusions you have (Retail, WoW Forever)\n- Bulk Purchase no longer counts the reagent bag's free slots for items that do not go in it, so buying the maximum no longer ends with Inventory is full (Retail, WoW Forever)\n- Bulk Purchase now counts the room left on stacks you already have (Mists Classic, TBC Anniversary, Classic Era)\n- With Scrap, its button now sits next to the repair buttons inside the vendor window, and the repair button no longer stretches (Mists Classic, TBC Anniversary, Classic Era)\n\n### Added (24.3)\n- Hide collected option Other: hides any other item the game shows as Already known, such as spell books\n- The Recipes filter, Hide collected Recipes and Recipes my other characters know on Mists Classic, TBC Anniversary and Classic Era\n\n### Added (24.4)\n- On a new install the options button (the gear next to the search box) glows until you first click it\n\n### Changed (24.4)\n- New installs start with 7 rows and 4 columns of items\n\n### Fixed (24.4)\n- Hide collected now also hides items whose tooltip says Already Known with a capital K\n\n### Added (24.5)\n- Mark collected items, under Collected items in the filter menu: items you already have stay in the list, marked in green, gray or a color you pick on the options page. With Already Known it is on by default and uses Already Known's color, as before 23.0"
+    },
+    {
+      "tag": "24.4",
+      "published": "2026-11-18",
+      "notes": "### Added\n- WoW Forever support\n- With WoW Forever's gamepad interface on, Extended Vendor UI stays off and says why in the chat\n\n### Changed\n- Krowi_Util library updated to 2.8\n- Krowi_Menu library updated to 2.2\n\n### Added (24.1)\n- Token Banner option Gold total: turn it off to see the gold you have instead of the total cost\n- Token Banner option Hide currencies you have none of, for recipe vendors that list every profession's currency\n- Gear filters for weapons and armor under every filter: Only usable items, Hide sub-optimal armor and Minimum quality\n- Hide collected option Recipes my other characters know: hides recipes your other characters know once they have opened a vendor that sells them (Retail, WoW Forever)\n- Complete Chinese (Simplified) translation\n\n### Fixed (24.1)\n- The token banner no longer keeps a currency from an earlier vendor, and no longer stops updating after an error\n- The token banner's gold total now includes items that cost gold and a currency\n- Hide collected, Housing now also hides decor you have placed\n- Transmog Loot Helper's icons show on vendor items again and follow page, filter and search changes (Transmog Loot Helper 12.1.5-02 or later)\n\n### Added (24.2)\n- Sorting by name, gold price, token price or quality, and in reverse, at the end of the filter menu\n- The repair buttons now say what they do when there is nothing to repair\n\n### Changed (24.2)\n- The token banner now shows the vendor's currencies in the order the vendor uses them\n\n### Fixed (24.2)\n- The notice shown when EllesmereUI's list mode is on now closes with its X button in combat too\n- Opening a vendor in a raid, dungeon, delve or PvP match no longer gives an error with Remember search on\n- Clicking a currency in the token banner no longer gives an error and opens the Currency tab (Mists Classic) or the PvP tab (TBC Anniversary)\n- The message for hiding the options button shows its arrows again\n- Hide collected, Illusions now hides the illusions you have (Retail, WoW Forever)\n- Bulk Purchase no longer counts the reagent bag's free slots for items that do not go in it, so buying the maximum no longer ends with Inventory is full (Retail, WoW Forever)\n- Bulk Purchase now counts the room left on stacks you already have (Mists Classic, TBC Anniversary, Classic Era)\n- With Scrap, its button now sits next to the repair buttons inside the vendor window, and the repair button no longer stretches (Mists Classic, TBC Anniversary, Classic Era)\n\n### Added (24.3)\n- Hide collected option Other: hides any other item the game shows as Already known, such as spell books\n- The Recipes filter, Hide collected Recipes and Recipes my other characters know on Mists Classic, TBC Anniversary and Classic Era\n\n### Added (24.4)\n- On a new install the options button (the gear next to the search box) glows until you first click it\n\n### Changed (24.4)\n- New installs start with 7 rows and 4 columns of items\n\n### Fixed (24.4)\n- Hide collected now also hides items whose tooltip says Already Known with a capital K"
+    },
+    {
+      "tag": "24.3",
+      "published": "2026-11-04",
+      "notes": "### Added\n- WoW Forever support\n- With WoW Forever's gamepad interface on, Extended Vendor UI stays off and says why in the chat\n\n### Changed\n- Krowi_Util library updated to 2.8\n- Krowi_Menu library updated to 2.2\n\n### Added (24.1)\n- Token Banner option Gold total: turn it off to see the gold you have instead of the total cost\n- Token Banner option Hide currencies you have none of, for recipe vendors that list every profession's currency\n- Gear filters for weapons and armor under every filter: Only usable items, Hide sub-optimal armor and Minimum quality\n- Hide collected option Recipes my other characters know: hides recipes your other characters know once they have opened a vendor that sells them (Retail, WoW Forever)\n- Complete Chinese (Simplified) translation\n\n### Fixed (24.1)\n- The token banner no longer keeps a currency from an earlier vendor, and no longer stops updating after an error\n- The token banner's gold total now includes items that cost gold and a currency\n- Hide collected, Housing now also hides decor you have placed\n- Transmog Loot Helper's icons show on vendor items again and follow page, filter and search changes (Transmog Loot Helper 12.1.5-02 or later)\n\n### Added (24.2)\n- Sorting by name, gold price, token price or quality, and in reverse, at the end of the filter menu\n- The repair buttons now say what they do when there is nothing to repair\n\n### Changed (24.2)\n- The token banner now shows the vendor's currencies in the order the vendor uses them\n\n### Fixed (24.2)\n- The notice shown when EllesmereUI's list mode is on now closes with its X button in combat too\n- Opening a vendor in a raid, dungeon, delve or PvP match no longer gives an error with Remember search on\n- Clicking a currency in the token banner no longer gives an error and opens the Currency tab (Mists Classic) or the PvP tab (TBC Anniversary)\n- The message for hiding the options button shows its arrows again\n- Hide collected, Illusions now hides the illusions you have (Retail, WoW Forever)\n- Bulk Purchase no longer counts the reagent bag's free slots for items that do not go in it, so buying the maximum no longer ends with Inventory is full (Retail, WoW Forever)\n- Bulk Purchase now counts the room left on stacks you already have (Mists Classic, TBC Anniversary, Classic Era)\n- With Scrap, its button now sits next to the repair buttons inside the vendor window, and the repair button no longer stretches (Mists Classic, TBC Anniversary, Classic Era)\n\n### Added (24.3)\n- Hide collected option Other: hides any other item the game shows as Already known, such as spell books\n- The Recipes filter, Hide collected Recipes and Recipes my other characters know on Mists Classic, TBC Anniversary and Classic Era"
+    },
+    {
+      "tag": "24.2",
+      "published": "2026-10-30",
+      "notes": "### Added\n- WoW Forever support\n- With WoW Forever's gamepad interface on, Extended Vendor UI stays off and says why in the chat\n\n### Changed\n- Krowi_Util library updated to 2.8\n- Krowi_Menu library updated to 2.2\n\n### Added (24.1)\n- Token Banner option Gold total: turn it off to see the gold you have instead of the total cost\n- Token Banner option Hide currencies you have none of, for recipe vendors that list every profession's currency\n- Gear filters for weapons and armor under every filter: Only usable items, Hide sub-optimal armor and Minimum quality\n- Hide collected option Recipes my other characters know: hides recipes your other characters know once they have opened a vendor that sells them (Retail, WoW Forever)\n- Complete Chinese (Simplified) translation\n\n### Fixed (24.1)\n- The token banner no longer keeps a currency from an earlier vendor, and no longer stops updating after an error\n- The token banner's gold total now includes items that cost gold and a currency\n- Hide collected, Housing now also hides decor you have placed\n- Transmog Loot Helper's icons show on vendor items again and follow page, filter and search changes (Transmog Loot Helper 12.1.5-02 or later)\n\n### Added (24.2)\n- Sorting by name, gold price, token price or quality, and in reverse, at the end of the filter menu\n- The repair buttons now say what they do when there is nothing to repair\n\n### Changed (24.2)\n- The token banner now shows the vendor's currencies in the order the vendor uses them\n\n### Fixed (24.2)\n- The notice shown when EllesmereUI's list mode is on now closes with its X button in combat too\n- Opening a vendor in a raid, dungeon, delve or PvP match no longer gives an error with Remember search on\n- Clicking a currency in the token banner no longer gives an error and opens the Currency tab (Mists Classic) or the PvP tab (TBC Anniversary)\n- The message for hiding the options button shows its arrows again\n- Hide collected, Illusions now hides the illusions you have (Retail, WoW Forever)\n- Bulk Purchase no longer counts the reagent bag's free slots for items that do not go in it, so buying the maximum no longer ends with Inventory is full (Retail, WoW Forever)\n- Bulk Purchase now counts the room left on stacks you already have (Mists Classic, TBC Anniversary, Classic Era)\n- With Scrap, its button now sits next to the repair buttons inside the vendor window, and the repair button no longer stretches (Mists Classic, TBC Anniversary, Classic Era)"
+    },
+    {
+      "tag": "24.1",
+      "published": "2026-10-24",
+      "notes": "### Added\n- WoW Forever support\n- With WoW Forever's gamepad interface on, Extended Vendor UI stays off and says why in the chat\n\n### Changed\n- Krowi_Util library updated to 2.8\n- Krowi_Menu library updated to 2.2\n\n### Added (24.1)\n- Token Banner option Gold total: turn it off to see the gold you have instead of the total cost\n- Token Banner option Hide currencies you have none of, for recipe vendors that list every profession's currency\n- Gear filters for weapons and armor under every filter: Only usable items, Hide sub-optimal armor and Minimum quality\n- Hide collected option Recipes my other characters know: hides recipes your other characters know once they have opened a vendor that sells them (Retail, WoW Forever)\n- Complete Chinese (Simplified) translation\n\n### Fixed (24.1)\n- The token banner no longer keeps a currency from an earlier vendor, and no longer stops updating after an error\n- The token banner's gold total now includes items that cost gold and a currency\n- Hide collected, Housing now also hides decor you have placed\n- Transmog Loot Helper's icons show on vendor items again and follow page, filter and search changes (Transmog Loot Helper 12.1.5-02 or later)"
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 4,
+    "contributors": 8,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-18",
+      "2026-11-04",
+      "2026-10-30",
+      "2026-10-24",
+      "2026-10-22",
+      "2026-10-21",
+      "2026-10-16",
+      "2026-06-28",
+      "2026-06-03",
+      "2026-02-20",
+      "2026-02-13",
+      "2026-02-08",
+      "2026-01-15",
+      "2026-01-10",
+      "2026-01-09",
+      "2026-01-02",
+      "2026-01-02",
+      "2025-12-30",
+      "2025-12-29",
+      "2025-12-27",
+      "2025-12-25",
+      "2025-12-25",
+      "2025-12-23",
+      "2025-12-08",
+      "2025-12-08",
+      "2025-12-03",
+      "2025-11-03",
+      "2025-07-05",
+      "2025-07-05",
+      "2025-07-02",
+      "2025-05-25",
+      "2025-05-20",
+      "2025-05-15",
+      "2025-04-22",
+      "2025-03-31",
+      "2025-03-01",
+      "2025-02-14",
+      "2025-01-18",
+      "2025-01-02",
+      "2025-01-02",
+      "2024-12-23",
+      "2024-12-18",
+      "2024-10-27",
+      "2024-10-27",
+      "2024-10-26",
+      "2024-09-07",
+      "2024-09-07"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "Krowi_ExtendedVendorUI"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "EllesmereUI",
+      "EllesmereUIBlizzardSkin"
+    ],
+    "savedVariables": [
+      "KrowiEVU_Options",
+      "KrowiEVU_Filters",
+      "KrowiEVU_Debug"
+    ]
+  }
+}

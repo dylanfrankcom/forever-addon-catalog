@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "reputationlevelup",
+  "repo": "RGXMods/ReputationLevelUp",
+  "about": "# Reputation Level Up!\n\n## Overview\n**Reputation Level Up!** enhances your World of Warcraft experience by playing iconic sounds from various other games when you gain reputation or renown ranks.\n\n---\n\n## Features\n- **Reputation Ranks:** Enjoy sounds from other games when you gain reputation ranks.\n- **Renown Ranks:** *(Retail Only)* Hear sounds from other games when you gain renown reputation ranks.\n\n*Note: All sounds come with independent volume adjustment capability.*\n\n---\n\n## Available Game Sounds\n- Default\n- Random\n- Altered Beast\n- Assassin's Creed\n- Castlevania\n- Diablo 2\n- Dragon Quest\n- DotA 2\n- EverQuest\n- Fallout - New Vegas\n- Fallout 3\n- Final Fantasy\n- Fire Emblem\n- Fire Emblem - Awakening\n- Fly For Fun\n- Fortnite\n- GTA - San Andreas\n- Kingdom Hearts 3\n- Kirby\n- League of Legends\n- Legend of Zelda\n- Maplestory\n- Metal Gear Solid 5\n- Minecraft\n- Modern Warfare 2\n- Morrowind\n- Old School Runescape\n- Palworld\n- Path of Exile\n- Pokemon\n- Ragnarok Online\n- Shining Force II\n- Shining Force III\n- Skyrim\n- Sonic The Hedgehog\n- Spyro The Dragon\n- Super Mario Bros 3\n- Warcraft 3\n- Witcher 3\n\n*Note: When new sounds are added, they are listed in alphabetical order. This may change the selection order in the code for `options.lua`. You may need to re-select previously selected sounds after updates.*\n\n---\n\n## Compatibility\n- **Midnight (Retail)** — interface `120100`\n- **WoW Forever (Beta)** — interface `16001`\n- **Mists of Pandaria Classic** — interface `50504`\n- **Cataclysm Classic** — interface `40402`\n- **Wrath of the Lich King Classic** — interface `38002`\n- **Burning Crusade Classic** — interface `20506`\n- **Classic WoW** (Season of Discovery, Classic Hardcore) — interface `11509`\n\n---\n\n## Language Support\nReputation Level Up! ships translations for every World of Warcraft client language: English (enUS), German (deDE), European and Mexican Spanish (esES, esMX), French (frFR), Italian (itIT), Korean (koKR), Brazilian and European Portuguese (ptBR, ptPT), Russian (ruRU), and both Chinese variants (zhCN, zhTW). All user-visible strings — options panel, slash-command output, and status messages — are localized, and any key a locale does not override falls back to the English base text.\n\n---\n\n## Installation\n1. Download the addon from [Curse](https://www.curseforge.com/wow/addons/reputationlevelup), [GitHub](https://github.com/RGXMods/ReputationLevelUp), or [Wago](https://addons.wago.io/addons/rep-up).\n2. Extract the downloaded file to your World of Warcraft `Interface/AddOns` directory:\n   - For **Midnight (Retail)**: `World of Warcraft/_retail_/Interface/AddOns`\n   - For **Cataclysm Classic**: `World of Warcraft/_classic_/Interface/AddOns`\n   - For **Classic WoW** (Season of Discovery, Classic Hardcore): `World of Warcraft/_classic_era_/Interface/AddOns`\n3. Restart World of Warcraft and enable the addon in the Addons menu.\n\n---\n\n## Support the Project\n\n### Buy Me a Coffee\nIf you found this project helpful or enjoyable, you can support my work by buying me a coffee. Your support keeps this project alive and motivates me to create more!\n\n[![Buy Me a Coffee](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-orange?style=flat-square&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/donniedice)\n\n### Your Support Helps:\n- Maintain and improve the project.\n- Add new features.\n- Fix bugs.\n- Write detailed documentation.\n\nThank you for your support! \n\n### Other Ways to Support:\n[![Donate via CashApp](https://img.shields.io/static/v1?label=Donate&message=CashApp&color=brightgreen)](https://bit.ly/3fyxxSU)\n\n### Stay in Touch:\n- Follow me on [GitHub](https://github.com/donniedice) \n\n### Show Your Support:\n- Star this project on [GitHub](https://github.com/RGXMods/ReputationLevelUp) \n- Share it with your friends and colleagues",
+  "releases": [
+    {
+      "tag": "v4.0.7",
+      "name": "Reputation Level-Up! v4.0.7",
+      "published": "2026-11-05",
+      "notes": "## v4.0.7 - 2026-11-05\n\n- Fixed WoW Forever: the base TOC now declares Interface 16001, which is what the Forever client reads, so the addon loads as compatible instead of out of date.\n- Removed the unused _Forever.toc file.\n\n# Non-beta Candidate: [v4.0.5](https://github.com/RGXMods/ReputationLevelUp/blob/main/changelogs/4.0.5.md)\n\nRetail 12.1.5 / Interface `120105`; client testing and publication pending.\n\n# v4.0.4 - 2026-09-27"
+    },
+    {
+      "tag": "v4.0.6",
+      "published": "2026-10-22",
+      "notes": "# Non-beta Candidate: [v4.0.5](https://github.com/RGXMods/ReputationLevelUp/blob/main/changelogs/4.0.5.md)\n\nRetail 12.1.5 / Interface `120105`; client testing and publication pending.\n\n# v4.0.4 - 2026-09-27\n\n## Changes\n- TOC set now covers every active WoW flavor: Retail 120100, Classic Era 11509, TBC 20506, Wrath 38002, Cataclysm 40402, Mists 50504, and WoW Forever 16001. The base TOC claims 120100,16001 so the Forever beta loads without the out-of-date flag.\n- Added missing flavor TOCs: ReputationLevelUp_TBC.toc, ReputationLevelUp_Wrath.toc, ReputationLevelUp_Mists.toc, ReputationLevelUp_Forever.toc.\n- Aligned the version (v4.0.4) across all TOCs and the version fallback in core.lua.\n\n# v4.0.3 - 2026-06-30\n\n## Changes\n\n- Updated for WoW Retail 12.0.7 (Interface 120007).\n\n# v4.0.2 - 2026-04-23\n\n## Changes\n- Corrected the Retail TOC bump to interface 120005 after the prior malformed 1200005 release metadata."
+    },
+    {
+      "tag": "v4.0.5",
+      "published": "2026-10-14",
+      "notes": "# Non-beta Candidate: [v4.0.5](https://github.com/RGXMods/ReputationLevelUp/blob/main/changelogs/4.0.5.md)\n\nRetail 12.1.5 / Interface `120105`; client testing and publication pending.\n\n# v4.0.4 - 2026-09-27\n\n## Changes\n- TOC set now covers every active WoW flavor: Retail 120100, Classic Era 11509, TBC 20506, Wrath 38002, Cataclysm 40402, Mists 50504, and WoW Forever 16001. The base TOC claims 120100,16001 so the Forever beta loads without the out-of-date flag.\n- Added missing flavor TOCs: ReputationLevelUp_TBC.toc, ReputationLevelUp_Wrath.toc, ReputationLevelUp_Mists.toc, ReputationLevelUp_Forever.toc.\n- Aligned the version (v4.0.4) across all TOCs and the version fallback in core.lua.\n\n# v4.0.3 - 2026-06-30\n\n## Changes\n\n- Updated for WoW Retail 12.0.7 (Interface 120007).\n\n# v4.0.2 - 2026-04-23\n\n## Changes\n- Corrected the Retail TOC bump to interface 120005 after the prior malformed 1200005 release metadata."
+    },
+    {
+      "tag": "v4.0.4",
+      "published": "2026-09-28",
+      "notes": "# v4.0.4 - 2026-09-27\n\n## Changes\n- TOC set now covers every active WoW flavor: Retail 120100, Classic Era 11509, TBC 20506, Wrath 38002, Cataclysm 40402, Mists 50504, and WoW Forever 16001. The base TOC claims 120100,16001 so the Forever beta loads without the out-of-date flag.\n- Added missing flavor TOCs: ReputationLevelUp_TBC.toc, ReputationLevelUp_Wrath.toc, ReputationLevelUp_Mists.toc, ReputationLevelUp_Forever.toc.\n- Aligned the version (v4.0.4) across all TOCs and the version fallback in core.lua.\n\n# v4.0.3 - 2026-06-30\n\n## Changes\n\n- Updated for WoW Retail 12.0.7 (Interface 120007).\n\n# v4.0.2 - 2026-04-23\n\n## Changes\n- Corrected the Retail TOC bump to interface 120005 after the prior malformed 1200005 release metadata."
+    },
+    {
+      "tag": "v4.0.3",
+      "published": "2026-06-30",
+      "notes": "# v4.0.3 - 2026-06-30\n\n## Changes\n\n- Updated for WoW Retail 12.0.7 (Interface 120007).\n\n# v4.0.2 - 2026-04-23\n\n## Changes\n- Corrected the Retail TOC bump to interface 120005 after the prior malformed 1200005 release metadata."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-10-22",
+      "2026-10-14",
+      "2026-09-28",
+      "2026-06-30",
+      "2026-04-23",
+      "2026-04-23",
+      "2024-07-23",
+      "2024-06-08",
+      "2024-02-02",
+      "2022-11-18",
+      "2022-11-02",
+      "2022-06-01",
+      "2022-05-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ReputationLevelUp"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "RGX-Framework"
+    ],
+    "savedVariables": [
+      "RLUDB"
+    ]
+  }
+}

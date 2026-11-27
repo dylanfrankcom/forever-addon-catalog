@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "questkompass",
+  "repo": "foreverui-dev/questkompass",
+  "about": "# Questkompass\n\nRuhige Questziel-Liste, Gebietsfortschritt und Quest-Tooltips für WoW Forever. Teil der ForeverUI-Reihe, mehr auf [foreverui.de](https://foreverui.de/addons/questkompass/).\n\n## Was es kann\n\n- **Einrichtungsassistent** in den Einstellungen (öffnet sich nicht von selbst), dazu ein Hauptfenster im einheitlichen ForeverUI-Design: Seitenleiste mit Questbuch, Darstellung, Funktionen, Zugang und Hilfe, Suche über alle Einstellungen, sechs Akzentfarben, „Seite zurücksetzen“, veränderbare Größe.\n- **Zielliste** in drei Stilen, sortiert nach Entfernung, Zone oder Questlog. Auf Wunsch mit einklappbaren Zonenüberschriften, Mausrad zum Blättern, Marken für Elite, Dungeon, täglich, „Neu“ und Gruppenmitglieder auf derselben Quest.\n- **Navigation:** kleiner Kompasspfeil an jeder Quest, großer schwebender Fokuspfeil mit Entfernung und Ankunftszeit, automatischer Fokus auf die nächste Quest.\n- **Questgegenstände** lassen sich direkt an der Quest benutzen. Quests mit Zeitlimit zeigen einen Countdown.\n- **Erfahrungsvorschau:** was die fertigen Quests zusammen bringen, und ob es für den Stufenaufstieg reicht.\n- **Questbuch** (in der Seitenleiste des Hauptfensters) mit sieben Bereichen: Gebiet (alle Quests einer Zone mit Status), Welt (Fortschritt aller Zonen), Suche (alle Quests, deutsch und englisch), Tagebuch (abgegebene Quests, Sitzungsstatistik mit EP pro Stunde), Planer (Stufenplaner, Merkliste, Vorschläge, Ruf, tägliche Quests, Aufräumen), Erfolge (Meilensteine) und Statistik (Quests pro Tag, Rekorde). Das Gebiet lässt sich filtern.\n- **„Was jetzt?“:** ein Knopf oder eine Taste wählt das sinnvollste nächste Ziel. Dazu Fokusmodus, angeheftete Quests, Symbole an den Zielen, Prozent je Quest und ein Tagesziel.\n- **Questziele in Tooltips** von Gegnern und Gegenständen.\n- **Questgegenstände:** Am Gegenstand steht, für welche Quests er noch gebraucht wird, auch bei deinen anderen Charakteren (`/qk gegenstaende`).\n- **Symbol an Quest-Gegnern:** Totenkopf oder Beutel mit Stand an der Namensplakette von Gegnern in der Nähe, die eine Quest braucht.\n- **Unterwegs:** Leichen-Pfeil, Position und Wegpunkte mit der Gruppe teilen, Händler-, Bank-, Beute- und Verkaufshinweise für Questgegenstände, Sitzungsbericht mit Stufenprognose (`/qk sitzung`), Quest-Gegner ansagen (`/qk gegner`).\n- **Route und Wegpunkte:** kürzeste Route durch alle Quests der Karte, eigene Wegpunkte und Wegpunkt-Ketten per Befehl oder Alt+Klick auf die Weltkarte, Pfeil am Minikartenrand, Abgabe-Erinnerung.\n- **Gemeinschaft:** Twink-Hilfe (was andere Charaktere schon erledigt haben), Gruppen-Abgleich („Kumpel 3/8“), fertige Suchnachricht für Gruppenquests, Notizen je Quest.\n- **Kleine Helfer:** Meldung und Klang bei Fortschritt, Fortschritt an die Gruppe, Warnung bei vollem Questlog, automatisch annehmen und abgeben (Umschalt hält an), Belohnungstipp, Knopf an der Minikarte.\n- **Barrierefreiheit:** Vorlesen über die Sprachausgabe des Spiels, hoher Kontrast, Farbenblind-Modus (Blau/Orange, Status als Wort), alles größer (Liste bis 200 %), weniger Bewegung. Alles über Tastatur erreichbar, Questbuch und Assistent auch mit Gamepad und Pfeiltasten.\n- **Sprachen:** Deutsch und Englisch, automatisch nach Spielsprache.\n- **Profile** für alle Charaktere oder einzeln, **Tastenkürzel** unter „AddOns“ in den Tastenbelegungen.\n- **Quest-Tooltips:** Quest-Links im Chat zeigen Gebiet, Typ, Erfahrung und Ruf.\n\n## Befehle\n\n| Befehl | Wirkung |\n|---|---|\n| `/qk` | Zielliste ein- oder ausblenden |\n| `/qk einstellungen` | Einstellungsfenster |\n| `/qk einrichten` | Einrichtungsassistent erneut starten |\n| `/qk gebiet [Name]` | Gebietsfortschritt |\n| `/qk buch` · `/qk welt` · `/qk tagebuch` | Questbuch |\n| `/qk suche Text` | Quest suchen |\n| `/qk naechste` | nächstgelegene Quest als Fokus |\n| `/qk vorlesen` | Fokus-Quest vorlesen lassen |\n| `/qk route` | Route durch alle Quests der Karte planen oder beenden |\n| `/qk weg X Y [Name]` | eigener Wegpunkt (`/qk weg` löscht ihn) |\n| `/qk planer` · `/qk erfolge` | Planer und Meilensteine im Questbuch |\n| `/qk notiz [Text]` | Notiz zur Fokus-Quest |\n| `/qk twinks` | deine Charaktere und ihre erledigten Quests |\n| `/qk wasjetzt` | das sinnvollste nächste Ziel als Fokus |\n| `/qk kette X Y [Name]` | Wegpunkt hinten an die Kette hängen |\n| `/qk fokusmodus` | Liste zeigt nur die Fokus-Quest |\n| `/qk tagesziel N` | Tagesziel setzen (0 = aus) |\n| `/qk statistik` | Quests pro Tag und Rekorde |\n| `/qk export` · `/qk import` | Einstellungen als Text teilen |\n| `/qk sprache de \\| en \\| auto` | Sprache der Oberfläche |\n| `/qk fokus` | Fokus aufheben |\n| `/qk einblenden` | ausgeblendete Quests wieder zeigen |\n| `/qk zuruecksetzen` | alle Einstellungen zurücksetzen |\n| `/qk diagnose` · `/qk fehler` | technische Infos für Fehlerberichte |\n| `/qk fehlerbericht` | Fehlerbericht zum Kopieren im Hauptfenster |\n| `/qk neu` | Neuigkeiten und Änderungen |\n| `/qk feedback` | Link zum Discord von ForeverUI |\n\n## Entwicklung\n\n- Questdaten neu erzeugen (mindestens alle 30 Tage):\n  `BLIZZARD_CLIENT_ID=… BLIZZARD_CLIENT_SECRET=… node scripts/questdaten.mjs` schreibt `Daten/Quests.lua`.\n- Testlauf ohne Spiel: `lua5.1 tests/simulation.lua`\n\nQuestdaten: Blizzard Entertainment, Battle.net Game Data API.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-18",
+      "notes": "# Questkompass\n\n## [v1.0.1](https://github.com/foreverui-dev/questkompass/tree/v1.0.1) (2026-11-18)\n[Full Changelog](https://github.com/foreverui-dev/questkompass/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/foreverui-dev/questkompass/releases)\n\n- 1.0.1: Leise ab Werk  \n    Keine Töne, Einblendungen oder Fenster von selbst. Bestehende Einstellungen  \n    bekommen die stillen Werte einmalig (Merker leiseAbWerk)."
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-06",
+      "notes": "# Questkompass\n\n## [v1.0.0](https://github.com/foreverui-dev/questkompass/tree/v1.0.0) (2026-11-06)\n[Full Changelog](https://github.com/foreverui-dev/questkompass/commits/v1.0.0) [Previous Releases](https://github.com/foreverui-dev/questkompass/releases)\n\n- Version 1.0.0  \n- Questkompass 0.6.0: Was jetzt?, Statistik, Merkliste, Tooltip-Ziele und 16 weitere Funktionen  \n- Questkompass 0.5.0: Route, Wegpunkte, Planer, Meilensteine, Englisch und 15 weitere Funktionen  \n- Assistent: Knöpfe mittig, Seitenpunkte darunter  \n- Questkompass 0.4.0: Barrierefreiheit  \n- Questkompass 0.3.0: Fokuspfeil, Questbuch, Profile und 17 weitere Funktionen  \n- Assistent ohne doppelten Fertig-Knopf, Zonenname nur ohne Entfernung  \n- Questkompass 0.2.0: moderne Quest-API, Einrichtungsassistent, Kompass und Helfer  \n- CurseForge-Projekt-ID eingetragen  \n- Wago-Upload aus dem Release-Workflow entfernt  \n- MIT-Lizenz  \n- Questkompass 0.1.0: Zielliste, Gebietsfortschritt und Quest-Tooltips"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-06"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "Questkompass"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "ForeverUI"
+    ],
+    "savedVariables": [
+      "QuestkompassDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "QuestkompassCharDB"
+    ]
+  }
+}

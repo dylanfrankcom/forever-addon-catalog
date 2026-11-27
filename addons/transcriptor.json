@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "transcriptor",
+  "repo": "BigWigsMods/Transcriptor",
+  "releases": [
+    {
+      "tag": "v12.1.4",
+      "published": "2026-10-22",
+      "notes": "# Transcriptor\n\n## [v12.1.4](https://github.com/BigWigsMods/Transcriptor/tree/v12.1.4) (2026-10-22)\n[Full Changelog](https://github.com/BigWigsMods/Transcriptor/compare/v12.1.3...v12.1.4) [Previous Releases](https://github.com/BigWigsMods/Transcriptor/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "v12.1.3",
+      "published": "2026-10-10",
+      "notes": "# Transcriptor\n\n## [v12.1.3](https://github.com/BigWigsMods/Transcriptor/tree/v12.1.3) (2026-10-10)\n[Full Changelog](https://github.com/BigWigsMods/Transcriptor/compare/v12.1.2...v12.1.3) [Previous Releases](https://github.com/BigWigsMods/Transcriptor/releases)\n\n- Merge toc files, cleanups  \n- Update workflow"
+    },
+    {
+      "tag": "v12.1.2",
+      "published": "2026-09-07",
+      "notes": "# Transcriptor\n\n## [v12.1.2](https://github.com/BigWigsMods/Transcriptor/tree/v12.1.2) (2026-09-07)\n[Full Changelog](https://github.com/BigWigsMods/Transcriptor/compare/v12.1.1...v12.1.2) [Previous Releases](https://github.com/BigWigsMods/Transcriptor/releases)\n\n- Bump toc  \n- Cleanups  \n- Log `NAME_PLATE_UNIT_ADDED` with `UnitLevel` instead when units are secret  \n- Replace `ShowBossFrameWhenUninteractable` with `UnitLevel` in IEEU events"
+    },
+    {
+      "tag": "v12.1.1",
+      "published": "2026-08-23",
+      "notes": "# Transcriptor\n\n## [v12.1.1](https://github.com/BigWigsMods/Transcriptor/tree/v12.1.1) (2026-08-23)\n[Full Changelog](https://github.com/BigWigsMods/Transcriptor/compare/v12.1.0...v12.1.1) [Previous Releases](https://github.com/BigWigsMods/Transcriptor/releases)\n\n- Place IEEU unit entries prior to the actual event  \n- Add all detected units for ENCOUNTER\\_END events"
+    },
+    {
+      "tag": "v12.1.0",
+      "published": "2026-08-20",
+      "notes": "# Transcriptor\n\n## [v12.1.0](https://github.com/BigWigsMods/Transcriptor/tree/v12.1.0) (2026-08-20)\n[Full Changelog](https://github.com/BigWigsMods/Transcriptor/compare/v12.0.14...v12.1.0) [Previous Releases](https://github.com/BigWigsMods/Transcriptor/releases)\n\n- Bump toc  \n- Update luacheck  \n- Skip the log-start aura snapshot while unit auras are restricted (#58)"
+    }
+  ],
+  "stats": {
+    "stars": 11,
+    "openIssues": 2,
+    "contributors": 32,
+    "lastRelease": "2026-10-22",
+    "releaseDates": [
+      "2026-10-22",
+      "2026-10-10",
+      "2026-09-07",
+      "2026-08-23",
+      "2026-08-20",
+      "2026-07-27",
+      "2026-07-16",
+      "2026-06-26",
+      "2026-06-06",
+      "2026-05-27",
+      "2026-04-11",
+      "2026-03-12",
+      "2026-03-02",
+      "2026-02-26",
+      "2026-02-23",
+      "2026-02-21",
+      "2026-02-17",
+      "2026-02-01",
+      "2026-01-29",
+      "2026-01-21",
+      "2026-01-20",
+      "2025-12-01",
+      "2025-09-24",
+      "2025-08-12",
+      "2025-07-20",
+      "2025-07-12",
+      "2025-05-02",
+      "2025-05-01",
+      "2025-04-16",
+      "2025-04-15",
+      "2025-04-15",
+      "2025-04-13",
+      "2025-04-10",
+      "2025-04-10",
+      "2025-03-23",
+      "2025-03-12",
+      "2025-03-12",
+      "2025-02-11",
+      "2025-01-25",
+      "2025-01-23",
+      "2024-11-21",
+      "2024-11-20",
+      "2024-10-30",
+      "2024-10-17",
+      "2024-09-26",
+      "2024-09-19",
+      "2024-09-13",
+      "2024-09-12",
+      "2024-09-10",
+      "2024-08-05"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Transcriptor"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibSpecialization"
+    ],
+    "savedVariables": [
+      "TranscriptIgnore",
+      "TranscriptDB"
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "autoshare",
+  "repo": "psykzz/wow-autoshare",
+  "about": "# AutoShare\n\nAutomatically shares newly accepted quests with party members when a quest\ncan be shared. Use another addon if you also want to auto-accept shared quests.\n\nSupports Classic Era, Burning Crusade Classic, Wrath Classic, Cataclysm\nClassic, Mists Classic, the Classic beta/Forever client, and Retail.\n\nListed under **Quests** in the AddOns list with a note icon.\n\n## Installation\n\nInstall from [Wago](https://addons.wago.io/addons/wow-autoshare) or\n[CurseForge](https://www.curseforge.com/wow/addons/autoshare), or download a\nrelease from GitHub and extract the `AutoShare` folder into `Interface\\AddOns`.\n\n## Development and releases\n\nThe BigWigs Packager packages pushes to `main` and publishes GitHub releases\nfor pushed tags. It substitutes `@project-version@` in `AutoShare.toc` when\npackaging. To publish a version:\n\n```bash\ngit tag -a v1.0.1 -m \"Release version 1.0.1\"\ngit push origin v1.0.1\n```\n\nAdd `WAGO_API_TOKEN` and `CF_API_KEY` as repository Actions secrets to enable\nuploads to those sites; GitHub provides `GITHUB_TOKEN` automatically. A\nCurseForge upload also requires `X-Curse-Project-ID` in `AutoShare.toc`.\n\n## License\n\nSee [LICENSE.txt](https://github.com/psykzz/wow-autoshare/blob/main/LICENSE.txt).",
+  "releases": [
+    {
+      "tag": "v1.0.12",
+      "published": "2026-10-16",
+      "notes": "# Auto Quest Sharing\n\n## [v1.0.12](https://github.com/psykzz/wow-autoshare/tree/v1.0.12) (2026-10-16)\n[Full Changelog](https://github.com/psykzz/wow-autoshare/compare/v1.0.11...v1.0.12) [Previous Releases](https://github.com/psykzz/wow-autoshare/releases)\n\n- fix: show startup notices only on login"
+    },
+    {
+      "tag": "v1.0.11",
+      "published": "2026-10-12",
+      "notes": "# Auto Quest Sharing\n\n## [v1.0.11](https://github.com/psykzz/wow-autoshare/tree/v1.0.11) (2026-10-12)\n[Full Changelog](https://github.com/psykzz/wow-autoshare/compare/v1.0.10...v1.0.11) [Previous Releases](https://github.com/psykzz/wow-autoshare/releases)\n\n- chore: remove license-output from pkgmeta to prevent wowace download"
+    },
+    {
+      "tag": "v1.0.10",
+      "published": "2026-10-12",
+      "notes": "# Auto Quest Sharing\n\n## [v1.0.10](https://github.com/psykzz/wow-autoshare/tree/v1.0.10) (2026-10-12)\n[Full Changelog](https://github.com/psykzz/wow-autoshare/compare/v1.0.9...v1.0.10) [Previous Releases](https://github.com/psykzz/wow-autoshare/releases)\n\n- chore: swap license to MIT"
+    },
+    {
+      "tag": "v1.0.9",
+      "published": "2026-10-12",
+      "notes": "# Auto Quest Sharing\n\n## [v1.0.9](https://github.com/psykzz/wow-autoshare/tree/v1.0.9) (2026-10-12)\n[Full Changelog](https://github.com/psykzz/wow-autoshare/compare/v1.0.8...v1.0.9) [Previous Releases](https://github.com/psykzz/wow-autoshare/releases)\n\n- chore: align TOC formatting and metadata with other addons"
+    },
+    {
+      "tag": "v1.0.8",
+      "published": "2026-10-12",
+      "notes": "# Auto Quest Sharing\n\n## [v1.0.8](https://github.com/psykzz/wow-autoshare/tree/v1.0.8) (2026-10-12)\n[Full Changelog](https://github.com/psykzz/wow-autoshare/compare/v1.0.7...v1.0.8) [Previous Releases](https://github.com/psykzz/wow-autoshare/releases)\n\n- test: remove Wago ID from TOC for CurseForge release test"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-16",
+    "releaseDates": [
+      "2026-10-16",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-01",
+      "2026-09-26",
+      "2026-09-25",
+      "2021-05-27",
+      "2021-05-27",
+      "2021-05-27",
+      "2021-05-27",
+      "2020-11-27",
+      "2020-01-20",
+      "2019-01-23",
+      "2019-01-23",
+      "2018-01-03",
+      "2018-01-03",
+      "2018-01-03",
+      "2018-01-03",
+      "2018-01-03",
+      "2018-01-03",
+      "2018-01-03",
+      "2016-10-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AutoShare"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

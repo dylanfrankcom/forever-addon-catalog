@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "rotationmaster",
+  "repo": "corporategoth/rotationmaster",
+  "about": "# Rotation Master\n\n[![Buy Me Coffee][coffee-image]][coffee]\n\n[![Tests][tests-badge]][tests]\n[![GitHub Release][release-badge]][releases]\n[![GitHub Activity][activity-badge]][commits]\n[![License: MIT + Attribution][license-badge]][license]\n\n[![Retail 12.1.5][retail-badge]][client-support] [![Forever 1.60.1][forever-badge]][client-support]\n[![Classic Era 1.15.9][era-badge]][client-support] [![Season of Discovery 1.15.9][sod-badge]][client-support]\n[![TBC Anniversary 2.5.6][tbc-badge]][client-support] [![Mists Classic 5.5.4][mists-badge]][client-support]\n\nRotation Master is a World of Warcraft addon that highlights the next spell or item in a rotation you choose. Start with a\nBuilt In rotation for your class, or create your own in game. You press the buttons: the addon does not cast spells or play\nfor you.\n\n  ![Rotation Master logo](https://raw.githubusercontent.com/corporategoth/rotationmaster/master/Assets/Branding/rotation-master.png)\n\nVersion 2.0 is a rewrite of the 1.x addon. See the [release notes](https://github.com/corporategoth/rotationmaster/blob/master/docs/release/notes/2.0.0.md) for what changed and the\n[upgrade guide](https://github.com/corporategoth/rotationmaster/blob/master/docs/release/BETA.md) for backups, supported clients and going back to 1.x.\n\n## What it does\n\n- **Build rotations in game.** Put spells and items in priority order, add conditions, and use Branch and Stop steps to\n  handle different situations. Start with a Built In rotation and adjust it for your character.\n- **Choose when to use them.** Keep several rotations and select one manually or let Rotation Master switch when a\n  rotation's conditions match.\n- **Highlight your actions.** Light matching buttons on supported action bars, show cooldowns alongside your main\n  rotation, and optionally display a movable recommendation preview.\n- **Understand and share your rules.** Combine conditions with AND, OR and Unless, inspect their current match state,\n  compare rotations, and import or export Rotation Master data. Advanced users can also write custom Lua conditions.\n- **Configure extras.** Create item sets, announcements, highlight effects and profiles, with optional integrations for\n  other addons.\n\nBuilt In rotations are starting points, not guarantees of the best action for every character, encounter or play style.\n\nAvailable conditions vary by client. See [client support][client-support] for details and in-game testing status.\n\nRotation Master uses your game language automatically: English, German, Spanish, Latin American Spanish, French, Italian,\nKorean, Brazilian Portuguese, Russian, Simplified Chinese and Traditional Chinese.\n\n## Install and get started\n\n- **[CurseForge](https://www.curseforge.com/wow/addons/rotation-master), [Wago Addons](https://addons.wago.io/addons/rotation-master) or WowUp:** install Rotation Master with your addon manager. Select the beta release channel for beta versions.\n- **[WoWInterface](https://www.wowinterface.com/downloads/info25079-RotationMaster.html):** stable releases only.\n- **Manual install:** download a release zip and extract all of its folders into the client's `Interface/AddOns` directory.\n  The package includes the main addon, class modules and language modules.\n\nIn game, type `/rm config`, open **Rotations**, and choose a Built In rotation or create one. Place the relevant spells and\nitems on a supported action bar. `/rm help` lists the commands; `/rm debug glow` explains why a recommendation is or is not\nlighting a button, and `/rm errors` opens the addon error report.\n\n[Documentation and rotation sharing](https://rotationmaster.neuromancy.net/) · [Report an issue](https://github.com/corporategoth/rotationmaster/issues) · [Discord](https://discord.gg/4aKZSpUMet)\n\n## Developer information\n\n| For | Start at |\n| --- | --- |\n| Testers | [Beta guide](https://github.com/corporategoth/rotationmaster/blob/master/docs/release/BETA.md) |\n| Contributors | [CONTRIBUTING.md](https://github.com/corporategoth/rotationmaster/blob/master/CONTRIBUTING.md) and [developer docs](https://github.com/corporategoth/rotationmaster/blob/master/docs/dev/architecture.md) |\n| Translators | [Translator guide](https://github.com/corporategoth/rotationmaster/blob/master/docs/translators/README.md) |\n| Maintainers | [Release guide](https://github.com/corporategoth/rotationmaster/blob/master/docs/release/RELEASING.md) |\n| Topic references | [Architecture](https://github.com/corporategoth/rotationmaster/blob/master/docs/architecture), [quality](https://github.com/corporategoth/rotationmaster/blob/master/docs/quality) and [Built In modules](https://github.com/corporategoth/rotationmaster/blob/master/Modules/README.md) |\n\nRequirements for the offline checks are Python 3, Lua 5.1 and LuaJIT:\n\n```sh\npython3 tools/setup_lint.py\npython3 tools/check --static\npython3 tools/check_all.py --baseline tools/known_failures.txt\npython3 tools/package_release.py --check\n```\n\nSee [running the checks](https://github.com/corporategoth/rotationmaster/blob/master/docs/dev/running-things.md) for details. The project's Gitea repository is the source of truth;\nGitHub is a mirror.\n\n## License\n\nRotation Master is released under [MIT + Attribution](https://github.com/corporategoth/rotationmaster/blob/master/LICENSE), copyright 2018–2026 Preston A. Elder. Derivatives must\nacknowledge Rotation Master and its original author, PreZ, in any credits or About pages, including in game. Versions through\n1.4.3e remain plain MIT. Vendored libraries and the font retain their own licenses; see `Libs/UPSTREAM.json`,\n`Libs/Ace3-LICENSE.txt` and `Fonts/OFL.txt`. Third-party notices are in `THIRD_PARTY_NOTICES.md`.\n\n[coffee-image]: https://cdn.buymeacoffee.com/buttons/default-orange.png\n[coffee]: https://buymeacoffee.com/corporategoth\n[tests-badge]: https://img.shields.io/github/actions/workflow/status/corporategoth/rotationmaster/checks.yml?branch=master&label=tests&style=for-the-badge\n[tests]: https://github.com/corporategoth/rotationmaster/actions/workflows/checks.yml\n[release-badge]: https://img.shields.io/github/v/release/corporategoth/rotationmaster?style=for-the-badge\n[releases]: https://github.com/corporategoth/rotationmaster/releases\n[activity-badge]: https://img.shields.io/github/commit-activity/y/corporategoth/rotationmaster?style=for-the-badge\n[commits]: https://github.com/corporategoth/rotationmaster/commits/master\n[license-badge]: https://img.shields.io/badge/license-MIT%20%2B%20Attribution-blue?style=for-the-badge\n[license]: https://github.com/corporategoth/rotationmaster/blob/master/LICENSE\n[retail-badge]: https://raw.githubusercontent.com/corporategoth/rotationmaster/master/docs/assets/client-badges/retail.svg\n[forever-badge]: https://raw.githubusercontent.com/corporategoth/rotationmaster/master/docs/assets/client-badges/forever.svg\n[era-badge]: https://raw.githubusercontent.com/corporategoth/rotationmaster/master/docs/assets/client-badges/era.svg\n[sod-badge]: https://raw.githubusercontent.com/corporategoth/rotationmaster/master/docs/assets/client-badges/sod.svg\n[tbc-badge]: https://raw.githubusercontent.com/corporategoth/rotationmaster/master/docs/assets/client-badges/tbc.svg\n[mists-badge]: https://raw.githubusercontent.com/corporategoth/rotationmaster/master/docs/assets/client-badges/mists.svg\n[client-support]: https://github.com/corporategoth/rotationmaster/blob/master/docs/quality/client-support.md",
+  "releases": [
+    {
+      "tag": "2.1.1",
+      "published": "2026-11-16",
+      "notes": "## Fixed\n\n- **Metrics are per character.** The Metrics tab only reports the character you are logged in as: adherence, reaction time, deviations, output and forecast accuracy no longer mix in fights from your other characters.\n- **The forecast is per character.** What the forecast learns (what a spell applies, its damage and healing, item cooldowns, the base mana) is kept for the character that cast it, so it never predicts or lists a spell the character cannot cast. Preview > Forecast shows this character's list, and Forget and Ignore apply to this character.\n\n## Upgrading\n\n- From 2.1.0, the metrics and what the forecast had learned were saved for all your characters together and cannot be split, so they are cleared once; each character starts its own record and the forecast relearns as you play.\n\nFull changelog: http://gitea:3000/wow/rotationmaster/compare/2.1.0...2.1.1"
+    },
+    {
+      "tag": "2.1.0",
+      "published": "2026-11-16",
+      "notes": "## Highlights\n\n- **Metrics.** A Metrics tab reports adherence, reaction time, deviations, output per fight and forecast accuracy, with charts, comparisons between periods, instances or rotations, and exports.\n- **Talent tree window** on every client, laid out by Blizzard's own talent frame code, with ranks, a comparison and Accept.\n- **Retail and Forever in combat.** More conditions keep working where the game hides combat data: moving, swing timer, combo points, totems, interruptible casts, distance, your own buffs from Blizzard's Cooldown Manager, and an opt-in \"Remember hidden buffs and cooldowns\". Each condition says where the game hides it.\n- **Game-decided steps.** A step can be \"Shown by the game when\" a health or power percent is below or above a threshold; where the game hides that value it decides at draw time, in the preview and as a glow on the step's buttons. A cooldown whose only remaining condition is such a threshold becomes one automatically.\n- **Cooldowns in combat.** On Retail and Forever, a cooldown that reads something the game hides in combat is left out during combat instead of guessing, and works as usual out of combat. A cooldown that waits on one of your own buffs has its announcement sound played by the game when the buff drops, in combat too.\n- **New conditions:** Is a Boss, Is Elite, Unit Kind (quest boss, lieutenant, minion, trivial), Casting or Channeling, Spell Usable, Enemies Targeting You, Recent Kill, Time Until Next Swing and Macro Condition (macro conditionals such as `[combat,harm]`, evaluated by the game); boss1 to boss5 in the unit lists.\n- **More action bars:** SmartTotem's totem, flyout and shield buttons, DaylightUI's bars, the shaman totem bar and Forever's gamepad bars light up, and SmartTotem and DaylightUI are listed under Integrations.\n- **Ignore Moving** joins Ignore Mana and Ignore Range: by default a spell with a cast time is skipped while you move. The preview can use its own readiness options, and can show your target's health and gray out spells you cannot afford yet.\n- **Forecast in the preview.** The preview predicts the recommendations after the first, with how sure it is and how many seconds each comes after the first spell, and now assumes each earlier spell was cast and worked: a pull such as Charge puts the later slots in combat (so an out-of-combat branch that ends in a Stop no longer ends the preview), a spell's cooldown, cost, charges, combo points and holy power, the buffs and debuffs it leaves (with stacks, from the game's own spell tables and what the addon sees you cast), the resource a spell gives (rage, focus) and an item's cooldown are projected. A cost the game hides is taken from the last one it showed, or from the tables.\n- **Chances are guesses, and only move the confidence.** An aura seen after only some casts is a proc and is not projected; one seen most of the time is, at a cost to the confidence; a spell aimed at an enemy has a miss chance from the level difference.\n- **Preview tab.** The preview window and forecast settings have their own tab after General, with an Appearance section: a background list (your class, any class, Rotation Master or a solid color), the painting shown across the page, opacity, title, target health, lock, direction and reset.\n- **Class paintings.** The preview's background is a painting for each class that tells a short story across the slots and a border that fills up as icons appear. The first and last paintings run to the window edge.\n- **What the forecast learned.** Preview > Forecast lists, with icons and a search, what it learned about each spell that the game's tables do not already say, and lets you forget a spell or ignore it from now on.\n- **Debugging in one list.** General > Debugging is one list of every capture and report (CPU, runtime, memory, casts, glow, preview, timeline, premade spells, secret values, talents, raid marks, Lua editor) with a time, Start and Show report. Every report opens in a copyable window. `/rm debug` lists every command.\n\n## Fixed\n\n- The preview no longer stops showing spells after a profile switch, copy, reset or import while the bars still highlight.\n- Conditions that match any rank no longer show a rank; exact-rank conditions name it.\n- Shield and other own-buff checks on Forever no longer read \"missing\" when the game hides auras in combat.\n- Long report windows show every page.\n- The preview showed Charge and then nothing for a warrior out of combat.\n- Forget on the forecast did nothing.\n- The diagnostics list no longer shows a changed marker or enables Apply.\n\n## Known issues\n\n- Retail and Forever hide some combat data, and the game-decided steps, game-played sounds and cooldowns left out in combat are tested only against models of the clients. `/rm debug secrets` in combat shows what the game hides and what answered; please paste it with a report.\n- The forecast's chances are guesses and only move its confidence; Retail spell-table coverage has gaps.\n- Translations of the new text are AI-assisted drafts, not yet reviewed by native speakers.\n\n## Upgrading\n\n- From 2.0, nothing to do. From 1.x, back up your saved variables first (docs/release/BETA.md) and install every folder in the package.\n- Ignore Moving is off by default, so spells with a cast time are skipped while you move; turn it on under Recommendations to have them advised anyway.\n- The preview's settings moved to their own Preview tab; your choices carry over.\n\nFull changelog: http://gitea:3000/wow/rotationmaster/compare/2.0.0...2.1.0"
+    },
+    {
+      "tag": "2.0.0",
+      "published": "2026-11-04",
+      "notes": "## Highlights\n\nRotation Master 2.0 is a rewrite of the 1.x addon, built around a new in-game rotation editor.\n\n- **A new rotation editor.** Cards and a tree, a rotation library with Class and Character scopes, tags and search, drafts with undo and redo, and Compare and Preview for imported rotations.\n- **Built In rotations.** Ready-made rotations for Classic Era / Season of Discovery, TBC Anniversary, Mists, Forever and Retail, shipped as one load-on-demand add-on per class. Enable, disable and re-prioritize them per profile.\n- **Many more conditions.** Talent trees by name, a talent picker, Branch and Stop steps, a live \"currently matches\" bar, raid marker conditions and units, a Set Mark step on Classic-family clients, and custom Lua conditions with a code editor.\n- **Retail and Forever support.** The game's restricted combat data is handled explicitly: a condition reads what the game allows, shows as unavailable, or does not exist on that client.\n- **Sharing.** Import and export rotations, item sets, announcements and effects. A rotation that uses a condition your client does not have imports disabled, with the condition kept, so you can replace it instead of rebuilding.\n- **Faster.** An idle gate, a leaner evaluation engine and far less garbage per poll.\n- **Integrations.** Masque, Questie, boss-mod timers, more action-bar addons, and tooltips that show your item sets and rotations.\n- **Ten languages**, following the game's language. Translations are AI-assisted and have not been reviewed by native speakers.\n\n## Known issues\n\n- Direct Set Mark has been verified on TBC; the other marker features and some client and addon-integration combinations have had less real-client testing. See the client support table in the repository.\n\n## Upgrading\n\n- Install the whole package: `RotationMaster` and every `RotationMaster_*` folder.\n- Back up `RotationMaster.lua` from your `SavedVariables` folder first. Your data is converted on first load and the conversion cannot be undone.\n- Rotations saved by 1.x are kept in an archive and do not run until you adopt them (Rotations, then Recover unassigned rotations). Rotation Master tells you once in chat and in a banner in the settings window.\n- To go back to 1.x, remove all of those folders, restore your backup and install 1.4.3e.\n\nFull changelog: http://gitea:3000/wow/rotationmaster/compare/1.4.3e...2.0.0"
+    },
+    {
+      "tag": "1.4.3e",
+      "published": "2022-09-30",
+      "notes": "# Rotation Master\n\n## [1.4.3e](https://github.com/corporategoth/rotationmaster/tree/1.4.3e) (2022-09-30)\n[Full Changelog](https://github.com/corporategoth/rotationmaster/compare/1.4.3d...1.4.3e) [Previous Releases](https://github.com/corporategoth/rotationmaster/releases)\n\n- is\\_uuid should first ensure it's a string."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/corporategoth/rotationmaster/master/Assets/Branding/rotation-master.png"
+  ],
+  "stats": {
+    "stars": 6,
+    "openIssues": 1,
+    "contributors": 4,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-04",
+      "2022-09-30",
+      "2022-09-30",
+      "2022-09-30",
+      "2022-09-30",
+      "2022-09-29",
+      "2022-08-18",
+      "2022-08-18",
+      "2022-07-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RotationMaster",
+      "RotationMaster_ConditionText",
+      "RotationMaster_DeathKnight",
+      "RotationMaster_DemonHunter",
+      "RotationMaster_DiagnosticsText",
+      "RotationMaster_Druid",
+      "RotationMaster_Evoker",
+      "RotationMaster_HelpText",
+      "RotationMaster_Hunter",
+      "RotationMaster_IntegrationsText",
+      "RotationMaster_Mage",
+      "RotationMaster_Monk",
+      "RotationMaster_Paladin",
+      "RotationMaster_Priest",
+      "RotationMaster_Rogue",
+      "RotationMaster_Shaman",
+      "RotationMaster_Warlock",
+      "RotationMaster_Warrior"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibDBIcon-1.0",
+      "LibDataBroker-1.1",
+      "LibCompress",
+      "CallbackHandler-1.0",
+      "LibCustomGlow",
+      "ThreatClassic-1.0",
+      "LibClassicDurations",
+      "LibRangeCheck-3.0",
+      "Masque",
+      "!!!LuaWorkbench",
+      "WowLua"
+    ],
+    "savedVariables": [
+      "RotationMasterDB"
+    ]
+  }
+}

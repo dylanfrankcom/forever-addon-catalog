@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "reputationguide",
+  "repo": "tvlfrosty/Reputation_Guide",
+  "about": "# Reputation Guide\nA World of Warcraft addon to help you manage your reputation and factions.\n\n## Supported versions\nOne code base for every version of the game:\n* Retail (The War Within / Midnight)\n* World of Warcraft: Forever\n* Classic: Mists of Pandaria, Cataclysm, Wrath of the Lich King, The Burning Crusade and Classic Era / Anniversary\n\n## Features\nThis addon is made to help you reach Exalted (or the next renown / friendship level) with your factions by giving you calculated tips on how to obtain the reputation most efficiently.\n\n* Reputation sources per faction and standing: quests (repeatable, daily and PvP), dungeons and raids, mobs, items and other sources, with how many times you need to do them to reach the next standing.\n* Reputation details: needed, current and missing reputation, reputation to Exalted / max, reputation in your bags, bank and quest log, and the reputation gained this session.\n* A reputation details panel next to the reputation frame on every version, with At War / Move to Inactive / Show as Experience Bar, filters for the reputation sources, a resizable frame and its own settings page (bar, description, statistics, font size, transparency).\n* Order by Standing: the reputation list ordered Paragon > Renown > Exalted > ... > Hated (saved per character).\n* Sources of the selected faction can be extended with your own lines (Options > Add manual line in the details panel).\n* Reputation changes in chat, including the reputation needed for the next standing and bonus reputation.\n* Faction tooltip on the reputation list and the watched reputation bar, including your other characters' standing.\n* Records reputation gains from sources that aren't in the data yet (account wide), and lets you add your own sources (manual lines) to a faction.\n* Supports renown, friendship and paragon factions, reputation buffs (Darkmoon Faire, Wickerman, Pilgrim's Bounty, guild perks), commendations and the Draenor trading post.\n* Works with [ElvUI](https://tukui.org/elvui) (skinned frames) and [Paragon Reputation](https://www.curseforge.com/wow/addons/paragon-reputation) (its bar color and text format are used for paragon factions) when those addons are installed.\n* Light on loading: the faction data is synced after the loading screen, in small steps and never during combat.\n* Localized in English, German, Spanish, French, Italian, Korean, Portuguese, Russian and Chinese (Simplified and Traditional).\n\n## Commands\n`/rep` or `/reputations`\n* `/rep help` - Show all commands\n* `/rep about` - Show the version and author\n* `/rep status` - Show the current settings\n* `/rep enable | disable | toggle { mobs | quests | pvpquests | instances | items | general | all }` - Show or hide reputation sources\n* `/rep enable | disable | toggle { missing | details | chat | paragon }` - Toggle options\n* `/rep list [standing]` - List your factions (by standing)\n* `/rep watch <factionID>` - Show a faction as experience bar\n* `/rep watchindex <factionIndex>` - Show a faction as experience bar by its position in the reputation list\n* `/rep sync` - Look up all factions again (for factions that seem to be missing)\n* `/rep verify` - Check the NPC and quest IDs of the reputation data against the game\n* `/rep nosources` - List your factions without reputation sources\n* `/rep record [status | debug | clear]` - Switch recording of unknown reputation sources off or on (status: show what's recorded, debug: a window to copy the recorded lines from, clear: remove the recorded lines). Quests of the data with a different reputation, and one-time quests turned in again, are recorded too\n\n## Installation\nDownload the addon via the CurseForge App or the [Curse website](https://www.curseforge.com/wow/addons/reputation-guide).  \nTo install it manually, extract the contents in this directory: PATH\\World of Warcraft\\\\\\_<game_version>\\_\\\\Interface\\AddOns\\\n\n# Addon wil no longer be updated by me, I am currently not playing wow anymore, people are free to upload their own updated version, thanks for all the feedback through the years, and enjoy wow!\n\n## Issues\n#### For any issues please refer to the issues tab [https://github.com/tvlfrosty/Reputation_Guide/issues](https://github.com/tvlfrosty/Reputation_Guide/issues) or in the [#issues](https://discord.com/channels/1006569125449056317/1007076956489142294) channel in discord.\n\n## History/Base\nThis addon is based on the addon RepHelper, that was initially based on Factionizer.\n\nRepHelper (Retail) on Github: [https://github.com/chawan/RepHelper](https://github.com/chawan/RepHelper)  \nRepHelper (Classic) on Github: [https://github.com/chawan/RepHelper_Classic](https://github.com/chawan/RepHelper_Classic)  \nRepHelper on Curse: [https://curseforge.com/wow/addons/rephelper](https://curseforge.com/wow/addons/rephelper)  \nFactionizer on Github: [https://github.com/gOOvER/Factionizer](https://github.com/gOOvER/Factionizer)  \nFactionizer on Curse: [https://curseforge.com/wow/addons/factionizer](https://curseforge.com/wow/addons/factionizer)\n\nI appreciate all the work done on these addons.\n\n## Additions/Changes\nThe main change that was added on top of the existing RepHelper addon is the expansionIndex, this allows the addon to check for each faction exactly what reputation value is correct for the current version of the game, and when certain quests were added. This also allows the addon to check till when a certain faction is active.\nThis also allows the addon to work for each version of the game, since the Blizzard API went through multiple changes through the years.\nFurther additions were made to Classic/TBC factions/reputations to be more up to date, by adding more quests/dailies and reputation values.\n\n## Information Sources\n* [Classic Wowhead](http://classic.wowhead.com/)\n* [TBC Wowhead](http://tbc.wowhead.com/)\n* [Retail Wowhead](http://wowhead.com/)\n* [QuestieDB](https://github.com/Questie/QuestieDB) (GPLv3): repeatable, daily and weekly quests and localized quest names of the Classic versions, see `tools/questie`\n\n## Contribute\nContributions/Suggestions and bug reports/fixes to the addon are always welcome, to contribute you can make a [pull request](https://github.com/tvlfrosty/Reputation_Guide/pulls) or simply open a [new issue](https://github.com/tvlfrosty/Reputation_Guide/issues) in the repository.\n\n## License\nGPLv3: [https://www.gnu.org/licenses/gpl-3.0.en.html](https://www.gnu.org/licenses/gpl-3.0.en.html) or see the [license file](https://github.com/tvlfrosty/Reputation_Guide/blob/master/LICENSE)",
+  "releases": [
+    {
+      "tag": "v2.0.0-release",
+      "published": "2026-11-22",
+      "notes": "### New\n- Support for World of Warcraft: Forever (Interface 16001).\n- New reputation details panel next to the reputation frame on Forever and Retail, replacing the default faction details:\n  - Standing bar, reputation stats, At War / Move to Inactive / Show as Experience Bar options.\n  - Filter and options dropdowns for the reputation sources list.\n  - Closes and reopens together with the default details, and keeps the selected faction.\n- Faction tooltip on the watched reputation bar.\n- Missing texts in other languages now fall back to English.\n- Reputation sources for the new World of Warcraft: Forever factions (High Order, Windshapers, Nightclaw Druids, Kirin Tor, Earthen Ring, Guardians of Hyjal, Barkskin Burrow, Theramore Expeditionary Force, Darkspear Raiders).\n- Recording of unknown reputation sources: reputation gains from quests, kills (also in instances), items and other sources that aren't in the data are saved account wide with the reputation and standing (/rep record to switch it off or on).\n- Classic clients: the default details frame is replaced by the details panel of Forever/retail (header, standing bar, statistics, filter and options dropdowns), next to the character frame and as high as it.\n- New settings page \"Details frame\" (Options > ReputationGuide): \"Show extended reputation detail frame\" (addon details frame or the default one) moved there, plus options for the reputation bar, description, statistics, resizing, expanded lists, list font size and background opacity.\n- Order by Standing on Forever and retail: the reputation list can be ordered Paragon > Renown > Exalted > ... > Hated.\n  - Friendships: only the first level counts as Neutral, then two levels per standing, the highest level is Exalted.\n  - Renown factions at maximum renown with a paragon track are listed under Paragon.\n  - Collapsed faction headers are opened when the option is switched on (the inactive factions stay hidden) and closed again when it is switched off.\n  - Paragon rewards icon next to the bar (glows with a check mark while a reward waits), hovering a bar shows its values.\n  - Saved per character.\n- Manual lines: add your own reputation sources to the selected faction (Options > Add manual line in the details frame); they are shown in the sources list and can be removed again.\n- View Renown button on the details panel for factions opened from the ordered list (opens the Journeys tab of the Adventure Guide on Midnight).\n- ElvUI skins for the details panel, the ordered list, the manual line popup and the settings pages.\n- Paragon Reputation integration: the paragon bars and the paragon standing text use the bar color chosen in Paragon Reputation, the ordered list also uses its text format.\n- Reputation sources for The K'aresh Trust, the Gallagio Loyalty Rewards Club and the Winterpelt Furbolg.\n- /rep sync: looks up all factions again (for factions that seem to be missing).\n- Setting \"Show faction sync messages\" (General).\n\n### Changed\n- Updated for Retail 11.2.7 and 12.x (Midnight); Blizzard functions are no longer replaced on modern clients, which prevents taint and \"secret value\" errors.\n- Faster loading: initialization and the faction scan wait until the loading screen is gone; the scan is spread over several frames (a few milliseconds per frame) and pauses during combat.\n- The full faction scan (first login after a game update) shows a message in the chat when it starts and when it is done.\n- The faction scan (faction IDs 1 - 5000) now only runs on the first login of a character on a new game build; known faction IDs are cached per character, and newly discovered factions are picked up during play.\n- The old reputation list code is only loaded on the Classic clients.\n- Internal variables moved from the global namespace to the addon table.\n- More texts moved to the locale files.\n- New data format: the reputation sources are stored once per faction in one file per expansion (data/factions/), with conditions instead of code; reputation bonuses are applied when the list is shown (buff changes don't reload all data anymore).\n- Content phases are handled per Classic version (Classic Era, Season of Mastery, Season of Discovery).\n- Reputation sources use NPC IDs (localized mob names) and quest IDs where possible; all other texts of the sources moved to the locale files.\n- Each client only loads the reputation data of its own expansions.\n- New commands: /rep verify (checks the NPC and quest IDs against the game) and /rep nosources (lists factions without reputation sources).\n- /rep verify asks the server for the quests in small batches and waits for its answers; quests that don't exist on the client are listed separately.\n- Quests that no longer exist on the retail client are hidden there (they stay on the Classic clients).\n- The details panel can't be made smaller than its content, the list keeps at least 3 rows.\n- The default details frame is hidden behind the details panel on retail.\n- Reputation buffs (Wickerman, Pilgrim's Bounty, Darkmoon Faire) are switched off again when the buff is gone, unless the setting was switched on manually; switching a buff off manually while it's active is respected until the buff is gone.\n- Reputation values are reloaded right away when a reputation buff setting changes.\n- Aura and bag updates are checked once per burst, and only auras of the player are checked (less CPU usage in groups and raids).\n\n### Fixed\n- Error when selecting a faction at maximum renown without a paragon track (e.g. Keg Leg's Crew).\n- Paragon values on the details panel are shown per paragon cycle.\n- Factions with a paragon track below Exalted were shown as Paragon with paragon values; they now show their normal standing.\n- Sources of factions at maximum renown or Exalted with a paragon track showed \"0x\"; they now count towards the next paragon reward.\n- Retail: the View Renown button showing the renown of the previously selected faction.\n- \"Show as Experience Bar\" checkbox flickering when clicked.\n- Faction tooltip staying open after leaving a faction.\n- Bonus reputation (commendations) and Draenor trading post bonuses not being applied, the trading post bonus now also works on non-English clients.\n- Non-repeatable quests showing an empty tooltip.\n- Season of Discovery: Ahn'Qiraj sources and Commendation Signet quests now follow the Season of Discovery phases (phase 6).\n- Tillers farming reputation showing \"1\" as name at Stranger.\n- Several Lua errors on login and when opening the reputation frame.\n\n**Full Changelog**: https://github.com/tvlfrosty/Reputation_Guide/compare/Full-1.6.0-release...v2.0.0-release"
+    },
+    {
+      "tag": "Full-1.6.0-release",
+      "published": "2026-01-26",
+      "notes": "## What's Changed\n* Made some fixes for the Midnight expansion.\n* Made some changes to how reputation is printed and added a small delay to prevent some spam (killing multiple npcs within the same second for example).\n\n**Full Changelog**: https://github.com/tvlfrosty/Reputation_Guide/compare/Full-1.5.9-release...Full-1.6.0-release"
+    },
+    {
+      "tag": "Full-1.5.9-release",
+      "published": "2025-12-31",
+      "notes": "## What's Changed\n* Fixed some frame errors within the addon settings.\n* Fixed the preview of Thorium Brotherhood reputation value for Classic Era / Classic Anniversary.\n* Fixed some zone Ids for Classic clients.\n* Disabled reputation value printing to chat after loading screen due to long load time / Will look for permanent solution later on.\n* Fixed some function initializing due to API changes for both Classic and Midnight.\n* Made some changes in preparation for Midnight expansion.\n\n**Full Changelog**: https://github.com/tvlfrosty/Reputation_Guide/compare/Full-1.5.7-release...Full-1.5.9-release"
+    },
+    {
+      "tag": "Full-1.5.7-release",
+      "published": "2025-11-01",
+      "notes": "## What's Changed\n* Revamped the characters list in the addon settings\n* Added the ability to add characters from different realms to tooltips\n* Updated multiple .toc files"
+    },
+    {
+      "tag": "Full-1.5.5-release",
+      "published": "2025-08-22",
+      "notes": "## What's Changed\n* Extra check if profile exists in saved variables\n\n**Full Changelog**: https://github.com/tvlfrosty/Reputation_Guide/compare/Full-1.5.4-release...Full-1.5.5-release"
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-01-26",
+      "2025-12-31",
+      "2025-11-01",
+      "2025-08-22",
+      "2025-08-22",
+      "2025-08-21",
+      "2025-08-20",
+      "2025-08-18",
+      "2025-08-14",
+      "2025-05-03",
+      "2025-04-06",
+      "2025-03-01",
+      "2025-02-01",
+      "2025-01-19",
+      "2024-11-29",
+      "2024-11-25",
+      "2024-11-07",
+      "2024-11-02",
+      "2024-10-24",
+      "2024-10-15",
+      "2024-10-13",
+      "2024-10-13",
+      "2024-08-19",
+      "2024-08-18",
+      "2024-07-28",
+      "2024-06-24",
+      "2024-06-16",
+      "2024-06-03",
+      "2024-05-31",
+      "2024-05-20",
+      "2024-05-14",
+      "2024-04-30",
+      "2024-04-08",
+      "2024-04-05",
+      "2024-04-02",
+      "2024-03-30",
+      "2024-03-26",
+      "2024-03-18",
+      "2024-03-15",
+      "2024-03-13",
+      "2024-03-12",
+      "2024-03-09",
+      "2023-12-26",
+      "2023-12-26",
+      "2023-11-09",
+      "2023-10-12",
+      "2023-09-08",
+      "2023-09-03",
+      "2023-09-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ReputationGuide"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "REP_Data"
+    ],
+    "savedVariablesPerCharacter": [
+      "REP_Suppressed"
+    ]
+  }
+}

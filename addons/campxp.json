@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "campxp",
+  "repo": "fquirozjara91/CampXP",
+  "about": "# CampXP\n\n**Your buffs, always up — from level 1 to raid night.**\n\nCampXP watches the buffs that matter in WoW Forever and tells you when one is missing, about to run out, or when you're running low on the item that gives it. While leveling it tracks your **XP buffs** and shows exactly how much experience you lose without them. At level 60 it switches to **End Game mode** and keeps your **consumables** in check before every dungeon and raid.\n\n---\n\n## Leveling mode\n\nThree icons for the three WoW Forever XP buffs:\n\n- **Camp Benefits** — click the icon to open a grid with your Campfire Kits (Expert → Journeyman → Basic) and every camp feature you carry, sorted by profession. Click one to place it.\n- **Well-Rested** (Cozy Sleeping Bag) — click to use it. The icon shows your stacks (1/3, 2/3, 3/3) and tells you when you can get up.\n- **XP food** — click to open a grid with the food in your bags. XP foods are marked and sorted first, and CampXP asks before you eat one that gives no XP (optional).\n\n**Accurate detection:** not every *Well Fed* gives XP. CampXP reads the buff and item tooltips, so only real XP food counts.\n\n**XP lost tracking:**\n- Extra lines in the default XP bar tooltip: XP gained thanks to each buff and XP lost without it, this level.\n- A small red **-N** above the icon of the buff you're missing.\n- A summary in chat when you level up.\n- Correct math: food only boosts kill XP, Well-Rested boosts all XP (+1% per stack), bonuses add up and rested XP is excluded.\n\n## End Game mode (beta)\n\nWhen you reach level 60, CampXP offers to switch (or use `/cxp mode` anytime):\n\n- The Sleeping Bag and XP tracking are hidden.\n- The food icon shows the stat of your **Well Fed** (\"+6 Sta/Spi\"), and the food grid marks each food with its stat — in the colors you choose.\n- A new **Consumables** icon tracks the elixirs, flasks, scrolls and weapon stones/oils in your bags, **automatically**:\n  - Shows how many are up (\"3/4\") and the time of the one that expires first.\n  - **Reminders when you enter a dungeon/raid and on ready check**: what's missing, what's about to expire, and what's running low.\n  - Buffs that **don't stack count as one** (Scroll of Strength and Elixir of Ogre's Strength: the stronger one wins).\n  - **Class buffs cover their scroll**: if a mage gives you Arcane Intellect, CampXP won't ask you to use your Scroll of Intellect.\n  - **Weapon stones, oils and poisons**, even with Windfury on the same weapon. When dual wielding, clicking one shows your two weapons (main hand left, off-hand right) with their current enchant, so you choose where it goes.\n  - The green check in the grid means that buff is already up.\n  - Learns exactly which buff each item gives the moment you use it. Right-click any item to stop tracking it, link it to a buff by hand, choose its alerts or **report a problem**.\n  - **Presets by spec**: right-click the Consumables icon, pick your spec and a level (Casual, Gamer, Hardcore). The grids show what your spec should bring, what you're missing in grey (click with the Auction House open to search it) and a reminder of what to buy before the raid.\n\n*End Game mode is in beta: consumable detection is still being tuned. Reports are very welcome.*\n\n## Settings (`/cxp`)\n\n- **General** — mode switch, a live table of your tracked buffs (status, time, items in bags, bonus) and behavior options.\n- **Tooltip** — for each icon, choose which lines show **always, only while holding Shift, or never**, with a live preview.\n- **Design** — icon style (Round, Minimal, Classic), size, spacing, horizontal/vertical layout, text sizes, what text to show, grid position/columns/button size, and stat colors in the grid. Live preview included.\n- **Notifications** — big on-screen text (position and size), chat message, icon flash, sounds for each type of alert (with a play button), reminder timing, a per-buff alert table, \"don't alert when…\" (combat, city, mounted, dead, flying, AFK, in a dungeon) and test buttons.\n- **Changelog** — what's new, right in the game.\n\n## Commands\n\n| Command | Description |\n|---|---|\n| `/cxp` | Open settings |\n| `/cxp mode` | Switch between Leveling and End Game |\n| `/cxp style` | Switch icon style (Round → Minimal → Classic) |\n| `/cxp xp` | XP gained/lost this session and level |\n| `/cxp status` | Current state of your buffs |\n| `/cxp food` | How your current Well Fed was classified |\n| `/cxp cons` | Consumables in your bags and how they are detected |\n| `/cxp test` | Test the alerts |\n| `/cxp lock` | Lock/unlock frames |\n| `/cxp reset` | Reset frame positions |\n\nMove the icons with **Shift + drag**. A **minimap button** gives you a quick status and opens the settings.\n\n## Notes\n\n- During combat the game hides aura data from addons; CampXP keeps showing the last known state and refreshes when combat ends.\n- Grid buttons can't be used in combat (Blizzard restriction).\n- English and Spanish (esES/esMX).\n\n---\n\n# CampXP (Español)\n\n**Tus buffs siempre activos, del nivel 1 a la noche de raid.**\n\nCampXP vigila los buffs que importan en WoW Forever y te avisa cuando falta uno, cuando está por acabarse o cuando te queda poco del ítem que lo da. Mientras subes de nivel controla tus **buffs de XP** y te muestra cuánta experiencia pierdes sin ellos. Al nivel 60 pasa al **modo End Game** y cuida tus **consumibles** antes de cada dungeon y raid.\n\n## Modo Leveling\n\n- **Camp Benefits:** clic en el ícono para elegir kit de fogata u objeto de campamento en una grilla.\n- **Well-Rested** (saco de dormir): clic para usarlo; muestra los stacks (1/3, 2/3, 3/3) y avisa cuando ya puedes levantarte.\n- **Comida con XP:** clic para elegir en una grilla; las de XP van primero y marcadas, y pregunta antes de comer una sin XP (opcional).\n- Detección real de comida con XP leyendo los tooltips.\n- **XP perdida:** en el tooltip de la barra de XP, sobre el ícono (**-N**) y en el chat al subir de nivel, con el cálculo correcto de cada bonus.\n\n## Modo End Game (beta)\n\n- Se ofrece al llegar al nivel 60 (o con `/cxp mode`). Oculta el saco y la XP.\n- La comida muestra la estadística de tu **Bien alimentado** y la grilla la marca con el color que elijas.\n- Ícono de **Consumibles** que vigila **automáticamente** elixires, frascos, pergaminos y piedras/aceites de tus bolsas:\n  - Avisos **al entrar a dungeon/raid y en el ready check**: qué falta, qué está por expirar y qué te queda poco.\n  - Los buffs que **no se acumulan cuentan como uno** (gana el mayor) y los **buffs de clase cubren su pergamino** (con Arcane Intellect no te pide el pergamino de Intelecto).\n  - **Piedras, aceites y venenos** de arma, incluso con Windfury. Con dos armas, al hacer clic eliges en cuál aplicarlo (principal a la izquierda, secundaria a la derecha).\n  - Check verde en la grilla = ese buff ya está puesto. Clic derecho para dejar de vigilar, vincular a mano, elegir avisos o **reportar un problema**.\n  - **Predeterminados por spec**: clic derecho en el ícono de Consumibles, eliges tu spec y un nivel (Casual, Gamer, Hardcore). Las grillas muestran lo que tu spec debería llevar, lo que te falta en gris (clic con la subasta abierta para buscarlo) y un aviso de qué comprar antes de la raid.\n\n*El modo End Game está en beta: la detección de consumibles aún se está ajustando. Los reportes son bienvenidos.*\n\n## Configuración (`/cxp`)\n\n- **General:** modo, tabla en vivo de tus buffs y comportamiento.\n- **Tooltip:** por cada ícono, qué líneas se ven siempre, solo con Shift o nunca, con vista previa.\n- **Diseño:** estilo, tamaño, espacio, orientación, textos, grilla y colores de estadísticas, con vista previa.\n- **Notificaciones:** texto grande (posición y tamaño), chat, destello, sonidos por tipo de aviso, tiempos, tabla de avisos por buff, \"no avisar cuando…\" y botones de prueba.\n- **Novedades:** el changelog dentro del juego.\n\nComandos: `/cxp`, `/cxp mode`, `/cxp style`, `/cxp xp`, `/cxp status`, `/cxp food`, `/cxp cons`, `/cxp test`, `/cxp lock`, `/cxp reset`. Mueve los íconos con **Shift + arrastrar**.",
+  "releases": [
+    {
+      "tag": "v1.4.7",
+      "published": "2026-11-26",
+      "notes": "## 1.4.7\n- End Game: **presets by spec**. Right-click the Consumables icon, pick your spec (all classes) and a level: Casual (food), Gamer (+ main elixirs) or Hardcore (+ scroll and flask). Based on a WoW Forever consumables guide.\n  - The Consumables and Food grids show your spec's items first, then the ones you're missing in grey, then everything else.\n  - The counter counts the whole list, and entering a dungeon/raid (or a ready check) tells you what you still need to buy.\n  - Click a grey item with the Auction House open to search for it (uses Auctionator if installed).\n- Right-click menus on the Food, Camp and Sleeping Bag icons: alerts for that icon, preferred food, ask before eating food without XP, hide the icon and open settings.\n- Camp grid option: show only (and all) camp items of your professions; the ones you don't have appear in grey with Auction House search. `/cxp prof` shows the professions detected.\n- Sleeping Bag: optional reminder when you start resting without 3 stacks of Well-Rested.\n- Distilled Firewater and Winterfall Firewater now count as the same buff.\n- Fixed: a buff from another player with the same stat (e.g. Blessing of Might) marked a consumable as already applied.\n- Consumable data updated: Elixir of Holy Power, Elixir of Cunning, Instant Poison VI and the new Hyjal foods."
+    },
+    {
+      "tag": "v1.4.6",
+      "published": "2026-11-23",
+      "notes": "## 1.4.6\n- Fixed: Lua error \"attempt to perform boolean test on a secret boolean value\" in SuppressReason (the game now hides some player states, such as AFK, from addons in certain situations)."
+    },
+    {
+      "tag": "v1.4.5",
+      "published": "2026-11-22",
+      "notes": "## 1.4.5\n- End Game: when dual wielding, clicking a weapon stone, oil or poison in the Consumables grid now shows your two weapons (main hand left, off-hand right, same look as the grid) so you choose where to apply it. With one weapon it is applied directly, as before.\n- Weapon stones, oils and poisons are linked to their enchant more carefully: a new one starts as \"probable\" and becomes \"confirmed\" after 3 matching applications (shown in its tooltip). Applying two things at once no longer links the wrong enchant.\n- Known sharpening stones, weightstones and rogue poisons are recognized right away.\n- Fixed: poisons were not read correctly from the weapon tooltip.\n- Improved consumable detection data."
+    },
+    {
+      "tag": "v1.4.4",
+      "published": "2026-11-22",
+      "notes": "## 1.4.4\n- Fixed: when dual wielding, clicking a weapon stone, oil or poison did nothing (the weapon picker did not open)."
+    },
+    {
+      "tag": "v1.4.3",
+      "published": "2026-11-22",
+      "notes": "## 1.4.3\n- End Game: when dual wielding, clicking a weapon stone, oil or poison in the Consumables grid now lets you choose the weapon: main hand on the left, off-hand on the right, each with its current enchant and time left. With one weapon it is applied directly, as before.\n- Improved consumable detection data."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-14"
+    ]
+  },
+  "languages": [
+    "esES",
+    "esMX"
+  ],
+  "technical": {
+    "folders": [
+      "CampXP"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "CampXPDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "CampXPCharDB"
+    ]
+  }
+}

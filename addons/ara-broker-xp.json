@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "ara-broker-xp",
+  "repo": "AraBroker/Ara_Broker_XP",
+  "about": "# Ara_Broker_XP\nContinuation of Ara_Broker_XP WoW Addon",
+  "releases": [
+    {
+      "tag": "r38",
+      "name": "r38 - Universal",
+      "published": "2026-11-22",
+      "notes": "[All] Updated ToC files for all latest versions of WoW\nCorrected issues with color picker and other configuration issues\nUpdated to support WoW: Forever"
+    },
+    {
+      "tag": "r36",
+      "name": "r36 - Universal",
+      "published": "2026-01-11",
+      "notes": "[All] Updated ToC files for all latest versions of WoW"
+    },
+    {
+      "tag": "r35",
+      "name": "r35 - Universal",
+      "published": "2025-08-14",
+      "notes": "[All] Updated ToC files for all latest versions of WoW"
+    },
+    {
+      "tag": "r34",
+      "name": "r34 - Universal",
+      "published": "2025-03-02",
+      "notes": "[All] Updated ToC files for all latest versions of WoW"
+    },
+    {
+      "tag": "r33",
+      "name": "r33 - Universal",
+      "published": "2024-10-31",
+      "notes": "[All] Fix for GetAddonMetadata issue"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-01-11",
+      "2025-08-14",
+      "2025-03-02",
+      "2024-10-31",
+      "2024-10-31",
+      "2024-07-19",
+      "2024-05-12",
+      "2024-02-06",
+      "2023-11-30",
+      "2023-11-07",
+      "2023-09-08",
+      "2023-07-11",
+      "2023-06-21",
+      "2023-05-13",
+      "2023-03-21",
+      "2023-01-25",
+      "2022-10-25",
+      "2022-08-16",
+      "2022-02-21",
+      "2021-05-20",
+      "2021-05-09",
+      "2021-05-09",
+      "2021-05-09",
+      "2021-03-12",
+      "2021-03-12",
+      "2020-10-26",
+      "2020-10-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Ara_Broker_XP"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "AraBrokerXPDB"
+    ]
+  }
+}

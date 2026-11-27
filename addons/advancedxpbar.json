@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "advancedxpbar",
+  "repo": "Vladinator/wow-addon-advancedxpbar",
+  "about": "Advanced XP Bar\n==================\nHave you ever wondered if you have completed enough quests to level up? Wonder no more! This addon notifies you when you have enough completed quests to level up. Your experience bar will show a green color indicating the amount of experience you have waiting for you once you deliver your completed quests. You will also be notified with sound and a banner on top of your screen!",
+  "releases": [
+    {
+      "tag": "v12.1.5.261105",
+      "published": "2026-11-05",
+      "notes": "# Advanced XP Bar\n\n## [v12.1.5.261105](https://github.com/Vladinator/wow-addon-advancedxpbar/tree/v12.1.5.261105) (2026-11-05)\n[Full Changelog](https://github.com/Vladinator/wow-addon-advancedxpbar/commits/v12.1.5.261105) [Previous Releases](https://github.com/Vladinator/wow-addon-advancedxpbar/releases)\n\n- TOC bump.  \n- Doc update and TOC bump.  \n- Minor classic fixes.  \n- Minor classic improvements.  \n- Classic client fixes.  \n- Swapped the sounds on Highmountain Tauren to match the character gender emotes.  \n- Set the correct Wago ID.  \n- Merge branch 'master' of https://github.com/Vladinator/wow-addon-advancedxpbar  \n- - TOC bump.  \n    - Finally added the missing Allied races cheer sounds.  \n- Update release.yml  \n- Implemented Classic support.  \n- Added TOC files for the other clients.  \n- TOC bump and small fixes for 10.1  \n- Updated for 10.0.0  \n- TOC bump  \n- Correct TOC bump for SL pre-patch.  \n- Cleaned up deprecated file.  \n- Create release.yml  \n- BfA and Shadowlands support.  \n- TOC bump  \n- Just to be super safe, ignore the travis file by name.  \n- TOC bump and WoWInterface automatic packaging.  \n- Adjusting support for Retail and Classic.  \n- Updated for BfA.  \n- Patch 7.2 update.  \n- - TOC bump.  \n- Corrected the .pkgmeta entry.  \n- Updated the readme file.  \n- Cleaned up TOC  \n- Initial commit"
+    },
+    {
+      "tag": "v11.0.2.240908",
+      "published": "2024-09-08",
+      "notes": "# Advanced XP Bar\n\n## [v11.0.2.240908](https://github.com/Vladinator/wow-addon-advancedxpbar/tree/v11.0.2.240908) (2024-09-08)\n[Full Changelog](https://github.com/Vladinator/wow-addon-advancedxpbar/commits/v11.0.2.240908) [Previous Releases](https://github.com/Vladinator/wow-addon-advancedxpbar/releases)\n\n- Set the correct Wago ID.  \n- Merge branch 'master' of https://github.com/Vladinator/wow-addon-advancedxpbar  \n- - TOC bump.  \n    - Finally added the missing Allied races cheer sounds.  \n- Update release.yml  \n- Implemented Classic support.  \n- Added TOC files for the other clients.  \n- TOC bump and small fixes for 10.1  \n- Updated for 10.0.0  \n- TOC bump  \n- Correct TOC bump for SL pre-patch.  \n- Cleaned up deprecated file.  \n- Create release.yml  \n- BfA and Shadowlands support.  \n- TOC bump  \n- Just to be super safe, ignore the travis file by name.  \n- TOC bump and WoWInterface automatic packaging.  \n- Adjusting support for Retail and Classic.  \n- Updated for BfA.  \n- Patch 7.2 update.  \n- - TOC bump.  \n- Corrected the .pkgmeta entry.  \n- Updated the readme file.  \n- Cleaned up TOC  \n- Initial commit"
+    },
+    {
+      "tag": "v10.1.5.230919",
+      "published": "2023-09-25",
+      "notes": "# Advanced XP Bar\n\n## [v10.1.5.230919](https://github.com/Vladinator/wow-addon-advancedxpbar/tree/v10.1.5.230919) (2023-09-21)\n[Full Changelog](https://github.com/Vladinator/wow-addon-advancedxpbar/compare/v10.1.0.230503...v10.1.5.230919) [Previous Releases](https://github.com/Vladinator/wow-addon-advancedxpbar/releases)\n\n- Implemented Classic support.  \n- Added TOC files for the other clients."
+    },
+    {
+      "tag": "v10.1.0.230503",
+      "published": "2023-05-04",
+      "notes": "# Advanced XP Bar\n\n## [v10.1.0.230503](https://github.com/Vladinator/wow-addon-advancedxpbar/tree/v10.1.0.230503) (2023-05-04)\n[Full Changelog](https://github.com/Vladinator/wow-addon-advancedxpbar/compare/v10.0.0.221026...v10.1.0.230503) [Previous Releases](https://github.com/Vladinator/wow-addon-advancedxpbar/releases)\n\n- TOC bump and small fixes for 10.1"
+    },
+    {
+      "tag": "v10.0.0.221026",
+      "published": "2022-10-26",
+      "notes": "# Advanced XP Bar\n\n## [v10.0.0.221026](https://github.com/Vladinator/wow-addon-advancedxpbar/tree/v10.0.0.221026) (2022-10-26)\n[Full Changelog](https://github.com/Vladinator/wow-addon-advancedxpbar/compare/v9.2.7.220917...v10.0.0.221026) [Previous Releases](https://github.com/Vladinator/wow-addon-advancedxpbar/releases)\n\n- Updated for 10.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 2,
+    "contributors": 2,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2024-09-08",
+      "2023-09-25",
+      "2023-05-04",
+      "2022-10-26",
+      "2022-09-17",
+      "2020-10-15",
+      "2020-10-14",
+      "2020-02-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AdvancedXPBar"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "AdvancedXPBarDB"
+    ]
+  }
+}

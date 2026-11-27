@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "peaversdynamicstats",
+  "repo": "peavers-warcraft/PeaversDynamicStats",
+  "about": "# PeaversDynamicStats\n\n[![AddonSentry](https://addonsentry.io/api/public/repos/peavers-warcraft/PeaversDynamicStats/badge.svg)](https://addonsentry.io/dashboard/peavers-warcraft/PeaversDynamicStats)\n\nA World of Warcraft addon that visualizes your primary and secondary stats with dynamic bars that update in real-time during combat.\n\n## Features\n\n- Real-time tracking of primary stats (strength, agility, intellect, stamina)\n- Real-time tracking of secondary stats (haste, crit, mastery, versatility)\n- Combat-aware updates with increased frequency during combat\n- Customizable bar colors, textures, spacing, and dimensions\n- Movable and lockable frame positioning\n- Combat-only mode to auto-hide when out of combat\n\n## Usage\n\n- `/pds` - Toggle the stats display\n- `/pds config` - Open the configuration panel\n- Left-click and drag the frame to reposition\n\n## Configuration\n\nAccess settings through `/pds config` to customize:\n\n- Which stats to display\n- Bar colors, size, and spacing\n- Frame lock/unlock\n- Combat-only visibility\n\n## Installation\n\n### Recommended: PeaversUpdater\n\nDownload and install [PeaversUpdater](https://github.com/peavers-warcraft/PeaversUpdater/releases/latest), the desktop updater for the whole Peavers collection. It installs PeaversDynamicStats together with its required dependencies and delivers updates before they reach CurseForge.\n\n### Alternative: CurseForge\n\n1. Download from [CurseForge](https://www.curseforge.com/wow/addons/peaversdynamicstats)\n2. Ensure [PeaversCommons](https://www.curseforge.com/wow/addons/peaverscommons) is also installed\n3. Ensure [PeaversConfig](https://www.curseforge.com/wow/addons/peaversconfig) is also installed\n4. Enable the addon on the character selection screen\n\n---\n\n*Part of the [Peavers](https://peavers.io/) addon collection · [Report an issue](https://github.com/peavers-warcraft/PeaversDynamicStats/issues) · [Support development on Patreon](https://www.patreon.com/Peavers)*",
+  "releases": [
+    {
+      "tag": "PeaversDynamicStats-1.0.124",
+      "name": "PeaversDynamicStats v1.0.124",
+      "published": "2026-11-24",
+      "notes": "## What's New in 1.0.124\n\n### Bug Fixes\n- clear AddonSentry 120105 findings"
+    },
+    {
+      "tag": "PeaversDynamicStats-1.0.123",
+      "name": "PeaversDynamicStats v1.0.123",
+      "published": "2026-11-24",
+      "notes": "## What's New in 1.0.123\n\n### Features\n- Attack Power, Ranged Attack Power, Spell Power, Bonus Healing and Spell Crit bars on WoW Forever (#52)"
+    },
+    {
+      "tag": "PeaversDynamicStats-1.0.122",
+      "name": "PeaversDynamicStats v1.0.122",
+      "published": "2026-11-24",
+      "notes": "## What's New in 1.0.122\n\n### Bug Fixes\n- The Primary Stat bar no longer errors on WoW Forever (#51)"
+    },
+    {
+      "tag": "PeaversDynamicStats-1.0.121",
+      "name": "PeaversDynamicStats v1.0.121",
+      "published": "2026-11-03",
+      "notes": "## What's New in 1.0.121\n\n### Features\n- Now works on WoW Forever, with Hit, Expertise and Spirit bars in place of Mastery and Versatility"
+    },
+    {
+      "tag": "PeaversDynamicStats-1.0.120",
+      "name": "PeaversDynamicStats v1.0.120",
+      "published": "2026-10-26",
+      "notes": "## What's New in 1.0.120\n\n### Features\n- Overflow bars now keep showing during combat when a stat goes past 100%\n\n### Bug Fixes\n- Sorting and the highest-stat highlight now hold your stats from the moment of the pull\n- Bars no longer refresh for every buff in your group, only your own\n- Remove the Combat Update Interval setting, which never did anything"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 1,
+    "contributors": 6,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-03",
+      "2026-10-26",
+      "2026-10-14",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-17",
+      "2026-09-17",
+      "2026-09-07",
+      "2026-08-11",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-07-18",
+      "2026-07-12",
+      "2026-07-12",
+      "2026-07-10",
+      "2026-07-07",
+      "2026-06-19",
+      "2026-06-19",
+      "2026-06-17",
+      "2026-06-17",
+      "2026-06-12",
+      "2026-05-19",
+      "2026-05-17",
+      "2026-05-16",
+      "2026-05-10",
+      "2026-05-09",
+      "2026-05-09",
+      "2026-05-09",
+      "2026-05-08",
+      "2026-05-07",
+      "2026-05-07",
+      "2026-05-07",
+      "2026-05-06",
+      "2026-05-03",
+      "2026-04-30",
+      "2026-04-23",
+      "2026-04-22",
+      "2026-04-17",
+      "2026-02-13",
+      "2026-02-13",
+      "2026-02-02",
+      "2026-02-02",
+      "2026-02-01",
+      "2026-01-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PeaversDynamicStats"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "PeaversCommons",
+      "PeaversConfig"
+    ],
+    "savedVariables": [
+      "PeaversDynamicStatsDB"
+    ]
+  }
+}

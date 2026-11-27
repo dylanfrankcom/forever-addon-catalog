@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "pawnbroker",
+  "repo": "stackrot/PawnBroker",
+  "about": "# PawnBroker\n\nFind the gear upgrades worth buying on the auction house, scored by Pawn and priced by Auctionator.\nFor World of Warcraft: Forever.\n\n![The PawnBroker window in game, planning upgrades for a level 25 mage](https://raw.githubusercontent.com/stackrot/PawnBroker/main/docs/ingame.png)\n\n- Plans the upgrades that add the most Pawn score for the gold you have, at most one per slot\n- Shows each item's net cost: its AH price minus what a vendor pays for it\n- Lists upgrades that a vendor buys back for nearly what they cost\n- Plans by net cost when you'd rather count what you get back\n- Prices each version of random-suffix items, like \"of the Owl\", separately\n\nPawnBroker isn't made by or affiliated with the authors of Pawn or Auctionator.\nIt needs both and uses their data.\n\n## Getting started\n\nYou need [Pawn](https://www.curseforge.com/wow/addons/pawn) with one scale shown, and [Auctionator](https://www.curseforge.com/wow/addons/auctionator).\nInstall [PawnBroker from CurseForge](https://www.curseforge.com/wow/addons/pawnbroker) with your addon manager, or unzip a release so the `PawnBroker` folder ends up in `World of Warcraft\\_forever_\\Interface\\AddOns`.\n\nRun a full Auctionator scan at the AH, then type `/pb` anywhere.\nScan again every few days to keep the prices current.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/pb` | Plan with the gold you carry |\n| `/pb 1g50s` | Plan with a budget of 1g 50s |\n| `/pb all` | Plan with no budget: the best item for each slot |\n| `/pb +2` | Include items up to 2 levels above you |\n| `/pb net` | Plan by net cost instead of AH price |\n| `/pb near 10s` | Count a net cost of 10s or less as near vendor price (the default is 5s) |\n| `/pb near off` | Hide the near vendor price list |\n| `/pb scan` | Price random-suffix items (needs the AH open) |\n| `/pb stop` | Stop a suffix scan |\n\nOptions combine, for example `/pb 1g net +1`.\n\n## The window\n\nThe window lists:\n\n- Buy: the upgrades to get, at most one per slot, within your budget\n- Better, but over budget: stronger items you can't afford yet\n- Near vendor price: upgrades that a vendor buys back for nearly what they cost\n\nEach row shows the item's AH price, its net cost, the Pawn gain over what you're wearing, the level it needs and how many are listed.\nHover a row for the item's tooltip, click it to search the AH, or shift-click to link it in chat.\nEach plan also fills the Auctionator shopping list \"PawnBroker\" with the items to buy.\n\nThe budget is the gold you carry unless you type one in, such as `1g50s`, or `all` for no limit.\nThe Levels above box adds items you can't wear yet, so you can plan a few levels ahead.\n\n## Net cost and near vendor price\n\nAn item's net cost is its AH price minus what a vendor pays for it.\nThat's what it costs you if you sell it once you outgrow it.\nThe Net column shows it for every row, and hovering a row shows the vendor price.\n\nUpgrades with a net cost of 5s or less get their own list, Near vendor price.\nThey cost next to nothing once you sell them on, which makes them cheap stopgaps, and their net cost shows in green.\n`/pb near 10s` changes the limit and `/pb near off` hides the list.\n\n![Hovering an upgrade in the near vendor price list](https://raw.githubusercontent.com/stackrot/PawnBroker/main/docs/near.png)\n\nTick the Net cost box, or type `/pb net`, to plan by net cost instead of AH price.\nThe budget then caps what the plan costs you after selling everything on, so it can include an item that's over budget at AH price but sells back for most of it.\nThe plan's title gives both totals, and a note says when the items cost more up front than the gold you carry.\n\n![A plan made by net cost](https://raw.githubusercontent.com/stackrot/PawnBroker/main/docs/net.png)\n\n## Random-suffix items\n\nAuctionator keeps one price per item, the cheapest version, so it can't tell \"Willow Vest of the Owl\" from \"Willow Vest of the Monkey\".\nWith the AH open, Scan suffixes looks up every random-suffix item from 10 levels below you to 5 above and saves the cheapest listing of each version for your realm and faction.\nPlans then price each version separately.\nThe window asks for a new scan when the last one is over a day old or you've gained 3 levels since.\n\n## How it plans\n\nPawnBroker only considers items your class can wear, at or below your level (or as many levels above it as you asked for), whose tooltips have no red text such as a profession requirement.\nIt compares rings and trinkets with the weaker of the two you wear, and a two-hander with your main hand and off hand together.\nIt skips off hands while you wear a two-hander and ignores gains under 0.5%, as Pawn does.\n\nFrom what's left it picks at most one item per slot, with the most total Pawn gain that fits the budget.\n\n## Privacy and safety\n\nPawnBroker only reads and plans.\nIt never sends chat or addon messages, so nothing leaves your game.\nIt doesn't hook or replace any Blizzard code, secure frames or key bindings, and it never buys or posts anything on the AH.\nIt writes to two places:\n\n- `PawnBrokerDB`, its saved variables: the window settings, the last plan, each character's last suffix scan, and the suffix price cache, which drops entries after 7 days\n- the Auctionator shopping list named \"PawnBroker\", which each plan replaces\n\nScan suffixes only runs when you start it.\nIt sends one AH search at a time and waits for the AH's throttle between them.\n\n## Limits\n\n- A plan buys at most one ring, one trinket and one hand-held item. Plan again after equipping to fill the second ring or trinket slot.\n- It doesn't check unique-equipped items or weapon skills, beyond what turns tooltip text red.\n- Prices are only as fresh as your last Auctionator scan.\n\n## Reporting issues\n\n[Open an issue](https://github.com/stackrot/PawnBroker/issues/new?template=bug_report.yml) and the form asks for what's needed.\nThat's the versions of PawnBroker, Pawn, Auctionator and the game, and any Lua error.\nMost problems come from a Pawn, Auctionator or game update, so the versions matter.\nType `/console scriptErrors 1` in game to see errors, or use BugSack to copy them.\n\n## Development\n\nThe tests run the addon against mocked game, Pawn and Auctionator APIs with real scan data.\nThey need [LuaJIT](https://luajit.org/) and run the same on Windows, macOS and Linux:\n\n```\nluajit tests/run.lua       # all scenarios\nluajit tests/run.lua -v    # with chat output\n```\n\nCI runs them on Ubuntu and Windows for every push.\nPushing a version tag such as `v0.1.1` runs the tests again, then the [BigWigs packager](https://github.com/BigWigsMods/packager) builds the release from `.pkgmeta` and posts it to GitHub and CurseForge.\nThe package leaves out the tests, the docs and this README.\nThe 400×400 avatar for addon sites comes from `docs/mockups/logo.html`, and the comment at the top of that file says how to render it.\n\n## AI use\n\nWritten with AI assistance (Claude), then reviewed and tested by me before each release.\n\n## Licence\n\nMIT",
+  "releases": [
+    {
+      "tag": "v0.1.1",
+      "published": "2026-11-21",
+      "notes": "# Changelog\n\n## 0.1.1\n\n- If Pawn reports an addon it can't work with, `/pb` tells you to check `/pawn` instead of planning with wrong scores. Pawn added this check in 2.14.5.\n- Suffix prices are now saved per realm and faction, because each faction has its own AH. Run Scan suffixes again on each character. Prices saved by 0.1.0 aren't used any more and are cleared after 7 days.\n\n## 0.1.0\n\nFirst public version.\n\n- `/pb` plans the upgrades with the most Pawn gain that fit your budget, from your latest Auctionator scan.\n- Each upgrade shows its net cost: the AH price minus what a vendor pays for it.\n- Upgrades that sell to a vendor for nearly what they cost get their own list. `/pb near 10s` changes the limit from the default 5s, and `/pb near off` hides the list.\n- `/pb net`, or the Net cost box, plans by net cost instead of AH price.\n- `/pb scan` prices each version of random-suffix items with the AH open."
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-14",
+      "notes": "# Changelog\n\n## 0.1.0\n\nFirst public version.\n\n- `/pb` plans the upgrades with the most Pawn gain that fit your budget, from your latest Auctionator scan.\n- Each upgrade shows its net cost: the AH price minus what a vendor pays for it.\n- Upgrades that sell to a vendor for nearly what they cost get their own list. `/pb near 10s` changes the limit from the default 5s, and `/pb near off` hides the list.\n- `/pb net`, or the Net cost box, plans by net cost instead of AH price.\n- `/pb scan` prices each version of random-suffix items with the AH open."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/stackrot/PawnBroker/main/docs/ingame.png",
+    "https://raw.githubusercontent.com/stackrot/PawnBroker/main/docs/near.png",
+    "https://raw.githubusercontent.com/stackrot/PawnBroker/main/docs/net.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PawnBroker"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Pawn",
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "PawnBrokerDB"
+    ]
+  }
+}

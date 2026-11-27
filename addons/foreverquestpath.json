@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverquestpath",
+  "repo": "sebmak/ForeverQuestPath",
+  "about": "![ForeverQuestPath Icon](https://raw.githubusercontent.com/sebmak/ForeverQuestPath/main/.previews/icon.png)\n\n# ForeverQuestPath\n\n**ForeverQuestPath** is a WoW Forever (`Interface: 16001`) 1–60 quest routing addon paired with a Python offline dataset pipeline and simulator.\n\n## Features\n\n- **1–60 Multi-Faction Routing:** Supports Alliance, Horde, and Skyborne races/classes across all 1–60 zones and leveling dungeons.\n- **5 Scoring Profiles:** `xp_speed`, `class_bis`, `balanced`, `dungeon_focus`, and `skinning_lw` with adjustable 5-axis weights.\n- **Terrain & Gate-Aware Navigation:** Precomputed CSR navigation grid with bidirectional Dijkstra pathfinding across terrain barriers, tunnels, hubs, and flight paths.\n- **Proactive Chain & Turn-In Optimization:** Expands full quest chains ahead of completion (`[Chain X/Y]`), prioritizes nearby ready turn-ins (`[Ready Turn-In]`), and defers distant turn-ins until aligned.\n- **Optimal-Path Available Quest Suggestions:** Continuously discovers eligible unaccepted quests (including unrouted side quests, behind-gap route quests, and quests along your hub/walking corridor) whose pickup, objectives, and turn-in fit the active zone route, surfacing hub and corridor pickups before sending you out to distant objectives.\n- **GPS Auto-Reorder & Friend-Meetup Pivots:** Near-realtime intra-zone step reordering and off-route friend meetup chain detection (`/fqp gps`, `/fqp reorder`).\n- **Configurable Max Quest Level Offset:** Adjustable `-3` to `+5` quest level ceiling via UI slider or `/fqp maxlevel`.\n- **Skip Elite Quests Unless Grouped:** Automatically defers open-world elite quests and their follow-ups while solo (`Skip Elite (Solo)` toggle or `/fqp elite`), unlocking them immediately when you join a party or raid while always keeping completed turn-ins active.\n- **Skip Dungeon Quests Until Ready:** Defers quests inside dungeon instances (`Skip Dungeons` toggle or `/fqp skipdungeons` / `/fqp dungeons skip|allow|toggle`) while keeping outdoor unlock quests and completed turn-ins active, and automatically rewinds to all deferred dungeon steps when you're ready to run them together.\n- **Automatic In-Dungeon Quest Routing:** When you zone inside any Classic or Forever custom dungeon instance, automatically surfaces that dungeon's ready in-dungeon turn-ins, available inside-dungeon pickups, active objectives, follow-up chains, post-run turn-ins, and shareable dungeon quests as your next steps—even while `Skip Dungeons` or `Skip Elite (Solo)` is enabled—and resumes normal open-world routing when you exit.\n- **Universal 12-Profession Selection & Prioritization:** Auto-detects learned professions or lets you manually prioritize any combination of all 12 WoW Forever primary and secondary professions (Alchemy, Blacksmithing, Enchanting, Engineering, Herbalism, Leatherworking, Mining, Skinning, Tailoring, Cooking, First Aid, Fishing) via the Route window picker, `Profs` Special Rewards filter, or `/fqp prof`.\n- **Leveling Journey Stats Page:** Dedicated `Journey Stats` tab (`/fqp stats`) tracking average time per level, live session and journey XP/hr, Quest XP vs Combat/Exploration XP split, ETA to next level and Level 60, ground distance traveled (yards / km / miles), per-level `1–60` breakdown, per-zone travel & quest stats, gold earned/spent/net & gold/hr, deaths & deathless streak, flights, hearthstones, dungeons visited, and `/played` sync.\n- **Quest Hover Instructions & Click-to-Open Quest Log:** Hovering over any quest in the HUD or Window tabs displays full quest instructions, narrative text, live objective progress, NPC coordinates, chain progress, and rewards; Left-Clicking opens the Quest Log to that quest (or pins its quest giver if unaccepted), while Right-Clicking pins the waypoint or jumps to the route step.\n- **Anti-Shuffling Route Stability:** Keeps lookahead steps anchored cleanly to your current continent and zone (expanding local frontiers when transitioning zones, simulating Hearthstone as single-use, enforcing cross-zone/cross-continent cohesion, and applying walking target/queue hysteresis) so upcoming steps don't flip across continents mid-travel.\n- **Low-CPU Event Gating:** Suppresses redundant routing recalculations while stationary, looting/skinning, or dead/ghost.\n\n---\n\n## Install with WowUp (Recommended)\n\nYou can install and auto-update **ForeverQuestPath** for **WoW Forever (`Interface: 16001`)** directly through **WowUp**:\n\n1. Open **WowUp** and select your **WoW Forever** client installation.\n2. Go to **Get Addons -> Install from URL**.\n3. Paste the GitHub repository URL:\n   - https://github.com/sebmak/ForeverQuestPath\n4. Click **Import** and then **Install / Re-install** — WowUp reads `release.json`, `ForeverQuestPath-v1.7.0-forever.zip`, and `ForeverQuestPath_Forever.toc` automatically and replaces any `Unknown` manual local folder (which otherwise shows an `\"F\"` placeholder).\n\n---\n\n## Quick Install (Release ZIP)\n\nYou can download a prebuilt release binary directly without cloning the repo:\n\n1. Download the latest archive:\n   - Direct asset (`v1.7.0`): [`ForeverQuestPath-v1.7.0-forever.zip`](https://github.com/sebmak/ForeverQuestPath/releases/latest/download/ForeverQuestPath-v1.7.0-forever.zip)\n   - All releases: [`github.com/sebmak/ForeverQuestPath/releases/latest`](https://github.com/sebmak/ForeverQuestPath/releases/latest)\n2. Extract `ForeverQuestPath-v1.7.0-forever.zip` into your WoW Forever AddOns directory:\n   - **macOS:** `/Applications/World of Warcraft/_forever_/Interface/AddOns/`\n   - **Windows:** `C:\\Program Files (x86)\\World of Warcraft\\_forever_\\Interface\\AddOns\\`\n3. Confirm the extracted folder structure contains:\n   ```text\n   <World of Warcraft>/_forever_/Interface/AddOns/ForeverQuestPath/ForeverQuestPath.toc\n   ```\n4. Launch WoW Forever (or type `/reload` in-game), then open the window with `/fqp` or the minimap button.\n\n---\n\n## Developer Commands\n\n```bash\n# Validate .toc + LuaJIT bytecode and sync addon/ into WoW _forever_ AddOns\nbash scripts/install_addon.sh\n\n# Build and verify release zip + SHA-256 checksum into dist/\npython3 scripts/package_release.py\n\n# Refresh vendored upstream QuestieDB data into scraper/vendor/QuestieDB/\npython3 scraper/sync_questiedb.py\n\n# Run full validation, simulator, mock, and LuaJIT addon test suite\npython3 -m unittest discover -s tests -v\n```",
+  "releases": [
+    {
+      "tag": "v1.7.0",
+      "name": "ForeverQuestPath v1.7.0",
+      "published": "2026-11-17",
+      "notes": "## ForeverQuestPath v1.7.0 (WoW Forever `16001`)\n\n### Install via WowUp\n1. Open **WowUp**, select your **WoW Forever** installation, and open **Get Addons -> Install from URL**.\n2. Paste `https://github.com/sebmak/ForeverQuestPath` and click **Import**.\n\n### Manual Installation\n1. Download **`ForeverQuestPath-v1.7.0-forever.zip`** below.\n2. Extract it into your WoW Forever `Interface/AddOns/` directory:\n   - **macOS:** `/Applications/World of Warcraft/_forever_/Interface/AddOns/`\n   - **Windows:** `<WoW>\\_forever_\\Interface\\AddOns\\`\n3. Verify `<WoW>/_forever_/Interface/AddOns/ForeverQuestPath/ForeverQuestPath.toc` exists.\n4. Launch WoW Forever (or `/reload`) and run `/fqp` or click the minimap icon.\n\n### Checksum\n- `SHA-256 (ForeverQuestPath-v1.7.0-forever.zip)`: `d1873ab56e7c058ddcfb24a99f90d2d61c21140805ab01d5566673e371f63c09`"
+    },
+    {
+      "tag": "v1.6.2",
+      "name": "ForeverQuestPath v1.6.2",
+      "published": "2026-11-17",
+      "notes": "## ForeverQuestPath v1.6.2 (WoW Forever `16001`)\n\n### Install via WowUp\n1. Open **WowUp**, select your **WoW Forever** installation, and open **Get Addons -> Install from URL**.\n2. Paste `https://github.com/sebmak/ForeverQuestPath` and click **Import**.\n\n### Manual Installation\n1. Download **`ForeverQuestPath-v1.6.2-forever.zip`** below.\n2. Extract it into your WoW Forever `Interface/AddOns/` directory:\n   - **macOS:** `/Applications/World of Warcraft/_forever_/Interface/AddOns/`\n   - **Windows:** `<WoW>\\_forever_\\Interface\\AddOns\\`\n3. Verify `<WoW>/_forever_/Interface/AddOns/ForeverQuestPath/ForeverQuestPath.toc` exists.\n4. Launch WoW Forever (or `/reload`) and run `/fqp` or click the minimap icon.\n\n### Checksum\n- `SHA-256 (ForeverQuestPath-v1.6.2-forever.zip)`: `970a6821754d6793c145736a728f938c88f3a09dc7bbeb798868a657cf533060`"
+    },
+    {
+      "tag": "v1.6.1",
+      "name": "ForeverQuestPath v1.6.1",
+      "published": "2026-11-16",
+      "notes": "## ForeverQuestPath v1.6.1 (WoW Forever `16001`)\n\n### Install via WowUp\n1. Open **WowUp**, select your **WoW Forever** installation, and open **Get Addons -> Install from URL**.\n2. Paste `https://github.com/sebmak/ForeverQuestPath` and click **Import**.\n\n### Manual Installation\n1. Download **`ForeverQuestPath-v1.6.1-forever.zip`** below.\n2. Extract it into your WoW Forever `Interface/AddOns/` directory:\n   - **macOS:** `/Applications/World of Warcraft/_forever_/Interface/AddOns/`\n   - **Windows:** `<WoW>\\_forever_\\Interface\\AddOns\\`\n3. Verify `<WoW>/_forever_/Interface/AddOns/ForeverQuestPath/ForeverQuestPath.toc` exists.\n4. Launch WoW Forever (or `/reload`) and run `/fqp` or click the minimap icon.\n\n### Checksum\n- `SHA-256 (ForeverQuestPath-v1.6.1-forever.zip)`: `f061997b944a8f1cefad564476ab523d5bf8fa1d5c1f5d5d709a7487551453ab`"
+    },
+    {
+      "tag": "v1.6.0",
+      "name": "ForeverQuestPath v1.6.0",
+      "published": "2026-11-16",
+      "notes": "## ForeverQuestPath v1.6.0 (WoW Forever `16001`)\n\n### Installation\n1. Download **`ForeverQuestPath-v1.6.0.zip`** below.\n2. Extract it into your WoW Forever `Interface/AddOns/` directory:\n   - **macOS:** `/Applications/World of Warcraft/_forever_/Interface/AddOns/`\n   - **Windows:** `<WoW>\\_forever_\\Interface\\AddOns\\`\n3. Verify `<WoW>/_forever_/Interface/AddOns/ForeverQuestPath/ForeverQuestPath.toc` exists.\n4. Launch WoW Forever (or `/reload`) and run `/fqp` or click the minimap icon.\n\n### Checksum\n- `SHA-256 (ForeverQuestPath-v1.6.0.zip)`: `ff16262c600dde61b665b3c3e9c8d0a3504f65977c147654aed462dd67b38f8d`"
+    },
+    {
+      "tag": "v1.5.0",
+      "name": "ForeverQuestPath v1.5.0",
+      "published": "2026-11-16",
+      "notes": "## ForeverQuestPath v1.5.0 (WoW Forever `16001`)\n\n### Installation\n1. Download **`ForeverQuestPath-v1.5.0.zip`** below.\n2. Extract it into your WoW Forever `Interface/AddOns/` directory:\n   - **macOS:** `/Applications/World of Warcraft/_forever_/Interface/AddOns/`\n   - **Windows:** `<WoW>\\_forever_\\Interface\\AddOns\\`\n3. Verify `<WoW>/_forever_/Interface/AddOns/ForeverQuestPath/ForeverQuestPath.toc` exists.\n4. Launch WoW Forever (or `/reload`) and run `/fqp` or click the minimap icon.\n\n### Checksum\n- `SHA-256 (ForeverQuestPath-v1.5.0.zip)`: `6648e39dc5a00577e1fc4f995beef436eb83e0226b6e7d256bd876e65552f11b`"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverQuestPath"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "TomTom",
+      "OpenMap",
+      "Questie",
+      "ForeverLevelingBiS"
+    ],
+    "savedVariables": [
+      "ForeverQuestPathDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ForeverQuestPathCharDB"
+    ]
+  }
+}

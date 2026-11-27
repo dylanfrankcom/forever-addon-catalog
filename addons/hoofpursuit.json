@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "hoofpursuit",
+  "repo": "shwill/wow-addon-HoofPursuit",
+  "about": "# Hoof Pursuit\n\nA completely unnecessary wooden speedometer for the Tauren racial **Plainsrunning** (Ebenenlaufen).\nWhile you run, the buff stacks up to 30 times, +2% movement speed per stack (up to +60%). Hoof Pursuit shows your speed bonus (0-60%) as a needle on a carved wooden dial:\n\n- When the first stack appears, the gauge slams onto the screen: it drops in from \"above the camera\", shrinking while it fades in, hits its spot with a bounce and the needle jumps from the impact. Then the engine starts with sound: the needle twitches while it cranks and revs when it catches.\n- When your stacks run out and you stand still, it bursts into wooden splinters that tumble off the screen.\n\n- Each new stack makes the needle click forward one notch, with a little overshoot and a click sound.\n- Losing stacks makes it click back down: several in quick succession when you get hit, slowly when you stand still.\n- The faster you run, the more the needle trembles and the dial rumbles, sways and bumps. At 30 stacks the red zone glows.\n\n## How it gets its data\n\n- Stacks: `C_UnitAuras.GetPlayerAuraBySpellID(1299038)`, polled 10 times a second while the gauge is visible.\n- Speed: `GetUnitSpeed(\"player\")`. If the client hides the value (secret value), the shake is driven by the stack count instead.\n\n## Commands\n\n| Command | Effect |\n|---------|--------|\n| `/tacho` | Show current stacks, speed and mode (`/hoof` works as an alias everywhere) |\n| `/tacho lock` | Lock or unlock the gauge (drag it with the left mouse button while unlocked) |\n| `/tacho size <px>` | Gauge size in pixels (80-600, default 200) |\n| `/tacho auto` | Slam in with the first stack, fade out after 1.5 s without stacks or movement (default) |\n| `/tacho on` / `/tacho off` | Always show / hide |\n| `/tacho sound` | Turn all sounds on or off (clicks, engine start, shatter) |\n| `/tacho test` | 15 s demo: slam in, build up to 30, take a hit, stand still, shatter |\n| `/tacho pop` | Just the animations: slam in, engine start, shatter |\n| `/tacho film` | Movie mode: the gauge stays visible when you hide the UI with Alt+Z |\n| `/tacho reset` | Reset position, size and settings |\n\n## Caveats\n\n- Tauren only. On any other race, the addon does nothing and disables itself for that character (re-enable it in the AddOn list).\n- In combat, the game hides the buff and your speed from addons. The gauge turns gray and freezes at the last value. Every hit you take knocks off an estimated 4 stacks, and if that reaches 0 it shatters. After combat it snaps back to the real value.\n- Settings are saved per character.\n\n## Install\n\nCopy the `HoofPursuit` folder into `World of Warcraft/_forever_/Interface/AddOns/` and restart the game.\n\nSource: https://github.com/shwill/wow-addon-HoofPursuit\n\nLicense: MIT, see `LICENSE`.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-15",
+      "notes": "# Hoof Pursuit\n\n## [v1.0.0](https://github.com/shwill/wow-addon-HoofPursuit/tree/v1.0.0) (2026-11-15)\n[Full Changelog](https://github.com/shwill/wow-addon-HoofPursuit/commits/v1.0.0) [Previous Releases](https://github.com/shwill/wow-addon-HoofPursuit/releases)\n\n- Add CurseForge project ID and tag-triggered release workflow  \n- Rename addon to Hoof Pursuit  \n- Shatter after 1.5 s idle instead of 4 s  \n- Add film mode that keeps the gauge visible with the UI hidden  \n- Add depth-aware drop shadow  \n- Shorten engine sound fade to the last half second  \n- Fade out the engine start sound  \n- Freeze in combat and estimate stack loss from hits taken  \n- Add engine start and shatter sounds, sync needle to engine start  \n- Shatter the gauge into wooden splinters on fade-out  \n- Lift the gauge upward while it tips out  \n- Add /tacho pop to preview slam-in and tip-out  \n- Faster slam-in, settle bounce, tip-back fade-out  \n- Replace ignition with a slam-in drop animation  \n- Add ignition fade-in and switch dial to 0-60 % scale  \n- Give the shaking body frame a size so the gauge renders  \n- Add PlainsTacho: wooden speedometer for Plainsrunning stacks"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HoofPursuit"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "HoofPursuitDB"
+    ]
+  }
+}

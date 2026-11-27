@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "wanderermaps",
+  "repo": "Jaecko/wanderer-maps",
+  "about": "# Wanderer Maps\n\nA route with steps, notes on the world map, an arrow on the screen. Made for World of Warcraft Forever.\nAn extension of [Wanderer](https://github.com/Jaecko/wanderer): it needs Wanderer 1.4 or later.\n\n- A route with steps: from your notes, from where you stand (a key), from the places of [Wanderer Quests](https://github.com/Jaecko/wanderer-quests) (\"Go there\", \"Add to the route\", a whole \"Quest route\" through a place's quests). Each step says what to do there (take a quest, hand it in), opens its quest in one click and ticks itself once done. An arrow follows the step, gold on course and amber when it is behind you, with the distance, the time of arrival (\"~2 min\") and the step's number with the whole route's time; reached, the next one; the last one ends the route. It points as the crow flies, and steps aside when TomTom or a guide shows its own arrow.\n- Routes kept: the route followed kept under a name (a round of herbs, of mailboxes), followed again later, renamed or removed.\n- After a death, an arrow to your corpse while you are a ghost (an option, never with TomTom), gone at resurrection.\n- The guided way: to a step, the cheapest way in time through your feet, the flight paths you have found, the boats, zeppelins and tram of the original world, your hearthstone (an option of each character, its wait counted while it cools down); followed leg by leg.\n- On a flight, the destination named over a slim line from take off to landing: a dot for each stop, yours moving along, the time left. Times learned from your own flights, guessed from the distance before (marked ~); the flight map's tooltips say them too.\n- Notes on the world map: Alt+click opens a small card where you click: a name and one of eight signs (a star, a treasure, herbs, ore, danger...), saved, followed or put on the route. Notes show on the minimap too, within a radius you choose. A button on the world map shows or hides them by sign, or all at once (the minimap follows); on a continent's map they are small dots, grouped by zone when many. Shift+click: a map link in the chat with the note's name and zone. The Notes tab sorts them by last use and removes all notes of a sign or of a zone at once, asked first.\n- The game's own marker in the world on the point followed; the route on the minimap.\n- The continents in one piece: every zone's own land drawn where it lies on its continent's map, as sharp as on its own map; the land you have not explored yet softened, on the zones' maps too. Drawn by the map's own engine, from the game's own pieces.\n- Beside the zone's name: its levels in the color of their difficulty for you, the fishing skill its waters ask, how many areas you have explored. Optional marks for the town services you have visited and a notice for a flight master not found yet.\n- Opened from Wanderer's menu, a key of yours or /wmaps. Settings in Wanderer's options.\n\nMore on [wanderer-addon.com](https://wanderer-addon.com/).",
+  "releases": [
+    {
+      "tag": "v1.3.56",
+      "published": "2026-11-18",
+      "notes": "# Wanderer Maps 1.3.56\n\n### Fixed\n- The flight line lays itself out again when the screen size or the interface scale changes.\n- A very long map name in the Atlas trail is shortened, whole on hover.\n- On the flight line, a stop close to either end keeps its name within the line, on any screen."
+    },
+    {
+      "tag": "v1.3.55",
+      "published": "2026-11-17",
+      "notes": "# Wanderer Maps 1.3.55\n\n### Changed\n- On the game's map in a fight, a short line says your notes and your route come back once it ends.\n- The Atlas trail of maps shortens from the left when the window is narrow, the cut start a click away.\n- The Atlas says where you look as a trail of maps (the world, the continent, the zone), each one a click away, instead of a single arrow up.\n- Flight progress shows while your interface has faded away, and leaves as it comes back: a thin line across the screen, a dot for each stop with its name above it, yours moving along, no frame around it, at the foot of the screen.\n- On long flights each stop stands where its time puts it: stretches you flew before by their real time, the others by their length at the pace of the known ones (from the flight map when a stop is not placed in the world), and the stops passed on the way place the next ones again.\n- With the game's look (a choice under Wanderer's Appearance): the Atlas side panel, its lists and journal headings drawn with the game's own parts, its lit and chosen rows, its dividers and colors. Needs Wanderer 1.4.89.\n\n### Fixed\n- The Atlas search finds names with capitals and accents (\"Elwynn\", \"Forêt\"), notes too.\n- The route strip under the Atlas keeps its steps within the window on a small screen.\n- With a controller, the card of a quest, objective, giver or notes pin goes, adds a step and writes a note again."
+    },
+    {
+      "tag": "v1.3.54",
+      "published": "2026-11-16",
+      "notes": "# Wanderer Maps 1.3.54\n\n### New\n- Guided route, time or money: the fastest, balanced (a flight's fare counted as the time your level takes to earn it) or the cheapest. The fares are learned at each flight master; a flight you cannot pay is left out.\n- The way adapts to where you stand: while you follow a route, a clearly better way from your position (a portal, another flight, a detour) replaces the one followed, said once.\n\n### Fixed\n- A walk through a flight master or a dock passed on the way is no longer split into two steps.\n- With a quest pinned, the quests to hand in stay plain to see on the Atlas instead of fading with the others.\n- Your corpse on the Atlas: the game's skull, above the other marks, easy to find on any map (it drew a strip of small icons).\n- A route of more than nine steps: the Atlas's strip follows the step you are on, no longer stuck on the first nine.\n- A quest with more than seven rewards on the Atlas: all of them shown, a little smaller.\n- More quests on a map than the Atlas's panel holds: its last line counts the others and opens the journal.\n- Shift and a click on a quest of the Atlas (its panel, its journal, its marks on the map) puts its link in the chat, as in the game's log.\n- The Atlas journal shows failed quests in red and the quest tags; sharing or abandoning keeps the game log's choice; the tracking limit is said.\n- /watlas opens the atlas.\n- The arrow catches the mouse only on its sign and its name, and stays put in a fight.\n- A damaged save no longer breaks the arrow: broken notes and steps are left out.\n\n### Changed\n- Your quests' zones on the map: one zone for each creature or object asked, with its own outline; under the mouse, the zone names what is there to kill or take.\n- The Atlas's zoom out button shows a minus, no longer an arrow.\n- The arrow stays clear near the place it leads to, and readable when the place is in another zone.\n- On the minimap, the step followed stays bright even at the edge.\n- On the Atlas, your group's discs are larger; the button to the map around is an up arrow, back to the map's overview a back arrow; Rename shows a pencil.\n- The Atlas resizes from the game's usual corner and remembers its place; its search shows places before your notes (three at most) and counts the others; your own position shows when the mouse is away.\n- Steps and notes on the minimap name themselves under the mouse.\n- Every place has the same clicks: Shift a map link, Ctrl a step of the route (route window, services, atlas map).\n- Atlas: Ctrl+click adds a step, reward icons link with Shift, a search with no match says so.\n- Clearer verbs: \"Clear\" the route, \"Delete\" a note or a kept route."
+    },
+    {
+      "tag": "v1.3.36",
+      "published": "2026-11-12",
+      "notes": "# Wanderer Maps 1.3.36\n\n### Changed\n- Your group on the atlas: each one a disc in the colour of their class, on a dark edge, their name under the mouse; in a raid, everyone in it.\n- A finer look across the family: one palette for every color, clearer contrast on dark windows and on parchment, the same words in every language.\n- Fishing spots use the shared palette."
+    },
+    {
+      "tag": "v1.3.21",
+      "published": "2026-11-10",
+      "notes": "# Wanderer Maps 1.3.21\n\n### Changed\n- In the atlas, your route's line now starts from where you stand to your next step, and follows you as you walk."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "WandererMaps"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Wanderer"
+    ],
+    "savedVariables": [
+      "WandererMapsAccountDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "WandererMapsDB"
+    ]
+  }
+}

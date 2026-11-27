@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "jumpstatistics",
+  "repo": "byWulf/wow-jump-statistics",
+  "about": "# Jump Statistics\n\nA World of Warcraft addon that counts how often you jump, celebrates milestones and shows when you jumped the most.\n\n- Counts every real jump of every character on your account\n- Announces milestones (10, 25, 50, 100, 250, 500, 1,000, 2,500, …) in party or raid chat\n- Minimap icon with a statistics window: bar chart by hour, day, week, month or year, plus time-of-day and weekday distributions\n- View all characters combined or any single character\n- Available in all WoW client languages\n\n## Supported game versions\n\n| Version | Interface |\n|---|---|\n| WoW Forever | 16001 |\n\nClassic Era and other versions are not supported.\n\n## Installation\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/jump-statistics), e.g. with the CurseForge app.\n\nFor a manual installation, note that the folder in your AddOns directory **must** be named `JumpStatistics`, otherwise WoW will not load the addon:\n\n```bash\ncd \"C:/Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns\"\ngit clone https://github.com/byWulf/wow-jump-statistics.git JumpStatistics\n```\n\nAlternatively, download the ZIP from the [releases](https://github.com/byWulf/wow-jump-statistics/releases) and extract it into `Interface/AddOns`.\n\nThen `/reload` in game.\n\n## What counts as a jump\n\nA jump is counted when you press the jump key **and** your character actually leaves the ground shortly after. Not counted:\n\n- pressing jump again while already in the air,\n- pressing jump on a mount that is standing still (the mount only rears up),\n- swimming, flying, taxi flights, being stunned, feared or dead,\n- key presses that don't lift you off the ground (e.g. while rooted).\n\n## Milestones\n\nMilestones follow the pattern 10, 25, 50, 100, 250, 500, 1,000, 2,500, 5,000, …\n\n- **Character milestones** are posted to raid chat, or party chat when you're in a party. When you're not in a group, they're only shown in your own chat.\n- **Account milestones** (all characters combined) are only shown in your own chat, never posted to the group.\n\nBoth also show a raid-warning style message on screen and play the level-up sound. Group announcements can be turned off with a right-click on the minimap icon or `/jumps announce`.\n\n## Statistics window\n\nLeft-click the minimap icon or type `/jumps`.\n\n| Control | Action |\n|---|---|\n| View buttons | Hours, days, weeks, months, years, time of day (0–23 h, all days combined), weekday |\n| Character button | Show all characters combined or a single character |\n| Arrows | Page back/forward in time, *Current* jumps back to now |\n| Mouse wheel | Show more or fewer bars (e.g. 7 to 90 days) |\n| Shift + mouse wheel | Scroll the time range bar by bar |\n| Hover a bar | Exact count; with all characters selected, a breakdown per character |\n\nBelow the chart you see the jumps in the visible range, the average per hour/day/…, the peak, and the totals for the selection, the current character and the current session.\n\n## Minimap icon\n\n| Action | Effect |\n|---|---|\n| Left-click | Open/close the statistics window |\n| Right-click | Toggle milestone announcements in group chat |\n| Drag | Move the icon around the minimap |\n| Hover | Jumps of this character, all characters and this session (updates live) |\n\nThe icon is a regular [LibDBIcon](https://www.curseforge.com/wow/addons/libdbicon-1-0) button, so minimap button managers like SexyMap can show, hide or collect it. Jump Statistics is also a LibDataBroker data source: LDB displays such as Titan Panel or ChocolateBar can show your jump count. The required libraries are embedded; no other addons are needed.\n\n## Slash commands\n\n| Command | Effect |\n|---|---|\n| `/jumps` | Open/close the statistics window (also `/jumpstats`, `/sprung`) |\n| `/jumps stats` | Print your numbers to chat |\n| `/jumps minimap` | Show/hide the minimap icon |\n| `/jumps announce` | Toggle milestone announcements in group chat |\n| `/jumps delete Name-Realm` | Delete a character's data (your current character is reset instead) |\n\n## Languages\n\nEnglish, German, French, Spanish (EU and Latin America), Italian, Brazilian Portuguese, Russian, Korean, Simplified and Traditional Chinese. The language follows your WoW client. Number and date formats are localized too.\n\n## Data\n\nJumps are stored per character and per hour in the account-wide SavedVariable `JumpStatisticsDB`, which is what makes the cross-character statistics possible.\n\n## License\n\nMIT, see [LICENSE](https://github.com/byWulf/wow-jump-statistics/blob/main/LICENSE).\nThe libraries in `Libs/` (LibStub, CallbackHandler-1.0, LibDataBroker-1.1, LibDBIcon-1.0) are third-party code under their own licenses.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-14",
+      "notes": "# Jump Statistics\n\n## [v1.0.1](https://github.com/byWulf/wow-jump-statistics/tree/v1.0.1) (2026-11-14)\n[Full Changelog](https://github.com/byWulf/wow-jump-statistics/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/byWulf/wow-jump-statistics/releases)\n\n- Skip the standing-mount check when the speed is a secret value  \n    GetUnitSpeed can return a secret number (e.g. in combat), and comparing it  \n    raised an error on every mounted jump. The lift-off check still filters  \n    presses that only make the mount rear up.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Include the hidden .release folder in the test artifact  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Fix the artifact path of manual release workflow runs  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Release via GitHub Actions with the BigWigs packager  \n    - .pkgmeta: package folder name, leave out AGENTS.md and CLAUDE.md  \n    - Release workflow: tag v* builds the zip and uploads it to CurseForge  \n      and GitHub releases; manual runs only build an artifact  \n    - TOC version comes from the tag (@project-version@)  \n    - Document the release steps in AGENTS.md  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Jump Statistics 1.0.0",
+      "published": "2026-11-06",
+      "notes": "First release on CurseForge, for WoW Forever (interface 16001).\n\nExtract `JumpStatistics-1.0.0.zip` into `Interface/AddOns` of your WoW Forever installation, or install it with the CurseForge app."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-06"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "JumpStatistics"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "JumpStatisticsDB"
+    ]
+  }
+}

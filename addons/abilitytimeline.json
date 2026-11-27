@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "abilitytimeline",
+  "repo": "Jods-GH/AbilityTimeline",
+  "about": "[![Discord][SVG-Discord]][Discord]\n[![Patreon][SVG-Patreon]][Patreon]\n[![Mythistone][SVG-Mythistone]][Mythistone]\n[![Release][SVG-Release]][Release]\n\n# Ability Timeline\n\nContinuation of the ever-popular [RaidAbilityTimeline Weakaura](https://wago.io/RaidAbilityTimeline).\n\n## Currently implemented features:\n- Timeline in the previous look.\n- Ticks every 5 seconds with a visual highlight.\n- BigIcon that appears during the last 5 seconds of a bar.\n- Auditory countdown from 5 for timers.\n- Text highlight in the center of the screen.\n- Positioning via edit mode\n- toggles for BigIcon and text\n- adjustable timeline size.\n- changing text anchors\n- changing the travel direction\n- adding of pulltimer and readycheck to the timeline\n- adding of smart /pull feature automagically deciding on duration depending if you are in a dungeon or raid\n\n# Trailer:\n\n[![Youtube Video](https://github.com/user-attachments/assets/8de8153b-48e7-4fbc-bc16-1a75e284a9d6)](https://www.youtube.com/watch?v=uC1OaCtIZgU)\n## Get it on:\n- [Curseforge](https://www.curseforge.com/wow/addons/better-timeline)\n- [Wago addons](https://addons.wago.io/addons/better-timeline)\n\n[//]: # (Links)\n\n[Discord]: https://discord.com/invite/v3gYmYamGJ (Join the Discord)\n[Patreon]: https://www.patreon.com/c/Jodsderechte (Donate via PayPal)\n[Release]: https://github.com/Jods-GH/AbilityTImeline/releases/latest (Latest release)\n[Mythistone]: https://mythistone.com/ (M+ Meta Analysis)\n\n[//]: # (Images)\n[SVG-Discord]: https://img.shields.io/badge/Discord-7289da?logo=discord&logoColor=fff&style=for-the-badge\n[SVG-Patreon]: https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3DJodsderechte%26type%3Dpatrons&style=for-the-badge&labelColor=%2322090E\n[SVG-Release]: https://img.shields.io/github/v/release/Jods-GH/AbilityTimeline?display_name=tag&style=for-the-badge\n[SVG-Mythistone]: https://custom-icon-badges.demolab.com/badge/Mythistone-%23cb3c18?style=for-the-badge&logo=Mythistone&label=M%2B%20Meta%20Analysis&labelColor=%2322090e",
+  "releases": [
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-21",
+      "notes": "# AbilityTimeline\n\n## [v1.0.2](https://github.com/Jods-GH/AbilityTimeline/tree/v1.0.2) (2026-11-18)\n[Full Changelog](https://github.com/Jods-GH/AbilityTimeline/compare/v1.0.1...v1.0.2) [Previous Releases](https://github.com/Jods-GH/AbilityTimeline/releases)\n\n- chore: update encounter and cooldown data (#120)  \n- remove exact build version from cooldown and encounter data  \n- make sure we don't accidentally read secret aspects  \n- add gamepad support to settings  \n- also swap non transparent logo to png  \n    saves another 12mb of storage  \n- switch logo to use png instead of tga  \n    this saves about 14mb of space (lossless conversion ftw)  \n- make it possible to disable text on icons  \n    closes #43  \n- Make reminers difficulty specific  \n- make it possible to replay reminder encounters"
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-14",
+      "notes": "# AbilityTimeline\n\n## [v1.0.1](https://github.com/Jods-GH/AbilityTimeline/tree/v1.0.1) (2026-11-14)\n[Full Changelog](https://github.com/Jods-GH/AbilityTimeline/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/Jods-GH/AbilityTimeline/releases)\n\n- adjust BigIcon cooldown timer multiplier to a slider  \n- adjust sliders manual input to go above the end of the slider  \n- add different ways to display cooldown  \n    Also make it possible to choose this on a per reminder/bosstimer basis  \n- make sure we don't push invalid local versions  \n- add version checking  \n- make sure highlight text preview is correctly showing color  \n- make sure the disabled warning shows up for invidual hover entries  \n- make sure break command works independently from bossmods  \n- add some debugging for toggle rendering  \n- make it possible reminders show up in disabled sections  \n- add a better way to choose text coloring  \n    also closes # 112  \n- chore: update encounter and cooldown data for forever  \n- add cooldown editor to tour  \n- add timerrules making it possible to edit styles depending on time of an ability  \n- remove leftover textures  \n- Move theme options to their own settings page  \n- improve weather themes  \n- make sure the 5 sec glow on bliz theme looks correctly with a border  \n- remove queued glow from bliz theme  \n- adjust 5 second pulse for multiple themes  \n- make sure blizzard theme properly styles border  \n- add queued markers to non bliz themes  \n- make sure expiring timers don't get merged with queued timers for a milisecond  \n- make sure merged timers get proper animations  \n    also improve theme media to not show unrelated media in dropdowns  \n- make sure copyframes are properly styled  \n- style settings correctly in blizzard theme  \n- move group and dialog frames to properly using ace widgets  \n- make it possible to merge in more sections instead of only the timeline  \n- refactor theme transitions to be located inside of theme files  \n- adjust papercraft window show animation  \n- fix animations sometimes being broken when the timeline is secret  \n- move roleicons in horizontal mode  \n- make sure we properly set eventcolor for themes  \n- add blizzard style theme  \n- make sure we don't fall back to the wrong background file for themes  \n- only register gw2 textures when the addon is actually loaded  \n- make sure guided tour properly explains reminders  \n    also closes # 115  \n- make sure dropdowns always show selected values for fonts  \n    also add default framestrata to bigicon  \n- remove EUIMinimap dependency  \n- add ellesmereui theme  \n- switch addon texture to use backgroundless logo  \n- rename Timings Editor to be more clear  \n- make sure importing and exporting reminder windows can not open at the same time  \n- reopen windows that were open after a reload  \n- adjust bosstimers warning if no bossmods are installed  \n- improve dropdowns  \n- make sure gw2 reminder text is readable  \n- make multiselect show proper preview  \n- add gw2 ui theme  \n- add elvui theme  \n- update logo  \n- add non retail options for version to issue template  \n- make sure themes exit animation gets properly applied during preview"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-04",
+      "notes": "# AbilityTimeline\n\n## [v1.0.0](https://github.com/Jods-GH/AbilityTimeline/tree/v1.0.0) (2026-11-04)\n[Full Changelog](https://github.com/Jods-GH/AbilityTimeline/compare/v0.38...v1.0.0) [Previous Releases](https://github.com/Jods-GH/AbilityTimeline/releases)\n\n- make sure dropdown fonts never leak into ace framepool  \n- also skin profile window instead of relying on aceconfig  \n- auto close encounter journal when opening reminders editor  \n- auto fill reminder page across all game versions  \n- make sure theme preview shows animation on bar  \n- fix test timers on classic versions  \n- modernize Reminder editor  \n- move some more options to the new settings  \n- add a guided welcome tour  \n- make sure themes properly render the font after window is shown  \n- add useTimelineModule icon  \n- make sure editmode frames only show up while bosswarnings is checked  \n- rework settings Ui to be more user friendly and have a lot better UX  \n- adjust papercraft onshow animation to show a pencil outline  \n- properly set font back to normal if it was overwritten  \n- add missing shared glint and font credits  \n- add papercraft theme  \n- add weather themes that automatically adjust for time of day  \n- add theming and masque support  \n- switch position calculation to dynamic group inspired setup  \n    this also adds sone specific limits closes # 23  \n- make it possible to use the blizzard timeline together with highlight text and bigicon  \n    closes #29  \n- make it possible to disable the timeline itself and modify threshhold times  \n- add forever and wrath to toc  \n- add classic support  \n    closes #38 also mentions #109  \n- disentangle en"
+    },
+    {
+      "tag": "v0.38",
+      "published": "2026-10-28",
+      "notes": "# AbilityTimeline\n\n## [v0.38](https://github.com/Jods-GH/AbilityTimeline/tree/v0.38) (2026-10-28)\n[Full Changelog](https://github.com/Jods-GH/AbilityTimeline/compare/v0.37...v0.38) [Previous Releases](https://github.com/Jods-GH/AbilityTimeline/releases)\n\n- adjust icon border description to make it clearer for bw users  \n- chore: Update toc to newest wow interface version (#111)  \n    Co-authored-by: Jodsderechte <39654549+Jodsderechte@users.noreply.github.com>"
+    },
+    {
+      "tag": "v0.37",
+      "published": "2026-10-14",
+      "notes": "# AbilityTimeline\n\n## [v0.37](https://github.com/Jods-GH/AbilityTimeline/tree/v0.37) (2026-10-14)\n[Full Changelog](https://github.com/Jods-GH/AbilityTimeline/compare/v0.36...v0.37) [Previous Releases](https://github.com/Jods-GH/AbilityTimeline/releases)\n\n- make sure backdrop button has the correct size  \n- chore: Update toc to newest wow interface version (#110)  \n    Co-authored-by: Jodsderechte <39654549+Jodsderechte@users.noreply.github.com>"
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 6,
+    "contributors": 3,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-14",
+      "2026-11-04",
+      "2026-10-28",
+      "2026-10-14",
+      "2026-09-17",
+      "2026-08-29",
+      "2026-08-19",
+      "2026-08-18",
+      "2026-07-13",
+      "2026-06-23",
+      "2026-06-17",
+      "2026-06-17",
+      "2026-05-28",
+      "2026-05-03",
+      "2026-04-16",
+      "2026-04-03",
+      "2026-03-27",
+      "2026-03-24",
+      "2026-03-19",
+      "2026-03-18",
+      "2026-03-12",
+      "2026-03-09",
+      "2026-02-18",
+      "2026-02-09",
+      "2026-01-29",
+      "2026-01-23",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-16",
+      "2026-01-11",
+      "2026-01-06",
+      "2025-12-31",
+      "2025-12-26",
+      "2025-12-21",
+      "2025-12-09",
+      "2025-12-04",
+      "2025-12-01",
+      "2025-11-29",
+      "2025-11-28",
+      "2025-11-27",
+      "2025-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AbilityTimeline"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "DevTool",
+      "CustomNames",
+      "ElvUI",
+      "GW2_UI",
+      "EllesmereUI",
+      "DBM-Core",
+      "BigWigs",
+      "LibEditMode",
+      "Masque"
+    ],
+    "savedVariables": [
+      "AbilityTimeline"
+    ]
+  }
+}

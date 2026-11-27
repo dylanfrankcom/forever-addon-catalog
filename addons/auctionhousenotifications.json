@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "auctionhousenotifications",
+  "repo": "BrenoLudgero/Auction_House_Notifications",
+  "about": "# Auction House Notifications\n[![CF](https://img.shields.io/badge/Download-CurseForge-orange)](https://www.curseforge.com/wow/addons/auction-house-notifications) [![WowInterface](https://img.shields.io/badge/Download-WoWInterface-blue)](https://www.wowinterface.com/downloads/info26587-AuctionHouseNotifications.html)\n\nAn add-on designed to implement audible alerts to Auction House updates while having minimal impact in hardware resources\n\n## Main Features\n* Fully localized\n* Option to test sound changes on the fly\n* Multiple in-game sounds to choose from\n* Ability to add custom sounds\n\n![Options Interface](https://raw.githubusercontent.com/BrenoLudgero/Auction_House_Notifications/main/.github/images/Options_Window.png)",
+  "releases": [
+    {
+      "tag": "3.1.1",
+      "published": "2026-10-18",
+      "notes": "# Auction House Notifications\n\n## [3.1.1](https://github.com/BrenoLudgero/Auction_House_Notifications/tree/3.1.1) (2026-10-18)\n[Full Changelog](https://github.com/BrenoLudgero/Auction_House_Notifications/compare/3.1.0...3.1.1) [Previous Releases](https://github.com/BrenoLudgero/Auction_House_Notifications/releases)\n\n- Updated Mainline interface version  \n- Forever compatibility  \n- Fixed error involving incomplete auction info  \n- Fixed blank sound names for koKR, zhTW, zhCN  \n- Refactoring"
+    },
+    {
+      "tag": "3.1.0",
+      "published": "2026-08-28",
+      "notes": "# Auction House Notifications\n\n## [3.1.0](https://github.com/BrenoLudgero/Auction_House_Notifications/tree/3.1.0) (2026-08-28)\n[Full Changelog](https://github.com/BrenoLudgero/Auction_House_Notifications/compare/3.0.1...3.1.0) [Previous Releases](https://github.com/BrenoLudgero/Auction_House_Notifications/releases)\n\n- Updated Mainline interface version  \n- Updated options window screenshot  \n- Renamed \"Miscellaneous\" options header to \"Chat\"  \n- Removed 'soundPlayed' check from notifyExpiredAuctions  \n- Added option to suppress message when \"Expired Alerts For Alts\" is off  \n- Updated Vanilla, TBC interface versions"
+    },
+    {
+      "tag": "3.0.1",
+      "published": "2026-06-17",
+      "notes": "# Auction House Notifications\n\n## [3.0.1](https://github.com/BrenoLudgero/Auction_House_Notifications/tree/3.0.1) (2026-06-17)\n[Full Changelog](https://github.com/BrenoLudgero/Auction_House_Notifications/compare/3.0.0...3.0.1) [Previous Releases](https://github.com/BrenoLudgero/Auction_House_Notifications/releases)\n\n- Improved packager initiation script and moved it to .github  \n- Updated Mainline interface version  \n- Renamed checkbox \"Play Sounds\" to \"Enable Sound Notifications\"  \n- Updated options window screenshot"
+    },
+    {
+      "tag": "3.0.0",
+      "published": "2026-06-15",
+      "notes": "# Auction House Notifications\n\n## [3.0.0](https://github.com/BrenoLudgero/Auction_House_Notifications/tree/3.0.0) (2026-06-15)\n[Full Changelog](https://github.com/BrenoLudgero/Auction_House_Notifications/compare/2.1.3...3.0.0) [Previous Releases](https://github.com/BrenoLudgero/Auction_House_Notifications/releases)\n\n- Added cross-character expired auction notification  \n- Created option and chat command to supress notifications  \n- Ignored unsupported or missing custom sounds  \n- Prevented sound overlap  \n- Refactoring and reorganizing  \n- Added support for custom sounds  \n- Renamed function  \n- Moved screenshot to .github/images/  \n- Updated Mainline, Mists interface versions  \n- Completed packager initiation script"
+    },
+    {
+      "tag": "2.1.3",
+      "published": "2026-02-22",
+      "notes": "# Auction House Notifications\n\n## [2.1.3](https://github.com/BrenoLudgero/Auction_House_Notifications/tree/2.1.3) (2026-02-22)\n[Full Changelog](https://github.com/BrenoLudgero/Auction_House_Notifications/compare/2.1.2...2.1.3) [Previous Releases](https://github.com/BrenoLudgero/Auction_House_Notifications/releases)\n\n- Update Mainline interface version  \n- Updated license  \n- Update Mainline interface version  \n- Burning Crusade compatibility  \n- Updated license  \n- Updated Korean add-on window subtitle  \n- Updated Russian add-on list category  \n- Created script to initiate packager process"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/BrenoLudgero/Auction_House_Notifications/main/.github/images/Options_Window.png"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-18",
+    "releaseDates": [
+      "2026-10-18",
+      "2026-08-28",
+      "2026-06-17",
+      "2026-06-15",
+      "2026-02-22",
+      "2025-12-27",
+      "2025-02-19",
+      "2025-02-01"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "AuctionHouseNotifications"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "wanderertraining",
+  "repo": "Jaecko/wanderer-training",
+  "about": "# Wanderer Training\n\nWhat your trainers have for you, and what it will cost. Made for World of Warcraft Forever.\nAn extension of [Wanderer](https://github.com/Jaecko/wanderer): it needs Wanderer 1.4 or later.\n\n- Its own window (opened from Wanderer's bar and menu, a button on your spellbook, a key of yours or /wtraining): your class spells, weapon skills and demon tomes, in sections: to learn now, an earlier rank first, level by level, with a talent, set aside.\n- Three sums to plan ahead: now, at the next level that brings something, and everything left; your gold beside them. Prices with your reputation's discount.\n- What you play counts: choose your specialization (several at once, the bear and the cat apart for a feral druid). Spells of another one stay shown, can be bought, and counted if you wish: it guides, it never blocks.\n- Your talents planned point by point, as the game's rules allow, the next one said at each level.\n- The closest class trainer or weapon master pinned on your map; at the trainer, what counts learned in one click.\n- The prices your trainer really asks, kept once seen there; a savings goal of your own beside the sums (riding at level 40 in one click).\n- In your spell tooltips, the next rank: its level and its price, and for a spell outside what you play, why in one line. Older ranks on your bars and in your macros updated in one click.\n\nBuilt on the data of [What's Training](https://www.curseforge.com/wow/addons/whats-training) (MIT), with trainer places from CMaNGOS (GPL v3) and pfQuest (MIT); see CREDITS.md. Free software under the GNU GPL v3 or later.\n\nDownload: [CurseForge](https://www.curseforge.com/wow/addons/wanderer-training). More on [wanderer-addon.com](https://wanderer-addon.com/).",
+  "releases": [
+    {
+      "tag": "v1.4.13",
+      "published": "2026-11-17",
+      "notes": "# Wanderer Training 1.4.13\n\n### Changed\n- With a controller, a line says the talent calculator opens beside the game's talents: open them with their key first.\n- With the game's look (a choice under Wanderer's Appearance): the training page, the talent planner and its order list drawn with the game's own parts, its lit and chosen rows, its dividers and colors. Needs Wanderer 1.4.89."
+    },
+    {
+      "tag": "v1.4.12",
+      "published": "2026-11-16",
+      "notes": "# Wanderer Training 1.4.12\n\n### New\n- Talent calculator: the points of a plan can be moved in the order list, dragged to another level or one level at a time with their arrows; a move that would break the tree's rules is refused, with the reason.\n\n### Changed\n- The talent planner's level steps with a minus and a plus; Count again shows an undo sign; Rename a goal shows a pencil.\n- Shift+click on a spell in the Training page or at the trainer links it in the chat.\n- The window is titled Training and plays its open and close sounds.\n- Talent order rows beyond the level you look at are easier to read.\n- At every trainer (professions, weapons, riding), anything can be left out like your class's spells: right click or its ..., Leave out; it is then never bought with the others.\n\n### Fixed\n- At a hunter's pet trainer, prices are the pet's training points (as the game shows them), never gold, and learn all goes as far as the points go.\n- Learning a new profession asks first, in the game's own words.\n- At a profession trainer, your rank shows beside the trainer's name.\n- The Calculator button on the talent window is hidden while Wanderer Training is off.\n- At a trainer, a spell held back says the right reason: an earlier rank only when it is one, the skill named.\n- Moving a point of a talent plan moves the one its row shows."
+    },
+    {
+      "tag": "v1.4.5",
+      "published": "2026-11-12",
+      "notes": "# Wanderer Training 1.4.5\n\n### Changed\n- A finer look across the family: one palette for every color, clearer contrast on dark windows and on parchment, the same words in every language.\n- \"Put down what you are holding first\", no longer naming the mouse."
+    },
+    {
+      "tag": "v1.4.3",
+      "published": "2026-11-10",
+      "notes": "# Wanderer Training 1.4.3\n\n### New\n- Controller support: the talent calculator takes the controller and starts on Simulate; the triggers switch to the game's talent tree and back, and the right button closes the game's talents with the calculator. Needs Wanderer 1.4.36 or later.\n\n### Fixed\n- Talents bought at the trainer no longer leave the trainer's buttons disabled.\n- A stray highlight in the talent calculator is gone."
+    },
+    {
+      "tag": "v1.4.1",
+      "published": "2026-11-09",
+      "notes": "# Wanderer Training 1.4.1\n\n### Fixed\n- The talent calculator's last tab no longer sticks out of its panel."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "WandererTraining"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Wanderer"
+    ],
+    "savedVariablesPerCharacter": [
+      "WandererTrainingDB"
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "id": "flyplatebuffsfixed",
+  "repo": "rbgdevx/flyplate-buffs-fixed",
+  "about": "[![Discord](https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/A3g5qZqtdc) [![Patreon](https://img.shields.io/badge/patreon-red?style=for-the-badge&logo=patreon&logoColor=white)](http://patreon.com/rbgdev) [![Ko-fi](https://img.shields.io/badge/ko--fi-6E9FEB?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/rbgdev) [![PayPal](https://img.shields.io/badge/paypal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/ncp/payment/9TC7LNDM8EGJG) [![GitHub](https://img.shields.io/badge/github-gray?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sponsors/rbgdevx)\n\nflyPlateBuffsFixed displays buffs/debuffs above nameplates.\n\n\"/fpb\" or \"/pb\" to open settings, \"/fpb spells\" for spells, and \"fpb profiles\" for profiles.\n\n### Feautures\n\n*   It can show specific spells bigger than others.\n*   There's predefined list, which contains some defensive and burst buffs, and crowd control debuffs. You can edit this list.\n*   Two modes of duration display (on and under icon).\n*   Many others display options.\n*   I was inspired by abandoned PlateBuffs and make this addon mostly looking like original.\n\n### Tips\n\n*   If you want to hide specific debuffs like \u00A0[Mortal Wounds](https://www.curseforge.com/linkout?remoteUrl=http://www.wowhead.com/spell=115804)\u00A0add it to the spell list and select Show - Never.\n\n### Restrictions\n\n*   Addon will not work with friendly nameplates inside Dungeons/Raids due to restrictions from Blizzard.\u00A0 This can't be fixed.",
+  "releases": [
+    {
+      "tag": "v12.1.5.5",
+      "name": "r12.1.5.5",
+      "published": "2026-11-22",
+      "notes": "- Improving preview performance"
+    },
+    {
+      "tag": "v12.1.5.4",
+      "name": "r12.1.5.4",
+      "published": "2026-11-15",
+      "notes": "- Updated preview window (preparing for next patch)"
+    },
+    {
+      "tag": "v12.1.5.3",
+      "name": "r12.1.5.3",
+      "published": "2026-11-13",
+      "notes": "- Adding optional duration limits for friendly and enemy buffs and debuffs in Retail and Forever"
+    },
+    {
+      "tag": "v12.1.5.2",
+      "name": "r12.1.5.2",
+      "published": "2026-11-03",
+      "notes": "- Improving performance in large fights\n- Adding icon limits with an unlimited option\n- Fixing settings from not showing up in pvp instances\n- Adding /fpbf command"
+    },
+    {
+      "tag": "v12.1.5.1",
+      "name": "r12.1.5.1",
+      "published": "2026-10-16",
+      "notes": "- Fixing classic era bugs\n- Fixing ace config bug"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-15",
+      "2026-11-13",
+      "2026-11-03",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-06",
+      "2026-08-16",
+      "2026-07-14",
+      "2026-06-28",
+      "2026-02-23",
+      "2026-01-06",
+      "2025-09-10",
+      "2025-08-26",
+      "2025-08-15",
+      "2025-08-15",
+      "2025-05-11",
+      "2025-04-02",
+      "2024-12-20",
+      "2024-12-18",
+      "2024-11-21",
+      "2024-10-28",
+      "2024-10-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "flyPlateBuffsFixed"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Blizzard_AuraContainer",
+      "Blizzard_NamePlates"
+    ],
+    "savedVariables": [
+      "flyPlateBuffsFixedDB"
+    ]
+  }
+}

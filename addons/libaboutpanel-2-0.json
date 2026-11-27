@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "libaboutpanel-2-0",
+  "repo": "Myrroddin/libaboutpanel-2.0",
+  "about": "# LibAboutPanel-2.0\n\nLibAboutPanel-2.0 is a World of Warcraft Lua library for displaying addon metadata in Blizzard's Settings UI or as an AceConfig-3.0-compatible options table. It works with all valid WoW clients.\n\n## Requirements\n\n- Required: LibStub\n- Optional: AceConfig-3.0, if using `:AboutOptionsTable()`\n\n## Quick Usage\n\nFor Ace3 addons, embed LibAboutPanel-2.0 when creating your addon object:\n\n```lua\nlocal MyAddon = LibStub(\"AceAddon-3.0\"):NewAddon(\"MyAddon\", \"LibAboutPanel-2.0\")\n```\n\nFor non-Ace3 addons, embed the library into your addon object:\n\n```lua\nLibStub(\"LibAboutPanel-2.0\"):Embed(MyAddon)\n```\n\nOr use it directly:\n\n```lua\nlocal LAP = LibStub(\"LibAboutPanel-2.0\")\n```\n\nCreate a Blizzard Settings About panel:\n\n```lua\nMyAddon:CreateAboutPanel(\"MyAddon\")\n-- or\nLAP:CreateAboutPanel(\"MyAddon\")\n```\n\nCreate an AceConfig-3.0-compatible About options table:\n\n```lua\noptions.args.about = MyAddon:AboutOptionsTable(\"MyAddon\")\n```\n\n`AboutOptionsTable()` only returns the table. Your addon is responsible for registering it with AceConfig-3.0 or embedding it in an existing options table.\n\n## Documentation\n\nSee [WIKI.md](https://github.com/Myrroddin/libaboutpanel-2.0/blob/master/WIKI.md) for:\n\n- `.pkgmeta` integration\n- Ace3 example usage\n- API reference\n- Supported `.toc` fields\n- Category and localization notes\n- Troubleshooting\n\n## Contributing\n\n- Help translate or verify localization [at CurseForge](https://legacy.curseforge.com/wow/addons/libaboutpanel-2-0/localization)\n- Report bugs or request improvements via the [GitHub issue tracker](https://github.com/Myrroddin/libaboutpanel-2.0/issues)",
+  "releases": [
+    {
+      "tag": "1.0.92",
+      "published": "2026-10-31",
+      "notes": "# Lib: AboutPanel-2.0\n\n## [1.0.92](https://github.com/Myrroddin/libaboutpanel-2.0/tree/1.0.92) (2026-10-31)\n[Full Changelog](https://github.com/Myrroddin/libaboutpanel-2.0/compare/1.0.91...1.0.92) [Previous Releases](https://github.com/Myrroddin/libaboutpanel-2.0/releases)\n\n- [All] Bump NINOR version so the updated localizations load properly"
+    },
+    {
+      "tag": "1.0.91",
+      "published": "2026-10-31",
+      "notes": "# Lib: AboutPanel-2.0\n\n## [1.0.91](https://github.com/Myrroddin/libaboutpanel-2.0/tree/1.0.91) (2026-10-31)\n[Full Changelog](https://github.com/Myrroddin/libaboutpanel-2.0/compare/1.0.90...1.0.91) [Previous Releases](https://github.com/Myrroddin/libaboutpanel-2.0/releases)\n\n- [All] Change a Russian translation to be more natural  \n- Merge pull request #3 from Langmans/fix/locale-true-values  \n    [All] Treat a translation set to true as its key, fixes issue #2 on GitHub.  \n- [All] Write out the translations that were true  \n    deDE and itIT Repository, esES, frFR and itIT Copyright, frFR Date now carry their text instead of true, so each locale reads like the others; the shim's \\_\\_newindex stays as a guard.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- [All] Treat a translation set to true as its key  \n    Some inline translations are `true` (deDE Repository, esES Copyright, frFR  \n    Copyright and Date, itIT Copyright and Repository). The shim stored the  \n    boolean, so GetVersion's gsub and GetLicense's concatenation raised errors on  \n    those clients for any addon with a Version or X-License. A \\_\\_newindex now  \n    stores the key for `true`, as AceLocale does.  \n    Fixes #2  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "1.0.90",
+      "published": "2026-10-17",
+      "notes": "# Lib: AboutPanel-2.0\n\n## [1.0.90](https://github.com/Myrroddin/libaboutpanel-2.0/tree/1.0.90) (2026-10-17)\n[Full Changelog](https://github.com/Myrroddin/libaboutpanel-2.0/compare/1.0.89...1.0.90) [Previous Releases](https://github.com/Myrroddin/libaboutpanel-2.0/releases)\n\n- [Retail] Bump ToC for patch 12.1.5"
+    },
+    {
+      "tag": "1.0.89",
+      "published": "2026-09-25",
+      "notes": "# Lib: AboutPanel-2.0\n\n## [1.0.89](https://github.com/Myrroddin/libaboutpanel-2.0/tree/1.0.89) (2026-09-24)\n[Full Changelog](https://github.com/Myrroddin/libaboutpanel-2.0/compare/1.0.88...1.0.89) [Previous Releases](https://github.com/Myrroddin/libaboutpanel-2.0/releases)\n\n- [Forever] Add support"
+    },
+    {
+      "tag": "1.0.88",
+      "published": "2026-08-12",
+      "notes": "# Lib: AboutPanel-2.0\n\n## [1.0.88](https://github.com/Myrroddin/libaboutpanel-2.0/tree/1.0.88) (2026-08-12)\n[Full Changelog](https://github.com/Myrroddin/libaboutpanel-2.0/compare/1.0.87...1.0.88) [Previous Releases](https://github.com/Myrroddin/libaboutpanel-2.0/releases)\n\n- [Retail] Bump ToC for patch 12.1"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-31",
+    "releaseDates": [
+      "2026-10-31",
+      "2026-10-31",
+      "2026-10-17",
+      "2026-09-25",
+      "2026-08-12",
+      "2026-08-01",
+      "2026-07-22",
+      "2026-07-11",
+      "2026-07-08",
+      "2026-06-17",
+      "2026-06-03",
+      "2026-05-31",
+      "2026-05-31",
+      "2026-04-27",
+      "2026-04-24",
+      "2026-03-18",
+      "2026-03-16",
+      "2025-11-24",
+      "2025-08-07",
+      "2025-07-18",
+      "2024-08-06",
+      "2024-07-24",
+      "2024-07-19",
+      "2024-06-09",
+      "2024-05-13",
+      "2024-05-08",
+      "2024-05-07",
+      "2024-04-25",
+      "2024-04-06",
+      "2024-03-20",
+      "2024-02-07",
+      "2024-01-28",
+      "2024-01-17",
+      "2023-11-25",
+      "2023-11-16",
+      "2023-11-08",
+      "2023-10-16",
+      "2023-10-16",
+      "2023-10-16",
+      "2023-09-27",
+      "2023-09-06",
+      "2023-08-23",
+      "2023-07-11",
+      "2023-05-06",
+      "2023-05-03",
+      "2023-05-02",
+      "2023-04-05",
+      "2023-03-21",
+      "2023-01-24",
+      "2023-01-12"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "LibAboutPanel-2.0"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3"
+    ]
+  }
+}

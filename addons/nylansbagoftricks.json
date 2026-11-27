@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "nylansbagoftricks",
+  "repo": "srclark213/NylansBagOfTricks",
+  "about": "# Nylan's Bag of Tricks\n\nSmall quality-of-life tweaks for WoW Forever. Each one can be switched on or off.\n\n## Install\n\nCopy the `NylansBagOfTricks` folder into `World of Warcraft\\_forever_\\Interface\\AddOns\\` and restart the game.\n\n## Settings\n\nOptions > AddOns > Nylan's Bag of Tricks, or `/tricks`. Turning a trick on or off needs a `/reload`.\n\n## Tricks\n\n- **Mail Overhaul** (off by default): replaces the mailbox with a tabbed window. It has Open all, an address book of your alts and friends, and rules that pick which items go to whom. `/mo`\n- **Gamepad Prompt:** when a controller connects, asks whether to switch to gamepad mode, and offers to switch back when it disconnects. `/gpprompt`\n- **Auto Replace Enchant:** adds a checkbox to the enchanting window that skips the \"replace existing enchant?\" confirmation. `/autoreplace`",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "Nylan's Bag of Tricks 1.0.0",
+      "published": "2026-11-13",
+      "notes": "First release: Mail Overhaul, Gamepad Prompt and Auto Replace Enchant.\n\nInstall: unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\` and restart the game. Settings: Options > AddOns > Nylan's Bag of Tricks, or `/tricks`."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NylansBagOfTricks"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "NylansBagOfTricksDB",
+      "MailOverhaulDB",
+      "GamepadPromptDB",
+      "AutoReplaceEnchantDB"
+    ]
+  }
+}

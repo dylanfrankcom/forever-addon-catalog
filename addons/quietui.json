@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "quietui",
+  "repo": "rdurica/quiet-ui",
+  "about": "# QuietUI\n\n**Less UI. More world.** A quiet interface for **WoW Forever** (Interface 16001).\n\nEver hidden the UI just to enjoy the view? QuietUI lets you play like that. While you explore, the action bars, the XP bar and everything else you don't need right now fade away. When something happens, they come back: a pull, a hover over the bars, a dungeon. It works right after you install it, and one window lets you tweak the rest.\n\n![Exploring: the world gets the whole screen](https://media.forgecdn.net/attachments/2152/157/01-exploring-jpg.jpg)\n\n## Classic or Modern\n\nThe first time you log in, each character picks a look:\n\n- **Classic** keeps Blizzard's frames, just quieter.\n- **Custom** lets you switch on only the parts you want, for example just the chat.\n- **Modern** (experimental) gives the UI a flat, dark graphite style: slim unit frames, clean windows, and a tidier map, minimap and tooltips. You can turn any area off on its own, and switching Modern off brings the original look back.\n\n![Classic in combat](https://media.forgecdn.net/attachments/2152/158/02-combat-jpg.jpg)\n![Modern in combat](https://media.forgecdn.net/attachments/2152/163/03-modern-hud-jpg.jpg)\n\n*The same fight in Classic (left) and Modern (right).*\n\n## Modules\n\nQuietUI has five modules: **Chat**, **Fading**, **Helpers**, **Layout** and **Modernize**. Choose **Custom** in the first-run window, or the **Modules** tab in `/quiet setup`, to switch on only what you want. A module that is off changes nothing and its settings tabs disappear. Changing modules reloads the UI.\n\n## What it does\n\n- **Action bars** show up when you hover them and come back in combat and in instances. Keep a group on screen, or show a single bar for an enemy or friendly target.\n- **The rest of the HUD** stays out of the way: the quest tracker waits for a hover, cooldowns and the damage meter appear when you fight or group up, and health and resources pop up when they need attention.\n- **Glance**: press `` ` `` to see the whole HUD at once, and press it again to go quiet.\n- **Chat** without boxes and borders. Messages fade out after a while; hover to read back, hover a line to copy it, and press Alt+Up to bring back what you typed.\n- **Small helpers**: a short note when a quest updates, a soft glow on the herb, ore or object you can interact with, an icon on mobs your quests need, and one bag button instead of five.\n- **Presets** carry your setup over to your other characters.\n\n## Install\n\n1. Get it from [CurseForge](https://www.curseforge.com/wow/addons/quietui), or download the zip from the [latest release](https://github.com/rdurica/quiet-ui/releases/latest).\n2. Extract it into `World of Warcraft/_forever_/Interface/AddOns/`, so the addon ends up at `AddOns/QuietUI/QuietUI.toc`.\n3. Start the game, pick a look, and accept the optional QuietUI Edit Mode layout, or choose **Not now** to keep yours.\n\n**Updating?** Delete the old `QuietUI` folder first, then restart the game. `/reload` does not load new files. Your settings are kept.\n\n## Settings\n\nType `/quiet setup` or click the minimap button. Everything is in one window, with a short explanation next to each option; click **Save** when you're done. **X** or **Escape** closes it without saving.\n\n| Tab | What you set there |\n|---|---|\n| Modules | Switch the five modules on or off |\n| General | Shared presets and the bundled Edit Mode layout |\n| Visible | *Always visible* or *Only on hover* for each part of the HUD |\n| Bars, Groups | Which bars fade together, and bars for enemy or friendly targets |\n| Player | Player frame and pet, buffs and debuffs, the range indicator |\n| Chat | Chat fade time and tab position |\n| Helpers | Quest updates, highlights and quest mobs |\n| Modern | The Modern theme, and each area on its own |\n| Info | A short introduction and how Glance works |\n\n[![Character window](https://media.forgecdn.net/attachments/2152/242/04b-modern-character-detail-jpg.jpg)](https://media.forgecdn.net/attachments/2152/242/04b-modern-character-detail-jpg.jpg)\n[![Bags](https://media.forgecdn.net/attachments/2152/243/05-modern-bags-jpg.jpg)](https://media.forgecdn.net/attachments/2152/243/05-modern-bags-jpg.jpg)\n[![Map and quest log](https://media.forgecdn.net/attachments/2152/245/07-modern-map-jpg.jpg)](https://media.forgecdn.net/attachments/2152/245/07-modern-map-jpg.jpg)\n[![Setup window](https://media.forgecdn.net/attachments/2152/209/08-setup-jpg.jpg)](https://media.forgecdn.net/attachments/2152/209/08-setup-jpg.jpg)\n\n*Character window, bags, map and the setup window. Click to enlarge.*\n\n## Commands\n\n```text\n/quiet                  Turn QuietUI on or off (/quiet on, /quiet off)\n/quiet setup            Open the settings, also while QuietUI is off\n/quiet glance           Show the whole HUD (works in macros and with a controller)\n/quiet preset           List your presets\n/quiet preset \"Name\"    Switch to a shared preset\n/quiet dump            Collect a bug report to copy into an issue\n```\n\n`/quietui` works too. Glance uses `` ` `` when the key is free; change it under **QuietUI** in **Key Bindings**. `/quiet off` brings Blizzard's frames back.\n\n## Feedback\n\nReporting a bug: type `/quiet dump`, open the link (Ctrl+C, then your browser) to get the bug form, then copy the report with Ctrl+C and paste it into the form. The form asks what happened, what you expected, how to see it, and for a screenshot.\n\nFound something odd, especially in Modern? Please [open an issue](https://github.com/rdurica/quiet-ui/issues).\n\nQuietUI is free and always will be. If you enjoy it, you can buy me a coffee:\n\n[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V61IEMZV)\n\n## Documentation\n\nEvery feature, setting and visibility rule is described in [docs/features](https://github.com/rdurica/quiet-ui/blob/main/docs/features/README.md).",
+  "releases": [
+    {
+      "tag": "0.15.0",
+      "published": "2026-11-15",
+      "notes": "Minor release since 0.14.3: QuietUI is split into modules you can switch on one by one, a new `/quiet dump` bug report window, a Modern skin for the friends window, and faster bag, talent and professions refreshes.\n\n### Added\n- Modules: Chat, Fading, Helpers, Layout and Modernize are separate modules, each with its own features and tabs. A new Modules tab turns them on or off, and the welcome screen offers a Custom choice. Old chat and Modernize checkboxes migrate automatically.\n- Bug reports: `/quiet dump` opens a scrollable report window with numbered steps, a prefilled GitHub bug form link (with an optional screenshot field), the interface style, recorded errors with their context and caller stack, and blocked actions.\n- Friends window: the Modern look skins the friends window, including recent allies rows, and remembers its moved position.\n\n### Changed\n- Performance: bag slots repaint only when they change and in batches; talent, professions and shared window refreshes are batched; load-on-demand addons and player spells load only when needed.\n\n### Fixed\n- Setup: Save, Reset default and the welcome screen reload through a click-armed secure macro, exactly once; module changes are refused in combat; a failed preset save after a module change restores the previous set.\n- Modern: names take the class colour once the unit's class arrives; saved window points stay on screen; the target skull falls back when its width is a secret value.\n- Bug report: chat lines you sent stay out of the report."
+    },
+    {
+      "tag": "0.14.3",
+      "published": "2026-11-07",
+      "notes": "Patch release since 0.14.2: a Modern skin for the Group Finder, polish for the Inspect window, and safer chat and hover handling around secret values.\n\n### Added\n- Group Finder: the Modern look skins the finder: flat category cards, a held rock backdrop on the browse page, and bare dropdown chevrons.\n\n### Fixed\n- Group Finder: pages are flat windows without a sunken inset, and views are skinned as soon as a page shows them.\n- Inspect: mode tabs show as icon tabs, the PvP rank title sits below the season label and only moves when it can be restored, and inner panels stand bare without a border.\n- Chat: lines with secret values follow their text height and stack correctly, history seeding skips them, and bubbles release their points cleanly.\n- Hover: fading no longer breaks when the client returns a secret mouse-over answer."
+    },
+    {
+      "tag": "0.14.2",
+      "published": "2026-11-06",
+      "notes": "Patch release since 0.14.1: polish for the Modern look on unit frames, the minimap and book pages.\n\n### Fixed\n- Unit frames: the box fits units without a power bar, missing health shows on a lighter fill, and the faction mark sits on its corner.\n- Target and focus: the name sits on the same line as the level.\n- Cast bar: the spark stays hidden after an interrupt.\n- XP bar: the XP text shows above the Modern XP bar on hover.\n- Book and item text pages: the page buttons show bare chevrons instead of an empty field.\n- Minimap: the clock sits flush right on the footer line, mirroring the addon count."
+    },
+    {
+      "tag": "0.14.1",
+      "published": "2026-11-05",
+      "notes": "Patch release since 0.14.0: the Modern look reaches the calendar, plus fixes for bags, the character window, the minimap and the target frame.\n\n### Added\n- Calendar takes the Modern window look and is restored on undo (#18).\n\n### Changed\n- Character window: equipment slots become bag-style sockets and the model gets a quiet backdrop (#19).\n\n### Fixed\n- Empty bag and equipment slots with Blizzard's placeholder art now become sockets, and Forever's `EmptyBagIcon` is held (#19).\n- Calendar: header row, filter and dialog close sit in the header band; menus stay bare; days keep a hover; the holiday window loses its ornate art; missing hooks are reported once (#18).\n- Minimap dial (day and night variants) is found and becomes a plate that sits inside the map's corner (#22).\n- Target boss skull is found under the contextual frame and sits on the box edge, with the name after it.\n- Quest, gossip and book text keep Blizzard's font.\n\n### Upgrade notes\n- Extract the zip into `Interface/AddOns/`, replacing the old `QuietUI` folder. No settings migration needed."
+    },
+    {
+      "tag": "0.14.0",
+      "published": "2026-11-05",
+      "notes": "## 0.14.0\n\nA large feature release since 0.13.0: **Modernize**, an optional dark, flat look for Blizzard's frames and windows, a first-run welcome to pick your look, and per-character chat history.\n\n### Added\n\n- **Modernize (experimental)** (`/quiet setup` → **Modern**): an optional flat graphite look across the UI. It is off by default and turning it off restores the original look. Each area can be turned off on its own:\n  - **Bars and HUD**: action bars with dark empty slots, cast bars (a longer, taller player bar), mirror timers, auras, and a reworked XP and reputation bar with a burst on big XP gains (**Show on big XP gain**).\n  - **Unit frames**: compact player, target, focus, pet and boss frames; party and raid frames with a dark health fill, centred health percent, a thin power line and class-coloured names.\n  - **Windows**: character, spellbook, talents, professions, bags (one movable combined bag, quality-coloured slots), merchant, auction house, mail, loot, quest, gossip and book text in a readable light font, friends, guild, group finder, trainer, the settings panel and most dialogs. Character, spellbook and talents, the quest log, the bag and the map can be dragged by their title. **Reset positions** puts them back.\n  - **Map, minimap, quest tracker, tooltips and the damage meter** in the same style.\n  - Themes, and names coloured by class or reaction.\n- **Welcome window**: each character asks once whether to use **Classic** (Blizzard's look, just quieter) or **Modern**. This also happens after an update, with your current look already selected. With a shared preset active, the window says the choice changes that preset.\n- **Layout prompt per character**: a character that has not answered yet is asked for itself. **Add** appears when the QuietUI layout is missing, **Update** when the layout is new, and **Switch** when it exists but is not active on that character.\n- **Chat history**: lines you send are remembered per character across reloads and relogs.\n- `/quiet profile` now also measures Modernize and keeps the last result after `/reload`.\n\n### Changed\n\n- The bundled **QuietUI Edit Mode layout** always shows empty action bar slots. You are asked once to update it.\n- The `/quiet setup` window has a new flat look. You can drag it by its header, and it remembers its position.\n- Copying a chat line copies only the message text.\n- Saving a change to **Modernize** reloads the UI so the look is complete at once.\n- Internal restructuring into `Core/`, `Settings/`, `Features/`, `Setup/` and `Layout/`, with a larger test suite. Behaviour is unchanged.\n\n### Upgrade notes\n\n1. **Exit the game completely.** Delete the old `QuietUI` folder in `World of Warcraft/_forever_/Interface/AddOns/` (the files moved into subfolders), then extract **QuietUI-0.14.0.zip** there. Your settings are kept: they live in `WTF`, not in the addon folder.\n2. **Start the game again.** This release adds many new files, and `/reload` does not load them.\n3. Your settings, presets and SavedVariables carry over. Modernize stays off until you choose **Modern** in the welcome or turn it on in `/quiet setup` → **Modern**.\n4. This release targets the **WoW Forever beta**, Interface **16001**.\n\n**Full Changelog**: https://github.com/rdurica/quiet-ui/compare/0.13.0...0.14.0"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-10-14",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-10-07",
+      "2026-10-05",
+      "2026-10-01",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuietUI"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "QuietUIDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "QuietUICharDB"
+    ]
+  }
+}

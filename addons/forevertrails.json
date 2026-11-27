@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "forevertrails",
+  "repo": "adambowles/forever-trails",
+  "about": "# Forever Trails\n\n**Every adventure leaves a trace.**\n\nForever Trails records your character's travels in WoW: Forever and draws a coloured\ntrail on the world map, inspired by Hero's Path in Breath of the Wild.\n\n## Install\n\nDownload `ForeverTrails-<version>-Forever.zip` from\n[GitHub Releases](https://github.com/adambowles/forever-trails/releases).\nExtract the `ForeverTrails` folder into `_forever_/Interface/AddOns/`, then restart\nWoW or enable it in the AddOns list. The resulting path must be\n`_forever_/Interface/AddOns/ForeverTrails/ForeverTrails.toc`.\n\n## Use\n\nRecording starts automatically, with a position check **every one second**.\nOpen a zone map and click **Trails** to show/hide the trail, pause/resume recording,\nsee retained points and the oldest recording, or clear this character's history\nwith confirmation. Hiding the overlay does not pause recording.\n\n**Trail colour** offers Green (default), Cyan, Blue, Gold, Red and White presets.\nChanges apply immediately and are remembered across reloads and characters.\nThe Trails panel and its deletion confirmation use mouse input; they do not join\nthe native controller navigation. Normal controller map navigation remains native.\n\nIf the map UI first loads during combat, its setup waits until combat ends;\nrecording continues. History confirmation is unavailable during combat. If WoW\nreports a blocked action, Forever Trails prints the blocked function name in\nchat so it can be included in a bug report.\n\n| Command | Action |\n| --- | --- |\n| `/ft status` | Version, sampling interval, recording status and storage counts |\n| `/ft pause` / `/ft resume` | Pause or resume recording |\n| `/ft show` / `/ft hide` | Show or hide trails |\n| `/ft clear` | Confirm deletion of this character's history |\n\n`/forevertrails` also works. Each character has its own trail. History is kept\nlocally in the account-wide `ForeverTrailsDB` SavedVariables; there is no network\nservice or sharing with other players.\n\n## Current scope\n\nThe 0.1 prototype displays the current character's retained route on its original\nzone, city or supported interior/floor map. Flight paths and ghost travel are\nrecorded as separate segments. Loading screens, map/floor or movement changes,\ninvalid coordinates, long sample gaps and implausible position jumps break the\nline. Browsing another map does not affect the recorded player position.\n\nStraight paths are simplified; turns and idle arrival/departure timing are kept.\nThe history limits are 200,000 points per character and 500,000 across the account.\nOldest complete segments are removed when either limit is reached. These are\npoint limits, not a promised number of hours of history.\n\nLarge overlays are built incrementally with reused line regions. Completed trails\nstay visible until replacement drawings are ready. The display\nprioritises recent sections and caps visible edges at 4,096; exceeding that cap\ndoes not delete recordings. The Trails panel reports when the display is capped.\n\nPlayback, date filters, alt browsing and continent-wide projection are planned\nfor later versions. The stock Blizzard world map is the initial target; map\nreplacement addons are not yet verified.\n\nSavedVariables are written by WoW during its normal save lifecycle. A crash can\nlose recent recordings. Back up `WTF/Account/<account>/SavedVariables/ForeverTrails.lua`\nwhile the game is closed before modifying or moving history.\n\n## Development and releases\n\nThe TOC `## Version` is the sole application-version source. Runtime UI and the\nrelease archive name both derive from it.\n\n```sh\nlua5.1 tests/run.lua\npython3 scripts/package.py --check\npython3 -m unittest discover -s tests -p 'test_*.py' -v\n```\n\nFeature-branch pushes run tests. Plain pushes to `main` do nothing. After merging,\npush a matching tag such as `v0.1.0` on a commit belonging to `main`; the separate\nrelease workflow validates the tag and builds a ZIP plus SHA-256 checksum as\nGitHub Release assets. It does not rerun the tests. Tags pointing outside `main`\nor disagreeing with the TOC version are rejected.\n\nSee [compatibility and in-game checks](https://github.com/adambowles/forever-trails/blob/main/docs/compatibility.md) and the\n[implementation specification](https://github.com/adambowles/forever-trails/blob/main/docs/specification.md).",
+  "releases": [
+    {
+      "tag": "v0.1.4",
+      "published": "2026-11-14",
+      "notes": "## What's Changed\n* v0.1.4: isolate map UI from native gamepad focus by @adambowles in https://github.com/adambowles/forever-trails/pull/5\n\n**Full Changelog**: https://github.com/adambowles/forever-trails/compare/v0.1.3...v0.1.4"
+    },
+    {
+      "tag": "v0.1.3",
+      "published": "2026-11-14",
+      "notes": "## What's Changed\n* v0.1.2: stop trail flashing and add colour presets by @adambowles in https://github.com/adambowles/forever-trails/pull/3\n* v0.1.3: add protected UI and taint safeguards by @adambowles in https://github.com/adambowles/forever-trails/pull/4\n\n**Full Changelog**: https://github.com/adambowles/forever-trails/compare/v0.1.1...v0.1.3"
+    },
+    {
+      "tag": "v0.1.1",
+      "published": "2026-11-14",
+      "notes": "## What's Changed\n* v0.1.1: fix outdoor trails hidden by map terrain by @adambowles in https://github.com/adambowles/forever-trails/pull/2\n\n**Full Changelog**: https://github.com/adambowles/forever-trails/compare/v0.1.0...v0.1.1"
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-04",
+      "notes": "## What's Changed\n* v0.1.0: record player trails and add addon CI/releases by @adambowles in https://github.com/adambowles/forever-trails/pull/1\n\n## New Contributors\n* @adambowles made their first contribution in https://github.com/adambowles/forever-trails/pull/1\n\n**Full Changelog**: https://github.com/adambowles/forever-trails/commits/v0.1.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverTrails"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverTrailsDB"
+    ]
+  }
+}

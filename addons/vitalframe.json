@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "vitalframe",
+  "repo": "Starlynk1/VitalFrame",
+  "about": "# Vital Frame\n\nEasy to see vital character information for Classic and Retail WoW.\n\nVital Frame is a compact, movable HUD for name, level, XP, reputation, professions, and Classic/Forever skill bars. It is built for Retail, Classic Era, other Classic clients, and WoW Forever.\n\n## Features\n\n*   Name, class icon, and level on a small frame\n*   XP, reputation, and crafting skill bars\n*   Optional pet XP on Classic clients\n*   Streamer Mode (shows class name instead of character name)\n*   Hide the default Blizzard watch bar\n*   Separate Skills frame on Classic/Forever (professions, secondary skills, weapon skills)\n*   Scale the main frame and the Skills frame separately\n*   Edit Mode on Retail; `/vf config` to unlock layout on Classic\n*   Theme: Auto (silver on Classic/Retail, brown on Forever), or lock Classic / Forever\n\n## Commands\n\n| Command             |Action                                     |\n| ------------------- |------------------------------------------ |\n| `/vitalframe` or `/vf` |Toggle the frame                           |\n| `/vf show` / `/vf hide` |Show or hide                               |\n| `/vf reset` |Reset position and size                    |\n| `/vf config` |Unlock layout on clients without Edit Mode |\n\nOn Retail, use **Edit Mode** to move the frames and open options.\n\n## Install\n\n1.  Download from CurseForge / WowUp, or clone this repository into `Interface/AddOns/VitalFrame`.\n2.  Ace3 is optional. If Ace3 is installed, settings use AceDB-3.0. Without it, settings still save in `VitalFrameDB`.\n3.  Enable **Vital Frame** in the addons list.\n\n## Supported clients\n\n| Client      |TOC          |\n| ----------- |------------ |\n| Retail      |120100       |\n| WoW Forever |16001        |\n| Classic Era |11508, 11509 |\n\n## License\n\nGPLv3. See [LICENSE](https://github.com/Starlynk1/VitalFrame/blob/main/LICENSE).\n\n***\n\n### **If you like this addon, please check out my other addons.**\n\n| Addon                 |Description                                                     |\n| --------------------- |--------------------------------------------------------------- |\n| [Incognito Resurrected](https://www.curseforge.com/wow/addons/incognito-resurrected) |Adds your chosen name to your chat messages. World, Guild, etc. |\n| [Nope Node](https://www.curseforge.com/wow/addons/nope-node) |Colors the Minimap harvesting nodes to your current skill color |",
+  "releases": [
+    {
+      "tag": "v1.1.3",
+      "published": "2026-11-05",
+      "notes": "# v1.1.3\n\n- Scale the main frame and the Skills frame separately, from 50% to 200%.\n- Frame Opacity fades the whole frame. Background Opacity fades only the fill, and 100% is solid.\n- Options keep the checkboxes on the left, and frame size, scale, fonts, and opacity on the right.\n- The pet bar stays full and shows only the pet level while the pet matches your level. That is the same for every pet class.\n- Feral Combat, Poisons, and Lockpicking show on the skills frame with their real skill rank.\n- Closing Edit Mode on Forever no longer reports an addon error."
+    },
+    {
+      "tag": "v1.1.2",
+      "published": "2026-10-11",
+      "notes": "# v1.1.2\n\n- The pet bar shows current XP / XP needed and the pet level. When that level is full, or the pet is max level, only the level remains and the bar stays full.\n- Skill names in each section are alphabetical.\n- The XP Remaining bar is removed.\n- Frame positions stay put when the addon is disabled and enabled again. New characters use the account position. A character can keep its own position. Reset to Defaults clears the placement in use.\n- The skills frame can sit flush with the bottom of the screen. Grow Down is available when there is room below, and Grow Up when there is room above. Against the top it grows down. Against the bottom it grows up."
+    },
+    {
+      "tag": "v1.1.1",
+      "published": "2026-09-27",
+      "notes": "# v1.1.1\n\n- Classic Era no longer errors while the skills frame updates.\n- The class icon shows on Classic Era, with rounded corners and a small border."
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-09-26",
+      "notes": "# v1.1.0\n\n- Choose a font for the name, level, and bar text, and for skill bars.\n- Set a maximum size for the name and for bar text. The text still shrinks when the frame or bars get smaller.\n- Set the last name as a percentage of the first name size.\n- Fade each frame's border and background separately from the text and bars inside it.\n- List weapon skills above professions, and choose primary and secondary skills on their own.\n- Raise the minimum Vital Frame height so the name and level have room.\n- Show the Forever surname as the last name."
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-09-19",
+      "notes": "# Vital Frame\n\n## [v1.0.1](https://github.com/Starlynk1/VitalFrame/tree/v1.0.1) (2026-09-19)\n[Full Changelog](https://github.com/Starlynk1/VitalFrame/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/Starlynk1/VitalFrame/releases)\n\n- Merge pull request #2 from Starlynk1/develop  \n    Release v1.0.1 Forever persist fixes  \n- Merge pull request #1 from Starlynk1/bugfix/forever-persist  \n    Fix Forever frame and settings persist  \n- Fix Forever reload persist for frames and options.  \n    Named frames restore from layout-local before login, and option flags save as 1/0 so Forever keeps settings after reload."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-10-11",
+      "2026-09-27",
+      "2026-09-26",
+      "2026-09-19",
+      "2026-09-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "VitalFrame"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "VitalFrameDB"
+    ]
+  }
+}

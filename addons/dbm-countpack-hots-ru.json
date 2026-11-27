@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "dbm-countpack-hots-ru",
+  "repo": "Vampire2008/DBM-CountPack-HotS-Build-Scripts",
+  "about": "# DBM-CountPack-HotS-Build-Scripts\nThis repository contains russian version of [DBM-CountPack-HotS](https://github.com/DeadlyBossMods/DBM-CountPack-HotS). Also it contains build scripts to make your own localized version of this addon.\n\n## Make custom mod\nFirst make fork of this repository and clone it.\n\n### Extract resources\nYou need to extract localized sounds. You can use [CASCExplorer](https://github.com/WoW-Tools/CASCExplorer) to do that. You need to extract that folder `Root\\mods\\heroes.stormmod\\xxxx.stormassets\\LocalizedData\\Sounds\\VO` where `xxxx` is code of your locale (for example `enus`). If you doesn't see `xxxx.stormassets` folder in CASCExploer then change locale in View -> Locale.\nThen place the `VO` folder in that repository.\n\n### Modify script\nOn second part open `build.ps1` and change variables in start of file to yours.\n * `$Lang` used in creating folder and naming Lua function\n * `$ExcludeList` used to ignore some voices. For example \"CloakenA\", \"LuchaA\", \"MurkyA\", \"Summer20A\" are excluded because they doesn't have localized version in Russian locale. If you don't want any exclude just assign `@()` to it.\n * `$Author` - Your name that will be placed in TOC file.\n * `$CurseProjectId` - id of project on [CurseForge](https://www.curseforge.com/). Set it if you want to publish your version of mod as separate project.\n * `$WagoProjectId` - id of project on [Wago](https://addons.wago.io/). Set it if you want to publish your version of mod as separate project.\n * `$WowIProjectId` - id of project on [WoW Interface](https://www.wowinterface.com/). Set it if you want to publish your version of mod as separate project.\n\n### Building\nJust run `build.ps1` in PowerShell\n\n### Make localized names (optional)\nIf you want to make localized names in interface you can do it.\nMake all of previous steps. Then run `Make-NamesCsv.ps1 -Lang xx` (replace `xx` with your `$Lang` variable value) in PowerShell. It will make file `names.csv`. Edit the second value in each row. After that rename it to `names_xx.csv` (replace `xx` with your `$Lang` variable value).\nAfter that run `Make-LuaScript.ps1 -Lang xx` (replace `xx` with your `$Lang` variable value).\n\n### Using\nOn this step you can just copy new folder `DBM-CountPack-Hots-XX` into your addon folder of World of Warcraft to use it.\n\n### Building mod and publishing\nThis step is required if you want to publish your mod on GitHub, CurseForge of Wago.\nCommit all changes and place tag with version. It will trigger the GitHub Action workflow that uses [WoW Packager](https://github.com/marketplace/actions/wow-packager)",
+  "releases": [
+    {
+      "tag": "1.7.49",
+      "published": "2026-11-05",
+      "notes": "#  Countpack HotS Ru\n\n## [1.7.49](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/tree/1.7.49) (2026-11-05)\n[Full Changelog](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/commits/1.7.49) [Previous Releases](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/releases)\n\n- Update TOC  \n- Bump version  \n- Bump version  \n- Updated TOC  \n- Bump toc  \n- Updated toc  \n- Updated interface versions  \n- Builder files  \n- Bump interface versions  \n- Bump interface version  \n- Bump classic interface version.  \n    Key values now has lang suffix due to not override original addon values  \n- Updated WoW Retail interface version  \n- Added Wago Id  \n- Fixed workflow, fixed scripts  \n- Added addon files and scripts  \n- Initial commit"
+    },
+    {
+      "tag": "1.7.47",
+      "published": "2026-08-12",
+      "notes": "#  Countpack HotS Ru\n\n## [1.7.47](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/tree/1.7.47) (2026-08-12)\n[Full Changelog](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/compare/1.7.45...1.7.47) [Previous Releases](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/releases)\n\n- Bump version"
+    },
+    {
+      "tag": "1.7.45",
+      "published": "2026-01-23",
+      "notes": "#  Countpack HotS Ru\n\n## [1.7.45](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/tree/1.7.45) (2026-01-23)\n[Full Changelog](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/compare/1.7.44.1...1.7.45) [Previous Releases](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/releases)\n\n- Bump version"
+    },
+    {
+      "tag": "1.7.44.1",
+      "published": "2025-08-09",
+      "notes": "#  Countpack HotS Ru\n\n## [1.7.44.1](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/tree/1.7.44.1) (2025-08-09)\n[Full Changelog](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/compare/1.7.44...1.7.44.1) [Previous Releases](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/releases)\n\n- Updated TOC"
+    },
+    {
+      "tag": "1.7.44",
+      "published": "2025-08-07",
+      "notes": "#  Countpack HotS Ru\n\n## [1.7.44](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/tree/1.7.44) (2025-08-07)\n[Full Changelog](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/compare/1.7.42...1.7.44) [Previous Releases](https://github.com/Vampire2008/DBM-CountPack-HotS-Build-Scripts/releases)\n\n- Bump toc"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-08-12",
+      "2026-01-23",
+      "2025-08-09",
+      "2025-08-07",
+      "2025-03-01",
+      "2024-12-30",
+      "2024-07-26",
+      "2024-06-09",
+      "2023-12-01",
+      "2023-11-08",
+      "2023-10-29"
+    ]
+  },
+  "languages": [
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "DBM-CountPack-HotS-Ru"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "DBM-Core"
+    ]
+  }
+}

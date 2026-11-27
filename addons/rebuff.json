@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "rebuff",
+  "repo": "casperstorm/rebuff",
+  "about": "# Rebuff\n\nShows the next buff that is missing or about to run out, on you or your party, and casts it with one hotkey. For WoW Forever.\n\n![Rebuff](https://raw.githubusercontent.com/casperstorm/rebuff/main/demo.gif)\n\n## Features\n\n- **Your buffs:** Drop spells from your spellbook onto the options window. Each one is kept up on yourself or on your party. A party buff can be kept to the classes you pick, and can also be offered to a player you target.\n- **One icon:** The next buff to cast shows as a button, with the time it has left and who needs it. Group versions count: Prayer of Fortitude satisfies Power Word: Fortitude.\n- **One hotkey:** Mouse wheel down by default. It casts what the icon shows, and is Rebuff's only while a buff is due and in range. The rest of the time the key does what it always did.\n- **In combat:** Rebuff steps aside. The icon hides and the hotkey is given back, also while dead or mounted.\n\n## Getting started\n\n1. Type `/rebuff` to open the options.\n2. Drop the buffs you want kept up from your spellbook onto the grid.\n3. Pick for each whether it goes on yourself or on your party. In a raid, your party is your own raid group.\n\nWhile the options are open the icon shows, to be dragged into place. Later, Alt-drag it. `/rebuff status` tells what Rebuff sees right now, and `/rebuff help` lists the commands.\n\n![Rebuff options](https://raw.githubusercontent.com/casperstorm/rebuff/main/settings.png)\n\n## Installation\n\nDownload `Rebuff-<version>-forever.zip` from the latest [release](https://github.com/casperstorm/rebuff/releases), extract the `Rebuff` folder into `World of Warcraft/_forever_/Interface/AddOns`, and restart the game.\n\nTake that file, not GitHub's **Source code** zip or the green **Code** button: those unpack to a folder named `rebuff-…`, which the game does not recognise as the addon.\n\n## Development\n\n`tests/run.sh` runs the addon's logic against a stand-in for the WoW API (needs Lua 5.1). A release is cut by running the **Release** workflow with a version number.\n\nRebuff is released under the [GPL-3.0 License](https://github.com/casperstorm/rebuff/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "1.2.0",
+      "published": "2026-11-12",
+      "notes": "# Rebuff\n\n## [1.2.0](https://github.com/casperstorm/rebuff/tree/1.2.0) (2026-11-12)\n[Full Changelog](https://github.com/casperstorm/rebuff/commits/1.2.0) [Previous Releases](https://github.com/casperstorm/rebuff/releases)\n\n- Show Rebuff in the README"
+    },
+    {
+      "tag": "1.1.0",
+      "published": "2026-11-12",
+      "notes": "# Rebuff\n\n## [1.1.0](https://github.com/casperstorm/rebuff/tree/1.1.0) (2026-11-12)\n[Full Changelog](https://github.com/casperstorm/rebuff/commits/1.1.0) [Previous Releases](https://github.com/casperstorm/rebuff/releases)\n\n- Keep a party buff to chosen classes  \n    A buff kept on the party gets a row of class icons in the options. With none picked it goes on everyone; a click picks that class alone, further clicks add or leave out."
+    },
+    {
+      "tag": "1.0.0",
+      "published": "2026-11-12",
+      "notes": "# Rebuff\n\n## [1.0.0](https://github.com/casperstorm/rebuff/tree/1.0.0) (2026-11-12)\n[Full Changelog](https://github.com/casperstorm/rebuff/commits/1.0.0) [Previous Releases](https://github.com/casperstorm/rebuff/releases)\n\n- Add Rebuff addon  \n    Shows the next buff that is missing or about to run out, on you or your party, and casts it with one hotkey. Buffs are picked by dropping spells on the options window."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/casperstorm/rebuff/main/demo.gif",
+    "https://raw.githubusercontent.com/casperstorm/rebuff/main/settings.png"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-12",
+    "releaseDates": [
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Rebuff"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "RebuffDB"
+    ]
+  }
+}

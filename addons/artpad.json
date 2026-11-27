@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "artpad",
+  "repo": "shughes-uk/ArtPad",
+  "about": "ArtPad - a shared canvas for your guild or group.\n\nUsage:\n  /ap            open or close ArtPad (also: minimap button, addon compartment, key binding)\n  Left drag      draw (or erase with the eraser tool; size follows the brush)\n  Right drag     pan (middle drag works too)       Mouse wheel   zoom\n  Ctrl-Z         undo your last stroke, text or marker\n  [ ]            brush size (while the mouse is over the canvas)\n  /ap options    settings (also Options > AddOns > ArtPad)\n  /ap guild      share with your guild (default)\n  /ap raid       share with your party / raid / instance group\n  /ap local      share with whoever is at the same place (for now: the Lion's Pride Inn)\n  /ap resync     re-download the canvas from others\n  /ap versions   list ArtPad versions in your guild and group (different versions can't sync)\n  /ap loopback   test sync on your own: your drawing round-trips through the server\n  /ap resetui    put the window back to its default size and spot\n\nDrawing on the world map: click the round pencil button on the world map, or hold Alt and\ndrag on the map. The toolbar has a pen, an eraser and a stamp for markers (raid target icons\nand roles; click the stamp again to choose one), and at its end a button that says who sees\nthe map's drawings and lets you choose: Guild, Party / Raid, or Only Me. Each map has one\ndrawing, shared with the same people as the canvas and kept between sessions.\n\nA click with the pen leaves a dot, except where the click would take the map somewhere else\n(into a zone from a continent map, say): there it is still the map's.\n\nMap strokes are drawn with a brush: curved through your points, with soft edges, round ends\nand an outline that keeps them readable on any part of a map. It appears after the game has\nbeen restarted once (it uses a new texture). Options has \"Smooth strokes on the world map\"\nto go back to plain lines.\n\nDungeon maps: inside a dungeon or raid ArtPad shows its map over the world map (the game has\nthe art but doesn't show it), with the shared drawing on top. A bar at the top picks the\nfloor and switches back to the world map. /ap dungeon  shows one from anywhere;\n/ap dungeon off puts it away.\n\nDrag the title bar to move the window and the bottom-right corner to resize it. The pill in\nthe title bar shows who you're sharing with; click it to switch or to hide your name.\n\nPeople who log in, join your group or switch mode receive the existing canvas. If copies\ndiffer (say, two visits to the inn on different days), the most recently changed one wins -\nincluding a clear, so cleared drawings don't come back from someone's old copy.\n\nLocal mode: share with whoever is at the same place instead of your guild or group. For now\nthe one place is the Lion's Pride Inn in Goldshire: there you get the inn's canvas, shared with\neveryone there in Local mode, with the map of the area behind it. Elsewhere a local canvas\nisn't shared. The inn's drawing is kept, so it's still there next visit.\n\nDevelopment:\n  Link the repo folder into the game (no admin needed), then /reload after editing:\n    New-Item -ItemType Junction -Path \"C:\\Program Files (x86)\\World of Warcraft\\_retail_\\Interface\\AddOns\\ArtPad\" -Target \n\n  Tests simulate several players exchanging addon messages:\n    pip install lupa\n    python tests/run_tests.py\n\n  Releases: push a tag; .github/workflows/release.yml packages it with the BigWigs packager.",
+  "releases": [
+    {
+      "tag": "v10.6.2_release",
+      "published": "2026-11-21",
+      "notes": "# ArtPad\n\n## [v10.6.2_release](https://github.com/shughes-uk/ArtPad/tree/v10.6.2_release) (2026-11-21)\n[Full Changelog](https://github.com/shughes-uk/ArtPad/compare/v10.6.1_release...v10.6.2_release) [Previous Releases](https://github.com/shughes-uk/ArtPad/releases)\n\n- ArtPad 10.6.2: a click with the pen on the world map leaves a dot  \n    A press that doesn't move has always been the map's (it is how you  \n    travel into a zone), so the pen could not make a dot. Now a click with  \n    the pen leaves one wherever the click wouldn't take the map somewhere  \n    else, which is most zone maps and every dungeon map. The dot is kept as  \n    the shortest of lines, as long as it is wide, so it is shared like any  \n    stroke and a version without the brush shows it as a small square; the  \n    brush draws it as a round disc on its outline."
+    },
+    {
+      "tag": "v10.6.1_release",
+      "published": "2026-11-14",
+      "notes": "# ArtPad\n\n## [v10.6.1_release](https://github.com/shughes-uk/ArtPad/tree/v10.6.1_release) (2026-11-14)\n[Full Changelog](https://github.com/shughes-uk/ArtPad/compare/v10.6_release...v10.6.1_release) [Previous Releases](https://github.com/shughes-uk/ArtPad/releases)\n\n- ArtPad 10.6.1: no error on leaving combat before the map has been opened  \n    Blizzard's CanPan compares against a scale the world map only has once  \n    it has been shown. Leaving combat before opening the map in a session  \n    asked anyway and raised 'attempt to compare nil with number' in  \n    Blizzard's code (harmless, but shown to anyone displaying errors; there  \n    since 10.3). The answer is now taken as no when the map can't give one."
+    },
+    {
+      "tag": "v10.6_release",
+      "published": "2026-11-13",
+      "notes": "# ArtPad\n\n## [v10.6_release](https://github.com/shughes-uk/ArtPad/tree/v10.6_release) (2026-11-13)\n[Full Changelog](https://github.com/shughes-uk/ArtPad/compare/v10.5_release...v10.6_release) [Previous Releases](https://github.com/shughes-uk/ArtPad/releases)\n\n- ArtPad 10.6: a brush for the world map, and who sees it  \n    The brush  \n    - Map strokes are now a curve through their points (sharp corners kept)  \n      drawn as a welded ribbon: one texture per piece with its corners moved  \n      so neighbours share an edge, edges that fade over a pixel, round ends,  \n      and an outline underneath in whichever of light or dark stands out  \n      from the ink. The pen is steadied while drawing.  \n    - It uses one texture file, brush.tga, which the game finds after a  \n      restart; until then, and on clients that can't, strokes are the plain  \n      lines they were. Options has \"Smooth strokes on the world map\" to turn  \n      it off.  \n    - Nothing saved or sent changes: other versions draw the same points  \n      their own way.  \n    Sharing on the map  \n    - A button at the end of the map toolbar says who sees the map's  \n      drawings and opens the choices: Guild, Party / Raid, Only Me. Guild  \n      and party are the canvas's own sharing modes; Only Me stops map  \n      drawings being shared and leaves the canvas as it is.  \n    Hidden  \n    - /ap lab and /ap lab tests: the side-by-side comparison and the  \n      experiments the brush was worked out with."
+    },
+    {
+      "tag": "v10.5_release",
+      "published": "2026-11-13",
+      "notes": "# ArtPad\n\n## [v10.5_release](https://github.com/shughes-uk/ArtPad/tree/v10.5_release) (2026-11-13)\n[Full Changelog](https://github.com/shughes-uk/ArtPad/compare/v10.4_release...v10.5_release) [Previous Releases](https://github.com/shughes-uk/ArtPad/releases)\n\n- ArtPad 10.5: markers on the world map  \n    The world map toolbar gains the stamp tool: click the map to place a  \n    marker (raid target icons and the three roles), click the tool again to  \n    choose which. Markers follow the brush size, are shared like strokes,  \n    and work with the eraser, undo and clear.  \n    Versions before 10.5 skip markers they are sent; strokes still reach  \n    them."
+    },
+    {
+      "tag": "v10.4_release",
+      "published": "2026-11-13",
+      "notes": "# ArtPad\n\n## [v10.4_release](https://github.com/shughes-uk/ArtPad/tree/v10.4_release) (2026-11-13)\n[Full Changelog](https://github.com/shughes-uk/ArtPad/compare/v10.3.1_release...v10.4_release) [Previous Releases](https://github.com/shughes-uk/ArtPad/releases)\n\n- ArtPad 10.4: dungeon maps on the world map  \n    The client ships map art for dungeons and raids but has no map entries  \n    for them, so the world map shows nothing useful inside one. ArtPad now  \n    lays the dungeon's own map over the world map while you are in a known  \n    instance, with the shared drawing on top; each floor has its own drawing.  \n    A small bar names the dungeon, picks the floor and switches back to the  \n    world map. /ap dungeon  shows one from anywhere.  \n    Covers 23 classic dungeons and raids (DungeonMaps.lua)."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ArtPad"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ArtPad_Settings"
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "improvedforever",
+  "repo": "markgravity/ImprovedForever",
+  "about": "# Improved Forever - Controller & Gamepad\n\nThe **controller / gamepad** addon for **WoW Forever**: quality-of-life tweaks that make playing\nwith a controller even better. Works with Xbox, PlayStation (DualSense) and Switch Pro controllers.\nEverything is set up and used from the controller, no keyboard step needed. Every module but\nController and Wheel works with the mouse and keyboard too: the windows follow what you used last\n(the pad's legend and cursor with the pad; buttons to click, the wheel to scroll, tooltips on hover\nand Esc with the mouse).\n\nFree on [CurseForge](https://www.curseforge.com/wow/addons/improved-forever).\n\n  ![Radial wheels](https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/wheel.webp)\n  ![Vibration](https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/vibration.webp)\n  ![Auction house](https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/auction-house.webp)\n  ![Item wiki](https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/wiki.webp)\n  \n\n  ![Junk](https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/junk.webp)\n  ![Quest tracker](https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/quest-tracker.webp)\n  ![Peek map](https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/peek-map.webp)\n  ![Gathering labels](https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/gathering-labels.webp)\n\nEach feature is its own addon (enable only the ones you want in the AddOns list); all of them need\nthe core, **Improved Forever**:\n\n| Addon | What it does |\n|---|---|\n| `ImprovedForever` | The core: button glyphs, the configuration panel, the Bindings tab (every press on one drawing of the controller, and its keyboard / mouse press), bag clean-up, touchpad corners, the game data (QuestieDB's, recipes) and the item verdict every module shares. Required. Holds the former Controller module. |\n| `ImprovedForever_Wheel` | Wheels on R3 combos, the recent action slot. |\n| `ImprovedForever_Vibration` | Vibration on game events and spell casts. |\n| `ImprovedForever_Minimap` | Names beside the minimap's dots (herbs, ore, quests, NPCs, party members: you choose), gathering alerts. Formerly Gather. |\n| `ImprovedForever_Map` | The peek map. |\n| `ImprovedForever_Chat` | The chat with the controller: pick a line, then an item or other link in it. |\n| `ImprovedForever_Auction` | The controller auction window, prices over time, tasks. |\n| `ImprovedForever_Junk` | Finds and marks junk, sells it with the vendor's Sell All Junk, destroys it from the bags or the loot window. Formerly Destroy. |\n| `ImprovedForever_Wiki` | Everything about an item. |\n| `ImprovedForever_Journal` | A diary of your days, read as a book. |\n| `ImprovedForever_Fishing` | Fishing from the controller: fishing mode, a cast bar of its own, the session's stringer, the Fish Collection. |\n| `ImprovedForever_Camp` | Sitting by a campfire as a cutscene: the HUD gone, black bars, the camera cutting between shots round you, your day told back from the Journal, the camp's benefits when they come, what's said near you as subtitles. |\n| `ImprovedForever_Immersion` | The game's HUD made immersive: the target's health across the top, yours bottom left in the same look in a ring of your experience, your health and power as lines along the bottom edge, your pet and party as cards, the gamepad bar as Hogwarts Legacy's spell diamonds bottom right, the chat as just its lines until used. Needs Journal and Spoken. |\n| `ImprovedForever_QuestTracker` | The objective tracker, rebuilt as the game's own: sorted quests (zone, level, title, distance, completed), an objective complete sound, full controller support. Formerly Improved Quest Tracker. |\n\n## Features\n\n- **Wheels** on R3 combos, laid out like the game's radial menu. Built in: **Quest Items** and\n  **Consumables** (each fills itself from your bags) and **Emotes**. Make wheels of your own, mixing\n  spells, items, macros, emotes and chat phrases you add (D-pad up / down picks a phrase's channel on\n  the wheel), or a shaman's totems, or a trinket swap. Aim with the right stick.\n- **Recent action slot** on R3, placed in Edit Mode.\n- **Touchpad** corner actions.\n- **Chat lines**: with the chat open on the controller, D-pad Up picks its lines, left / right the links in a line\n  (their tooltips); Cross opens an item in the Wiki, Square puts the link in your message.\n- **Button overrides** for L3 click and double-click.\n- **Vibration** on game events and spell casts, with per-action patterns.\n- **Junk**: what the bags no longer need is marked junk (the game's coin on its slot), from quests (QuestieDB's\n  data), your professions' recipes, auction prices, your class and whether it's soulbound. L2 + L3 on a bag item\n  marks it junk or not junk, remembered per character. A vendor's Sell All Junk sells it all. Its **Destroy**\n  panel throws junk away from the controller; from the loot window when the bags are full, it destroys junk\n  and loots in its place. The auction window's Sell tab sorts the bags by the same verdict.\n- **Wiki**: hold R3 on an item (bags, loot window, auction house) for everything about it: what drops\n  it, who sells it, the recipes that make or use it, its quests and auction prices. Drops, vendors and\n  quests come from [QuestieDB](https://github.com/Questie/QuestieDB)'s data: the addon when installed, else\n  a copy that ships with the core.\n- **Fishing**: with a pole in hand, R2 twice (or a double right-click) starts fishing mode: R2 casts, R2\n  twice puts your best lure on, Circle or Esc stops. Each cast is its own scene (the HUD steps back, the\n  camera comes in, the fish of that water swim round your bobber), the catches hang on a stringer under\n  the minimap, and the **Fish Collection** (D-pad up) keeps every fish you've caught, with a cinematic\n  for each new one. Triangle frames the fishing camera.\n- **Journal**: a diary of each day you play, per character: the lands you passed through, the quests you\n  finished, your fights and falls, what you looted, earned and made, written in your own words. Read it in\n  a book like the Wiki's (`/if journal`, a key binding or a wheel); with the Wiki, a quest, creature or item\n  in it opens its page.\n\n**Bindings**: every binding has a controller press and a keyboard / mouse press, both working, set\non the Bindings tab (or the module's own tab): record either, it goes on the press of the input you\nused. A keyboard / mouse press is a key (Alt / Ctrl / Shift held too, if you like) or, for an item's\nbinding, a modified click on an item. By default Alt + click an item (bags, loot window, chat links)\nopens it in the Wiki and Alt + right-click a bag item marks it junk or not junk; a key on those acts\non the item under the mouse. `/if input pad` or `/if input mouse` keeps the windows on one\n(`/if input auto`: the one used last).\n\nDouble-tap **Menu** (or `/if`) to open the configuration: a tab per loaded module down the right\n(L1 / R1, or the right stick), the module's sections down the left (the left stick, or L2 / R2), its\nsettings in the middle (left / right change one, Cross picks from its list on the right).\n\n## Install\n\n- **CurseForge app**: search *Improved Forever* and install the modules you want (*Improved\n  Forever: Wheel*, *Improved Forever: Auction*...); each brings the core along.\n- **Manual**: download the core's zip (`ImprovedForever-<version>.zip`) and each module's own\n  (`ImprovedForever_<Module>-<version>.zip`) from\n  [Releases](https://github.com/markgravity/ImprovedForever/releases) and unzip them into\n  `World of Warcraft/_forever_/Interface/AddOns/` so you get `AddOns/ImprovedForever/`,\n  `AddOns/ImprovedForever_Wheel/`... (remove an old `AddOns/ImprovedController/`).\n\n## SteamOS / Steam Deck (PlayStation controller)\n\nKeep Steam Input on for the WoW shortcut: it is what lets Steam's on-screen keyboard\n(Steam / PS button + X) take the controller instead of the game. But Steam Input hides the\ntouchpad finger from the game, so the corners can't be told apart. The layout in\n[`docs/steam-input/ImprovedForever_PS5_TouchpadCorners.vdf`](https://github.com/markgravity/ImprovedForever/blob/main/docs/steam-input/ImprovedForever_PS5_TouchpadCorners.vdf)\nsends them as keys instead: the touchpad's top left / top right / bottom left / bottom right\nareas press the numpad **7 / 9 / 1 / 3**, and Improved Forever takes those four as the corners\n(also in the Bindings tab).\n\n1. Copy the `.vdf` to `~/.steam/steam/controller_base/templates/` as\n   `controller_ps5_improvedforever.vdf` and restart Steam.\n2. In the WoW shortcut's Controller Settings, Browse Configs, Templates: apply\n   *Improved Forever: PS5 + touchpad corners*, then restart the game.\n3. If the game shows Xbox buttons (it doesn't see the pad as a PlayStation one), turn on\n   **Touchpad corners from Steam Input** in game (`/if`, General tab), or type `/if cornerkeys on`\n   once. The Create button is then View (drawn in Create's place in the Bindings tab).\n\nIn the Bindings tab, pick a card (Cross) and click the touchpad corner you want: it is bound there\n(with L1 / R1 / L2 / R2 picked first, on that layer).\n\nThe layout is Steam's stock PS5 gamepad one with only the touchpad changed. Numpad 7 / 9 / 1 / 3\n(and Home / Page Up / End / Page Down, what they become with NumLock off, as in Game Mode)\nare taken by the addon in the world while it runs. Each half of the pad has four areas\n(top, right, bottom, left), so a click near the middle of a half can land in the other corner\nof that half.\n\n## Development\n\nOne repo, one folder per addon (`ImprovedForever/` the core, `ImprovedForever_<Module>/` each module).\nLink them into the game with `tools/link.sh \"<game>/Interface/AddOns\"` and `/reload` in game.\n\nA module reaches the core through the global `ImprovedForever` (`local IF = ImprovedForever`), says it\nis there with `IF.AddModule`, adds its presses with `IF.Binds.Add`, its commands with `IF.AddCommand`\nand its settings tab with `IF.SettingsPage` (form fields) or `IF.Menu.AddTab` (a page of its own).\nAnother module's table (`IF.Auction`, `IF.Vibe`...) is used only after checking it is loaded.\n\n`luajit tools/loadcheck.lua each` loads the core with each module alone, then all of them, against a\nstand-in for the game's API, and drives the configuration panel: it catches a module reaching for\none that isn't loaded.\n\n`vendor/QuestieDB` is a git submodule of [QuestieDB](https://github.com/Questie/QuestieDB), for its API\ntypes and data (`git submodule update --init`). `python tools/make_library_data.py` copies what the\nWiki and the item verdict need from it into the core's `ImprovedForever/WorldData.lua`, which ships; the\nsubmodule itself isn't packaged.\n\n- `python tools/sync_forever_data.py` syncs all the game data with WoW Forever (QuestieDB moved to its\n  latest, `RecipeData.lua` and `WorldData.lua` rebuilt) and checks the IDs written in the code; `--check`\n  only checks.\n- `python tools/make_library.py` regenerates the core's `ImprovedForever/RecipeData.lua` from Forever's own\n  recipe tables (wago.tools).\n- The other `tools/make_*.py` regenerate the TGA textures (`ImprovedForever/textures/`).\n- `python tools/package.py` builds a zip per addon in `dist/` and `ImprovedForever-All.zip` with every addon; `python tools/package.py Wheel` builds only that one.\n- `python tools/make_module_icons.py --logos` also writes each module's CurseForge logo to `dist/logos/`.\n\n### Releasing\n\nEach addon is versioned and released on its own: tag only the ones you changed.\n\n1. `python tools/release.py changed` lists the addons touched since their last tag.\n2. Bump `## Version:` in those addons' TOCs only.\n3. Add a `## <Name> <version>` section (e.g. `## Wheel 0.6.1`) on top of `CHANGELOG.md` for each.\n4. Commit, then tag each: `git tag Wheel-v0.6.1 && git push origin main Wheel-v0.6.1`.\n   `<Name>` is the folder without `ImprovedForever_` (`Core` for `ImprovedForever`).\n\nThe [release workflow](https://github.com/markgravity/ImprovedForever/blob/main/.github/workflows/release.yml) runs per tag: it checks the tag matches that\naddon's TOC, builds its zip, creates the GitHub release with its changelog section, and uploads the\nzip to its CurseForge project (`## X-Curse-Project-ID` in its TOC) when `CF_API_KEY` is set. A tag\nwith a suffix (`Wheel-v0.7.0-beta1`) makes a pre-release / beta.\n\n## Support\n\nImproved Forever is free and always will be. If it makes your game better and you'd like to\nsay thanks, you can buy me a coffee:\n\n- [Ko-fi](https://ko-fi.com/markgravity)\n- [PayPal](https://paypal.me/markgravity)\n\n## Credits\n\nThe Wiki's drop, vendor and quest data comes from [QuestieDB](https://github.com/Questie/QuestieDB)\nby the Questie team; creatures' display ids (their portraits) from\n[cMaNGOS classic-db](https://github.com/cmangos/classic-db) (GPL-3.0).\n\nParts of the code are adapted from\n[Easy Controller - Forever](https://github.com/moust4ki/EasyControllerWowForever) by moust4ki\n(MIT): see [LICENSE-EasyController.md](https://github.com/markgravity/ImprovedForever/blob/main/LICENSE-EasyController.md).\n\n## License\n\n[MIT](https://github.com/markgravity/ImprovedForever/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "Core-v0.20.1",
+      "name": "Improved Forever Core 0.20.1",
+      "published": "2026-11-25",
+      "notes": "- Fixed: the touchpad corners work again in the world and in the Bindings tab. With Steam Input (Game Mode) the corners reach the game as Home / Page Up / End / Page Down, and the game's cursor staying on screen in the world no longer holds them back.\n- Bindings tab with the pad: press a touchpad corner (or the PlayStation touchpad click) to bind the card you picked onto it; the shoulders / triggers picked first set its layer.\n- Xbox pad under Steam Input: with \"Touchpad corners from Steam Input\" on (General tab) the corners show and bind too.\n- New: `/if cornerkeys log` lists for 30 seconds the keys the game gets and what each is bound to. Paste it in a comment if a corner still doesn't work.\n- Fixed: with \"Square always attacks\" on, a druid's RT / LT + Square in a form (Maul in Bear Form) ran the caster bar's slot instead. In a form Square is now the game's own press, so the form's bar answers. Square no longer starts the swing for you in a form."
+    },
+    {
+      "tag": "Chat-v0.7.0",
+      "name": "Improved Forever Chat 0.7.0",
+      "published": "2026-11-17",
+      "notes": "- **Chat keyboard**: an on-screen keyboard laid out like the PS5's, low in the middle of the screen on a soft dark band. Open it anywhere with LB + RB held, then Cross (a binding, changeable in the Bindings tab), or with D-pad Down while the chat has the controller. The chat's edit box isn't needed.\n- D-pad picks a key, Cross types it, Square deletes, Triangle is a space, LB / RB move the cursor, Start sends, Circle closes. Your sticks stay the game's.\n- LT / RT pick the channel: Say, Yell, Party, Raid, Guild, Whisper, and the numbered channels (General, Trade...). The message goes to the channel picked.\n- The message sits in the middle and grows out from it.\n- **Slash commands**: type `/` and the commands of the game and your addons (and the emotes) are offered in a strip over the keyboard; pick one with D-pad Up from the top row, left / right, Cross. Sending runs it as the game's chat would.\n- **Global** channel (one before Say, with LT): each key goes to the game as the keyboard's key, so your keyboard hotkeys work from the pad. The game's own protected actions (action bars, targeting, movement...) are left out.\n- Put the keyboard at the bottom, left or right of the screen, with its size and offsets, in the Chat tab; it shows while you change them.\n- Chat lines (D-pad Up in the chat) are as before: pick a line and the links in it, open an item in the Wiki, put a link in your message."
+    },
+    {
+      "tag": "QuestTracker-v0.6.7",
+      "name": "Improved Forever QuestTracker 0.6.7",
+      "published": "2026-11-17",
+      "notes": "- Fixed: tracking or untracking quests in the quest log while the map is open no longer freezes the game: the tracker waits until the map closes before it reorders the game's watch list.\n- Fixed: a quest that moves down the list no longer sends the tracker into an anchoring loop."
+    },
+    {
+      "tag": "Vibration-v0.7.0",
+      "name": "Improved Forever Vibration 0.7.0",
+      "published": "2026-11-17",
+      "notes": "- New event \"Quest turned in\" (Progress): a triple tick when you hand in a quest."
+    },
+    {
+      "tag": "Map-v0.8.0",
+      "name": "Improved Forever Map 0.8.0",
+      "published": "2026-11-17",
+      "notes": "- Peek map: L1 / R1 zoom the map out / in by level (sub-zone, zone, continent, world, as the map's own navigation does) instead of shrinking and growing its window."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/wheel.webp",
+    "https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/vibration.webp",
+    "https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/auction-house.webp",
+    "https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/wiki.webp",
+    "https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/junk.webp",
+    "https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/quest-tracker.webp",
+    "https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/peek-map.webp",
+    "https://raw.githubusercontent.com/markgravity/ImprovedForever/main/media/gathering-labels.webp"
+  ],
+  "stats": {
+    "stars": 12,
+    "openIssues": 17,
+    "contributors": 3,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ImprovedForever"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "QuestieDB"
+    ],
+    "savedVariables": [
+      "ImprovedForeverDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ImprovedForeverCharDB"
+    ]
+  }
+}

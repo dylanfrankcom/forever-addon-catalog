@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "easyexperiencebar",
+  "repo": "Furydins/EasyExperienceBar",
+  "about": "# EasyExperienceBar\n\nThis is a port of the orginal Luxthos Experience Bar Weak Aura now converted to a regular World of Warcraft addon to enable it to continue to support World of Warcraft: Midnight and beyond.\n\n## Features:\n\n- Supports All flavours of classic and retail (including the Midnight Beta)\n- Tracks XP and Rested XP\n- Optionally tracks completed quest XP\n- Tracks Session and Level time\n- Predicts Time to Level\n\n## Credits\n- Visual Design: Luxthos\n- Original Coding: Deamoos\n\n![image](https://github.com/user-attachments/assets/b3177ac8-de18-4146-a52a-58f415caf7b5)",
+  "releases": [
+    {
+      "tag": "2026.11.17.A",
+      "published": "2026-11-17",
+      "notes": "- Update Russian Localization (Credit: ZamestoTV)"
+    },
+    {
+      "tag": "2026.11.09.A",
+      "published": "2026-11-09",
+      "notes": "- Address issue causing current level time to become inaccurate after a /reload"
+    },
+    {
+      "tag": "2026.11.13.A",
+      "published": "2026-11-03",
+      "notes": "- Updates for WoW:Forever"
+    },
+    {
+      "tag": "2026.10.13.A",
+      "published": "2026-10-13",
+      "notes": "- Support for patch 12.1.5\n- Address issue with class colour selection (Credit: stroexd)\n- Added Dark Mode colour option (Credit: stroexd)"
+    },
+    {
+      "tag": "2026.10.02.A",
+      "published": "2026-10-02",
+      "notes": "- Support Wow:Forever Beta"
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/b3177ac8-de18-4146-a52a-58f415caf7b5"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-09",
+      "2026-11-03",
+      "2026-10-13",
+      "2026-10-02",
+      "2026-09-22",
+      "2026-09-21",
+      "2026-09-03",
+      "2026-08-12",
+      "2026-08-11",
+      "2026-08-11",
+      "2026-07-21",
+      "2026-07-17",
+      "2026-07-08",
+      "2026-06-16",
+      "2026-06-02",
+      "2026-04-27",
+      "2026-04-21",
+      "2026-03-10",
+      "2026-03-09",
+      "2026-02-24",
+      "2026-02-19",
+      "2026-02-17",
+      "2026-02-16",
+      "2026-02-13",
+      "2026-02-13",
+      "2026-02-10",
+      "2026-02-10",
+      "2026-01-20",
+      "2026-01-13",
+      "2025-12-09",
+      "2025-12-02",
+      "2025-11-25",
+      "2025-11-24",
+      "2025-11-24",
+      "2025-11-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EasyExperienceBar"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "EasyExperienceDB"
+    ]
+  }
+}

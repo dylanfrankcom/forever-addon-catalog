@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "nodesight",
+  "repo": "Krelock/NodeSight",
+  "releases": [
+    {
+      "tag": "sparkles-v1.5.4",
+      "name": "NodeSight Sparkles 1.5.4",
+      "published": "2026-11-26",
+      "notes": "## NodeSight Sparkles 1.5.4\n\n### Fixes\n\n- **Bobber toys**. With a bobber toy like the Oversized Bobber or a Crate of Bobbers, the bobber gets the bobber's sparkles, not Other objects'."
+    },
+    {
+      "tag": "v4.0.5",
+      "name": "NodeSight 4.0.5",
+      "published": "2026-11-26",
+      "notes": "## NodeSight 4.0.5\n\n### New\n\n- **OpenMap support**. Herbs and Ore switches in OpenMap's map menu, under **NodeSight**, to show or hide each on your map. They work on Blizzard's map too.\n\n### Changes\n\n- **Overlapping symbols**. Symbols that touch on the minimap and world map share one outline and are cut where they meet, so the node dots under them stay visible.\n- **Minimap edge**. Symbols fade out at the edge of the minimap instead of going over its border.\n- **Smaller in caves**. Minimap symbols are smaller while you're inside.\n- **Lighter**. Far less CPU on the minimap while you walk or stand still, and when you zoom the world map.\n- **Smoother on OpenMap**. Much less lag zooming and panning: only the herbs and ore in view are drawn, and with both shown the symbols use plain rings.\n\n### Fixes\n\n- **Bobber toys**. With a bobber toy like the Oversized Bobber or a Crate of Bobbers, the bobber gets the bobber's sparkles, not Other objects'."
+    },
+    {
+      "tag": "sparkles-v1.5.3",
+      "name": "NodeSight Sparkles 1.5.3",
+      "published": "2026-11-25",
+      "notes": "## NodeSight Sparkles 1.5.3\n\n### New\n\n- **Glow around the node** (off by default). A soft glow around the node in the sparkles' first color, under any style. Turn it on for each kind in the sparkle window, under **Count**.\n\n### Fixes\n\n- **Sparkle Maker**. A new sparkle never gets the number of one you deleted, so another character that used the deleted one doesn't get the new one instead. Undo skips changes to a deleted sparkle, and a plain click on the ring no longer adds an Undo step."
+    },
+    {
+      "tag": "v4.0.4",
+      "name": "NodeSight 4.0.4",
+      "published": "2026-11-25",
+      "notes": "## NodeSight 4.0.4\n\n### New\n\n- **Glow around the node** (off by default). A soft glow around the node in the sparkles' first color, under any style. Turn it on for each kind in the sparkle window, under **Count**.\n- **Pause while falling** (on by default). The Herb/Ore Switch doesn't switch while you're jumping or falling. On **Herb/Ore Switch**, under **Pauses**.\n- **Thank you page**. A thanks to our supporter, with a Buy me a coffee link, at the bottom of the settings list."
+    },
+    {
+      "tag": "sparkles-v1.5.2",
+      "name": "NodeSight Sparkles 1.5.2",
+      "published": "2026-11-24",
+      "notes": "## NodeSight Sparkles 1.5.2\n\n### Changes\n\n- **Interact Key off in towns** is off by default again, and turned off once for everyone, so the Interact Key works in towns as before. You can turn it on in the sparkle window's **General** tab."
+    }
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 3,
+    "contributors": 4,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-17",
+      "2026-11-24",
+      "2026-11-17",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-24",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-24",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-11-03",
+      "2026-11-01"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NodeSight"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "NodeSightDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "NodeSightCharDB"
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "quester",
+  "repo": "Nevcairiel/Quester",
+  "releases": [
+    {
+      "tag": "12.1.5.1",
+      "published": "2026-11-18",
+      "notes": "# Quester\n\n## [12.1.5.1](https://github.com/Nevcairiel/Quester/tree/12.1.5.1) (2026-11-18)\n[Full Changelog](https://github.com/Nevcairiel/Quester/compare/12.1.5.0...12.1.5.1) [Previous Releases](https://github.com/Nevcairiel/Quester/releases)\n\n- Fix quests getting pinned as manually tracked after quick progress updates  \n- Keep the quest log title decoration and hide unknown quest levels  \n- Fix quest levels in chat links showing as 0  \n- Keep quests tracked for 3 minutes after making progress on them  \n- Add automatic tracking of nearby quests  \n    Track quests when the player gets close to their objectives, and untrack  \n    them again when moving away. Manually tracked or untracked quests are  \n    left alone, and finished quests are only handled by the option to  \n    un-track complete quests. Delivery quests without real objectives are  \n    tracked near their turn-in.  \n- Can't process quests when the tooltip is secret"
+    },
+    {
+      "tag": "12.1.5.0",
+      "published": "2026-11-06",
+      "notes": "# Quester\n\n## [12.1.5.0](https://github.com/Nevcairiel/Quester/tree/12.1.5.0) (2026-11-06)\n[Full Changelog](https://github.com/Nevcairiel/Quester/compare/11.2.0.2...12.1.5.0) [Previous Releases](https://github.com/Nevcairiel/Quester/releases)\n\n- Update TOC  \n- Show quest levels by default on Forever  \n    They are relevant here, other then Retail  \n- Ignore luacheck for unused factionLabels  \n- Use event information for progress bars  \n- Use event information for unparseable item/object objectives"
+    },
+    {
+      "tag": "11.2.0.2",
+      "published": "2025-10-05",
+      "notes": "# Quester\n\n## [11.2.0.2](https://github.com/Nevcairiel/Quester/tree/11.2.0.2) (2025-10-05)\n[Full Changelog](https://github.com/Nevcairiel/Quester/compare/11.2.0.1...11.2.0.2) [Previous Releases](https://github.com/Nevcairiel/Quester/releases)\n\n- Sanity check in debug code  \n- Fix progressbar coloring on Bonus Objectives  \n- Fix luacheck  \n- Avoid Lua errors from parsing errors due to intermittent API results  \n- Support coloring the objective text of progress bars"
+    },
+    {
+      "tag": "11.2.0.1",
+      "published": "2025-09-09",
+      "notes": "# Quester\n\n## [11.2.0.1](https://github.com/Nevcairiel/Quester/tree/11.2.0.1) (2025-09-09)\n[Full Changelog](https://github.com/Nevcairiel/Quester/compare/11.2.0.0...11.2.0.1) [Previous Releases](https://github.com/Nevcairiel/Quester/releases)\n\n- Update packaging setup"
+    },
+    {
+      "tag": "11.0.2.0",
+      "published": "2024-09-05",
+      "notes": "# Quester\n\n## [11.0.2.0](https://github.com/Nevcairiel/Quester/tree/11.0.2.0) (2024-09-05)\n[Full Changelog](https://github.com/Nevcairiel/Quester/compare/11.0.0.1...11.0.2.0) [Previous Releases](https://github.com/Nevcairiel/Quester/releases)\n\n- Remove 11.0.0 TOC tag  \n- Deduplicate line retrieval  \n- Try to avoid some taint by avoiding GetLine"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 2,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-06",
+      "2025-10-05",
+      "2025-09-09",
+      "2024-09-05",
+      "2024-08-13",
+      "2024-07-27",
+      "2023-05-03",
+      "2023-03-22",
+      "2022-11-16",
+      "2022-11-16",
+      "2022-02-23",
+      "2021-06-29",
+      "2021-03-15",
+      "2020-11-19",
+      "2020-10-19",
+      "2020-10-16",
+      "2020-10-13",
+      "2019-09-25",
+      "2019-08-27",
+      "2019-08-27",
+      "2019-06-26",
+      "2019-06-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Quester"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibSink-2.0"
+    ],
+    "savedVariables": [
+      "QuesterDB"
+    ]
+  }
+}

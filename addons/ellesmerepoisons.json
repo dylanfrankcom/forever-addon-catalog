@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "ellesmerepoisons",
+  "repo": "Solessfir/EllesmerePoisons",
+  "about": "# EllesmereUI Poisons\n\n**Think Poisoner + Hemlock in one addon, standalone or built into EllesmereUI.** A poison dock to apply your poisons, stones and oils, and a restock bar to refill your poisons at the vendor. Each module has its own Enable toggle, so you can run both or only one.\n\n![Preview](https://raw.githubusercontent.com/Solessfir/EllesmerePoisons/master/Media/preview.gif)\n\nWorks on its own or with **[EllesmereUI](https://www.curseforge.com/wow/addons/ellesmereui)**, which adds its skin, more icon shapes, Unlock Mode and the full settings page. Made for **WoW Forever**.\n\n## Dock (the Poisoner part)\n\nOne movable button. Hover or click it to open a flyout of every poison, sharpening stone, weightstone and oil in your bags, with their counts.\n\n- **Left-click** an item for your main hand, **right-click** for your off hand.\n- **Right-click the button** to open its settings.\n- A splash bursts from the item you used when it goes on your weapon. Bubbles rise while a poison is on, and sparkles while a stone or oil is.\n- Items you have applied can glow in the flyout.\n- Drag to reorder the list, and click to hide what you don't want.\n\n## Restock (the Hemlock part)\n\nAt a poison vendor, buttons appear beside the merchant window, one for each poison you know and one for Flash Powder. Each button shows your target (top left) and what you have (bottom right, red when short, green when stocked).\n\n- **Click** to buy the reagents, then **click again** to craft your best rank up to the target.\n- Flash Powder is bought straight up to its target.\n- The **mouse wheel** over a button changes its target, and **right-click** opens the settings.\n- Tooltips tell you what the next click will do.\n\n## Settings\n\nThe settings are in the game's **Options > AddOns > Ellesmere Poisons**, with Restock as its own page. With EllesmereUI installed they are also in the EllesmereUI options, and both the dock and the restock bar move in **Unlock Mode**.\n\nWithout EllesmereUI, **Shift-drag** the dock button or a restock button to move it, and **Reset Position** puts it back. The Options > AddOns page has everything below except:\n- drag to reorder (a show/hide toggle per type instead)\n- the Custom button icon's name (Custom can be picked, but its icon is set on the EllesmereUI page)\n- color opacity\n- the masked icon shapes (Square, Circle, Curved Square, Diamond, Hexagon, Portrait, Shield), which use EllesmereUI's art\n\n**Dock**\n- **General:** Enable, Hide When None in Bags, Highest Rank Only, Tooltips (Full, Name Only, Off), Icon Shape (Cropped, Square, Circle, Curved Square, Diamond, Hexagon, Portrait, Shield)\n- **Poisons, stones and oils:** order, and which ones to show\n- **Button:** Button Icon (Poisons Skill, Envenomed Blade, Dual Wield, Sharpening Stone, Last Applied, Custom), Button Size, Opacity, Show Only on Mouseover\n- **Flyout:** Flyout Direction (Up, Down, Left, Right), Item Size, Spacing, Flyout Background\n- **Behavior:** Open On (Hover, Click), After a Click (Stay Open, Hide After Leaving), Open Delay, Hide Delay, Close After Use\n- **Animation:** Animation (Instant, Fade, Slide, Fade and Slide, Grow, Cascade), Easing (Linear, Ease Out, Ease In, Ease In Out, Overshoot), Duration, Cascade Delay\n- **Highlight Applied:** on/off, color, static or pulse, pulse speed\n- **Item Count:** on/off, position, size, outline, X/Y offset, color\n- **Effects:** Enable Effects, Effects Only on Hover, Effects Only When Applied, Applied On (Any Weapon, Main Hand Only), Splash Opacity, Bubbles Color, Sparkles Color\n\n**Restock**\n- **Enable**\n- **Buttons:** order, and which ones to show\n- **Targets:** a target for each poison you have learned, plus Flash Powder\n- **Layout:** Layout (vertical or horizontal), Icon Shape, Button Size, Spacing, Background\n- **Numbers:** Number Size, Number Outline, Target Color\n- **Effects:** Crafting Effects (bubbles while a poison crafts, droplets for each one made)\n\n## Notes\n\n- For timers and reminders when your poisons wear off, use the **AuraBuff Reminders** module that comes with EllesmereUI.\n- Translated into German, French, Spanish, Italian, Brazilian Portuguese, Russian, Korean and Chinese (Simplified and Traditional). With EllesmereUI it follows EllesmereUI's language setting, and poison names match the game's when EllesmereUI shows your client's language. Without it, it follows the client's language.\n- In combat the flyout still opens on click (and on hover in Hover mode), but instantly with no animation, and it lists what was in your bags when combat started. Open Delay and Close After Use wait until combat ends.\n- `/epoisons debug` lists what the dock sees in your bags and on each weapon, which helps with bug reports.",
+  "releases": [
+    {
+      "tag": "v1.1.2",
+      "published": "2026-11-20",
+      "notes": "# EllesmereUI Poisons\n\n## [v1.1.2](https://github.com/Solessfir/EllesmerePoisons/tree/v1.1.2) (2026-11-20)\n[Full Changelog](https://github.com/Solessfir/EllesmerePoisons/compare/v1.1.1...v1.1.2) [Previous Releases](https://github.com/Solessfir/EllesmerePoisons/releases)\n\n- Keep Flash Powder and poison crafts from blocking each other"
+    },
+    {
+      "tag": "v1.1.1",
+      "published": "2026-11-19",
+      "notes": "# EllesmereUI Poisons\n\n## [v1.1.1](https://github.com/Solessfir/EllesmerePoisons/tree/v1.1.1) (2026-11-19)\n[Full Changelog](https://github.com/Solessfir/EllesmerePoisons/compare/v1.1.0...v1.1.1) [Previous Releases](https://github.com/Solessfir/EllesmerePoisons/releases)\n\n- Let Flash Powder be bought right after a craft"
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-18",
+      "notes": "# EllesmereUI Poisons\n\n## [v1.1.0](https://github.com/Solessfir/EllesmerePoisons/tree/v1.1.0) (2026-11-18)\n[Full Changelog](https://github.com/Solessfir/EllesmerePoisons/compare/v1.0.2...v1.1.0) [Previous Releases](https://github.com/Solessfir/EllesmerePoisons/releases)\n\n- Run without EllesmereUI, add an Options > AddOns page and open the flyout in combat"
+    },
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-17",
+      "notes": "# EllesmereUI Poisons\n\n## [v1.0.2](https://github.com/Solessfir/EllesmerePoisons/tree/v1.0.2) (2026-11-17)\n[Full Changelog](https://github.com/Solessfir/EllesmerePoisons/compare/v1.0.1...v1.0.2) [Previous Releases](https://github.com/Solessfir/EllesmerePoisons/releases)\n\n- Hide when empty, show effects only when applied, and use a stone icon for non-rogues by default"
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-12",
+      "notes": "# EllesmereUI Poisons\n\n## [v1.0.1](https://github.com/Solessfir/EllesmerePoisons/tree/v1.0.1) (2026-11-12)\n[Full Changelog](https://github.com/Solessfir/EllesmerePoisons/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/Solessfir/EllesmerePoisons/releases)\n\n- Put Enable and targets near the top of the options  \n- Point to AuraBuff Reminders for poison timers  \n- Splash from the used item and match the README to the CurseForge page  \n- Translate into nine languages through EllesmereUI's catalog"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Solessfir/EllesmerePoisons/master/Media/preview.gif"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-12",
+      "2026-11-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EllesmerePoisons"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "EllesmereUI"
+    ],
+    "savedVariablesPerCharacter": [
+      "EllesmerePoisonsDB"
+    ]
+  }
+}

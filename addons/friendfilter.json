@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "friendfilter",
+  "repo": "d0ub7/friendfilter",
+  "about": "# Friend Filter\n\nCheckboxes for the WoW Forever friends list. Four rulesets (Normal, PvP, Roleplay, RP-PvP), two factions (Alliance, Horde), and one for the Battle.net app.\n\nThe boxes sit in a strip along the top of the friends window. If the window is already at the top of the screen, the strip sits under it instead. Every box starts checked, so the list stays as it is. Uncheck PvP to hide friends on PvP. Uncheck Alliance to hide Alliance. Uncheck In App to hide friends who are online in the Battle.net app. Ruleset and faction apply together. Shift-click a ruleset or faction to show only that one.\n\nFriends on retail or another version of WoW are hidden while any ruleset box is unchecked. They are not on a Forever ruleset. Friends in Diablo, Heroes of the Storm, and other Battle.net games are hidden while a ruleset box stays checked. A difficulty named Normal is not the Forever ruleset. Unchecking every ruleset box leaves those friends listed, and a WoW faction saved on their account does not hide them. Offline friends stay listed.\n\nWhile a box is unchecked, a filtered list covers the friends window. Blizzard's search box and Filter menu still apply on top of that. Clicking one of these checkboxes reads Blizzard's list again, including just after the Filter menu updates it. Right-click a friend for the usual menu. Check every box again, or run `/friendfilter reset`, and EllesmereUI's groups and invites come back. The addon does not rebuild Blizzard's list, so whispers stay on Blizzard's link.\n\n## Install\n\nCopy this folder into the Forever client's `Interface/AddOns` directory. The folder name has to stay `friendfilter`.\n\nWowUp can install it too. Select the Forever client, choose Install from URL, and paste `https://github.com/d0ub7/friendfilter`.\n\n`/friendfilter` and `/ffilter` print a short reminder. `/friendfilter reset` checks every box.\n\n## License\n\n[MIT](https://github.com/d0ub7/friendfilter/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.1.2",
+      "name": "1.1.2",
+      "published": "2026-11-18",
+      "notes": "Friend Filter 1.1.2 for World of Warcraft: Forever.\n\nFriends in Diablo, Heroes of the Storm, and other Battle.net games are hidden while a ruleset box stays checked. Diablo's Normal difficulty is not the Forever ruleset. Unchecking every ruleset box lists those friends again, and a saved WoW faction does not hide them.\n\nIn WowUp, select the Forever client, choose Install from URL, and paste https://github.com/d0ub7/friendfilter."
+    },
+    {
+      "tag": "v1.1.1",
+      "name": "1.1.1",
+      "published": "2026-11-17",
+      "notes": "Friend Filter 1.1.1 for World of Warcraft: Forever.\n\nFriends on retail or another version of WoW are hidden while any ruleset box is unchecked. A new In App checkbox hides friends who are only in the Battle.net app. It starts checked.\n\nClicking a checkbox reads Blizzard's Filter menu again, so that dropdown and these checkboxes stay in step.\n\nIn WowUp, select the Forever client, choose Install from URL, and paste https://github.com/d0ub7/friendfilter."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "1.0.0",
+      "published": "2026-11-15",
+      "notes": "Friend Filter 1.0.0 for World of Warcraft: Forever.\n\nCheckboxes on the friends list: Normal, PvP, Roleplay, and RP-PvP, plus Alliance and Horde. Uncheck a box to hide friends on that ruleset or faction. Shift-click a box to show only that one. Offline friends and friends in another game stay listed.\n\nIn WowUp, select the Forever client, choose Install from URL, and paste https://github.com/d0ub7/friendfilter."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "friendfilter"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "EllesmereUI"
+    ],
+    "savedVariables": [
+      "FriendFilterDB"
+    ]
+  }
+}

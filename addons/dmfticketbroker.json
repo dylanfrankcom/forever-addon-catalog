@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "dmfticketbroker",
+  "repo": "jkop-xyz/dmf-ticket-broker",
+  "about": "# DMF Ticket Broker\n\nA World of Warcraft: Forever addon that works out the cheapest way to earn Darkmoon Faire Prize Tickets, using your [Auctionator](https://www.curseforge.com/wow/addons/auctionator) prices. Everything happens in game: no external tools or exports.\n\n## Features\n\n- **Cheapest turn-ins:** ranks every Prize Ticket quest by cost per ticket or per turn-in, from the latest Auctionator scan, with the age of each price.\n- **Buy or craft:** if your character can craft a turn-in item (or a reagent in it), the cheaper of buying and crafting is used. Vendor-bought reagents are priced from the vendor.\n- **Can you turn it in?** Each quest shows whether your character's level and Darkmoon Faire reputation allow it, and how many turn-ins are left before the tier's reputation limit.\n- **Breakdown:** click a quest to see every item and reagent, where to get it and what it costs, and create an Auctionator shopping list from it.\n- **Prize Rewards:** everything Gelvas Grimegate sells for tickets, how many tickets you're missing, and roughly what they would cost in gold.\n- **Free Ticket Voucher reminder:** a reminder in the window and in chat while you carry an unused voucher.\n\n## Install\n\n1. Install Auctionator for WoW: Forever.\n2. Download `DMFTicketBroker-<version>.zip` from the latest release.\n3. Unzip it into `World of Warcraft/_forever_/Interface/AddOns/`, so that you end up with `Interface/AddOns/DMFTicketBroker/DMFTicketBroker.toc`.\n4. Restart the game and make sure DMF Ticket Broker is enabled in the AddOns list at character select.\n\n## Use\n\n- Open the window with `/dmft` (or `/dmftickets`), the minimap button, or the addon menu on the minimap.\n- Scan the Auction House with Auctionator to get prices. With the window open at the Auction House, prices refresh as the scan finishes.\n- Open each of your professions once so the addon knows which recipes you have.\n- Settings (stale price threshold, minimap button): `/dmft settings` or Options → AddOns → DMF Ticket Broker.\n\n## Game data\n\nAll quest, recipe, vendor and prize data lives in [`DMFTicketBroker/Data.lua`](https://github.com/jkop-xyz/dmf-ticket-broker/blob/main/DMFTicketBroker/Data.lua). Most of it was checked against Wowhead's WoW: Forever database. A few values are still unconfirmed and are marked `UNVERIFIED` there, notably whether the repeatable \"More …\" quests give tickets on Forever (shown as \"Tickets unconfirmed\" in game). Corrections are welcome.\n\n## Development\n\nTests run with [busted](https://lunarmodules.github.io/busted/) under Lua 5.1:\n\n```sh\nscripts/test\n```\n\nThe ranking logic (`Engine.lua`) and the game data (`Data.lua`) use no WoW API, so they are tested directly. The rest of the addon is tested against a stubbed client. Domain terms are defined in [`GLOSSARY.md`](https://github.com/jkop-xyz/dmf-ticket-broker/blob/main/GLOSSARY.md), and design decisions are recorded in [`docs/adr/`](https://github.com/jkop-xyz/dmf-ticket-broker/blob/main/docs/adr).\n\n## License\n\n[MIT](https://github.com/jkop-xyz/dmf-ticket-broker/blob/main/LICENSE). The bundled libraries in [`DMFTicketBroker/Libs/`](https://github.com/jkop-xyz/dmf-ticket-broker/blob/main/DMFTicketBroker/Libs) (LibStub, CallbackHandler-1.0, LibDataBroker-1.1, LibDBIcon-1.0) are third-party code and keep their own licenses.",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "name": "DMF Ticket Broker 0.1.0",
+      "published": "2026-11-13",
+      "notes": "First release of DMF Ticket Broker for WoW: Forever. It finds the cheapest Darkmoon Faire Prize Tickets using your Auctionator prices.\n\n## Install\n\n1. Install Auctionator for WoW: Forever.\n2. Download **DMFTicketBroker-0.1.0.zip** below.\n3. Unzip it into `World of Warcraft/_forever_/Interface/AddOns/`, so you get `Interface/AddOns/DMFTicketBroker/DMFTicketBroker.toc`.\n4. Restart the game, then open the window with `/dmft` or the minimap button.\n\n## What's in it\n\n- Every Prize Ticket quest ranked by cost per ticket or per turn-in, from your latest Auctionator scan.\n- Buy vs craft for characters with the profession, including crafted reagents, and vendor prices for vendor-bought reagents.\n- Whether your character can turn each quest in, and how many turn-ins are left before its reputation limit.\n- A Breakdown of every item and reagent, with one-click Auctionator shopping lists.\n- A Prize Rewards tab: what Gelvas Grimegate sells, how many tickets you're missing, and roughly what they'd cost in gold.\n- A reminder while you carry an unused Free Ticket Voucher.\n\n## Known gaps\n\n- The repeatable \"More …\" quests (More Bat Eyes and friends) may give no tickets on Forever. They're shown as \"Tickets unconfirmed\" until someone checks.\n- The tier 1 and tier 5 reputation limits are taken from community sources. Tier 2 (1,100) is confirmed in game.\n\nFound a wrong number? Open an issue with what the game shows."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DMFTicketBroker"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "DMFTicketBrokerDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "DMFTicketBrokerCharDB"
+    ]
+  }
+}

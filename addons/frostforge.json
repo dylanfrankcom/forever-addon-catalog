@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "frostforge",
+  "repo": "jiberishxd/Frostforge",
+  "about": "![Frostforge official penguin logo](https://raw.githubusercontent.com/jiberishxd/Frostforge/main/docs/images/logo.png)\n\n# Jiberish's Frostforge\n\n[Join the Discord](https://discord.com/servers/igloo-460933747731070996)\n\n**Bring the grit, craft, and character of Warcraft into your interface.**\n\nJiberish's Frostforge adds sculpted artwork around your portraits, health and power bars, cast bars, action bars, and minimap. Build a matching look for your class, race, or faction—from Paladin wings and Priest stonework to Druid roots and Shaman totems.\n\n[The Igloo](https://theigloo.io/) · [Artwork gallery](https://github.com/jiberishxd/Frostforge/blob/main/docs/GALLERY.md) · [Getting started](https://github.com/jiberishxd/Frostforge/blob/main/docs/GETTING-STARTED.md) · [Compatibility](#works-with-your-ui) · [Report an issue](https://github.com/jiberishxd/JiberishUI-WoW/issues/new/choose)\n\n![A selection of Frostforge portrait, unit-frame, cast-bar, action-hub and minimap artwork](https://raw.githubusercontent.com/jiberishxd/Frostforge/main/docs/images/overview.jpg)\n\n*Artwork showcase using the addon's actual textures. See the gallery for labeled previews and an early in-game capture.*\n\n**Current source: 0.9.2 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/JiberishUI-WoW/releases) published yet. To test from source, [build an installable ZIP](https://github.com/jiberishxd/Frostforge/blob/main/docs/DEVELOPMENT.md#build-installable-zips).\n\n## Make it your own\n\n- **42 matching themes:** 13 classes, 26 races, and Alliance, Horde and Neutral. Each has portrait, unit-frame, action-hub, minimap and cast-bar artwork.\n- **Independent artwork toggles:** use portrait surrounds, full unit-frame shells and cast-bar borders separately on Player, Target and Focus.\n- **Automatic identity:** follow a unit's class, race or faction, or choose a fixed design. Recognized city NPCs use the matching existing race artwork; for example, Undercity → Undead and Stormwind → Human.\n- **Fit your layout:** adjust size, offsets, scale and layers. Portrait art, unit-frame art and cast borders each have their own strata. Unit-frame shells have separate width, height and position controls. Bold cast borders have their own width, height, weight and spacing.\n- **Stock Blizzard controls:** hide the portrait image or surround, adjust text, use stone and class gradients on health, and choose custom power colors or gradients—including party and raid bars. Move Target/Focus buff/debuff groups and cast bars with separate position controls.\n- **A shared stone material:** choose **Frostforge Stone** in compatible EllesmereUI, ElvUI and other LibSharedMedia status-bar texture menus.\n- **A Warcraft-style settings workshop:** searchable artwork collections, per-component controls, reset options and copy/paste settings backups.\n- **Character profiles:** save named setups and assign them per character. New alts start separately; copy a layout or deliberately share one. [Profile guide](https://github.com/jiberishxd/Frostforge/blob/main/docs/PROFILES.md).\n\nYour frame provider continues to handle health and power values, casts, names, portraits, auras and clicks. Frostforge's decorations are click-through. Full unit-frame styling can apply fill textures and fit power-bar spacing to the artwork; disabling it restores the provider's layout and any fills it managed. The separate stock-wide stone toggle can keep Blizzard bars textured even without shells.\n\n## Works with your UI\n\nThese are the integrations implemented in the current build. Support depends on the provider's enabled modules and layout; this table is not a claim that every combination has been validated in game.\n\n| UI / addon | Portrait art | Full unit-frame shells | Cast-bar borders | Action hub |\n| --- | --- | --- | --- | --- |\n| **Blizzard UI** | Yes | Yes | Yes | Yes |\n| **EllesmereUI** | Yes, with a separate portrait | Yes, for compatible bar layouts¹ | Yes | Yes |\n| **ElvUI** | Yes, with a separate portrait | Yes¹ | Yes | Yes |\n| **Blinkii's Portraits** | Yes | Uses another provider | Uses another provider | Uses another provider |\n| **mMediaTag & Tools** | Yes, through ElvUI | Uses ElvUI¹ | Uses ElvUI | Uses ElvUI |\n\n¹ ElvUI and Ellesmere full shells require horizontal health with power attached and aligned below it. ElvUI inset/mini/offset power and detached, above-health or vertical power layouts do not receive a full shell. When power is hidden or absent, complete artwork follows health with a dark empty power opening. Separate/circular portraits give the closest portrait fit; portraits drawn inside health bars have no separate surround to decorate.\n\nThe **minimap surround** follows the shared minimap and is designed for a circular map. Action hubs decorate the main bar; keep your preferred addon in charge of its buttons and layout. **Frostforge Stone** can also be used on other frames through your provider's texture settings, including party and raid frames.\n\nThird-party addons must support your game client themselves. Frostforge does not make a Retail-only addon work on Forever. [Detailed provider setup and limitations](https://github.com/jiberishxd/Frostforge/blob/main/docs/ADDON-COMPATIBILITY.md).\n\n## Get started\n\n1. Install the matching **Retail** or **Forever** ZIP. Put its `JiberishUI` folder directly inside your client's `Interface/AddOns/` directory, then fully restart WoW.\n2. Enable Frostforge and your preferred UI addon. Open **`/frostforge`**.\n3. Choose **Player**, **Target** or **Focus**. In **Artwork**, select automatic class/race/faction matching or browse for a fixed design.\n4. Enable **Portrait art** and **Unit-frame art** independently. Portraits start on; full shells start off. Choose the correct providers when using multiple UI addons.\n5. Open **Cast bar** to enable its separate border; the provider's cast bar must also be enabled. Then choose matching **Minimap** and **Action hub** artwork if you want a coordinated set.\n\nSettings save as you go. Fitting changes that need to wait for combat apply afterward. Use **Placement** for portraits, **Unit frame** for shell fitting, and **Cast bar** for cast-border fitting. Use **Blizzard** for stock portrait and text controls and the stock-wide stone toggle (on by default); **Cast bar** has cast-border strata and level together; **Advanced** has portrait/shell strata. Your provider's settings still control where its functional frames sit.\n\n![The Frostforge settings workshop with separate portrait and unit-frame controls](https://raw.githubusercontent.com/jiberishxd/Frostforge/main/docs/images/settings.jpg)\n\n*Offline settings preview exported from the addon's settings code; fonts and native panel textures are browser approximations.*\n\n**Upgrading from JiberishUI?** Your profiles, backups and `/jui` / `/jf` commands still work. Keep the install folder named `JiberishUI`; the in-game title is **Jiberish's Frostforge**.\n\nVisit **The Igloo** tab to copy [theigloo.io](https://theigloo.io/) into your browser.\n\nFor a clean update, close WoW and replace only the existing `Interface/AddOns/JiberishUI` folder. Keep your `WTF` folder and saved settings. [Full setup and troubleshooting](https://github.com/jiberishxd/Frostforge/blob/main/docs/GETTING-STARTED.md).\n\n## Help, feedback and development\n\n- **Missing art or a fitting problem?** Check the toggle and provider for that component, then include `/jui status`, your client/addon versions, and a screenshot in a [bug report](https://github.com/jiberishxd/JiberishUI-WoW/issues/new/choose).\n- **Want to share a layout or request an improvement?** Open an [issue](https://github.com/jiberishxd/JiberishUI-WoW/issues/new/choose). [Support guide](https://github.com/jiberishxd/Frostforge/blob/main/SUPPORT.md).\n- **Want to contribute?** Read the [contributor guide](https://github.com/jiberishxd/Frostforge/blob/main/CONTRIBUTING.md), [local build instructions](https://github.com/jiberishxd/Frostforge/blob/main/docs/DEVELOPMENT.md), and [validation checklist](https://github.com/jiberishxd/Frostforge/blob/main/docs/VALIDATION.md).\n\nThis build decorates Player, Target, Focus, the main action hub and minimap. The plain stone material also covers stock party, raid, pet, boss, target-of-target and focus-target health/power bars; ornamental shells remain limited to Player/Target/Focus. Nameplates are outside this feature. A reported Forever saved-settings loading issue is documented in the [persistence notes](https://github.com/jiberishxd/Frostforge/blob/main/docs/PERSISTENCE.md); keep a settings backup while testing.\n\nFrostforge is an independent community project. [Artwork credits and source references](https://github.com/jiberishxd/Frostforge/blob/main/docs/ARTWORK-CREDITS.md) · [Test results](https://github.com/jiberishxd/Frostforge/blob/main/docs/TEST-RESULTS.md) · [Advanced commands](https://github.com/jiberishxd/Frostforge/blob/main/docs/COMMANDS.md).\n\nBlizzard users can open **Player/Target/Focus → Blizzard → Colors & textures** for class-colored names, class-gradient health, dark stone health, and separate health/power texture choices. Party/raid colors are included; these controls do not require ElvUI or EllesmereUI.",
+  "releases": [
+    {
+      "tag": "v1.0.3",
+      "name": "Frostforge 1.0.3",
+      "published": "2026-10-21",
+      "notes": "- Updated the Hallow’s End unit frame with fuller Horseman armor, a more visible sword and richer cloth details.\n- Made the Horseman clearly headless in the matching portrait and minimap artwork."
+    },
+    {
+      "tag": "v1.0.2",
+      "name": "Frostforge 1.0.2",
+      "published": "2026-10-21",
+      "notes": "- Added seven holiday sets for portraits, unit frames, action hubs and minimaps, including Hallow’s End and Alliance and Horde Winter Veil.\n- Find them in the new Seasonal category in each artwork browser."
+    },
+    {
+      "tag": "v1.0.1",
+      "name": "Frostforge 1.0.1",
+      "published": "2026-10-21",
+      "notes": "Frostforge 1.0.1 adds dedicated NPC portrait and unit-frame artwork, giving different creature types their own appearance.\n\n- Ten new themes: Beast, Humanoid, Undead, Demon, Dragonkin, Elemental, Mechanical, Giant, Critter and Aberration.\n- Automatic matching is enabled by default. Fixed artwork and recognized city affiliations retain priority; unknown or unavailable creature types keep the existing fallback.\n- Browse the new **Creatures** collection to choose a fixed design, or use **Target / Focus → Artwork → Match NPC creature types** to control automatic matching.\n- Existing player artwork and saved settings are preserved. Creature themes use matching cast trims and bar fills from the existing collection.\n\nDownload **Retail** for WoW 12.1.0 or **Forever** for WoW 1.60.1. Install the included `Frostforge` folder in your client's `Interface/AddOns` directory and keep your saved settings when upgrading.\n\nValidation: 438 behavior tests and all applicable runtime artwork and package checks passed. Live in-game validation of the new artwork has not yet been performed."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Frostforge 1.0.0",
+      "published": "2026-09-29",
+      "notes": "First official release of **Jiberish's Frostforge**.\n\nBring a matching look to portraits, unit frames, cast bars, minimaps and action hubs with 42 class, race and faction themes. Includes compact Party and Target of Target borders, a first-login setup tour, saved profiles, and the blue Frostforge settings entry in the Escape menu.\n\n## Choose your download\n\n| Client | Game version | Download |\n| --- | --- | --- |\n| Retail | 12.1.0 | `Jiberishs-Frostforge-Retail-1.0.0.zip` |\n| Forever | 1.60.1 | `Jiberishs-Frostforge-Forever-1.0.0.zip` |\n\nEach ZIP contains the complete `Frostforge` addon folder with client-specific metadata. Install the package for your client; do not install both into the same game folder. Extract `Frostforge` into `Interface/AddOns/`, restart WoW, and open settings with `/frostforge` or Escape → Frostforge.\n\nUpdating from Frostforge 0.9.x preserves your settings. Keep your `WTF` folder and saved variables when replacing addon files.\n\nSupports Blizzard frames and compatible ElvUI, EllesmereUI, Blinkii and mMediaTag layouts. Each UI addon must support your chosen client; see the [installation guide](https://github.com/jiberishxd/Frostforge/blob/v1.0.0/docs/GETTING-STARTED.md) for layout requirements.\n\n[Support: The Igloo Discord](https://discord.com/servers/igloo-460933747731070996) · [Changelog](https://github.com/jiberishxd/Frostforge/blob/v1.0.0/docs/CHANGELOG.md) · [Artwork credits](https://github.com/jiberishxd/Frostforge/blob/v1.0.0/Frostforge/CREDITS.md)"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/jiberishxd/Frostforge/main/docs/images/overview.jpg",
+    "https://raw.githubusercontent.com/jiberishxd/Frostforge/main/docs/images/settings.jpg"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-10-21",
+      "2026-10-21",
+      "2026-09-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Frostforge"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0",
+      "Blizzard_UnitFrame",
+      "Blizzard_ActionBar",
+      "Blizzard_Minimap",
+      "Blinkiis_Portraits",
+      "ElvUI",
+      "ElvUI_mMediaTag",
+      "EllesmereUI",
+      "EllesmereUIUnitFrames",
+      "EllesmereUIResourceBars",
+      "EllesmereUIActionBars",
+      "EllesmereUIMinimap"
+    ],
+    "savedVariables": [
+      "JiberishUIDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "JiberishUICharacterDB"
+    ]
+  }
+}

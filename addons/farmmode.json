@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "farmmode",
+  "repo": "paradosi/FarmMode",
+  "about": "# FarmMode\n\n![FarmMode](https://raw.githubusercontent.com/paradosi/FarmMode/main/media/art/farm_mode_warcraft_400.png)\n\nA lightweight WoW addon that centers and enlarges the minimap for easier gathering routes.\n\nType `/farm` to toggle. Type `/farm` again to restore.\n\n## Screenshots\n\n**Farm Mode Off** — default minimap position\n![Farm Mode Off](https://raw.githubusercontent.com/paradosi/FarmMode/main/media/screenshots/farm-off.jpg)\n\n**Farm Mode On** — minimap centered and enlarged\n![Farm Mode On](https://raw.githubusercontent.com/paradosi/FarmMode/main/media/screenshots/farm-on.jpg)\n\n## Install\n\nAvailable on [CurseForge](https://www.curseforge.com/wow/addons/farmmode) and [Wago](https://addons.wago.io/addons/56ndEaG9).\n\n**Manual install:** Download the latest release and extract the `FarmMode` folder into your `Interface\\AddOns\\` directory.\n\n## Usage\n\n- `/farm` — Toggle farm mode on/off\n- `/farm config` — Open settings panel\n\n## Settings\n\nOpen with `/farm config` or via Interface > AddOns > FarmMode.\n\n![Settings Panel](https://raw.githubusercontent.com/paradosi/FarmMode/main/media/screenshots/farm-config.jpg)\n\n- **Scale** — Minimap size (1.0x to 3.0x)\n- **Zoom Level** — Minimap zoom (0 = zoomed out, 5 = zoomed in)\n- **Opacity** — Minimap transparency (30% to 100%)\n- **X / Y Offset** — Position on screen\n- **Draggable** — Left-click drag the minimap to reposition while in farm mode\n- **Hide Clutter** — Hides minimap buttons (zoom, tracking, zone text, clock; on Retail also the addon compartment and expansion button) for a clean view. Only the buttons it hid come back when farm mode is turned off\n- **Reset Defaults** — Restore all settings to defaults\n\nAll sliders support mouse wheel input. Settings persist across sessions and apply live.\n\n## Keybinding\n\nBind a hotkey in **Options > Keybindings > FarmMode** to toggle without typing `/farm`.\n\n![Keybinding](https://raw.githubusercontent.com/paradosi/FarmMode/main/media/screenshots/farm-keybind.jpg)\n\n## Features\n\n- Saves and restores the original minimap position, scale, opacity and zoom (compatible with ElvUI, SexyMap, etc.)\n- Combat lockdown protection — cannot toggle during combat\n- Safe zoom handling with bounds checking\n- Minimal memory footprint — single file, no libraries\n\n## Compatibility\n\n| Client | Interface | Status |\n|--------|-----------|--------|\n| Classic Era | 11509 | ✅ Supported |\n| TBC Classic Anniversary | 20506 | ✅ Supported |\n| Retail / Mainline | 120105 | ✅ Supported |\n| WoW Forever | 16001 | ✅ Supported |\n\n## Changelog\n\n### v1.4.1\n- Multi-client support: Classic Era, TBC Anniversary, and Retail\n- API compatibility fix for Classic Era\n\n### v1.4.0\n- Save/restore original minimap position on toggle\n- Combat lockdown guard\n- Safe zoom with pcall\n- Version display in settings title\n\n### v1.3.2\n- Draggable minimap in farm mode\n- Hide clutter toggle\n- ElvUI-styled settings panel\n\n## License\n\n[MIT](https://github.com/paradosi/FarmMode/blob/main/LICENSE)\n\n---\n\n[![Buy Me A Coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=paradosi&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00)](https://www.buymeacoffee.com/paradosi)",
+  "releases": [
+    {
+      "tag": "v1.4.4",
+      "published": "2026-11-06",
+      "notes": "# Changelog\n\n## v1.4.4\n- Now supports WoW Forever\n- Turning farm mode off now puts the minimap back at its own scale and opacity, not at 100%, so it no longer undoes SexyMap's or ElvUI's minimap size\n- \"Hide minimap buttons\" now works on Retail (zoom, tracking, zone text, the addon compartment and the expansion button) and hides the tracking button and top border on TBC Anniversary, which it was missing\n- Turning farm mode off only shows the buttons farm mode hid; a button you or another addon had hidden stays hidden\n- Minimap dragging no longer removes another addon's minimap drag handling when farm mode is switched off\n\n## v1.4.3\n- Updated for the current clients (Retail 12.1.5, TBC Anniversary 2.5.6 and Classic Era 1.15.9), so the addon no longer shows as out of date\n- Release notes on CurseForge and Wago are now this changelog instead of the commit log\n- Filled in the missing v1.3.2–v1.4.2 entries below\n\n## v1.4.2\n- Fixed a Lua error on Classic Era: `SetObeyStepOnDrag` is only called where the client has it\n\n## v1.4.1\n- Multi-client support: Classic Era, TBC Anniversary and Retail TOCs\n- `GetAddOnMetadata` falls back to the global where `C_AddOns` is missing (Classic Era)\n\n## v1.4.0\n- Saves and restores the original minimap position on toggle (works alongside ElvUI, SexyMap, etc.)\n- Farm mode can no longer be toggled in combat (prevents taint)\n- Minimap zoom is set safely on clients with a lower maximum zoom\n- Settings panel title shows the addon version\n\n## v1.3.2\n- Fixed README images on Wago\n\n## v1.3.1\n- Organized assets into media/ folder (screenshots, textures, art)\n- Added art assets (400px and 64px logos)\n- Added CHANGELOG.md\n\n## v1.3\n- Redesigned sliders to ElvUI style: thin track, label centered above, min/max values flanking, editable value box below\n- Added mouse wheel support with smart step sizes (Scale: 0.1, Opacity: 5, X/Y Offset: 10)\n- Replaced WoW's built-in frame mover with cursor-tracked dragging for smooth, snap-free movement\n- Organized assets into media/ folder (screenshots, textures, art)\n\n## v1.2\n- Added ElvUI-styled settings panel (`/farm config`)\n- Added Scale, Zoom Level, Opacity, X/Y Offset sliders\n- Added Draggable and Hide Clutter checkboxes\n- Added Reset Defaults button\n- Added keybinding support (Options > Keybindings > FarmMode)\n- Added minimap zoom control (auto zoom out in farm mode)\n- Added opacity control\n- Added hide minimap clutter option\n- Added addon icon and Map category grouping\n- Settings persist via SavedVariables\n\n## v1.1\n- Added settings panel with Scale and X/Y Offset sliders\n- Added `/farm config` slash command\n- Added SavedVariables for persistent settings\n\n## v1.0\n- Initial release\n- `/farm` toggles minimap to center screen, enlarged\n- `/farm` again restores default position"
+    },
+    {
+      "tag": "v1.4.3",
+      "published": "2026-11-05",
+      "notes": "# Changelog\n\n## v1.4.3\n- Updated for the current clients (Retail 12.1.5, TBC Anniversary 2.5.6 and Classic Era 1.15.9), so the addon no longer shows as out of date\n- Release notes on CurseForge and Wago are now this changelog instead of the commit log\n- Filled in the missing v1.3.2–v1.4.2 entries below\n\n## v1.4.2\n- Fixed a Lua error on Classic Era: `SetObeyStepOnDrag` is only called where the client has it\n\n## v1.4.1\n- Multi-client support: Classic Era, TBC Anniversary and Retail TOCs\n- `GetAddOnMetadata` falls back to the global where `C_AddOns` is missing (Classic Era)\n\n## v1.4.0\n- Saves and restores the original minimap position on toggle (works alongside ElvUI, SexyMap, etc.)\n- Farm mode can no longer be toggled in combat (prevents taint)\n- Minimap zoom is set safely on clients with a lower maximum zoom\n- Settings panel title shows the addon version\n\n## v1.3.2\n- Fixed README images on Wago\n\n## v1.3.1\n- Organized assets into media/ folder (screenshots, textures, art)\n- Added art assets (400px and 64px logos)\n- Added CHANGELOG.md\n\n## v1.3\n- Redesigned sliders to ElvUI style: thin track, label centered above, min/max values flanking, editable value box below\n- Added mouse wheel support with smart step sizes (Scale: 0.1, Opacity: 5, X/Y Offset: 10)\n- Replaced WoW's built-in frame mover with cursor-tracked dragging for smooth, snap-free movement\n- Organized assets into media/ folder (screenshots, textures, art)\n\n## v1.2\n- Added ElvUI-styled settings panel (`/farm config`)\n- Added Scale, Zoom Level, Opacity, X/Y Offset sliders\n- Added Draggable and Hide Clutter checkboxes\n- Added Reset Defaults button\n- Added keybinding support (Options > Keybindings > FarmMode)\n- Added minimap zoom control (auto zoom out in farm mode)\n- Added opacity control\n- Added hide minimap clutter option\n- Added addon icon and Map category grouping\n- Settings persist via SavedVariables\n\n## v1.1\n- Added settings panel with Scale and X/Y Offset sliders\n- Added `/farm config` slash command\n- Added SavedVariables for persistent settings\n\n## v1.0\n- Initial release\n- `/farm` toggles minimap to center screen, enlarged\n- `/farm` again restores default position"
+    },
+    {
+      "tag": "v1.4.2",
+      "published": "2026-03-25",
+      "notes": "# FarmMode\n\n## [v1.4.2](https://github.com/paradosi/FarmMode/tree/v1.4.2) (2026-03-25)\n[Full Changelog](https://github.com/paradosi/FarmMode/compare/v1.4.1...v1.4.2) [Previous Releases](https://github.com/paradosi/FarmMode/releases)\n\n- v1.4.2: Guard SetObeyStepOnDrag for Classic Era compatibility  \n- Update interface versions: Classic Era 11508, Retail 120001  \n- Refresh contributors cache  \n- Update README for v1.4.1 — multi-client, changelog, features"
+    },
+    {
+      "tag": "v1.4.1",
+      "published": "2026-02-15",
+      "notes": "# FarmMode\n\n## [v1.4.1](https://github.com/paradosi/FarmMode/tree/v1.4.1) (2026-02-15)\n[Full Changelog](https://github.com/paradosi/FarmMode/compare/1.4.0...v1.4.1) [Previous Releases](https://github.com/paradosi/FarmMode/releases)\n\n- v1.4.1: Multi-client support (Classic Era, TBC, Mainline)  \n    - Add FarmMode\\_Vanilla.toc (Interface 11507) for Classic Era  \n    - Add FarmMode-Mainline.toc (Interface 110105) for retail  \n    - Fix C\\_AddOns.GetAddOnMetadata compatibility — falls back to GetAddOnMetadata for Classic Era"
+    },
+    {
+      "tag": "1.4.0",
+      "published": "2026-02-15",
+      "notes": "# FarmMode\n\n## [1.4.0](https://github.com/paradosi/FarmMode/tree/1.4.0) (2026-02-15)\n[Full Changelog](https://github.com/paradosi/FarmMode/compare/v1.3.2...1.4.0) [Previous Releases](https://github.com/paradosi/FarmMode/releases)\n\n- v1.4.0: Minimap position restore, combat guard, zoom safety  \n    - Save and restore original minimap position on toggle (compatible with ElvUI, SexyMap, etc.)  \n    - Block toggle during combat lockdown (prevents taint)  \n    - Wrap all SetZoom calls in pcall (client-dependent max zoom)  \n    - Show version in config panel title (read from TOC metadata)  \n- Add .pkgmeta to exclude non-addon files from releases"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/paradosi/FarmMode/main/media/art/farm_mode_warcraft_400.png",
+    "https://raw.githubusercontent.com/paradosi/FarmMode/main/media/screenshots/farm-off.jpg",
+    "https://raw.githubusercontent.com/paradosi/FarmMode/main/media/screenshots/farm-on.jpg",
+    "https://raw.githubusercontent.com/paradosi/FarmMode/main/media/screenshots/farm-config.jpg",
+    "https://raw.githubusercontent.com/paradosi/FarmMode/main/media/screenshots/farm-keybind.jpg"
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-11-05",
+      "2026-03-25",
+      "2026-02-15",
+      "2026-02-15",
+      "2026-02-13",
+      "2026-02-12",
+      "2026-02-11",
+      "2026-02-11",
+      "2026-02-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FarmMode"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "FarmModeDB"
+    ]
+  }
+}

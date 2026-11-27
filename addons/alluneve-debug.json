@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "id": "alluneve-debug",
+  "repo": "Alluneve/Alluneve-Debug",
+  "about": "# Alluneve-Debug\n\n**Alluneve-Debug** is a standalone debugging framework for World of Warcraft Retail addon developers. It provides a shared API for structured, severity-based logging without having to build and maintain your own logging infrastructure or flood the chat with diagnostic messages.\n\nDiagnostic messages are retained in independent, per-addon rolling histories. When a Lua error can be attributed to a registered addon, Alluneve-Debug automatically submits a flight-recorder report to **!BugGrabber**, containing events from **60 seconds before and 10 seconds after the error** by default. This gives developers a timeline of what their addon was doing around the failure, rather than just a stack trace.\n\nThe recorder can also be triggered manually or through the API, allowing developers to investigate unexpected behavior that doesn't produce a Lua error.\n\n## Features\n\n- Shared debugging API with **DEBUG, INFO, WARN, and ERROR** severity levels.\n- Independent per-addon session logs, limited to approximately **1 MiB** of estimated memory per addon.\n- Automatic flight-recorder reports for attributed Lua and recognized taint errors.\n- Manual recording triggers and session-log submission through the API or slash commands.\n- Always-on diagnostic recording with optional chat output, independent of combat.\n- Efficient paged FIFO storage, a single global cleanup ticker, and frame-budgeted cleanup to minimize performance spikes.\n- Reports accessible through **!BugGrabber** and compatible viewers such as **BugSack**.\n\nError attribution is best-effort. Only diagnostic events supplied by participating addons are recorded.\n\nFor integration instructions and API documentation, see [INSTALLATION.md](https://github.com/Alluneve/Alluneve-Debug/blob/main/INSTALLATION.md).",
+  "releases": [
+    {
+      "tag": "2.0.0",
+      "published": "2026-10-17",
+      "notes": "# Alluneve-Debug\n\n## [2.0.0](https://github.com/Alluneve/Alluneve-Debug/tree/2.0.0) (2026-10-17)\n[Full Changelog](https://github.com/Alluneve/Alluneve-Debug/compare/1.2.0...2.0.0) [Previous Releases](https://github.com/Alluneve/Alluneve-Debug/releases)\n\n- 2.0.0 with submit better severity splitting and better logging"
+    },
+    {
+      "tag": "1.2.0",
+      "published": "2026-10-14",
+      "notes": "# Alluneve-Debug\n\n## [1.2.0](https://github.com/Alluneve/Alluneve-Debug/tree/1.2.0) (2026-10-14)\n[Full Changelog](https://github.com/Alluneve/Alluneve-Debug/compare/1.1.2...1.2.0) [Previous Releases](https://github.com/Alluneve/Alluneve-Debug/releases)\n\n- Added a .pkgmeta, and a DebugTest for loading in other game versions. tested Alluneve-Debug.toc in retail, classic mop, classic anniversary and classic-era"
+    },
+    {
+      "tag": "1.1.2",
+      "published": "2026-10-14",
+      "notes": "# Alluneve-Debug\n\n## [1.1.2](https://github.com/Alluneve/Alluneve-Debug/tree/1.1.2) (2026-10-14)\n[Full Changelog](https://github.com/Alluneve/Alluneve-Debug/compare/1.1.1...1.1.2) [Previous Releases](https://github.com/Alluneve/Alluneve-Debug/releases)\n\n- 1.1.2 added submitting with severity options that's non-destructive"
+    },
+    {
+      "tag": "1.1.1",
+      "published": "2026-10-14",
+      "notes": "# Alluneve-Debug\n\n## [1.1.1](https://github.com/Alluneve/Alluneve-Debug/tree/1.1.1) (2026-10-14)\n[Full Changelog](https://github.com/Alluneve/Alluneve-Debug/compare/1.1.0...1.1.1) [Previous Releases](https://github.com/Alluneve/Alluneve-Debug/releases)\n\n- Version 1.1.1  \n- Wrapped SendToBugGrabber to clear current log on send + makde the format of timestamps more readable  \n- added 12.1.5 to TOC and moved RollingLog methods to the private space to not conflict with other addons in the global space"
+    },
+    {
+      "tag": "1.1.0",
+      "published": "2026-10-13",
+      "notes": "# Alluneve-Debug\n\n## [1.1.0](https://github.com/Alluneve/Alluneve-Debug/tree/1.1.0) (2026-10-13)\n[Full Changelog](https://github.com/Alluneve/Alluneve-Debug/compare/1.0.1...1.1.0) [Previous Releases](https://github.com/Alluneve/Alluneve-Debug/releases)\n\n- Updated the documentation  \n- Introduced RollingLog and Migrated both Debug.lua and FlightRecorder.lua to use it.  \n- added README.md, INSTALLATION.md and AI-DECLARATION.md"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-17",
+    "releaseDates": [
+      "2026-10-17",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Alluneve-Debug"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "!BugGrabber"
+    ],
+    "savedVariables": [
+      "AlluneveDebugDB"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "needconfirm",
+  "repo": "byWulf/wow-need-confirm",
+  "about": "# Need Confirm\n\nAsks for confirmation before you roll **Need** on group loot, so a misclick doesn't cost your group an item.\n\nWhen you click Need, a dialog asks \"Really roll Need on [item]?\" first. Only **Yes** rolls Need. **No** or Escape does nothing, and the loot roll window stays open so you can still choose Greed or Pass.\n\n## Supported game versions\n\n| Version | Interface |\n|---|---|\n| WoW Forever | 16001 |\n\nClassic Era and other versions are not supported.\n\n## Installation\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/need-confirm), e.g. with the CurseForge app.\n\nFor a manual installation, note that the folder in your AddOns directory **must** be named `NeedConfirm`, otherwise WoW will not load the addon:\n\n```bash\ncd \"C:/Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns\"\ngit clone https://github.com/byWulf/wow-need-confirm.git NeedConfirm\n```\n\nAlternatively, download the ZIP from the [releases](https://github.com/byWulf/wow-need-confirm/releases) and extract it into `Interface/AddOns`.\n\nThen `/reload` in game.\n\n## Usage\n\nThere is nothing to set up.\n\n- **Need** asks first. Greed and Pass roll right away as before.\n- Hold **Shift** while clicking Need to roll without the question.\n- Bind-on-pickup items already get Blizzard's own \"will bind to you\" confirmation, so the addon doesn't ask a second time. If you switched that Blizzard dialog off with Leatrix Plus (\"Disable loot warnings\"), the addon asks instead.\n- If the roll times out while the question is open, the question closes by itself.\n\nThe addon works with the default loot roll window and with other addons that replace it, because it checks the Need roll itself, not a particular button.\n\nThe dialog is available in English, German, French, Spanish, Italian, Portuguese, Russian, Korean and Chinese (simplified and traditional).\n\n## License\n\nMIT, see [LICENSE](https://github.com/byWulf/wow-need-confirm/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-07",
+      "notes": "# Need Confirm\n\n## [v1.0.0](https://github.com/byWulf/wow-need-confirm/tree/v1.0.0) (2026-11-07)\n[Full Changelog](https://github.com/byWulf/wow-need-confirm/commits/v1.0.0) [Previous Releases](https://github.com/byWulf/wow-need-confirm/releases)\n\n- Add CurseForge project ID  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Ask for confirmation before rolling Need on group loot  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "NeedConfirm"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

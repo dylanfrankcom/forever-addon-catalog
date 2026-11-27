@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "bagsortautodeletejunk",
+  "repo": "bssdmnc/bag-sort-auto-delete-junk",
+  "about": "# Bag Sort & Auto Delete Junk\n\nA World of Warcraft addon that finds and deletes the cheapest eligible items in your bags,\nso gatherers (especially skinners) keep room for leather and other loot. Bag sorting remains available separately.\nMade for WoW Forever (`_classic_beta_`, Interface 16001), also flagged for Classic Era.\n\n## Features\n\n- **Sort by value**: slot value = vendor sell price x stack size (5 x 10s = 50s). Expensive or cheap first,\n  quest items at the start, optional trade goods first / grays last, merges partial stacks, skips special bags.\n- **Find cheap junk**: show the cheapest eligible stacks when free slots reach the configured limit (0 by default).\n- **Choose item quality**: gray, white, and green items can be selected; blue and higher-quality items are always excluded.\n- **Safe by default**: candidates are shown without deleting; manual deletion is available, and automatic deletion is opt-in.\n  Quest items are always protected; category protections and the protected list are configurable.\n- **Quiet chat**: no automatic item-by-item messages; manual deletion reports one short summary.\n- Options window with logo, minimap button, movable floating buttons, key bindings, English and Russian.\n\n## Usage\n\n| Command | What it does |\n| --- | --- |\n| `/bsj` | Open the settings window |\n| `/bsj sort` | Sort bags |\n| `/bsj junk` | Delete junk now |\n| `/bsj preview` | Open the candidate list |\n\n## Install\n\nCopy `addon/BagSortAutoDeleteJunk` into `World of Warcraft/_classic_beta_/Interface/AddOns/`,\nor install it from CurseForge.\n\n## Build\n\n```powershell\npowershell -File packaging/build.ps1\n```\n\nProduces `dist/BagSortAutoDeleteJunk-<version>.zip` for CurseForge.\n\n## License\n\nGPL-3.0",
+  "releases": [
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-08",
+      "notes": "## What's Changed\n* Protect profession tools and improve list management (v1.2.0) by @bssdmnc in https://github.com/bssdmnc/bag-sort-auto-delete-junk/pull/3\n\n### Highlights:\n- **Default profession tool protection:** Gathering and profession tools (Skinning Knife, Mining Pick, Blacksmith Hammer, rods, fishing poles, etc.) are now protected by default and will not be marked as junk.\n- **Dynamic profession tool detection:** Tooltip scan automatically detects profession requirements so custom or rare tools remain safe.\n- **Name-based item lookup:** Items can now be added to Protected/Always Delete lists by name in English or Russian.\n- **Fixed Shift-click:** Shift-clicking bag items while the Lists tab is open now reliably adds them directly to the active list.\n- **Improved Drag & Drop:** Dropping items anywhere onto the list column now adds them to the list.\n\n**Full Changelog**: https://github.com/bssdmnc/bag-sort-auto-delete-junk/compare/v1.1.0...v1.2.0"
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-10-22",
+      "notes": "## What's Changed\n* Make junk cleanup the primary addon workflow by @bssdmnc in https://github.com/bssdmnc/bag-sort-auto-delete-junk/pull/1\n\n**Full Changelog**: https://github.com/bssdmnc/bag-sort-auto-delete-junk/compare/v1.0.0...v1.1.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-10-22"
+    ]
+  },
+  "languages": [
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "BagSortAutoDeleteJunk"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "BSADJ_DB"
+    ]
+  }
+}

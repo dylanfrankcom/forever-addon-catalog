@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "sharedmediabasic",
+  "repo": "cancng/SharedMediaBasic",
+  "about": "# Shared Media Basic\n\nA small, no-frills texture pack for **LibSharedMedia-3.0**. It adds 14 popular statusbar textures, including a clean copy of the Retail castbar fill. Any addon that lets you pick a bar texture from a list can then use them.\n\nThere is no settings window, no slash command and no code running during gameplay. Install it and the textures show up in your other addons' texture lists.\n\n## What it does for you\n\nMost unit frame, castbar, nameplate and meter addons get their texture lists from LibSharedMedia. Out of the box those lists are often short, and the full **SharedMedia** pack adds hundreds of fonts, sounds and borders you may never use.\n\nShared Media Basic adds only the bar textures people actually reach for, in about 0.5 MB:\n\n- **More choices in your texture dropdowns.** Open the texture setting in EnhanceQoL, Details!, Plater, WeakAuras, Cell, Grid2, Quartz, Bartender or any other LibSharedMedia addon, and the textures below are listed there.\n- **Your old profiles keep working.** Texture names match the original SharedMedia addon, so a profile that uses \"Smooth\" or \"BantoBar\" finds its texture again instead of falling back to a flat default.\n- **The Blizzard castbar look in custom castbars.** Use the default UI castbar fill in any castbar addon.\n- **No performance cost.** The addon only registers file paths when you log in. It adds no frames, events or updates.\n\n## Included textures\n\n**Classic SharedMedia textures** (same names as in the original SharedMedia addon):\n\nBantoBar, Smooth, Smooth v2, Flat, Minimalist, Otravi, Glaze, Gloss, Aluminium, Charcoal, Melli, Melli Dark\n\n**Blizzard castbar textures:**\n\n- **Blizzard Castbar**: the Retail castbar's gold fill, as it looks in the default UI.\n- **Blizzard Castbar (Gray)**: the same pattern in grayscale, so it takes on any bar color you choose.\n\n### About the Blizzard Castbar textures\n\nThe Retail castbar fill is an atlas texture, which LibSharedMedia can't use directly. These two textures are cut from that atlas. The rounded end caps are removed so the bar lines up cleanly with the borders your castbar addon draws.\n\n- Choose **Blizzard Castbar** and set the bar color to **white** for the exact default-UI look.\n- Choose **Blizzard Castbar (Gray)** to keep the Blizzard pattern with your own color, such as class colors or red for non-interruptible casts.\n\n## Example\n\nUsing EnhanceQoL's castbar:\n\n1. Install Shared Media Basic and restart the game. New texture files are only picked up on a full restart.\n2. Open EnhanceQoL's castbar settings.\n3. Set the bar texture to **Blizzard Castbar (Gray)** and choose a color. Your castbar now has Blizzard's texture with your own border and color.\n\nThe same steps work for health bars in your unit frame addon, bars in Details!, nameplates in Plater, and so on.\n\n## Requirements\n\n- Works with any addon that uses LibSharedMedia-3.0. The library is bundled, so nothing else is needed.\n- Supports Retail and Classic.\n\n## Scope\n\nThis project stays deliberately small: basic, widely used statusbar textures and nothing else. If you need fonts, sounds or a large media library, use the full SharedMedia addon alongside or instead of this one.",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-10-18",
+      "notes": "# Shared Media Basic\n\n## [v0.1.0](https://github.com/cancng/SharedMediaBasic/tree/v0.1.0) (2026-10-18)\n[Full Changelog](https://github.com/cancng/SharedMediaBasic/compare/v0.0.1...v0.1.0) [Previous Releases](https://github.com/cancng/SharedMediaBasic/releases)\n\n- Add Blizzard castbar textures and README  \n    - Blizzard Castbar: Retail castbar fill (ui-castingbar-filling-standard)  \n      cut from its atlas, with the rounded end caps removed  \n    - Blizzard Castbar (Gray): grayscale version that takes the bar color  \n    - README describing features, for GitHub and the CurseForge page"
+    },
+    {
+      "tag": "v0.0.1",
+      "published": "2026-10-18",
+      "notes": "# Shared Media Basic\n\n## [v0.0.1](https://github.com/cancng/SharedMediaBasic/tree/v0.0.1) (2026-10-18)\n[Full Changelog](https://github.com/cancng/SharedMediaBasic/commits/v0.0.1) [Previous Releases](https://github.com/cancng/SharedMediaBasic/releases)\n\n- Add CurseForge project ID  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Initial commit: Shared Media Basic with CurseForge release workflow  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-18",
+    "releaseDates": [
+      "2026-10-18",
+      "2026-10-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SharedMediaBasic"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ]
+  }
+}

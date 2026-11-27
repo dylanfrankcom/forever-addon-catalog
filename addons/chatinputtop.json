@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "chatinputtop",
+  "repo": "Xruptor/ChatInputTop",
+  "releases": [
+    {
+      "tag": "v4.6",
+      "published": "2026-10-13",
+      "notes": "# ChatInputTop\n\n## [v4.6](https://github.com/Xruptor/ChatInputTop/tree/v4.6) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/ChatInputTop/compare/v4.5...v4.6) [Previous Releases](https://github.com/Xruptor/ChatInputTop/releases)\n\n- chore: update TOC interface numbers → v4.6"
+    },
+    {
+      "tag": "v4.5",
+      "published": "2026-09-19",
+      "notes": "# ChatInputTop\n\n## [v4.5](https://github.com/Xruptor/ChatInputTop/tree/v4.5) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/ChatInputTop/compare/v4.4...v4.5) [Previous Releases](https://github.com/Xruptor/ChatInputTop/releases)\n\n- chore: update TOC interface numbers → v4.5  \n- This should fix the TOC Issues.  \n- Fix for the Incompatibility TOC Issues."
+    },
+    {
+      "tag": "v4.4",
+      "published": "2026-09-19",
+      "notes": "# ChatInputTop\n\n## [v4.4](https://github.com/Xruptor/ChatInputTop/tree/v4.4) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/ChatInputTop/compare/v4.3...v4.4) [Previous Releases](https://github.com/Xruptor/ChatInputTop/releases)\n\n- chore: update TOC interface numbers → v4.4  \n- Updated the GitHub Actions to be better at automatic processing for TOC Updates.  \n    (attempt #5)  \n- Adding a automatic TOC Updater to GitHub Workflow"
+    },
+    {
+      "tag": "v4.3",
+      "published": "2026-04-11",
+      "notes": "# ChatInputTop\n\n## [v4.3](https://github.com/Xruptor/ChatInputTop/tree/v4.3) (2026-04-11)\n[Full Changelog](https://github.com/Xruptor/ChatInputTop/compare/v4.2...v4.3) [Previous Releases](https://github.com/Xruptor/ChatInputTop/releases)\n\n- TOC Update"
+    },
+    {
+      "tag": "v4.2",
+      "published": "2026-04-11",
+      "notes": "# ChatInputTop\n\n## [v4.2](https://github.com/Xruptor/ChatInputTop/tree/v4.2) (2026-04-11)\n[Full Changelog](https://github.com/Xruptor/ChatInputTop/compare/v4.1...v4.2) [Previous Releases](https://github.com/Xruptor/ChatInputTop/releases)\n\n- TOC Update"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-04-11",
+      "2026-04-11",
+      "2026-02-10",
+      "2026-02-04",
+      "2026-01-02",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-08-18",
+      "2024-07-30",
+      "2024-07-26",
+      "2024-04-08",
+      "2024-04-06",
+      "2023-09-18",
+      "2023-05-26",
+      "2023-01-25",
+      "2022-11-15",
+      "2022-11-10",
+      "2022-11-01",
+      "2021-09-19",
+      "2021-05-28",
+      "2021-04-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ChatInputTop"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

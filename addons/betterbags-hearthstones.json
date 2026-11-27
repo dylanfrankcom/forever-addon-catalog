@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "id": "betterbags-hearthstones",
+  "repo": "Myrroddin/betterbags-hearthstones",
+  "about": "# BetterBags - Hearthstones\n\nPlugin module for the World of Warcraft AddOn [BetterBags](https://www.curseforge.com/wow/addons/better-bags) that sorts all items that provide \"hearthing\" mechanics into a virtual group.\n\n## World of Warcraft Supported Versions\n\n- Classic Era. Includes Classic Era, hardcore, and Season of Discovery\n- The Burning Crusade Anniversary\n- Mists of Pandaria Classic\n- Mainline or retail. Currently, that is Midnight\n- WoW Forever\n\n## Supported Items\n\nItems are added to the virtual groups according to WoW expansion. Items that do not exist because the expansion doesn't support them are not added. The full list can be [viewed online](https://github.com/Myrroddin/betterbags-hearthstones/blob/main/Database.lua) or with any text editor. I suggest [Notepad++](https://notepad-plus-plus.org/), which will maintain the readability of Database.lua when opening the file directly from the AddOn folder.\n\n## Downloads\n\n- [Curseforge](https://www.curseforge.com/wow/addons/betterbags-hearthstones)\n- [Wago AddOns](https://addons.wago.io/addons/betterbags-hearthstones)\n- [Wowinterface](https://www.wowinterface.com/downloads/info26689-BetterBags-Hearthstones.html)\n\n## Incompatible BetterBags Modules\n\nSome addons that extend BetterBags are not inherently incompatible, although they serve the same purpose as BetterBags - Hearthstones, and as such, this addon wipes their categories. The data in BetterBags - Hearthstones contains several dozen items not found in other addons.\n\nYou may install the BetterBags-compatible addons Teleporters and BearLee's Ultimate without errors; just be aware that some of their functionality is redundant if you have BetterBags - Hearthstones installed.\n\nNeither module should trigger errors or warnings if you use both; however, your virtual bags will look messy, if not a little silly, with both modules installed.\n\n## Bugs, Issues, and Improvements\n\nPlease use [GitHub's issue tracker](https://github.com/Myrroddin/betterbags-hearthstones/issues) for the project. Thank you!",
+  "releases": [
+    {
+      "tag": "1.35",
+      "published": "2026-10-26",
+      "notes": "# BetterBags - Hearthstones\n\n## [1.35](https://github.com/Myrroddin/betterbags-hearthstones/tree/1.35) (2026-10-26)\n[Full Changelog](https://github.com/Myrroddin/betterbags-hearthstones/compare/1.34...1.35) [Previous Releases](https://github.com/Myrroddin/betterbags-hearthstones/releases)\n\n- [Retail] Add Potion of Venomous Return"
+    },
+    {
+      "tag": "1.34",
+      "published": "2026-10-23",
+      "notes": "# BetterBags - Hearthstones\n\n## [1.34](https://github.com/Myrroddin/betterbags-hearthstones/tree/1.34) (2026-10-23)\n[Full Changelog](https://github.com/Myrroddin/betterbags-hearthstones/compare/1.33...1.34) [Previous Releases](https://github.com/Myrroddin/betterbags-hearthstones/releases)\n\n- Update LICENSE and README  \n- [Retail] Add multiple missing items up to patch 12.1.5  \n- [Mists] About two dozen items added or changed  \n- [TBC] Added and corrected some items  \n- [Forever] Add items unique to that game version  \n- [Season of Discovery] Add items unique to that game version  \n- [Classic Era] Missing items added  \n- [Retail] Bump ToC for patch 12.1.5"
+    },
+    {
+      "tag": "1.33",
+      "published": "2026-08-12",
+      "notes": "# BetterBags - Hearthstones\n\n## [1.33](https://github.com/Myrroddin/betterbags-hearthstones/tree/1.33) (2026-08-12)\n[Full Changelog](https://github.com/Myrroddin/betterbags-hearthstones/compare/1.32...1.33) [Previous Releases](https://github.com/Myrroddin/betterbags-hearthstones/releases)\n\n- [Retail] Bump ToC for patch 12.1"
+    },
+    {
+      "tag": "1.32",
+      "published": "2026-07-22",
+      "notes": "# BetterBags - Hearthstones\n\n## [1.32](https://github.com/Myrroddin/betterbags-hearthstones/tree/1.32) (2026-07-22)\n[Full Changelog](https://github.com/Myrroddin/betterbags-hearthstones/compare/1.31...1.32) [Previous Releases](https://github.com/Myrroddin/betterbags-hearthstones/releases)\n\n- [Classic] Bump Toc for patch 1.15.9"
+    },
+    {
+      "tag": "1.31",
+      "published": "2026-07-09",
+      "notes": "# BetterBags - Hearthstones\n\n## [1.31](https://github.com/Myrroddin/betterbags-hearthstones/tree/1.31) (2026-07-09)\n[Full Changelog](https://github.com/Myrroddin/betterbags-hearthstones/compare/1.30...1.31) [Previous Releases](https://github.com/Myrroddin/betterbags-hearthstones/releases)\n\n- [TBC] Bump ToC for patch 2.5.6"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-26",
+    "releaseDates": [
+      "2026-10-26",
+      "2026-10-23",
+      "2026-08-12",
+      "2026-07-22",
+      "2026-07-09",
+      "2026-06-17",
+      "2026-04-24",
+      "2026-03-16",
+      "2026-03-05",
+      "2025-11-10",
+      "2025-10-13",
+      "2025-10-13",
+      "2025-08-06",
+      "2025-07-26",
+      "2025-07-22",
+      "2025-07-21",
+      "2024-08-16",
+      "2024-07-24",
+      "2024-07-19",
+      "2024-06-25",
+      "2024-06-25",
+      "2024-06-09",
+      "2024-05-31",
+      "2024-05-16",
+      "2024-05-12",
+      "2024-05-08",
+      "2024-05-07",
+      "2024-04-06",
+      "2024-03-20",
+      "2024-03-10",
+      "2024-02-28",
+      "2024-02-20"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "BetterBags_Hearthstones"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "BetterBags"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "trailblazer",
+  "repo": "Pinta365/wow-trailblazer",
+  "about": "# Trailblazer\n\nA World of Warcraft addon for **WoW Forever** that counts the footsteps your character takes and how far you travel by every other means.\n\n![Trailblazer's history: a month of travel across all characters, stacked by travel type](https://raw.githubusercontent.com/Pinta365/wow-trailblazer/main/assets/gallery-history.png)\n\n## Features\n\n- **Step counting** from your actual movement, using stride lengths measured for every Forever race and sex. Running, walking, backpedaling and strafing are tracked separately.\n- **Distance by travel mode:** on foot, mounted, shapeshifted (druid forms, Ghost Wolf), swimming, jumping and falling, flight paths (with the fares you paid), boats, zeppelins and trams, and corpse runs as a ghost.\n- **A small panel** with today's steps or distance, the session so far and what you're doing. Hover it for the full breakdown.\n- **Broker and minimap button:** the same headline in any LibDataBroker display (Titan Panel, ChocolateBar, data bars), plus a minimap button and an entry in the minimap's addons menu.\n- **History:** week, month and year charts of steps or distance for one character or all of them, stacked by character (in class colours) or by travel mode, with a filterable legend.\n- **Milestones:** travel achievements in Bronze, Silver, Gold and Legendary tiers, with points, per character and account-wide.\n- **Sync between PCs:** export your travel as a text string and import it on another PC, so a desktop and a laptop show the same combined totals, history and milestones. Nothing is counted twice, however often you sync.\n- **Stride calibration:** measure your own stride lengths if the built-in ones don't suit your character.\n\n## Screenshots\n\n  ![The panel and its tooltip: steps and distance by gait and travel type](https://raw.githubusercontent.com/Pinta365/wow-trailblazer/main/assets/gallery-tooltip.png)\n  ![Milestones: tiered travel achievements with progress and dates](https://raw.githubusercontent.com/Pinta365/wow-trailblazer/main/assets/gallery-milestones.png)\n  ![Sync: this PC, the PCs imported from, and the export and import box](https://raw.githubusercontent.com/Pinta365/wow-trailblazer/main/assets/gallery-sync.png)\n\n## Download\n\nYou can download Trailblazer from these popular sources:\n\n* [Wago Addons](https://addons.wago.io/addons/trailblazer)\n* [CurseForge](https://www.curseforge.com/wow/addons/trailblazer)\n\n## Commands\n\n`/trailblazer` or `/trail`, followed by:\n\n| Command | What it does |\n| --- | --- |\n| *(nothing)* or `help` | List the commands |\n| `history` | Open the History tab |\n| `milestones` | Open the Milestones tab |\n| `sync` | Open the Sync tab, to export or import travel between PCs |\n| `stats` | Print today's, the session's and all-time totals |\n| `options` | Open the options page |\n| `panel` | Toggle the panel |\n| `show`, `hide` | Show or hide the panel |\n| `lock`, `unlock` | Lock or unlock the panel's position |\n| `units metric` / `units imperial` | Switch between km and m, or miles and feet (`km` / `mi` work too) |\n| `calibrate` | Open the stride calibration window |\n| `reset` | Reset the session totals (`reset all` erases this character's history) |\n\nOn the panel, the minimap button, the broker and the minimap's addons menu: left-click for the history, right-click for milestones, middle-click for options. The gear in the Trailblazer window's title bar also opens options.\n\n### Diagnostics\n\nFor checking what the addon sees, mostly useful when reporting a problem:\n\n| Command | What it does |\n| --- | --- |\n| `debug` | Toggle a live readout on the panel: position source, travel mode, gait, speed and stride |\n| `strides` | Print the stride lengths in use for this character, and where each comes from |\n| `perf` | Print the addon's memory and CPU use, and how much memory it uses up while you move |\n| `whoami` | Print how the game identifies this character: name, GUID, realm and game mode |\n\n## How counting works\n\nTrailblazer samples your position a few times a second while you move, and sleeps while you stand still. On foot, distance is divided by your stride to get steps; other modes record distance only. Inside dungeons, where positions are hidden, it falls back to your movement speed, and during dungeon combat to an estimate, which the tooltip shows separately.\n\nAll data is saved per account in `TrailblazerDB`, with each character keyed by its GUID.\n\n## Playing on more than one PC\n\nSaved data stays on the PC it was recorded on, so a desktop and a laptop each count only their own travel. To see it together, open the Sync tab on one PC, press **Export** and copy the string, then paste it on the other PC and press **Import**. Do the same in the other direction whenever you like.\n\nEach PC keeps its own share of your travel, and an export carries this PC's share plus every share it has imported. Importing keeps only the newest copy of each PC's share, so importing the same string twice, syncing back and forth, or passing data through a third PC never counts anything twice. Rename each PC on the Sync tab so you can tell them apart. Removing a PC there takes its travel out again; its milestones stay.\n\nTo move to a new PC, export from the old one and import on the new one. If you copy the WTF folder to a second PC instead and keep playing on both, press \"Give this PC a new id\" in the options on one of them, so the two don't claim the same travel.",
+  "releases": [
+    {
+      "tag": "0.3.1",
+      "published": "2026-11-06",
+      "notes": "# Trailblazer\n\n## [0.3.1](https://github.com/Pinta365/wow-trailblazer/tree/0.3.1) (2026-11-06)\n[Full Changelog](https://github.com/Pinta365/wow-trailblazer/compare/0.3.0...0.3.1) [Previous Releases](https://github.com/Pinta365/wow-trailblazer/releases)\n\n- Bump Trailblazer version to 0.3.1  \n- Update milestone tiers and goals  \n- Clarify comment on export versioning"
+    },
+    {
+      "tag": "0.3.0",
+      "published": "2026-10-19",
+      "notes": "# Trailblazer\n\n## [0.3.0](https://github.com/Pinta365/wow-trailblazer/tree/0.3.0) (2026-10-19)\n[Full Changelog](https://github.com/Pinta365/wow-trailblazer/compare/0.2.0...0.3.0) [Previous Releases](https://github.com/Pinta365/wow-trailblazer/releases)\n\n- Bump Trailblazer version to 0.3.0  \n- Tag exports with version info, refuse beta exports on live, vary milestone icons"
+    },
+    {
+      "tag": "0.2.0",
+      "published": "2026-10-13",
+      "notes": "# Trailblazer\n\n## [0.2.0](https://github.com/Pinta365/wow-trailblazer/tree/0.2.0) (2026-10-13)\n[Full Changelog](https://github.com/Pinta365/wow-trailblazer/compare/0.1.2...0.2.0) [Previous Releases](https://github.com/Pinta365/wow-trailblazer/releases)\n\n- Bump Trailblazer version to 0.2.0  \n- Add sync between PCs: export and import travel without double counting"
+    },
+    {
+      "tag": "0.1.2",
+      "published": "2026-10-06",
+      "notes": "# Trailblazer\n\n## [0.1.2](https://github.com/Pinta365/wow-trailblazer/tree/0.1.2) (2026-10-06)\n[Full Changelog](https://github.com/Pinta365/wow-trailblazer/compare/0.1.1...0.1.2) [Previous Releases](https://github.com/Pinta365/wow-trailblazer/releases)\n\n- Bump Trailblazer version to 0.1.2  \n- Add options shortcuts, panel toggle and settings reset; unify launcher clicks"
+    },
+    {
+      "tag": "0.1.1",
+      "published": "2026-10-05",
+      "notes": "# Trailblazer\n\n## [0.1.1](https://github.com/Pinta365/wow-trailblazer/tree/0.1.1) (2026-10-05)\n[Full Changelog](https://github.com/Pinta365/wow-trailblazer/compare/0.1.0...0.1.1) [Previous Releases](https://github.com/Pinta365/wow-trailblazer/releases)\n\n- Bump Trailblazer version to 0.1.1  \n- Add LibDataBroker support and minimap button functionality  \n- Update conditions to filter out distances below minimum threshold  \n- Update README and assets: add screenshots"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Pinta365/wow-trailblazer/main/assets/gallery-history.png",
+    "https://raw.githubusercontent.com/Pinta365/wow-trailblazer/main/assets/gallery-tooltip.png",
+    "https://raw.githubusercontent.com/Pinta365/wow-trailblazer/main/assets/gallery-milestones.png",
+    "https://raw.githubusercontent.com/Pinta365/wow-trailblazer/main/assets/gallery-sync.png"
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-10-19",
+      "2026-10-13",
+      "2026-10-06",
+      "2026-10-05",
+      "2026-10-05"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Trailblazer"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "TrailblazerDB"
+    ]
+  }
+}

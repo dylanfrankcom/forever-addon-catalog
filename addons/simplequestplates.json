@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "simplequestplates",
+  "repo": "RGXMods/SimpleQuestPlates",
+  "about": "# ![](https://raw.githubusercontent.com/RGXMods/SimpleQuestPlates/main/media/logo.png) SQP | Simple Quest Plates!\n## ![SQP logo](https://raw.githubusercontent.com/RGXMods/SimpleQuestPlates/main/media/logo.png) RGX Mods - [RealmGX](https://realmgx.com/) Community Project\n\n![SQP Logo](https://raw.githubusercontent.com/RGXMods/SimpleQuestPlates/main/media/logo.png)\n\n[![RGX Mods](https://img.shields.io/badge/RGX-Simple%20Quest%20Plates!-8B1538?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RGXMods/SimpleQuestPlates)\n[![RGX Mods](https://img.shields.io/badge/RGX-Mods%20Collection-8B1538?style=for-the-badge&logo=github&logoColor=white)](https://discord.gg/N7kdKAHVVF)\n\n### Join the  RealmGX Community - Gamers eXtreme! \n[![Discord](https://img.shields.io/badge/Join%20Our%20Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/N7kdKAHVVF)\n\n###  *See quest progress at a glance on enemy nameplates!* \n\n**SQP is a professional World of Warcraft addon that displays quest progress icons directly on enemy nameplates with extensive customization options.**\n\n** Connect with fellow questers, get support, and be part of the RGX Mods family!**\n\n---\n\n[![GitHub release](https://img.shields.io/github/v/release/RGXMods/SimpleQuestPlates?style=for-the-badge&logo=github&color=success)](https://github.com/RGXMods/SimpleQuestPlates/releases)\n[![GitHub stars](https://img.shields.io/github/stars/RGXMods/SimpleQuestPlates?style=for-the-badge&logo=github&color=yellow)](https://github.com/RGXMods/SimpleQuestPlates/stargazers)\n[![GitHub forks](https://img.shields.io/github/forks/RGXMods/SimpleQuestPlates?style=for-the-badge&logo=github&color=blue)](https://github.com/RGXMods/SimpleQuestPlates/network/members)\n[![GitHub issues](https://img.shields.io/github/issues/RGXMods/SimpleQuestPlates?style=for-the-badge&logo=github&color=red)](https://github.com/RGXMods/SimpleQuestPlates/issues)\n[![GitHub license](https://img.shields.io/github/license/RGXMods/SimpleQuestPlates?style=for-the-badge&logo=github&color=lightgrey)](https://github.com/RGXMods/SimpleQuestPlates/blob/main/LICENSE)\n\n[![GitHub last commit](https://img.shields.io/github/last-commit/RGXMods/SimpleQuestPlates?style=flat-square&logo=github)](https://github.com/RGXMods/SimpleQuestPlates/commits/main)\n[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/RGXMods/SimpleQuestPlates?style=flat-square&logo=github)](https://github.com/RGXMods/SimpleQuestPlates/graphs/commit-activity)\n[![GitHub repo size](https://img.shields.io/github/repo-size/RGXMods/SimpleQuestPlates?style=flat-square&logo=github)](https://github.com/RGXMods/SimpleQuestPlates)\n\n[![CurseForge](https://img.shields.io/badge/CurseForge-Downloads-orange?style=flat-square&logo=curseforge)](https://www.curseforge.com/wow/addons/simple-quest-plates)\n[![Wago](https://img.shields.io/badge/Wago.io-Downloads-brown?style=flat-square&logo=wago)](https://addons.wago.io/addons/simplequestplates)\n\n[![WoW Retail](https://img.shields.io/badge/WoW-Retail%20Midnight-58be81?style=flat-square&logo=worldofwarcraft)](https://worldofwarcraft.com/)\n\n[Features](#features) • [Quick Start](#quick-start) • [Commands](#command-reference) • [Compatibility](#compatibility) • [Installation](#installation) • [Support](#support)\n\n---\n\n## Join the  RGX Mods Community!\n\n###  RealmGX Discord - Your Gaming Home!\n\n[![Join Discord](https://img.shields.io/badge/Join%20Our%20Discord-RealmGX%20Community-7289da?style=for-the-badge&logo=discord&logoColor=white&labelColor=5865F2)](https://discord.gg/N7kdKAHVVF)\n\n** [Realm  Gamers eXtreme](https://realmgx.com/) - Where WoW Enthusiasts Unite!**\n\n**What awaits you in our Discord:**\n- **Instant addon support** from the RGX Mods team\n- **Feature requests** and direct dev communication\n- **Beta testing** opportunities for new releases\n- **Community of WoW players** sharing tips and experiences\n- **First to know** about new RGX Mods releases\n- **Events, giveaways**, and community activities\n\n![RealmGX Kiwi](https://raw.githubusercontent.com/RGXMods/SimpleQuestPlates/main/media/kiwi.gif)\n\n**WARNING:** May cause you to prioritize questing over literally everything else.\n\n**The Kiwi Says:** \"Bwwiiiee.\"\n\n---\n\n## Support  RGX Mods\n\n**Your support helps keep RGX Mods alive and constantly improving!**\n\n| | |\n|---|---|\n| [![Donate](https://img.shields.io/badge/Donate-CashApp-00C853?style=for-the-badge&logo=cash-app&logoColor=white)](https://bit.ly/3fyxxSU) | [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/donniedice) |\n| [![GitHub Sponsor](https://img.shields.io/badge/Sponsor-GitHub-ff69b4?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/donniedice) | [![Star](https://img.shields.io/badge/-Star%20this%20repository-yellow?style=for-the-badge&logo=github)](https://github.com/RGXMods/SimpleQuestPlates) |\n\n_Every donation helps fund new features and improvements!_\n\n---\n\n## What is SQP?\n\n**SQP | Simple Quest Plates!** enhances your World of Warcraft experience by displaying quest progress icons directly on enemy nameplates. Know at a glance which enemies you need to defeat for your quests, how many items they drop, and your overall progress — all without cluttering your interface.\n\n![SQP Options Panel](https://raw.githubusercontent.com/RGXMods/SimpleQuestPlates/main/media/in-game-options.png)\n\n### Why Choose SQP?\n- **Quest Awareness:** See quest-relevant enemies at a glance without checking your quest log\n- **Fully Customizable:** Adjust colors, fonts, sizes, and positions to your liking\n- **Lightweight:** Efficient caching system with minimal performance impact\n- **Multi-Language:** Supports all major WoW locales with full fallback coverage\n- **Active Support:** Join our Discord for instant help!\n\n---\n\n## Features\n\n| Feature | Description |\n|---------|-------------|\n| **Quest Icons** | Display quest progress directly on enemy nameplates |\n| **Fully Customizable** | Adjust colors, fonts, sizes, and positions |\n| **Item Priority** | Shows item counts before kill counts when both are needed |\n| **Multi-Language** | Supports all major WoW locales with full fallback coverage |\n| **Lightweight** | Minimal performance impact with efficient caching |\n| **Combat Options** | Hide icons during combat or in instances |\n| **Live Preview** | See changes in real-time in the options panel |\n| **Smart Detection** | Automatically tracks all active quests in your area |\n| **Position Control** | Place icons on left or right side with X/Y offsets |\n| **Font Customization** | Size, outline style, and shadow effects |\n| **Color Options** | Different colors for kill, item, and progress quests |\n| **Icon Tinting** | Optional icon color tinting |\n| **Account-Wide** | Settings saved across all characters |\n| **Error-Free** | Comprehensive error handling |\n| **Slash Commands** | Quick access to all features |\n\n---\n\n## Localization\n\nSQP automatically detects your game language and supports:\n\n| | | | |\n|---|---|---|---|\n| English (enUS) | English EU (enGB) | Deutsch (deDE) | Español (esES/esMX) |\n| Français (frFR) | Italiano (itIT) | 한국어 (koKR) | Português Brasil (ptBR) |\n| Português (ptPT) | Русский (ruRU) | 简体中文 (zhCN) | 繁體中文 (zhTW) |\n\n_Want to help translate? Join our Discord or visit [RealmGX](https://realmgx.com/)!_\n\n---\n\n## Quick Start\n\n1. **Install** SQP from your preferred platform\n2. **Launch** World of Warcraft\n3. **Type** `/sqp` to open the options panel\n4. **Customize** your quest display preferences\n5. **Quest** with enhanced awareness!\n\n---\n\n## Command Reference\n\nUse `/sqp` followed by:\n\n| Command | Description |\n|---------|-------------|\n| `/sqp` or `/sqp options` | Open the options panel |\n| `/sqp help` | Display all available commands |\n| `/sqp on` | Enable the addon |\n| `/sqp off` | Disable the addon |\n| `/sqp status` | Show current settings |\n| `/sqp version` | Show addon version |\n| `/sqp test` | Test quest detection on current nameplates |\n| `/sqp scale <0.5-2.0>` | Set icon scale |\n| `/sqp offset <x> <y>` | Set icon position offset |\n| `/sqp anchor <LEFT\\|RIGHT>` | Set which side of nameplate to anchor to |\n| `/sqp reset` | Reset all settings to defaults |\n| `/sqp debug` | Toggle debug mode |\n\n---\n\n## Compatibility\n\n| WoW Version | Interface | Status |\n|-------------|-----------|--------|\n| **Retail Midnight** | `120007` | Fully Supported |\n| **WoW Forever Beta (1.60.1.69893)** | `16001` | Same retail build; Forever support merged in one package |\n\n**Required Dependency:** [RGX-Framework](https://github.com/RGXMods/RGX-Framework) must be installed and enabled.\n\nThe **2.1.10 database hotfix** requires **RGX-Framework 2.7.18\nor later**. Update both addons, then fully restart WoW. Do not delete your\nSavedVariables. This release fixes a reproduced database adoption recursion and\npost-recovery settings writes. The operator reports no issues after testing\nand approves stable publication. See the\n[release changelog](https://github.com/RGXMods/SimpleQuestPlates/blob/main/docs/changelogs/2.1.10.md).\n\n---\n\n## Installation\n\n1. **Download** from your preferred platform:\n   - [CurseForge](https://www.curseforge.com/wow/addons/simple-quest-plates)\n   - [Wago.io](https://addons.wago.io/addons/simplequestplates)\n   - [GitHub](https://github.com/RGXMods/SimpleQuestPlates/releases)\n\n2. **Extract** to your WoW AddOns directory:\n   - **Retail**: `World of Warcraft/_retail_/Interface/AddOns`\n\n3. **Restart** WoW and configure with `/sqp`\n\n---\n\n## What's New\n\n_See [docs/CHANGES.md](https://github.com/RGXMods/SimpleQuestPlates/blob/main/docs/CHANGES.md) for the full release history and latest updates._\n\n---\n\n## Configuration Tips\n\n### Recommended Settings:\n- **Combat Players:** Enable \"Hide in Combat\" for cleaner fights\n- **Dungeon/Raid:** Enable \"Hide in Instances\" to reduce clutter\n- **Questing Focus:** Larger scale (1.5x) and bright colors for maximum visibility\n- **Minimalist:** Smaller scale (0.8x) with subtle positioning\n\n### Customization Options:\n- **Icon Scale:** 0.5x to 2.0x size adjustment\n- **X/Y Offset:** -50 to +50 pixel positioning\n- **Anchor Side:** Left or right side attachment\n- **Font Size:** 8 to 20 point with outline and shadow options\n- **Color Options:** Different colors for kill, item, and progress quests\n\n### How It Works:\n- SQP uses Blizzard's quest API to detect which enemies are related to your active quests\n- Automatically scans all nameplates in view\n- Updates in real-time as you accept or complete quests\n- Prioritizes item drops over kill counts for dual-objective quests\n\n### Performance:\n- Efficient caching system for quest data\n- Minimal CPU usage with smart update cycles\n- No impact on frame rates\n\n---\n\n## Known Issues\n\n- No known issues at this time. Report any problems via [GitHub Issues](https://github.com/RGXMods/SimpleQuestPlates/issues) or our [Discord](https://discord.gg/N7kdKAHVVF).\n\n---\n\n## Troubleshooting\n\n**Quest icons not showing?**\n- Use `/sqp test` to verify quest detection on current nameplates\n- Check if \"Hide in Combat\" or \"Hide in Instances\" is enabled via `/sqp status`\n- Confirm the addon is enabled with `/sqp on`\n\n**Settings not applying?**\n- Enable Debug Mode with `/sqp debug` for detailed logging\n- Reset all settings to defaults with `/sqp reset`\n\n**Still having trouble?**\n- Join our [Discord](https://discord.gg/N7kdKAHVVF) for instant support\n- Open a [GitHub Issue](https://github.com/RGXMods/SimpleQuestPlates/issues)\n\n---\n\n## Contributing\n\nContributions are welcome! Feel free to:\n- **Report bugs** via [GitHub Issues](https://github.com/RGXMods/SimpleQuestPlates/issues)\n- **Suggest features** in our [Discord](https://discord.gg/N7kdKAHVVF)\n- **Help with translations** for global players\n- **Star the repository** to show your support\n\n---\n\n## License\n\nThis project is licensed under the [MIT License](https://github.com/RGXMods/SimpleQuestPlates/blob/main/LICENSE).\n\n---\n\n### Thank you for choosing  RGX Mods! \n\n**Made with by the [RealmGX](https://realmgx.com/) Community**\n**Lead Developer:** [DonnieDice](https://github.com/donniedice)\n\n_\"Quest smarter, not harder.\"_\n\n**WARNING:** May cause you to prioritize questing over literally everything else.\n\n![RealmGX Kiwi](https://raw.githubusercontent.com/RGXMods/SimpleQuestPlates/main/media/kiwi.gif)\n\n**The Kiwi Says:** \"Bwwiiiee.\"\n\n---\n\n### Part of the RGX Mods Collection\n\n[BLU](https://github.com/RGXMods/BLU) | [BLU Classic](https://github.com/RGXMods/BLU_Classic) | [CCU](https://github.com/RGXMods/CoordinationCloakUtility) | [FFLU](https://github.com/RGXMods/FinalFantasyLevelUp) | [PetBuddy2](https://github.com/donniedice/PetBuddy2) | [RND](https://github.com/RGXMods/RemoveNameplateDebuffs) | [SRLU](https://github.com/RGXMods/SkyrimLevelUp)\n\n**![SQP logo](https://raw.githubusercontent.com/RGXMods/SimpleQuestPlates/main/media/logo.png) RGX Mods - Powered by [RealmGX](https://realmgx.com/) Community**",
+  "releases": [
+    {
+      "tag": "v2.1.24",
+      "name": "Simple Quest Plates! v2.1.24",
+      "published": "2026-11-19",
+      "notes": "## v2.1.24 - 2026-11-19\n\n- The options preview refreshes through the framework's timers instead of ones SQP made itself, so they stop when the preview closes."
+    },
+    {
+      "tag": "v2.1.23",
+      "name": "Simple Quest Plates! v2.1.23",
+      "published": "2026-11-18",
+      "notes": "## v2.1.23 - 2026-11-18\n- Quest plates in dungeons show the number left instead of a question mark. Inside dungeons the game hides mob names from addons, so SQP now reads the quest objective from the mob's tooltip when it can and otherwise from your quests on the current map, instead of giving up.\n- The colour swatches open the RGX colour picker (with RGX-Framework 2.19.0) instead of the game's.\n- The options follow the RGX-Framework theme override (beta, off by default) live, including the headings that were always green. With the override off SQP looks as before. Requires RGX-Framework 2.19.0.\n- Opening the options no longer changes the colour of other RGX addons.\n- The version shown in chat is read from the addon (it showed 2.1.20)."
+    },
+    {
+      "tag": "v2.1.22",
+      "name": "Simple Quest Plates! v2.1.22",
+      "published": "2026-11-12",
+      "notes": "## v2.1.22 - 2026-11-11\n- The framework theme is optional: when \"Apply the framework theme to addons\" is switched off on the RGX-Framework settings page, SQP keeps its own colours."
+    },
+    {
+      "tag": "v2.1.21",
+      "name": "Simple Quest Plates! v2.1.21",
+      "published": "2026-11-12",
+      "notes": "## v2.1.21 - 2026-11-11\n- SQP's options follow the main colour chosen on the RGX-Framework settings page (Theme tab). Until a colour is chosen there, SQP keeps its own green. A colour change applies after a /reload."
+    },
+    {
+      "tag": "v2.1.20",
+      "name": "Simple Quest Plates! v2.1.20",
+      "published": "2026-11-07",
+      "notes": "## v2.1.20 - 2026-11-07\n- The minimap icon re-apply step no longer force-shows a button that a minimap-button collector addon (such as ElvUI WindTools) has taken over, so it cannot fight the collector's own bar. A hide you chose is still enforced."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/RGXMods/SimpleQuestPlates/main/media/kiwi.gif",
+    "https://raw.githubusercontent.com/RGXMods/SimpleQuestPlates/main/media/in-game-options.png"
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 1,
+    "contributors": 5,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-22",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-06",
+      "2026-09-18",
+      "2026-08-08",
+      "2026-08-08",
+      "2026-06-30",
+      "2026-05-02",
+      "2026-05-01",
+      "2026-04-29",
+      "2026-04-25",
+      "2026-04-23",
+      "2026-04-23",
+      "2026-03-03",
+      "2026-03-02",
+      "2026-03-02",
+      "2026-03-02",
+      "2026-03-02",
+      "2026-03-02",
+      "2026-02-28",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-26",
+      "2026-02-26",
+      "2026-02-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SimpleQuestPlates"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "RGX-Framework"
+    ],
+    "savedVariables": [
+      "SQPSettings",
+      "SQPForeverSettings"
+    ]
+  }
+}

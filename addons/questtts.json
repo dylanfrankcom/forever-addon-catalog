@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "questtts",
+  "repo": "z0fa/WoWQuestTTS",
+  "about": "# Quest TTS\n\nA World of Warcraft addon that uses the 9.1 TTS API to read quest text aloud. Right-click the play button to access the settings.\n\n# Commands\n\n- /qtts play: Start reading the quest\n- /qtts stop: Stop reading the quest\n- /qtts settings: Open the settings panel\n\n# FAQS\n\n### How can I add additional voices?\n\nThe add-on automatically lists all voices installed on your system. If you find free third-party voices, you can try installing them. If they are compatible, they should appear in the list. Please note that the availability of voices is beyond the scope of this add-on.\n\n> For anyone who would like to use Natural voices (those used by Windows Narrator), check [this](https://github.com/gexgd0419/NaturalVoiceSAPIAdapter)\n>\n> [belegcufea](https://www.curseforge.com/members/belegcufea)\n\n> I used [this](https://www.ghacks.net/2018/08/11/unlock-all-windows-10-tts-voices-system-wide-to-get-more-of-them/) to add more voices (saw many others that search for that)\n>\n> However keep in mind that that has nothing to do with the addon. Adding the voices there make them to be usable for other programs on windows. So WoW can load it which means the addon can use it too.\n>\n> (but be carefull when adding things to your registry - you CAN produce problems there for you)\n>\n> [akari_cl](https://www.curseforge.com/members/akari_cl)\n\n### The TTS randomly stops working\n\nThis may happen if the Windows TTS process is not active. Opening the \"Speech\" settings in Windows should fix the problem. (credits: BiktiBikti)\n\n# Credits\n\n- [FangOfAsgard](https://www.curseforge.com/members/fangofasgard): keybind and dynamic voice\n- [MrMartiniMo](https://github.com/MrMartiniMo): reading pause between title and text\n- [BelegCufea](https://github.com/BelegCufea): narrator option, RegisterAddOnSetting fix\n- [legentus](https://github.com/legentus): settings reactivity bug\n\n# Donators Hall of Fame\n\n- Jeremy M. (20€)\n- James M. (5€)\n\n# Links\n\n- Demo: https://youtu.be/2d9iuRfHpEk\n- Project on Curse: https://www.curseforge.com/wow/addons/questtts\n- Project on Wago: https://addons.wago.io/addons/questtts\n- Project on GitHub: https://github.com/z0fa/WoWQuestTTS\n- Donate:\u00A0https://paypal.me/z0fa",
+  "releases": [
+    {
+      "tag": "1.45",
+      "published": "2026-11-05",
+      "notes": "# QuestTTS\n\n## [1.45](https://github.com/z0fa/WoWQuestTTS/tree/1.45) (2026-11-05)\n[Full Changelog](https://github.com/z0fa/WoWQuestTTS/compare/1.44...1.45) [Previous Releases](https://github.com/z0fa/WoWQuestTTS/releases)\n\n- add wow forever initial support  \n- Merge branch 'master' of https://github.com/z0fa/QuestTTS  \n- update classic gossip button position"
+    },
+    {
+      "tag": "1.44",
+      "published": "2026-07-10",
+      "notes": "# QuestTTS\n\n## [1.44](https://github.com/z0fa/WoWQuestTTS/tree/1.44) (2026-07-10)\n[Full Changelog](https://github.com/z0fa/WoWQuestTTS/compare/1.43...1.44) [Previous Releases](https://github.com/z0fa/WoWQuestTTS/releases)\n\n- fix classic speaktext"
+    },
+    {
+      "tag": "1.43",
+      "published": "2026-07-01",
+      "notes": "# QuestTTS\n\n## [1.43](https://github.com/z0fa/WoWQuestTTS/tree/1.43) (2026-06-30)\n[Full Changelog](https://github.com/z0fa/WoWQuestTTS/compare/1.42...1.43) [Previous Releases](https://github.com/z0fa/WoWQuestTTS/releases)\n\n- fix external integrations  \n- rework useHook  \n- fix immersion missing import  \n- fix useHook callback params"
+    },
+    {
+      "tag": "1.42",
+      "published": "2026-06-29",
+      "notes": "# QuestTTS\n\n## [1.42](https://github.com/z0fa/WoWQuestTTS/tree/1.42) (2026-06-29)\n[Full Changelog](https://github.com/z0fa/WoWQuestTTS/compare/1.41...1.42) [Previous Releases](https://github.com/z0fa/WoWQuestTTS/releases)\n\n- update toc file  \n- fix wrong reactivity import  \n- remove duplicated hook  \n- fix tts stop status"
+    },
+    {
+      "tag": "1.41",
+      "published": "2026-02-20",
+      "notes": "# QuestTTS\n\n## [1.41](https://github.com/z0fa/WoWQuestTTS/tree/1.41) (2026-02-20)\n[Full Changelog](https://github.com/z0fa/WoWQuestTTS/compare/1.40...1.41) [Previous Releases](https://github.com/z0fa/WoWQuestTTS/releases)\n\n- fix watch callback, add settings versioning  \n- cleanup"
+    }
+  ],
+  "stats": {
+    "stars": 8,
+    "openIssues": 2,
+    "contributors": 3,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-07-10",
+      "2026-07-01",
+      "2026-06-29",
+      "2026-02-20",
+      "2026-01-28",
+      "2026-01-28",
+      "2026-01-23",
+      "2025-07-04",
+      "2024-11-13",
+      "2024-08-14",
+      "2024-08-14",
+      "2024-08-05",
+      "2024-08-03",
+      "2024-08-01",
+      "2024-05-18",
+      "2024-03-19",
+      "2023-05-01",
+      "2023-01-26",
+      "2023-01-25",
+      "2022-12-07",
+      "2022-11-30",
+      "2022-11-29",
+      "2022-11-29",
+      "2022-11-29",
+      "2022-11-20",
+      "2022-11-20",
+      "2022-11-19",
+      "2022-10-23",
+      "2022-10-16",
+      "2022-10-04",
+      "2022-09-28",
+      "2022-08-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuestTTS"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "forever"
+    ],
+    "savedVariables": [
+      "QuestTTSGlobalDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "QuestTTSCharacterDB"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "blacklistwarden",
+  "repo": "Diuxtros/BlacklistWarden",
+  "about": "# Blacklist Warden\n\n## Overview\n\n**Blacklist Warden** is a World of Warcraft addon designed to help you avoid specific players in grouped content.\n\n## Features\n\n- **Easy Management**: Add players from anywhere (Unitframe, Chat, LFG). Browse, edit or remove entries from your blacklist in the list window.\n- **Notifications**: Get notified when a blacklisted player is in your group.\n- **Chat Ignore**: Mute players in your blacklist to never see their messages.\n- **Tooltips**: See information about blacklisted players in their tooltips.\n- **Customization**: Freely move all of the addon's windows, toggle extra popups, and more.\n- **Localization**: Currently English and Chinese.\n    \n## Installation\n\n1. **Download**: Get the latest release from CurseForge or the [Releases page](https://github.com/Diuxtros/BlacklistWarden/releases).\n2. **Extract**: Unzip the downloaded file.\n3. **Place in Addons Folder**: Move the extracted folder to your World of Warcraft addons directory. For example:\n   - **Windows**: `C:\\Program Files (x86)\\World of Warcraft\\_retail_\\Interface\\AddOns\\`\n   - **Mac**: `/Applications/World of Warcraft/_retail_/Interface/AddOns/`\n   - For WoW Forever, use the `_forever_` folder instead of `_retail_`.\n4. **Enable the addon**: Launch World of Warcraft and enable Blacklist Warden from the Addons menu at the character selection screen.\n\n## Supported game versions\n\n- Retail (Midnight)\n- WoW Forever (no realms: players are tracked by first name and optional surname, e.g. \"Arthas Menethil\")\n\n## Usage\n\n1. **Open the Addon**: Click the icon on your minimap to open the settings page or the blacklist window. Alternatively, type `/blw or /blacklistwarden` in the chat to see a list of commands. \n2. **Add Entries**: Right click a player and select 'Blacklist Player' to add them to your blacklist.\n3. **Manage List**: Use the interface to view, sort, edit, and remove entries from your blacklist.\n4. **Settings**: Configure preferences in the settings tab.\n\n## Screenshots\n\n![blw5](https://github.com/user-attachments/assets/96e414a2-2564-4655-b8c9-9bf34c7dab35)\n\n![blw1](https://github.com/user-attachments/assets/36d110f7-8bf7-466f-a1f2-274e8fe9abc7)\n\n![blw6](https://github.com/user-attachments/assets/d18b2740-ac1c-4b32-ac05-d58b2a139ddd)\n\n![blw2](https://github.com/user-attachments/assets/abd63551-4748-43bb-b871-5ebb53796572)\n\n![blw3](https://github.com/user-attachments/assets/5d9d3f80-047f-4d58-a413-25621975e8d0)\n\n![blw4](https://github.com/user-attachments/assets/c6a285fc-bac9-408c-a4fe-4eaa0fa78eeb)\n\n## Contact\n\nFor any questions, suggestions or issues, please open an issue on the [GitHub Issues page](https://github.com/Diuxtros/BlacklistWarden/issues)",
+  "releases": [
+    {
+      "tag": "3.2",
+      "name": "Blacklist Warden 3.2",
+      "published": "2026-11-25",
+      "notes": "Added support for wow forever"
+    },
+    {
+      "tag": "3.1",
+      "name": "Blacklist Warden 3.1",
+      "published": "2026-09-26",
+      "notes": "Added Chinese localization (thanks @LetianYuan).\n\nNew toggle to announce in the party channel when a blacklisted player is detected in the group (for people who like chaos I guess lol). OFF by default (thanks @LetianYuan)."
+    },
+    {
+      "tag": "3.0.3",
+      "name": "Blacklist Warden 3.0.3",
+      "published": "2026-09-02",
+      "notes": "Bugfixes"
+    },
+    {
+      "tag": "3.0.1",
+      "name": "Blacklist Warden 3.0.1",
+      "published": "2026-08-01",
+      "notes": "Visual overhaul and bugfixing update."
+    },
+    {
+      "tag": "2.3",
+      "name": "Blacklist Warden 2.3",
+      "published": "2026-02-17"
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/96e414a2-2564-4655-b8c9-9bf34c7dab35",
+    "https://github.com/user-attachments/assets/36d110f7-8bf7-466f-a1f2-274e8fe9abc7",
+    "https://github.com/user-attachments/assets/d18b2740-ac1c-4b32-ac05-d58b2a139ddd",
+    "https://github.com/user-attachments/assets/abd63551-4748-43bb-b871-5ebb53796572",
+    "https://github.com/user-attachments/assets/5d9d3f80-047f-4d58-a413-25621975e8d0",
+    "https://github.com/user-attachments/assets/c6a285fc-bac9-408c-a4fe-4eaa0fa78eeb"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 3,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-09-26",
+      "2026-09-02",
+      "2026-08-01",
+      "2026-02-17",
+      "2025-01-18",
+      "2024-09-07",
+      "2024-08-27",
+      "2024-08-23",
+      "2024-08-21",
+      "2024-08-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BlacklistWarden"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDeformat-3.0",
+      "lib-st",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0"
+    ],
+    "savedVariables": [
+      "BlacklistWardenDB"
+    ]
+  }
+}

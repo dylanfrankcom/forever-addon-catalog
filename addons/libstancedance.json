@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "libstancedance",
+  "repo": "Snakybo/LibStanceDance",
+  "about": "# LibStanceDance\n\nLibStanceDance is a library for World of Warcraft that provides a simple interface to access information about shapeshift forms and stances.\n\n## Supported versions\n\n* Retail\n* Mists of Pandaria Classic\n* The Burning Crusade Anniversary\n* Forever\n* Classic Era\n\n## Getting started\n\n### Dependencies\n\n* [LibStub](https://www.wowace.com/projects/libstub)\n\n### Embedding\n\n```yaml\nexternals:\n  Libs/LibStub: https://repos.curseforge.com/wow/libstub/trunk\n  Libs/LibStanceDance:\n    url: https://github.com/Snakybo/LibStanceDance\n\nmove-folders:\n  <ADDON>/Libs/LibStanceDance/LibStanceDance: <ADDON>/Libs/LibChroMacro\n```\n\nReplace `<ADDON>` for your addon name, and simply add the libraries to your TOC file.\n\n### Usage\n\n```lua\nfor _, form in LibStanceDance:GetForms(65) do\n\tprint(form.spellId, form.name, form.icon)\nend\n```\n\nSee [API.md](https://github.com/Snakybo/LibStanceDance/blob/master/API.md) for additional documentation.",
+  "releases": [
+    {
+      "tag": "r4",
+      "published": "2026-10-22",
+      "notes": "# Lib: StanceDance\n\n## [r4](https://github.com/Snakybo/LibStanceDance/tree/r4) (2026-10-22)\n[Full Changelog](https://github.com/Snakybo/LibStanceDance/commits/r4) [Previous Releases](https://github.com/Snakybo/LibStanceDance/releases)\n\n- Re-add space after annotation marker"
+    },
+    {
+      "tag": "r3",
+      "published": "2026-10-20",
+      "notes": "# Lib: StanceDance\n\n## [r3](https://github.com/Snakybo/LibStanceDance/tree/r3) (2026-10-20)\n[Full Changelog](https://github.com/Snakybo/LibStanceDance/commits/r3) [Previous Releases](https://github.com/Snakybo/LibStanceDance/releases)\n\n- Remove space after annotation marker ---"
+    },
+    {
+      "tag": "r2",
+      "published": "2026-10-19",
+      "notes": "# Lib: Shapeshift-1.0\n\n## [r2](https://github.com/Snakybo/LibShapeshift-1.0/tree/r2) (2026-10-19)\n[Full Changelog](https://github.com/Snakybo/LibShapeshift-1.0/commits/r2) [Previous Releases](https://github.com/Snakybo/LibShapeshift-1.0/releases)\n\n- Allow data upgrades, fix incorrect forms"
+    },
+    {
+      "tag": "r1",
+      "published": "2026-10-18",
+      "notes": "# Lib: Shapeshift-1.0\n\n## [r1](https://github.com/Snakybo/LibShapeshift-1.0/tree/r1) (2026-10-18)\n[Full Changelog](https://github.com/Snakybo/LibShapeshift-1.0/commits/r1) [Previous Releases](https://github.com/Snakybo/LibShapeshift-1.0/releases)\n\n- Initial commit"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-22",
+    "releaseDates": [
+      "2026-10-22",
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LibStanceDance"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ]
+  }
+}

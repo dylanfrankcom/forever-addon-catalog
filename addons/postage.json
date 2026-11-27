@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "postage",
+  "repo": "DrKlampz/Postage",
+  "about": "# Postage\n\nA mailbox upgrade for **WoW: Forever**.\n\nEverything Postage adds lives inside the normal mailbox, so it looks and works like part of the game.\n\n## Inbox\n\n- **Select.** A checkbox on every mail. Shift-click a checkbox to select a range, ctrl-click to\n  select everything from that sender. Then **Open** or **Return** the checked mail.\n- **Open All.** Opens every mail with gold or items attached, of the kinds you choose\n  (right-click the button: auction sold/won/expired/cancelled/outbid, Postmaster, players).\n  COD mail is always skipped and reported. It keeps bag slots free if you ask it to, and tells\n  you how much gold it collected.\n- **Express.** Shift-click a mail to take it, ctrl-click to return it. Scroll the mouse wheel\n  over the inbox to change pages.\n- **DoNotWant.** Each mail shows how long it has left: yellow means it goes back to the sender,\n  red means it will be deleted.\n- **Pending auction gold.** A readout at the top of the inbox totals auction sales whose gold\n  hasn't arrived yet, and when the next one lands. Hover it for each sale.\n\n## Sending\n\n- **BlackBook.** A contacts button next to the To: box with your alts, people you've mailed,\n  friends and guild. Names autocomplete as you type. Your alts are listed once you've logged in\n  on each with Postage, or add one by typing its name and choosing \"Add ... to Alts\". Each alt shows its professions in shorthand (LW, ECH, ALC...; main professions only).\n- **Keep recipient.** Tick it to keep the name in the To: box after sending, so you can send\n  several mails to the same person.\n- **Alt-click** an item in your bags to attach it; **shift-alt-click** attaches every stack of it.\n- **QuickAttach.** Buttons beside the Send Mail frame attach everything for a profession in one click (tailoring, skinning, leatherworking, mining, blacksmithing, cooking, herbalism, alchemy, enchanting, engineering, first aid and more: cloth, leather, ore, herbs,\n  cooking, elemental, enchanting or engineering materials in one click.\n- **Wire.** Leave the subject empty when sending gold and it is filled in with the amount as soon as you type the gold, so Send is never greyed out.\n\n## Reading\n\n- **Copy** shows a mail's text in a box you can copy from.\n- **Forward** starts a new mail with the same subject and text (attachments aren't forwarded).\n\n## Other\n\n- **TradeBlock** declines trades and guild charters while the mailbox is open.\n- **Themes.** Pick a look (colors, opacity, list size) for Postage's windows, and optionally paint the\n  game's inbox, send mail and open mail windows to match.\n- A **minimap button**, the game's **Settings > AddOns** panel and the addon list entry open the options,\n  where every feature can be turned off.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/postage` | Options |\n| `/postage help` | List commands and shortcuts |\n| `/postage minimap` | Show or hide the minimap button |\n| `/postage freeslots <n>` | Keep `n` bag slots free when opening mail |\n| `/postage probe` | Check which mailbox parts Postage found on your client |\n\n## Notes on WoW: Forever\n\nPostage attaches itself to Blizzard's mailbox frames. If a feature doesn't appear, run\n`/postage probe` and report what it says is missing. QuickAttach's material categories use the\nstandard item subclass numbers, which haven't been checked on a Forever client yet; the\n\"All trade goods\" button works either way.\n\n## Mailbox look\nAlt-click the minimap button to restyle the mailbox: letter paper (original, plain, dark or none), and the quick-attach tray (side, size, columns, spacing, panel, counts, which professions to show). Buttons dim when you have nothing of that kind.",
+  "releases": [
+    {
+      "tag": "v1.5.17",
+      "published": "2026-11-23",
+      "notes": "# Postage\n\n## [v1.5.17](https://github.com/DrKlampz/Postage/tree/v1.5.17) (2026-11-23)\n[Full Changelog](https://github.com/DrKlampz/Postage/compare/v1.5.16...v1.5.17) [Previous Releases](https://github.com/DrKlampz/Postage/releases)\n\n- Changelog for the next release  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Quick attach: Gems button finds gems filed under Other, Engineering matches parts by name  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Zone box fixes; shared Look update  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v1.5.16",
+      "published": "2026-11-23",
+      "notes": "# Postage\n\n## [v1.5.16](https://github.com/DrKlampz/Postage/tree/v1.5.16) (2026-11-22)\n[Full Changelog](https://github.com/DrKlampz/Postage/compare/v1.5.15...v1.5.16) [Previous Releases](https://github.com/DrKlampz/Postage/releases)\n\n- Postage: personal sound list kept out of releases  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Postage: new mail sound option with 15 built-in sounds, game sounds and a custom slot  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v1.5.15",
+      "published": "2026-11-21",
+      "notes": "# Postage\n\n## [v1.5.15](https://github.com/DrKlampz/Postage/tree/v1.5.15) (2026-11-21)\n[Full Changelog](https://github.com/DrKlampz/Postage/compare/v1.5.14...v1.5.15) [Previous Releases](https://github.com/DrKlampz/Postage/releases)\n\n- toc: link CurseForge project ID 1792013 so releases upload to CurseForge  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Redraw the skull and crossbones from skull anatomy; calligraphic variants now ornament the symbol itself instead of framing it  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Add a calligraphic, ornately framed variant of every background symbol  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Redraw 14 watermark symbols with smoother curves and cleaner detail  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Fall back to remembered realm when the client reports an empty realm name, so saved data is found again  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Redraw the anarchy symbol  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v1.5.14",
+      "published": "2026-11-20",
+      "notes": "# Postage\n\n## [v1.5.14](https://github.com/DrKlampz/Postage/tree/v1.5.14) (2026-11-20)\n[Full Changelog](https://github.com/DrKlampz/Postage/compare/v1.5.13...v1.5.14) [Previous Releases](https://github.com/DrKlampz/Postage/releases)\n\n- More background symbols, emblem rotation and mirror  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v1.5.13",
+      "published": "2026-11-20",
+      "notes": "# Postage\n\n## [v1.5.13](https://github.com/DrKlampz/Postage/tree/v1.5.13) (2026-11-20)\n[Full Changelog](https://github.com/DrKlampz/Postage/compare/v1.5.12...v1.5.13) [Previous Releases](https://github.com/DrKlampz/Postage/releases)\n\n- Background symbol position and size sliders  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Add Celtic cross and more background symbols; picking a color enables its own-color option  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-10-08",
+      "2026-10-08",
+      "2026-10-08",
+      "2026-10-06",
+      "2026-09-30",
+      "2026-09-30",
+      "2026-09-30",
+      "2026-09-30",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Postage"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "PostageDB"
+    ]
+  }
+}

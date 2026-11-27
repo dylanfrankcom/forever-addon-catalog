@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "dbm-flighttimers",
+  "repo": "DeadlyBossMods/DBM-FlightTimers",
+  "about": "# Flight Timers for Deadly Boss Mods\n\nHop on a Gryphon, Wyvern or whatever your local flight master offers and this mod will show you a DBM timer for the remaining time.\n\n![](https://raw.githubusercontent.com/DeadlyBossMods/DBM-FlightTimers/main/Screenshot.png)\n\nCurrently only supports \"standard\" flights, no weird Quest-related flights at the moment.\nThis means that this works best in Classic and WotLK, Retail players may want to prefer [InFlight Taxi Timer](https://www.curseforge.com/wow/addons/inflight-taxi-timer) for a more complete coverage.\n\n## Features\n\n* Timers for all flight paths in Classic and for most flights in Classic-WotLK and Retail\n* Timers for intermediate stops\n* Updates timer if you request an early stop\n* Independent of client locale, works with all languages\n* Learns flight times while you fly and uses them next time\n\n## FAQ\n\n### The timer for my flight was wrong, can you fix it?\nWe currently just take the timers from InFlight that [are crowdsourced on WoWInterface](https://www.wowinterface.com/forums/showthread.php?t=18997&page=27), we currently do not maintain our own database for flights.\n\n## TODO List\n\n* Come up with some way for users to contribute these timers",
+  "releases": [
+    {
+      "tag": "r2",
+      "published": "2026-11-26",
+      "notes": "#  Flight Timers\n\n## [r2](https://github.com/DeadlyBossMods/DBM-FlightTimers/tree/r2) (2026-11-25)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-FlightTimers/compare/r1...r2) [Previous Releases](https://github.com/DeadlyBossMods/DBM-FlightTimers/releases)\n\n- Update Forever flight data from in-game measurements  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Learn flight times per route  \n    The route depends on which flight points you know, so a time between two nodes can be for a different route. Learned times are now saved per exact route; a route without a known time uses the time between start and destination, or is pieced together from known parts.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Learn flight prices from the taxi map  \n    Opening a taxi map saves the price of every destination, so prices can be collected without flying each route. import-learned.sh writes them to the data file; the AddOn doesn't use them yet.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Log flight stops and started timers  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "r1",
+      "published": "2026-11-17",
+      "notes": "#  Flight Timers\n\n## [r1](https://github.com/DeadlyBossMods/DBM-FlightTimers/tree/r1) (2026-11-16)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-FlightTimers/commits/r1) [Previous Releases](https://github.com/DeadlyBossMods/DBM-FlightTimers/releases)\n\n- Build releases through CI  \n    One .toc for all clients that loads the matching data file, packaged by the BigWigs packager and uploaded to CurseForge like the other DBM repos. Luacheck and LuaLS now pass.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Merge duplicate nodes in the flight time data  \n    Some nodes had two blocks in Retail.lua and Classic-WotLK.lua, and the second (sometimes empty) one replaced the first, losing 126 flight times. The importer now merges them, and Importer.lua runs on current Lua versions.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Update Forever flight times from in-game measurements  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Fix flight times to Southshore on Forever  \n    Retired Riverglades nodes (\"zzOLD...\") sit at Southshore's and Ratchet's positions and replaced them in route lookups. They are now ignored, the last hop is always the destination, and shared positions prefer reachable nodes.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Fall back to the reverse flight time  \n    Used only when no time is known for the direction flown. Hop piecing now only moves forward along the route, so reverse times can't send it back to an earlier hop.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add WoW Forever support  \n    Forever.lua starts from the Classic data, which has the same node IDs; import-learned.sh merges learned times into it. Verified in game.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Learn flight times in game  \n    Completed flights are saved per faction in DBMFlightTimers\\_Learned and used instead of the shipped times.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Save mod options  \n    The .toc files never declared DBMFlightTimers\\_AllSavedVars, so options reset on every load.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Merge pull request #2 from Hollicsh/main  \n- Update localization.ru.lua  \n- Update DBM-FlightTimers-Retail.toc  \n- Update DBM-FlightTimers-Classic.toc  \n- Update DBM-FlightTimers-Classic-WotLK.toc  \n- Create localization.ru.lua  \n- Add TOC files for all game versions and simple deploy script  \n- update readme  \n- Import data for Retail and Classic-WotLK  \n- Report WotLK classic correctly  \n- teach importer about Retail data  \n- Import data dumps from Retail and WotLK flight points  \n- Add README  \n- Initial commit"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/DeadlyBossMods/DBM-FlightTimers/main/Screenshot.png"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 3,
+    "contributors": 3,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-17"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "DBM-FlightTimers"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "DBM-Core"
+    ],
+    "savedVariables": [
+      "DBMFlightTimers_AllSavedVars",
+      "DBMFlightTimers_Learned"
+    ]
+  }
+}

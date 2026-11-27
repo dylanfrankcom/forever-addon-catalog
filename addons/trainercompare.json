@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "trainercompare",
+  "repo": "postazure/wow-addon-trainer-gear-compare",
+  "about": "# Trainer Compare (WoW Forever)\n\nShows, in the profession trainer window, how each recipe's item compares to\nyour equipped gear, and whether you can use it. Facts only: it doesn't\nclaim anything is an \"upgrade\".\n\n![A recipe hovered at a trainer: recipe box, the item, and the equipped item](https://raw.githubusercontent.com/postazure/wow-addon-trainer-gear-compare/main/assets/screenshots/01-compare.png)\n\n- **The real item**: hover a recipe and you see the normal recipe tooltip,\n  then the item it makes, like any item tooltip. Nothing covers the list.\n- **Compare**: always on, no Shift needed. Blizzard's normal compare,\n  right of the item, with its item level and stat changes. Works for gear\n  you can't use, too. The item's own red text says why you can't.\n- **Reagent cost and profit** (with Auctionator): the recipe tooltip also\n  shows what one craft's reagents cost, and the profit after the 5%\n  auction house cut. Profit shows only when every price is known, and\n  never for items that bind on pickup.\n- **\"Only show usable gear\"** in the trainer's Settings dropdown: fades gear\n  you can't use (armor type, weapon skill, level, class). Non-gear recipes\n  are never faded.\n\nThere is nothing to set up and there are no slash commands. The filter is\nthe only option, and it's saved per account.\n\nBuilt for WoW Forever 1.60.1 (interface 16001), from what the client\nactually returns. See [how it works](https://github.com/postazure/wow-addon-trainer-gear-compare/blob/main/docs/HOW-IT-WORKS.md).\n\n## Install\n\nInstall from CurseForge. No other addon is needed; with Auctionator you\nalso get reagent cost and profit. If the addon list says\n\"Out of date\", tick **Load out of date AddOns**.\n\nTo build it yourself, see [docs/DEVELOPMENT.md](https://github.com/postazure/wow-addon-trainer-gear-compare/blob/main/docs/DEVELOPMENT.md).\n\n## Bug reports\n\nTurn on debug messages, reproduce the problem, and send a screenshot of\nchat. Debug messages also show failures that are normally silent.\n\n- On: `/run TrainerCompareDB.debug = true`\n- Off: `/run TrainerCompareDB.debug = false`\n\nEither takes effect at once and is saved. With debug on, `/reload` prints the\nversion, and the first trainer you open prints which hooks were installed.\n\nIssues: https://github.com/postazure/wow-addon-trainer-gear-compare/issues\n\n## Docs\n\n- [How it works](https://github.com/postazure/wow-addon-trainer-gear-compare/blob/main/docs/HOW-IT-WORKS.md): what counts as usable, what each\n  item is compared against, and known limits.\n- [Development](https://github.com/postazure/wow-addon-trainer-gear-compare/blob/main/docs/DEVELOPMENT.md): build, test, code layout, and the\n  release pipeline.\n- [Releasing to CurseForge](https://github.com/postazure/wow-addon-trainer-gear-compare/blob/main/docs/CURSEFORGE.md): release testing and assets\n  checklists.\n- [In-game test checklist](https://github.com/postazure/wow-addon-trainer-gear-compare/blob/main/docs/TEST-CHECKLIST.md)\n- [Probe findings](https://github.com/postazure/wow-addon-trainer-gear-compare/blob/main/docs/PROBE-FINDINGS.md): what the WoW Forever client\n  actually returns.\n- [Changelog](https://github.com/postazure/wow-addon-trainer-gear-compare/blob/main/CHANGELOG.md)\n\n## License\n\nMIT. See [LICENSE](https://github.com/postazure/wow-addon-trainer-gear-compare/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.6.0",
+      "name": "Trainer Compare 0.6.0",
+      "published": "2026-10-15",
+      "notes": "First public release, for WoW Forever 1.60.1.\n\n- Hover a recipe at any profession trainer to see the normal recipe\n  tooltip and, beside it, the real item it makes, like any item tooltip.\n  A gold arrow points from the recipe to the item.\n- Blizzard's normal compare shows your equipped item right of the item,\n  headed \"Equipped\". It's always on: no need to hold Shift. Nothing covers\n  the recipe list.\n- The compare shows for gear you can't use, too.\n- With Auctionator, the recipe tooltip also shows what one craft's\n  reagents cost, and the profit after the auction house cut (5%). Profit\n  shows only when every price is known, and never for items that bind on\n  pickup.\n- \"Only show usable gear\" in the trainer's Settings dropdown fades gear\n  you can't use (armor type, weapon skill, level, class). Recipe rows are\n  never changed otherwise.\n- Nothing to set up, and no slash commands.\n- Icon in the addon list."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/postazure/wow-addon-trainer-gear-compare/main/assets/screenshots/01-compare.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-10-15",
+    "releaseDates": [
+      "2026-10-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TrainerCompare"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "TrainerCompareDB"
+    ]
+  }
+}

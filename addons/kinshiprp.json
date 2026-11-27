@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "kinshiprp",
+  "repo": "alexwaddell97/kinship-addon",
+  "about": "![Kinship RP](https://raw.githubusercontent.com/alexwaddell97/kinship-addon/main/.github/images/banner.jpg)\n\n  [![Support Kinship on Ko-fi](https://img.shields.io/badge/Support%20Kinship-on%20Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/vaxorus)\n  [![The Kinship wiki](https://img.shields.io/badge/How%20to%20use%20it-Wiki-2e8580?style=for-the-badge&logo=bookstack&logoColor=white)](https://github.com/alexwaddell97/kinship-addon/wiki)\n  [![Download the latest release](https://img.shields.io/github/v/release/alexwaddell97/kinship-addon?style=for-the-badge&label=Download&color=c9a860)](https://github.com/alexwaddell97/kinship-addon/releases/latest)\n\n# Kinship RP\n\nA roleplay addon for World of Warcraft, on retail and on Forever. It keeps your character's profile, your family, the people you've met, what you carry and the stories you're part of in one journal, and tries to fit in with the game's own interface rather than sit on top of it.\n\nIt speaks the same profile protocol as Total RP 3, MyRolePlay and XRP, so players using those addons can read your profile and you can read theirs. It also runs happily alongside Total RP 3 if you'd rather keep it.\n\n> Kinship is in beta. If something's broken or confusing, please [open an issue](https://github.com/alexwaddell97/kinship-addon/issues/new/choose).\n\n## What it does\n\n**Your character.** A profile with as much or as little as you like, glances (the details people notice first), personality traits, effects like being bandaged after a fight, and a stage you set out behind your character for when someone opens your profile.\n\n![A profile on its stage](https://raw.githubusercontent.com/alexwaddell97/kinship-addon/main/.github/images/03-on-stage.jpg)\n\n**Quests you write.** Write a quest and offer it to the players around you. Objectives can tick themselves: reaching a place, doing an emote at someone, winning a duel, answering a riddle, finding a hidden stash, and plenty more. Run it as the storyteller and everyone who accepted sees the story move along.\n\n![A quest offer](https://raw.githubusercontent.com/alexwaddell97/kinship-addon/main/.github/images/09-quest-offer.jpg)\n\n**What you wear.** Design your own items, mark them as worn, and put them on: a roleplay slot for every piece of gear on the character screen. Save outfits and change into them with one click, or tie one to a profile. Other Kinship users see what you're wearing.\n\n![The Worn tab](https://raw.githubusercontent.com/alexwaddell97/kinship-addon/main/.github/images/13-worn.jpg)\n\n**Houses and groups.** Characters who share a family name can form a house with a crest, motto and history. Groups do the same for companies, orders and RP guilds that aren't families.\n\n**RP-PvP.** For roleplay between the factions, Kinship adds a war stance, boundaries for injury, death, capture and crime, a record of rivals and battles, and Parley: a wheel of the game's own emotes that the other faction can see.\n\n**And the rest.** Letters with wax seals, documents, trading items, stashes hidden in the world, gatherings on the calendar, dice, a satchel next to your bags, a Roleplay tab on the character sheet, and a directory of every roleplayer you've met.\n\n## Using it with Total RP 3\n\nYou don't have to choose. When both are running, Kinship asks once:\n\n- **Keep both.** Total RP 3 looks after your profile, tooltips, nameplates and target bar. Kinship hides its own versions and adds what Total RP 3 doesn't have. A Kinship button on Total RP 3's target bar shows what someone wears, their house and their stage. If you use Total RP 3: Extended too, you pick which addon looks after items, documents and effects.\n- **Move to Kinship.** Your Total RP 3 profiles come across, Total RP 3 is switched off, and the game reloads. Its saved data isn't touched, so you can switch back any time.\n\nKinship never loads or depends on Total RP 3. It only notices when it's there.\n\n## Installing\n\nKinship works on retail and on Forever. The easiest way is to install it from CurseForge or [Wago](https://addons.wago.io/addons/kinship-addon) with their apps, which put it in the right folder for your game.\n\nTo install it by hand, download the zip from the latest [release](https://github.com/alexwaddell97/kinship-addon/releases/latest) and unzip it into your game's AddOns folder. The same zip works for both:\n\n```\nWorld of Warcraft\\_retail_\\Interface\\AddOns\\KinshipRP\nWorld of Warcraft\\_forever_\\Interface\\AddOns\\KinshipRP\n```\n\nThe folder must be called `KinshipRP`. If you clone this repository instead, clone it into that folder name:\n\n```\ngit clone https://github.com/alexwaddell97/kinship-addon.git KinshipRP\n```\n\n## Getting started\n\nType `/kin` to open the journal, or click the minimap button. The first time, Kinship asks how much roleplay you've done before, then offers a short tour of each page (Esc skips them, and the **?** at the top of the journal plays one again).\n\nThe **[wiki](https://github.com/alexwaddell97/kinship-addon/wiki)** goes through every feature in more detail.\n\n| Command | What it does |\n|---|---|\n| `/kin` | Open your journal |\n| `/kin help` | List every command |\n| `/kin view` | Your target's profile, or your own |\n| `/kin outfit Name` | Change into a saved outfit |\n| `/kin roll 2d6+3` | Roll dice |\n| `/kin parley` | The Parley wheel |\n| `/kin bug` | Details to copy into a bug report |\n\nKey bindings are under Key Bindings > AddOns > Kinship RP.\n\n## Reporting a bug\n\n[Open a bug report](https://github.com/alexwaddell97/kinship-addon/issues/new?template=bug_report.yml). It asks for what `/kin bug` shows in game: copy everything in its box and paste it in. That includes Kinship's version and the last errors it caught, which makes things much quicker to track down.\n\nHave an idea instead? [Suggest it here](https://github.com/alexwaddell97/kinship-addon/issues/new?template=idea.yml).\n\n## A note on AI\n\nKinship is an AI assisted project.\n\n## Licence\n\nKinship RP is © 2026 Vaxorus, all rights reserved. You're welcome to download it and use it for your own play; see [LICENSE](https://github.com/alexwaddell97/kinship-addon/blob/main/LICENSE) for the details. The libraries in [`Libs`](https://github.com/alexwaddell97/kinship-addon/blob/main/Libs) are included unmodified under their own licences, listed in [`Libs/README.txt`](https://github.com/alexwaddell97/kinship-addon/blob/main/Libs/README.txt).\n\nWorld of Warcraft is a trademark of Blizzard Entertainment, Inc. Kinship RP isn't affiliated with or endorsed by Blizzard.\n\nIf you'd like to support development, I'm on [Ko-fi](https://ko-fi.com/vaxorus).",
+  "releases": [
+    {
+      "tag": "v1.4.17",
+      "name": "Kinship RP v1.4.17",
+      "published": "2026-11-26",
+      "notes": "Theme music that stops on its own, web links you can copy, and a profile\nwindow that keeps your place. No files were added, so a /reload is enough.\n\n### Changed\n- \"Play their theme\" on the target bar stops after 10 seconds instead of\n  repeating until you click it again.\n- A theme you preview on the Persona page stops when you close the window or\n  leave the Look tab.\n- Web links in profile text show as a short label instead of the whole\n  address. Hover to see where one goes, and click to copy it. This works\n  for links written for Total RP 3 ({link*url*text} or [text](https://github.com/alexwaddell97/kinship-addon/blob/main/url)) and for\n  plain addresses.\n\n### Fixed\n- Reading a long profile no longer jumps back to the top when the profile,\n  your auras or your worn items update while it's open.\n- Icons and pictures in Total RP 3 players' descriptions show again, instead\n  of disappearing or showing as a line of code like \"|TInterface\\...\".\n  Kinship checks each one exists and sizes it to fit, as it does for image\n  tags.\n\n---\nUnzip into your game's `Interface\\AddOns` folder (`_forever_` or `_retail_`), so you have an `AddOns\\KinshipRP` folder."
+    },
+    {
+      "tag": "v1.4.16",
+      "name": "Kinship RP v1.4.16",
+      "published": "2026-11-25",
+      "notes": "Name colours that follow the game, a choice about the character name, and a\nwindow you can resize. No files were added, so a /reload is enough.\n\n### New\n- Settings > Names. \"Character name after roleplay names\" turns off the grey\n  (Character Name) after roleplay names in chat, on unit frames, on the\n  target bar and in the character window. Tooltips still show it, and\n  nameplates keep their own setting.\n- Resize the Kinship window. Drag the grip in its bottom-right corner to make\n  it bigger or smaller. Right-click the grip to go back to the normal size.\n  The size is kept for all your characters.\n\n### Changed\n- \"Players' own name colours\" has moved from Nameplates to the new Names\n  card, as it also covers chat, tooltips and unit frames.\n\n### Fixed\n- Roleplay names no longer turn gold when a player hasn't picked a name\n  colour, or when players' own colours are off. They keep the game's colour\n  instead: class colour in chat, and the usual colour on tooltips,\n  nameplates and unit frames.\n\n---\nUnzip into your game's `Interface\\AddOns` folder (`_forever_` or `_retail_`), so you have an `AddOns\\KinshipRP` folder."
+    },
+    {
+      "tag": "v1.4.15",
+      "name": "Kinship RP v1.4.15",
+      "published": "2026-11-25",
+      "notes": "Kinship can now be translated. New files were added, so restart the game\nrather than /reload.\n\n### New\n- Russian. Kinship shows in Russian on a Russian game client. Thanks to\n  gaonestar-dot for the translation.\n\n---\nUnzip into your game's `Interface\\AddOns` folder (`_forever_` or `_retail_`), so you have an `AddOns\\KinshipRP` folder."
+    },
+    {
+      "tag": "v1.4.14",
+      "name": "Kinship RP v1.4.14",
+      "published": "2026-11-25",
+      "notes": "Ready for retail 12.1.7. No files were added, so a /reload is enough.\n\n### Changed\n- Up to date for retail 12.1.7.\n\n---\nUnzip into your game's `Interface\\AddOns` folder (`_forever_` or `_retail_`), so you have an `AddOns\\KinshipRP` folder."
+    },
+    {
+      "tag": "v1.4.13",
+      "name": "Kinship RP v1.4.13",
+      "published": "2026-11-24",
+      "notes": "Dark paper for letters, and game mail you can keep with them. No files were\nadded, so a /reload is enough.\n\n### New\n- Dark paper for letters. Choose Light or Dark paper under The paper when\n  you write one. The person you send it to sees it on the same paper, if\n  they have this version of Kinship. With the Blizzard look, letters start\n  on dark paper until you choose.\n- Keep ordinary game mail with your letters. Open a mail at the mailbox and\n  press Keep it on the Kinship card beside it. A copy goes into your\n  Received letters and stays there after the mail is deleted.\n\n### Fixed\n- The window that asks about Total RP 3 no longer runs its list into the\n  \"Or move to Kinship\" note below it.\n- Settings > General no longer leaves empty space for the Total RP 3 buttons\n  when Kinship is your only roleplay addon, and searching no longer lights\n  up a button that isn't there.\n\n---\nUnzip into your game's `Interface\\AddOns` folder (`_forever_` or `_retail_`), so you have an `AddOns\\KinshipRP` folder."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/alexwaddell97/kinship-addon/main/.github/images/03-on-stage.jpg",
+    "https://raw.githubusercontent.com/alexwaddell97/kinship-addon/main/.github/images/09-quest-offer.jpg",
+    "https://raw.githubusercontent.com/alexwaddell97/kinship-addon/main/.github/images/13-worn.jpg"
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-18",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-24",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-18",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "KinshipRP"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "KinshipRPDB"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "copypasta2",
+  "repo": "MChambers1992/CopyPasta2",
+  "about": "# CopyPasta2\n\nCopyPasta2 is a World of Warcraft addon for pasting multi-line text and long messages. It sends each line separately and splits messages that exceed the in-game chat limit.\n\n- [Download on CurseForge](https://www.curseforge.com/wow/addons/copypasta2)\n- [Report a bug or request an improvement](https://github.com/MChambers1992/CopyPasta2/issues)\n- [View releases](https://github.com/MChambers1992/CopyPasta2/releases)\n- [Watch Nuaik on YouTube](https://www.youtube.com/channel/UCMvK4RUJtojPBaKND8DULFw)\n\n## Features\n\n- Paste multiple lines into supported chat channels\n- Split long lines automatically\n- Send to Say, Yell, Party, Raid, Instance, Guild, Officer, character whispers, or Battle.net whispers when available\n- Execute pasted slash commands through the Default destination, with a confirmation prompt when commands are detected\n- Remove empty lines or trim surrounding whitespace\n- Adjust the window and editor text scale\n- Open the addon from a minimap icon, Data Broker launcher, slash command, or key binding\n\n## Installation\n\nInstall CopyPasta2 through CurseForge, or extract a release archive into the `Interface/AddOns` folder of the game client you play. For Retail, that is:\n\n```text\nWorld of Warcraft/_retail_/Interface/AddOns/CopyPasta2\n```\n\nThe same release archive works in every supported client.\n\nIf the older Paste or CopyPasta addon is installed, disable it to avoid overlapping commands or behaviour.\n\n## Usage\n\n1. Open CopyPasta2 by left-clicking its minimap icon or running `/paste show`.\n2. Paste text into the editor with Ctrl+V on Windows or Command+V on macOS.\n3. Select a destination.\n4. Choose **Paste** to keep the window open or **Paste and Close** to close it after sending.\n\nRight-click the minimap icon or run `/paste config` to open settings.\n\nA key binding for showing or hiding the window is available under **Options > Keybindings > AddOns > CopyPasta2**.\n\n## Compatibility\n\nCopyPasta2 supports these World of Warcraft clients from a single package:\n\n- Retail\n- World of Warcraft: Forever\n- Mists of Pandaria Classic\n- Burning Crusade Classic Anniversary\n- Classic Era, including Hardcore and Season of Discovery\n\nThe TOC file lists one interface version per client, and the updater workflow keeps them current.\n\nOther chat addons may alter chat behaviour. Please open an issue with reproduction steps and any Lua error if you find a conflict.\n\n## Development\n\nThe addon is intentionally small:\n\n- `core.lua` contains the addon logic and AceGUI window\n- `locale.lua` contains localization support\n- `Bindings.xml` defines the optional key binding\n- `CopyPasta2.toc` defines WoW addon metadata\n- `embeds.xml` loads packaged dependencies\n- `pkgmeta.yaml` configures release packaging\n\nPull requests run Lua syntax and static checks plus TOC, XML, and packaging metadata validation. Each push to `develop` creates a `release-N` tag and starts the publish workflow on that tag. The publish workflow packages the addon with the BigWigs packager and uploads one zip to CurseForge, tagged for every supported client, and to GitHub Releases.\n\nRuntime changes should also be verified in each supported client.\n\n## Credits\n\nCopyPasta2 is maintained by Nuaik and is based on the earlier CopyPasta and Paste addons by Nirgali42 and oscarucb.\n\nReleased under the [MIT License](https://github.com/MChambers1992/CopyPasta2/blob/develop/LICENSE).",
+  "releases": [
+    {
+      "tag": "release-19",
+      "published": "2026-11-04",
+      "notes": "# CopyPasta2\n\n## [release-19](https://github.com/MChambers1992/CopyPasta2/tree/release-19) (2026-11-04)\n[Full Changelog](https://github.com/MChambers1992/CopyPasta2/compare/release-18...release-19) [Previous Releases](https://github.com/MChambers1992/CopyPasta2/releases)\n\n- Merge pull request #31 from MChambers1992/fix/remove-localization-placeholders  \n    [Minor] Remove CurseForge localization placeholders  \n- Remove the CurseForge localization placeholders  \n    CurseForge localization is not enabled for this project, and the packager  \n    aborts on the first @localization@ placeholder with \"You do not have  \n    permission to manage localization on this project\", so release-18 uploaded  \n    nothing. No translations have shipped from GitHub, and the addon falls back to  \n    English text, so drop the placeholders and the empty per-locale branches.  \n    Drop Luacheck's 541 ignore, which only covered those empty blocks.  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "release-16",
+      "name": "CopyPasta2-Release-16",
+      "published": "2026-10-14"
+    },
+    {
+      "tag": "release-15",
+      "name": "CopyPasta2-Release-15",
+      "published": "2026-09-06"
+    },
+    {
+      "tag": "release-14",
+      "name": "CopyPasta2-Release-14",
+      "published": "2026-08-12"
+    },
+    {
+      "tag": "release-13",
+      "name": "CopyPasta2-Release-13",
+      "published": "2026-06-17"
+    }
+  ],
+  "stats": {
+    "stars": 9,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-10-14",
+      "2026-09-06",
+      "2026-08-12",
+      "2026-06-17",
+      "2026-04-22",
+      "2026-03-24",
+      "2026-03-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CopyPasta2"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0"
+    ],
+    "savedVariables": [
+      "PasteDB"
+    ]
+  }
+}

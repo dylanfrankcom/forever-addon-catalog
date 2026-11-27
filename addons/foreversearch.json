@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "foreversearch",
+  "repo": "Pietjan/wow-forever-addons",
+  "about": "# wow-forever-addons\n\nAddons I wrote for WoW Forever (interface 16001). Each folder under `addons/`\nis one addon: copy it into the game's `Interface/AddOns` and `/reload`.\n\nDownloads, one zip per addon: https://pietjan.github.io/wow-forever-addons/\n\n| Addon | What it does |\n| --- | --- |\n| BuffNag | Shows an icon, and pings, while a buff you chose is missing on you or your party. Configured from a tab in the Cooldown Manager's settings. /bn |\n| BulkInbox | A list beside the inbox of every item and sum of money in your mail: take all, the money, or the rows you mark. One take at a time, C.O.D. never paid, stops cleanly on full bags. /bulkinbox |\n| CompactTip | Unit tooltips you can read at a glance: one line per quest objective naming only who still needs it, names in class colour, and item and spell IDs while Alt is held. |\n| CombatScroll | Scrolling combat text in two columns: what you take falls on the left, your own damage and healing rise on the right with the spell's icon. Needs its own combat log filter (/cscroll setup). /cscroll |\n| CooldownNag | An icon pops up a few seconds before an ability you chose comes off cooldown, and stays a moment once it is ready. Configured from a tab in the Cooldown Manager's settings. /cdn |\n| CraftProfit | A list of what your characters can craft, best profit first, from Auctionator's scanned prices: sale price after the cut (the lower of the last scan and the median), less materials at the cheaper of auction and vendor. Recipes are read when each character opens its profession window. Click recipes to plan crafts: the Materials pane lists what to buy after what you own, and makes an Auctionator shopping list. Could learn adds recipes a character could learn now, from trainers and patterns (auction or vendor), with how many crafts pay for learning them. /profit. /farm lists raw goods worth farming to sell, with this week's price and supply against last week's. |\n| ForeverData | WoW Forever's game data for other addons, with no window of its own: items, creatures, objects, quests and zones, what drops where and how often (counted in Forever where known), where things stand, who sells and teaches what, and a search over their names. Read through the global `ForeverData` table. Data from ForeverDB.net (https://foreverdb.net), CMaNGOS classic-db, wowhead and QuestieDB; see its NOTICE.txt. |\n| ForeverSearch | Spotlight for WoW Forever: a floating search bar; type and the best matches for any item, creature, object, quest or zone appear under it, forgiving typos and missing letters. The chosen one's details show beside the list: for an item where it drops, is skinned, fished or found, each with its chance and whether that was counted in Forever, who sells it, its auction price (Auctionator) and how many your characters own (Syndicator); for a reagent what it is used in; for a creature or object where it stands, what it gives and how many at once, and for one you fight in the open world what a kill is worth at a vendor on average. An item's page leads with the answer its kind asks for: Buy (consumables, reagents, ammo: the nearest vendor), Farm (trade goods: the nearest place with many of a creature or node that gives it, at your level), For (quest items: the quest, and where it drops), Get it (gear: the quest it rewards, a vendor or its likeliest drop). Places are nearest first, with how far they are: vendors, drop sources (creatures you can fight first), where a creature or object stands, quest givers; click one to set a waypoint (TomTom's arrow, ForeverGuide's, or the game's map pin). Quest and creature pages show their side's crest, and a quest's class and race icons; click one to find the rest of its kind. Searches and pages are built a few milliseconds a frame, so the game never stalls on one; `/find time` shows what the last search and page cost. Words narrow the search: `item:` `npc:` `object:` `quest:` `zone:`, `q:rare` (grey items are left out unless a `q:` is typed, `q:poor` for all), `lvl:40-50`, `in:hinterlands` (creatures and objects there, and the items they give; a subzone such as `in:goldshire` stands for its zone; a full name with dashes, `in:blackrock-depths`, is that zone only). `from:saltwater-snapjaw` is what a creature or object gives or a vendor sells; `uses:copper-bar` is what is made with a reagent (`uses:copper-bar/blacksmithing` by one profession); `type:sword`, `type:cloth`, `type:recipe` an item type, as the game names types; `is:rare`, `is:elite`, `is:boss` creatures of that rank; `is:repeatable`, `is:new` (new in Forever), `class:shaman`, `race:undead`, `skill:fishing` quests. `is:dungeon`, `is:battleground` instances (`is:raid` too, once a raid opens: until then raids, their bosses and loot, and Season of Discovery's leftovers are not in the data); the usual abbreviations name places, alone or after `in:` (`brd`, `ubrs`, `dm`, `stv`, `wsg`, ...); a creature's title finds it too (`banker`, `weapon master`), and `flight master` (or `fp`) finds every gryphon, wind rider, hippogryph and bat master; a bare word puts places, bosses and materials first (`scarlet` Scarlet Monastery, `silk` Silk Cloth); the other faction's quests and people are left out unless you type `side:both` (or `side:alliance`, `side:horde`); a zone that is one says Dungeon or Raid. On the pages these words are links: \"and N more\" under a list, a creature's rank, a quest's class or profession, a zone's level range. Buttons under the bar set the same words for you: a kind (Tab steps through them), a quality or better, Near me (your level), Here (your zone). In a dungeon or raid the bar opens with `in:` that instance filled in. Names in the details are links, as on wowhead: click a creature, item or zone to see its page, Back to return; a zone's page lists what stands there. Click a zone in the results, or Search in on its page, to search that zone. A line above the results says how the filter words were read. Shift-click or Shift-Enter links an item. Needs ForeverData. Ctrl-K (unless that key or the bar's is yours already), another key under Key Bindings > AddOns, or /find. |\n| FishClick | With a fishing pole equipped, double-click into the world to cast your line. /fish |\n| ForeverChat | The default chat in Forever's own style, with short channel names and one chat setup shared by all your characters. /fchat |\n| ForeverGuide | Leveling guides under the quest tracker. Reads RestedXP and WoW-Pro guides, tracks the quests of the current step, points an arrow and sets the map pin. /fg |\n| ForeverRecorder | Records what the game shows you, for the offline database (wow-forever-data): what each creature, node, chest and fishing spot gave when looted, counted per corpse; what vendors sell, with prices and limited stock, and your standing and Bartering rank, which those prices are discounted by; who offers and takes quests and what they reward; creatures' names, levels and kinds; where these stand. Only out of combat, where the game gives addons these values; a value the game keeps secret is left out and counted. Game facts only: no character names, realms or GUIDs. /recorder shows what it has and what the game refused. |\n| ForeverQuests | Quest log and tracking tweaks. Spawn dots for tracked quests on the map and minimap instead of the quest areas and in-progress icons. /fq |\n| ForeverPlates | Nameplate tweaks, each one on or off: friendly players show just the name (your font, size and position); enemy bars coloured by your threat, and your threat as a number beside them; who each enemy is targeting under its bar, YOU when it is you; a quest mark on enemies you still need; the level box hidden if you like. /fplates |\n| ForeverSparkles | A sparkle over herbs, ore veins and quest objects as you come near. Each kind has its own page of sliders: glint size, spread, number of glints, brightness, colour, pace, lifetime, height and drift. Can also keep the game's own loot sparkle on. /fsparkles |\n| GroupDebuffs | The debuffs your group's classes should keep on the target, as a column or row of icons: dim while missing, lit with its timer while it is on. Options > AddOns, or /groupdebuffs |\n| HealerMana | The mana of your group's healers as a column of rows: class icon, name, percentage (or dead or offline), and an icon while drinking, innervated or soulstoned. /healermana to move it. |\n| LootFeed | A short list of what you just picked up: items with how many you now carry, money, reputation, experience and honor, and what your group loots. Each line fades after a few seconds. /lootfeed |\n| LootRolls | Movable group loot roll bars in the XLoot layout: icon, timer bar with the item name, Need/Greed/Pass with how many chose each and who (hover). /lootrolls |\n| PetAuras | Your pet's buffs and debuffs as small icons under the pet frame, drawn by the game's own aura buttons. |\n| SellAdvice | One line in item tooltips: disenchant, vendor or auction, whichever brings the most, from Auctionator's scanned prices. A gold coin marks the quest choice worth the most. Hold Alt for the workings. /sell lists everything your characters own (from Syndicator), best to sell first, with a low/high price note. |\n| SimpleRaidTargetIcons | Modifier-click or double-click a unit to pick its raid target icon from a radial menu around the cursor. Out of combat only; key bindings work in combat. |\n| TargetDebuffs | The debuffs you put on your target as a free-standing row of icons that the mouse passes through. /targetdebuffs to move it. |\n| ToastAnchor | Puts the game's alert popups (loot you won, achievements and the like) where you want them. /toastanchor |\n| TrackSwap | Alternates minimap tracking between Find Herbs and Find Minerals every few seconds, so both kinds of node show up. /ts |\n| UpgradeArrow | Pawn lite: a green arrow on items that would be an upgrade for your class and role, in Baganator's bags, quest rewards and LootRolls bars. /upgradearrow |\n| UpgradeFinder | A list of the gear that would be an upgrade for you, slot by slot, with where each piece comes from: quest, drop, vendor, chest or profession. Scored by UpgradeArrow, sources from QuestieDB. /upgrades |\n\nSome of them build on other addons (QuestieDB, Auctionator, Baganator, the\nCooldown Manager); each addon's `.toc` names what it needs or can use.\n\n## What they look like\n\nThese are mock-ups, not screenshots: drawn outside the game from the game's own\nart and font at the sizes the addon code uses. The background, the numbers and\nthe names in them are stand-ins.\n\n**SimpleRaidTargetIcons.** The radial menu. The target already has the cross, so that slot shows the pass sign.\n\n![SimpleRaidTargetIcons mock-up](https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/simpleraidtargeticons-menu.png)\n\n**ForeverGuide.** The guide, drawn like a section of the quest tracker and placed under it, with its progress bar.\n\n![ForeverGuide mock-up](https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/foreverguide-tracker.png)\n\n**ForeverChat.** The chat window, tabs and input box in Forever's style, with short channel names.\n\n![ForeverChat mock-up](https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/foreverchat-window.png)\n\n**ForeverQuests.** Spawn dots of three tracked quests on the map, and a turn-in marker.\n\n![ForeverQuests mock-up](https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/foreverquests-map.png)\n\n**BuffNag.** A buff missing on you, one missing on three of the party, one running out, and the pause button.\n\n![BuffNag mock-up](https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/buffnag-icons.png)\n\n**CooldownNag.** Two abilities seconds from ready and one that is ready.\n\n![CooldownNag mock-up](https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/cooldownnag-icons.png)\n\n**SellAdvice.** The advice line in an item tooltip, and the workings with Alt held.\n\n![SellAdvice mock-up](https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/selladvice-tooltip.png)\n\n**UpgradeArrow.** The green arrow on two items in a row of bag slots.\n\n![UpgradeArrow mock-up](https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/upgradearrow-bag-items.png)\n\n**LootRolls.** Three roll bars with how many chose need, greed and pass.\n\n![LootRolls mock-up](https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/lootrolls-bars.png)\n\n## ForeverGuide needs guide files\n\nForeverGuide has no guides of its own. It loads the guide files of RestedXP\nGuides and WoW-Pro Leveling unchanged. Both are under non-commercial\nlicences, so they are not in this repository:\n\n    make guides\n\nfetches them into `addons/ForeverGuide/Guides` (needs git and Python 3).\nWithout this step ForeverGuide does not load.\n\n## Working on them\n\n    make audit                # compile every addon, catch locals used before definition (needs luac 5.1)\n    make guides\n    make install              # audit, then have ../wow-addons copy everything into the game\n    make versions             # every addon's version, and whether it is released\n    make package/      # zip one addon's committed files into dist/\n    make release/      # publish that zip as a GitHub release (needs the gh CLI)\n    make site                 # write docs/index.html, the downloads page (commit it after a release)\n\n`make install` relies on a second, private repo of mine that vendors other\npeople's addons and copies both sets into the game. Without it, copy the\nfolders by hand.\n\nEach addon is released on its own. Its version is the `## Version:` line of\nits `.toc`; `make release/<addon>` publishes that version as the tag\n`<addon>-v<version>` with `<addon>-<version>.zip` attached, and asks before\nit does. It refuses when the addon has uncommitted changes, when the current\ncommit is not on GitHub yet, or when that version is already released: raise\nthe version in the `.toc` first. The notes list the commits that touched the\naddon since its previous release. ForeverGuide's zip has no guide files, for\nthe reason given above.\n\nForeverData's `Data/` is generated by `forever addon` in wow-forever-data,\nthe offline database it is read from; `scripts/foreverdata-test.lua`\n(`make test`) checks its API offline. ForeverData is GPL-3.0 with\nForeverDB.net's attribution term (its LICENSE.txt and NOTICE.txt): credit\n\"Data from ForeverDB.net (https://foreverdb.net)\" where you reuse its data.\n\n`scripts/` holds the generators for files that are committed:\n`sell-advice-data.py` (SellAdvice's `Data.lua`), `upgrade-finder-data.py`\n(UpgradeFinder's `Data.lua`), `make-dot-tga.py` (ForeverQuests' `dot.tga`)\nand `icon_sheets.py` (SimpleRaidTargetIcons' icon sheets).",
+  "releases": [
+    {
+      "tag": "ForeverSearch-v0.2",
+      "name": "ForeverSearch 0.2",
+      "published": "2026-11-25",
+      "notes": "Unzip into the game's `Interface/AddOns` folder, so that it holds a `ForeverSearch` folder, and `/reload`.\n\nChanges since ForeverSearch-v0.1:\n\n- ForeverData 0.2, ForeverSearch 0.2\n- Kill worth, drop amounts and what a reagent is used in"
+    },
+    {
+      "tag": "ForeverData-v0.2",
+      "name": "ForeverData 0.2",
+      "published": "2026-11-25",
+      "notes": "Unzip into the game's `Interface/AddOns` folder, so that it holds a `ForeverData` folder, and `/reload`.\n\nChanges since ForeverData-v0.1:\n\n- ForeverData 0.2, ForeverSearch 0.2\n- Kill worth, drop amounts and what a reagent is used in"
+    },
+    {
+      "tag": "ForeverSearch-v0.1",
+      "name": "ForeverSearch 0.1",
+      "published": "2026-11-25",
+      "notes": "Unzip into the game's `Interface/AddOns` folder, so that it holds a `ForeverSearch` folder, and `/reload`.\n\nChanges:\n\n- ForeverSearch: Ctrl-K by default\n- Split Dire Maul and Blackrock Spire; dungeons list quests filed outside them\n- List entries on one line: the width their number leaves, cut off beyond\n- Item pages: one vendor price line, places by zone only; new vendor and trainer data\n- Split Scarlet Monastery into four wings; no critters in level ranges\n- ForeverData: misspellings match words without their 's and half-typed words; ForeverSearch: no placeholder quest levels\n- ForeverSearch: a quest's level line reads \"Level 27 requires level 22\"\n- ForeverSearch: rewards as the quest log shows them, quest requirements; ForeverRecorder 0.3 keeps reward order\n- ForeverSearch: a window test harness; a page's tooltip closes when the page changes; ForeverData rebuilt with ForeverRecorder\n- ForeverSearch: crests and icons click to search their kind; race: search word; side and class text off quest pages\n- ForeverSearch: crests, class and race icons on quest and creature pages, Forever's panel black; data rebuilt from build 71091\n- ForeverSearch: pages and searches built a few ms a frame, /find time; zone levels from the data; is: words search only their kind\n- ForeverData: faster FD.Drops, search lists built in slices after login, placeholders from the generator; ForeverSearch: pages on hover rest\n- ForeverSearch: item pages lead with what the item is for (Buy, Farm, For, Get it)\n- ForeverSearch: a Dungeons button; dungeons show their level range and list lowest level first\n- ForeverSearch: places nearest first with distances; click one to set a waypoint\n- ForeverData: regenerate with checked vendor prices; ForeverSearch: keep a wrapping price inside its row\n- ForeverData, ForeverSearch: portraits, creature kinds, what is in Forever\n- ForeverSearch: prefill in: in dungeons and raids, a line saying how filters were read; rank by match, then items by quality and type\n- ForeverData.Search: filter, quality, level, zone and distinct options; ForeverSearch: item: q:rare lvl:40-50 in:zone with subzones and drops\n- ForeverSearch 0.1 (Spotlight bar, fuzzy ranked search in steps); ForeverData: reaction per side, fuzzy search, data filtered on evidence"
+    },
+    {
+      "tag": "ForeverData-v0.1",
+      "name": "ForeverData 0.1",
+      "published": "2026-11-25",
+      "notes": "Unzip into the game's `Interface/AddOns` folder, so that it holds a `ForeverData` folder, and `/reload`.\n\nChanges:\n\n- Split Dire Maul and Blackrock Spire; dungeons list quests filed outside them\n- No wowhead-only drops for flight masters\n- Item pages: one vendor price line, places by zone only; new vendor and trainer data\n- Split Scarlet Monastery into four wings; no critters in level ranges\n- ForeverData: misspellings match words without their 's and half-typed words; ForeverSearch: no placeholder quest levels\n- ForeverSearch: rewards as the quest log shows them, quest requirements; ForeverRecorder 0.3 keeps reward order\n- ForeverSearch: a window test harness; a page's tooltip closes when the page changes; ForeverData rebuilt with ForeverRecorder\n- ForeverSearch: crests, class and race icons on quest and creature pages, Forever's panel black; data rebuilt from build 71091\n- ForeverSearch: pages and searches built a few ms a frame, /find time; zone levels from the data; is: words search only their kind\n- ForeverData: faster FD.Drops, search lists built in slices after login, placeholders from the generator; ForeverSearch: pages on hover rest\n- ForeverSearch: places nearest first with distances; click one to set a waypoint\n- ForeverData: regenerate with checked vendor prices; ForeverSearch: keep a wrapping price inside its row\n- ForeverData, ForeverSearch: portraits, creature kinds, what is in Forever\n- ForeverSearch: prefill in: in dungeons and raids, a line saying how filters were read; rank by match, then items by quality and type\n- ForeverData.Search: filter, quality, level, zone and distinct options; ForeverSearch: item: q:rare lvl:40-50 in:zone with subzones and drops\n- ForeverData: no unavailable items or trigger creatures\n- ForeverSearch 0.1 (Spotlight bar, fuzzy ranked search in steps); ForeverData: reaction per side, fuzzy search, data filtered on evidence\n- ForeverData 0.1: game data and name search for other addons"
+    },
+    {
+      "tag": "BuffNag-v2.2",
+      "name": "BuffNag 2.2",
+      "published": "2026-11-23",
+      "notes": "Unzip into the game's `Interface/AddOns` folder, so that it holds a `BuffNag` folder, and `/reload`.\n\nChanges since BuffNag-v2.1:\n\n- BuffNag 2.2\n- BuffNag: soulstone nag, one stone in the group is enough\n- Add ForeverSnap: drag frames snap to screen, thirds and each other\n- BuffNag: track shaman imbues apart from stones and oils\n- BuffNag: count Camp Benefits with First Aid Kit as Fortitude\n- BuffNag: nag when no tracking spell is on\n- BuffNag: only nag about party members the buff can reach"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/foreverguide-tracker.png",
+    "https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/foreverchat-window.png",
+    "https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/foreverquests-map.png",
+    "https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/selladvice-tooltip.png",
+    "https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/upgradearrow-bag-items.png",
+    "https://raw.githubusercontent.com/Pietjan/wow-forever-addons/master/docs/mockups/lootrolls-bars.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-23",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverSearch"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "ForeverSnap"
+    ],
+    "savedVariables": [
+      "BuffNagDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "BuffNagCharDB"
+    ]
+  }
+}

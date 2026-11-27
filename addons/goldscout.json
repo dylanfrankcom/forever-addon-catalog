@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "goldscout",
+  "repo": "Alkhara/GoldScout-WoW",
+  "about": "![GoldScout logo](https://raw.githubusercontent.com/Alkhara/GoldScout-WoW/main/docs/logo/goldscout-logo-400.png)\n\n# GoldScout\n\n  What should *this* character farm for gold right now?\n\n  A free World of Warcraft: Forever addon that ranks farms and crafts by gold per hour,\n\n  for the character you're playing, priced from your own auction house.\n\n  [![CurseForge downloads](https://img.shields.io/curseforge/dt/1790110?label=CurseForge&logo=curseforge&color=f16436)](https://www.curseforge.com/projects/1790110)\n  [![Latest release](https://img.shields.io/github/v/release/Alkhara/GoldScout-WoW?label=release&color=d99a2b)](https://github.com/Alkhara/GoldScout-WoW/releases/latest)\n  [![Tests](https://github.com/Alkhara/GoldScout-WoW/actions/workflows/tests.yml/badge.svg)](https://github.com/Alkhara/GoldScout-WoW/actions/workflows/tests.yml)\n  [![MIT License](https://img.shields.io/badge/code-MIT-blue)](https://github.com/Alkhara/GoldScout-WoW/blob/main/LICENSE)\n  [![Website](https://img.shields.io/badge/website-wowgoldscout.com-f2c255)](https://wowgoldscout.com/)\n\n  ![Languages: English, Deutsch, Français, 한국어, 繁體中文](https://img.shields.io/badge/languages-English%20%7C%20Deutsch%20%7C%20Fran%C3%A7ais%20%7C%20%ED%95%9C%EA%B5%AD%EC%96%B4%20%7C%20%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-2b7bb9)\n  ![Auction prices for US, EU, KR and TW realms](https://img.shields.io/badge/auction%20prices-US%20%7C%20EU%20%7C%20KR%20%7C%20TW-2b7bb9)\n\n  ![The GoldScout Farm tab: farms ranked by gold per hour for a level 43 rogue](https://raw.githubusercontent.com/Alkhara/GoldScout-WoW/main/docs/screenshots/20261117_Frame.JPG)\n\nLog onto a level 12 druid herbalist or a level 31 rogue, open GoldScout, and you\nget advice that fits that character: its level, class, faction and professions,\npriced against your own realm's auction house.\n\n## Features\n\n- **Farm tab:** farms ranked by estimated gold per hour: mob drops, cloth,\n  herbs, ore and leather your skills can gather, fishing by zone and by kind of\n  fishing pool, pickpocketing for rogues, and crafting reagents selling on your\n  auction house right now.\n- **Experience check:** see at a glance which farms still give you XP, so you\n  can level and earn at the same time.\n- **Craft tab:** every recipe you know, ranked by profit after the auction house\n  cut and the cheapest cost of materials.\n- **Hunt mode:** pick a farm and press **Hunt** for Blizzard's map waypoint to\n  the spot, a marker over every mob that drops it, and a live panel of kills,\n  loot, drop rate and gold per hour.\n- **Price tooltips:** the latest auction price and listing count on every item,\n  plus what it goes for at the Blackwater (goblin) auction houses.\n- **Learns as you play:** every corpse you loot teaches GoldScout real drop\n  rates, on all your characters.\n- **Your language:** English, Deutsch, Français, 한국어 and 繁體中文, following\n  your game's language. Mob and item names come from the game itself.\n\n  \n\n    \n![Craft tab: recipes ranked by profit](https://raw.githubusercontent.com/Alkhara/GoldScout-WoW/main/docs/screenshots/CraftFrame.JPG)\n\n    \n![Hunt markers over the mobs you're hunting](https://raw.githubusercontent.com/Alkhara/GoldScout-WoW/main/docs/screenshots/TaggedMobs.JPG)\n\n  \n\n  \n\n    \n**Craft tab:** every recipe you know, by profit\n\n    \n**Hunt mode:** the mobs you're after, marked\n\n  \n\n## Prices every hour, without scanning\n\nPress **Scan AH** at any auctioneer and GoldScout reads the whole auction house\nin a few seconds. Or let the free **[GoldScout Companion](https://wowgoldscout.com/companion)**\ndo it for you: about once an hour it brings Blizzard's auction house snapshot\nfor your realm into GoldScout, for US, EU, Korean and Taiwanese realms. Your own\nscans still win when they're newer. Until you have either, GoldScout uses\nregional estimates that ship with each release, so the Farm list works the\nmoment you install it.\n\nThe companion runs quietly in the system tray on Windows (in the Dock on a\nMac), never pops up over your game, and also shares what GoldScout learns from\nyour loot, so the Farm tab keeps getting better for everyone.\n\n## Install\n\n1. Get GoldScout from [CurseForge](https://www.curseforge.com/projects/1790110) or the\n   [Releases](https://github.com/Alkhara/GoldScout-WoW/releases/latest) page.\n   For a manual install, unzip the `GoldScout` folder into\n   `World of Warcraft\\_forever_\\Interface\\AddOns\\` and restart the game.\n2. Optional but recommended: get GoldScout Companion from the\n   [latest release](https://github.com/Alkhara/GoldScout-WoW/releases/latest).\n   On Windows, download `GoldScoutCompanion.exe` and launch it; there's nothing\n   to install. On a Mac (Apple silicon or Intel), download\n   `GoldScoutCompanion-macOS.zip`, open it and drag GoldScout Companion into\n   Applications. Either way, it finds your WoW folder itself.\n\n## Getting started\n\nType `/gscout`: the Farm list is ranked straight away, and a short checklist\nshows what's left to set up, ticking itself off as you go.\n\n1. Prices for your own auction house: the companion brings them in, or press\n   **Scan AH** at any auctioneer.\n2. If you craft, open each of your profession windows once, so the **Craft**\n   tab knows your recipes.\n3. Pick a farm and press **Hunt**.\n\nType `/gscout` to open the window any time. The full guide, with every command\nand setting, is in [GoldScout/README.md](https://github.com/Alkhara/GoldScout-WoW/blob/main/GoldScout/README.md).\n\n## Help build the data\n\nGoldScout uses no data from Wowhead or any other site: every drop rate comes\nfrom players looting in game. The more people share, the better the Farm tab\ngets for everyone.\n\n- **Automatically:** [GoldScout Companion](https://wowgoldscout.com/companion)\n  shares new data after you agree to the terms once.\n- **By hand:** type `/gscout export` in game, press **Ctrl+C**, and paste it\n  on the [share page](https://wowgoldscout.com/share), or into the\n  [Share drop data](https://github.com/Alkhara/GoldScout-WoW/issues/new?template=data-submission.yml)\n  form on GitHub.\n\nExports contain no character or account names. Accepted data ships in the next\ndaily release. See the [Contributor Terms](https://github.com/Alkhara/GoldScout-WoW/blob/main/docs/CONTRIBUTOR_TERMS.md) and\n[Privacy Policy](https://github.com/Alkhara/GoldScout-WoW/blob/main/docs/PRIVACY.md).\n\n## Plays by the rules\n\nGoldScout only shows you information. It never moves, targets, attacks, loots\nor clicks anything for you, and it respects every limit Blizzard puts on addons.\nIt's free, and every feature is the same for everyone. Auction data comes from\nthe Blizzard Entertainment Game Data API; GoldScout is a fan project, not\naffiliated with or endorsed by Blizzard Entertainment.\n\n## Contributing\n\nQuestions, help and news: join the [GoldScout Discord](https://discord.gg/rJdZcuepzN), or read the\n[FAQ](https://wowgoldscout.com/faq). Bug reports and ideas are welcome there or in\n[Issues](https://github.com/Alkhara/GoldScout-WoW/issues). **Translations are\nnew**, so if a word reads wrong in your language, open an issue or edit the\nmatching `GoldScout/Locale_<language>.lua`. To work on the code, see\n[CONTRIBUTING.md](https://github.com/Alkhara/GoldScout-WoW/blob/main/CONTRIBUTING.md).\n\n## License\n\nThe source code is MIT-licensed ([LICENSE](https://github.com/Alkhara/GoldScout-WoW/blob/main/LICENSE)). The community drop data is\ncovered by the [GoldScout Data License](https://github.com/Alkhara/GoldScout-WoW/blob/main/DATA_LICENSE.md): use it in GoldScout,\nbut don't extract or reuse it elsewhere without permission.",
+  "releases": [
+    {
+      "tag": "v0.12.58",
+      "published": "2026-11-27",
+      "notes": "## What's new in GoldScout v0.12.58\n\n- **Latest community drop data:** drop rates for 3905 mobs, shared by 1486 players.\n- **Fresh regional price estimates,** so the Farm list works before you scan or install GoldScout Companion."
+    },
+    {
+      "tag": "v0.12.57",
+      "published": "2026-11-26",
+      "notes": "## What's new in GoldScout v0.12.57\n\n- **Latest community drop data:** drop rates for 3869 mobs, shared by 1452 players.\n- **Fresh regional price estimates,** so the Farm list works before you scan or install GoldScout Companion."
+    },
+    {
+      "tag": "v0.12.56",
+      "published": "2026-11-26",
+      "notes": "## What's new in GoldScout v0.12.56\n\n- **Kill rates count the hunt between kills:** GoldScout now also times kills up to ten minutes apart in the same zone, so looking for the next one and waiting for respawns count. A mob there are only a few of no longer looks as quick to farm as a crowded camp. Kill times start over with this version so shared data follows the new rule; until enough players have timed a mob the new way, gold per hour uses the old times."
+    },
+    {
+      "tag": "v0.12.55",
+      "published": "2026-11-26",
+      "notes": "## What's new in GoldScout v0.12.55\n\n- **Cleaner dungeon drop rates from rogues:** before v0.12.48, a Pick Pocket inside a dungeon counted as a kill, and those kills stayed in your saved loot. On an account that picks pockets, GoldScout now shares only the dungeon loot recorded from this version on. Your own Farm tab and drop rates still use everything you've looted."
+    },
+    {
+      "tag": "v0.12.54",
+      "published": "2026-11-26",
+      "notes": "## What's new in GoldScout v0.12.54\n\n- **Fast-loot add-ons no longer make drops look rarer:** when another add-on emptied a corpse before GoldScout could read its loot, the kill could be counted as one that dropped nothing. GoldScout now leaves such a kill out.\n- Updated drop data from the community."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Alkhara/GoldScout-WoW/main/docs/screenshots/20261117_Frame.JPG",
+    "https://raw.githubusercontent.com/Alkhara/GoldScout-WoW/main/docs/screenshots/CraftFrame.JPG",
+    "https://raw.githubusercontent.com/Alkhara/GoldScout-WoW/main/docs/screenshots/TaggedMobs.JPG"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 6,
+    "contributors": 3,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GoldScout"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "GoldScout_Prices"
+    ],
+    "savedVariables": [
+      "GoldScoutDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "GoldScoutCharDB"
+    ]
+  }
+}

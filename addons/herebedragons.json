@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "herebedragons",
+  "repo": "Nevcairiel/HereBeDragons",
+  "releases": [
+    {
+      "tag": "2.18-release",
+      "published": "2026-10-03",
+      "notes": "# Lib: HereBeDragons\n\n## [2.18-release](https://github.com/Nevcairiel/HereBeDragons/tree/2.18-release) (2026-10-02)\n[Full Changelog](https://github.com/Nevcairiel/HereBeDragons/compare/2.17-release...2.18-release) [Previous Releases](https://github.com/Nevcairiel/HereBeDragons/releases)\n\n- Update World Map Data and zone walking for Forever  \n- Add Forever to the TOC  \n- Disable transform data on Forever"
+    },
+    {
+      "tag": "2.17-release",
+      "published": "2026-08-12",
+      "notes": "# Lib: HereBeDragons\n\n## [2.17-release](https://github.com/Nevcairiel/HereBeDragons/tree/2.17-release) (2026-08-12)\n[Full Changelog](https://github.com/Nevcairiel/HereBeDragons/compare/2.16-release...2.17-release) [Previous Releases](https://github.com/Nevcairiel/HereBeDragons/releases)\n\n- Update TOC  \n- HBD-P: Add true/false return values to all Add* APIs  \n    The return value indicates if the pin could be added to the map.  \n    Currently, only invalid coordinates will result in false, and only zone  \n    coordinates are validated at all."
+    },
+    {
+      "tag": "2.16-release",
+      "published": "2026-01-21",
+      "notes": "# Lib: HereBeDragons\n\n## [2.16-release](https://github.com/Nevcairiel/HereBeDragons/tree/2.16-release) (2026-01-21)\n[Full Changelog](https://github.com/Nevcairiel/HereBeDragons/compare/2.15-release...2.16-release) [Previous Releases](https://github.com/Nevcairiel/HereBeDragons/releases)\n\n- Add TBC Anniversary TOC  \n- Only perform instance checks when both the instance and map are updated  \n- Do not use the overriden instance for the instance zone check  \n    Instance Zones are determined at load, and dynamic overrides don't help  \n    here, and may in fact cause unexpected issues.  \n    Fixes #21  \n- Remove manual zone translation, the automated process handles this now  \n- Update TOC  \n- Skip minimap updates when the minimap is hidden  \n- Handle instanced sub-zones on continent maps  \n    This cleans up processing of sub-zones in different instances with  \n    different scale, allowing full translation upwards (from zone to  \n    continent and world).  \n    Translating downwards is not supported (yet).  \n- Incrase max map id to 3000, as Midnight crosses the 2500 boundary"
+    },
+    {
+      "tag": "2.15-release",
+      "published": "2025-07-02",
+      "notes": "# Lib: HereBeDragons\n\n## [2.15-release](https://github.com/Nevcairiel/HereBeDragons/tree/2.15-release) (2025-07-02)\n[Full Changelog](https://github.com/Nevcairiel/HereBeDragons/compare/2.14.5-release...2.15-release) [Previous Releases](https://github.com/Nevcairiel/HereBeDragons/releases)\n\n- Update TOCs  \n- Update TOC versions  \n- Add data for Mists Classic  \n- Remove pre-TWW retail data"
+    },
+    {
+      "tag": "2.14.5-release",
+      "published": "2025-04-07",
+      "notes": "# Lib: HereBeDragons\n\n## [2.14.5-release](https://github.com/Nevcairiel/HereBeDragons/tree/2.14.5-release) (2025-04-07)\n[Full Changelog](https://github.com/Nevcairiel/HereBeDragons/compare/2.14.4-release...2.14.5-release) [Previous Releases](https://github.com/Nevcairiel/HereBeDragons/releases)\n\n- Update packaging action"
+    }
+  ],
+  "stats": {
+    "stars": 17,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-10-03",
+    "releaseDates": [
+      "2026-10-03",
+      "2026-08-12",
+      "2026-01-21",
+      "2025-07-02",
+      "2025-04-07",
+      "2024-07-24",
+      "2024-07-24",
+      "2024-07-24",
+      "2024-07-24",
+      "2023-07-12",
+      "2022-11-16",
+      "2022-10-31",
+      "2022-10-22",
+      "2022-08-29",
+      "2022-02-23",
+      "2021-05-08",
+      "2021-03-15",
+      "2020-10-13",
+      "2020-02-20",
+      "2019-07-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HereBeDragons"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

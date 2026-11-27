@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "improvedquesttracker",
+  "repo": "markgravity/ImprovedQuestTracker",
+  "about": "# Improved Quest Tracker\n\nSort options for the default quest tracker in **WoW Forever** and **MoP Classic**. It keeps\nBlizzard's tracker and only changes the order of your quests, so the tracker still looks and\nworks as usual, with mouse or controller.\n\n## Features\n\n- **Sort** tracked quests by zone (current zone first), level, level reversed, title or\n  distance (WoW Forever).\n- **Completed quests** at the top or bottom.\n- **Sort menu**: the filter button on the tracker's *Quests* header, the quest right-click\n  menu, **R3** while the tracker has controller focus, or a key binding\n  (*Key Bindings > AddOns*). Fully usable with a controller: D-pad, A to pick, B to close.\n- **Objective sound**: plays a sound when an objective of a tracked quest completes.\n\nOn MoP Classic the options are in the tracker header's right-click menu.\n\n## Commands\n\n| | |\n|---|---|\n| `/iqt` | show the settings and commands |\n| `/iqt sort off\\|zone\\|level\\|levelr\\|title\\|distance` | sort mode |\n| `/iqt completed off\\|top\\|bottom` | where completed quests go |\n| `/iqt zonefirst` | toggle current zone first |\n| `/iqt sound` | toggle the objective complete sound |\n| `/iqt menu` | open the sort menu |\n| `/iqt debug` | list tracked quests and whether the tracker shows them |\n\nWhen the tracker is full, Blizzard only shows the quests that fit; the addon reorders the\ntracked list so those are your top-sorted quests. Raise the Objective Tracker height in Edit\nMode to see more.\n\n## Install\n\n- **CurseForge app**: search *Improved Quest Tracker*.\n- **Manual**: download `ImprovedQuestTracker-<version>.zip` from\n  [Releases](https://github.com/markgravity/ImprovedQuestTracker/releases) and unzip it into\n  `World of Warcraft/<flavour>/Interface/AddOns/` so you get `AddOns/ImprovedQuestTracker/`.\n\n## Development\n\nClone the repo straight into the `AddOns` folder (or symlink it) and `/reload` in game.\n\n- `python3 tools/make_addon_icon.py` regenerates `textures/ic_addon.tga` and\n  `tools/addon_logo.png` (needs Pillow).\n- `python3 tools/package.py` builds `dist/ImprovedQuestTracker-<version>.zip`.\n\n### Releasing\n\n1. Bump `## Version:` in `ImprovedQuestTracker.toc`.\n2. Add a `## <version>` section on top of `CHANGELOG.md`.\n3. Commit, then `git tag v<version> && git push origin main v<version>`.\n\nThe [release workflow](https://github.com/markgravity/ImprovedQuestTracker/blob/main/.github/workflows/release.yml) checks the tag matches the TOC, builds the\nzip, creates the GitHub release with the changelog section, and uploads to CurseForge when\n`CF_API_KEY` is set. A tag with a suffix (`v0.2.0-beta1`) makes a pre-release / beta. The\nrepository variable `CF_GAME_VERSION` takes a comma-separated list of CurseForge game versions\n(default `1.60.1`, WoW Forever).\n\n## Support\n\nImproved Quest Tracker is free and always will be. If it makes your game better and you'd like\nto say thanks, you can buy me a coffee:\n\n- [Ko-fi](https://ko-fi.com/markgravity)\n- [PayPal](https://paypal.me/markgravity)\n\n## Credits\n\nSort options inspired by [Kaliel's Tracker](https://www.curseforge.com/wow/addons/kaliels-tracker)\nand the objective sound by my [Kaliel's Tracker mod](https://github.com/markgravity/kaliels-tracker).\nNo code from them is included.\n\n## License\n\n[MIT](https://github.com/markgravity/ImprovedQuestTracker/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "name": "Improved Quest Tracker 0.1.0",
+      "published": "2026-10-07",
+      "notes": "- First public release.\n- Sort tracked quests by zone (current zone first), level, level reversed, title or distance.\n- Move completed quests to the top or bottom.\n- Sort menu on the tracker's Quests header, in the quest right-click menu, and on R3 when the\n  tracker has controller focus.\n- Sound when an objective of a tracked quest completes."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-07",
+    "releaseDates": [
+      "2026-10-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ImprovedQuestTracker"
+    ],
+    "editions": [
+      "classic",
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "ImprovedQuestTrackerDB"
+    ]
+  }
+}

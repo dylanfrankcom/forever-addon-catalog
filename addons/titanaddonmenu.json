@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "titanaddonmenu",
+  "repo": "ericeslinger/TitanAddonMenu",
+  "about": "# TitanAddonMenu\n\nA [Titan Panel](https://www.curseforge.com/wow/addons/titan-panel) plugin that gathers every addon's\n\"open my settings\" entry point into **one** bar button.\n\nClick the **Addons** button for a menu with three sections. Each entry sends a left-click to\nthe addon's launcher. For addons whose launcher does something different on right-click\n(Bartender4: left unlocks bars, right opens options) add an extra \"(right click)\" row with\n`/addonmenu rightclick add Bartender`. The bar button has no tooltip of its own, so it never\ncovers the menu.\n\n| Section | Source | Examples |\n|---|---|---|\n| Launchers | LibDataBroker `launcher` objects (the minimap-button convention) | Bartender4, Masque, Plater, BugSack, Prat |\n| Addon Compartment | addons that declare `## AddonCompartmentFunc` in their TOC and have no launcher | DialogueUI |\n| Slash commands | a user-maintained list for addons that expose neither | Arc Auras (`/arcauras`), Shadowed Unit Frames (`/suf`) |\n\nOnce this is on your bar you can hide the individual launcher buttons from Titan\n(Titan > Configuration > Plugins) and keep the bar clean.\n\n## Minimap buttons\n\nSince the menu replaces them, minimap buttons made with LibDBIcon (which is nearly all of\nthem) are **hidden by default**. Nothing is written to the other addons' settings, so\n`/addonmenu minimap show` puts every button back exactly as its own addon has it.\n`/addonmenu minimap keep <name>` leaves one addon's button visible. Buttons an addon draws\nwithout LibDBIcon are not affected.\n\n## Slash commands\n\n```\n/addonmenu                        help\n/addonmenu list                   list slash entries\n/addonmenu add /cmd Label         add or relabel a slash entry\n/addonmenu remove /cmd            remove a slash entry\n/addonmenu rightclick add <name>  add a \"(right click)\" row for launchers matching <name>\n/addonmenu rightclick remove <name>\n/addonmenu rightclick list        show the patterns and which launchers they match\n/addonmenu launchers              list the launcher names seen\n/addonmenu minimap hide|show      hide LibDBIcon minimap buttons (default) or stop hiding\n/addonmenu minimap keep <name>    keep one addon's minimap button (unkeep to undo)\n/addonmenu reset                  restore the defaults\n```\n\nLauncher matching is a case-insensitive substring match on the launcher's label or LDB name,\nso `bartender` matches `Bartender4`. `Bartender` is in the default right-click list.\n\n`/tam` is an alias for `/addonmenu`.\n\nSlash entries are run by looking the command up in `SlashCmdList` and calling the handler\ndirectly; if it is not registered the text is sent through the chat edit box instead.\n\n## Install\n\nCopy the `TitanAddonMenu` folder into `Interface/AddOns/`. Requires Titan Panel.\n\nSupports WoW: Forever (interface 16001) with Titan Panel 9.3.x. Not tested on retail.\n\n## How it works\n\nIt is written as an LDB launcher object rather than a native Titan plugin, which is the\nintegration path Titan's developer notes recommend (`Titan/_ATitanDoc.lua`, and the bundled\n`TitanUI` plugin is the reference example). Titan wraps the object in its own button, handles\nplacement, the tooltip frame and click dispatch; this addon only supplies the data object,\nthe tooltip text and a `MenuUtil` context menu.\n\n## License\n\nMIT",
+  "releases": [
+    {
+      "tag": "v0.3.2",
+      "published": "2026-11-15",
+      "notes": "# Titan Panel [Addons]\n\n## [v0.3.2](https://github.com/ericeslinger/TitanAddonMenu/tree/v0.3.2) (2026-11-15)\n[Full Changelog](https://github.com/ericeslinger/TitanAddonMenu/compare/v0.3.1...v0.3.2) [Previous Releases](https://github.com/ericeslinger/TitanAddonMenu/releases)\n\n- Hide LibDBIcon minimap buttons by default  \n    The menu replaces minimap buttons, so they are hidden through an OnShow  \n    hook on each LibDBIcon button. The owning addons' saved settings are not  \n    touched; /addonmenu minimap show restores them, and keep  exempts  \n    one addon.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_01WNq7Kaw5StQF9MkSdp8DzY  \n- Give the release workflow contents: write  \n    The default GITHUB\\_TOKEN is read-only, so the packager could not attach  \n    the zip to the GitHub release (403).  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_01WNq7Kaw5StQF9MkSdp8DzY"
+    },
+    {
+      "tag": "v0.3.1",
+      "name": "Initial public release",
+      "published": "2026-11-15",
+      "notes": "Everything works."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TitanAddonMenu"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Titan"
+    ],
+    "savedVariables": [
+      "TitanAddonMenuDB"
+    ]
+  }
+}

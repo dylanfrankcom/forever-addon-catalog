@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "raidportraits",
+  "repo": "lachyjp/RaidPortraits",
+  "about": "# RaidPortraitsForever\n\nCharacter portraits for **WoW Forever**'s **raid-style party frames**: 3D models, 2D portraits or class icons, placed and styled the way you like with a live-preview designer. No libraries or other addons required.\n\nRaid-style party frames are great for buffs, debuffs and dispels, but they drop the portraits the classic party frames had. RaidPortraits puts them back without replacing the frames: everything else stays exactly as the game draws it.\n\n## Features\n\n- **Three kinds of portrait.** Animated 3D models, 2D portraits or class icons. 3D models fall back to a 2D portrait or class icon for players too far away to load.\n- **Anywhere around the frame.** Left, right, above, below, inside left, inside right, or filling the whole frame as a faint backdrop. Match the frame's size or set your own, with any width-to-height ratio, gap and nudge.\n- **Spacing.** One setting spaces out the party frames and their portraits together, so each portrait stays lined up with its frame. Portraits can also form their own column or row, starting from the top, centre or bottom.\n- **Styling.** Square or round, borders in class colour, custom, white or black, a background, opacity and zoom. For 3D models: face zoom, camera distance, turn, and animation on or off.\n- **Health bars.** Optionally restyle the game's health bars: class, by-health or custom colour, gradients, five textures and a custom background.\n- **Resource bar.** Optional mana / energy / rage bar on each portrait, optionally only for healers.\n- **At a glance.** A gold outline on your target's portrait, and grey-out or darken for dead and offline players.\n- **Threat.** Optional threat outline or corner badge, threat % on your target, and per-portrait toggles for mobs held, share held, and mobs held at risk. With the count and share on, `4/5 (80%)` means that player has aggro on four of five counted enemies. Counts use living enemies in combat with active nameplates and skip secret threat results.\n- **Plays nicely with the game.** Follows out-of-range fading and every Edit Mode party frame setting (size, layout, sort order, opacity...). Buffs, debuffs, dispel highlights and status icons stay on top of portraits placed inside the frame.\n- **Raid frames too.** Optionally add portraits to raid frames, your own frame and pet frames.\n- **Combat safe.** Never touches the game's protected frames, so it can't cause \"action blocked\" errors.\n\n## Getting started\n\n1. Open **Edit Mode**, select the party frames and tick **Use Raid-Style Party Frames**.\n2. Join a group.\n3. Type `/rpt`, or open Game Menu > Options > AddOns > RaidPortraits.\n\n## The designer\n\nThe sidebar has **General**, **Portrait**, **3D model**, **Size & position**, **Shape & border**, **Health bar**, **Resource bar**, **Threat**, **Target highlight** and **Dead & offline** sections, plus **Saved looks** and a **Changes** page. The preview updates as you go. Choose **Friends** for the bundled Armory portraits or **Sample party** to try live 3D model controls on your own character. Hold **Hold to peek** to see your real frames through the window.\n\n- Search for a setting by name. Sections without a match fade out.\n- Each changed setting has a reset icon, and **Reset this section** resets the open section.\n- Six built-in looks: Classic, Round portraits, Class icons, Inside badge, Ghost and Wide banner. Save your own looks; they're shared by all your characters.\n- Hover any setting for a description.\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/rpt` | Open the designer |\n| `/rpt on` | Turn RaidPortraits on or off |\n| `/rpt party`, `/rpt raid`, `/rpt self`, `/rpt pets` | Toggle portraits on party frames, raid frames, your own frame, pet frames |\n| `/rpt me` | Show or hide your own party / raid frame |\n| `/rpt combat` | Toggle hiding portraits in combat |\n| `/rpt debug` | Print what the addon can see, for bug reports |\n\n## Notes\n\n- The game can't clip 3D models round, so round shapes apply to 2D portraits and class icons.\n- The game only loads 3D models for nearby players; further away the fallback you choose is shown.",
+  "releases": [
+    {
+      "tag": "v1.5.1",
+      "name": "RaidPortraits 1.5.1",
+      "published": "2026-11-26",
+      "notes": "- New health numbers on the party and raid frames, with six styles (Health bar > Health numbers).\n- New clean thin outlines for target and threat on the frames, drawn over the health bar without the corner pieces (on by default, under Highlight).\n- New option to centre the party frames in their Edit Mode box (Size & position > Party frames start from).\n- New \"Show all icons\" button in the preview, to see every icon the game can put on a frame.\n- New option to hide the game's white target outline on frames.\n- Fixed 3D portraits sometimes staying black after a player comes into view.\n- Fixed a Lua error when dragging the party frames in Edit Mode with your own frame hidden."
+    },
+    {
+      "tag": "v1.5.0",
+      "name": "RaidPortraits 1.5.0",
+      "published": "2026-11-25",
+      "notes": "- Fixed party frames sometimes getting stuck with a white border and faded colours after joining a group, until /reload. Hiding your own frame no longer hides and shows Blizzard's frames from add-on code, which broke their updates.\n- Fixed an empty row (or your invisible frame overlapping another) when your own frame is hidden and the party re-sorts.\n- The game's white target outline is cleared if it gets left on a frame that is no longer your target (also guards against other add-ons that change it, such as ForeverImmersion).\n- Health bar colours now update when a new member's details arrive after they join.\n- Chat notices: a short note on what's new after you update, and a heads-up when someone in your guild or group has a newer version."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RaidPortraits"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "RaidPortraitsLooks",
+      "RaidPortraitsGlobal"
+    ],
+    "savedVariablesPerCharacter": [
+      "RaidPortraitsDB"
+    ]
+  }
+}

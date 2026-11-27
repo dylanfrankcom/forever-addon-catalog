@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "simulationcraft",
+  "repo": "simulationcraft/simc-addon",
+  "about": "SimulationCraft Addon\n=====================\n\nThis addon collects information about your character and presents a text version suitable for running in Simc\n\nUsage\n=====\n\nType `/simc` in-game to display text input that you can copy/paste to SimulationCraft.\n\n`/simc nobags` will only output character on your gear, not items in your bags.\n\n`/simc minimap` will toggle the minimap icon.\n\n`/simc [Item Link]` can be used to add additional items to the output. For example, type `/simc`, add a space, then\nshift left-click an item (from chat, a recent boss drop, or an item from a vendor) and that item will be added as a\ncomment below bag items in the text. WoW chat does have a character limit so the output may only contain the first 2-3\nitems that you link.\n\nFAQ\n===\n\n### Why are some item names missing from the comments?\n\nFirst, this warning does not impact the sim in any way - it only makes it a bit harder to know which\nline is for which item for people reading the input.\n\nSome addons that do big database updates can unintentionally cause problems for others. Usually it's\ncompletionist or transmog addons (All The Things, Can I Mog It, etc) that need to do a bunch of work\non login and that can sometimes prevent the SimulationCraft addon from being able to show item names.\n\nIf you run /simc again a bit later once the database updates are done, it should resolve the issue and show\nthe item names in comments. You may need to run /simc a couple of times for the info to be available.\n\nMaintainers\n-----------\n\n* navv\n* seriallos\n* aethys\n* Theck (retired)",
+  "releases": [
+    {
+      "tag": "12.1.5-05",
+      "published": "2026-11-20",
+      "notes": "# Simulationcraft\n\n## [12.1.5-05](https://github.com/simulationcraft/simc-addon/tree/12.1.5-05) (2026-11-20)\n[Full Changelog](https://github.com/simulationcraft/simc-addon/compare/12.1.5-04...12.1.5-05) [Previous Releases](https://github.com/simulationcraft/simc-addon/releases)\n\n- Handle the API changes Blizz made to stop layer jumping forever addons"
+    },
+    {
+      "tag": "12.1.5-04",
+      "published": "2026-11-05",
+      "notes": "# Simulationcraft\n\n## [12.1.5-04](https://github.com/simulationcraft/simc-addon/tree/12.1.5-04) (2026-11-05)\n[Full Changelog](https://github.com/simulationcraft/simc-addon/compare/12.1.5-03...12.1.5-04) [Previous Releases](https://github.com/simulationcraft/simc-addon/releases)\n\n- Handle Forever surname"
+    },
+    {
+      "tag": "12.1.5-03",
+      "published": "2026-10-22",
+      "notes": "# Simulationcraft\n\n## [12.1.5-03](https://github.com/simulationcraft/simc-addon/tree/12.1.5-03) (2026-10-22)\n[Full Changelog](https://github.com/simulationcraft/simc-addon/compare/12.1.5-02...12.1.5-03) [Previous Releases](https://github.com/simulationcraft/simc-addon/releases)\n\n- forever: Export hunter pet info"
+    },
+    {
+      "tag": "12.1.5-02",
+      "published": "2026-10-19",
+      "notes": "# Simulationcraft\n\n## [12.1.5-02](https://github.com/simulationcraft/simc-addon/tree/12.1.5-02) (2026-10-19)\n[Full Changelog](https://github.com/simulationcraft/simc-addon/compare/12.1.5-01...12.1.5-02) [Previous Releases](https://github.com/simulationcraft/simc-addon/releases)\n\n- forever: Add legacy talents, ranged, ammo, and bags  \n    Also cleaned up detection of Retail vs Forever"
+    },
+    {
+      "tag": "12.1.5-01",
+      "published": "2026-10-12",
+      "notes": "# Simulationcraft\n\n## [12.1.5-01](https://github.com/simulationcraft/simc-addon/tree/12.1.5-01) (2026-10-12)\n[Full Changelog](https://github.com/simulationcraft/simc-addon/compare/12.1.0-04...12.1.5-01) [Previous Releases](https://github.com/simulationcraft/simc-addon/releases)\n\n- 12.1.5 release  \n- Bump version  \n- Add Ascendant Venomstone for 12.1.5  \n- Experimental Forever support  \n- Version bump"
+    }
+  ],
+  "stats": {
+    "stars": 71,
+    "openIssues": 0,
+    "contributors": 16,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-05",
+      "2026-10-22",
+      "2026-10-19",
+      "2026-10-12",
+      "2026-08-21",
+      "2026-08-20",
+      "2026-08-03",
+      "2026-07-21",
+      "2026-07-06",
+      "2026-06-18",
+      "2026-06-15",
+      "2026-05-13",
+      "2026-05-13",
+      "2026-05-03",
+      "2026-04-21",
+      "2026-04-20",
+      "2026-03-30",
+      "2026-03-29",
+      "2026-03-06",
+      "2026-02-19",
+      "2026-01-21",
+      "2026-01-21",
+      "2025-12-29",
+      "2025-10-08",
+      "2025-10-03",
+      "2025-09-18",
+      "2025-08-02",
+      "2025-07-09",
+      "2025-06-25",
+      "2025-06-18",
+      "2025-06-10",
+      "2025-04-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Simulationcraft"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "SimulationCraftDB"
+    ]
+  }
+}

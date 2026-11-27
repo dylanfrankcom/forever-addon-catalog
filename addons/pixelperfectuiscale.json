@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "pixelperfectuiscale",
+  "repo": "Earthenmist/PixelPerfectUIScale",
+  "about": "# PixelPerfectUIScale\n\n**PixelPerfectUIScale** is a lightweight World of Warcraft addon that ensures your UI always uses a **pixel-perfect scale**.\n\nIt calculates the correct scale using:\n\n`768 / screenHeight`\n\n…and applies it automatically on login and whenever display or UI scale settings change.\n\n## ✨ Features\n- Automatically enforces pixel-perfect UI scale (`768 / screenHeight`)\n- Optional custom modifier for 4K / ultrawide monitors  \n  - `/ppscale modifier <number>`\n  - Example: `/ppscale modifier 1.5` → `(768 / screenHeight) × 1.5`\n  - Supports values between **0.5 and 3.0**\n  - Saved between sessions\n- Safe handling during combat (scale changes are deferred until after combat)\n- Listens for key scale-related events:\n  - `PLAYER_LOGIN`\n  - `PLAYER_ENTERING_WORLD`\n  - `DISPLAY_SIZE_CHANGED`\n  - `UI_SCALE_CHANGED`\n  - `EDIT_MODE_LAYOUTS_UPDATED`\n- Optional syncing of Blizzard `uiScale` CVars so the Settings UI stays consistent\n- Midnight-compatible (no protected calls or combat taint)\n\n## \uD83D\uDCAC Slash Commands\n| Command | Description |\n|--------|-------------|\n| `/ppscale status` | Show desired vs current scale (base, modifier, and result) |\n| `/ppscale modifier <num>` | Set a multiplier for custom scaling (e.g. `1.25`) |\n| `/ppscale now` | Force scale reapply immediately |\n| `/ppscale debug` | Toggle verbose debug output |\n| `/ppscale cvars on/off` | Toggle writing to Blizzard `uiScale` CVars |\n\n## ❓ Why use this instead of the WeakAura?\n- No dependency on WeakAuras\n- Lightweight and always active\n- Midnight-safe — handles combat restrictions automatically\n- Future-proof — continues working even if WeakAuras is not updated for future expansions\n\n## \uD83D\uDCE6 Install\n### CurseForge\n- Install via the CurseForge app or download the latest release.\n\n### Manual\n1. Download the latest release `.zip`.\n2. Extract into the appropriate WoW client folder, such as\n   `World of Warcraft/_retail_/Interface/AddOns/` for Retail.\n3. Ensure the folder name is `PixelPerfectUIScale` (not nested).\n4. Relaunch the game.\n\n## \uD83E\uDDE9 Compatibility\n- **Game:** Retail, WoW Forever (interface `16001`), and the Classic variants declared by the packaged TOC files\n- **Era:** The War Within / Midnight-ready, plus supported Classic clients\n- **Dependencies:** None\n\nWoW Forever uses the default `PixelPerfectUIScale.toc`, which declares both\nRetail `120100` and Forever `16001`. The separate Classic manifest retains its\nexisting client interface values. Install the complete addon folder in the\nForever client's `Interface/AddOns/` directory.\n\nInitial Forever testing by the maintainer reported no Lua errors. Reloads during\ncombat, Edit Mode, settings persistence, and display changes still need targeted\nchecks before release. Compatibility applies to the declared interface version;\nlater Forever builds may require another update.\n\n## \uD83D\uDCAC Support & Community\nFor bug reports, feature requests, release notes, and beta builds, join the official Discord:\n\n**Earthenmist Addon Hub**\nhttps://discord.gg/U8mKfHpeeP\n\n## ❤️ Credits\n- Original WeakAura: **“Pixel perfect ui scale”** by **potat0nerd**\n- Addon conversion & maintenance: **Earthenmist**\n\n## \uD83D\uDCDC License\nAll Rights Reserved.",
+  "releases": [
+    {
+      "tag": "v1.4.18-Release",
+      "published": "2026-10-15",
+      "notes": "## Addon Updates (2026-10-15)\n\n**PixelPerfectUIScale** — v1.4.18-Release\n\n**Changes:**\n- Updated for Retail patch 12.1.5 (interface `120105`); the superseded 12.1.0 interface is no longer listed. WoW Forever (`16001`) is still supported.\n\n**Fixes:**\n- No fixes in this update.\n\n**Known issues:**\n- None."
+    },
+    {
+      "tag": "v1.4.17-Release",
+      "published": "2026-09-20",
+      "notes": "## Addon Updates (2026-09-20)\n\n**PixelPerfectUIScale** — v1.4.17-Release\n\n**Changes:**\n- Added support for WoW Forever (interface `16001`).\n\n**Fixes:**\n- No fixes in this update.\n\n**Known issues:**\n- None."
+    },
+    {
+      "tag": "v1.4.16-Release",
+      "published": "2026-08-29",
+      "notes": "## \uD83E\uDDE9 Addon Updates (2026-08-29)\n\n**PixelPerfectUIScale** — v1.4.16-Release\n\n**Changes:**  \n• Updated TOC interface declarations to the current live Retail and supported Classic client versions.\n• Bumped release metadata to `1.4.16-Release` in both TOC files.\n• Updated maintained author and support references to Earthenmist.\n• Clarified README compatibility and install notes for Retail and supported Classic clients.\n• Added bounded startup/world-entry retry handling so `/reload` inside Mythic+ or other instances can reapply the desired UI scale without needing to leave the dungeon.  \n• Coalesced overlapping startup retries and reduced repeated combat-defer chat messages.   \n\n**Fixes:**  \n• Fixed cases where Blizzard UI rebuild timing after an in-instance reload could leave the UI at the wrong scale until zoning.\n\n**Known issues:**  \n• None currently known."
+    },
+    {
+      "tag": "v1.4.15-Release",
+      "published": "2026-08-07",
+      "notes": "## \uD83E\uDDE9 Addon Updates (2026-08-07)\n\n**PixelPerfectUIScale** — v1.4.15  \n\n**Changes:**  \n• Added bounded startup/world-entry retry handling so `/reload` inside Mythic+ or other instances can reapply the desired UI scale without needing to leave the dungeon.  \n• Coalesced overlapping startup retries and reduced repeated combat-defer chat messages.   \n\n**Fixes:**  \n• Fixed cases where Blizzard UI rebuild timing after an in-instance reload could leave the UI at the wrong scale until zoning.\n\n**Known issues:**  \n• None currently known."
+    },
+    {
+      "tag": "v1.4.14-Release",
+      "published": "2026-07-29",
+      "notes": "## \uD83E\uDDE9 Addon Updates (2026-07-29)\n\n**PixelPerfectUIScale** — v1.4.14  \n\n**Changes:**  \n• Updated for the upcoming 12.1 release.   \n\n**Fixes:**  \n• None.\n\n**Known issues:**  \n• None currently known."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-15",
+    "releaseDates": [
+      "2026-10-15",
+      "2026-09-20",
+      "2026-08-29",
+      "2026-08-07",
+      "2026-07-29",
+      "2026-06-12",
+      "2026-05-17",
+      "2026-05-01",
+      "2026-04-21",
+      "2026-02-21",
+      "2026-02-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PixelPerfectUIScale"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "PixelPerfectUIScaleDB"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "betterblizzplates",
+  "repo": "Bodify/BetterBlizzPlates",
+  "about": "# BetterBlizzPlates\n\n**BetterBlizzPlates** is an addon that takes the default Blizzard nameplates and enhances them with additional features and allows you to customize just about everything on them. You can choose to customize everything from scratch (completely default nameplates) or you can import one of the many included profiles.\n\n> \uD83C\uDFAF **Compatible with MIDNIGHT, Retail, Classic Era/SoD, Mists of Pandaria, Cataclysm and Wrath**\n\n[![](https://shields.io/badge/discord-5865F2?logo=discord&style=for-the-badge&logoColor=white)](https://discord.gg/cjqVaEMm25) [![](https://shields.io/badge/patreon-red?logo=patreon&style=for-the-badge)](https://www.patreon.com/bodifydev) [![](https://shields.io/badge/paypal-00457C?logo=paypal&style=for-the-badge)](https://www.paypal.com/paypalme/bodifydev) [![](https://shields.io/badge/github-gray?logo=github&style=for-the-badge&logoColor=white)](https://github.com/Bodify/BetterBlizzPlates)\n\n***\n\n# \uD83D\uDE80 Features\n\nAll features are off by default so you can ease your way into things but I highly recommend either the Starter Profile for a quick start with all the core minimalistic features enabled or one of the more advanced profiles!\n\n## \uD83D\uDD04 Classic & Retail Nameplate Options\n\nSwitch between classic and retail nameplate styles depending on your preference. You can have retail nameplates on classic and classic nameplates on retail!\n\n![Nameplate Options](https://github.com/user-attachments/assets/5dd026f7-e2f0-4b46-9726-6d6e063e0ce5)\n\n## ⚡ Totem Indicator\n\nImportant totems and NPCs get highlighted with a large icon and glow.\n\n*   All Totems can be customized individually with settings such as color, size, and an \"Icon Only\" mode removing healthbar and name.\n*   Fully configured from the get go but you can add your own new NPCs and also import others presets!\n\n![Totem Indicator](https://github.com/user-attachments/assets/6c3cbd81-451e-4b1b-9986-84e7f3e326d5)\n\n## \uD83D\uDEE1️ Class/Spec Icon & Party Pointer Marker\n\nEasily identify the class and specialization of enemies and allies with clear, customizable icons with Class Indicator. You can also use Party Pointer to locate your teammates effortlessly with a customizable arrow pointer above their nameplates.\n\n*   Circle or Square Icon, can be separate for friendly/enemy.\n*   Displays Battleground Objectives (Flag/Orb)\n*   Show on your Pet.\n*   Can be configured to show on all friendly and only enemy healer & Battleground Objectives.\n*   Target highlight glow.\n*   Can replace name with health percentage.\n\n![ClassPetIndicatorPlusCC](https://github.com/user-attachments/assets/224fc2e1-54ab-49c0-a366-5746cd58778f)\n\n![Class/Spec Icon](https://github.com/user-attachments/assets/c334e1f6-b287-458b-a648-c46fa8ea49a4)\n\n## ❌ Hide Unwanted Nameplates\n\nThere are multiple ways to hide unwanted nameplates.\n\n*   You can completely hide them, making them unclickable.\n*   Replace them with a small Murloc icon to keep track of how many are active\n*   Fade them out for reduced visibility.\n*   Shorter Pet Nameplates\n\n![Nameplate Filtering](https://github.com/user-attachments/assets/c4f86c5e-1dd0-454d-abcd-fb23bf753f4b)\n\n## \uD83C\uDF1F Aura Filtering & Settings\n\nEasily customize aura size, position, and sorting to fit your preferences. You can filter nameplate auras to display only the ones you care about and highlight specific auras with a glow, resize them, or both for better visibility.\n\n*   Adjust aura size, position, and sorting with ease.\n*   Filter nameplate auras to display only the ones you care about.\n*   PvP CC & PvP Buff filters with optional color coded glow.\n*   Highlight specific auras with a glow, resize them, or both.\n*   Add Pandemic Glow to chosen auras to have them highlight in the pandemic window.\n\n![Aura Filtering](https://github.com/user-attachments/assets/7fd0e49d-e73d-47ea-8e5c-c2c7bb841ca4)![BBPAuras2](https://github.com/user-attachments/assets/5cdc06c1-8396-4828-8ef3-3115b13e8c69) ![PvP Auras](https://github.com/user-attachments/assets/b54f7032-e9ad-491d-a931-37d128e0ee73) ![BBPPvPAuras2](https://github.com/user-attachments/assets/4ef5492a-372d-488f-9746-ccded823c3c5)\n\n## \uD83C\uDFA8 Nameplate Coloring\n\nChange the color of nameplates to make them stand out the way you want. You can color specific NPCs by name or ID, adjust nameplate colors based on active auras, and highlight your target or focus with a different color.\n\n*   **Color by ID/Name**: Assign distinct colors to nameplates based on specific NPC IDs or names.\n*   **Color by Auras**: Change nameplate colors when certain auras are present and set priority of which color is king, making it easier to identify targets with specific buffs/debuffs.\n*   **Color Target/Focus**: Highlight the target and focus nameplates with unique colors for better visual distinction.\n*   Supports Plater imports!\n\n![Nameplate Coloring](https://github.com/user-attachments/assets/f96c045d-26e2-4783-ace3-b87d4382ccaa)\n\n## \uD83D\uDEE1️ Absorb Indicators\n\nDisplays shield amounts directly on health bars, showing exactly how much absorb protection a unit has.\n\n![Absorb Indicator](https://github.com/user-attachments/assets/4d01547d-57aa-415f-a073-d1c1a4acc948)\n\n## \uD83C\uDFA8 Fonts & Textures\n\nChoose from various font styles and textures to suit your UI aesthetic. Supports SharedMedia so fonts and textures from other addons are available and you can import your own as well.\n\n![Fonts & Textures](https://github.com/user-attachments/assets/f30241c0-c32f-4943-90ea-eefe3989b318)\n\n## \uD83C\uDF9B️ Additional Features\n\nBetterBlizzPlates offers a range of extra customization options to fine-tune your nameplates to your needs:\n\n*   **Size Settings**: Customize height and width for nameplates.\n*   **Personal Resource Bar**: Customize width, height, and position for personal resource display.\n*   **Target & Focus Indicators**: Add an icon to Target/Focus Nameplate and/or re-color/re-texture them.\n*   **Combat Indicator**: Show an icon for out-of-combat nameplates for easy view on sap windows.\n*   **Name Formatting**: Hide realm names, display Arena ID or specialization, or shorten NPC names.\n*   **Castbar Customization**: Adjust size, position, and colors, with options to hide certain casts or enlarge imporant ones.\n*   **CVar Settings**: Access important nameplate-related CVars to fine-tune their behavior.\n*   **Tons more**: A ton of more features are in the addon. Check screenshots for more!\n\n![ClickArea](https://github.com/user-attachments/assets/4da8ac5d-2d50-421c-9aa6-3893e85216f9)\n\n![ArenaID](https://i.imgur.com/2hQfPY6.png)\n\n![Target](https://github.com/user-attachments/assets/ee66ae49-d33a-4872-8a66-61f0e98d2002)![Combat](https://github.com/user-attachments/assets/b1f8f0b1-0fc1-401a-93b0-6639246dea0d)\n\n![Healer](https://github.com/user-attachments/assets/e13f5853-ad0c-4a9a-8266-3bdb9a98fd2f)![Pet](https://github.com/user-attachments/assets/05759eec-d145-42c3-8f86-72f129173358)\n\n## \uD83C\uDF10 Streamers Using BetterBlizzPlates\n\nBetterBlizzPlates is used by several popular streamers in the WoW community, including:\n\n*   [Whaazz](https://www.twitch.tv/whaazz)\n*   [Raiku](https://www.twitch.tv/raiku)\n*   [Mehhx](https://www.twitch.tv/mehhx)\n*   [Chanx](https://www.twitch.tv/chanx)\n*   [Nahj](https://www.twitch.tv/nahj)\n*   [Aeghis](https://www.twitch.tv/aeghis)\n*   [Kalvish](https://www.twitch.tv/kalvish)\n*   [Hydramist](https://www.twitch.tv/hydramist)\n*   [Cdewx](https://www.twitch.tv/cdewx)\n*   [Notmes](https://www.twitch.tv/notmes)\n*   [Trilltko](https://www.twitch.tv/trilltko)\n*   [Magnusz](https://www.twitch.tv/magnusz)\n*   [Hansol](https://www.twitch.tv/hansol)\n*   [Lontartv](https://www.twitch.tv/lontartv)\n*   [Metaphors](https://www.twitch.tv/metaphors)\n*   [Jazggz](https://www.twitch.tv/jazggz)\n*   [Mmarkers](https://www.twitch.tv/mmarkers)\n*   [Trillebartom](https://www.twitch.tv/trillebartom)\n*   [Kasuxoxo](https://www.twitch.tv/kasuxoxo)\n*   [Snupy](https://www.twitch.tv/snupy)\n*   [Lovelesstv](https://www.twitch.tv/lovelesstv)\n*   [Akrololz](https://www.twitch.tv/akrololz)\n*   [Samiyam](https://www.twitch.tv/samiyam)\n*   [Saul](https://www.twitch.tv/saul)\n*   [Minpojke](https://www.twitch.tv/minpojke)\n*   [Pmakewow](https://www.twitch.tv/pmakewow)\n*   [Flop](https://www.twitch.tv/flop)\n*   [Tonyferalmovies](https://www.twitch.tv/tonyferalmovies)\n*   [Swapxy](https://www.twitch.tv/swapxy)\n\nThese streamers showcase the addon in action, all with varying degrees of configuration. Some with the bare minimum, others with everything customized.\n\n[![](https://shields.io/badge/discord-5865F2?logo=discord&style=for-the-badge&logoColor=white)](https://discord.gg/cjqVaEMm25) [![](https://shields.io/badge/patreon-red?logo=patreon&style=for-the-badge)](https://www.patreon.com/bodifydev) [![](https://shields.io/badge/paypal-00457C?logo=paypal&style=for-the-badge)](https://www.paypal.com/paypalme/bodifydev) [![](https://shields.io/badge/github-gray?logo=github&style=for-the-badge&logoColor=white)](https://github.com/Bodify/BetterBlizzPlates)\n\n![Settings](https://github.com/user-attachments/assets/d17842b5-cdce-423f-8b26-dcc9df8901f6)",
+  "releases": [
+    {
+      "tag": "v2.2.5c",
+      "published": "2026-11-20",
+      "notes": "# BetterBlizzPlates 2.2.5c\n## All versions\n### New\n- Level Options: Hide Max Level.\n- Misc: Hide Heal Prediction.\n## Forever\n### Tweak\n- Classic Nameplates no longer hide the level of max level units in PvP. Use Hide Max Level instead.\n- Update Jazggz profile (www.twitch.tv/jazggz). Thank you for sharing!\n- Update Ceit profile (www.twitch.tv/ceitxd). Thank you for sharing!\n\n# BetterBlizzPlates 2.2.5b\n## Forever\n### Bugfix\n- Fix a secret error\n\n# BetterBlizzPlates 2.2.5\n## All versions\n### New\n- Arena ID: \"Show Circle on ID\" now has a right-click toggle to class color it.\n### Bugfix\n- Fix right-click options on settings from search results not always working.\n## Retail & Forever\n### New\n- Aura Whitelist/Blacklist: You can now enter the exact spell name to add all auras with that name. Case-sensitive.\n- Castbar: Friendly castbars now have their own Height, X/Y Offset and Icon Size/Offset settings.\n- Castbar: Hide Castbar Text now has options to hide it on Enemies, Friendly and NPCs.\n- Look & Behaviour: Nameplate Vertical Position is now split into Enemy and Friendly.\n### Tweak\n- Castbar settings page reorganized a little bit.\n## Forever\n### Tweak\n- Update Mmarkers profile (www.twitch.tv/mmarkers). Thank you for sharing!\n### Bugfix\n- Fix interrupt, purge and pet spell detection not working with higher spell ranks."
+    },
+    {
+      "tag": "v2.2.5b",
+      "published": "2026-11-18",
+      "notes": "# BetterBlizzPlates 2.2.5b\n## Forever\n### Bugfix\n- Fix a secret error\n\n# BetterBlizzPlates 2.2.5\n## All versions\n### New\n- Arena ID: \"Show Circle on ID\" now has a right-click toggle to class color it.\n### Bugfix\n- Fix right-click options on settings from search results not always working.\n## Retail & Forever\n### New\n- Aura Whitelist/Blacklist: You can now enter the exact spell name to add all auras with that name. Case-sensitive.\n- Castbar: Friendly castbars now have their own Height, X/Y Offset and Icon Size/Offset settings.\n- Castbar: Hide Castbar Text now has options to hide it on Enemies, Friendly and NPCs.\n- Look & Behaviour: Nameplate Vertical Position is now split into Enemy and Friendly.\n### Tweak\n- Castbar settings page reorganized a little bit.\n## Forever\n### Tweak\n- Update Mmarkers profile (www.twitch.tv/mmarkers). Thank you for sharing!\n### Bugfix\n- Fix interrupt, purge and pet spell detection not working with higher spell ranks."
+    },
+    {
+      "tag": "v2.2.5",
+      "published": "2026-11-17",
+      "notes": "# BetterBlizzPlates 2.2.4b\n## Forever\n### Bugfix\n- Fix a lua error related to lvl frame\n\n# BetterBlizzPlates 2.2.4\n## All versions\n### Tweak\n- Castbar background is now its own setting \"Change Castbar Background\" and no longer requires \"Re-texture Castbar\".\n- Friend/Guild/RecentAlly indicator is now positioned above the name when the healthbar is hidden.\n- Friend Indicator now detects friends more reliably.\n### Bugfix\n- Fix Friend Indicator disappearing when the healthbar is hidden.\n- Fix Show Threat Percent using capped number instead of raw number.\n## Retail & Forever\n### New\n- Nameplate Auras: New \"CC\" checkbox on whitelisted auras. Shows the aura with the Big CC aura icons. Only works for debuffs. - By Luis-H-Baroni@GitHub. Thank you!\n## Retail\n### New\n- New Langneur profile (www.twitch.tv/langneuur). Thank you for sharing!\n### Tweak\n- Class Indicator: The CC timer now uses the Nameplate Auras timer font and format.\n## Forever\n### Tweak\n- Totem Indicator: Temporary update with some improvements to open world totems (will still be limited in bgs)\n- Class Indicator: The CC timer now uses the Nameplate Auras timer font and format.\n- \"Show resource on target nameplate\" is now on by default.\n- Hide Healthbar: The level (if shown) now shows next to the name instead of some weird location.\n- Class Indicator: Pet icons have been updated for warlocks and pets should now hopefully have pet icons for all pets instead of the default red pawn fallback.\n- Update Snupy profile (www.twitch.tv/snupy). Ty for sharing!\n### Bugfix\n- Fix the level background sometimes coming back with \"Hide Level Background\" on.\n- Fix the name not centering when the healthbar is hidden by target/non-target settings."
+    },
+    {
+      "tag": "v2.2.4b",
+      "published": "2026-11-16",
+      "notes": "# BetterBlizzPlates 2.2.4b\n## Forever\n### Bugfix\n- Fix a lua error related to lvl frame\n\n# BetterBlizzPlates 2.2.4\n## All versions\n### Tweak\n- Castbar background is now its own setting \"Change Castbar Background\" and no longer requires \"Re-texture Castbar\".\n- Friend/Guild/RecentAlly indicator is now positioned above the name when the healthbar is hidden.\n- Friend Indicator now detects friends more reliably.\n### Bugfix\n- Fix Friend Indicator disappearing when the healthbar is hidden.\n- Fix Show Threat Percent using capped number instead of raw number.\n## Retail & Forever\n### New\n- Nameplate Auras: New \"CC\" checkbox on whitelisted auras. Shows the aura with the Big CC aura icons. Only works for debuffs. - By Luis-H-Baroni@GitHub. Thank you!\n## Retail\n### New\n- New Langneur profile (www.twitch.tv/langneuur). Thank you for sharing!\n### Tweak\n- Class Indicator: The CC timer now uses the Nameplate Auras timer font and format.\n## Forever\n### Tweak\n- Totem Indicator: Temporary update with some improvements to open world totems (will still be limited in bgs)\n- Class Indicator: The CC timer now uses the Nameplate Auras timer font and format.\n- \"Show resource on target nameplate\" is now on by default.\n- Hide Healthbar: The level (if shown) now shows next to the name instead of some weird location.\n- Class Indicator: Pet icons have been updated for warlocks and pets should now hopefully have pet icons for all pets instead of the default red pawn fallback.\n- Update Snupy profile (www.twitch.tv/snupy). Ty for sharing!\n### Bugfix\n- Fix the level background sometimes coming back with \"Hide Level Background\" on.\n- Fix the name not centering when the healthbar is hidden by target/non-target settings."
+    },
+    {
+      "tag": "v2.2.4",
+      "published": "2026-11-15",
+      "notes": "# BetterBlizzPlates 2.2.4\n## All versions\n### Tweak\n- Castbar background is now its own setting \"Change Castbar Background\" and no longer requires \"Re-texture Castbar\".\n- Friend/Guild/RecentAlly indicator is now positioned above the name when the healthbar is hidden.\n- Friend Indicator now detects friends more reliably.\n### Bugfix\n- Fix Friend Indicator disappearing when the healthbar is hidden.\n- Fix Show Threat Percent using capped number instead of raw number.\n## Retail & Forever\n### New\n- Nameplate Auras: New \"CC\" checkbox on whitelisted auras. Shows the aura with the Big CC aura icons. Only works for debuffs. - By Luis-H-Baroni@GitHub. Thank you!\n## Retail\n### New\n- New Langneur profile (www.twitch.tv/langneuur). Thank you for sharing!\n### Tweak\n- Class Indicator: The CC timer now uses the Nameplate Auras timer font and format.\n## Forever\n### Tweak\n- Totem Indicator: Temporary update with some improvements to open world totems (will still be limited in bgs)\n- Class Indicator: The CC timer now uses the Nameplate Auras timer font and format.\n- \"Show resource on target nameplate\" is now on by default.\n- Hide Healthbar: The level (if shown) now shows next to the name instead of some weird location.\n- Class Indicator: Pet icons have been updated for warlocks and pets should now hopefully have pet icons for all pets instead of the default red pawn fallback.\n- Update Snupy profile (www.twitch.tv/snupy). Ty for sharing!\n### Bugfix\n- Fix the level background sometimes coming back with \"Hide Level Background\" on.\n- Fix the name not centering when the healthbar is hidden by target/non-target settings."
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/5dd026f7-e2f0-4b46-9726-6d6e063e0ce5",
+    "https://github.com/user-attachments/assets/6c3cbd81-451e-4b1b-9986-84e7f3e326d5",
+    "https://github.com/user-attachments/assets/224fc2e1-54ab-49c0-a366-5746cd58778f",
+    "https://github.com/user-attachments/assets/c334e1f6-b287-458b-a648-c46fa8ea49a4",
+    "https://github.com/user-attachments/assets/c4f86c5e-1dd0-454d-abcd-fb23bf753f4b",
+    "https://github.com/user-attachments/assets/7fd0e49d-e73d-47ea-8e5c-c2c7bb841ca4",
+    "https://github.com/user-attachments/assets/5cdc06c1-8396-4828-8ef3-3115b13e8c69",
+    "https://github.com/user-attachments/assets/b54f7032-e9ad-491d-a931-37d128e0ee73",
+    "https://github.com/user-attachments/assets/4ef5492a-372d-488f-9746-ccded823c3c5",
+    "https://github.com/user-attachments/assets/f96c045d-26e2-4783-ace3-b87d4382ccaa",
+    "https://github.com/user-attachments/assets/4d01547d-57aa-415f-a073-d1c1a4acc948",
+    "https://github.com/user-attachments/assets/f30241c0-c32f-4943-90ea-eefe3989b318"
+  ],
+  "stats": {
+    "stars": 45,
+    "openIssues": 16,
+    "contributors": 8,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-13",
+      "2026-11-11",
+      "2026-11-08",
+      "2026-11-03",
+      "2026-11-02",
+      "2026-10-31",
+      "2026-10-31",
+      "2026-10-23",
+      "2026-10-13",
+      "2026-10-11",
+      "2026-10-05",
+      "2026-10-05",
+      "2026-10-02",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-09-25",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-14",
+      "2026-08-29",
+      "2026-08-28",
+      "2026-08-28",
+      "2026-08-24",
+      "2026-08-23",
+      "2026-08-22",
+      "2026-08-20",
+      "2026-08-18",
+      "2026-08-18",
+      "2026-08-12",
+      "2026-08-11",
+      "2026-08-05",
+      "2026-08-05",
+      "2026-08-03",
+      "2026-07-21",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-07-18",
+      "2026-07-18",
+      "2026-07-11",
+      "2026-07-09",
+      "2026-07-09",
+      "2026-07-08",
+      "2026-07-07",
+      "2026-07-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BetterBlizzPlates"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "BetterBlizzPlatesDB",
+      "BBPCVarBackupsDB"
+    ]
+  }
+}

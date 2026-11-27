@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "forever21",
+  "repo": "patrickpoulin/forever21",
+  "about": "# Forever21\n\nBlackjack for WoW Forever. Up to 5 players sit at a table and play against a dealer run by the addon. Everyone starts each game with 100 chips, and the last player with chips wins.\n\nBuilt for WoW Forever 1.60.1 (addon interface 16001).\n\n![Table window preview](https://raw.githubusercontent.com/patrickpoulin/forever21/main/docs/table-preview.png)\n\n_Approximate render from `tools/preview.lua`; fonts and buttons look like WoW's own in game._\n\n## Status\n\nMilestone 3 of 5: multiplayer tables with invites, on top of the table window, sound effects, and solo play.\n\n## Install\n\n### With WowUp\n\n1. In WowUp, pick your WoW Forever client, then go to **Get Addons** and choose **Install from URL**.\n2. Paste `https://github.com/patrickpoulin/forever21` and install.\n\nWowUp installs the latest GitHub release. A new release is published automatically whenever `main` has a new `## Version:` in `Forever21/Forever21.toc`.\n\n### By hand\n\n1. Copy the `Forever21` folder into `World of Warcraft/Interface/AddOns/` in your WoW Forever install.\n2. Restart the game or type `/reload`.\n3. Check it loaded with `/f21 api`.\n\n## Play with friends\n\nEveryone at the table needs Forever21 installed, and the same version. Nobody has to be in your party.\n\n1. Type `/f21` and press **New Game**. You own the table and run the dealer.\n2. Type a player's name in the box and press **Invite** (leave it blank to invite your target), or use `/f21 invite <name>`. Invite up to 4 players.\n3. They get a popup and press **Accept**. Invites expire after 60 seconds.\n4. Press **Start Game** when everyone is in. Anyone who hasn't answered yet is dropped.\n\n![Lobby preview](https://raw.githubusercontent.com/patrickpoulin/forever21/main/docs/lobby-preview.png)\n\nEach round everyone has 20 seconds to bet, 15 seconds to answer insurance, and 30 seconds per turn. A player who runs out of time sits the round out, declines insurance, or stands. A player who drops below 2 chips is told they lose and stays at the table to watch. The game ends when one player has chips left, when everyone else leaves, or when the owner presses **Close Table**.\n\nThe owner's client runs the game and sends each player the table through hidden addon whispers, so the table stops if the owner logs out or reloads. Press **Leave** to clear it from your window.\n\n## Play solo\n\nType `/f21` to open the table window and press **New Game**, then **Start Game** without inviting anyone. Set your bet with **-** and **+** (2 chips a step), type an amount in the box, or press **Max**, then press **Place Bet** to deal. Play with **Hit**, **Stand**, **Double**, and **Split**, and answer **Insure** or **No Insurance** when the dealer shows an ace. After each round a banner shows whether you won, lost, pushed, or busted and by how many chips, and every seat is outlined green, red, or yellow with its chips won or lost. Sound effects play for cards, bets, your turn, and results; turn them off with the **Sound** button or `/f21 sound`. Drag the window to move it; Escape closes it.\n\nEverything also works from chat:\n\n| Command | What it does |\n| --- | --- |\n| `/f21` | Show or hide the table window |\n| `/f21 host` | Open a table you own |\n| `/f21 invite <name>` | Invite a player (or your target) to your table |\n| `/f21 start` | Start the game with everyone who has joined |\n| `/f21 accept`, `/f21 decline` | Answer an invite |\n| `/f21 solo` | Start a solo game with 100 chips |\n| `/f21 bet <amount>` | Bet an even amount from 2 to 24 |\n| `/f21 hit`, `/f21 stand`, `/f21 double`, `/f21 split` | Play your hand |\n| `/f21 insure`, `/f21 noinsure` | Answer the insurance offer when the dealer shows an ace |\n| `/f21 chips` | Show your chips |\n| `/f21 quit` | Leave the game (the owner closes the table) |\n| `/f21 sound` | Turn sound effects on or off |\n| `/f21 chat` | Turn the chat messages on or off |\n| `/f21 stats` | Your games and hands played |\n| `/f21 api` | Show the version and which addon-message API this client has |\n\n## Rules\n\n6-deck shoe reshuffled at 75%, blackjack pays 3 to 2, dealer stands on all 17s and peeks for blackjack with an ace or ten showing. Insurance pays 2 to 1. Double on any two cards, including after a split. Split pairs up to 4 hands; split aces get one card each. Bets are even, from 2 to 24 chips. A player with fewer than 2 chips is out.\n\nAll rules live in `Forever21/Rules.lua`.\n\n## Development\n\nThe card, rules, and game logic (`Cards.lua`, `Rules.lua`, `Game.lua`) are plain Lua with no game API calls, so they're tested outside the game.\n\n```sh\nsudo apt-get install lua5.1 lua-busted lua-check   # or: luarocks install busted luacheck\nbusted        # run the tests in spec/\nluacheck .    # lint\n```\n\nGitHub Actions runs both on every push and pull request. `tools/wowstub.lua` stubs the game API and can load several copies of the addon as different players in one simulated room, with a fake clock and a fake whisper channel. `spec/ui_spec.lua` plays solo rounds through the window's buttons, and `spec/multiplayer_spec.lua` plays tables of up to 5 players, including invites, timeouts, and leaving.\n\nTo render approximate screenshots of the window outside the game:\n\n```sh\nlua5.1 tools/preview.lua /tmp/preview && python3 tools/render_preview.py /tmp/preview\n```\n\nCard suit and chip textures are drawn by `tools/make_media.py` (needs Pillow).",
+  "releases": [
+    {
+      "tag": "v0.4.1",
+      "name": "Forever21 v0.4.1",
+      "published": "2026-11-13",
+      "notes": "## What's Changed\n* Replace the chip buttons with a bet stepper (v0.4.1) by @patrickpoulin in https://github.com/patrickpoulin/forever21/pull/5\n\n**Full Changelog**: https://github.com/patrickpoulin/forever21/compare/v0.4.0...v0.4.1"
+    },
+    {
+      "tag": "v0.4.0",
+      "name": "Forever21 v0.4.0",
+      "published": "2026-11-13",
+      "notes": "## What's Changed\n* Add invites and multiplayer tables (v0.4.0) by @patrickpoulin in https://github.com/patrickpoulin/forever21/pull/4\n\n**Full Changelog**: https://github.com/patrickpoulin/forever21/compare/v0.3.0...v0.4.0"
+    },
+    {
+      "tag": "v0.3.0",
+      "name": "Forever21 v0.3.0",
+      "published": "2026-11-13",
+      "notes": "## What's Changed\n* Add sound effects and a clear win/lose banner by @patrickpoulin in https://github.com/patrickpoulin/forever21/pull/3\n\n**Full Changelog**: https://github.com/patrickpoulin/forever21/compare/v0.2.0...v0.3.0"
+    },
+    {
+      "tag": "v0.2.0",
+      "name": "Forever21 v0.2.0",
+      "published": "2026-11-13",
+      "notes": "## What's Changed\n* Add the table window (milestone 2) by @patrickpoulin in https://github.com/patrickpoulin/forever21/pull/2\n\n**Full Changelog**: https://github.com/patrickpoulin/forever21/compare/v0.1.0...v0.2.0"
+    },
+    {
+      "tag": "v0.1.0",
+      "name": "Forever21 v0.1.0",
+      "published": "2026-11-13",
+      "notes": "## What's Changed\n* Add rules engine and solo play (milestone 1) by @patrickpoulin in https://github.com/patrickpoulin/forever21/pull/1\n\n## New Contributors\n* @patrickpoulin made their first contribution in https://github.com/patrickpoulin/forever21/pull/1\n\n**Full Changelog**: https://github.com/patrickpoulin/forever21/commits/v0.1.0"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/patrickpoulin/forever21/main/docs/table-preview.png",
+    "https://raw.githubusercontent.com/patrickpoulin/forever21/main/docs/lobby-preview.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Forever21"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "Forever21DB"
+    ],
+    "savedVariablesPerCharacter": [
+      "Forever21CharDB"
+    ]
+  }
+}

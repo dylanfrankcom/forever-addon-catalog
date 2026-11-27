@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "socialite",
+  "repo": "solocommand/Socialite",
+  "about": "Socialite\n===========\n![Project logo, treasure chest](https://raw.githubusercontent.com/solocommand/Socialite/master/Socialite.png)\n\nFormerly Titan Social. An LDB addon to display information about your guild members, Battle.net friends, and character friends.\n\n## About\nSocialite is an LDB plugin that combines all of your social interactions into one convenient tooltip! The end goal is to have a fully customizable and stylish display both on the Titan bar, and the plugin tool tip, while maintaining a low resource overhead and consolidation of social features. Socialite will allow you to see at a glance who is online, and streamline your communications process in-game.\n\n## Usage\nYou can customize which social section(s) you would like to be displayed through Socialite by right-clicking on the data text and checking/unchecking each option. The Battle.net, Friends, and Guild components work independently of each other, if you do not want to see/display them.",
+  "releases": [
+    {
+      "tag": "12.1.5",
+      "published": "2026-10-22",
+      "notes": "# Socialite\n\n## [12.1.5](https://github.com/solocommand/Socialite/tree/12.1.5) (2026-10-04)\n[Full Changelog](https://github.com/solocommand/Socialite/commits/12.1.5) [Previous Releases](https://github.com/solocommand/Socialite/releases)\n\n- Alpha build for mists"
+    },
+    {
+      "tag": "12.0.1",
+      "published": "2026-03-03",
+      "notes": "# Socialite\n\n## [12.0.1](https://github.com/solocommand/Socialite/tree/12.0.1) (2026-03-03)\n[Full Changelog](https://github.com/solocommand/Socialite/commits/12.0.1) [Previous Releases](https://github.com/solocommand/Socialite/releases)\n\n- Fix nilref for game account info"
+    },
+    {
+      "tag": "12.0.0",
+      "published": "2026-01-21",
+      "notes": "# Socialite\n\n## [12.0.0](https://github.com/solocommand/Socialite/tree/12.0.0) (2026-01-21)\n[Full Changelog](https://github.com/solocommand/Socialite/commits/12.0.0) [Previous Releases](https://github.com/solocommand/Socialite/releases)\n\n- Midnight update  \n    Update TOC and fix config panel access"
+    },
+    {
+      "tag": "11.0.5",
+      "published": "2024-10-23",
+      "notes": "# Socialite\n\n## [11.0.5](https://github.com/solocommand/Socialite/tree/11.0.5) (2024-10-22)\n[Full Changelog](https://github.com/solocommand/Socialite/commits/11.0.5) [Previous Releases](https://github.com/solocommand/Socialite/releases)\n\n- Remove remote chat settings, code"
+    },
+    {
+      "tag": "11.0.0r3",
+      "published": "2024-08-17",
+      "notes": "# Socialite\n\n## [11.0.0r3](https://github.com/solocommand/Socialite/tree/11.0.0r3) (2024-08-02)\n[Full Changelog](https://github.com/solocommand/Socialite/commits/11.0.0r3) [Previous Releases](https://github.com/solocommand/Socialite/releases)\n\n- Fix bnet, friend dropdowns"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/solocommand/Socialite/master/Socialite.png"
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 11,
+    "contributors": 5,
+    "lastRelease": "2026-10-22",
+    "releaseDates": [
+      "2026-10-22",
+      "2026-03-03",
+      "2026-01-21",
+      "2024-10-23",
+      "2024-08-17",
+      "2024-07-27",
+      "2024-07-26",
+      "2023-12-07",
+      "2022-10-27",
+      "2022-10-27",
+      "2022-10-25",
+      "2022-09-14",
+      "2022-02-26",
+      "2021-11-04",
+      "2021-06-29",
+      "2021-06-04",
+      "2021-06-04",
+      "2020-11-21",
+      "2020-11-19",
+      "2020-10-20",
+      "2020-10-18",
+      "2020-10-17",
+      "2019-12-25",
+      "2019-09-01",
+      "2019-06-25",
+      "2019-03-22",
+      "2018-11-08",
+      "2018-07-19",
+      "2017-11-02",
+      "2017-10-16",
+      "2017-06-11",
+      "2017-04-22",
+      "2017-02-10",
+      "2017-02-02",
+      "2017-01-26",
+      "2016-10-26",
+      "2016-07-23",
+      "2016-06-21",
+      "2016-06-16",
+      "2016-06-01",
+      "2016-03-26",
+      "2016-03-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Socialite"
+    ],
+    "editions": [
+      "classic",
+      "forever"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0"
+    ],
+    "savedVariables": [
+      "SocialiteSettings"
+    ]
+  }
+}

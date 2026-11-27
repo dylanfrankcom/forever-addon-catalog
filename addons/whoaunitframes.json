@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "whoaunitframes",
+  "repo": "delabarra/WhoaUnitFrames",
+  "about": "# Whoa Unit Frames\n\nWhoa Unit Frames enhances the default Blizzard unit frames while keeping the familiar Classic look — still very close to the original UI, with class colors and a few style choices. Whoa, Thick, and Classic used to be separate addons; they're all here now.\n\nSupported clients: Classic Era · Burning Crusade Classic (Anniversary) · Mists of Pandaria Classic · Retail\n\n## Styles\n\nWhoa Frames — Classic Blizzard look with Whoa bar geometry\nThick Frames — the same familiar frames with thicker health / power bars\nClassic Frames — default Blizzard proportions\nAlpha Frame — WotLK Death Knight sword chrome with runic fill (Rage fill for Forever warriors)\nBlizzCon '07 Frame — BlizzCon player border (Death Knight / Forever warrior)\nClassResource Rim — stacked third-bar chrome (UI-TARGETINGFRAME-DRUID sheets) with alternate mana (default / elite / rare elite); Classic forms + Mainline Balance / Shadow / Ele-Enh / Traveler\nLight or dark frame art on Whoa, Thick, and Classic.\n\n## Features\n\nClass-colored health bars (player / party / NPCs configurable)\nStatus bar textures, fonts, and number abbreviation styles\nBuff / debuff icon size\nCombat feedback colors and numeric threat display\nPortrait modes, frame scale, player name visibility, name background\nPlayer border rarity (default / elite / rare elite)\nClass power bars by client (combo points, runes, holy power, shards, totems, etc.)\nSome features are limited by Blizzard client restrictions and may differ by game version.\n\nThis build is in testing and may have issues — please report bugs and errors on the project page.",
+  "releases": [
+    {
+      "tag": "v10.4",
+      "published": "2026-11-16",
+      "notes": "# Whoa Unit Frames\n\n## [v10.4](https://github.com/delabarra/WhoaUnitFrames/tree/v10.4) (2026-11-16)\n[Full Changelog](https://github.com/delabarra/WhoaUnitFrames/commits/v10.4) [Previous Releases](https://github.com/delabarra/WhoaUnitFrames/releases)\n\n- Update version number to 10.4  \n- Initial commit"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WhoaUnitFrames"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Blizzard_SocialToast",
+      "Blizzard_ChatFrame",
+      "Blizzard_EditMode",
+      "Blizzard_SpellDiminishUI",
+      "Blizzard_AuraContainer",
+      "DevTools"
+    ],
+    "savedVariables": [
+      "WhoaUFDB"
+    ]
+  }
+}

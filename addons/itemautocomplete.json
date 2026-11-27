@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "itemautocomplete",
+  "repo": "darfink/ItemAutocomplete",
+  "about": "# ItemAutocomplete\n\nThis is an autocomplete addon for item links in World of Warcraft: Forever, retail and Classic. It integrates with your chat and is triggered with a single character (default [), making every single item in the game available with a few key strokes.\n\n![In-game demo](https://i.imgur.com/H70fus7.gif)\n\n## Compatibility\n\n| Client                          | TOC                            | Interface |\n| ------------------------------- | ------------------------------ | --------- |\n| Forever                         | `ItemAutocomplete_Camelot.toc`  | 16001     |\n| Retail (Midnight)               | `ItemAutocomplete_Mainline.toc` | 120105    |\n| Classic Era & 20th Anniversary  | `ItemAutocomplete_Vanilla.toc` | 11509     |\n| Burning Crusade Anniversary     | `ItemAutocomplete_TBC.toc`     | 20506     |\n| Wrath Classic                   | `ItemAutocomplete_Wrath.toc`   | 30405     |\n| Mists of Pandaria Classic       | `ItemAutocomplete_Mists.toc`   | 50504     |\n\n## Features\n\n- **Item database:** It automatically scans the entire item database in the background the first time it starts up, thereafter every single item is accessible. No need to wait for you to encounter it in the world! Perhaps it's time to lookup Ashbringer or Atiesh?\n\n  Items can be searched whilst the scan is running. The server only answers so many item queries at a time, so the scan adapts to how fast it responds, pauses in combat, and resumes where it left off after a logout. On retail, the first scan covers more than 200,000 items and takes several minutes. After a patch, only new items are queried.\n\n  On Forever, roughly 12,700 items are hidden until they drop for someone on your server, and the server doesn't answer queries for them. Those can't be searched until they're revealed. They're checked again daily, and picked up right away whenever you encounter one in game.\n\n- **Chat integration:** Whilst composing a message, just input your trigger character (default [) and start searching for whatever item you want to link. When you've find your item, just press ↵&nbsp;Enter to insert the link.\n\n- **Fuzzy search:** Never spell out an entire item name! And find items with blazing speed. The fuzzy search ensures you only need to write a small portion of an item before it pops up in the menu.\n\n- **Smart case:** All searches are case insensitive by default unless you explicitly use one or more uppercase letters, allowing intelligent and effortless browsing.\n\n**TIP** If you're using an auction house addon you can easily view an item's price tag whilst out travelling, just search for it and view its tooltip.\n\n### Fuzzy search\n\nTo actually showcase how great the fuzzy search is, here's some examples:\n\n| Input              |   | Item                         |\n| ------------------ | - | :--------------------------- |\n| [devga  | → | [Devilsaur Gauntlets]        |\n| [robvoi | → | [Robe of the Void]           |\n| [perbl  | → | [Perdition's Blade]          |\n| [sulr   | → | [Sulfuras, Hand of Ragnaros] |\n| [hiwi   | → | [Hide of the Wild]           |\n| [BNM    | → | [Blade of the New Moon]      |\n\n**TIP** Avoid using Space when searching; in general it's much faster just to type parts of each word of an item name.\n\n## Controls\n\nUse [ in the chat to trigger the menu (*configurable*), then start typing to filter your search.\n\nFor interaction, it has the same controls as you'd expect any autocomplete menu to provide.\n\n- ⇥&nbsp;Tab or ⬇ to navigate to the next entry.\n- ⇧⇥&nbsp;Tab or ⬆ to navigate to the previous entry.\n- ↵&nbsp;Enter to select your entry.\n- ⎋&nbsp;Escape to close the menu.\n\nNot a keyboard person? No worries, just use the mouse.\n\n## Commands\n\n- `/iaupdate` — Rebuild the item database. If for some reason the item database becomes corrupt or obsolete, you can manually trigger a rebuild with this command. Whilst an update is running, it reports the progress instead.\n\n## Internationalization\n\nSince version 1.0.4 Unicode support has been implemented, allowing any language to be used.\n## Development\n\nThe item database and search can be tested outside of the game. The harness in `Tests/Harness.lua` stubs the WoW API with a simulated item server, which answers late, drops queries, or never answers them (as Forever does for hidden items). Run it from the repository root, along with the linter:\n\n```sh\nluajit Tests/Harness.lua\nluacheck . --exclude-files ./Libs\n```\n\nBoth run in CI for every push and pull request.",
+  "releases": [
+    {
+      "tag": "v2.2.0",
+      "name": "Release 2.2.0",
+      "published": "2026-11-08",
+      "notes": "### Added\n\n- Compatibility with World of Warcraft: Forever (1.60.1, interface 16001)\n- Compatibility with the retail client (12.1.5, interface 120105)\n- Compatibility with the Mists of Pandaria Classic client (interface 50504)\n- Items can be searched whilst the item database updates, the menu displays\n  the update's progress\n- Add-on list icon\n\n### Changed\n\n- The item database is queried at the pace the server answers, rather than as\n  fast as possible. Unanswered queries are retried, and the scan pauses in\n  combat and resumes after a logout\n- Queries the server never answers (e.g. Forever's hidden items) no longer\n  hold up the scan. Such items, and items the server refuses, are queried\n  again after a patch, daily on Forever, and weekly elsewhere\n- After a patch, only items missing from the database are queried, rather than\n  rebuilding it\n- The item database is shared by every realm of a client, and stores names\n  rather than links, which shrinks the saved variables considerably\n- Searches reject non-matching items without decoding their names, and narrow\n  down the previous results whilst typing\n- Equally scored results favour the shorter name\n- Wrath Classic interface updated to 30405\n- The menu opens below the chat edit box when there's no room above it, and\n  stays on screen\n\n### Fixed\n\n- Keyboard navigation no longer triggers blocked action errors in combat on\n  retail, where key propagation cannot be changed in combat\n- Entering a selection without any results no longer errors\n- An item of the Wrath item ranges was never scanned"
+    },
+    {
+      "tag": "v2.1.0",
+      "name": "Release 2.1.0",
+      "published": "2026-08-19",
+      "notes": "### Added\n\n- Compatibility with the Burning Crusade Anniversary client (2.5.6)\n- Item database covers the Burning Crusade item range\n\n### Changed\n\n- Item ID ranges are measured against the client's own item table rather than\n  estimated, which adds roughly 3800 items on Burning Crusade and extends the\n  Classic range from 24283 to 24358\n- Season of Discovery covers every seasonal item the client knows of, rather\n  than stopping at 217704\n\n### Fixed\n\n- Database updates no longer query the server for item IDs that do not exist.\n  The existence check relied on `C_Item.DoesItemExistByID`, which answers true\n  for every ID (WoWUIBugs #449), so roughly a third of each update was spent on\n  items the client had never heard of\n\n- Addon no longer errors on load now that `GetAddOnMetadata` and `GetItemInfo`\n  only exist under `C_AddOns` and `C_Item`\n- Chat integration works again on Classic Era 1.15.9, where the edit box\n  handlers `ChatEdit_OnTextChanged` and `ChatEdit_OnEditFocusLost` were replaced\n  by mixin methods\n- Options panel registers with the Settings API, via updated Ace3 libraries"
+    },
+    {
+      "tag": "v2.0.8",
+      "name": "Release 2.0.8",
+      "published": "2025-11-07",
+      "notes": "### Fixed\n\n- Compatibility with Classic Anniversary"
+    },
+    {
+      "tag": "v2.0.7",
+      "name": "Release 2.0.7",
+      "published": "2024-02-07",
+      "notes": "###\n\n- New SoD items"
+    },
+    {
+      "tag": "v2.0.6",
+      "name": "Release 2.0.5",
+      "published": "2023-12-20",
+      "notes": "### Added \n\n- Compatibility with SoD\n- Compatibility with WOTLK\n- Added new WOTLK items"
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-08-19",
+      "2025-11-07",
+      "2024-02-07",
+      "2023-12-20",
+      "2021-11-30",
+      "2021-09-05",
+      "2021-06-14",
+      "2021-05-31",
+      "2021-05-31"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ItemAutocomplete"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ItemAutocompleteDB"
+    ]
+  }
+}

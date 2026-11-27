@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "nobiographer",
+  "repo": "jigrobbulus/wow-nobiographer",
+  "about": "# NoBiographer\n\nA tiny World of Warcraft addon that hides [AutoBiographer](https://www.curseforge.com/wow/addons/autobiographer) milestone spam from guild chat.\n\nAutoBiographer posts guild messages like:\n\n```\n[Guild] [Somebody]: [AutoBiographer] I have killed 1,000 creatures!\n```\n\nNoBiographer filters any guild or officer chat line that starts with `[AutoBiographer]`, so you never see them. This includes your own. Everything else in guild chat shows as usual.\n\n## Install\n\n1. Download **[NoBiographer.zip](https://github.com/jigrobbulus/wow-nobiographer/releases/latest/download/NoBiographer.zip)** from the latest release.\n2. Unzip it into your AddOns directory, so you end up with:\n\n   ```\n   World of Warcraft/_classic_era_/Interface/AddOns/NoBiographer/NoBiographer.toc\n   ```\n\nDon't use GitHub's green \"Code → Download ZIP\" button. It wraps the addon in an extra folder and WoW won't load it.\n\nThe TOC lists Classic Era/Anniversary, TBC and Mists interface versions.\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/nobio` | Toggle hiding on or off |\n| `/nobio on` / `/nobio off` | Turn hiding on or off |\n| `/nobio status` | Show whether hiding is on, and how many messages have been hidden |\n\n## License\n\n[MIT](https://github.com/jigrobbulus/wow-nobiographer/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "name": "NoBiographer 1.0.1",
+      "published": "2026-11-17",
+      "notes": "- Works on clients that only have the newer `ChatFrameUtil` chat filter API (possibly WoW Forever).\n- If a client has no chat filter API at all, NoBiographer now prints a warning instead of throwing a Lua error.\n\n**Install:** download `NoBiographer.zip` below and unzip it into `Interface/AddOns`, replacing the old folder."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "NoBiographer 1.0.0",
+      "published": "2026-11-17",
+      "notes": "Hides AutoBiographer milestone posts (\"[AutoBiographer] I have ...!\") from guild and officer chat.\n\n**Install:** download `NoBiographer.zip` below and unzip it into `Interface/AddOns`.\n\nUse `/nobio` to toggle, or `/nobio status` to see how many messages were hidden."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NoBiographer"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "NoBiographerDB"
+    ]
+  }
+}

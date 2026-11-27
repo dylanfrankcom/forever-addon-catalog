@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "masqueblizzbars",
+  "repo": "kstange/MasqueBlizzBars",
+  "about": "# About Masque Blizzard Bars\n\nThis addon enables [Masque](https://github.com/SFX-WoW/Masque) ([CurseForge](https://www.curseforge.com/wow/addons/masque), [Wago](https://addons.wago.io/addons/masque), [WoWInterface](https://www.wowinterface.com/downloads/info12097-Masque.html)) to skin the built-in WoW action bars.\n\nIf you like the base WoW interface and don't want to use a separate action bar mod, you're in the right place.\n\nYou can install this addon from [CurseForge](https://www.curseforge.com/wow/addons/masque-blizz-bars-revived), [Wago](https://addons.wago.io/addons/masqueblizzbars), or [WoWInterface](https://www.wowinterface.com/downloads/info26502-MasqueBlizzardBars.html).\n\n## Features\n\nMasque Blizzard Bars can currently skin the following bars, according to your game version:\n\n- Main Action Bar\n- Multi Bars (Action Bars 2 - 8)\n- Possess Bar\n- Stance Bar\n- Pet Bar\n- Vehicle Bar\n- Pet Battle Bar\n- Extra Ability Buttons (Extra Action Button, Zone Ability Buttons)\n- Spell Flyout\n- Cooldown Manager (with each bar type configured indepdendently)\n  - Essential Cooldowns\n  - Utility Cooldowns\n  - Tracked Bars\n  - Tracked Buffs\n\nSupport for Buffs, Debuffs and External Defensives bars is tentatively planned for a future update.\n\nAlert, debuff, and pandemic styles for Cooldown Manager bars are not supported due to game restrictions. These will appear using the default style and may not match your skin.\n\nEach bar type is its own group so you can configure them independently from Masque's Skin Settings.\n\n## Forever Support\n\nWorld of Warcraft: Forever has nearly the same interface features as Retail, so it is _fully supported_.\n\n## Classic Support\n\nClassic versions available in the US are fully supported. Bars not available in Classic will not appear in Masque's Skin Settings.\n\nI don't play Classic so testing is somewhat limited, but I'll do my best to address bug reports promptly.\n\n## Compatibility\n\nThis addon is intended to skin the base WoW interface. Addons that heavily modify parts of the base interface may conflict. This is especially common with Cooldown Manager addons. If you experience a conflict, use Masque's Skin Settings to disable the affected group and reload your UI. This should allow the other addon to control the interface without interference.\n\nIf you'd like to see Masque support in a conflicting addon, try sending a feature request to that addon's author directly.\n\n## Localization\n\nIf you'd like to help localize this addon, please submit translations [here](https://www.curseforge.com/wow/addons/masque-blizz-bars-revived/localization).\n\n## LLM Policy\n\nLLM (\"Generative AI\") agents are not used for development of this project and such contributions will not be accepted.\n\n## Other Addons\n\nIf you want to skin built-in Inventory UI elements as well, check out [Masque Blizzard Inventory](https://github.com/kstange/MasqueBlizzInv) ([CurseForge](https://www.curseforge.com/wow/addons/masque-blizz-inventory), [Wago](https://addons.wago.io/addons/masqueblizzinv), [WoWInterface](https://www.wowinterface.com/downloads/info26503-MasqueBlizzardInventory.html))!\n\n## Special Thanks\n\nThanks to [StormFX](https://github.com/StormFX), the author of Masque, for a ton of feedback and development tips and for creating a logo for the addon.\n\nThanks to Madnessbox, the author of the original Masque Blizz Bars addon, for the concept.",
+  "releases": [
+    {
+      "tag": "12.1.7.0",
+      "published": "2026-11-22",
+      "notes": "# Version 12.1.7.0\n\n- Updated TOC for Retail 12.1.7\n\n# Version 12.1.5.0\n\n- Added support for Cooldown Manager bars, Extra Action Button, Zone Ability Buttons, and Spell Flyouts in Forever\n- Updated TOC for Retail 12.1.5 (PTR)\n- Updated TOC for Forever 1.60.1 (beta)\n\n# Version 12.1.0.0\n\n- Updated TOC for Retail 12.1.0\n- Removed support for dispel border colors on the Tracked Buffs and Tracked Bars due to restrictions added in 12.1.0\n  - It's no longer possible to read information about buffs directly. The new system in 12.1.0 requires addons to create a secure AuraContainer with a button template and let the game populate it. Creating custom bars runs counter to the concept of this addon. While overlays for dispel colors will still appear, they will be controlled by the game, and may not match the shape and style of your skin.\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MasqueBlizzBars/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.1.5.0",
+      "published": "2026-10-03",
+      "notes": "# Version 12.1.5.0\n\n- Added support for Cooldown Manager bars, Extra Action Button, Zone Ability Buttons, and Spell Flyouts in Forever\n- Updated TOC for Retail 12.1.5 (PTR)\n- Updated TOC for Forever 1.60.1 (beta)\n\n# Version 12.1.0.0\n\n- Updated TOC for Retail 12.1.0\n- Removed support for dispel border colors on the Tracked Buffs and Tracked Bars due to restrictions added in 12.1.0\n  - It's no longer possible to read information about buffs directly. The new system in 12.1.0 requires addons to create a secure AuraContainer with a button template and let the game populate it. Creating custom bars runs counter to the concept of this addon. While overlays for dispel colors will still appear, they will be controlled by the game, and may not match the shape and style of your skin.\n\n# Version 12.0.7.1\n\n- Enabled support for Action Bar 6 - 8 in Classic Era 1.15.9\n- Updated TOC for Burning Crusade Classic 2.5.6\n- Updated TOC for Classic Era 1.15.9\n\n# Version 12.0.7.0\n\n- Added koKR (Korean) translation from Elnarfim\n- Added support for Action Bar 6 - 8 in Pandaria Classic 5.5.4\n- Updated TOC for Retail 12.0.7\n\n# Version 12.0.5.2\n\n- Updated ruRU (Russian) translation from ZamestoTV\n\n# Version 12.0.5.1\n\n- Updated zhCN (Simplified Chinese) translation from LvWind\n\n# Version 12.0.5.0\n\n- Added a further protection against combat lockdown protections involving other Cooldown Manager addons\n- Updated TOC for Retail 12.0.5\n- Updated TOC for Pandaria Classic 5.5.4 (PTR)\n\n# Feature Notes\n\n- There's currently no way to support Pandemic or Visual Alert effects on the Tracked Buffs bar due to lack of Masque support\n- Since it appears that Masque Skinner: Blizz Buffs is no longer maintained, I hope to add support for Buffs, Debuffs, and External Defensives in an uncoming release\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MasqueBlizzBars/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.1.0.0",
+      "published": "2026-08-08",
+      "notes": "# Version 12.1.0.0\n\n- Updated TOC for Retail 12.1.0\n- Removed support for dispel border colors on the Tracked Buffs and Tracked Bars due to restrictions added in 12.1.0\n  - It's no longer possible to read information about buffs directly. The new system in 12.1.0 requires addons to create a secure AuraContainer with a button template and let the game populate it. Creating custom bars runs counter to the concept of this addon. While overlays for dispel colors will still appear, they will be controlled by the game, and may not match the shape and style of your skin.\n\n# Version 12.0.7.1\n\n- Enabled support for Action Bar 6 - 8 in Classic Era 1.15.9\n- Updated TOC for Burning Crusade Classic 2.5.6\n- Updated TOC for Classic Era 1.15.9\n\n# Version 12.0.7.0\n\n- Added koKR (Korean) translation from Elnarfim\n- Added support for Action Bar 6 - 8 in Pandaria Classic 5.5.4\n- Updated TOC for Retail 12.0.7\n\n# Version 12.0.5.2\n\n- Updated ruRU (Russian) translation from ZamestoTV\n\n# Version 12.0.5.1\n\n- Updated zhCN (Simplified Chinese) translation from LvWind\n\n# Version 12.0.5.0\n\n- Added a further protection against combat lockdown protections involving other Cooldown Manager addons\n- Updated TOC for Retail 12.0.5\n- Updated TOC for Pandaria Classic 5.5.4 (PTR)\n\n# Feature Notes\n\n- There's currently no way to support Pandemic or Visual Alert effects on the Tracked Buffs bar due to lack of Masque support\n- Since it appears that Masque Skinner: Blizz Buffs is no longer maintained, I hope to add support for Buffs, Debuffs, and External Defensives in an uncoming release\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MasqueBlizzBars/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.0.7.1",
+      "published": "2026-08-06",
+      "notes": "# Version 12.0.7.1\n\nNote: This version has not been tested for Retail 12.1.0 yet, but will be ready by patch day\n\n- Enabled support for Action Bar 6 - 8 in Classic Era 1.15.9\n- Updated TOC for Burning Crusade Classic 2.5.6\n- Updated TOC for Classic Era 1.15.9\n\n# Version 12.0.7.0\n\n- Added koKR (Korean) translation from Elnarfim\n- Added support for Action Bar 6 - 8 in Pandaria Classic 5.5.4\n- Updated TOC for Retail 12.0.7\n\n# Version 12.0.5.2\n\n- Updated ruRU (Russian) translation from ZamestoTV\n\n# Version 12.0.5.1\n\n- Updated zhCN (Simplified Chinese) translation from LvWind\n\n# Version 12.0.5.0\n\n- Added a further protection against combat lockdown protections involving other Cooldown Manager addons\n- Updated TOC for Retail 12.0.5\n- Updated TOC for Pandaria Classic 5.5.4 (PTR)\n\n# Feature Notes\n\n- There's currently no way to support Pandemic or Visual Alert effects on the Tracked Buffs bar due to lack of Masque support\n- Since it appears that Masque Skinner: Blizz Buffs is no longer maintained, I hope to add support for Buffs, Debuffs, and External Defensives in an uncoming release\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MasqueBlizzBars/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.0.7.0",
+      "published": "2026-06-06",
+      "notes": "# Version 12.0.7.0\n\n- Updated koKR (Korean) translation from Elnarfim\n- Added support for Action Bar 6 - 8 in Pandaria Classic 5.5.4\n- Updated TOC for Retail 12.0.7\n\n# Version 12.0.5.2\n\n- Updated ruRU (Russian) translation from ZamestoTV\n\n# Version 12.0.5.1\n\n- Updated zhCN (Simplified Chinese) translation from LvWind\n\n# Version 12.0.5.0\n\n- Added a further protection against combat lockdown protections involving other Cooldown Manager addons\n- Updated TOC for Retail 12.0.5\n- Updated TOC for Pandaria Classic 5.5.4 (PTR)\n\n# Feature Notes\n\n- There's currently no way to support Pandemic or Visual Alert effects on the Tracked Buffs bar due to lack of Masque support\n- Since it appears that Masque Skinner: Blizz Buffs is no longer maintained, I hope to add support for Buffs, Debuffs, and External Defensives in an uncoming release\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MasqueBlizzBars/wiki/Release-Notes)."
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 5,
+    "contributors": 2,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-10-03",
+      "2026-08-08",
+      "2026-08-06",
+      "2026-06-06",
+      "2026-04-18",
+      "2026-04-18",
+      "2026-04-18",
+      "2026-03-08",
+      "2026-02-13",
+      "2026-02-12",
+      "2026-01-31",
+      "2026-01-31",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-17",
+      "2025-11-25",
+      "2025-09-22",
+      "2025-07-02",
+      "2025-06-14",
+      "2025-03-24",
+      "2025-02-27",
+      "2025-02-01",
+      "2025-01-29",
+      "2024-12-15",
+      "2024-10-20",
+      "2024-07-12",
+      "2024-05-07",
+      "2024-05-01",
+      "2024-03-19",
+      "2024-02-09",
+      "2024-01-16",
+      "2023-11-30",
+      "2023-11-07",
+      "2023-10-10",
+      "2023-09-15",
+      "2023-09-05",
+      "2023-08-23",
+      "2023-07-11",
+      "2023-06-21",
+      "2023-05-02",
+      "2023-03-21",
+      "2023-01-27",
+      "2023-01-24",
+      "2022-12-21",
+      "2022-11-15",
+      "2022-11-08",
+      "2022-11-01"
+    ]
+  },
+  "languages": [
+    "koKR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "MasqueBlizzBars"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Masque"
+    ],
+    "savedVariables": [
+      "MasqueBlizzBars"
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "asthecrowflies",
+  "repo": "elithrar/AsTheCrowFlies",
+  "about": "# As The Crow Flies\n\n\uD83D\uDCBE **[As The Crow Flies on CurseForge](https://www.curseforge.com/wow/addons/as-the-crow-flies)**\n\nA compact navigation island that helps you find NPCs and saved places, compare walking and flight estimates, and follow directions across Azeroth.\n\n- Search by NPC name or role, with filters for services, classes and professions.\n- Compare walking and flight routes by distance or estimated travel time, using your discovered flight points.\n- Compass guidance, world-map destination pins and flight paths, and minimap markers.\n- Per-character profiles, Modern and WoW Forever themes, customizable fonts and colors, and a resizable panel that tucks to either screen edge.\n\nFor World of Warcraft: Forever. Travel times are estimates; ground directions are compass bearings. Movement and flight selection stay manual.\n\n![atcf-new](https://github.com/user-attachments/assets/a60f82a6-b24d-41b3-8ea6-37a4a3deea7d)\n\n## Installation\n\nCopy the `AsTheCrowFlies` folder into your Forever client's `Interface/AddOns` directory, then restart WoW. The folder should contain `AsTheCrowFlies.toc` directly. NPC search requires Forever QuestieDB (contract 3).\n\nType `/atcf` for settings or `/atcf show` to open the panel. Search in To, click Find routes, then Go on a route to start directions. Use `/atcf stop` to stop, or `/atcf remember My place` to save your current location. You can also assign “Expand / collapse navigation” in WoW's Keybindings.\n\n## Contributing\n\nOpen an issue first. Include your Forever build and a reproducible route or UI problem.\n\n## Development\n\nIn a source checkout, install the test runtime with `python -m pip install --target .work/pydeps lupa==2.8`, then run `python tests/run.py`, `python tests/release_test.py`, and `python tests/package_test.py --source-only` from the repository root. Build a release ZIP with `python tools/package.py --release`; output is written to `dist/`.\n\nSee [behavior details](https://github.com/elithrar/AsTheCrowFlies/blob/main/docs/BEHAVIOR.md), [data coverage](https://github.com/elithrar/AsTheCrowFlies/blob/main/docs/COVERAGE.md), [validation coverage](https://github.com/elithrar/AsTheCrowFlies/blob/main/docs/VALIDATION.md), and [release instructions](https://github.com/elithrar/AsTheCrowFlies/blob/main/docs/RELEASING.md).\n\n## License\n\nAll rights reserved. See [notices](https://github.com/elithrar/AsTheCrowFlies/blob/main/NOTICES.md) for code, data and build-tool attribution.",
+  "releases": [
+    {
+      "tag": "v0.2.4",
+      "name": "AsTheCrowFlies v0.2.4",
+      "published": "2026-11-22",
+      "notes": "AsTheCrowFlies 0.2.4 for WoW Forever.\n\n- Fix startup when the client declines duplicate registration of the logout event. The scoped callback now shares the existing registration and can stop navigation timers on logout.\n- Bundle SomethingNeedDoing 0.5.4."
+    },
+    {
+      "tag": "v0.2.3",
+      "name": "AsTheCrowFlies v0.2.3",
+      "published": "2026-11-18",
+      "notes": "# AsTheCrowFlies 0.2.3\n\n- Bundle SomethingNeedDoing 0.5.3, including responsive settings rows/tabs, options cleanup recovery and preservation of Blizzard's slash-command registry.\n- Cancel navigation-panel movement on same-profile switches and copies, even when every setting is unchanged. Old drag-stop callbacks cannot overwrite the replacement placement.\n- Discard stale color edits, dropdown selections and profile confirmations; recover screen containment after an options window is hidden during a drag.\n- Preserve flight data, navigation, character discovery/timings and the existing profile schemas.\n\nValidated with Lua 5.1 model/runtime suites, equal-value gesture regressions, release guards and source-only package checks. Native rendering, physical input, combat/taint, real taxi journeys and coexistence remain unobserved in-game checks."
+    },
+    {
+      "tag": "v0.2.2",
+      "name": "AsTheCrowFlies v0.2.2",
+      "published": "2026-11-05",
+      "notes": "# AsTheCrowFlies 0.2.2\n\n- Explicitly enable mouse input for shared options tabs and controls.\n- Align Background and Text color labels with other settings and display saved colors as clickable swatches.\n- Bundle SomethingNeedDoing 0.4.3; retain native picker acceptance/cancellation, profiles and navigation behavior.\n\nValidated with automated runtime, layout and packaging checks; native input and rendering remain pending in-game verification."
+    },
+    {
+      "tag": "v0.2.1",
+      "name": "AsTheCrowFlies v0.2.1",
+      "published": "2026-11-05",
+      "notes": "# AsTheCrowFlies 0.2.1\n\n- Compact options rows place labels beside controls and remove duplicate page headings.\n- Use consistent themed dropdowns, checkboxes, numeric fields, sliders and scrollbars from SomethingNeedDoing 0.4.2.\n- Make the active settings tab clear, preserve slider drags during refresh, and stack profile actions in narrow windows.\n\nValidation covers model/runtime, fonts, profiles, scrolling, release guards and packaging. Native rendering and input still need in-game verification."
+    },
+    {
+      "tag": "v0.2.0",
+      "name": "AsTheCrowFlies v0.2.0",
+      "published": "2026-10-26",
+      "notes": "# 0.2.0\n\n- Share options, profiles, fonts and Modern / WoW Forever themes through SND 0.4.0; preserve existing settings, navigation and character data."
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/a60f82a6-b24d-41b3-8ea6-37a4a3deea7d"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-18",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-10-26",
+      "2026-10-26",
+      "2026-10-25",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AsTheCrowFlies"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "QuestieDB",
+      "LibSharedMedia-3.0"
+    ],
+    "savedVariablesPerCharacter": [
+      "AsTheCrowFliesDB",
+      "AsTheCrowFliesCharacter",
+      "AsTheCrowFliesProfiles"
+    ]
+  }
+}

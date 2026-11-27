@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "phyzquestbar",
+  "repo": "phyzikalgamer/Phyz-s-Quest-Side-bar",
+  "about": "# Phyz's Quest bar\n\nA quest sidebar for **World of Warcraft: Forever**, styled as a transparent Blizzard objective tracker, with quests grouped by zone and optional integration with [Phyz Leveling](https://github.com/phyzikalgamer/Phyz-s-Leveling-Addon).\n\nKeep your current zone's quests in view, see what is ready to hand in, and choose an active quest without opening your quest log every time.\n\n## Features\n\n- **Current Zone, All, and Turn in views.** Completed quests remain visible in Current Zone; Turn in brings together finished quests from every zone.\n- **Quest objectives and completion states**, with quest levels coloured by difficulty.\n- **Active quest selection.** Click a quest's circular icon to select it and highlight its row.\n- **Click a quest title to open its quest-log entry.**\n- **Spoken quest playback** when Spoken's quest module and a matching voice pack are available.\n- **Quest item buttons**, including cooldowns, for supported quest items in your bags.\n- **Optional routing**, party sharing, search in the All view, and a minimap button.\n- **Resizable, movable window** with opacity, scale, and position-lock settings.\n\n## Installation\n\n1. Download this repository using **Code → Download ZIP** and extract it.\n2. Copy the **`PhyzQuestBar`** folder into your Forever client's `Interface/AddOns/` folder.\n3. Check that the resulting path is `Interface/AddOns/PhyzQuestBar/PhyzQuestBar.toc`.\n4. Fully restart WoW and enable **Phyz's Quest bar** in the AddOns list.\n\nFor a client installed under `_forever_`, the destination is `World of Warcraft/_forever_/Interface/AddOns/`.\n\nInstall the `PhyzQuestBar` folder itself, rather than the downloaded repository folder. If you also use the original Quest Sidebar, disable it to avoid displaying two similar bars. This addon uses separate settings and does not replace it.\n\n## Controls\n\n| Control | Action |\n| --- | --- |\n| `/pqb` or `/phyzquestbar` | Show or hide the quest bar |\n| `/pqb settings` | Open settings |\n| `/pqb help` | List commands |\n| Quest title | Open the quest in the quest log |\n| Circular quest icon | Select or clear the active quest |\n| Play button | Play or stop the quest's spoken audio, when available |\n| Right-click → Track / Stop tracking | Track or untrack the quest |\n| Ctrl-click a quest or use its right-click route action | Start or stop routing to that quest |\n| Right-click a quest | Open quest actions |\n| Shift-click a quest | Link it in chat |\n| Zone heading | Expand or collapse that zone |\n| Shift-click a zone heading | Pin or unpin the zone |\n| Minimap button | Show or hide; right-click for settings |\n\nUse the title-bar sharing button to share eligible quests from your current zone with your party. Automatic sharing is available in settings and is off by default.\n\n## Optional integrations\n\nThe quest bar can be used on its own. Additional addons provide these features:\n\n| Addon | Integration |\n| --- | --- |\n| Phyz Leveling | Follow the current guide step's quest using the bridge described below |\n| Spoken (`Spoken_Quests`) | Quest voice playback with matching voice packs |\n| Questie / QuestieDB | Additional quest and turn-in location data; Questie-style circular quest icons |\n| Shortest Path Forever | Travel routes, including supported flights, boats and portals |\n\n### Follow Phyz Leveling\n\nWith Phyz Leveling installed and enabled, **Follow Phyz Leveling step** is on by default unless you previously disabled it. The quest bar reads the leveling addon's live active steps, including sticky objectives, and highlights matching quests already in your quest log. The current step takes priority for the quest arrow.\n\nSelected quests have a glowing icon, gold left edge and subtle background tint. Turn this setting off to select quests manually. Your choice is remembered.\n\nNo changes to Phyz Leveling's files are required. The legacy bridge under `integration/` is retained for compatibility with older setups.\n\n## Compatibility and support\n\nTargets the Forever client with interface version **16001**. Other WoW editions are not currently supported. Forever client updates may change addon APIs; in-game testing is still needed after updates.\n\nReport problems through [GitHub Issues](https://github.com/phyzikalgamer/Phyz-s-Quest-Side-bar/issues). Include your addon version, client build, steps to reproduce, and any Lua error text. Screenshots help with layout issues.\n\nSee [the changelog](https://github.com/phyzikalgamer/Phyz-s-Quest-Side-bar/blob/main/PhyzQuestBar/CHANGELOG.md) for version history.\n\n## Credits and licence\n\nDeveloped by **Phyz**, based on **Quest Sidebar by Kaeldrom**. Original copyright and licence notices are preserved.\n\nReleased under the [MIT licence](https://github.com/phyzikalgamer/Phyz-s-Quest-Side-bar/blob/main/LICENSE). Optional third-party addons are separate projects with their own licences.",
+  "releases": [
+    {
+      "tag": "v0.5.4",
+      "name": "Phyz's Quest bar v0.5.4",
+      "published": "2026-11-20",
+      "notes": "Quest tracker for World of Warcraft: Forever (Interface 16001).\n\nChanges since v0.4.1:\n- Transparent objective-tracker layout with compact view controls.\n- Native Forever header artwork and standard collapse/expand button, with sliced end caps and corrected texture coordinates.\n- Phyz Leveling integration reads active and sticky guide steps without modifying the leveling addon. Matching quests use focused circular icons and gold titles.\n- Blizzard's standard tracker hides on load, including delayed UI loads and re-show attempts, with combat-safe handling.\n- Completed quests remain visible in Current Zone. Tracking, routes, voice playback, quest items and sharing remain available.\n\nInstallation: download PhyzQuestBar-0.5.4.zip below and extract its PhyzQuestBar folder into your Forever Interface/AddOns folder. Fully restart WoW. Use /pqb settings to configure the bar.\n\nNo guide content is bundled. The legacy optional bridge is included for older setups but is no longer required with supported Phyz Leveling versions.\n\nValidation: Lua 5.1 syntax, guide-selection regression checks, tracker-visibility checks, header-slicing checks, addon manifest and ZIP layout passed. The latest header visual correction still needs in-game confirmation."
+    },
+    {
+      "tag": "v0.4.1",
+      "name": "Phyz's Quest bar v0.4.1",
+      "published": "2026-11-17",
+      "notes": "Quest sidebar for World of Warcraft: Forever (Interface 16001).\n\n- Blizzard-style window with Current Zone, All and Turn in views.\n- Active quest selection and optional Phyz Leveling step following.\n- Spoken playback, quest item buttons and optional routing integrations.\n- Compact title-bar party sharing control.\n\nInstallation: download PhyzQuestBar-0.4.1.zip below and extract its PhyzQuestBar folder into your Forever Interface/AddOns folder. Fully restart WoW. Use /pqb to toggle the bar and /pqb settings for options.\n\nOptional leveling integration: the ZIP includes PhyzQuestBar/integration/PhyzQuestBarBridge.lua. Copy that file into PhyzLeveling and add PhyzQuestBarBridge.lua at the end of PhyzLeveling.toc unless already installed. See README.md for details.\n\nLua syntax, addon manifest and ZIP structure validated. In-game appearance and behaviour have not been verified as part of this release."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PhyzQuestBar"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Spoken_Quests",
+      "PhyzLeveling",
+      "ShortestPathForever",
+      "QuestieDB",
+      "Questie"
+    ],
+    "savedVariablesPerCharacter": [
+      "PhyzQuestBarDB"
+    ]
+  }
+}

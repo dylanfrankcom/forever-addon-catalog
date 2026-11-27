@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "peaceandquiet",
+  "repo": "Talryn/PeaceAndQuiet",
+  "about": "Peace and Quiet is a World of Warcraft addon that will automatically disable the General and LocalDefense channels when you enter an instance, raid, or arena and then re-enable them when you leave. I wrote this add-on because I was tired of all the spam that occurs in these channels when you're trying to focus on a raid.",
+  "releases": [
+    {
+      "tag": "12.1.0",
+      "published": "2026-10-03",
+      "notes": "# Peace and Quiet\n\n## [12.1.0](https://github.com/Talryn/PeaceAndQuiet/tree/12.1.0) (2026-10-03)\n[Full Changelog](https://github.com/Talryn/PeaceAndQuiet/compare/12.0.0...12.1.0) [Previous Releases](https://github.com/Talryn/PeaceAndQuiet/releases)\n\n- Update TOC for Forever.  \n- Update TOC, fix settings.  \n    * Update TOC versions.  \n    * Fix settings not opening."
+    },
+    {
+      "tag": "12.0.0",
+      "published": "2025-12-14",
+      "notes": "# Peace and Quiet\n\n## [12.0.0](https://github.com/Talryn/PeaceAndQuiet/tree/12.0.0) (2025-12-14)\n[Full Changelog](https://github.com/Talryn/PeaceAndQuiet/compare/11.1.0...12.0.0) [Previous Releases](https://github.com/Talryn/PeaceAndQuiet/releases)\n\n- Fix issues with Midnight beta."
+    },
+    {
+      "tag": "11.1.0",
+      "published": "2025-07-10",
+      "notes": "# Peace and Quiet\n\n## [11.1.0](https://github.com/Talryn/PeaceAndQuiet/tree/11.1.0) (2025-05-17)\n[Full Changelog](https://github.com/Talryn/PeaceAndQuiet/compare/11.0.0...11.1.0) [Previous Releases](https://github.com/Talryn/PeaceAndQuiet/releases)\n\n- Remove deprecated \\_G assignment.  \n- Update formatting and whitespace.  \n- Update TOC for Mists."
+    },
+    {
+      "tag": "11.0.0",
+      "published": "2024-09-21",
+      "notes": "# Peace and Quiet\n\n## [11.0.0](https://github.com/Talryn/PeaceAndQuiet/tree/11.0.0) (2024-09-21)\n[Full Changelog](https://github.com/Talryn/PeaceAndQuiet/compare/10.2.0...11.0.0) [Previous Releases](https://github.com/Talryn/PeaceAndQuiet/releases)\n\n- Update TOC.  \n- Add delay on zone change."
+    },
+    {
+      "tag": "10.2.0",
+      "published": "2024-04-30",
+      "notes": "# Peace and Quiet\n\n## [10.2.0](https://github.com/Talryn/PeaceAndQuiet/tree/10.2.0) (2024-04-30)\n[Full Changelog](https://github.com/Talryn/PeaceAndQuiet/compare/10.1.1...10.2.0) [Previous Releases](https://github.com/Talryn/PeaceAndQuiet/releases)\n\n- Update TOC."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-10-03",
+    "releaseDates": [
+      "2026-10-03",
+      "2025-12-14",
+      "2025-07-10",
+      "2024-09-21",
+      "2024-04-30",
+      "2023-10-12",
+      "2023-05-04",
+      "2022-10-25",
+      "2022-08-30",
+      "2022-08-13",
+      "2022-02-22",
+      "2021-06-29",
+      "2021-05-18",
+      "2021-04-04",
+      "2021-03-10",
+      "2020-11-20",
+      "2020-10-16",
+      "2020-08-30",
+      "2020-08-28",
+      "2019-06-25",
+      "2019-05-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PeaceAndQuiet"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "PeaceAndQuietDB"
+    ]
+  }
+}

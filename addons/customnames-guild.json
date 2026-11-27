@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "customnames-guild",
+  "repo": "Jods-GH/CustomNames_Guild",
+  "about": "[![Discord][SVG-Discord]][Discord]\n[![PayPal][SVG-PayPal]][PayPal]\n[![Release][SVG-Release]][Release]\n[![CustomNames][SVG-CustomNames]][CustomNames]  \n# CustomNames\nAdds Guild support for [CustomNames](https://www.curseforge.com/wow/addons/libcustomnames).\n\n[//]: # (Links)\n\n[Discord]: https://discord.com/invite/v3gYmYamGJ (Join the Discord)\n[PayPal]: https://ko-fi.com/jodsderechte (Donate via PayPal)\n[Release]: https://github.com/Jods-GH/CustomNames_Guild/releases/latest (Latest release)\n[CustomNames]: https://github.com/Jods-GH/CustomNames\n\n[//]: # (Images)\n[SVG-Discord]: https://img.shields.io/badge/Discord-7289da?logo=discord&logoColor=fff&style=flat-square\n[SVG-PayPal]: https://custom-icon-badges.demolab.com/badge/-Support-lightgrey?style=flat-square&logo=kofi&color=222222\n[SVG-CustomNames]: https://badgen.net/github/release/Jods-GH/CustomNames?style=flat-square\n[SVG-Release]: https://badgen.net/github/release/Jods-GH/CustomNames_Guild?style=flat-square",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "published": "2026-10-25",
+      "notes": "# CustomNames_Guild\n\n## [v1.1.0](https://github.com/Jods-GH/CustomNames_Guild/tree/v1.1.0) (2026-10-25)\n[Full Changelog](https://github.com/Jods-GH/CustomNames_Guild/compare/v1.0.9...v1.1.0) [Previous Releases](https://github.com/Jods-GH/CustomNames_Guild/releases)\n\n- add guild and bnet community support  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version  \n- add support for non retail flavors  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version"
+    },
+    {
+      "tag": "v1.0.9",
+      "published": "2026-03-25",
+      "notes": "# CustomNames_Guild\n\n## [v1.0.9](https://github.com/Jods-GH/CustomNames_Guild/tree/v1.0.9) (2026-03-25)\n[Full Changelog](https://github.com/Jods-GH/CustomNames_Guild/compare/v1.0.8...v1.0.9) [Previous Releases](https://github.com/Jods-GH/CustomNames_Guild/releases)\n\n- make sure it's not exploding during m+  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version"
+    },
+    {
+      "tag": "v1.0.8",
+      "published": "2025-12-03",
+      "notes": "# CustomNames_Guild\n\n## [v1.0.8](https://github.com/Jods-GH/CustomNames_Guild/tree/v1.0.8) (2025-10-15)\n[Full Changelog](https://github.com/Jods-GH/CustomNames_Guild/compare/v1.0.7...v1.0.8) [Previous Releases](https://github.com/Jods-GH/CustomNames_Guild/releases)\n\n- chore: Update toc to newest wow interface version  \n- also add beta and ptr tocs  \n- add auto toc and adjust funding"
+    },
+    {
+      "tag": "v1.0.7",
+      "published": "2025-10-08",
+      "notes": "# CustomNames_Guild\n\n## [v1.0.7](https://github.com/Jods-GH/CustomNames_Guild/tree/v1.0.7) (2025-10-08)\n[Full Changelog](https://github.com/Jods-GH/CustomNames_Guild/compare/v1.0.6...v1.0.7) [Previous Releases](https://github.com/Jods-GH/CustomNames_Guild/releases)\n\n- bump toc for 11.2.5  \n- fix markdown links"
+    },
+    {
+      "tag": "v1.0.6",
+      "published": "2025-08-06",
+      "notes": "# CustomNames_Guild\n\n## [v1.0.6](https://github.com/Jods-GH/CustomNames_Guild/tree/v1.0.6) (2025-08-06)\n[Full Changelog](https://github.com/Jods-GH/CustomNames_Guild/compare/v1.0.5...v1.0.6) [Previous Releases](https://github.com/Jods-GH/CustomNames_Guild/releases)\n\n- bump toc"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-25",
+    "releaseDates": [
+      "2026-10-25",
+      "2026-03-25",
+      "2025-12-03",
+      "2025-10-08",
+      "2025-08-06",
+      "2025-06-18",
+      "2025-04-23",
+      "2025-02-26",
+      "2024-12-19",
+      "2024-10-23",
+      "2024-10-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CustomNames_Guild"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "CustomNames"
+    ],
+    "optional": [
+      "ViragDevTool"
+    ]
+  }
+}

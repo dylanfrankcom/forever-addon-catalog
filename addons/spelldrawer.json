@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "spelldrawer",
+  "repo": "casperstorm/spell-drawer",
+  "about": "# Spell Drawer\n\nA button that opens a drawer of extra spells, so several spells can share one action bar slot. For WoW Forever.\n\n![Spell Drawer](https://raw.githubusercontent.com/casperstorm/spell-drawer/main/demo.gif)\n\n## Features\n\n- **Drawers:** Fill a drawer with spells, items and macros. It opens up, down, left or right.\n- **On your action bar:** Drag a drawer onto any bar slot. It opens from that button, with that slot's keybind, and looks like the bar's own buttons.\n- **Cast the next spell:** A drawer can instead cast its spells one per press, which makes short work of buffing. Right-click opens it.\n- **In combat:** Opening and casting work in combat. Changing a drawer does not.\n\n## Getting started\n\n1. Type `/sd` to open the options.\n2. Drop spells from your spellbook onto a drawer.\n3. Drag the drawer from the options onto an action bar, or leave it floating and Alt-drag it into place.\n\nShift-right-click a button in a drawer to take it out. `/sd help` lists the commands.\n\n![Spell Drawer options](https://raw.githubusercontent.com/casperstorm/spell-drawer/main/settings.png)\n\n## Installation\n\nDownload `SpellDrawer-<version>-forever.zip` from the latest [release](https://github.com/casperstorm/spell-drawer/releases), extract the `SpellDrawer` folder into `World of Warcraft/_forever_/Interface/AddOns`, and restart the game.\n\nTake that file, not GitHub's **Source code** zip or the green **Code** button: those unpack to a folder named `spell-drawer-…`, which the game does not recognise as the addon.\n\n## Development\n\n`tests/run.sh` runs the addon's logic against a stand-in for the WoW API (needs Lua 5.1). A release is cut by running the **Release** workflow with a version number.\n\nSpell Drawer is released under the [GPL-3.0 License](https://github.com/casperstorm/spell-drawer/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "1.0.1",
+      "published": "2026-11-10",
+      "notes": "# Spell Drawer\n\n## [1.0.1](https://github.com/casperstorm/spell-drawer/tree/1.0.1) (2026-11-10)\n[Full Changelog](https://github.com/casperstorm/spell-drawer/commits/1.0.1) [Previous Releases](https://github.com/casperstorm/spell-drawer/releases)\n\n- Say which zip to download, and test the secure snippets  \n    GitHub's source zips unpack to a folder the game does not recognise as  \n    the addon; the README now names the release file to take instead.  \n    The tests now compile and run the drawer toggle and the close-after-cast  \n    snippets, which nothing covered before."
+    },
+    {
+      "tag": "1.0.0",
+      "published": "2026-11-10",
+      "notes": "# Spell Drawer\n\n## [1.0.0](https://github.com/casperstorm/spell-drawer/tree/1.0.0) (2026-11-10)\n[Full Changelog](https://github.com/casperstorm/spell-drawer/commits/1.0.0) [Previous Releases](https://github.com/casperstorm/spell-drawer/releases)\n\n- Add demo GIF and options screenshot to the README  \n    Both are kept out of the packaged addon."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/casperstorm/spell-drawer/main/demo.gif",
+    "https://raw.githubusercontent.com/casperstorm/spell-drawer/main/settings.png"
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SpellDrawer"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "SpellDrawerDB"
+    ]
+  }
+}

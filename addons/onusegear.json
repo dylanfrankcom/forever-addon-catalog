@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "onusegear",
+  "repo": "ktkr3d/OnUseGear",
+  "about": "# [OnUseGear](https://github.com/ktkr3d/OnUseGear)\n\n## Introduction\n\nOnUseGear is an add-on for equipped gear with on-use effects.\n\n## Install\n\nInstall OnUseGear using the [WowUp](https://wowup.io/guide/get-addons/overview) app.\n`Get Addons` > `Install from URL`\n\n   ```text\n   https://github.com/ktkr3d/OnUseGear\n   ```\n\n## Configuration\n\n   ```text\n   /oug\n   ```",
+  "releases": [
+    {
+      "tag": "v0.1.9",
+      "published": "2026-11-15"
+    },
+    {
+      "tag": "v0.1.8",
+      "published": "2026-11-14"
+    },
+    {
+      "tag": "v0.1.7",
+      "published": "2026-11-08"
+    },
+    {
+      "tag": "v0.1.6",
+      "published": "2026-10-31"
+    },
+    {
+      "tag": "v0.1.5",
+      "published": "2026-10-18"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-08",
+      "2026-10-31",
+      "2026-10-18",
+      "2026-09-12",
+      "2026-08-19",
+      "2026-08-17",
+      "2026-08-16",
+      "2026-08-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "OnUseGear"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "OnUseGearDB"
+    ]
+  }
+}

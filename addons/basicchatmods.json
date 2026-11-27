@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "basicchatmods",
+  "repo": "funkydude/BasicChatMods",
+  "releases": [
+    {
+      "tag": "v12.1.2",
+      "published": "2026-11-15",
+      "notes": "# BasicChatMods\n\n## [v12.1.2](https://github.com/funkydude/BasicChatMods/tree/v12.1.2) (2026-11-15)\n[Full Changelog](https://github.com/funkydude/BasicChatMods/compare/v12.1.1...v12.1.2) [Previous Releases](https://github.com/funkydude/BasicChatMods/releases)\n\n- bnet: Fix an error when adding non-battle tag friends (new system in wow forever) (closes #112)"
+    },
+    {
+      "tag": "v12.1.1",
+      "published": "2026-10-22",
+      "notes": "# BasicChatMods\n\n## [v12.1.1](https://github.com/funkydude/BasicChatMods/tree/v12.1.1) (2026-10-22)\n[Full Changelog](https://github.com/funkydude/BasicChatMods/compare/v12.1.0...v12.1.1) [Previous Releases](https://github.com/funkydude/BasicChatMods/releases)\n\n- Cleanups  \n- Merge toc files  \n- playernames: Tweak"
+    },
+    {
+      "tag": "v12.1.0",
+      "published": "2026-10-13",
+      "notes": "# BasicChatMods\n\n## [v12.1.0](https://github.com/funkydude/BasicChatMods/tree/v12.1.0) (2026-10-13)\n[Full Changelog](https://github.com/funkydude/BasicChatMods/compare/v12.0.9...v12.1.0) [Previous Releases](https://github.com/funkydude/BasicChatMods/releases)\n\n- Bump toc  \n- Update workflow"
+    },
+    {
+      "tag": "v12.0.9",
+      "published": "2026-07-16",
+      "notes": "# BasicChatMods\n\n## [v12.0.9](https://github.com/funkydude/BasicChatMods/tree/v12.0.9) (2026-07-16)\n[Full Changelog](https://github.com/funkydude/BasicChatMods/compare/v12.0.8...v12.0.9) [Previous Releases](https://github.com/funkydude/BasicChatMods/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "v12.0.8",
+      "published": "2026-06-27",
+      "notes": "# BasicChatMods\n\n## [v12.0.8](https://github.com/funkydude/BasicChatMods/tree/v12.0.8) (2026-06-27)\n[Full Changelog](https://github.com/funkydude/BasicChatMods/compare/v12.0.7...v12.0.8) [Previous Releases](https://github.com/funkydude/BasicChatMods/releases)\n\n- Cleanup"
+    }
+  ],
+  "stats": {
+    "stars": 12,
+    "openIssues": 31,
+    "contributors": 15,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-10-22",
+      "2026-10-13",
+      "2026-07-16",
+      "2026-06-27",
+      "2026-06-27",
+      "2026-06-16",
+      "2026-04-13",
+      "2026-04-11",
+      "2026-04-11",
+      "2026-03-05",
+      "2026-01-30",
+      "2026-01-21",
+      "2026-01-20",
+      "2026-01-16",
+      "2025-05-02",
+      "2025-04-01",
+      "2025-01-25",
+      "2024-11-21",
+      "2024-09-26",
+      "2024-09-26",
+      "2024-07-10",
+      "2024-07-09",
+      "2024-05-08",
+      "2024-04-30",
+      "2024-02-07",
+      "2024-01-16",
+      "2023-11-30",
+      "2023-11-08",
+      "2023-10-11",
+      "2023-09-10",
+      "2023-08-18",
+      "2023-07-12",
+      "2023-06-21",
+      "2023-05-08",
+      "2023-05-03",
+      "2023-05-03",
+      "2023-03-22",
+      "2023-03-01",
+      "2023-02-02",
+      "2022-11-22",
+      "2022-11-15",
+      "2022-11-02",
+      "2022-10-26",
+      "2022-10-25",
+      "2022-10-18",
+      "2022-10-03",
+      "2022-09-11",
+      "2022-09-08",
+      "2022-09-06"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "BasicChatMods"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "bcmDB"
+    ]
+  }
+}

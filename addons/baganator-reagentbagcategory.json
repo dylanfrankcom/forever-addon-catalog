@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "baganator-reagentbagcategory",
+  "repo": "T3rr0rS0ck3/Baganator_ReagentBagCategory",
+  "about": "![Baganator - Reagent Bag Category](https://raw.githubusercontent.com/T3rr0rS0ck3/Baganator_ReagentBagCategory/main/Media/logo.png)\n\n# Baganator - Reagent Bag Category\n\nA small plugin for [Baganator](https://www.curseforge.com/wow/addons/baganator) that shows **everything inside your reagent bag as its own category** in Baganator's category view – no matter which default category the items would otherwise belong to.\n\n## Features\n\n- **Own category for the reagent bag** – herbs, ores, cloth etc. from the reagent bag stay together instead of being spread across \"Trade Goods\", \"Consumables\", …\n- **Created automatically** on first start in the current Baganator profile and placed at the top (after \"Recent items\", if present)\n- **Fully customisable** – rename, recolour or move it in Baganator's category settings like any other category\n- **No changes to Baganator or Syndicator** – the plugin hooks into the category view and uses Baganator's own \"added items\" mechanism\n- **Nothing is stored permanently** – the item assignments are temporary and removed on logout, so Baganator's settings stay clean\n- **English and German** localisation\n\n## Requirements\n\n- [Baganator](https://www.curseforge.com/wow/addons/baganator)\n- [Syndicator](https://www.curseforge.com/wow/addons/syndicator)\n\n## Installation\n\n1. Download the latest release zip (or the CurseForge file).\n2. Extract it into `World of Warcraft\\_retail_\\Interface\\AddOns\\`, so the folder structure is:\n   ```\n   Interface\\AddOns\\Baganator_ReagentBagCategory\\Baganator_ReagentBagCategory.toc\n   ```\n3. Restart the game or type `/reload`.\n\nTo install from source, clone the repository into a folder named exactly `Baganator_ReagentBagCategory` – WoW only loads the addon if the folder name matches the `.toc` file.\n\n## Usage\n\nSwitch Baganator's backpack to the **category view** – the \"Reagent Bag\" category appears automatically.\n\n| Command | Description |\n|---|---|\n| `/brk` | Open the settings and show the current status |\n| `/brk on` | Show the reagent bag as its own category |\n| `/brk off` | Sort reagent bag items into the normal categories again |\n| `/brk create` | (Re)create the category in the current Baganator profile |\n| `/brk help` | List the commands in chat |\n| `/reagentbag` | Same as `/brk` (German alias: `/reagenzientasche`) |\n\nSettings are also available under **Options → AddOns → Baganator - Reagent Bag Category**.\n\n**Notes**\n- Keep the category's priority high, otherwise other categories may claim the items first.\n- The category is only created automatically once per profile. If you delete it, use `/brk create` or the button in the settings to get it back.\n- Works for the currently logged in character, not in the offline view of other characters.\n\n## Project Structure\n\n| File | Purpose |\n|---|---|\n| `Baganator_ReagentBagCategory.toc` | Addon metadata and load order |\n| `Main.lua` | Hook into Baganator's category view, category creation, settings panel, slash commands |\n| `Media/logo.tga` | Logo used in the addon list, settings panel and chat |\n| `Media/logo.png` | Logo for the README and CurseForge (not part of the addon package) |\n\nSettings are stored in the saved variable `BAGANATOR_RBC_CONFIG`.\n\n## Releasing\n\nReleases are built by the [BigWigs packager](https://github.com/BigWigsMods/packager) via GitHub Actions (`.github/workflows/release.yml`):\n\n```sh\ngit tag v1.0.0\ngit push origin v1.0.0\n```\n\nThis builds the zip, creates a GitHub release and uploads it to CurseForge. Tags containing `alpha` or `beta` are released as alpha/beta. The version in the `.toc` is taken from the tag. The CurseForge upload needs `## X-Curse-Project-ID` in the `.toc` and the repository secret `CF_API_KEY`.",
+  "releases": [
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-20",
+      "notes": "# Baganator - Reagent Bag Category\n\n## [v1.0.2](https://github.com/T3rr0rS0ck3/Baganator_ReagentBagCategory/tree/v1.0.2) (2026-11-20)\n[Full Changelog](https://github.com/T3rr0rS0ck3/Baganator_ReagentBagCategory/compare/v1.0.1...v1.0.2) [Previous Releases](https://github.com/T3rr0rS0ck3/Baganator_ReagentBagCategory/releases)\n\n- Add English /reagentbag slash command alias  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-14",
+      "notes": "# Baganator - Reagent Bag Category\n\n## [v1.0.1](https://github.com/T3rr0rS0ck3/Baganator_ReagentBagCategory/tree/v1.0.1) (2026-11-14)\n[Full Changelog](https://github.com/T3rr0rS0ck3/Baganator_ReagentBagCategory/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/T3rr0rS0ck3/Baganator_ReagentBagCategory/releases)\n\n- Limit to game versions with a reagent bag  \n    Only list Retail (12.1) and 1.60.1 in the .toc and stay inactive on  \n    clients without Enum.BagIndex.ReagentBag instead of falling back to bag 5,  \n    so no empty category is created there.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-14",
+      "notes": "# Baganator - Reagent Bag Category\n\n## [v1.0.0](https://github.com/T3rr0rS0ck3/Baganator_ReagentBagCategory/tree/v1.0.0) (2026-11-14)\n[Full Changelog](https://github.com/T3rr0rS0ck3/Baganator_ReagentBagCategory/commits/v1.0.0) [Previous Releases](https://github.com/T3rr0rS0ck3/Baganator_ReagentBagCategory/releases)\n\n- Add CurseForge project ID  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Translate comments, workflow and docs to English  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Initial commit: Baganator reagent bag category addon  \n    Adds logo, README, CurseForge descriptions and a release workflow  \n    (BigWigs packager) that publishes tagged versions to GitHub and CurseForge.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-14",
+      "2026-11-14"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "Baganator_ReagentBagCategory"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Baganator",
+      "Syndicator"
+    ],
+    "savedVariables": [
+      "BAGANATOR_RBC_CONFIG"
+    ]
+  }
+}

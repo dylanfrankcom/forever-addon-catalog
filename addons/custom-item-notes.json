@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "custom-item-notes",
+  "repo": "TheGeneticsGuy/Custom_Item_Notes",
+  "about": "***CUSTOM ITEM NOTES***\n\n* Set an unlimited number of Notes to any item in-game. These notes will appear in your tooltip over the items.\n\nKey Points:\n\n* You must mouseover the item to add or remove notes.\n\n* Your character limit is set to 255 per note. The added notes will wrap if sufficiently large.\n\n* Each item has an UNLIMITED number of notes that can be set.\n\n* I set the notes to be account wide. It seems like notes would be useful account wide rather than per toon, but let me know otherwise.\n\n***SLASH COMMANDS***\n\n*\"|x\" is representative of any number and is if you wish to insert/delete a note at a custom note position (|3 for Note3). Otherwise, it will add to the bottom, or delete from bottom first. The \"|\" bar must be used at end of slash command to specify.*\n\n**CORE SLASH COMMAND**\n\n* /cin [Insert Custom Note Here]\n\nPlease note, to quickly add notes to items, this is what you want to do. Mouseover an item, type `/cin My Note` - This is how notes are quickly added. Add unlimited Notes\n\n**USE SLASH COMMANDS OR THE NOTE EDITOR**\n\n**Additional Slash Commands**\n\n* /cin add [Insert Custom Note Here] |x\n\n* /cin edit [Insert New Note Here] |x\n\n* /cin del |x\n\n* /cin clearall\n\n* /cin help\n\n*Again, note, the |x position is optional and the default will just add or remove from the bottom.*\n\n![Tooltip Example](https://i.imgur.com/uaEtEx1.jpg)\n\n**NOTE EDITOR**\n\n*Type `/cin` to access when NOT moused over an item\n\n* Edit Notes\n* Remove Notes\n* Add Notes\n\n*Just add a new line to add a new note*\n\n![CIN Editor](https://i.imgur.com/50IWwun.png)\n\n![Add aditional Notes](https://i.imgur.com/h2MlROf.png)\n\n![Slash Command /CIN Help](https://i.imgur.com/VqIpZK7.png)\n\n*Note, you can auto-load any item to the Note Manager with the following hotkey when moused over*\n\n* `CTRL-Alt-A`",
+  "releases": [
+    {
+      "tag": "R1.42",
+      "name": "WOW Forever Compatibility Drop - Featuring New UI!",
+      "published": "2026-11-13",
+      "notes": "**1.42 Release - November 12th, 2026**\n\n***WOW Forever Compatibility Release***\n\n***NEW FEATURE***\n\n**Updated UI - New Item interface with search**\n\n* Ability to search\n\n* See the actual items directly\n\n* `Ctrl-Alt-A` during mouseover will directly open the item in the new Editor\n\n* .toc file now has an icon reference."
+    },
+    {
+      "tag": "R1.41",
+      "name": "R1.41 - Compatibility update",
+      "published": "2026-10-16",
+      "notes": "**1.41 Release - October 15th, 2026**\n\n*Compatibility Release for 12.1.5*\n\n* Fixed a bug with secret values as Blizz will not allow custom tooltip generation in combat or certain protected PVP"
+    },
+    {
+      "tag": "R1.40",
+      "name": "R1.40 - Compatibility Update",
+      "published": "2026-08-14",
+      "notes": "**1.40 Release - August 13th, 2026**\n\n*Compatibility Release for Midnight 12.1, TBC Anniversary 2.5.6, and Classic Era 1.15.9*"
+    },
+    {
+      "tag": "R1.39",
+      "name": "R1.0.39 - Compatibility Release 12.0,.7",
+      "published": "2026-06-17",
+      "notes": "**1.39 Release - June 17th, 2026**\n\n*Compatibility Release for Midnight 12.0.7*"
+    },
+    {
+      "tag": "R1.38",
+      "name": "R1.38 - 12.0.5 Compatibility Update",
+      "published": "2026-04-21",
+      "notes": "**1.38 Release - April 21st, 2026**\n\n*Compatibility Release for Midnight 12.0.5*"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13",
+      "2026-10-16",
+      "2026-08-14",
+      "2026-06-17",
+      "2026-04-21",
+      "2026-02-11",
+      "2026-01-21",
+      "2026-01-14",
+      "2025-12-29",
+      "2025-12-02",
+      "2025-11-04",
+      "2025-10-21",
+      "2025-10-10",
+      "2025-08-07",
+      "2025-07-21",
+      "2025-06-17",
+      "2025-04-22",
+      "2025-04-13",
+      "2025-02-26",
+      "2024-12-18",
+      "2024-10-30",
+      "2024-10-22",
+      "2024-10-02",
+      "2024-10-02",
+      "2024-09-11",
+      "2024-09-06",
+      "2024-05-10",
+      "2024-05-10",
+      "2024-05-02",
+      "2024-04-19",
+      "2024-03-19",
+      "2024-02-27",
+      "2024-01-30",
+      "2024-01-17",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-07-11",
+      "2023-03-27",
+      "2023-03-27",
+      "2023-01-25",
+      "2023-01-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Custom_Item_Notes"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "CIN_Save",
+      "CIN_Settings"
+    ]
+  }
+}

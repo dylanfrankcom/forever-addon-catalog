@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "activegearhighlight",
+  "repo": "byWulf/wow-active-gear-highlight",
+  "about": "# Active Gear Highlight\n\nA World of Warcraft addon that turns each equipment set into one smart action button: it equips the set, and when you changed the set you're wearing, it offers to save the changes or re-equip the set. The button of the set you're wearing gets a thick border, so you always see which set you have on.\n\n- **One button per set:** click to equip a set you're not wearing\n- **Save changes in one click:** got an upgrade? The button of your set glows, a click shows what changed and saves it, or puts your set back on (for the Carrot on a Stick moments)\n- **See your set at a glance:** a static border marks the set you're wearing (green), turns orange and glows when you changed it, and red when items of it are missing (e.g. in the bank)\n- **Set icons:** each macro shows the icon of its set and follows when you change it; renamed sets update their macros\n- **Drag from the Equipment Manager:** dragging a set out of the character window gives you its macro\n- **\"Current set\" button:** an optional macro that always shows the set you're wearing\n- **Works with your action bars:** Blizzard's bars, Bartender4, Dominos, ElvUI, EllesmereUI, DaylightUI and other bars built on LibActionButton\n- **Dual spec:** link a set to your primary or secondary talents, and its button switches your spec first and then equips the set\n- **Combat aware:** a set you click in combat is equipped as soon as combat ends\n- Available in all languages of the WoW Forever client\n\n## Supported game versions\n\n| Version | Interface |\n|---|---|\n| WoW Forever | 16001 |\n\nClassic Era and other versions are not supported.\n\n## Installation\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/active-gear-highlight), e.g. with the CurseForge app.\n\nFor a manual installation, note that the folder in your AddOns directory **must** be named `ActiveGearHighlight`, otherwise WoW will not load the addon:\n\n```bash\ncd \"C:/Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns\"\ngit clone https://github.com/byWulf/wow-active-gear-highlight.git ActiveGearHighlight\n```\n\nAlternatively, download the ZIP from the [releases](https://github.com/byWulf/wow-active-gear-highlight/releases) and extract it into `Interface/AddOns`.\n\nThen `/reload` in game.\n\n## Getting started\n\n1. Create your equipment sets as usual in the Equipment Manager of the character window.\n2. Drag a set from the Equipment Manager onto an action bar. You get an Active Gear Highlight macro with the set's name and icon. (Shift-drag still gives Blizzard's own set button.)\n3. Click it.\n\nThe macros are character macros (`/agh <set name>`), created when you first drag a set. You can also write them yourself.\n\n## What a click does\n\n| Situation | Click |\n|---|---|\n| You're not wearing the set | Equips it (in combat: as soon as combat ends) |\n| You're wearing the set, unchanged | Nothing, the set is already on |\n| You're wearing the set, but changed it | Opens a window with the changed slots: **Save changes**, **Re-equip set** or **Cancel** |\n\n| Modifier | Effect |\n|---|---|\n| Shift-click | Saves your current gear to the set right away (asks first if you're wearing another set) |\n| Ctrl-click | Equips the set again, which undoes your changes |\n\nSaving keeps the slots that the set ignores ignored, just like the Equipment Manager.\n\n\"The set you're wearing\" is the set you equipped last, no matter how (macro, Blizzard's set button, Equipment Manager). It is remembered per character across sessions. When your gear exactly matches another set, that set becomes the one you're wearing.\n\n## Dual spec\n\nOnce you have dual spec, a set can be linked to one of your two talent specs:\n\n1. Hover the set in the Equipment Manager and click its gear button.\n2. Under **Switch talent spec first**, pick your primary or secondary talents (or **Don't switch**).\n\nThe set's icon in the Equipment Manager then shows a small 1 or 2. When that spec isn't active, clicking the set's button (or Ctrl-click, `/agh restore`) starts the spec switch first. When the switch is done, the click carries on as usual: it equips the set, or asks about your changes. If the switch is interrupted, e.g. because you move, the set isn't equipped. Shift-click only saves and never switches the spec.\n\nThe link is stored per character by the addon. Switching your spec in the talent window doesn't equip anything.\n\n## Border and glow\n\n| Color (default) | Meaning |\n|---|---|\n| Green | You're wearing this set, unchanged |\n| Orange, glowing | You're wearing this set, but your gear differs from it |\n| Red, glowing | You're wearing this set, but some of its items are not in your bags |\n\nThe tooltip of a set button lists the changed slots and the click actions. Colors, border thickness and the glow can be changed in the options. Blizzard's own equipment set buttons get the border too (can be turned off).\n\n## Options\n\nOptions > AddOns > Active Gear Highlight, or `/agh`.\n\n- Ask before saving (when off, a click on a changed set saves right away)\n- Shift-click saves, Ctrl-click re-equips\n- Equipment Manager gives macros\n- Chat messages\n- \"Current set\" macro: puts a macro on your cursor that always stands for the set you're wearing\n- Glow when changed, mark Blizzard's set buttons too, border thickness, colors\n\n## Slash commands\n\n| Command | Effect |\n|---|---|\n| `/agh <set>` | Equip the set, or save/re-equip it when you changed it (also `/activegear`) |\n| `/agh save <set>` | Save your current gear to the set |\n| `/agh restore <set>` | Equip the set again (also `/agh equip <set>`) |\n| `/agh current` | Like `/agh <set>` for the set you're wearing |\n| `/agh macro <set>` | Put the set's macro on your cursor |\n| `/agh macro` | Put the \"Current set\" macro on your cursor |\n| `/agh options` | Open the options (also just `/agh`) |\n| `/agh help` | List the commands |\n\nThe addon used to be called Smart Gear Switcher. Its old commands `/sgs` and `/smartgear` still work, and set macros written with them are switched to `/agh` automatically.\n\n## Languages\n\nAll languages of the WoW Forever client: English, German, French, Spanish (EU and Latin America), Brazilian Portuguese, Russian, Korean, Simplified and Traditional Chinese. The language follows your WoW client.\n\n## License\n\nMIT, see [LICENSE](https://github.com/byWulf/wow-active-gear-highlight/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-17",
+      "notes": "# Active Gear Highlight\n\n## [v1.2.0](https://github.com/byWulf/wow-active-gear-highlight/tree/v1.2.0) (2026-11-17)\n[Full Changelog](https://github.com/byWulf/wow-active-gear-highlight/compare/v1.1.0...v1.2.0) [Previous Releases](https://github.com/byWulf/wow-active-gear-highlight/releases)\n\n- Switch the talent spec before equipping a set  \n    A set can be linked to the primary or secondary talent spec from its  \n    gear-button menu in the Equipment Manager. Clicking the set's button  \n    then switches the spec first and equips the set once the switch is done.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-08",
+      "notes": "# Active Gear Highlight\n\n## [v1.1.0](https://github.com/byWulf/wow-active-gear-highlight/tree/v1.1.0) (2026-11-08)\n[Full Changelog](https://github.com/byWulf/wow-active-gear-highlight/compare/v1.0.0...v1.1.0) [Previous Releases](https://github.com/byWulf/wow-active-gear-highlight/releases)\n\n- Rename to Active Gear Highlight  \n    New folder ActiveGearHighlight, SavedVariables ActiveGearHighlightDB and  \n    ActiveGearHighlightCharDB, slash commands /agh and /activegear. The old  \n    commands /sgs and /smartgear stay registered, and one-line macros using  \n    them are rewritten to /agh on the next macro sync.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-07",
+      "notes": "# Smart Gear Switcher\n\n## [v1.0.0](https://github.com/byWulf/wow-smart-gear-switcher/tree/v1.0.0) (2026-11-07)\n[Full Changelog](https://github.com/byWulf/wow-smart-gear-switcher/commits/v1.0.0) [Previous Releases](https://github.com/byWulf/wow-smart-gear-switcher/releases)\n\n- Link the CurseForge project  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add Smart Gear Switcher 1.0.0  \n    One smart macro per equipment set: equips the set, or saves/re-equips it  \n    when the worn set was changed. Marks the worn set on any action bar with a  \n    static border and a glow while changed. Hooks the Equipment Manager so  \n    dragging a set gives its macro. Translated into every WoW Forever client  \n    language.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-08",
+      "2026-11-07"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "ActiveGearHighlight"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ActiveGearHighlightDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ActiveGearHighlightCharDB"
+    ]
+  }
+}

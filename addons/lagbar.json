@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "id": "lagbar",
+  "repo": "Xruptor/LagBar",
+  "releases": [
+    {
+      "tag": "v8.8",
+      "published": "2026-10-13",
+      "notes": "# LagBar\n\n## [v8.8](https://github.com/Xruptor/LagBar/tree/v8.8) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/LagBar/compare/v8.7...v8.8) [Previous Releases](https://github.com/Xruptor/LagBar/releases)\n\n- chore: update TOC interface numbers → v8.8"
+    },
+    {
+      "tag": "v8.7",
+      "published": "2026-09-19",
+      "notes": "# LagBar\n\n## [v8.7](https://github.com/Xruptor/LagBar/tree/v8.7) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/LagBar/compare/v8.6...v8.7) [Previous Releases](https://github.com/Xruptor/LagBar/releases)\n\n- chore: update TOC interface numbers → v8.7  \n- This should fix the TOC Issues."
+    },
+    {
+      "tag": "v8.6",
+      "published": "2026-09-19",
+      "notes": "# LagBar\n\n## [v8.6](https://github.com/Xruptor/LagBar/tree/v8.6) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/LagBar/compare/v8.5...v8.6) [Previous Releases](https://github.com/Xruptor/LagBar/releases)\n\n- chore: update TOC interface numbers → v8.6  \n- Updated the GitHub Actions to be better at automatic processing for TOC Updates.  \n    (attempt #5)  \n- Adding a automatic TOC Updater to GitHub Workflow"
+    },
+    {
+      "tag": "v8.5",
+      "published": "2026-05-18",
+      "notes": "# LagBar\n\n## [v8.5](https://github.com/Xruptor/LagBar/tree/v8.5) (2026-05-18)\n[Full Changelog](https://github.com/Xruptor/LagBar/compare/v8.4...v8.5) [Previous Releases](https://github.com/Xruptor/LagBar/releases)\n\n- Battlegrounds Bug Fix  \n    * Added a fix to protect any calls during a battleground that may be protected when processing latency information.  This was causing a bug with pairs() on retail clients."
+    },
+    {
+      "tag": "v8.4",
+      "published": "2026-04-11",
+      "notes": "# LagBar\n\n## [v8.4](https://github.com/Xruptor/LagBar/tree/v8.4) (2026-04-11)\n[Full Changelog](https://github.com/Xruptor/LagBar/compare/v8.3...v8.4) [Previous Releases](https://github.com/Xruptor/LagBar/releases)\n\n- TOC Update"
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 0,
+    "contributors": 6,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-05-18",
+      "2026-04-11",
+      "2026-02-12",
+      "2026-02-10",
+      "2026-02-04",
+      "2026-01-02",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-09-23",
+      "2025-09-15",
+      "2025-08-18",
+      "2024-07-30",
+      "2024-07-26",
+      "2024-06-27",
+      "2024-06-27",
+      "2024-04-08",
+      "2024-04-06",
+      "2023-09-18",
+      "2023-05-26",
+      "2023-01-25",
+      "2022-12-09",
+      "2022-11-28",
+      "2022-11-28",
+      "2022-11-26",
+      "2022-11-15",
+      "2022-11-10",
+      "2022-10-31",
+      "2022-10-31",
+      "2021-09-19",
+      "2021-05-28",
+      "2021-05-17",
+      "2021-04-06"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "LagBar"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tekDebug"
+    ],
+    "savedVariables": [
+      "LagBar_DB"
+    ]
+  }
+}

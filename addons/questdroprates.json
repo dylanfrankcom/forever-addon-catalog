@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "questdroprates",
+  "repo": "chadrien/QuestDropRates",
+  "about": "# Quest Drop Rates\n\nThis addon displays quest-item drop percentages on creature tooltips. It targets\nWoW Forever's `16001` interface and works independently of the Questie quest\nhelper.\n\nThe addon requires **QuestieDB**, the standalone data provider, not Questie. It\nreads the Forever drop-rate and correction tables from QuestieDB and appends a\nrate to matching item lines, including lines added by other quest addons.\n\n## Installation\n\nInstall QuestieDB, then place the `QuestDropRates` folder in\n`World of Warcraft/_classic_/Interface/AddOns/` and enable it in the AddOns list.\n\n## License\n\nThis addon is available under the MIT License; see [LICENSE](https://github.com/chadrien/QuestDropRates/blob/main/LICENSE).\n\n## Releases\n\nReleases are published automatically when a version tag is pushed. Update the\n`## Version` value in `QuestDropRates.toc`, then push a matching tag such as\n`v0.1.0`. The workflow checks that the tag and addon versions match, packages\nthe addon folder as a ZIP, and attaches it to a GitHub Release.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "name": "Quest Drop Rates v1.0.1",
+      "published": "2026-11-10",
+      "notes": "**Full Changelog**: https://github.com/chadrien/QuestDropRates/compare/v1.0.0...v1.0.1"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Quest Drop Rates v1.0.0",
+      "published": "2026-11-10",
+      "notes": "**Full Changelog**: https://github.com/chadrien/QuestDropRates/commits/v1.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuestDropRates"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "QuestieDB"
+    ]
+  }
+}

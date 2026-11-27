@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "betterbags-openable",
+  "repo": "spartanui-wow/Libs-ItemHighlighter",
+  "about": "# Lib's - Item Highlighter\n\nNever miss another openable item! `Lib's - Item Highlighter` adds animated glowing effects to your Baganator bags, highlighting items that can be opened, used, or learned.\n\n## Supported bag addons\n\n- Blizzard default bags\n- [Bagnon](https://www.curseforge.com/wow/addons/bagnon)\n- [Baganator](https://www.curseforge.com/wow/addons/baganator)\n- [BetterBags](https://www.curseforge.com/wow/addons/better-bags)\n- [ElvUI](https://tukui.org/)\n\n![Fast](https://media.forgecdn.net/attachments/1328/644/flash-gif.gif)\n\n![Slow](https://media.forgecdn.net/attachments/1328/645/fade-gif.gif)\n\n## Features\n\n- **Smart Detection** - Automatically identifies openable items including containers, toys, mounts, pets, appearances, and more\n- **Animated Glow Effects** - Eye-catching blue-green animated full icon glow that won't go unnoticed\n- **Highly Configurable** - Enable/disable filtering for specific item types through the options panel\n- **Performance Optimized** - Intelligent caching system prevents repeated tooltip scans\n- **Seamless Integration** - Works perfectly with all Baganator themes and views\n\n## Supported Item Types\n\n- Containers & Caches (weekly caches, treasure chests, etc.)\n- Toys & Collectibles\n- Mount & Pet Teaching Items\n- Appearance/Transmog Items\n- Reputation Tokens\n- Knowledge/Profession Items\n- Curios & Special Use Items\n\nAccess configuration through Blizzard's `Interface Options → AddOns → Lib's - Item Highlighter`",
+  "releases": [
+    {
+      "tag": "2.0.7",
+      "published": "2026-11-10",
+      "notes": "# Libs - Item Highlighter Changelog\n\n## \uD83D\uDCC5 Last Month Summary\n\nFixed settings and colors for WoW Forever players, and item categories now work correctly with the BetterBags addon at vendors. You will also see openable items highlighted in bank tabs, and the addon is ready for the new WoW patch 12.1.5.\n\n## \uD83C\uDFAF This Release\n\n## Version 2.0.7 (2026-11-10)\n\n### \uD83D\uDC1B Fixes\n- Categories work again at vendors with BetterBags' new look\n\n### \uD83D\uDCDD Changes\n- Settings and profiles work better on WoW Forever\n\n## Version 2.0.6 (2026-10-13)\n\n### \uD83D\uDCDD Changes\n- Ready for WoW patch 12.1.5\n- Core.lua\n- Openable items work across more game versions and bank tabs\n\n---\n\n## Links\n\n- **Download**: [CurseForge](https://www.curseforge.com/wow/addons/libs-itemhighlighter) | [Wago](https://addons.wago.io/addons/b6mb29KP)\n- **Support**: [Discord](https://discord.gg/Qc9TRBv) | [Report Issues](https://github.com/spartanui-wow/Libs-ItemHighlighter/issues)"
+    },
+    {
+      "tag": "2.0.6",
+      "published": "2026-10-14",
+      "notes": "# Libs - Item Highlighter Changelog\n\n## \uD83D\uDCC5 Last Month Summary\n\nThis update makes the addon ready for WoW patch 12.1.5 and improves highlighting for openable items in bank tabs and across more game versions. Highlights will no longer stick to empty or special bag slots, and your settings profiles now save correctly in WoW Forever.\n\n## \uD83C\uDFAF This Release\n\n## Version 2.0.6 (2026-10-13)\n\n### \uD83D\uDCDD Changes\n- Ready for WoW patch 12.1.5\n- Core.lua\n- Openable items work across more game versions and bank tabs\n\n## Version 2.0.5 (2026-10-01)\n\n### \uD83D\uDC1B Fixes\n- Highlights no longer stick to empty or special bag slots\n\n## Version 2.0.4 (2026-09-28)\n\n### \uD83D\uDCDD Changes\n- Supported game version for Titan\n- Settings profiles work correctly in WoW Forever\n- 1 Dependency\n\n---\n\n## Links\n\n- **Download**: [CurseForge](https://www.curseforge.com/wow/addons/libs-itemhighlighter) | [Wago](https://addons.wago.io/addons/b6mb29KP)\n- **Support**: [Discord](https://discord.gg/Qc9TRBv) | [Report Issues](https://github.com/spartanui-wow/Libs-ItemHighlighter/issues)"
+    },
+    {
+      "tag": "2.0.5",
+      "published": "2026-10-03",
+      "notes": "# Libs - Item Highlighter Changelog\n\n## \uD83D\uDCC5 Last Month Summary\n\nItem highlights will no longer get stuck on empty or special bag slots. Settings profiles now work correctly for 'WoW Forever' players, and the addon supports a newer game version for Titan.\n\n## \uD83C\uDFAF This Release\n\n## Version 2.0.5 (2026-10-01)\n\n### \uD83D\uDC1B Fixes\n- Highlights no longer stick to empty or special bag slots\n\n## Version 2.0.4 (2026-09-28)\n\n### \uD83D\uDCDD Changes\n- Supported game version for Titan\n- Settings profiles work correctly in WoW Forever\n- 1 Dependency\n\n---\n\n## Links\n\n- **Download**: [CurseForge](https://www.curseforge.com/wow/addons/libs-itemhighlighter) | [Wago](https://addons.wago.io/addons/b6mb29KP)\n- **Support**: [Discord](https://discord.gg/Qc9TRBv) | [Report Issues](https://github.com/spartanui-wow/Libs-ItemHighlighter/issues)"
+    },
+    {
+      "tag": "2.0.4",
+      "published": "2026-09-29",
+      "notes": "# Libs - Item Highlighter Changelog\n\n## \uD83D\uDCC5 Last Month Summary\n\nThe addon now works with the latest Titan game version. For WoW Forever, your personal settings will now save correctly using your character's name. Shared settings for everyone on a server are now grouped by game type, like PvP or PvE.\n\n## \uD83C\uDFAF This Release\n\n## Version 2.0.4 (2026-09-28)\n\n### \uD83D\uDCDD Changes\n- Supported game version for Titan\n- Settings profiles work correctly in WoW Forever\n- 1 Dependency\n\n---\n\n## Links\n\n- **Download**: [CurseForge](https://www.curseforge.com/wow/addons/libs-itemhighlighter) | [Wago](https://addons.wago.io/addons/b6mb29KP)\n- **Support**: [Discord](https://discord.gg/Qc9TRBv) | [Report Issues](https://github.com/spartanui-wow/Libs-ItemHighlighter/issues)"
+    },
+    {
+      "tag": "2.0.3",
+      "published": "2026-08-11",
+      "notes": "# Libs - Item Highlighter Changelog\n\n## \uD83D\uDCC5 Last Month Summary\n\nThis update makes sure the addon works with the latest game versions. We fixed an issue where some checkboxes in the options menu weren't working. Now, items you can open, like certain chests, will be highlighted correctly in your bags.\n\n## \uD83C\uDFAF This Release\n\n## Version 2.0.3 (2026-08-06)\n\n### \uD83D\uDCDD Changes\n- Ace3 for the 12.1 game update\n- Support the 12.1 game update\n\n## Version 2.0.2 (2026-07-13)\n\n### \uD83D\uDC1B Fixes\n- Some openable items not highlighted in default bags\n- Discord webhook now preserves HTTPS protocol in URLs\n\n### \uD83D\uDCDD Changes\n- Checkout action to v7\n- Supported game versions\n- Interface version for Midnight launch\n- Filter Discord notifications to reduce noise\n\n### \uD83D\uDD27 Other\n- Packager script updates\n\n---\n\n## Links\n\n- **Download**: [CurseForge](https://www.curseforge.com/wow/addons/libs-itemhighlighter) | [Wago](https://addons.wago.io/addons/b6mb29KP)\n- **Support**: [Discord](https://discord.gg/Qc9TRBv) | [Report Issues](https://github.com/spartanui-wow/Libs-ItemHighlighter/issues)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-10-14",
+      "2026-10-03",
+      "2026-09-29",
+      "2026-08-11",
+      "2026-07-14",
+      "2026-02-10",
+      "2026-02-09",
+      "2026-01-20",
+      "2025-10-31",
+      "2025-10-12",
+      "2025-10-12",
+      "2025-09-19",
+      "2025-09-16",
+      "2025-09-15",
+      "2025-09-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BetterBags-Openable"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "LibsIHDB",
+      "BetterBagsOpenableDB"
+    ]
+  }
+}

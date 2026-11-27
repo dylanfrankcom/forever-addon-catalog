@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "id": "targetpercent",
+  "repo": "funkydude/TargetPercent",
+  "releases": [
+    {
+      "tag": "v12.1.2",
+      "published": "2026-10-22",
+      "notes": "# TargetPercent\n\n## [v12.1.2](https://github.com/funkydude/TargetPercent/tree/v12.1.2) (2026-10-22)\n[Full Changelog](https://github.com/funkydude/TargetPercent/compare/v12.1.1...v12.1.2) [Previous Releases](https://github.com/funkydude/TargetPercent/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "v12.1.1",
+      "published": "2026-10-10",
+      "notes": "# TargetPercent\n\n## [v12.1.1](https://github.com/funkydude/TargetPercent/tree/v12.1.1) (2026-10-10)\n[Full Changelog](https://github.com/funkydude/TargetPercent/compare/v12.1.0...v12.1.1) [Previous Releases](https://github.com/funkydude/TargetPercent/releases)\n\n- Cleanup"
+    },
+    {
+      "tag": "v12.1.0",
+      "published": "2026-09-20",
+      "notes": "# TargetPercent\n\n## [v12.1.0](https://github.com/funkydude/TargetPercent/tree/v12.1.0) (2026-09-20)\n[Full Changelog](https://github.com/funkydude/TargetPercent/compare/v12.0.4...v12.1.0) [Previous Releases](https://github.com/funkydude/TargetPercent/releases)\n\n- Bump toc  \n- Update workflow"
+    },
+    {
+      "tag": "v12.0.4",
+      "published": "2026-07-16",
+      "notes": "# TargetPercent\n\n## [v12.0.4](https://github.com/funkydude/TargetPercent/tree/v12.0.4) (2026-07-16)\n[Full Changelog](https://github.com/funkydude/TargetPercent/compare/v12.0.3...v12.0.4) [Previous Releases](https://github.com/funkydude/TargetPercent/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "v12.0.3",
+      "published": "2026-06-26",
+      "notes": "# TargetPercent\n\n## [v12.0.3](https://github.com/funkydude/TargetPercent/tree/v12.0.3) (2026-06-26)\n[Full Changelog](https://github.com/funkydude/TargetPercent/compare/v12.0.2...v12.0.3) [Previous Releases](https://github.com/funkydude/TargetPercent/releases)\n\n- Bump toc  \n- Update workflow  \n- Update workflow"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-10-22",
+    "releaseDates": [
+      "2026-10-22",
+      "2026-10-10",
+      "2026-09-20",
+      "2026-07-16",
+      "2026-06-26",
+      "2026-05-27",
+      "2026-04-11",
+      "2026-01-21",
+      "2026-01-19",
+      "2025-05-02",
+      "2025-03-23",
+      "2025-01-25",
+      "2024-11-21",
+      "2024-09-25",
+      "2024-07-09",
+      "2024-05-08",
+      "2024-04-30",
+      "2024-02-07",
+      "2024-01-16",
+      "2023-11-30",
+      "2023-11-08",
+      "2023-10-11",
+      "2023-09-10",
+      "2023-08-18",
+      "2023-07-12",
+      "2023-06-21",
+      "2023-05-03",
+      "2023-03-22",
+      "2023-01-28",
+      "2022-11-15",
+      "2022-10-26",
+      "2022-10-25",
+      "2022-08-29",
+      "2022-06-01",
+      "2022-04-24",
+      "2022-03-23",
+      "2022-03-14",
+      "2021-06-30",
+      "2021-05-19",
+      "2021-03-11",
+      "2020-12-04",
+      "2020-11-18",
+      "2020-10-14",
+      "2020-01-14",
+      "2019-06-26",
+      "2018-07-17",
+      "2017-08-29",
+      "2017-03-28",
+      "2017-02-06",
+      "2016-11-14"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "TargetPercent"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

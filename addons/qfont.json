@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "qfont",
+  "repo": "michaelbaker-dev/qfont",
+  "about": "![qfont](https://raw.githubusercontent.com/michaelbaker-dev/qfont/main/.github/banner.jpg)\n\n# qfont — Quest Tracker Fonts, Backgrounds & Scrolling\n\nMake your quest tracker effortless to read without replacing your UI.\n\n**qfont** is a lightweight, zero-dependency addon for **World of Warcraft: Forever (1.60.1)** and **Retail Midnight (12.1.5+)** that lets you customize your Quest / Objective Tracker's **font family**, **font sizes**, **textured backgrounds**, **borders**, and **overflow scroll bar** with instant live preview.\n\nWorks automatically with both **Questie Tracker** and **Blizzard's default Objective Tracker**.\n\n---\n\n## Key Features\n\n### Crisp, Readable Typography\n- **Independent Font Sizes (8–32 px):** Resize **Section Headers**, **Quest Titles**, and **Objective Lines** separately, or scale all three together with a single command.\n- **Built-in & Custom Fonts:** Includes *Friz Quadrata*, *Arial Narrow*, *Morpheus*, *Skurri*, and *Friends*, plus automatic detection of any extra fonts registered in **LibSharedMedia-3.0**.\n- **Outlines & Drop Shadows:** Choose from *None*, *Outline*, *Thick Outline*, *Monochrome*, or *Outline + Monochrome*, paired with a toggleable drop shadow for clarity over bright terrain.\n\n### Textured Backgrounds & Borders\n- **7 Built-in Background Textures:** *Dialog Dark*, *Solid Flat*, *Tooltip*, *Dialog Classic*, *Parchment (Quest Scroll)*, *Marble*, and *Carved Rock*—plus automatic **LibSharedMedia-3.0** background support.\n- **6 Built-in Borders:** *Tooltip*, *None (Borderless)*, *Thin 1px Flat*, *Dialog*, *Gold*, and *Achievement Wood*—plus **LibSharedMedia-3.0** borders.\n- **Full Styling Controls:** 7 color tint presets (*Obsidian Dark*, *Natural / Untinted*, *Midnight Indigo*, *Warm Parchment*, *Emerald Dusk*, *Crimson Ember*, *Cool Slate*), opacity (`0–100%`), padding (`0–24 px`), and automatic tight fit around tracked quests.\n\n### Auto-Showing Overflow Scroll Bar\n- **Max Quest Window Height (20–90%):** Keep long quest lists from overlapping your action bars.\n- **Smart Scroll Bar:** Stays hidden when all quests fit and automatically appears along the right edge whenever quests overflow—supporting thumb dragging, track clicks, and mouse-wheel scrolling.\n\n---\n\n## Installation\n\n- **CurseForge App (Recommended):** Search for **qfont** and click Install.\n- **Manual:** Download the latest `qfont-*.zip` from [Releases](https://github.com/michaelbaker-dev/qfont/releases) and extract the `qfont` folder into your World of Warcraft `Interface/AddOns/` directory (`_forever_/Interface/AddOns/qfont` or `_retail_/Interface/AddOns/qfont`).\n\n---\n\n## How to Configure\n\n- **Live Preview Window:** Type `/qfont` (or `/qf`) to open a compact, draggable config window with **Fonts & Sizes** and **Background & Scroll** tabs while watching your quest tracker update live.\n- **Blizzard Settings Menu:** Open **Esc → Options → AddOns → qfont** (or type `/qfont options`).\n- **Minimap Addon Compartment:** **Left-Click** for the live window, **Right-Click** for Blizzard Options.\n\n---\n\n## Slash Commands\n\n### Panels & General\n- `/qfont` or `/qf` — Toggle the live config window\n- `/qfont options` — Open **Options → AddOns → qfont**\n- `/qfont toggle` — Temporarily disable or re-enable custom quest fonts\n- `/qfont reset` — Restore all settings and tracker defaults\n\n### Fonts & Sizes\n- `/qfont font <name>` — Switch font family (e.g. `/qfont font arial`, `/qfont font morpheus`)\n- `/qfont list` — List all available fonts\n- `/qfont size <n>` — Set objective size and auto-scale titles (`+2`) and headers (`+4`)\n- `/qfont header <n>` · `/qfont title <n>` · `/qfont body <n>` — Set individual sizes (`8–32`)\n- `/qfont outline <none|outline|thick|mono|both>` — Change outline style\n- `/qfont shadow <on|off>` — Toggle text drop shadow\n\n### Backgrounds & Scrolling\n- `/qfont bg [on|off|<texture>]` — Toggle background or switch texture (e.g. `/qfont bg parchment`, `/qfont bg marble`)\n- `/qfont bglist` — List all available background & border textures\n- `/qfont border <name>` — Set border (`tooltip`, `none`, `pixel`, `dialog`, `gold`, `wood`)\n- `/qfont tint <name>` — Set color tint (`obsidian`, `natural`, `midnight`, `parchment`, `forest`, `crimson`, `slate`)\n- `/qfont alpha <0-100>` — Set background opacity percentage\n- `/qfont padding <0-24>` — Set background padding in pixels\n- `/qfont scroll <on|off>` — Toggle the overflow scroll bar\n- `/qfont height <20-90>` — Set max quest window height (% of screen) before scrolling\n\n---\n\n## Frequently Asked Questions\n\n**Does qfont work with Questie?**  \nYes. When Questie's tracker is active, qfont automatically styles Questie's fonts, line spacing, background texture, border, and overflow scroll bar—and restores Questie's original settings if disabled.\n\n**How do I add more fonts or textures?**  \nInstall any **LibSharedMedia-3.0** pack (such as *SharedMedia*) and qfont will automatically list all added fonts, backgrounds, and borders.\n\n**Does qfont cause UI taint or combat errors?**  \nNo. qfont uses only secure post-hooks (`hooksecurefunc`), never attaches custom fields to Blizzard frames, and defers layout updates cleanly until you leave combat.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-25",
+      "notes": "# Changelog\n\n## 1.0.0 — Initial Release\n\n- **Quest Tracker Typography:** Customize font family, outline (*None*, *Outline*, *Thick Outline*, *Monochrome*, *Outline + Monochrome*), drop shadow, and independent sizes (`8–32 px`) for Section Headers, Quest Titles, and Objective Lines.\n- **Built-in & SharedMedia Support:** Ships with 5 default client fonts (*Friz Quadrata*, *Arial Narrow*, *Morpheus*, *Skurri*, *Friends*) and automatically detects extra fonts, backgrounds, and borders from `LibSharedMedia-3.0`.\n- **Textured Backgrounds & Borders:** Includes 7 background textures (*Dialog Dark*, *Solid Flat*, *Tooltip*, *Dialog Classic*, *Parchment*, *Marble*, *Rock*), 6 borders (*Tooltip*, *None*, *Thin 1px*, *Dialog*, *Gold*, *Achievement Wood*), 7 color tint presets, opacity (`0–100%`), padding (`0–24 px`), and automatic tight fit around tracked quests.\n- **Overflow Scroll Bar:** Automatically attaches a draggable, tint-matched vertical scroll bar whenever tracked quests exceed the configurable **Max Quest Window Height** (`20–90%` of screen height).\n- **Dual Tracker Support:** Works out of the box with both **Questie Tracker** and **Blizzard's Objective Tracker** on **WoW Forever (`1.60.1`)** and **Retail Midnight (`12.1.5+`)**.\n- **Live Config & Native Settings:** Includes a draggable tabbed live-preview window (`/qfont`), full Blizzard **Options → AddOns → qfont** integration, Minimap Addon Compartment support, and complete slash commands."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "qfont"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0",
+      "Questie"
+    ],
+    "savedVariables": [
+      "QFontDB"
+    ]
+  }
+}

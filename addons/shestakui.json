@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "shestakui",
+  "repo": "Wetxius/ShestakUI_Forever",
+  "releases": [
+    {
+      "tag": "1.2.0",
+      "published": "2026-11-19",
+      "notes": "# ShestakUI\n\n## [1.2.0](https://github.com/Wetxius/ShestakUI_Forever/tree/1.2.0) (2026-11-19)\n[Full Changelog](https://github.com/Wetxius/ShestakUI_Forever/compare/1.1.0...1.2.0) [Previous Releases](https://github.com/Wetxius/ShestakUI_Forever/releases)\n\n- Updated version to 1.2.0.  \n- [RealLinks] ConvertRGBtoColorString not exist anymore.  \n- Return SetupTextureCoordinates secret check.  \n- [CombatText] Don't show outgoing frame.  \n- Replace github link.  \n- Replace discord server link.  \n- Updated oUF.  \n- [Nameplates] Added secret check for talentSpec.  \n- Don't create multiple color curve.  \n- [UnitFrames] Added pet color by happiness.  \n- [Bags] Added color for soul bag and quiver.  \n- [UnitFrames] Show name and second name on target frame.  \n- [Tooltip] Use NameUtil.GetUnmodifiedUnitFullName to solve double name with title.  \n- Hide OpenMailFramePortrait.  \n- [Skins] Enable PetStable skin.  \n- [Skins] Try to fix mail icons.  \n- [Mail] Tweak position for OpenAllButton buttons."
+    },
+    {
+      "tag": "1.1.0",
+      "published": "2026-11-09",
+      "notes": "# ShestakUI\n\n## [1.1.0](https://github.com/Wetxius/ShestakUI_Forever/tree/1.1.0) (2026-11-09)\n[Full Changelog](https://github.com/Wetxius/ShestakUI_Forever/compare/1.0.0...1.1.0) [Previous Releases](https://github.com/Wetxius/ShestakUI_Forever/releases)\n\n- Updated version to 1.1.0.  \n- [FilgerSpells] Added Immolation Trap, Serpent Sting spell ids.  \n- Use reset TexCoord for safety.  \n- Tweak aura text formatter.  \n- Cleanup.  \n- Fixed SpellFlyout skin.  \n- [Filger] Added more spell id for Regrowth, Rejuvenation.  \n- Added more spell id for Power Word: Shield, Renew, Lightwell Renew.  \n- [Skins] Fixed close buton for DebugTools.  \n- Tweak Castbar delay function.  \n- [Skins] Added \"AddTab\" hook for  Talent.  \n- [Skins] Fixed spellButtons in Professions.  \n- Fixed item icon for ObjectiveTracker.  \n- Cleanup.  \n- [Skins] Fixed Inspect skin.  \n- Cleanup."
+    },
+    {
+      "tag": "1.0.0",
+      "published": "2026-11-07",
+      "notes": "# ShestakUI\n\n## [1.0.0](https://github.com/Wetxius/ShestakUI_Forever/tree/1.0.0) (2026-11-07)\n[Full Changelog](https://github.com/Wetxius/ShestakUI_Forever/compare/0.9.0...1.0.0) [Previous Releases](https://github.com/Wetxius/ShestakUI_Forever/releases)\n\n- Updated version to 1.0.0.  \n- [Skins] Fixed buy back icon.  \n- Updated oUF.  \n- Updated FogOfWar.  \n- [Bags] Added check for existing b.frame.text.  \n- [CombatFeedback] Need to check secret amount.  \n- [GroupLoot] Attempt to hide Blizzard group roll.  \n- [Nameplates] Try to Blizzard filter to show player debuffs.  \n- [Skins] Fixed Quest icon.  \n- [Skins] Fixed Merchant icon.  \n- [Skins] Updated Friends and Character.  \n- [Bags] Fixed icon SetTexCoord.  \n- [CombatFeedback] Added check for amount.  \n- Added System15Font and System15Font\\_Shadow font.  \n- Fixed PvPMatch skin."
+    },
+    {
+      "tag": "0.9.0",
+      "published": "2026-10-22",
+      "notes": "# ShestakUI\n\n## [0.9.0](https://github.com/Wetxius/ShestakUI_Forever/tree/0.9.0) (2026-10-22)\n[Full Changelog](https://github.com/Wetxius/ShestakUI_Forever/compare/0.8.0...0.9.0) [Previous Releases](https://github.com/Wetxius/ShestakUI_Forever/releases)\n\n- Updated version to 0.9.0.  \n- Cleanup.  \n- Cleanup.  \n- [Skins] Updated Character and Communities skin.  \n- [Tooltip] Change size to fit compare tooltip.  \n- [Skins] Updated LegacySystem skin.  \n- [MiniMap] Added spellbook option in right-click menu."
+    },
+    {
+      "tag": "0.8.0",
+      "published": "2026-10-16",
+      "notes": "# ShestakUI\n\n## [0.8.0](https://github.com/Wetxius/ShestakUI_Forever/tree/0.8.0) (2026-10-16)\n[Full Changelog](https://github.com/Wetxius/ShestakUI_Forever/compare/0.7.0...0.8.0) [Previous Releases](https://github.com/Wetxius/ShestakUI_Forever/releases)\n\n- Updated version to 0.8.0.  \n- [Skins] Added header LFGBrowseFrameScrollBox skin.  \n- [Skins] Added talents skin.  \n- [Skins] Updated skin for WorldMap Tracking Button.  \n- Fixed MiniMap errors.  \n- Removed our Swing bar. Blizzard implemented new one.  \n- [Skins] Fixed Trainer error.  \n- [Skins] Updated LegacySystem.  \n- [RaidAuraWatch] Added more spell id for Rejuvenation and Regrowth.  \n- [Skins] Added EquipmentManagerPane skin.  \n- Updated skins.  \n- [RaidBuffsReminder] Cleanup functions.  \n- [Skins] Updated PvE skin.  \n- [MagePortals] Removed non-existing spells."
+    }
+  ],
+  "stats": {
+    "stars": 8,
+    "openIssues": 5,
+    "contributors": 1,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-09",
+      "2026-11-07",
+      "2026-10-22",
+      "2026-10-16",
+      "2026-10-11",
+      "2026-10-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ShestakUI",
+      "ShestakUI_Config"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Blizzard_CombatText",
+      "ShestakUI_Config",
+      "ShestakUI_Profile",
+      "AtlasLoot",
+      "cargBags",
+      "Clique",
+      "Grid2",
+      "ls_Toasts",
+      "Mapster",
+      "Omen",
+      "OPie",
+      "PitBull4",
+      "Postal",
+      "Prat-3.0",
+      "Quartz",
+      "Rematch",
+      "ShadowedUnitFrames",
+      "TidyPlates",
+      "VuhDo",
+      "WeakAuras"
+    ],
+    "savedVariables": [
+      "ShestakUISettings",
+      "ShestakUIStats",
+      "ShestakUIBindings",
+      "ShestakUICurrency",
+      "ShestakUIPositions"
+    ],
+    "savedVariablesPerCharacter": [
+      "ShestakUISettingsPerChar",
+      "ShestakUIChatHistory",
+      "ShestakUIPositionsPerChar"
+    ]
+  }
+}

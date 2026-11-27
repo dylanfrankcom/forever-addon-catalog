@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "broker-playermenu",
+  "repo": "orionshock/Broker_PlayerMenu",
+  "about": "# Broker_PlayerMenu\n\nSmall LibDataBroker plugins for World of Warcraft Forever (interface 16001). Requires a broker display such as Bazooka to show the plugins. Libraries are included.\n\nThe default branch, `forever`, targets WoW Forever. The previous `main` branch is now named `MoP`.\n\n- **LootMethod:** Shows loot method, loot threshold, and the master looter. Hover for available loot controls, group conversion, instance reset, and leaving your group. Group management depends on your leader permissions. Right-click toggles opting out of loot; Shift-click the reset, conversion, or leave controls to use them.\n- **PVPToggle:** Shows your PvP flag, desired state, and remaining unflag timer. Type `/pvp` in chat to toggle PvP. Shift-right-click announces an active timer to your instance group, raid, party, or local chat output when solo. Click without Shift to refresh the display.\n- **RezOptions:** Offers resurrection acceptance, corpse retrieval when in range, available self-resurrection options, and spirit release. Shows the release countdown while dead.\n\nSolo loot controls also include the legacy \"Ghetto Hearth\" and \"Ghetto Raid\" helpers, which attempt an invite followed by leaving or converting the group. Their availability depends on the game's group rules; Shift-click the raid helper.",
+  "releases": [
+    {
+      "tag": "v1.10.0-forever",
+      "published": "2026-11-17",
+      "notes": "# Broker_PlayerMenu\n\n## [v1.10.0-forever](https://github.com/orionshock/Broker_PlayerMenu/tree/v1.10.0-forever) (2026-11-17)\n[Full Changelog](https://github.com/orionshock/Broker_PlayerMenu/compare/v1.9...v1.10.0-forever) [Previous Releases](https://github.com/orionshock/Broker_PlayerMenu/releases)\n\n- Release v1.10.0 for the Forever client  \n- feat(settings): update Lua diagnostics globals and remove unused entries  \n    feat(LDBLootMethod): enhance loot method handling and add personal loot option  \n    refactor(ldbPVPToggle): simplify PvP toggle logic and update tooltip instructions  \n    docs: add AGENTS.md for WoW addon development guidelines  \n    delete: remove RDF\\_Monitor.lua as it is no longer needed  \n- feat(settings): add LE\\_LFG\\_CATEGORY\\_LFD to Lua diagnostics globals  \n- Update addon and release packaging for WoW Forever  \n- feat(LDBLootMethod): enhance master looter display with class color coding  \n- feat(LDBLootMethod): add Heroic Scenario and Normal Scenario difficulty options  \n- AI Lua Docs  \n- ai helping me add in player rez stuff  \n- refactor(lootmethod): use MoP enum casing + silence editor diagnostics  \n    - Fixed Enum.LootMethod key casing to match MoP Classic (Freeforall, Roundrobin,  \n      Needbeforegreed, Masterlooter, Personal). This ensures enum lookups match the  \n      in-game table.  \n    - Added file-local linter annotations (luacheck globals + diagnostic disable)  \n      to suppress undefined-global/undefined-field warnings from the language  \n      server for MoP-specific APIs and Enum usage.  \n    - Kept runtime behavior unchanged; no API calls or runtime logic were moved to  \n      retail C\\_* equivalents to preserve MoP Classic compatibility.  \n- updates for mop p2  \n- update mop p2  \n- updates  \n- more RDF fixes  \n- more adjustments to RDF Monitor for Queue CD  \n- fix on update func to actually do something useful  \n- add GetLFGRandomCooldownExpiration to LDB text  \n- add an RDF Monitor  \n- fix shift click to chat  \n- classic era fixes  \n- fix labels  \n- Fix \"Send to Group\" logic for home/instance state  \n- formatting  \n- new .vscode  \n- minor fixes  \n- fix group manager options  \n- Update for ToGC & Heroic Raid Modes"
+    },
+    {
+      "tag": "v1.9",
+      "published": "2023-05-07",
+      "notes": "# Broker_PlayerMenu\n\n## [v1.9](https://github.com/orionshock/Broker_PlayerMenu/tree/v1.9) (2023-05-07)\n[Full Changelog](https://github.com/orionshock/Broker_PlayerMenu/compare/v1.8...v1.9) [Previous Releases](https://github.com/orionshock/Broker_PlayerMenu/releases)\n\n- fix raid group tags  \n- rename"
+    },
+    {
+      "tag": "v1.8",
+      "published": "2023-02-26",
+      "notes": "# Broker_PlayerMenu\n\n## [v1.8](https://github.com/orionshock/Broker_PlayerMenu/tree/v1.8) (2023-02-20)\n[Full Changelog](https://github.com/orionshock/Broker_PlayerMenu/compare/v1.7...v1.8) [Previous Releases](https://github.com/orionshock/Broker_PlayerMenu/releases)\n\n- fix display tags  \n- cleanup - Instance Boot TImer  Support  \n- wrathp2 fix  \n- Update LDBLootMethod.lua  \n    Add Difficulty 14 (seems to be the generic raid size from classic)  \n- add support for 20/40mans from classic  \n- fix ghettohearth/raid buttons  \n- add RAID\\_DIFFICULTY to PartyMember tooltip  \n    add release timer to ldb.text  \n- Update LDBLootMethod.lua  \n    more refactoring and finishing new tooltip  \n- add Leave Party back to group leader options"
+    },
+    {
+      "tag": "v1.7",
+      "published": "2022-09-07",
+      "notes": "# Broker_PlayerMenu\n\n## [v1.7](https://github.com/orionshock/Broker_PlayerMenu/tree/v1.7) (2022-09-07)\n[Full Changelog](https://github.com/orionshock/Broker_PlayerMenu/compare/v1.6...v1.7) [Previous Releases](https://github.com/orionshock/Broker_PlayerMenu/releases)\n\n- final touches to LDB Text  \n- luacheck/cleanup  \n- refactor loot quality and dungen setting  \n- redo lootmethod & group management  \n- luacheck updates"
+    },
+    {
+      "tag": "v1.6",
+      "published": "2022-09-06",
+      "notes": "# Broker_PlayerMenu\n\n## [v1.6](https://github.com/orionshock/Broker_PlayerMenu/tree/v1.6) (2022-09-06)\n[Full Changelog](https://github.com/orionshock/Broker_PlayerMenu/compare/v1.5c...v1.6) [Previous Releases](https://github.com/orionshock/Broker_PlayerMenu/releases)\n\n- update packager  \n- update toc  \n    luacheck updates  \n- Update rezOptions.lua  \n    disable debug"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2023-05-07",
+      "2023-02-26",
+      "2022-09-07",
+      "2022-09-06",
+      "2022-08-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Broker_PlayerMenu"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

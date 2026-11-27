@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "peggleredux",
+  "repo": "Nighthawk42/wow_peggle_redux",
+  "about": "# Peggle Redux for World of Warcraft\n\nPeggle is back in Azeroth. This is PopCap's 2009 Peggle addon, rebuilt for modern World of Warcraft clients: the same twelve levels, physics, scoring, talents, duels, battles and Peggle Loot.\n\nPeggle Redux installs as its own addon (`PeggleRedux`) with its own saved data, so it can sit next to the original Peggle folder without either one touching the other. The original addon's code is kept, unmodified, in `original/` for reference and for the fidelity tests.\n\n## Supported Clients\n\nOne download works on every supported client.\n\n| Client | Interface | Status |\n|---|---|---|\n| **Retail** (Midnight) | `120100`, `120105` | Supported |\n| **WoW Forever** | `16001` | Supported (beta client) |\n| **Mists of Pandaria Classic** | `50504` | Supported |\n| **Titan Reforged** (Wrath) | `38002` | Supported |\n| **TBC Anniversary** | `20506` | Supported |\n| **Classic Era** | `11509` | Supported |\n\nRetail and WoW Forever no longer have Master Loot, so on those clients the group leader or an assistant starts Peggle Loot instead of the master looter.\n\n## Installation\n\n1. Download the latest release zip from the [Releases](https://github.com/Nighthawk42/wow_peggle_redux/releases) page.\n2. Extract the `PeggleRedux` folder into your client's `Interface/AddOns/` folder, for example `World of Warcraft/_retail_/Interface/AddOns/` or `World of Warcraft/_classic_era_/Interface/AddOns/`.\n\nRelease archives include everything. If you install straight from a git checkout instead, run `scripts/fetch-libs.sh` first: the libraries (Ace3, LibDataBroker, LibDBIcon) are downloaded, not committed.\n\n## Usage\n\n- `/peggle` toggles the game window. Subcommands: `show`, `hide`, `options`, `resetwindow` (back to the middle of the screen at its normal size), `achievement` and `help`. `/peg` works too; if the original Peggle addon is also installed, use `/pegredux`, which always reaches this one.\n- `/peggleloot [item]` starts a Peggle Loot challenge in your group: everyone with the addon gets one shot on the same board, and the highest score wins the item.\n- Click the minimap button or the addon compartment entry to toggle the window; right-click the minimap button for options.\n- Options are also under **Settings → AddOns → Peggle Redux**, including a key binding to toggle the window.\n\nDuels and battles only work between players who both run Peggle Redux. The network protocol is new, so the original addon and Peggle Redux can't play each other.\n\n## Feedback & Contributions\n\n- If you run into a bug, please report it with the full error message.\n- Contributions and pull requests are welcome. Read [CONTRIBUTING.md](https://github.com/Nighthawk42/wow_peggle_redux/blob/main/CONTRIBUTING.md) for the code layout, the headless tests and the workflow.\n\n## Documentation & License\n\n- [Contributing Guide](https://github.com/Nighthawk42/wow_peggle_redux/blob/main/CONTRIBUTING.md)\n- [Changelog](https://github.com/Nighthawk42/wow_peggle_redux/blob/main/CHANGELOG.md)\n- [Acknowledgements](https://github.com/Nighthawk42/wow_peggle_redux/blob/main/ACKNOWLEDGEMENT.md)\n- [License (MIT)](https://github.com/Nighthawk42/wow_peggle_redux/blob/main/LICENSE) and [the original addon's notices](https://github.com/Nighthawk42/wow_peggle_redux/blob/main/NOTICES.md)",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-10-22",
+      "notes": "# Peggle Redux\n\n## [v1.0.0](https://github.com/Nighthawk42/wow_peggle_redux/tree/v1.0.0) (2026-10-22)\n[Full Changelog](https://github.com/Nighthawk42/wow_peggle_redux/commits/v1.0.0) [Previous Releases](https://github.com/Nighthawk42/wow_peggle_redux/releases)\n\n- Peggle Redux 1.0.0: modular rewrite of PopCap's Peggle addon  \n    Deobfuscates the original Peggle 1.02 (WoW 3.3) and rebuilds it as a  \n    modular Ace3 addon for Retail, Classic (MoP, TBC Anniversary, Era, Titan)  \n    and WoW Forever from one package.  \n    - Game: levels decoded to readable data; physics, aim guide, scoring,  \n      Extreme Fever, style shots and talents ported from the original code  \n    - UI: main window, board, HUD tubes, summary, menus, talents, options  \n      on current APIs (BackdropTemplate, Menu dropdowns, Line regions)  \n    - Multiplayer: duels, battles and Peggle Loot on a new validated AceComm  \n      protocol that waits out Midnight chat lockdowns  \n    - Tests: headless Lua 5.1 harness (tests/run.py) with play, UI, duel,  \n      loot and battle simulations, and a fidelity test that replays the same  \n      shots on the original addon and compares every shot  \n    - Original addon kept unmodified in original/ (PopCap copyright)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-22",
+    "releaseDates": [
+      "2026-10-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PeggleRedux"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "PeggleReduxDB"
+    ]
+  }
+}

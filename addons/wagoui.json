@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "wagoui",
+  "repo": "methodgg/Wago-Creator-UI",
+  "about": "# WagoUI\n\nWagoUI includes Install and Create workspaces. Packs contain independent profile records tagged into one or more variations; resolution is optional variation metadata.\n\nLocal drafts live in WagoUIDB.creator.packs. Explicitly saved captures live in WagoUIDB.creator.saved; reload writes them to disk for the companion app. WagoUI does not read or migrate the old creator database.\n\nThe Wago App reads saved packs and delivers installed packs following the [schema-v2 transport contract](https://github.com/methodgg/Wago-Creator-UI/blob/main/docs/wagoui-redesign/transport.md). UI Packs published by the previous creator are converted to schema 2 when WagoUI loads them; a pack that can't be converted is left out.\n\n## Add-on authors\n\nIf you want your add-on to be supported in Wago and Wago UI packs, start by submitting it through the Wago add-on request form:\n\nhttps://docs.google.com/forms/d/e/1FAIpQLSdYdCJuXGx29oAkmzvkgbEnGSlWzXFld_qpChJhfNq2VvBjPA/viewform\n\nYour add-on also needs to expose the profile-management API expected by `LibAddonProfiles` so WagoUI can import, export, compare, select, and configure profiles during pack setup.\n\n### Integration guide\n\nFull guide:\nhttps://github.com/methodgg/Wago-Creator-UI/blob/main/WagoUI_Libraries/LibAddonProfiles/ImplementationGuide.lua\n\nIn short, the guide asks add-on authors to:\n\n- Expose the integration functions on a dedicated global API table.\n- Implement profile export and import so profiles can round-trip through your own import/export format.\n- Provide profile decoding so Wago creators can compare profile data and generate changelogs.\n- Provide helpers to list profile keys, read the current profile, and switch profiles.\n- Provide config open and close hooks when your add-on has a configuration UI.\n- Avoid calling `ReloadUI()` inside these integration functions. WagoUI handles reload timing after setup finishes.\n\nIf your add-on only has global settings and no profile system, the guide expects you to treat `\"Global\"` as the profile key.",
+  "releases": [
+    {
+      "tag": "installer-2.0.2",
+      "published": "2026-11-24",
+      "notes": "# 2.0.2 (2026-11-24)\n\n- Fix UI Pack creators being unable to see or remove profiles of AddOns that are not installed, which kept those AddOns in the pack's included AddOns list\n- Fix every WeakAuras group showing as changed after a WeakAuras update or game patch"
+    },
+    {
+      "tag": "installer-2.0.1",
+      "published": "2026-11-17",
+      "notes": "# 2.0.1 (2026-11-17)\n\n- Fix UI Pack creators being unable to save auras or profiles whose names start or end with a space"
+    },
+    {
+      "tag": "installer-2.0.0",
+      "published": "2026-11-04",
+      "notes": "# 2.0.0 (2026-11-04)\n\nThe Creator is now part of WagoUI, and UI Packs use a new format built around variations.\n\n- Merge WagoUI Creator into WagoUI: use /wago to install UI Packs and /wagoc to create them\n- Replace fixed resolutions with variations: named profile sets that can each target several resolutions\n- Convert UI Packs from the previous creator automatically, keeping install history\n- New Full Install flow for first-time users and a reworked Individual Profiles view\n- Bring back the Cooldown Manager and WeakAuras managers in the creator\n- Block saving a UI Pack with profiles that can't be saved, and warn about profile names players already have\n- Add a guided tour for first-time UI Pack creators\n- Show a banner when WagoUI_Storage is disabled, with a button to enable it and reload\n- Replace Details! Framework with WagoUI's own controls\n- Remove the NaowhQOL and ElvUI Style Filters integrations\n- Update interface versions for the latest WoW clients"
+    },
+    {
+      "tag": "creator-1.9.2",
+      "published": "2026-10-12",
+      "notes": "# 1.9.2 (2026-10-12)\n\n- Update interface versions for the latest WoW clients\n- Require Cooldown Manager Centered 5.2.17 or newer\n- Remove unused LibCompress library"
+    },
+    {
+      "tag": "installer-1.9.2",
+      "published": "2026-10-12",
+      "notes": "# 1.9.2 (2026-10-12)\n\n- Update interface versions for the latest WoW clients\n- Require Cooldown Manager Centered 5.2.17 or newer\n- Remove unused LibCompress library"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 1,
+    "contributors": 4,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-17",
+      "2026-11-04",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-08-15",
+      "2026-08-15",
+      "2026-08-11",
+      "2026-08-11",
+      "2026-07-24",
+      "2026-07-24",
+      "2026-07-22",
+      "2026-07-22",
+      "2026-07-06",
+      "2026-07-06",
+      "2026-06-16",
+      "2026-06-16",
+      "2026-06-10",
+      "2026-06-10",
+      "2026-06-04",
+      "2026-06-04",
+      "2026-06-03",
+      "2026-06-03",
+      "2026-05-18",
+      "2026-05-18",
+      "2026-05-08",
+      "2026-05-08",
+      "2026-05-05",
+      "2026-05-05",
+      "2026-05-04",
+      "2026-05-04",
+      "2026-04-22",
+      "2026-04-22",
+      "2026-04-21",
+      "2026-04-21",
+      "2026-04-13",
+      "2026-04-13",
+      "2026-04-08",
+      "2026-04-08",
+      "2026-04-08",
+      "2026-04-08",
+      "2026-03-17",
+      "2026-03-17",
+      "2026-03-11",
+      "2026-03-11",
+      "2026-03-07",
+      "2026-03-07",
+      "2026-03-06",
+      "2026-03-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WagoUI"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "WagoUI_Storage"
+    ],
+    "savedVariables": [
+      "WagoUIDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "WagoUICDB"
+    ]
+  }
+}

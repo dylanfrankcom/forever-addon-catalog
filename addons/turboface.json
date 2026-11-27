@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "turboface",
+  "repo": "Rumblecrush/TurboFace",
+  "about": "# TurboFace\n\n**An all-in-one speedrunning and interface addon for WoW Classic Era and WoW Forever.**\n\n[![Latest release](https://img.shields.io/github/v/release/Rumblecrush/TurboFace?label=release)](https://github.com/Rumblecrush/TurboFace/releases/latest)\n[![Verify and build](https://github.com/Rumblecrush/TurboFace/actions/workflows/ci.yml/badge.svg)](https://github.com/Rumblecrush/TurboFace/actions/workflows/ci.yml)\n\n[Download on CurseForge](https://www.curseforge.com/wow/addons/turboface) ·\n[Download from GitHub](https://github.com/Rumblecrush/TurboFace/releases/latest) ·\n[Join Discord](https://discord.gg/apZzz38M9)\n\nTurboFace combines combat information, leveling and speedrun tools, inventory\nautomation, training helpers, movers, and profiles in one configurable addon.\nIt enhances the native UI while keeping the information needed for fast,\nrepeatable leveling close at hand.\n\n## Supported clients\n\n| Client | Status | Interface | Package |\n|---|---|---:|---|\n| WoW Classic Era | Stable | 11509 | `TurboFace-Classic-0.20.0.zip` |\n| WoW Forever | Supported beta client | 16001 | `TurboFace-Forever-0.20.0.zip` |\n\nUse only the package matching your client. GitHub Releases provides both ZIPs\nfor direct installation. CurseForge availability can follow its normal file\nreview process.\n\n## Feature highlights\n\n### Nameplates and unit frames\n\n- Enhanced native nameplates with optional threat numbers, aggro audio,\n  important auras, combo points, quest indicators, power overlays, and swing\n  information.\n- Configurable Player, Target, Target-of-Target, Pet, and Party frames with\n  Classic-style artwork.\n- DoT and incoming-heal prediction, absorb bars, aura styling, health and power\n  text, cast bars, and raid/classification indicators.\n\n### Combat tools\n\n- Main-hand, off-hand, ranged, and target swing timers.\n- Player and target cast bars as standalone widgets or integrated unit-frame\n  elements.\n- Lightweight current/overall damage and healing meter with an optional\n  PlayerFrame DPS/HPS badge.\n- Enemy leash countdowns, class resources, important-buff reminders, and\n  class-specific combat indicators.\n\n### Leveling, training, and speedrunning\n\n- XP bar with XP/hour, rested and quest XP, session time, and level-time data.\n- Cumulative `/played` speedrun splits with personal-best and segment\n  comparisons.\n- Level-one Quick Setup for selected macros, bindings, action placement, CVars,\n  and supported UI settings.\n- Training and Skills pages integrated with the Spellbook, profession Training\n  and Recipes views, per-character training queues, and skill tracking.\n\n### Inventory and utility\n\n- Custom loot notifications with quality, quantity, and vendor value.\n- Junk/useful/bank item marking, merchant selling, bank routing, free-slot\n  tracking, and a Net Worth display.\n- Grocery List planning for repeat purchases such as food, water, reagents,\n  ammunition, poisons, potions, and other supplies.\n- Hearthstone location/cooldown tools and an optional Classic batching\n  assistant.\n- Hybrid Flight Bar with immediate route estimates and account-wide learning\n  from completed flights.\n- Minimap, map, chat, social, automation, and general quality-of-life options.\n- Optional integration with UnstuckSkips and Baganator.\n\n## Installation\n\n### CurseForge app\n\nInstall TurboFace from the\n[CurseForge project page](https://www.curseforge.com/wow/addons/turboface),\nselecting the file for your client when available.\n\n### Manual installation\n\n1. Download the matching ZIP from\n   [GitHub Releases](https://github.com/Rumblecrush/TurboFace/releases/latest).\n2. Exit World of Warcraft.\n3. Extract the archive into the selected client's `Interface/AddOns` folder.\n4. Confirm the resulting path is `Interface/AddOns/TurboFace/TurboFace.toc`.\n5. Start the game and enable **TurboFace** on the AddOns screen.\n\n## Getting started\n\n- `/tf` or `/turboface` — open TurboFace Options.\n- `/tf move` or `/tfmove` — show mover handles and the alignment grid.\n- `/tf lock` — finish positioning and lock mover handles.\n- `/tfsplits` — manage or inspect speedrun splits.\n- `/tfgrocery` or `/tfshop` — open Grocery List commands.\n\nProfiles can be saved, switched, imported, and exported from the **Profile**\ntab. Options that alter Blizzard-owned or protected frames may require\n`/reload`; the relevant option sections identify those cases.\n\n## Classic Era and WoW Forever\n\nBoth packages are built from the same shared feature source. Classic Era uses\nthe official Classic UI architecture. WoW Forever uses a modernized UI with\ndifferent protected-frame and secret-value rules, so its package includes\ndedicated compatibility and native-UI adapters.\n\nForever is currently a beta game client. TurboFace supports its targeted\nInterface `16001` build, but client-side beta changes can require compatibility\nupdates. Include the exact game build when reporting a Forever issue.\n\n## Bug reports and support\n\n- [Report a bug or request a feature](https://github.com/Rumblecrush/TurboFace/issues/new/choose)\n- [Join the TurboFace Discord](https://discord.gg/apZzz38M9)\n- [View the CurseForge project](https://www.curseforge.com/wow/addons/turboface)\n\nFor bugs, include the client, TurboFace version, exact game build, reproduction\nsteps, and the full Lua error if one appears.\n\n## Credits and third-party software\n\nTurboFace is developed and maintained by **Rumblecrush**. It includes or adapts\nthird-party software and data under their respective licenses. See\n[Third-Party Notices](https://github.com/Rumblecrush/TurboFace/blob/main/THIRD_PARTY_NOTICES.md) for sources, scope, attribution,\nand license locations.\n\n## License\n\nTurboFace's original material is All Rights Reserved. Official releases may be\ndownloaded for personal use with World of Warcraft; redistribution and modified\ndistribution require prior written permission. See the [license](https://github.com/Rumblecrush/TurboFace/blob/main/LICENSE) for\nthe complete terms.\n\n## Developer documentation\n\nDevelopment and release material is intentionally kept out of the player-facing\nsections above:\n\n- [Contributing](https://github.com/Rumblecrush/TurboFace/blob/main/CONTRIBUTING.md)\n- [Development guide](https://github.com/Rumblecrush/TurboFace/blob/main/docs/DEVELOPMENT.md)\n- [Development-to-CurseForge workflow](https://github.com/Rumblecrush/TurboFace/blob/main/docs/DEV_TO_CURSEFORGE.md)\n- [Release guide](https://github.com/Rumblecrush/TurboFace/blob/main/docs/RELEASING.md)\n- [Multi-client strategy](https://github.com/Rumblecrush/TurboFace/blob/main/docs/MULTICLIENT_STRATEGY.md)\n- [Source map](https://github.com/Rumblecrush/TurboFace/blob/main/docs/SOURCE_MAP.md)\n- [Classic architecture](https://github.com/Rumblecrush/TurboFace/blob/main/docs/classic/ARCHITECTURE.md)\n- [Forever architecture](https://github.com/Rumblecrush/TurboFace/blob/main/docs/forever/ARCHITECTURE.md)\n- [Classic changelog](https://github.com/Rumblecrush/TurboFace/blob/main/docs/classic/CHANGELOG.md)\n- [Forever changelog](https://github.com/Rumblecrush/TurboFace/blob/main/docs/forever/CHANGELOG.md)",
+  "releases": [
+    {
+      "tag": "v0.20.0",
+      "name": "TurboFace 0.20.0",
+      "published": "2026-10-12",
+      "notes": "# TurboFace 0.20.0\n\nTurboFace 0.20.0 adds a saved sticky note and weapon-stone reminders, fixes\nclass spell-rank detection after trainer visits, and prevents a dungeon\nswing-timer error involving protected target identities.\n\n## New features\n\n- **Sticky Note:** Enable it in Options > Speedrun, then open it with\n  `/tf note` or `/tfnote`. Drag the header to move it, collapse it to the\n  header, or close it. Text, position, and collapsed/open state persist per\n  character. The dark background is easier on the eyes, and the feature\n  remains dormant when disabled.\n- **Weapon stones:** The Class reminder queue now checks both hands for an\n  uncoated melee weapon and a compatible, level-eligible sharpening stone or\n  weightstone in your bags. Supports ordinary Rough through Dense stones.\n  Existing temporary enchants, poisons, and imbues satisfy the reminder.\n  Enabled by default, with a toggle in Class Features; hidden during combat\n  and while dead. Keep the queue's “Only show while in combat” option off to\n  see this out-of-combat reminder.\n\n## Fixes\n\n- Class Training uses explicit learned spell IDs and client-specific rank\n  replacement chains across all nine classes, preventing starter-rank aliases\n  from incorrectly hiding later ranks.\n- Trainer visits preserve rank metadata when the client omits rank labels,\n  and resolve ambiguous spell families using catalog rank and level data.\n- The training queue respects the same learned-rank result as the list.\n- Target and nameplate swing timers reject unreadable GUIDs before cache\n  lookup, avoiding the secret-table-key error reported in dungeons.\n\nPortable SavedVariables remain at schema version 79. Existing settings and\ncharacter data are preserved.\n\n## Downloads\n\n- `TurboFace-Classic-0.20.0.zip` — Classic Era 1.15.9\n- `TurboFace-Forever-0.20.0.zip` — Forever 1.60.1\n\nInstall only the package matching your client. Each archive extracts to one\n`TurboFace/` addon directory."
+    },
+    {
+      "tag": "v0.19.4",
+      "name": "TurboFace 0.19.4",
+      "published": "2026-10-08",
+      "notes": "# TurboFace 0.19.4\n\nTurboFace 0.19.4 fixes starter-rank detection in Class Training, including\nForever spellbook aliases that could hide untrained Warrior abilities.\n\n## Highlights\n\n- Learned-rank detection prefers the base spellbook slot identity over an\n  active spell override. Heroic Strike and Rend Rank 2 remain available for\n  training when the character still knows only their starter ranks.\n- Catalog level requirements cap impossible future-rank aliases, keeping\n  Battle Shout Rank 2 in a level-10 Warrior's future training list. The cached\n  snapshot refreshes when the character's level changes.\n- Heroic Strike Rank 2 now correctly requires Rank 1 instead of itself.\n- Both Classic and Forever include the shared training fixes and modern\n  spellbook compatibility fallback.\n\nPortable SavedVariables remain at schema version 79.\n\n## Downloads\n\n- `TurboFace-Classic-0.19.4.zip` — World of Warcraft Classic Era 1.15.9\n- `TurboFace-Forever-0.19.4.zip` — World of Warcraft Forever 1.60.1\n\nInstall only the package matching your client. Each archive extracts to a\nsingle `TurboFace/` addon directory."
+    },
+    {
+      "tag": "v0.19.3",
+      "name": "TurboFace 0.19.3",
+      "published": "2026-10-06",
+      "notes": "# TurboFace 0.19.3\n\nTurboFace 0.19.3 adds a safe mover for Forever's native target-unit castbar\nand refreshes the built-in Rumblecrush preset from the latest live profile.\n\n## Highlights\n\n- Forever players can position Blizzard's native **Target Unit Cast Bar** from\n  TurboFace's Blizzard Movers section. TurboFace moves only the native bar's\n  anchor and leaves cast state, rendering, animations, and interaction under\n  Blizzard ownership.\n- The mover reapplies its position after Blizzard target and aura layout passes,\n  defers protected writes during combat, and restores Blizzard's layout when the\n  mover or the global Movers module is disabled.\n- Position-only movers do not expose Hide or Click Through controls, preventing\n  those generic controls from changing native-frame behavior.\n- `/tfmove targetcastprobe` reports the resolved native frame, protection state,\n  anchor ownership, deferred state, geometry, and last write error.\n- **Rumblecrush's Preset** is refreshed from the 2026-10-06 profile export. It\n  positions the native target castbar at `CENTER (145, -375)`, moves Target of\n  Target to `CENTER (350, -260)`, and enables nameplate swing timers and\n  Speedrun Splits.\n- The Forever-only native castbar mover data is safely inert in the Classic\n  package; the shared preset updates continue to apply normally.\n\nPortable SavedVariables remain at schema version 79.\n\n## Downloads\n\n- `TurboFace-Classic-0.19.3.zip` — World of Warcraft Classic Era 1.15.9\n- `TurboFace-Forever-0.19.3.zip` — World of Warcraft Forever 1.60.1\n\nInstall only the package matching your client. Each archive extracts to a\nsingle `TurboFace/` addon directory."
+    },
+    {
+      "tag": "v0.19.2",
+      "name": "TurboFace 0.19.2",
+      "published": "2026-10-05",
+      "notes": "# TurboFace 0.19.2\n\nTurboFace 0.19.2 makes nameplate combo points persist on their actual target\nwhile preserving Classic's single-target ownership rules.\n\n## Highlights\n\n- Combo points remain visible on their target's nameplate after deselecting it\n  or selecting another unit, much like retained nameplate debuffs.\n- Only the current target is queried. TurboFace stores the last readable count\n  in addon-owned per-nameplate state and never probes protected non-target data.\n- Earning the first combo point on a different target transfers ownership and\n  immediately clears every older visible combo snapshot.\n- Nameplates with zero combo points show no combo row, whether selected or not.\n  Positive snapshots continue to display the full five-slot progression row.\n- Nameplate removal and pooled-frame reuse clear retained snapshots so combo\n  points cannot leak onto another unit.\n- Forever's detached aura guides release or restore combo-row spacing whenever\n  a retained row changes visibility, without reanchoring secret-bound aura\n  containers.\n- Druid form transitions hide retained rows outside Cat Form and restore valid\n  positive snapshots on returning to Cat Form.\n\nPortable SavedVariables remain at schema version 79.\n\n## Downloads\n\n- `TurboFace-Classic-0.19.2.zip` — World of Warcraft Classic Era 1.15.9\n- `TurboFace-Forever-0.19.2.zip` — World of Warcraft Forever 1.60.1\n\nInstall only the package matching your client. Each archive extracts to a\nsingle `TurboFace/` addon directory."
+    },
+    {
+      "tag": "v0.19.1",
+      "name": "TurboFace 0.19.1",
+      "published": "2026-10-04",
+      "notes": "# TurboFace 0.19.1\n\nTurboFace 0.19.1 is a focused hotfix for movable nameplate combo points and\nstarter-spell ranks in Class Training.\n\n## Highlights\n\n- Forever nameplate debuffs now follow an addon-owned movable anchor guide.\n  Moving combo points downward dynamically releases their reserved space, while\n  the default upper position continues to keep debuffs clear of the combo row.\n- The aura fix does not reanchor Blizzard's secret-bound AuraContainer after it\n  has been attached, preserving the Midnight-safe ownership boundary.\n- Class Training now matches the exact spell ID in each live spellbook slot to\n  the class rank catalog.\n- Starter abilities whose first trainer purchase is Rank 2—including Sinister\n  Strike and Heroic Strike—no longer lose Rank 2 while still showing Rank 3.\n- Learned higher ranks continue to collapse their older rows correctly, and the\n  fallback applies across all class starter-spell families rather than using\n  Rogue- or Warrior-specific exceptions.\n\nPortable SavedVariables remain at schema version 79.\n\n## Downloads\n\n- `TurboFace-Classic-0.19.1.zip` — World of Warcraft Classic Era 1.15.9\n- `TurboFace-Forever-0.19.1.zip` — World of Warcraft Forever 1.60.1\n\nInstall only the package matching your client. Each archive extracts to a\nsingle `TurboFace/` addon directory."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-12",
+    "releaseDates": [
+      "2026-10-12",
+      "2026-10-08",
+      "2026-10-06",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-02",
+      "2026-09-29",
+      "2026-09-27",
+      "2026-09-25",
+      "2026-09-24",
+      "2026-09-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TurboFace"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Baganator",
+      "UnstuckSkips"
+    ],
+    "savedVariables": [
+      "TurboFaceDB",
+      "TurboFaceCacheDB",
+      "TurboFaceProfilesDB",
+      "TurboFaceTrainerDB",
+      "TurboFaceSpeedrunDB",
+      "TurboFaceCompatDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "TurboFaceCharDB",
+      "TurboFaceTrainerCharDB",
+      "TurboFaceCVarExportCharDB",
+      "TurboFaceSpeedrunCharDB"
+    ]
+  }
+}

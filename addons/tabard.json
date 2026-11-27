@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "tabard",
+  "repo": "alexandermayes/tabard",
+  "about": "# Tabard\n\nA dated record of your guild for World of Warcraft Forever, built on the stock UI.\n\nTabard watches the roster while you play and keeps a ledger: who joined and when, who left or was\nremoved, promotions, level-ups, name changes, note changes, and more. It fills the gaps a guild officer\nusually keeps in their head, and it shares that knowledge between officers automatically.\n\n## What it does\n\n- **Overview**: five big numbers, what changed since your last login, what happened in the last 30 days, a \"needs attention\" list, upcoming\n  anniversaries and birthdays, class and level breakdowns (click a class to see its levels and who leads it), and sharing status. Every number is a button.\n- **To-do**: trial reviews due, leaves of absence that ended, banned characters in the guild, alts whose\n  main left, promotions due, members back from a break, and requests members whisper you (`!main`,\n  `!bday`, `!loa`). Mark an item handled and it is handled for every officer running the addon.\n- **Log**: every event with a coloured badge, searchable and filterable. Everything since your last login sits above a divider, and a leave shows when they joined and the rank they held.\n- **Play**: guildies online near your level, grouped by zone with yours first, and the dungeons that fit\n  your level. Click a row to whisper them. AFK, busy and app users are left out.\n- **Members** and **Former members**: sortable tables with class icons, join dates, main/alt links,\n  last online, raid attendance and notes. Click a row for the member card.\n- **Member card**: join date, time in rank, birthday, main and alts, leave of absence, trial votes,\n  strikes, all three notes, actions (promote, demote, remove, ban) and the member's full history. Right-click a\n  guild member in the game's guild roster, on a unit frame or in chat and choose \"Open in Tabard\".\n- **Mains and alts**: right-click a member to link them from a searchable list, your own characters are grouped\n  automatically, and likely alts show up on the To-do tab with Link and Not alts. Event lines show \"(main)\" or\n  \"(alt of X)\" after a name, and guild chat shows the main's name after an alt's name.\n- **Nicknames**: give a member a nickname on their card (or `/tabard nick NAME = NICKNAME`) and it shows after\n  their name, and their alts' names, in guild chat and on tooltips.\n- **Login lines**: \"X (main) is online (level 48 Mage, last on 2 days ago).\" when a guild member logs in; off\n  with one checkbox.\n- **Ding lines**: a star, \"DING! X (main) hit level 22! onward!\" in its own pink when a guild member levels, with\n  milestone tails at 10, 20, 30, 40, 50 and 60.\n- **New members' first week**: how long they have been online and whether anyone has talked to them. A\n  newcomer who has been online half an hour with no hello becomes a To-do item, with a guildie near their\n  level suggested as a buddy. Only flags and minutes are kept, never message text.\n- **Login report**: who joined, left and changed rank while you were away, as chat lines at login.\n- **Bans**: a ban list with reasons that warns you when a banned character, or an alt of one, joins.\n- **Tools**: inactive members to consider removing, promotions due, retention by join week and who\n  recruits people who stay. Remove and promote run as a generated macro, since the game only allows them from a button you press.\n- **Export**: comma-separated text for members, former members, the log, bans, raid attendance and the\n  last raid.\n- **Settings**: chat announcements, login report, welcome whispers, guild chat shoutouts, sharing, trial and newcomer ranks, thresholds, themes,\n  backups and a Guild Roster Manager import. Every option is in the window.\n\n### Optional extras (off until you turn them on)\n\n- **Welcome whispers**: new members get a personal whisper from you, rotating through your lines.\n- **Guild chat shoutouts**: a short line when a member hits a milestone level, with one real fact from the\n  ledger added.\n\n### Sharing between officers\n\nOfficers who run Tabard exchange join dates, promotion dates, alts, bans, notes, nicknames, birthdays, votes,\nstrikes and handled items through addon messages. Only members at or above the rank you choose are\ntrusted. Nothing is announced on their behalf. The hello also carries the version, so when a guildie runs a\nnewer Tabard you get one chat line saying it is time to update in the CurseForge app.\n\nAfter the hello comes a line of usage counts: how often the window was opened, which pages, member cards and\nslash commands, and which features are on. No names, notes or chat. `/tabard users` shows what the other\nTabard users in the guild use, `/tabard usage` shows your own line (ready to copy), and one checkbox in\nSettings stops sending it.\n\n## Slash commands\n\n`/tabard` opens the window. `/tabard scan`, `/tabard sync`, `/tabard status`, `/tabard import`,\n`/tabard todo`, `/tabard raid`, `/tabard backup`, `/tabard restore`, `/tabard welcome`, `/tabard nick`,\n`/tabard users` and `/tabard usage` do what they say; the window has the same controls.\n\n## Coming from Guild Roster Manager\n\nSettings has an Import button that reads Guild Roster Manager's saved join and promotion dates for your\nguild. Dates from the game's own event log and dates you type in still take priority.\n\n## Notes for this client\n\nWorld of Warcraft Forever forbids addons from sending chat on a timer, so welcome whispers and\nshoutouts go out on your next click or chat line. Tabard never sends anything you did not enable.",
+  "releases": [
+    {
+      "tag": "v1.2.11",
+      "name": "Tabard 1.2.11",
+      "published": "2026-11-14",
+      "notes": "## 1.2.11\n\n- Pick the trial rank by name (asked for on CurseForge). Settings has two new dropdowns, \"Trial rank\" and \"Newcomer rank\", listing your guild's ranks; before, the trial rank was a \"rank index\" number box at the bottom of the thresholds, and the newcomer rank (the one promotions are suggested out of) could not be set at all. Both default to the newest rank, as before. The number box is gone.\n\nInstall through the CurseForge app, or unzip the attached file into Interface/AddOns."
+    },
+    {
+      "tag": "v1.2.10",
+      "name": "Tabard 1.2.10",
+      "published": "2026-11-14",
+      "notes": "## 1.2.10\n\n- Level-ups in the chat frame are a cheer now, not a record line. A gold star, \"DING!\", the level in white and a short tail (\"Zev (main) hit level 22! onward!\"), in a pink nothing else in Tabard uses, so a ding no longer looks like the teal \"is online\" line above it. Milestones get their own tails (10 \"talents unlocked!\", 40 \"MOUNT TIME!\", 60 \"MAX LEVEL!\"), other levels draw from a small pool. The history and the Overview keep the plain \"reached level 22\" wording.\n\n- The stock shoutout and ding lines no longer name dungeons or make claims about where people are in the levelling curve (\"SM time\", \"BRD time\", \"halfway in levels, not in xp\"). Not every guild dungeon-grinds. The 20 line is now \"GZ OLAND 20!! keep it rolling\", 30 is \"LETS GOOO OLAND 30!! big number\", 50 is \"HELL YEAH OLAND 50!! so close\". Lines you wrote yourself are untouched. The Play tab's dungeons-by-level list stays; that is a finder, not a claim.\n\n## 1.2.9\n\n- An Invite button that works on WoW Forever. Typing `/ginvite` in chat is refused by the client whenever a chat addon such as Prat is loaded, and an addon may not invite by itself. Tabard now keeps one secure \"Invite Name\" button, like the card's Promote button: your click on it runs `/ginvite` as your own command. It comes up in a small bar near the top of the screen (drag it where you like) when someone who is not in the guild whispers you (off with the \"Offer an Invite button...\" checkbox in Settings), from `/tabard invite Name`, and from \"Invite to guild\" in the right-click menu on a player, a party member, a friend or a chat name. A key binding, \"Invite the last whisperer to the guild\" under Tabard in the game's key bindings, clicks it without the mouse. The bar hides itself after a minute or on the X; in combat the name waits until combat ends. A whisper from someone on the ban list says so on the bar.\n\nInstall through the CurseForge app, or unzip the attached file into Interface/AddOns."
+    },
+    {
+      "tag": "v1.2.8",
+      "name": "Tabard 1.2.8",
+      "published": "2026-11-11",
+      "notes": "## 1.2.8\n\n## 1.2.7\n\n## 1.2.6\n\n## 1.2.5\n\nInstall through the CurseForge app, or unzip the attached file into Interface/AddOns."
+    },
+    {
+      "tag": "v1.2.4",
+      "name": "Tabard 1.2.4",
+      "published": "2026-11-10",
+      "notes": "## 1.2.4\n\n## 1.2.3\n\n## 1.2.2\n\nInstall through the CurseForge app, or unzip the attached file into Interface/AddOns."
+    },
+    {
+      "tag": "v1.2.1",
+      "name": "Tabard 1.2.1",
+      "published": "2026-11-10",
+      "notes": "- Note changes get their own lines in \"Since your last visit\" on the Overview and in the login report (\"Check Myspeed's note is now \"alt of Zev\"\"), instead of being counted among \"other changes\". The chat summary at login counts them too (\"3 note changes\").\n- \"Make main\" on the member card works for a character that is not in any group yet: it starts a group with them as the main, so \"not sorted into main or alt\" stops counting them. Before, the button was greyed out with \"not in a group\".\n- \"Add alt...\" on the card's Alts row (and \"Add an alt...\" in the right-click menu) picks one of the person's other characters from the member list and links it as their alt. Before, the only way was to open the alt's card and answer \"Who is X's main?\".\n- The member card's second line (\"Level 21 Hunter, Yiker\") no longer hides behind the portrait circle.\n- The help sentence in the Bans, Play, Export and To-do toolbars no longer gets cut off with \"...\" when the window is at its normal size. Each now shows a short line that fits, and hovering it shows the full explanation."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Tabard"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "GuildLedger"
+    ],
+    "savedVariables": [
+      "TabardDB"
+    ]
+  }
+}

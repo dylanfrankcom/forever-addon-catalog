@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "interactivewormholes",
+  "repo": "p3lim-wow/InteractiveWormholes",
+  "about": "# Interactive Wormholes\n\nThis is an addon for the popular MMORPG \"World of Warcraft\".  \nIt can be downloaded at one of the following sites:\n\n- [CurseForge](https://www.curseforge.com/wow/addons/interactivewormholes)\n- [WoWInterface](https://wowinterface.com/downloads/info24119)\n- [Wago](https://addons.wago.io/addons/interactivewormholes)\n- [GitHub](https://github.com/p3lim-wow/InteractiveWormholes/releases)\n\n[![](https://shields.io/badge/github_sponsors-support_development-red?logo=github&style=for-the-badge)](https://github.com/sponsors/p3lim)\n\n## Description\n\nWhen using spells and toys such as [Wormhole Generator: Northrend](https://wowhead.com/item=48933) you'd normally get a boring list of (sometimes obfuscated) destinations.\n\nInstead of that, *Interactive Wormholes* displays these destinations as clickable portals on your world map.\n\n![](https://i.imgur.com/olsCLvK.png)\n\nSupported wormholes:\n\n- [Wormhole Generator: Quel'Thalas](https://www.wowhead.com/item=248485)\n- [Wormhole Generator: Khaz Algar](https://www.wowhead.com/item=221966)\n- [Wyrmhole Generator: Dragon Isles](https://www.wowhead.com/item=198156)\n- [Wormhole Generator: Shadowlands](https://www.wowhead.com/item=172924)\n- [Wormhole Generator: Northrend](https://www.wowhead.com/item=48933)\n\t- Including the \"secret\" 6th destination!\n- [Wormhole Centrifuge](https://www.wowhead.com/item=112059)\n- [Reaves](https://www.wowhead.com/item=132523)' [Wormhole Generator module](https://www.wowhead.com/item=132524)\n\nOther spells and transportation methods:\n\n- [Taxi](https://warcraft.wiki.gg/wiki/Flight_path) (optional, enable in settings)\n- [Hero's Path](https://www.wowhead.com/spells/uncategorized/name:path+of?filter=28;3;10)\n\t- Shift-click dungeon entrances on the map to teleport\n- [Mole Machine](http://www.wowhead.com/spell=265225) (Dark Iron Dwarf racial)\n- [Amani Windcaller](https://www.wowhead.com/npc=272197) taxi system in [Vaults of Atal'Utek](https://www.wowhead.com/zone=16535)\n- [Voidspire](https://www.wowhead.com/zone=16340) Teleport Pads\n- [Phase Diving](https://www.wowhead.com/guide/the-war-within/phase-diving-unlock-rewards) in [K'aresh](https://www.wowhead.com/zone=15336)\n    - Requires enabling Taxi option\n- [Undermine](https://www.wowhead.com/guide/the-war-within/patch-11-1-undermine-zone-guide) Rocketway\n- [Siren Isle](https://www.wowhead.com/zone=10416)\n- [Animaflow Teleporter](https://www.wowhead.com/npc=172925) in [The Maw](https://www.wowhead.com/zone=11400)\n- [War Campaign](https://warcraft.wiki.gg/wiki/War_Campaign) footholds (Battle for Azeroth)\n- [Warfront](https://www.wowhead.com/guide/warfronts-in-battle-for-azeroth-5982) Flightmasters\n- [Silas' Stone of Transportation](https://www.wowhead.com/item=156632) (Battle for Azeroth)\n- [Stormflight](https://www.wowhead.com/npc=96679) (Warrior order hall)\n- [Manapoof](https://www.wowhead.com/npc=121602) (Pet Battle Dungeon teleporter in Dalaran)\n- [Vethir](https://www.wowhead.com/npc=108685) in [Stormheim](https://www.wowhead.com/zone=7541)\n- [Underbelly portal network](https://www.wowhead.com/item=138028) in [Dalaran (Legion)](https://www.wowhead.com/zone=7502)\n- [Azshara Rocketway](https://www.wowhead.com/npc=43217)\n\nIntegrates with [InFlight](https://www.curseforge.com/wow/addons/inflight-taxi-timer) or [TaxiTimer](https://www.curseforge.com/wow/addons/taxitimer) to display taxi flight durations/estimations.\n\n## Translations\n\nIf you want to help translate Interactive Wormholes, please go here:  \n[https://legacy.curseforge.com/wow/addons/interactivewormholes/localization](https://legacy.curseforge.com/wow/addons/interactivewormholes/localization)\n\n## Feedback & issues\n\nIf you would like to report a bug or contribute to the project, please visit GitHub:  \n[https://github.com/p3lim-wow/InteractiveWormholes/issues/new/choose](https://github.com/p3lim-wow/InteractiveWormholes/issues/new/choose)\n\n## Legal\n\nPlease see the [LICENSE](https://github.com/p3lim-wow/InteractiveWormholes/blob/master/LICENSE.txt) file.",
+  "releases": [
+    {
+      "tag": "120105.88-Release",
+      "published": "2026-11-18",
+      "notes": "### Changes in 120105.88-Release:\n\n- Changed: Don't skip gossip when there are quests\n- Fixed: Error when interacting with flight master and running away quickly\n- Fixed: Errors on first install"
+    },
+    {
+      "tag": "120105.87-Release",
+      "published": "2026-10-31",
+      "notes": "### Changes in 120105.87-Release:\n\n- Changed: Update Interface version"
+    },
+    {
+      "tag": "120105.86-Release",
+      "published": "2026-10-15",
+      "notes": "### Changes in 120105.86-Release:\n\n- Added: Support for taxi map in The Labyrinth of Kindo'jan"
+    },
+    {
+      "tag": "120100.85-Release",
+      "published": "2026-09-25",
+      "notes": "### Changes in 120100.85-Release:\n\n- Added: Support for Forever (taxi)\n- Changed: Skip to taxi if only option in Forever\n- Changed: Only update pin sizes when map is visible\n- Fixed: Pins not updating size when scale changes"
+    },
+    {
+      "tag": "120100.84-Release",
+      "published": "2026-08-28",
+      "notes": "### Changes in 120100.84-Release:\n\n- Fixed: Error with cosmic map"
+    }
+  ],
+  "stats": {
+    "stars": 9,
+    "openIssues": 0,
+    "contributors": 8,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-10-31",
+      "2026-10-15",
+      "2026-09-25",
+      "2026-08-28",
+      "2026-08-23",
+      "2026-08-16",
+      "2026-08-16",
+      "2026-08-15",
+      "2026-08-14",
+      "2026-08-12",
+      "2026-07-18",
+      "2026-06-21",
+      "2026-04-22",
+      "2026-03-23",
+      "2026-03-22",
+      "2026-03-14",
+      "2026-03-14",
+      "2026-03-14",
+      "2026-02-12",
+      "2026-02-11",
+      "2026-02-11",
+      "2026-02-11",
+      "2026-01-17",
+      "2025-11-22",
+      "2025-10-10",
+      "2025-08-09",
+      "2025-08-09",
+      "2025-08-04",
+      "2025-06-23",
+      "2025-04-23",
+      "2025-03-13",
+      "2025-03-10",
+      "2025-02-26",
+      "2024-12-20",
+      "2024-12-19",
+      "2024-11-29",
+      "2024-10-23",
+      "2024-09-25",
+      "2024-08-30",
+      "2024-08-18",
+      "2024-08-11",
+      "2024-07-25",
+      "2024-07-24",
+      "2024-07-23",
+      "2023-11-17",
+      "2023-11-08",
+      "2023-08-22",
+      "2023-07-24",
+      "2023-06-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "InteractiveWormholes"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "InteractiveWormholesDB"
+    ]
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "ratingbuster",
+  "repo": "raethkcj/RatingBuster",
+  "about": "# RatingBuster\n\n![RatingBuster](https://user-images.githubusercontent.com/7716908/186707338-2bcf29cc-0529-4be9-9a4b-d29b621580fa.png)\n\nRatingBuster converts combat ratings in your tooltips into percentages, so that you have more meaningful information when comparing different items.\n\nThe design aim of RatingBuster is to provide detailed, meaningful and customizable information about items so you can easily decide for yourself which item is better.\n\n![image](https://github.com/user-attachments/assets/6b163d16-93d8-4bc4-bb5b-127fadf90562)\n\nOriginally written by Whitetooth (https://github.com/hotdogee)\n\n## Installation:\nAvailable for download at:\n\n[CurseForge](https://www.curseforge.com/wow/addons/ratingbuster-classic) | [WoWInterface](https://www.wowinterface.com/downloads/info26235-RatingBusterClassic.html#info) | [Wago Addons](https://addons.wago.io/addons/ratingbuster) | [WowUp](https://wowup.io/addons/54151) | [GitHub Releases](https://github.com/raethkcj/RatingBuster/releases/latest)\n\n## Features\n\nRating Conversion:\n  * Converts combat ratings into percentages.\n\nStat Breakdown:\n  * Breakdown Strength, Agility, Stamina, Intellect and Spirit into base stats.\n  * Supports talents, buffs and racials that give you extra bonuses.\n  * Ex talent: Lunar Guidance - \"Increases your spell damage and healing by 8%/16%/25% of your total Intellect.\"\n  * Ex talent: Heart of the Wild - \"Increases your Intellect by 4%/8%/12%/16%/20%. In addition, ......etc\"\n  * Ex: +13 Intellect (+234 Mana, +0.18% Spell Crit, +3.9 Dmg)\n\nStat Summary:\n  * Summarizes all the stats from the item itself, enchants and gems, converts them to base stats and displays the total value and/or difference from your current equipped item.\n  * Ex: Crit Chance - Adds up agility and crit rating from the item, enchant and gem. Converts agility and crit rating to crit chance, and displays the total in a single value.\n\nItem Level and Item ID:\n  * Item Level is obtained from the WoW API, not a calculated value.\n  * Item ID is useful for advanced users.\n\nSupports talents, buffs and racials that modify your stats for all classes.\n\nFully customizable, decide what you need to see and what you don't want.\n\n## Auto fill gems in empty sockets\n1. You can set the default gems for each type of empty socket using \"/rb sum gem <red|yellow|blue|meta> <ItemID|Link>\" or using the options window.\n2. To specify the gem of your choice, you will need to give RatingBuster the ItemLink or the ItemID of the gem.\n3. ItemLink example: type \"/rb sum gem blue \" (last char is a space) and link the gem (from your bags, AH, ItemSync or whatever), then press .\n4. What if you can't link the gem? Well thats what ItemID is for. Find your gem on http://www.wowhead.com/ and look at the URL,\n   for example \"http://www.wowhead.com/?item=32193\", 32193 is the ItemID for that gem.\n   Go back in wow, type \"/rb sum gem red 32193\" and press .\n\nNote1: If you have \"/rb sum ignore gem\" on, the auto fill gems won't work.\nNote2: Meta gem conditions and SetBonuses work, so if you don't meet the conditions, StatSummary won't count them.\nNote3: RatingBuster will only auto fill empty sockets, if the item already has some gems on it, it will remain.\nNote4: Empty sockets filled by RatingBuster will keep the \"Empty Socket Icon\" so you can still easily tell what color socket it is.\nNote5: Gem text filled by RatingBuster will be shown in gray color to differentiate from real gems.\n\n## Supported Addons\n\nEquipCompare, EQCompare, tekKompare.\nLinkWrangler, MultiTips, Links.\nAtlasLoot, ItemMagic, Sniff.\n\nwill work with all bag mods too!\n\n## Options\n\nType `/rb` or `/ratingbuster` to open the options menu GUI, or add a slash command:\n\n- `help` - Show help message\n- `showItemID` - Show the ItemID in tooltips\n- `showItemLevel` - Show the ItemLevel in tooltips\n- `rating` - Options for Rating display\n\t- `showRatings` - Show Rating conversions in tooltips\n\t- `detailedConversionText` - Show detailed text for Resilience and Expertise conversions\n\t- `defBreakDown` - Convert Defense into Crit Avoidance, Hit Avoidance, Dodge, Parry and Block\n\t- `wpnBreakDown` - Convert Weapon Skill into Crit, Hit, Dodge Neglect, Parry Neglect and Block Neglect\n\t- `expBreakDown` - Convert Expertise into Dodge Neglect and Parry Neglect\n\t- `color` - Changes the color of added text\n\t\t- `pick` - Pick a color\n\t\t- `enableTextColor` - Enable colored text\n- `stat` - Changes the display of base stats\n\t- `showStats` - Show base stat conversions in tooltips\n\t- `str` - Changes the display of Strength\n\t\t- `showAPFromStr` - Show Attack Power from Strength\n\t\t- `showBlockValueFromStr` - Show Block Value from Strength\n- `agi` - Changes the display of Agility\n\t- `showCritFromAgi` - Show Crit chance from Agility\n\t- `showDodgeFromAgi` - Show Dodge chance from Agility\n\t- `showAPFromAgi` - Show Attack Power from Agility\n\t- `showRAPFromAgi` - Show Ranged Attack Power from Agility\n\t- `showArmorFromAgi` - Show Armor from Agility\n- `sta` - Changes the display of Stamina\n\t- `showHealthFromSta` - Show Health from Stamina\n- `int` - Changes the display of Intellect\n\t- `showSpellCritFromInt` - Show Spell Crit chance from Intellect\n\t- `showManaFromInt` - Show Mana from Intellect\n\t- `showManaRegenFromInt` - Show Mana Regen Intellect\n- `spi` - Changes the display of Spirit\n\t- `showManaRegenFromSpi` - Show Mana Regen from Spirit\n\t- `showHP5FromSpi` - Show Health Regen from Spirit\n- `sum` - Options for stat summary\n\t- `showSum` - Show stat summary in tooltips\n\t- `ignore` - Ignore stuff when calculating the stat summary\n\t\t- `sumIgnoreUnused` - Show stat summary only for highest level armor type and items you can use with uncommon quality and up\n\t\t- `sumIgnoreEquipped` - Hide stat summary for equipped items\n\t\t- `sumIgnoreEnchant` - Ignore enchants on items when calculating the stat summary\n\t\t- `sumIgnoreGems` - Ignore gems on items when calculating the stat summary\n- `sumDiffStyle` - Display diff values in the main tooltip or only in compare tooltips\n\tvalues\"comp\", \"main\"}\n- `space` - Add a empty line before or after stat summary\n\t- `sumBlankLine` - Add a empty line before stat summary\n\t- `sumBlankLineAfter` - Add a empty line after stat summary\n- `sumShowIcon` - Show the sigma icon before stat summary\n- `sumShowTitle` - Show the title text before stat summary\n- `showZeroValueStat` - Show zero value stats in summary for consistancy\n- `calcSum` - Calculate the total stats for the item\n- `calcDiff` - Calculate the stat difference for the item and equipped items\n- `sumSortAlpha` - Enable to sort StatSummary alphabetically, disable to sort according to stat type(basic, physical, spell, tank)\n- `sumAvoidWithBlock` - Enable to include block chance in Avoidance summary, Disable for only dodge, parry, miss\n- `basic` - Choose basic stats for summary\n\t- `sumHP` - Health <- Health, Stamina\n\t- `sumMP` - Mana <- Mana, Intellect\n\t- `sumManaRegen` - Mana Regen\n\t- `sumManaRegenNotCasting` - Mana Regen while not casting\n\t- `sumManaRegenOutOfCombat` - Mana Regen while out of combat\n\t- `sumHP5` - Health Regen <- Health Regen\n\t- `sumHP5OC` - Health Regen when out of combat <- Spirit\n\t- `sumStr` - Strength Summary\n\t- `sumAgi` - Agility Summary\n\t- `sumSta` - Stamina Summary\n\t- `sumInt` - Intellect Summary\n\t- `sumSpi` - Spirit Summary\n- `physical` - Choose physical damage stats for summary\n\t- `sumAP` - Attack Power <- Attack Power, Strength, Agility\n\t- `sumRAP` - Ranged Attack Power <- Ranged Attack Power, Intellect, Attack Power, Strength, Agility\n\t- `sumFAP` - Feral Attack Power <- Feral Attack Power, Attack Power, Strength, Agility\n\t- `sumHit` - Hit Chance <- Hit Rating, Weapon Skill Rating\n\t- `sumHitRating` - Hit Rating Summary\n\t- `sumCrit` - Crit Chance <- Crit Rating, Agility, Weapon Skill Rating\n\t- `sumCritRating` - Crit Rating Summary\n\t- `sumHaste` - Haste <- Haste Rating\n\t- `sumHasteRating` - Haste Rating Summary\n\t- `sumDodgeNeglect` - Dodge Neglect <- Expertise, Weapon Skill Rating\n\t- `sumParryNeglect` - Parry Neglect <- Expertise, Weapon Skill Rating\n\t- `sumBlockNeglect` - Block Neglect <- Weapon Skill Rating\n\t- `sumWeaponSkill` - Weapon Skill <- Weapon Skill Rating\n\t- `sumExpertise` - Expertise <- Expertise Rating\n\t- `sumWeaponMaxDamage` - Weapon Max Damage Summary\n\t\t- `weapondps` - Weapon DPS Summary\n\t\t- `sumIgnoreArmor` - Ignore Armor Summary\n- `spell` - Choose spell damage and healing stats for summary\n\t- `sumSpellDmg` - Spell Damage <- Spell Damage, Intellect, Spirit, Stamina\n\t- `sumHolyDmg` - Holy Spell Damage <- Holy Spell Damage, Spell Damage, Intellect, Spirit\n\t- `sumArcaneDmg` - Arcane Spell Damage <- Arcane Spell Damage, Spell Damage, Intellect\n\t- `sumFireDmg` - Fire Spell Damage <- Fire Spell Damage, Spell Damage, Intellect, Stamina\n\t- `sumNatureDmg` - Nature Spell Damage <- Nature Spell Damage, Spell Damage, Intellect\n\t- `sumFrostDmg` - Frost Spell Damage <- Frost Spell Damage, Spell Damage, Intellect\n\t- `sumShadowDmg` - Shadow Spell Damage <- Shadow Spell Damage, Spell Damage, Intellect, Spirit, Stamina\n\t- `sumHealing` - Healing <- Healing, Intellect, Spirit, Agility, Strength\n\t- `sumSpellHit` - Spell Hit Chance <- Spell Hit Rating\n\t- `sumSpellHitRating` - Spell Hit Rating Summary\n\t- `sumSpellCrit` - Spell Crit Chance <- Spell Crit Rating, Intellect\n\t- `sumSpellCritRating` - Spell Crit Rating Summary\n\t- `sumSpellHaste` - Spell Haste <- Spell Haste Rating\n\t- `sumSpellHasteRating` - Spell Haste Rating Summary\n\t- `sumPenetration` - Spell Penetration Summary\n- `tank` - Choose tank stats for summary\n\t- `sumArmor` - Armor <- Armor from items, Armor from bonuses, Agility, Intellect\n\t- `sumDefense` - Defense <- Defense Rating\n\t- `sumDodge` - Dodge Chance <- Dodge Rating, Agility, Defense Rating\n\t- `sumDodgeRating` - Dodge Rating Summary\n\t- `sumParry` - Parry Chance <- Parry Rating, Defense Rating\n\t- `sumParryRating` - Parry Rating Summary\n\t- `sumBlock` - Block Chance <- Block Rating, Defense Rating\n\t- `sumBlockRating` - Block Rating Summary\n\t- `sumBlockValue` - Block Value <- Block Value, Strength\n\t- `sumHitAvoid` - Hit Avoidance <- Defense Rating\n\t- `sumCritAvoid` - Crit Avoidance <- Defense Rating, Resilience\n\t- `sumResilience` - Resilience Summary\n\t- `sumArcaneResist` - Arcane Resistance Summary\n\t- `sumFireResist` - Fire Resistance Summary\n\t- `sumNatureResist` - Nature Resistance Summary\n\t- `sumFrostResist` - Frost Resistance Summary\n\t- `sumShadowResist` - Shadow Resistance Summary\n\t- `sumAvoidance` - Avoidance <- Dodge, Parry, MobMiss, Block(Optional)\n- `gem` - Auto fill empty gem slots\n\t- `sumGemRed` - ItemID or Link of the gem you would like to auto fill\n\t- `sumGemYellow` - ItemID or Link of the gem you would like to auto fill\n\t- `sumGemBlue` - ItemID or Link of the gem you would like to auto fill\n\t- `sumGemMeta` - ItemID or Link of the gem you would like to auto fill",
+  "releases": [
+    {
+      "tag": "2.10.1",
+      "published": "2026-11-21",
+      "notes": "# RatingBuster\n\n## [2.10.1](https://github.com/raethkcj/RatingBuster/tree/2.10.1) (2026-11-21)\n[Full Changelog](https://github.com/raethkcj/RatingBuster/compare/2.10.0...2.10.1) [Previous Releases](https://github.com/raethkcj/RatingBuster/releases)\n\n- Add Pawn as OptionalDependency (#306)  \n- Add secret check to comparison tooltip header (Fixes #304)  \n- Update trait node IDs (Fixes #305)"
+    },
+    {
+      "tag": "2.10.0",
+      "published": "2026-11-14",
+      "notes": "# RatingBuster\n\n## [2.10.0](https://github.com/raethkcj/RatingBuster/tree/2.10.0) (2026-11-14)\n[Full Changelog](https://github.com/raethkcj/RatingBuster/compare/2.9.8...2.10.0) [Previous Releases](https://github.com/raethkcj/RatingBuster/releases)\n\n- Fetch hotfixes for generated stat locales  \n- Add TOOLTIP\\_ITEM\\_STAT global patterns (Fixes #303)  \n- Update generated stat locales  \n- Inherit GameTooltipText on scanning tooltip fontstrings (Fixes #301)  \n- Update Forever Shaman Mental Dexterity  \n- Add base item stats to 'Equipped With' item summary when present (Closes #294)  \n- Remove nil check of enchanted tooltip prefix  \n- Trim \"Enchanted:\" prefix when scanning item tooltip lines (Fixes #299)"
+    },
+    {
+      "tag": "2.9.8",
+      "published": "2026-11-06",
+      "notes": "# RatingBuster\n\n## [2.9.8](https://github.com/raethkcj/RatingBuster/tree/2.9.8) (2026-11-06)\n[Full Changelog](https://github.com/raethkcj/RatingBuster/compare/2.9.7...2.9.8) [Previous Releases](https://github.com/raethkcj/RatingBuster/releases)\n\n- Add missing haste rating globals (Fixes #298)  \n- Add final forever beta changes  \n- Set ignore unused option in global table rather than profile"
+    },
+    {
+      "tag": "2.9.7",
+      "published": "2026-10-19",
+      "notes": "# RatingBuster\n\n## [2.9.7](https://github.com/raethkcj/RatingBuster/tree/2.9.7) (2026-10-19)\n[Full Changelog](https://github.com/raethkcj/RatingBuster/compare/2.9.6...2.9.7) [Previous Releases](https://github.com/raethkcj/RatingBuster/releases)\n\n- Fix selected return values from talent info  \n- Revert \"Remove deprecated talent API (#292)\""
+    },
+    {
+      "tag": "2.9.6",
+      "published": "2026-10-18",
+      "notes": "# RatingBuster\n\n## [2.9.6](https://github.com/raethkcj/RatingBuster/tree/2.9.6) (2026-10-18)\n[Full Changelog](https://github.com/raethkcj/RatingBuster/compare/2.9.5...2.9.6) [Previous Releases](https://github.com/raethkcj/RatingBuster/releases)\n\n- Add Dark Inspiration  \n- Add Arcane Blast  \n- Update Troll Regeneration racial  \n- Update Priest's Mental Strength values  \n- Remove weapon specialization racials  \n- Don't process tooltips when db failed to initialize due to an error"
+    }
+  ],
+  "screenshots": [
+    "https://user-images.githubusercontent.com/7716908/186707338-2bcf29cc-0529-4be9-9a4b-d29b621580fa.png",
+    "https://github.com/user-attachments/assets/6b163d16-93d8-4bc4-bb5b-127fadf90562"
+  ],
+  "stats": {
+    "stars": 61,
+    "openIssues": 15,
+    "contributors": 15,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-14",
+      "2026-11-06",
+      "2026-10-19",
+      "2026-10-18",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-09",
+      "2026-10-06",
+      "2026-10-05",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-05",
+      "2026-09-01",
+      "2026-08-31",
+      "2026-07-31",
+      "2026-07-24",
+      "2026-07-14",
+      "2026-07-13",
+      "2026-07-02",
+      "2026-07-01",
+      "2026-06-23",
+      "2026-05-18",
+      "2026-04-29",
+      "2026-04-20",
+      "2026-04-04",
+      "2026-03-24",
+      "2026-03-24",
+      "2026-03-16",
+      "2026-03-15",
+      "2026-03-11",
+      "2026-02-28",
+      "2026-02-24",
+      "2026-02-20",
+      "2026-02-13",
+      "2026-02-08",
+      "2026-02-06",
+      "2026-02-03",
+      "2026-01-24",
+      "2026-01-21",
+      "2026-01-12",
+      "2026-01-02",
+      "2025-12-02",
+      "2025-12-02",
+      "2025-11-17",
+      "2025-11-01",
+      "2025-10-14",
+      "2025-09-29"
+    ]
+  },
+  "languages": [
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "RatingBuster",
+      "StatLogic"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "requires": [
+      "StatLogic"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDualSpec-1.0",
+      "Pawn"
+    ],
+    "savedVariables": [
+      "RatingBusterDB"
+    ]
+  }
+}

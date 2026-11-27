@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "oldfriends",
+  "repo": "ParkerTonra/OldFriends",
+  "about": "# Old Friends\n\n**Old Friends** replaces the default friends window (the O key) with a fast list that shows one line per friend. Each row shows their status, faction, ruleset, name, character, level, location, and activity.\n\n![Enhanced skin](https://raw.githubusercontent.com/ParkerTonra/OldFriends/main/screenshots/enhanced-skin-test-data.png)\n![Classic skin](https://raw.githubusercontent.com/ParkerTonra/OldFriends/main/screenshots/classic-skin-test-data.png)\n\n## Smart 1-click invites\nInstead of offering an invite for every player on your faction, Old Friends only offers it for the ones you can actually invite.\n\n## Everything the default window does, plus extras\nOld Friends keeps the standard Blizzard social features and moves them into tabs and right-click menus.\n\n*   Friends tab: All your B-Net, WoW, and legacy friends, with favorites, custom notes, custom tags, and queue badges that show who is sitting in a PvE, PvP, or group queue. Online WoW friends also show a faction emblem and a ruleset icon (PvE, PvP, RP, RP-PvP).\n*   Recent Allies: View, pin, and invite recent players in one click.\n*   Requests and Ignored: Manage your ignore list and accept or decline friend requests. The tab glows and shows a number badge when a new request comes in.\n*   Search and filter: Search by name, B-Tag, character, zone, or custom notes. Filter the list by status (Online, Away, Busy, Offline, In Queue, Available for Queue).\n*   Quick controls: Copy your own B-Tag from the top of the window, or add friends by B-Tag, email, or character.\n*   Context menus: Right-click anyone to whisper, invite, set notes, customize names, report, or remove.\n*   Shift+O (Shift plus whatever key you have bound to the friends window) opens Blizzard's default window if you need it.\n\n## Two looks\nOn first open, you choose a style:\n*   Enhanced: modern, flat, dark, and compact.\n*   Classic: the traditional WoW style, with gold borders and red buttons.\n\nYou can switch anytime with the top bar button or `/of skin toggle`.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/of` (or `/oldfriends`) | Show/hide the window |\n| `/of skin [classic\\|enhanced\\|toggle]` | Change the look |\n| `/of scale <0.5-2>` | Adjust window size |\n| `/of reset` | Reset position, scale, and filters |\n| `/of test` | Test mode with fake friends, allies and requests |\n| `/of log`, `/of log all`, `/of log clear` | View or clear the diagnostics log |\n| `/of debug on\\|off` | Echo logs to chat |\n\n## Addon limitations\nBlizzard restricts some social functions so addons can't automate them, which limits a few things here:\n*   Your status: You can't set yourself to \"Appear Offline\" from this addon. Clicking Away or Busy here only sets your in-game AFK/DND flags.\n*   Blocking B-Net accounts: Disabled here. Use the default Social window (Shift+O, or `/friends`) to block or unblock Battle.net accounts.\n*   Adding by character: This goes through Blizzard's default popup.\n*   Queue filters: The addon guesses from the queue data it is allowed to see, so the results may be off.\n*   Faction and ruleset icons: Offline friends and legacy-list friends don't show them, because the game doesn't give that information for them.\n*   Recent Allies: The game only loads this list when Blizzard's own Recent Allies view opens. Until then, Old Friends shows the last list it saw. The Load Recent Allies button opens Blizzard's view for a moment to load the live list.\n\nPrivacy note: Old Friends never sends or reads anything outside the game. Nothing is collected.\n\n## Install\nCopy these files into a folder named `OldFriends` inside your `Interface/AddOns` directory.\n\n## Feedback\nBug reports and ideas are welcome in the Issues tab. If you get a \"blocked action\" error, run `/of log` and paste the output into your report.\n\n**License:** MIT | **Copyright:** 2026 Parker Tonra",
+  "releases": [
+    {
+      "tag": "2.4",
+      "published": "2026-11-06",
+      "notes": "# Changelog\n\n## 2.4\n- Fixed: after opening an Old Friends right-click menu, setting a raid marker from Blizzard's own target menu was blocked and blamed on Old Friends. Old Friends now draws its own menus instead of borrowing Blizzard's shared menu frames.\n- The Recent Allies button now stays on the Allies tab after the first load, as \"Refresh Recent Allies\". The game does not update the list on its own, so this refreshes it.\n\n## 2.3\n- Fixed: opening Recent Allies no longer triggers the \"blocked from an action only available to the Blizzard UI\" popup.\n- Recent Allies remembers the last list it saw and shows it, marked \"Saved list\", until the game loads live data. You can invite from the saved list. Pinning and notes wait for live data.\n- New Load Recent Allies button (experimental). The game only loads this list when Blizzard's own Recent Allies view opens, so the button opens that view for a moment and closes it.\n\n## 2.2: first public release\n- Compact one-line-per-friend replacement for the Social window (O key).\n- Friends, Recent Allies, Requests and Ignore tabs, with a one-click party invite on every online friend and ally.\n- Search, status and queue filters, friend tags, queue badges, notes, favorites and a full right-click menu.\n- Two looks, Classic and Enhanced, chosen on first run and switchable with `/of skin`.\n- Add Friend by BattleTag, email or character name, and Add WoW Friend from a Recent Ally.\n- Every friend row shows the friend's faction emblem next to their realm ruleset icon.\n- The party button is disabled, with a reason in its tooltip, for friends and recent allies on a realm with a different ruleset (PvE, PvP, RP, RP-PvP) than yours.\n- Shift + the friends key (Shift+O by default) opens Blizzard's own Social window, in case you need it.\n- Built-in diagnostics log (`/of log`) and a test mode (`/of test`).\n- Does not call any function Blizzard restricts to its own UI, so it should never trigger a \"blocked action\" message. Changing your own status, Block Invites and Unblock are not possible from an addon and are disabled."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/ParkerTonra/OldFriends/main/screenshots/enhanced-skin-test-data.png",
+    "https://raw.githubusercontent.com/ParkerTonra/OldFriends/main/screenshots/classic-skin-test-data.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "OldFriends"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "OldFriendsDB"
+    ]
+  }
+}

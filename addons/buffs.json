@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "buffs",
+  "repo": "Harmenszoon/wow-buffs",
+  "about": "# Harmenszoon's Buffs\n\nTrack a buff or temporary weapon enchant by **Alt-clicking** its icon on Blizzard's buff bar. When it is missing or close to expiring, a reminder appears near the center of the screen. Your choices are saved per character in WoW Forever.\n\n- **Left-click** a spell reminder to cast that buff on yourself if you know the spell.\n- **Alt-click** the buff or its reminder to stop tracking it.\n- **Alt-drag** a reminder to move the whole row.\n\nThe row hides in combat and while you're dead. Reminders resume when the game allows the aura to be read again.\n\n## Installation\n\nIn WowUp, select **Get Addons**, then **Install from URL**, and paste this repository's address. [Repository URL](https://github.com/Harmenszoon/wow-buffs)\n\nFor manual installation, extract the `-forever.zip` release asset into `_forever_/Interface/AddOns/` so it contains `Buffs/Buffs.toc`. [Download the latest release](https://github.com/Harmenszoon/wow-buffs/releases/latest)",
+  "releases": [
+    {
+      "tag": "v0.1.2",
+      "published": "2026-11-20",
+      "notes": "Adds per-character tracking for selected buffs and weapon enchants. Alt-click to track, Alt-drag to move the reminders, and left-click a known spell reminder to refresh it."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Buffs"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Blizzard_BuffFrame"
+    ],
+    "savedVariablesPerCharacter": [
+      "BuffsDB"
+    ]
+  }
+}

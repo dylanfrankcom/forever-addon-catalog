@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "blockblizzchatchannels",
+  "repo": "NinerBull/BlockBlizzChatChannels",
+  "about": "# Block Blizzard Chat Channels\nAn addon for World of Warcraft!\n\n![Info Img](https://cdn-wow.mmoui.com/preview/pvw76437.jpg)\n\n## About\nThis addon allows you to prevent all of your characters on your account from joining any (or all) of the following Channels:\n\n* Services Chat (Blocked by Default in Retail)\n* General Chat\n* Trade Chat\n* LocalDefense Chat\n* WorldDefense Chat (Classic/Era Only)\n* LookingForGroup Chat\n* HardcoreDeaths Chat (Era Only)\n* GuildRecruitment Chat (Era Only)\n\n## Compatibility\n* **Midnight** - 12.1.5\n* **MoP Classic** - 5.5.4\n* **TBC Classic** - 2.5.6\n* **Forever** - 1.60.1\n* **Classic Era** - 1.15.9\n\n## Installation\nDownload the latest version from one of the places below, and unzip it in your `<warcraft>\\<_version_>\\Interface\\Addons` folder if installing manually.\n\n* [CurseForge](https://www.curseforge.com/wow/addons/block-blizzard-chat-channels)\n* [WoWInterface](https://www.wowinterface.com/downloads/info26788-BlockBlizzardChatChannels.html)\n* [Wago](https://addons.wago.io/addons/blockblizzchatchannels/)\n* [GitHub](https://github.com/NinerBull/BlockBlizzChatChannels/releases/latest)\n* Or put `https://github.com/NinerBull/BlockBlizzChatChannels` into your favourite Addon Manager\n\n## Configuration\n**You can configure the addon by typing `/blockblizzchatchannels` into chat, or from the 'Block Blizzard Chat Channels' section of the Game Options.**\n\n**By default, the Services Channel is blocked**, and you'll need to configure the addon to block any other channels you do not want to see.\n\nTicking a box will take effect immediately, and will affect all of your characters account wide.\n\nYou can click the 'Rejoin' button to make your current character join all of the channels that you have not blocked.\n\n## Translations\n* **Russian** by [ZamestoTV](https://github.com/Hubbotu)",
+  "releases": [
+    {
+      "tag": "v1.0.21",
+      "published": "2026-10-13",
+      "notes": "- Initial support for WoW: Forever\n- Updated TOC for 12.1.5 and 1.60.1"
+    },
+    {
+      "tag": "v1.0.20",
+      "published": "2026-08-10",
+      "notes": "- Update TOC for 12.1.0"
+    },
+    {
+      "tag": "v1.0.19",
+      "published": "2026-07-22",
+      "notes": "- Update TOC for 1.15.9"
+    },
+    {
+      "tag": "v1.0.18",
+      "published": "2026-07-08",
+      "notes": "- Minor Code Refactor\n- Update TOC for 2.5.6"
+    },
+    {
+      "tag": "v1.0.17",
+      "published": "2026-06-03",
+      "notes": "- Services Channel can now be blocked in MoP Classic\n- Update TOC for 12.0.7 and 5.5.4"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-08-10",
+      "2026-07-22",
+      "2026-07-08",
+      "2026-06-03",
+      "2026-04-21",
+      "2026-01-14",
+      "2025-12-03",
+      "2025-10-30",
+      "2025-10-07",
+      "2025-08-05",
+      "2025-06-17",
+      "2025-04-21",
+      "2025-02-07",
+      "2025-02-04",
+      "2024-12-18",
+      "2024-11-20",
+      "2024-09-25",
+      "2024-08-16",
+      "2024-08-14",
+      "2024-08-02",
+      "2024-07-30"
+    ]
+  },
+  "languages": [
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "BlockBlizzChatChannels"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "BlockBlizzChatChannelsData"
+    ]
+  }
+}

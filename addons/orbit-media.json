@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "orbit-media",
+  "repo": "MoONSHO7/Orbit-Media",
+  "about": "# Orbit: Media\n\n## Description\nSharedMedia textures, HUD artwork, cast-completion sequences and animated LibOrbitGlow textures. Orbit is not required.\nPreviously Orbit-Glow-Pack; the CurseForge project ID and all glow keys are unchanged.\n\n## Purpose\nSupply optional artwork to compatible addons without a rendering engine or Orbit dependency. Orbit retains Pixel, Soft, Softer, Round, Chamfer, Notch, Blade and their masks without this pack.\n\nInstall the pack and select its artwork in a compatible addon's glow, status-bar, HUD or cast settings.\n[Browse the interactive gallery](https://moonsho7.github.io/Orbit-Media/) for the glow and status-bar collection.\nThe pack has 40 icon glows and 102 status-bar fills; LibOrbitGlow owns two baseline dispel outlines.\n\n## Implementation\n`Orbit-Media.toc` loads `Core/Core.xml`. The catalogue loads before artwork and library registration.\n\n`Catalog.lua` publishes the read-only `OrbitMedia.catalogApiVersion = 1` API with data-only `Get` and `Enumerate`\nmethods. It freezes copied records, rejects duplicate keys/cycles and builds deterministic snapshots during registration.\nConsumer reads are immutable and allocation-free; consumers own rendering, masks, placement, lifecycle and settings.\nLegacy `apiVersion = 1` remains; `borders` is a frozen empty array so older consumers can enumerate it safely.\n\nPack files register through Orbit-Media's private addon namespace during file load, before consumers snapshot a catalog.\nKeys are unique within each media type and remain the saved-setting identity. `Get(mediaType, key)` returns one frozen\nrecord; `Enumerate(mediaType)` returns a cached frozen array ordered by `order`, provider and key. HUD records carry\n`leftPath`, `rightPath`, `aspectRatio` and `randomEligible`; cast records carry CAST/CHANNEL `frames`, `frameStarts`,\n`holdDuration` and `fadeDuration`. Labels expose\nan optional consumer localization key plus a plain fallback.\n\n`HUDArtwork.lua` registers 15 paired `hud-artwork` records. Thrall, Kael'thas and Gul'dan preserve their reversed filename mapping; consumers own slots and selection.\n\n`CastCompletion.lua` registers four styles and 148 loose full-UV TGAs so consumers can retain stable masks while owning playback and presentation.\n\n`RegisterStatusBars.lua` registers 102 grayscale 256x64 fills with the same SharedMedia pattern. Fifteen styles keep\nfive types with one selected finish per type; seven favourites remain. Published names omit review IDs and finishes.\n`output/orbit-status-textures/orbit-media-selection.json` fixes the 75 choices. Twenty `Orbit Rustic ...` fills recreate\nthe unit-frame materials; sources live in `output/unit-frame-status-textures-20260922/`. Consumers own tint and masks.\n\n`Register.lua` independently registers all 40 glow names immediately if LibOrbitGlow exists, or waits for\nADDON_LOADED in the same way. Existing glow textures and registry names remain unchanged.\nTheir BLEND body and ADD core share a 5-column, 6-row, 30-frame atlas with 128px cells and straight alpha.\n36 perimeter designs supply square/soft/softer/round/chamfer/notch/blade; four radial designs supply square only.\nRounded outlines also ship soft-small, soft-large, softer-large, round-large and round-full at\n6.25%, 18.75%, 30%, 43.75% and 50% radii. Consumers choose the nearest available contour for the icon size;\nthe last two keep small Round icons curved through the corners instead of using the 40-unit reference bake.\nChamfer follows straight 45-degree cuts at 5/40 of the icon side, retaining each design's timing and layers. Notch\ncuts concave quarter circles of 5/40 into every corner; Blade cuts only the top-left and bottom-right at 7/40.\nWorkspace `.scripts/make-glow-pack.py` and `make-fine-edge-flipbooks.py` share `glow_chamfer.py` and `glow_corners.py`\ngeometry; `glow_rounded.py` owns their radius ladder. `GLOW_SHAPES` and `--glows-only --shapes` restrict regeneration.\n\n`.pkgmeta` packages the inner addon under CurseForge project 1586459 with runtime Lua, the TOC, icon, 872\nglow, 102 status-bar, 30 HUD and 148 cast TGAs. Authoring stays in `output/`; `site/` is excluded\nfrom the addon. Its manual Markdown changelog is the full repository `CHANGELOG.md`, used for CurseForge's file\nchangelog and GitHub's release body.\n\n## Gotchas\n- Enable Orbit-Media and remove the obsolete Orbit-Glow-Pack installation when updating manually.\n- Neither library is bundled or required as a hard dependency; compatible consumers supply the library they use.\n- Catalog records are immutable data. The registration door is addon-private; consumers cannot inject render callbacks\n  or mutate another consumer's UI.\n- Pack files must register before a consumer snapshots the catalog; there is no runtime UI invalidation. Snapshot\n  construction stays in the private registration path because `Enumerate` runs in the consumer and must be read-only.\n- Status-bar fills are opaque grayscale and accept runtime tint; the consumer owns masks, borders and fill amount.\n- Restart WoW fully after adding new loose textures; name changes only require a reload. Previously selected\n  numbered or finish-labelled status-bar names must be reselected under their new names in the consuming addon.\n- Disable the separate Orbit-StatusTextures preview addon if installed to avoid its old numbered entries.\n- The old SharedMedia border collection is removed, including its catalog records, textures and gallery. Consumers\n  that saved those media names must choose another border; Orbit's built-in Soft/Softer/Round/Chamfer/Notch/Blade remain.\n- The pack has no mask assets and no references into Orbit's addon directory.\n\n## References\n[Repository](https://github.com/MoONSHO7/Orbit-Media), [Orbit](https://github.com/MoONSHO7/Orbit),\n[LibOrbitGlow](https://github.com/MoONSHO7/Orbit-Libs/tree/LibOrbitGlow-1.8/LibOrbitGlow), [gallery](https://github.com/MoONSHO7/Orbit-Media/blob/main/site/README.md).\nWorkspace `output/orbit-status-textures/qa/media-check.py` verifies every status-bar file, both artwork catalogs and real\nSharedMedia registration.",
+  "releases": [
+    {
+      "tag": "1.15",
+      "published": "2026-11-06",
+      "notes": "# Changelog"
+    },
+    {
+      "tag": "1.14",
+      "published": "2026-10-25",
+      "notes": "# Changelog\n\n## Unreleased\n\n- Publish authored release notes from this changelog on CurseForge and GitHub."
+    },
+    {
+      "tag": "1.13",
+      "published": "2026-10-05",
+      "notes": "# Orbit: Media\n\n## [1.13](https://github.com/MoONSHO7/Orbit-Media/tree/1.13) (2026-10-05)\n[Full Changelog](https://github.com/MoONSHO7/Orbit-Media/compare/1.12...1.13) [Previous Releases](https://github.com/MoONSHO7/Orbit-Media/releases)\n\n- new glows for the new borders, removed ninesliced borders"
+    },
+    {
+      "tag": "1.12",
+      "published": "2026-09-27",
+      "notes": "# Orbit: Media\n\n## [1.12](https://github.com/MoONSHO7/Orbit-Media/tree/1.12) (2026-09-27)\n[Full Changelog](https://github.com/MoONSHO7/Orbit-Media/compare/1.11...1.12) [Previous Releases](https://github.com/MoONSHO7/Orbit-Media/releases)\n\n- new artwork"
+    },
+    {
+      "tag": "1.11",
+      "published": "2026-09-26",
+      "notes": "# Orbit: Media\n\n## [1.11](https://github.com/MoONSHO7/Orbit-Media/tree/1.11) (2026-09-26)\n[Full Changelog](https://github.com/MoONSHO7/Orbit-Media/compare/1.10...1.11) [Previous Releases](https://github.com/MoONSHO7/Orbit-Media/releases)\n\n- move art assets to orbit media"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-10-25",
+      "2026-10-05",
+      "2026-09-27",
+      "2026-09-26",
+      "2026-09-22",
+      "2026-09-19",
+      "2026-09-12",
+      "2026-09-09",
+      "2026-09-08",
+      "2026-08-25",
+      "2026-08-20",
+      "2026-08-11",
+      "2026-07-18",
+      "2026-06-25",
+      "2026-06-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Orbit-Media"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0",
+      "LibOrbitGlow-1.0"
+    ]
+  }
+}

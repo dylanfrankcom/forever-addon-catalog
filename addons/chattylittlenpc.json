@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "chattylittlenpc",
+  "repo": "mantaskazlauskas/ChattyLittleNpc",
+  "about": "# Chatty Little NPC\n\n    \n        [![Donate with PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=CZGQYKYFRURMW)\n    \n\nChatty Little NPC gives a voice to World of Warcraft's quest givers and NPCs. It plays AI-generated voiceovers for quest text, gossip, books and letters, with voices matched to each NPC's race and gender, and shows the NPC speaking in a small conversation frame.\n\n**Download:** [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc)  \n**Discord:** [discord.gg/dVjTXBgNb](https://discord.gg/dVjTXBgNb)\n\n## Demo\n\n[![Chatty Little NPC demo video](https://img.youtube.com/vi/3VhY3L3A5Dg/hqdefault.jpg)](https://www.youtube.com/watch?v=3VhY3L3A5Dg)\n\nWatch the demo on [YouTube](https://www.youtube.com/watch?v=3VhY3L3A5Dg).\n\n## Getting Started\n\nThe addon itself contains no audio. The voices come in separate voiceover packs, one per expansion:\n\n1. Install **Chatty Little NPC** from [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc).\n2. Install the voiceover packs for the content you play (see the list below).\n3. `/reload` or log in. A welcome screen walks you through the main settings the first time.\n\n| Expansion | Pack |\n| --- | --- |\n| Vanilla quests (Classic / Classic Era) | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-vanilla) |\n| Vanilla books & gossip (install with the quests pack) | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-classic-forever-books-and-gossip) |\n| The Burning Crusade | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-the-burning-crusade) |\n| Wrath of the Lich King | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-wrath-of-the-lich-king) |\n| Cataclysm | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-cataclysm) |\n| Mists of Pandaria | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-mists-of-pandaria) |\n| Warlords of Draenor | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-warlords-of-draenor) |\n| Legion | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-legion) |\n| Battle for Azeroth | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-battle-for-azeroth) |\n| Shadowlands | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-shadowlands) |\n| Dragonflight | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-dragonflight) |\n| The War Within | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-the-war-within-en-us) |\n| Midnight | [CurseForge](https://www.curseforge.com/wow/addons/chatty-little-npc-midnight-english-ai-voiceover) |\n\nThe About tab in the settings window shows which packs you have installed.\n\n## Features\n\n- **Voiced dialog**: quest greetings, descriptions, progress and completion text, NPC gossip, and readable items such as books and letters.\n- **Distinct voices**: separate voices by race and gender, so different NPCs sound different.\n- **Conversation frame**: an animated portrait of the speaking NPC with subtitles and a queue of upcoming lines. Choose from minimal, panel and cinematic styles, dock the portrait above, below or beside the text, and move it with Edit Mode.\n- **Play button and keybind**: replay any line from the quest log or dialog window, or bind a key or controller button to play and stop voiceovers (Key Bindings > Chatty Little NPC).\n- **Voiceover library**: browse, search and play every voiceover in your installed packs.\n- **Plays well with Blizzard voice acting**: pauses for NPCs that already have Blizzard voice acting, with a whitelist you can manage.\n- **Language-aware packs**: choose a voiceover language when packs for more than one language are installed.\n- **Profiles**: per-character or shared settings profiles.\n- **Compatible with** DialogueUI and ElvUI.\n\n## Supported Game Versions\n\nRetail (including Midnight), Mists of Pandaria Classic, Cataclysm Classic, Wrath Classic, Burning Crusade Classic, Classic Era and WoW Forever.\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/clnsettings` | Open or close the settings window |\n| `/clnlibrary` | Browse and play every installed voiceover |\n| `/clnwelcome` | Show the welcome screen again |\n| `/clnlogs` | Open the addon log window |\n\n## For Addon Authors\n\nOther addons can play, stop and react to voiceovers through `ChattyLittleNpc.API`. See the [API documentation](https://github.com/mantaskazlauskas/ChattyLittleNpc/blob/main/ChattyLittleNpc/docs/API.md).\n\n## Help Expand the Database\n\nMissing a voiceover? The addon can record the quest and NPC dialog you see while playing (turn on **Track NPC Dialog Data** in Settings > Developer). New voiceovers are made from this data.\n\nTo share it, post your `ChattyLittleNpc.lua` file in the **#data-gathering-chat** channel on [Discord](https://discord.gg/dVjTXBgNb). You'll find it in your game folder (`_retail_`, `_classic_` or `_classic_era_`) under:\n\n```\nWTF\\Account\\<ACCOUNT>\\SavedVariables\\ChattyLittleNpc.lua\n```\n\nThe game writes this file when you log out or `/reload`.\n\n## Roadmap\n\n- (DONE) Different narrator voices for male and female NPCs.\n- (DONE) Voiceovers for all dialog types: gossip, quest greeting, description, progress and completion.\n- (DONE) Record dialog while playing so that missing voiceovers can be generated.\n- (DONE) Distinct voices for different races and body types.\n- (DONE) Voiceover packs for every expansion.\n- (DONE) Voiceovers for books, letters and other readable items.\n- (IN PROGRESS) Keep upgrading the voice engine to reduce hallucinations and improve voice quality.\n- (IN PROGRESS) Voiceover packs in more languages.\n\n## A Note on AI Use\n\nChatty Little NPC started in May 2024 as a hand-written experiment, and I spent roughly the first year building and learning by hand. From mid-2025, once models like Claude Opus 4 and Sonnet 4 became accurate enough and available in VS Code, I started using AI more and more to help maintain the addon and build new features. That work is currently done with Anthropic's Claude Opus 5.5 model.",
+  "releases": [
+    {
+      "tag": "v3.8.0",
+      "name": "ChattyLittleNpc 3.8.0",
+      "published": "2026-11-25",
+      "notes": "**Full Changelog**: https://github.com/mantaskazlauskas/ChattyLittleNpc/compare/v3.7.0...v3.8.0"
+    },
+    {
+      "tag": "v3.7.0",
+      "name": "ChattyLittleNpc 3.7.0",
+      "published": "2026-11-24",
+      "notes": "**Full Changelog**: https://github.com/mantaskazlauskas/ChattyLittleNpc/compare/v3.6.0...v3.7.0"
+    },
+    {
+      "tag": "v3.6.0",
+      "name": "ChattyLittleNpc 3.6.0",
+      "published": "2026-11-18",
+      "notes": "**Full Changelog**: https://github.com/mantaskazlauskas/ChattyLittleNpc/compare/v3.5.12...v3.6.0"
+    },
+    {
+      "tag": "v3.5.12",
+      "name": "ChattyLittleNpc 3.5.12",
+      "published": "2026-11-15",
+      "notes": "**Full Changelog**: https://github.com/mantaskazlauskas/ChattyLittleNpc/compare/v3.5.11...v3.5.12"
+    },
+    {
+      "tag": "v3.5.11",
+      "name": "ChattyLittleNpc 3.5.11",
+      "published": "2026-11-15",
+      "notes": "**Full Changelog**: https://github.com/mantaskazlauskas/ChattyLittleNpc/compare/v3.5.10...v3.5.11"
+    }
+  ],
+  "stats": {
+    "stars": 12,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-18",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-05",
+      "2026-11-02",
+      "2026-10-24",
+      "2026-10-22",
+      "2026-10-21",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-11",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-09-30",
+      "2026-09-24",
+      "2026-09-21",
+      "2026-09-20",
+      "2026-09-15",
+      "2026-07-12",
+      "2026-07-09",
+      "2026-06-21",
+      "2026-06-15",
+      "2026-06-13",
+      "2026-06-11",
+      "2026-06-11",
+      "2026-05-16",
+      "2026-05-09",
+      "2026-04-26",
+      "2026-04-22",
+      "2026-04-15",
+      "2026-04-12",
+      "2026-04-04",
+      "2026-04-03",
+      "2026-03-02",
+      "2026-02-11",
+      "2026-02-04",
+      "2026-01-21",
+      "2026-01-14",
+      "2026-01-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ChattyLittleNpc",
+      "ChattyLittleNpc_Collector",
+      "ChattyLittleNpc_Tools"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "EditModeExpanded",
+      "DialogueUI",
+      "ElvUI"
+    ],
+    "savedVariables": [
+      "ChattyLittleNpcDB",
+      "NpcInfoDB",
+      "UnitInfoDB",
+      "VoicedNpcContributions",
+      "NpcMetadataCache",
+      "UnknownRaceModelsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ChattyLittleNpcCharDB"
+    ]
+  }
+}

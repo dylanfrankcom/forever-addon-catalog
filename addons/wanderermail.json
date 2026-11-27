@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "wanderermail",
+  "repo": "Jaecko/wanderer-mail",
+  "about": "# Wanderer Mail\n\nWanderer at the mailbox. Made for World of Warcraft Forever.\nAn extension of [Wanderer](https://github.com/Jaecko/wanderer): it needs Wanderer 1.4 or later.\n\n- Wanderer's mailbox, in place of the game's window: a heading that says what waits (the letters, the gold to take, what is to pay on delivery, the next letter leaving, your free slots); every letter in one list, grouped (the auction house's, the players', the others), each group with its own Take all; the letter chosen read in place (its words, the auction house's account, its gold and items as squares: a click takes one, Shift links it, Ctrl tries it on), with Take, Pay and take (asked first, the amount said), Reply, Send it back (asked first), Delete (only where the game allows it, asked first while it still holds something), Report (in the game's window, where its button is) and Keep a copy.\n- Write, in the same window: the name completed as you type, your characters, the players you wrote to lately, your friends and your guild online one click away; the subject, the message (Enter starts a new line, never sends), twelve squares for items (dropped on them, or right-clicked in your bags), gold sent or cash on delivery (never more than you have), the postage; Send asks first when gold leaves or is asked.\n- The game's own mailbox is always one click away (Game window), every feature of it there; a link above it comes back. Escape ends the visit as the game's window does. With Postal or TradeSkillMaster's mailing, the game's window stays the one used until you choose otherwise (the setting \"Wanderer's mailbox\").\n- With Wanderer's mailbox off, the mailbox card, beside the game's window: the letters, the gold inside, those to pay on delivery, the free slots of your bags, the first letter about to go back to its sender; then the auction house's letters (sold, back to you, won, outbid) and the players' letters, each block with its own Take these.\n- Take the gold: only the gold of the letters, everything else stays. Take all only where the game has no such button of its own. Letters to pay on delivery are never taken.\n- While it takes: Stop 12 / 40 on the button, a click stops it; afterwards the card says what was taken, with one line in the chat.\n- Bags full: an item joins a stack of its own kind when it can, one free slot is kept, the rest stays in its letter and the take goes on with the gold.\n- Beyond 50 letters: once the server brings the next ones, the card offers to go on (a click).\n- On each letter: what happens when its days are over (back to its sender, or destroyed); an option takes those leaving soonest first.\n- Shift+click on a letter takes it, Ctrl+click sends a player's letter back after a question.\n- Send to: a small arrow at the end of the recipient field opens a list of your other characters of this realm and side (class color, level), the players you wrote to lately, your friends and your guild online. One click fills the recipient.\n- A quiet word in the recipient field when gold or items go to a name you do not know, or when one of your own characters is asked to pay on delivery.\n- Your other characters' letters with gold or items leaving within three days: a quiet notice at login, once a day, and their line in Wanderer's characters window.\n\nNothing is ever taken, paid, sent, sent back or deleted by itself: always on a click, asked first where gold leaves. The take buttons step aside for Postal or TradeSkillMaster's mailing. Settings in Wanderer's options; /wmail says whether a letter waits for you; /wmail dump, at a mailbox, writes down each letter's sender, subject and flags in the saved settings.\n\nFree software under the GNU GPL 3.0 or later. More on [wanderer-addon.com](https://wanderer-addon.com/).",
+  "releases": [
+    {
+      "tag": "v1.3.11",
+      "published": "2026-11-17",
+      "notes": "# Wanderer Mail 1.3.11\n\n### Changed\n- With the game's look (a choice under Wanderer's Appearance): the item squares of a letter and of the Send page drawn with the game's own parts, its lit and chosen rows, its dividers and colors. Needs Wanderer 1.4.89."
+    },
+    {
+      "tag": "v1.3.10",
+      "published": "2026-11-16",
+      "notes": "# Wanderer Mail 1.3.10\n\n### New\n- Wanderer's own mailbox: every letter in one list, grouped (auction house, players, others), each group with its own Take all; letters from a game master are left for you to take one by one, as in the game.\n- Read a letter in place: its words, the auction house's account laid out, its gold and items as squares (a click takes, Shift links, Ctrl tries on).\n- Pay on delivery, Reply, Send it back, Delete and Keep a copy beside the letter; paying, sending back and deleting a letter that still holds something always ask first.\n- Write in the same window: names completed as you type, your characters, friends and guild one click away, twelve squares for items (drop them, or right click in your bags), gold or cash on delivery, the postage; asked first before any gold leaves.\n- The game's own mailbox is always one click away (Game window), and a link brings Wanderer's back. With Postal or TradeSkillMaster, the game's window stays the default; the option Wanderer's mailbox, off, keeps the game's window with the card beside it.\n- Walking away from the mailbox closes Wanderer's window with the game's, as soon as the mailbox is out of reach.\n\n### Changed\n- The recipients button shows a plain down arrow, as the other lists do.\n- A letter holding gold or items about to go back or be lost is said in red.\n- The recipients list says how many more names it could not show; its tooltip names your friends and guild members online.\n- /wmail also tells what the mailbox card does.\n\n### Fixed\n- A stack put in a letter, or in a letter received, shows its count again (it was drawn under the item's icon), and the square lights under the mouse.\n- With a controller, the mailbox window takes the controller as it opens (it waited to be chosen)."
+    },
+    {
+      "tag": "v1.3.3",
+      "published": "2026-11-12",
+      "notes": "# Wanderer Mail 1.3.3\n\n### Changed\n- A finer look across the family: one palette for every color, clearer contrast on dark windows and on parchment, the same words in every language."
+    },
+    {
+      "tag": "v1.3.2",
+      "published": "2026-11-10",
+      "notes": "# Wanderer Mail 1.3.2\n\n### New\n- Controller support: the mailbox card has its own controller navigation. Needs Wanderer 1.4.36 or later.\n\n### Fixed\n- Taking all no longer stops early when letters move in the inbox.\n- The warning about mail leaving the mailbox only shows for letters leaving soon."
+    },
+    {
+      "tag": "v1.3.0",
+      "published": "2026-11-08",
+      "notes": "# Wanderer Mail 1.3.0\n\nFirst release, an extension of Wanderer (needs Wanderer 1.4 or later). It sits beside the game's own mail window and replaces nothing of it. It never deletes, sends or pays anything: every take starts from your click, and a letter to pay on delivery is never taken.\n\n### New\n- The mailbox card: beside the mailbox, the letters, the gold inside, those to pay on delivery, the free slots of your bags and the first letter about to go back to its sender.\n- The auction house's letters in their own block (sold, back to you, won, outbid, with counts and gold), the players' letters in another, each with its own Take these.\n- Take the gold: only the gold of the letters; their items, and the letters to pay on delivery, stay. Take all only where the game has no such button of its own.\n- While it takes, the button says how far (Stop 12 / 40) and stops at a click; afterwards the card says what was taken, with one line in the chat.\n- Bags full: an item joins a stack of its own kind when it can, one free slot is kept, the rest waits in its letter and the take goes on with the gold.\n- Beyond 50 letters: the card says how many more the server keeps, and once it brings them, one click goes on with the next letters.\n- On each letter of the inbox, what happens when its days are over: back to its sender, or destroyed; warm when it holds gold or items and leaves soon.\n- An option (off) takes the letters leaving soonest first.\n- Shift+click on a letter takes it; Ctrl+click on a player's letter sends it back, after a question.\n- Send to: a small arrow at the end of the recipient field lists your other characters of this realm and side (class color, level), the players you wrote to lately, your friends and your guild online; one click fills the recipient.\n- A quiet word in the recipient field when gold or items go to a name you do not know, or when one of your own characters is asked to pay on delivery.\n- Your other characters' letters with gold or items leaving within three days: a quiet notice at login, once a day, and their line in Wanderer's characters window. Your own letter going back within a day joins Wanderer's reminders; the town card says it too.\n- With Postal or TradeSkillMaster's mailing, the take buttons step aside for theirs; the card and the recipient list stay.\n- Every part has its own switch in Wanderer's options; one checkbox gives you the game's window alone. /wmail says from anywhere whether a letter waits for you."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-08"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "WandererMail"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Wanderer"
+    ],
+    "savedVariables": [
+      "WandererMailAccountDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "WandererMailDB"
+    ]
+  }
+}

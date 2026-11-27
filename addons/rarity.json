@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "rarity",
+  "repo": "aSnejbjerg/Rarity-Collectors-edition",
+  "about": "# Rarity: Collector's Edition is always looking for contributors!\n\n**If you're interested in following the development process or contributing, you should also check out our [Github](https://github.com/aSnejbjerg/Rarity-Collectors-edition) and our [Discord](https://discord.gg/bgbj3PfVVD).**\n\nWe're always in need of more hands to help us make the addon better, and it is the best place to report bugs as well.\n\n## What is Rarity: Collector's Edition?\n\nRarity CE is the restored version of the old Rarity addon previously maintained by RDW. Volunteers from Collector Communities and the old Classic Rarity Dev have taken it upon themselves to keep the addon up to date in this new form. \n\nRarity tracks how many times you've tried to obtain various rare items like mounts, battle pets, and toys. It will tell you how likely you are to obtain the item, track how long you've been farming for it, and tell you how lucky you've been so far. Although it's mostly used for mounts, battle pets, and toys, it supports pretty much any item, including profession patterns, archaeology projects, and more.\n\nOut of the box, Rarity includes support for the majority of Mounts, Battle Pets, and Toys in the game which require some time to farm. It also includes support for some mount-related items like Skyshards, Primal Eggs, and Giant Dinosaur Bones. It'll even notice if you mouseover a Mysterious Camel Figurine, plus lots of other stuff. Rarity factors in the size of a typical group when determining probabilities, and can also tell you if you've killed various bosses this week (or day). Holiday just started, and you didn't notice? Rarity will give you a helpful reminder to run those holiday dungeons or daily quests if you still need an item from them.\n\nIf Rarity doesn't track something you want to track, you can import it yourself! Just about everything is user configurable.\n\n## Main Features:\n\n    \nRarity is primarily an LDB feed with a large tooltip. It can function as either a mini-map icon (you have to turn this on in the options), or as a standard LDB feed (use a display like Titan Panel).\n\n    \nProvides a progress bar, which you can toggle by clicking the icon or feed label.\n\n    \nAdds info to NPC and item tooltips, showing you if it drops or contains something that Rarity tracks. Rare mobs with a guaranteed drop show which item they drop and if you've defeated them yet.\n\n    \nIncludes full source info, telling you how to obtain everything Rarity tracks.\n\n## Other Features:\n\n    \nShare packs of items with other users.\n\nCan automatically add waypoints to TomTom for certain items.\n\nUses statistics whenever possible to keep track of attempts prior to installation.\n\nBreaks your farming down by session, day, week, and month.\n\nLooks at your instance locks to see if you've defeated various bosses recently.\n\nReminds you if you need to farm a holiday dungeon or daily quest, and hides holiday items that aren't available right now.\n\nSupports bonus coin rolls.\n\nAutomatically screenshots when you obtain an item.\n\nYou can add your own items to track.\n\nLets you modify your attempt count manually without having to edit saved variables.\n\n### Slash Commands:\n\nSimply typing **/rarity** should open the options menu (unless disabled).\n\n   \nFor troubleshooting issues:\n \n\n    \n**/rarity mapinfo** \nprints the current map name and ID, which can help track zonewide custom items.\n\n    \n**/rarity dump** \ndisplays the most recent debug log entries (even if the debug mode is disabled).\n\n    \n**/rarity validate** \nchecks the consistency of your item database, including custom items (experimental).\n\n    \n**/rarity multifarm &lt;number&gt;** \nif you're farming the same items simultaneously on multiple accounts, sets the number of attempts added per detected event (e.g. `/rarity multifarm 3` adds 3 attempts instead of 1). This only lasts for your current session and resets to 1 the next time you log in. Run without a number to see the current value.\n\n### Comments & Bug Reports:\n    \n\n    \n[GitHub Issues](https://github.com/aSnejbjerg/Rarity-Collectors-edition/issues)\n\n    \n[Discord](https://discord.gg/bgbj3PfVVD)\n\n    \n[CurseForge](https://www.curseforge.com/wow/addons/rarity-collectors-edition)\n\n    \n[Translation](https://legacy.curseforge.com/wow/addons/rarity-collectors-edition/localization)\n\n   \n### With special thanks to the WoW Ambassadors:\n\n    \n\n        \n[The Lord of the Reins Discord](https://discord.gg/lordofthereins)-> Mount Collecting LFG Community\n\n        \n[The Achievements Discord](https://discord.gg/achievements)-> Achievement Hunting Community\n\n    \n\nFor your invaluable contributions in rewriting this addon for the Midnight client.\n\n#### The Rarity: Collector's edition Team",
+  "releases": [
+    {
+      "tag": "v0.4.0",
+      "published": "2026-11-10",
+      "notes": "## What's Changed\n* Stop treating loot window items as acquired before distribution by @Shelinka in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/171\n* Updated sound file ID for item obtained popup by @Shelinka in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/175\n* Test of different kill detection for mainline / camelot by @Shelinka in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/170\n* Replaced Gustjumper NPC with placeholder by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/173\n\n**Full Changelog**: https://github.com/aSnejbjerg/Rarity-Collectors-edition/compare/v0.3.1...v0.4.0"
+    },
+    {
+      "tag": "v0.3.1",
+      "published": "2026-10-19",
+      "notes": "## What's Changed\n* TOC update 12.1.7 PTR by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/159\n* Amani War Bear Fix by @aSnejbjerg in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/158\n* Reverting Mawbuffs fix by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/160\n* Tazavesh HC lockout fix by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/161\n* Yoggsaron fix by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/162\n\n**Full Changelog**: https://github.com/aSnejbjerg/Rarity-Collectors-edition/compare/v0.3.0...v0.3.1"
+    },
+    {
+      "tag": "v0.3.0",
+      "published": "2026-10-10",
+      "notes": "**v0.3.0:**\n\n## What's Changed\n* 12.1.5 Additions by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/136\n* Adds search bar to Custom options by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/138\n* added forever icon by @Shelinka in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/148\n* WoW Forever Additions by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/130\n* Output chat after combat is over | editted chat options for classic / modern versions by @Shelinka in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/141\n* TLPD addition (test for 100% mount tracking?) by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/150\n* Mawbuffs workaround by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/120\n* functionality for first daily attempt only by @Shelinka in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/144\n\n**Full Changelog**: https://github.com/aSnejbjerg/Rarity-Collectors-edition/compare/v0.2.8...v0.3.0"
+    },
+    {
+      "tag": "v0.2.8",
+      "published": "2026-09-21",
+      "notes": "**v0.2.8:**\n\n## What's Changed\n* Broken lynx leash tracking by @Shelinka in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/126\n* Multifarm request by @Shelinka in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/128\n* Drop chance adjustment for Midnight dung mounts and venomfang pet by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/129\n\n**Full Changelog**: https://github.com/aSnejbjerg/Rarity-Collectors-edition/compare/v0.2.7...v0.2.8"
+    },
+    {
+      "tag": "v0.2.7",
+      "published": "2026-09-07",
+      "notes": "**v0.2.7:**\n\n## What's Changed\n* Minor edits, additions to satisfy validation checks by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/119\n* Soleah fix for dead statistic ID by @Roguinaa in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/123\n* Minimap icon update by @Shelinka in https://github.com/aSnejbjerg/Rarity-Collectors-edition/pull/124\n\n**Full Changelog**: https://github.com/aSnejbjerg/Rarity-Collectors-edition/compare/v0.2.6...v0.2.7"
+    }
+  ],
+  "stats": {
+    "stars": 7,
+    "openIssues": 21,
+    "contributors": 33,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-10-19",
+      "2026-10-10",
+      "2026-09-21",
+      "2026-09-07",
+      "2026-08-31",
+      "2026-08-26",
+      "2026-08-23",
+      "2026-08-18",
+      "2026-08-18",
+      "2026-08-14",
+      "2026-08-11",
+      "2026-08-05",
+      "2026-08-04",
+      "2026-07-25"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Rarity",
+      "Rarity_Options"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDualSpec-1.0",
+      "LibQTip-1.0",
+      "LibDBIcon-1.0",
+      "LibBabble-Zone-3.0",
+      "LibSink-2.0",
+      "LibBabble-SubZone-3.0",
+      "LibSharedMedia-3.0",
+      "AceGUI-3.0-SharedMediaWidgets",
+      "LibBabble-CreatureType-3.0",
+      "LibBabble-Boss-3.0"
+    ],
+    "savedVariables": [
+      "RarityDB"
+    ]
+  }
+}

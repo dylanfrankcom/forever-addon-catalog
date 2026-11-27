@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "weakauras-sharedmedia",
+  "repo": "WeakAuras/WeakAuras_SharedMedia",
+  "about": "# WeakAurs SharedMedia\n\n- CurseForge https://www.curseforge.com/wow/addons/weakauras-sharedmedia\n- Wago Addons https://addons.wago.io/addons/weakauras-sharedmedia",
+  "releases": [
+    {
+      "tag": "1.0.3",
+      "published": "2026-10-11",
+      "notes": "# WeakAuras SharedMedia\n\n## [1.0.3](https://github.com/WeakAuras/WeakAuras_SharedMedia/tree/1.0.3) (2026-10-11)\n[Full Changelog](https://github.com/WeakAuras/WeakAuras_SharedMedia/compare/1.0.2...1.0.3) [Previous Releases](https://github.com/WeakAuras/WeakAuras_SharedMedia/releases)\n\n- Use last version of BigWigs packager that supports Forever"
+    },
+    {
+      "tag": "1.0.2",
+      "published": "2026-10-10",
+      "notes": "# WeakAuras SharedMedia\n\n## [1.0.2](https://github.com/WeakAuras/WeakAuras_SharedMedia/tree/1.0.2) (2026-10-10)\n[Full Changelog](https://github.com/WeakAuras/WeakAuras_SharedMedia/compare/1.0.1...1.0.2) [Previous Releases](https://github.com/WeakAuras/WeakAuras_SharedMedia/releases)\n\n- Retail toc update for 120105"
+    },
+    {
+      "tag": "1.0.1",
+      "published": "2026-10-10",
+      "notes": "# WeakAuras SharedMedia\n\n## [1.0.1](https://github.com/WeakAuras/WeakAuras_SharedMedia/tree/1.0.1) (2026-10-10)\n[Full Changelog](https://github.com/WeakAuras/WeakAuras_SharedMedia/compare/1.0.0...1.0.1) [Previous Releases](https://github.com/WeakAuras/WeakAuras_SharedMedia/releases)\n\n- Retail toc update and include Forever  \n- remove non existing sound  \n- Add initial README with project links  \n- Harden GitHub Actions workflows"
+    },
+    {
+      "tag": "1.0.0",
+      "published": "2026-01-27",
+      "notes": "# WeakAuras SharedMedia\n\n## [1.0.0](https://github.com/WeakAuras/WeakAuras_SharedMedia/tree/1.0.0) (2026-01-27)\n[Full Changelog](https://github.com/WeakAuras/WeakAuras_SharedMedia/commits/1.0.0) [Previous Releases](https://github.com/WeakAuras/WeakAuras_SharedMedia/releases)\n\n- Add support for addons.wago.io  \n- Remove libraries as they are now automatically added by packager  \n- Add curseforge project id  \n- Setup bigwigs packager for dependencies and distribution  \n- Add WeakAuras\\_SharedMedia addon with shared sounds, textures and fonts"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-10-11",
+    "releaseDates": [
+      "2026-10-11",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-01-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WeakAuras_SharedMedia"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ]
+  }
+}

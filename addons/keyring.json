@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "keyring",
+  "repo": "salty-max/keyring",
+  "about": "# Keyring\n\nKeyring gathers your addons' minimap buttons into a drawer, leaving one key on\nthe minimap. Click the key to open the drawer, and close it with Escape,\nanother click on the key or a click elsewhere.\n\nOne download covers Classic Era, Hardcore, Season of Discovery and World of\nWarcraft: Forever. Keyring speaks English and French. Other\nclients get English.\n\n## Using Keyring\n\n- **Left-click** the key to open or close the drawer.\n- **Right-click** the key for the settings.\n- **Drag** the key to move it around the minimap.\n- **Untick a button** in the settings to leave it on the minimap instead.\n\nThe drawer arranges buttons in a grid and follows your minimap's scale. The\ndrawer stays open while you use a menu opened from one of its buttons.\n\nKeyring finds buttons made with LibDBIcon, which most addons use, and other\naddons' buttons on the minimap that it recognises by name. The game's own\nbuttons stay where they are: tracking, mail, the clock, the zoom buttons and\nForever's addon compartment. So do map pins and anything over twice the size\nof a minimap button. Buttons hidden by their own addon stay hidden. Protected\nbuttons are left in place because the game restricts moving or hiding them\nduring combat.\n\nThe key uses the game's minimap ring and highlight, with a painted keyring\nicon. Keyring works as soon as you install it.\n\n## Commands\n\n- `/keyring` opens or closes the drawer.\n- `/keyring settings` opens the settings.\n- `/keyring list` shows in chat the buttons in the drawer and those left on the\n  minimap.\n- `/keyring reset` puts the key back in its place.\n\n## Download\n\nGet it from [CurseForge](https://www.curseforge.com/projects/1739386),\n[Wago](https://addons.wago.io/addons/ANz7JV64) or\n[GitHub releases](https://github.com/salty-max/keyring/releases).\n\nKeyring needs no other addon.\nThe full store description is in [addon/CURSEFORGE.md](https://github.com/salty-max/keyring/blob/main/addon/CURSEFORGE.md).\n\n## Development\n\n```bash\nbun run check        # Check the translations, Lua, both game simulations and the TOCs\nbun run locales      # Write addon/Keyring/Text_<locale>.lua from i18n/\nbun run package      # Create dist/Keyring-<version>.zip\nscripts/release.sh --version X.Y.Z [--hold] NOTES.md\n```\n\n## License\n\n[MIT](https://github.com/salty-max/keyring/blob/main/LICENSE). Not affiliated with Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v0.4.1",
+      "published": "2026-11-04",
+      "notes": "A fix for Forever's launch.\n\n- Letting go of a minimap button no longer risks an error when the game hides its name."
+    },
+    {
+      "tag": "v0.4.0",
+      "published": "2026-11-02",
+      "notes": "Keyring 0.4.0\n\n- The words were reworked: one verb for gather, one empty line, the usage line with its verbs, and each command is one sentence.\n- The list now marks hidden buttons, and says when the drawer may cover something.\n- French is finished, with the client's spacing before colons.\n- The interface is in English and French. German and Spanish stay English for now."
+    },
+    {
+      "tag": "v0.3.3",
+      "published": "2026-10-28",
+      "notes": "- The addon's name in chat is set in the client's own typography, with its colon in the name's colour (and a space before it in French).\n- On Forever, frames whose size, level, parent or shown state the game hides are skipped instead of causing errors. A button of such a frame is still gathered and let go."
+    },
+    {
+      "tag": "v0.3.2",
+      "published": "2026-10-26",
+      "notes": "Keyring 0.3.2\n\n- Chat replies now read as sentences with a capital, like the rest of the family.\n- German and Spanish wording smoothed after a cold read (\"belassen\", \"vuelve a su sitio\")."
+    },
+    {
+      "tag": "v0.3.1",
+      "published": "2026-10-16",
+      "notes": "Keyring now speaks Spanish on both European and Latin American Spanish clients.\n\nTooltips, options, button counts, chat messages and command help are translated, along with the description in the game's addon list. Slash commands stay the same."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-11-02",
+      "2026-10-28",
+      "2026-10-26",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-11"
+    ]
+  },
+  "languages": [
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "Keyring"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "KeyringSettings"
+    ]
+  }
+}

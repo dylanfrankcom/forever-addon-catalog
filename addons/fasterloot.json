@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "fasterloot",
+  "repo": "Xarano-GIT/Faster-Loot",
+  "about": "### **Info:**\n\nRemoves the delay with the loot frame and makes it instant.\n\n* * *\n\n### **Notes:**\n\nOnly works if you have auto loot enabled, or are holding down your auto loot key.\n\nHas compatibility with TSM Destroy.\n\n* * *\n\n![](https://img.shields.io/badge/Supports-Midnight-purple?style=flat&logo=battledotnet&logoColor=purple)\n\n![](https://img.shields.io/badge/Supports-Forever-cyan?style=flat&logo=battledotnet&logoColor=cyan)\n\n![](https://img.shields.io/badge/Supports-%20Mists%20Classic-limegreen?style=flat&logo=battledotnet&logoColor=limegreen)\n\n![](https://img.shields.io/badge/Supports-Cataclysm%20Classic-orangered?style=flat&logo=battledotnet&logoColor=orangered)\n\n![](https://img.shields.io/badge/Supports-Wrath%20Classic-blue?style=flat&logo=battledotnet&logoColor=blue)\n\n![](https://img.shields.io/badge/Supports-TBC%20Classic-forestgreen?style=flat&logo=battledotnet&logoColor=forestgreen)\n\n![](https://img.shields.io/badge/Supports-Classic-yellow?style=flat&logo=battledotnet&logoColor=yellow)\n\n* * *\n\n### **Available to download below:**\n\n* [Curseforge](https://www.curseforge.com/wow/addons/faster-loot)\n* [Wago](https://addons.wago.io/addons/faster-loot)\n* [WowInterface](https://www.wowinterface.com/downloads/info26759-FasterLoot.html)",
+  "releases": [
+    {
+      "tag": "20261117",
+      "published": "2026-11-17",
+      "notes": "# Faster Loot\n\n## [20261117](https://github.com/Xarano-GIT/Faster-Loot/tree/20261117) (2026-11-17)\n[Full Changelog](https://github.com/Xarano-GIT/Faster-Loot/compare/20261116-3...20261117) [Previous Releases](https://github.com/Xarano-GIT/Faster-Loot/releases)\n\n- Remove changelog, replaced with commit history"
+    },
+    {
+      "tag": "20261116-3",
+      "published": "2026-11-16",
+      "notes": "# Faster Loot\n\n## [20261116-3](https://github.com/Xarano-GIT/Faster-Loot/tree/20261116-3) (2026-11-16)\n[Full Changelog](https://github.com/Xarano-GIT/Faster-Loot/compare/20261116-1...20261116-3) [Previous Releases](https://github.com/Xarano-GIT/Faster-Loot/releases)\n\n- redo pkgmeta"
+    },
+    {
+      "tag": "20261116-2",
+      "published": "2026-11-16",
+      "notes": "# Faster Loot\n\n## [20261116-2](https://github.com/Xarano-GIT/Faster-Loot/tree/20261116-2) (2026-11-16)\n[Full Changelog](https://github.com/Xarano-GIT/Faster-Loot/compare/20261116-1...20261116-2) [Previous Releases](https://github.com/Xarano-GIT/Faster-Loot/releases)\n\n- redo pkgmeta"
+    },
+    {
+      "tag": "20261016",
+      "name": "20261016 - Support for Live 12.1.7 PTR",
+      "published": "2026-10-16",
+      "notes": "## 20261016\n- Support for Live 12.1.7 PTR"
+    },
+    {
+      "tag": "20261014-2",
+      "name": "20261014-2 - Updated version number",
+      "published": "2026-10-14",
+      "notes": "## 20261014-2\n- Updated version number"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-10-16",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-09-17",
+      "2026-09-15",
+      "2026-08-12",
+      "2026-07-21",
+      "2026-06-26",
+      "2026-06-19",
+      "2026-06-17",
+      "2026-05-05",
+      "2026-04-23",
+      "2026-04-18",
+      "2026-04-15",
+      "2026-03-20",
+      "2026-02-11",
+      "2026-01-21",
+      "2026-01-14",
+      "2025-12-18",
+      "2025-12-10",
+      "2025-11-28",
+      "2025-11-19",
+      "2025-11-12",
+      "2025-10-31",
+      "2025-10-30",
+      "2025-10-23",
+      "2025-10-17",
+      "2025-10-15",
+      "2025-10-14",
+      "2025-10-14",
+      "2025-10-08",
+      "2025-10-02",
+      "2025-09-25",
+      "2025-08-23",
+      "2025-08-15",
+      "2025-08-06",
+      "2025-07-18",
+      "2025-07-09",
+      "2025-07-02",
+      "2025-06-20",
+      "2025-06-18",
+      "2025-06-17",
+      "2025-06-10",
+      "2025-05-02",
+      "2025-04-29",
+      "2025-04-24",
+      "2025-04-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FasterLoot"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

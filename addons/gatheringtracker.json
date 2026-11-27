@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "gatheringtracker",
+  "repo": "Noshei/GatheringTracker",
+  "about": "# GatheringTracker\n \n\n    [![CurseForge Downloads](https://img.shields.io/curseforge/dt/406104?style=for-the-badge&label=CurseForge)](https://www.curseforge.com/wow/addons/gathering-tracker)\n    [![CurseForge Version](https://img.shields.io/curseforge/v/406104?style=for-the-badge)](https://www.curseforge.com/wow/addons/gathering-tracker)\n    [![CurseForge Game Versions](https://img.shields.io/curseforge/game-versions/406104?style=for-the-badge)](https://www.curseforge.com/wow/addons/gathering-tracker)\n\n  ![](https://raw.githubusercontent.com/Noshei/GatheringTracker/master/.previews/GT2.png)\n\n  Gathering Tracker provides a HUD to track any item.\n\n## Features\n\n- Supported on all versions of WoW\n- Display AH Price Data\n  - Currently supports: TradeSkillMaster, Auctionator, and RECrystallize\n- Can track any item in the game\n- Can track any supported Currency\n- Customizable appearance\n- Filter options accessible through the on-screen button, minimap icon, or broker icon\n\n## Commands:\n\n/gt or /gatheringtracker will open the addon configurations\n\n## Issues/Support:\n\nFor any issues, support, or feature requests please submit an issue on [Github](https://github.com/Noshei/GatheringTracker).",
+  "releases": [
+    {
+      "tag": "3.5.1",
+      "published": "2026-11-14",
+      "notes": "# Gathering Tracker\n\n## [3.5.1](https://github.com/Noshei/GatheringTracker/tree/3.5.1) (2026-11-14)\n[Full Changelog](https://github.com/Noshei/GatheringTracker/compare/3.4.13...3.5.1) [Previous Releases](https://github.com/Noshei/GatheringTracker/releases)\n\n- 3.5.1  \n    Expanded Broker Support  \n    Broker Text now shows totals row infromation  \n    Broker tooltip now shows same information as on screen display (even if collapse display is enabled).  \n- Show Totals and filtered item values in the broker (#51)"
+    },
+    {
+      "tag": "3.4.13",
+      "published": "2026-11-14",
+      "notes": "# Gathering Tracker\n\n## [3.4.13](https://github.com/Noshei/GatheringTracker/tree/3.4.13) (2026-11-14)\n[Full Changelog](https://github.com/Noshei/GatheringTracker/compare/3.4.11...3.4.13) [Previous Releases](https://github.com/Noshei/GatheringTracker/releases)\n\n- 3.4.13  \n    fix 3.4.12  \n- 3.4.12  \n    added option to classic and forever to display gold, silver, and/or copper values.  \n- Add gold, silver, and copper display options for Era and Forever (#50)  \n    * Add money denominations for Era and Forever"
+    },
+    {
+      "tag": "3.4.12",
+      "published": "2026-11-14",
+      "notes": "# Gathering Tracker\n\n## [3.4.12](https://github.com/Noshei/GatheringTracker/tree/3.4.12) (2026-11-14)\n[Full Changelog](https://github.com/Noshei/GatheringTracker/compare/3.4.11...3.4.12) [Previous Releases](https://github.com/Noshei/GatheringTracker/releases)\n\n- 3.4.12  \n    added option to classic and forever to display gold, silver, and/or copper values.  \n- Add gold, silver, and copper display options for Era and Forever (#50)  \n    * Add money denominations for Era and Forever"
+    },
+    {
+      "tag": "3.4.11",
+      "published": "2026-10-19",
+      "notes": "# Gathering Tracker\n\n## [3.4.11](https://github.com/Noshei/GatheringTracker/tree/3.4.11) (2026-10-19)\n[Full Changelog](https://github.com/Noshei/GatheringTracker/compare/3.4.10...3.4.11) [Previous Releases](https://github.com/Noshei/GatheringTracker/releases)\n\n- 3.4.11  \n    Added new items for Forever  \n    Fixed a few typos  \n    Ensured that correct data loads in Forever"
+    },
+    {
+      "tag": "3.4.10",
+      "published": "2026-09-18",
+      "notes": "# Gathering Tracker\n\n## [3.4.10](https://github.com/Noshei/GatheringTracker/tree/3.4.10) (2026-09-18)\n[Full Changelog](https://github.com/Noshei/GatheringTracker/compare/3.4.9...3.4.10) [Previous Releases](https://github.com/Noshei/GatheringTracker/releases)\n\n- 3.4.10  \n    Added support for Forever beta"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Noshei/GatheringTracker/master/.previews/GT2.png"
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 2,
+    "contributors": 3,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-10-19",
+      "2026-09-18",
+      "2026-08-18",
+      "2026-08-12",
+      "2026-03-21",
+      "2026-03-01",
+      "2026-02-13",
+      "2026-02-11",
+      "2026-02-10",
+      "2026-02-09",
+      "2026-02-09",
+      "2026-02-08",
+      "2026-02-08",
+      "2026-01-31",
+      "2026-01-28",
+      "2026-01-14",
+      "2026-01-09",
+      "2026-01-06",
+      "2026-01-06",
+      "2026-01-05",
+      "2026-01-04",
+      "2025-12-20",
+      "2025-12-03",
+      "2025-12-01",
+      "2025-10-07",
+      "2025-10-04",
+      "2025-09-29",
+      "2025-09-21",
+      "2025-08-05",
+      "2025-07-07",
+      "2025-07-05",
+      "2025-05-25",
+      "2025-04-22",
+      "2025-04-12",
+      "2025-04-08",
+      "2025-04-08",
+      "2025-03-05",
+      "2025-03-05",
+      "2025-01-14",
+      "2024-12-28",
+      "2024-12-17",
+      "2024-12-12",
+      "2024-12-06",
+      "2024-12-04",
+      "2024-11-13",
+      "2024-11-02",
+      "2024-10-31"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GatheringTracker"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "TradeSkillMaster",
+      "RECrystallize",
+      "Auctionator",
+      "WagoAnalytics"
+    ],
+    "savedVariables": [
+      "GatheringTrackerDB"
+    ]
+  }
+}

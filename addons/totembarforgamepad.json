@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "totembarforgamepad",
+  "repo": "jccr/TotemBarForGamepad",
+  "about": "# Totem Bar for Gamepad\n\n![Totem Bar for Gamepad logo](https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/logo.png)\n\nA shaman totem bar for World of Warcraft (WoW Forever client) that looks and\nbehaves like Blizzard's own, built for playing with a gamepad.\n\n![Choosing an Earth totem with the gamepad in Totem Bar Focus](https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/4-selecting.jpg)\n\n- **Totem bar.** Blizzard's look and art, with totem timers and the weapon\n  enhancement. It can hide Blizzard's Totem Bar (on by default).\n- **Totem Bar Focus.** Puts your gamepad on the totem bar: browse every\n  totem with the D-pad and cast or assign with A/X.\n- **Edit Mode.** Place the bar from Blizzard's Edit Mode.\n- **Gamepad macros.** One-press \"Bind to Action Bar\" for the addon's macros,\n  from the guide or the settings panel.\n- **Sound alerts.** Totem expiring, totem gone and weapon enhancement expiring,\n  using Blizzard's Cooldown Manager sounds or Text to Speech.\n- **First-run guide and settings panel.** Both work fully with a gamepad.\n- **Key bindings.** Totem slots, summon, recall and weapon enhancement, under\n  Key Bindings → AddOns.\n\n## A quick tour\n\n**Set up in two steps.** The welcome guide adds Totem Bar Focus to a\ngamepad button with one press of A.\n\n![Welcome guide: add Totem Bar Focus, place the bar](https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/1-welcome.jpg)\n![Bind to Action Bar prompt for the TBG Focus macro](https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/2-bind.jpg)\n\n**Your gamepad on the totem bar.** Totem Bar Focus moves along the bar with\nthe D-pad. Press A or X to cast. Open a slot to choose another totem.\n\n![Totem Bar Focus on Strength of Earth Totem with its tooltip](https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/3-focused.jpg)\n\n**Timers and weapon enhancement.** See the time left on each totem. Choose\nand cast your weapon enhancement from the same bar.\n\n![Totem timers and the weapon enhancement choices](https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/5-extras.jpg)\n\n**Cast directly.** Bind one macro per element, and one for your weapon\nenhancement. Each casts that slot's totem with one press.\n\n![Gamepad Macros dialog with the Totem Bar Focus and cast macros](https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/8-extra-macros.jpg)\n\n**Place it in Edit Mode.** Move, scale and arrange the bar with Blizzard's\nEdit Mode.\n\n![The bar's settings in Blizzard's HUD Edit Mode](https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/6-hud-edit-mode.jpg)\n\n**Options your way.** Sound alerts, Totem Bar Focus behavior, gamepad\nmacros and key bindings, all in Options → AddOns.\n\n![Options: general settings and sound alerts](https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/7-options.jpg)\n![Options: Totem Bar Focus, gamepad macros and key bindings](https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/7-options-2.jpg)\n\n## Development\n\nBuilding, testing and releasing: see [DEVELOPMENT.md](https://github.com/jccr/TotemBarForGamepad/blob/main/DEVELOPMENT.md).",
+  "releases": [
+    {
+      "tag": "v0.2.3",
+      "name": "Totem Bar for Gamepad 0.2.3",
+      "published": "2026-11-16",
+      "notes": "### Fixed\n\n- **Steam Deck and Steam Input showed numbered button glyphs** (1, 2, 3)\n  instead of A, B, X, Y. Generic gamepads now get Blizzard's Xbox art.\n\n### Changed\n\n- **Button glyphs.** D-pad up and down, the shoulder buttons and the\n  triggers now use Blizzard's button art, like the face buttons."
+    },
+    {
+      "tag": "v0.2.2",
+      "name": "Totem Bar for Gamepad 0.2.2",
+      "published": "2026-11-14",
+      "notes": "### Fixed\n\n- **Empty totem bar slots could show a totem** when the game's deprecated\n  API fallbacks are off. The addon now uses the current action bar API."
+    },
+    {
+      "tag": "v0.2.1",
+      "name": "Totem Bar for Gamepad 0.2.1",
+      "published": "2026-11-14",
+      "notes": "### Changed\n\n- **Totem Expired alert is off by default** (None). Choose a sound for it\n  in Options → AddOns."
+    },
+    {
+      "tag": "v0.2.0",
+      "name": "Totem Bar for Gamepad 0.2.0",
+      "published": "2026-11-13",
+      "notes": "### New\n\n- **Gamepad Macros dialog.** Every TBG macro in one place: Totem Bar Focus\n  and the direct-cast macros for each element and the weapon enhancement.\n  Press A to bind one to a gamepad button, or drag it to an action bar.\n  Open it from Options → AddOns or the welcome guide. Opening it from\n  Options closes Options, so LB + RB + D-pad paging works while binding.\n- **Logo.** Shown next to the addon's name in the AddOns list.\n\n### Changed\n\n- **Welcome guide.** The D-pad moves through a 2×2 grid: the macro and\n  Open Edit Mode, then Gamepad Macros and Open Options, then Done. The\n  guide is more compact and opens higher on the screen.\n- **Gamepad Macros dialog.** The bind and page-switching reminders are gone\n  (the bind prompt explains them).\n- **Default bar position.** Centered, with its bottom edge 5% of the\n  screen's height above the bottom, on any screen size, UI scale, bar scale\n  or orientation. Edit Mode's Reset Position returns the bar there.\n\n### Fixed\n\n- **Call of the Elements cast nothing** for elements the bar showed a\n  totem for. The bar showed a default totem that was never put on the\n  game's totem bar. It now shows the game's totem bar as it is: an empty\n  slot shows as No Totem.\n- **The Totem Expired sound played when recalling totems** with Totemic\n  Recall.\n- **Weapon enhancements showed Rank 1** in their tooltips and icons\n  instead of the rank you've learned."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/4-selecting.jpg",
+    "https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/1-welcome.jpg",
+    "https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/2-bind.jpg",
+    "https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/3-focused.jpg",
+    "https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/5-extras.jpg",
+    "https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/8-extra-macros.jpg",
+    "https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/6-hud-edit-mode.jpg",
+    "https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/7-options.jpg",
+    "https://raw.githubusercontent.com/jccr/TotemBarForGamepad/main/assets/screenshots/7-options-2.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TotemBarForGamepad"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "TotemBarForGamepadDB"
+    ]
+  }
+}

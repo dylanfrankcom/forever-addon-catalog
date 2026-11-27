@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "spicykillstreaks",
+  "repo": "zednx/spicy-kill-streaks",
+  "about": "![Spicy Kill Streaks logo](https://raw.githubusercontent.com/zednx/spicy-kill-streaks/main/docs/logo.png)\n\n# \uD83C\uDF36️ Spicy Kill Streaks\n\n**Announcer voices, combat text and sparkles for your killing blows in WoW Forever.** Land a killing blow and hear *Killing Spree!*, *Rampage!*, *Godlike!*; chain kills for *Double Kill!* up to *Holy Shit!*. Die and get *Humiliation*.\n\nA rewrite of **dG KillShot** for WoW Forever, which does not give addons the combat log that the original relied on.\n\n## Features\n\n- **Kill streaks**: a rank for every kill in a row: *Headshot* (1), *Ownage* (2), *Killing Spree* (3), *Rampage*, *Dominating*, *Unstoppable*, *Wicked Sick*, then *Godlike* from 8 on, each with its own sound, colour and callout. On every kill, or Unreal Tournament style (every few kills). There are a couple of secrets further up.\n- **Multikills**: kills within 30 seconds of each other chain into *Double Kill*, *Triple Kill*, *Multi Kill*, *Mega Kill* and on, up to *Holy Shit*.\n- **Special callouts**, only when the addon is sure (otherwise you get the normal callout):\n  - *First Blood* on your first kill of the day\n  - *Retribution* when you kill someone who killed you in the last hour (and now and then, something else...)\n  - *Comeback*: your first kill after dying 3+ times in a row gets a surprise\n  - *Pancake* when you (or a friend) die from falling or drowning\n  - **Big Game Hunter**: kill a player 10+ levels above you for a callout of its own\n  - **Ganks**: kill a grey-level player (worth no honor) and get shamed instead of a callout (it doesn't count towards your streak); die to one 10+ levels above you and hear \"You got ganked\"\n- **Voice packs**: Male, Female, Sexy, Baby, **Flamboyant** (with rainbow callouts), **Zealot** (holy-warrior taunts as callouts) and **Trailer** (a movie-trailer narrator who slowly loses it). Pick a separate voice for *Humiliation*, or add your own sound files.\n- **Only your killing blows count**, not kills your group finishes.\n- **Effects** (all optional): combat text that punches in and floats up, in a dozen fonts (or any SharedMedia font), sparkle bursts (stars, chillies or confetti), and a screen-edge flash for big moments. Drag them anywhere.\n- **Settings window** with a live preview of your font, size and voice pack, a **Sound board** that plays every sound and says when it plays, and a short **setup** on first login.\n- **Minimap button** (the chilli): settings, a quick menu, and Shift-click to snooze.\n- **Mute** in battlegrounds, dungeons or raids, or snooze for 30 minutes.\n- **Guild board**: the month's top kill streaks and most deaths in your guild, shown at login and in the settings, with a button to post it to guild or party chat.\n- **Party and guild sync** (on by default, part of the fun): share your kills and deaths with friends who run the addon. For party members and guild members separately, choose whether their kills show in chat, as combat text, with sound, and whether their deaths show too. If a guildmate or party member has a newer version, it tells you in chat. Battlegrounds and arenas are just for you: nothing is shared from them, and they don't count on the guild board.\n- **Kudos**: when a friend running the addon gets a kill, or dies, send them an emoji: \uD83D\uDE02 \uD83D\uDE03 \uD83D\uDC4D \uD83D\uDC4E \uD83D\uDC4F \uD83D\uDE4F \uD83D\uDE2D \uD83D\uDC80 ❤️ \uD83C\uDF89. It pops up on their screen only, or, if you choose, in party or guild chat too.\n- **KOS list**: players who keep killing you, with nemeses (\"IS NOW YOUR NEMESIS!\"), payback callouts (**GRUDGE SETTLED!**, **NEMESIS SLAIN!**) and sighting alerts when one is nearby. `/sks kos <name>` adds anyone.\n- **Share with friends** (opt-in): your friends list and Battle.net friends on your realm and faction, with a per-friend list (share with them, show their kills) and a mute list.\n- **Request help** (world PvP): when a player kills you, one click asks your party and guild for help, with who killed you and where. Friends get a card with **On my way** and a waypoint, and killing your killer earns them an **AVENGED!**\n- **Battleground summary**: at the end of a match, your killing blows and best kill streak, with buttons to share it in battleground or guild chat (or not).\n- **Duels**: wins count, losses and fleeing get a *Humiliation*.\n- **Stats**: longest streaks, top prey, top predators and a recent log.\n- **Debug log** window you can copy from, for bug reports.\n\n## Install\n\nInstall from CurseForge, or download `SpicyKillStreaks-vX.Y.Z.zip` from [Releases](https://github.com/zednx/spicy-kill-streaks/releases). Extract it into `World of Warcraft/_forever_/Interface/AddOns/`, then restart the game.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/sks` or `/killstreaks` | All options |\n| `/sks setup` | The first-run setup again |\n| `/sks preview` | Show off the effects (`kill`, `rank`, `multi`, `big`, `death`, `other`) |\n| `/sks test kill` | Simulate a kill (also `death`, `prepare`) |\n| `/sks unlock` / `/sks lock` | Move the text and sparkles |\n| `/sks who` | Who in your group and guild runs the addon |\n| `/sks emote` | Send your last kill's custom emote message (WoW Forever only lets typed messages go out from a key press; put it in a macro). Built-in emotes like /cheer play by themselves after combat. |\n| `/sks synctest` | Send a test kill to your party/guild |\n| `/sks snooze` | Mute the sounds for 30 minutes (`/sks snooze 60` for an hour, `/sks snooze off` to undo) |\n| `/sks score` | Check that your battleground scoreboard row is found |\n| `/sks recap` | Print what your last Death Recap tells addons (for troubleshooting) |\n| `/sks classic` | The old options window |\n| `/sks kudos` | Preview the Kudos popup and drag it into place (again to lock it); `/sks kudos got` previews kudos you get |\n| `/sks aid` | Preview a help request (yours and a friend's) |\n| `/sks kos <name>` | Add a player to your KOS list (`/sks kos` opens the page) |\n| `/sks friends` | Which friends the addon can see, and why any is left out |\n| `/sks mute <name>` | Hide a player's shared kills and deaths (`/sks unmute <name>` to undo) |\n| `/sks summary` | A sample of the end-of-match battleground summary |\n| `/sks minimap` | Show or hide the minimap button |\n| `/sks debug` | Open the debug log: what the kill detection sees, ready to copy |\n\n## How kills are detected\n\nWoW Forever keeps the combat log from addons, so:\n\n| Where | How |\n|---|---|\n| Battlegrounds and arenas | Your killing blows on the scoreboard |\n| Everywhere else | The game's own killing-blow event (`PARTY_KILL`) |\n| Your deaths | The Death Recap names your killer |\n| Duels | The duel result in chat |\n\nCreature kills only count if you switch on **Count NPC kills too** (handy for trying it out).\n\n## Privacy\n\nSharing with your party and guild is on by default, and the first-run setup says so with a box to untick. With sharing on, the addon sends your kills and deaths (victim, killer, streak, levels) as hidden addon messages to your party and/or guild; players without the addon see nothing. Sharing with friends (friends list and Battle.net friends on your realm and faction) is off unless you switch it on. Switch them all off on the Friends page and nothing leaves your game. Mute anyone with `/sks mute <name>`. See [SECURITY.md](https://github.com/zednx/spicy-kill-streaks/blob/main/SECURITY.md).\n\n## Credits and license\n\n- Made by **Spicy Bubbletea** (Horde, WoW Forever PvP). Feedback in game or on GitHub Issues.\n- Inspired by **dG KillShot** by Lance Inman. Its voice packs ship with this addon.\n- Uses the **Ace3** libraries.\n- Kudos emoji are from **Twemoji** (Twitter, Inc and contributors), CC-BY 4.0: [Media/Emoji](https://github.com/zednx/spicy-kill-streaks/blob/main/SpicyKillStreaks/Media/Emoji).\n- The code is licensed under the **GNU GPL v2** (see [LICENSE](https://github.com/zednx/spicy-kill-streaks/blob/main/LICENSE)), as dG KillShot is.\n\n### Sounds and fonts\n\n- **Announcer voices are not covered by the GPL.** They belong to their owners (the Unreal Tournament announcers are © Epic Games) and are included as they were in dG KillShot. Where each sound comes from: [sounds/CREDITS.txt](https://github.com/zednx/spicy-kill-streaks/blob/main/SpicyKillStreaks/sounds/CREDITS.txt). Rights holders can ask for removal through GitHub Issues.\n- **Fonts** are from Google Fonts: Anton, Bangers, Bebas Neue, Black Ops One, Russo One and Teko under the SIL Open Font License 1.1; Luckiest Guy and Permanent Marker under the Apache License 2.0. Grandstander, Orbitron and Press Start 2P are also OFL 1.1. Expressway is not shipped: it's offered when Daylight UI (which includes it) is installed. Licences: [Media/Fonts](https://github.com/zednx/spicy-kill-streaks/blob/main/SpicyKillStreaks/Media/Fonts).",
+  "releases": [
+    {
+      "tag": "v1.13.5",
+      "name": "Spicy Kill Streaks v1.13.5",
+      "published": "2026-11-26",
+      "notes": "- **Fixed: ganks on players with a family name weren't caught.** The level the addon saw (\"Xc\", from your target or a nameplate) never matched the name in the kill (\"Xc Bnm\"), so with no known level the kill played the normal callouts and counted towards your streak. Levels are now matched by first name. This also fixes Big Game Hunter and Got ganked for those players.\n- **A gank is now a grey-level player** (worth no honor), the game's own rule, instead of \"10+ levels below you\": at level 41 that's level 32 and below.\n\n---\n**Install:** download `SpicyKillStreaks-v*.zip`, extract it into `World of Warcraft/_forever_/Interface/AddOns/`, then restart the game.\n\nBuilt by GitHub Actions from this tag's source. To check: `gh attestation verify <file> --repo zednx/spicy-kill-streaks`"
+    },
+    {
+      "tag": "v1.13.4",
+      "name": "Spicy Kill Streaks v1.13.4",
+      "published": "2026-11-25",
+      "notes": "- **Kudos:** \uD83D\uDE02 now plays the sender's `/laugh` (their race and sex) instead of their `/cheer`, for a kill or a death. The other emoji are unchanged.\n\n---\n**Install:** download `SpicyKillStreaks-v*.zip`, extract it into `World of Warcraft/_forever_/Interface/AddOns/`, then restart the game.\n\nBuilt by GitHub Actions from this tag's source. To check: `gh attestation verify <file> --repo zednx/spicy-kill-streaks`"
+    },
+    {
+      "tag": "v1.13.3",
+      "name": "Spicy Kill Streaks v1.13.3",
+      "published": "2026-11-25",
+      "notes": "- **New defaults** for others' kills and deaths (Friends page): party and guild members' kills now show in chat, as combat text and with sounds, and their deaths too. Friends' show in chat and with sounds (no combat text), deaths included.\n- **New Kudos popup defaults:** 90% size, 340-wide cards, growing upwards.\n- Only settings you never changed follow the new defaults; anything you set yourself stays as it is.\n\n---\n**Install:** download `SpicyKillStreaks-v*.zip`, extract it into `World of Warcraft/_forever_/Interface/AddOns/`, then restart the game.\n\nBuilt by GitHub Actions from this tag's source. To check: `gh attestation verify <file> --repo zednx/spicy-kill-streaks`"
+    },
+    {
+      "tag": "v1.13.2",
+      "name": "Spicy Kill Streaks v1.13.2",
+      "published": "2026-11-24",
+      "notes": "- **NPC kills are just for you** (with **Count NPC kills** on): their callouts, sounds and effects play with a streak of their own, but they're no longer sent to your party, guild or friends, don't count in your stats or on the guild board, and leave your real kill streak alone. Dying resets the NPC streak too.\n\n---\n**Install:** download `SpicyKillStreaks-v*.zip`, extract it into `World of Warcraft/_forever_/Interface/AddOns/`, then restart the game.\n\nBuilt by GitHub Actions from this tag's source. To check: `gh attestation verify <file> --repo zednx/spicy-kill-streaks`"
+    },
+    {
+      "tag": "v1.13.1",
+      "name": "Spicy Kill Streaks v1.13.1",
+      "published": "2026-11-24",
+      "notes": "- **Fixed: killing the same player again wasn't counted.** Once you'd killed a player, every later kill on them was ignored until you changed zone (no callout, no streak, no KOS payback). In world PvP, where you meet the same players again and again, that missed a lot. Now a repeat only counts once if the game reports it twice within a few seconds.\n- **Your kill line in chat shows your streak:** \"Spicy killed Bob! (4 streak)\", from the 2nd kill in a row (not if your own Kill text already has `$s`). Friends' kills in your feed say it the same way now (\"(4 streak)\" instead of \"(streak 4)\").\n\n---\n**Install:** download `SpicyKillStreaks-v*.zip`, extract it into `World of Warcraft/_forever_/Interface/AddOns/`, then restart the game.\n\nBuilt by GitHub Actions from this tag's source. To check: `gh attestation verify <file> --repo zednx/spicy-kill-streaks`"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 5,
+    "contributors": 2,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SpicyKillStreaks"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SpicyKillStreaksDB"
+    ]
+  }
+}

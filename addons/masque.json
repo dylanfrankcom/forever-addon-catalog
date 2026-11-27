@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "masque",
+  "repo": "SFX-WoW/Masque",
+  "about": "[![Build][SVG-Build]][Build]\n[![API_VERSION][SVG-API]][API_VERSION]\n[![Discord][SVG-Discord]][Discord]\n[![X][SVG-X]][X]\n[![Sponsor][SVG-Sponsor]][Sponsor]\n[![PayPal][SVG-PayPal]][PayPal]\n[![Ko-fi][SVG-Kofi]][Kofi]\n\n## [About][Top]\n\n**Masque** is an add-on for [World of Warcraft] that provides a skinning engine for button-based add-ons through a library-based API.\n\n## [Features][Top]\n\n#### Library\n\n- Easy-to-use API accessible through [LibStub]\n- Group-based skinning engine\n- Independent saved-variables\n- Support for most button types and regions\n- Support for third-party skins\n\n#### GUI\n\n- Load-on-demand settings panel\n- Global, per-add-on and per-group settings\n- Skin, Color, Gloss and Shadow options\n- Full profile support, including per-spec profiles (Retail only)\n\n## [Requirements][Top]\n\n- An action bar, aura or inventory add-on that supports Masque.\n- All required libraries are included.\n\n## [Options][Top]\n\nTo access Masque's options, use the `/msq` or `/masque` chat commands. You can also access the options via the _Interface Options Window_ or by clicking on Masque's icon in a _DataBroker_ display.\n\n## [Installation][Top]\n\nInstall the package through your preferred add-on manager or extract the archive to your add-ons directory.\n\n## [Credits][Top]\n\n- [JJ Sheets](https://www.curseforge.com/members/_ForgeUser463) for the original project.\n\n## [Feedback][Top]\n\nFor bug reports and suggestions, use the [issue tracker]. Direct any questions or comments to [Discord].\n\n## [Localization][Top]\n\nTo help translate this add-on, use the [localization system]. Alternatively, you can use the [issue tracker].\n\n## [Links][Top]\n\n- **Resources**\n  - [Documentation][Wiki]\n  - [Skin List](https://github.com/SFX-WoW/Masque/wiki/Skin-List)\n- **Mirrors**\n  - [GitHub]\n  - [CurseForge]\n  - [Wago.io]\n  - [WoW Interface]\n\n[//]: # (Links)\n\n[Build]: https://github.com/SFX-WoW/Masque/actions/workflows/build-release.yml (Build Status)\n[API_VERSION]: https://github.com/SFX-WoW/Masque/wiki/API_VERSION (API_VERSION)\n[Discord]: https://discord.gg/7MTWRgDzz8 (Join the Discord)\n[X]: https://x.com/stormfxi (Follow on X)\n[Sponsor]: https://github.com/sponsors/StormFX (Sponsor on GitHub)\n[PayPal]: https://www.paypal.com/donate/?hosted_button_id=EELAK9TC4W4KQ (Donate via PayPal)\n[Kofi]: https://ko-fi.com/StormFX (Donate via Ko-fi)\n\n[Top]: #Top (Top of the Page)\n\n[LibStub]: https://www.curseforge.com/wow/addons/libstub (LibStub @ CurseForge)\n[World of Warcraft]: https://worldofwarcraft.com/ (World of Warcraft)\n\n[Issue Tracker]: https://github.com/SFX-WoW/Masque/issues (Report an Issue)\n[Localization System]: https://www.curseforge.com/wow/addons/masque/localization (Translate on CurseForge)\n[Wiki]: https://github.com/SFX-WoW/Masque/wiki (Masque Wiki)\n\n[CurseForge]: https://www.curseforge.com/wow/addons/masque (View on CurseForge)\n[GitHub]: https://github.com/SFX-WoW/Masque (Download from GitHub)\n[Wago.io]: https://addons.wago.io/addons/masque (View on Wago.io)\n[WoW Interface]: https://www.wowinterface.com/downloads/info12097 (Download from WoW Interface)\n\n[//]: # (Images)\n\n[SVG-Build]: https://img.shields.io/github/actions/workflow/status/SFX-WoW/Masque/build-release.yml?label=Build&logo=github&logoColor=fff&style=flat-square\n[SVG-API]: https://img.shields.io/endpoint?url=https://wow.stormfx.com/img/svg/masque-api.json\n[SVG-Discord]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/discord.json\n[SVG-X]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/x.json\n[SVG-Sponsor]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/github-sponsor.json\n[SVG-PayPal]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/paypal.json\n[SVG-Kofi]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/kofi.json",
+  "releases": [
+    {
+      "tag": "12.1.8",
+      "published": "2026-11-02",
+      "notes": "## 12.1.8\n\n### Skins\n\n- Updated the skin settings to reflect `AutoCast` changes.\n\n### Bug Fixes\n\n- Fixed an error that could occur when an add-on passed `AutoCastable` or `AutoCastShine` in the `Regions` table.\n\n[Release History](https://github.com/SFX-WoW/Masque/wiki/History)"
+    },
+    {
+      "tag": "12.1.7",
+      "published": "2026-10-28",
+      "notes": "## 12.1.7\n\n### Skins\n\n- Due to all game versions now using a similar `AutoCastOverlay` template, the following changes have been made:\n  - The `AutoCast`/`AutoCastShine` and `AutoCastable` regions have been deprecated.\n  - For **Classic** clients, **Masque** will now look in the `AutoCast_Frame.Classic` and `AutoCast_Corners.Classic` fields for the respective **Classic** settings.\n  - **Masque** will automatically redirect those fields to the respective skin definition if the parent field exists. Otherwise it will use the default settings.\n    - Eg: If `AutoCast_Corners` exists within the skin, **Masque** will point `AutoCast_Corners.Classic` toward `AutoCastable` if `AutoCast_Corners.Classic` is missing.\n\n### Bug Fixes\n\n- Fixed error with the `Backdropp` region during skinning.\n\n[Release History](https://github.com/SFX-WoW/Masque/wiki/History)"
+    }
+  ],
+  "stats": {
+    "stars": 54,
+    "openIssues": 4,
+    "contributors": 16,
+    "lastRelease": "2026-11-02",
+    "releaseDates": [
+      "2026-11-02",
+      "2026-10-28"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Masque"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "AceGUI-3.0_SFX-Widgets",
+      "LibDBIcon-1.0",
+      "LibDualSpec-1.0"
+    ],
+    "savedVariables": [
+      "MasqueDB"
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "improveany",
+  "repo": "d4kir92/ImproveAny",
+  "about": "# ImproveAny\nImproves Ui\n\n# Download:\n\nhttps://addons.wago.io/addons/improveany\n\nhttps://www.curseforge.com/wow/addons/improveany",
+  "releases": [
+    {
+      "tag": "v1.0.29",
+      "published": "2026-11-26",
+      "notes": "# ImproveAny by D4KiR\n\n## [v1.0.29](https://github.com/d4kir92/ImproveAny/tree/v1.0.29) (2026-11-26)\n[Full Changelog](https://github.com/d4kir92/ImproveAny/compare/v1.0.28...v1.0.29) [Previous Releases](https://github.com/d4kir92/ImproveAny/releases)\n\n- v1.0.29  \n- Fix gamepad action blocked errors on WoW Forever  \n    - Opening bags via the gamepad radial no longer triggers an ADDON\\_ACTION\\_BLOCKED error  \n    - Closing the spellbook in gamepad mode no longer triggers an ADDON\\_ACTION\\_BLOCKED error  \n- d4"
+    },
+    {
+      "tag": "v1.0.28",
+      "published": "2026-11-17",
+      "notes": "# ImproveAny by D4KiR\n\n## [v1.0.28](https://github.com/d4kir92/ImproveAny/tree/v1.0.28) (2026-11-17)\n[Full Changelog](https://github.com/d4kir92/ImproveAny/compare/v1.0.26...v1.0.28) [Previous Releases](https://github.com/d4kir92/ImproveAny/releases)\n\n- v1.0.28  \n- Prioritize completed quest turn-ins  \n    - Skip unfinished quests and unrelated gossip options  \n    - Turn in completed quests before accepting new ones  \n- d4  \n- v1.0.27  \n- Fix spellbook highlight while shapeshifted  \n    - Spells on action bar 1 no longer glow in the spellbook while in bear/cat form or stances  \n- d4  \n- d4lib"
+    },
+    {
+      "tag": "v1.0.26",
+      "published": "2026-11-08",
+      "notes": "# ImproveAny by D4KiR\n\n## [v1.0.26](https://github.com/d4kir92/ImproveAny/tree/v1.0.26) (2026-11-08)\n[Full Changelog](https://github.com/d4kir92/ImproveAny/compare/v1.0.25...v1.0.26) [Previous Releases](https://github.com/d4kir92/ImproveAny/releases)\n\n- v1.0.26"
+    },
+    {
+      "tag": "v1.0.25",
+      "published": "2026-11-06",
+      "notes": "# ImproveAny by D4KiR\n\n## [v1.0.25](https://github.com/d4kir92/ImproveAny/tree/v1.0.25) (2026-11-06)\n[Full Changelog](https://github.com/d4kir92/ImproveAny/compare/v1.0.24...v1.0.25) [Previous Releases](https://github.com/d4kir92/ImproveAny/releases)\n\n- v1.0.25  \n- Remove combat text position options  \n    - Remove CombatText Position and X/Y sliders (now handled by MoveAny)  \n    - Sort locale files alphabetically  \n- d4lib"
+    },
+    {
+      "tag": "v1.0.24",
+      "published": "2026-11-04",
+      "notes": "# ImproveAny by D4KiR\n\n## [v1.0.24](https://github.com/d4kir92/ImproveAny/tree/v1.0.24) (2026-11-04)\n[Full Changelog](https://github.com/d4kir92/ImproveAny/compare/v1.0.23...v1.0.24) [Previous Releases](https://github.com/d4kir92/ImproveAny/releases)\n\n- v1.0.24  \n- Remove custom status bar width option  \n    - Remove the \"Status Bar Width (XPbar, Reputationbar)\" setting and its toggle  \n    - XP and reputation bars always use the default Blizzard width  \n- d4lib"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-17",
+      "2026-11-08",
+      "2026-11-06",
+      "2026-11-04",
+      "2026-10-14",
+      "2026-10-11",
+      "2026-10-08",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-03",
+      "2026-09-30",
+      "2026-09-28",
+      "2026-09-27",
+      "2026-09-25",
+      "2026-09-24",
+      "2026-09-22",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-16",
+      "2026-09-11",
+      "2026-09-07",
+      "2026-08-31",
+      "2026-08-31",
+      "2026-08-31",
+      "2026-08-31",
+      "2026-08-31",
+      "2026-08-12",
+      "2026-08-10",
+      "2026-08-10",
+      "2026-07-29",
+      "2026-07-28",
+      "2026-07-23",
+      "2026-07-09",
+      "2026-07-09",
+      "2026-07-08",
+      "2026-06-28",
+      "2026-06-06",
+      "2026-06-06",
+      "2026-06-02",
+      "2026-05-13",
+      "2026-04-20",
+      "2026-04-20",
+      "2026-04-15",
+      "2026-04-15",
+      "2026-04-15",
+      "2026-04-08",
+      "2026-03-17",
+      "2026-03-09"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "ImproveAny"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "IATAB"
+    ],
+    "savedVariablesPerCharacter": [
+      "IATABPC"
+    ]
+  }
+}

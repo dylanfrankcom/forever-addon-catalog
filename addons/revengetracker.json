@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "revengetracker",
+  "repo": "weslo/revenge",
+  "about": "# Revenge\n\nA lightweight addon for **World of Warcraft: Forever** (interface 16001). When you hover an\nenemy player, it shows whether they recently killed you, a friend or a guildmate, so you can\nget your revenge.\n\n**Status:** early development. It tracks your deaths and shares them with guildmates and friends who\nrun Revenge, marks recent killers on their tooltip and nameplate and on the world map, and alerts\nyou when one comes into view or a friend is killed. What's in each version: [changelog](https://github.com/weslo/revenge/blob/main/CHANGELOG.md).\n\n## Install\n\nWith [instawow](https://github.com/layday/instawow):\n\n```\ninstawow install github:weslo/revenge\n```\n\nOr download the `Revenge-…-forever.zip` file from the\n[latest release](https://github.com/weslo/revenge/releases/latest) and unzip it into\n`World of Warcraft\\_forever_\\Interface\\AddOns`, so that you get an `AddOns\\RevengeTracker`\nfolder. Then restart the game.\n\n## Development\n\n- Work is tracked in [Issues](https://github.com/weslo/revenge/issues), one per increment. Each is\n  built on a `feature/<issue>-<name>` branch and lands through a pull request that closes its Issue.\n- The addon is the `RevengeTracker/` folder. For live testing, link it into the game:\n  `New-Item -ItemType Junction -Path \"<WoW>\\_forever_\\Interface\\AddOns\\RevengeTracker\" -Target \"<repo>\\RevengeTracker\"`,\n  then `/reload` in game after each change.\n- Static checks: `luacheck .` (config in `.luacheckrc`), and `python -I tools/check_lua51.py`. The second\n  flags Lua 5.2+ syntax that luacheck 1.2.0 accepts but WoW's Lua 5.1 can't run.\n- Offline tests run under real Lua 5.1 against a mock of the game's API (`tests/wow_mock.lua`):\n  set up once with `python -m venv .venv` and `.venv\\Scripts\\python.exe -m pip install lupa==2.8`,\n  then run `.venv\\Scripts\\python.exe -I tests\\run.py` (optionally with a test-name filter).\n- In game: `/revenge` opens the settings (with the list of recent killers), `/revenge add First Last`\n  marks a player Wanted by you, `/revenge test` records a test kill by your target,\n  `/revenge test share` also sends it to guildmates running Revenge, and `/revenge test clear` removes\n  test kills. `/revenge debug` toggles a debug log.\n- CI (`.github/workflows/build.yml`) runs the checks and tests above on every pull request and\n  push to `main`. It also builds the release zip with the\n  [BigWigs packager](https://github.com/BigWigsMods/packager) (settings in `.pkgmeta`), without\n  uploading it, and `tools/check_package.py` checks that the zip holds only the addon folder.\n- To release: add the version's section to the top of `CHANGELOG.md`, merge it, then tag `main`\n  (`git tag v0.2.0`, `git push origin v0.2.0`). The workflow publishes the GitHub release, with\n  the zip and the `release.json` that instawow reads. The TOC's `@project-version@` becomes the tag.\n\n- What it will do: [requirements](https://github.com/weslo/revenge/blob/main/docs/plans/revenge/REQUIREMENTS.md)\n- Build order and progress: [implementation matrix](https://github.com/weslo/revenge/blob/main/docs/plans/revenge/IMPLEMENTATION-MATRIX.md)\n- Reading other PvP addons' shared data: [other addons](https://github.com/weslo/revenge/blob/main/docs/plans/revenge/OTHER-ADDONS.md)\n- How Revenge shares with guildmates: [protocol](https://github.com/weslo/revenge/blob/main/docs/plans/revenge/PROTOCOL.md)",
+  "releases": [
+    {
+      "tag": "v0.3.0",
+      "published": "2026-11-26",
+      "notes": "# Revenge changelog\n\n## v0.3.0\n\n- Sharing with in-game friends and Battle.net friends who run Revenge, each with its own switch\n  under Sharing. Battle.net friends count only on WoW: Forever and your own faction.\n- A small skull beside the nameplate of a recent killer or a Wanted player. The nameplate itself\n  is left alone, whether it's the game's or an addon's.\n- Skulls on the world map where recent deaths happened: coral for you, blue for friends, yellow\n  for guildmates. Hover for who and when; right-click to dismiss a kill everywhere.\n- Alerts, both on by default: when a recent killer or a Wanted player comes into view (at most\n  once every 5 minutes per player), and when a friend or guildmate is killed. They show as a\n  small silent popup that fades by itself, and in chat with a short sound; each can be\n  switched off.\n\n## v0.2.0\n\n- Guild sharing: your deaths and the players you mark Wanted reach guildmates who run Revenge,\n  and theirs reach you. Their kills show on the killer's tooltip and in your list, and their\n  marks read \"Wanted by\" their name.\n- Catch-up: when you log in, guildmates send what you missed while you were offline.\n- Options › AddOns › Revenge has a new \"Sharing\" section to turn off sending your own.\n- `/revenge test share` sends a test kill to your guild, to try it out.\n\n## v0.1.0\n\nThe first release, for World of Warcraft: Forever.\n\n- When enemy players kill you in the open world, Revenge remembers them. Battlegrounds,\n  arenas, dungeons, raids and duels don't count.\n- Hovering one of them adds a line to their tooltip: \uD83D\uDC80 and how many times they've killed\n  you recently. Hold Shift to see when and where.\n- Options › AddOns › Revenge sets how long kills are remembered (7 days by default) and\n  which key shows the details. It also lists your recent killers: remove anyone you're done\n  with, or add a player by name to mark them \"Wanted by you\". `/revenge add First Last`\n  does the same from chat.\n- Not in this release yet: sharing with guildmates and friends, nameplate skulls, alerts\n  and map pins."
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-26",
+      "notes": "# Revenge changelog\n\n## v0.2.0\n\n- Guild sharing: your deaths and the players you mark Wanted reach guildmates who run Revenge,\n  and theirs reach you. Their kills show on the killer's tooltip and in your list, and their\n  marks read \"Wanted by\" their name.\n- Catch-up: when you log in, guildmates send what you missed while you were offline.\n- Options › AddOns › Revenge has a new \"Sharing\" section to turn off sending your own.\n- `/revenge test share` sends a test kill to your guild, to try it out.\n\n## v0.1.0\n\nThe first release, for World of Warcraft: Forever.\n\n- When enemy players kill you in the open world, Revenge remembers them. Battlegrounds,\n  arenas, dungeons, raids and duels don't count.\n- Hovering one of them adds a line to their tooltip: \uD83D\uDC80 and how many times they've killed\n  you recently. Hold Shift to see when and where.\n- Options › AddOns › Revenge sets how long kills are remembered (7 days by default) and\n  which key shows the details. It also lists your recent killers: remove anyone you're done\n  with, or add a player by name to mark them \"Wanted by you\". `/revenge add First Last`\n  does the same from chat.\n- Not in this release yet: sharing with guildmates and friends, nameplate skulls, alerts\n  and map pins."
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-26",
+      "notes": "# Revenge changelog\n\n## v0.1.0\n\nThe first release, for World of Warcraft: Forever.\n\n- When enemy players kill you in the open world, Revenge remembers them. Battlegrounds,\n  arenas, dungeons, raids and duels don't count.\n- Hovering one of them adds a line to their tooltip: \uD83D\uDC80 and how many times they've killed\n  you recently. Hold Shift to see when and where.\n- Options › AddOns › Revenge sets how long kills are remembered (7 days by default) and\n  which key shows the details. It also lists your recent killers: remove anyone you're done\n  with, or add a player by name to mark them \"Wanted by you\". `/revenge add First Last`\n  does the same from chat.\n- Not in this release yet: sharing with guildmates and friends, nameplate skulls, alerts\n  and map pins."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 6,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RevengeTracker"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "RevengeTrackerDB"
+    ]
+  }
+}

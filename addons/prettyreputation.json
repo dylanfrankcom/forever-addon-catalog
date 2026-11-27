@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "prettyreputation",
+  "repo": "BelegCufea/PrettyReputation",
+  "about": "# Pretty Reputation\n\nShow more information about reputation gain in your chat.\n\n![Example](https://i.imgur.com/b1VF8EX.png)\n\nOr\n\n![WithTexture](https://i.imgur.com/nzuDQS7.png)\n\n## Features\n\n- Print a configurable message about the reputation change in your preferred output. There are many options for setting up your message.\n- Handles standard, renown, paragon and friendship reputations, and the Delver's Journey.\n- Also print the message in chosen chat frames (optionally with its own pattern) when the main output is something else.\n- Minimap icon/databroker (set up on the `Broker` tab):\n    - The broker text shows your watched faction (with Auto track on, that is the last changed one).\n    - The tooltip shows your session reputation gains and losses, with their current standing and progress (at the top or bottom, sorted as you like).\n    - Optionally (on by default, can be turned off), it also lists all your reputations, grouped by expansion on retail (by the Reputation panel headers on WoW: Forever), with a Favorites group on top and groups you can open and close. Click a faction to watch it, right-click to toggle it as a favorite.\n- Show on-screen bars with session reputation changes.\n- Pick `Favorite` factions to be always shown as on-screen bar (on the `Favorites` tab, or left-click a bar).\n- Set the faction with the latest reputation change as watched (optionally gains only, with or without your guild).\n- Optionally catch \"splash\" reputation changes that the game doesn't announce (may cause lag).\n- Preview your settings with the `TEST` button.\n- Add your own tags or modify existing ones. (See [Example with instructions here](https://github.com/BelegCufea/PrettyReputation_MoreTags))\n\n## Configuration\n\nRight-click the minimap icon or the addon compartment button to open the options in a window you can move and resize. Shift-right-click opens them in the game's settings instead (the 'Pretty Reputation' section within 'Options -> AddOns'). Left-click turns the messages on or off.\n\nFactions you don't want to hear about can be ignored on the `Ignored` tab (or with Shift-right-click on a faction in the Broker tooltip): no messages, bars or splash for them.\n\nChat commands: `/pr config` opens the options window, `/pr settings` the game's settings, `/pr toggle`, `/pr enable` and `/pr disable` turn the messages on or off, `/pr ver` prints the version, and `/pr` alone lists them.\n\n- In the `pattern` field, compose your desired message format. You can choose from several predefined tags.\n- Define your ideal bar to represent your reputation progress.\n    - Choose an optimal character, and determine how many of these will form the bar.\n    - Or use texture for the bar. Define its width and height.\n- On the `Broker` tab, build the broker text and the tooltip rows from tags, like the message. In tooltip rows, `[col]` or `[colr]` starts a new right-aligned column, `[colc]` a centered one and `[coll]` a left-aligned one. Choose which factions the tooltip lists (hide inactive, unlisted or maxed ones), and where and how the session gains show.\n- Define colors for each reputation standing, and color ranges for renown and friendship factions plus a paragon color. Choose from several predefined color schemes.\n- Faction icons (`[icon]` tag, bars) work for renown factions; install [Faction Addict](https://www.curseforge.com/wow/addons/faction-addict) (retail) or [Rep Rewards](https://www.curseforge.com/wow/addons/rep-rewards) (WoW: Forever) to get icons for other factions.\n- Set your preferred output method (Chat, Floating text, MikScrollingBattleText, Zore's Scrolling Battle Text, etc.)\n\n---\n> Compose a message\n\n![Compose your message](https://i.imgur.com/Pm7V3hX.png)\n\n> Modify several TAGs behaviour\n\n![Modify TAGs](https://i.imgur.com/i4e8zuR.png)\n\n> Select output for your message\n\n![Select output](https://i.imgur.com/ncqgJoM.png)\n\n> Choose if and how you want your on-screen reputation bars to appear\n\n![Modify On-Screen bars](https://i.imgur.com/wv4Isro.png)\n\n> Pick color scheme or define your own colors\n\n![Choose your colors](https://i.imgur.com/EJWI8lp.png)\n\n> Pick `Favorite` factions\n\n![Favorite factions](https://i.imgur.com/jjzgkpq.png)\n\n## Issues\n\nIf you encounter any problems or have a suggestion, please [open an issue on Github](https://github.com/BelegCufea/PrettyReputation/issues).",
+  "releases": [
+    {
+      "tag": "v1.6.1",
+      "published": "2026-11-20",
+      "notes": "## New\n- Ignored factions: choose factions on the new `Ignored` tab (or Shift-right-click them in the Broker tooltip) to get no reputation messages, bars or splash for them. Their gains still count in the session totals; they stay in the Broker list but not in its session gains. A new Broker option shows them normally, dimmed (default) or hides them, and the new `[ignored]` tag marks them in message, bar and row patterns. Shift-right-click a bar to ignore its faction\n- Broker tooltip: with \"Hide inactive\" turned off, factions moved to Inactive are listed in their own Inactive group (last, collapsible) instead of staying in their expansion group. With it on they are hidden, also when they have session gains (favorites stay)\n- Options in a movable, resizable window: right-click the minimap icon, broker or addon compartment button, or `/pr config` (click again to close). Shift-right-click or the new `/pr settings` open the game's settings as before\n\n## Fix\n- Broker tooltip: moving a faction to or from Inactive in the Reputation panel now applies right away, no `/reload` needed"
+    },
+    {
+      "tag": "v1.6.0",
+      "published": "2026-11-10",
+      "notes": "## New\n- Faction icons on WoW: Forever: the `[icon]` tag and bars use the icons from [Rep Rewards](https://www.curseforge.com/wow/addons/rep-rewards) when it is installed ([Faction Addict](https://www.curseforge.com/wow/addons/faction-addict) is not available there). Faction Addict icons still take priority\n- Broker text: shows the watched faction from a tag pattern, instead of Enabled/Disabled (still shown while no faction is watched, and available as an option on the `Broker` tab)\n- Broker tooltip (now [LibQTip-1.0](https://www.curseforge.com/wow/addons/libqtip-1-0)): your reputations grouped by the Reputation panel headers (expansions on retail) or in one list, with a Favorites group, collapsible groups and tag-driven columns (new `[col]`/`[colr]`, `[colc]` and `[coll]` tags for right, centered and left-aligned columns). Click a faction to watch it, right-click to toggle favorite. Options to put changed factions on top and hide inactive, unlisted or maxed factions\n- Session gains/losses in the tooltip got their own options: show/hide, top/bottom, sort, time window, include favorites and a row pattern. They replace \"Sort minimap/databroker tooltip by\" on the General tab\n\n## Fix\n- WoW: Forever: characters with the same first name (but a different surname) on one realm shared their profile choice. Updated Ace3 to r1424-alpha (AceDB-3.0 40), which keys Forever characters by first name and surname. Your profile choice on Forever may reset once; the `Default` profile and its settings are not affected\n\n## Misc\n- Updated Ace3 libraries to r1424-alpha"
+    },
+    {
+      "tag": "v1.5.3",
+      "published": "2026-11-10",
+      "notes": "## Fix\n- Lua error in colour calculation (`bad argument #2 to 'max'`, `attempt to perform arithmetic on field 'r'`) for friendship factions with a single rank or at max rank (reported by [akgis32](https://github.com/akgis32) and [gryphon63](https://www.curseforge.com/members/gryphon63), #18)\n- Lua error `attempt to concatenate field 'faction' (a nil value)`, which could happen even with Debug turned off (reported by Mermel, TheAngryIntern and Rhindle on CurseForge)\n- After losing reputation with a faction, later gains with it were shown as losses and subtracted from the session total until `/reload`\n- `/pr config` used a removed function to open the options; it now opens them like the minimap button does\n- Changing a renown, friendship or paragon colour also changed the matching standing colour (and the other way round), because they shared one colour table\n- The colour preset now switches to \"Custom\" as soon as a colour is changed (shown after the colour picker closes), not only after reopening the tab\n- The TEST button added the test change to the session gains (and bars), and could raise a Lua error when the test faction was unknown on the character. The test bar is still shown (for the bar timeout, or 60 seconds), but the session gains stay untouched, and TEST is disabled until a known faction is selected\n- No more \"+0\" messages when the game reports a reputation update without an actual change, and the `[more]` tag no longer shows \"inf\" for a change of 0\n- The text bar (`[bar]`, `[c_bar]`) showed the wrong progress with a bar character other than the default `||` (e.g. double with `=`, broken with `█`)\n- Lua error when toggling messages (`/pr toggle`, `/pr enable`, `/pr disable`) in the first seconds after login\n- Splash mode no longer expands and re-collapses all Reputation panel headers on every reputation change (only when a new faction shows up)\n- Bar labels now follow colour changes right away instead of after the next reputation change\n\n## Misc\n- Zore's Scrolling Battle Text (ZSBT 2.4.0+) registers itself as a LibSink output, so it can be selected in Output. Mentioned in the FAQ and ReadMe (requested by evrithiki)\n- With Debug on, Splash mode reports how many factions it checked and how long it took\n- Hidden bars are no longer updated in the background\n- Code cleanups from a code review\n\n**Full Changelog**: https://github.com/BelegCufea/PrettyReputation/compare/v1.5.2...v1.5.3"
+    },
+    {
+      "tag": "v1.5.2",
+      "published": "2026-11-06",
+      "notes": "## Misc\n- Bumped TOC (12.1.5, 1.60.1)\n\n**Full Changelog**: https://github.com/BelegCufea/PrettyReputation/compare/v1.5.1...v1.5.2"
+    },
+    {
+      "tag": "v1.5.1",
+      "published": "2026-07-08",
+      "notes": "## Fix\n- Added delay on login to hopefully fix not loading propperly (reported and fix provided by [mermelmadness](https://github.com/mermelmadness))\n\n**Full Changelog**: https://github.com/BelegCufea/PrettyReputation/compare/v1.5...v1.5.1"
+    }
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-06",
+      "2026-07-08",
+      "2026-02-07",
+      "2026-02-03",
+      "2026-01-28",
+      "2026-01-26",
+      "2025-08-29",
+      "2025-07-12",
+      "2025-06-18",
+      "2025-03-21",
+      "2025-02-26",
+      "2025-02-05",
+      "2024-12-18",
+      "2024-10-05",
+      "2024-10-04",
+      "2024-09-14",
+      "2024-09-01",
+      "2024-08-27",
+      "2024-08-17",
+      "2024-08-16",
+      "2024-08-15",
+      "2024-08-15",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-07-20",
+      "2024-07-14",
+      "2024-06-15",
+      "2024-06-14",
+      "2024-05-23",
+      "2023-05-11",
+      "2023-05-03",
+      "2023-04-13",
+      "2023-03-30",
+      "2023-03-29",
+      "2023-03-22",
+      "2023-03-21",
+      "2023-03-20",
+      "2023-03-19",
+      "2023-03-19",
+      "2023-03-18",
+      "2023-03-18",
+      "2023-03-16",
+      "2023-03-11",
+      "2023-03-09",
+      "2023-03-06",
+      "2023-03-06",
+      "2023-03-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PrettyReputation"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "FactionAddict",
+      "RepRewards"
+    ],
+    "savedVariables": [
+      "PrettyReputationDB"
+    ]
+  }
+}

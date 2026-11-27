@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverhidenames",
+  "repo": "sudo-elmo/ForeverHideNames",
+  "about": "# Forever Hide Names\n\nHide **everything** over the heads when you hide the interface – for **World of Warcraft: Forever**.\n\nThe default \"hide interface\" key (**Alt+Z**) hides your action bars and windows, but names, nameplates, chat bubbles and damage numbers stay in the world. With this addon they disappear together with the interface, and come back exactly as they were when you press Alt+Z again. Perfect for screenshots and videos.\n\n---\n\n## What disappears\n\n- All names over heads: your own, players, NPCs, pets, guardians, totems, minions – plus guild names and titles\n- All nameplates (enemy, friendly, NPC and the personal one)\n- Chat bubbles *(can be turned off)*\n- Damage numbers over targets *(can be turned off)*\n\n## How it works\n\n- **Alt+Z** hides the interface and all of the above; **Alt+Z** again brings everything back.\n- Your own settings are restored exactly – what you had turned off stays off.\n- Nameplates cannot be switched in combat; they follow right after the fight.\n- Crash, logout or `/reload` while hidden? Your settings are saved and restored on the next login.\n- Other addons that hide the interface on their own (e.g. Forever Fishing while fishing) do not hide the names.\n\n## Commands\n\n| Command | |\n|---|---|\n| `/names` or `/namen` | Hide or show all names by hand, without hiding the interface |\n| `/names bubbles` | Also hide chat bubbles: on/off |\n| `/names damage` | Also hide damage numbers: on/off |\n| `/names options` | Open the settings |\n| `/names help` | Short help |\n\n## Settings\n\nOptions → AddOns → Forever Hide Names, or `/names options`:\n\n| Setting | Default | |\n|---|---|---|\n| Chat bubbles | on | Hide the chat bubbles together with the names |\n| Damage numbers | on | Hide the damage numbers over your targets together with the names |\n\nNames and nameplates are always hidden. A change applies right away, even while everything is hidden.\n\n## Install\n\nDownload the zip from the latest release and unpack it into `World of Warcraft/_forever_/Interface/AddOns/`.\n\n## License\n\nMIT – see [LICENSE](https://github.com/sudo-elmo/ForeverHideNames/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-14",
+      "notes": "- Settings page (Options → AddOns → Forever Hide Names): choose whether chat bubbles and damage numbers are hidden together with the names. Both are on by default.\n- `/names bubbles`, `/names damage` and `/names options`.\n- Changing a setting while everything is hidden applies right away."
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-14",
+      "notes": "- First version.\n- Hiding the interface (Alt+Z) also hides every name, nameplate, chat bubble and damage number over targets; showing it again restores your own settings exactly.\n- Nameplates switch right after combat if the key is pressed during a fight.\n- Settings survive a crash, logout or /reload while hidden.\n- `/names` toggles the names by hand.\n- English and German."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-14"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "ForeverHideNames"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverHideNamesDB"
+    ]
+  }
+}

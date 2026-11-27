@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "repairbroker",
+  "repo": "parnic/RepairBroker",
+  "about": "Project page: http://www.wowace.com/projects/repairbroker/",
+  "releases": [
+    {
+      "tag": "12.1.5",
+      "published": "2026-10-21",
+      "notes": "# Repair Broker\n\n## [12.1.5](https://github.com/parnic/RepairBroker/tree/12.1.5) (2026-10-16)\n[Full Changelog](https://github.com/parnic/RepairBroker/compare/12.1.0...12.1.5) [Previous Releases](https://github.com/parnic/RepairBroker/releases)\n\n- Update Interface version (#18)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#17)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Add Forever TOC  \n- Update Interface version (#16)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>"
+    },
+    {
+      "tag": "12.1.0",
+      "published": "2026-08-12",
+      "notes": "# Repair Broker\n\n## [12.1.0](https://github.com/parnic/RepairBroker/tree/12.1.0) (2026-08-12)\n[Full Changelog](https://github.com/parnic/RepairBroker/compare/12.0.7...12.1.0) [Previous Releases](https://github.com/parnic/RepairBroker/releases)\n\n- Update Interface version (#15)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#14)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#13)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#12)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#11)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#10)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>"
+    },
+    {
+      "tag": "12.0.7",
+      "published": "2026-06-16",
+      "notes": "# Repair Broker\n\n## [12.0.7](https://github.com/parnic/RepairBroker/tree/12.0.7) (2026-06-02)\n[Full Changelog](https://github.com/parnic/RepairBroker/compare/12.0.5...12.0.7) [Previous Releases](https://github.com/parnic/RepairBroker/releases)\n\n- Update Interface version (#9)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#8)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#7)  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>"
+    },
+    {
+      "tag": "12.0.5",
+      "published": "2026-04-22",
+      "notes": "# Repair Broker\n\n## [12.0.5](https://github.com/parnic/RepairBroker/tree/12.0.5) (2026-04-18)\n[Full Changelog](https://github.com/parnic/RepairBroker/compare/12.0.1...12.0.5) [Previous Releases](https://github.com/parnic/RepairBroker/releases)\n\n- Update Interface version (#6)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#5)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>"
+    },
+    {
+      "tag": "12.0.1",
+      "published": "2026-04-16",
+      "notes": "# Repair Broker\n\n## [12.0.1](https://github.com/parnic/RepairBroker/tree/12.0.1) (2026-03-13)\n[Full Changelog](https://github.com/parnic/RepairBroker/compare/12.0.0-1...12.0.1) [Previous Releases](https://github.com/parnic/RepairBroker/releases)\n\n- Update Interface version (#4)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#3)  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Update Interface version (#2)  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>  \n- Add TOC update nightly action"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 9,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-08-12",
+      "2026-06-16",
+      "2026-04-22",
+      "2026-04-16",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-14",
+      "2026-01-03",
+      "2025-12-23",
+      "2025-12-07",
+      "2025-10-11",
+      "2025-08-06",
+      "2025-07-03",
+      "2025-06-27",
+      "2025-04-26",
+      "2025-04-08",
+      "2025-04-02",
+      "2025-02-23",
+      "2024-12-21",
+      "2024-11-13",
+      "2024-09-28",
+      "2024-08-14",
+      "2024-08-14",
+      "2024-08-12",
+      "2024-08-12",
+      "2024-08-12",
+      "2024-07-24",
+      "2024-05-09",
+      "2024-05-01",
+      "2024-04-15",
+      "2024-01-16",
+      "2023-12-11",
+      "2023-11-07",
+      "2023-10-12",
+      "2023-09-08",
+      "2023-07-11",
+      "2023-07-04",
+      "2023-05-03",
+      "2023-04-01",
+      "2023-01-25",
+      "2022-11-16",
+      "2022-11-15",
+      "2022-11-05",
+      "2022-10-31",
+      "2022-09-04",
+      "2022-06-01",
+      "2022-03-24",
+      "2021-11-11",
+      "2021-06-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RepairBroker"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibQTip-1.0"
+    ],
+    "savedVariables": [
+      "RepairBrokerDB"
+    ]
+  }
+}

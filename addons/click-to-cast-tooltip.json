@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "click-to-cast-tooltip",
+  "repo": "jbolduan/Click-To-Cast-Tooltip",
+  "about": "# Click-To-Cast-Tooltip\n\nClick-To-Cast-Tooltip is a World of Warcraft addon that displays a dynamic tooltip showing which spells, macros, or actions you can cast based on your current modifier keys (Shift, Alt, Ctrl) and mouse button.\n\n## Features\n\n- Custom tooltip at mouse cursor showing available click-cast bindings\n- Blizzard tooltip integration for unit frames\n- Clique addon integration: show your Clique click-cast bindings in the tooltip\n- Full support for party, raid, boss, arena, and pet frames\n- Works with Blizzard, World of Warcraft: Forever compact party/raid frames, ElvUI, Cell, Grid2, and other major unit frame addons\n- Highly configurable appearance and behavior\n\n## Screenshots\n\n### Settings Panel\n\nAccess the settings via `/ctctt` or through `Esc → Options → AddOns → Click-To-Cast Tooltip`:\n\n![Settings Panel](https://raw.githubusercontent.com/jbolduan/Click-To-Cast-Tooltip/main/assets/settings.jpg)\n\n### Class Color Settings\n\nCustomize colors for buttons and actions:\n\n![Class Color Settings](https://raw.githubusercontent.com/jbolduan/Click-To-Cast-Tooltip/main/assets/settings_classes.jpg)\n\n### Example Blizzard Tooltip\n\nBlizzard tooltip with all options enabled (shown with ElvUI):\n\n![Example Blizzard Tooltip](https://raw.githubusercontent.com/jbolduan/Click-To-Cast-Tooltip/main/assets/example_tooltip.jpg)\n\n### Mouseover Tooltip\n\nTooltip appears at your mouse cursor when hovering unit frames:\n\n![Mouseover Tooltip](https://raw.githubusercontent.com/jbolduan/Click-To-Cast-Tooltip/main/assets/example_mouseover_tooltip.jpg)\n\n## Slash Commands\n\n- `/ctctt` and `/clicktocasttooltip`\n  Opens the options panel for the addon.\n\n## Settings Overview\n\nAll settings are available in the options panel. Here’s what you can configure:\n\n### Tooltip Appearance\n\n- **Show Custom Tooltip**: Enable/disable the custom tooltip at your mouse.\n- **Tooltip Anchor**: Set the anchor point for the tooltip (e.g., BOTTOMRIGHT, TOPLEFT).\n- **Tooltip Transparency**: Adjust the transparency of the tooltip.\n\n### Blizzard Tooltip Integration\n\n- **Show Blizzard Tooltip**: Enable/disable extra lines in the Blizzard tooltip.\n- **Show Header/Footer**: Add dashed lines above/below the tooltip for clarity.\n- **Show New Line Top/Bottom**: Add empty lines for spacing.\n\n### Colors\n\n- **Button Color**: Set the color for mouse button names.\n- **Action Color**: Set the color for spell/macro/action names.\n- **Divider Color**: Set the color for header/footer lines.\n\n### Spec Toggles\n\n- **Spec-Specific Enable/Disable**: Enable or disable the tooltip for each specialization.\n\n## Supported Unit Frames\n\n- Blizzard: Player, Target, Focus, Pet, Party, Raid, Boss, Arena, and more\n- World of Warcraft: Forever: compact party/raid unit frames and Blizzard default layouts\n- ElvUI: All major unit frames, including party/raid/arena\n- Cell: Party, raid, pet, spotlight, quick assist, and more\n- Grid2: All raid and party frames (e.g., Grid2LayoutHeader1UnitButton1, etc.)\n- Shadowed Unit Frames (SUF): Player, pet, target, focus, raid, main tank, main assist, and more (e.g., SUFHeaderraidUnitButton1, SUFHeadermaintankUnitButton1, etc.)\n- TukUI: Player, target, focus, pet, party, and raid frames\n- DandersFrames: Party, raid (grouped and flat), arena, and pet frames\n- EllesmereUI: Player, target, focus, pet, target of target, focus target, and boss frames (1-5)\n\n## Clique Addon Support\n\n- If you use the popular [Clique](https://www.curseforge.com/wow/addons/clique) addon for click-casting, Click-To-Cast-Tooltip will automatically detect and display your Clique bindings in the tooltip.\n- You can choose to show only Clique bindings, only Blizzard bindings, or both (configurable in the settings).\n- On first load with Clique installed, you'll be prompted to disable Blizzard bindings for a cleaner experience (one-time prompt).\n\n## How It Works\n\nWhen you hover over a unit frame, the addon scans your click-cast bindings and displays a tooltip showing which actions are available for the current modifier keys and mouse button. The tooltip updates dynamically as you press or release modifier keys.\n\n## Feedback & Support\n\nIf you encounter issues or have feature requests, please open an issue on GitHub.",
+  "releases": [
+    {
+      "tag": "3.6.0",
+      "published": "2026-11-19",
+      "notes": "# Click to Cast Tooltip\n\n## [3.6.0](https://github.com/jbolduan/Click-To-Cast-Tooltip/tree/3.6.0) (2026-11-19)\n[Full Changelog](https://github.com/jbolduan/Click-To-Cast-Tooltip/commits/3.6.0) [Previous Releases](https://github.com/jbolduan/Click-To-Cast-Tooltip/releases)\n\n- Add EllesmereUI binding support  \n    Detect and display EllesmereUI Raid & Party Frames click-cast bindings, with a settings toggle and modifier-key matching. Update the binding-source popup to page through additional detected sources."
+    },
+    {
+      "tag": "3.5.3",
+      "published": "2026-11-06",
+      "notes": "# Click to Cast Tooltip\n\n## [3.5.3](https://github.com/jbolduan/Click-To-Cast-Tooltip/tree/3.5.3) (2026-11-06)\n[Full Changelog](https://github.com/jbolduan/Click-To-Cast-Tooltip/commits/3.5.3) [Previous Releases](https://github.com/jbolduan/Click-To-Cast-Tooltip/releases)\n\n- Bump addon version to 3.5.3  \n    Update the addon TOC metadata for the 3.5.3 release. This changes the interface version entries ordering and bumps the packaged version number to 3.5.3."
+    },
+    {
+      "tag": "3.5.2",
+      "published": "2026-11-05",
+      "notes": "# Click to Cast Tooltip\n\n## [3.5.2](https://github.com/jbolduan/Click-To-Cast-Tooltip/tree/3.5.2) (2026-11-05)\n[Full Changelog](https://github.com/jbolduan/Click-To-Cast-Tooltip/commits/3.5.2) [Previous Releases](https://github.com/jbolduan/Click-To-Cast-Tooltip/releases)\n\n- Add Forever frame support and API fallbacks  \n    Improve Blizzard click-cast tooltip compatibility across client variants by adding safe fallbacks for missing Enum click-binding constants and guarding specialization lookup with a helper that handles unavailable APIs. Tooltip builders now also bail out cleanly when Blizzard click bindings are unavailable.  \n    Frame scanning now hooks generic `CompactRaidFrame%d` names used by World of Warcraft: Forever and compact UI layouts, expanding raid-frame coverage. Updated metadata and docs for this release: TOC interface/version bumped to 3.5.2 and README now explicitly documents Forever compact party/raid support."
+    },
+    {
+      "tag": "3.5.1",
+      "published": "2026-10-13",
+      "notes": "# Click to Cast Tooltip\n\n## [3.5.1](https://github.com/jbolduan/Click-To-Cast-Tooltip/tree/3.5.1) (2026-10-13)\n[Full Changelog](https://github.com/jbolduan/Click-To-Cast-Tooltip/commits/3.5.1) [Previous Releases](https://github.com/jbolduan/Click-To-Cast-Tooltip/releases)\n\n- Bump addon for WoW 12.1.5  \n    Refresh the addon TOC metadata for the current World of Warcraft client build by updating the interface version and release number. This keeps the addon aligned with patch 12.1.5 and marks the 3.5.1 release."
+    },
+    {
+      "tag": "3.5.0",
+      "published": "2026-09-11",
+      "notes": "# Click to Cast Tooltip\n\n## [3.5.0](https://github.com/jbolduan/Click-To-Cast-Tooltip/tree/3.5.0) (2026-09-11)\n[Full Changelog](https://github.com/jbolduan/Click-To-Cast-Tooltip/commits/3.5.0) [Previous Releases](https://github.com/jbolduan/Click-To-Cast-Tooltip/releases)\n\n- Add VuhDo click-cast support  \n    Adds VuhDo frame hook support and click-cast binding detection so VuhDo tooltips appear when hovering VuhDo unit frames. The tooltip flow now passes the hovered frame to binding handlers, and a new settings toggle exposes VuhDo bindings alongside the existing sources. The addon version/interface were also updated for the current client. Resolves #11"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/jbolduan/Click-To-Cast-Tooltip/main/assets/settings.jpg",
+    "https://raw.githubusercontent.com/jbolduan/Click-To-Cast-Tooltip/main/assets/settings_classes.jpg",
+    "https://raw.githubusercontent.com/jbolduan/Click-To-Cast-Tooltip/main/assets/example_tooltip.jpg",
+    "https://raw.githubusercontent.com/jbolduan/Click-To-Cast-Tooltip/main/assets/example_mouseover_tooltip.jpg"
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 2,
+    "contributors": 2,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-10-13",
+      "2026-09-11",
+      "2026-07-03",
+      "2026-06-25",
+      "2026-04-26",
+      "2026-04-22",
+      "2026-04-12",
+      "2026-04-04",
+      "2026-04-04",
+      "2026-03-01",
+      "2026-02-28",
+      "2026-02-05",
+      "2025-11-15",
+      "2025-10-07",
+      "2025-10-07",
+      "2025-10-07",
+      "2025-09-28",
+      "2025-09-28",
+      "2025-09-27",
+      "2025-09-27",
+      "2025-09-27",
+      "2025-09-04",
+      "2025-09-04",
+      "2025-09-04",
+      "2025-09-02",
+      "2025-09-01",
+      "2025-09-01",
+      "2025-09-01",
+      "2025-08-29",
+      "2025-06-17",
+      "2025-03-26",
+      "2024-10-23",
+      "2024-08-29",
+      "2024-08-27",
+      "2024-08-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Click-To-Cast-Tooltip"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "ElvUI",
+      "Clique",
+      "Cell",
+      "Grid2",
+      "ShadowedUnitFrames",
+      "Tukui",
+      "UnhaltedUnitFrames",
+      "DandersFrames",
+      "EllesmereUIUnitFrames",
+      "EllesmereUIRaidFrames"
+    ],
+    "savedVariables": [
+      "ClickToCastTooltipDB"
+    ]
+  }
+}

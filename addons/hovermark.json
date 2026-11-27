@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "hovermark",
+  "repo": "jharkins/HoverMark",
+  "about": "# HoverMark\n\nA small World of Warcraft: Forever addon for putting raid target markers on things quickly.\n\n- **A bar** with the eight markers and a clear button. Click one to mark your target.\n- **Keybinds** for every marker. A keybind marks whatever your mouse is hovering, and falls back to your target if you aren't hovering anything.\n- **Press-to-bind setup** (`/hm keys`) so you can bind keys without knowing what they are called.\n\nIt works in combat.\n\n## Install\n\n1. Download `HoverMark-<version>.zip` from the [latest release](https://github.com/jharkins/HoverMark/releases/latest).\n2. Unzip it into `World of Warcraft\\_forever_\\Interface\\AddOns\\`. You should end up with `AddOns\\HoverMark\\HoverMark.toc`.\n3. Restart the game and make sure HoverMark is ticked in the AddOns list.\n\n## Using it\n\n**Bar.** Click a marker to put it on your target. Click the same marker again to take it off. Left-click the red button to clear your target's mark; right-click it to clear every mark. Drag the gold strip on the left edge to move the bar.\n\n**Keybinds.** Options > Keybindings > HoverMark has a binding for each marker and for clear. Or let the addon walk you through it:\n\n| Command | What it does |\n|---|---|\n| `/hm keys` | Asks you to press a key for skull, cross, star and moon in turn |\n| `/hm keys 6 4` | Same, for the markers you list (1-8, 0 = clear) |\n| `/hm` | Show or hide the bar |\n| `/hm lock` | Lock or unlock the bar position |\n| `/hm scale 1.2` | Resize the bar (0.5 to 2) |\n| `/hm reset` | Put the bar back in the default spot |\n\nMarker numbers are the same as `/tm`: 1 star, 2 circle, 3 diamond, 4 triangle, 5 moon, 6 square, 7 cross, 8 skull.\n\n## Good to know\n\n- **Group rules still apply.** In a raid only the leader and assistants can set markers. HoverMark can't change that.\n- **Combat.** Marking works in combat. Moving, resizing, showing or hiding the bar, and changing keybinds wait until combat ends.\n- **Spare keys on programmable keyboards.** The Windows client does not read F13-F24. If you want to use spare or macro keys, have the keyboard send a combination such as Ctrl+Shift+Alt+F9 instead, then run `/hm keys` and press them.\n\n## How it works\n\nForever uses the modern addon API, where `SetRaidTarget` is protected and addons can't call it directly. Every HoverMark button is a secure action button that runs Blizzard's own command:\n\n```\n/tm [@mouseover,exists][] 8\n```\n\nThat is why it keeps working in combat, and why a click on the bar always lands on your target: the mouse is over the bar, not a unit.\n\n## Status\n\nWritten for interface 16001 (WoW: Forever). Tested by one player so far, so reports from parties and raids are welcome in the issue tracker.\n\n## License\n\nMIT. See [LICENSE](https://github.com/jharkins/HoverMark/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "HoverMark 1.0.0",
+      "published": "2026-11-24",
+      "notes": "First release, for World of Warcraft: Forever (interface 16001).\n\n- A small bar with the eight raid target markers and a clear button\n- Keybinds for every marker that mark what you hover, or your target\n- `/hm keys` press-to-bind setup\n- Works in combat\n\n**Install:** download `HoverMark-1.0.0.zip` below and unzip it into `World of Warcraft\\_forever_\\Interface\\AddOns\\`, then restart the game.\n\nTested by one player so far. Reports from parties and raids are welcome."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HoverMark"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "HoverMarkDB"
+    ]
+  }
+}

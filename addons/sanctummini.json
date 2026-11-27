@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "sanctummini",
+  "repo": "stagged1-cloud/SanctumMini",
+  "about": "# Sanctum Mini\n\nHealer party frames with click-casting, a GSE-style sequence button, a talent planner and a per-level goals checklist. Built for **WoW: Forever** (Interface 16001, levels 5-60). Supports all four healing classes: Priest, Druid, Paladin and Shaman.\n\n> Spell, item and talent data are researched against WoW: Forever build 1.60.1 and may shift between patches.\n\n## Features\n\n- **Own party frames** - player + party1-4 as secure unit buttons. Health, mana, dispellable debuffs and tracked buffs. Click-cast any mouse button / modifier combination. Nothing protected is touched in combat.\n- **Downranking zones (optional, off by default)** - tick it in Options and each bar splits into three zones, left to right: lowest rank, middle rank, highest rank. The mouse button still picks the spell; the zone picks the rank, chosen automatically from the ranks you know. Lower ranks heal less but cost far less mana, so use the left zone for small top-ups. Spells without ranks cast as normal. Beta: untested on Forever.\n- **Sequence button** - GSE-style stepping macro (KeyPress / steps / PostMacro). Steps advance in a secure snippet, so it works in combat. Priority mode for a single smart macro. Bind a key with `/sanc bind F` or use `/click SanctumSeqButton`.\n- **Cast log** - every press, cast, fail and error, persisted between sessions (`/sanc log`).\n- **Talent planner** - recommended Forever builds for Priest, Druid, Paladin and Shaman, what you should have at your level, what you actually have, and the next point printed on every level-up.\n- **Goals checklist** - per-level gear, enchants, consumables, buff food and reagents; anything missing or wrong shows in red. From level 15 (configurable) a missing enchant names the best healer enchant for your level, e.g. \"Wrist: no enchant - get Minor Spirit\". Gloves are not checked before 60, as there is no healer glove enchant until then.\n- **Training** - the goals panel lists spells and ranks you can learn now. Open your class trainer once per character so new ranks are tracked too.\n- **Buff watch** - pick self buffs to track (Options > Buff watch or `/sanc buffs`); icons sit on your own bar and flash when a buff is missing or falls off. Shaman weapon imbues (Rockbiter, Flametongue, Frostbrand, Windfury) are tracked from the weapon tooltip, as Forever does not report them through the usual weapon enchant API.\n- **Alert panel** - any tracked buff, or a debuff on you, can move from the bar to a big alert panel you can drag, resize from the corner and lock. Per entry: flash red when it is gone (with an amber warning before it runs out) or while it is on you. Eight alert sounds to pick from (Sad Trombone, Panic Duck, Boing Bonk, Kazoo Fanfare, Cuckoo Clock, Slide Whistle, Honk Honk, Awooga), the game's raid warning, or off.\n- **Minimap button** - left-click options, right-click lock/unlock, shift-click goals, drag to move.\n- **Forever-safe** - prefers `C_*` APIs, falls back to legacy globals, and degrades quietly on secret or blocked values. `/sanc probe` reports what the client exposes.\n\n## Commands\n\n| Command | Does |\n|---|---|\n| `/sanc` | Options window |\n| `/sanc lock` / `unlock` | Lock or move the frames |\n| `/sanc test` | Test mode (fake party) |\n| `/sanc goals` | Goals checklist |\n| `/sanc buffs` | Buff watch dropdown |\n| `/sanc alert` | Lock or unlock the alert panel (`reset`, `test`) |\n| `/sanc talents` | Talent planner |\n| `/sanc bind <KEY>` / `unbind` | Bind the sequence button |\n| `/sanc seq` | Sequence status |\n| `/sanc log` | Sequence cast log |\n| `/sanc defaults` | Reset click bindings to your class kit |\n| `/sanc reset` | Reset frame positions |\n| `/sanc minimap` | Show or hide the minimap icon |\n| `/sanc probe` | API diagnostic for the Forever client |\n\n## Install\n\nCurseForge app (Forever flavour, search **Sanctum Mini**), or unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\` so you end up with `AddOns\\SanctumMini\\SanctumMini_Camelot.toc`.\n\n## Development\n\nPure logic lives in `Logic.lua` and is tested headless:\n\n```\nlua5.1 tests/run.lua\n```\n\nThe suite covers the logic, the secure step snippet, and a smoke-load of every file against a mocked WoW API.\n\nReleases: push a `v*` tag. GitHub Actions runs the tests, packages with the BigWigs packager and uploads to CurseForge (needs the `CF_API_TOKEN` repo secret and `X-Curse-Project-ID` in the TOC).\n\n## Licence\n\nMIT - see [LICENSE](https://github.com/stagged1-cloud/SanctumMini/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.7.3",
+      "published": "2026-11-16",
+      "notes": "- Sanctum Mini is now a full release, as WoW: Forever is out of beta\n- Fixed: buff watch did not notice buff changes in combat. Forever blocks addons from reading any aura in combat, so Sanctum now works from what it can still see: a tracked buff you cast on yourself mid-fight shows as up straight away (with its timer, once Sanctum has seen that buff out of combat), and a buff whose known timer runs out mid-fight shows as missing straight away instead of when combat ends. A buff cancelled or dispelled in combat still shows as missing only when combat ends (the game gives addons no way to see it), and a buff someone else recasts on you mid-fight shows as missing until combat ends\n- If the game ever hides only some auras, Sanctum now still reads the rest\n- Fixed: buff watch showed a buff as missing when a stronger buff covered it and the game refused the cast with \"A more powerful spell is already active\" (for example a scroll, or another priest's higher rank). When you get that error casting a tracked buff on yourself, the icon now shows as up, with \"Covered by a stronger buff\" in its tooltip, until a buff that was on you at the time wears off (or after an hour). Casts on other players are ignored. Untested on Forever\n- Closing the Buff watch window now locks the alert panel if you left it unlocked, so its preview no longer stays on screen\n- Changed: Power Word: Shield is now on the downrank list (Data.lua), so with Downranking zones ticked a bar bound to it casts the lowest known rank in the left third and higher ranks in the middle and right. Untested on Forever"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SanctumMini"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SanctumDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "SanctumCharDB"
+    ]
+  }
+}

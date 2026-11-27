@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "blessingbuddy",
+  "repo": "TylerAkins/BlessingBuddy",
+  "about": "![BlessingBuddy logo](https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/logo.png)\n\n# BlessingBuddy\n\nOne-click buffs and rescue heals for friendly players and pets in World of Warcraft: Forever.\n\nTarget a friendly player (or pet) and BlessingBuddy shows a small bar with your single-target buffs, a recommended buff for the target's class, the target's health and a row of rescue heals. By default it appears for players **outside your group** only; party, raid, and self are optional in Interface > AddOns > BlessingBuddy.\n\nFor Paladins, Blessing of Salvation is a separate button for yourself and for party and raid players when those visibility options are enabled.\n\n## About this fork\n\nBlessingBuddy was created by [Tom Steglitz](https://github.com/TomSteglitz/BlessingBuddy). This repository is a personal fork, and the original work remains credited to Tom Steglitz under the MIT license (see [LICENSE](https://github.com/TylerAkins/BlessingBuddy/blob/main/LICENSE)). I made the changes in this fork for my own use. This fork adds optional visibility settings and Blessing of Salvation for yourself and group members.\n\nI do not plan to distribute this fork on CurseForge unless the original addon is confirmed abandoned. The current automated release workflow still uploads tagged releases to CurseForge, so the workflow must be changed before that intention is reflected in future releases. The CurseForge link below points to the original addon listing; GitHub Releases are for this fork.\n\n  ![Kings already active, Might recommended next](https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/gallery-1-recommended-buff.png)\n  ![Icons turn red when the target is out of range](https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/gallery-2-out-of-range.png)\n  ![Works for every buffing class, here a level 2 priest](https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/gallery-3-every-class.png)\n  ![Red PvP warning when helping the target would flag you](https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/gallery-4-pvp-warning.png)\n  ![A mage sees Arcane Intellect recommended for a priest](https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/gallery-5-spellcasters.png)\n\n## Download\n- [CurseForge listing for the original addon](https://www.curseforge.com/wow/addons/blessingbuddy)\n- GitHub Releases for this fork\n\n## Features\n- Recommended buff by target class, skips buffs the target already has\n- Paladin one-blessing rule aware (refreshes instead of overwriting)\n- Rescue row: heals, shields, dispels + target health bar\n- Heal prediction on the health bar: incoming heals, remaining healing of running HoTs, and a preview when you hover a heal button – overhealing is cut off at 100 %\n- Paladin: your own blessing shows as done (greyed out) and turns into a refresh button with countdown when it has less than 5 minutes left\n- Buff ranks match the target's level (no \"target too low\" errors)\n- Pets of other players: health bar, heals, Thorns\n- Works in combat, keybinds, range/cooldown display, PvP warning\n- Always casts your highest learned rank\n- Optional visibility for players outside your group, party members, raid members, and yourself (Interface > AddOns > BlessingBuddy; defaults keep the classic “strangers only” behavior outside combat; self off by default)\n- English and German interface\n\nSupported classes: Paladin, Druid, Priest, Mage, Warlock, Shaman.\n\n## Commands\n| Command | Effect |\n|---|---|\n| `/bb move` | show the bar to move it (Shift + drag title) |\n| `/bb reset` | reset position |\n| `/bb debug` | diagnostic info about your target |\n| `/bb log on\\|off\\|clear` | write a detailed debug log to the SavedVariables file |\n| `/bb healtest` | show which heal-prediction data the client provides |\n| *(settings)* | Interface > AddOns > BlessingBuddy — who to show the bar for outside combat |\n\nGerman aliases: `/segen move`, `/segen reset`, `/segen debug`.\n\n## Reporting bugs\nPlease open an issue and include your WoW version, class/level, the target and the output of `/bb debug`. For tricky bugs, `/bb log on`, reproduce, `/reload` and attach `WTF\\Account\\<ACCOUNT>\\SavedVariables\\BlessingBuddy.lua`.\n\n## Releasing (maintainers)\n1. Update `VERSION`, `BlessingBuddy.toc`, `CHANGELOG.md`, and `RELEASE_NOTES.md`. Versions use `MAJOR.MINOR.PATCH`, and the first heading in `RELEASE_NOTES.md` must match `VERSION`.\n2. Commit the changes, then create and push the matching tag, for example: `git tag v1.6.7 && git push origin v1.6.7`.\n3. The release workflow validates the version and notes, builds the ZIP, uploads it with the [BigWigs packager](https://github.com/BigWigsMods/packager), and creates a GitHub Release with the ZIP and manifest.\n\nThe current workflow also uploads to CurseForge when the repository has a `CF_API_KEY` secret. Remove or disable that upload before making a release under the distribution policy above.\n\n## License\nMIT – see [LICENSE](https://github.com/TylerAkins/BlessingBuddy/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.6.7",
+      "published": "2026-10-22",
+      "notes": "## 1.6.7 - 2026-10-22\n\n- Allow Blessing of Salvation on yourself, even when you are not in a party or raid.\n- Keep Salvation available for party and raid players when their visibility is enabled.\n- Keep Salvation out of the ordinary blessing recommendation and refresh order.\n\nTargets WoW: Forever. In-game verification is pending."
+    },
+    {
+      "tag": "v1.6.6",
+      "published": "2026-10-22",
+      "notes": "## 1.6.6 - 2026-10-22\n\n- Make Blessing of Salvation available only for party and raid players when their visibility is enabled.\n- Keep Salvation out of the ordinary blessing recommendation and refresh order.\n\nTargets WoW: Forever. In-game verification is pending."
+    },
+    {
+      "tag": "v1.6.05",
+      "name": "BlessingBuddy 1.6.05",
+      "published": "2026-10-11",
+      "notes": "Fork release **1.6.05** (TylerAkins/BlessingBuddy). Not published from the upstream TomSteglitz repository.\n\n### Highlights\n- Optional visibility: outside group (default on), party, raid, and self (defaults off) — Interface > AddOns > BlessingBuddy, EN/deDE\n- Forever combat fixes: secret cast target names, secret table keys, secret PvP booleans, safer group API checks\n\n### Install\nDownload `BlessingBuddy-1.6.05.zip`, extract the `BlessingBuddy` folder into `World of Warcraft/_classic_beta_/Interface/AddOns/` (or your client’s AddOns path), then `/reload`.\n\nFull history: see [CHANGELOG.md](https://github.com/TylerAkins/BlessingBuddy/blob/main/CHANGELOG.md)."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/gallery-1-recommended-buff.png",
+    "https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/gallery-2-out-of-range.png",
+    "https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/gallery-3-every-class.png",
+    "https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/gallery-4-pvp-warning.png",
+    "https://raw.githubusercontent.com/TylerAkins/BlessingBuddy/main/media/gallery-5-spellcasters.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "contributors": 4,
+    "lastRelease": "2026-10-22",
+    "releaseDates": [
+      "2026-10-22",
+      "2026-10-22",
+      "2026-10-11"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "BlessingBuddy"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "BlessingBuddyDB"
+    ]
+  }
+}

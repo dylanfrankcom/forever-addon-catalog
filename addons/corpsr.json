@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "corpsr",
+  "repo": "Cerynna/CorpSR",
+  "about": "![CorpSR](https://raw.githubusercontent.com/Cerynna/CorpSR/main/art/icons-coin-64.png)\n\n# CorpSR\n\n  **Guild soft reserve with points, entirely in game.**\n\n  World of Warcraft Classic · “Forever” client (Interface 16001)\n\n  **English** ·\n  [Français](https://github.com/Cerynna/CorpSR/blob/main/docs/README.fr.md) ·\n  [Deutsch](https://github.com/Cerynna/CorpSR/blob/main/docs/README.de.md) ·\n  [Español](https://github.com/Cerynna/CorpSR/blob/main/docs/README.es.md) ·\n  [Português](https://github.com/Cerynna/CorpSR/blob/main/docs/README.pt.md) ·\n  [Italiano](https://github.com/Cerynna/CorpSR/blob/main/docs/README.it.md) ·\n  [Русский](https://github.com/Cerynna/CorpSR/blob/main/docs/README.ru.md) ·\n  [简体中文](https://github.com/Cerynna/CorpSR/blob/main/docs/README.zh-CN.md) ·\n  [繁體中文](https://github.com/Cerynna/CorpSR/blob/main/docs/README.zh-TW.md) ·\n  [한국어](https://github.com/Cerynna/CorpSR/blob/main/docs/README.ko.md)\n\n![My SR](https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/MesSR.png)\n\nCorpSR runs your guild's soft reserves (SR) in game: each member reserves the items they want, the loot master hands out the loot, and the addon reads the `/roll`s, ranks them and keeps the history. Every SR you lose gives you points on that item, so your next roll is stronger.\n\nThere is no website, no export, no spreadsheet. The data travels only through the guild addon channel, and every member keeps a full copy: an absent officer never loses anything.\n\n## Features\n\n- **Weekly SRs**: 2 per week (GM setting), on any item from any raid. Double SR allowed.\n- **Points**: you lose an item you reserved → +10 points on it. Your SR roll = roll + points.\n- **Clear priority**: SR > +1 > +1 looted > +2 > Transmog, read from the roll range.\n- **Raider window**: the item, your points, one button per roll type, a timer bar, “Pass”.\n- **Loot window** for the master looter: live rolls, ties, a winner of your choice, leftovers (guild bank, disenchant).\n- **Raid announcements** for the start and the end of each item.\n- **Handing over**: trade attempt, ready whisper, list of what is still owed, a disenchanter for the session.\n- **`!SR` by whisper** for pickups (PUGs) and anyone without the addon: no need to install it.\n- **Full history**: every change is written down; corrections and cancellations need a reason and can be undone.\n- **GM settings**: values and rights rank by rank, full reset.\n- **Demo mode** to try everything without sending anything to the guild.\n- **10 languages**: English, French, German, Spanish, Portuguese, Italian, Russian, Simplified and Traditional Chinese, Korean.\n\n## The rules\n\n| Roll type | Roll | Total |\n|---|---|---|\n| **SR** | `/roll 110` | roll + your points on the item |\n| **+1** (main spec) | `/roll 100` | roll |\n| **+1 looted** (main spec, already won an item in +1 this week) | `/roll 100` | roll |\n| **+2** (off spec) | `/roll 50` | roll |\n| **Transmog** | `/roll 20` | roll |\n\n- **The highest category wins**, whatever the rolls: an SR always beats a +1. Inside a category, the highest total wins. On a tie, the tied players roll again.\n- **Points**: you roll with the points you already have (0 the first time). Once the item has been rolled, everyone who reserved it, was in the raid and didn't get it earns **+10 per SR** on it (+20 with a double SR). The winner earns nothing and, if they won with an SR, goes back to 0 on that item. Players who click “Pass” earn nothing either.\n- **Points are kept** when you change items: they wait in reserve until you reserve that item again.\n- **An item won uses up your SR** for the week: if several bosses can drop it, you can't SR it again until next week.\n- **+1 looted**: from your first +1 win of the week (or of the session, GM setting). SR, +2 and transmog wins don't count.\n- **Only your first valid roll counts.** If N copies drop, the N best win.\n- **Pickups** (players outside the guild) follow exactly the same rules as guild members: SRs (by whispering `!SR`), points, every roll type.\n- All values (points, number of SRs, double SR, roll ranges) are GM settings.\n\n## A raid session\n\n**Officers**\n\n1. **Session** tab → **New session**.\n2. The master looter loots the boss: the **loot window** opens by itself. You can also Alt + left click an item in your bags.\n3. Pick the item, then **Start**: your click announces the item in raid chat, with the ranges and the time.\n4. Rolls come in live. When time is up, **Validate** (or **Reroll ties**): your click announces the winner.\n5. CorpSR tries to open a trade with the winner and puts the item in it. Otherwise a whisper is ready on a button. The **To hand over** tab remembers who is still owed what.\n6. Nobody wants it? Guild bank or disenchant.\n\n![Loot window](https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Attribution.png)\n\n**Raiders**\n\n- **My SR** tab: click an item to reserve it, click it again for a double SR, right click to remove one. SRs lock when the first item of the week is rolled (or when an officer locks them).\n- When an item drops, your **roll window** shows what you can roll. One click rolls the right range for you.\n\n  ![Raider window](https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Raideur.png)\n\n- **Points** tab: everyone's points, item by item. **History** tab: everything that happened, by whom and when.\n- Pickup, or no addon? Whisper an officer `!SR [item] [item]` (item links, glued or not, or item numbers). `!SR` alone gives you back your SRs of the week.\n\n## Rights by rank\n\nThe GM chooses, rank by rank, who can do what (Settings tab). Reserving your own SRs needs no right.\n\n| Right | Allows |\n|---|---|\n| **Session** | open, lock, close, reopen, rename or delete a session; record the SRs of a player (pickup or member) who whispers `!SR` |\n| **Loot** | start an item, read the rolls, validate the winner, send it to the bank or to disenchant |\n| **Fix points** | correct a player's points on an item, with a required reason |\n| **Cancel** | cancel an entry of the history, with a required reason |\n| **Items** | remove an item from the known items (anyone can add one) |\n\n## Commands\n\n| Command | Effect |\n|---|---|\n| `/csr` | open or close the CorpSR window |\n| `/csr attrib` | open or close the loot window (also: right click on the minimap button) |\n| `/csr demo` | start or stop the demo mode |\n| `/csr minimap` | show or hide the minimap button |\n| `/csr sync` | ask the guild for the latest data |\n\nCorpSR also adds a tab to the **Guild & Communities** window, and a page to `/corp` when [CorpUI](https://github.com/Cerynna/CorpUI) is installed (optional).\n\n## Good to know\n\n- **The game forbids addons from writing in chat or whispering on their own.** That's why announcements and whispers go through buttons: your click sends the message, as if you had typed it. These buttons are hidden during combat.\n- **In instances**, whispers may be hidden from addons: send your `!SR` before going in.\n- Data is shared **with your guild only**, through the addon channel. Nothing leaves the game.\n\n## Installation\n\n- **Wago**: [addons.wago.io/addons/corpsr](https://addons.wago.io/addons/corpsr), with the Wago app or by hand.\n- **By hand**: put the `CorpSR` folder in `Interface\\AddOns` of your WoW Classic folder, then restart the game.\n\n## Screenshots\n\n| | |\n|---|---|\n| ![Points](https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Points.png) | ![History](https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Historique.png) |\n| ![Session](https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Session.png) | ![To hand over](https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Remise.png) |\n| ![Settings](https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Reglages.png) | ![Known items](https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Raids.png) |\n\nAll the windows, in English and in French: [`docs/images`](https://github.com/Cerynna/CorpSR/tree/main/docs/images). These pictures are drawn from the addon's real layout in demo mode.\n\n## Development\n\nCode layout, detailed rules and tests (in French): [`docs/DEVELOPMENT.md`](https://github.com/Cerynna/CorpSR/blob/main/docs/DEVELOPMENT.md).",
+  "releases": [
+    {
+      "tag": "v0.4.31",
+      "name": "CorpSR 0.4.31",
+      "published": "2026-11-22",
+      "notes": "**English**\n\n- Fixed: since the 21/11 client update, the game gives an empty realm name, which split the guild data in two (a second, empty journal and items-to-deliver list). CorpSR now keeps the last known realm and merges the split data once, without losing anything.\n\n**Français**\n\n- Corrigé : depuis la mise à jour du client du 21/11, le jeu rend un nom de royaume vide, ce qui coupait les données de la guilde en deux (un second journal et une seconde liste « À remettre », vides). CorpSR garde maintenant le dernier royaume connu et réunit une fois les données coupées, sans rien perdre."
+    },
+    {
+      "tag": "v0.4.30",
+      "name": "CorpSR 0.4.30",
+      "published": "2026-10-17",
+      "notes": "**English**\n\n- Pickups (players outside the guild) now follow exactly the same rules as guild members: SRs, points, every roll type. Their rolls are no longer refused.\n- `!SR [item] [item]` by whisper is made for pickups: they reserve without installing the addon. Their name is saved with their SRs and wins, so the whole guild sees it.\n- Pickups who reserved an item earn points when they don't get it, like guild members.\n- The free roll is gone: when nobody wants an item, the loot master chooses guild bank or disenchant. Old free-roll attributions stay readable in the history.\n\n**Français**\n\n- Les PU (joueurs hors guilde) suivent maintenant exactement les mêmes règles que la guilde : SR, points, tous les types de jet. Leurs jets ne sont plus refusés.\n- `!SR [objet] [objet]` en MP est fait pour les PU : ils réservent sans installer l'addon. Leur nom est gardé avec leurs SR et leurs gains, pour que toute la guilde le voie.\n- Les PU qui ont réservé un objet gagnent des points quand ils ne l'ont pas, comme la guilde.\n- Le jet libre disparaît : quand personne ne veut un objet, le maître du butin choisit banque de guilde ou désenchantement. Les anciennes attributions en jet libre restent lisibles dans l'historique."
+    },
+    {
+      "tag": "v0.4.29",
+      "name": "CorpSR 0.4.29",
+      "published": "2026-10-16",
+      "notes": "**English** — first public release.\n\n- Guild soft reserves with points, entirely in game: 2 SRs per week (GM setting), double SR allowed.\n- Points after the roll: everyone who reserved the item, was in the raid and didn't get it earns +10 per SR. Your SR roll = roll + points.\n- Strict priority SR > +1 > +1 looted > +2 > Transmog, read from the roll range (110 / 100 / 50 / 20).\n- An item won uses up your SR for the week, even if another boss drops it again.\n- Raider window with a timer bar; loot window for the master looter (live rolls, ties, a winner of your choice, leftovers).\n- Raid announcements and whispers through buttons: your click sends the message. They follow their window without delay.\n- Handing over: trade attempt, ready whisper, list of what is owed, disenchanter.\n- `!SR [item] [item]` by whisper to an officer for members without the addon.\n- Full history with corrections and cancellations, GM settings and rights by rank, demo mode, 10 languages.\n\n**Français** — première version publique.\n\n- Soft Reserve de guilde avec points, entièrement dans le jeu : 2 SR par semaine (réglage du GM), double SR permis.\n- Points après le jet : ceux qui ont réservé l'objet, étaient dans le raid et ne l'ont pas eu gagnent +10 par SR. Ton jet SR = jet + points.\n- Priorité stricte SR > +1 > +1 DL > +2 > Transmo, lue dans la fourchette du jet (110 / 100 / 50 / 20).\n- Un objet gagné consomme ton SR pour la semaine, même si un autre boss le refait tomber.\n- Fenêtre du raideur avec barre de temps ; fenêtre d'attribution pour le maître du butin (jets en direct, égalités, gagnant au choix, restes).\n- Annonces en raid et MP par des boutons : ton clic envoie le message. Ils suivent leur fenêtre sans retard.\n- Remise des objets : échange tenté, MP prêt, liste de ce qui reste à donner, désenchanteur.\n- `!SR [objet] [objet]` en MP à un officier pour les membres sans l'addon.\n- Historique complet avec corrections et annulations, réglages et droits du GM par grade, mode démo, 10 langues."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/MesSR.png",
+    "https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Attribution.png",
+    "https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Raideur.png",
+    "https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Points.png",
+    "https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Historique.png",
+    "https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Session.png",
+    "https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Remise.png",
+    "https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Reglages.png",
+    "https://raw.githubusercontent.com/Cerynna/CorpSR/main/docs/images/en/Raids.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-10-17",
+      "2026-10-16"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "CorpSR"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "CorpUI"
+    ],
+    "savedVariables": [
+      "CorpSRDB"
+    ]
+  }
+}

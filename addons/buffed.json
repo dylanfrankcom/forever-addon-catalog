@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "buffed",
+  "repo": "LarsEckart/Buffed",
+  "about": "# Buffed\n\nBuff reminders for all classes in **WoW Forever** (English client).\n\n## Setup\n\nDownload the ZIP from [Releases](https://github.com/LarsEckart/Buffed/releases)\nand extract its `Buffed` folder into `Interface/AddOns`. Enable it in the AddOns\nlist, then log in or `/reload`. Missing buffs appear near the center of your screen.\nClick a spell or item icon to buff yourself, even with another unit targeted.\nCamp Benefits and Hydrocane are informational reminders only (not clickable).\n\n## Reminders\n\n**All classes** get XP food, Intellect scroll, Cozy Sleeping Bag, Hydrocane, and Camp Benefits\nreminders when their prerequisites are met. Item reminders require a supported,\nusable item in your bags; Camp Benefits needs no item.\n\n**Skyborne** characters get **Skysight** when learned and off cooldown. Click for\nits 30-second speed boost; like other reminders, it stays hidden while mounted.\n\n**Rogues** get one **Weapon Poison** icon when carrying a supported usable poison\nand an equipped hand has no temporary enchant. Click to apply poison directly to\nthat hand (main hand first). If both need poison, wait for the first application,\nthen click again. Selects the highest-level usable carried poison, not a build-specific\npoison type. Any existing temporary enchant, including a stone, hides the reminder for that hand.\n\n**Druids** also get **Mark of the Wild** (Gift of the Wild counts), **Thorns**,\nand **Nature's Grasp**. Nature's Grasp appears only when learned, missing, and\noff cooldown; click to cast on yourself.\n**Priests** also get the spell reminders listed below. Spell reminders appear\nonly when learned and missing; click to cast on yourself.\n\n- **Camp Benefits** — appears when the umbrella buff is missing, regardless of\n  carried items. This icon cannot refresh the buff; visit a camp. Individual\n  camp benefits are not checked.\n\n- **Power Word: Fortitude, Divine Spirit, Inner Fire, and Shadowguard** (priests) — only learned spells\n  appear; equivalent prayer buffs also count.\n- **XP food** — appears when you carry supported food or XP-granting tea and lack its XP buff.\n  Click to eat/drink and stay seated for at least 10 seconds for **+5% XP from kills**.\n  Not all food or Well Fed buffs qualify. Supported foods include Roasted Boar\n  Meat, Brilliant Smallfish, Longjaw Mud Snapper, Crab Cake, Strider Stew,\n  Smoked Sagefish, Roast Raptor, Twice-Spiced Raptor Slice, Slitherskin Mackerel,\n  Mithril Head Trout, Sagefish Delight, Briny Seafood Stew, and Baked Salmon.\n  Selects the carried food/drink with the highest level\n  requirement you meet; equal-level ties use a fixed order, not stat bonuses.\n  Recognized XP-bearing Well Fed variants count even when they also grant stats.\n- **Scroll of Intellect** — uses your highest usable rank (I–IV); hidden when\n  you already have Intellect or Arcane Brilliance.\n- **Hydrocane** — appears at level 27+ when carried in your bags, not equipped,\n  and your breath timer is active. Equip it manually for 50% longer underwater\n  breath. Hides once equipped or the breath bar disappears, without needing to\n  stop moving; does not restore\n  your previous weapon automatically.\n- **Fishing lure** — informational icon when Fishing Pole (6256) is equipped\n  without a temporary enchant. Shows a carried lure's icon, or the fishing-pole\n  icon if you have no supported lures.\n  Supports Shiny Bauble, Nightcrawlers, Bright Baubles, Aquadynamic Fish\n  Attractor/Lens, and Flesh Eating Worm. Not clickable; Fishing skill is not\n  checked. A handy reminder to switch back to your staff!\n- **Cozy Sleeping Bag** — appears when you carry the bag and Well-Rested is\n  missing or has less than 15 minutes left. Click to unroll, then rest inside\n  for at least one minute.\n\nReminders hide during combat, while mounted, or while dead, and refresh when\nthese states end. Camp Benefits and Cozy Sleeping Bag also hide inside dungeons.\nThe food reminder also hides while moving. Position and reminder settings are\nsaved per character.\n\n## Commands\n\n| Command | Action |\n| --- | --- |\n| `/buffed` | Show help |\n| `/buffed unlock` | Drag the **Buffed** label to move the bar |\n| `/buffed lock` | Lock the bar |\n| `/buffed reset` | Reset its position |\n| `/buffed status` | Show diagnostics in chat and a copy window |\n\nReminders appear automatically when their conditions are met. Old per-reminder toggles are no longer used.\n\nIf a reminder stays visible after buffing, run `/buffed status`, press **Ctrl+C**\nto copy the selected text, and share it with your report. Press **Escape** to close the window.\nDuring combat, diagnostics show **cached, not live** information. If an error\nappears after combat, include that message too.",
+  "releases": [
+    {
+      "tag": "v5",
+      "name": "Buffed v5",
+      "published": "2026-11-24",
+      "notes": "## What's Changed\n* Add Rogue poison reminder by @aaronuurman in https://github.com/LarsEckart/Buffed/pull/1\n\n## New Contributors\n* @aaronuurman made their first contribution in https://github.com/LarsEckart/Buffed/pull/1\n\n**Full Changelog**: https://github.com/LarsEckart/Buffed/compare/v4...v5"
+    },
+    {
+      "tag": "v4",
+      "name": "Buffed v4",
+      "published": "2026-11-20",
+      "notes": "**Full Changelog**: https://github.com/LarsEckart/Buffed/compare/v3...v4"
+    },
+    {
+      "tag": "v3",
+      "name": "Buffed v3",
+      "published": "2026-11-17",
+      "notes": "**Full Changelog**: https://github.com/LarsEckart/Buffed/compare/v2...v3"
+    },
+    {
+      "tag": "v2",
+      "name": "Buffed v2",
+      "published": "2026-11-17",
+      "notes": "**Full Changelog**: https://github.com/LarsEckart/Buffed/compare/v1...v2"
+    },
+    {
+      "tag": "v1",
+      "name": "Buffed v1",
+      "published": "2026-11-14",
+      "notes": "**Full Changelog**: https://github.com/LarsEckart/Buffed/commits/v1"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-20",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Buffed"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "BuffedDB"
+    ]
+  }
+}

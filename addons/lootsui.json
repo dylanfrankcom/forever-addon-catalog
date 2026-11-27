@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "lootsui",
+  "repo": "looterz/LootsUI",
+  "about": "# Loot's UI\n\nHide and show interface frames with macro conditionals, on every flavor of World of Warcraft.\n\nGive a frame a rule like `[mod:ctrl][combat] show; hide` and Loot's UI keeps it out of the way\nuntil you want it. Action bars, unit frames, the minimap, bags, the objective tracker, the\ncooldown manager, the damage meter and more, each with its own rule. On top of the game's own conditionals, LootsUI adds a few of its own,\nso a rule can react to things the macro system has no idea about.\n\nLootsUI was heavily inspired by [DinksUI](https://github.com/Duenke/DinksUI/tree/main), which\nshowed how well macro conditionals work for driving what your interface shows. It was built to\ntake that idea further, with a set of custom conditions of its own and support for every flavor\nof the game.\n\n## Getting started\n\n1. Type `/loots` to open the options.\n2. Pick a preset from the Presets tab to see it working, or go straight to a tab and write your\n   own rules.\n3. Frames with an empty box are left alone.\n\nPresets overwrite the rules in the active profile, and ask before doing it. See the Profiles\nsection below for keeping settings per character and backing them up.\n\n## Commands\n\n| Command | Result |\n| --- | --- |\n| `/loots` | Opens the options |\n| `/loots show` | Reveals everything without losing your rules |\n| `/loots hide` | Puts your rules back in charge |\n| `/loots toggle` | Flips between the two, handy in a macro |\n| `/loots status` | Prints the rule in effect for each frame |\n| `/loots debug` | Prints what LootsUI thinks is true right now |\n| `/loots trace` | Prints what the saved settings looked like at each stage of the session |\n\n`/lootsui` works the same as `/loots`.\n\n## Writing rules\n\nA rule is a list of conditions and what to do when they match.\n\n```\n[condition] show; hide\n[condition] hide; show\n```\n\nSeveral bracket groups in a row mean **or**, so `[mod:ctrl][combat] show; hide` matches if\neither is true. Commas inside one group mean **and**, so `[combat,damaged]` needs both. The\nlast part of a rule with no brackets is the fallback, which is why `show; hide` reads as \"show\nwhen something above matched, otherwise hide\".\n\nYour rule is handed to the game's own macro parser, so **anything valid in a macro is valid\nhere**, including `[mod:alt]`, `[flying]`, `[group:raid]`, `[form:1]` and `[@target,exists]`.\nThe full reference is the [macro conditionals\ndocumentation](https://warcraft.wiki.gg/wiki/Macro_conditionals), with more background in the\n[macro documentation](https://warcraft.wiki.gg/wiki/Macro).\n\n## LootsUI conditions\n\nThese are added by LootsUI. Mix them with the game's own conditionals freely, use them inside\nthe same brackets, and put `no` in front of any of them to invert it.\n\n### Combat\n\n| Condition | True when |\n| --- | --- |\n| `[lastcombat]` | You are in combat, or left it fewer than eight seconds ago |\n| `[lastcombat:15]` | You are in combat, or left it fewer than the given seconds ago |\n| `[recentcombat]` | The same as `[lastcombat:8]`, for rules that read better without a number |\n\nThe game's own `[combat]` cuts off the instant a fight ends. These keep a frame around for a\nmoment afterwards, so the cast bar, cooldowns or a damage meter do not vanish while you are\nstill looking at them. Use `[nolastcombat:30]` to mean \"well out of combat\".\n\n### Health\n\n| Condition | True when |\n| --- | --- |\n| `[damaged]` | Your health is below maximum |\n| `[damaged:70]` | Your health is below 70 percent |\n\nRetail and World of Warcraft: Forever sometimes keep health and resource numbers back from\naddons, in PvP matches for instance. While they do, `[damaged]` and the resource conditions read\nas false rather than guessing, and `/loots debug` says the value is hidden by the game. On\nForever the numbers are hidden most of the time, so build rules there on `[recentcombat]` and\nthe game's own conditionals instead.\n\n### Resources\n\n| Condition | True when |\n| --- | --- |\n| `[resource]` | Your resource is below maximum |\n| `[resource:90]` | Your resource is below the percent you give |\n| `[noresource]` | Your resource is completely empty |\n| `[fullresource]` | Your resource is full |\n\nResource means whatever your character is running on at that moment, mana, rage, energy, focus\nor runic power, so one rule covers every class. It follows a druid through its forms, reading\nenergy in cat and mana in caster.\n\n### Target\n\n| Condition | True when |\n| --- | --- |\n| `[hastarget]` | You have something targeted |\n| `[notarget]` | You have nothing targeted |\n\n### Location\n\n| Condition | True when |\n| --- | --- |\n| `[instance]` | You are in an instance |\n| `[instance:raid]` | You are in an instance of that type, such as party, raid, pvp or arena |\n\nSome things you might expect here are already in the game and need nothing from LootsUI:\n`[stealth]`, `[resting]`, `[mounted]`, `[flying]`, `[indoors]`, `[group:raid]` and `[form:1]` all\nwork as written. For death, `[dead]` reads your target, so use `[@player,dead]` for yourself and\n`[@player,nodead]` for alive. Prefer these where they exist, since the game evaluates them\nitself and can hide frames outright.\n\nThe Help tab in game lists the same set, generated from what is actually installed, so it is\nnever out of date.\n\n## Examples\n\n| Rule | Effect |\n| --- | --- |\n| `[combat][mod:alt] show; hide` | Action bars during a fight, or whenever you hold alt |\n| `[recentcombat][mod:alt] show; hide` | The same, but they linger eight seconds after the fight |\n| `[lastcombat:20] show; hide` | Damage meter during a fight and for twenty seconds after |\n| `[mod:ctrl][combat][damaged] show; hide` | Player frame when it matters, gone when it does not |\n| `[hastarget] show; hide` | Target frame only when you actually have a target |\n| `[combat][resource:35] show; hide` | Resource bar in combat or when you are running dry |\n| `[stealth,nocombat] hide; show` | A clean screen while you are sneaking around |\n| `[resting,nomod] hide; show` | Quiet interface in town, back with a modifier |\n| `[instance:raid] show; hide` | Raid frames only inside raids |\n\n## Recommended setup\n\nThe Presets tab has a Retail preset and a Forever preset, the setup LootsUI is built around.\nAction bars and the player and target frames are there while you fight and for eight seconds\nafter, everything else appears while you hold alt, the objective tracker steps aside during a\nfight, and the damage meter only shows inside instances. Forever is the same with the swing\ntimers treated like the action bars and Blizzard's Issue Reporter kept hidden on test clients. The Forever setup\nas an import string, for the Profiles tab:\n\n```\nLootsUI:1\nfade.mode=fade\nfade.inDuration=0.1\nfade.outDuration=0.1\nrule.actionBar1=[combat][lastcombat][mod:alt][stealth][hastarget] show; hide\nrule.actionBar2=[combat][lastcombat][mod:alt][hastarget] show; hide\nrule.actionBar3=[mod:alt] show; hide\nrule.stanceBar=[mod:alt] show; hide\nrule.playerFrame=[combat][lastcombat][mod:alt][resource] show; hide\nrule.targetFrame=[combat][lastcombat][mod:alt][hastarget] show; hide\nrule.objectiveTracker=[combat] hide; show\nrule.microMenu=[mod:alt] show; hide\nrule.bags=[mod:alt] show; hide\nrule.experienceBar=[mod:alt] show; hide\nrule.reputationBar=[mod:alt] show; hide\nrule.damageMeter=[instance] show; hide\nrule.swingTimerMainHand=[combat][lastcombat][mod:alt][hastarget] show; hide\nrule.swingTimerOffHand=[combat][lastcombat][mod:alt][hastarget] show; hide\nrule.swingTimerRanged=[combat][lastcombat][mod:alt][hastarget] show; hide\nrule.issueReporter=hide\n```\n\nDrop the last four lines for Retail, or leave them, since a line for a frame the client does not\nhave is skipped. The same goes for the Classic clients.\n\n## Fading\n\nFrames can snap or fade. Fading is the default, a tenth of a second each way. The Fading tab\nchanges that and the timings, and any frame can be set to its own Instant or Fade regardless of\nthe default.\n\nOne thing to know: most frames go transparent rather than fully hidden, so they can still catch\na mouse click in the space they occupied. Only protected frames, the action bars and unit frames\nthe game guards during combat, are hidden outright, and only when their rule is built from the\ngame's own conditionals with fading off.\n\nThat split is not a preference, it is what the game allows. A protected frame can only be hidden\nin combat by the game itself, which is why those go through a rule the game evaluates. Every\nother frame is left exactly where the game put it and faded, because moving it under an addon\nframe taints the game's own code on modern clients and breaks things like the damage meter.\n\nFades interrupt cleanly, so a frame caught half way through fading out reverses from where it\nis rather than starting over.\n\n## Profiles\n\nEvery character starts on the shared Default profile, so a change made there follows all of\nthem. To give one character its own settings, open the Profiles tab and branch: the new profile\nstarts as a copy of what you have and only shows up for that character, so the rest stay on\nDefault.\n\nThe same tab has the rest of the toolbox: create a profile with a name of your own, duplicate\nthe active one, rename it, reset it, or delete one you no longer want. Copy settings from\npulls another profile's setup into the active one, including another character's, handy when\ntwo characters share similar UI needs. Exports turn the active profile into plain text you can\nsave anywhere or send to a friend, and imports load one back in. Anything destructive asks\nfirst: importing, copying over, resetting, renaming, deleting and applying a preset all\nconfirm before touching your rules.\n\n## Keybinding\n\nBinding a key means hovering the button you want to bind, which is impossible if the bar is\nhidden. So while the game's Quick Keybind Mode is open, LootsUI reveals everything, and hands\ncontrol back to your rules the moment you leave it. Nothing to turn on.\n\nThis follows the mode itself rather than any particular addon, so it works whether you got there\nfrom the Key Bindings panel or with\n[QuickKeybindMode](https://github.com/looterz/QuickKeybindMode)'s `/kb`.\n\n## Supported clients\n\n| Client | TOC | Interface |\n| --- | --- | --- |\n| Retail | `LootsUI.toc` | 120100 |\n| World of Warcraft: Forever | `LootsUI_Camelot.toc` | 16001 |\n| Classic Era, Season of Discovery, Hardcore | `LootsUI_Vanilla.toc` | 11509 |\n| Anniversary (Burning Crusade) | `LootsUI_TBC.toc` | 20506 |\n| Wrath Titan Reforged | `LootsUI_Wrath.toc` | 38001 |\n| Classic (Mists of Pandaria) | `LootsUI_Mists.toc` | 50504 |\n\nA frame that does not exist in the client you are playing is greyed out in the options rather\nthan causing errors.\n\nWorld of Warcraft: Forever runs the modern interface, so everything Retail has is there to\nhide, including the Cooldown Manager and the Damage Meter, plus its own optional swing timer.\nIts main hand, off hand and ranged timers are three frames, and each has a rule of its own under\nInterface, so a hunter can keep the ranged timer and lose the others. Beta and PTR clients also\nload Blizzard's Issue Reporter, a report button parked on screen with no option to move or hide\nit. It has a rule of its own under Interface, so `hide` alone puts it away and\n`[mod:ctrl] show; hide` brings it back when you actually want to file something.\n\nIf Questie is installed, its tracker is covered by the Objective Tracker rule alongside the\ngame's own, so one rule handles both.\n\n## Credits\n\nHeavily inspired by [DinksUI](https://github.com/Duenke/DinksUI/tree/main) by Duenke, which is\nwhere the idea of driving frame visibility with macro conditionals comes from. LootsUI exists to\ncarry that further: custom conditions such as `[recentcombat]`, `[damaged]`, `[resource:90]`, `[hastarget]` and\n`[instance]` that the macro system has no equivalent for, and one addon that runs on Classic Era,\nAnniversary, Wrath Titan Reforged, Mists Classic, World of Warcraft: Forever and retail alike.",
+  "releases": [
+    {
+      "tag": "v0.4.9",
+      "name": "Release v0.4.9",
+      "published": "2026-11-04",
+      "notes": "Changes in this Release:\n* LootsUI 0.4.9: Forever no longer applies its preset at login"
+    },
+    {
+      "tag": "v0.4.8",
+      "name": "Release v0.4.8",
+      "published": "2026-09-22",
+      "notes": "Changes in this Release:\n* LootsUI 0.4.8: applies the Forever preset at login while the beta forgets your settings, with a switch to turn it off"
+    },
+    {
+      "tag": "v0.4.7",
+      "name": "Release v0.4.7",
+      "published": "2026-09-19",
+      "notes": "Changes in this Release:\n* LootsUI 0.4.7: a trace of what the saved settings held at each stage, and the truth about the Forever beta never reading them back"
+    },
+    {
+      "tag": "v0.4.6",
+      "name": "Release v0.4.6",
+      "published": "2026-09-19",
+      "notes": "Changes in this Release:\n* LootsUI 0.4.6: keeps watching for the Forever beta's late saved settings, and points the saved table at the live one on reload and logout"
+    },
+    {
+      "tag": "v0.4.5",
+      "name": "Release v0.4.5",
+      "published": "2026-09-19",
+      "notes": "Changes in this Release:\n* LootsUI 0.4.5: rules survive login and reload on the Forever beta, and the presets show the damage meter in instances"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-09-22",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-18",
+      "2026-09-18",
+      "2026-08-01",
+      "2026-07-27",
+      "2026-07-26",
+      "2026-07-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LootsUI"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "LootsUIDB"
+    ]
+  }
+}

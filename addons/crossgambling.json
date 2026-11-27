@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "id": "crossgambling",
+  "repo": "LoyalFTW/CrossGambling",
+  "about": "# CrossGambling\nThis is a Gambling Addon for World of Warcraft, any problems or errors can be reported here. \n\nI am looking for people to translate the addon, please contact me here or on discord @ jay_good\n\nThanks!",
+  "releases": [
+    {
+      "tag": "v12.0.89",
+      "published": "2026-11-23",
+      "notes": "# CrossGambling\n\n## [v12.0.89](https://github.com/LoyalFTW/CrossGambling/tree/v12.0.89) (2026-11-23)\n[Full Changelog](https://github.com/LoyalFTW/CrossGambling/compare/v12.0.87...v12.0.89) [Previous Releases](https://github.com/LoyalFTW/CrossGambling/releases)\n\n- Update .pkgmeta"
+    },
+    {
+      "tag": "v12.0.88",
+      "published": "2026-11-22",
+      "notes": "# CrossGambling\n\n## [v12.0.88](https://github.com/LoyalFTW/CrossGambling/tree/v12.0.88) (2026-11-21)\n[Full Changelog](https://github.com/LoyalFTW/CrossGambling/compare/v12.0.86...v12.0.88) [Previous Releases](https://github.com/LoyalFTW/CrossGambling/releases)\n\n- Translations  \n    * Full translated so if any one wants to translate it they can"
+    },
+    {
+      "tag": "v12.0.87",
+      "published": "2026-11-21",
+      "notes": "# CrossGambling\n\n## [v12.0.87](https://github.com/LoyalFTW/CrossGambling/tree/v12.0.87) (2026-11-21)\n[Full Changelog](https://github.com/LoyalFTW/CrossGambling/compare/v12.0.86...v12.0.87) [Previous Releases](https://github.com/LoyalFTW/CrossGambling/releases)\n\n- Translations  \n    * Full translated so if any one wants to translate it they can"
+    },
+    {
+      "tag": "v12.0.86",
+      "published": "2026-11-14",
+      "notes": "# CrossGambling\n\n## [v12.0.86](https://github.com/LoyalFTW/CrossGambling/tree/v12.0.86) (2026-11-14)\n[Full Changelog](https://github.com/LoyalFTW/CrossGambling/compare/v12.0.85...v12.0.86) [Previous Releases](https://github.com/LoyalFTW/CrossGambling/releases)\n\n- Leaderboard  \n    * Added new results to the leaderboard"
+    },
+    {
+      "tag": "v12.0.85",
+      "published": "2026-11-11",
+      "notes": "# CrossGambling\n\n## [v12.0.85](https://github.com/LoyalFTW/CrossGambling/tree/v12.0.85) (2026-11-11)\n[Full Changelog](https://github.com/LoyalFTW/CrossGambling/compare/v12.0.84...v12.0.85) [Previous Releases](https://github.com/LoyalFTW/CrossGambling/releases)\n\n- Update CrossGambling.toc"
+    }
+  ],
+  "stats": {
+    "stars": 7,
+    "openIssues": 0,
+    "contributors": 7,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-14",
+      "2026-11-11",
+      "2026-11-06",
+      "2026-10-26",
+      "2026-10-22",
+      "2026-10-19",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-12",
+      "2026-10-08",
+      "2026-10-02",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-23",
+      "2026-09-21",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-18",
+      "2026-09-15",
+      "2026-09-14",
+      "2026-09-13",
+      "2026-09-12",
+      "2026-09-11",
+      "2026-09-09",
+      "2026-09-06",
+      "2026-09-05",
+      "2026-09-04",
+      "2026-08-11",
+      "2026-07-30",
+      "2026-07-29",
+      "2026-07-22",
+      "2026-07-20",
+      "2026-07-11",
+      "2026-07-09",
+      "2026-07-08",
+      "2026-07-03",
+      "2026-06-24",
+      "2026-06-19",
+      "2026-06-16",
+      "2026-05-21",
+      "2026-05-21",
+      "2026-05-10",
+      "2026-05-09"
+    ]
+  },
+  "languages": [
+    "frFR",
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "CrossGambling"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Foundry-1.0"
+    ],
+    "savedVariables": [
+      "CrossGamblingDB",
+      "CrossGambling"
+    ]
+  }
+}

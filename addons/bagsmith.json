@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "id": "bagsmith",
+  "repo": "Shweep8/bagsmith",
+  "about": "# BagSmith\n\n[![CurseForge](https://img.shields.io/badge/CurseForge-Download-F16436?style=for-the-badge&logo=curseforge&logoColor=white)](https://www.curseforge.com/wow/addons/bagsmith) [![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/shweepy) [![Discord](https://img.shields.io/badge/Discord-Join_the_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/uYfcHPkcar)\n\nSpreadsheet-style bags for WoW Forever.\n\nBagSmith replaces the game's bags with one window you can arrange your way: everything in a list or a grid of\nicons, sorted into sections, searchable, with your bank and your other characters' bags a click away.\n\n**Get it on [CurseForge](https://www.curseforge.com/wow/addons/bagsmith).** This repository is BagSmith's source,\nits plugin documentation and its tests. The main branch holds the latest development build; finished versions\nare on CurseForge and under this repository's Releases.\n\n## Features\n\n- **List or Icons view**, in a Classic look that matches the game or a flat Modern one.\n- **Sections:** items grouped by type, by bag, or all together; sections of your own that you fill by hand or\n  with rules, pinned sections, and an optional split of Consumables into Food, Drink, Potions and more.\n- **Sorting, Merge Stacks and search,** with filters and saved views as tabs (sheets).\n- **Your bank and other characters,** including their bags, gold and currencies.\n- **Item icons that tell you more:** item level, junk, gear sets, Pawn upgrades and cooldowns, with Icon Corners\n  to choose what shows where, and marks from other addons too.\n- **Helpers:** marking and selling junk, a Disenchant Helper for enchanters, and optional auto-confirm for some\n  yes/no boxes, all off until you turn them on.\n- **Works with other addons, none required:** auction prices from Auctionator or Blackthornes Tradeskills, and\n  what ItemTree and Pawn know about your items.\n- **Plugins:** a public API for other addons, and a gamepad companion, BagSmith Gamepad (in alpha).\n\n## Installing\n\nFrom CurseForge, or download a release here and put the `BagSmith` folder in your game's `Interface/AddOns`\nfolder (the `BagSmith_Gamepad` folder too, if you want the companion). Then `/bs settings` opens Settings, and\n`/bs new` shows what's new.\n\n## For addon authors\n\nStart with [docs/README.md](https://github.com/Shweep8/bagsmith/blob/main/docs/README.md): adding marks to BagSmith's item icons, writing a plugin, the full API,\nand a starter plugin in [BagSmith_ExamplePlugin](https://github.com/Shweep8/bagsmith/blob/main/BagSmith_ExamplePlugin). The docs and the example plugin are\nMIT licensed.\n\n## Running the tests\n\nBagSmith's tests run outside the game against a mock WoW client. You need Python 3 and the `lupa` package:\n\n    pip install lupa\n    python3 tools/run_tests.py                     # everything (a few minutes; several sets at once)\n    python3 tools/run_tests.py some_set_tests.lua  # one or more sets, by file name or path\n\nRun them from the repository root (the folder holding `BagSmith/`). `tests/README.md` explains how the sets are\norganized. Mock results show the code's behaviour, not the real game client's.\n\n## Contributing\n\nPull requests are welcome. Please read [CONTRIBUTING.md](https://github.com/Shweep8/bagsmith/blob/main/CONTRIBUTING.md) first: ask before changing how BagSmith\nbehaves for everyone, keep each pull request to one change, and run the tests.\n\n## Support and feedback\n\n- Bugs and requests: open an issue here, or comment on CurseForge.\n- Chat: the [BagSmith Discord](https://discord.gg/uYfcHPkcar).\n- If BagSmith saves you time: [Buy Me a Coffee](https://buymeacoffee.com/shweepy).\n\n## License\n\nBagSmith is copyright (c) 2026 Shweep, all rights reserved. The plugin docs and the example plugin are MIT\nlicensed, and the bundled libraries and two toolbar icons keep their own licenses. See [LICENSE](https://github.com/Shweep8/bagsmith/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.10.1",
+      "name": "BagSmith 1.10.1",
+      "published": "2026-11-23",
+      "notes": "## BagSmith 1.10.1\n\n### New\n\nAuto-Close Bags I Opened (Settings &gt; General), on as it has always worked. Turn it off and bags you opened yourself stay open when you leave a vendor, the mailbox, a trade or the auction house. Bags that opened by themselves still close.\n\n### Fixed\n\nBags that stayed shut at vendors, the mailbox, trades and the auction house. With the game's Use Combined Bags turned off, the game's own bag call could close BagSmith the instant it opened, so nothing showed up. Opening with your bag key always worked.\n\n### Changed\n\nSettings &gt; General: Open with the Bag Keybind names the key your bags are really on, such as Tab, instead of always saying B."
+    },
+    {
+      "tag": "v1.10.0",
+      "name": "BagSmith 1.10.0",
+      "published": "2026-11-23",
+      "notes": "## BagSmith 1.10.0\n\n### New\n\nCustom sections can fill themselves. Alt+Left-click an item and pick New Section From This Item, tick what the items should have in common with it (its type, slot, quality or binding), and see what would go in the section before you create it.\n\nWhen an item fits more than one of your sections, the higher one in Settings &gt; Custom Sections gets it. Arrows there change their order, and each section shows its rules in words.\n\nA rule editor for your sections. Click the pencil beside a section in Settings &gt; Custom Sections, or pick Edit Section... from the section's menu, to give it rules about an item's type, slot, quality, binding, item level or vendor value. Choose whether an item has to fit all of them or any one, and see what would go in the section, and what fits but stays somewhere else, before you save. New Section... on that page opens it too.\n\nThe Filters window is rebuilt around the same rules. Quality and quick picks (New, Usable by Me) sit at the top. Under \"Only show items that fit\" you add rules with + Add a Rule, choose all of these or any one of these, and see how many items are left. Three rules are just for filters: Section, Bag and Time in Bags.\n\nSave as Section... in the Filters window opens the section editor with the rules you've set, so a filter you like can become a section.\n\nA section can show on every sheet, or only on some. In the section editor, set Show this section on to only some sheets and tick the tabs. Everywhere else its items stay in their usual section, so Cloth, Leather and Herbs can split up your Trade Goods tab while All keeps one Trade Goods section.\n\nWith the ItemTree addon installed, your section and filter rules can use what it knows: Used by My Professions, Needed for a Quest, An Upgrade for Me and Sold by Vendors, and for filters ItemTree's Advice. Settings &gt; Addon Sources turns it on or off. ItemTree is optional, and BagSmith works the same without it.\n\nWith ItemTree, the Loot Helper and Disenchant Helper also hold back an item ItemTree says to keep. They show it with the other items they don't offer, and each Helper has its own switch in Settings &gt; Addon Sources. A piece ItemTree keeps for its dust still shows in the Disenchant Helper, and the Loot Helper still offers your junk. While its switch is on and ItemTree hasn't answered about an item yet, that item is held back under Waiting for ItemTree. The Helper checks again by itself, and offers the item only if ItemTree doesn't say to keep it. Clear Soul Shards is your own action with its own count to keep, and doesn't ask ItemTree.\n\nWith Pawn, the Disenchant Helper can hold back a piece Pawn says is an upgrade for you. That switch is in Settings &gt; Addon Sources too, and it's off until you turn it on.\n\nA new Settings page, Addon Sources, shows what BagSmith does with Auctionator, Blackthornes Tradeskills, ItemTree and Pawn, each in its own card with a switch for each job.\n\nMore rules for your sections and filters: Name (its name contains a word you type), Food, Drink and Potions (what kind of consumable it is), Quest Item, Crafting Material and Usable by Me. + Add a Rule lists the rules in groups.\n\nSettings &gt; Custom Sections can start a section from an example (Cloth, Herbs, Gear to Sell, Food and Drink): it opens filled in for you to look over. The page also shows the order an item finds its section in.\n\nAll Items is part of Section Order. With Sections: All, a pinned, Favorites or other dynamic section shows above All Items when it comes before it in Section Order, and below when it comes after. Drag the All Items title, or use the arrows in Settings &gt; Sections, to choose.\n\n### Changed\n\nThe Gear, Consumables, Trade Goods, Quest and Junk tabs show every item of their kind, grouped under your own sections where you have them. Before, an item in one of your sections left its tab.\n\nThe boxes the Filters window used to have (Type / Sections, Bind, Where and Age) are rules now. Sheets you saved before show them as rules and filter the same.\n\nAn item you move back to its usual section by hand stays there, even when one of your sections would take it.\n\nThe Disenchant Helper no longer offers an item you've marked as junk. Mark one there and it leaves the list, and it comes back if you take the mark off.\n\nPrice Source moved from Settings &gt; General to the new Addon Sources page, and is now called Auction Price Source.\n\nThe Loot Helper holding back Pawn upgrades is a switch now, in Settings &gt; Addon Sources. It's on, as before.\n\nPin to Top is now Pin Section, and Unpin is Unpin Section. A pinned section still goes ahead of your other sections; with Sections: All it can now sit below All Items if you put it there.\n\nWith Sections: All, Favorites no longer drops below All Items when a Keys section is showing, and Gear Sets no longer jumps above it when you have favorites. Each follows Section Order.\n\nSettings: Plugins moved down the list, just above Advanced.\n\nThe rule editor no longer cuts a long rule name short, such as Used by My Professions.\n\nClassic skin: item icons and their borders are cleaner in Icons and List view, with the artwork kept inside the border. Bold now brightens Classic borders. Thanks to Jeor!"
+    },
+    {
+      "tag": "v1.9.8",
+      "name": "BagSmith 1.9.8",
+      "published": "2026-11-22",
+      "notes": "## BagSmith 1.9.8\n\n### Fixed\n\nCharacters who share a first name on the same ruleset no longer write over each other. They were saved as one character, so each saw only itself in Global Inventory and item tooltips, and could show the other's bank as its own. Each now has its own saved record. If you have characters like that, log in to each and visit the bank once, so its bank is saved fresh.\n\nA character can no longer be taken for a new one when the game is slow to report its level at login, which would have hidden its other characters. One that was finds its saved data again the next time it logs in.\n\nWhat's New: the row of update buttons wraps onto a second line instead of running off the window.\n\n### Changed\n\nWhat's New opens by itself once for this update, which patches don't usually do, so the note above about characters who share a first name reaches you sooner.\n\nWhat's New: closing the window clears the NEW tags on its updates, so NEW means \"since you last looked\"."
+    },
+    {
+      "tag": "v1.9.7",
+      "name": "BagSmith 1.9.7",
+      "published": "2026-11-21",
+      "notes": "BagSmith 1.9.7\n\nFixed\nDim Junk: junk keeps its greyed look while your bags are being cleaned up. Before, it flashed back to full color until the Clean Up finished, most of all with Clean Up Bags When Opened on.\n\nChanged\nClean Up Bags When Opened no longer runs when your bags open at a vendor, so your items stay put while you sell. Sell Junk Automatically also no longer misses junk that the Clean Up was moving at that moment. The Clean Up button still works there."
+    },
+    {
+      "tag": "v1.9.6",
+      "name": "BagSmith 1.9.6",
+      "published": "2026-11-21",
+      "notes": "## BagSmith 1.9.6\n\n### Fixed\n\nYour other characters are back. A recent game update (client build 71037) stopped telling addons which ruleset you are on, so BagSmith lost track of your alts: they went missing from item tooltips, Global Inventory and your gold totals, the Bank tab was empty away from the bank, and a character on its own profile fell back to Default. BagSmith now works out your ruleset from what it already saved, so all of that returns the first time you log in. Nothing was lost.\n\nEach character shows what it had the last time you played it before the game update. Log in to it once and it is up to date again."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BagSmith"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Pawn",
+      "Auctionator",
+      "Blackthornes_TS",
+      "ItemTree"
+    ],
+    "savedVariables": [
+      "BagSmithDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "BagSmithCharDB"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverunitframes",
+  "repo": "T3rr0rS0ck3/ForeverUnitFrames",
+  "about": "![ForeverUnitFrames](https://raw.githubusercontent.com/T3rr0rS0ck3/ForeverUnitFrames/main/Images/banner_en.png)\n\n# ForeverUnitFrames\n\nClean, flat **player and target frames** for World of Warcraft with buffs, debuffs, portraits and profiles – every frame configured on its own, with a live preview in the settings.\n\n![Features](https://raw.githubusercontent.com/T3rr0rS0ck3/ForeverUnitFrames/main/Images/features_en.png)\n\n## Features\n\n- **Separate player, target and target-of-target frames** – own scale, bar sizes, colors, texture and portrait for each\n- **Health bars** – class color, by health or custom color; four text modes; built-in textures plus everything from [LibSharedMedia](https://www.curseforge.com/wow/addons/libsharedmedia-3-0)\n- **Portraits** in six shapes (round, rounded, square, diamond, hexagon, octagon) with adjustable size and position\n- **Buffs & debuffs** – filters (own, short, dispellable/stealable), adjustable icon size and count, highlighting of dispellable enemy buffs\n- **Dragon ornament** – Elite, Rare Elite or Boss; matches the target automatically\n- **Profiles** – any number of profiles, one per character, copy settings between them\n- **Edit Mode support** – move the frames with Blizzard's Edit Mode\n- Optionally hides Blizzard's player/target frames and buff/debuff bars\n\n![Portrait shapes](https://raw.githubusercontent.com/T3rr0rS0ck3/ForeverUnitFrames/main/Images/portraits_en.png)\n\n![Bar styles](https://raw.githubusercontent.com/T3rr0rS0ck3/ForeverUnitFrames/main/Images/bars_en.png)\n\n## Installation\n\n1. Download the latest release zip (or the CurseForge file).\n2. Extract it into `World of Warcraft\\_retail_\\Interface\\AddOns\\`, so the folder structure is:\n   ```\n   Interface\\AddOns\\ForeverUnitFrames\\ForeverUnitFrames.toc\n   ```\n3. Restart the game or type `/reload`.\n\nTo install from source, clone the repository into a folder named exactly `ForeverUnitFrames` – WoW only loads the addon if the folder name matches the `.toc` file.\n\n## Usage\n\n| Command | Description |\n|---|---|\n| `/ff` | Open the settings |\n| `/ff unlock` | Open Edit Mode to move the frames |\n| `/foreverframes` | Same as `/ff` |\n\nSettings are also available under **Options → AddOns → ForeverUnitFrames**.\n\n**Notes**\n- The settings UI is currently in **German** only.\n- Showing Blizzard's frames again only takes effect after `/reload`.\n- Cancelling buffs with a right-click only works through Blizzard's buff bar.\n\n## Project Structure\n\n| File | Purpose |\n|---|---|\n| `ForeverUnitFrames.toc` | Addon metadata and load order |\n| `Core.lua` | Saved variables, profiles, events, slash commands |\n| `Auras.lua` | Buff and debuff handling |\n| `Frames.lua` | Player and target frames, bars, portraits, ornaments |\n| `Options.lua` | Settings panels with live preview |\n| `Media/` | Logo and portrait masks (`.tga`) |\n| `Images/` | Promo images for the README and CurseForge (not part of the addon) |\n\nSettings are stored in the saved variable `ForeverUnitFramesDB`.",
+  "releases": [
+    {
+      "tag": "v0.8.0",
+      "published": "2026-11-25",
+      "notes": "# ForeverUnitFrames\n\n## [v0.8.0](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/tree/v0.8.0) (2026-11-25)\n[Full Changelog](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/compare/v0.7.1...v0.8.0) [Previous Releases](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/releases)\n\n- Add 5-second rule and mana tick spark on the player mana bar  \n    After spending mana a spark runs across the mana bar for 5 seconds,  \n    then follows the 2-second mana tick rhythm. Works with secret mana  \n    values by detecting spends via spell costs and ticks via power events.  \n    Toggleable in the player options; not created on retail clients.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.7.1",
+      "published": "2026-11-25",
+      "notes": "# ForeverUnitFrames\n\n## [v0.7.1](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/tree/v0.7.1) (2026-11-25)\n[Full Changelog](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/compare/v0.7.0...v0.7.1) [Previous Releases](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/releases)\n\n- Fix boxes in names with non-Latin characters  \n    SetFont with a single font file has no glyph fallback, so Cyrillic,  \n    Korean or Chinese names showed as boxes. Use font families covering  \n    all alphabets, like Blizzard's own frames.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.7.0",
+      "published": "2026-11-21",
+      "notes": "# ForeverUnitFrames\n\n## [v0.7.0](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/tree/v0.7.0) (2026-11-21)\n[Full Changelog](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/compare/v0.6.0...v0.7.0) [Previous Releases](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/releases)\n\n- Add target of target frame and per-bar size settings  \n    - New target of target frame with its own options page and the same  \n      settings and behavior as player and target; smaller base size, portrait  \n      on the left like the player frame  \n    - Target of target polls health, power and auras, since the client sends  \n      no unit events for \"targettarget\"  \n    - Width and height per bar (health and power) as percent added to the  \n      scale (1.2 and -20% = 1.0), optionally keeping proportions  \n    - Each bar gets its own background and border, so bars of different  \n      widths form a stepped shape instead of leaving a gap  \n    - Frames snap to all other frames, including top and bottom edges  \n    - Existing profiles keep their look (all bar sizes default to 0%)  \n    - English and German texts for all new options  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.6.0",
+      "published": "2026-11-20",
+      "notes": "# ForeverUnitFrames\n\n## [v0.6.0](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/tree/v0.6.0) (2026-11-20)\n[Full Changelog](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/compare/v0.5.1...v0.6.0) [Previous Releases](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/releases)\n\n- Add English localization with German for deDE clients  \n    All UI, settings, chat messages and preview sample data now use English  \n    by default and as fallback; German is used only on deDE clients.  \n    Stored keys (profile \"Standard\", textures \"Flach\"/\"Glanz\") stay unchanged  \n    so existing profiles keep working.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.5.1",
+      "published": "2026-11-15",
+      "notes": "# ForeverUnitFrames\n\n## [v0.5.1](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/tree/v0.5.1) (2026-11-15)\n[Full Changelog](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/compare/v0.5.0...v0.5.1) [Previous Releases](https://github.com/T3rr0rS0ck3/ForeverUnitFrames/releases)\n\n- Show auras via Blizzard AuraContainer; fix secret value errors  \n    - Buffs and debuffs are displayed through Blizzard's AuraContainer, so they  \n      work in combat and on friendly targets where addon aura reads are blocked  \n    - Reset the containers on target change so the previous target's auras  \n      are not kept  \n    - Own aura icons remain as fallback and options preview  \n    - Guard more unit API results against secret values  \n    - Add /ff auras diagnostics  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/T3rr0rS0ck3/ForeverUnitFrames/main/Images/features_en.png",
+    "https://raw.githubusercontent.com/T3rr0rS0ck3/ForeverUnitFrames/main/Images/portraits_en.png",
+    "https://raw.githubusercontent.com/T3rr0rS0ck3/ForeverUnitFrames/main/Images/bars_en.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "ForeverUnitFrames"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverUnitFramesDB"
+    ]
+  }
+}

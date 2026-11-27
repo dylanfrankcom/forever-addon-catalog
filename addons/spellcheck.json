@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "spellcheck",
+  "repo": "malkamius/SpellCheck",
+  "about": "# SpellCheck\n\nSpellCheck is a powerful utility addon for World of Warcraft that helps you keep your action bars clean, updated, and optimized. It automatically scans your action bars and spellbook to identify downranked spells and any max-level abilities you've forgotten to bind.\n\n## Features\n\n- **Downranked Spell Detection:** Automatically scans your active action bars and warns you if you are using a lower-ranked version of a spell when a higher rank is available in your spellbook.\n- **Unbound Spell Tracking:** Identifies max-level spells that you have learned but have not yet placed on any of your action bars.\n- **Smart Stance & Form Filtering:** Intelligently filters your unbound spells based on your current state. If a spell requires a specific stance or form (like a Druid's Bear Form or a Warrior's Battle Stance) and you are not currently in it, SpellCheck will hide it from the unbound list to reduce clutter. The UI updates dynamically the moment you shapeshift!\n- **Reagent & Ammo Intelligence:** Despite the strict stance filtering, SpellCheck maintains a comprehensive whitelist of reagent- and ammo-dependent skills (like portals, buffs, hunter shots, and soul shard abilities). These will *always* show up as unbound if they aren't on your bars, ensuring they don't vanish just because you ran out of an item.\n- **Macro Support:** SpellCheck scans the contents of your macros to accurately identify which ranks of spells you have bound inside them.\n- **Addon Compartment Integration:** Easily toggle the interface from the minimap Addon Compartment menu on supported clients.\n\n## Usage\n\nSpellCheck works silently in the background and updates dynamically as you change your action bars, learn new spells, or change stances.\n\n### Slash Commands\n\n- `/sc` or `/spellcheck` - Toggles the main SpellCheck UI pane.\n- `/sc minimap` - Toggles the visibility of the SpellCheck minimap icon.\n\n## Installation\n\n1. Download the latest version of the addon.\n2. Extract the `SpellCheck` folder into your World of Warcraft `_classic_/Interface/AddOns/` or `_retail_/Interface/AddOns/` directory depending on your client version.\n3. Enable **SpellCheck** in your addon list when logging in.",
+  "releases": [
+    {
+      "tag": "v1.1.1",
+      "published": "2026-11-24",
+      "notes": "# SpellCheck\n\n## [v1.1.1](https://github.com/malkamius/SpellCheck/tree/v1.1.1) (2026-11-24)\n[Full Changelog](https://github.com/malkamius/SpellCheck/commits/v1.1.1) [Previous Releases](https://github.com/malkamius/SpellCheck/releases)\n\n- chore(release): v1.1.1  \n- ci: add GitHub/CurseForge release workflow  \n- chore(deploy): add \\_forever\\_ client target  \n- feat: add modern client support and fix tab anchoring  \n    - Add compatibility layer for modern C\\_Spell and C\\_SpellBook APIs  \n    - Support 1.60.1 / Camelot Classic Beta client with dedicated .toc  \n    - Integrate with modern Addon Compartment menu  \n    - Fix nil index error in PanelTemplates\\_AnchorTabs by creating tabs  \n      prior to setting tab count and assigning MainFrame.Tabs  \n    - Update deploy and packaging scripts to support multiple install targets  \n- chore: update interface version to 11508, 20505 for classic era and tbc classic  \n    - Support both Classic Era (11508) and TBC Classic (20505)  \n    - Bump version to 1.0.3  \n- chore: update interface version to 11508 for classic era  \n    - Update TOC interface version to 11508  \n    - Bump version to 1.0.2  \n- fix: resolve 'Invalid spell slot' crash during spec switching  \n    - Switched from spellbook indices to spell IDs for IsUsableSpell checks.  \n      Spell IDs are stable and prevent crashes when the spellbook is  \n      reordered or updated.  \n    - Added registration for ACTIVE\\_TALENT\\_GROUP\\_CHANGED to handle  \n      specialization switches.  \n    - Updated event handling to rescan the spellbook on world entry and  \n      spec changes, ensuring spell rank data remains current.  \n- docs: add README.md with project overview, features, usage, and installation instructions  \n- Initial Commit"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SpellCheck"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "SpellCheckDB"
+    ]
+  }
+}

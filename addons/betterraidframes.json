@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "betterraidframes",
+  "repo": "casperstorm/BetterRaidFrames",
+  "about": "# BetterRaidFrames for Midnight\n\nCustomize Blizzard's Raid and Raid-Style Party Frames with buff indicators, clearer role icons, threat warnings, and more.\n\nSupports retail (Midnight) and WoW Forever.\n\n![BetterRaidFrames](https://raw.githubusercontent.com/casperstorm/BetterRaidFrames/master/asset.png)\n\n## Features\n\n- **Buff indicators:** Track buffs as spell icons or coloured squares. Arrange them in groups that close gaps automatically when buffs disappear. Add duration text, stack counts, cooldown swipes, and steady or pulsing glows.\n- **Role icons:** Keep Blizzard's icons or use tiny symbols. The **Tiny tank & healer** preset makes tanks and healers easy to spot while leaving damage roles unmarked.\n- **Threat warnings:** Choose a square, circle, or full-frame border with a solid or glowing edge. Set your own colours for high, insecure, and secure threat, enable blinking, or hide threat indicators for tanks.\n- **Absorb shields:** Adjust shield visibility and opacity. Optional overshields show shield coverage beyond full health, with several textures to choose from.\n- **Name styling:** Change font size, position, outlines, and shadows. Use class colours, shorten long names, hide server names, convert Cyrillic to Latin, or hide names for dead and offline units.\n- **Raid markers and party leaders:** Adjust icon size and position. Optionally hide the leader icon during combat.\n- **Frame options:** Show your own party frame while solo and enable **Crisp frame borders** for more even separators.\n- **Profiles:** Save different setups and switch automatically between party and raid profiles. Buff indicators can also have separate sets for each specialization.\n- **Live previews:** See changes in settings using your character's name and your actual frame dimensions and scale.\n\n## Getting started\n\n1. Type `/brf` or `/betterraidframes` to open settings.\n2. For party frames, enable **Use Raid-Style Party Frames** under **General** or in Blizzard Edit Mode.\n3. Open a feature's section, enable it, and adjust its settings while watching the preview.\n\nUse **Blizzard Edit Mode** to change the overall frame layout, frame size, and Blizzard aura sizes. A Follower Dungeon is a handy place to try your setup with a full party.\n\n## Positioning and previews\n\nChoose **Position**, such as Top left, Center, or Bottom right, then fine-tune with X/Y offsets. Positive X moves right; positive Y moves up. Raid Markers, Party Leader, Threat, Role Icons, and Name use this same approach. Existing placements are preserved when upgrading.\n\nPreviews update as you edit. They use your current party or raid frame size when available, with Edit Mode or the last known size as fallbacks. Large previews shrink to fit. Sample raid markers, leader icons, roles, shields, and threat levels let you try settings even while solo.\n\n## Adding buff indicators\n\n1. Open **Indicators**, choose **Add group**, and select a position such as Bottom right.\n2. Choose **Add indicator** inside the group. Enter a buff name or aura ID, or pick one from **Buffs**, then click **Add**.\n3. Select the group to adjust growth direction, spacing, and position. Select an individual buff to change its appearance and text.\n\nNew indicators start as spell icons. In **Display**, switch to a coloured square, adjust size, add a glow, or filter to buffs you cast. In **Text**, show remaining duration or stack count.\n\nFor example, put **Echo** and **Dream Breath** in a Bottom right group. Both follow the group's spacing and growth direction; when one buff disappears, the other closes the gap automatically.\n\nYou can reorder, copy, or move indicators between groups. Under a group's **Advanced** settings, **Above Blizzard icons** brings the group in front of Blizzard's built-in icons.\n\nUse **Default** for all specializations or create a separate set for a particular spec. **Export** and **Import** share indicator sets, including their group settings.\n\n**Show Blizzard buff icons** controls Blizzard's standard buff display separately from your custom indicators.\n\n## Understanding absorb shields\n\nAbsorbs protect against damage. Overshields show the part of a shield that extends beyond full health. For example, at full health, an active shield can still appear as an overshield overlay.\n\nThe **Absorbs** section has three controls:\n\n- **Show Blizzard absorbs and incoming heals:** Enables Blizzard's shield and healing displays. Turning it off also hides incoming heals and healing-absorb effects.\n- **Show normal absorb shields:** Shows Blizzard's damage shields and their overflow edge, with adjustable opacity. Requires the Blizzard display above to be enabled.\n- **Show overshields:** Adds BRF's overlay over the filled health bar for shields extending beyond full health. Choose its texture and opacity. This works independently of the two controls above.\n\nMost settings belong to the current profile. **Show Blizzard buff icons** and **Show Blizzard absorbs and incoming heals** are game settings shared across profiles.\n\n## Installation and support\n\nDownload from [CurseForge](https://www.curseforge.com/wow/addons/better-raid-frames), extract the `BetterRaidFrames` folder into `World of Warcraft/_retail_/Interface/AddOns`, and restart the game or reload the UI.\n\nFor help or feedback, contact `async` on Discord.\n\nFor technical details, see the [performance audit](https://github.com/casperstorm/BetterRaidFrames/blob/master/PERFORMANCE.md). BetterRaidFrames is released under the [GPL-3.0 License](https://github.com/casperstorm/BetterRaidFrames/blob/master/LICENSE).",
+  "releases": [
+    {
+      "tag": "0.12.0",
+      "published": "2026-10-16",
+      "notes": "# BetterRaidFrames\n\n## [0.12.0](https://github.com/casperstorm/BetterRaidFrames/tree/0.12.0) (2026-10-16)\n[Full Changelog](https://github.com/casperstorm/BetterRaidFrames/commits/0.12.0) [Previous Releases](https://github.com/casperstorm/BetterRaidFrames/releases)\n\n- Merge pull request #7 from casperstorm/support-12.1.5  \n    Support retail patch 12.1.5"
+    },
+    {
+      "tag": "0.11.1",
+      "published": "2026-09-24",
+      "notes": "# BetterRaidFrames\n\n## [0.11.1](https://github.com/casperstorm/BetterRaidFrames/tree/0.11.1) (2026-09-24)\n[Full Changelog](https://github.com/casperstorm/BetterRaidFrames/commits/0.11.1) [Previous Releases](https://github.com/casperstorm/BetterRaidFrames/releases)\n\n- Stop writing max-health loss bar offsets in crisp borders"
+    },
+    {
+      "tag": "0.11.0",
+      "published": "2026-09-24",
+      "notes": "# BetterRaidFrames\n\n## [0.11.0](https://github.com/casperstorm/BetterRaidFrames/tree/0.11.0) (2026-09-24)\n[Full Changelog](https://github.com/casperstorm/BetterRaidFrames/commits/0.11.0) [Previous Releases](https://github.com/casperstorm/BetterRaidFrames/releases)\n\n- Support WoW Forever"
+    },
+    {
+      "tag": "0.10.1",
+      "published": "2026-09-16",
+      "notes": "# BetterRaidFrames\n\n## [0.10.1](https://github.com/casperstorm/BetterRaidFrames/tree/0.10.1) (2026-09-16)\n[Full Changelog](https://github.com/casperstorm/BetterRaidFrames/commits/0.10.1) [Previous Releases](https://github.com/casperstorm/BetterRaidFrames/releases)\n\n- Use PLAYER aura filter for mine-only indicators"
+    },
+    {
+      "tag": "0.10.0",
+      "published": "2026-09-14",
+      "notes": "# BetterRaidFrames\n\n## [0.10.0](https://github.com/casperstorm/BetterRaidFrames/tree/0.10.0) (2026-09-14)\n[Full Changelog](https://github.com/casperstorm/BetterRaidFrames/commits/0.10.0) [Previous Releases](https://github.com/casperstorm/BetterRaidFrames/releases)\n\n- seperate debuffs controls"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/casperstorm/BetterRaidFrames/master/asset.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 2,
+    "contributors": 1,
+    "lastRelease": "2026-10-16",
+    "releaseDates": [
+      "2026-10-16",
+      "2026-09-24",
+      "2026-09-24",
+      "2026-09-16",
+      "2026-09-14",
+      "2026-09-10",
+      "2026-09-09",
+      "2026-09-09",
+      "2026-09-08",
+      "2026-09-08",
+      "2026-08-21",
+      "2026-08-20",
+      "2026-03-20",
+      "2026-03-20",
+      "2026-03-18",
+      "2026-03-05",
+      "2026-03-02",
+      "2026-02-27",
+      "2026-02-27",
+      "2026-02-26",
+      "2026-02-26",
+      "2026-02-26",
+      "2026-02-18",
+      "2026-02-18",
+      "2026-02-16",
+      "2026-02-10",
+      "2026-02-09",
+      "2026-02-03",
+      "2026-01-24",
+      "2026-01-22",
+      "2026-01-22",
+      "2026-01-22",
+      "2026-01-22",
+      "2026-01-22",
+      "2026-01-22",
+      "2026-01-22",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BetterRaidFrames"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Blizzard_AuraContainer"
+    ],
+    "savedVariables": [
+      "BetterRaidFramesDB"
+    ]
+  }
+}

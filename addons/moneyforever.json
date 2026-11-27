@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "moneyforever",
+  "repo": "laric/MoneyForever",
+  "releases": [
+    {
+      "tag": "v0.4",
+      "published": "2026-11-22",
+      "notes": "# MoneyForever\n\n## [v0.4](https://github.com/laric/MoneyForever/tree/v0.4) (2026-11-22)\n[Full Changelog](https://github.com/laric/MoneyForever/compare/v0.3...v0.4) [Previous Releases](https://github.com/laric/MoneyForever/releases)\n\n- Merge pull request #2 from laric/fix/session-reset-on-login  \n    Reset session gold on fresh login and group Forever characters by ruleset  \n- Reset session gold tracking on a fresh login  \n    sessionStart was persisted and only set when zero, so the session total accumulated across logins. Reset it on initial login; reloads and zoning keep the session.  \n- Group Forever characters by ruleset instead of subrealm  \n    Forever runs on a megaserver with many subrealms, so realm is not a useful  \n    grouping key. Derive PvE/PvP/RP PvE/RP PvP/Hardcore from C\\_GameRules and use  \n    it as the group key, migrating old per-realm records on login. Retail keeps  \n    grouping by realm.  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n- Add workflow\\_dispatch trigger to releases.yml"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MoneyForever"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "MoneyForeverDB"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "tamed",
+  "repo": "moody/Tamed",
+  "about": "# Tamed\n\nTamed helps Hunters in Classic WoW find the tameable pets that teach each rank of a pet ability, and shows where they spawn on the world map.\n\nSupports Vanilla, The Burning Crusade, and WoW Forever.\n\n![Tamed](https://raw.githubusercontent.com/moody/Tamed/master/.github/images/Tamed.png)\n![Pins](https://raw.githubusercontent.com/moody/Tamed/master/.github/images/Pins.png)\n\n## Features\n\n- **Tame Finder** — lists the NPCs that teach the highest rank of each ability you can tame, at your level or a level you choose. It shows NPCs in every zone or only your current zone, and can be filtered by ability to list only the NPCs that teach all of the abilities you select.\n- **Ability ranks** — every pet ability and its ranks, with the pet level, training cost, and families that can learn each rank, and the NPCs that teach it.\n- **Map pins** — clicking an NPC opens the world map and pins where it spawns.\n- **NPC tooltips** — the abilities an NPC teaches are added to its tooltip. This can be turned off in Options.\n- **Minimap icon** — left-click toggles Tamed and right-click clears the map pins. This can be turned off in Options.\n\n## Commands\n\n### Toggle\n\nToggles the user interface.\n\n```txt\n/tamed\n```\n\n### Clear Pins\n\nClears all pins from the map.\n\n```txt\n/tamed clear\n```\n\n## Contributing\n\nPet ability and NPC data is hand-editable. See [CONTRIBUTING.md](https://github.com/moody/Tamed/blob/master/CONTRIBUTING.md) to add or fix entries.\n\n## Credit\n\n### Libraries\n\n- [CallbackHandler-1.0](https://www.wowace.com/projects/callbackhandler)\n- [HereBeDragons-2.0](https://www.wowace.com/projects/herebedragons)\n- [LibDataBroker-1.1](https://www.wowace.com/projects/libdatabroker-1-1)\n- [LibDBIcon-1.0](https://www.wowace.com/projects/libdbicon-1-0)\n- [LibStub](https://www.wowace.com/projects/libstub)\n- [Waffle](https://github.com/moody/Waffle)\n- [Wux](https://github.com/moody/Wux)\n\n## License\n\n[MIT](https://github.com/moody/Tamed/blob/master/LICENSE)",
+  "releases": [
+    {
+      "tag": "2.2.0",
+      "published": "2026-11-23",
+      "notes": "# Changelog\n\n## [2.2.0] - 2026-11-22\n\n### Added\n\n- A Tame Finder screen listing the NPCs that teach the highest rank of each ability that can be tamed at a level you choose, in all zones or only your current zone. Each NPC shows its family, level, location, and abilities, and clicking one shows it on the map\n- A level slider on the Tame Finder screen, with buttons and the mouse wheel to change the level by one\n- An ability filter on the Tame Finder screen: select abilities to list only the NPCs that teach all of them\n\n### Changed\n\n- Tamed opens on the Tame Finder screen instead of Options\n- On WoW Forever, every Owl NPC now shows as the Bird of Prey family, as the game names it there"
+    },
+    {
+      "tag": "2.1.0",
+      "published": "2026-11-21",
+      "notes": "# Changelog\n\n## [2.1.0] - 2026-11-21\n\n### Added\n\n- WoW Forever now has its own pet ability and tameable NPC data\n- Forever abilities: Dismember, Dust Cloud, Mine!, Pinch, Savage Rend, Sonic Blast, Swipe, Tendon Rip, Trickster's Dance, and Web\n- The add-on icon in the main window's title bar\n\n### Changed\n\n- Redesigned the rank screen. Pet level, training cost, and learnable families are shown in tiles, and the NPC list has column labels, the NPC count, and nine NPCs at a time\n- Redesigned the Options screen to match, with the Clear Pins button on the `/tamed clear` command row\n- Hovering a rank's heading now shows the spell tooltip, replacing the Show Tooltip button\n- Learnable families are separated by dots\n- The location of an NPC with no map is dimmed, and its tooltip says Map Unavailable\n- Scrolling the sidebar with the mouse wheel moves in smaller steps\n- The NPC list scrollbar snaps to each entry while it is dragged\n\n### Fixed\n\n- Fixed Tameable NPC cards not highlighting when the mouse moves onto them slowly"
+    },
+    {
+      "tag": "2.0.1",
+      "published": "2026-10-05",
+      "notes": "# Changelog\n\n## [2.0.1] - 2026-10-05\n\n### Fixed\n\n- Fixed a Lua error when showing NPC tooltips in dungeons on WoW Forever"
+    },
+    {
+      "tag": "2.0.0",
+      "published": "2026-10-01",
+      "notes": "# Changelog\n\n## [2.0.0] - 2026-10-01\n\n### Changed\n\n- Rebuilt the user interface\n- Refactored pet data for maintainability"
+    },
+    {
+      "tag": "1.15.3",
+      "published": "2026-07-10",
+      "notes": "# Changelog\n\n## [1.15.3] - 2026-07-10\n\n- Version update\n\n## [1.15.2] - 2026-01-17\n\n- Support for Burning Crusade Anniversary\n\n## [1.15.1] - 2025-03-01\n\n- Updated TOC version\n\n## [1.15.0] - 2023-11-28\n\n- Fixes for Classic version 1.15.0\n\n## [2.5.1] - 2021-06-19\n\n- Updated for The Burning Crusade Classic\n\n## [1.13.9] - 2021-04-25\n\n- Added ability info for npcs to \"Tameable NPCs\" list and map pin tooltips\n\n## [1.13.8] - 2021-04-08\n\n- Replaced `/tamed icon` command with a checkbox in the user interface\n- Added an option for NPC tooltips (enabled by default)\n\n## [1.13.7] - 2021-04-06\n\n- Added NPC classifications ('Elite', 'Rare', etc.) to level ranges\n\n## [1.13.6] - 2021-04-06\n\n- Initial release"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/moody/Tamed/master/.github/images/Tamed.png",
+    "https://raw.githubusercontent.com/moody/Tamed/master/.github/images/Pins.png"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-21",
+      "2026-10-05",
+      "2026-10-01",
+      "2026-07-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Tamed"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "__TAMED_ADDON_DB__",
+      "__TAMED_ADDON_V2_SAVED_VARIABLES__"
+    ]
+  }
+}

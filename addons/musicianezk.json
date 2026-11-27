@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "musicianezk",
+  "repo": "LenweSaralonde/MusicianEZK",
+  "about": "# MusicianEZK\nPlay live in Musician using a simplified keyboard based on the Guid Wars 2 bindings.\n\nThis aims to be an alternative to [Ayalaes's Musician Options](https://www.curseforge.com/wow/addons/musicianoptions-ayalaes) that is no longer maintained.\n\nIt's still a work in progress. Feel free to join our [Discord server](https://discord.gg/ypfpGxK) to discuss about the plugin.\n\n## Bindings\n* 1-8 or NUMPAD1-NUMPAD8 : Play note\n* 9 or NUMPAD9 or LEFT : Octave down\n* 0 or NUMPAD0 or RIGHT : Octave up\n* SPACE (hold) : Sustain\n* SHIFT + 1-8 : Toggle note semitone shift.  You can't shift a key if the resulting note is the same as the one next to it.",
+  "releases": [
+    {
+      "tag": "0.6.0",
+      "name": "MusicianEZK 0.6.0",
+      "published": "2026-10-18",
+      "notes": "Changelog\n=========\n\nv0.6.0\n------\n* Updated for Musician 1.9.18.0.\n* WoW Forever compatibility.\n\nv0.5.0\n------\n* Remade dropdowns using the standard API.\n\nv0.4.0\n------\n* Updated for WoW Retail 12.1.0.\n\nv0.3.4\n------\n* Updated for WoW Classic Era 1.15.9 and WoW TBC Classic 2.5.6.\n\nv0.3.3\n------\n* Updated for WoW Retail 12.0.7 and MoP Classic 5.5.4.\n\nv0.3.2\n------\n* TOC bump for WoW Retail 12.0.5.\n\nv0.3.1\n------\n* TOC bump for WoW Retail 12.0.1.\n\nv0.3.0\n------\n* TOC bump for WoW Midnight 12.0.0 prepatch.\n* Added support for TBC Anniversary Classic 2.5.5.\n* TOC bump for WoW Mists of Pandaria Classic 5.5.3.\n\nv0.2.2\n------\n* Updated for WoW Retail 11.2.7, MoP Classic 5.5.2 and Classic Era 1.15.8.\n\nv0.2.1\n------\n* Updated for WoW retail patch 11.2.\n\nv0.2.0\n------\n* Updated for WoW Mists of Pandaria Classic prepatch.\n\nv0.1.5\n------\n* TOC bump for WoW retail 11.1.5 and WoW Classic Era 1.15.7.\n\nv0.1.4\n------\n* Added add-on category and group.\n* TOC bump for WoW Retail 11.1.0, WoW Classic 4.4.2 and WoW Classic Era 1.15.6.\n\nv0.1.3\n------\n* Updated for WoW retail patch 11.0.7, Cataclysm Classic 4.4.1 and Classic Era 1.15.5.\n\nv0.1.2\n------\n* Updated for WoW retail patch 11.0.2.\n\nv0.1.1\n------\n* Updated for The War Within prepatch.\n* Updated for WoW Classic patch 1.15.3.\n\nv0.1.0\n------\nMVP release"
+    },
+    {
+      "tag": "0.5.0",
+      "name": "MusicianEZK 0.5.0",
+      "published": "2026-10-12",
+      "notes": "v0.5.0\n------\n* Remade dropdowns using the standard API.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianEZK/blob/0.5.0/CHANGELOG.md"
+    },
+    {
+      "tag": "0.4.0",
+      "name": "MusicianEZK 0.4.0",
+      "published": "2026-08-10",
+      "notes": "v0.4.0\n------\n* Updated for WoW Retail 12.1.0.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianEZK/blob/0.4.0/CHANGELOG.md"
+    },
+    {
+      "tag": "0.3.4",
+      "name": "MusicianEZK 0.3.4",
+      "published": "2026-08-03",
+      "notes": "v0.3.4\n------\n* Updated for Wow Classic Era 1.15.9 and WoW TBC Classic 2.5.6.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianEZK/blob/0.3.4/CHANGELOG.md"
+    },
+    {
+      "tag": "0.3.3",
+      "name": "MusicianEZK 0.3.3",
+      "published": "2026-06-09",
+      "notes": "v0.3.3\n------\n* Updated for Wow Retail 12.0.7 and MoP Classic 5.5.4.\n\n**Full Changelog**: https://github.com/LenweSaralonde/MusicianEZK/blob/0.3.3/CHANGELOG.md"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-18",
+    "releaseDates": [
+      "2026-10-18",
+      "2026-10-12",
+      "2026-08-10",
+      "2026-08-03",
+      "2026-06-09",
+      "2026-04-14",
+      "2026-02-11",
+      "2026-01-19",
+      "2025-12-03",
+      "2025-08-05",
+      "2025-07-03",
+      "2025-04-23",
+      "2025-03-02",
+      "2024-12-18",
+      "2024-08-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MusicianEZK"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Musician"
+    ],
+    "savedVariables": [
+      "MusicianEZK_Storage"
+    ]
+  }
+}

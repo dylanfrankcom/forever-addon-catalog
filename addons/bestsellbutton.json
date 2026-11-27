@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "bestsellbutton",
+  "repo": "HizurosWoWAddOns/BestSellButton",
+  "about": "# BestSellButton (WoW AddOn)\n![Build](https://img.shields.io/github/actions/workflow/status/HizurosWoWAddOns/BestSellButton/packager.yml?style=flat-square)\n![Tag](https://img.shields.io/github/v/tag/HizurosWoWAddOns/BestSellButton?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/BestSellButton/total?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/BestSellButton/latest/total?style=flat-square)\n&nbsp; &nbsp; &nbsp; &nbsp;\n[![Patreon](https://img.shields.io/badge/&zwj;-Patreon-gray?logo=patreon&color=red&style=flat-square)](https://www.patreon.com/bePatron?u=12558524)\n[![Paypal](https://img.shields.io/badge/&zwj;-Paypal-gray?logo=paypal&color=blue&style=flat-square)](https://paypal.me/hizuro)\n![Sponsors](https://img.shields.io/github/sponsors/HizurosWoWAddOns?logo=github&style=flat-square)\n\n## Description\nThis addon put an extra button to the questframe (not the questlog) and the button is only visible if you can choose an reward item. A click on this buttons select the item with the highest vendor price. After this action you can push the quest complete button or change the selected reward.\n\n[![Screenshot](./.github/media/BestSellButton_t.jpg)](https://raw.githubusercontent.com/HizurosWoWAddOns/BestSellButton/master/.github/media/BestSellButton.jpg)\n\n## Optional extra\nIndicator icons for unsaleable and highest vendor price on reward items.\n\n## My other projects\n* [On Curseforge](https://www.curseforge.com/members/hizuro_de/projects)\n* [On Github](https://github.com/HizurosWoWAddOns?tab=repositories)\n\n## Disclaimer\n> World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "2.3.12-release",
+      "published": "2026-11-07",
+      "notes": "# BestSellButton\n\n## [2.3.12-release](https://github.com/HizurosWoWAddOns/BestSellButton/tree/2.3.12-release) (2026-11-07)\n[Full Changelog](https://github.com/HizurosWoWAddOns/BestSellButton/commits/2.3.12-release) [Previous Releases](https://github.com/HizurosWoWAddOns/BestSellButton/releases)\n\n- Fix missing tab button template for Forever clients"
+    },
+    {
+      "tag": "2.3.11-release",
+      "published": "2026-08-12",
+      "notes": "# BestSellButton\n\n## [2.3.11-release](https://github.com/HizurosWoWAddOns/BestSellButton/tree/2.3.11-release) (2026-08-12)\n[Full Changelog](https://github.com/HizurosWoWAddOns/BestSellButton/commits/2.3.11-release) [Previous Releases](https://github.com/HizurosWoWAddOns/BestSellButton/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "2.3.10-release",
+      "published": "2026-06-21",
+      "notes": "# BestSellButton\n\n## [2.3.10-release](https://github.com/HizurosWoWAddOns/BestSellButton/tree/2.3.10-release) (2026-06-21)\n[Full Changelog](https://github.com/HizurosWoWAddOns/BestSellButton/commits/2.3.10-release) [Previous Releases](https://github.com/HizurosWoWAddOns/BestSellButton/releases)\n\n- Fix addon icon for classic clients"
+    },
+    {
+      "tag": "2.3.9-release",
+      "published": "2026-06-21",
+      "notes": "# BestSellButton\n\n## [2.3.9-release](https://github.com/HizurosWoWAddOns/BestSellButton/tree/2.3.9-release) (2026-06-21)\n[Full Changelog](https://github.com/HizurosWoWAddOns/BestSellButton/commits/2.3.9-release) [Previous Releases](https://github.com/HizurosWoWAddOns/BestSellButton/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "2.3.8-release",
+      "published": "2026-02-14",
+      "notes": "# BestSellButton\n\n## [2.3.8-release](https://github.com/HizurosWoWAddOns/BestSellButton/tree/2.3.8-release) (2026-02-14)\n[Full Changelog](https://github.com/HizurosWoWAddOns/BestSellButton/commits/2.3.8-release) [Previous Releases](https://github.com/HizurosWoWAddOns/BestSellButton/releases)\n\n- Update toc file"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 5,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-08-12",
+      "2026-06-21",
+      "2026-06-21",
+      "2026-02-14",
+      "2025-08-09",
+      "2025-02-27",
+      "2024-12-20",
+      "2024-08-14",
+      "2024-05-10",
+      "2024-03-03",
+      "2024-01-27",
+      "2023-12-07",
+      "2023-11-11",
+      "2023-11-10",
+      "2023-10-21",
+      "2023-07-27",
+      "2023-01-27",
+      "2023-01-27",
+      "2022-09-19",
+      "2022-06-15",
+      "2022-06-03",
+      "2022-05-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BestSellButton"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "Ace3",
+      "LibColors-1.0"
+    ],
+    "savedVariables": [
+      "BestSellButtonDB"
+    ]
+  }
+}

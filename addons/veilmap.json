@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "veilmap",
+  "repo": "xElementzx/Veilmap",
+  "about": "# Veilmap\n\nA World Map addon for WoW Forever.\n\nFog data covers 84 map art IDs / 1073 overlays, generated from WoW build 1.60.1.69913.\n\n- Reveals fog of war as a tinted overlay in a colour you choose, rather than removing it\n- Scales the world map\n- Sets map transparency, so the map stays usable while you move\n- Shows player and cursor coordinates\n\n## Development\n\nFog data is generated from [wago.tools](https://wago.tools/) DB2 exports:\n\n    node tools/genfogdata.mjs --build 1.60.1.69913 --out Fog/Data_Forever.lua\n\nTests:\n\n    cd tools && npm test\n\n## Licence\n\nGPL-3.0-or-later. See `LICENSE`.",
+  "releases": [
+    {
+      "tag": "v1.2.0",
+      "name": "Veilmap 1.2.0",
+      "published": "2026-11-06",
+      "notes": "## Veilmap 1.2.0\n\n- Draw close-zoom detail on a plain frame so it works in combat\n- Drop deep zoom: extending Blizzard's zoom levels taints the map in combat\n- Amend phase 5 spec: drop deep zoom (taint), detail layer as a plain frame\n- Guard the detail pin's release against a pool not yet created\n- Fix one-liner A to print both coordinates\n- Apply pin frame levels, drop stale detail after combat map changes\n- Add phase 5 in-game checklist and prepare 1.2.0\n- Zoom zone and city maps deeper than Blizzard's limit\n- Fade the game's minimap terrain in under the fog as zone maps are zoomed\n- Add pure tile placement, clipping, fade and zoom-step maths\n- Generate the minimap tile table for close-zoom detail\n- Add phase 5 implementation plan; settle the zoom slider range\n- Add Veilmap phase 5 close-zoom detail design spec"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Veilmap"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "VeilmapDB"
+    ]
+  }
+}

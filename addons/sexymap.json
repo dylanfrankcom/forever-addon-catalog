@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "sexymap",
+  "repo": "funkydude/SexyMap",
+  "releases": [
+    {
+      "tag": "v12.1.7",
+      "published": "2026-11-05",
+      "notes": "# SexyMap\n\n## [v12.1.7](https://github.com/funkydude/SexyMap/tree/v12.1.7) (2026-11-05)\n[Full Changelog](https://github.com/funkydude/SexyMap/compare/v12.1.6...v12.1.7) [Previous Releases](https://github.com/funkydude/SexyMap/releases)\n\n- Borders: Further tweak fix for WoW Forever #464"
+    },
+    {
+      "tag": "v12.1.6",
+      "published": "2026-11-05",
+      "notes": "# SexyMap\n\n## [v12.1.6](https://github.com/funkydude/SexyMap/tree/v12.1.6) (2026-11-05)\n[Full Changelog](https://github.com/funkydude/SexyMap/compare/v12.1.5...v12.1.6) [Previous Releases](https://github.com/funkydude/SexyMap/releases)\n\n- Fix using the \"rotate minimap\" feature whilst also showing the default border on WoW Forever, closes #464"
+    },
+    {
+      "tag": "v12.1.5",
+      "published": "2026-11-04",
+      "notes": "# SexyMap\n\n## [v12.1.5](https://github.com/funkydude/SexyMap/tree/v12.1.5) (2026-10-28)\n[Full Changelog](https://github.com/funkydude/SexyMap/compare/v12.1.4...v12.1.5) [Previous Releases](https://github.com/funkydude/SexyMap/releases)\n\n- Cleanup profile code"
+    },
+    {
+      "tag": "v12.1.4",
+      "published": "2026-10-22",
+      "notes": "# SexyMap\n\n## [v12.1.4](https://github.com/funkydude/SexyMap/tree/v12.1.4) (2026-10-22)\n[Full Changelog](https://github.com/funkydude/SexyMap/compare/v12.1.3...v12.1.4) [Previous Releases](https://github.com/funkydude/SexyMap/releases)\n\n- Another fix for profile names, closes #463"
+    },
+    {
+      "tag": "v12.1.3",
+      "published": "2026-10-22",
+      "notes": "# SexyMap\n\n## [v12.1.3](https://github.com/funkydude/SexyMap/tree/v12.1.3) (2026-10-22)\n[Full Changelog](https://github.com/funkydude/SexyMap/compare/v12.1.2...v12.1.3) [Previous Releases](https://github.com/funkydude/SexyMap/releases)\n\n- Make profiles work on Forever  \n- Buttons: Fixes for Forever  \n- ZoneText: Compat code for BorderTop being removed  \n- Coordinates: Hide Blizz coords  \n- Buttons: Initial Forever fixes  \n- Enable checks for Forever  \n- Merge toc files  \n- Bump toc"
+    }
+  ],
+  "stats": {
+    "stars": 57,
+    "openIssues": 34,
+    "contributors": 16,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-22",
+      "2026-10-22",
+      "2026-10-12",
+      "2026-08-24",
+      "2026-08-13",
+      "2026-07-16",
+      "2026-06-26",
+      "2026-06-18",
+      "2026-06-17",
+      "2026-06-06",
+      "2026-06-06",
+      "2026-04-11",
+      "2026-04-11",
+      "2026-02-06",
+      "2026-02-05",
+      "2026-01-30",
+      "2026-01-19",
+      "2026-01-17",
+      "2026-01-14",
+      "2025-11-19",
+      "2025-07-13",
+      "2025-05-02",
+      "2025-04-21",
+      "2025-04-01",
+      "2025-01-23",
+      "2024-12-07",
+      "2024-11-26",
+      "2024-11-22",
+      "2024-11-21",
+      "2024-11-20",
+      "2024-10-30",
+      "2024-09-25",
+      "2024-09-10",
+      "2024-07-26",
+      "2024-07-26",
+      "2024-07-10",
+      "2024-06-13",
+      "2024-05-08",
+      "2024-04-30",
+      "2024-03-19",
+      "2024-02-07",
+      "2024-01-21",
+      "2024-01-16",
+      "2023-12-08",
+      "2023-11-16",
+      "2023-11-08",
+      "2023-10-11"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "SexyMap"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "AceGUI-3.0-SharedMediaWidgets",
+      "LibSharedMedia-3.0",
+      "Blizzard_TimeManager"
+    ],
+    "savedVariables": [
+      "SexyMap2DB"
+    ]
+  }
+}

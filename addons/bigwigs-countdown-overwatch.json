@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "bigwigs-countdown-overwatch",
+  "repo": "BigWigsMods/BigWigs_Countdown_Overwatch",
+  "releases": [
+    {
+      "tag": "1.8.4",
+      "published": "2026-11-04",
+      "notes": "# BigWigs +Countdown: Overwatch\n\n## [1.8.4](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/tree/1.8.4) (2026-11-04)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/compare/1.8.3...1.8.4) [Previous Releases](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "1.8.3",
+      "published": "2026-09-24",
+      "notes": "# BigWigs +Countdown: Overwatch\n\n## [1.8.3](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/tree/1.8.3) (2026-09-24)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/compare/1.8.2...1.8.3) [Previous Releases](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/releases)\n\n- Bump toc  \n- Update workflow"
+    },
+    {
+      "tag": "1.8.2",
+      "published": "2026-08-10",
+      "notes": "# BigWigs +Countdown: Overwatch\n\n## [1.8.2](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/tree/1.8.2) (2026-08-10)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/compare/1.8.1...1.8.2) [Previous Releases](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "1.8.1",
+      "published": "2026-07-13",
+      "notes": "# BigWigs +Countdown: Overwatch\n\n## [1.8.1](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/tree/1.8.1) (2026-07-13)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/compare/1.8.0...1.8.1) [Previous Releases](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "1.8.0",
+      "published": "2026-07-04",
+      "notes": "# BigWigs +Countdown: Overwatch\n\n## [1.8.0](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/tree/1.8.0) (2026-07-04)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/compare/1.7.9...1.8.0) [Previous Releases](https://github.com/BigWigsMods/BigWigs_Countdown_Overwatch/releases)\n\n- Add Vendetta, Anran, Domina, Emre, Mizuki, Jetpack Cat, Sierra, Shion"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-09-24",
+      "2026-08-10",
+      "2026-07-13",
+      "2026-07-04",
+      "2026-06-26",
+      "2026-05-17",
+      "2026-04-27",
+      "2026-04-11",
+      "2026-04-02",
+      "2026-01-14",
+      "2025-10-30",
+      "2025-10-22",
+      "2025-07-12",
+      "2025-05-17",
+      "2025-05-02",
+      "2025-03-23",
+      "2025-02-07",
+      "2024-11-21",
+      "2024-09-10",
+      "2024-09-09",
+      "2024-07-08",
+      "2024-07-07",
+      "2024-05-08",
+      "2024-04-30",
+      "2024-04-11",
+      "2024-02-07",
+      "2024-01-16",
+      "2023-11-16",
+      "2023-11-08",
+      "2023-10-11",
+      "2023-09-18",
+      "2023-09-18",
+      "2023-07-14",
+      "2023-07-12",
+      "2023-05-03",
+      "2023-03-22",
+      "2023-02-06",
+      "2023-01-22",
+      "2022-11-15",
+      "2022-10-26",
+      "2022-09-30",
+      "2022-04-15",
+      "2021-06-30",
+      "2021-06-02"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "BigWigs_Countdown_Overwatch"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "BigWigs"
+    ]
+  }
+}

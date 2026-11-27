@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "animalfacts",
+  "repo": "awallclock/AnimalFacts",
+  "about": "# Animal Facts\n\nA simple dumb addon that allows you to say / yell / raid warning a random animal fact\n\nMain command:\n\n/af  OR /animalfact \n\nCommand Options:\n\ns: Sends an animal fact to the /say channel.\n\np: Sends an animal fact to the /party channel.\n\nra: Sends an animal fact to the /raid channel.\n\nrw: Sends an animal fact to the /raidwarning channel.\n\ng: Sends an animal to the /guild channel.\n\ni or bg: Sends an animal fact to /instance or /bg channel.\n\nw or t whispers an animal fact to your current target\n\nr whispers an animal fact to your last reply. Or you can start a new whisper and type /af r to send them an animal fact\n\nYou can also use the numbers 1 through 5 to send a bird fact to global channels (Depends on the order of your channels)\n\nYou can also use /af to send facts about that animal to the default channel.\nAnimal choices are: cat, dog, frog, bird, raccoon, generic\n\nExample usage:\n\n/af p: Birds have wings!\n\nHave a fact you'd like to add or have issues? Visit discord.gg/AqGTbYMgtK",
+  "releases": [
+    {
+      "tag": "v6.0.1",
+      "published": "2026-11-09",
+      "notes": "# AnimalFacts\n\n## [v6.0.1](https://github.com/awallclock/AnimalFacts/tree/v6.0.1) (2026-11-08)\n[Full Changelog](https://github.com/awallclock/AnimalFacts/compare/v6.0...v6.0.1) [Previous Releases](https://github.com/awallclock/AnimalFacts/releases)\n\n- updated the register Slash command to match BirdFacts, aka all caps"
+    },
+    {
+      "tag": "v6.0",
+      "published": "2026-10-11",
+      "notes": "# AnimalFacts\n\n## [v6.0](https://github.com/awallclock/AnimalFacts/tree/v6.0) (2026-10-11)\n[Full Changelog](https://github.com/awallclock/AnimalFacts/compare/v5.0.1...v6.0) [Previous Releases](https://github.com/awallclock/AnimalFacts/releases)\n\n- Bump version to 6.0  \n    Update the addon version and simplify the author attribution in the options panel.  \n- Load options after fact modules  \n    Move Options.lua to the end of the add-on load list so fact modules are loaded first.  \n- Bind AnimalFacts as self in options  \n- Guard fact counts against missing lists  \n    Use empty tables when animal fact lists are nil so the options labels can display safely.  \n- Localize the global table in Options.lua  \n    Bind `_G` locally before registering the addon table.  \n- Localize \\_G before addon initialization  \n    Move the \\_G local declaration to the top of the file so it is available during addon setup.  \n- Fix slash command hint and fact count  \n    Show the correct `/af opt` command in invalid-command guidance and safely display the generic fact count when `aFacts` is not initialized.  \n- Use addon metadata wrapper in options  \n    Read the displayed addon version through `AnimalFacts.GetAddOnMetadata`.  \n- Add addon options panel  \n    The addon manifest now loads Options.lua, enabling the new configuration UI for AnimalFacts. This adds the settings panel so users can configure the addon from the standard interface without needing to edit files manually.  \n- Fix chat routing and options opening  \n    Route instance chat requests to the instance channel and fix the options command's combat check and settings opener, with support for current and legacy WoW settings APIs.  \n- Expose addon config globals  \n    Make `AnimalFacts`, `AC`, and `ACD` global, and store the addon metadata lookup on `AnimalFacts` so other files can access them.  \n- Fix Lua syntax and format addon files  \n    Fix the missing comma between bird facts, add a Eurasian swift fact, and normalize formatting in the addon and options files.  \n- Ignore chat commands during combat  \n    Return early from chat message handling while in combat, preventing command processing during encounters.  \n- Fix options table registration  \n    Register the options panel and AceConfig table with the add-on name, and retain the Blizzard category ID.  \n- Add repeat avoidance and refresh addon support  \n    Add configurable fact-repeat tracking, move settings into Options.lua, expand bird facts, and update the bundled Ace libraries for newer WoW clients."
+    },
+    {
+      "tag": "v5.0.1",
+      "published": "2026-01-27",
+      "notes": "# AnimalFacts\n\n## [v5.0.1](https://github.com/awallclock/AnimalFacts/tree/v5.0.1) (2026-01-27)\n[Full Changelog](https://github.com/awallclock/AnimalFacts/compare/v5.0.0...v5.0.1) [Previous Releases](https://github.com/awallclock/AnimalFacts/releases)\n\n- updated for midnight / tbc"
+    },
+    {
+      "tag": "v5.0.0",
+      "published": "2025-07-07",
+      "notes": "# AnimalFacts\n\n## [v5.0.0](https://github.com/awallclock/AnimalFacts/tree/v5.0.0) (2025-07-07)\n[Full Changelog](https://github.com/awallclock/AnimalFacts/compare/v2.2...v5.0.0) [Previous Releases](https://github.com/awallclock/AnimalFacts/releases)\n\n- added interface version for MoP"
+    },
+    {
+      "tag": "v2.2",
+      "published": "2025-03-10",
+      "notes": "# AnimalFacts\n\n## [v2.2](https://github.com/awallclock/AnimalFacts/tree/v2.2) (2025-03-10)\n[Full Changelog](https://github.com/awallclock/AnimalFacts/compare/v2.1.2...v2.2) [Previous Releases](https://github.com/awallclock/AnimalFacts/releases)\n\n- fixed the options panel  \n- Copied the rewrite of the code from BirdFacts to be more in line for  \n    easier trouleshooting"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-09",
+    "releaseDates": [
+      "2026-11-09",
+      "2026-10-11",
+      "2026-01-27",
+      "2025-07-07",
+      "2025-03-10",
+      "2024-08-26",
+      "2024-07-27",
+      "2024-07-27",
+      "2024-06-07",
+      "2024-01-26",
+      "2024-01-03",
+      "2024-01-01"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AnimalFacts"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "forever"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "AnimalFactsDB"
+    ]
+  }
+}

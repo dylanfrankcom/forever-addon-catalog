@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "fellowshipledger",
+  "repo": "TankerALane/fellowship-ledger",
+  "about": "# Fellowship Ledger\n\n*A ledger of your characters' adventures, shared with your fellowship.*\n\nFellowship Ledger quietly records what each of your characters does: levels and the time each one took, quests, dungeons, gold, professions and more. It shows them in a parchment-and-gold window with tables and graphs. Friends who also run the addon can share their ledgers with you, so you can see what each of you did today, this week or this month.\n\nAn addon for World of Warcraft. It supports **WoW Forever** and **retail**, and keeps their data completely separate.\n\n> Status: **1.7.0**. WoW Forever is the main target and is tested in-game there, including sharing between Battle.net friends. Retail is supported too. See [CHANGELOG.md](https://github.com/TankerALane/fellowship-ledger/blob/main/CHANGELOG.md) for what each version added.\n\n## What it tracks\n\n| Tracker | What you see |\n|---|---|\n| Levels | Time per level as `1 -> 2: 10m 23s (total 14m 02s)`: active time (idle stretches over 5 minutes removed) and logged-in time; XP per hour; the zone where you levelled |\n| Quests | Every turn-in (kept 30 days) and daily totals (kept 90 days); every quest the character has completed; quest chains: \"step X of Y\" from the game's data, or from Questie; quest details with objectives, start and end, levels and rewards |\n| Dungeons | Every run: entered vs completed (final boss killed), clear time, when each boss died and how long the fight took, deaths, group make-up (class and role only) |\n| Gold | Net per session, split into loot, vendor, quest, mail, auction and other, with a \"Total gained\" for any range |\n| Professions | Skill-ups, time to each point, current rank |\n| Extras | Deaths with what killed you and both levels, notable loot (green or better), zones discovered, reputation gained, kills (rare, elite, creature type), flight paths, achievements, party level-ups |\n\nEvery tracker has its own **Track** and **Share** switch for each character, and all are on by default.\n\n## The window\n\nType **`/fl`**, or click the minimap button.\n\n- **Me:** your characters for Today, 7 days, 30 days or All, with faction, class-colored names, \"Last played\" and a **This session** line at the top. Click a column to sort, and click a character for a summary card: average, fastest and slowest level, its recent levels, deaths (with your level and the killer's) and notable loot (hover an item for the game's tooltip), each with Show all, and a **Remove** button for characters you no longer play. Settings can show it as a list instead. Buttons along the top of the card switch to **Quests**, **Gold** (a large \"Total gained\", then in, out and net by source), **Kills**, **Professions** and **All completed**.\n- **Quest chains** (a view on the Me tab): a list of the chains in your log (In your log) or that friends are on (Friends are on), each with its step and a progress bar. The chosen chain shows on the right: what to do next (turn in where, then pick up from whom), and all its quests, their levels and who starts each one, where, with map coordinates (from Questie). Click a quest for its details and rewards; hover a reward item for the game's own tooltip, as in your bags. A quest a friend also has shows \"with Hamlet\". Shift-click a quest or an item to link it in chat.\n- **Friends:** friends who run the ledger, grouped under their Battle.net name, with \"(playing)\" on the character they are on, sortable by any column. Hover a character for details, or click it to open it like your own: their levels, totals, gold, kills, quest chains, profession ranks, dungeon runs with boss times, recent deaths and blue or better loot (whatever they share), and the quests in both your logs. **Right-click** a friend to whisper them or invite them to your group. **This week** and **Last week** put you and your friends side by side, with a crown on the best, and **Sync** at the top of the window shares right away. While you are both online, updates arrive about once a minute. If a friend runs a newer version, you get one reminder to update.\n- **Graphs:** levels per session, time per level, quests per day, gold per session and XP per hour, with tooltips. Pick a character, and **Compare** with any other, yours or a friend's, from drop-downs grouped by friend.\n- **Dungeons:** every run of your characters (when, clear time, bosses, deaths, who was with you by role, completed or not), opening to its bosses with when each died and how long the fight took; a summary per dungeon with your best and average time next to your **Friends' best**; and your friends' runs. A run counts once you are inside 5 minutes or a boss dies.\n- **Settings:** tracking and sharing switches, the Plain (default), Ledger (parchment) or Leather (dark) look, background opacity up to fully solid, text size, scale, colorblind-safe colors (on by default), notices, the block list and recommended addons.\n\n### Notices\n\nSmall notices, each with its own switch under Settings > Notices:\n\n- **Yours:** level-ups, a session summary, and a **weekly recap** the first time you log in after the weekly reset (you and each friend: levels, quests, dungeons, time played).\n- **Friends':** reaching level 10, 20, ... and the level cap, finishing a quest chain, clearing a dungeon, profession milestones, looting a blue or better item, and joining your ledger.\n- Notices that arrive together become one, those from while you were offline become one \"While you were away\", and clicking a friend's notice opens their character on the right page. Hovering a friend's character in the world adds a \"Ledger:\" line to the game's tooltip.\n\n### Screenshots\n\nThese use made-up preview data, in the three looks: Ledger, Leather and Plain.\n\n| | |\n|---|---|\n| ![Me tab: a character's card with recent levels, deaths and notable loot](https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/01-me-card-ledger.png) | ![Dungeons tab: best times, friends' best, and a run's boss times](https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/07-dungeons-ledger.png) |\n| **Me:** a character's card with recent levels, deaths and notable loot | **Dungeons:** best times next to friends' best, and each boss's fight time |\n| ![Friends tab: a friend's character opened like your own](https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/03-friends-card-plain.png) | ![Quest chains: where you are in each chain in your log](https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/06-me-chains-plain.png) |\n| **Friends:** a friend's character, opened like your own | **Quest chains:** each step, with who starts it and where |\n| ![Graphs: time per level](https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/04-graphs-ledger.png) | ![Settings: Track and Share for each tracker](https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/05-settings-leather.png) |\n| **Graphs:** time per level, one of five graphs | **Settings:** Track and Share for each tracker |\n| ![Me tab in the list layout, Leather look](https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/02-me-list-leather.png) | |\n| **Me** in the list layout | |\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/fl` | Open or close the ledger |\n| `/fl summary` | Your last session's summary (`/fl summary now` for this one) |\n| `/fl export` | All your data as text you can copy and keep |\n| `/fl sync` | Share with online friends now |\n| `/fl fake` / `/fl fake off` | Preview every view with made-up data (never shared) |\n| `/fl welcome` | Show the welcome panel |\n| `/fl restore` | Restore this character from its backup |\n| `/fl shots` | Screenshots of every tab with made-up data |\n| `/fl version` | Version and client details |\n| `/fl help` | Every command |\n| `/fl verify`, `/fl test`, `/fl friends`, `/fl commtest`, `/fl comms`, `/fl probe`, `/fl debug` | Diagnostics |\n\n## Privacy\n\n- The ledger **never reads chat or the combat log**, and makes **no network connections**.\n- Sharing goes only to your Battle.net and character friends who also run Fellowship Ledger on the same game client, and only for the trackers each character allows. One click pauses all sharing.\n- Blocked players are never sent anything and never shown.\n- Party members appear by name in your dungeon records only if they run the ledger and opted in.\n- A backup of each character is kept in that character's own saved-variables file.\n\n## Recommended\n\n**Questie** adds fuller quest-chain information, especially on WoW Forever. Fellowship Ledger works without it.\n\n## Development\n\nThe repo is laid out in [CLAUDE.md](https://github.com/TankerALane/fellowship-ledger/blob/main/CLAUDE.md), the design in [docs/ARCHITECTURE.md](https://github.com/TankerALane/fellowship-ledger/blob/main/docs/ARCHITECTURE.md) and the sync format in [docs/PROTOCOL.md](https://github.com/TankerALane/fellowship-ledger/blob/main/docs/PROTOCOL.md). Tests use LuaJIT: `luajit tests/run_all.lua`. Releasing is covered in [docs/RELEASING.md](https://github.com/TankerALane/fellowship-ledger/blob/main/docs/RELEASING.md).\n\n## License\n\nMIT, © Decoupled Lane Studio. See [LICENSE](https://github.com/TankerALane/fellowship-ledger/blob/main/LICENSE). Fellowship Ledger is not affiliated with or endorsed by Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v1.14.8",
+      "name": "Fellowship Ledger 1.14.8",
+      "published": "2026-11-24",
+      "notes": "After updating, restart the game fully (not just /reload): this version adds a file.\n\n### Fixed\n- **Scarlet Monastery runs are named by wing.** A Library run is \"Scarlet Monastery: Library\" and the dungeon timer compares it with your Library runs, not your fastest Graveyard. The wing comes from the door you walked through, the room you are in, or the first boss, and your earlier Scarlet Monastery runs are named from their bosses. Friends' runs from older versions are sorted by their bosses on the Leaderboard.\n- **All four wings, Armory and Cathedral too.** Each wing's door is known, so the wing is named the moment you walk in; a room or the first boss corrects it if needed, and the ledger remembers the door you used."
+    },
+    {
+      "tag": "v1.14.7",
+      "name": "Fellowship Ledger 1.14.7",
+      "published": "2026-11-21",
+      "notes": "### Added\n- **Start a new run from the dungeon timer.** If the ledger ever misses that a new run began, click New on the timer (or type /fl timer new) to end the run and start the clock again. If you came back in since your last boss, the old run ends when you left and the new one counts from your first fight back.\n\n### Fixed\n- **Going straight into another wing of Scarlet Monastery starts a new run.** The wings are one dungeon to the game, so the dungeon timer kept counting the last wing. A run now notices another wing by its map, by the door you walked through, or (once a wing is finished) by a boss from another wing."
+    },
+    {
+      "tag": "v1.14.6",
+      "name": "Fellowship Ledger 1.14.6",
+      "published": "2026-11-18",
+      "notes": "### Added\n- **/fl xp**: a small window with your XP in the last 1, 5 or 10 minutes: the XP gained, XP per hour, how much of the level that is and how long the next level takes at that pace, over bars of XP across the time (hover a bar for its XP). Drag it anywhere and shrink it from the corner until only the buttons, the XP and the XP per hour are left; type /fl xp again to close it."
+    },
+    {
+      "tag": "v1.14.5",
+      "name": "Fellowship Ledger 1.14.5",
+      "published": "2026-11-17",
+      "notes": "### Added\n- **Level rings show how far through the level a character is.** The circle round each level on the Me and Friends lists (and on a character's page) is 20 pieces, one for each bar of the XP bar, filling clockwise from a dot at the top. Friends' rings fill once they update to this version; until then, and at the level cap, the plain circle shows."
+    },
+    {
+      "tag": "v1.14.4",
+      "name": "Fellowship Ledger 1.14.4",
+      "published": "2026-11-17",
+      "notes": "### Fixed\n- **Notices**: a long line that wrapped (a friend's milestone with a long name) no longer runs into the \"Click to open\" line under it; the notice grows to fit."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/01-me-card-ledger.png",
+    "https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/07-dungeons-ledger.png",
+    "https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/03-friends-card-plain.png",
+    "https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/06-me-chains-plain.png",
+    "https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/04-graphs-ledger.png",
+    "https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/05-settings-leather.png",
+    "https://raw.githubusercontent.com/TankerALane/fellowship-ledger/main/assets/screenshots/02-me-list-leather.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-21",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FellowshipLedger"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Questie"
+    ],
+    "savedVariables": [
+      "FellowshipLedgerDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "FellowshipLedgerBackupDB"
+    ]
+  }
+}

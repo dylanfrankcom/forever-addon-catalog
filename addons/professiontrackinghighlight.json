@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "professiontrackinghighlight",
+  "repo": "byWulf/wow-profession-tracking-highlight",
+  "about": "# Profession Tracking Highlight\n\nA World of Warcraft addon that marks the action button of your active profession tracking. When Find Herbs or Find Minerals is on, its button on your action bars gets a colored border, so you can see at a glance which tracking is running.\n\n- **See your tracking at a glance:** the button of the active tracking gets a border, green for Find Herbs and orange for Find Minerals by default\n- **Switches with you:** cast the other tracking and the border moves to its button; turn tracking off and it disappears\n- **Your style:** border thickness, a color per tracking and an optional glow, all in the options\n- **Class and racial tracking too, if you like:** Find Treasure, Track Beasts, Sense Undead and the like can be marked as well (off by default)\n- **Works with your action bars:** Blizzard's bars, Bartender4, Dominos, ElvUI, EllesmereUI, DaylightUI and other bars built on LibActionButton, and also macros that show a tracking spell\n- Available in all languages of the WoW Forever client\n\n## Supported game versions\n\n| Version | Interface |\n|---|---|\n| WoW Forever | 16001 |\n\nClassic Era and other versions are not supported.\n\n## Installation\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/profession-tracking-highlight), e.g. with the CurseForge app.\n\nFor a manual installation, note that the folder in your AddOns directory **must** be named `ProfessionTrackingHighlight`, otherwise WoW will not load the addon:\n\n```bash\ncd \"C:/Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns\"\ngit clone https://github.com/byWulf/wow-profession-tracking-highlight.git ProfessionTrackingHighlight\n```\n\nAlternatively, download the ZIP from the [releases](https://github.com/byWulf/wow-profession-tracking-highlight/releases) and extract it into `Interface/AddOns`.\n\nThen `/reload` in game.\n\n## Usage\n\nPut Find Herbs and/or Find Minerals on an action bar, if they aren't there yet, and cast one of them. That's all: the button of the tracking that is on gets the border.\n\n## Options\n\nOptions > AddOns > Profession Tracking Highlight, or `/pth` (also `/professiontracking`).\n\n| Option | Default |\n|---|---|\n| Also mark other tracking (class and racial tracking abilities) | Off |\n| Border thickness | 3 |\n| Glow | Off |\n| Color: Find Herbs | Green |\n| Color: Find Minerals | Orange |\n| Color: other tracking | Gold |\n\n## Languages\n\nAll languages of the WoW Forever client: English, German, French, Spanish (EU and Latin America), Brazilian Portuguese, Russian, Korean, Simplified and Traditional Chinese. The language follows your WoW client; spell names are taken from the game.\n\n## License\n\nMIT, see [LICENSE](https://github.com/byWulf/wow-profession-tracking-highlight/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-08",
+      "notes": "# Profession Tracking Highlight\n\n## [v1.0.0](https://github.com/byWulf/wow-profession-tracking-highlight/tree/v1.0.0) (2026-11-08)\n[Full Changelog](https://github.com/byWulf/wow-profession-tracking-highlight/commits/v1.0.0) [Previous Releases](https://github.com/byWulf/wow-profession-tracking-highlight/releases)\n\n- Link the CurseForge project  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add Profession Tracking Highlight 1.0.0  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "ProfessionTrackingHighlight"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ProfessionTrackingHighlightDB"
+    ]
+  }
+}

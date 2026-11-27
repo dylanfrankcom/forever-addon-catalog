@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "markdownnotepad",
+  "repo": "Twintop/MarkdownNotepad",
+  "about": "# Markdown Notepad\n\nNotes for *World of Warcraft*, written in Markdown and rendered in game with\n[LibSimpleHTMLMarkdown](https://github.com/Twintop/LibSimpleHTMLMarkdown).\n\nFound a bug, or have an idea? [Open an issue](https://github.com/Twintop/MarkdownNotepad/issues).\n\n## Features\n\n- **An editor** with a monospace font (JetBrains Mono), line numbers, syntax coloring, undo and\n  redo, and a live preview beside it that you can hide. The window moves and resizes, and the\n  divider between the editor and the preview drags.\n- **A toolbar** that formats the selection or inserts at the cursor: headings, bold, italic,\n  strikethrough, highlight, code, code blocks, lists, task lists, quotes, rules, tables, links,\n  images, raid target and role icons, alerts, footnotes, definitions, and links to other notes.\n- **Line breaks as you typed them.** Each line break in a note shows in the preview and pinned\n  notes, and a blank line is an empty line, so pasted plain text looks as it did. Turn off *Keep\n  line breaks* in Settings for Markdown's own rule: lines join into one paragraph unless one ends\n  with two spaces.\n- **Account or character notes.** Every note is saved account-wide, so any character can open\n  any note. An account note is listed for all your characters; a character note is listed for\n  the character it belongs to, and your other characters find it under *Other characters*.\n- **Pinned notes**: any note in a window of its own that stays on screen while you play. Unlocked,\n  it has a title bar (its title, and edit, lock, settings, and close) to move it by, and a size\n  grip. Locked with the padlock, it's only the rendered note on a background: it stays in place,\n  and clicks go through it to the game. The mouse wheel still scrolls it; hold Alt over it to use\n  it, or right-click *Unpin* in the editor for its settings. Each one has its own background\n  opacity, and can fade when the mouse isn't over it. Pinned notes come back at your next login.\n- **Game links**: shift-click a spell or item while you type (or drag one onto the editor) to\n  insert `[Fireball](spell:133)`, which shows the game's tooltip. `[Raid plan](note:Raid Plan)`\n  links to another note.\n- **Autosave**: your changes are saved a moment after you stop typing, and when you open another\n  note, close the editor, or log out. With *Autosave* off in Settings, changes are saved when you\n  press Save; the ones you haven't saved are kept through a logout or `/reload`, and you're asked\n  before they're lost.\n- **Save Copy** saves a note as a new note (\"Title (copy)\") and edits that one. With autosave\n  off, the copy takes the changes you haven't saved, and the note you started from keeps what it\n  had at its last save.\n\n## Using it\n\nOpen the editor with `/mdn`, a key binding (*Key Bindings > AddOns*), or the AddOn compartment\non the minimap.\n\n| Command | Does |\n| --- | --- |\n| `/mdn` | Show or hide the editor |\n| `/mdn new` | Start a new note |\n| `/mdn edit <title>` | Open a note in the editor |\n| `/mdn show <title>` | Pin a note on screen |\n| `/mdn hide` | Close every pinned note |\n| `/mdn unlock` | Make every pinned note movable and clickable again |\n| `/mdn list` | List your notes |\n| `/mdn reset` | Put the windows back in the middle of the screen |\n| `/mdn news` | Show what's new |\n\n| Key | Does |\n| --- | --- |\n| Ctrl-S | Save |\n| Ctrl-Shift-S | Save a copy |\n| Ctrl-Z, Ctrl-Y | Undo, redo |\n| Ctrl-B, Ctrl-I, Ctrl-K | Bold, italic, link |\n| Tab, Shift-Tab | Indent, outdent (nests list items) |\n| Enter in a list | Starts the next item; on an empty item, ends the list |\n\n## Development\n\n`tests/run_tests.py` tests the text model and the formatting actions, replays random typing\nsessions through the editor against a reference, and loads the whole AddOn against a mock of\nthe WoW API to drive its windows. It needs Python and [lupa](https://pypi.org/project/lupa/)\n(`pip install lupa`). With the Ketho WoW API extension for VS Code installed, the mock accepts\nonly widget methods the real API has.\n\nText shown to players is in `Localization/`: `enUS.lua` has every string in English, under a\nkey the code looks it up by (`L[\"SaveCopy\"]`), and each locale's file replaces the ones it\ntranslates. The tests check that every key the code uses has an English text, and that every\nEnglish text is used.\n\nLibSimpleHTMLMarkdown is embedded in `Libs/`. `build/README.md` covers the checks every push\nruns, updating the library, and releasing.\n\nThe editor font is JetBrains Mono, under the SIL Open Font License (`Media/Fonts/JetBrainsMono-OFL.txt`).",
+  "releases": [
+    {
+      "tag": "1.0.1-release",
+      "published": "2026-11-17",
+      "notes": "# 1.0.1-release (2026-11-17)\n\n## Notes\n\n- **Autosave**: your changes are saved a moment after you stop typing, and when you open another note, close the editor, or log out. Turn off *Autosave* in Settings to save only when you press Save, as before.\n- **Line breaks as you typed them**: each line break in a note shows in the preview and pinned notes, and a blank line is an empty line, so pasted plain text looks as it did. Turn off *Keep line breaks* in Settings for Markdown's own rule, where lines join into one paragraph unless one ends with two spaces.\n- With autosave on, **Save Copy** saves the note before copying it.\n- The welcome note, if you haven't changed it, gets this version's text, written for line breaks that show.\n\n## Fixes\n\n- On WoW Forever, the editor and preview now show the first time the editor opens, instead of an empty window until a note was pinned.\n- Updated LibSimpleHTMLMarkdown, the library that renders notes, to 1.0.5."
+    },
+    {
+      "tag": "1.0.0-release",
+      "published": "2026-11-16",
+      "notes": "# 1.0.0-release (2026-11-16)\n\nInitial release of the addon!\n\n## Notes\n\n- Write notes in Markdown, and see them rendered beside the editor as you type.\n- Notes are saved for your whole account, so any character can open any of them. An **account** note is listed for all your characters; a **character** note is listed for the character it belongs to, and your other characters find it under *Other characters*.\n- **Save Copy** saves a note, with changes you haven't saved, as a new note.\n- Changes you haven't saved are kept through a logout or `/reload`.\n\n## The editor\n\n- A monospace font, line numbers, syntax coloring, and undo (Ctrl-Z) and redo (Ctrl-Y).\n- A toolbar that formats what you select, or inserts at the cursor: headings, bold, italic, lists, quotes, tables, links, images, raid target and role icons, alerts, and more.\n- Shift-click a spell or item while you type to link it.\n- Enter in a list starts the next item; Tab and Shift-Tab indent and outdent.\n\n## Pinned notes\n\n- **Pin** a note to keep it on screen while you play, in a window of its own with a title bar to move it by. Each pinned note has its own background opacity, and can fade when the mouse isn't over it.\n- Lock it with the padlock in its title bar, and it's only the note on a background: it stays in place, and clicks go through it to the game. The mouse wheel still scrolls it; hold Alt over it to use it again.\n- Pinned notes come back at your next login.\n\nType `/mdn help` for the commands."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MarkdownNotepad"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "MarkdownNotepadDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "MarkdownNotepadCharDB"
+    ]
+  }
+}

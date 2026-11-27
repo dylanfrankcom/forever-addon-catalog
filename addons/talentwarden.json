@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "talentwarden",
+  "repo": "DrKlampz/talentwarden",
+  "about": "# Talentwarden\n\n![Talentwarden icon](https://raw.githubusercontent.com/DrKlampz/talentwarden/main/docs/logo.png)\n\nTells you where to spend your next talent point in WoW Forever.\n\n- Level-by-level leveling guides (levels 10-60) and endgame builds for all 27 specs.\n- A window with your spec, the build you follow, the next talent point and the steps coming up.\n- Glows the next talent in the talent window.\n- Chat reminder when you have points to spend, and a warning when you go off the build.\n- Make builds of your own, and change everything in the options.\n- Right-click the minimap button to switch builds.\n- Look system: fonts, colors and textures to restyle the window.\n\nBuild data is based on the Icy Veins WoW Forever talent guides.",
+  "releases": [
+    {
+      "tag": "v0.2.11",
+      "published": "2026-11-21",
+      "notes": "# Talentwarden\n\n## [v0.2.11](https://github.com/DrKlampz/talentwarden/tree/v0.2.11) (2026-11-21)\n[Full Changelog](https://github.com/DrKlampz/talentwarden/compare/v0.2.10...v0.2.11) [Previous Releases](https://github.com/DrKlampz/talentwarden/releases)\n\n- Talent suggestions follow unspent points and a legal order  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v0.2.10",
+      "published": "2026-11-21",
+      "notes": "# Talentwarden\n\n## [v0.2.10](https://github.com/DrKlampz/talentwarden/tree/v0.2.10) (2026-11-21)\n[Full Changelog](https://github.com/DrKlampz/talentwarden/compare/v0.2.9...v0.2.10) [Previous Releases](https://github.com/DrKlampz/talentwarden/releases)\n\n- Keep character-specific data per character  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v0.2.9",
+      "published": "2026-11-21",
+      "notes": "# Talentwarden\n\n## [v0.2.9](https://github.com/DrKlampz/talentwarden/tree/v0.2.9) (2026-11-21)\n[Full Changelog](https://github.com/DrKlampz/talentwarden/compare/v0.2.8...v0.2.9) [Previous Releases](https://github.com/DrKlampz/talentwarden/releases)\n\n- Redraw the skull and crossbones from skull anatomy; calligraphic variants now ornament the symbol itself instead of framing it  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Add a calligraphic, ornately framed variant of every background symbol  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Redraw 14 watermark symbols with smoother curves and cleaner detail  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Redraw the anarchy symbol  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v0.2.8",
+      "published": "2026-11-20",
+      "notes": "# Talentwarden\n\n## [v0.2.8](https://github.com/DrKlampz/talentwarden/tree/v0.2.8) (2026-11-20)\n[Full Changelog](https://github.com/DrKlampz/talentwarden/compare/v0.2.7...v0.2.8) [Previous Releases](https://github.com/DrKlampz/talentwarden/releases)\n\n- More background symbols, emblem rotation and mirror  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v0.2.7",
+      "published": "2026-11-20",
+      "notes": "# Talentwarden\n\n## [v0.2.7](https://github.com/DrKlampz/talentwarden/tree/v0.2.7) (2026-11-20)\n[Full Changelog](https://github.com/DrKlampz/talentwarden/compare/v0.2.6...v0.2.7) [Previous Releases](https://github.com/DrKlampz/talentwarden/releases)\n\n- Background symbol position and size sliders  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Add Celtic cross and more background symbols; picking a color enables its own-color option  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Talentwarden"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "TalentwardenDB"
+    ]
+  }
+}

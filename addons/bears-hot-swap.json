@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "bears-hot-swap",
+  "repo": "N6REJ/Bears-Hot-Swap",
+  "about": "# Bears Hot Swap\n\n[![WoW Version](https://img.shields.io/badge/WoW-Forever-darkgreen)](https://worldofwarcraft.blizzard.com/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub](https://img.shields.io/badge/GitHub-Source-blue?logo=github)](https://github.com/N6REJ/Bears-Hot-Swap)\n\nAutomatically swaps a saved equipment set when you shift in or out of a tracked form or aura (e.g. Bear Form). Built for **WoW:Forever** (interface 16001).\n\n## Features\n- Auto-detects form/aura changes via `UNIT_AURA` and swaps gear after a short delay.\n- Configurable triggers (aura → set) with a movable UI.\n- Auto-discovers shapeshift/stance forms on login.\n- Creates Blizzard Equipment Manager sets for BetterBags categorization (`Gear: <name>`).\n- Shows which saved set is currently worn; debug tab with diagnostics and logs.\n- Movable minimap button (top-right by default).\n\n## Installation\n1. Copy the `Bears-Hot-Swap` folder into your `Interface/AddOns` directory.\n2. Enable the addon in-game.\n\n## How to use (UI does everything)\n1. Put on the gear you want for a situation (for example, your normal/caster gear).\n2. Open the window with `/bhs` (or the minimap button).\n3. On the **Sets** tab, type a name (e.g. `normal`) and click **Save**. The addon saves what you are wearing now. Repeat for each form/gear set (e.g. `bear`).\n4. On the **Triggers** tab, add a trigger for each form/aura: enter the spell ID or aura name, pick the set it should equip, and click **Add**. Or click **Discover** to auto-detect your shapeshift/stance forms and create triggers for them.\n5. Use the **Cycle** button (or `/bhs default <name>`) to set the default set worn when no tracked form/aura is active.\n6. Done — when you shift forms, Bears Hot Swap equips the matching set automatically after a short delay. Use **Equip** on a set row (or `/bhs <name>`) to force-equip manually.\n\n> **BetterBags:** each saved set is also stored as a Blizzard Equipment Manager set named `Gear: <name>`, so BetterBags (and similar addons) categorize those items automatically.\n\n## Commands (optional shortcuts)\n- `/bhs` — open the window.\n- `/bhs save <name>` / `/bhs <name>` — save or force-equip a set.\n- `/bhs status` — list saved sets.\n- `/bhs trigger list|add <spellId> <setName>|remove <spellId>|set <key> <setName>` — manage triggers.\n- `/bhs discover` — auto-detect shapeshift/stance forms.\n- `/bhs default <setName>` — set the default set (no form).\n- `/bhs debug` — open the debug tab.\n\n## Compatibility\nBuilt for **WoW:Forever** only (`## Interface: 16001`).\n\n## License\nMIT License — see `LICENSE`.",
+  "releases": [
+    {
+      "tag": "2026.11.22.4",
+      "published": "2026-11-22",
+      "notes": "# Bears Hot Swap\n\n## [2026.11.22.4](https://github.com/N6REJ/Bears-Hot-Swap/tree/2026.11.22.4) (2026-11-22)\n[Full Changelog](https://github.com/N6REJ/Bears-Hot-Swap/compare/2026.11.22.3...2026.11.22.4) [Previous Releases](https://github.com/N6REJ/Bears-Hot-Swap/releases)\n\n- adds missing icon from addons list"
+    },
+    {
+      "tag": "2026.11.22.3",
+      "published": "2026-11-22",
+      "notes": "# Bears Hot Swap\n\n## [2026.11.22.3](https://github.com/N6REJ/Bears-Hot-Swap/tree/2026.11.22.3) (2026-11-22)\n[Full Changelog](https://github.com/N6REJ/Bears-Hot-Swap/compare/2026.11.22.2...2026.11.22.3) [Previous Releases](https://github.com/N6REJ/Bears-Hot-Swap/releases)\n\n- fixes weapon swap"
+    },
+    {
+      "tag": "2026.11.22.2",
+      "published": "2026-11-22",
+      "notes": "# Bears Hot Swap\n\n## [2026.11.22.2](https://github.com/N6REJ/Bears-Hot-Swap/tree/2026.11.22.2) (2026-11-22)\n[Full Changelog](https://github.com/N6REJ/Bears-Hot-Swap/compare/2026.11.22.1...2026.11.22.2) [Previous Releases](https://github.com/N6REJ/Bears-Hot-Swap/releases)\n\n- styling fix  \n- mention Better bags support"
+    },
+    {
+      "tag": "2026.11.22.1",
+      "published": "2026-11-22",
+      "notes": "# Bears Hot Swap\n\n## [2026.11.22.1](https://github.com/N6REJ/Bears-Hot-Swap/tree/2026.11.22.1) (2026-11-22)\n[Full Changelog](https://github.com/N6REJ/Bears-Hot-Swap/commits/2026.11.22.1) [Previous Releases](https://github.com/N6REJ/Bears-Hot-Swap/releases)\n\n- Open the Debug tab from debug controls  \n    - Make the debug command and minimap right-click open the Debug tab  \n    - Update usage documentation and changelog  \n- Update README feature descriptions  \n- fixing packager  \n- Add Bears Hot Swap addon  \n    - Add form and aura-triggered equipment swapping, set management UI, and minimap controls  \n    - Document installation, usage, and the initial release  \n    - Configure packaging, releases, dependency updates, and repository automation"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Bears-Hot-Swap"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "BearsHotSwapDB"
+    ]
+  }
+}
