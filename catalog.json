@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.3.0",
+  "version": "4.4.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -23603,25 +23603,14 @@
         }
       ],
       "links": {
-        "repository": "https://github.com/austinrr/dungeon-journal-mirror",
-        "issues": "https://github.com/austinrr/dungeon-journal-mirror/issues",
         "homepage": "https://www.curseforge.com/wow/addons/dungeonjournal"
       },
       "folders": [
         "ForeverDungeonJournal"
       ],
       "tocPath": "ForeverDungeonJournal/ForeverDungeonJournal.toc",
-      "editions": {
-        "forever": {
-          "interface": "16001",
-          "upToDate": true
-        }
-      },
       "from": {
-        "name": "override",
-        "summary": "override",
-        "author": "override",
-        "tags": "override"
+        "entry": "override"
       }
     },
     {
@@ -64704,7 +64693,6 @@
       "tags": [
         "bags"
       ],
-      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/syndicator.png",
       "added": "2026-11-20",
       "sources": [
         {
@@ -64716,58 +64704,12 @@
           "projectId": 988370
         }
       ],
-      "links": {
-        "repository": "https://github.com/austinrr/syndicator-mirror",
-        "issues": "https://github.com/austinrr/syndicator-mirror/issues"
-      },
       "folders": [
         "Syndicator"
       ],
       "tocPath": "Syndicator/Syndicator.toc",
-      "editions": {
-        "retail": {
-          "interface": "120105",
-          "upToDate": true
-        },
-        "classic": {
-          "interface": "50504",
-          "upToDate": true
-        },
-        "anniversary": {
-          "interface": "20506",
-          "upToDate": true
-        },
-        "classic_era": {
-          "interface": "11509",
-          "upToDate": true
-        },
-        "forever": {
-          "interface": "16001",
-          "upToDate": true
-        },
-        "retail_ptr": {
-          "interface": "120100",
-          "upToDate": false
-        },
-        "retail_ptr2": {
-          "interface": "120105",
-          "upToDate": true
-        },
-        "classic_ptr": {
-          "interface": "50504",
-          "upToDate": true
-        },
-        "classic_era_ptr": {
-          "interface": "20506",
-          "upToDate": true
-        }
-      },
       "from": {
-        "name": "override",
-        "summary": "override",
-        "author": "override",
-        "tags": "override",
-        "icon": "toc-icon"
+        "entry": "override"
       }
     },
     {
