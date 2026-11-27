@@ -332,6 +332,17 @@
         "optional": { "description": "Catalog IDs it works with when they're installed.", "$ref": "#/$defs/idList" },
         "conflicts": { "description": "Catalog IDs it overlaps with. A warning, not a blocker.", "$ref": "#/$defs/idList" },
         "notes": { "description": "What a player should know before installing, from the add-on's override.", "type": "string", "maxLength": 1000 },
+        "ownApp": {
+          "description": "The add-on's own app: one its author recommends for installing and updating it. The app recommends it and leaves the add-on to it while it's in use. From the add-on's override.",
+          "type": "object",
+          "properties": {
+            "name": { "description": "The app's name, as its author writes it.", "type": "string", "minLength": 1, "maxLength": 60 },
+            "url": { "description": "The app's page.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
+            "marker": { "description": "A folder or file name in AddOns that shows the app is in use (.spoken-manager): a plain name, no path separators or wildcards.", "type": "string", "pattern": "^(?!\\.{1,2}$)[^/\\\\:*?\"<>|\\u0000-\\u001f]{1,100}$" }
+          },
+          "required": ["name", "url"],
+          "additionalProperties": false
+        },
         "withdrawn": { "type": "array", "items": { "$ref": "#/$defs/withdrawn" } },
         "overrides": { "type": "array", "items": { "$ref": "#/$defs/override" } },
         "from": { "$ref": "#/$defs/from" }
