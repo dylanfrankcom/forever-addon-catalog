@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.12.0",
+  "version": "4.13.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -91168,14 +91168,16 @@
         }
       },
       "optional": [
-        "spoken-places-audio",
-        "spoken-readables-audio",
-        "spoken-bosses-audio"
+        "dialogueui",
+        "ellesmereui"
       ],
       "ownApp": {
         "name": "Spoken Manager",
         "url": "https://spoken.quest/#install",
         "marker": ".spoken-manager"
+      },
+      "linkOnly": {
+        "url": "https://spoken.quest/#install"
       },
       "from": {
         "name": "toc-title",
@@ -91246,6 +91248,9 @@
         "url": "https://spoken.quest/#install",
         "marker": ".spoken-manager"
       },
+      "linkOnly": {
+        "url": "https://spoken.quest/#install"
+      },
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -91315,6 +91320,9 @@
         "url": "https://spoken.quest/#install",
         "marker": ".spoken-manager"
       },
+      "linkOnly": {
+        "url": "https://spoken.quest/#install"
+      },
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -91383,6 +91391,9 @@
         "name": "Spoken Manager",
         "url": "https://spoken.quest/#install",
         "marker": ".spoken-manager"
+      },
+      "linkOnly": {
+        "url": "https://spoken.quest/#install"
       },
       "from": {
         "name": "toc-title",
