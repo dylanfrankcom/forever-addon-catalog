@@ -1,0 +1,6 @@
+{
+  "$schema": "../schema/override.schema.json",
+  "repo": "DeadlyBossMods/DeadlyBossMods",
+  "name": "Deadly Boss Mods",
+  "otherNames": ["DBM", "DBM Core"]
+}

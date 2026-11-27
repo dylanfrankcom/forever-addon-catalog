@@ -157,7 +157,7 @@ Authors written by hand (`overrides/_authors.json`) keep their own list, which c
 | Field | Required | What |
 |---|---|---|
 | `id` | yes | Lowercase words joined by hyphens (`baganator`, `wim`). Stable: never changed or reused. The app's library refers to it. A new entry's ID is its main folder in lowercase, with anything but letters and digits turned into hyphens (`DBM-Core` → `dbm-core`, `WeakAuras` → `weakauras`); the owner is added when two add-ons share a folder name. |
-| `name` | yes | Display name: the main `.toc`'s Title, cleaned of colour codes, textures and version numbers, else the main folder. |
+| `name` | yes | Display name: the main `.toc`'s Title, cleaned of colour codes, textures and version numbers, with a leading tag in angle brackets turned into plain words (`<DBM Media> Countpack HotS` gives "DBM Media Countpack HotS"), else the main folder. |
 | `otherNames` | | Other names the add-on is known by, for search only, never shown as its name: the repository's name as words (`Max-Camera-Distance` and `MaxCameraDistance` give "Max Camera Distance"), without a leading or trailing "wow" or "addon", and left out when `name` already holds it once case and symbols are ignored, and for a repository that releases several add-ons. An override can give its own list. |
 | `summary` | yes | One line, from the author: the main `.toc`'s Notes, else the repository's description, else its README's first sentence. Cleaned like `name` and cut at a word to about 120 characters. An add-on with none of these isn't listed unless an override gives one. |
 | `summaries` | | The summary in other languages, from the `.toc`'s `Notes-deDE` lines and the like, keyed by the game's locale. |
