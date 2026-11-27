@@ -669,6 +669,43 @@ static class Generator
         return (repos, cf, Strings(entry["folders"]));
     }
 
+    /// <summary>The run report's heading for a dropped re-upload that may be a hand-listed add-on's official source.</summary>
+    public const string OfficialSourceReason = "possibly the official source for a hand-listed add-on (not listed: confirm and switch, or ask)";
+
+    /// <summary>
+    /// What ties a repo dropped as a re-upload of the hand-listed <paramref name="entry"/> to it. The repo's claim (its
+    /// .toc names the entry's CurseForge project or Wago ID) can be written by anyone; the catalog's side (its owner is a
+    /// profile on the entry's curated author record, or the entry's own links point to it) was set by a person here.
+    /// </summary>
+    public static List<(string Text, bool CatalogSide)> OfficialSignals(JsonObject entry, Listing l, JsonObject curatedAuthors)
+    {
+        var signals = new List<(string Text, bool CatalogSide)>();
+        var sources = entry["sources"]?.AsArray().Select(s => s!.AsObject()).ToList() ?? [];
+        if (l.CurseForge is { } cf && sources.Any(s => Str(s["type"]) == "curseforge" && s["projectId"]?.GetValue<int>() == cf))
+        {
+            signals.Add(("its .toc names the entry's CurseForge project", false));
+        }
+        if (Str(l.Row["toc"]?["wago"])?.Trim() is { Length: > 0 } wago
+            && (sources.Any(s => Str(s["type"]) == "wago" && string.Equals(Str(s["slug"]), wago, StringComparison.OrdinalIgnoreCase))
+                || string.Equals(Str(entry["links"]?["wago"])?.TrimEnd('/').Split('/')[^1], wago, StringComparison.OrdinalIgnoreCase)))
+        {
+            signals.Add(("its .toc names the entry's Wago project", false));
+        }
+        var profile = $"https://github.com/{l.Owner}";
+        if (Str(entry["author"]) is { } author && curatedAuthors[author]?["profiles"]?.AsArray()
+                .Any(p => string.Equals(Str(p)?.TrimEnd('/'), profile, StringComparison.OrdinalIgnoreCase)) == true)
+        {
+            signals.Add(("its owner is on the author's record", true));
+        }
+        var repoUrl = $"https://github.com/{l.Repo}";
+        if (entry["links"]?.AsObject().Any(link => Str(link.Value)?.TrimEnd('/') is { } url
+                && (url.Equals(repoUrl, StringComparison.OrdinalIgnoreCase) || url.StartsWith(repoUrl + "/", StringComparison.OrdinalIgnoreCase))) == true)
+        {
+            signals.Add(("the entry's own links point to it", true));
+        }
+        return signals;
+    }
+
     static bool Matches(JsonObject entry, Listing l, bool byFolder)
     {
         var (repos, cf, folders) = Keys(entry);
@@ -777,7 +814,18 @@ static class Generator
                 : Matches(o.Value, l, byFolder: true)).Key;
             if (o is not null && inputs.Overrides[o]["repo"] is null)
             {
-                result.Drop("a re-upload of an add-on listed from its own site (same folder or CurseForge project as a hand-written entry)", $"{l.Repo} ({o})");
+                // Still never listed from here, but one tied to the entry may be its author's own new source: reported
+                // apart, with what ties it, for the agent to switch the entry or ask (CLAUDE.md, scripts/README.md).
+                if (OfficialSignals(inputs.Overrides[o], l, inputs.CuratedAuthors) is { Count: > 0 } signals)
+                {
+                    var both = signals.Any(s => s.CatalogSide) && signals.Any(s => !s.CatalogSide);
+                    result.Drop(OfficialSourceReason, $"{l.Repo} ({o}: {string.Join("; ", signals.Select(s => s.Text))}; "
+                        + $"{(both ? "tied both ways" : signals.All(s => s.CatalogSide) ? "the catalog's side only" : "the repo's claim only")})");
+                }
+                else
+                {
+                    result.Drop("a re-upload of an add-on listed from its own site (same folder or CurseForge project as a hand-written entry)", $"{l.Repo} ({o})");
+                }
                 kept.Remove(l);
                 continue;
             }
@@ -2216,6 +2264,28 @@ static class SelfTest
         Check("icon: game art and others", Generator.IconPath("Interface\\Icons\\INV_Misc", ["Foo"]) is null && Generator.IconPath("Interface/AddOns/Bar/i", ["Foo"]) is null
             && Generator.IconPath("Interface\\AddOns\\Foo\\..\\x", ["Foo"]) is null);
 
+        // A repo dropped as a re-upload of a hand-listed entry: what ties it to the entry, each signal alone.
+        var handListed = Obj("""{"author":"pm","sources":[{"type":"wago","slug":"abc123"},{"type":"curseforge","projectId":77}],"links":{"homepage":"https://github.com/pm/Thing/"}}""");
+        var onRecord = Obj("""{"pm":{"name":"PM","profiles":["https://github.com/pm/"]}}""");
+        Listing At(string repo, int? cf = null, string? wago = null)
+        {
+            var row = Row(repo, "Thing", null, curseforge: cf?.ToString(System.Globalization.CultureInfo.InvariantCulture));
+            if (wago is not null)
+            {
+                row["toc"]!["wago"] = wago;
+            }
+            return new Listing(repo, row, new JsonObject(), new JsonObject(), ["Thing"], "Thing", cf, "");
+        }
+        string[] Signals(Listing l, JsonObject authors) => [.. Generator.OfficialSignals(handListed, l, authors).Select(s => s.Text)];
+        Check("official source: its .toc names the CurseForge project", Signals(At("z/Other", cf: 77), new JsonObject()).SequenceEqual(["its .toc names the entry's CurseForge project"]));
+        Check("official source: its .toc names the Wago project", Signals(At("z/Other", wago: "ABC123"), new JsonObject()).SequenceEqual(["its .toc names the entry's Wago project"]));
+        Check("official source: its owner is on the author's record", Signals(At("pm/Elsewhere"), onRecord).SequenceEqual(["its owner is on the author's record"]));
+        Check("official source: the entry's own links point to it", Signals(At("pm/Thing"), new JsonObject()).SequenceEqual(["the entry's own links point to it"])
+            && Signals(At("pm/Thingy"), new JsonObject()).Length == 0);
+        Check("official source: tied both ways", Generator.OfficialSignals(handListed, At("pm/Thing", cf: 77), onRecord) is var both
+            && both.Any(s => s.CatalogSide) && both.Any(s => !s.CatalogSide));
+        Check("official source: a mirror matching nothing has no signal", Signals(At("z/Mirror", cf: 78, wago: "other"), onRecord).Length == 0);
+
         // A whole run.
         var previous = Obj("""
             {"schemaVersion":3,"version":"3.4.0","editions":{"retail":{},"classic_era":{},"forever":{}},"authors":{},
@@ -2235,6 +2305,7 @@ static class SelfTest
             Row("i/Bang", "Bang", "Odd folder."),
             Row("j/Grabber", "Grabber", "Loads first."),
             Row("k/CfOnlyMirror", "CF Only", "A re-upload."),
+            Row("m/CfOnlyClaim", "CF Only", "Says it's CF Only.", curseforge: "5"),
             Row("l/NoThanks", "No Thanks", "Says no."),
         }.ToDictionary(r => r["repo"]!.GetValue<string>(), r => r, StringComparer.OrdinalIgnoreCase);
         rows["Questie/QuestieRenamed"]["downloads"] = Obj("""{"total":1200,"latest":300,"read":"2026-11-26"}""");
@@ -2262,6 +2333,7 @@ static class SelfTest
             Check_("i/Bang", ["Bang."], "forever"),
             Check_("j/Grabber", ["!Grabber"], "forever"),
             Check_("k/CfOnlyMirror", ["CfOnly"], "forever"),
+            Check_("m/CfOnlyClaim", ["CfOnlyNew"], "forever"),
             Check_("h/RetailOnly", ["RetailOnly"], "retail"),
             Check_("l/NoThanks", ["NoThanks"], "forever"),
         };
@@ -2349,6 +2421,9 @@ static class SelfTest
             && !hand["retail"]!["upToDate"]!.GetValue<bool>() && hand["forever"]!["upToDate"]!.GetValue<bool>() && hand["forever"]!["folders"]!.AsArray().Count == 1);
         Check("mirror: a re-upload of a hand-written entry isn't listed", result.Dropped.TryGetValue("a re-upload of an add-on listed from its own site (same folder or CurseForge project as a hand-written entry)", out var mirrors)
             && mirrors.SequenceEqual(["k/CfOnlyMirror (cfonly)"]) && byId["cfonly"]["sources"]!.AsArray().All(s => Generator.Str(s!["type"]) != "github"));
+        Check("official source: a repo claiming a hand-listed entry is reported apart, not listed", result.Dropped.TryGetValue(Generator.OfficialSourceReason, out var official)
+            && official.SequenceEqual(["m/CfOnlyClaim (cfonly: its .toc names the entry's CurseForge project; the repo's claim only)"])
+            && !byId.Values.Any(a => a["sources"]!.AsArray().Any(s => Generator.Str(s!["repo"]) == "m/CfOnlyClaim")));
         var versions = Versions.Addons(result, previous);
         Check("versions: listed GitHub add-ons only, each checked edition", versions.Select(v => v.Key).SequenceEqual(["libfoo", "questie", "readme", "thing"])
             && versions["questie"]!.AsObject().Select(e => e.Key).SequenceEqual(["classic_era", "forever"]));

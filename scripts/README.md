@@ -183,4 +183,14 @@ powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/valid
 
 **`versions.json`** lists each listed add-on's last good release for each edition (format in `schema/README.md`). It's rewritten only when a release changed, so its ETag stays valid between runs. A run that would list fewer than half the add-ons listed now writes nothing and exits with 1, keeping the last good files. The **check** workflow runs the generator and the validator after each check and commits the files to `main` only when they changed and passed.
 
+**A hand-listed add-on's official source:** a GitHub repo whose release shares a folder or CurseForge project with an override that has no `repo` (an add-on listed by hand) is never listed: it's dropped as a re-upload. When something ties it to that entry, the report lists it apart ("possibly the official source for a hand-listed add-on"), naming each signal and whether it's tied both ways:
+- **the repo's claim**, which anyone can write: its `.toc` names the entry's CurseForge project (`X-Curse-Project-ID`) or its Wago ID (`X-Wago-ID`, against the entry's Wago source or link);
+- **the catalog's side**, set by a person here: the repo's owner is a profile on the entry's author record in `overrides/_authors.json`, or the entry's own `links` point to the repo.
+
+To switch an entry to its repo, keeping its ID:
+1. In `overrides/<id>.json`, add `"repo": "<owner>/<name>"` (and `tagPrefix` if the repo releases several add-ons).
+2. Remove its hand-only fields: `sources`, `editions`, `folders` and `tocPath`. An override's own value would replace the checked one. From then on, the generator writes the sources from the repo: GitHub, and CurseForge when its `.toc` names the project. Its Wago page becomes a link from the `.toc`'s `X-Wago-ID`. The folders and editions come from the checked release.
+3. Keep everything else (name, summary, author, tags, links): it still corrects the generated entry.
+4. Run `generate.cs` and `validate.cs`: the entry keeps its ID, its source is now the repo, and the repo no longer appears in the report's re-uploads.
+
 **Re-running changes only what changed:** IDs and `added` dates come from the previous `catalog.json`, entries and fields are written in a fixed order, and the version is bumped only when something changed. The report lists what was dropped and why, entries with no summary, and icons that couldn't be read.
