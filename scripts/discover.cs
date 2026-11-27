@@ -517,6 +517,11 @@ static class Candidates
         {
             return (null, "gone or private");
         }
+        // A private repo is never listed, even when the token running discovery (a person's own) can read it.
+        if (node["isPrivate"]?.GetValue<bool>() == true)
+        {
+            return (null, "private");
+        }
         if (node["isFork"]?.GetValue<bool>() == true && !known)
         {
             return (null, "a fork");
@@ -1082,7 +1087,7 @@ static class Funding
 static class GraphQl
 {
     const string Fields = """
-        nameWithOwner description isArchived isFork pushedAt hasIssuesEnabled createdAt stargazerCount
+        nameWithOwner description isArchived isFork isPrivate pushedAt hasIssuesEnabled createdAt stargazerCount
         owner { __typename login ... on User { createdAt } ... on Organization { createdAt } }
         fundingLinks { platform url }
         defaultBranchRef { name }
@@ -1350,6 +1355,9 @@ static class SelfTest
         var archived = Repo("a/b", ("X.toc", "## Interface: 16001"));
         archived["isArchived"] = true;
         Check("drop: archived", Candidates.Row("a/b", archived, Editions).Reason == "archived");
+        var hidden = Repo("a/b", ("X.toc", "## Interface: 16001"));
+        hidden["isPrivate"] = true;
+        Check("drop: private, even an override's", Candidates.Row("a/b", hidden, Editions).Reason == "private" && Candidates.Row("a/b", hidden, Editions, known: true).Reason == "private");
         Check("drop: no current Interface", Candidates.Row("a/b", Repo("a/b", ("X.toc", "## Interface: 11508, 16000")), Editions).Reason == "no .toc lists a current Interface");
         Check("drop: interface only in another field", Candidates.Row("a/b", Repo("a/b", ("X.toc", "## Version: 16001")), Editions).Row is null);
 
