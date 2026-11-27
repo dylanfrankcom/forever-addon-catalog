@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "slowfaller",
+  "repo": "keyboardturner/SlowFaller",
+  "about": "# SlowFaller\nTemporarily rebinds the jump key to a slow fall spell when falling.\n\nThis is a small lightweight addon that will temporarily rebind your jump key to a slow fall ability, such as Priests, Mages, and Druids in Moonkin Form. This doesn't work while mounted and doesn't work while in combat. A new redesign and menu has also been added to allow choosing the ability cast upon double jump for any class. Let me know if there's additional conditions that conflict with this addon, I tried to make sure it doesn't overwrite the dragonriding / double jump anti-gravity packs / faerie dust abilities, but I could have missed some others.\n\n&nbsp;\n\nAccess the menu by typing /slowfaller\n\n&nbsp;\n\n### tl;dr double-jump to cast slow fall, levitate, or flap.\n\nA link to my discord for addon projects and other things can be found [here](https://discord.gg/tA4rrmjPp8).",
+  "releases": [
+    {
+      "tag": "0.4.6",
+      "published": "2026-10-13",
+      "notes": "# 0.4.6\n\n12.1.5 toc update\n\n# 0.4.5\n\nFixed some potential issues where spell data could have been nil\n\nAdded ability to empty a spell to be simply blank\n\nWoW Forever testing - This is an in-development testing version. Some things may throw errors or explode.\n\n# 0.4.4\n\n12.1.0 toc update\n\n# 0.4.3\n\n12.0.7 toc update\n\n# 0.4.2\n\n12.0.5 toc update\n\n# 0.4.1\n\nAdded an option to input macrotext as the override functionality\n\nFixed potential calamity with the funni save/defaults button somehow not being present at the bottom and the menu stretching really tall i think?\n\n# 0.4.0\n\n12.0.1 toc update\n\n# 0.3.9\n\n12.0.0 toc update\n\n# 0.3.8\n\n11.2.7 toc update\n\n# 0.3.6\n\n11.2.5 toc update\n\n# 0.3.5\n\n11.2.0 toc updates\n\n# 0.3.4\n\nAdded monk roll talent Lighter Than Air buff to bad spells list\n\n# 0.3.3\n\n11.1.7 toc update\n\n# 0.3.2\n\nFix to the very funny and not at all annoying shift key tooltip appearing under the mysterious circumstance of holding down the shift key while the window is hidden\n\n# 0.3.1\n\nFix to settings frame extending to funni sizes\n\n# 0.3.0\n\nPrevented a calamity that occurred with druid flight form. \n\n - If flight form is active it should no longer overwrite. It should also not try to cast any spells if the ability to glide is enabled, just in case.\n\n# 0.2.9\n\nAdded ability to choose spell cast when double jumping per class\n\nSupport addon categories :)\n\n### The real patch notes (100% real no fake)\n\n - Fixed an egregious disaster\n\n - Fixed the fix for fixing\n\n - Prevented the game from exploding in combat\n\n - Cancelled demon hunters\n\n - Wrangled Bad Dragons\n\n - Cancelled everyone\n\n# 0.2.8\n\n11.1.0 toc update\n\n# 0.2.7\n\n11.0.7 toc update\n\n# 0.2.6\n\n11.0.5 toc update\n\n# 0.2.5\n\nAdded Fungal Footpads buff to override slowfaller behavior\n\n# 0.2.4\n\nDracthyr-proof double jump in prep for 11.0.5\n\n# 0.2.3\n\nFix for 11.0.2, oop\n\n# 0.2.2\n\nTOC updates for TWW\n\n# 0.2.1\n\ntoc bump to 10.2.7\n\n# 0.2.0\n\ntoc bump to 10.2.6\n\n# 0.1.9\n\n10.2.5 toc bump\n\n# 0.1.8\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "0.4.5",
+      "published": "2026-09-25",
+      "notes": "# 0.4.5\n\nFixed some potential issues where spell data could have been nil\n\nAdded ability to empty a spell to be simply blank\n\nWoW Forever testing - This is an in-development testing version. Some things may throw errors or explode.\n\n# 0.4.4\n\n12.1.0 toc update\n\n# 0.4.3\n\n12.0.7 toc update\n\n# 0.4.2\n\n12.0.5 toc update\n\n# 0.4.1\n\nAdded an option to input macrotext as the override functionality\n\nFixed potential calamity with the funni save/defaults button somehow not being present at the bottom and the menu stretching really tall i think?\n\n# 0.4.0\n\n12.0.1 toc update\n\n# 0.3.9\n\n12.0.0 toc update\n\n# 0.3.8\n\n11.2.7 toc update\n\n# 0.3.6\n\n11.2.5 toc update\n\n# 0.3.5\n\n11.2.0 toc updates\n\n# 0.3.4\n\nAdded monk roll talent Lighter Than Air buff to bad spells list\n\n# 0.3.3\n\n11.1.7 toc update\n\n# 0.3.2\n\nFix to the very funny and not at all annoying shift key tooltip appearing under the mysterious circumstance of holding down the shift key while the window is hidden\n\n# 0.3.1\n\nFix to settings frame extending to funni sizes\n\n# 0.3.0\n\nPrevented a calamity that occurred with druid flight form. \n\n - If flight form is active it should no longer overwrite. It should also not try to cast any spells if the ability to glide is enabled, just in case.\n\n# 0.2.9\n\nAdded ability to choose spell cast when double jumping per class\n\nSupport addon categories :)\n\n### The real patch notes (100% real no fake)\n\n - Fixed an egregious disaster\n\n - Fixed the fix for fixing\n\n - Prevented the game from exploding in combat\n\n - Cancelled demon hunters\n\n - Wrangled Bad Dragons\n\n - Cancelled everyone\n\n# 0.2.8\n\n11.1.0 toc update\n\n# 0.2.7\n\n11.0.7 toc update\n\n# 0.2.6\n\n11.0.5 toc update\n\n# 0.2.5\n\nAdded Fungal Footpads buff to override slowfaller behavior\n\n# 0.2.4\n\nDracthyr-proof double jump in prep for 11.0.5\n\n# 0.2.3\n\nFix for 11.0.2, oop\n\n# 0.2.2\n\nTOC updates for TWW\n\n# 0.2.1\n\ntoc bump to 10.2.7\n\n# 0.2.0\n\ntoc bump to 10.2.6\n\n# 0.1.9\n\n10.2.5 toc bump\n\n# 0.1.8\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "0.4.4",
+      "published": "2026-08-11",
+      "notes": "# 0.4.4\n\n12.1.0 toc update\n\n# 0.4.3\n\n12.0.7 toc update\n\n# 0.4.2\n\n12.0.5 toc update\n\n# 0.4.1\n\nAdded an option to input macrotext as the override functionality\n\nFixed potential calamity with the funni save/defaults button somehow not being present at the bottom and the menu stretching really tall i think?\n\n# 0.4.0\n\n12.0.1 toc update\n\n# 0.3.9\n\n12.0.0 toc update\n\n# 0.3.8\n\n11.2.7 toc update\n\n# 0.3.6\n\n11.2.5 toc update\n\n# 0.3.5\n\n11.2.0 toc updates\n\n# 0.3.4\n\nAdded monk roll talent Lighter Than Air buff to bad spells list\n\n# 0.3.3\n\n11.1.7 toc update\n\n# 0.3.2\n\nFix to the very funny and not at all annoying shift key tooltip appearing under the mysterious circumstance of holding down the shift key while the window is hidden\n\n# 0.3.1\n\nFix to settings frame extending to funni sizes\n\n# 0.3.0\n\nPrevented a calamity that occurred with druid flight form. \n\n - If flight form is active it should no longer overwrite. It should also not try to cast any spells if the ability to glide is enabled, just in case.\n\n# 0.2.9\n\nAdded ability to choose spell cast when double jumping per class\n\nSupport addon categories :)\n\n### The real patch notes (100% real no fake)\n\n - Fixed an egregious disaster\n\n - Fixed the fix for fixing\n\n - Prevented the game from exploding in combat\n\n - Cancelled demon hunters\n\n - Wrangled Bad Dragons\n\n - Cancelled everyone\n\n# 0.2.8\n\n11.1.0 toc update\n\n# 0.2.7\n\n11.0.7 toc update\n\n# 0.2.6\n\n11.0.5 toc update\n\n# 0.2.5\n\nAdded Fungal Footpads buff to override slowfaller behavior\n\n# 0.2.4\n\nDracthyr-proof double jump in prep for 11.0.5\n\n# 0.2.3\n\nFix for 11.0.2, oop\n\n# 0.2.2\n\nTOC updates for TWW\n\n# 0.2.1\n\ntoc bump to 10.2.7\n\n# 0.2.0\n\ntoc bump to 10.2.6\n\n# 0.1.9\n\n10.2.5 toc bump\n\n# 0.1.8\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "0.4.3",
+      "published": "2026-06-16",
+      "notes": "# 0.4.3\n\n12.0.7 toc update\n\n# 0.4.2\n\n12.0.5 toc update\n\n# 0.4.1\n\nAdded an option to input macrotext as the override functionality\n\nFixed potential calamity with the funni save/defaults button somehow not being present at the bottom and the menu stretching really tall i think?\n\n# 0.4.0\n\n12.0.1 toc update\n\n# 0.3.9\n\n12.0.0 toc update\n\n# 0.3.8\n\n11.2.7 toc update\n\n# 0.3.6\n\n11.2.5 toc update\n\n# 0.3.5\n\n11.2.0 toc updates\n\n# 0.3.4\n\nAdded monk roll talent Lighter Than Air buff to bad spells list\n\n# 0.3.3\n\n11.1.7 toc update\n\n# 0.3.2\n\nFix to the very funny and not at all annoying shift key tooltip appearing under the mysterious circumstance of holding down the shift key while the window is hidden\n\n# 0.3.1\n\nFix to settings frame extending to funni sizes\n\n# 0.3.0\n\nPrevented a calamity that occurred with druid flight form. \n\n - If flight form is active it should no longer overwrite. It should also not try to cast any spells if the ability to glide is enabled, just in case.\n\n# 0.2.9\n\nAdded ability to choose spell cast when double jumping per class\n\nSupport addon categories :)\n\n### The real patch notes (100% real no fake)\n\n - Fixed an egregious disaster\n\n - Fixed the fix for fixing\n\n - Prevented the game from exploding in combat\n\n - Cancelled demon hunters\n\n - Wrangled Bad Dragons\n\n - Cancelled everyone\n\n# 0.2.8\n\n11.1.0 toc update\n\n# 0.2.7\n\n11.0.7 toc update\n\n# 0.2.6\n\n11.0.5 toc update\n\n# 0.2.5\n\nAdded Fungal Footpads buff to override slowfaller behavior\n\n# 0.2.4\n\nDracthyr-proof double jump in prep for 11.0.5\n\n# 0.2.3\n\nFix for 11.0.2, oop\n\n# 0.2.2\n\nTOC updates for TWW\n\n# 0.2.1\n\ntoc bump to 10.2.7\n\n# 0.2.0\n\ntoc bump to 10.2.6\n\n# 0.1.9\n\n10.2.5 toc bump\n\n# 0.1.8\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "0.4.2",
+      "published": "2026-04-21",
+      "notes": "# 0.4.2\n\n12.0.5 toc update\n\n# 0.4.1\n\nAdded an option to input macrotext as the override functionality\n\nFixed potential calamity with the funni save/defaults button somehow not being present at the bottom and the menu stretching really tall i think?\n\n# 0.4.0\n\n12.0.1 toc update\n\n# 0.3.9\n\n12.0.0 toc update\n\n# 0.3.8\n\n11.2.7 toc update\n\n# 0.3.6\n\n11.2.5 toc update\n\n# 0.3.5\n\n11.2.0 toc updates\n\n# 0.3.4\n\nAdded monk roll talent Lighter Than Air buff to bad spells list\n\n# 0.3.3\n\n11.1.7 toc update\n\n# 0.3.2\n\nFix to the very funny and not at all annoying shift key tooltip appearing under the mysterious circumstance of holding down the shift key while the window is hidden\n\n# 0.3.1\n\nFix to settings frame extending to funni sizes\n\n# 0.3.0\n\nPrevented a calamity that occurred with druid flight form. \n\n - If flight form is active it should no longer overwrite. It should also not try to cast any spells if the ability to glide is enabled, just in case.\n\n# 0.2.9\n\nAdded ability to choose spell cast when double jumping per class\n\nSupport addon categories :)\n\n### The real patch notes (100% real no fake)\n\n - Fixed an egregious disaster\n\n - Fixed the fix for fixing\n\n - Prevented the game from exploding in combat\n\n - Cancelled demon hunters\n\n - Wrangled Bad Dragons\n\n - Cancelled everyone\n\n# 0.2.8\n\n11.1.0 toc update\n\n# 0.2.7\n\n11.0.7 toc update\n\n# 0.2.6\n\n11.0.5 toc update\n\n# 0.2.5\n\nAdded Fungal Footpads buff to override slowfaller behavior\n\n# 0.2.4\n\nDracthyr-proof double jump in prep for 11.0.5\n\n# 0.2.3\n\nFix for 11.0.2, oop\n\n# 0.2.2\n\nTOC updates for TWW\n\n# 0.2.1\n\ntoc bump to 10.2.7\n\n# 0.2.0\n\ntoc bump to 10.2.6\n\n# 0.1.9\n\n10.2.5 toc bump\n\n# 0.1.8\n\nPackager Testing\n\n10.2 toc bump"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 3,
+    "contributors": 3,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-25",
+      "2026-08-11",
+      "2026-06-16",
+      "2026-04-21",
+      "2026-03-11",
+      "2026-02-10",
+      "2026-01-20",
+      "2025-12-02",
+      "2025-10-07",
+      "2025-08-05",
+      "2025-06-22",
+      "2025-06-17",
+      "2025-05-04",
+      "2025-04-26",
+      "2025-04-25",
+      "2025-04-22",
+      "2025-02-25",
+      "2024-12-17",
+      "2024-10-22",
+      "2024-09-22",
+      "2024-09-08",
+      "2024-08-14",
+      "2024-07-23",
+      "2024-05-07",
+      "2024-03-19",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-07-11",
+      "2023-06-16",
+      "2023-05-02",
+      "2023-04-04",
+      "2023-03-21",
+      "2022-12-17",
+      "2022-11-26",
+      "2022-11-25"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "enUS",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "SlowFaller"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SlowFaller_DB"
+    ]
+  }
+}

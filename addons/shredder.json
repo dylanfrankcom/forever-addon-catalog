@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "shredder",
+  "repo": "RabbleCode/shredder",
+  "about": "# shredder\n\nshredder (short for Shredder Operating Manual) is a simple addon for World of Warcraft: Classic and World of Warcraft: Forever that tracks progress on the Horde quest chain The Lost Pages (Shredder Operating Manual).\n\nUsage:\n\n**Compact Mode** _(Default)_\n\n![image](https://github.com/user-attachments/assets/cb160472-7e25-4d28-b00f-72871039fa2d)\n\n- `/shredder` - displays progress for each chapter (I-III) of the overall quest and which pages are still needed on the current character\n- `/shredderc name` - displays progress for character named \"name\" on the same realm as the currently logged in character\n- `/shredderc name realm` - displays progress for character named \"name\" on the realm named \"realm\". Supports realms with spaces in name, e.g. `/shredder Thrall Lava Lash` will search for a character named \"Thrall\" on the realm \"Lava Lash\"\n\nor\n\n- `/shredderc` - displays progress for each chapter (I-III) of the overall quest and which pages are still needed on the current character\n- `/shredderc name` - displays progress for character named \"name\" on the same realm as the currently logged in character\n- `/shredderc name realm` - displays progress for character named \"name\" on the realm named \"realm\". Supports realms with spaces in name, e.g. `/shredder Thrall Lava Lash` will search for a character named \"Thrall\" on the realm \"Lava Lash\"\n\nor\n\n- `/sc` - displays progress for each chapter (I-III) of the overall quest and which pages are still needed on the current character\n- `/sc name` - displays progress for character named \"name\" on the same realm as the currently logged in character\n- `/sc name realm` - displays progress for character named \"name\" on the realm named \"realm\". Supports realms with spaces in name, e.g. `/shredder Thrall Lava Lash` will search for a character named \"Thrall\" on the realm \"Lava Lash\"\n\n**Verbose Mode**\n\n![image](https://github.com/user-attachments/assets/4e0e637a-cfbf-45d6-b135-ff5caa790f3b)\n\n- `/shredderv` - displays progress for each chapter (I-III) of the overall quest and which pages are still needed on the current character\n- `/shredderv name` - displays progress for character named \"name\" on the same realm as the currently logged in character\n- `/shredderv name realm` - displays progress for character named \"name\" on the realm named \"realm\". Supports realms with spaces in name, e.g. `/shredder Thrall Lava Lash` will search for a character named \"Thrall\" on the realm \"Lava Lash\"\n\nor\n\n- `/sv` - displays progress for each chapter (I-III) of the overall quest and which pages are still needed on the current character\n- `/sv name` - displays progress for character named \"name\" on the same realm as the currently logged in character\n- `/sv name realm` - displays progress for character named \"name\" on the realm named \"realm\". Supports realms with spaces in name, e.g. `/shredder Thrall Lava Lash` will search for a character named \"Thrall\" on the realm \"Lava Lash\"",
+  "releases": [
+    {
+      "tag": "v2.1",
+      "published": "2026-11-21",
+      "notes": "Updated how addon stores Forever data in response to the Forever API changes that no longer return realm names."
+    },
+    {
+      "tag": "v2.0.1",
+      "name": "shredder v2.0.1",
+      "published": "2026-11-15",
+      "notes": "Improved check for whether the game is running Forever or Classic."
+    },
+    {
+      "tag": "v2.0",
+      "name": "shredder v2.0",
+      "published": "2026-11-10",
+      "notes": "Compatibility update to account for Forever's dual name system and \"realmless\" nature."
+    },
+    {
+      "tag": "v1.5",
+      "name": "shredder v1.5",
+      "published": "2026-11-09",
+      "notes": "Compatibility update for Forever. Addon now supports both Classic Era and Forever"
+    },
+    {
+      "tag": "v1.4",
+      "name": "shredder v1.4",
+      "published": "2026-03-02",
+      "notes": "Compact mode is now the default, use `/shredder` or `/shredderc` or `/sc`. For the original standard mode, now known as verbose mode, use `/shredderv` or `/sv`."
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/cb160472-7e25-4d28-b00f-72871039fa2d",
+    "https://github.com/user-attachments/assets/4e0e637a-cfbf-45d6-b135-ff5caa790f3b"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-15",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-03-02",
+      "2024-11-19",
+      "2024-09-25",
+      "2024-04-19",
+      "2024-03-12",
+      "2024-03-11",
+      "2024-02-10",
+      "2024-02-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "shredder"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "ShredderCharacterProgress"
+    ]
+  }
+}

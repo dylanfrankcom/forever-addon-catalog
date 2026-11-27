@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "magely",
+  "repo": "Spotnick2/Magely",
+  "about": "# Magely Forever\n\n**Magely** is a lightweight buff manager for mages, inspired by **PallyPower**. It tracks\n*Arcane Intellect* (and *Arcane Brilliance*), *Amplify Magic* and *Dampen Magic* across your party\nor raid and lets you rebuff with a single click.\n\nThis is the **World of Warcraft: Forever** edition (client 1.60.1, Interface `16001`).\n\n> **[Buffy](https://github.com/Spotnick2/Buffy) is the new consolidated version.** It combines\n> Magely, Priestly and Wildly in one addon on the same engine, and picks Mage, Priest or Druid\n> buffs for the character you log in. It starts with fresh settings rather than importing\n> Magely's, so disable Magely while you use it, or you get two buff windows.\n\n![Magely buff window in a group](https://raw.githubusercontent.com/Spotnick2/Magely/main/docs/screenshots/magely-01.png)\n\n*Earlier-build screenshot. The cooldown-request pane shown here is not in the current Forever\nversion; the buff window has since gained additional controls.*\n\n> **Playing TBC Classic Anniversary?** Install **v0.1**, the last release for that client. It stays\n> available on CurseForge for the Anniversary game version. The Anniversary line is no longer\n> being developed.\n\nMagely shares its engine and window with **Priestly** and **Wildly** through the\n[LibGroupBuffs](https://github.com/Spotnick2/LibGroupBuffs) library, so a fix to one reaches all\nthree.\n\n---\n\n## Features\n\n* **One row per group, per buff**, colour-coded by how many people are missing it, with the lowest\n  remaining timer on the bar.\n* **One-click buffing.** Left-click casts Arcane Brilliance, right-click buffs the first person\n  missing Arcane Intellect. No targeting.\n* **Works before you have Arcane Brilliance.** While you only know Arcane Intellect, left-click\n  simply buffs whoever needs it. Nothing is wired to a spell you do not have.\n* **Amplify and Dampen Magic when they matter.** Each has its own setting: always, when someone in\n  the group already has it, or by instance - with a list of Forever's dungeons and raids to tick.\n  Both rows can show at once.\n* **Per-member popover.** Mouse over a row for the full list with range indicators and per-person\n  click casting.\n* **Group-aware.** It follows party and raid changes, subgroups, and pets.\n* **Reagent tracking.** The Arcane Powder count, once you know Arcane Brilliance.\n* **Your spec's look.** The header, title and icon follow Arcane, Fire or Frost.\n* **Window controls.** Minimize without closing, lock its position, adjust opacity and choose\n  which side the member popover opens on.\n\n---\n\n## Usage\n\nUse the header **-** to minimize to the title bar and **+** to restore. Requests in\ncombat wait until combat ends. Minimized state lasts for this session; `/reload`\nor logging in expands the window again. **X** closes the window.\n\nIn the popover, **? beside the class icon** means spell range is unknown.\n**? instead of a timer** means the buff cannot be read and there is no cached reading.\n\n```\n/magely          toggle the window\n/magely show     force open\n/magely hide     close\n/magely config   open the options panel\n/magely reset    reset the window position\n/magely pos      why the window is where it is\n/magely help     full command and click reference, then the spell names Magely reads\n```\n\nThe window opens on its own when you join a group. On other classes Magely shows nothing and\nsays nothing, unless you type `/magely`, which answers with one line.\nSettings and window position persist between sessions.\n\n**Row colours:** green = everyone has it · yellow = some missing · red = nobody has it ·\ngrey `?` = buff state cannot be read right now (the client hides aura data during combat, so\nMagely keeps counting down from the last reading instead of guessing).\n\n---\n\n## Installation\n\n### CurseForge (recommended)\n\nInstall through the CurseForge app and enable it in game.\n\n### GitHub and Wago\n\nDownload from [GitHub Releases](https://github.com/Spotnick2/Magely/releases/latest)\nor [Wago Addons](https://addons.wago.io/addons/magely). Both include the required libraries.\nThe GitHub release includes `release.json` for compatible addon managers.\n\n### Manual\n\nDownload the release zip and extract it so the folder lands at:\n\n```\nWorld of Warcraft/_forever_/Interface/AddOns/Magely/\n```\n\n---\n\n## Good to know\n\n**Pet eligibility:** hunter and warlock pets are excluded from Arcane Intellect\ntracking and targeting. Amplify and Dampen keep their existing pet eligibility.\n\nMagely uses single-target Arcane Intellect until you learn Arcane Brilliance. It learns buff\ndurations from live auras and relearns them when the client build changes. The cooldown-request\npane in the screenshot is from the older Anniversary edition and is not available in Forever.\nIf a Forever instance is missing from the Amplify/Dampen list, please report its in-game name.\n\nThe window's text uses a font for your client's language, so names on a Korean or Chinese client\nshow as text. A Korean or Chinese name on an English client still shows as boxes, because the\nEnglish client has no font for it.\n\nForever can hide aura data during combat. Magely uses its last observation and shows `?` if no\nreliable reading is available. Window movement, closing and minimize/restore requests made during\ncombat take effect after combat ends.\n\nIf the game refuses Arcane Intellect with \"A more powerful spell is already active\" out of\ncombat, because something stronger is already on that member, the row's single-target click\nskips them for up to 30 seconds: both clicks until you learn Arcane Brilliance, then the right\nclick. Entering combat, or a buff being removed or updated on them, can end it sooner. Magely\ncan't tell in advance whose buff is stronger, so the first cast on that member still fails, and\nwhen everyone left has been refused the click casts nothing. You can still pick them yourself from\nthe popover.\n\n---\n\n## Feedback\n\nOpen an [issue on GitHub](https://github.com/Spotnick2/Magely/issues) or leave a comment on\nCurseForge. Include whether the problem happened in combat, and the lines `/magely help` ends\nwith: your locale, game build, Magely and library versions, and the spell names Magely reads from\nthe client, with any it could not read flagged. On a non-English client they are what tells a\nmissed buff from a name Magely cannot read. Typing\n`/console scriptErrors 1` in game shows Lua errors that the client otherwise hides.\n\n## Author\n\n**Spotnick**\n\n## License\n\nMIT - see [LICENSE](https://github.com/Spotnick2/Magely/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.1.2",
+      "name": "Magely Forever 1.1.2",
+      "published": "2026-11-25",
+      "notes": "### Fixed\n- When the game refuses Arcane Intellect with \"A more powerful spell is already active\" out of\n  combat, because something stronger is already on that member, the row's single-target click\n  now skips them instead of trying them again: both clicks until you know Arcane Brilliance, then\n  the right click (the Brilliance click is unchanged). The refused cast teaches this whether it\n  came from the window, an action bar or a macro, as long as it was the rank the row casts (your\n  highest); a macro casting a lower rank that gets refused doesn't. The skip lasts up to 30\n  seconds; entering combat, or a buff being removed or updated on them, can end it sooner. If\n  everyone left has been refused, the click casts nothing. You can still pick a skipped member yourself from the\n  popover. This has passed offline tests and was checked in game with Buffy's Fortitude on the\n  same library; it hasn't been checked in game for Arcane Intellect yet.\n\n### Changed\n- Updated the embedded LibGroupBuffs to r39 (was r36), which adds this refusal memory (#97).\n  LibGlass is still r13."
+    },
+    {
+      "tag": "v1.1.1",
+      "name": "Magely Forever 1.1.1",
+      "published": "2026-11-19",
+      "notes": "### Changed\n- **Checked on game build 1.60.1.70959**, the current WoW: Forever client. Nothing Magely relies on\n  changed in this build, so there is nothing to do after updating.\n- **The window's text follows your client's language.** On a Korean or Chinese client, names\n  and labels in the buff window used to draw as empty boxes; they now use the client's own font.\n  English and other Latin clients, and Russian, look exactly as before. (A Korean or Chinese\n  name on an English client still shows boxes: the English client has no font for it.)\n- Updated the embedded libraries to LibGroupBuffs r36 (was r34) and LibGlass r13 (was r11)."
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "Magely 1.1.0",
+      "published": "2026-11-04",
+      "notes": "### Added\n- `/magely help` now ends with a spell report: your locale, game build, Magely and library\n  versions, and the name of every spell Magely matches buffs against, as your client gave it.\n  A name Magely could not read from the client is flagged and counted. Please include these\n  lines when reporting a problem, especially on a non-English client.\n\n### Changed\n- Updated the embedded LibGroupBuffs library to r34. LibGlass stays at r11."
+    },
+    {
+      "tag": "v1.0.6",
+      "name": "Magely 1.0.6",
+      "published": "2026-10-23",
+      "notes": "### Added\n- Releases are also available on GitHub (with addon-manager metadata) and Wago Addons.\n- Header controls to minimize the window and restore it without closing it.\n  Requests in combat apply when combat ends. Minimized state is session-only.\n\n### Changed\n- The buff window and popup now sit below normal UI panels, including bags.\n- Updated the embedded libraries to LibGroupBuffs r31 and LibGlass r11.\n\n### Fixed\n- Help distinguishes unknown spell range (`?` beside the class icon) from unreadable\n  buff state (`?` instead of a timer).\n- Hunter and Warlock pets no longer count as missing Arcane Intellect or appear\n  as targets for that buff. Other pet types retain their existing eligibility.\n  Amplify Magic and Dampen Magic eligibility is unchanged."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Spotnick2/Magely/main/docs/screenshots/magely-01.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 5,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-19",
+      "2026-11-04",
+      "2026-10-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Magely"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "MagelySVCheck"
+    ],
+    "savedVariablesPerCharacter": [
+      "MagelyDB"
+    ]
+  }
+}

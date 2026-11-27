@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "wsgforever",
+  "repo": "lichuu/WSGForever",
+  "about": "![WSGForever: Warsong Gulch tools for WoW Forever](https://raw.githubusercontent.com/lichuu/WSGForever/main/media/banner.jpg)\n\nThe Warsong Gulch addon for **World of Warcraft: Forever**. See who carries each flag and how hurt they are, know when the next graveyard wave lands, watch the whole enemy team, and tell your team where the enemy carrier is in one click. Every part can be turned off, moved and resized, and the enemy frames come in eleven styles, including two that follow your ElvUI or EllesmereUI settings.\n\nGet it on [CurseForge](https://www.curseforge.com/wow/addons/wsgforever) or from the [releases page](https://github.com/lichuu/WSGForever/releases).\n\n## Features\n\n### Flag carriers and timers\n![Drop countdown, rez timer, flag spawn timer and the enemy carrier low banner](https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/timers.jpg)\n\nBoth flag carriers' health beside the score, a countdown when a flag is dropped, and one when the flags spawn again after a capture. A red banner warns when the enemy carrier is under half health. The rez timer counts down to the next graveyard wave with how many enemies are waiting to come back.\n\n### Time Elapsed on the scoreboard\n![The scoreboard with a Time Elapsed tab at its bottom-right corner](https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/scoreboard-time.jpg)\n\nThe scoreboard gets its Time Elapsed back, as one more tab at the bottom right that matches the game's own. It counts from the moment the gates open, reads to the second while your mouse is over it, and stops when the match ends.\n\n### Enemy frames\n![The enemy team list](https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/enemy-frames.jpg)\n\nThe whole enemy team with class, health, mana, range, who is dead and how many of your team are on each player; the flag carrier is highlighted. Left click targets, right click sets focus, middle click pings. They show in Warsong Gulch and Arathi Basin, not in Alterac Valley.\n\n### Callout bar\n![The callout bar](https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/callout-bar.jpg)\n\nOne click tells your team where the enemy carrier is, from flag room to midfield, with buttons for pick up, cap and enemy carrier low.\n\n### Arathi Basin callouts\n![The Arathi Basin callout bar](https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/ab-callouts.jpg)\n\nIn Arathi Basin the bar switches to Incoming, Big incoming, Safe and Help for each of the five nodes, each with its own icon.\n\n### Match history\nEvery battleground you finish is recorded: result, flag score, length, and your kills, deaths, honor, captures and returns. Hover a match to see its final scoreboard, both teams in class colours. Already using Nova Instance Tracker? Import the battlegrounds it recorded.\n\n### Battlefield map\n![Teammates as class-coloured dots on the battlefield map](https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/battlefield-map.jpg)\n\nTeammates show as larger dots in their class colours.\n\n### Queue pop countdown\n![Countdown under the battleground ready window](https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/queue-pop.jpg)\n\nWhen your queue pops, a countdown under the ready window shows how long is left to enter. An optional ding plays even with sound effects muted.\n\n### Settings\nA minimap button opens a settings window with every option, and a second tab for match history. It is also under Options > AddOns.\n\n### Key bindings\nEvery callout can be bound to a key in the game's Key Bindings menu, under WSGForever, and so can targeting or pinging the enemy flag carrier and pinging your own.\n\n### Also\n- A flag icon on your team's carrier in the raid frames.\n- The game's carrier frames moved up beside the score.\n- Raid assist for everyone when you lead a battleground.\n- `/fc who` shows who else in your group runs WSGForever.\n\n## Install\nCopy the `WSGForever` folder into `World of Warcraft/_forever_/Interface/AddOns/`.\n\n## Commands\nEverything is in the settings window; these are the chat commands that remain.\n\n- `/fc`: open the settings window (also on the minimap button and under Options > AddOns).\n- `/fc history`: open the match history.\n- `/fc who`: who else in your group has WSGForever, and their version.\n- `/fc ad`: adds or removes a callout button that tells your team about WSGForever.\n- `/fc unlock` / `/fc lock`: move frames by dragging; scroll over a frame to resize it.\n- `/fc test`: preview everything outside a battleground.\n- `/fc reset`: reset positions and sizes.\n- `/fc scale`: list sizes; `/fc scale <name> <percent>` sets one (also covers the map, map dots, carrier text and raid flag icon, which have no box to scroll on).\n- `/fc minimap`: show or hide the minimap button.\n- `/fc help`: list these in chat.\n\n## Tests\n`lua5.1 tests/run.lua .` loads the addon into a small stand-in for the game and replays flag scenarios (drops, hand-offs, captures, returns) plus every command. It checks what the addon decides to show, not how it looks.\n\n## Releasing\nWork happens on a branch. Pushing it runs the tests; `main` only accepts commits the tests have passed on, so it is always releasable. A release is an annotated tag on `main`:\n\n1. Merge the branch into `main` (fast-forward) and push.\n2. Move the notes under \"Unreleased\" in `CHANGELOG.md` to a new version heading, run `lua5.1 tests/release_notes.lua` (it writes that version's notes to `RELEASE_NOTES.md`, which is what the release page shows; the tests fail if it is stale), and push both to `main` the same way.\n3. `git tag -a v1.2.3 -m v1.2.3 && git push origin v1.2.3`\n\nThe tag builds the zip, creates the GitHub release and triggers the CurseForge package. A tag that is not on `main` is refused.\n\n## Credits\nWSGForever stands on the shoulders of these, thank you:\n- **vrjones1**: the [wsg rez timer and fc/efc hp](https://wago.io/cNXgQKDMd) WeakAura, which the rez timer and carrier HP are based on.\n- **Bullsei**: [BattleGroundEnemies](https://github.com/BullseiWoWAddons/BattleGroundEnemies), the original enemy frames that inspired ours.\n- **RBGDEV**: [BattleGroundEnemiesFixed](https://www.curseforge.com/projects/1444858), whose approach to targeting carriers and range checks on the modern client showed us the way.\n- The **WeakAuras** team, for the addon the original auras were built in.\n\n## License\n[MIT](https://github.com/lichuu/WSGForever/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-24",
+      "notes": "- `/fc ad` now adds a small AD button to the callout bars (and `/fc ad` again removes it). One click tells your team about WSGForever, like any other callout, at any point in a match. The 1.0.0 version typed the line into your chat box, which the game only sent before the gates opened. It can also be bound to a key under Key Bindings > WSGForever.\n- The enemy frames are no longer shown in Alterac Valley, where the list could only hold fifteen of the forty enemies."
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-24",
+      "notes": "- `/fc ad` types a line about WSGForever into chat for your battleground (or raid or party), saying it is on CurseForge. Nothing is sent until you press Enter; Escape drops it.\n- A line at the foot of the settings tab: made with love, by ."
+    },
+    {
+      "tag": "v0.8.4",
+      "published": "2026-11-23",
+      "notes": "- Time Elapsed is back on the scoreboard: the match time, counted from the gates opening, shows as one more tab at the bottom-right of the game's scoreboard, and on the results window at the end of a match. It reads in minutes, and to the second while your mouse is over it, without the tab changing size. It stops when the match ends, so it reads how long the match took.\n- The small match clock beside the score is gone, now that the time is on the scoreboard. The setting is called Scoreboard time; `/fc timer` still turns it on and off.\n\n![Time Elapsed on the scoreboard](https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/scoreboard-time.jpg)"
+    },
+    {
+      "tag": "v0.8.2",
+      "published": "2026-11-22",
+      "notes": "- Queue pop countdown: when a battleground queue pops, a line showing how long is left to enter, red for the last five seconds, just under the game's own \"ready\" window. Nothing shows while you are only queued. An optional ding on the pop (off by default) is heard even with sound effects muted.\n- The match timer also starts when your Preparation buff comes off, as one more way of knowing the gates have opened."
+    },
+    {
+      "tag": "v0.8.1",
+      "published": "2026-11-21",
+      "notes": "- The match timer now starts when the gates open, not when the battleground is created. It keeps its time through a reload, and works out the start when you join a match already under way."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/timers.jpg",
+    "https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/scoreboard-time.jpg",
+    "https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/enemy-frames.jpg",
+    "https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/callout-bar.jpg",
+    "https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/ab-callouts.jpg",
+    "https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/battlefield-map.jpg",
+    "https://raw.githubusercontent.com/lichuu/WSGForever/main/media/gallery/queue-pop.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WSGForever"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "WSGForeverDB"
+    ]
+  }
+}

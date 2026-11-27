@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "bindpanel",
+  "repo": "Spyroh/BindPanel",
+  "about": "Binds keybinds to macros. Saved by spec.\n\nAllows you to do all your binds in a single panel.\n\n![BindPanel](https://i.imgur.com/lcPQrMf.png)",
+  "releases": [
+    {
+      "tag": "1.0.10",
+      "name": "BindPanel 1.0.10",
+      "published": "2026-11-04",
+      "notes": "▪ Fixed errors from the spec menu tooltip on Classic.\n▪ Added support for WoW Forever."
+    },
+    {
+      "tag": "1.0.9",
+      "name": "BindPanel 1.0.9",
+      "published": "2026-05-25",
+      "notes": "▪ TOC update."
+    },
+    {
+      "tag": "1.0.8",
+      "name": "BindPanel 1.0.8",
+      "published": "2026-02-14",
+      "notes": "▪ Fixed spec detection in Vanilla/TBC.\n▪ Fixed leaked global."
+    },
+    {
+      "tag": "1.0.7",
+      "name": "BindPanel 1.0.7",
+      "published": "2026-01-28",
+      "notes": "▪ Added support for the 2 possible values of the _ActionButtonUseKeyDown_ CVar.\n▪ Added support for the Evoker's \"Hold and Release\" empowered spell input.\n▪ TOC update."
+    },
+    {
+      "tag": "1.0.5",
+      "name": "BindPanel 1.0.5",
+      "published": "2025-11-23",
+      "notes": "▪ Fixed detection of vehicles (wasn't detecting all) for the remapping of binds to vehicle buttons while in a vehicle.\n▪ TOC update."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-05-25",
+      "2026-02-14",
+      "2026-01-28",
+      "2025-11-23",
+      "2025-12-13",
+      "2025-10-27",
+      "2025-10-14",
+      "2025-06-12",
+      "2025-06-11",
+      "2025-06-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BindPanel"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariablesPerCharacter": [
+      "BindPanelDB"
+    ]
+  }
+}

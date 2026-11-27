@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "unitframesimproved",
+  "repo": "kiforsbe/UnitFramesImproved",
+  "about": "# UnitFramesImproved\n\n*\"Improve upon the standard Blizzard unit frames, without going beyond the boundaries they set.\"*\n\nA minimal-footprint reskin of Blizzard's own Player, Target, and Focus unit frames - not a\nreplacement unit frame system. UnitFramesImproved keeps Blizzard's own frame logic (health/mana\nupdates, portraits, PvP/faction icons, classification handling, combat behavior) fully intact and\nonly changes how the frames look. Nothing to set up - it just works.\n\n## Key Features\n- Class-colored health bars, with tap-denied targets shown gray.\n- Status text (numbers, percentages, or both) follows the game's own Status Text setting, with large\n  numbers abbreviated automatically (e.g. \"12.4k/45.3k\"). On clients that don't show that setting,\n  like WoW Forever, it's available under Options -> AddOns -> UnitFramesImproved.\n- Built to work reliably with Blizzard's newest protections - no errors or glitches in combat.\n\n### On Classic (Classic Era & Classic progression)\n- Custom targeting-frame-style textures for the Player, Target, and Focus frames, including\n  elite/rare/rare-elite border variants.\n- Health bar and status text repositioned to match the custom textures, staying lined up correctly\n  even after Blizzard UI updates.\n\n## Platform Support\nOne download works for Retail, WoW Forever, Classic (currently Mists of Pandaria Classic), Wrath\n(Titan Reforged), TBC Anniversary, and Classic Era.\n\n## How It Looks\nBlizzard's own unit frames next to UnitFramesImproved's, in every supported version. It covers the\nplayer frame, including its vehicle and other looks, the target frame for each kind of target,\ntarget of target, and boss frames. The sheet is drawn by\n[tools/compare_unitframe_art.py](https://github.com/kiforsbe/UnitFramesImproved/blob/master/tools/compare_unitframe_art.py) from the game's own UI code and\nthe addon's, and is redrawn for every release. It's stamped with the commit it shows.\n\n![Blizzard's unit frames next to UnitFramesImproved's, in each version of WoW](https://raw.githubusercontent.com/kiforsbe/UnitFramesImproved/master/docs/unitframe-art-comparison.png)\n\n## Installation\nInstall via [CurseForge](https://www.curseforge.com/wow/addons/unitframesimproved) or the\nCurseForge app. Manual installation: download a release, and extract the `UnitFramesImproved`\nfolder into `Interface/AddOns` for the client(s) you play.\n\n## Configuration\nHow it looks is how it looks, by design. The one option is **Status Text** (Numeric Value /\nPercentage / Both / None) under Options -> AddOns -> UnitFramesImproved, or `/ufi` (or\n`/unitframesimproved`) to open it. It's the same setting as the game's own Status Text option, so\nchanging either one changes both - it's there mainly because WoW Forever has no visible option for\nshowing health and mana numbers. A change made in combat applies as soon as combat ends.\n\nThe frame-scale and frame-anchoring settings from older versions were removed since Blizzard's\ndefault UI already covers them.\n\n## Known Issues\n### Classic Era & Classic progression\n- Frame scaling has not been re-implemented (yet?).\n- Anchoring frames to each other has not been re-implemented (yet?).\n\n## For Developers\nSee [DEVELOPMENT.md](https://github.com/kiforsbe/UnitFramesImproved/blob/master/DEVELOPMENT.md) for building from source and cutting a release, and\n[ARCHITECTURE.md](https://github.com/kiforsbe/UnitFramesImproved/blob/master/ARCHITECTURE.md) for how the addon is structured internally.\n\n## Changelog\nSee [CHANGELOG.md](https://github.com/kiforsbe/UnitFramesImproved/blob/master/CHANGELOG.md).\n\n## License\nPublic domain - see [LICENSE.txt](https://github.com/kiforsbe/UnitFramesImproved/blob/master/LICENSE.txt).",
+  "releases": [
+    {
+      "tag": "4.1.0-universal",
+      "published": "2026-09-28",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).\n\n## [4.1.0-universal] - 2026-09-28\n\n### Added\n- WoW Forever support: `UnitFramesImproved_Camelot.toc` (`## Interface: 16001`). Forever's game\n  type is \"Camelot\" in Blizzard's UI code, and `_Camelot.toc` is the suffix both the client and the\n  CurseForge packager pick up for it. Forever runs Retail's Mainline unit frame templates (plus small\n  Camelot-only overrides that don't touch anything styled here), so it loads the Retail styler\n  unchanged.\n- Options page (Options -> AddOns -> UnitFramesImproved, also opened by `/ufi`) built on Blizzard's\n  native Settings API, with a **Status Text** dropdown (Numeric Value / Percentage / Both / None) -\n  WoW Forever has no visible setting for showing health/mana numbers on the unit frames. It's backed\n  by the same `statusText`/`statusTextDisplay` CVars as Blizzard's own Status Text option, so the two\n  stay in sync on every client. Switching between two shown modes (e.g. Numeric to Both) turns\n  `statusText` off and back on within the same frame, since Blizzard's status bars only redraw their\n  labels when that changes - so the new mode shows right away. Changes picked in combat or under an\n  addon restriction (encounter, Mythic+, PvP match, restricted map) are held until it ends, since\n  the change runs Blizzard's status bar updates synchronously from addon code.\n- `build.ps1` deploys to `_classic_beta_` (the WoW Forever beta install) too.\n- `tests/`: offline regression tests (Python + `lupa`, a real Lua 5.1 runtime) that load the addon\n  into a stubbed WoW client once per TOC and check loading, events, styling, the options page, and\n  packaging. Never loaded in game or packaged.\n\n### Changed\n- Removed the Ace3/LibStub dependency (AceAddon, AceEvent, AceConsole, CallbackHandler). Events now\n  go through one private event frame and slash commands through `SlashCmdList` - Blizzard's own APIs,\n  identical on every client. No more `.pkgmeta` externals, `Libs/` folder, `LICENSE-ACE3.txt`, or\n  library fetching in `build.ps1` (which still recognizes the old `Libs/`/`LICENSE-ACE3.txt` when\n  replacing a previous deploy).\n- `/ufi` and `/unitframesimproved` now open the options page instead of printing a message.\n- The \"Initializing... / Initialized.\" chat lines on every login are gone (they came from the Ace3\n  `OnInitialize` hook).\n\n### Fixed\n- Retail: stopped writing `forceShow`/`textLockable` onto `PlayerFrame`/`TargetFrame`/`FocusFrame`.\n  Nothing reads those on the unit frame (Blizzard's text logic reads them on the status bar), so they\n  never forced the text visible - they only wrote addon fields onto Blizzard's secure frames.\n\n**Full Changelog**: https://github.com/kiforsbe/UnitFramesImproved/compare/4.0.2-universal...4.1.0-universal"
+    },
+    {
+      "tag": "4.0.2-universal",
+      "published": "2026-09-05",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).\n\n## [4.0.2-universal] - 2026-09-05\n\n### Fixed\n- PlayerFrame health bar no longer misaligns against the vehicle frame art - Blizzard resizes/\n  re-anchors the same health bar for vehicle state (`PlayerFrame_ToVehicleArt`), and our own\n  styling re-runs on every `PLAYER_ENTERING_WORLD`/`PLAYER_REGEN_ENABLED` (e.g. combat ending\n  while seated), so it was clobbering Blizzard's vehicle-art dimensions with our player-art ones.\n  Our styling is now skipped while `PlayerFrame.state == \"vehicle\"` and reapplied immediately via\n  a `PlayerFrame_ToPlayerArt` hook the moment Blizzard returns the frame to player state.\n\n**Full Changelog**: https://github.com/kiforsbe/UnitFramesImproved/compare/4.0.1-universal...4.0.2-universal"
+    },
+    {
+      "tag": "4.0.1-universal",
+      "published": "2026-09-01",
+      "notes": "# Changelog\n\nAll notable changes to this project are documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).\n\n## [Unreleased]\n\n## [4.0.1-universal] - 2026-09-01\n\n### Fixed\n- Classic-family TOC files (`_Vanilla`, `_Mists`, `_TBC`) failed to load at all - each started\n  with a plain `#` comment line before `## Interface:`, which the client silently treats as an\n  unparseable TOC (confirmed by comparing against ~200 real installed addons: only Questie's\n  deliberately-broken placeholder TOC shared that pattern, used intentionally to produce this\n  exact effect). `## Interface:` is now always the first line.\n- `UnitFramesImproved_Classic.toc` renamed to `UnitFramesImproved_Mists.toc` - Mists of Pandaria\n  Classic has its own dedicated TOC suffix (confirmed via other installed addons, e.g.\n  `TomTom_Mists.toc`, `BetterBags_Mists.toc`); the generic `_Classic` catch-all suffix wasn't being\n  reliably matched for it.\n- MoP Classic `Interface` declaration corrected and broadened to `50500, 50501, 50502, 50504` -\n  `50504` is this client's actual running interface (`/dump select(4, GetBuildInfo())`), which has\n  to be present in the list since \"out of date\" triggers whenever the declared Interface is lower\n  than the client's, not merely different from it.\n- Removed `## AllowLoadGameType` from all TOC files - redundant with, and murkier than, the\n  per-flavor TOC suffix split already in place.\n- `ADDON_ACTION_BLOCKED` error calling `MultiBarBottomLeft:ClearAllPointsBase()` during combat -\n  `UpdateTextStringWithValues` (hooked onto the shared, game-wide `TextStatusBar_UpdateTextStringWithValues`)\n  redundantly re-ran Blizzard's own \"hide when inactive\" logic from insecure code, including\n  `statusFrame:Hide()`, on every status bar update in the game. Blizzard's own call already handles\n  that case securely just before the hook fires, so the branch was both dead weight and a taint risk\n  to whatever secure frame-position pass runs next. Removed.\n\n### Added\n- `UnitFramesImproved_TBC.toc` for the Burning Crusade Classic Anniversary client (`_anniversary_`,\n  product `wow_anniversary`) - a separate product from Classic Era, not a continuation of it.\n- `build.ps1` now auto-detects and deploys to a `_anniversary_` install alongside the existing\n  `_retail_`/`_classic_`/`_classic_era_` flavors, and ships `CHANGELOG.md` in the built addon\n  folder/zip.\n\n**Full Changelog**: https://github.com/kiforsbe/UnitFramesImproved/compare/4.0.0-universal...4.0.1-universal"
+    },
+    {
+      "tag": "3.0.0-universal",
+      "published": "2024-08-24",
+      "notes": "So, some major changes coming up with release 3.0.0 of UnitFramesImproved.\n- The addon now works for Classic, Cata, and retail in one universal package.\n\nKnown issues (Classic & Cata):\n- The functionality to scale the frames has not been re-implemented (yet?)\n- The functionality to anchor the frames to each other has not been re-implemented (yet?)\n\nIf you have any issues, please report them on the GitHub."
+    },
+    {
+      "tag": "2.2.0-retail",
+      "published": "2024-08-22",
+      "notes": "- Updated for 11.0.2-retail\n- Fixed broken status bar coloring\n- Fixed broken status bar updates\n\nTo get the  status bar text to show, please remember to select an option other than \"None\" in Wow Options Menu > Interface > Display > Status Text."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/kiforsbe/UnitFramesImproved/master/docs/unitframe-art-comparison.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-09-28",
+    "releaseDates": [
+      "2026-09-28",
+      "2026-09-05",
+      "2026-09-01",
+      "2024-08-24",
+      "2024-08-22",
+      "2022-12-27",
+      "2022-11-05",
+      "2022-10-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "UnitFramesImproved"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

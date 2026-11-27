@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "autojanitor",
+  "repo": "CalebMorris/WowForever-AutoJanitor",
+  "about": "# Auto Janitor\n\nWow Forever addon to assist in keeping the bags clean\n\n## Clean Out Lowest Value Item\n\nBad slots are limited, and running into \"Bags Full\" when auto-looting is a pain point. I usually have to decide if I want to destroy an item from my bags (greys) or just not take the item.\nThe addon will handle this for you, destroying the lowest value grey if it's lower value than the item you're picking up, and then grabbing that item.\n\nWhen a corpse's loot window holds items that do not fit in your bags, a \"Replace cheapest junk\" button appears on it. Click it, or press its keybinding, to delete the cheapest grey stack and loot the item. Only grey (quality 0) items are ever deleted.\n\n## Install\n\nAuto Janitor is not published on CurseForge yet, so the CurseForge app cannot install it. Install it manually:\n\n1. Get the `AutoJanitor/` folder from this repository (clone it, or download the repo as a zip and unzip it). Only that folder is needed, not `tests/` or `docs/`.\n2. Open the game folder. In the Battle.net launcher, select World of Warcraft Forever, click the gear icon next to Play, and choose Show in Explorer.\n3. Go to `World of Warcraft\\_forever_\\Interface\\AddOns`. Create the `AddOns` folder if it does not exist.\n4. Copy the `AutoJanitor/` folder in, so the TOC ends up at:\n\n   ```\n   World of Warcraft\\_forever_\\Interface\\AddOns\\AutoJanitor\\AutoJanitor.toc\n   ```\n\n   Check that you did not nest it twice. `AddOns\\AutoJanitor\\AutoJanitor\\AutoJanitor.toc` is the most common mistake, and the addon will not load.\n5. Fully restart the game. New addon folders are only picked up at startup, so Reload UI is not enough the first time.\n6. At the character screen, click AddOns and make sure Auto Janitor is enabled.\n\nNotes on the folder name:\n\n* Use the folder for the Forever client, not Classic Era's. Classic Era addons use a different interface version and will not load.\n* Live Forever uses `_forever_`. Guides written during the beta used `_classic_beta_`, so if you are on the beta client, use that folder instead.\n* If you cannot find the folder, use the Show in Explorer button as above rather than guessing, because the product folder name can vary.\n\nOther install methods:\n\n* **CurseForge app:** once the addon is published there, choose your Forever installation in the app and click Install. The app puts it in the right folder. If Forever does not appear, use Scan for games or Add game manually and point it at the `World of Warcraft` folder.\n* **Zip from CurseForge:** if you download a release as a zip, unzip it first and check that it contains one `AutoJanitor` folder directly, then copy that folder as in step 4.\n* **Other addon managers** (WowUp, Wago, Ajour): no source confirms that they support Forever, so use the manual steps above.\n\nRelease zips are attached to the [GitHub releases](https://github.com/CalebMorris/WowForever-AutoJanitor/releases). Each one holds a single `AutoJanitor` folder, ready to copy as in step 4.\n\nOn login the addon checks that every API it needs exists on the client. Missing APIs are printed in chat and the button stays disabled. Many APIs are unverified on Forever, so follow the [in-game checklist](https://github.com/CalebMorris/WowForever-AutoJanitor/blob/master/docs/in-game-checklist.md) the first time.\n\nThe keybinding is under Key Bindings > AddOns > Auto Janitor.\n\n## Development\n\nRun the tests from the repository root. They need only a plain `lua` and no other dependencies:\n\n```\nlua tests/run.lua\n```\n\nThe pure logic lives in `AutoJanitor/src/` and is tested with the WoW APIs stubbed. `AutoJanitor/AutoJanitor.lua` is thin wiring, covered by a stubbed smoke test and by hand in-game. All code stays Lua 5.1 compatible, because that is what the game runs.\n\n### Releasing\n\nReleases are built by [.github/workflows/release.yml](https://github.com/CalebMorris/WowForever-AutoJanitor/blob/master/.github/workflows/release.yml), and only when a tag starting with `v` is pushed:\n\n1. Set `## Version:` in `AutoJanitor/AutoJanitor.toc` (for example `0.2.0`) and commit it.\n2. Tag and push: `git tag -a v0.2.0 -m \"Auto Janitor 0.2.0\"` then `git push origin v0.2.0`.\n\nThe workflow runs the tests under Lua 5.1, fails if the tag does not match the TOC version, zips the committed `AutoJanitor/` folder with `git archive`, and creates a GitHub release with the zip attached and generated notes. Do not create the release by hand for a tag the workflow will build, or it will fail because the release already exists.\n\n## Documentation\n\n* [Decisions and status](https://github.com/CalebMorris/WowForever-AutoJanitor/blob/master/docs/decisions.md): approved decisions, working rules, and the layout\n* [In-game checklist](https://github.com/CalebMorris/WowForever-AutoJanitor/blob/master/docs/in-game-checklist.md): what to verify by hand on the Forever client\n* [Next session prompt](https://github.com/CalebMorris/WowForever-AutoJanitor/blob/master/docs/next-session-prompt.md): the original implementation prompt (historical)\n* [Research findings](https://github.com/CalebMorris/WowForever-AutoJanitor/blob/master/docs/research-findings.md): WoW Forever API notes, confidence levels, and sources\n* [User stories and APIs](https://github.com/CalebMorris/WowForever-AutoJanitor/blob/master/docs/user-stories.md): behavior with the in-game APIs used at each step",
+  "releases": [
+    {
+      "tag": "v0.1.1",
+      "name": "Auto Janitor 0.1.1",
+      "published": "2026-11-06",
+      "notes": "**Full Changelog**: https://github.com/CalebMorris/WowForever-AutoJanitor/compare/v0.1.0...v0.1.1"
+    },
+    {
+      "tag": "v0.1.0",
+      "name": "Auto Janitor 0.1.0",
+      "published": "2026-11-06",
+      "notes": "First release. Unit tested, but not yet verified on the WoW Forever client. Many APIs are unverified there; the addon checks them at login and prints any that are missing. See docs/in-game-checklist.md.\n\nInstall: unzip and copy the AutoJanitor folder into World of Warcraft\\_forever_\\Interface\\AddOns, then fully restart the game. See the README for details."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AutoJanitor"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

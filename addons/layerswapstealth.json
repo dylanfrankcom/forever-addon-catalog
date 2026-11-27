@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "layerswapstealth",
+  "repo": "Bennylavaa/LayerSwapStealth",
+  "about": "![LayerSwap Stealth icon](https://raw.githubusercontent.com/Bennylavaa/LayerSwapStealth/main/Media/icon.png)\n\n# LayerSwap Stealth\n\n  **Log in stealthed.** A small add-on for **LayerSwap** that keeps Host off across logins unless you turn it on yourself.\n\n---\n\n## Why\n\nLayerSwap is built to turn **Host** back on at every login, even if you switched it off last session. If you don't want to be inviting strangers into your group, LayerSwap Stealth keeps you out of the host pool.\n\n## What it does\n\n- **First load:** the first time it loads on a character, it turns Host off right away, even after just a `/reload`.\n- **Logged out with Host off:** about 2 seconds after your next login, it turns Host off again with LayerSwap's own `/ls off` command.\n- **Logged out with Host on:** it leaves Host on. If you turn Host on with the panel button, the minimap menu or `/ls on`, it stays on until you turn it off.\n- **`/reload`:** nothing changes. LayerSwap already keeps your Host setting across reloads.\n- The setting is saved separately for each character.\n\nLayerSwap's other features still work: swapping layers, seeing which layer you're on, the panel and the mini bar.\n\n## Requirements\n\n- **LayerSwap**, installed and enabled\n- WoW Classic Era / Season of Discovery, Classic Anniversary (Forever) or TBC Anniversary. It runs on the same game versions as LayerSwap.\n\n## Installation\n\n1. Download **`LayerSwapStealth-x.x.zip`** from the latest [**release**](https://github.com/Bennylavaa/LayerSwapStealth/releases/latest).\n2. Extract it into your AddOns folder, for example:\n   ```\n   World of Warcraft\\_classic_era_\\Interface\\AddOns\\\n   ```\n3. Restart the game and enable **LayerSwap Stealth** in the AddOns list on the character select screen.\n\n> If you use **Code → Download ZIP** instead, the folder extracts as `LayerSwapStealth-main` and contains repo files. Rename the folder to **`LayerSwapStealth`** or the game won't load it. The release zip doesn't have this problem.\n\nThe folder should end up like this:\n\n```\nInterface\\AddOns\\LayerSwapStealth\\\n├── LayerSwapStealth.toc\n├── LayerSwapStealth.lua\n└── Media\\\n    ├── icon.png\n    └── logo.tga\n```\n\n## When you log in\n\nBecause it uses LayerSwap's own command, LayerSwap prints its normal status line in chat when Host goes off, like this:\n\n```\nLayerSwap: you are on layer ... Hosting is OFF ...\n```\n\nThat line means it worked.\n\n## Credits\n\n- **LayerSwap** is made by Adam5288. This add-on only uses LayerSwap's `/ls off` command and reads its Host setting. It doesn't include any of LayerSwap's code.\n- **LayerSwap Stealth** is made by [Bennylavaa](https://github.com/Bennylavaa).\n\n## License\n\n[MIT](https://github.com/Bennylavaa/LayerSwapStealth/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v1.0.5",
+      "published": "2026-11-21",
+      "notes": "# LayerSwap Stealth\n\n## v1.0.5 (2026-11-21)\n\n- **Remembers your Host setting.** If you log out with Host on, it stays on at your next login. If you log out with Host off, Stealth turns it off again when you log in.\n- **Off from the first load.** The first time Stealth loads on a character, it turns Host off right away, even after just a `/reload`, so a fresh install takes effect without a relog.\n- The setting is saved separately for each character.\n\n## v1.0.4 (2026-11-21)\n\n- Removed the bypass for LayerSwap's 4-minute Host lock after a swap. LayerSwap 1.14.34 removed the lock itself, so it's no longer needed.\n\n## v1.0.3\n\n- LayerSwap's 4-minute Host lock after a swap is cleared as soon as it starts.\n\n## v1.0.2 (2026-11-12)\n\n- First release on CurseForge.\n- Turns LayerSwap's Host off at every login."
+    },
+    {
+      "tag": "v1.0.4",
+      "published": "2026-11-21",
+      "notes": "# LayerSwap Stealth\n\n## [v1.0.4](https://github.com/Bennylavaa/LayerSwapStealth/tree/v1.0.4) (2026-11-21)\n[Full Changelog](https://github.com/Bennylavaa/LayerSwapStealth/compare/v1.0.3...v1.0.4) [Previous Releases](https://github.com/Bennylavaa/LayerSwapStealth/releases)\n\n- Remove the 4 sec stuff"
+    },
+    {
+      "tag": "v1.0.3",
+      "published": "2026-11-16",
+      "notes": "# LayerSwap Stealth\n\n## [v1.0.3](https://github.com/Bennylavaa/LayerSwapStealth/tree/v1.0.3) (2026-11-16)\n[Full Changelog](https://github.com/Bennylavaa/LayerSwapStealth/compare/v1.0.2...v1.0.3) [Previous Releases](https://github.com/Bennylavaa/LayerSwapStealth/releases)\n\n- Prevent LayerSwap from forcing Host on  \n    Clear LayerSwap's post-swap Host lock while preserving the existing login behavior that turns Host off."
+    },
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-12",
+      "notes": "# LayerSwap Stealth\n\n## [v1.0.2](https://github.com/Bennylavaa/LayerSwapStealth/tree/v1.0.2) (2026-11-12)\n[Full Changelog](https://github.com/Bennylavaa/LayerSwapStealth/compare/v1.0.1...v1.0.2) [Previous Releases](https://github.com/Bennylavaa/LayerSwapStealth/releases)\n\n- Curse Stuff"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "LayerSwap Stealth v1.0.0",
+      "published": "2026-11-12",
+      "notes": "**Full Changelog**: https://github.com/Bennylavaa/LayerSwapStealth/commits/v1.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LayerSwapStealth"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever"
+    ],
+    "requires": [
+      "LayerSwap"
+    ],
+    "savedVariablesPerCharacter": [
+      "LayerSwapStealthDB"
+    ]
+  }
+}

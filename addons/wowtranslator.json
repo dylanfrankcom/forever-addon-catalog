@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "id": "wowtranslator",
+  "repo": "Pirson-s-Addons/WoW-Translator",
+  "about": "[![WoW Translator](https://raw.githubusercontent.com/Pirson-s-Addons/.github/main/profile/assets/readme-wt-en.svg)](https://www.curseforge.com/wow/addons/wow-translator)\n\n**English** · [Español](https://github.com/Pirson-s-Addons/WoW-Translator/blob/main/README.es.md)\n\n[**CurseForge**](https://www.curseforge.com/wow/addons/wow-translator) ·\n[**Download**](https://github.com/Pirson-s-Addons/WoW-Translator/releases/latest)\n\n## Screenshots\n\n[![How to use WoW Translator v2.00](https://img.youtube.com/vi/DmyrbF9iDdQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=DmyrbF9iDdQ)\n\n▶️ How to use WoW Translator v2.00\n\n![All languages in chat, in real time](https://media.forgecdn.net/attachments/1643/305/languajes-png.png)\nAll languages in chat, in real time\n\n## What it does\n\nWoW Translator reads incoming chat messages and adds the meaning of WoW jargon next to each term, in the colour you choose. A message like `LFM ICC HC 25m Need Tank and Healer` keeps its original text, with the translation of every recognised acronym or word added in brackets. Nothing is sent for you: it only annotates what you receive.\n\n## Features\n\n- Translates dungeon and raid acronyms, slang, classes, roles, stats, professions, combat, trade, group, guild and status terms.\n- 44 target languages; defaults to your game client's language.\n- Whole sentences: typical messages (looking for group, recruiting, trade, crafters, portals, guild recruiting) also get the full sentence on a line below, in the speaker's voice, in 20 languages.\n- Zone, item set and race names from LibBabble, in your client's language, each with its own colour.\n- Turn each category and the instance names of each expansion (Classic to Midnight) on or off.\n- Pick which chat channels are translated: say, yell, emote, global channels, whispers, Battle.net, guild, party, raid, instance, battleground and communities.\n- Ignore list for words you never want translated.\n- `/wt en` turns text written in your target language back into English WoW terms and leaves it in the chat box for you to review and send.\n- Beta: also recognises WoW slang written in Korean and Simplified Chinese (off by default).\n- Minimap button and options panel translated into 20 languages.\n\n## Usage\n\n- `/wt config` — open the options panel (also from the minimap button).\n- `/wt on` / `/wt off` — enable or disable translations.\n- `/wt test` — run a translation test in chat.\n- `/wt search <word>` — look up a translation directly.\n- `/wt en <text>` — compose a message in English.\n- `/wt` — list the commands.\n- `/wtr` and `/wowtranslator` work exactly like `/wt` (handy if another addon also uses `/wt`).\n\nThe options panel has General (enable, colour, target language, slang in other languages, test and reset buttons), Categories, Expansions, Chat Channels, Ignored Words and Help.\n\n## Installation\n\n1. Download the zip from the [latest release](https://github.com/Pirson-s-Addons/WoW-Translator/releases/latest) or from [CurseForge](https://www.curseforge.com/wow/addons/wow-translator).\n2. Extract the `WoWTranslator` folder into the `Interface/AddOns/` folder of your game version:\n   - Retail: `World of Warcraft/_retail_/Interface/AddOns/`\n   - Mists of Pandaria Classic: `World of Warcraft/_classic_/Interface/AddOns/`\n   - Classic Era: `World of Warcraft/_classic_era_/Interface/AddOns/`\n   - Anniversary: `World of Warcraft/_anniversary_/Interface/AddOns/`\n   - WoW Forever: `World of Warcraft/_forever_/Interface/AddOns/`\n3. Restart WoW and enable the addon.\n\n## Notes\n\n- Besides current clients, it ships TOC files for older clients (2.4.3, 3.3.5, 4.3, 5.4, WoD 6.2, Legion 7.3, BfA 8.3 and Shadowlands 9.2), such as those used on private servers.\n- Settings are saved account-wide in `WoWTranslatorDB`.\n- Part of the slang (sry, ez, o7, w2w, brez, m+, ksm, touch grass...) comes from [BabelChat](https://github.com/Yumash/BabelChat) by Andrey Yumashev, used with his permission (MIT).\n\n## For addon authors\n\n**Public API**\n\nRead-only and versioned. It reads the whole dictionary, not just the categories the player turned on. Add `## OptionalDeps: WoWTranslator` to your TOC.\n\n```lua\nlocal api = WoWTranslatorAPI\nif api and api.version == 1 then\n    api.Lookup(\"lfm\")            -- translation in the client's language, category (\"GruposDict\"...)\n    api.Lookup(\"ty\", \"deDE\")     -- \"Danke\"\n    api.GetTranslations(\"ty\")    -- { esES = \"Gracias\", enUS = \"Thank you\", ... } (copy)\n    api.GetTerms()               -- { { term, category, multiword }, ... } to spot slang in a text\n    api.GetCategories()          -- { \"SocialDict\", \"GruposDict\", ... }\nend\n```\n\n[![Part of Pirson's Addons. See all addons.](https://raw.githubusercontent.com/Pirson-s-Addons/.github/main/profile/assets/readme-footer-en.svg)](https://github.com/Pirson-s-Addons)",
+  "releases": [
+    {
+      "tag": "v2.18",
+      "published": "2026-11-25",
+      "notes": "### What's new in v2.18\n- **New commands**: `/wtr` and `/wowtranslator` do the same as `/wt` (`/wt` clashes with What's Training).\n\n---\n### Novedades v2.18 (Español)\n- **Comandos nuevos**: `/wtr` y `/wowtranslator` hacen lo mismo que `/wt` (`/wt` choca con What's Training)."
+    },
+    {
+      "tag": "v2.17",
+      "published": "2026-11-23",
+      "notes": "### What's new in v2.17\n- **Wago Addons**: WoW Translator is now also on Wago Addons, so the Wago app and WowUp can install it and keep it updated.\n\n---\n### Novedades v2.17 (Español)\n- **Wago Addons**: WoW Translator ya está también en Wago Addons, así que la app de Wago y WowUp lo instalan y lo mantienen actualizado."
+    },
+    {
+      "tag": "v2.16",
+      "name": "WoW Translator v2.16",
+      "published": "2026-11-17",
+      "notes": "### What's new in v2.16\n- **Addon menu**: WoW Translator is now in the game's addon menu on the minimap (the addon compartment). Click it to open it.\n- Updated addon information (CurseForge project, license, website and languages) for addon managers.\n\n### Installation\n1. Download `WoWTranslator_V2.16.zip`.\n2. Extract it into `{game_version}/Interface/AddOns/`.\n3. Restart the game and enable the addon.\n\n---\n### Novedades v2.16 (Español)\n- **Menú de addons**: WoW Translator sale ya en el menú de addons del minimapa. Haz clic para abrirlo.\n- Información del addon actualizada (proyecto de CurseForge, licencia, web e idiomas) para los gestores de addons.\n\n### Instalación\n1. Descarga `WoWTranslator_V2.16.zip`.\n2. Extráelo en `{game_version}/Interface/AddOns/`.\n3. Reinicia el juego y activa el addon.\n\n---\n**Autor**: Pirson\nGitHub: https://github.com/Pirson-s-Addons"
+    },
+    {
+      "tag": "v2.15",
+      "name": "WoW Translator v2.15",
+      "published": "2026-11-12",
+      "notes": "### What's new in v2.15\n- 51 new slang terms: sry, soz, ez, dw, ngl, smh, o7, gogo, go next, w2w, brez, prepot, pug, prog, carry, gank, mmr, glad, copium, sweaty, touch grass, clapped, bricked, pumping, io, rio, ksm, m+, ginv, simc, parse, wiped, soulstone, meeting stone, adds, purge, cds, ooc, bio, mdps, rdps, wb, ttyl, xmog, transmog, newbie, tbf, imo, alr, rn and m8.\n- Terms with symbols, such as m+, are now recognised.\n\n### Installation\n1. Download `WoWTranslator_V2.15.zip`.\n2. Extract it into `{game_version}/Interface/AddOns/`.\n3. Restart the game and enable the addon.\n\n### Notes\n- Part of the new slang comes from [BabelChat](https://github.com/Yumash/BabelChat) by Andrey Yumashev, used with his permission (MIT). Thank you!\n\n---\n\n### Novedades v2.15 (Español)\n- 51 términos de jerga nuevos: sry, soz, ez, dw, ngl, smh, o7, gogo, go next, w2w, brez, prepot, pug, prog, carry, gank, mmr, glad, copium, sweaty, touch grass, clapped, bricked, pumping, io, rio, ksm, m+, ginv, simc, parse, wiped, soulstone, meeting stone, adds, purge, cds, ooc, bio, mdps, rdps, wb, ttyl, xmog, transmog, newbie, tbf, imo, alr, rn y m8.\n- Ahora reconoce términos con signos, como m+.\n\n### Instalación\n1. Descarga `WoWTranslator_V2.15.zip`.\n2. Extráelo en `{game_version}/Interface/AddOns/`.\n3. Reinicia el juego y activa el addon.\n\n### Notas\n- Parte de la jerga nueva viene de [BabelChat](https://github.com/Yumash/BabelChat), de Andrey Yumashev, con su permiso (MIT). ¡Gracias!\n\n---\n\n**Autor**: Pirson\nGitHub: https://github.com/Pirson-s-Addons"
+    },
+    {
+      "tag": "v2.14",
+      "name": "WoW Translator v2.14",
+      "published": "2026-11-11",
+      "notes": "### What's new in v2.14\n- Read-only API (WoWTranslatorAPI) so other addons can look up chat slang in any language, with all its translations and the list of terms. Details in the README on GitHub.\n\n### Installation\n1. Download `WoWTranslator_V2.14.zip`.\n2. Extract it into `{game_version}/Interface/AddOns/`.\n3. Restart the game and enable the addon.\n\n---\n\n### Novedades v2.14 (Español)\n- API de solo lectura (WoWTranslatorAPI) para que otros addons busquen la jerga del chat en cualquier idioma, con todas sus traducciones y la lista de términos. Detalles en el README de GitHub.\n\n### Instalación\n1. Descarga `WoWTranslator_V2.14.zip`.\n2. Extráelo en `{game_version}/Interface/AddOns/`.\n3. Reinicia el juego y activa el addon.\n\n---\n\n**Autor**: Pirson\nGitHub: https://github.com/Pirson-s-Addons"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-23",
+      "2026-11-17",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-05",
+      "2026-10-20",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-15",
+      "2026-10-14",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-09-27",
+      "2026-09-25",
+      "2026-09-18",
+      "2026-09-13",
+      "2026-09-07",
+      "2026-09-04",
+      "2026-08-14",
+      "2026-07-12",
+      "2026-06-15",
+      "2026-06-04",
+      "2026-04-21",
+      "2026-03-29",
+      "2026-03-21",
+      "2026-03-15",
+      "2026-03-14",
+      "2026-03-13",
+      "2026-03-10",
+      "2026-03-06"
+    ]
+  },
+  "languages": [
+    "bgBG",
+    "bnBD",
+    "csCZ",
+    "daDK",
+    "deDE",
+    "elGR",
+    "esES",
+    "esMX",
+    "etEE",
+    "faIR",
+    "fiFI",
+    "frFR",
+    "heIL",
+    "hrHR",
+    "huHU",
+    "idID",
+    "itIT",
+    "koKR",
+    "ltLT",
+    "lvLV",
+    "msMY",
+    "nlNL",
+    "noNO",
+    "plPL",
+    "ptBR",
+    "roRO",
+    "ruRU",
+    "skSK",
+    "slSI",
+    "srRS",
+    "svSE",
+    "taIN",
+    "teIN",
+    "ukUA",
+    "urPK",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "WoWTranslator"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0"
+    ],
+    "savedVariables": [
+      "WoWTranslatorDB"
+    ]
+  }
+}

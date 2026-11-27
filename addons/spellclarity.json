@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "spellclarity",
+  "repo": "Snuffsis/SpellClarity",
+  "about": "# SpellClarity\n\n**Clearer tooltips. Understand what your spell power adds.**\n\nSpellClarity makes equipment bonuses easier to read and adds a closer look at your learned spells and abilities. See supported base values, bonus contributions and coefficients without replacing the game's familiar tooltips.\n\nBuilt for the **World of Warcraft Classic beta / Forever client**, SpellClarity works independently and requires no other addons.\n\n## Read equipment bonuses at a glance\n\nKnown equipment bonuses become short, readable lines such as `+19 Fire spell dmg` or `+24 Ranged attack power`. Combined spell damage and healing bonuses are separated so each value is clear.\n\nFor example, a supported bonus granting **3 spell damage and 9 healing** becomes:\n\n- **+3 Spell dmg**\n- **+9 Healing**\n\nEquipment comparisons use the same concise labels while preserving the game's positive and negative values and their colors. Unknown descriptions, conditional effects and procs keep their original text.\n\n## Hold Shift for the details\n\nHover over a learned spell or ability and hold **Shift** to expand its supported details. Depending on the spell, you can see:\n\n- Base damage, healing or absorption.\n- The contribution from your current spell power or healing power.\n- Spell coefficients and calculated estimates.\n- Periodic values per tick and available tick intervals.\n- Known weapon-ability components and relevant attack power.\n\nRelease Shift to return to the compact tooltip. The original spell description stays in place.\n\n## Familiar tooltips, independent addon\n\nSpellClarity keeps the game's tooltip frames, fonts and native text colors. It adds readable information without a replacement interface or a separate settings panel.\n\nEnglish labels are enabled by default. To switch labels, use:\n\n- `/spellclarity sv` for Swedish.\n- `/spellclarity en` for English.\n\nRun `/reload` after changing the language. Your selection is saved between sessions. Equipment-text recognition currently supports English descriptions; the Swedish option translates SpellClarity's own labels.\n\n## Compatibility and calculation limits\n\nThe included spell data targets **client build 1.60.1.70338** with **Interface 16001**. Numerical spell estimates are guarded by this exact build. On a different build, SpellClarity shows an update notice instead.\n\nCalculations cover supported formulas and are estimates before talents, critical strikes and target effects. They are not a prediction of your final combat damage or healing. Periodic values are shown per tick; weapon abilities may show components rather than a final total. When a formula is unavailable, SpellClarity says so and leaves the original description available.\n\nIf **Aevum Tooltips**, **ForeverUI Tooltips** or **ForeverSkin Tooltips** is loaded, SpellClarity pauses to avoid duplicate additions. Disable that tooltip addon and reload to use SpellClarity. Other Aevum addons can remain enabled.\n\n## Installation\n\n1. Place the `SpellClarity` folder directly in your client's `Interface/AddOns` folder.\n2. Fully restart the game after the first installation.\n3. Enable **SpellClarity** in the addon list.\n\n**Status:** Initial beta preparation. Automated tests pass; in-game validation is still pending.\n\n**License:** All Rights Reserved.",
+  "releases": [
+    {
+      "tag": "1.0.0",
+      "name": "SpellClarity 1.0.0",
+      "published": "2026-10-24",
+      "notes": "## SpellClarity 1.0.0\n\nThe first stable release of SpellClarity: clearer equipment tooltips and optional Shift details for your spells and abilities.\n\n### Features\n- Short, readable labels for supported equipment bonuses.\n- Separate spell damage and healing values, including equipment comparisons.\n- Hold Shift over a learned spell to inspect supported base values, spell-power contributions, coefficients and calculated estimates.\n- Details for supported damage, healing, periodic effects, absorbs and weapon-ability components.\n- Native tooltip frames and fonts, with English labels by default and optional Swedish labels.\n- Independent installation with no required addons.\n\n### Compatibility\nTargets the Classic beta / Forever client **1.60.1.70338**, Interface **16001**. Other builds receive an update notice instead of numerical spell estimates. Estimates exclude talents, critical strikes and target effects; unsupported formulas retain the original spell description.\n\nSpellClarity pauses when Aevum Tooltips or the older ForeverUI/ForeverSkin tooltip addons are loaded. Disable that tooltip addon and reload to use SpellClarity.\n\n### Installation\nExtract the SpellClarity folder directly into Interface/AddOns and fully restart the game after the first installation. Use `/spellclarity sv` or `/spellclarity en`, followed by `/reload`, to change labels.\n\n### Validation\nThe owner approved in-game testing and this stable release. The publication workflow retests the exact release revision and verifies the packaged files before CurseForge upload."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-24",
+    "releaseDates": [
+      "2026-10-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SpellClarity"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SpellClarityDB"
+    ]
+  }
+}

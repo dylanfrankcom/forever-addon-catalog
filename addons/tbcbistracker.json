@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "tbcbistracker",
+  "repo": "mazarelo/tbc-bis-tracker",
+  "about": "# TBC BIS Tracker\n\nA **World of Warcraft TBC Anniversary** add-on that lets you select gear for every phase of Burning Crusade Classic (Pre-BIS through Sunwell Plateau) and tracks your progress toward completing your Best-in-Slot list — inspired by the \"Attuned\" add-on but focused entirely on gear.\n\n---\n\n## Features\n\n| Feature | Details |\n|---------|---------|\n| **All 9 classes** | Warrior, Paladin, Hunter, Rogue, Priest, Shaman, Mage, Warlock, Druid |\n| **Multiple specs** | 2–3 specialisations per class |\n| **5 phases** | Pre-BIS · Phase 1 (KZ/Gruul/Mag) · Phase 2 (SSC/TK) · Phase 3 (BT/Hyjal) · Phase 4 (Sunwell) |\n| **17 gear slots** | Head · Neck · Shoulders · Back · Chest · Wrist · Hands · Waist · Legs · Feet · Ring ×2 · Trinket ×2 · Main Hand · Off Hand · Ranged |\n| **Item tooltips** | Hover a row to see the full Wowhead-linked tooltip |\n| **Wowhead links** | Item ID and Wowhead URL shown in tooltip |\n| **Source info** | Shows where to get each item (heroic, crafted, reputation, raid, etc.) |\n| **Per-character tracking** | Each character stores its own check-list |\n| **Progress bar** | Visual progress indicator per phase |\n| **Missing filter** | Toggle to show only items you still need |\n| **Minimap button** | Quick toggle; draggable around the minimap |\n| **Slash commands** | `/tbcbis` to open/close, `/tbcbis reset` to wipe data |\n\n---\n\n## WoW Forever mode\n\nOn the **WoW Forever** client (interface 1.60) the add-on switches itself to Forever mode on load:\n\n- One **Level 30** stage (the beta cap), for all 26 class/spec lists. End-game stages get added at release.\n- Alliance-only / Horde-only items are hidden from the other faction.\n- Item links go to `wowhead.com/forever`; TBC-only extras (Badges of Justice, rating caps) are hidden.\n- `/tbcbis mode` shows the detected mode; `/tbcbis mode forever|tbc|auto` + `/reload` forces one.\n\nThe data lives in `web/scripts/forever-lvl30.json` (from [foreverchanges.pro](https://foreverchanges.pro/bis/warrior)) and is turned into\n`TBCBisTracker/Database_Forever.lua` (add-on) and `web/public/data/forever.js` (website: TBC / Forever switch\nin the top bar, `?game=forever`) with `python3 web/scripts/build-forever-db.py`. Test with `lua tests/harness.lua` (Lua 5.1).\n\n---\n\n## Installation\n\n1. Download or clone this repository.\n2. Copy the **`TBCBisTracker`** folder into:\n   ```\n   World of Warcraft/_classic_/Interface/AddOns/TBCBisTracker/\n   ```\n3. Launch (or reload) the game: `/reload`\n4. Enable the add-on in the **AddOns** list on the character-selection screen.\n\n---\n\n## Usage\n\n| Action | How |\n|--------|-----|\n| Open / Close | Click the **minimap button** or type `/tbcbis` |\n| Select class | Click a class icon at the top of the window |\n| Select spec | Click a spec tab below the class icons |\n| Select phase | Click a phase tab (Pre-BIS, Phase 1 – 4) |\n| Mark obtained | Tick the checkbox on the right of any row |\n| Filter missing | Enable **\"Show missing only\"** checkbox |\n| View item info | Hover a row for the full in-game tooltip + Wowhead URL |\n| Reset tracking | `/tbcbis reset` |\n| Hide minimap button | `/tbcbis hide` |\n| Show minimap button | `/tbcbis show` |\n\n---\n\n## Gear data source\n\nAll item lists were curated from **[Wowhead TBC Classic](https://www.wowhead.com/tbc/)**.  \nItem tooltips in-game are powered by the game's own item cache — the same data Wowhead uses.\n\nBecause WoW addons cannot make live HTTP requests, the database is pre-populated with known item IDs. You can verify or update any entry in `TBCBisTracker/Database.lua`.\n\n---\n\n## Extending the database\n\n`Database.lua` is structured so that adding or updating entries is straightforward:\n\n```lua\n-- Example entry\nDB[\"WARRIOR\"][\"Fury\"].prebis.head = {\n    id         = 23274,             -- Wowhead item ID\n    source     = \"Crafted (Blacksmithing 350)\",\n    sourceType = \"crafted\",         -- heroic | raid | crafted | reputation | pvp | world | quest\n    note       = \"Optional note\",   -- shown in tooltip\n}\n```\n\n---\n\n## File structure\n\n```\nTBCBisTracker/\n├── TBCBisTracker.toc    — Addon manifest (interface 2.5.4)\n├── Localization.lua     — All display strings\n├── Core.lua             — Initialisation, events, saved-variables, slash commands, minimap button\n├── Database.lua         — Complete Pre-BIS + Phase 1-4 BIS data (all classes/specs)\n└── UI.lua               — Full graphical interface\n```\n\n---\n\n## Contributing\n\nPull requests with improved item data, new specs or UI enhancements are welcome.  \nPlease keep one item per PR for easy review.\n\n---\n\n## License\n\nMIT — see `LICENSE` file.",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "name": "ZenaBis 1.1.0",
+      "published": "2026-10-08",
+      "notes": "One add-on for both **TBC Anniversary** and **WoW Forever**: it detects your client on load and shows the right lists.\n\n### WoW Forever (new)\n- Level 30 BiS lists for all 26 class/spec combinations (beta data from foreverchanges.pro; will change as the game launches).\n- Alliance-only / Horde-only items are hidden from the other faction.\n- \"Where to get it\" side panel: still-needed items grouped by source, flags professions you haven't learned.\n- Item links go to Wowhead's Forever database.\n- `/tbcbis mode` shows the detected mode; `/tbcbis mode forever|tbc|auto` + `/reload` forces one.\n\n### For everyone\n- Now shown as **ZenaBis** in game (folder and saved data unchanged, so your progress carries over).\n- Browse other classes from the class dropdown; ticks stay on your own class.\n- Redesigned window: standard Blizzard dropdowns and tabs, item icons with quality borders, two-line source column, random-suffix names shown (\"Twilight Cape *of Healing*\"), \"Needs Blacksmithing\" instead of an unexplained red cross, slim scrollbar, single progress footer.\n- Fixed: Badge of Justice line erroring when you have fewer badges than needed (TBC).\n- Fixed: item tooltip hook and minimap button position on newer clients.\n\n### Install\nUnzip into `Interface/AddOns/` so you get `Interface/AddOns/TBCBisTracker/`."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-08",
+    "releaseDates": [
+      "2026-10-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TBCBisTracker"
+    ],
+    "editions": [
+      "anniversary",
+      "forever"
+    ],
+    "savedVariables": [
+      "TBCBisTrackerDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "TBCBisTrackerCharDB"
+    ]
+  }
+}

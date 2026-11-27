@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "bugsack",
+  "repo": "funkydude/BugSack",
+  "releases": [
+    {
+      "tag": "v12.1.9",
+      "published": "2026-10-26",
+      "notes": "# BugSack\n\n## [v12.1.9](https://github.com/funkydude/BugSack/tree/v12.1.9) (2026-10-26)\n[Full Changelog](https://github.com/funkydude/BugSack/compare/v12.1.8...v12.1.9) [Previous Releases](https://github.com/funkydude/BugSack/releases)\n\n- Cleanups"
+    },
+    {
+      "tag": "v12.1.8",
+      "published": "2026-10-21",
+      "notes": "# BugSack\n\n## [v12.1.8](https://github.com/funkydude/BugSack/tree/v12.1.8) (2026-10-21)\n[Full Changelog](https://github.com/funkydude/BugSack/compare/v12.1.7...v12.1.8) [Previous Releases](https://github.com/funkydude/BugSack/releases)\n\n- Bump toc  \n- Update ruRU (#215)"
+    },
+    {
+      "tag": "v12.1.7",
+      "published": "2026-10-12",
+      "notes": "# BugSack\n\n## [v12.1.7](https://github.com/funkydude/BugSack/tree/v12.1.7) (2026-10-12)\n[Full Changelog](https://github.com/funkydude/BugSack/compare/v12.1.6...v12.1.7) [Previous Releases](https://github.com/funkydude/BugSack/releases)\n\n- Fix accidental locale removal  \n- Fix warning message when BugGrabber is missing"
+    },
+    {
+      "tag": "v12.1.6",
+      "published": "2026-10-11",
+      "notes": "# BugSack\n\n## [v12.1.6](https://github.com/funkydude/BugSack/tree/v12.1.6) (2026-10-11)\n[Full Changelog](https://github.com/funkydude/BugSack/compare/v12.1.5...v12.1.6) [Previous Releases](https://github.com/funkydude/BugSack/releases)\n\n- Cleanups  \n- Remove Blizz panel  \n- Move settings into a tab on the bugsack popup (#213)"
+    },
+    {
+      "tag": "v12.1.5",
+      "published": "2026-10-10",
+      "notes": "# BugSack\n\n## [v12.1.5](https://github.com/funkydude/BugSack/tree/v12.1.5) (2026-10-10)\n[Full Changelog](https://github.com/funkydude/BugSack/compare/v12.1.4...v12.1.5) [Previous Releases](https://github.com/funkydude/BugSack/releases)\n\n- Improve text decoration"
+    }
+  ],
+  "stats": {
+    "stars": 47,
+    "openIssues": 9,
+    "contributors": 52,
+    "lastRelease": "2026-10-26",
+    "releaseDates": [
+      "2026-10-26",
+      "2026-10-21",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-17",
+      "2026-07-11",
+      "2026-06-26",
+      "2026-06-24",
+      "2026-05-01",
+      "2026-04-27",
+      "2026-04-14",
+      "2026-03-27",
+      "2026-03-27",
+      "2026-03-15",
+      "2026-03-12",
+      "2026-03-12",
+      "2026-03-12",
+      "2026-03-12",
+      "2026-03-08",
+      "2026-01-13",
+      "2025-11-21",
+      "2025-11-19",
+      "2025-10-29",
+      "2025-10-25",
+      "2025-10-24",
+      "2025-10-15",
+      "2025-10-13",
+      "2025-09-23",
+      "2025-08-19",
+      "2025-08-08",
+      "2025-08-02",
+      "2025-07-12",
+      "2025-06-20",
+      "2025-05-18",
+      "2025-05-02",
+      "2025-03-22",
+      "2025-01-23",
+      "2024-11-20",
+      "2024-09-25",
+      "2024-08-13",
+      "2024-07-09",
+      "2024-06-06",
+      "2024-05-08",
+      "2024-04-30",
+      "2024-02-07"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "BugSack"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibSharedMedia-3.0",
+      "LibDBIcon-1.0",
+      "!BugGrabber"
+    ],
+    "savedVariables": [
+      "BugSackDB",
+      "BugSackLDBIconDB"
+    ]
+  }
+}

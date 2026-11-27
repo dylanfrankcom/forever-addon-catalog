@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "auctioneer",
+  "repo": "NoobyGains/Auctioneer-Forever",
+  "about": "# Auctioneer for World of Warcraft: Forever (beta)\n\nThe Auctioneer addon suite made to run on the **WoW: Forever beta client**. It is\n[profdumbbelldore's Auctioneer 12.x fork](https://github.com/profdumbbelldore/Auctioneer-12.x.BETA) (itself a\ncontinuation of [Norganna's Auctioneer](https://auctioneeraddon.com/), official source\n[gitlab.com/norganna-wow/auctioneer](https://gitlab.com/norganna-wow/auctioneer), GPL v2 - see `LICENSE`) with the changes the\nForever client needs; the git history keeps the upstream commits. Nothing else is touched: the same nine addon folders, the\nsame features, the same settings.\n\nWhy a separate branch: Forever runs Blizzard's Mainline UI (the retail-style auction house) on the **12.1.5 API set**.\nPatch 12.1.5 removed the deprecated item functions that the 12.1.0 build still relies on (`GetItemInfo`,\n`GetItemQualityColor`, `GetDetailedItemLevelInfo`, `GetItemIcon`), and the Forever client also has no\n`GetMouseFocus`, `MouseIsOver`, `UIParent_OnEvent`, `InterfaceOptionsFrame_OpenToCategory` or `NUM_ITEM_QUALITIES`.\nEach of those was a Lua error waiting to happen on Forever; on retail 12.1.0 they still work, which is why upstream\nnever saw them.\n\n## Install\n\n1. Download the zip from the Releases page.\n2. Copy the nine folders - `!Swatter`, `Auctioneer`, `Auctioneer_Stats_OverTime`, `Auctioneer_Util_DealFinder`,\n   `Auctioneer_Util_Valuer`, `Enchantrix`, `Informant`, `SlideBar`, `Stubby` - into\n   `World of Warcraft\\_classic_beta_\\Interface\\AddOns\\`.\n3. Start the game fully. A `/reload` does not pick up new addon folders.\n\n## Beta client bug you will run into: saved settings are not loaded back\n\nForever beta builds 1.60.1.69913 and later **write** addon SavedVariables but do not **load** them at the next\nstart ([forever-bugs #34](https://github.com/ClassicWoWCommunity/forever-bugs/issues/34)). Auctioneer's price history\nlives in SavedVariables, so until Blizzard fixes the client every scan is forgotten at logout unless you use a\nworkaround such as [ForeverSVFix](https://github.com/nobewayo/ForeverSVFix). This branch does not work around it\nitself; it only makes the addon run.\n\n## What changed\n\n35 files, every change is a small local edit:\n\n* **Item API** - every call to a removed global goes through `C_Item` (`C_Item.GetItemInfo`,\n  `C_Item.GetItemQualityColor`, `C_Item.GetDetailedItemLevelInfo`, `C_Item.GetItemIconByID`). In Auctioneer's\n  `Items.lua` / `Internal.lua`, the embedded `TipHelper` / `LibAucItemCache` libraries, Informant and Enchantrix.\n  Four Enchantrix files with many call sites get a file-scope `local` alias at the top instead of dozens of edits.\n* **`NUM_ITEM_QUALITIES`** is not defined on this client - `nTipHelper` falls back to 8.\n* **Enchantrix** reads interface number 16001 as \"Classic era\". That is right for its reagent tables (Forever's\n  item pool is the classic one), but it then called the classic-only craft API (`GetNumCrafts`, `GetNumTradeSkills`),\n  which Forever does not have. That branch now runs only when those functions exist.\n* **`GetMouseFocus`** (gone since 11.0) - the embedded `Configator/ScrollSheet` (column drag in every Auctioneer\n  sheet) uses `GetMouseFoci()[1]`.\n* **`MouseIsOver`** - the embedded `LibGraph` falls back to `Region:IsMouseOver()`.\n* **`UIParent_OnEvent`** - `!Swatter` only calls it if it exists (the call is only reached with Swatter switched off).\n* **`InterfaceOptionsFrame_OpenToCategory`** - `/slidebar config` opens the panel through `Settings.OpenToCategory`.\n* Five stale embedded copies of `LibRevision` still called `GetAddOnMetadata` / `IsAddOnLoaded`; they now use\n  `C_AddOns` like the two copies upstream already updated.\n* Every TOC lists `16001`, so the client no longer marks the addons as incompatible.\n\n## How this was checked\n\nEvery global the suite reads was listed from the compiled Lua 5.1 bytecode and compared with what the Forever\nclient actually defines - Blizzard's generated API documentation and UI code for the beta (branch `forever` of\n[Gethe/wow-ui-source](https://github.com/Gethe/wow-ui-source), build 1.60.1.69977) - and with the removal notes on\n[warcraft.wiki.gg](https://warcraft.wiki.gg/wiki/Patch_12.1.5/API_changes). After the changes every file compiles and\nno call to a removed function remains. In-game reports from the beta are welcome in this fork's issues.\n\n---\n\n*Upstream README follows.*\n\nKnown issues:\n\n1.) In certain situations, some data will not be present within the crafting window.\n\n2.) Data doesn't appear on item links (not sure if this is something that can be fixed at this time).",
+  "releases": [
+    {
+      "tag": "v12.x-forever.1",
+      "name": "Auctioneer for WoW: Forever (beta) - build 1",
+      "published": "2026-09-24",
+      "notes": "Auctioneer (profdumbbelldore's 12.x fork) made to run on the **World of Warcraft: Forever beta** client. Same nine addon folders, same features; only the calls the Forever client no longer has were changed (see the README on the `forever` branch for the full list).\n\n**Install:** unzip, copy the nine folders into `World of Warcraft\\_classic_beta_\\Interface\\AddOns\\`, start the game fully (a `/reload` does not pick up new addon folders).\n\n**Beta client bug:** builds 1.60.1.69913+ write addon SavedVariables but do not load them back at the next start ([forever-bugs #34](https://github.com/ClassicWoWCommunity/forever-bugs/issues/34)). Auctioneer's price history is SavedVariables, so it is forgotten at logout unless you use a workaround such as [ForeverSVFix](https://github.com/nobewayo/ForeverSVFix). Not something this release can fix.\n\nChecked against Blizzard's Forever UI source for build 1.60.1.69977 (every file compiles, no removed API is called). In-game reports welcome in the issues."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-09-24",
+    "releaseDates": [
+      "2026-09-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "!Swatter",
+      "Auctioneer",
+      "Auctioneer_Stats_OverTime",
+      "Auctioneer_Util_DealFinder",
+      "Auctioneer_Util_Valuer",
+      "Enchantrix",
+      "Informant",
+      "SlideBar",
+      "Stubby"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SwatterData"
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "theinn",
+  "repo": "bergeet/the-inn",
+  "about": "![The Inn: a tankard of beer](https://raw.githubusercontent.com/bergeet/the-inn/main/docs/icon.png)\n\n# The Inn\n\n**The Inn** is a WoW addon for a guild: shared achievements, leaderboards and a feed of what guildmates have been up to, synced in game between everyone who runs it. It is made for WoW: Forever (interface 16001).\n\n![The tavern window: the sign, your bar tab, the plaques you're closest to, last night's gossip and the notice board](https://raw.githubusercontent.com/bergeet/the-inn/main/docs/screenshot.png)\n\n- **Achievements**: about 130, plus custom ones officers can create and grant.\n- **Scoreboard**: leaderboards for points, deaths, PvP, duels and chess.\n- **Gossip**: a feed of unlocks, deaths, and duel and chess results.\n- **Workshop**: who in the guild has which profession and can craft which recipe.\n- **Chess**: play a guildie, or practise against the barkeep.\n\nIt only reads game state and never acts for you (see [Staying within Blizzard's rules](#staying-within-blizzards-rules)).\n\nInstall, commands and officer tools are in [TheInn/README.md](https://github.com/bergeet/the-inn/blob/main/TheInn/README.md), the user docs that ship with the addon.\n\n## Layout\n\n```\nTheInn/              the addon itself (this folder is what goes in Interface/AddOns)\ntests/sim.lua        simulated WoW client + guild: timers, roster, addon channel, saved variables\ntests/run.lua        test suite, run against the simulated Forever client\nscripts/package.sh   runs the tests, then zips the addon into dist/\nscripts/make_textures.py  draws the chess pieces (TheInn/Media/*.tga) and docs/icon.png\n```\n\n## Develop\n\nNeeds LuaJIT (WoW runs Lua 5.1): `brew install luajit`.\n\n```sh\nluajit tests/run.lua                 # all tests\nluajit tests/run.lua revoke          # tests whose name contains \"revoke\"\nSIM_VERBOSE=1 luajit tests/run.lua   # show every simulated client's chat output\nscripts/package.sh                   # -> dist/TheInn-<version>.zip\npython3 scripts/make_textures.py preview.png   # redraw the chess pieces (and a PNG preview)\n```\n\nEverything else the window shows is the game's own art (dialog backgrounds, quest parchment, the frame header, the achievement alert), so the addon stays small. If a file is missing on some client, a plain color stands in. The chess pieces have no in-game equivalent: they're plain math in Python (no image libraries). Edit a shape in the script and rerun it.\n\nTo test in game without copying files, symlink the addon into the client's AddOns folder and `/reload` after each change:\n\n```sh\nln -s \"$PWD/TheInn\" \"/Applications/World of Warcraft/_forever_/Interface/AddOns/TheInn\"\n```\n\n## Staying within Blizzard's rules\n\nThe addon only reads game state, draws its own UI, and talks over the hidden guild addon channel (plus a guild chat line for guild firsts and big unlocks, on by default, `/inn announce off` to stop it). It doesn't count what the game already keeps: deaths, duels, kills and the like are read from WoW: Forever's own statistics. The Workshop only reads the profession window while the player has it open. Never automate input or gameplay, and keep the code readable and free (Blizzard's UI Add-On Development Policy).\n\nThe `addon only uses approved game APIs` test enforces this on every file in the TOC. It checks code only: comments and text in strings never count.\n\n- **Globals.** Every game global the code reads is on `ALLOWED_GLOBALS` in `tests/run.lua`. The only globals it writes are its own saved variables and slash commands, so it never replaces a game function.\n- **Namespace fields.** Allowing `C_TradeSkillUI` would also allow its crafting calls, so each `C_` namespace has its own list of fields in `NAMESPACE_FIELDS`. Code must write `C_Name.Field` out in full: no local holding a namespace, no `C_Name[computed key]`. The test can then see every field it touches. `HOOKED_FIELDS` lists the few action functions the addon only post-hooks to count (abandoned quests, emotes). Those may be hooked or nil-checked, never called.\n- **Denylist.** `FORBIDDEN_NAMES` (crafting, casting, using items, opening, expanding or filtering the profession windows, running code from strings) may not appear anywhere in the code, on any object. This is **The Inn's own rule, not a list of what Blizzard bans**. Some of these functions are protected by the client anyway. Others, like `ExpandTradeSkillSubClass`, are fine for addons in general but have no place in one that only reads and shares. `CraftRecipe` stays on it for good.\n\nA new game API is a review step. Add it to the right list with a comment on why the addon needs it, and check that it only reads state or drives The Inn's own UI. The test `API policy catches what it should, and only that` feeds the checker known-good and known-bad snippets; extend it when changing the checker.\n\nThe simulator can't prove the live client agrees. Before a release that touches game APIs, sync or the Workshop, run the checklist in [docs/live-client-testing.md](https://github.com/bergeet/the-inn/blob/main/docs/live-client-testing.md) in game.\n\n## Releasing\n\nBump `## Version:` in `TheInn/TheInn.toc`, add a `**x.y.z**` entry to the changelog in `TheInn/README.md`, commit, then tag:\n\n```sh\ngit tag v0.4.3 && git push origin main v0.4.3\n```\n\nGitHub Actions runs the tests, builds `TheInn-0.4.3.zip` and publishes it as a Release, using the changelog entry as the notes. Every push to `main` runs the tests too. `.pkgmeta` is ready for the CurseForge and Wago packagers if the addon is listed there.",
+  "releases": [
+    {
+      "tag": "v0.10.0",
+      "name": "The Inn 0.10.0",
+      "published": "2026-11-06",
+      "notes": "- **A clean slate.** Not compatible with 0.9.x, so everyone in the guild updates together. Saved data from 0.9.x (unlocks, settings, the gossip) is cleared on the first login; what the game's statistics show is credited again right away.\n- Counts now come from WoW: Forever's own statistics instead of the addon counting them: deaths (and by falling, drowning or fire), duels, honorable kills, killing blows, Hearthstone, flights, fishing, epic and legendary loot, abandoned quests, /lol and exalted factions. They go back to each character's first day, and the leaderboards show the game's numbers.\n- Achievements for things the game doesn't count are gone: jumps, /dance, /chicken, /flex, /cry, AFK, session length, logins, grey, rare and total loot, fleeing, duel streaks, bad days and solo elites. So are the Jumps and Fled boards, `/inn stats` and the tally under the Scoreboard.\n- Forever's two-part names (\"Lil Hjalm\"): you're no longer listed twice, as yourself and as a guildmate. Your own hello now also confirms the name the guild knows you by.\n- Deaths by falling, drowning or fire can now be earned (Forever hides the combat log they used to need).\n- **Forever only.** Classic Era support is gone: its old profession, recipe and combat log code went with it, so the Workshop no longer needs collapsed categories expanded.\n- Achievements Forever already has are gone, so they aren't earned twice: PvP ranks, profession tiers 150/225/300, Onyxia and reaching level 60. The game's own achievement window has them.\n- Lighter: the window uses the game's own art (dialog backgrounds, quest parchment, the frame header and the achievement alert); only the chess pieces are the addon's own. The addon went from 6 MB to under 1 MB.\n- Guild chat only gets guild firsts and achievements worth 25 points or more.\n- A guildie's recipes now reach guildmates who are offline even if they log out right after sharing them.\n- A reinstalled character whose old data is being restored by a guildmate no longer shows a fresh 1200 chess or duel rating to the guild in the meantime.\n\nInstall: unzip into `Interface/AddOns` (you should get a `TheInn` folder), then restart WoW."
+    },
+    {
+      "tag": "v0.9.4",
+      "name": "The Inn 0.9.4",
+      "published": "2026-11-05",
+      "notes": "- New achievements: kill elites alone, kill one that outlevels you, and take down Hogger, Gath'Ilzogg or Mor'Ladim before you're supposed to.\n- Forever: `/inn grant` and `/inn revoke` work with first and last names, the same way as `/w John Doe`.\n- `/inn diag` shows what the game tells the addon, to help track down problems.\n- Hidden achievements' text is now plain text in the addon's files, so reading `Data.lua` will spoil them.\n\nInstall: unzip into `Interface/AddOns` (you should get a `TheInn` folder), then restart WoW."
+    },
+    {
+      "tag": "v0.9.3",
+      "name": "The Inn 0.9.3",
+      "published": "2026-11-05",
+      "notes": "- Forever: PvP rank achievements can be earned. The game now reports PvP stats differently, so your rank was never read, and it was counted as dishonorable kills instead.\n- Forever: PvP ranks show their proper titles on the Scoreboard.\n- Dishonorable kills are no longer tracked, and \"Dishonorable Discharge\" is gone on both clients. If you already earned it, its points no longer count.\n\nInstall: unzip into `Interface/AddOns` (you should get a `TheInn` folder), then restart WoW."
+    },
+    {
+      "tag": "v0.9.2",
+      "name": "The Inn 0.9.2",
+      "published": "2026-11-04",
+      "notes": "- The minimap button shows up as soon as you log in, instead of a few seconds later.\n- Opening the window in the first few seconds after login says it's settling in, instead of claiming you're not in a guild or that nothing has happened.\n\nInstall: unzip into `Interface/AddOns` (you should get a `TheInn` folder), then restart WoW."
+    },
+    {
+      "tag": "v0.9.1",
+      "name": "The Inn 0.9.1",
+      "published": "2026-11-04",
+      "notes": "- The X in the corner closes the window again. It used to hide only the header (the sign, your name and bar tab), which then stayed gone.\n- The Scoreboard, the notice board heading and the chess window title use the same easy-to-read font as the rest of the window. The sign keeps its old one.\n\nInstall: unzip into `Interface/AddOns` (you should get a `TheInn` folder), then restart WoW."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/bergeet/the-inn/main/docs/screenshot.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-11-03",
+      "2026-11-03",
+      "2026-11-03",
+      "2026-11-03",
+      "2026-11-03",
+      "2026-11-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TheInn"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "GuildAchDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "GuildAchCharDB"
+    ]
+  }
+}

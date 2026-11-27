@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "id": "gw2-ui",
+  "repo": "Mortalknight/GW2_UI",
+  "about": "# GW2 UI\n\n**A complete, hand-painted interface replacement inspired by Guild Wars 2. Modular: turn off any part you don't need, the rest stays intact.**\n\n![GW2 UI overview](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/overview.jpg)\n\nTired of a UI that looks like a spreadsheet? GW2 UI replaces the default interface with hand-painted art, clean frames and smooth animations - so you look at the game world again, not at boxes. Install it, log in, play. Everything is set up and ready.\n\n**Runs on:** Retail (Midnight) · World of Warcraft: Forever · Mists of Pandaria Classic · Wrath of the Lich King Classic · The Burning Crusade Classic · Classic Era, Season of Discovery, Hardcore and Anniversary\n\n## WHY GW2 UI?\n\n- **Plug and play** - no profiles to import, no addons to combine. One install gives you HUD, unit frames, bags, quest tracker, character window and more.\n- **Hand-made, not a template** - every texture is painted and every window is built for this UI, with the look of Guild Wars 2.\n- **Plays well with your addons** - every module can be turned off. Keep your favorite bag, raid frame or chat addon and use GW2 UI for the rest.\n- **One UI for every version of WoW** - the same look from Classic Era to Midnight, updated with every patch since 2017.\n- **Ready for Midnight** - class powers, auras and the dynamic HUD work with the new secret aura rules.\n- **Gamepad ready** - on Forever, GW2 UI switches to its own gamepad layout automatically.\n- **In your language** - translated into 11 languages.\n\n[![GW2 UI on Discord](https://discord.com/api/guilds/243035988614578176/widget.png?style=banner2)](https://discord.gg/MZZtRWt)\n[![GW2 UI on Patreon](https://i.imgur.com/gyn76CI.png)](https://www.patreon.com/gw2ui)[![GW2 UI on PayPal](https://i.imgur.com/xSSjpwd.png)](https://www.paypal.com/donate?hosted_button_id=WBGL5GPMTNEL4)\n\n## FEATURES\n\nSome features depend on the game version, for example Mythic+ and the Great Vault only exist on Retail.\n\n**HUD** - health globe, hand-painted class powers with their own animations, a dynamic HUD that reacts to combat and your class abilities, action bars that fade or hide while mounted, dodge bar, cast bars and a micro bar with detailed tooltips.\n\n**Unit frames and groups** - player, target, focus, pet, party, boss and arena frames. Raid and party grids with aura indicators and dispel colors. Build the texts of every frame by drag and drop with the text designer.\n\n**Questing** - immersive quest dialogs, a quest tracker with tracking compass and boss frames, Mythic+ and raid info (deaths, battle res, bloodlust), boss times compared to your best and the achievements you are closest to completing.\n\n**Character and inventory** - a hero panel for character, reputation, professions, spellbook and talents. Bags, bank and guild bank with sorting, junk handling and item levels. Own loot roll bars and a loot feed that shows what you receive.\n\n**Map, chat and tooltips** - minimap with configurable buttons, world map with exploration progress, a clean chat with role icons, colored chat bubbles and tooltips with item level, Mythic+ rating and more.\n\n**Skins and quality of life** - skins for most Blizzard windows like achievements and collections, toasts for rares, full bags and the Great Vault, optional auto repair, fast loot and train all, an AFK screen and a global cooldown ring around the cursor.\n\n**Your setup** - move and scale every frame in Move HUD mode, save profiles that switch with your specialization and see what is new in the in-game changelog.\n\n## GETTING STARTED\n\n1. Install GW2 UI and log in - the UI is ready to use.\n2. Type `/gw2 settings` to open the settings and turn modules on or off, `/gw2` lists all commands.\n3. Type `/gw2 mh` to move and scale frames.\n4. Type `/gw2 kb` to bind keys by hovering over a button.\n\n## SCREENSHOTS\n\n![Combat](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/combat.jpg)\n![HUD with class powers](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/hud.jpg)\n![Quest tracker](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/quest-tracker.jpg)\n![Boss frames](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/boss-frames.jpg)\n![Raid grid](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/raid-grid.jpg)\n![Character](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/character.jpg)\n![World map](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/world-map.jpg)\n![Bags](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/bags.jpg)\n![Professions](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/professions.jpg)\n![Reputation](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/reputation.jpg)\n![Currency](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/currency.jpg)\n![Boss times](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/boss-times.jpg)\n![Achievements](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/achievements.jpg)\n![Settings and changelog](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/settings-changelog.jpg)\n![Text designer](https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/text-designer.jpg)\n\n## FAQ\n\n**Can I use GW2 UI with other addons?**\nYes. Turn off the GW2 UI module that the other addon replaces, for example the bags or the raid frames, and both work side by side.\n\n**I don't like one part of the UI. Do I have to remove everything?**\nNo. Every module can be turned off in `/gw2 settings`, the Blizzard default takes its place.\n\n**How do I move frames?**\nType `/gw2 mh`, drag the frames where you want them and click Lock HUD.\n\n**Something is broken or missing.**\nTell us on [Discord](https://discord.gg/MZZtRWt) or open a [GitHub issue](https://github.com/Mortalknight/GW2_UI/issues). `/gw2 status` shows the system info we need.\n\n## HELP US\n\n- **Translate:** help on [CurseForge localization](https://www.curseforge.com/wow/addons/gw2-ui/localization) - thank you to all of our translators!",
+  "releases": [
+    {
+      "tag": "12.1.11",
+      "published": "2026-11-24",
+      "notes": "12.1.11\n\nNEW\n    - Pet frame (hunter): a Mend Pet hint on the portrait below half health, also in combat; the happiness can show as a notification icon that only appears and pulses while the pet is not happy; a click on the portrait revives a dead pet or calls a missing one, also in combat\n    - Bags (hunters and warlocks on Classic, TBC, Wrath and Forever): new \"Separate class bags\" option - in the combined bag view quivers, ammo pouches and soul bags start on their own row behind the other bags, in the compact view each with its own free slot\n    - Bags and bank: hovering a bag in the bag bar highlights the item slots of that bag\n    - HUD: druids in cat and bear form get a combat version of their form background\n\nCHANGES\n    - Dodge bar: the warlock bar dims while no Demonic Circle is placed\n    - Bags: unusable items are marked by their level, class and armor or weapon skill\n    - Talents: with dual spec both specs show as cards with their main tree and points, a click shows a spec, a check marks the active one\n\nFIXES\n    - World map: the map trail and the exploration rings no longer get the quest pins blocked as an action of GW2 UI when the map opens in combat; a click on an exploration ring opens the zone through the map itself\n    - Party frames (Retail and Forever): the important dungeon and raid debuffs only show Blizzard's boss debuffs, like the raid frames; the debuff list in the aura settings only shows where it is used\n    - Pet bar: moves above action bar 2 while that bar shows, also on mouse over and in combat, and back down after combat or when the bar hides again\n    - Auras: move above action bar 3 while that bar shows, also on mouse over and in combat; action bars that only show on mouse over no longer keep their space free\n    - Gamepad (Forever): X uses the selected bag item also when actions are set to fire on key release\n    - Talents (Forever): a second spec that was never active shows an empty tree instead of a copy of the active one\n    - Immersive Questing: zones without an own background, Kezan, the Darkmoon Faire, the Exile's Reach, the Telogrus Rift and the North Sea show a background again\n    - Immersive Questing: the Hero's Call and Warchief's Command boards show their board on every client language, not only on English ones"
+    },
+    {
+      "tag": "12.1.10",
+      "published": "2026-11-19",
+      "notes": "12.1.10\n\nNEW\n    - Gamepad (Forever): the immersive quest window and the installer work with the d-pad, buttons show their pad button like Blizzard's dialogs (A accept, B decline, X for the main action)\n    - Gamepad (Forever): the quest tracker can be entered with the key binding \"Objectives - Focus\" or a macro with /click GwQuestTrackerGamepadFocus on a pad button, A opens a quest or uses its item, B leaves\n    - Gamepad (Forever): dropdowns in GW windows, like the bag settings, open with A as a pad menu, sliders like the item size move with left and right, B goes back\n    - Gamepad (Forever): the lists of the hero panel (reputation, titles, boss times, raid locks, skills) can be walked with the d-pad and scroll along, out of combat\n    - Objectives tracker: quests that are ready to turn in show a chest next to their title, it can be turned off in the tracker settings\n    - Battleground HUD: can be moved and scaled with Move HUD\n    - Immersive Questing: optional fullscreen layout with an animated intro, a walk-in animation and a toggle button and key binding; the bag closes when the fullscreen view opens\n\nCHANGES\n    - Gamepad (Forever): the bags no longer open in combat, Blizzard gives them no pad focus there; bags opened before stay usable\n\nFIXES\n    - Collections: mounts, pets and toys keep their filter when Blizzard hides it for the only collected items setting, a filter that hid everything can be reset again\n    - Trainer: the upcoming spells no longer switch the trainer filters, Blizzard could then block the train button as an action of GW2 UI\n    - Pet bar: stays above action bar 2 when that bar only shows on mouse over or in combat, the bar can be hovered again\n    - Chat: the battleground start no longer floods the chat with \"players joined the battle\" lines and errors; the chat keeps Blizzard's 128 lines again\n    - Group manager: the target marker buttons work again, Blizzard blocked them as an action of GW2 UI\n    - Skins: scrolling the guild roster and other skinned Blizzard lists no longer taints them, removing or promoting guild members was blocked as an action of GW2 UI"
+    },
+    {
+      "tag": "12.1.9",
+      "published": "2026-11-14",
+      "notes": "12.1.9\n\nNEW\n    - Battleground score: a line below each score shows how close a side is to winning, the hover shows the points and an estimate how long it takes\n    - Immersive Questing: the window remembers where you moved it, the settings can move it back to the middle\n    - Immersive Questing: with the Spoken addon the pages follow the voice, a button replays it; optionally picking a quest stops the greeting\n    - Gamepad (Forever): bags, bank, hero panel and popups work with the d-pad, a footer shows the buttons; in the bags X uses, sells or moves and Y destroys an item, back opens the search\n\nCHANGES\n    - Skins: the Spoken Places lore panel is now a part of the world map window, with a side tab to open it again\n    - Upcoming level rewards: now a tab at the bottom of the spell book instead of an own window; at the max level it stays while a trainer still has something to learn\n\nFIXES\n    - Battleground score: Arathi Basin shows all five bases, not only the ones known when you entered\n    - Skins: the Spoken Places skin also loads when the addon folder is named Spoken_Places\n    - Gamepad (Forever): the GW2 UI button in the game menu can be reached with the d-pad"
+    },
+    {
+      "tag": "12.1.8",
+      "published": "2026-11-12",
+      "notes": "12.1.8\n\nNEW\n    - Objectives tracker: optional own modules for the quests of your current zone and for dungeon quests, their place is set in the module order\n\nFIXES\n    - Upcoming level rewards (Forever): spells you already learned no longer show as trainable when the spell book hides the lower ranks\n    - AFK screen: the line with mail and whispers is no longer cut off at the bottom edge with bigger fonts\n    - Unit frames (Forever): fixed an error when targeting a unit while DBM or BigWigs is loaded\n    - Totem selection bar: shamans without a totem no longer see an empty button on the screen\n    - Chat: quick join notices for group finder listings no longer cause an error, they name the activity"
+    },
+    {
+      "tag": "12.1.7",
+      "published": "2026-11-10",
+      "notes": "12.1.7\n\nNEW\n    - Totem selection bar (shaman): own settings page to turn it off and set button size and spacing; its mover no longer disappears after moving; the class totems settings carry their right name\n    - Text designer: the health color (red over yellow to green) also on Retail and Forever\n    - Skins: Spoken Places story panel\n    - Group frames: the buff and debuff filters of a grid can each be reset to default, the note how the filters work also shows on the party grid page\n\nCHANGES\n    - Upcoming level rewards: Shift-click links a spell in the chat; the window plays its opening sound on TBC too\n    - Quest log: \"Abandon Quest\" in red like in the tracker; group finder: the delist button in our look\n    - World map: opens faster and remembers where you moved it\n    - AFK screen: shows your running queues, level, class, specialization and item level, new whispers and mail; the chat only shows once a message came in, on a dark background with the time; time and logout countdown keep running when you press a key in between\n    - Objectives tracker: the section header at the top of the scrolled list no longer lies over the quests, the list scrolls below it\n\nFIXES\n    - Move HUD: sliders like the tracker height sit on their value and keep a typed value; Shift-click selects the frame that comes up front with all its options\n    - Text designer: \"Hide At Zero\" for power also works on Forever and Retail in every mode with the current value\n    - Upcoming level rewards: a weapon master or pet trainer no longer replaces the spells of your class trainer\n    - Cooldown texts (Forever): no Lua error in battlegrounds and other restricted content\n    - Dodge bar (Forever): no Lua error in combat with your own spell, the bar fills like on Retail\n    - Text designer: a profile imported from another client no longer causes Lua errors, texts this client does not have are left out"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/overview.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/combat.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/hud.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/quest-tracker.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/boss-frames.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/raid-grid.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/character.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/world-map.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/bags.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/professions.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/reputation.jpg",
+    "https://raw.githubusercontent.com/Mortalknight/GW2_UI/master/.previews/currency.jpg"
+  ],
+  "stats": {
+    "stars": 88,
+    "openIssues": 6,
+    "contributors": 25,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-19",
+      "2026-11-14",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-30",
+      "2026-10-29",
+      "2026-10-28",
+      "2026-10-14",
+      "2026-09-17",
+      "2026-09-17",
+      "2026-09-08",
+      "2026-08-23",
+      "2026-08-21",
+      "2026-08-19",
+      "2026-08-13",
+      "2026-08-13",
+      "2026-08-13",
+      "2026-08-12",
+      "2026-07-27",
+      "2026-07-27",
+      "2026-07-25",
+      "2026-07-24",
+      "2026-07-23",
+      "2026-07-22",
+      "2026-07-09",
+      "2026-06-17",
+      "2026-06-07",
+      "2026-06-05",
+      "2026-06-04",
+      "2026-05-27",
+      "2026-05-12",
+      "2026-04-28",
+      "2026-04-28",
+      "2026-04-22",
+      "2026-04-22",
+      "2026-04-22",
+      "2026-04-07",
+      "2026-03-27",
+      "2026-03-27",
+      "2026-03-25",
+      "2026-03-16",
+      "2026-03-10",
+      "2026-03-04",
+      "2026-03-04",
+      "2026-02-22"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "GW2_UI"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Details",
+      "MoveAnything",
+      "_DebugLog",
+      "BugSack",
+      "!Stragglers",
+      "ACU",
+      "Masque",
+      "HonorSpy",
+      "TitanClassic",
+      "Clique",
+      "LibClassicDurations"
+    ],
+    "savedVariables": [
+      "GW2UI_STORAGE2",
+      "GW2UI_DATABASE",
+      "GW2UI_PRIVATE_DB"
+    ]
+  }
+}

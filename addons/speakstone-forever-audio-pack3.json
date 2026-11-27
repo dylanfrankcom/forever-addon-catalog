@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "speakstone-forever-audio-pack3",
+  "repo": "dandwhelan/SpeakStone_Forever_Audio_Pack3",
+  "about": "# SpeakStone voice pack: Forever Audio Pack 3\n\nWoW Forever books, voiced for SpeakStone, with voices similar to the in-game characters.\n\nUnofficial; not affiliated with Blizzard Entertainment.\n\nWebsite: https://speakstone.beanw.co.uk\n\n**This pack is audio only and needs [SpeakStone Forever](https://github.com/dandwhelan/SpeakStone_Forever_Main).** On its own it does nothing.\n\n![Welcome tutorial](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/01_welcome_tutorial.png)\n\n## What it does\n\nSpeakStone reads World of Warcraft out loud. Open a quest, talk to an NPC or read a book, and you hear it in a voice\nsimilar to the in-game character who says it, not one generic narrator. The same NPC keeps the same voice in their\nquests, their greetings and their books. This pack holds the lines for: **WoW Forever books**.\n\n- **Choose how it reads:** full narration, story only or manual; a compact speech bar, subtitles or audio only; a\n  portrait or a moving 3D head of the speaker.\n- **Walk away and keep listening:** the speech bar carries on after you leave the NPC, and the next line waits its turn.\n- **Read-along:** the words being spoken are highlighted as the voice reads them. **Pause and Resume** pick up from where you stopped.\n- **Controller and TV support**, **Dialogue UI support**, **dyslexia-friendly fonts** and three themes.\n- **The SpeakStone Guide:** browse and play every voiced quest, greeting and book in game.\n\n| | |\n|---|---|\n| ![Welcome tutorial](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/01_welcome_tutorial.png) | ![Controller and TV support](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/02_controller_and_tv.png) |\n| Welcome tutorial | Controller and TV support |\n| ![Choose how it reads](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/03_choose_how_it_reads.png) | ![Dialogue UI support](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/04_dialogue_ui.png) |\n| Choose how it reads | Dialogue UI support |\n| ![Walk away, keep listening](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/06_walk_away_keep_listening.png) | ![Read-along highlighting](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/07_read_along.png) |\n| Walk away, keep listening | Read-along highlighting |\n| ![The SpeakStone Guide](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/08_guide.png) | ![Dyslexia-friendly fonts and themes](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/09_reading_fonts.png) |\n| The SpeakStone Guide | Dyslexia-friendly fonts and themes |\n| ![Help fill the gaps](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/05_help_fill_the_gaps.png) | ![The SpeakStone website](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/12_website.png) |\n| Help fill the gaps | The SpeakStone website |\n| ![SpeakStone Worker setup](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/13_worker_setup.png) | ![The Worker at work](https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/14_worker_board.png) |\n| SpeakStone Worker setup | The Worker at work |\n\n## How it works\n\n1. **[SpeakStone Forever](https://github.com/dandwhelan/SpeakStone_Forever_Main) is the player.** It holds the code, the settings, the Guide and the text, but no audio.\n2. **The voice packs hold the audio** (Audio Packs 1 and 2 (quests), Audio Pack 3 (books) and Chatter (greetings)). When the game loads, this pack registers its lines with the base\n   add-on. A line whose pack is missing is simply silent.\n3. **When a quest, greeting or book opens**, SpeakStone looks the line up and plays it if a pack has it. Long lines are\n   stored in parts of about 10 to 15 seconds, cut in natural pauses, so Pause and Resume carry on from where you stopped.\n4. **Lines with no voice yet are saved as you play.** Export them from the minimap button (right-click) and paste them\n   on the [website](https://speakstone.beanw.co.uk/), or let the free SpeakStone Worker app send them. New lines are\n   usually voiced by the next day and arrive in the packs with their next update.\n\nFull details, commands and the rest of the screenshots: [SpeakStone Forever README](https://github.com/dandwhelan/SpeakStone_Forever_Main#readme).\n\n## Install\n\n1. [SpeakStone Forever](https://github.com/dandwhelan/SpeakStone_Forever_Main) (the base add-on, required).\n2. All four Forever packs: [Forever Audio Pack 1](https://github.com/dandwhelan/SpeakStone_Forever_Audio_Pack1), [Forever Audio Pack 2](https://github.com/dandwhelan/SpeakStone_Forever_Audio_Pack2), [Forever Audio Pack 3](https://github.com/dandwhelan/SpeakStone_Forever_Audio_Pack3), [Forever Chatter](https://github.com/dandwhelan/SpeakStone_Forever_Chatter).\n\nThe tutorial and the Guide's Voice packs tab list any pack you are missing.\n\n## The other packs\n\n- [Forever Audio Pack 1](https://github.com/dandwhelan/SpeakStone_Forever_Audio_Pack1)\n- [Forever Audio Pack 2](https://github.com/dandwhelan/SpeakStone_Forever_Audio_Pack2)\n- [Forever Chatter](https://github.com/dandwhelan/SpeakStone_Forever_Chatter)\n\nUnofficial; not affiliated with Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v6.1.2",
+      "published": "2026-11-24",
+      "notes": "## 6.0.0 (November 2026)\n\n**6.0.0 is a big one: the voices have been overhauled, and characters now speak with emotion.**\n\n### Highlights\n- **New voices with emotion**: Thousands of lines re-recorded. Characters now sound angry, sad, afraid, happy or surprised where the line calls for it, sentence by sentence, instead of reading everything in one tone.\n- **Stage directions acted, not read out**: Lines such as ** or ** are now performed with a sound instead of being spoken as words.\n- **Natural pauses**: Longer breaths between sentences, and quick back-to-back short sentences keep their pace.\n- **Audio Pack 3**: Some quests moved from Audio Packs 1 and 2 to Audio Pack 3 to keep every pack under the download size limit. Install all three Audio Packs plus Chatter; the add-on tells you if one is missing.\n\n### Heads up\nThis is a large change, so there may be bugs: a line in the wrong voice, a missing clip, or an odd pause. Please report anything you hear at speakstone.beanw.co.uk or on our GitHub issues page and we will fix it.\n\nUnofficial; not affiliated with Blizzard Entertainment. The voices are similar to the in-game characters.\n\n## 5.0.0 (November 2026)\n\nNew pack: the WoW Forever quest audio had outgrown two packs, so Pack 3 carries the newest quest lines. Install all three packs.\n\nUnofficial; not affiliated with Blizzard Entertainment. The voices are similar to the in-game characters."
+    },
+    {
+      "tag": "v6.1.0",
+      "published": "2026-11-22",
+      "notes": "## 6.0.0 (November 2026)\n\n**6.0.0 is a big one: the voices have been overhauled, and characters now speak with emotion.**\n\n### Highlights\n- **New voices with emotion**: Thousands of lines re-recorded. Characters now sound angry, sad, afraid, happy or surprised where the line calls for it, sentence by sentence, instead of reading everything in one tone.\n- **Stage directions acted, not read out**: Lines such as ** or ** are now performed with a sound instead of being spoken as words.\n- **Natural pauses**: Longer breaths between sentences, and quick back-to-back short sentences keep their pace.\n- **Audio Pack 3**: Some quests moved from Audio Packs 1 and 2 to Audio Pack 3 to keep every pack under the download size limit. Install all three Audio Packs plus Chatter; the add-on tells you if one is missing.\n\n### Heads up\nThis is a large change, so there may be bugs: a line in the wrong voice, a missing clip, or an odd pause. Please report anything you hear at speakstone.beanw.co.uk or on our GitHub issues page and we will fix it.\n\nUnofficial; not affiliated with Blizzard Entertainment. The voices are similar to the in-game characters.\n\n## 5.0.0 (November 2026)\n\nNew pack: the WoW Forever quest audio had outgrown two packs, so Pack 3 carries the newest quest lines. Install all three packs.\n\nUnofficial; not affiliated with Blizzard Entertainment. The voices are similar to the in-game characters."
+    },
+    {
+      "tag": "v6.0.4",
+      "published": "2026-11-21",
+      "notes": "## 6.0.0 (November 2026)\n\n**6.0.0 is a big one: the voices have been overhauled, and characters now speak with emotion.**\n\n### Highlights\n- **New voices with emotion**: Thousands of lines re-recorded. Characters now sound angry, sad, afraid, happy or surprised where the line calls for it, sentence by sentence, instead of reading everything in one tone.\n- **Stage directions acted, not read out**: Lines such as ** or ** are now performed with a sound instead of being spoken as words.\n- **Natural pauses**: Longer breaths between sentences, and quick back-to-back short sentences keep their pace.\n- **Audio Pack 3**: Some quests moved from Audio Packs 1 and 2 to Audio Pack 3 to keep every pack under the download size limit. Install all three Audio Packs plus Chatter; the add-on tells you if one is missing.\n\n### Heads up\nThis is a large change, so there may be bugs: a line in the wrong voice, a missing clip, or an odd pause. Please report anything you hear at speakstone.beanw.co.uk or on our GitHub issues page and we will fix it.\n\nUnofficial; not affiliated with Blizzard Entertainment. The voices are similar to the in-game characters.\n\n## 5.0.0 (November 2026)\n\nNew pack: the WoW Forever quest audio had outgrown two packs, so Pack 3 carries the newest quest lines. Install all three packs.\n\nUnofficial; not affiliated with Blizzard Entertainment. The voices are similar to the in-game characters."
+    },
+    {
+      "tag": "v6.0.3",
+      "published": "2026-11-20",
+      "notes": "## 6.0.0 (November 2026)\n\n**6.0.0 is a big one: the voices have been overhauled, and characters now speak with emotion.**\n\n### Highlights\n- **New voices with emotion**: Thousands of lines re-recorded. Characters now sound angry, sad, afraid, happy or surprised where the line calls for it, sentence by sentence, instead of reading everything in one tone.\n- **Stage directions acted, not read out**: Lines such as ** or ** are now performed with a sound instead of being spoken as words.\n- **Natural pauses**: Longer breaths between sentences, and quick back-to-back short sentences keep their pace.\n- **Audio Pack 3**: Some quests moved from Audio Packs 1 and 2 to Audio Pack 3 to keep every pack under the download size limit. Install all three Audio Packs plus Chatter; the add-on tells you if one is missing.\n\n### Heads up\nThis is a large change, so there may be bugs: a line in the wrong voice, a missing clip, or an odd pause. Please report anything you hear at speakstone.beanw.co.uk or on our GitHub issues page and we will fix it.\n\nUnofficial; not affiliated with Blizzard Entertainment. The voices are similar to the in-game characters.\n\n## 5.0.0 (November 2026)\n\nNew pack: the WoW Forever quest audio had outgrown two packs, so Pack 3 carries the newest quest lines. Install all three packs.\n\nUnofficial; not affiliated with Blizzard Entertainment. The voices are similar to the in-game characters."
+    },
+    {
+      "tag": "v6.0.2",
+      "published": "2026-11-20",
+      "notes": "## 6.0.0 (November 2026)\n\n**6.0.0 is a big one: the voices have been overhauled, and characters now speak with emotion.**\n\n### Highlights\n- **New voices with emotion**: Thousands of lines re-recorded. Characters now sound angry, sad, afraid, happy or surprised where the line calls for it, sentence by sentence, instead of reading everything in one tone.\n- **Stage directions acted, not read out**: Lines such as ** or ** are now performed with a sound instead of being spoken as words.\n- **Natural pauses**: Longer breaths between sentences, and quick back-to-back short sentences keep their pace.\n- **Audio Pack 3**: Some quests moved from Audio Packs 1 and 2 to Audio Pack 3 to keep every pack under the download size limit. Install all three Audio Packs plus Chatter; the add-on tells you if one is missing.\n\n### Heads up\nThis is a large change, so there may be bugs: a line in the wrong voice, a missing clip, or an odd pause. Please report anything you hear at speakstone.beanw.co.uk or on our GitHub issues page and we will fix it.\n\nUnofficial; not affiliated with Blizzard Entertainment. The voices are similar to the in-game characters.\n\n## 5.0.0 (November 2026)\n\nNew pack: the WoW Forever quest audio had outgrown two packs, so Pack 3 carries the newest quest lines. Install all three packs.\n\nUnofficial; not affiliated with Blizzard Entertainment. The voices are similar to the in-game characters."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/01_welcome_tutorial.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/02_controller_and_tv.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/03_choose_how_it_reads.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/04_dialogue_ui.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/06_walk_away_keep_listening.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/07_read_along.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/08_guide.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/09_reading_fonts.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/05_help_fill_the_gaps.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/12_website.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/13_worker_setup.png",
+    "https://raw.githubusercontent.com/dandwhelan/SpeakStone_Forever_Main/main/docs/screenshots/14_worker_board.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-18",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SpeakStone_Forever_Audio_Pack3"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "SpeakStone_Forever_Main"
+    ]
+  }
+}

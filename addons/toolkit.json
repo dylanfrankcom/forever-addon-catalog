@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "toolkit",
+  "repo": "Jabberie/Toolkit",
+  "about": "# Toolkit\n\nToolkit is a lightweight collection of useful slash commands for World of Warcraft.\n\nIt has no external libraries, no configuration UI, and no background processing. The addon simply registers a handful of convenience commands.\n\n## Commands\n\n| Command | Action |\n| --- | --- |\n| `/leaveparty` | Leaves your current party or raid. When inside an instance, Toolkit leaves the instance group. |\n| `/disbandgroup` | Removes the other members of your current party or raid, then leaves the group. |\n| `/rl` | Reloads the World of Warcraft user interface. |\n| `/fs` | Opens Blizzard's Frame Stack tool for inspecting UI frames. |\n\n## Notes\n\nGroup-changing commands do nothing while the player is in combat, where Blizzard restricts this functionality.\n\n`/disbandgroup` can only remove players that your character has permission to remove.\n\n## Compatibility\n\nVersion 12.002 adds World of Warcraft: Forever 1.60.1 (interface 16001) support through `Toolkit_Camelot.toc`. The default `Toolkit.toc` retains the World of Warcraft 12.1 target.\n\nInstall the complete `Toolkit` folder, including both TOC files, in your Forever client's `Interface/AddOns` directory. Restart the client after installing.\n\nForever compatibility has been reviewed against published client/API notes but still needs in-game verification. Check `/rl`, `/fs`, `/leaveparty`, and `/disbandgroup` in a disposable test group, including party and raid membership. Group commands should do nothing during combat.\n\n## License\n\nToolkit is released under the GNU General Public License v3.0. See `LICENSE` for the full license text.",
+  "releases": [
+    {
+      "tag": "12.002_release",
+      "published": "2026-11-13",
+      "notes": "**Full Changelog**: https://github.com/Jabberie/Toolkit/commits/12.002_release"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Toolkit"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

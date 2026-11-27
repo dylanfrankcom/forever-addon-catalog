@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "draidframes",
+  "repo": "d4kir92/DRaidFrames",
+  "releases": [
+    {
+      "tag": "v1.2.3",
+      "published": "2026-10-14",
+      "notes": "# DRaidFrames by D4KiR\n\n## [v1.2.3](https://github.com/d4kir92/DRaidFrames/tree/v1.2.3) (2026-10-14)\n[Full Changelog](https://github.com/d4kir92/DRaidFrames/compare/v1.2.2...v1.2.3) [Previous Releases](https://github.com/d4kir92/DRaidFrames/releases)\n\n- v1.2.3  \n- icon"
+    },
+    {
+      "tag": "v1.2.2",
+      "published": "2026-10-11",
+      "notes": "# DRaidFrames by D4KiR\n\n## [v1.2.2](https://github.com/d4kir92/DRaidFrames/tree/v1.2.2) (2026-10-11)\n[Full Changelog](https://github.com/d4kir92/DRaidFrames/compare/v1.2.1...v1.2.2) [Previous Releases](https://github.com/d4kir92/DRaidFrames/releases)\n\n- v1.2.2  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref"
+    },
+    {
+      "tag": "v1.2.1",
+      "published": "2026-09-19",
+      "notes": "# DRaidFrames by D4KiR\n\n## [v1.2.1](https://github.com/d4kir92/DRaidFrames/tree/v1.2.1) (2026-09-19)\n[Full Changelog](https://github.com/d4kir92/DRaidFrames/compare/v1.2.0...v1.2.1) [Previous Releases](https://github.com/d4kir92/DRaidFrames/releases)\n\n- v1.2.1  \n- ref  \n- git  \n- git"
+    },
+    {
+      "tag": "v1.2.0",
+      "published": "2026-09-01",
+      "notes": "# DRaidFrames by D4KiR\n\n## [v1.2.0](https://github.com/d4kir92/DRaidFrames/tree/v1.2.0) (2026-09-01)\n[Full Changelog](https://github.com/d4kir92/DRaidFrames/compare/v1.1.57...v1.2.0) [Previous Releases](https://github.com/d4kir92/DRaidFrames/releases)\n\n- v1.2.0  \n- d4lib"
+    },
+    {
+      "tag": "v1.1.57",
+      "published": "2026-08-19",
+      "notes": "# DRaidFrames by D4KiR\n\n## [v1.1.57](https://github.com/d4kir92/DRaidFrames/tree/v1.1.57) (2026-08-19)\n[Full Changelog](https://github.com/d4kir92/DRaidFrames/compare/v1.1.56...v1.1.57) [Previous Releases](https://github.com/d4kir92/DRaidFrames/releases)\n\n- v1.1.57  \n- refactor  \n- refactor"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-10-14",
+    "releaseDates": [
+      "2026-10-14",
+      "2026-10-11",
+      "2026-09-19",
+      "2026-09-01",
+      "2026-08-19",
+      "2026-08-12",
+      "2026-08-11",
+      "2026-08-10",
+      "2026-08-10",
+      "2026-08-10",
+      "2026-07-23",
+      "2026-07-08",
+      "2026-06-06",
+      "2026-04-20",
+      "2026-02-11",
+      "2026-02-11",
+      "2026-02-11",
+      "2026-02-01",
+      "2026-01-13",
+      "2025-12-14",
+      "2025-12-04",
+      "2025-12-02",
+      "2025-10-22",
+      "2025-10-08",
+      "2025-09-24",
+      "2025-09-07",
+      "2025-07-22",
+      "2025-07-18",
+      "2025-07-09",
+      "2025-07-02",
+      "2025-06-21",
+      "2025-06-18",
+      "2025-05-10",
+      "2025-04-19",
+      "2025-04-10",
+      "2025-04-09",
+      "2025-04-09",
+      "2025-03-04",
+      "2025-02-25",
+      "2025-02-12",
+      "2025-02-03",
+      "2025-01-30",
+      "2025-01-13",
+      "2024-12-09",
+      "2024-11-20",
+      "2024-11-12",
+      "2024-11-12",
+      "2024-10-22",
+      "2024-10-14",
+      "2024-10-08"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "DRaidFrames"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "DRFTAB"
+    ],
+    "savedVariablesPerCharacter": [
+      "DRFTABPC"
+    ]
+  }
+}

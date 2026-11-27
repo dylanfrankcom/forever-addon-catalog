@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "blizzmove",
+  "repo": "Kiatra/BlizzMove",
+  "about": "[![Build Status](https://github.com/kiatra/BlizzMove/workflows/CI/badge.svg)](https://github.com/kiatra/BlizzMove/actions?workflow=CI)\n[![BlizzMove on Discord](https://img.shields.io/badge/Discord-BlizzMove-blue.svg?style=flat)](https://discord.gg/CNgj8Ug)\n\n# BlizzMove\nWorld of Warcraft add-on to make the default windows movable via drag & drop.\n\nTo temporarily move a window just click title of the window and drag it to where you want it.\nUse ctrl + scroll wheel over a window title to adjust the scale of the window for the current game session.\n\n[![Watch the video](https://img.youtube.com/vi/jPcpkQjCTZU/hqdefault.jpg)](https://youtu.be/jPcpkQjCTZU)\n\n## CurseForge\n[https://www.curseforge.com/wow/addons/blizzmove](https://www.curseforge.com/wow/addons/blizzmove)\n\n## WowAce\n[https://www.wowace.com/projects/blizzmove](https://www.wowace.com/projects/blizzmove)\n\n## WoWInterface\n[https://www.wowinterface.com/downloads/info23875-BlizzMove.html](https://www.wowinterface.com/downloads/info23875-BlizzMove.html)",
+  "releases": [
+    {
+      "tag": "v3.8.8",
+      "published": "2026-11-07",
+      "notes": "# BlizzMove\n\n## [v3.8.8](https://github.com/Kiatra/BlizzMove/tree/v3.8.8) (2026-11-07)\n[Full Changelog](https://github.com/Kiatra/BlizzMove/compare/v3.8.7...v3.8.8) [Previous Releases](https://github.com/Kiatra/BlizzMove/releases)\n\n- Support the new SocialUI frame in retail too"
+    },
+    {
+      "tag": "v3.8.7",
+      "published": "2026-11-05",
+      "notes": "# BlizzMove\n\n## [v3.8.7](https://github.com/Kiatra/BlizzMove/tree/v3.8.7) (2026-11-05)\n[Full Changelog](https://github.com/Kiatra/BlizzMove/compare/v3.8.6...v3.8.7) [Previous Releases](https://github.com/Kiatra/BlizzMove/releases)\n\n- Fix Forever's social window not being movable (closes #193)"
+    },
+    {
+      "tag": "v3.8.6",
+      "published": "2026-11-04",
+      "notes": "# BlizzMove\n\n## [v3.8.6](https://github.com/Kiatra/BlizzMove/tree/v3.8.6) (2026-11-04)\n[Full Changelog](https://github.com/Kiatra/BlizzMove/compare/v3.8.5...v3.8.6) [Previous Releases](https://github.com/Kiatra/BlizzMove/releases)\n\n- Fix debug sub-addon being incompatible with 4E, fix some widgets being immovable due to ElvUI"
+    },
+    {
+      "tag": "v3.8.5",
+      "published": "2026-10-14",
+      "notes": "# BlizzMove\n\n## [v3.8.5](https://github.com/Kiatra/BlizzMove/tree/v3.8.5) (2026-10-14)\n[Full Changelog](https://github.com/Kiatra/BlizzMove/compare/v3.8.4...v3.8.5) [Previous Releases](https://github.com/Kiatra/BlizzMove/releases)\n\n- TOC Bump  \n- Toc update"
+    },
+    {
+      "tag": "v3.8.4",
+      "published": "2026-09-27",
+      "notes": "# BlizzMove\n\n## [v3.8.4](https://github.com/Kiatra/BlizzMove/tree/v3.8.4) (2026-09-27)\n[Full Changelog](https://github.com/Kiatra/BlizzMove/compare/v3.8.3...v3.8.4) [Previous Releases](https://github.com/Kiatra/BlizzMove/releases)\n\n- Fix several LFG tabs not being movable in Forever"
+    }
+  ],
+  "stats": {
+    "stars": 31,
+    "openIssues": 25,
+    "contributors": 15,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-14",
+      "2026-09-27",
+      "2026-09-26",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-19",
+      "2026-08-26",
+      "2026-08-15",
+      "2026-08-12",
+      "2026-07-22",
+      "2026-07-21",
+      "2026-07-08",
+      "2026-06-21",
+      "2026-06-21",
+      "2026-06-17",
+      "2026-06-05",
+      "2026-04-30",
+      "2026-04-23",
+      "2026-04-03",
+      "2026-03-11",
+      "2026-03-02",
+      "2026-03-01",
+      "2026-02-28",
+      "2026-02-25",
+      "2026-02-11",
+      "2026-02-03",
+      "2026-01-28",
+      "2026-01-21",
+      "2026-01-20",
+      "2026-01-14",
+      "2025-12-25",
+      "2025-12-13",
+      "2025-12-06",
+      "2025-12-03",
+      "2025-11-16",
+      "2025-11-12",
+      "2025-11-09",
+      "2025-11-09",
+      "2025-10-22",
+      "2025-10-08",
+      "2025-10-06",
+      "2025-10-04",
+      "2025-09-24",
+      "2025-09-15",
+      "2025-08-31",
+      "2025-08-24",
+      "2025-08-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BlizzMove",
+      "BlizzMove_Debug"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "BlizzMoveDB"
+    ]
+  }
+}

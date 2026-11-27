@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverdrinking",
+  "repo": "sudo-elmo/ForeverDrinking",
+  "about": "# Forever Drinking\n\nShows on the default Blizzard raid and party frames when someone is **drinking** – for **World of Warcraft: Forever**.\n\nHealers and casters no longer have to ask \"are you drinking?\": a drink icon and/or a \"Drinking\" label appears right on the player's frame as long as they sit and drink.\n\n---\n\n## Features\n\n- Works on the Blizzard raid frames (and raid-style party frames) and on the classic party frames with portraits\n- Show as icon, text or both\n- Own look for raid frames and party frames: position on the frame (e.g. centred in the mana bar), offset, icon size, text size, outline and colour\n- Optional blinking so it stands out more\n- Preview on all frames to set it up (solo: open Edit Mode and tick \"Party Frames\")\n- English and German (follows your game language)\n\n## Commands\n\n| Command | |\n|---|---|\n| `/fdrink` or `/trinken` | Open the settings |\n\nSettings are also under Options → AddOns → Forever Drinking.\n\n## Install\n\nDownload the zip from the latest release and unpack it into `World of Warcraft/_forever_/Interface/AddOns/`.\n\n## License\n\nMIT – see [LICENSE](https://github.com/sudo-elmo/ForeverDrinking/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-14",
+      "notes": "- Drinking indicator on the Blizzard raid frames and on the classic party frames.\n- Icon, text or both; position, offset, size, outline, colour and blinking, set separately for raid and party frames.\n- Preview on all frames to set it up.\n- English and German."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "ForeverDrinking"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverDrinkingDB"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "cursoroutline",
+  "repo": "PeterNumerasz/CursorOutline",
+  "about": "# CursorOutline\n\nA small WoW addon that sticks a marker on your mouse cursor so you can actually find it during busy fights.\n\nWorks on Retail and all current Classic versions.\n\n## Features\n\n- Use a raid marker (Star, Skull, X, ...) or a class/spec icon as the cursor marker.\n- Recolor icons and shapes with a color picker.\n- Show it only in combat, or all the time.\n- Optional global cooldown sweep: the marker flashes and refills clockwise while the GCD runs.\n- On Retail, settings are saved per spec, and the icon switches when you change spec.\n- Doesn't touch actual raid targets, so it won't conflict with DBM, BigWigs, MRT, etc.\n\n## Commands\n\n| Command | What it does |\n| :--- | :--- |\n| `/co` | Show help |\n| `/co config` | Open settings |\n| `/co combat on/off` | `on`: always show the marker, `off`: only in combat |\n| `/co scale <0.5-3.0>` | Change marker size |\n| `/co whatsnew` | Show what changed in recent versions |\n\n## Custom textures\n\n1. Convert your image to a TGA with the Python script in `Tools/` (see `Tools/INSTRUCTIONS.md`).\n2. Put the file in `Textures/Custom/`.\n3. Restart the game (a `/reload` won't pick up new files).\n4. In settings, pick \"[!] Custom File\" as the shape and type the filename.\n\n## Download\n\n[CurseForge](https://www.curseforge.com/wow/addons/cursoroutline)\n\nBugs and suggestions: open an issue on GitHub.\n\n## Credits\n\nIcons by [Game-Icons.net](https://game-icons.net/).",
+  "releases": [
+    {
+      "tag": "v2.0.0",
+      "published": "2026-10-11",
+      "notes": "# CursorOutline\n\n## [v2.0.0](https://github.com/PeterNumerasz/CursorOutline/tree/v2.0.0) (2026-10-11)\n[Full Changelog](https://github.com/PeterNumerasz/CursorOutline/compare/v1.4.1...v2.0.0) [Previous Releases](https://github.com/PeterNumerasz/CursorOutline/releases)\n\n- Merge pull request #13 from PeterNumerasz/feature/whats-new  \n    What's new window (into main)  \n- Merge pull request #11 from PeterNumerasz/feature/gcd-tracker  \n    GCD sweep, Ace3 update, official clients only  \n- Add \"What's new\" window shown after feature updates  \n    - WhatsNew.lua: CHANGELOG (newest first) shown in an AceGUI window once per  \n      update. Feature releases (popup = true) open the window, deferred until  \n      out of combat; bug-fix releases and opted-out users get a chat line.  \n    - Fresh installs see nothing; upgrades from pre-2.0 versions see all entries.  \n    - Last seen version and opt-out are stored account-wide in db.global.  \n    - /co whatsnew reopens the window.  \n    - 2.0.0 changelog entry; README command row; CLAUDE.md release step.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- v2.0.0: Global cooldown sweep, Ace3 update, official clients only  \n    - Add optional GCD sweep (GCD.lua): a Cooldown frame using the marker's own  \n      texture as swipe, so it follows the icon shape. Tinted custom icons flash  \n      white and refill with their color; raid markers get a dark sweep.  \n      Classic Era reports nothing for spell 61304, so fall back to the last  \n      cast spell's cooldown when it is a GCD (<= 1.5s).  \n    - Update embedded Ace3 to WoWUIDev/Ace3 master (40f4cc1). Fixes Midnight  \n      errors when opening settings (numeric category IDs) and in checkboxes  \n      (SetDesaturation removed).  \n    - Target official clients only: trim the Interface list and drop legacy  \n      fallbacks (InterfaceOptions panel, pre-C\\_Spell APIs, manual table copy).  \n    - Add an addon list icon (Textures/Icon.tga, source in Tools/Icon).  \n    - README: GCD feature line, supported versions.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.4.1",
+      "published": "2026-10-11",
+      "notes": "# CursorOutline\n\n## [v1.4.1](https://github.com/PeterNumerasz/CursorOutline/tree/v1.4.1) (2026-10-11)\n[Full Changelog](https://github.com/PeterNumerasz/CursorOutline/compare/v.1.4.0...v1.4.1) [Previous Releases](https://github.com/PeterNumerasz/CursorOutline/releases)\n\n- Merge pull request #10 from PeterNumerasz/optimize-cursor-update-and-fixes  \n    v1.4.1: Code cleanup, bug fixes, and updated client support  \n- v1.4.1: Code cleanup, bug fixes, and updated client support  \n    - Single SPEC\\_ICON\\_LIST drives spec defaults and the shape dropdown  \n    - Simplify options table with shared getter/setter helpers  \n    - Fix settings UI erroring on clients without C\\_Timer (e.g. 3.3.5)  \n    - Open settings via the category ID returned by AceConfigDialog  \n    - Track combat state via events; skip repositioning while the cursor is idle  \n    - Ignore spec-change events from group members  \n    - Unify scale range (0.5-3.0) between slash command and slider  \n    - Add feedback for /co combat and invalid /co scale values  \n    - Remove unused test mode and redundant wrappers  \n    - Add Interface versions for current Retail, Classic flavors, and WoW Forever beta  \n    - Simplify README; fix packager args and .pkgmeta ignore list  \n    - Add CLAUDE.md  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Update README.md"
+    },
+    {
+      "tag": "v.1.4.0",
+      "published": "2026-01-21",
+      "notes": "# CursorOutline\n\n## [v.1.4.0](https://github.com/PeterNumerasz/CursorOutline/tree/v.1.4.0) (2026-01-21)\n[Full Changelog](https://github.com/PeterNumerasz/CursorOutline/compare/v1.3.1...v.1.4.0) [Previous Releases](https://github.com/PeterNumerasz/CursorOutline/releases)\n\n- Merge pull request #9 from PeterNumerasz/fixing\\_issues\\_for\\_earlier\\_wow\\_version\\_incompatibilities  \n    Fixed an issue where earlier wow version that not supported specializations caused the addon to crash.  \n    Now it detects if the current version the addon is running on is capable of specialization detection or not.  \n    If it can handle specs, we can offer full utility to the spec-based icons  \n    Otherwise we let the player use the custom icons, but it can only be saved to the global profile  \n- Added back removed comment  \n    Added back an accidently removed but useful little comment  \n- minor adjustments in descriptions/comments  \n    Minor reframing of the description and comments  \n- v1.4.0: Universal Compatibility (Retail, Classic, & Legacy)  \n    This release makes the addon fully compatible with all WoW versions, from Vanilla (1.12) to The War Within (11.0+).  \n    Feature Detection:  \n    - Implemented intelligent API checking. The addon now detects if the game client supports Specializations.  \n    - **Modern Clients (Retail/Cata+):** \"Spec Profiles\" are enabled. Cursor settings save per-spec and icons auto-switch.  \n    - **Legacy Clients (Vanilla/Era/MoP):** Automatically falls back to \"Global Mode\". \"Spec Profile\" options are hidden to prevent confusion and crashes.  \n    UI Updates:  \n    - Updated Config UI to display \"Legacy Mode\" text when on older clients.  \n    - Hidden \"Enable Spec Profiles\" toggle on clients that lack support.  \n    Structure:  \n    - Added disclaimer to README regarding legacy client limitations."
+    },
+    {
+      "tag": "v1.3.1",
+      "published": "2026-01-21",
+      "notes": "# CursorOutline\n\n## [v1.3.1](https://github.com/PeterNumerasz/CursorOutline/tree/v1.3.1) (2026-01-21)\n[Full Changelog](https://github.com/PeterNumerasz/CursorOutline/compare/v1.3.0...v1.3.1) [Previous Releases](https://github.com/PeterNumerasz/CursorOutline/releases)\n\n- Merge pull request #8 from PeterNumerasz/fix\\_missing\\_tga\\_file  \n    Added the missing TGA file for the Devourer Demon Hunter specialization  \n- Update CursorOutline.toc  \n- Added missing TGA file  \n    Added missing TGA file for Devourer spec"
+    },
+    {
+      "tag": "v1.3.0",
+      "published": "2026-01-21",
+      "notes": "# CursorOutline\n\n## [v1.3.0](https://github.com/PeterNumerasz/CursorOutline/tree/v1.3.0) (2026-01-21)\n[Full Changelog](https://github.com/PeterNumerasz/CursorOutline/compare/v1.2.0...v1.3.0) [Previous Releases](https://github.com/PeterNumerasz/CursorOutline/releases)\n\n- Merge pull request #7 from PeterNumerasz/version\\_update\\_fix  \n    version set to 1.3.0  \n- version set to 1.3.0  \n    version set to 1.3.0  \n- Merge pull request #6 from PeterNumerasz/new\\_spec\\_icon\\_and\\_fixes  \n    Devourer icon added and some fixes implemented  \n- removed unnecessary comment  \n    removed unnecessary comment  \n- Devourer icon added and some fixes implemented  \n    Added a custom icon for the new devourer demon hunter spec, rounding them up to a nice 40!  \n    Fixed an issue where the /co config did not open the config UI  \n    Fixed an issue with the converter python script where it converted the image incorrectly  \n- Update README.md  \n    Added credits and copyright disclaimer for unauthorized use of pictures"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-11",
+    "releaseDates": [
+      "2026-10-11",
+      "2026-10-11",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-20",
+      "2026-01-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CursorOutline"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "CursorOutlineDB"
+    ]
+  }
+}

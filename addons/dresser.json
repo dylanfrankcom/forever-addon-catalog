@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "dresser",
+  "repo": "Vladinator/wow-addon-dresser",
+  "about": "Dresser\n==================\nExpand your dressing room and character dialog with additional features:\n- Additional model control button with the following dropdown menu:\n - Equip targeted player gear onto the shown model\n - Set the model to your targeted player or creature\n - Change race and gender\n - Undress slots (or everything)\n- For the sake of legacy users, the expected shortcut buttons for Undress, Target Gear, Target model and Player model are still present.\n\nTry out other peoples gear without them knowing. Check yourself out as the opposite gender and other races, make informed decisions when paying to customize your character!",
+  "releases": [
+    {
+      "tag": "v12.1.5.261105",
+      "published": "2026-11-05",
+      "notes": "# Dresser\n\n## [v12.1.5.261105](https://github.com/Vladinator/wow-addon-dresser/tree/v12.1.5.261105) (2026-11-05)\n[Full Changelog](https://github.com/Vladinator/wow-addon-dresser/commits/v12.1.5.261105) [Previous Releases](https://github.com/Vladinator/wow-addon-dresser/releases)\n\n- TOC bump.  \n- TOC bump  \n- Updated for TWW.  \n- Update release.yml  \n- Added TOC files for the other clients.  \n- Inspect isn't working properly so turning it off by removing the button, until I figure out what to do with the whole addon as it's kind of in shambles.  \n    Updated the LibDropDown to the latest version.  \n- TOC bump for 10.1  \n- Transmog related adjustments, not quite there yet.  \n- Correct TOC bump for SL pre-patch.  \n- Cleaned up deprecated file.  \n- Create release.yml  \n- Updated LibDropDown.  \n- Patch 9.0 compatibility fixes.  \n- Live and beta support.  \n- Attempting to add the little custom race/gender support that is possible.  \n- - Replaced dropdown library with a newer version that is also XML independent.  \n    - Removed old code and focusing on the new model scene actor system for Shadowlands.  \n- Fixed an issue with the old dressing frames and the pets and mount inspection.  \n- - TOC bump  \n    - Working at using the default new dressing frame and system, but there are complications making it fully support the old dresser features. Until Shadowlands the addon will for sure keep using the old system until a lot of the internal issues that cause crashes of the client are hopefully resolved, and we can fully change to the new dressing room system.  \n- Just to be super safe, ignore the travis file by name.  \n- TOC bump and WoWInterface automatic packaging.  \n- Tweaking Retail and Classic logic.  \n- - Patch 8.2.5 changes the dressing room to use a new system that doesn't quite support the functionality of the old preview model, meaning to support it we will have to overlay the old system and hide the new dressing room. This means you can't use the dressing room to preview how you would look sitting on a mount with the current update. The undress and other functionality seems to work fine, but changing races and genders will always use the original textures so this bug isn't fixable unless Blizzard changes their new API to support changing races and gender like the old.  \n- TOC bump  \n- Need to fix the inspect equip function but it doesn't error anymore if the button is pressed.  \n- - Trying to use an alternative dropdown to avoid taint issues and blame going around. This might not be needed for 8.1 due to changes to the Blizzard code, but no harm to push this out for others to use.  \n- - Added Allied Races in their own menus. Note that Kul Tiran and Zandalari Troll options will not function until the next major patch is released.  \n    - Replaced the way targets are inspected, default behavior uses Blizzards own inspect API to properly equip with that players visual gear. You can still click \"Target gear\" while holding down CTRL/SHIFT/ALT to force the old behavior and see the actual gear they wear. Using the new gear inspect also allows you to save the outfit in your wardrobe.  \n- Updated for BfA.  \n- Fixed the issues with PlaySound.  \n- Patch 7.2 update.  \n- Updated the readme file.  \n- Cleaned up TOC  \n- Initial Legion commit. Recoded the entire addon. Has backwards compatibility for Warlords of Draenor, despite it appearing as \"Out of date\"  \n- Fixed player inspect issue.  \n- License change. Get in touch with me if you wish to discuss.  \n- Added addon files.  \n- Initial commit"
+    },
+    {
+      "tag": "v12.0.0.260119",
+      "published": "2026-01-19",
+      "notes": "# Dresser\n\n## [v12.0.0.260119](https://github.com/Vladinator/wow-addon-dresser/tree/v12.0.0.260119) (2026-01-19)\n[Full Changelog](https://github.com/Vladinator/wow-addon-dresser/commits/v12.0.0.260119) [Previous Releases](https://github.com/Vladinator/wow-addon-dresser/releases)\n\n- TOC bump  \n- Updated for TWW.  \n- Update release.yml  \n- Added TOC files for the other clients.  \n- Inspect isn't working properly so turning it off by removing the button, until I figure out what to do with the whole addon as it's kind of in shambles.  \n    Updated the LibDropDown to the latest version.  \n- TOC bump for 10.1  \n- Transmog related adjustments, not quite there yet.  \n- Correct TOC bump for SL pre-patch.  \n- Cleaned up deprecated file.  \n- Create release.yml  \n- Updated LibDropDown.  \n- Patch 9.0 compatibility fixes.  \n- Live and beta support.  \n- Attempting to add the little custom race/gender support that is possible.  \n- - Replaced dropdown library with a newer version that is also XML independent.  \n    - Removed old code and focusing on the new model scene actor system for Shadowlands.  \n- Fixed an issue with the old dressing frames and the pets and mount inspection.  \n- - TOC bump  \n    - Working at using the default new dressing frame and system, but there are complications making it fully support the old dresser features. Until Shadowlands the addon will for sure keep using the old system until a lot of the internal issues that cause crashes of the client are hopefully resolved, and we can fully change to the new dressing room system.  \n- Just to be super safe, ignore the travis file by name.  \n- TOC bump and WoWInterface automatic packaging.  \n- Tweaking Retail and Classic logic.  \n- - Patch 8.2.5 changes the dressing room to use a new system that doesn't quite support the functionality of the old preview model, meaning to support it we will have to overlay the old system and hide the new dressing room. This means you can't use the dressing room to preview how you would look sitting on a mount with the current update. The undress and other functionality seems to work fine, but changing races and genders will always use the original textures so this bug isn't fixable unless Blizzard changes their new API to support changing races and gender like the old.  \n- TOC bump  \n- Need to fix the inspect equip function but it doesn't error anymore if the button is pressed.  \n- - Trying to use an alternative dropdown to avoid taint issues and blame going around. This might not be needed for 8.1 due to changes to the Blizzard code, but no harm to push this out for others to use.  \n- - Added Allied Races in their own menus. Note that Kul Tiran and Zandalari Troll options will not function until the next major patch is released.  \n    - Replaced the way targets are inspected, default behavior uses Blizzards own inspect API to properly equip with that players visual gear. You can still click \"Target gear\" while holding down CTRL/SHIFT/ALT to force the old behavior and see the actual gear they wear. Using the new gear inspect also allows you to save the outfit in your wardrobe.  \n- Updated for BfA.  \n- Fixed the issues with PlaySound.  \n- Patch 7.2 update.  \n- Updated the readme file.  \n- Cleaned up TOC  \n- Initial Legion commit. Recoded the entire addon. Has backwards compatibility for Warlords of Draenor, despite it appearing as \"Out of date\"  \n- Fixed player inspect issue.  \n- License change. Get in touch with me if you wish to discuss.  \n- Added addon files.  \n- Initial commit"
+    },
+    {
+      "tag": "v10.1.0.230503",
+      "published": "2023-05-04",
+      "notes": "# Dresser\n\n## [v10.1.0.230503](https://github.com/Vladinator/wow-addon-dresser/tree/v10.1.0.230503) (2023-05-04)\n[Full Changelog](https://github.com/Vladinator/wow-addon-dresser/compare/v9.0.0.200818b...v10.1.0.230503) [Previous Releases](https://github.com/Vladinator/wow-addon-dresser/releases)\n\n- TOC bump for 10.1  \n- Transmog related adjustments, not quite there yet.  \n- Correct TOC bump for SL pre-patch."
+    },
+    {
+      "tag": "v9.0.0.200818b",
+      "published": "2020-10-15",
+      "notes": "# Dresser\n\n## [v9.0.0.200818b](https://github.com/Vladinator89/wow-addon-dresser/tree/v9.0.0.200818b) (2020-10-15)\n[Full Changelog](https://github.com/Vladinator89/wow-addon-dresser/compare/v9.0.0.200818...v9.0.0.200818b) [Previous Releases](https://github.com/Vladinator89/wow-addon-dresser/releases)\n\n- Cleaned up deprecated file.  \n- Create release.yml  \n- Updated LibDropDown."
+    },
+    {
+      "tag": "v9.0.0.200818",
+      "published": "2020-10-14",
+      "notes": "# Dresser\n\n## [v9.0.0.200818](https://github.com/Vladinator89/wow-addon-dresser/tree/v9.0.0.200818) (2020-10-02)\n[Full Changelog](https://github.com/Vladinator89/wow-addon-dresser/compare/v8.3.0.200202b...v9.0.0.200818) [Previous Releases](https://github.com/Vladinator89/wow-addon-dresser/releases)\n\n- Patch 9.0 compatibility fixes.  \n- Live and beta support.  \n- Attempting to add the little custom race/gender support that is possible.  \n- - Replaced dropdown library with a newer version that is also XML independent.  \n    - Removed old code and focusing on the new model scene actor system for Shadowlands."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-01-19",
+      "2023-05-04",
+      "2020-10-15",
+      "2020-10-14",
+      "2020-02-02",
+      "2020-02-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Dresser"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "DresserDB"
+    ]
+  }
+}

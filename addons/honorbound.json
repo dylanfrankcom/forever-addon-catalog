@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "honorbound",
+  "repo": "kaselby/rppvp",
+  "about": "![HonorBound: the RP-PvP addon](https://raw.githubusercontent.com/kaselby/rppvp/main/art/header.png)\n\n**[Download HonorBound](https://github.com/kaselby/rppvp/releases/latest/download/HonorBound.zip)**\n\nWoW Forever has no RP-PvP realms. HonorBound is how we build one anyway.\n\nSwear the oath on a character and you stay flagged for PvP, for good. Every\nother sworn player sees a crest on your portrait, your nameplate and your\nname in chat, so you always know who has given their word, and who is fair\ngame.\n\n## What it does\n\n- **Keeps you flagged.** Once sworn, you can't turn PvP off from your portrait.\n  If something unflags you, like leaving a dungeon, your next action bar\n  key or click flags you again. Keep playing and you won't notice.\n- **Gives you 5 minutes.** If you stay unflagged for 5 minutes, your oath\n  breaks and your crest is gone. The clock waits while you're inside a\n  dungeon or away from the keyboard.\n- **Shows the crest.** Sworn players wear a blue (Alliance) or red (Horde)\n  crest in place of the usual PvP icon (on portraits and party frames), on\n  nameplates, and in chat. Hover it\n  to see the level they swore at.\n- **Can't be faked.** On portraits and nameplates, a crest only shows while\n  the game says that player really is flagged. Inside dungeons and raids,\n  where nobody can be flagged, sworn players keep their crest, and party\n  members waiting outside still see it.\n\nYou only see crests on other players who also use HonorBound, so share it\nwith your guild and friends.\n\n## Install\n\n1. [Download HonorBound.zip](https://github.com/kaselby/rppvp/releases/latest/download/HonorBound.zip).\n2. Open your WoW folder. In the Battle.net app, click the gear next to\n   **Play** and choose **Show in Explorer** (or **Show in Finder** on Mac).\n3. Go into **`_classic_beta_`**, then **`Interface`**, then **`AddOns`**.\n   Create the folders if they're missing.\n4. Unzip the download there. You should end up with an `AddOns\\HonorBound`\n   folder.\n5. Restart WoW completely and make sure HonorBound is ticked in the AddOns\n   list at character select.\n\n## Swearing the oath\n\nLog in and HonorBound asks if you want to swear on that character. Click\n**Flag and swear** (or **Swear the oath** if you're already flagged) and\nyou're in. Choose **Not now** and you can swear any\ntime with `/honor swear`.\n\nIf your oath breaks, `/honor swear` takes it again, and your \"since level\"\nstarts over.\n\n## Settings and commands\n\nSettings are under Options > AddOns > HonorBound: reflagging with your\naction bar keys, crests on nameplates and in chat, crest size, and how long\nthe popup waits after a dungeon.\n\n| Type | To |\n|---|---|\n| `/honor` | See your oath and flag status |\n| `/honor options` | Open the settings |\n| `/honor swear` | Swear the oath on this character |\n| `/honor renounce confirm` | Give up the oath |\n| `/honor plates` | Turn crests on nameplates on or off |\n| `/honor chat off` | Hide crests in chat (`on` to bring them back) |\n| `/honor scale 1.2` | Make the crest bigger or smaller (0.6 to 2) |\n\n## Good to know\n\n- Your pledge is **verified** against your play time, like the Hardcore\n  addon: Blizzard's `/played` keeps counting while HonorBound is off, so play\n  it didn't see shows up. A little is allowed for crashes and other computers\n  (2 hours, or 2% of your play since the pledge if that's more); beyond that\n  **your oath breaks**. `/honor` shows where you stand.\n- Your pledge and its verification are saved in a character macro called\n  **HonorBound Save**, so they follow your character to other computers. Don't\n  edit or delete it: an edited macro is ignored, and if it's gone your pledge\n  only lives on this computer until HonorBound recreates it.\n- Crests work across realms, but not across factions.\n- Made by Moderately Aware, Krylea, Jmcq and Raffoo. Found a bug? [Open an issue](https://github.com/kaselby/rppvp/issues).\n- Developers: see [docs/TECHNICAL.md](https://github.com/kaselby/rppvp/blob/main/docs/TECHNICAL.md) for how discovery works, the message protocol and running the tests.",
+  "releases": [
+    {
+      "tag": "v0.7.5",
+      "name": "HonorBound 0.7.5",
+      "published": "2026-10-20",
+      "notes": "**Your oath now follows you, and is checked.**\n- Your pledge is saved in a character macro called **HonorBound Save**, so it follows your character to other computers. Don't edit or delete it. If it's deleted, HonorBound recreates it from this computer's copy.\n- Verification: play HonorBound didn't see (addon off, another computer without it, a crash) is measured from /played at login. Up to 2 hours, or 2% of your play since the pledge if that's more, is allowed; beyond that your oath breaks. `/honor` shows where you stand.\n- Character macros full? A dialog asks you to free one (Open macros / Retry). Not now, once confirmed, stops saving to a macro on that character; turn it back on in Options > AddOns > HonorBound or with `/honor save`.\n\n**Fairer unflag countdown**\n- A new countdown waits for your first action (moving, turning, casting, fighting, looting), so being unflagged while you're away costs nothing.\n- Long loading screens or a frozen client no longer eat into the countdown.\n\n**Finding other players**\n- No more hidden channel: everyone you see or who talks in chat on your faction is asked directly by a hidden whisper, on any realm.\n- Crests from remembered players only show for your own faction.\n- Party members outside your dungeon no longer get a crest just because you're inside.\n- Hearing a player's status over party or guild no longer gets them wrongly marked as not having the addon.\n- `/honor why` explains a missing nameplate crest.\n\n**Other**\n- Nothing is sent during boss encounters or while zoning.\n- `/honor help` lists one command per line; developer messages only show with `/honor debug on`.\n- Fix: debug crests not updating on nameplates, and nameplates sometimes missing their crest.\n- Developers: `/honor simfull on|off` makes macro saves act as if your macros are full, to try the dialog."
+    },
+    {
+      "tag": "v0.5.0",
+      "name": "HonorBound 0.5.0",
+      "published": "2026-10-18",
+      "notes": "- Sworn players you hear from directly (party, guild, your realm) are remembered, so their crest is back the moment you see them after a relog.\n- If the settings page can't be built on your client, you lose only the page, not the addon.\n\nNew since 0.4.5 (from 0.4.6):\n- Party members inside a dungeon or raid keep their crest for the ones waiting outside (both need 0.4.6 or later).\n- Crests on party frames.\n- Settings page: Options > AddOns > HonorBound, or /honor options.\n- Fixes: renouncing hands your action bar keys back; the away pause works after typing /pvp; a new grace period doesn't inherit an old pause; a renounced player's crest doesn't come back after a reload.\n\nComing from 0.4.5 or earlier: restart WoW completely after installing (a file was added). From 0.4.6, /reload is enough."
+    },
+    {
+      "tag": "v0.4.6",
+      "name": "HonorBound 0.4.6",
+      "published": "2026-10-18",
+      "notes": "- Party members inside a dungeon or raid keep their crest for the ones waiting outside (both need 0.4.6).\n- Crests on party frames.\n- Settings page: Options > AddOns > HonorBound, or /honor options. Reflag keys, nameplate and chat crests, crest size, and how long the popup waits after a dungeon (10 s to 2 min).\n- Fixes: renouncing hands your action bar keys back; the away pause works after typing /pvp; a new grace period doesn't inherit an old pause; a renounced player's crest doesn't come back after a reload.\n\nThis version adds a file: restart WoW completely after installing, /reload isn't enough."
+    },
+    {
+      "tag": "v0.4.5",
+      "name": "HonorBound 0.4.5",
+      "published": "2026-10-18",
+      "notes": "**[Download HonorBound.zip](https://github.com/kaselby/rppvp/releases/download/v0.4.5/HonorBound.zip)** and unzip it into `World of Warcraft/_classic_beta_/Interface/AddOns/`, replacing the old HonorBound folder. Fully restart WoW.\n\n- Your crest stays on inside dungeons and raids, and so do other sworn players' crests while you're in there with them. Outside, an unflagged player's crest comes back once they're flagged again.\n- Clearer messages: /honor status, the reflag popup (it no longer tells you to press action bar keys when /honor autoflag is off), and a broken oath.\n- /honor scale and /honor offset now confirm what they did."
+    },
+    {
+      "tag": "v0.4.4",
+      "name": "HonorBound 0.4.4",
+      "published": "2026-10-18",
+      "notes": "**[Download HonorBound.zip](https://github.com/kaselby/rppvp/releases/download/v0.4.4/HonorBound.zip)** and unzip it into `World of Warcraft/_classic_beta_/Interface/AddOns/`. See the [README](https://github.com/kaselby/rppvp#install) for step-by-step install.\n\n- HonorBound now has its own icon in the AddOns list.\n- New README written for players: what the addon is, how to install it, and how the oath works.\n- Credits: Moderately Aware, Krylea, Jmcq and Raffoo."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/kaselby/rppvp/main/art/header.png"
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 1,
+    "contributors": 3,
+    "lastRelease": "2026-10-20",
+    "releaseDates": [
+      "2026-10-20",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HonorBound"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "HonorBoundDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "HonorBoundCharDB"
+    ]
+  }
+}

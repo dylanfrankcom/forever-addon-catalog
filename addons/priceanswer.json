@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "id": "priceanswer",
+  "repo": "Myrroddin/price-answer",
+  "about": "# Price Answer\n\nAutomatically reply to item price checks using available pricing addons and the game's vendor sell prices. Auction addons are optional, and no pricing addon is required to report an available vendor sell price. Players requesting prices do not need any addon.\n\n## Supported clients\n\nClassic Era, active Classic seasons, Burning Crusade Classic, WoW Forever, Mists Classic, and Retail/Mainline.\n\nProviders must support the client you are playing. Price Answer checks for their APIs and skips unavailable functions or data. Oribos Exchange is used only on Retail/Mainline.\n\n## Price priority\n\nEach selected price category independently tries these providers in order:\n\n1. TradeSkillMaster, except on Classic Era without an active season.\n2. YAAHA.\n3. Auctioneer.\n4. AuctionMaster.\n5. Auctionator.\n6. Oribos Exchange (Retail/Mainline only).\n\nMissing, zero, invalid, or failed price queries fall through to the next provider for that category. One reply can therefore contain prices from several providers. Classic Era without an active season does not query TSM for prices. Blizzard also identifies Hardcore and Fresh realms as seasons; they receive TSM priority when the client reports an active season.\n\nEach addon is queried through its own API. External prices are not evaluated through TSM or registered as TSM price sources. Comparable prices share a category for fallback selection, but replies identify the actual provider and metric.\n\n**Vendor sell prices come exclusively from the game, independently of all pricing addons.** The Sell Price category is available on every supported client. When it is enabled, Price Answer queries the game's item information and reports its positive per-item vendor sell price once, multiplied by the requested quantity. An uncached price or a zero sell price is omitted; the addon does not invent a price for an item that cannot be sold.\n\nCategories without data are omitted; if no selected category has data, Price Answer sends no reply.\n\nPrice Answer queries current values on each request; it does not cache prices or subscribe to YAAHA's auction-house update callback. Subsequent requests automatically use the latest committed scan or sync data.\n\n## Price categories\n\nUse the **Price categories** tab to select which values to include. Region market and region historical categories are hidden and excluded from replies on Classic Era without an active season; they remain available on seasonal Classic Era and other supported clients.\n\n| Provider | Available price categories |\n| --- | --- |\n| Game client (no pricing addon required) | Vendor sell price from item information |\n| TradeSkillMaster | Minimum buyout, recent, market, historical, region market, region historical, crafting, destroy |\n| YAAHA | Minimum buyout; current, 3-, 7-, 14-, 30-, and 60-day market values; crafting cost; disenchanting, prospecting, and milling breakdown value |\n| Auctioneer | Minimum buyout, daily average, 3- and 7-day averages through its Simple statistics module; aggregate market value through its public API |\n| AuctionMaster | Lowest buyout and market price |\n| Auctionator | Minimum buyout |\n| Oribos Exchange | Four-day realm median and regional median |\n\nProvider statistics are not interchangeable. Replies name the provider and use its actual metric: for example, AuctionMaster's market price is labeled **Market Value**, rather than claiming it is a 14-day average. TSM's and YAAHA's localized source descriptions are used when available. TSM also supplies translations for recognized external Auctioneer, Auctionator, and Oribos Exchange sources, including on nonseasonal Classic Era where native TSM prices are excluded. When TSM or a description is unavailable, Price Answer uses its own translations. YAAHA's breakdown value covers disenchanting, prospecting, and milling, per input item. YAAHA-only source selections use YAAHA's descriptions and are hidden when those descriptions are unavailable.\n\nThe Oribos Exchange realm category can also supply the market-value fallback. If both selections resolve to that same observation, it appears only once. Auctionator does not fill market or historical categories with its minimum buyout.\n\nAmounts are multiplied by the requested quantity. Item links are preserved for providers that support equipment variants; YAAHA's public price functions accept item IDs. Availability depends on each provider's scans, downloaded data, known recipes, and supported client APIs.\n\nRegular chat replies always use the bundled ChatThrottleLib and are divided into messages of at most 255 bytes. Battle.net whispers use the client's separate Battle.net API.\n\n## Open the settings\n\n- `/priceanswer`\n- `/prans`\n- Esc → Options → AddOns → Price Answer\n\n## Asking for a price check\n\nThe default trigger is the localized `price` word and can be changed in the options. `?` is an additional prefix enabled by default. Both accept an item ID, an item link, or a cached item name, with an optional quantity (default 1).\n\n| Request | Meaning |\n| --- | --- |\n| `price 5[item link]` or `?5[item link]` | Five of the linked item; no space before the link is required |\n| `?51234` or `? 51234` | One of item ID 51234 |\n| `?5 1234` or `? 5 1234` | Five of item ID 1234; the separator between quantity and ID is required |\n| `price item name` | One of a cached item, using its name |\n\nIncoming messages can also be complete price questions containing exactly one real item link, for example:\n\n- `what is [item link] worth?`\n- `how much for [item link]?`\n- `how much is 5[item link] worth?`\n- `price check [item link]`\n\nHere `[item link]` means an actual clickable item link. Natural questions do not resolve plain item names or numeric IDs. The parser preserves the complete link, ignores words and numbers inside its display name, and accepts case, whitespace, and trailing question-mark variations. Quantity must be written in digits immediately before the link, with or without a space. Multiple links and unrecognized sentences receive no reply; quantities such as \"two stacks\" are not inferred.\n\nThe **Incoming messages** tab lets you disable `?` requests or natural questions independently. Recognition languages are independent of the interface language: English and the language reported by the game client are enabled automatically, with no menu selection required. You can enable or disable additional languages in **Languages**. Initial phrase sets cover English, German, French, Spanish (Spain and Latin America), Portuguese, Italian, Russian, Korean, Simplified Chinese, and Traditional Chinese. These are explicit phrase sets, not unrestricted natural-language understanding; additional wording can be added as players report it.\n\nWatched channels, combat restrictions, duplicate suppression, and configured reply channels apply to all request forms. An uncached item name still requires an item ID or link instead.\n\n## Chat channels monitored\n\n- General\n- Trade\n- Local Defence\n- Say, Yell, Guild, Officer\n- Raid, Raid Warning\n- Whisper, BN Whisper\n- Instance\n- Community (Retail)\n\n## Questions & answers\n\nThere is a Help tab in Price Answer's settings with more information.\n\n## Bugs and suggestions\n\n[GO HERE](https://github.com/Myrroddin/price-answer/issues)\n\n## Translate\n\n[GO HERE](https://legacy.curseforge.com/wow/addons/price-answer/localization)",
+  "releases": [
+    {
+      "tag": "1.48",
+      "published": "2026-11-11",
+      "notes": "# Price Answer\n\n## [1.48](https://github.com/Myrroddin/price-answer/tree/1.48) (2026-11-11)\n[Full Changelog](https://github.com/Myrroddin/price-answer/compare/1.47...1.48) [Previous Releases](https://github.com/Myrroddin/price-answer/releases)\n\n- [All] Use the game's vendor sell prices exclusively  \n- [All] Fix reported error from Curseforge comments section"
+    },
+    {
+      "tag": "1.47",
+      "published": "2026-11-06",
+      "notes": "# Price Answer\n\n## [1.47](https://github.com/Myrroddin/price-answer/tree/1.47) (2026-11-06)\n[Full Changelog](https://github.com/Myrroddin/price-answer/compare/1.46...1.47) [Previous Releases](https://github.com/Myrroddin/price-answer/releases)\n\n- [All] Rework price sources, requests, and options  \n- [All] Make all supported addon optional, including TradeSkillMaster  \n- [Forever] Add support  \n- [Retail] Bump ToC for patch 12.1.5  \n- [All] Update external libraries"
+    },
+    {
+      "tag": "1.46",
+      "published": "2026-08-12",
+      "notes": "# Price Answer\n\n## [1.46](https://github.com/Myrroddin/price-answer/tree/1.46) (2026-08-12)\n[Full Changelog](https://github.com/Myrroddin/price-answer/compare/1.45...1.46) [Previous Releases](https://github.com/Myrroddin/price-answer/releases)\n\n- [Retail] Bump ToC for patch 12.1"
+    },
+    {
+      "tag": "1.45",
+      "published": "2026-07-22",
+      "notes": "# Price Answer\n\n## [1.45](https://github.com/Myrroddin/price-answer/tree/1.45) (2026-07-22)\n[Full Changelog](https://github.com/Myrroddin/price-answer/compare/1.44...1.45) [Previous Releases](https://github.com/Myrroddin/price-answer/releases)\n\n- [Classic] Bump Toc for patch 1.15.9"
+    },
+    {
+      "tag": "1.44",
+      "published": "2026-07-13",
+      "notes": "# Price Answer\n\n## [1.44](https://github.com/Myrroddin/price-answer/tree/1.44) (2026-07-13)\n[Full Changelog](https://github.com/Myrroddin/price-answer/compare/1.43...1.44) [Previous Releases](https://github.com/Myrroddin/price-answer/releases)\n\n- [All] Poke for updated libs to prevent errors"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11",
+      "2026-11-06",
+      "2026-08-12",
+      "2026-07-22",
+      "2026-07-13",
+      "2026-07-09",
+      "2026-06-26",
+      "2026-06-19",
+      "2026-06-06",
+      "2026-04-27",
+      "2026-04-24",
+      "2026-03-25",
+      "2026-03-17",
+      "2026-03-17",
+      "2025-08-12",
+      "2025-08-12",
+      "2025-07-31",
+      "2025-07-30",
+      "2025-07-22",
+      "2024-07-24",
+      "2024-07-19",
+      "2024-06-09",
+      "2024-05-13",
+      "2024-05-08",
+      "2024-05-01",
+      "2024-04-08",
+      "2024-04-06",
+      "2024-04-06",
+      "2024-03-20",
+      "2024-02-07",
+      "2024-01-28",
+      "2024-01-17",
+      "2023-11-25",
+      "2023-11-16",
+      "2023-11-08",
+      "2023-11-01",
+      "2023-10-31",
+      "2023-10-16",
+      "2023-10-13",
+      "2023-10-06",
+      "2023-10-06",
+      "2023-10-02",
+      "2023-09-06",
+      "2023-08-23",
+      "2023-07-11",
+      "2023-05-06",
+      "2023-04-05",
+      "2023-03-21",
+      "2023-01-24",
+      "2023-01-12"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "PriceAnswer"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "ChatThrottleLib",
+      "Ace3",
+      "LibAboutPanel-2.0",
+      "Auctionator",
+      "Auc-Advanced",
+      "OribosExchange",
+      "YAAHA",
+      "TradeSkillMaster",
+      "AuctionMaster"
+    ],
+    "savedVariables": [
+      "PriceAnswerDB"
+    ]
+  }
+}

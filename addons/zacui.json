@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "zacui",
+  "repo": "Zac175/ZacUI",
+  "about": "# ZacUI\n\nA complete, fully customizable interface for WoW Classic Era, TBC Anniversary and WoW Forever: unit frames,\nnameplates, action bars, bags, damage and threat meter, class HUDs, raid mods, raid tools, maps and more.\n\n**Download:** [ZacUI on CurseForge](https://www.curseforge.com/wow/addons/zacui) (or the CurseForge app).\nEach `Zacui*` folder goes in `Interface\\AddOns`. Type `/zacui` in game to open the settings.\n\n`/zacui flavor` lists what works differently on the game version you're playing.\n\nCredits for the libraries and OpenMap's seamless world map (MIT) are in\n[`Zacui/CREDITS.md`](https://github.com/Zac175/ZacUI/blob/main/Zacui/CREDITS.md). All rights reserved for ZacUI's own code.",
+  "releases": [
+    {
+      "tag": "3.0.19",
+      "published": "2026-11-23",
+      "notes": "# ZacUI 3.0.19: Timers that catch up when you join late, and easier bag pins\n\n## Added\n- Pull and break timers: join a group late, or log in while one is running, and the bar catches up. A running break is asked from the group's ZacUI and DBM users, a pull countdown from its ZacUI users.\n- /zui timers shows what the pull and break timers asked for and what came back, for when a bar does not show.\n- Bags: take an item out of the pinned row with the x in its corner while you hold Alt, or right-click the + for a list of everything pinned. The Bags page, Look tab, picks the key.\n\n## Fixed\n- A cooldown that began before your PC was restarted showed as a full, greyed cooldown on bag items, bars and trackers. It shows the time really left.\n- Warrior HUD: the second trinket's icon shows its active time, and each trinket icon shows its own trinket's buff. Any trinket you use shows its active time.\n- Party frames under the Classic, WoW Forever and Blizzard styles: the samples in move mode and in the settings look like the real frames, and the real ones no longer sit off to one side after a size change.\n- Seamless map: an error that could come up while the map window changed size."
+    },
+    {
+      "tag": "3.0.18",
+      "published": "2026-11-21",
+      "notes": "# ZacUI 3.0.18: A chat window that stays put in raids\n\n## Fixed\n- With \"Same chat size and spot on every character\" on, the chat window could jump to the game's default place and back over and over in a raid, and the raid or party frames in the chat box went with it or were left out of place until the fight ended. The window stays on its spot."
+    },
+    {
+      "tag": "3.0.17",
+      "published": "2026-11-21",
+      "notes": "# ZacUI 3.0.17: A size for every piece on screen, a macro cleaner, and boss loot\n\n## Added\n- One size for everything ZacUI puts on screen: a slider on the Movers page and in Edit Mode. It reaches the class HUD, trackers, timers, alerts, consumable bars, unit frames, action bars, nameplates and meter windows.\n- Edit Mode: each piece has its own size. Pick a piece to make it smaller or bigger, or to set its width, height, icon size and spacing right there.\n- Class HUDs: every piece has its own scale, and the mana and energy tick strips have a height.\n- Macro cleaner: every macro in one list with a tick. Delete many at once, see which ones nothing uses, and bring one back from the bin. Open it with /zui macros or the Clean up button on the macro window.\n- The macro cleaner can also delete by itself: macros another addon keeps making, or macros that have gone unused for a number of days. Off until you turn it on under Quality of life, Macros.\n- Boss loot: a small card of what a boss dropped and who got it. Off until you turn it on under Quality of life.\n- Loot rolls: a card style with the item's name, bind type and time left, and every part of it is a setting. A new install starts with it; yours stays as it was until you pick it.\n- Loot rolls: the need, greed and pass buttons can wear the game's 3D art or flat icons.\n- Seamless map: Map style in its menu, to go back to the game's map or choose again.\n- Tooltips: a tick to hide the \"Made by\" line on crafted items.\n\n## Changed\n- Borders and thin lines are one screen pixel wide at every UI scale.\n- Class HUDs: a new setup places the trinket row where every screen size shows it. A HUD already set up keeps its place.\n\n## Fixed\n- Bars, timers and other pieces could draw over the open world map. They go behind it now and come back when it closes.\n- Seamless map: dragging the map's header did not move the map.\n- Changing a meter window's scale from its header menu moved the window. It stays in place."
+    },
+    {
+      "tag": "3.0.16",
+      "published": "2026-11-19",
+      "notes": "# ZacUI 3.0.16: Chat that keeps its place and its font, and icon sizes on nameplates\n\n## Added\n- Nameplates: each debuff group has its own icon size, and icon rows have a setting for the space between icons. Raid mod icons have a size as well.\n- Warrior HUD: the second trinket slot can be added to the buff row.\n- Hunter HUD: the Auto Shot bar has its own width and height.\n\n## Changed\n- Class HUDs: a new setup starts with trinket slot 1 only, and slot 2 is a tick on the page. A HUD already set up keeps what it shows.\n\n## Fixed\n- The chat window could jump back to the game's Edit Mode position after a portal, a summon or closing Edit Mode. It stays where you put it, and moving it in Edit Mode is kept.\n- The font picked on Fonts & Textures did not always reach the game's chat windows, or was gone after a reload.\n- A font, size or outline picked for chat messages on the Chat page could be lost after a loading screen.\n- An error at login when another addon's copy of a shared library was broken. The minimap button loads anyway."
+    },
+    {
+      "tag": "3.0.15",
+      "published": "2026-11-19",
+      "notes": "# ZacUI 3.0.15: Looks you can pick: window finish, buttons, the minimap's pieces and the button tray\n\n## Added\n- Style page: the window finish is a choice. Pick a preset (soft depth, flat, dark bands, an accent line under title bars, textured) or set the depth, outlines and one of nine textures yourself.\n- Style page: button depth from flat to deeper, and a plain look for a window's main button.\n- Style page: mouse wheel speed, and smooth scrolling on or off.\n- Minimap: the backing behind the clock, zone name and the other pieces is a choice: solid box, soft shadow, outline only, glass plate, edge fade, or your own.\n- Button tray: it can sit on any edge of the minimap, as a band on the map, or as a tab that opens a grid. It can come out while the mouse is on the map or stay out.\n- Class HUDs: totem timers for Shamans, your own spell, item, buff and debuff icons, marks and the cast's cost on the power bar, a cast bar, and icons that show only with a talent or in a stance or form. All off until you switch them on.\n- Class HUDs: the game's rotation helper can light the next spell.\n- A class resource bar: Holy Power, combo points, Chi, Soul Shards, Essence, Arcane Charges, runes, Stagger and soul fragments. Ironfur and Ignore Pain can show as a time-left bar. Spells with charges show their count.\n- Raid timer: \"The clock starts at\" picks between the first fight with a kill and the first time you enter combat.\n- Readycheck raid configs can hide the damage meter's windows while you are in that raid. The meter keeps counting.\n- Warrior HUD: a cooldown linked to a Readycheck boss reminder reads WAIT until that reminder goes off.\n\n## Changed\n- Consumables bar: the Horde mode option is gone. One \"Weapon stones\" switch turns the bar's weapon buttons on or off, and \"Weapons shown\" picks which ones. The main hand button starts hidden only for Horde on Classic Era.\n- New installs start with a soft shadow behind the minimap's pieces and the button tray on the minimap's left edge. A setup already in use is unchanged.\n- Raid timer: a boss pull starts the clock even when you are not in combat yet, and it starts when you arrive in the middle of a fight.\n\n## Fixed\n- Raid timer: a trash skip before the first pull started the clock. A fight with no kill no longer counts as the start."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Zacui",
+      "Zacui_Auras",
+      "Zacui_Bags",
+      "Zacui_Bars",
+      "Zacui_Blessings",
+      "Zacui_BuffReminders",
+      "Zacui_Clicks",
+      "Zacui_Consumables",
+      "Zacui_HUD",
+      "Zacui_Maps",
+      "Zacui_Meter",
+      "Zacui_Nameplates",
+      "Zacui_Options",
+      "Zacui_QoL",
+      "Zacui_RaidMods",
+      "Zacui_RaidPacks",
+      "Zacui_RaidTools",
+      "Zacui_SBT",
+      "Zacui_UnitFrames",
+      "Zacui_Windows",
+      "Zacui_WorldMap"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0",
+      "ButtonStash",
+      "Readycheck"
+    ],
+    "savedVariables": [
+      "ZacUIDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ZacUICharDB"
+    ]
+  }
+}

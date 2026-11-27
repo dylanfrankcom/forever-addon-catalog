@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "forevericonsearch",
+  "repo": "brandon-rogers/ForeverIconSearch",
+  "about": "# Forever Icon Search\n\nA World of Warcraft addon that adds a search box to icon pickers.\n\nIt works with every picker built on Blizzard's shared `IconSelectorPopupFrameTemplate`:\n\n- Equipment Manager (new or edit set)\n- Macros (`/macro` → New / Change Name/Icon)\n- Guild bank tab icons\n- Any other addon that reuses the template\n\n## What you can search\n\n- **Icon file names**: `sword`, `inv_misc_gem`, `ability_rogue`. About 34k names come from the community listfile.\n- **Spell and item names**: every spell and item in WoW: Forever that uses the icon, whether or not your character has it. For example, `razzashi` finds `ability_mount_raptor`. That's about 37k names across 4k icons, from the game's own data tables.\n- **Names from your character**: spells in your spellbook, collected mounts, equipped gear and items in your bags. This covers anything newer than the bundled data.\n- **File IDs**: `134400`\n- **Several words**: `sword fire` must match both words. Put `-` before a word to exclude it: `sword -fire`.\n\nResults are deduplicated. Clicking a result, the OK button and the All/Spell/Item dropdown all behave as normal.\n\n## Install\n\nCopy the `ForeverIconSearch` folder into:\n\n```\nWorld of Warcraft/_forever_/Interface/AddOns/\n```\n\nIf your client's interface version is newer than the one in `ForeverIconSearch.toc`, update that number or enable \"Load out of date AddOns\".\n\n`/iconsearch` prints how many icon names and spell/item names are loaded, and how many pickers are hooked. `/iconsearch debug` toggles error output from the name collectors.\n\n## How it works\n\nEach picker reads icons through three frame methods: `GetIconByIndex`, `GetNumIcons` and `GetIndexOfIcon`. The addon wraps these on each frame instance. While a search is active they return a filtered list, so Blizzard's own selection and save code runs unchanged.\n\nPickers are found by hooking `IconSelectorPopupFrameTemplateMixin.OnShow`. Every subclass calls it before its own `Update()`, so load-on-demand pickers such as the macro UI are covered too.\n\n## Regenerating the search data\n\nWhen a patch adds icons, spells or items:\n\n```bash\npython3 tools/build_icon_names.py\n```\n\nThis rewrites two generated files:\n\n- `ForeverIconSearch/IconNames.lua`: icon file names, from the latest [wowdev/wow-listfile](https://github.com/wowdev/wow-listfile).\n- `ForeverIconSearch/IconGameNames.lua`: the spell and item names that use each icon, built from the WoW: Forever game tables (`SpellName`, `SpellMisc`, `ItemSparse`, `Item`) on [wago.tools](https://wago.tools/).\n\nRun it with `--help` for options, such as using local copies or rebuilding only one file.\n\n## Offline test\n\n```bash\nlua5.1 tools/test_harness.lua\n```\n\nThis stubs the WoW API and Blizzard's picker to check the hook and filter logic. It does not replace testing in the game.\n\n## Releasing\n\nPushing a `v*` tag runs the [BigWigs packager](https://github.com/BigWigsMods/packager) in GitHub Actions. It builds the zip, uploads it to [CurseForge](https://www.curseforge.com/wow/addons/forever-icon-search) and creates the GitHub release. The version in the `.toc` is filled in from the tag.\n\n```bash\ngit tag v0.1.1\ngit push origin v0.1.1\n```\n\nThis needs a CurseForge API token stored as the `CF_API_KEY` repository secret.\n\n## License\n\n[MIT](https://github.com/brandon-rogers/ForeverIconSearch/blob/main/LICENSE). `ForeverIconSearch/IconNames.lua` is generated from the [wowdev/wow-listfile](https://github.com/wowdev/wow-listfile) community listfile. `ForeverIconSearch/IconGameNames.lua` is generated from game data published on [wago.tools](https://wago.tools/).",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-24",
+      "notes": "# Forever Icon Search\n\n## [v0.2.0](https://github.com/brandon-rogers/ForeverIconSearch/tree/v0.2.0) (2026-11-24)\n[Full Changelog](https://github.com/brandon-rogers/ForeverIconSearch/compare/v0.1.1...v0.2.0) [Previous Releases](https://github.com/brandon-rogers/ForeverIconSearch/releases)\n\n- Search every spell and item name that uses an icon  \n    Adds IconGameNames.lua, generated from the WoW: Forever game tables  \n    (SpellName, SpellMisc, ItemSparse, Item) on wago.tools: about 37k names  \n    across 4k icons. Search now matches any spell or item that uses an icon,  \n    not only ones the current character has. The character-based lookup  \n    stays as a fallback for content newer than the bundled data.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Remove temporary CurseForge check; bump actions/checkout to v5  \n    checkout@v4 runs on the deprecated Node.js 20 runtime.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add temporary CurseForge API check workflow  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.1.1",
+      "published": "2026-11-23",
+      "notes": "# Forever Icon Search\n\n## [v0.1.1](https://github.com/brandon-rogers/ForeverIconSearch/tree/v0.1.1) (2026-11-23)\n[Full Changelog](https://github.com/brandon-rogers/ForeverIconSearch/compare/v0.1.0...v0.1.1) [Previous Releases](https://github.com/brandon-rogers/ForeverIconSearch/releases)\n\n- Fix packaging: point packager at the addon subfolder  \n    The packager looks for the TOC at the repo root; move-folders tells it  \n    the addon lives in ForeverIconSearch/.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Target WoW: Forever only  \n    Drop the retail interface version; the addon has only been tested  \n    on the Forever client.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add CurseForge packaging via BigWigs packager  \n    Pushing a v* tag now builds the addon zip, uploads it to CurseForge  \n    (project 1826624) and creates the GitHub release. Also adds the logo.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-23",
+      "notes": "First release of Forever Icon Search, a search box for World of Warcraft icon pickers.\n\n## Features\n- Adds a search box to every icon picker built on Blizzard's shared icon picker template: Equipment Manager, macros, guild bank tabs, and addons that reuse it.\n- Search by icon file name (about 34,000 names), by spell, mount or item names from your character, or by file ID.\n- Several words must all match; prefix a word with `-` to exclude it.\n- Supports WoW: Forever (interface 16001) and retail (120105).\n\n## Install\nDownload `ForeverIconSearch-v0.1.0.zip` and extract it into `World of Warcraft/_forever_/Interface/AddOns/` (or `_retail_`)."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverIconSearch"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

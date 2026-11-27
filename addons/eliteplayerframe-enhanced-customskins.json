@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "eliteplayerframe-enhanced-customskins",
+  "repo": "jamartinji/epf-custom-skins",
+  "about": "# EPF Custom Skins\n\n[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)\n[![Version](https://img.shields.io/badge/Version-1.6.2-informational)](https://github.com/jamartinji/epf-custom-skins/blob/main/ElitePlayerFrame_Enhanced_CustomSkins.toc)\n[![WoW](https://img.shields.io/badge/WoW-12.1.5%20%2F%2012.1.7-orange)](https://worldofwarcraft.blizzard.com/)\n[![Lua](https://img.shields.io/badge/Lua-5.x-blue)](https://www.lua.org/)\n\nAdd-on that **extends [Elite Player Frame (Enhanced)](https://www.curseforge.com/wow/addons/elite-player-frame-enhanced)** with custom frame textures and extra selection options.\n\n---\n\n## ✨ What This Add-on Adds (vs. Original)\n\n| Feature | Original EPF Enhanced | This add-on |\n| --- | --- | --- |\n| Auto selectors (class/spec/race/sex/faction) | Yes | Uses the same EPF selectors; adds more custom skins that can participate in Auto |\n| Texture framework / custom mode API | Yes | Uses EPF API and ships a curated set of custom textures and rules |\n| Included per-spec skins | Limited to what EPF ships | Expanded predefined set (for example multiple Warlock specs, Devourer) |\n| Included fallback rules (class/race/faction) | Limited to what EPF ships | Expanded predefined fallback entries and alternatives |\n| Options UX for EPF settings | Slash commands + addon compartment controls | Dedicated options panel that controls EPF settings in one place |\n| Manual texture picking | Yes (`/epf frame`) | Yes (same EPF mode list, with custom entries registered by this addon) |\n\n---\n\n## \uD83D\uDCCC Requirements\n\n- **ElitePlayerFrame_Enhanced** must be installed and enabled.\n- Recommended EPF version: **1.11.0+**.\n\n## \uD83D\uDCE5 Installation\n\n1. Install **Elite Player Frame (Enhanced)** first.\n2. Download or clone this addon and place the **ElitePlayerFrame_Enhanced_CustomSkins** folder inside your WoW `_classic_era_` or `_retail_` **Interface\\AddOns** directory.\n3. Enable both addons in the character selection screen (AddOns button) or in-game (Esc → System → AddOns).\n\n---\n\n## ⚙️ Options Panel\n\nThe addon adds a configuration panel under **Esc → System → AddOns → EPF Custom Skins** (or **Interface → AddOns** depending on client). From there you can:\n\n- **Display** — Show or hide the player frame modifications (EPF `display` setting).\n- **Class selection** — Toggle EPF class-based selection in Auto mode.\n- **Sex selection** — Toggle EPF sex-based selection in Auto mode.\n- **Faction selection** — Toggle EPF faction-based selection in Auto mode.\n- **Display in instances** — Toggle EPF `instances` behavior.\n- **Message output level** — Verbosity of addon messages (0 = critical only, higher = more debug).\n- **Reset** — Calls EPF reset and refreshes synced settings.\n- **Available textures** — Scrollable list of all EPF frame modes (built-in + registered custom textures). Use **Filter** to search and click a row to select (`/epf frame N` equivalent).\n\n---\n\n## \uD83C\uDFA8 How to Add Textures\n\n1. Put texture files (e.g. PNG) in the add-on’s **`assets/`** folder.\n2. Add **`-2x`** versions (e.g. `warlock-2x.png`) for high-DPI.\n3. Edit texture definition tables (all fallback files append into `textureConfigFallback` in load order):\n   - **`TextureDefinitions.lua`** → specialization-first entries in `textureConfigSpec`.\n   - **`TextureDefinitionsClassOnly.lua`** → generic class defaults (no spec).\n   - **`TextureDefinitionsRaceFaction.lua`** → race and faction fallbacks.\n   - **`TextureDefinitionsAlternatives.lua`** → alternative / legacy / CUSTOM manual skins.\n   - **`TextureDefinitionsExtra.lua`** → extra atlas cells appended last.\n\nEach entry has:\n   - **id** (recommended): short stable slug (e.g. `\"voidmatte\"`, `\"druidf103\"`). Used for saves/overrides.\n   - **class** (optional): e.g. `\"WARLOCK\"`, `\"DRUID\"`.\n   - **name** and **ext**: file name and extension (e.g. `\"warlock\"`, `\"png\"`).\n   - **spec** / **race** / **faction** (optional): match criteria.\n   - **displayName** (optional): menu label (e.g. for manual-only textures). Override picker shows this, not the id.\n   - **layout** (optional): `\"top\"` | `\"bot\"` | `\"dual\"`, or a table with `preset` + layer overrides.\n     - Default is **`top`** (single layer, upper half of a 512 atlas).\n     - `\"bot\"` = single layer, lower half.\n     - `\"dual\"` = two layers (legacy multi-layer skins).\n   - **pointOffset** / **restIconOffset** (optional): quick overrides without a full layout table.\n\n### Frame layout\n\nIn **`TextureDefinitions.lua`**, **`layoutPresets`** define reusable crops for 512-tall atlases:\n\n- **`top`** (default): single layer, upper half (`y 0–256`), portrait offset `{ 172, 0 }`.\n- **`bot`**: single layer, lower half (`y 256–512`).\n- **`dual`**: two layers (frame + portrait) — for older multi-layer skins.\n\nExamples:\n\n```lua\n{ class = \"DRUID\", spec = 103, name = \"druid_feral\", layout = \"top\" }\n{ class = \"MAGE\", spec = 64, name = \"firefrost\", layout = \"bot\" }\n{ class = \"HUNTER\", spec = 253, name = \"hunter_base&bm\", layout = \"bot\", pointOffset = { 198, 0 } }\n{ class = \"WARLOCK\", name = \"warlock\", ext = \"png\",\n  layout = { preset = \"dual\", layers = { { pointOffset = { 38, -4 } }, { pointOffset = { 168, -4 } } } } }\n```\n\nUnusual crops (non-half atlas, extra atlas cells, etc.) still use a full `layout = { layers = { ... } }` table; values merge onto the chosen preset.\n\n### Load order and priority\n\nAuto selection uses an ordered priority flow:\n\n- Specialization-specific custom entries (`textureConfigSpec`) are evaluated first.\n- Base EPF class defaults are evaluated next.\n- Fallback custom entries (`textureConfigFallback`) are evaluated after base class defaults.\n- Classless fallback entries (race/faction) are last, so they do not override class defaults.\n\n---\n\n## ⌨️ Choosing Textures with /epf\n\nThe base addon provides several slash commands. Use **`/epf help`** to list them.\n\n### Auto selection toggles\n\n- **`/epf class`** — toggles **class-based** frame selection in automatic mode. **Enabled by default.** When on, the addon (and this add-on’s textures) picks the skin by your class (and, with this add-on, by spec/race). When off, automatic mode ignores class.\n- **`/epf spec`** — toggles specialization-based selection in automatic mode.\n- **`/epf race`** — toggles race-based selection in automatic mode.\n- **`/epf sex`** — toggles sex-based selection in automatic mode.\n- **`/epf faction`** — toggles **faction-based** frame selection in automatic mode. **Enabled by default.** When on, entries in `textureConfig` that have **faction** set (e.g. `faction = \"Horde\"`) will only match that faction.\n\nFor automatic behavior, use **`/epf frame 1`** and leave the selector toggles you want enabled.\n\n### Frame mode (picking a texture)\n\nThe base addon lists **all frame modes** (built-in + the ones this add-on registers) and assigns each a **number**:\n\n- **`/epf frame`** — shows the current mode and, with **`/epf frame help`**, the full list with numbers.\n- **`/epf frame 0`** — no custom texture (disabled).\n- **`/epf frame 1`** — **automatic** mode: the addon picks the texture (by class/spec/race when class selection is on; this add-on updates it when you change spec).\n- **`/epf frame 2`**, **`/epf frame 3`**, … — use the texture at that position in the list (fixed until you change it or switch back to 1).\n\nSo for automatic behaviour: **`/epf frame 1`** and leave **`/epf class`** on. To force a single skin: **`/epf frame help`** to see numbers, then **`/epf frame <number>`**.\n\n---\n\n## \uD83E\uDD1D Contributing\n\nYou are welcome to:\n\n- **Propose a pull request (PR)** to add new skins or improve this addon.\n- **Fork this addon** to maintain your own set of textures; you may use this project as a base and publish your fork under the same or a compatible license (see [LICENSE](https://github.com/jamartinji/epf-custom-skins/blob/main/LICENSE.md)).\n\nThere is no “user folder” for custom textures; to add textures, please submit a PR or use a fork.\n\n---\n\n## \uD83D\uDC64 Author\n\n**Drakeinhart**\n\n---\n\n## \uD83D\uDCC4 License\n\nThis addon is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://github.com/jamartinji/epf-custom-skins/blob/main/LICENSE.md). You may share and adapt with attribution; **commercial use is not permitted**, and derivatives must use the same license. See [LICENSE.md](https://github.com/jamartinji/epf-custom-skins/blob/main/LICENSE.md) for the full text.\n\n---\n\n## \uD83D\uDE80 Publishing to CurseForge\n\nA GitHub Actions workflow can build a zip and upload it to CurseForge when you **publish a release** or run it **manually**. Configure the required secrets (API token, project ID, game version IDs) and steps in [.github/CURSEFORGE-SETUP.md](https://github.com/jamartinji/epf-custom-skins/blob/main/.github/CURSEFORGE-SETUP.md).",
+  "releases": [
+    {
+      "tag": "v1.6.2",
+      "name": "Release v1.6.2",
+      "published": "2026-11-10",
+      "notes": "## What's Changed\n* chore: update changelog for version 1.6.2 and fix compatibility with … by @jamartinji in https://github.com/jamartinji/epf-custom-skins/pull/62\n\n**Full Changelog**: https://github.com/jamartinji/epf-custom-skins/compare/v1.6.1...v1.6.2"
+    },
+    {
+      "tag": "v1.6.1",
+      "name": "Release v1.6.1",
+      "published": "2026-11-10",
+      "notes": "## What's Changed\n* chore: update to version 1.6.1 and adjust TOC for Forever support by @jamartinji in https://github.com/jamartinji/epf-custom-skins/pull/61\n\n**Full Changelog**: https://github.com/jamartinji/epf-custom-skins/compare/v1.6.0...v1.6.1"
+    },
+    {
+      "tag": "v1.6.0",
+      "name": "Release v1.6.0",
+      "published": "2026-11-09",
+      "notes": "## What's Changed\n* feat: Forever support by @jamartinji in https://github.com/jamartinji/epf-custom-skins/pull/60\n\n**Full Changelog**: https://github.com/jamartinji/epf-custom-skins/compare/v1.5.0...v1.6.0"
+    },
+    {
+      "tag": "v1.5.0",
+      "name": "Release v1.5.0",
+      "published": "2026-11-09",
+      "notes": "## What's Changed\n* fix: fixed to work correctly with new EPF version, updated changelog … by @jamartinji in https://github.com/jamartinji/epf-custom-skins/pull/59\n\n**Full Changelog**: https://github.com/jamartinji/epf-custom-skins/compare/v1.4.4...v1.5.0"
+    },
+    {
+      "tag": "v1.4.4",
+      "name": "Release v1.4.4",
+      "published": "2026-09-17",
+      "notes": "## What's Changed\n* Styles/v1.4.4 by @jamartinji in https://github.com/jamartinji/epf-custom-skins/pull/58\n\n**Full Changelog**: https://github.com/jamartinji/epf-custom-skins/compare/v1.4.3...v1.4.4"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-09-17",
+      "2026-09-01",
+      "2026-08-28",
+      "2026-08-28",
+      "2026-08-21",
+      "2026-08-20",
+      "2026-08-14",
+      "2026-08-10",
+      "2026-08-07",
+      "2026-08-05",
+      "2026-07-26",
+      "2026-07-20",
+      "2026-07-09",
+      "2026-06-13",
+      "2026-06-06",
+      "2026-06-06",
+      "2026-06-01",
+      "2026-06-01",
+      "2026-05-30",
+      "2026-05-27",
+      "2026-05-25",
+      "2026-05-25",
+      "2026-04-26",
+      "2026-04-25",
+      "2026-04-25",
+      "2026-04-25",
+      "2026-04-25",
+      "2026-04-21",
+      "2026-04-19",
+      "2026-02-28",
+      "2026-02-26",
+      "2026-02-25",
+      "2026-02-24",
+      "2026-02-20",
+      "2026-02-18",
+      "2026-02-18",
+      "2026-02-17",
+      "2026-02-16",
+      "2026-02-16",
+      "2026-02-15",
+      "2026-02-14",
+      "2026-02-14",
+      "2026-02-12",
+      "2026-02-11",
+      "2026-02-11",
+      "2026-02-11"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "ElitePlayerFrame_Enhanced_CustomSkins"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "ElitePlayerFrame_Enhanced"
+    ],
+    "savedVariables": [
+      "EPF_CustomSkins_Options"
+    ]
+  }
+}

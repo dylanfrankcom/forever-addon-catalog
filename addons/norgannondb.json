@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "id": "norgannondb",
+  "repo": "zmarotrix/NorgannonDB",
+  "about": "![NorgannonDB: the open game database for WoW Forever.](https://raw.githubusercontent.com/zmarotrix/NorgannonDB/main/.github/banner.png)\n\n  ![WoW Forever 1.60.1](https://img.shields.io/badge/WoW%20Forever-1.60.1-e7c66c?style=flat-square)\n  ![Schema 1.4](https://img.shields.io/badge/schema-1.4-e7c66c?style=flat-square)\n  ![Licence: GPL-3.0](https://img.shields.io/badge/licence-GPL--3.0-6b5a2e?style=flat-square)\n  ![Status: early development](https://img.shields.io/badge/status-early%20development-b0913f?style=flat-square)\n\n> [!WARNING]\n> **Very much a work in progress.** This is an early build for WoW Forever (client 1.60.1), in\n> active development and testing. Expect missing features, rough edges, bugs, and changes that\n> break things between versions. Bug reports and feedback are welcome in\n> Issues.\n\n**NorgannonDB is an open, crowd-sourced game database for WoW Forever**, packaged as an add-on any\nother add-on can load. It's the record behind the NorgannonDB suite, and it's free for anyone to\nbuild on.\n\n## What's inside\n\n- **Quests**: givers, turn-ins, objectives, requirements, chains and rewards.\n- **Creatures and objects**: where they spawn, what they drop and how often, what vendors sell,\n  and the town services they offer.\n- **Items**: where every item comes from, whether dropped, sold, rewarded or crafted.\n- **Dungeons and raids**: wings, bosses in order, each boss's own loot, keys and attunements.\n- **Professions**: every recipe with its skill-up colours, reagents, and where to learn it, using\n  WoW Forever's own recipes and numbers.\n- **Zones, maps and tracking lists**: flight masters, innkeepers, herbs, ore, rares and more.\n- **Nine languages** besides English.\n\n### Built for WoW Forever, and getting better as you play\n\nNorgannonDB starts from the best community data, QuestieDB and pfQuest, and reads WoW Forever's own\ngame tables where Forever changed things. What's still missing or different on Forever, players\nfill in by playing with the **[NorgannonDB Collector](https://github.com/zmarotrix/NorgannonDBCollector)**.\n\n## The NorgannonDB suite\n\n|   | Add-on | |\n|:-:|---|---|\n| ![](https://raw.githubusercontent.com/zmarotrix/NorgannonDB_Core/main/.github/suite/clairvoyance.png) | **[Clairvoyance](https://github.com/zmarotrix/Clairvoyance)** | Quest helper: your objectives on the map, minimap and compass, and a modern tracker |\n| ![](https://raw.githubusercontent.com/zmarotrix/NorgannonDB_Core/main/.github/suite/oracle.png) | **[Oracle](https://github.com/zmarotrix/Oracle)** | Dungeon and zone atlas: maps, bosses, loot, zones and professions |\n| ![](https://raw.githubusercontent.com/zmarotrix/NorgannonDB_Core/main/.github/suite/norgannondb.png) | **NorgannonDB** | The open game database underneath, with **[NorgannonDB Core](https://github.com/zmarotrix/NorgannonDB_Core)**, the shared runtime |\n| ![](https://raw.githubusercontent.com/zmarotrix/NorgannonDB_Core/main/.github/suite/collector.png) | **[NorgannonDB Collector](https://github.com/zmarotrix/NorgannonDBCollector)** | Help map Azeroth: improves the database while you play |\n| ![](https://raw.githubusercontent.com/zmarotrix/NorgannonDB_Core/main/.github/suite/retrospect.png) | **[Retrospect](https://github.com/zmarotrix/Retrospect)** | Your characters, account-wide: what each one has, knows and has waiting |\n\n## Getting started\n\nYou don't use NorgannonDB on its own: install it with the add-ons that need it. Download it (**Code →\nDownload ZIP**), extract it into your WoW Forever `Interface/AddOns` folder, and rename the folder\nfrom `NorgannonDB-main` to `NorgannonDB`.\n\n---\n\n## Technical details\n\n**Using it in your own add-on**\n\nThe data contract is [SPEC.md](https://github.com/zmarotrix/NorgannonDB/blob/main/SPEC.md) (schema 1.4): record shapes, coordinates, localization,\nplayer variants, corrections and the relation indexes.\n\n```lua\n-- in your TOC:  ## Dependencies: NorgannonDB\nlocal DB = NorgannonDB\nif not DB or not DB:RequireSchema(1, 4) then return end\nlocal quest = DB:Get(\"quests\", 788)\nlocal recipe = DB.recipes[2158]\n```\n\n**Sources and credits**\n\n| Source | What it gives | Licence |\n|---|---|---|\n| [QuestieDB / Questie](https://github.com/Questie/Questie) | quests, NPCs, objects and items; the source of truth | GPL-3.0 |\n| [pfQuest](https://github.com/shagu/pfQuest) by Shagu | drop chances, extra objectives, translations | MIT |\n| DungeonJournal by Exehn | WoW Forever's own instances, bosses and loot | used with the author's permission |\n| [cmangos classic-db](https://github.com/cmangos/classic-db) | recipe sources, trainers, disenchanting | GPL-3.0 |\n| NorgannonDB Collector players | what they recorded in game | the Collector's terms |\n\nFull notices: [NOTICE.md](https://github.com/zmarotrix/NorgannonDB/blob/main/NOTICE.md).\n\n**Licence**\n\nNorgannonDB is free software under the [GNU General Public License v3.0](https://github.com/zmarotrix/NorgannonDB/blob/main/LICENSE), because it\ncontains data from QuestieDB. Compiled and maintained by **Maro**.",
+  "releases": [
+    {
+      "tag": "v1.7.1",
+      "name": "NorgannonDB 1.7.1",
+      "published": "2026-11-23",
+      "notes": "WoW Forever's own zones now have spawn spots instead of trails of sightings, and 215 fixes sent in by players are included."
+    },
+    {
+      "tag": "v1.7.0",
+      "name": "NorgannonDB 1.7.0",
+      "published": "2026-11-19",
+      "notes": "- Quest XP is WoW Forever's own figure for over 5,000 quests, read from the game. Forever pays more for many quests, dungeon quests above all, and add-ons now show what you'll really get.\n- Schema 1.9: quest rewards carry xpConfirmed when the XP is the game's figure."
+    },
+    {
+      "tag": "v1.6.0",
+      "name": "NorgannonDB 1.6.0",
+      "published": "2026-11-18",
+      "notes": "- **PvP and reputation rewards.** Every item now says what it takes to get it: an honor rank, a reputation standing, or one side only. A new index lists each honor rank's and each faction's rewards by standing, including the battleground factions. Oracle 0.14 uses it.\n- Refreshed quest, creature, item, object and recipe data."
+    },
+    {
+      "tag": "v1.5.0",
+      "name": "NorgannonDB 1.5.0",
+      "published": "2026-11-17",
+      "notes": "- **Crafting specializations.** Every recipe that needs one now says so: Armorsmith, Weaponsmith and the three master smiths, Gnomish and Goblin Engineering, and Dragonscale, Elemental and Tribal Leatherworking (145 recipes). Oracle's Professions shows them; this needs Norgannon Core 1.29.\n- **Dungeon quest chains.** The quests that lead into a dungeon's quests, and which dungeon quests can't be shared, from DungeonJournal's research.\n- **Brought up to date:** 153 more quests, 20 more objects, 5 items and 2 creatures."
+    },
+    {
+      "tag": "v1.4.8",
+      "name": "NorgannonDB 1.4.8",
+      "published": "2026-11-14",
+      "notes": "- Quest data refreshed to the latest release.\n- New player finds."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/zmarotrix/NorgannonDB_Core/main/.github/suite/clairvoyance.png",
+    "https://raw.githubusercontent.com/zmarotrix/NorgannonDB_Core/main/.github/suite/oracle.png",
+    "https://raw.githubusercontent.com/zmarotrix/NorgannonDB_Core/main/.github/suite/norgannondb.png",
+    "https://raw.githubusercontent.com/zmarotrix/NorgannonDB_Core/main/.github/suite/collector.png",
+    "https://raw.githubusercontent.com/zmarotrix/NorgannonDB_Core/main/.github/suite/retrospect.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-14",
+      "2026-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NorgannonDB"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

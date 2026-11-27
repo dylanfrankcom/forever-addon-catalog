@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "quartz",
+  "repo": "Nevcairiel/Quartz",
+  "releases": [
+    {
+      "tag": "3.8.0",
+      "published": "2026-11-13",
+      "notes": "# Quartz\n\n## [3.8.0](https://github.com/Nevcairiel/Quartz/tree/3.8.0) (2026-09-23)\n[Full Changelog](https://github.com/Nevcairiel/Quartz/compare/3.7.17...3.8.0) [Previous Releases](https://github.com/Nevcairiel/Quartz/releases)\n\n- Fix swing timer for queued melee attacks in Classic and TBC  \n- Update locale script to handle TOC directives  \n- Fix some retail checks that should also include forever  \n- Remove redundant upvalues  \n- Add forever channeling ticks, cloned from classic era  \n- Replace AceEvent and AceBucket with our own event handling  \n    Events are now registered through a small dispatcher of our own, which  \n    gives every module a frame for its events. That allows registering  \n    events for specific units, which the client then filters, instead of  \n    receiving them for every unit.  \n    - All modules register their events through the new functions, with  \n      unit events where the event was only needed for some units  \n    - Modules unregister their events when they are disabled, which  \n      AceEvent did for them before  \n    - The cast bars register their events for the unit of the bar  \n    - The bucket for UNIT\\_AURA in the Buff module is replaced by a timer  \n    - AceEvent is only used for the message to update the Mirror timers  \n      anymore, which other addons may send  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add a recorder for swings to the tests, and load them on Forever  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add a Swing module for WoW Forever  \n    Forever announces every swing of the player through PLAYER\\_SWING, with  \n    the time until the next one. The attack speed of the player is secret  \n    in combat, and the combat log is not available, so the swings can't be  \n    put together like on other clients.  \n    This adds a second implementation of the module for Forever, which  \n    uses the same settings and runs the bar on the announced duration.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add a probe for AuraContainers to the tests  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add a Buff module based on AuraContainers for retail and Forever  \n    Aura information is secret on these clients, the bars of the Buff  \n    module can no longer be built from it. This adds a second  \n    implementation of the module, which uses the same settings, and is  \n    loaded instead of the original one on mainline clients.  \n    The bars are provided by Blizzards AuraContainer. It creates a button  \n    for every aura, which is filled with the pieces of a bar: a status bar,  \n    icon, name, time and the number of applications. The container drives  \n    those from the aura, and colors debuffs by their dispel type.  \n    - Bars can no longer be fixed to a duration  \n    - The number of applications is shown separate from the name  \n    - The look of the bars can only be changed while auras are not secret,  \n      changes during combat are applied afterwards  \n    - The containers are told to update when the unit changes, and  \n      regularly, as they miss the removal of some auras  \n    - Free bars are moved through a stand-in frame  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add a recorder for UNIT\\_SPELLCAST\\_SENT to the tests  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Fix the Range module and disable it on clients with secrets  \n    The global IsSpellInRange no longer exists, and the range check never  \n    matched the result of C\\_Spell.IsSpellInRange, which is used on all  \n    clients now, with the id of the spell.  \n    The unit a spell is cast at is only known by its name, which is secret  \n    for most units on retail and Forever. The module can't match the name  \n    to a unit there, and is no longer loaded on those clients.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add WoW Forever to the TOC  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add a recorder for the global cooldown to the tests  \n    /qtest gcd records the cooldown information of casts, and how well the  \n    global cooldown can be followed from the spell that was cast.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Make the GCD bar work with secret cooldowns  \n    The cooldown of a spell is secret, so the global cooldown can no longer  \n    be recognized by its length, or its progress be calculated.  \n    A spell reports if it is on the global cooldown, which is never secret.  \n    Its cooldown duration then runs a status bar without a visible fill,  \n    which the spark is anchored to. A secret duration can't tell when it  \n    expired, so the bar is hidden once the spell is no longer on the global  \n    cooldown.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add tests for the look of uninterruptible casts  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Make the look of uninterruptible casts work with secret values  \n    Whether a cast can be interrupted is a secret boolean for most units,  \n    which can not be tested. Instead of switching the look in Lua, both  \n    looks are set up and the client picks from the boolean:  \n    - The bar color is evaluated with EvaluateColorValueFromBoolean  \n    - The no interrupt border is a separate frame shown through  \n      SetAlphaFromBoolean, while the regular border is faded out  \n    - The shield is shown through SetAlphaFromBoolean  \n    A cast that becomes interruptible now also gets its regular bar color  \n    back.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Silence unused variable warnings for variable starting with an underscore  \n- Fix opening the options from the slash command  \n    Settings.OpenToCategory expects the category ID returned from  \n    AddToBlizOptions, not the name of the category.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add tests and probes for duration driven cast bars  \n    - Regression cases for the cast bar running on a duration: formatter,  \n      replaced and shifted durations, stop and interrupt handlers, module  \n      callbacks, zero-length casts and the flight timer  \n    - /qtest baseline samples the player bar on every frame of a cast  \n    - /qtest probe and /qtest record document how the client behaves with  \n      durations, timers and secret casts  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Run the cast bars on DurationObjects  \n    The cast bars are now driven by StatusBar:SetTimerDuration with the  \n    duration of the units cast, instead of calculating the progress from  \n    raw time values on every frame. This also works for units whose cast  \n    times are secret, like target and focus.  \n    - The spark is anchored to the bar texture  \n    - The time text is formatted through a NumericRuleFormatter, which  \n      replicates Util.TimeFormat and can format secret values  \n    - Casts with secret times end through their events only, are treated  \n      as interruptible, and don't show pushback  \n    - Latency shifts the duration of the bar, Flight starts its timer  \n      through the new StartTimer, and Tradeskill no longer resets the  \n      range of the bar, which would stop the duration  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add in-game tests for the status bar  \n    Quartz\\_Tests is a development-only addon, excluded from packaging. It  \n    compares the native status bar against the previous implementation and  \n    drives the player cast bar with synthetic casts. Run with /qtest.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Replace the custom status bar with a native StatusBar  \n    The hand-rolled status bar is replaced by a StatusBar widget, created  \n    through the same Quartz3:CreateStatusBar factory. The native widget  \n    errors on NaN values, so guard the cast bar against zero-",
+      "truncated": true
+    },
+    {
+      "tag": "3.7.17",
+      "published": "2026-01-18",
+      "notes": "# Quartz\n\n## [3.7.17](https://github.com/Nevcairiel/Quartz/tree/3.7.17) (2026-01-18)\n[Full Changelog](https://github.com/Nevcairiel/Quartz/compare/3.7.16a...3.7.17) [Previous Releases](https://github.com/Nevcairiel/Quartz/releases)\n\n- Update TOC and packaging"
+    },
+    {
+      "tag": "3.7.16a",
+      "published": "2025-09-09",
+      "notes": "# Quartz\n\n## [3.7.16a](https://github.com/Nevcairiel/Quartz/tree/3.7.16a) (2025-09-09)\n[Full Changelog](https://github.com/Nevcairiel/Quartz/compare/3.7.16...3.7.16a) [Previous Releases](https://github.com/Nevcairiel/Quartz/releases)\n\n- Update TOC for 11.2 and 11.2.5"
+    },
+    {
+      "tag": "3.7.16",
+      "published": "2025-07-06",
+      "notes": "# Quartz\n\n## [3.7.16](https://github.com/Nevcairiel/Quartz/tree/3.7.16) (2025-03-04)\n[Full Changelog](https://github.com/Nevcairiel/Quartz/compare/3.7.15a...3.7.16) [Previous Releases](https://github.com/Nevcairiel/Quartz/releases)\n\n- Update retail channeling ticks  \n    Add channeling ticks for several spells.\n  \n    Remove Essence Font and unused versions of Void Torrent and Shifting Power.  \n- Update Channeling Ticks for Mists of Pandaria Classic  \n    Based on data provided in #99  \n    Fixes #99  \n    Fixes #100"
+    },
+    {
+      "tag": "3.7.15a",
+      "published": "2025-07-03",
+      "notes": "# Quartz\n\n## [3.7.15a](https://github.com/Nevcairiel/Quartz/tree/3.7.15a) (2025-07-03)\n[Full Changelog](https://github.com/Nevcairiel/Quartz/compare/3.7.15...3.7.15a) [Previous Releases](https://github.com/Nevcairiel/Quartz/releases)\n\n- Split TOC into different lines again"
+    }
+  ],
+  "stats": {
+    "stars": 34,
+    "openIssues": 24,
+    "contributors": 21,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13",
+      "2026-01-18",
+      "2025-09-09",
+      "2025-07-06",
+      "2025-07-03",
+      "2025-01-10",
+      "2024-08-14",
+      "2024-07-27",
+      "2024-07-20",
+      "2024-06-26",
+      "2024-05-01",
+      "2024-03-20",
+      "2023-11-28",
+      "2023-07-12",
+      "2023-05-03",
+      "2023-03-22",
+      "2022-12-30",
+      "2022-12-30",
+      "2022-11-15",
+      "2022-10-25",
+      "2022-08-30",
+      "2022-06-27",
+      "2022-06-27",
+      "2022-02-23",
+      "2021-12-15",
+      "2021-09-21",
+      "2021-06-29",
+      "2021-05-21",
+      "2021-03-15",
+      "2021-03-15",
+      "2020-11-18",
+      "2020-10-16",
+      "2020-10-13",
+      "2019-10-29",
+      "2019-10-29",
+      "2019-10-29",
+      "2019-09-25",
+      "2019-08-27",
+      "2019-08-27"
+    ]
+  },
+  "languages": [
+    "frFR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Quartz"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDualSpec-1.0",
+      "LibWindow-1.1",
+      "LibSharedMedia-3.0",
+      "AceGUI-3.0-SharedMediaWidgets",
+      "SharedMedia"
+    ],
+    "savedVariables": [
+      "Quartz3DB"
+    ]
+  }
+}

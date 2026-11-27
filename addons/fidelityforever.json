@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "fidelityforever",
+  "repo": "zmsl/FidelityForever",
+  "about": "# Fidelity Forever\n\nGraphics and audio settings for WoW Forever, including a lot that the game's own menu doesn't show. You get a few\npresets to start from, and you can save your own. It all lives in the normal Options window, under AddOns.\n\nUnder the hood it changes the game's console variables (CVars).\n\nAlso on [CurseForge](https://www.curseforge.com/wow/addons/fidelity-forever).\n\n## What it does\n- **Presets:** Default, Performance, Balanced, Adaptive, High, Beyond Ultra and Screenshot. You can't edit a preset\n  directly. Change something and you save it as your own setting, which you can rename, delete or copy.\n- **101 settings on 12 pages.** Graphics has World, Ground clutter, Lighting & shadows, Effects & particles, Water &\n  sky, Characters & threads, Loading & memory, and Display & HDR. Audio has Output, Effects, Memory, and Gameplay\n  sounds.\n- **Tooltips:** hover the \"i\" next to a setting to see what it does. Settings your client doesn't have are hidden.\n- **Search:** you can find any of these settings from the Options search box.\n- **Apply button:** nothing changes until you hit Apply. Until then, a bar at the bottom of the Options window shows\n  how many changes you have waiting.\n- **Re-apply:** if the game's own Graphics menu (or a reset) changes one of your settings, that setting gets a Re-apply\n  button.\n- **Adaptive performance (optional):**\n  - If your frame rate stays under a target you set, it turns a few things down, then puts them back once things\n    calm down.\n  - It never changes your saved settings.\n  - The Adaptive preset has it on, and you can turn it on for your own settings.\n- **Faster loading screens (optional):** it shortens view distances while you're logged out, then puts yours back\n  after you log in.\n- **Crash-prone values:** a few values are known to crash the game. It asks before using them and saves your current\n  settings first.\n- **Refused values:** if the game refuses a value, you'll see a message.\n- **Combat:** anything you apply in combat waits until combat ends.\n- **Screenshot mode:** bind \"Screenshot mode on/off\" and \"Back to my setting\" under Key Bindings. No keys are bound by\n  default.\n- **Troubleshooting page:** Safe mode, Undo last apply, and a button to restore the settings you had before installing.\n\n## Commands\n- `/ff` or `/fidelity`: open the settings\n- `/ff safe`: switch to the Performance preset\n- `/ff undo`: undo the last apply\n- `/ff probe`: saves what your client reports about each setting. Handy for bug reports.\n\n## Install\nGrab the zip from [Releases](https://github.com/zmsl/FidelityForever/releases) or CurseForge, and unzip it into\n`World of Warcraft/_forever_/Interface/AddOns/`.\n\n## Bugs and ideas\nOpen an [issue](https://github.com/zmsl/FidelityForever/issues). If a setting misbehaves, run `/ff probe` and include\nthe result.\n\n## Development\n- It's for WoW Forever only (`## Interface: 16001`). Game APIs were checked against the Forever UI source and the\n  Forever CVar list in Ketho's BlizzardInterfaceResources (`forever` branch).\n- No library dependencies.\n- Run `make bootstrap` once. It puts Lua 5.1 and luacheck in `.lua/` and needs Python.\n- Then `make check` runs lint, a syntax check, the core and data tests, and the release tool tests.\n- `Data.lua` has the pages, settings (label, range or options, tooltip) and presets. You edit it by hand, and\n  `tests/data_test.lua` checks it: preset values in range, no crash values in presets, every setting on exactly one\n  page and with a tooltip.\n- **Releasing:**\n  1. Push a `v*` tag. GitHub checks everything, builds the zip with the BigWigs packager and makes a draft release.\n     (`make package-check` does the same build locally.)\n  2. Publish the draft. That uploads the zip to CurseForge (`fidelity-forever`, 1807957) using the `CF_API_KEY`\n     secret.\n  3. A tag with a dash, like `v0.2.0-rc.1`, goes up as a beta.\n\n## License\nGPL-3.0. See [LICENSE](https://github.com/zmsl/FidelityForever/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-15",
+      "notes": "First release.\n\n- Graphics and audio settings for WoW Forever, in Options > AddOns: 101 settings on 12 pages, each with a tooltip.\n- Presets: Default, Performance, Balanced, Adaptive, High, Beyond Ultra and Screenshot. Change anything and save it as\n  your own setting.\n- Nothing changes until you hit Apply. A bar at the bottom of the Options window shows what's waiting.\n- Adaptive performance (optional) turns a few things down while your frame rate is under your target, and puts them\n  back once it recovers.\n- If the game changes one of your settings, that setting gets a Re-apply button.\n- Optional faster loading screens, screenshot-mode key bindings, and a Troubleshooting page with Safe mode, Undo and\n  Restore.\n- Commands: `/ff`, `/ff safe`, `/ff undo`, `/ff probe`.\n\nFound a problem? Open an issue at https://github.com/zmsl/FidelityForever/issues and include `/ff probe` output if it's\nabout a setting."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FidelityForever"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "FidelityForeverDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "FidelityForeverCharDB"
+    ]
+  }
+}

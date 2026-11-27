@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "actionbarsaverreloaded",
+  "repo": "cjlanzo/ActionBarSaverReloaded",
+  "about": "# ActionBarSaver:Reloaded\n\n## Overview\n\nActionBarSaver:Reloaded is an addon for saving and restoring action bar profiles. It is based on the original ActionBarSaver addon but is a full re-write.\n\nAll sets are saved by class rather than by character. Additionally, when you list profiles, you will only see profiles that pertain to your class.\n\nFeatures such as rename have been deleted for simplicity. To perform a rename, simply save the set with a new name and delete the old set. Additionally, restoring a set will no longer try to re-create macros that do not exist. It will simply notify you of the missing macro and restore nothing for that slot. ABS:R will not work properly if you have multiple macros with the same name, and will warn you of potential issues if you restore a set that has a macro with a shared name.\n\nAlias groups let one set work on characters that can't have the same spells, items or mounts. For example, a troll has `Berserking` and a tauren has `War Stomp`. Put both in a group with `/abs alias spell racials 20554 20549`, and restoring a set that has either one places whichever one the character has. A group can hold as many IDs as you want, and works in both directions. Groups are kept per type (`spell`, `item` or `mount`), so you name the type in every alias command. Groups are shared by every character on your account.\n\nTo copy a set to another account, run `/abs export <set>` and copy the text it shows. On the other account, run `/abs import` and paste it. Only that set is replaced, so the other account keeps its own alias groups, and restoring the set swaps in that character's racials and mounts. `/abs export aliases` copies your alias groups the same way. Importing never overwrites a set or alias groups without asking first. A set can only be imported on a character of the same class.\n\n## Usage\n\nEvery command also works as `/absr`. Use it on clients where `/abs` is taken, such as French, where `/abs` means `/afk`.\n\n`/abs save <set>` - Saves your current action bar setup under the given \\\n`/abs restore <set>` - Restores the saved \\\n`/abs delete <set>` - Deletes the saved \\\n`/abs list` - Lists all saved sets\\\n`/abs alias <spell|item|mount> <group> <id> [id...]` - Adds IDs to an alias group, creating it if needed\\\n`/abs unalias <spell|item|mount> <group> [id...]` - Removes IDs from a group, or the whole group if no IDs are given. A group with no IDs left is deleted\\\n`/abs aliases` - Lists all alias groups\\\n`/abs export <set>` - Shows the  as text to copy to another account\\\n`/abs export aliases` - Shows your alias groups as text to copy to another account\\\n`/abs import [set]` - Imports a set or alias groups. Give  to save the set under a different name",
+  "releases": [
+    {
+      "tag": "2.2.0",
+      "published": "2026-11-13",
+      "notes": "# Changelog\n\n## 2.2.0\n\n- `/absr` now works as well as `/abs`. On French clients, `/abs` is the game's `/afk` command, so use `/absr` there.\n- Spells that change with your form, such as Feral Charge in cat or bear form, now restore on Cata and Mists.\n\n## 2.1.0\n\n- Copy sets and alias groups to another account with `/abs export` and `/abs import`, without copying your WTF folder.\n- Aliases are now named groups, and work in both directions: `/abs alias spell racials 20554 20549`. Groups can hold items and mounts too, and are shared by every character on your account. Your old aliases have been removed, so set them up again with the new command. Type `/abs` to see all the alias commands.\n\n## 2.0.2\n\n- Transmog outfits on your action bars now restore on Forever.\n\n## 2.0.1\n\n- Mounts now restore on Forever. Sets you already saved keep working, so you don't need to save them again.\n\n## 2.0.0\n\n- Re-save any set that contains macros. Sets saved with 1.0.0 on Forever or the Classic beta are missing some macro names, so those macros fail to restore with \"Unable to restore macro with id [?]\". Set your bars up again and run `/abs save <name>` to replace the set.\n- Restoring a set that contains a flyout no longer stops with an error. The addon skips that slot, tells you which one, and restores the rest.\n- One download now works on Era, TBC, Wrath, Cata, Mists and Forever."
+    },
+    {
+      "tag": "2.1.0",
+      "published": "2026-11-12",
+      "notes": "# Changelog\n\n## 2.1.0\n\n- Copy sets and alias groups to another account with `/abs export` and `/abs import`, without copying your WTF folder.\n- Aliases are now named groups, and work in both directions: `/abs alias spell racials 20554 20549`. Groups can hold items and mounts too, and are shared by every character on your account. Your old aliases have been removed, so set them up again with the new command. Type `/abs` to see all the alias commands.\n\n## 2.0.2\n\n- Transmog outfits on your action bars now restore on Forever.\n\n## 2.0.1\n\n- Mounts now restore on Forever. Sets you already saved keep working, so you don't need to save them again.\n\n## 2.0.0\n\n- Re-save any set that contains macros. Sets saved with 1.0.0 on Forever or the Classic beta are missing some macro names, so those macros fail to restore with \"Unable to restore macro with id [?]\". Set your bars up again and run `/abs save <name>` to replace the set.\n- Restoring a set that contains a flyout no longer stops with an error. The addon skips that slot, tells you which one, and restores the rest.\n- One download now works on Era, TBC, Wrath, Cata, Mists and Forever."
+    },
+    {
+      "tag": "2.0.2",
+      "published": "2026-11-12",
+      "notes": "# Changelog\n\n## 2.0.2\n\n- Transmog outfits on your action bars now restore on Forever.\n\n## 2.0.1\n\n- Mounts now restore on Forever. Sets you already saved keep working, so you don't need to save them again.\n\n## 2.0.0\n\n- Re-save any set that contains macros. Sets saved with 1.0.0 on Forever or the Classic beta are missing some macro names, so those macros fail to restore with \"Unable to restore macro with id [?]\". Set your bars up again and run `/abs save <name>` to replace the set.\n- Restoring a set that contains a flyout no longer stops with an error. The addon skips that slot, tells you which one, and restores the rest.\n- One download now works on Era, TBC, Wrath, Cata, Mists and Forever."
+    },
+    {
+      "tag": "2.0.1",
+      "published": "2026-11-11",
+      "notes": "# Changelog\n\n## 2.0.1\n\n- Mounts now restore on Forever. Sets you already saved keep working, so you don't need to save them again.\n\n## 2.0.0\n\n- Re-save any set that contains macros. Sets saved with 1.0.0 on Forever or the Classic beta are missing some macro names, so those macros fail to restore with \"Unable to restore macro with id [?]\". Set your bars up again and run `/abs save <name>` to replace the set.\n- Restoring a set that contains a flyout no longer stops with an error. The addon skips that slot, tells you which one, and restores the rest.\n- One download now works on Era, TBC, Wrath, Cata, Mists and Forever."
+    },
+    {
+      "tag": "2.0.0",
+      "published": "2026-10-11",
+      "notes": "# Changelog\n\n## 2.0.0\n\n- Re-save any set that contains macros. Sets saved with 1.0.0 on Forever or the Classic beta are missing some macro names, so those macros fail to restore with \"Unable to restore macro with id [?]\". Set your bars up again and run `/abs save <name>` to replace the set.\n- Restoring a set that contains a flyout no longer stops with an error. The addon skips that slot, tells you which one, and restores the rest.\n- One download now works on Era, TBC, Wrath, Cata, Mists and Forever."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-10-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ActionBarSaverReloaded"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "ActionBarSaverReloaded"
+    ]
+  }
+}

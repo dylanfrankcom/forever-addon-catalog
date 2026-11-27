@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "minireload",
+  "repo": "nym1k/MiniReload",
+  "about": "# MiniReload\n\nA minimap button that reloads your UI. One click, no typing.\n\nHandy when a controller or bar addon breaks and you can't reach `/reload`:\nthe button sits on the minimap, independent of your action bars.\n\n## Usage\n\n| Action | Result |\n|---|---|\n| Left-click the minimap button | Reload the UI |\n| Hover over the minimap button | See when you last reloaded (or logged in), e.g. `Reloaded 12 min ago (14:32)` |\n| Drag the minimap button | Move it around the minimap edge |\n| `/rl` or `/minireload` | Reload the UI |\n| `/minireload hide` / `/minireload show` | Hide or show the minimap button |\n\nIf another addon also registers `/rl`, whichever loads last owns it. Both\nreload, so it doesn't matter.\n\n## Supported versions\n\nRetail, Classic Era, TBC Anniversary, and WoW: Forever.\n\n## Install\n\nDownload `MiniReload-<version>.zip` from the\n[Releases](https://github.com/nym1k/MiniReload/releases) page and extract it\ninto `World of Warcraft/<version>/Interface/AddOns/`, so you end up with\n`Interface/AddOns/MiniReload/MiniReload.toc`. The release zip includes the\nlibraries it needs.\n\nInstalling from a clone of this repo instead? The libraries aren't\ncommitted, so you'd need to fetch them yourself (see `.pkgmeta`).\n\n## Libraries\n\nUses [LibDataBroker-1.1](https://github.com/tekkub/libdatabroker-1-1) and\n[LibDBIcon-1.0](https://www.curseforge.com/wow/addons/libdbicon-1-0) (with\nLibStub and CallbackHandler-1.0), the standard minimap button libraries, so\nminimap button collectors and minimap skins handle it like any other addon\nicon.\n\n## License\n\nMIT, see [LICENSE](https://github.com/nym1k/MiniReload/blob/main/LICENSE). The bundled libraries keep their own licenses.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "MiniReload 1.0.0",
+      "published": "2026-10-03",
+      "notes": "First release.\n\n- Minimap button: click to reload your UI, drag to move it around the minimap.\n- Hover to see when you last reloaded (or logged in).\n- Adds `/rl` (and `/minireload`) to reload from chat. `/minireload hide` / `/minireload show` toggles the icon.\n- Supports Retail, Classic Era, TBC Anniversary and WoW: Forever.\n\n**Install:** download `MiniReload-1.0.0.zip` below and extract it into `World of Warcraft/<version>/Interface/AddOns/`. The zip includes the libraries it needs."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-03",
+    "releaseDates": [
+      "2026-10-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MiniReload"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "MiniReloadDB"
+    ]
+  }
+}

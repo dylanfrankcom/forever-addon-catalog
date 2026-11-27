@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "aquaticambience",
+  "repo": "rampagingrhinoceros/wow-forever-aquatic-ambience",
+  "about": "# Aquatic Ambience for WoW Forever\n\nPlay the Donkey Kong Country underwater theme whenever your character is submerged. Music starts on a dive, loops underwater, and stops when you surface.\n\n**[Download AquaticAmbience.zip](https://github.com/rampagingrhinoceros/wow-forever-aquatic-ambience/releases/latest/download/AquaticAmbience.zip)**\n\nThe installable ZIP includes the free **[NoteBlock remix](https://noteblock.bandcamp.com/track/aquatic-ambience-donkey-kong-country-remix)** with vocals by skig___. It is a remix, not the original SNES recording. See [audio credits and license](https://github.com/rampagingrhinoceros/wow-forever-aquatic-ambience/blob/main/Music/CREDITS.txt).\n\n## Install\n\n1. Exit WoW completely.\n2. Download **AquaticAmbience.zip** from the release above. GitHub's automatic source ZIPs do **not** include the audio.\n3. Extract the `AquaticAmbience` folder into your Forever client's `Interface/AddOns/` directory, normally `World of Warcraft/_forever_/Interface/AddOns/`.\n4. Confirm the final path is `Interface/AddOns/AquaticAmbience/AquaticAmbience.toc`, without an extra folder level.\n5. Start WoW, enable **Aquatic Ambience** in the AddOns menu, and enable game music with Music and Master volume above zero.\n6. Dive underwater.\n\nThe addon checks character submersion every 0.2 seconds. It does not depend on camera position or the breath bar. Logging in or reloading underwater also starts the track. Music settings are never changed.\n\n## Commands\n\n| Command | Behavior |\n| --- | --- |\n| `/aquatic test` | Request playback anywhere to check the installed audio. |\n| `/aquatic stop` | Stop playback; automatic music returns on your next dive. |\n| `/aquatic` | Show help. |\n\nListen to confirm the test works: the game API cannot reliably confirm that a custom file played. On land, test playback continues until you stop it, complete a dive/surface cycle, or cross a loading screen.\n\n## Use a different recording\n\nReplace `Music/AquaticAmbience.mp3` with your own MP3 using that exact filename, then restart WoW. No duration setting is needed. Keep the addon folder named `AquaticAmbience`.\n\n## Compatibility and verification\n\nTargets WoW Forever interface **16001**, based on client source version **1.60.1.70888**.\n\nNine local Lua behavior scenarios passed using Fengari with mocked WoW APIs: land, repeated dives/surfaces, underwater login, loading, teleport onto land, manual preview, preview surfacing, manual stop, and logout. The included MP3 passed a complete MPEG frame scan: 281.21 seconds with no unparsed audio bytes.\n\n**In-game playback, native looping, music restoration, and interaction with other music addons remain untested.** WoW has a shared music channel, so other music addons can override this track. WoW controls how quickly normal zone music resumes after stopping.\n\nTo check in-game: run `/aquatic test` and `/aquatic stop`, swim at the surface, dive, stay underwater past the track's end, surface, dive again, reload underwater, and repeat with water breathing and a loading screen.\n\n## Development\n\nThe repository contains addon source, credits, and local tests. The current audio is distributed in the release ZIP, outside Git and Git LFS.\n\nAfter cloning, enable the supplied source-only push guard with `git config core.hooksPath .githooks`. It rejects LFS pointers, binary blobs, and blobs larger than 1 MiB. Hooks protect only working copies where they are installed. GitHub Actions is disabled in this repository's server settings; no workflows are included.\n\nRun the local behavior tests with Node.js and pnpm:\n\n```sh\ncd tests\npnpm install --frozen-lockfile --ignore-scripts\npnpm test\n```\n\n## References\n\n- [Forever client version](https://github.com/Gethe/wow-ui-source/blob/forever/version.txt)\n- [Blizzard-generated submersion API](https://github.com/Gethe/wow-ui-source/blob/forever/Interface/AddOns/Blizzard_APIDocumentationGenerated/UnitDocumentation.lua)\n- [Forever interface version and folder](https://github.com/xIGBClutchIx/ForeverPlusPlus/blob/main/docs/forever-api.md)\n- [PlayMusic and StopMusic behavior](https://www.wowinterface.com/forums/showthread.php?t=57109)",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "Aquatic Ambience 1.0.0",
+      "published": "2026-11-11",
+      "notes": "Plays the included NoteBlock remix of Aquatic Ambience when your character goes underwater, loops while submerged, and stops on surfacing.\n\nDownload **AquaticAmbience.zip**, extract its **AquaticAmbience** folder into your WoW Forever client's `Interface/AddOns/`, restart WoW, and enable the addon. GitHub's automatic source archives omit the audio.\n\nIncludes the creator-posted [NoteBlock remix](https://noteblock.bandcamp.com/track/aquatic-ambience-donkey-kong-country-remix), with vocals by skig___, under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The recording and tags are unmodified; only the filename changed. This is not the original SNES recording. Full credits are included.\n\nTargets Forever interface 16001. Nine Lua behavior checks and MP3 frame validation passed. **In-game audio playback and looping remain untested.** Use `/aquatic test` to check audio and `/aquatic stop` to stop it."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AquaticAmbience"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

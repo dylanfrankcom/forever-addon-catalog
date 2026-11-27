@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "quickquest",
+  "repo": "p3lim-wow/QuickQuest",
+  "about": "# QuickQuest\n\nThis is an addon for the popular MMORPG \"World of Warcraft\".  \nIt can be downloaded at one of the following sites:\n\n- [CurseForge](https://www.curseforge.com/wow/addons/quickquest)\n- [WoWInterface](https://wowinterface.com/downloads/info20838)\n- [Wago](https://addons.wago.io/addons/quickquest)\n- [GitHub](https://github.com/p3lim-wow/QuickQuest/releases)\n\n## Description\n\nQuickQuest will automate quest-related tasks such as accepting and delivering quests for you, saving you time while leveling or doing daily/weekly objectives.\n\nList of features:\n\n- Automatically pick up and deliver quests\n- Automatically talk to NPCs with only one option\n- Automatically talk to NPCs with a quest option\n- Automatically pick up trivial (low level) quests\n\t- Only if the player is tracking trivial quests on the minimap\n- Automatically selects the most valuable quest reward\n\t- Only auto-delivers if there is just one item choice\n- Optionally automates paying Darkmoon Isle faires\n- Optionally shares all quests accepted with party members\n- Holding Shift will pause the automation\n\nAccess the options with `/quickquest` or `/qq`.\n\n## Translations\n\nIf you want to help translate QuickQuest, please go here:  \n[https://legacy.curseforge.com/wow/addons/quickquest/localization](https://legacy.curseforge.com/wow/addons/quickquest/localization)\n\n## Feedback & issues\n\nIf you have a question, please use the [discussion section on GitHub](https://github.com/p3lim-wow/QuickQuest/discussions).  \nIf you would like to report a bug or contribute to the project, please visit GitHub:  \n[https://github.com/p3lim-wow/QuickQuest/issues/new/choose](https://github.com/p3lim-wow/QuickQuest/issues/new/choose)\n\n## Legal\n\nPlease see the [LICENSE](https://github.com/p3lim-wow/QuickQuest/blob/master/https/github.com/p3lim-wow/QuickQuest/blob/master/LICENSE.txt) file.",
+  "releases": [
+    {
+      "tag": "120100.100-Release",
+      "published": "2026-11-06",
+      "notes": "### Changes in 120100.100-Release:\n\n- Added: Support for Forever"
+    },
+    {
+      "tag": "120100.99-Release",
+      "published": "2026-10-31",
+      "notes": "### Changes in 120100.99-Release:\n\n- Changed: Update Interface version\n- Removed: Old savedvariables migration"
+    },
+    {
+      "tag": "120100.98-Release",
+      "published": "2026-09-01",
+      "notes": "### Changes in 120100.98-Release:\n\n- Changed: Update Interface version\n- Fixed: Pause getting stuck after alt-tabbing"
+    },
+    {
+      "tag": "120000.97-Release",
+      "published": "2026-06-30",
+      "notes": "### Changes in 120000.97-Release:\n\n- Changed: Update Interface version"
+    },
+    {
+      "tag": "120000.96-Release",
+      "published": "2026-04-22",
+      "notes": "### Changes in 120000.96-Release:\n\n- Added: Nebulous Voidcores quests to default blocklist\n- Changed: Update Interface version\n- Changed: Quest ignore list now prefers quest ID over name"
+    }
+  ],
+  "stats": {
+    "stars": 13,
+    "openIssues": 2,
+    "contributors": 9,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-10-31",
+      "2026-09-01",
+      "2026-06-30",
+      "2026-04-22",
+      "2026-02-24",
+      "2026-02-24",
+      "2026-02-22",
+      "2026-02-12",
+      "2026-02-12",
+      "2026-02-11",
+      "2026-02-11",
+      "2026-01-17",
+      "2025-11-22",
+      "2025-10-10",
+      "2025-10-09",
+      "2025-08-04",
+      "2025-06-27",
+      "2025-06-23",
+      "2025-04-23",
+      "2025-02-26",
+      "2025-01-08",
+      "2024-12-20",
+      "2024-11-29",
+      "2024-11-01",
+      "2024-10-29",
+      "2024-09-08",
+      "2024-08-30",
+      "2024-08-18",
+      "2024-08-11",
+      "2024-07-24",
+      "2024-07-23",
+      "2024-06-02",
+      "2024-02-09",
+      "2023-11-09",
+      "2023-08-22",
+      "2023-05-03",
+      "2023-05-02",
+      "2023-04-05",
+      "2023-04-05",
+      "2023-03-24",
+      "2023-01-04",
+      "2022-11-27",
+      "2022-11-06",
+      "2022-11-03",
+      "2022-10-28",
+      "2022-10-28",
+      "2022-03-01",
+      "2022-02-22",
+      "2021-07-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuickQuest"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "QuickQuestDB2",
+      "QuickQuestDB3",
+      "QuickQuestBlocklistDB",
+      "QuickQuestMoviesDB"
+    ]
+  }
+}

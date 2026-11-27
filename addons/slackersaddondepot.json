@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "slackersaddondepot",
+  "repo": "Slackluster/SlackersAddonDepot",
+  "about": "# Slacker's Addon Depot\nA World of Warcraft addon. Download locations: [CurseForge](https://www.curseforge.com/wow/addons/slackers-addon-depot) | [Wago](https://addons.wago.io/addons/sad)\n\n[![](https://media.forgecdn.net/attachments/1439/398/buymeacoffee-png.png)](https://www.buymeacoffee.com/Slackluster)\n\n**Slacker's Addon Depot (SAD)** is a simple but powerful addon manager that lets you enable and disable addons - automatically, if you'd like.\n\n![](https://media.forgecdn.net/attachments/1773/570/sad-01-png.png)\n\nCreate manual profiles and apply them to any character that SAD has seen before.\n\n![](https://media.forgecdn.net/attachments/1773/571/sad-02-png.png)\n\nOr use SAD's flagship feature: Login Profiles. This lets you enable addons automatically for matching characters. GatherMate for your herbalists and miners? Auctionator for your AH alts? Once you set them up, SAD will apply them for you automatically.\n\nIf SAD has not seen your character before, you will be prompted to reload to apply all matching Login Profiles.\n\n> [!WARNING]\n> Addons not in any matching login profiles will be disabled on login. This is because multiple login profiles can be valid for any one character. If you choose to work with Login Profiles, it is recommended to take a moment to set them up properly.\n\n![](https://media.forgecdn.net/attachments/1773/572/sad-03-png.png)\n\nOther features:\n- A character list with all seen characters, including those from different realms.\n- Use Shift+click to quickly (de)select multiple addons.\n\n## If you are experiencing issues\n- Check if the issue occurs with only this addon enabled, or if the issue is a feature you can disable from the addon's settings menu.\n- If you run into any issues or if you have other feedback, feel free to join the [Discord](https://discord.gg/FwWZZ39kPX) and ask in the `#slackers-addon-depot` channel, or create a [ticket on GitHub](https://github.com/Slackluster/SlackersAddonDepot/issues). :)",
+  "releases": [
+    {
+      "tag": "v22",
+      "published": "2026-11-23",
+      "notes": "# Slacker's Addon Depot\n\n## [v22](https://github.com/Slackluster/SlackersAddonDepot/tree/v22) (2026-11-23)\n[Full Changelog](https://github.com/Slackluster/SlackersAddonDepot/compare/v21...v22) [Previous Releases](https://github.com/Slackluster/SlackersAddonDepot/releases)\n\n- Machine-translated all untranslated strings. I still prefer this be done by humans and existing translators' work is preserved and prioritised. This should make the addon more accessible until other volunteer translators show up! :)  \n- Grab translations from my other addons  \n- Enter  \n- Add the /addons command  \n- More returns, less indentation"
+    },
+    {
+      "tag": "v21",
+      "published": "2026-11-08",
+      "notes": "# Slacker's Addon Depot\n\n## [v21](https://github.com/Slackluster/SlackersAddonDepot/tree/v21) (2026-11-08)\n[Full Changelog](https://github.com/Slackluster/SlackersAddonDepot/compare/v20...v21) [Previous Releases](https://github.com/Slackluster/SlackersAddonDepot/releases)\n\n- Fix an issue with collapsed headers"
+    },
+    {
+      "tag": "v20",
+      "published": "2026-11-07",
+      "notes": "# Slacker's Addon Depot\n\n## [v20](https://github.com/Slackluster/SlackersAddonDepot/tree/v20) (2026-11-07)\n[Full Changelog](https://github.com/Slackluster/SlackersAddonDepot/compare/v12.1.5-04...v20) [Previous Releases](https://github.com/Slackluster/SlackersAddonDepot/releases)\n\n- Update bug\\_report.yaml  \n- Addon comms now use cbor/base64 encoded tables, instead of precariously formatted strings (fixes #61)  \n- Update our version comms to support our new version numbering  \n- Update bug\\_report.yaml"
+    },
+    {
+      "tag": "v12.1.5-04",
+      "published": "2026-11-06",
+      "notes": "# Slacker's Addon Depot\n\n## [v12.1.5-04](https://github.com/Slackluster/SlackersAddonDepot/tree/v12.1.5-04) (2026-11-05)\n[Full Changelog](https://github.com/Slackluster/SlackersAddonDepot/compare/v12.1.5-03...v12.1.5-04) [Previous Releases](https://github.com/Slackluster/SlackersAddonDepot/releases)\n\n- Fix an issue with shift+click selection and collapsing headers"
+    },
+    {
+      "tag": "v12.1.5-03",
+      "published": "2026-11-05",
+      "notes": "# Slacker's Addon Depot\n\n## [v12.1.5-03](https://github.com/Slackluster/SlackersAddonDepot/tree/v12.1.5-03) (2026-11-05)\n[Full Changelog](https://github.com/Slackluster/SlackersAddonDepot/compare/v12.1.5-02...v12.1.5-03) [Previous Releases](https://github.com/Slackluster/SlackersAddonDepot/releases)\n\n- Removed one more instance of realm name showing on Forever"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 14,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-14",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-18",
+      "2026-09-17",
+      "2026-09-11",
+      "2026-09-09",
+      "2026-08-07",
+      "2026-07-15",
+      "2026-07-07",
+      "2026-07-05",
+      "2026-07-05",
+      "2026-06-25",
+      "2026-06-23",
+      "2026-06-23",
+      "2026-06-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SlackersAddonDepot"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "SlackersAddonDepot_Settings",
+      "SlackersAddonDepot_Data"
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "tooltipitemicon",
+  "repo": "brykrys/TooltipItemIcon",
+  "about": "# TooltipItemIcon\nTooltipItemIcon AddOn for World of Warcraft adds icons to your tooltips",
+  "releases": [
+    {
+      "tag": "1.96",
+      "published": "2026-11-08",
+      "notes": "1.96\n\n- Update TOCs 120105, 50504, 20506, 16001, 11509"
+    },
+    {
+      "tag": "1.95",
+      "published": "2026-02-05",
+      "notes": "1.95\n\n- Fix for error in Merchant tooltips"
+    },
+    {
+      "tag": "1.94",
+      "published": "2026-01-28",
+      "notes": "1.94\n\n- Add TOC for 2.5.5\n\n- Workaround secret error in inside mode (may cause large icons to not fit in the tooltip)"
+    },
+    {
+      "tag": "1.93",
+      "published": "2026-01-25",
+      "notes": "1.93\n\n- Update TOC for 12.0.0, 5.5.3, 1.15.8\n\n- Removed separate TOC files for different versions"
+    },
+    {
+      "tag": "1.92",
+      "published": "2024-08-14",
+      "notes": "1.92\n\n- Update TOC for 11.0.2 & 1.15.3\n\n- Fix for renamed function in Retail"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 2,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-02-05",
+      "2026-01-28",
+      "2026-01-25",
+      "2024-08-14",
+      "2024-05-05",
+      "2024-02-05",
+      "2023-12-25",
+      "2023-11-13",
+      "2023-09-19",
+      "2023-08-27",
+      "2023-07-18",
+      "2023-06-26",
+      "2023-05-06",
+      "2023-03-23",
+      "2023-01-25",
+      "2023-01-16",
+      "2022-11-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TooltipItemIcon"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "TooltipItemIcon_Saved"
+    ]
+  }
+}

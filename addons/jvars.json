@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "jvars",
+  "repo": "jlelz/jVars",
+  "about": "# jVars\n## Warcraft CVars mod, since 2016\n\n## License\n[![License](https://img.shields.io/badge/license-GPL-blue)](https://github.com/jlelz/jVars/blob/main/LICENSE)\n\n## Why\n- Because CVar value standardization did not previously exist\n- ...I don't want to look up these settings every time \n\n## How\nInterface > Addons UI\n\n## Platforms\nUI works with Classic Era, Classic Wrath and Retail\n\n## FAQ\n- I added a lot of CVars but not all\n- ...you may request additions\n- ...import below is tailored for Mac OS max FPS and has numerous personal settings. You may try it but I would suggest having your own\n\n## Issues\nIf you're like me and hoping to solve FPS/frame rate issues, you may find that your Graphics Resolution setting in the game is actually causing FPS drops. I would start there, before making other changes\nhttps://github.com/jlelz/jVars/issues\n\n## Screenshots\n\n  ![](https://i.imgur.com/B3PMwON.jpeg) \n\n## Imports\n[Forever Export](https://github.com/jlelz/jVars/blob/main/Paste/forever.txt)\n\n[Classic Export](https://github.com/jlelz/jVars/blob/main/Paste/clssic.txt)\n\n[Retail Export](https://github.com/jlelz/jVars/blob/main/Paste/retail.txt)",
+  "releases": [
+    {
+      "tag": "2026.11.05.21.46.57",
+      "published": "2026-11-06",
+      "notes": "# jVars\n\n## [2026.11.05.21.46.57](https://github.com/jlelz/jVars/tree/2026.11.05.21.46.57) (2026-11-06)\n[Full Changelog](https://github.com/jlelz/jVars/compare/2026.11.01.01.38.18...2026.11.05.21.46.57) [Previous Releases](https://github.com/jlelz/jVars/releases)\n\n- cooldown manager/damage meter  \n- increase max FPS"
+    },
+    {
+      "tag": "2026.11.01.01.38.18",
+      "published": "2026-11-01",
+      "notes": "# jVars\n\n## [2026.11.01.01.38.18](https://github.com/jlelz/jVars/tree/2026.11.01.01.38.18) (2026-11-01)\n[Full Changelog](https://github.com/jlelz/jVars/compare/2026.11.01.01.29.04...2026.11.01.01.38.18) [Previous Releases](https://github.com/jlelz/jVars/releases)\n\n- disable all chat output unless explicitly in debug"
+    },
+    {
+      "tag": "2026.11.01.01.29.04",
+      "published": "2026-11-01",
+      "notes": "# jVars\n\n## [2026.11.01.01.29.04](https://github.com/jlelz/jVars/tree/2026.11.01.01.29.04) (2026-11-01)\n[Full Changelog](https://github.com/jlelz/jVars/compare/2026.10.18.15.48.37...2026.11.01.01.29.04) [Previous Releases](https://github.com/jlelz/jVars/releases)\n\n- FPS adjustments  \n- retail export  \n- quest text contrast  \n- clear focus when hiding the export dialog  \n- export retail  \n- formatting  \n- link paste  \n- mv  \n- paste exports  \n- exports  \n- correcting ground density behavior  \n- classic export"
+    },
+    {
+      "tag": "2026.10.18.15.48.37",
+      "published": "2026-10-18",
+      "notes": "# jVars\n\n## [2026.10.18.15.48.37](https://github.com/jlelz/jVars/tree/2026.10.18.15.48.37) (2026-10-18)\n[Full Changelog](https://github.com/jlelz/jVars/compare/2026.10.05.19.54.40...2026.10.18.15.48.37) [Previous Releases](https://github.com/jlelz/jVars/releases)\n\n- classic export  \n- stop support for wrath and cata, preserve support for forever and retail only  \n- retail export  \n- retail export  \n- retail export"
+    },
+    {
+      "tag": "2026.10.05.20.00.15",
+      "published": "2026-10-06",
+      "notes": "# jVars\n\n## [2026.10.05.20.00.15](https://github.com/jlelz/jVars/tree/2026.10.05.20.00.15) (2026-10-06)\n[Full Changelog](https://github.com/jlelz/jVars/compare/2026.10.04.13.53.06...2026.10.05.20.00.15) [Previous Releases](https://github.com/jlelz/jVars/releases)\n\n- toc bump  \n- forever  \n- retail export"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-11-01",
+      "2026-11-01",
+      "2026-10-18",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-04",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-19",
+      "2026-08-13",
+      "2026-07-19",
+      "2026-06-17",
+      "2026-05-15",
+      "2026-04-30",
+      "2026-04-20",
+      "2026-04-19",
+      "2026-04-19",
+      "2026-03-21",
+      "2026-03-15",
+      "2026-03-15",
+      "2026-03-02",
+      "2026-03-01",
+      "2026-02-26",
+      "2026-02-21",
+      "2026-02-15",
+      "2026-02-15",
+      "2026-02-11",
+      "2026-02-08",
+      "2026-02-08",
+      "2026-02-05",
+      "2026-02-05",
+      "2026-01-31",
+      "2026-01-28",
+      "2026-01-23",
+      "2026-01-23",
+      "2026-01-23",
+      "2025-10-27",
+      "2025-10-13",
+      "2025-06-30",
+      "2025-06-24",
+      "2025-06-24",
+      "2025-04-26",
+      "2025-04-26",
+      "2025-04-23",
+      "2025-04-08",
+      "2025-03-07",
+      "2025-02-26",
+      "2025-02-01",
+      "2025-01-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "jVars"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "jVars"
+    ]
+  }
+}

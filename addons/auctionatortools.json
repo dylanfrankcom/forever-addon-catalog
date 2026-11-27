@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "auctionatortools",
+  "repo": "DanRigby/auctionator-tools",
+  "about": "# Auctionator Tools\n\nA World of Warcraft **Forever** addon that finds ways to make gold on the auction house, built on [Auctionator](https://www.curseforge.com/wow/addons/auctionator)'s scan data. It doesn't scan the auction house itself. It reads Auctionator's scans and price history and has its own window.\n\n## Install\n\n1. Install Auctionator.\n2. Copy the `AuctionatorTools` folder into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n\n## Use\n\nOpen the window with `/atools`, or from the addon compartment on the minimap. At the auction house, click **Scan**. This runs Auctionator's full scan, or its summary scan while the full scan is on its 15-minute cooldown.\n\n| View | What it shows |\n| --- | --- |\n| **Below Vendor** | Listings you can buy and sell to a vendor for more. Use the toggle to compare buyouts or bids (bids need a full scan). |\n| **Deals** | Listings at least *N*% (default 30%) below the item's typical price and at or below the **Max buyout** (default 5g). Use the toggle to compare buyouts or bids; bids need a full scan. The limit applies to each listing's total buyout, or the per-item price in a summary scan; grouped totals can exceed it. Typical price is the median daily low over the last 14 days of Auctionator history, excluding today, with at least 3 days required. Profit includes the 5% AH cut. |\n| **Disenchant** | Green, blue and purple gear selling for less than the expected value of its disenchanted materials (from Auctionator). |\n| **Crafting** | Your learned recipes whose product sells for more than its materials cost. Each material uses the cheaper of the AH price and any known vendor price. Open each profession window once so your recipes are recorded. |\n| **Vendor Resale** | Items sold by vendors you've visited that sell for more on the AH. |\n\n- Click a column header to sort.\n- Set **Min profit** per view, for example `1c`, `50s` or `1g 25s` (the default is 1c).\n- Profit and **Min profit** are calculated per item, even when listings contain multiple items.\n- Switching between buyouts and bids rebuilds the results using the selected price for cost, discount and profit. **Bid Each** includes the next required bid increment; Deals profit still includes the 5% AH cut. Finish or cancel any live purchase before switching modes.\n- Type in the search box to filter by name.\n- Hover a row for the item tooltip and details, such as the material breakdown for a craft. The tooltip also shows the item's min, max and average AH price over the last 14 days (including today) from Auctionator's history. The average is the mean daily low.\n\n### Buying\n\nSelect a row and click **Buy** (or double-click it). The addon runs a fresh search and offers the most profitable listing that is still worth buying, using your min profit. Click **Confirm Buy** to buy it, or **Skip** to see the next one. Commodities need two clicks, one to get the final price and one to confirm. Every purchase is a separate click, as Blizzard requires.\n\nFor Deals, live offers also respect the discount and maximum buyout. Commodity results don't identify individual listings, so each commodity purchase is capped at the maximum buyout.\n\nRight-click a row, or use **Search in Auctionator**, to open the item in Auctionator's Shopping tab. In Crafting, **Shop Mats** searches Auctionator for every material that's cheapest on the AH, with the right quantities.\n\n### Commands\n\n- `/atools` toggles the window.\n- `/atools autoopen` opens the window with the auction house.\n- `/atools reset` resets the window position.\n\n## Notes\n\n- Opportunity analysis only runs while the window is open, and only for the view you're looking at. Large scans are processed in small chunks so the game doesn't stutter.\n- Item info loads asynchronously. Arrivals are batched into updates for affected views; failed loads are retried, then reported as unavailable rather than left loading indefinitely.\n- Summary-scan results only know the cheapest listing of each item, so quantities show as `1+`. Run a full scan for exact numbers.\n\n## Development\n\nInstall Make and Lua 5.1 (including `luac5.1`), then check Lua syntax and run all\ntests from the repository root:\n\n```sh\nmake check\n```\n\nCI runs the same command.\n\n### Releases\n\nPush a version tag such as `v0.1.0` to run the checks and publish a GitHub Release\nwith generated release notes. Alternatively, run the Release workflow manually\nfrom a branch and enter a version such as `0.1.0` or `v0.1.0`. After the checks\npass, it creates a new tag at the selected branch's workflow commit; the tag\nmust not already exist. The attached `AuctionatorTools-<tag>-forever.zip`\ncontains only the `AuctionatorTools/` folder, ready to extract into `AddOns`.",
+  "releases": [
+    {
+      "tag": "v0.1.1",
+      "published": "2026-11-20",
+      "notes": "## What's Changed\n* Fix bid/buy toggle and stale pricing results by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/12\n\n**Full Changelog**: https://github.com/DanRigby/auctionator-tools/compare/v0.1.0...v0.1.1"
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-20",
+      "notes": "## What's Changed\n* Add Auctionator Tools addon by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/1\n* Add a maximum buyout filter to Deals by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/2\n* Fix stuck item info loading in auction analysis tabs by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/3\n* Revert \"Fix stuck item info loading in auction analysis tabs\" by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/4\n* Add Deals bid mode and per-item profit by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/5\n* Show 14-day min/max/average prices in row tooltips by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/6\n* Fix bid and live purchase filtering by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/7\n* Add CI and Copilot setup workflows by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/9\n* Fix stuck item loading and repeated list refreshes by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/8\n* Add shared checks and Forever release packaging by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/10\n* Allow manual release workflow dispatch by @DanRigby in https://github.com/DanRigby/auctionator-tools/pull/11\n\n## New Contributors\n* @DanRigby made their first contribution in https://github.com/DanRigby/auctionator-tools/pull/1\n\n**Full Changelog**: https://github.com/DanRigby/auctionator-tools/commits/v0.1.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AuctionatorTools"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Auctionator"
+    ],
+    "optional": [
+      "PreserveAuctionatorAHScan"
+    ],
+    "savedVariables": [
+      "AUCTIONATOR_TOOLS_DB"
+    ],
+    "savedVariablesPerCharacter": [
+      "AUCTIONATOR_TOOLS_CHAR"
+    ]
+  }
+}

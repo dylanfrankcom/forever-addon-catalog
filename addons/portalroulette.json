@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "portalroulette",
+  "repo": "Spotnick2/PortalRoulette",
+  "about": "# Portal Roulette\n\n**Portal Roulette** puts every mage teleport and portal on one frosted-glass wheel, for **World of\nWarcraft: Forever**.\n\nOpen the wheel, then left-click a destination to teleport or right-click it to open a portal. Your\nhearthstone sits in the middle.\n\n![Portal Roulette on a Horde mage](https://raw.githubusercontent.com/Spotnick2/PortalRoulette/main/docs/screenshots/hero.jpg)\n\n## Features\n\n- **One wheel per faction.**\n  - Alliance: Stormwind, Ironforge, Darnassus.\n  - Horde: Orgrimmar, Undercity, Thunder Bluff.\n  - Every faction: Dalaran (Forever's new Teleport: Dalaran) inside the wheel, and Karazhan as a\n    satellite linked to the wheel for Atiesh owners.\n- **Left-click teleports, right-click opens a portal**, from secure, combat-safe buttons.\n  Destinations you haven't learned yet stay on the wheel, dimmed, and their tooltip shows the level\n  you learn them at.\n- **Your hearthstone in the centre**, with its cooldown and your bind location. A Crumbling\n  Hearthstone is used only when you have no Hearthstone.\n- **Reagent counts** for Rune of Teleportation and Rune of Portals, with a\n  warning on a destination you can't afford. They hide themselves once you have the Reagent Economy\n  perk.\n- **Arcane glass look.** Slowly circulating energy, small lights orbiting the rim, glowing links with\n  pulses of light running out to each destination, and an occasional shimmer across the glass.\n- **Cinematic presentation** (on by default). The game UI steps aside and your character turns to face\n  the camera. Everything is restored when you close the wheel, enter combat or log out, and even after\n  a crash.\n- **Never in your way.**\n  - A ready check, group or guild invite, dungeon proposal, loot roll, pull countdown or\n    battleground/arena start timer brings the game UI back, with the wheel still open. The UI hides\n    again once the prompt or timer has cleared.\n  - Pressing Enter to chat brings the game UI back too.\n  - Combat closes the wheel instantly.\n- **Group friendly.** It can announce your portals, and asks before you teleport away from your\n  group.\n- **Launcher button** you can drag onto an action bar. It glows until you place it, and hides itself\n  once it's on a bar, or you can turn it off in the options. Also: a minimap button, an Addon\n  Compartment entry and a key binding.\n- **Glass suite** (only when the Glass UI addon is installed): the wheel can follow Glass UI's Pearl\n  look, set on Glass UI's page. With Glass Action Bars too, the launcher can be a button on its\n  Utility bar (tick Portal Roulette in its Utility options), and the floating launcher steps aside.\n\n## Screenshots\n\n**One wheel per faction**, Horde and Alliance:\n\n![The Horde and Alliance wheels](https://raw.githubusercontent.com/Spotnick2/PortalRoulette/main/docs/screenshots/wheels.jpg)\n\n**Before and after learning**: unlearned destinations are greyed out. Hovering a destination shows\nboth spells and what they need:\n\n![An unlearned wheel and the hover tooltip](https://raw.githubusercontent.com/Spotnick2/PortalRoulette/main/docs/screenshots/states.jpg)\n\n**The launcher** glows until you drag it onto an action bar:\n\n![The launcher with its placement prompt](https://raw.githubusercontent.com/Spotnick2/PortalRoulette/main/docs/screenshots/launcher.jpg)\n\n## Launcher\n\n| Action | What it does |\n|---|---|\n| Click | Open or close the wheel |\n| Drag | Place the Portal Roulette macro on an action bar |\n| Shift-drag | Move the launcher (unless locked in the options) |\n| Shift-right-click | Open the options |\n\n## Options\n\nOptions → AddOns → Portal Roulette:\n\n- **Wheel:** reagent counts (auto, always, hidden), Karazhan without Atiesh, grouped-teleport\n  confirmation, closing the wheel as soon as a cast starts, wheel scale.\n- **Animation:** all animations, idle motion, hover effects.\n- **Sound:** sounds, hover sounds, sound set (Portal Roulette or game UI sounds), volume channel.\n- **Presentation:** hide the game UI, cinematic camera, camera orbit, cast framing (when a\n  teleport or portal starts, the camera swings briefly back to frame your character).\n- **Launcher:** show or hide it, lock, minimap button, glow (blue pulse, spell alert or off), scale.\n- **Group broadcast:** announce portals or teleports.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/pr` | Open or close the wheel |\n| `/pr options` | Open the options |\n| `/pr preview` | Show every destination without casting (handy on a low-level mage) |\n| `/pr reset` | Reset the wheel and launcher positions |\n| `/pr debug` | Print the wheel's state (for bug reports) |\n| `/pr debug trace on\\|off` | Record why the wheel closes, to SavedVariables (for bug reports) |\n\n## Good to know\n\n- The wheel can't open in combat, and entering combat closes it: the game doesn't let addons change\n  secure buttons during a fight.\n- In a group, a teleport asks for confirmation first (unless you turn that off): **Yes** casts it.\n  Portals cast straight away.\n- With *close the wheel as soon as a cast starts*, the wheel closes when the cast bar appears. A cast\n  that fails before that (no runes left, for instance) leaves it open.\n- Runes of Teleportation and Portals can't go in the reagent bag; keep them in your bags.\n\n## Bug reports\n\nOpen an issue on [GitHub](https://github.com/Spotnick2/PortalRoulette/issues). The output of\n`/pr debug` helps, and for a wheel that closes when it shouldn't, `/pr debug trace on` records why.\n\n## Requirements\n\n- WoW: Forever (Interface 16001). The TBC Anniversary version is frozen at tag `v0.1.1-tbc`.\n- Mage characters only. Other classes get no UI at all.\n\nEmbedded libraries (installed automatically with the release): LibGlass-1.0, LibShowcase-1.0,\nLibStub, CallbackHandler-1.0, LibDataBroker-1.1, LibDBIcon-1.0.\n\n## Development\n\n- Tests: `pwsh tests/run.ps1` (Lua 5.1). It also checks that the sibling LibGlass and LibShowcase\n  checkouts match the tags pinned in `.pkgmeta`.\n- Deploy to the game: `pwsh Tools/deploy.ps1` (`-Probe` also installs the measurement probe). LibGlass\n  and LibShowcase come from sibling checkouts (`..\\LibGlass`, `..\\LibShowcase`), and so does\n  ForeverProbe (`..\\ForeverProbe`), the probe's host.\n- Generated art: `python Tools/make_art.py` (effects), `Tools/make_city_art.py` and\n  `Tools/make_launcher_art.py`.\n- What has been measured in game is in `docs/FOREVER-PROBE.md`. Agent instructions are in\n  `AGENTS.md`.\n\n## Licence\n\nMIT ([LICENSE](https://github.com/Spotnick2/PortalRoulette/blob/main/LICENSE)). The embedded libraries keep their own\nterms, listed in the same file.",
+  "releases": [
+    {
+      "tag": "v1.2.3",
+      "name": "Portal Roulette 1.2.3",
+      "published": "2026-11-22",
+      "notes": "- Fixed: the cinematic camera saved its framing into the game's camera views 4 and 5. A view\n  saved that way no longer follows your character, so switching to view 4 or 5 yourself (a Set\n  View key or a macro) gave a camera that stays put. On a following camera style, no camera view\n  is written any more. A teleport or portal cast while the wheel is open now gives a short camera\n  swing instead of holding the framing. (LibShowcase-1.0 updated to r15.) A view the\n  game already saved this way stays saved: the game offers addons no way to clear it."
+    },
+    {
+      "tag": "v1.2.2",
+      "name": "Portal Roulette 1.2.2",
+      "published": "2026-11-22",
+      "notes": "- Fixed: closing the wheel with the cinematic camera on left the game camera on saved view 5,\n  where it no longer follows your character, and the game kept that view at every login. The\n  wheel now closes onto your own view at your zoom (onto the normal view if yours is view 4, which\n  \"Frame the character while casting\" uses). If you were left on view 5, you're moved back to the\n  normal view once, at your first login with this version. (LibShowcase-1.0 updated to r14.)"
+    },
+    {
+      "tag": "v1.2.1",
+      "name": "Portal Roulette 1.2.1",
+      "published": "2026-11-22",
+      "notes": "- In a group, the teleport confirmation's **Yes** now casts the teleport itself, instead of asking\n  you to click the destination again within 8 seconds.\n- The confirmation's background is near opaque, so it reads over busy scenery."
+    },
+    {
+      "tag": "v1.2.0",
+      "name": "Portal Roulette 1.2.0",
+      "published": "2026-11-21",
+      "notes": "- New option (Launcher, on by default): show the launcher button. Turned off, the launcher and its\n  \"drag onto an action bar\" prompt stay hidden; the minimap button, the Addon Compartment, the key\n  binding and `/pr` still open the wheel.\n- LibShowcase-1.0 updated to r10: a pull countdown or a battleground/arena start timer brings the\n  game UI back like a ready check; the camera orbit keeps the same speed whatever your camera turn\n  speed; female characters get their own shoulder framing; with a gamepad, the presentation no\n  longer changes the camera-centring settings."
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "Portal Roulette 1.1.0",
+      "published": "2026-11-18",
+      "notes": "- New option (Wheel, off by default): close the wheel as soon as a teleport or portal starts\n  casting, instead of when it ends.\n- Releases are now also on GitHub (with WowUp support) and Wago Addons.\n- Fixed: the `/pr` help and debug lines printed a bare `|`, which chat reads as the start of a\n  colour or link code.\n- LibGlass-1.0 updated to r13."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Spotnick2/PortalRoulette/main/docs/screenshots/hero.jpg",
+    "https://raw.githubusercontent.com/Spotnick2/PortalRoulette/main/docs/screenshots/wheels.jpg",
+    "https://raw.githubusercontent.com/Spotnick2/PortalRoulette/main/docs/screenshots/states.jpg",
+    "https://raw.githubusercontent.com/Spotnick2/PortalRoulette/main/docs/screenshots/launcher.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 3,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PortalRoulette"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "GlassUI",
+      "GlassActionBars"
+    ],
+    "savedVariables": [
+      "PortalRouletteDB"
+    ]
+  }
+}

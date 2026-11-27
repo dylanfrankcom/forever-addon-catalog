@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "talentart",
+  "repo": "keyboardturner/TalentArt",
+  "about": "# TalentArt\nDid you think that [Vanilla](https://www.wowhead.com/classic/talent-calc) was the best expansion? Do you miss your old artwork that sat behind those cookie cutter talents? Well I'm here to bring that back!\n\nYes, that's right. I change the artwork in the talent frame. I've used a mixture of artworks from Blizzard's concept art, Blizzard class website page, and the Artifact trait backgrounds.\n\nWhy? Well, this addon actually has a little bit of history. It's one of the first addons I actually worked on, and originally it was for the purpose of placing the old artworks back into the talent frame. Before the Dragonflight talent rework, they didn't have a background image. The talents were boring to look at. For the most part, it was nostalgia. The current ones are great, and now they're just the default option that's selectable as a new option in a dropdown menu in the Interface Addons pane under TalentArt.\n\nI've had this idea to reintroduce the addon for a long time, but it wasn't until recently I was able to bring it back.\n\nTo do list:\n\nMore artworks.\n\nBackground Color Selection / Texture Color Selection.\n\nRe-build compatibility with ElvUI, Aurora, and other Skin-like addons.\n\n[This is a screenshot album of some of the older addon](http://imgur.com/a/0KAUJ)\n\nThank you so much to everyone who supported me while making this addon! I've spent almost ~~20+~~ many hours working on this between the artwork and making sure everything was right. Beyond that, I'm going to lose track.\n\nA link to my discord for addon projects and other things can be found [here](https://discord.gg/tA4rrmjPp8).",
+  "releases": [
+    {
+      "tag": "1.0.4a",
+      "published": "2026-10-20",
+      "notes": "# 1.0.4a\n\nWoW Forever testing for real this time\n\n# 1.0.4\n\n12.1.5 toc update\n\n# 1.0.3\n\n12.1.0 toc update\n\n# 1.0.2\n\n12.0.7 toc update\n\n# 1.0.1\n\n12.0.5 toc update\n\n# 1.0.0\n\nMajor rework to some of the internal data and efficiency\n - migrated dropdown data and made dropdown iterate over existing assets table\n - reorganized assets table\n - reworked some of how the Localization key was made/ordered, adjusted/added more proper localization\n\nAdded color picker and Desaturation options\n\nAdded option to set the art spec-wide and ignore config loadouts\n\nAdded options to select other default spec backgrounds (Blizzard defaults)\n\nAdded a public API to allow other addons to add custom textures (see documentation at the bottom of TalentArt.lua)\n\nMade it so that the spellbook/talent frame can't be dragged off the screen (even though my addon isn't the one that does this, figure i'll shove it in anyway because *somebody* isn't keeping it on the screen)\n\n# 0.3.0\n\n12.0.1 toc update\n\n# 0.2.9\n\n12.0.0 toc update\n\n# 0.2.8\n\n11.2.7 toc update\n\n# 0.2.7\n\n11.2.5 toc update\n\n# 0.2.6\n\n11.2.0 toc update\n\n# 0.2.5\n\n11.1.7 toc update\n\n# 0.2.4\n\n11.1.5 toc update & addon category\n\n# 0.2.3\n\nAdded art from the artwork that Blizzard commissioned for Legion Mounts & Artifacts\n\nSome localizations added (apparently that was never done oops)\n\n# 0.2.2\n\n11.1.0 toc update\n\n# 0.2.1\n\n11.0.7 toc update\n\n# 0.2.0\n\n11.0.5 toc update\n\n# 0.1.9\n\nUpdates to zhTW/zhCN\n\n# 0.1.8\n\nQuick fix to properly place new dropdown menu on talent frame.\n\n# 0.1.7\n\nTOC updates for TWW, complete menu code rewrite including much more efficient refactoring, new menu dropdown button placed on the talent frame\n\n# 0.1.6\n\ntoc bump to 10.2.7\n\n# 0.1.5\n\ntoc bump to 10.2.6\n\n# 0.1.4\n\n10.2.5 toc bump\n\n# 0.1.3\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "1.0.4",
+      "published": "2026-10-13",
+      "notes": "# 1.0.4\n\n12.1.5 toc update\n\n# 1.0.3\n\n12.1.0 toc update\n\n# 1.0.2\n\n12.0.7 toc update\n\n# 1.0.1\n\n12.0.5 toc update\n\n# 1.0.0\n\nMajor rework to some of the internal data and efficiency\n - migrated dropdown data and made dropdown iterate over existing assets table\n - reorganized assets table\n - reworked some of how the Localization key was made/ordered, adjusted/added more proper localization\n\nAdded color picker and Desaturation options\n\nAdded option to set the art spec-wide and ignore config loadouts\n\nAdded options to select other default spec backgrounds (Blizzard defaults)\n\nAdded a public API to allow other addons to add custom textures (see documentation at the bottom of TalentArt.lua)\n\nMade it so that the spellbook/talent frame can't be dragged off the screen (even though my addon isn't the one that does this, figure i'll shove it in anyway because *somebody* isn't keeping it on the screen)\n\n# 0.3.0\n\n12.0.1 toc update\n\n# 0.2.9\n\n12.0.0 toc update\n\n# 0.2.8\n\n11.2.7 toc update\n\n# 0.2.7\n\n11.2.5 toc update\n\n# 0.2.6\n\n11.2.0 toc update\n\n# 0.2.5\n\n11.1.7 toc update\n\n# 0.2.4\n\n11.1.5 toc update & addon category\n\n# 0.2.3\n\nAdded art from the artwork that Blizzard commissioned for Legion Mounts & Artifacts\n\nSome localizations added (apparently that was never done oops)\n\n# 0.2.2\n\n11.1.0 toc update\n\n# 0.2.1\n\n11.0.7 toc update\n\n# 0.2.0\n\n11.0.5 toc update\n\n# 0.1.9\n\nUpdates to zhTW/zhCN\n\n# 0.1.8\n\nQuick fix to properly place new dropdown menu on talent frame.\n\n# 0.1.7\n\nTOC updates for TWW, complete menu code rewrite including much more efficient refactoring, new menu dropdown button placed on the talent frame\n\n# 0.1.6\n\ntoc bump to 10.2.7\n\n# 0.1.5\n\ntoc bump to 10.2.6\n\n# 0.1.4\n\n10.2.5 toc bump\n\n# 0.1.3\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "1.0.3",
+      "published": "2026-08-11",
+      "notes": "# 1.0.3\n\n12.1.0 toc update\n\n# 1.0.2\n\n12.0.7 toc update\n\n# 1.0.1\n\n12.0.5 toc update\n\n# 1.0.0\n\nMajor rework to some of the internal data and efficiency\n - migrated dropdown data and made dropdown iterate over existing assets table\n - reorganized assets table\n - reworked some of how the Localization key was made/ordered, adjusted/added more proper localization\n\nAdded color picker and Desaturation options\n\nAdded option to set the art spec-wide and ignore config loadouts\n\nAdded options to select other default spec backgrounds (Blizzard defaults)\n\nAdded a public API to allow other addons to add custom textures (see documentation at the bottom of TalentArt.lua)\n\nMade it so that the spellbook/talent frame can't be dragged off the screen (even though my addon isn't the one that does this, figure i'll shove it in anyway because *somebody* isn't keeping it on the screen)\n\n# 0.3.0\n\n12.0.1 toc update\n\n# 0.2.9\n\n12.0.0 toc update\n\n# 0.2.8\n\n11.2.7 toc update\n\n# 0.2.7\n\n11.2.5 toc update\n\n# 0.2.6\n\n11.2.0 toc update\n\n# 0.2.5\n\n11.1.7 toc update\n\n# 0.2.4\n\n11.1.5 toc update & addon category\n\n# 0.2.3\n\nAdded art from the artwork that Blizzard commissioned for Legion Mounts & Artifacts\n\nSome localizations added (apparently that was never done oops)\n\n# 0.2.2\n\n11.1.0 toc update\n\n# 0.2.1\n\n11.0.7 toc update\n\n# 0.2.0\n\n11.0.5 toc update\n\n# 0.1.9\n\nUpdates to zhTW/zhCN\n\n# 0.1.8\n\nQuick fix to properly place new dropdown menu on talent frame.\n\n# 0.1.7\n\nTOC updates for TWW, complete menu code rewrite including much more efficient refactoring, new menu dropdown button placed on the talent frame\n\n# 0.1.6\n\ntoc bump to 10.2.7\n\n# 0.1.5\n\ntoc bump to 10.2.6\n\n# 0.1.4\n\n10.2.5 toc bump\n\n# 0.1.3\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "1.0.2",
+      "published": "2026-06-16",
+      "notes": "# 1.0.2\n\n12.0.7 toc update\n\n# 1.0.1\n\n12.0.5 toc update\n\n# 1.0.0\n\nMajor rework to some of the internal data and efficiency\n - migrated dropdown data and made dropdown iterate over existing assets table\n - reorganized assets table\n - reworked some of how the Localization key was made/ordered, adjusted/added more proper localization\n\nAdded color picker and Desaturation options\n\nAdded option to set the art spec-wide and ignore config loadouts\n\nAdded options to select other default spec backgrounds (Blizzard defaults)\n\nAdded a public API to allow other addons to add custom textures (see documentation at the bottom of TalentArt.lua)\n\nMade it so that the spellbook/talent frame can't be dragged off the screen (even though my addon isn't the one that does this, figure i'll shove it in anyway because *somebody* isn't keeping it on the screen)\n\n# 0.3.0\n\n12.0.1 toc update\n\n# 0.2.9\n\n12.0.0 toc update\n\n# 0.2.8\n\n11.2.7 toc update\n\n# 0.2.7\n\n11.2.5 toc update\n\n# 0.2.6\n\n11.2.0 toc update\n\n# 0.2.5\n\n11.1.7 toc update\n\n# 0.2.4\n\n11.1.5 toc update & addon category\n\n# 0.2.3\n\nAdded art from the artwork that Blizzard commissioned for Legion Mounts & Artifacts\n\nSome localizations added (apparently that was never done oops)\n\n# 0.2.2\n\n11.1.0 toc update\n\n# 0.2.1\n\n11.0.7 toc update\n\n# 0.2.0\n\n11.0.5 toc update\n\n# 0.1.9\n\nUpdates to zhTW/zhCN\n\n# 0.1.8\n\nQuick fix to properly place new dropdown menu on talent frame.\n\n# 0.1.7\n\nTOC updates for TWW, complete menu code rewrite including much more efficient refactoring, new menu dropdown button placed on the talent frame\n\n# 0.1.6\n\ntoc bump to 10.2.7\n\n# 0.1.5\n\ntoc bump to 10.2.6\n\n# 0.1.4\n\n10.2.5 toc bump\n\n# 0.1.3\n\nPackager Testing\n\n10.2 toc bump"
+    },
+    {
+      "tag": "1.0.1",
+      "published": "2026-04-21",
+      "notes": "# 1.0.1\n\n12.0.5 toc update\n\n# 1.0.0\n\nMajor rework to some of the internal data and efficiency\n - migrated dropdown data and made dropdown iterate over existing assets table\n - reorganized assets table\n - reworked some of how the Localization key was made/ordered, adjusted/added more proper localization\n\nAdded color picker and Desaturation options\n\nAdded option to set the art spec-wide and ignore config loadouts\n\nAdded options to select other default spec backgrounds (Blizzard defaults)\n\nAdded a public API to allow other addons to add custom textures (see documentation at the bottom of TalentArt.lua)\n\nMade it so that the spellbook/talent frame can't be dragged off the screen (even though my addon isn't the one that does this, figure i'll shove it in anyway because *somebody* isn't keeping it on the screen)\n\n# 0.3.0\n\n12.0.1 toc update\n\n# 0.2.9\n\n12.0.0 toc update\n\n# 0.2.8\n\n11.2.7 toc update\n\n# 0.2.7\n\n11.2.5 toc update\n\n# 0.2.6\n\n11.2.0 toc update\n\n# 0.2.5\n\n11.1.7 toc update\n\n# 0.2.4\n\n11.1.5 toc update & addon category\n\n# 0.2.3\n\nAdded art from the artwork that Blizzard commissioned for Legion Mounts & Artifacts\n\nSome localizations added (apparently that was never done oops)\n\n# 0.2.2\n\n11.1.0 toc update\n\n# 0.2.1\n\n11.0.7 toc update\n\n# 0.2.0\n\n11.0.5 toc update\n\n# 0.1.9\n\nUpdates to zhTW/zhCN\n\n# 0.1.8\n\nQuick fix to properly place new dropdown menu on talent frame.\n\n# 0.1.7\n\nTOC updates for TWW, complete menu code rewrite including much more efficient refactoring, new menu dropdown button placed on the talent frame\n\n# 0.1.6\n\ntoc bump to 10.2.7\n\n# 0.1.5\n\ntoc bump to 10.2.6\n\n# 0.1.4\n\n10.2.5 toc bump\n\n# 0.1.3\n\nPackager Testing\n\n10.2 toc bump"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 2,
+    "contributors": 2,
+    "lastRelease": "2026-10-20",
+    "releaseDates": [
+      "2026-10-20",
+      "2026-10-13",
+      "2026-08-11",
+      "2026-06-16",
+      "2026-04-21",
+      "2026-04-15",
+      "2026-04-11",
+      "2026-02-10",
+      "2026-01-20",
+      "2025-12-02",
+      "2025-10-07",
+      "2025-08-05",
+      "2025-06-17",
+      "2025-04-22",
+      "2025-02-25",
+      "2024-12-17",
+      "2024-10-22",
+      "2024-08-18",
+      "2024-07-24",
+      "2024-07-23",
+      "2024-05-07",
+      "2024-03-19",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-07-11",
+      "2023-05-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TalentArt"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "TalentArt_DB"
+    ]
+  }
+}

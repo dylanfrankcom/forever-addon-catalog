@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "inboxmailbag",
+  "repo": "Witnesscm/InboxMailBag",
+  "about": "# Inbox Mailbag - Fan Update\nInbox Mailbag lets you treat your inbox as yet another bag that you can take things from. It will collate items into singular stacks and supports search hilighting to help you find specific items within your inbox.\n\nSupport **Midnight** (12.1.5) , **Mists of Pandaria Classic** (5.5.4) , **Titan Reforged** (3.80.2) , **Burning Crusade Classic** (2.5.6) , **Forever** (1.60.1) and **Classic Era** (1.15.9) \n\n支持 **至暗之夜** (12.1.5) , **熊猫人之谜** (5.5.4) , **泰坦重铸** (3.80.2) , **燃烧的远征** (2.5.6) , **无限** (1.60.1) 和 **经典旧世** (1.15.9) \n\nThe copyright belongs to [original author](https://www.curseforge.com/wow/addons/inbox-mailbag).\n\n## Install & Auto-update via WowUp\n\n1. Downlaod and install `WowUp with Curseforge` or `WowUp with Wago` from [WowUp.io](https://wowup.io/).\n2. Click 'Get Addons' -> 'Install from URL'.\n3. Input current page URL and click 'Import' Button, then click 'Install' button to install.\n\n## Manually Install\n\n1. Download the latest zip from [GitHub Release](https://github.com/Witnesscm/InboxMailBag/releases).\n2. Unzip to the corresponding game version AddOns folder.\n\n## 使用 WowUp 安装并自动更新\n\n1. 从 [WowUp.io](https://wowup.io/) 下载并安装 `WowUp with Curseforge` 或 `WowUp with Wago`\n2. 点击 '获取插件' -> '从 URL 安装'\n2. 输入当前页面 URL 并点击 '导入' 按钮，最后点击 '安装' 按钮\n\n## 手动安装\n\n1. 从 [GitHub Release](https://github.com/Witnesscm/InboxMailBag/releases) 下载最新版本插件zip压缩包\n2. 解压到对应游戏版本插件目录",
+  "releases": [
+    {
+      "tag": "2.6.4",
+      "published": "2026-11-25",
+      "notes": "# Inbox Mailbag\n\n## [2.6.4](https://github.com/Witnesscm/InboxMailBag/tree/2.6.4) (2026-11-25)\n[Full Changelog](https://github.com/Witnesscm/InboxMailBag/compare/2.6.3...2.6.4) [Previous Releases](https://github.com/Witnesscm/InboxMailBag/releases)\n\n- fix(forever): fix mail bag title overlap"
+    },
+    {
+      "tag": "2.6.3",
+      "published": "2026-10-16",
+      "notes": "# Inbox Mailbag\n\n## [2.6.3](https://github.com/Witnesscm/InboxMailBag/tree/2.6.3) (2026-10-16)\n[Full Changelog](https://github.com/Witnesscm/InboxMailBag/compare/2.6.2...2.6.3) [Previous Releases](https://github.com/Witnesscm/InboxMailBag/releases)\n\n- toc: bump version  \n- docs: update readme  \n- toc: bump version"
+    },
+    {
+      "tag": "2.6.2",
+      "published": "2025-11-19",
+      "notes": "# Inbox Mailbag\n\n## [2.6.2](https://github.com/Witnesscm/InboxMailBag/tree/2.6.2) (2025-11-19)\n[Full Changelog](https://github.com/Witnesscm/InboxMailBag/compare/2.6.1...2.6.2) [Previous Releases](https://github.com/Witnesscm/InboxMailBag/releases)\n\n- docs: update readme  \n- toc: bump version"
+    },
+    {
+      "tag": "2.6.1",
+      "published": "2025-07-05",
+      "notes": "# Inbox Mailbag\n\n## [2.6.1](https://github.com/Witnesscm/InboxMailBag/tree/2.6.1) (2025-07-05)\n[Full Changelog](https://github.com/Witnesscm/InboxMailBag/compare/2.6.0...2.6.1) [Previous Releases](https://github.com/Witnesscm/InboxMailBag/releases)\n\n- docs: update readme  \n- toc: bump version  \n- fix(mists): fix battlepet tips  \n- docs: update readme"
+    },
+    {
+      "tag": "2.6.0",
+      "published": "2025-05-03",
+      "notes": "# Inbox Mailbag\n\n## [2.6.0](https://github.com/Witnesscm/InboxMailBag/tree/2.6.0) (2025-05-03)\n[Full Changelog](https://github.com/Witnesscm/InboxMailBag/compare/2.5.9...2.6.0) [Previous Releases](https://github.com/Witnesscm/InboxMailBag/releases)\n\n- chore: clean for multiple game versions  \n- fix(mainline): fix battlepet quality color  \n- chore: create gitignore"
+    }
+  ],
+  "stats": {
+    "stars": 6,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-10-16",
+      "2025-11-19",
+      "2025-07-05",
+      "2025-05-03",
+      "2024-08-18",
+      "2024-08-01",
+      "2024-07-26",
+      "2024-07-26",
+      "2024-06-15",
+      "2024-06-08",
+      "2024-05-03",
+      "2023-10-25",
+      "2022-11-17",
+      "2022-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "InboxMailBag"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "MAILBAGDB"
+    ]
+  }
+}

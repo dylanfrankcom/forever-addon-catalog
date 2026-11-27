@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "wanderer",
+  "repo": "Jaecko/wanderer",
+  "about": "# Wanderer\n\nImmersion and comfort for your journey through Azeroth, made for **World of Warcraft Forever**.\n\nNames leave the heads of everyone around you and a label appears right above someone when you look at them. Conversations with NPCs become quiet scenes, every item tells you whether it is better for the branch you play, your unit frames take a clean look, and your interface steps aside when nothing happens. The small comforts you would install a dozen addons for (junk sold, repairs, provisions refilled on your click, instant loot, double-click fishing, reminders, your characters in one window, movable windows...) are gathered in one.\n\n- **Download:** [CurseForge](https://www.curseforge.com/wow/addons/wanderer)\n- **Website:** [wanderer-addon.com](https://wanderer-addon.com/)\n- **Trailer:** [YouTube](https://youtu.be/iptaXzImWI4)\n- **Options:** Esc > Options > AddOns > Wanderer, or type `/wanderer`\n\nEverything comes pre-set and can be changed, each character has its own profile, holding Shift keeps every automation manual, nothing decides for you in a fight, and every game setting Wanderer touches is given back when you turn it off.\n\n**Works with your other addons.** When ElvUI, DialogueUI, Leatrix Plus, Naowh Forever or another addon already does a job, Wanderer steps aside and its option says who does it. Compatible with **Total RP 3** and **Spoken** (its voices play in Wanderer's scenes).\n\n**The Wanderer family.** Free extensions, each a separate download: Wanderer Bags, Auction, Quests, Campfire Game, Training, Chat, Mail, Maps and Outfits.\n\nTranslated into English, Français, Deutsch, Español, Italiano, Português (Brasil), Русский, 한국어, 简体中文 and 繁體中文.\n\n## Feedback\n\nBugs and ideas are welcome in the [issues](https://github.com/Jaecko/wanderer/issues) or in the [CurseForge comments](https://www.curseforge.com/wow/addons/wanderer/comments).",
+  "releases": [
+    {
+      "tag": "v1.4.105",
+      "published": "2026-11-18",
+      "notes": "# Wanderer 1.4.105\n\n### New\n- A class assistant under your frame: your class's spell icons with their countdown and charges, as on your action bars. Poisons and Slice and Dice, totems, seals and auras, armors, ammo, soul shards, healthstones, mana gems and water, Inner Fire, shouts and stances. In a fight what matters then; at rest only what is missing, ending or running low (an orange edge, a dimmed icon). Never a spell to cast, never a sound.\n- A spark on your power bar: the 2 second energy tick, or the 5 second rule on your mana.\n- Druids in bear or cat form keep their mana in sight, a third bar under the others.\n- A hunter's pet mood beside its frame, orange when it wants feeding.\n- All under Unit frames, Class assistant, on for everyone.\n\n### Fixed\n- With another unit frame addon (ElvUI...), the class assistant keeps its row where your frame stands.\n- In a fight, a weapon's poison or oil whose time is hidden stays shown.\n- A list's menu closes with its window, with the mouse too.\n- With a controller, a list's menu closes with its window instead of staying on screen."
+    },
+    {
+      "tag": "v1.4.102",
+      "published": "2026-11-17",
+      "notes": "# Wanderer 1.4.102\n\n### Fixed\n- With Wanderer's loot window, the game's own no longer flashes for a moment in the top left corner when you loot."
+    },
+    {
+      "tag": "v1.4.101",
+      "published": "2026-11-17",
+      "notes": "# Wanderer 1.4.101\n\n### New\n- Help and hints in every window are a small card of their own: a title, short lines with air between them, the key words picked out, at the size of words chosen in the options and in the windows' look.\n- A choice for Wanderer's windows, under Appearance and in the welcome screen's Look step: the game's own look, or Wanderer's (the default). The game's look reaches every part of the windows: the game's checkboxes (for the switches too), its lists to choose from, its options' tabs, its thin scroll bars, its lines to write in (the three money boxes too), its sunken panels, its item squares framed in their quality's color, its question window, and the game's own colors for titles, words and hints. Rows lit and chosen as in the game's options. The pieces of the screen (the bar of links, the loot recap, the objectives, the chat) keep Wanderer's colors in either look.\n\n### Fixed\n- Group loot: a roll whose item the game had not read yet no longer hides the next roll's buttons, and the appearance roll is named once chosen.\n- The minimap button no longer keeps following the mouse when it is hidden in the middle of a drag.\n- A new merchant opens at the top of his goods, not where the last one was left.\n- The reveal key let go while Wanderer was turned off no longer leaves every name shown.\n- With a controller: a box to tick or a round choice is one stop, not two; a list to choose from opens Wanderer's own card (the game's menu could block its actions), and closes with its window; switching windows with the triggers brings the chosen one to the front.\n- The game's look: the resize corner, the cog and the \"?\" are drawn over the frame's edges.\n\n### Changed\n- Group rolls: once you have chosen, the card's other choices are greyed until the roll ends (a second click no longer sends a second roll).\n- With a controller: the merchant's \"Repair one item\" steps aside (it needs a mouse; \"Repair all\" stays), and the keys' page and the welcome's reveal key say a key is set with a keyboard."
+    },
+    {
+      "tag": "v1.4.87",
+      "published": "2026-11-17",
+      "notes": "# Wanderer 1.4.87\n\n### Changed\n- The game's windows keep the game's own look again: Wanderer's colors on them stay one option away (Appearance), off.\n\n### Fixed\n- With a controller, a Wanderer window no longer opens on the \"?\" of its heading: its help tooltip no longer stays stuck on screen. The \"?\" is still reached on purpose."
+    },
+    {
+      "tag": "v1.4.85",
+      "published": "2026-11-16",
+      "notes": "# Wanderer 1.4.85\n\n### New\n- A new welcome screen: one way, every step named on the side (seen ones ticked, a click on any goes there), and at once a choice: be guided, or keep the advised settings and see them at the end. Your screen's lighter interface and its look on one page, the action bars shown as boxes for this character, and each line of the final summary a click away from the step that sets it.\n- The action bars page has the game's own boxes: bars 2 to 8 shown, bars locked and the key that still picks a spell up, cooldown numbers. No more trip to the game's options.\n- In the world settings: the game's navigation marker on screen (toward the tracked quest or the map pin), on by default for everyone; unchecked, your own setting comes back.\n- Wanderer's colors now reach more of the game: the bag bar gets square icons on a dark ground with a thin edge, and the right click menus take the windows' ground. The action buttons keep the game's own look.\n- The game's windows Wanderer does not replace take Wanderer's colors: the character and its pages, spells and talents, professions book, collections, group finder, friends, guild and communities, adventure guide, achievements, trade, tabard, guild charter, macros, key bindings, addons list, game menu, help, sockets, upgrades, inspect, dressing room, the game's questions and the ready check, and the merchant, loot, mail, auction house, trainer, professions, flight master, guild bank and bank windows when you chose the game's one. The chosen style's dark ground and edge, Wanderer's cross, quiet tabs (the one shown in gold), buttons, lines to write in, lists, boxes to tick, thin scroll bars and item squares. Only the look changes: nothing in them moves and every button does what it did. A setting under Appearance turns it off (the game's look comes back after a /reload). Left to ElvUI (its skins on) and Aurora.\n- Merchants open in a Wanderer window: all his goods in one list (no pages), each with its price in gold or tokens, its lot, the stock left when he has few, and a mark when you cannot use it, already know it, it is better for you or your shopping list lacks it. A search and the game's class filter. A click on a row offers how many you want, each choice with its price; a right click buys one lot. The game's own confirmations still ask (tokens, items that cannot be returned, an expensive item). The buy back page, repairs (yours, the guild's, one item) with their cost, the junk sold on a click and the provisions' Fill up are in the same window. A right click on an item of your bags still sells it. A button brings the game's own window back, a link above it comes back (kept for this character; a setting too).\n- Loot opens in a Wanderer window when the game shows its own (auto loot off, or its key held): each thing with what it is worth, quest items, binds when picked up and better for you marked, the coins written plainly, Take all (what binds waits for your click, the game asks first). It stands under the mouse when the game's option asks for it. Master loot keeps the game's window.\n- Group loot rolls together in one Wanderer window: each item with its worth, whether it binds and whether it is better for you, the time left, and Need, Greed, Disenchant when offered and Pass (dimmed with the game's own reason when closed to you). The game still asks before an item binds. Closed by its cross, the game's own roll frames take the rest.\n- Unit frames, Ink lines look: a small sign of the side on the portrait while you or the unit shown is flagged for PvP (free for all too).\n- With a controller, a keyboard of its own for every line to write in Wanderer's windows (searches, names, letters, questions): choose the line and press, then write with the cross and the bottom button. The left button erases, the top one is Enter, the right one puts the keyboard away and keeps what is written. A question asking for words opens it by itself.\n- With a controller, an amount of money is one stop of the cross: left and right change it one gold at a time (faster the longer you hold), the bottom button switches to silver or copper, a gold line under the coin stepped.",
+      "truncated": true
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-10-18",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-11",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-10-05",
+      "2026-10-04"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Wanderer"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "WandererDB"
+    ]
+  }
+}

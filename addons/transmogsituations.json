@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "transmogsituations",
+  "repo": "Ciaanh/TransmogSituations",
+  "about": "# TransmogSituations\n\nA World of Warcraft addon that shows the *live values* of the transmog \"situation\" triggers\n(location, movement, specialization, equipment set, racial form, weather, time of day).\nBlizzard's Situations tab lets you configure these triggers but never displays what they\ncurrently evaluate to; TransmogSituations does.\n\nTargets **WoW Forever** and stays compatible with **live Retail**.\n\n## Features\n\n- Live trigger values rendered inline on the transmog **Situations tab**, under each category title.\n- A movable standalone panel with the same values, for use outside the transmog window.\n- Chat commands to inspect values, options and raw ids.\n- Experimental: a client-side reconstruction of which outfits are eligible right now, with a\n  command that checks the outfit Blizzard actually applied is one of them (Blizzard picks among\n  eligible outfits at random).\n\n## Slash commands\n\n`/ts` and `/transmogsituations` are equivalent.\n\n| Command | Purpose |\n| --- | --- |\n| `/ts` | Current value of every situation trigger |\n| `/ts panel` | Toggle the standalone panel |\n| `/ts eligible` | Outfits matching the current situation (experimental) |\n| `/ts verify` | Check that the outfit Blizzard applied is one of the eligible ones |\n| `/ts scan` | Record every outfit's situations; transmog window must be open |\n| `/ts list` | Trigger options for the viewed outfit, with the live value marked |\n| `/ts dump` | Raw option ids and player state, for diagnosing mismatches |\n| `/ts debug` | Toggle extra output |\n| `/ts help` | Command list |\n\n## How eligibility works\n\nThe game has no way to ask which situations an outfit is bound to, so TransmogSituations records\neach outfit's assignments whenever you view it on the Situations tab. Until an outfit has been\nviewed, `/ts eligible` lists it as \"never viewed\" rather than guessing. `/ts scan` records every\noutfit in one go: open the transmog window first, and apply or undo any pending changes (the scan\nrefuses to run over them, because switching outfits would discard them).\n\n## Known limitations\n\n- **Weather on Retail** shows `n/a`: Retail has no API to read the current weather. An outfit bound\n  to a specific weather can still be applied by Blizzard there, but TransmogSituations cannot match it.\n- **Time of Day** band boundaries are an estimate and are marked `*` in `/ts`.\n- **Equipment sets** have no \"currently equipped set\" API. When you swap an item out of the set you\n  last applied, the value is shown with `~` as an approximation.\n- Eligibility is a reconstruction of Blizzard's rules. `/ts verify` says whether it agrees with the\n  outfit Blizzard applied; a disagreement is worth reporting with a `/ts dump`.",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "published": "2026-10-30",
+      "notes": "## [0.2.0] - 2026-10-30\n\nFirst stable release, for the launch of WoW Forever: the features of 0.2.0-beta2, unchanged.\n\n## [0.2.0-beta2] - 2026-10-13\n\n### Changed\n\n- **Retail 12.1.5**: the addon targets the new Retail patch (Interface 120105), so the game no longer lists it as out of date.\n\n## [0.2.0-beta1] - 2026-09-25\n\nFirst public beta. Targets the WoW Forever beta and live Retail.\n\n### Added\n\n- **Situations tab values**: the transmog Situations tab shows the current value of each situation trigger (location, movement, specialization, equipment set, racial form, weather, time of day) under its category title.\n- **Standalone panel**: `/ts panel` opens a movable panel with the same values, for use outside the transmog window.\n- **Chat commands**: `/ts` prints every trigger's current value; `/ts list` shows the viewed outfit's options with the live value marked; `/ts dump` prints raw option ids and player state for reporting mismatches.\n- **Eligible outfits** (experimental): `/ts eligible` lists the outfits that match the current situation, and `/ts verify` checks that the outfit Blizzard applied is one of them. Blizzard picks at random among eligible outfits.\n- **Outfit recording**: each outfit's situations are recorded when you view it on the Situations tab; `/ts scan` records every outfit in one go.\n\n### Known limitations\n\n- Weather shows `n/a` on Retail, which has no API to read the current weather.\n- Time of Day band boundaries are an estimate and are marked `*` in `/ts`.\n- The equipped equipment set is inferred from the last set you applied, and shown with `~` once an item is swapped out."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-30",
+    "releaseDates": [
+      "2026-10-30"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TransmogSituations"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "TransmogSituationsDB"
+    ]
+  }
+}

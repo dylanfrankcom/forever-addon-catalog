@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "hide-increase-backpack-button",
+  "repo": "exochron/hide-increase-backpack-button",
+  "about": "# Hide Increase Backpack Button\n\nThis is an addon for WoW which hides the little plus button in your backpack.\nThe button was added in patch 7.3.5 to motivate players into using the Mobile Notification.",
+  "releases": [
+    {
+      "tag": "2.2.0",
+      "published": "2026-10-23",
+      "notes": "# Hide Increase Backpack Button\n\n## [2.2.0](https://github.com/exochron/hide-increase-backpack-button/tree/2.2.0) (2026-10-21)\n[Full Changelog](https://github.com/exochron/hide-increase-backpack-button/compare/2.1.3...2.2.0) [Previous Releases](https://github.com/exochron/hide-increase-backpack-button/releases)\n\n- feat: added support for Forever"
+    },
+    {
+      "tag": "2.1.3",
+      "published": "2026-08-08",
+      "notes": "# Hide Increase Backpack Button\n\n## [2.1.3](https://github.com/exochron/hide-increase-backpack-button/tree/2.1.3) (2026-08-08)\n[Full Changelog](https://github.com/exochron/hide-increase-backpack-button/compare/2.1.2...2.1.3) [Previous Releases](https://github.com/exochron/hide-increase-backpack-button/releases)\n\n- chore(toc): updated interface versions"
+    },
+    {
+      "tag": "2.1.2",
+      "published": "2026-04-25",
+      "notes": "# Hide Increase Backpack Button\n\n## [2.1.2](https://github.com/exochron/hide-increase-backpack-button/tree/2.1.2) (2026-04-25)\n[Full Changelog](https://github.com/exochron/hide-increase-backpack-button/compare/2.1.1...2.1.2) [Previous Releases](https://github.com/exochron/hide-increase-backpack-button/releases)\n\n- chore(toc): updated interface version"
+    },
+    {
+      "tag": "2.1.1",
+      "published": "2026-02-21",
+      "notes": "# Hide Increase Backpack Button\n\n## [2.1.1](https://github.com/exochron/hide-increase-backpack-button/tree/2.1.1) (2026-02-21)\n[Full Changelog](https://github.com/exochron/hide-increase-backpack-button/compare/2.1.0...2.1.1) [Previous Releases](https://github.com/exochron/hide-increase-backpack-button/releases)\n\n- chore(toc): updated interface version"
+    },
+    {
+      "tag": "2.1.0",
+      "published": "2026-01-21",
+      "notes": "# Hide Increase Backpack Button\n\n## [2.1.0](https://github.com/exochron/hide-increase-backpack-button/tree/2.1.0) (2026-01-21)\n[Full Changelog](https://github.com/exochron/hide-increase-backpack-button/compare/2.0.14...2.1.0) [Previous Releases](https://github.com/exochron/hide-increase-backpack-button/releases)\n\n- feat(toc): unified toc files, updated interface versions and added support for TBC anniversary"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-23",
+    "releaseDates": [
+      "2026-10-23",
+      "2026-08-08",
+      "2026-04-25",
+      "2026-02-21",
+      "2026-01-21",
+      "2025-08-08",
+      "2025-06-11",
+      "2025-05-02",
+      "2025-03-08",
+      "2024-12-15",
+      "2024-07-26",
+      "2024-07-25",
+      "2024-05-13",
+      "2024-01-19",
+      "2023-11-09",
+      "2023-09-07",
+      "2023-07-11",
+      "2023-05-01",
+      "2022-11-25",
+      "2022-10-23",
+      "2022-09-03",
+      "2022-05-31",
+      "2022-02-22",
+      "2021-11-15",
+      "2021-05-28",
+      "2020-11-18",
+      "2020-10-17",
+      "2020-10-14",
+      "2020-10-11",
+      "2020-10-11",
+      "2019-04-04",
+      "2018-07-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "hide-increase-backpack-button"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

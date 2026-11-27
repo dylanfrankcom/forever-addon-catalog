@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "sharpiesgearjudge-xp",
+  "repo": "Supersharpie/SharpiesGearJudge_XP",
+  "about": "# Sharpie's Gear Judge - XP Bar\n\n**Version 1.1.8** | Requires **Sharpie's Gear Judge** | Works on **WoW Forever**, **Classic Era** and **TBC Anniversary**\n\nA lightweight, gear-aware experience bar plugin built for **Sharpie's Gear Judge (SGJ)**.\n\n## \uD83C\uDF1F Features\n\n- **Dynamic Tracking**: Tracks your current experience, with optional milestone ticks or classic 20-segment brackets.\n- **Classic Rested Tail**: A translucent blue \"tail\" beyond your current XP shows exactly where your Rested XP ends.\n- **Precision Tooltips**: Hover the bar for current XP, XP remaining, Rested XP (how much of the level it covers and roughly how many kills it lasts), and session stats: session time, XP per hour, estimated time to level, and kill and quest XP.\n- **Standalone Stats Box**: Optionally show everything from the tooltip in a box of its own. Shift-click it to reset the session. The session carries on through a `/reload`; logging in starts a new one.\n- **Native Integration**: Ties into the core SharpiesGearJudge addon for a cohesive HUD experience.\n\n### ⚔️ Gear-Aware Leveling\n- **Upgrades Waiting in Your Bags**: See which bag items SGJ rates as upgrades once you reach their level, looking up to 5 levels ahead. The next one shows as an icon at the end of the bar.\n- **Mail/Plate Look-Ahead**: Before 40, Warriors and Paladins see Plate (and Hunters and Shamans see Mail) under Upgrades Waiting, with a reminder to visit your trainer at 40.\n- **Level-Up Gear Alert**: A \"Ding!\" alert lists the upgrades you can equip now (also in chat as clickable links) and any unspent talent points. Left-click opens your bags; right-click dismisses it.\n- **Stat Weight Change Warning**: A heads-up before your leveling weights change, with the stats that shift the most, so you know which items may re-rank.\n- **Quest Turn-In Projection**: A gold section on the bar shows where your completed quests will take you, and the tooltip says which of them reward an upgrade and whether turning them in will level you. Works on WoW Forever too.\n- **Gear Score Tracking**: Your SGJ character score and how much it has grown this level, logged per level for each character.\n\n## \uD83C\uDF9B️ Options\n\nOpen Sharpie's Gear Judge (`/sgj`) and click the **XP Tracker** tab:\n- **What the bar shows and when**: show the main bar, the standalone stats box, milestone ticks or 20-segment brackets, hide the Blizzard XP bar, auto-hide during combat, lock frames, and the bar text (both, raw XP, percent or none).\n- **Size and Look**: bar width, height and background opacity, plus normal, rested, quest turn-in and text colors.\n- **Gear Judge Integration**: turn each gear-aware feature on or off.\n\n## \uD83C\uDF0D Translations\n\nThe XP Bar is translated into English, German, Spanish (Spain and Latin America), French, Brazilian Portuguese, Russian, Korean and Traditional Chinese.\n\n## ⚙️ Installation\n\n1. Ensure the core **SharpiesGearJudge** addon is installed.\n2. Drop the `SharpiesGearJudge_XP` folder into your `Interface/AddOns` directory.\n3. Enable the plugin on your character select screen.\n\n## \uD83D\uDCAC Feedback\n\nFound a bug? Come say hi on the **[Discord](https://discord.gg/aYmhmtGxYs)**.\n\n## \uD83D\uDCDD Changelog\n\nPlease see the [CHANGELOG.md](https://github.com/Supersharpie/SharpiesGearJudge_XP/blob/main/CHANGELOG.md) file for a detailed history of updates and fixes.",
+  "releases": [
+    {
+      "tag": "v1.1.8",
+      "published": "2026-11-21",
+      "notes": "## \uD83D\uDE80 v1.1.8\n\n### \uD83D\uDC1B Fixes\n- WoW Forever: your XP history no longer looks reset on logins where the game gives no realm name (needs Gear Judge 3.7.0).\n\n---"
+    },
+    {
+      "tag": "v1.1.7",
+      "published": "2026-11-18",
+      "notes": "## \uD83D\uDE80 v1.1.7\n\n### \uD83D\uDC1B Fixes\n- WoW Forever: the stat weight warning listed stats you already value as \"now valued\". Forever's weights change a little every level, so it no longer warns about a step that isn't there.\n- The warning's weights are rounded to two decimals.\n- The gear score gain for the level counts only item changes, not weights that moved with your gear or talents.\n\n---"
+    },
+    {
+      "tag": "v1.1.6",
+      "published": "2026-11-15",
+      "notes": "## \uD83D\uDE80 v1.1.6\n\n### \uD83D\uDC1B Fixes\n- The session (time, XP per hour, kills and quests) now carries on through a `/reload`. Logging in still starts a new one.\n\n---"
+    },
+    {
+      "tag": "v1.1.5",
+      "published": "2026-11-05",
+      "notes": "## \uD83D\uDE80 v1.1.5\n\n### \uD83D\uDC1B Fixes\n- Small upgrades now count as upgrades, the same as on Gear Judge's tooltip (they needed more than +0.1).\n\n---"
+    },
+    {
+      "tag": "v1.1.4",
+      "published": "2026-10-28",
+      "notes": "## \uD83D\uDE80 v1.1.4\n\n### \uD83C\uDFA8 New Look\n- Matches Gear Judge's new window: colored section titles, slimmer bars and your class color as the accent.\n\n---"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-18",
+      "2026-11-15",
+      "2026-11-05",
+      "2026-10-28",
+      "2026-10-07",
+      "2026-10-04",
+      "2026-10-02",
+      "2026-09-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SharpiesGearJudge_XP"
+    ],
+    "editions": [
+      "anniversary",
+      "forever"
+    ],
+    "requires": [
+      "SharpiesGearJudge"
+    ],
+    "savedVariables": [
+      "SGJ_XP_DB"
+    ]
+  }
+}

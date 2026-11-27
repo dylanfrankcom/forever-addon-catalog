@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "orbsui",
+  "repo": "lachyjp/OrbsForever",
+  "about": "# Orbs development workspace\n\nThe installable addon is in `OrbsUI/`. See its [README](https://github.com/lachyjp/OrbsForever/blob/main/OrbsUI/README.md) and [CHANGELOG](https://github.com/lachyjp/OrbsForever/blob/main/OrbsUI/CHANGELOG.md).\n\n- `dist/Orbs-<version>.zip`: generated package to upload to CurseForge.\n- `preview.png`: texture proof sheet using the shipped TGA assets, not a game screenshot.\n- `tools/gen_textures.py`: dependency-free original art generator.\n- `tools/preview.py`: optional Pillow proof-sheet renderer.\n- `tools/package.py`: build and verify the ZIP.\n- `tests/run.py`: Lua 5.1 behavioural tests using Python's `lupa` package.\n\n```powershell\npython tools/gen_textures.py\npython -m pip install --target .test-deps lupa==2.8\npython tests/run.py\npython tools/package.py\n```\n\nTo release: bump `O.version` in `OrbsUI/Core.lua` and `## Version` in `OrbsUI/OrbsUI.toc` (the packager checks they match), add a CHANGELOG entry, run the tests, then run the packager.\n\nOn this machine, `_forever_\\Interface\\AddOns\\OrbsUI` is a directory junction to `OrbsUI/`, so `/reload` in game picks up edits directly.\n\nThe buff, debuff, tooltip and loot-frame tweaks that used to be part of Orbs now live in the separate `wow-hud-tweaks` project (HUD Tweaks, `/hud`).",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "name": "Orbs 1.1.0",
+      "published": "2026-11-23",
+      "notes": "- Each orb can now have up to four consumable slots, set with the new **Health orb slots** and **Mana orb slots** sliders. Keep a mana potion, conjured water and a mana gem in separate slots, for example.\n- Extra slots fill automatically with food, healthstones and bandages (health) or water, mana gems and runes (mana). Drag any item onto a slot to pin it.\n- Orbs now tells you in chat when a guild or group member has a newer version, and after an update says what's new and where to find it."
+    },
+    {
+      "tag": "v1.0.3",
+      "name": "Orbs 1.0.3",
+      "published": "2026-11-20",
+      "notes": "- Renamed from OrbsForever to Orbs, since it runs on Classic and Retail as well as WoW Forever. Your settings are kept."
+    },
+    {
+      "tag": "v1.0.2",
+      "name": "OrbsForever 1.0.2",
+      "published": "2026-11-20",
+      "notes": "- Fixed another source of \"OrbsForever has been blocked from an action only available to the Blizzard UI\" when pressing Escape. The add-on no longer reassigns the game's popup dialog table."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-20",
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "OrbsUI"
+    ],
+    "editions": [
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "DialogueUI"
+    ],
+    "savedVariables": [
+      "OrbsUIGlobal"
+    ],
+    "savedVariablesPerCharacter": [
+      "OrbsUIDB"
+    ]
+  }
+}

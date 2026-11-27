@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "id": "plumber",
+  "repo": "Peterodox/Plumber",
+  "releases": [
+    {
+      "tag": "v1.9.7-f",
+      "published": "2026-11-18",
+      "notes": "- **WoW Anniversary:** The quick slot for the Mount Maniac event can be enabled again.\n- **Forever:** Fixed the last issue (hopefully) with the Transmog UI module.\n\n---\nPrevious Changelog\n- **Transmog UI: Restore Pending Changes:** This module works again on Forever.\n  - You should no longer see \"Invalid Custom Set Link\" in chat upon entering the game.\n- **Drawer Macro:** It now respects spell ranks, and the rank will be shown on the drawer buttons.\n- **Tooltip: Reagents:** This module is now available on Forever. If an item can be used to combine into something new, display all \"reagents\" used in the process."
+    },
+    {
+      "tag": "v1.9.7-e",
+      "published": "2026-11-17",
+      "notes": "- **Transmog UI: Restore Pending Changes:** This module works again on Forever.\n  - You should no longer see \"Invalid Custom Set Link\" in chat upon entering the game.\n- **Drawer Macro:** It now respects spell ranks, and the rank will be shown on the drawer buttons.\n- **Tooltip: Reagents:** This module is now available on Forever. If an item can be used to combine into something new, display all \"reagents\" used in the process."
+    },
+    {
+      "tag": "v1.9.7-d",
+      "published": "2026-11-09",
+      "notes": "## Hunter: Pet Food Menu\n- You can now click the Pet Happiness indicator to show a list of suitable foods, allowing you to easily feed your pet.\n- This module is Forever-only.\n- This module requires Blizzard's Pet Happiness Indicator (next to the PetFrame) to be visible.\n\n## Miscellaneous\n- For **Platynator** and Plumber users who have enabled **Nameplate: Soft Target**: Our radial cast bar on the Soft Target nameplate now aligns to the center of Platy's SoftTargetIcon, and will hide this icon when our cast bar appears."
+    },
+    {
+      "tag": "v1.9.7-c",
+      "published": "2026-11-03",
+      "notes": "- **Plumber Drawer Macro:** You can now drag other macros into the Drawer.\n- Fixed an issue where the **Nameplate Quest Indicator** appeared on the left and inside the health bar when you set its position to the right.\n- **Break Time Reminder:** It no longer treats house interiors and neighborhoods as \"instances\" and postpones the reminder.\n\n---\n\nPrevious Changelog\n- **Tooltip, Reputation Tokens:** This module now supports [Aqir Research Tokens](https://www.wowhead.com/item=286563/aqir-research-token), showing your renown progress on the vendor tooltip.\n- **Auctionator and Loot UI:** The price info should appear on the Loot UI's item tooltip.\n- **Loot UI on Classic:** Fixed an issue that caused the loot notification mode to stop working after a recent Plumber update.\n- **Auto Select Holiday Dungeon:** This module has been enabled on MoP Classic."
+    },
+    {
+      "tag": "v1.9.7-b",
+      "published": "2026-11-01",
+      "notes": "- **Tooltip, Reputation Tokens:** This module now supports [Aqir Research Tokens](https://www.wowhead.com/item=286563/aqir-research-token), showing your renown progress on the vendor tooltip.\n- **Auctionator and Loot UI:** The price info should appear on the Loot UI's item tooltip.\n- **Loot UI on Classic:** Fixed an issue that caused the loot notification mode to stop working after a recent Plumber update.\n- **Auto Select Holiday Dungeon:** This module has been enabled on MoP Classic."
+    }
+  ],
+  "stats": {
+    "stars": 53,
+    "openIssues": 20,
+    "contributors": 26,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-09",
+      "2026-11-03",
+      "2026-11-01",
+      "2026-10-25",
+      "2026-10-16",
+      "2026-10-11",
+      "2026-09-28",
+      "2026-09-25",
+      "2026-09-08",
+      "2026-09-03",
+      "2026-08-25",
+      "2026-08-16",
+      "2026-08-10",
+      "2026-07-02",
+      "2026-06-29",
+      "2026-06-28",
+      "2026-06-20",
+      "2026-06-09",
+      "2026-06-02",
+      "2026-05-23",
+      "2026-05-15",
+      "2026-05-08",
+      "2026-05-06",
+      "2026-05-04",
+      "2026-04-30",
+      "2026-04-27",
+      "2026-04-23",
+      "2026-04-21",
+      "2026-04-11",
+      "2026-04-05",
+      "2026-04-03",
+      "2026-03-27",
+      "2026-03-25",
+      "2026-03-20",
+      "2026-03-17",
+      "2026-03-12",
+      "2026-03-10",
+      "2026-03-09",
+      "2026-03-09",
+      "2026-03-08",
+      "2026-03-07",
+      "2026-03-04",
+      "2026-03-02",
+      "2026-02-26",
+      "2026-02-22",
+      "2026-02-17",
+      "2026-02-16",
+      "2026-02-15"
+    ]
+  },
+  "languages": [
+    "frFR",
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "Plumber"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "PlumberDB",
+      "PlumberDevData",
+      "PlumberStorage"
+    ],
+    "savedVariablesPerCharacter": [
+      "PlumberDB_PC"
+    ]
+  }
+}

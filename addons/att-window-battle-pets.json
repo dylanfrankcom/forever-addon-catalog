@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "att-window-battle-pets",
+  "repo": "ATTWoWAddon/ATT-Window-Battle-Pets",
+  "about": "![](https://wago-addons.ams3.digitaloceanspaces.com/thumbnails/GCM2L2Lxz2AObRXu404Oggp5zcjhBYp01XCXffPQ.png)\n\n[![Stable Release Date](https://img.shields.io/github/release-date/ATTWoWAddon/ATT-Window-Battle-Pets?logo=github&label=Released&cacheSeconds=600)](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/releases)\n[![Build Status](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/workflows/release/badge.svg)](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/actions?workflow=release)\n[![Stable Release](https://img.shields.io/github/v/release/ATTWoWAddon/ATT-Window-Battle-Pets?logo=github&label=Stable)](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/releases)\n![GitHub commits since latest release](https://img.shields.io/github/commits-since/ATTWoWAddon/ATT-Window-Battle-Pets/latest?logo=github)\n\n[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/ATTWoWAddon/ATT-Window-Battle-Pets?logo=github&label=Issues)](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/issues)\n![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/ATTWoWAddon/ATT-Window-Battle-Pets?logo=github&label=Activity&cacheSeconds=600)\n[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/allthethings)\n[![Patreon](https://img.shields.io/badge/Patreon-F96854?&logo=patreon&logoColor=white)](https://www.patreon.com/allthethings)\n[![Twitch](https://img.shields.io/badge/Twitch-%239146FF?logo=twitch&logoColor=white)](https://www.twitch.tv/crieve)\n\n[![CurseForge](https://cf.way2muchnoise.eu/267285.svg)](https://legacy.curseforge.com/wow/addons/att-window-battle-pets)\n![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ATTWoWAddon/ATT-Window-Battle-Pets/total?logo=github&label=Downloads&cacheSeconds=600)\n[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=&logo=github&logoColor=white)](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets)\n[![CurseForge](https://img.shields.io/badge/CurseForge-%23F16436?logo=CurseForge&logoColor=black)](https://legacy.curseforge.com/wow/addons/att-window-battle-pets)\n[![Wago.io](https://img.shields.io/badge/Wago.io-%231e1e1e)](https://addons.wago.io/addons/att-window-battle-pets)\n\n## Screenshots\n![Standalone Battle Pets window that can also be embedded directly within the Main List. (Currently only enabled in Classic Game Flavors)](https://raw.githubusercontent.com/ATTWoWAddon/ATT-Window-Battle-Pets/main/.sample.png)\n![The addon is an extension for ATT that adds Battle Pets as a quick lookup list for all battle pets in the ATT database sorted by battle pet type!](https://raw.githubusercontent.com/ATTWoWAddon/ATT-Window-Battle-Pets/main/.sample2.png)\n\n## Features\n- Battle Pets, sorted alphabetically, in a convenient Standalone Window or Embeddable Dynamic Category (Classic Only).\n\n## Why do I need this addon?\n- This addon filters ATT for all Battle Pets and arranges them alphabetically within each Battle Pet Type Category. You can open the window using /attpetbattles and either leave it open to have it restore or close it to open again at a later date! As with all other ATT Windows, it will recover back to its last known state on reload or relog!\n\n## Release Schedule\nNew builds are created On Demand and will generally only include updated TOC versions. As the Battle Pet data itself is provided by AllTheThings, so long as ATT is up-to-date, this addon will also function as you expect and be up-to-date.\n\n## Where do I find AllTheThings?\n- [AllTheThings](https://github.com/ATTWoWAddon/AllTheThings)\nDo you find yourself completing old content just so that you can get literally everything for your Collections? Say no more! ALL THE THINGS will help you with your endeavor by giving you the ability to track your completion for everything.\n\n## Problem? Suggestion?\nPlease visit our Discord or post an Issue on our Issue Tracker. Issues related to ATT itself should be posted to the AllTheThings Discord instead!\n\n- [Discord](https://discord.gg/allthethings)\n- [Issues](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/issues)\n- [FAQ](https://legacy.curseforge.com/wow/addons/all-the-things/pages/f-a-q)\n- [WAGO.io](https://addons.wago.io/addons/att-window-battle-pets)\n\n## Contributors\nThank you to the contributors for the work they do and the users who have submitted suggestions and bugs in Discord or on the forums! View and follow [our contributors here](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/graphs/contributors)!\n\n## Special Thanks\n- DeadSerious -- Primary Artist for all Branding for ATT & Crieve's Twitch channel.\n\n## Support Us\nYou can donate to our [Patreon here](https://www.patreon.com/allthethings)!",
+  "releases": [
+    {
+      "tag": "1.0.4",
+      "published": "2026-11-23",
+      "notes": "# ATT-Window: Battle Pets\n\n## [1.0.4](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/tree/1.0.4) (2026-11-23)\n[Full Changelog](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/compare/1.0.3...1.0.4) [Previous Releases](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/releases)\n\n- The Link to WoW batch files now link to WoW Forever as well."
+    },
+    {
+      "tag": "1.0.3",
+      "published": "2026-10-17",
+      "notes": "# ATT-Window: Battle Pets\n\n## [1.0.3](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/tree/1.0.3) (2026-10-17)\n[Full Changelog](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/compare/1.0.2...1.0.3) [Previous Releases](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/releases)\n\n- [TOC] Update TOC.  \n    * Removed outdated version.  \n    * Added 12.1.5, 12.1.7.  \n- Updated WoW path for my new computer."
+    },
+    {
+      "tag": "1.0.2",
+      "published": "2026-09-21",
+      "notes": "# ATT-Window: Battle Pets\n\n## [1.0.2](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/tree/1.0.2) (2026-09-21)\n[Full Changelog](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/compare/1.0.1...1.0.2) [Previous Releases](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/releases)\n\n- [TOC] Updated TOC."
+    },
+    {
+      "tag": "1.0.1",
+      "published": "2026-07-26",
+      "notes": "# ATT-Window: Battle Pets\n\n## [1.0.1](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/tree/1.0.1) (2026-07-26)\n[Full Changelog](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/compare/1.0.0...1.0.1) [Previous Releases](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/releases)\n\n- [TOC] Update TOC.  \n    * Removed outdated version.  \n    * Added 1.15.9, 2.5.6, 5.5.4, 12.0.7, 12.1.0."
+    },
+    {
+      "tag": "1.0.0",
+      "published": "2026-02-14",
+      "notes": "# ATT-Window: Battle Pets\n\n## [1.0.0](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/tree/1.0.0) (2026-02-14)\n[Full Changelog](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/commits/1.0.0) [Previous Releases](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets/releases)\n\n- Whoops, forgot to change the package-as.  \n- Updated CurseForge Project ID.  \n- Removed some extra fluff buttons.  \n- Added readme and Wago Project ID.  \n- Updated the convention for ATT-Windows to use a specific prefix.  \n- Added the initial version of the external Battle Pets (/attbattlepets) window."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/ATTWoWAddon/ATT-Window-Battle-Pets/main/.sample.png",
+    "https://raw.githubusercontent.com/ATTWoWAddon/ATT-Window-Battle-Pets/main/.sample2.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-10-17",
+      "2026-09-21",
+      "2026-07-26",
+      "2026-02-14"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "ATT-Window-Battle-Pets"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "AllTheThings"
+    ]
+  }
+}

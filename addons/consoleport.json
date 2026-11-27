@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "consoleport",
+  "repo": "seblindfors/ConsolePort",
+  "about": "# ConsolePort\n\n## Game Controller Addon for World of Warcraft\n\n![](https://raw.githubusercontent.com/seblindfors/ConsolePort/master/Wiki/header.png)\n\n## What is ConsolePort?\n\nConsolePort is an interface add-on for World of Warcraft that provides features and solutions to common UX problems\nin order to let you play the game on a controller - with less inconvenience.\n\nConsisting of several independent modules, ConsolePort is a fully-fledged solution to handling all the quirks in a game where gamepad support was not intended,\nincluding interface navigation, custom-tailored UI elements to assist in gameplay, and easy-to-use targeting systems\nfor end-game content. As of Shadowlands, ConsolePort uses native gamepad controls. No external software is required.\n\n## Downloads\n\n[Download the latest stable version at Wowinterface.](https://www.wowinterface.com/downloads/info23536-ConsolePort.html)\n[Download the latest stable version at Curse.](https://www.curseforge.com/wow/addons/console-port)",
+  "releases": [
+    {
+      "tag": "3.3.16",
+      "published": "2026-11-23",
+      "notes": "# Console Port\n\n## [3.3.16](https://github.com/seblindfors/ConsolePort/tree/3.3.16) (2026-11-23)\n[Full Changelog](https://github.com/seblindfors/ConsolePort/compare/3.3.15...3.3.16) [Previous Releases](https://github.com/seblindfors/ConsolePort/releases)\n\n- Merge pull request #328 from seblindfors/forever  \n    Release 3.3.16  \n- Bump version to 3.3.16  \n- Merge pull request #327 from seblindfors/forever  \n    Pass the second unit name part as a surname on Forever  \n- Merge pull request #324 from SSyl/ring-hold-to-edit  \n    Add a setting to turn off hold to edit on rings  \n- Pass the second unit name part as a surname on Forever  \n    Co-authored-by: Leo Q <LeoQuote@users.noreply.github.com>  \n- Translate the hold to edit ring setting  \n- Merge pull request #325 from seblindfors/forever  \n    Fix action bar taint from the interface cursor on the spellbook  \n- Keep spellbook hover off the action bars and the pet bar  \n- Restore config button prompts when the action placer releases a row  \n- Fade the reticle tooltip after the tooltip duration  \n- Add a setting to turn off hold to edit on rings  \n- Resolve doubled and ordered layers to their own state on cluster bars  \n- Hide the disabled game menu ring through the secure environment  \n- Condense the coding standards, lead with the binding rules  \n- Scan the Target addon when extracting locale strings  \n- Merge pull request #321 from seblindfors/forever  \n    Hard target tooltip and a priority order for target tooltips  \n- Hard target tooltip and a priority order for target tooltips  \n    Co-authored-by: blazze11 <8845639+blazze11@users.noreply.github.com>  \n- Merge pull request #319 from seblindfors/forever  \n    Target tooltips on name plates, under Targeting > Tooltips  \n- Target tooltips on name plates, grouped under Targeting > Tooltips  \n- Merge pull request #317 from seblindfors/forever  \n    Show unit tooltips while holding a target binding  \n- Re-open the action placer for a swapped out spell  \n- Show unit tooltips while holding a target binding  \n- Merge pull request #316 from seblindfors/forever  \n    Name the camp spells and items  \n- Merge pull request #315 from seblindfors/camp-named-ids  \n    Name the camp spells and items  \n- Name the camp spells and items  \n- Merge pull request #313 from seblindfors/forever  \n    Legacy system on the game menu ring, campfire utility ring  \n- Merge pull request #314 from seblindfors/campfire-sleeping-bag  \n    Add the sleeping bag to the utility ring at campfires  \n- Add the sleeping bag to the utility ring at campfires  \n- Swap adventure guide for legacy system on Forever ring  \n- Merge pull request #311 from seblindfors/campfire-ring  \n    Add sit and professions to the utility ring at campfires  \n- Keep the extra action button off the ring on Forever  \n- Add sit and professions to the utility ring at campfires  \n- Redraw an open ring when its content changes  \n- Merge pull request #310 from seblindfors/forever  \n    Native target modifier bindings and Target Any on Forever  \n- Translate the target any strings  \n- Add a hold binding that targets any unit on Forever  \n- Hold targeting through the native target modifier bindings"
+    },
+    {
+      "tag": "3.3.15",
+      "published": "2026-11-17",
+      "notes": "# Console Port\n\n## [3.3.15](https://github.com/seblindfors/ConsolePort/tree/3.3.15) (2026-11-17)\n[Full Changelog](https://github.com/seblindfors/ConsolePort/compare/3.3.14...3.3.15) [Previous Releases](https://github.com/seblindfors/ConsolePort/releases)\n\n- Merge pull request #309 from seblindfors/forever  \n    Translations for the watch bar backdrop strings  \n- Merge remote-tracking branch 'origin/master' into forever  \n- Merge pull request #307 from blazze11/watchbar  \n    Fix watchbar layering and add configurable backdrops  \n- Regenerate locales  \n- Merge pull request #307 from blazze11/watchbar  \n- Merge pull request #308 from seblindfors/forever  \n    Release 3.3.15  \n- Bump version to 3.3.15  \n- Add native targeting holds, aim indicator, swing timer and reticle settings for Forever  \n- Improve watch bar layering and add configurable backdrops"
+    },
+    {
+      "tag": "3.3.14",
+      "published": "2026-11-16",
+      "notes": "# Console Port\n\n## [3.3.14](https://github.com/seblindfors/ConsolePort/tree/3.3.14) (2026-11-16)\n[Full Changelog](https://github.com/seblindfors/ConsolePort/compare/3.3.13...3.3.14) [Previous Releases](https://github.com/seblindfors/ConsolePort/releases)\n\n- Merge pull request #306 from seblindfors/forever  \n    Release 3.3.14  \n- Bump version to 3.3.14  \n- Translate the watch bar text settings  \n- Merge pull request #303 from blazze11/codex/watchbar-3.3.13  \n- Merge pull request #301 from blazze11/codex/actionbar-flyout-cooldown  \n    Restore action bar flyout visibility on cooldown  \n- Merge pull request #305 from seblindfors/forever  \n    Forever fixes and accent colors  \n- Keep group loot rolls in the quick menu on Forever  \n- Gate the game menu ring on native navigation instead of the client  \n- Derive the muted class color from the accent  \n- Clamp class accent luminance  \n- Enable mouse handling on Forever outside the native gamepad UI  \n- Merge pull request #304 from blazze11/codex/fix-loot-overlay  \n    Fix stuck loot overlays, combat hints, and tooltip backgrounds  \n- Fix ConsolePort loot overlay and tooltip behavior  \n- Merge branch 'seblindfors:master' into codex/actionbar-flyout-cooldown  \n- Merge branch 'seblindfors:master' into codex/watchbar-3.3.13  \n- Merge pull request #302 from blazze11/codex/mop-spellbook-flyout  \n    Fix spellbook flyouts on MoP Classic  \n- Merge pull request #299 from blazze11/codex/ring-skin-fix  \n    Fix utility ring skin lookup for extra actions  \n- Add configurable watch bar text and improve tracking  \n    - Add independent text visibility and format settings for the top and  \n      bottom watch bars. A single visible bar uses the bottom bar settings.  \n    - Visibility options are Hover - Default, Always Show, and Hidden.  \n    - Format options are Current/Max, Percent, Numbers + Pct, and Remaining.  \n    - Show the current reputation rank and use the faction's standing color.  \n    - Match Blizzard's XP percentage rounding and append (+X%) when rested  \n      XP is available.  \n    - Use each client's tracking eligibility and priority rules. Add House  \n      Favor support where available, using Blizzard's progress updates and  \n      label format.  \n    - Apply toolbar tint and XP bar color changes immediately. The XP color  \n      setting applies only to the XP bar.  \n    - Add passive progress markers that hide when a bar is full. Keep watch  \n      bars, text, and markers behind action clusters, macro labels, and the  \n      /cp settings window.  \n    Testing  \n    Tested in-game on Anniversary, Retail, Forever, and MoP Classic.  \n    House Favor was checked with Lua mocks. Live House Favor testing  \n    requires access to the Midnight expansion.  \n- Handle the MoP spellbook flyout signature  \n- Show cluster flyouts on modern cooldowns  \n- Fix utility ring skin lookup for extra actions"
+    },
+    {
+      "tag": "3.3.13",
+      "published": "2026-10-30",
+      "notes": "# Console Port\n\n## [3.3.13](https://github.com/seblindfors/ConsolePort/tree/3.3.13) (2026-10-30)\n[Full Changelog](https://github.com/seblindfors/ConsolePort/compare/3.3.12...3.3.13) [Previous Releases](https://github.com/seblindfors/ConsolePort/releases)\n\n- Merge pull request #293 from seblindfors/forever  \n    3.3.13: wrapper cleanup  \n- Bump version to 3.3.13  \n- Drop the CPAPI wrappers whose namespaced API exists on every client  \n- Merge pull request #288 from Daemeron/fix/deprecated-socket-info  \n    Use the current item socket API instead of the deprecated global  \n- Merge pull request #292 from seblindfors/forever  \n    3.3.13: settings regroup, action placer, keyboard glyphs, Forever groundwork  \n- Merge pull request #287 from seblindfors/forever-impl  \n    Forever: gamepad action storage, native UI coexistence, keyboard glyphs  \n- Merge pull request #291 from seblindfors/action-placement  \n    Paged action placer for spells and items  \n- Replace the slot grid popup with a paged action placer in the config  \n- Number keyboard bars within their own set  \n- Page the gamepad bar onto vehicle, override and temp shapeshift pages  \n- Hold the camera stick after a targeting binding is released  \n- Let the mouse button bindings lead and mirror the interface click from a plain button  \n- Move the modifier settings under Bindings and merge its lists  \n- Group and sort stance bars with their own slot set in the config  \n- Fit Forever's bag slot textures and key ring to the toolbar size  \n- Show modifier glyphs above the keyboard and hints in the suggestion list  \n- Guard the Forever paths on other clients, at load and in combat  \n- Gate cursor, auras, loot, temp abilities and the game menu behind the native gamepad UI on Forever  \n- Size config and slot pickers by bar width for the gamepad slot set  \n- Hide the native gamepad bar, strip its keys, and bind Interact, Inspect and targeting on Forever  \n- Add the gamepad action storage backend for Forever  \n- Use the current item socket API instead of the deprecated global  \n    GetSocketItemInfo is a bare global only provided by the on-demand  \n    Blizzard\\_DeprecatedItemSocketInfo addon as an alias for  \n    C\\_ItemSocketInfo.GetSocketItemInfo. When that compatibility addon has  \n    not loaded, the global is nil and every modified-click on an item  \n    button errors with 'attempt to call a nil value', regardless of which  \n    button it was.  \n    Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "3.3.12",
+      "published": "2026-10-21",
+      "notes": "# Console Port\n\n## [3.3.12](https://github.com/seblindfors/ConsolePort/tree/3.3.12) (2026-10-21)\n[Full Changelog](https://github.com/seblindfors/ConsolePort/compare/3.3.11...3.3.12) [Previous Releases](https://github.com/seblindfors/ConsolePort/releases)\n\n- Merge pull request #290 from seblindfors/forever  \n    3.3.12  \n- Bump version to 3.3.12  \n- Merge pull request #289 from seblindfors/toolbar-hover  \n    Toolbar: hover open mode beside the notch  \n- Offer a hover-opened toolbar beside the notch, at native scale"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/seblindfors/ConsolePort/master/Wiki/header.png"
+  ],
+  "stats": {
+    "stars": 264,
+    "openIssues": 37,
+    "contributors": 23,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-10-30",
+      "2026-10-21",
+      "2026-10-19",
+      "2026-10-07",
+      "2026-10-06",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-09-25",
+      "2026-09-23",
+      "2026-09-12",
+      "2026-09-10",
+      "2026-09-04",
+      "2026-08-30",
+      "2026-08-29",
+      "2026-08-28",
+      "2026-08-24",
+      "2026-08-19",
+      "2026-08-18",
+      "2026-08-13",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-08-11",
+      "2026-07-21",
+      "2026-07-11",
+      "2026-06-22",
+      "2026-06-03",
+      "2026-05-25",
+      "2026-05-12",
+      "2026-04-22",
+      "2026-04-17",
+      "2026-04-05",
+      "2026-04-03",
+      "2026-03-31",
+      "2026-03-29",
+      "2026-03-24",
+      "2026-03-24",
+      "2026-03-22",
+      "2026-03-14",
+      "2026-03-10",
+      "2026-03-09",
+      "2026-03-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ConsolePort",
+      "ConsolePort_Bar",
+      "ConsolePort_Config",
+      "ConsolePort_Cursor",
+      "ConsolePort_Keyboard",
+      "ConsolePort_Menu",
+      "ConsolePort_Rings",
+      "ConsolePort_Target",
+      "ConsolePort_World"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "ConsolePort_Debug"
+    ],
+    "savedVariables": [
+      "ConsolePortSettings",
+      "ConsolePortDevices",
+      "ConsolePortShared",
+      "ConsolePortBindingIcons"
+    ],
+    "savedVariablesPerCharacter": [
+      "ConsolePortCharacterSettings",
+      "ConsolePortUtility",
+      "ConsolePortUtilityDeprecated"
+    ]
+  }
+}

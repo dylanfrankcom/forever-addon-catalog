@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "waypointui",
+  "repo": "Adaptvx/Waypoint-UI",
+  "about": "# Waypoint UI\n### World of Warcraft Add-on\nAn in-world waypoint and pinpoint to show relevant information directly in world-space.",
+  "releases": [
+    {
+      "tag": "1.7.5",
+      "published": "2026-11-05",
+      "notes": "- Map Pins: You can now Ctrl-click a map pin to remove it.\n- Map Pins: Added an option to place map pins by Ctrl-clicking on the minimap.\n- Pathfinding: You can now reposition the navigation HUD.\n- Added options to configure tracking for quests, map pins, POIs, and guide pins."
+    },
+    {
+      "tag": "1.7.4",
+      "published": "2026-10-20",
+      "notes": "### Supported Addons\n- ***New* RestedXP:** Added integration with RestedXP.\n- **Mapzeroth:** Fixed an issue preventing Mapzeroth from functioning as a navigation provider.\n- **Mapzeroth:** Added support for tracking Mapzeroth's active travel step."
+    },
+    {
+      "tag": "1.7.3",
+      "published": "2026-09-24",
+      "notes": "- WoW: Forever: Adjusted waypoint size.\n- WoW: Forever: Set the default Pinpoint threshold to 100 yards.\n- Fixed an issue where the tooltip disappeared when changing zones."
+    },
+    {
+      "tag": "1.7.2",
+      "published": "2026-09-20",
+      "notes": "- Added compatibility with WoW: Forever.\n- Fixed an issue where placing a new map pin would instead clear the active pin when multiple pins were present."
+    },
+    {
+      "tag": "1.7.1",
+      "published": "2026-09-13",
+      "notes": "### Audio\n- Proximity: Added an option to play a sound when moving away from the destination.\n\n### Bug Fixes\n- Fixed an issue that caused the proximity sound to play after reloading the UI while inside the distance threshold."
+    }
+  ],
+  "stats": {
+    "stars": 17,
+    "openIssues": 3,
+    "contributors": 7,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-10-20",
+      "2026-09-24",
+      "2026-09-20",
+      "2026-09-13",
+      "2026-09-09",
+      "2026-08-19",
+      "2026-08-16",
+      "2026-08-13",
+      "2026-07-22"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "WaypointUI"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "WaypointDB_Global",
+      "WaypointDB_Global_Persistent"
+    ],
+    "savedVariablesPerCharacter": [
+      "WaypointDB_Local",
+      "WaypointDB_Local_Persistent"
+    ]
+  }
+}

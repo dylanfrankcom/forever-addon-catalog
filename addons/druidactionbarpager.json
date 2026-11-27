@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "druidactionbarpager",
+  "repo": "SeanShaffer88/DruidActionBarPager",
+  "about": "# DruidActionBarPager\n\n## TL;DR\n\n**Automatic action bar paging for druid forms in WoW Forever** — by Malikor.\nSwitches your main action bar to a different page for each druid form\n(Bear page 2, Cat page 3, Moonkin page 4 by default), works in combat, and\nworks with Blizzard's bars, EllesmereUI, Bartender4, ElvUI, Dominos, Neuron, and most other bar addons (including LibActionButton-based bars).\n\n![DruidActionBarPager logo](https://raw.githubusercontent.com/SeanShaffer88/DruidActionBarPager/main/DruidActionBarPager/logo.png)\n\n## Layout\n\n| Path | What it is |\n| --- | --- |\n| `DruidActionBarPager/` | The addon: Lua source, `DruidActionBarPager.toc`, icon and logo, plus its README, FEATURES, DESCRIPTION and CHANGELOG |\n\nThe player guide is in [DruidActionBarPager/README.md](https://github.com/SeanShaffer88/DruidActionBarPager/blob/main/DruidActionBarPager/README.md);\nthe full feature list is in [DruidActionBarPager/FEATURES.md](https://github.com/SeanShaffer88/DruidActionBarPager/blob/main/DruidActionBarPager/FEATURES.md);\nstore-listing copy is in [DruidActionBarPager/DESCRIPTION.md](https://github.com/SeanShaffer88/DruidActionBarPager/blob/main/DruidActionBarPager/DESCRIPTION.md);\nwhat changed is in [DruidActionBarPager/CHANGELOG.md](https://github.com/SeanShaffer88/DruidActionBarPager/blob/main/DruidActionBarPager/CHANGELOG.md).\n\n## Install\n\nExtract the `DruidActionBarPager` folder into\n`World of Warcraft\\_classic_beta_\\Interface\\AddOns\\` and restart the game\n(or `/reload` when updating an already-installed copy; a full client restart\nregisters new `Bindings.xml` entries), or install the zip from the latest\nrelease the same way.\n\n## License\n\nCopyright © 2026 Malikor. Released under the GNU General Public\nLicense v3.0 — see `LICENSE`.",
+  "releases": [
+    {
+      "tag": "v1.3.0",
+      "name": "DruidActionBarPager 1.3.0",
+      "published": "2026-11-22",
+      "notes": "# DruidActionBarPager 1.3.0\n\n- 2026-11-21\n\n### Added\n- Open `/dabp config` to see which page each form uses, choose extra bars, and review shared-page warnings. Move through its buttons with the keyboard and keep its position between sessions.\n- Preview the twelve buttons on a page before assigning it to a form. Empty slots and slots the addon cannot read are shown separately.\n- Review Undo or Reset before changing pages. Undo keeps up to ten mapping edits until you reload or change character or profile.\n- Keep four separate Tank, Cat, Balance and Healing setups for each character. Choose them yourself, or explicitly link a setup to the current talent setup when your client supports automatic changes.\n- Share only form page numbers, without extra bar IDs or player details. Review pasted pages before applying them.\n- Copy a local troubleshooting report without character names or player IDs.\n- Give Cat + Prowl its own page with `/dabp prowl <0-10>`. Zero keeps Cat's page, and the game's special bars keep priority.\n- See which bar addons have been checked and when the installed version is unknown.\n\n### Changed\n- Existing page choices are kept when settings are upgraded. Saves from a newer addon are left untouched.\n- Windows and Linux produce identical ZIPs. Published downloads are checked against the verified package."
+    },
+    {
+      "tag": "v1.2.1",
+      "name": "DruidActionBarPager 1.2.1",
+      "published": "2026-11-21",
+      "notes": "# DruidActionBarPager 1.2.1\n\nFixes extra bars restoring outdated actions after their normal page changes while paging is paused. The updated restore baseline also preserves standalone LibActionButton states, saved selections, and pause state through repeated rebuilds and candidate reordering.\n\nVerified with 164 passing offline checks, including the new paused-bar and standalone LibActionButton regressions. The install ZIP targets WoW Forever Interface 16001.\n\nIn-game validation is assumed for this release. Offline verification was performed without a live-client run."
+    },
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-18",
+      "notes": "## Changes\n- Fix restricted-environment snippet compilation by splitting per-bar paging into `fp-apply-bar` (`RunAttribute`) and adding out-of-combat `SecureHandlerExecute` bar restoration.\n- Page selected Blizzard optional bars (`MultiBar*`) via `actionpage` overrides, expand extra-bar discovery to slots 1–180 (`MultiBar5`–`MultiBar7` and high-page bars), and resolve `button.bar` ahead of Forever `ButtonContainer` frames.\n- Preserve per-bar hotkey pause and applied tracking across candidate reordering, retain selected bars inside the 10-bar discovery cap, and restore deselected, cleared, dropped, or replaced bars immediately out of combat.\n- Yield action bars automatically during `[overridebar]`, `[vehicleui]`, `[possessbar]`, `[shapeshift]`, and `[bonusbar:5]` states, and scope `OnAttributeChanged` bar hooks to paging attributes on the affected bar only.\n- Attach all 12 protected buttons of visible known bars even when empty slots are hidden (`showgrid` off), run `UpdateShown` on fixed-slot buttons, preserve base slots across `/reload` while shifted (including Dominos `action-base` and bonus-page normalization), and restore per-button `LibActionButton` base states.\n- Add `/dabp bar slot <1-3> off` and `/dabp bar clear`, surface missing saved bars in `/dabp`/`/dabp bars`/`/dabp debug`, exclude Blizzard system buttons from `/dabp bars`, sort visible bars first, and display parent bar names with page/slot ranges.\n- Fix duplicate binding-header warning in `Bindings.xml`, sync toggle hotkeys with `ActionButtonUseKeyDown` (and 3+ bound keys), disable mouse on hidden toggle buttons, add numeric Druid icon `fileDataID` and whole-word form-name matching, keep non-druid `/dabp` commands idle, and improve late-bar rescan and scan efficiency.\n\n## Verification\n- 154/154 offline add-on checks passed (including strict restricted-closure enforcement, `Bindings.xml` schema validation, 7 bar families, and 12 edge-case suites).\n- GitHub `test-and-package` workflow passed and attached `DruidActionBarPager-1.2.0.zip` and `SHA256SUMS.txt`.\n- Confirm in-game behavior in WoW Forever (`Interface: 16001`)."
+    },
+    {
+      "tag": "v1.1.2-patched.4",
+      "published": "2026-11-18",
+      "notes": "## Changes\n- Keep saved extra-bar selections stable when discovery order changes; migrate older IDs when the match is unambiguous.\n\n## Verification\n- 91/91 offline add-on checks passed.\n- GitHub test-and-package workflow passed; the published-release workflow will attach the install-ready ZIP and SHA-256 checksum.\n- No in-game testing was performed."
+    },
+    {
+      "tag": "v1.1.2-patched.3",
+      "published": "2026-11-17",
+      "notes": "## Changes\n- Keep automatic paging on the main bar and add selectable extra bars that mirror the active form page.\n- Add individual extra-bar and toggle-all keybindings.\n- Improve form-change/reload handling and leave non-selected bars untouched.\n\n## Verification\n- 89/89 addon simulation checks passed.\n- GitHub Actions validated the release ZIP and checksum on the release candidate.\n- The reported in-game timing still needs confirmation in WoW.\n\nThe published-release workflow will attach the install-ready ZIP and SHA-256 checksum."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DruidActionBarPager"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "DruidActionBarPagerDB"
+    ]
+  }
+}

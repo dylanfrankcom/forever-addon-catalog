@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "simsforeverexporter",
+  "repo": "Blueteak/SimsForeverExporter",
+  "about": "# SimsForever Exporter\n\nExports WoW Forever character data for [SimsForever](https://simsforever.com/).\n\nRun `/simf`, `/sfexport`, or `/simsforever` to open the export. Press Ctrl+C to copy and close the window, then paste at [SimsForever](https://simsforever.com/).\n\nExports equipped gear plus equippable gear in carried bags. \n\n## Some Notes\n- Bank contents are included if the bank window is open. \n- Current resources, spell costs, and pet spell details are added for diagnostics. \n- SimsForever selects starting resources and uses internal spell and pet data. \n- Unreadable optional fields are omitted without warnings.\n- CurseForge packages version tags automatically.",
+  "releases": [
+    {
+      "tag": "v0.1.6",
+      "name": "SimsForever Exporter 0.1.6",
+      "published": "2026-09-24",
+      "notes": "Add `/simf` as an alias for `/sfexport` and `/simsforever`, including `save` and `clear`.\n\nThe export popup now closes automatically after Ctrl+C, Cmd+C, or Ctrl+Insert, with a brief delay to let the game finish copying.\n\nChecked with Lua 5.1 and mocked WoW UI events. In-game verification is still needed."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-09-24",
+    "releaseDates": [
+      "2026-09-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SimsForeverExporter"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SimsForeverExporterDB"
+    ]
+  }
+}

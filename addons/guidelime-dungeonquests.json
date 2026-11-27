@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "guidelime-dungeonquests",
+  "repo": "JanRK/Guidelime_DungeonQuests",
+  "about": "# Guidelime_DungeonQuests\n\nQuest guides for the dungeons and raids of WoW Forever. The addon runs inside [Guidelime](https://www.curseforge.com/wow/addons/guidelime), which must be installed.\n\nEach guide lists the quests for one dungeon, raid or Scarlet Monastery wing. It covers where to pick up each quest, what to do, and where to turn it in. Most dungeon quests need a chain of earlier quests, and the guide includes that chain.\n\n## Install\n\n1. Install Guidelime.\n2. Install this addon with one of:\n   - [WowUp-CF](https://wowup.io/): choose your WoW Forever installation, then \"Install from URL\" with `https://github.com/JanRK/Guidelime_DungeonQuests`. WowUp-CF also offers updates.\n   - By hand: copy the `Guidelime_DungeonQuests` folder into `Interface/AddOns/` in your WoW Forever folder.\n3. Start the game and open Guidelime. The guides are listed under \"DungeonQuests - JanRK\".\n\n## Guides\n\nThe guide name starts with the level range, for example \"18-21 Deadmines\". When you finish a guide, Guidelime offers the next one in level order.\n\nSome guides are not written yet. They show \"This guide is not ready yet. Skip to the next guide.\"\n\nMost written guides cover only Horde. Alliance steps are being added.\n\nExtra guides:\n\n- Library books: one guide per faction for each reward tier (10, 20 and 25 books). Tier 10 also has a version that picks up the Cozy Sleeping Bag on the way.\n- Cozy Sleeping Bag: a short guide for that quest alone.\n\n## Report a problem\n\nThe guides have not been tested in game yet. If a step is wrong, open an issue at [JanRK/Guidelime_DungeonQuests](https://github.com/JanRK/Guidelime_DungeonQuests/issues). Include the guide name, the step, and what you saw in game.\n\n## License\n\nGPL-3.0. See [LICENSE](https://github.com/JanRK/Guidelime_DungeonQuests/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.4",
+      "published": "2026-11-17",
+      "notes": "Work-Repo-Commit: 968e7501c6c81d0acf692930b4af39713da806d8"
+    },
+    {
+      "tag": "v1.0.3",
+      "published": "2026-11-15",
+      "notes": "Work-Repo-Commit: c5cb738d92714da2ad8eb9ecabd523e89ea1f4dd"
+    },
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-15",
+      "notes": "Work-Repo-Commit: e103f6638ca6296b009daf30aee8127e07416476"
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-15",
+      "notes": "Work-Repo-Commit: 37256b32e6b6e28ff6c0a5bec6f08a36002e44ff"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-15",
+      "notes": "All guides updated\n\nWork-Repo-Commit: e69b8a4708868f1aae96365ab46c2f497e7777b0"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Guidelime_DungeonQuests"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Guidelime"
+    ]
+  }
+}

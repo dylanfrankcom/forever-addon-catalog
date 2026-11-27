@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "absorbwatch",
+  "repo": "ho0ber/AbsorbWatch",
+  "about": "# AbsorbWatch\nA simple addon to show absorb shields on health bars in WoW: Forever",
+  "releases": [
+    {
+      "tag": "v0.4.0",
+      "published": "2026-11-25",
+      "notes": "Plays a sound when your absorb shield breaks or expires, with a choice of sound and volume channel in the settings. Restart the game after updating so it picks up the new sound files."
+    },
+    {
+      "tag": "v0.3.0",
+      "published": "2026-11-22",
+      "notes": "First release. Shows absorb shields on the player health bar and raid frames, with an optional absorb amount next to the player frame."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AbsorbWatch"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "AbsorbWatchDB"
+    ]
+  }
+}

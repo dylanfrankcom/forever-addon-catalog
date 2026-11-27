@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "chat",
+  "repo": "Harmenszoon/wow-chat",
+  "about": "# Harmenszoon's Chat\n\nShortens player and channel prefixes in Blizzard's chat windows and keeps up to 1,000 recent messages per window during your WoW Forever session. Whisper tabs, player links, and item links retain their native behavior.\n\nTo copy text, drag across the words you want and release. In the copy dialog, press **Ctrl+C** on Windows or **Cmd+C** on Mac. You can select part of a line or span several messages. Copying is available for text the game allows addons to read.\n\n## Installation\n\nIn WowUp, select **Get Addons**, then **Install from URL**, and paste this repository's address. [Repository URL](https://github.com/Harmenszoon/wow-chat)\n\nFor manual installation, extract the `-forever.zip` release asset into `_forever_/Interface/AddOns/` so it contains `Chat/Chat.toc`. [Download the latest release](https://github.com/Harmenszoon/wow-chat/releases/latest)",
+  "releases": [
+    {
+      "tag": "v0.1.2",
+      "published": "2026-11-20",
+      "notes": "Adds compact player and channel formatting, a longer per-window history, and drag selection for copying readable chat. The copy dialog supports Ctrl+C on Windows and Cmd+C on Mac."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Chat"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Blizzard_ChatFrame"
+    ],
+    "optional": [
+      "Blizzard_QuickJoin"
+    ]
+  }
+}

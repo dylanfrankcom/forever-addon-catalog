@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "combatcues",
+  "repo": "Claypaenguin/Combat-Cues",
+  "about": "# CombatCues (WoW Forever)\n\nSmall personal addon with three features:\n\n- **Combat text**: text that fades in and out when you enter or leave combat.\n- **Party death alert**: text, plus an optional sound, when a member of your 5-player group dies. Raids are ignored.\n- **Healer low mana indicator**: text that stays on screen while your group's healer is at or below a mana\n  threshold you choose (20% by default), and disappears once they're above it. It uses the group roles, so it\n  works with the Dungeon Finder or roles set in the group menu. Solo test mode treats you as the healer\n  while you're not in a group, to try it out alone. There's no sound for this one: WoW Forever\n  hides mana values from addons, so the addon can only hand them to the game's display code (see Notes).\n\nEach feature can be turned on or off on its own, with its own font, outline, font size and position.\n\n## Install\n\n1. Download `CombatCues-<version>.zip` from the **Releases** page. Don't use the green \"Code → Download ZIP\" button:\n   that zip has the wrong folder layout and the game won't load the addon from it.\n2. Unzip it into the game's AddOns folder, so that you end up with:\n\n```\nWorld of Warcraft/<forever client folder>/Interface/AddOns/CombatCues/CombatCues.toc\n```\n\nTo update, delete the old `CombatCues` folder and unzip the new release in its place.\n\n## Releasing a new version\n\n1. Add a section for the new version at the top of [CHANGELOG.md](https://github.com/Claypaenguin/Combat-Cues/blob/main/CHANGELOG.md), e.g. `## [1.1.1] - 2026-11-02`.\n   It becomes the release notes on GitHub. Without it, the release build stops with an error.\n2. Commit and push, then push a tag that starts with `v`. GitHub Actions packages the addon, writes the\n   version into the `.toc`, and publishes a release with the zip and the changelog section attached:\n\n```bash\ngit tag v1.1.1\ngit push origin main v1.1.1\n```\n\nTo change the notes of a release that already exists, edit its section in CHANGELOG.md, push, then run the\n**Release** workflow by hand from the Actions tab with that tag (e.g. `v1.0.0`).\n`scripts/release-notes.sh 1.1.1` prints the notes for a version locally.\n\nTo build the zip locally without a release, run `scripts/package.sh 1.0.1`. The zip ends up in `dist/`.\n\n## Usage\n\n- `/ccues`: opens the options panel (also under Options → AddOns → CombatCues)\n- `/ccues unlock` / `/ccues lock`: show the frames so you can drag them\n- `/ccues test combat` / `/ccues test death` / `/ccues test healer`: preview the alerts\n- `/ccues reset`: reset positions\n- `/ccues debug`: print what the healer indicator sees for each group member\n- `/ccues readout`: toggle a live on-screen box with the raw mana percentage and the indicator's curve output\n\nFonts and sounds from LibSharedMedia appear in the lists automatically when another addon provides them.\n\n## Notes\n\nThe Forever client uses the Midnight-era addon API, which blocks addons from reading the combat log. So the\naddon checks each party member's dead/alive state (on health and flag events, plus a check every 0.5s)\nand alerts when someone goes from alive to dead. Feign Death is ignored.\n\nMana is a hidden (\"secret\") value for addons in WoW Forever, even for your own character: the addon can't\ncompare it or do math with it. The healer indicator uses a curve with `UnitPowerPercent`, so the game itself\nturns the hidden percentage into the text's visibility (shown at or below the threshold, hidden above it).",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "name": "CombatCues v1.1.0",
+      "published": "2026-10-23",
+      "notes": "### Added\n- **Healer low mana indicator**: shows \"Healy low on mana!\" (with the healer's name) while your group's healer is at or below a mana threshold you choose (20% by default), and hides it again once they're above it.\n  - On/off toggle, adjustable threshold, and an \"Only inside dungeons\" option.\n  - Its own font, outline, size and position, like the other alerts.\n  - Uses group roles, so the healer needs the Healer role (automatic with the Dungeon Finder).\n  - No sound: WoW Forever hides mana values from addons, so the game itself decides when the text is visible, and the addon can't react to it with a sound.\n- **Solo test mode** for the healer indicator: treats you as the healer while you're not in a group.\n- `/ccues test healer` to preview the healer indicator.\n- `/ccues debug` and `/ccues readout` to troubleshoot the healer indicator.\n\n### Changed\n- The settings window now scrolls, to make room for the healer section."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "CombatCues v1.0.0",
+      "published": "2026-10-21",
+      "notes": "### Added\n- **Combat text**: \"+ Combat\" / \"- Combat\" fades in and out when you enter or leave combat. The texts are editable.\n- **Party death alert**: \"Tanky died!\" (name in their class color) when someone in your 5-player group dies, with an optional alarm sound. Options to include yourself and to only alert inside dungeons.\n- Settings window under Options → AddOns → CombatCues (or `/ccues`):\n  - On/off toggle, font, outline, font size, display time and position for each alert.\n  - Dropdown menus for font, outline and sound; sliders with number boxes you can type into.\n  - Unlock mode to drag the alerts into place, and a button to reset positions.\n  - Test buttons for each alert.\n- Fonts and sounds from LibSharedMedia show up automatically when another addon provides them."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-23",
+    "releaseDates": [
+      "2026-10-23",
+      "2026-10-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CombatCues"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0"
+    ],
+    "savedVariables": [
+      "CombatCuesDB"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "dockeddamagemeter",
+  "repo": "z0fa/DockedDamageMeter",
+  "about": "# Docked Damage Meter\n\nWorld of Warcraft addon that places your damage meter in a chat tab, replacing the combat log.\n\n- Project on Curse: https://www.curseforge.com/wow/addons/docked-damage-meter\n- Project on Wago: https://addons.wago.io/addons/dockeddamagemeter\n- Project on GitHub: https://github.com/z0fa/DockedDamageMeter\n- Donate:\u00A0https://paypal.me/z0fa",
+  "releases": [
+    {
+      "tag": "1.4",
+      "published": "2026-11-16",
+      "notes": "# DockedDamageMeter\n\n## [1.4](https://github.com/z0fa/DockedDamageMeter/tree/1.4) (2026-11-16)\n[Full Changelog](https://github.com/z0fa/DockedDamageMeter/compare/1.3...1.4) [Previous Releases](https://github.com/z0fa/DockedDamageMeter/releases)\n\n- add initial wow forever support"
+    },
+    {
+      "tag": "1.3",
+      "published": "2026-07-01",
+      "notes": "# DockedDamageMeter\n\n## [1.3](https://github.com/z0fa/DockedDamageMeter/tree/1.3) (2026-07-01)\n[Full Changelog](https://github.com/z0fa/DockedDamageMeter/compare/1.2...1.3) [Previous Releases](https://github.com/z0fa/DockedDamageMeter/releases)\n\n- bump version  \n- tune offset  \n- update lib  \n- update addon lib  \n- cleanup"
+    },
+    {
+      "tag": "1.2",
+      "published": "2026-01-27",
+      "notes": "# DockedDamageMeter\n\n## [1.2](https://github.com/z0fa/DockedDamageMeter/tree/1.2) (2026-01-27)\n[Full Changelog](https://github.com/z0fa/DockedDamageMeter/compare/1.1...1.2) [Previous Releases](https://github.com/z0fa/DockedDamageMeter/releases)\n\n- fix zone in/out show state"
+    },
+    {
+      "tag": "1.1",
+      "published": "2026-01-27",
+      "notes": "# DockedDamageMeter\n\n## [1.1](https://github.com/z0fa/DockedDamageMeter/tree/1.1) (2026-01-27)\n[Full Changelog](https://github.com/z0fa/DockedDamageMeter/compare/1.0...1.1) [Previous Releases](https://github.com/z0fa/DockedDamageMeter/releases)\n\n- fix editmode, combat show state  \n- rework reactivity"
+    },
+    {
+      "tag": "1.0",
+      "published": "2026-01-23",
+      "notes": "# DockedDamageMeter\n\n## [1.0](https://github.com/z0fa/DockedDamageMeter/tree/1.0) (2026-01-23)\n[Full Changelog](https://github.com/z0fa/DockedDamageMeter/commits/1.0) [Previous Releases](https://github.com/z0fa/DockedDamageMeter/releases)\n\n- update toc  \n- update readme  \n- first commit"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-07-01",
+      "2026-01-27",
+      "2026-01-27",
+      "2026-01-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DockedDamageMeter"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "DockedDamageMeterGlobalDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "DockedDamageMeterCharacterDB"
+    ]
+  }
+}

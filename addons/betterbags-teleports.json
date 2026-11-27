@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "id": "betterbags-teleports",
+  "repo": "AlexHaible/BetterBags-Teleports",
+  "releases": [
+    {
+      "tag": "4.0.3",
+      "published": "2026-10-25",
+      "notes": "# BetterBags - Teleports\n\n## [4.0.3](https://github.com/AlexHaible/BetterBags-Teleports/tree/4.0.3) (2026-10-25)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-Teleports/compare/4.0.2...4.0.3) [Previous Releases](https://github.com/AlexHaible/BetterBags-Teleports/releases)\n\n- Update BetterBags-Teleports.toc  \n- Add some 12.1.0/12.1.5 teleporters"
+    },
+    {
+      "tag": "4.0.2",
+      "published": "2026-09-21",
+      "notes": "# BetterBags - Teleports\n\n## [4.0.2](https://github.com/AlexHaible/BetterBags-Teleports/tree/4.0.2) (2026-09-21)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-Teleports/compare/4.0.1...4.0.2) [Previous Releases](https://github.com/AlexHaible/BetterBags-Teleports/releases)\n\n- Hide Scepter of Celebras and Goblin Transponder on retail"
+    },
+    {
+      "tag": "4.0.1",
+      "published": "2026-09-21",
+      "notes": "# BetterBags - Teleports\n\n## [4.0.1](https://github.com/AlexHaible/BetterBags-Teleports/tree/4.0.1) (2026-09-21)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-Teleports/compare/4.0.0...4.0.1) [Previous Releases](https://github.com/AlexHaible/BetterBags-Teleports/releases)\n\n- Hide Stormwind Medallion on retail"
+    },
+    {
+      "tag": "4.0.0",
+      "published": "2026-09-21",
+      "notes": "# BetterBags - Teleports\n\n## [4.0.0](https://github.com/AlexHaible/BetterBags-Teleports/tree/4.0.0) (2026-09-21)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-Teleports/compare/3.1.5...4.0.0) [Previous Releases](https://github.com/AlexHaible/BetterBags-Teleports/releases)\n\n- Add WoW: Forever support and split data per game version  \n    - Add per-flavor TOCs (Mainline, Mists, TBC, Vanilla, Camelot) and drop  \n      packager TOC generation  \n    - Split data.lua into one file per expansion under data/; each TOC loads  \n      only the files its client needs  \n    - Add standalone data/forever.lua for WoW: Forever (Camelot), which also  \n      flags the client since it reports WOW\\_PROJECT\\_MAINLINE  \n    - Replace per-expansion gating in main.lua with a table-driven loader,  \n      add per-item minInterface, guard the TUTORIAL\\_TITLE31 wipe, localize  \n      option labels  \n    - Add Stormwind Medallion, Scepter of Celebras and Lunar Festival  \n      Invitation to the classic list  \n    - Update bug report template game versions"
+    },
+    {
+      "tag": "3.1.5",
+      "published": "2026-09-21",
+      "notes": "# BetterBags - Teleports\n\n## [3.1.5](https://github.com/AlexHaible/BetterBags-Teleports/tree/3.1.5) (2026-09-21)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-Teleports/compare/3.1.4...3.1.5) [Previous Releases](https://github.com/AlexHaible/BetterBags-Teleports/releases)\n\n- Bump .toc to 12.1.5"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-10-25",
+    "releaseDates": [
+      "2026-10-25",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-07-22",
+      "2026-06-16",
+      "2026-04-18",
+      "2026-02-24",
+      "2026-02-24",
+      "2026-02-16",
+      "2026-01-21",
+      "2025-10-30",
+      "2025-10-08",
+      "2025-10-08",
+      "2025-08-27",
+      "2025-08-19",
+      "2025-06-28",
+      "2025-06-27",
+      "2025-06-26",
+      "2025-05-12",
+      "2025-04-08",
+      "2025-02-23",
+      "2025-02-23",
+      "2025-01-30",
+      "2024-12-19",
+      "2024-11-18",
+      "2024-10-17",
+      "2024-09-09",
+      "2024-09-03",
+      "2024-09-02",
+      "2024-08-11",
+      "2024-07-17",
+      "2024-07-14",
+      "2024-07-14",
+      "2024-07-14",
+      "2024-06-22",
+      "2024-06-08",
+      "2024-06-05",
+      "2024-06-04",
+      "2024-06-04",
+      "2024-05-10",
+      "2024-05-09",
+      "2024-03-30",
+      "2024-03-21",
+      "2024-02-02",
+      "2024-02-01",
+      "2024-01-17",
+      "2024-01-07",
+      "2024-01-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BetterBags-Teleports"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "BetterBags"
+    ],
+    "optional": [
+      "BugSack",
+      "BugGrabber"
+    ],
+    "savedVariables": [
+      "BetterBags_TeleportersDB"
+    ]
+  }
+}

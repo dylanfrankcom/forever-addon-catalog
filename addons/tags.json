@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "tags",
+  "repo": "stpain/Tags",
+  "releases": [
+    {
+      "tag": "Tags-0.4",
+      "published": "2026-10-07",
+      "notes": "# Tags\n\n## [Tags-0.4](https://github.com/stpain/Tags/tree/Tags-0.4) (2026-10-07)\n[Full Changelog](https://github.com/stpain/Tags/compare/Tags-0.3...Tags-0.4) [Previous Releases](https://github.com/stpain/Tags/releases)\n\n- Updated for Forever"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-07",
+    "releaseDates": [
+      "2026-10-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Tags"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "TAGS_GLOBAL"
+    ]
+  }
+}

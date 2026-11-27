@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "basicminimap",
+  "repo": "funkydude/BasicMinimap",
+  "releases": [
+    {
+      "tag": "v12.1.6",
+      "published": "2026-10-22",
+      "notes": "# BasicMinimap\n\n## [v12.1.6](https://github.com/funkydude/BasicMinimap/tree/v12.1.6) (2026-10-22)\n[Full Changelog](https://github.com/funkydude/BasicMinimap/compare/v12.1.5...v12.1.6) [Previous Releases](https://github.com/funkydude/BasicMinimap/releases)\n\n- Cleanups"
+    },
+    {
+      "tag": "v12.1.5",
+      "published": "2026-10-21",
+      "notes": "# BasicMinimap\n\n## [v12.1.5](https://github.com/funkydude/BasicMinimap/tree/v12.1.5) (2026-10-21)\n[Full Changelog](https://github.com/funkydude/BasicMinimap/compare/v12.1.4...v12.1.5) [Previous Releases](https://github.com/funkydude/BasicMinimap/releases)\n\n- Fix an error when configuring zone text, closes #151"
+    },
+    {
+      "tag": "v12.1.4",
+      "published": "2026-10-20",
+      "notes": "# BasicMinimap\n\n## [v12.1.4](https://github.com/funkydude/BasicMinimap/tree/v12.1.4) (2026-10-20)\n[Full Changelog](https://github.com/funkydude/BasicMinimap/compare/v12.1.3...v12.1.4) [Previous Releases](https://github.com/funkydude/BasicMinimap/releases)\n\n- Bump toc  \n- Various cleanups and fixes for 1.60.1 beta and 12.1.7 PTR"
+    },
+    {
+      "tag": "v12.1.3",
+      "published": "2026-10-10",
+      "notes": "# BasicMinimap\n\n## [v12.1.3](https://github.com/funkydude/BasicMinimap/tree/v12.1.3) (2026-10-10)\n[Full Changelog](https://github.com/funkydude/BasicMinimap/compare/v12.1.2...v12.1.3) [Previous Releases](https://github.com/funkydude/BasicMinimap/releases)\n\n- Don't hide the difficulty indicator options on Forever"
+    },
+    {
+      "tag": "v12.1.2",
+      "published": "2026-10-10",
+      "notes": "# BasicMinimap\n\n## [v12.1.2](https://github.com/funkydude/BasicMinimap/tree/v12.1.2) (2026-10-10)\n[Full Changelog](https://github.com/funkydude/BasicMinimap/compare/v12.1.1...v12.1.2) [Previous Releases](https://github.com/funkydude/BasicMinimap/releases)\n\n- Fix the day/night indicator sometimes moving on Forever"
+    }
+  ],
+  "stats": {
+    "stars": 19,
+    "openIssues": 11,
+    "contributors": 14,
+    "lastRelease": "2026-10-22",
+    "releaseDates": [
+      "2026-10-22",
+      "2026-10-21",
+      "2026-10-20",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-07-16",
+      "2026-06-28",
+      "2026-06-27",
+      "2026-06-18",
+      "2026-06-17",
+      "2026-06-06",
+      "2026-04-22",
+      "2026-04-22",
+      "2026-04-11",
+      "2026-04-11",
+      "2026-02-05",
+      "2026-02-05",
+      "2026-01-14",
+      "2025-11-19",
+      "2025-09-20",
+      "2025-08-23",
+      "2025-07-20",
+      "2025-07-13",
+      "2025-05-02",
+      "2025-01-25",
+      "2024-12-02",
+      "2024-11-21",
+      "2024-11-20",
+      "2024-10-30",
+      "2024-09-26",
+      "2024-09-02",
+      "2024-08-02",
+      "2024-07-26",
+      "2024-07-26",
+      "2024-07-10",
+      "2024-07-09",
+      "2024-06-13",
+      "2024-05-08",
+      "2024-04-30",
+      "2024-03-19",
+      "2024-02-07",
+      "2024-01-16",
+      "2023-11-30",
+      "2023-11-08",
+      "2023-10-11",
+      "2023-09-10",
+      "2023-08-18",
+      "2023-07-12"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "BasicMinimap",
+      "BasicMinimap_Options"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibSharedMedia-3.0",
+      "LibDDI-1.0",
+      "LibDBIcon-1.0"
+    ],
+    "savedVariables": [
+      "BasicMinimapSV"
+    ]
+  }
+}

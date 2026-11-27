@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "auctionatorrestedxp",
+  "repo": "byWulf/wow-auctionator-restedxp",
+  "about": "# Auctionator RestedXP Shopping List\n\nFills an [Auctionator](https://www.curseforge.com/wow/addons/auctionator) shopping list with the items your [RestedXP](https://www.restedxp.com/) guide wants you to buy at the auction house, in the quantity you still need.\n\nWhen you open the auction house, the addon looks at the remaining steps of your current RestedXP guide and the guide after it, collects every item the guide tells you to buy from an auctioneer, subtracts what is already in your bags and bank, and writes the result into the Auctionator shopping list **RestedXP** (Shopping tab). Each entry is an exact name search with the purchase quantity set.\n\n## Supported game versions\n\n| Version | Interface |\n|---|---|\n| WoW Forever | 16001 |\n\nClassic Era and other versions are not supported.\n\n## Requirements\n\n- Auctionator\n- RestedXP Guides with a guide loaded\n\n## Installation\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/auctionator-restedxp-shopping-list), e.g. with the CurseForge app.\n\nFor a manual installation, note that the folder in your AddOns directory **must** be named `AuctionatorRestedXP`, otherwise WoW will not load the addon:\n\n```bash\ncd \"C:/Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns\"\ngit clone https://github.com/byWulf/wow-auctionator-restedxp.git AuctionatorRestedXP\n```\n\nAlternatively, download the ZIP from the [releases](https://github.com/byWulf/wow-auctionator-restedxp/releases) and extract it into `Interface/AddOns`.\n\nThen `/reload` in game.\n\n## Usage\n\nJust open the auction house. The list **RestedXP** is updated and Auctionator opens it in the Shopping tab; a chat message lists the items. While the auction house is open, the list is updated again whenever the guide moves to another step.\n\n`/arxp` (or `/auctionatorrestedxp`) updates the list right away and prints it, e.g. after you skipped a step.\n\n## Tip: keep what you bought\n\nThe items you buy this way are often needed only much later in the guide. To make sure you don't sell, bank or destroy them by accident in the meantime, have a look at [ArkInventory [Rules] RestedXP](https://www.curseforge.com/wow/addons/arkinventory-rules-restedxp). It lets ArkInventory put every item your RestedXP guide still needs into its own bar, so it is out of the way of your junk and sell rules.\n\n## Which items count\n\nA guide step counts as an auction house purchase when it\n\n- is marked as an auction house step in the guide (`#ah`, hidden by RestedXP in Solo Self Found mode),\n- targets an auctioneer (`.target Auctioneer …`), and\n- asks you to collect items (`.collect itemID,quantity`).\n\nFrom these steps the addon takes\n\n- the current step and all following steps of the loaded guide, plus earlier steps that are still active, leaving out steps you skipped,\n- all steps of the next guide (`#next`),\n- only steps RestedXP would show for your character (class, season, phase, dungeon and other step filters),\n- per item the largest quantity of any of these steps, minus the items in your bags and bank. Items whose quest is already turned in are left out. For the active step, quest objectives you already completed are subtracted, like RestedXP does.\n\nIf Solo Self Found is enabled in RestedXP, the list stays empty.\n\n## Limitations\n\n- Steps that only mention the auction house in their text (e.g. \"you can also buy these at the auction house\") without targeting an auctioneer are not included.\n- Items that are still in your mailbox are not counted as owned.\n- The list is replaced on every update, so don't put your own items into the list **RestedXP**.\n- The list is not updated after each single purchase, only when the guide step changes or when you run `/arxp`.\n\n## License\n\nMIT, see [LICENSE](https://github.com/byWulf/wow-auctionator-restedxp/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-07",
+      "notes": "# Auctionator RestedXP Shopping List\n\n## [v1.0.0](https://github.com/byWulf/wow-auctionator-restedxp/tree/v1.0.0) (2026-11-07)\n[Full Changelog](https://github.com/byWulf/wow-auctionator-restedxp/commits/v1.0.0) [Previous Releases](https://github.com/byWulf/wow-auctionator-restedxp/releases)\n\n- Prepare CurseForge release  \n    Add the CurseForge project ID and link, declare Auctionator as required  \n    dependency for the upload and recommend ArkInventory [Rules] RestedXP to  \n    keep the bought items.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Fill an Auctionator shopping list from RestedXP auction house steps  \n    Reads the remaining steps of the current RestedXP guide and the next  \n    guide, picks the steps tagged #ah that target an auctioneer and writes  \n    their collect items with the missing quantity into the Auctionator  \n    shopping list \"RestedXP\" when the auction house opens.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "AuctionatorRestedXP"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Auctionator"
+    ],
+    "optional": [
+      "RXPGuides"
+    ]
+  }
+}

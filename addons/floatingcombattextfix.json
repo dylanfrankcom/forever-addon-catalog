@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "floatingcombattextfix",
+  "repo": "BrenoLudgero/Floating_Combat_Text_Fix",
+  "about": "# Floating Combat Text Fix\n[![CF](https://img.shields.io/badge/Download-CurseForge-orange)](https://www.curseforge.com/wow/addons/floating-combat-text-fix) [![WowInterface](https://img.shields.io/badge/Download-WoWInterface-blue)](https://www.wowinterface.com/downloads/info26603-FloatingCombatTextFix.html)\n\nAn add-on designed exclusively to fix a bug that automatically disables the Floating Combat Text feature\\\nEnsures that all FCT related options stay enabled or disabled based on the user's preferences\n\n![Chat Message](https://raw.githubusercontent.com/BrenoLudgero/Floating_Combat_Text_Fix/main/.github/images/Chat_Message.png)\n\n## Additional Features\n* Fully localized\n* Slash command to toggle FCT on or off\n* [Mainline] Restores granular FCT options from previous versions\n\n![Options Interface](https://raw.githubusercontent.com/BrenoLudgero/Floating_Combat_Text_Fix/main/.github/images/Options_Window.png)",
+  "releases": [
+    {
+      "tag": "4.0.2",
+      "published": "2026-11-04",
+      "notes": "# Floating Combat Text Fix\n\n## [4.0.2](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/tree/4.0.2) (2026-11-04)\n[Full Changelog](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/compare/4.0.1...4.0.2) [Previous Releases](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/releases)\n\n- (Vanilla, TBC) Fixed granular FCT options not being saved/restored  \n- Intercepted FCT status toggles made outside the add-on"
+    },
+    {
+      "tag": "4.0.1",
+      "published": "2026-10-18",
+      "notes": "# Floating Combat Text Fix\n\n## [4.0.1](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/tree/4.0.1) (2026-10-18)\n[Full Changelog](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/compare/4.0.0...4.0.1) [Previous Releases](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/releases)\n\n- Updated Mainline interface version  \n- Forever compatibility  \n- Updated Mainline interface version  \n- Updated Vanilla, TBC interface versions  \n- Improved packager initiation script and moved it to .github  \n- Updated Mainline interface version  \n- Suppressed FCT status message when toggled from options interface  \n- Localized \"Floating Combat Text ON\" checkbox text"
+    },
+    {
+      "tag": "4.0.0",
+      "published": "2026-06-10",
+      "notes": "# Floating Combat Text Fix\n\n## [4.0.0](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/tree/4.0.0) (2026-06-10)\n[Full Changelog](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/compare/3.0.1...4.0.0) [Previous Releases](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/releases)\n\n- [Mainline] Added FCT customization to options interface  \n- Removed unused code  \n- Replaced manually translated string with GlobalString  \n- Added FCT toggle checkbox to options interface  \n- Handled version-specific FCT options  \n- Saved FCT preferences immediately after changing them  \n- Refrained from displaying temporary message  \n- Moved screenshots to .github/images/  \n- Added screenshot for Options Interface  \n- Updated chat message screenshot  \n- Updated Mainline, Mists interface versions  \n- Completed packager initiation script"
+    },
+    {
+      "tag": "3.0.1",
+      "published": "2026-02-22",
+      "notes": "# Floating Combat Text Fix\n\n## [3.0.1](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/tree/3.0.1) (2026-02-22)\n[Full Changelog](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/compare/3.0.0...3.0.1) [Previous Releases](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/releases)\n\n- Updated Mainline interface version  \n- Updated license  \n- Update Mainline interface version  \n- Burning Crusade compatibility  \n- Updated the translation of \"Floating\" in German  \n- Localized interface text  \n- Standardized interface's \"?\" icon position"
+    },
+    {
+      "tag": "3.0.0",
+      "published": "2025-12-28",
+      "notes": "# Floating Combat Text Fix\n\n## [3.0.0](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/tree/3.0.0) (2025-12-28)\n[Full Changelog](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/compare/2.0.3...3.0.0) [Previous Releases](https://github.com/BrenoLudgero/Floating_Combat_Text_Fix/releases)\n\n- Added temporary chat message to alert users of new features  \n- Implemented options interface. Removed chat commands for altering all options at once  \n- More refactoring  \n- Updated license  \n- Refactoring  \n- Expanded user options. Renamed SavedVariables  \n- Created script to initiate packager process  \n- Update Mists of Pandaria interface version  \n- Update Mainline interface version"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/BrenoLudgero/Floating_Combat_Text_Fix/main/.github/images/Chat_Message.png",
+    "https://raw.githubusercontent.com/BrenoLudgero/Floating_Combat_Text_Fix/main/.github/images/Options_Window.png"
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-10-18",
+      "2026-06-10",
+      "2026-02-22",
+      "2025-12-28",
+      "2025-10-25",
+      "2025-08-12",
+      "2025-03-23"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "FloatingCombatTextFix"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "fctfPreferences"
+    ]
+  }
+}

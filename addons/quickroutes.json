@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "quickroutes",
+  "repo": "HizurosWoWAddOns/QuickRoutes",
+  "about": "# QuickRoutes (WoW AddOn)\n![Build](https://img.shields.io/github/actions/workflow/status/HizurosWoWAddOns/QuickRoutes/packager.yml?style=flat-square)\n![Tag](https://img.shields.io/github/v/tag/HizurosWoWAddOns/QuickRoutes?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/QuickRoutes/total?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/QuickRoutes/latest/total?style=flat-square)\n&nbsp; &nbsp; &nbsp; &nbsp;\n[![Patreon](https://img.shields.io/badge/&zwj;-Patreon-gray?logo=patreon&color=red&style=flat-square)](https://www.patreon.com/bePatron?u=12558524)\n[![Paypal](https://img.shields.io/badge/&zwj;-Paypal-gray?logo=paypal&color=blue&style=flat-square)](https://paypal.me/hizuro)\n![Sponsors](https://img.shields.io/github/sponsors/HizurosWoWAddOns?logo=github&style=flat-square)\n\n## Description\n**You have create some routes for the same zone in Routes and now a little bit confused about too many lines?**\n\nAny created route in Routes can be hide. QuickRoutes is a shotcut to this option. This addon offer you a clickable list of your created routes depending on your current location/zone. *(see example image)*\n\n![Screenshot1](https://raw.githubusercontent.com/HizurosWoWAddOns/QuickRoutes/master/.github/media/quickroutes1.png)\n\n## It has two option to access the tooltip:\n\n* Minimap Icon/Button (optional, default visible)\n* DataBroker display addons\n\n## DataBroker display addons?\n\nYou can use panel-addons like [Bazooka](https://www.curseforge.com/wow/addons/bazooka), [ChocolateBar](https://www.curseforge.com/wow/addons/chocolatebar), [DockingStation](https://www.wowinterface.com/downloads/info11831-DockingStationDisplay.html), [NinjaPanel](https://www.curseforge.com/wow/addons/ninjapanel), [TitanPanel](https://www.curseforge.com/wow/addons/titan-panel) or single-button-addons like Fortress *abandoned*, [StatBlockCore](https://www.wowace.com/addons/fortress/).\n\n## Bug reports, feature requests and Support\n* [Bug reports & feature requests on Github](https://github.com/HizurosWoWAddOns/QuickRoutes/issues)\n* [Comments & Criticism on Curseforge](https://www.curseforge.com/wow/addons/quickroutes)\n\n## Localization\nDo you want to help translate this addon?\nSee [Curseforge localization tool](https://www.curseforge.com/wow/addons/#/localization)\n\n## Hizuro's projects\n* On [Curseforge](https://www.curseforge.com/members/hizuro_de/projects)\n* On [Github](https://github.com/HizurosWoWAddOns)\n\n## Disclaimer\n> World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "8.1.35-release",
+      "published": "2026-11-26",
+      "notes": "# QuickRoutes\n\n## [8.1.35-release](https://github.com/HizurosWoWAddOns/QuickRoutes/tree/8.1.35-release) (2026-11-04)\n[Full Changelog](https://github.com/HizurosWoWAddOns/QuickRoutes/commits/8.1.35-release) [Previous Releases](https://github.com/HizurosWoWAddOns/QuickRoutes/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "8.1.34-release",
+      "published": "2026-08-12",
+      "notes": "# QuickRoutes\n\n## [8.1.34-release](https://github.com/HizurosWoWAddOns/QuickRoutes/tree/8.1.34-release) (2026-08-12)\n[Full Changelog](https://github.com/HizurosWoWAddOns/QuickRoutes/commits/8.1.34-release) [Previous Releases](https://github.com/HizurosWoWAddOns/QuickRoutes/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "8.1.33-release",
+      "published": "2026-06-21",
+      "notes": "# QuickRoutes\n\n## [8.1.33-release](https://github.com/HizurosWoWAddOns/QuickRoutes/tree/8.1.33-release) (2026-06-21)\n[Full Changelog](https://github.com/HizurosWoWAddOns/QuickRoutes/commits/8.1.33-release) [Previous Releases](https://github.com/HizurosWoWAddOns/QuickRoutes/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "8.1.32-release",
+      "published": "2026-02-14",
+      "notes": "# QuickRoutes\n\n## [8.1.32-release](https://github.com/HizurosWoWAddOns/QuickRoutes/tree/8.1.32-release) (2026-02-14)\n[Full Changelog](https://github.com/HizurosWoWAddOns/QuickRoutes/commits/8.1.32-release) [Previous Releases](https://github.com/HizurosWoWAddOns/QuickRoutes/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "8.1.31-release",
+      "published": "2025-12-31",
+      "notes": "# QuickRoutes\n\n## [8.1.31-release](https://github.com/HizurosWoWAddOns/QuickRoutes/tree/8.1.31-release) (2025-12-31)\n[Full Changelog](https://github.com/HizurosWoWAddOns/QuickRoutes/commits/8.1.31-release) [Previous Releases](https://github.com/HizurosWoWAddOns/QuickRoutes/releases)\n\n- Update toc file"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/HizurosWoWAddOns/QuickRoutes/master/.github/media/quickroutes1.png"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-08-12",
+      "2026-06-21",
+      "2026-02-14",
+      "2025-12-31",
+      "2025-02-27",
+      "2025-02-27",
+      "2024-11-05",
+      "2024-08-30",
+      "2024-05-10",
+      "2024-03-01",
+      "2024-01-28",
+      "2023-11-11",
+      "2023-11-10",
+      "2023-10-03",
+      "2023-08-02",
+      "2023-06-28",
+      "2023-05-14",
+      "2023-04-12",
+      "2023-04-04",
+      "2023-03-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuickRoutes"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Routes"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "Ace3",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "LibQTip-1.0",
+      "LibColors-1.0"
+    ],
+    "savedVariables": [
+      "QuickRoutesDB"
+    ]
+  }
+}

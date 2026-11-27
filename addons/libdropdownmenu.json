@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "id": "libdropdownmenu",
+  "repo": "HizurosWoWAddOns/LibDropDownMenu",
+  "about": "# LibDropDownMenu (WoW AddOn Library)\n![Build](https://img.shields.io/github/actions/workflow/status/HizurosWoWAddOns/LibDropDownMenu/packager.yml?style=flat-square)\n![Tag](https://img.shields.io/github/v/tag/HizurosWoWAddOns/LibDropDownMenu?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/LibDropDownMenu/total?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/LibDropDownMenu/latest/total?style=flat-square)\n&nbsp; &nbsp; &nbsp; &nbsp;\n[![Patreon](https://img.shields.io/badge/&zwj;-Patreon-gray?logo=patreon&color=red&style=flat-square)](https://www.patreon.com/bePatron?u=12558524)\n[![Paypal](https://img.shields.io/badge/&zwj;-Paypal-gray?logo=paypal&color=blue&style=flat-square)](https://paypal.me/hizuro)\n![Sponsors](https://img.shields.io/github/sponsors/HizurosWoWAddOns?logo=github&style=flat-square)\n\n## Description\nThis is a converted version of Blizzards UIDropDownMenu from WoW Retail into a library accessable by LibStub. I update it from time to time to current retail version.\n\n**XML Errors in Retail**\\\n*Since Blizzards new xml error handling it is a problem to use xml templates in libraries. I've converted the templates into lua functions.*\n\n### Little extra with version r24\nSince version r24 this library has a little extra i've missed in original. I like to use easymenu but the original has no option to add a separator by menuList table.\n```lua\nlocal menuList = {\n\t{ text=\"Some text\", isTitle = true },\n\t{ separator = true }, -- new in r24\n\t{ text=\"More text\", func=function() end}\n}\n```\n\n@Blizzard feel free to add it to the original \uD83E\uDD13\n\n## The XML templates are converted into lua functions\n```\nUIDropDownMenuButtonTemplate into <lib>.Create_DropDownMenuButton(<name>[,<parent>[,<optsTable>]]>\nUIDropDownListTemplate into <lib>.Create_DropDownMenuList(<name>[,<parent>[,<optsTable>]]>\nUIDropDownMenuTemplate into <lib>.Create_DropDownMenu(<name>[,<parent>[,<optsTable>]]>\n```\nCurrently the optsTable can contain only one usable entry. { id= }\n\n## Example\n```lua\nlocal lib = LibStub(\"LibDropDownMenu\");\nlocal menuFrame = lib.Create_DropDownMenu(\"MyAddOn_DropDownMenu\",UIParent); -- instead of template UIDropDownMenuTemplate\nlocal menuList = {\n\t{ text=\"TestTitle\", isTitle=true },\n\t{ text=\"TestFunction\", isNotRadio=true, notCheckable=false }\n};\nlib.EasyMenu(menuList,menuFrame,\"cursor\",0,0,\"MENU\");\n```\n\n## In .pkgmeta file\n```yaml\nexternals:\n  libs/LibDropDownMenu:\n    url: https://github.com/HizurosWoWAddOns/LibDropDownMenu\n    tag: latest\n```\n\n## My other projects\n* [On Curseforge](https://www.curseforge.com/members/hizuro_de/projects)\n* [On Github](https://github.com/HizurosWoWAddOns?tab=repositories)\n\n## Disclaimer\n> World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "r65",
+      "published": "2026-11-04",
+      "notes": "# Lib: LibDropDownMenu\n\n## [r65](https://github.com/HizurosWoWAddOns/LibDropDownMenu/tree/r65) (2026-11-04)\n[Full Changelog](https://github.com/HizurosWoWAddOns/LibDropDownMenu/commits/r65) [Previous Releases](https://github.com/HizurosWoWAddOns/LibDropDownMenu/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r64",
+      "published": "2026-08-12",
+      "notes": "# Lib: LibDropDownMenu\n\n## [r64](https://github.com/HizurosWoWAddOns/LibDropDownMenu/tree/r64) (2026-08-12)\n[Full Changelog](https://github.com/HizurosWoWAddOns/LibDropDownMenu/commits/r64) [Previous Releases](https://github.com/HizurosWoWAddOns/LibDropDownMenu/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r63",
+      "published": "2026-06-21",
+      "notes": "# Lib: LibDropDownMenu\n\n## [r63](https://github.com/HizurosWoWAddOns/LibDropDownMenu/tree/r63) (2026-06-21)\n[Full Changelog](https://github.com/HizurosWoWAddOns/LibDropDownMenu/commits/r63) [Previous Releases](https://github.com/HizurosWoWAddOns/LibDropDownMenu/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r62",
+      "published": "2026-06-14",
+      "notes": "# Lib: LibDropDownMenu\n\n## [r62](https://github.com/HizurosWoWAddOns/LibDropDownMenu/tree/r62) (2026-06-14)\n[Full Changelog](https://github.com/HizurosWoWAddOns/LibDropDownMenu/commits/r62) [Previous Releases](https://github.com/HizurosWoWAddOns/LibDropDownMenu/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r61",
+      "published": "2026-06-01",
+      "notes": "# Lib: LibDropDownMenu\n\n## [r61](https://github.com/HizurosWoWAddOns/LibDropDownMenu/tree/r61) (2026-06-01)\n[Full Changelog](https://github.com/HizurosWoWAddOns/LibDropDownMenu/commits/r61) [Previous Releases](https://github.com/HizurosWoWAddOns/LibDropDownMenu/releases)\n\n- Update toc file"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-08-12",
+      "2026-06-21",
+      "2026-06-14",
+      "2026-06-01",
+      "2026-03-01",
+      "2026-01-30",
+      "2026-01-20",
+      "2025-12-28",
+      "2025-08-09",
+      "2025-07-07",
+      "2025-06-18",
+      "2025-05-22",
+      "2025-04-24",
+      "2025-03-19",
+      "2025-02-27",
+      "2025-02-25",
+      "2024-12-19",
+      "2024-12-10",
+      "2024-10-23",
+      "2024-08-14",
+      "2024-08-13",
+      "2024-07-24",
+      "2024-07-24",
+      "2024-05-11",
+      "2024-05-08",
+      "2024-03-01",
+      "2024-02-23",
+      "2024-02-10",
+      "2023-12-07",
+      "2023-11-09",
+      "2023-10-03",
+      "2023-07-13",
+      "2023-06-26",
+      "2023-05-13",
+      "2023-05-05",
+      "2023-03-22",
+      "2023-01-27",
+      "2023-01-26",
+      "2022-10-25",
+      "2022-09-19",
+      "2022-06-10",
+      "2022-06-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LibDropDownMenu"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0"
+    ]
+  }
+}

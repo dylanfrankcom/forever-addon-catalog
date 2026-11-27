@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "forever",
+  "repo": "stpain/Forever",
+  "releases": [
+    {
+      "tag": "Forever-0.4",
+      "published": "2026-11-25",
+      "notes": "# Forever\n\n## [Forever-0.4](https://github.com/stpain/Forever/tree/Forever-0.4) (2026-11-25)\n[Full Changelog](https://github.com/stpain/Forever/compare/Forever-0.312...Forever-0.4) [Previous Releases](https://github.com/stpain/Forever/releases)\n\n- Added guild chat nickname"
+    },
+    {
+      "tag": "Forever-0.312",
+      "published": "2026-11-22",
+      "notes": "# Forever\n\n## [Forever-0.312](https://github.com/stpain/Forever/tree/Forever-0.312) (2026-11-22)\n[Full Changelog](https://github.com/stpain/Forever/compare/Forever-0.311...Forever-0.312) [Previous Releases](https://github.com/stpain/Forever/releases)\n\n- Interactions chat click bug fix"
+    },
+    {
+      "tag": "Forever-0.311",
+      "published": "2026-11-21",
+      "notes": "# Forever\n\n## [Forever-0.311](https://github.com/stpain/Forever/tree/Forever-0.311) (2026-11-21)\n[Full Changelog](https://github.com/stpain/Forever/compare/Forever-0.31...Forever-0.311) [Previous Releases](https://github.com/stpain/Forever/releases)\n\n- Guild nickname removed as not working as intended"
+    },
+    {
+      "tag": "Forever-0.31",
+      "published": "2026-11-21",
+      "notes": "# Forever\n\n## [Forever-0.31](https://github.com/stpain/Forever/tree/Forever-0.31) (2026-11-21)\n[Full Changelog](https://github.com/stpain/Forever/compare/Forever-0.3...Forever-0.31) [Previous Releases](https://github.com/stpain/Forever/releases)\n\n- Added some faction checks. Fixed profession recipes showing for all characters. Added guild chat nickname option. Fixed bug when deletign chat history. Added counts to reagents."
+    },
+    {
+      "tag": "Forever-0.3",
+      "published": "2026-11-13",
+      "notes": "# Forever\n\n## [Forever-0.3](https://github.com/stpain/Forever/tree/Forever-0.3) (2026-11-13)\n[Full Changelog](https://github.com/stpain/Forever/compare/Forever-0.22...Forever-0.3) [Previous Releases](https://github.com/stpain/Forever/releases)\n\n- Enchanting, fixes and QoL"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-13",
+      "2026-11-08",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-10-22",
+      "2026-10-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Forever"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverTBDAccount"
+    ],
+    "savedVariablesPerCharacter": [
+      "ForeverTBDCharacter"
+    ]
+  }
+}

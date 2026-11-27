@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverquesthider",
+  "repo": "adambowles/forever-quest-hider",
+  "about": "# Forever Quest Hider\n\nA small WoW Forever addon that makes Blizzard's objective tracker invisible during normal play, including with the gamepad UI. No configuration window, libraries, timer loop, or other UI changes.\n\n## Commands\n\nEnabled by default, saved per character:\n\n| Command | Action |\n| --- | --- |\n| `/fth` | Toggle hiding |\n| `/fth on` | Hide the tracker |\n| `/fth off` | Restore tracker opacity |\n| `/fth status` | Show the saved setting |\n\n## Gamepad behaviour\n\nThe tracker remains registered and shown internally; its opacity is set to zero. While Blizzard's **HUD navigation mode** is open, the tracker becomes visible so controller quest selection and HUD navigation can still work. It fades back to invisible when HUD navigation closes. This deliberate exception avoids removing the frame that Blizzard uses as a navigation starting point. Visibility changes requested in combat wait until combat ends.\n\nThis also hides achievements and other objectives inside the same tracker. It does not alter quest tracking, map markers, bindings, or other panels. Because this is visual hiding, the transparent frame can still receive mouse input. Turn it off with `/fth off` if needed. Disable Polestar's tracker-hiding option and other tracker visibility addons to avoid conflicting changes.\n\n## Install / AME\n\nUse the packaged `ForeverQuestHider-<version>-Forever.zip` from [GitHub Releases](https://github.com/adambowles/forever-quest-hider/releases), not GitHub's source archive. Extract its `ForeverQuestHider` folder to `_forever_/Interface/AddOns/` and restart WoW.\n\nFor AME: repository `adambowles/forever-quest-hider`, release tag prefix `v`, asset pattern `ForeverQuestHider-*-Forever.zip`. There is only one installable ZIP per release.\n\n## Development and releases\n\nThe TOC's `## Version` is the single version source, starting at 0.1.0. Use SemVer. Tests run on pushes to non-main branches. Pushes to main do nothing. A `vX.Y.Z` tag on a commit contained in main validates the TOC version, builds the ZIP, and publishes a GitHub release; tag jobs do not repeat tests. Tests and release packaging have separate workflows.\n\n```sh\npython -m pip install -r requirements-dev.txt\npython -m unittest discover -s tests -v\npython tools/package.py\n```\n\nAfter merging the PR, tag the merged commit `v0.1.0` and push the tag to publish the first release. No release is published by merging alone.\n\n## Validation\n\nAutomated Lua 5.1 tests use mocked WoW APIs. They cannot prove in-game protection/taint or controller behaviour. Before considering this release verified, test login/reload, quest updates, entering/leaving combat, keyboard/gamepad mode changes, and opening/closing HUD navigation (including quest selection). Use `/fth off` to restore visibility if necessary.\n\nImplementation is original. Research: [Polestar's deliberate gamepad exclusion](https://github.com/fitzforge/polestar/blob/main/addon/Polestar/QoL/Toggles.lua) and [Blizzard HUD navigation source](https://github.com/Gethe/wow-ui-source/blob/forever/Interface/AddOns/Blizzard_Gamepad/UI/HUDMode/GamepadHudMode.lua).\n\n### Recover an existing release\n\nIf the release already exists (including one created in GitHub's UI), the workflow uploads the installable ZIP to it and preserves the release notes. Reruns replace the asset of the same name. Different release tags are serialized independently.\n\nTo repair an earlier release after merging a workflow fix: Actions → Release → Run workflow, select `main`, and enter the original tag (for example `v0.1.0`). This checks out that tag, verifies its commit is contained in main, validates its TOC version and builds that original version. Do not move or recreate the tag. Manual recovery is allowed only from main.",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-06",
+      "notes": "## What's Changed\n* v0.1.0: Add Forever Quest Hider with gamepad HUD support by @adambowles in https://github.com/adambowles/forever-quest-hider/pull/1\n\n## New Contributors\n* @adambowles made their first contribution in https://github.com/adambowles/forever-quest-hider/pull/1\n\n**Full Changelog**: https://github.com/adambowles/forever-quest-hider/commits/v0.1.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverQuestHider"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "ForeverQuestHiderDB"
+    ]
+  }
+}

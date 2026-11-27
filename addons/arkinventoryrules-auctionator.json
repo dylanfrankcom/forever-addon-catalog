@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "arkinventoryrules-auctionator",
+  "repo": "byWulf/wow-arkinventory-rules-auctionator",
+  "about": "# ArkInventory [Rules] Auctionator\n\nA small plugin for [ArkInventory](https://www.curseforge.com/wow/addons/ark-inventory) that gives ArkInventory rules access to auction house prices from [Auctionator](https://www.curseforge.com/wow/addons/auctionator).\n\nArkInventory evaluates rule formulas in a sandbox where only its own functions (`vendorprice()`, `soulbound()`, `tsm()`, …) are available. Auctionator is not supported out of the box. This plugin registers additional rule functions to fill that gap.\n\nTypical use: an **\"AH instead of vendor\"** category for all items that sell for considerably more on the auction house than at a vendor.\n\n## Supported game versions\n\n| Version | Interface |\n|---|---|\n| WoW Forever | 16001 |\n\nClassic Era and other versions are not supported.\n\n## Requirements\n\n- ArkInventory including **ArkInventoryRules** (enabled)\n- Auctionator with scanned prices (full scan or searches at the AH)\n\n## Installation\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/arkinventory-rules-auctionator), e.g. with the CurseForge app.\n\nFor a manual installation, note that the folder in your AddOns directory **must** be named `ArkInventoryRules_Auctionator`, otherwise WoW will not load the addon:\n\n```bash\ncd \"C:/Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns\"\ngit clone https://github.com/byWulf/wow-arkinventory-rules-auctionator.git ArkInventoryRules_Auctionator\n```\n\nAlternatively, download the ZIP from the [releases](https://github.com/byWulf/wow-arkinventory-rules-auctionator/releases) and extract it into `Interface/AddOns`.\n\nThen `/reload` in game.\n\n## Rule functions\n\nAll prices are in **copper** (1s = 100, 1g = 10000) and **per unit**.\n\n| Function | Returns |\n|---|---|\n| `ahprice()` | Auction house price according to Auctionator, `0` if unknown |\n| `vendorunit()` | Vendor sell price per unit. The built-in `vendorprice()` multiplies by stack size instead. |\n| `ahflip(factor, mindiff)` | `true` if all conditions below are met |\n\n`ahflip(factor, mindiff)` matches if the item\n\n- is not soulbound,\n- is not in the system category \"Junk\" (grey items and items flagged by junk addons),\n- has a known AH price,\n- sells on the AH for at least `factor` × vendor price (default `2`),\n- sells on the AH for at least `mindiff` copper more than at a vendor (default `100` = 1s).\n\n## Examples\n\nCategory for items that sell on the AH for at least twice the vendor price and at least 1s more:\n\n```\nahflip()\n```\n\nStricter threshold, triple the price and at least 50s difference:\n\n```\nahflip(3, 5000)\n```\n\nKeep potions in the potion categories (419 = mana potions, 420 = healing potions, 424 = potions):\n\n```\nahflip() and not category(419, 420, 424)\n```\n\nExclude all consumables (item class 0):\n\n```\nahflip() and not type(0)\n```\n\nBuild your own conditions from the individual functions:\n\n```\nnot soulbound() and ahprice() >= 10000 and vendorunit() > 0\n```\n\n## In-game setup\n\n1. Open `/ai rules` and create a new rule, e.g. \"AH instead of vendor\".\n2. Enter a formula, e.g. `ahflip()`, and enable the rule.\n3. In the bag window, right-click a bar → *Categories – Assignable* → *Rule* → assign the new rule to the bar.\n\n## Good to know\n\n- **Rules beat built-in categories.** In ArkInventory a matching rule always wins over default categories such as \"Potions\". A rule's priority only matters against other rules. To exclude built-in categories, use `not category(...)` in the formula.\n- **Manual assignments beat rules.** An item you assigned to a category by hand stays there.\n- **Refresh after scans.** ArkInventory caches rule results. The plugin clears this cache automatically whenever Auctionator has processed new prices (full scan or search).\n- **Items without a vendor price** (vendor price 0) match `ahflip()` as soon as their AH price reaches `mindiff`. Add `and vendorunit() > 0` if you don't want that.\n- Without Auctionator loaded, `ahprice()` always returns `0` and `ahflip()` never matches. No errors are raised.\n\n## License\n\nMIT, see [LICENSE](https://github.com/byWulf/wow-arkinventory-rules-auctionator/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "ArkInventory [Rules] Auctionator 1.0.0",
+      "published": "2026-11-06",
+      "notes": "First release on CurseForge, for WoW Forever (interface 16001).\n\nExtract `ArkInventoryRules_Auctionator-1.0.0.zip` into `Interface/AddOns` of your WoW Forever installation, or install it with the CurseForge app."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ArkInventoryRules_Auctionator"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "ArkInventoryRules"
+    ],
+    "optional": [
+      "Auctionator"
+    ]
+  }
+}

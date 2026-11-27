@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "titanreputation",
+  "repo": "paulbuechner/titan-reputation",
+  "about": "# ![TitanReputation](https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation.png) Titan [Reputation Continued]\n\nTitan Reputation is a reputation plugin for Titan Panel. It allows you to more easily monitor and track your faction\nstandings with any faction you may be farming reputation with.\n\n![](https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation_Screenshot_01.png)\n\n## Features\n\n- **Titan Panel**: Displays the faction data of a given faction in a customizable button directly on Titan Panel.\n  Toggle the Blizzard Character Reputation Page. Auto-change display of the most recently changed faction.\n\n![](https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation_Screenshot_02.png)\n\n- **Tooltip information**: Quickly verify standings with factions using the customizable tooltip to display the\n  factions you care about by simply mousing over the button.\n- **Session monitoring**: Toggle session data summary, which displays the total gained reputation since your last\n  login/reload as well as a Reputation breakdown (per hour / per min).\n\n![](https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation_Screenshot_06.png)\n\n- **Customization Options**: Customize the appearance of the button and tooltip to fit your needs.\n \n\n![](https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation_Screenshot_07.png)\n\n- **Reputation Color Highlighting**: Color Coding based on faction standings, built-in color scheme, armory color\n  scheme, or a generic basic colors solution.\n- **Achievement style announcements**: Upon a faction standing change, display a achievements style message with\n  the faction name and the new standing level. This makes those reputation grinds a bit more eventful and can be\n  toggled on/off for those minimalists out there.\n\n![](https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation_Screenshot_05.png)\n\n- **MikScrollingBattleText**: Mik's Scrolling Battle Text support for faction standing change announcement.\n- **Blizzard Experience Bar Support**: The button follows the faction set to \"Show as Experience Bar\" in the Blizzard\n  Reputation Pane and switches whenever you pick another one there. While a faction is shown as experience bar,\n  \"Auto Show Changed\" is paused.\n- **Blizzard Inactive Faction Support**: If you wish to omit a faction from the tooltip entirely. Simply visit the\n  Blizzard Reputation Pane and set the faction to be \"Move to Inactive\". The tooltip's behavior will not process\n  any faction with this flag enabled.\n\n  > **Note**: When using the Blizzard Reputation Pane, you should be aware that collapsing groups in this pane\n  > affects the ability of the plugin to gather data from the factions in the collapsed group.\n\n## Contributors\n\n  \n\n    \n\n      \n[![PapaSolDragon](https://static-cdn.jtvnw.net/jtv_user_pictures/28507804-e81b-4628-ae75-56aba0d65a6c-profile_image-300x300.png)\n**PapaSolDragon**](https://legacy.curseforge.com/members/papasoldragon)\n\uD83D\uDCBB\n\n      \n[![mishikal1](https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-300x300.png)\n**mishikal1**](https://legacy.curseforge.com/members/mishikal1)\n\uD83D\uDCBB\n\n      \n[![Ivaria](https://avatars.githubusercontent.com/u/13824152?v=4?s=64)\n**Ivaria**](https://github.com/Ivaria)\n\uD83D\uDCBB\n      \n[![Paul Büchner](https://avatars.githubusercontent.com/u/45827409?s=400&u=a62152a15513e36652b045b5879f39f124120254&v=4?s=64)\n**Paul Büchner**](https://github.com/paulbuechner)\n[\uD83D\uDCBB](https://github.com/paulbuechner/titan-reputation/commits?author=paulbuechner) [\uD83D\uDEA7](#maintenance-paulbuechner) [\uD83D\uDCD6](https://github.com/paulbuechner/titan-reputation/commits?author=paulbuechner) [\uD83E\uDD14](#ideas-paulbuechner)\n\n    \n\n  \n\n### Special Thanks\n\n*Lastly, the majority of the work on this addon is Aquator's. He was kind enough to get the ball rolling on this\naddon, and I picked it up when he was no longer able to. I will continue to keep this addon running as long as I\nam capable. I'd like to thank him for all his work.* - PapaSolDragon (Original Author)\n\n> This addon is a custom fork of the original revised Titan Reputation addon. The original addon was created by \n> Aquator and PapaSolDragon and is maintained by [lvaria](https://github.com/Ivaria). The original addon can be \n> found [here](https://www.curseforge.com/wow/addons/titanrep).",
+  "releases": [
+    {
+      "tag": "v12.1.0.4",
+      "published": "2026-10-05",
+      "notes": "# Titan [Reputation Continued]\n\n## [v12.1.0.4](https://github.com/paulbuechner/titan-reputation/tree/v12.1.0.4) (2026-10-05)\n[Full Changelog](https://github.com/paulbuechner/titan-reputation/compare/v12.1.0.3...v12.1.0.4) [Previous Releases](https://github.com/paulbuechner/titan-reputation/releases)\n\n- fix: detect client features instead of build numbers  \n    WoW Forever reports a Classic build (1.60.1) but runs the retail API and  \n    UI, so the build-number gates called the removed GetNumFactions global  \n    and also turned off toasts, renown and friendship values there.  \n    API gates now check that the API exists. Content and UI-family gates use  \n    the client's game type: the TOC loads src/client/[Game].lua, which sets  \n    IS\\_RETAIL, IS\\_FOREVER, IS\\_CLASSIC and the expansion flags, as BigWigs  \n    does.  \n    Fixes #10"
+    },
+    {
+      "tag": "v12.1.0.3",
+      "published": "2026-10-04",
+      "notes": "# Titan [Reputation Continued]\n\n## [v12.1.0.3](https://github.com/paulbuechner/titan-reputation/tree/v12.1.0.3) (2026-10-04)\n[Full Changelog](https://github.com/paulbuechner/titan-reputation/compare/v12.1.0.2...v12.1.0.3) [Previous Releases](https://github.com/paulbuechner/titan-reputation/releases)\n\n- feat: follow the faction shown as experience bar  \n    Picking a faction as \"Show as Experience Bar\" in the reputation panel now  \n    switches the button to it, and at login the button adopts it while it  \n    shows no faction. Shift-click still picks another faction in between.  \n    Auto Show Changed is disabled in the menu while a faction is shown as  \n    experience bar, with a tooltip on how to use it again.  \n    The panel fires no UPDATE\\_FACTION for that pick, so the watched-faction  \n    setters are hooked instead."
+    },
+    {
+      "tag": "v12.1.0.2",
+      "published": "2026-10-04",
+      "notes": "# Titan [Reputation Continued]\n\n## [v12.1.0.2](https://github.com/paulbuechner/titan-reputation/tree/v12.1.0.2) (2026-10-04)\n[Full Changelog](https://github.com/paulbuechner/titan-reputation/compare/v12.1.0.1...v12.1.0.2) [Previous Releases](https://github.com/paulbuechner/titan-reputation/releases)\n\n- chore(dev): drop IDE stubs of Titan routines removed in 9.3.3  \n    68 of the hand-written stubs declared Titan globals that 9.3.3 no longer  \n    has (moved into Titan\\_G). The addon uses none of them, and keeping them  \n    hid accidental calls from the language server, as happened with  \n    TitanUtils\\_GetAddOnMetadata.  \n- chore(dev): update TitanIDE from Titan 9.3.3  \n- fix: use singular time units for one minute or hour  \n    Durations and time-to-level always used the plural unit (\"1mins\",  \n    \"1hrs 1mins\"). Use the singular one for a count of one; hours get their  \n    own singular string, as \"h\" is the per-hour rate unit.  \n- fix: keep collapsed sub-headers grouped in the tooltip  \n    Rows put back for a collapsed header are read by ID, and the client  \n    reports such rows as top-level ones: the factions of a collapsed  \n    sub-header (e.g. Shattrath under The Burning Crusade) landed directly  \n    under the expansion header, and a sub-header inside a collapsed  \n    expansion became a top-level section. Take a restored row's nesting  \n    from where it was remembered instead, and remember headers seen only  \n    collapsed as well, so restored sub-headers are known to be headers.  \n    The harness stub now reports rows read by ID the same way.  \n- feat: hint at collapsed headers whose factions are not known yet  \n    A header collapsed in the reputation panel before the addon ever saw it  \n    expanded has no remembered rows, so its section was simply missing from  \n    the tooltip. Show the header with \"(collapsed: expand once to list)\"  \n    instead. Sections with remembered rows need no hint: their values are  \n    read by ID and stay current while collapsed.  \n- fix: keep collapsed sections in the tooltip and menu  \n    The client only lists the rows of expanded headers, so collapsing a  \n    header in the reputation panel removed its factions from the tooltip  \n    and the menu, while the button and session summary kept tracking them.  \n    Remember each header's rows per character while it is expanded  \n    (TitanRep\\_CharData.KnownChildren, faction IDs in list order) and put  \n    them back in, read by ID, while it is collapsed. A header that was never  \n    seen expanded has nothing to restore until it is.  \n- chore(dev): declare Classic-only reputation globals for the language server  \n    GetNumFactions, GetFactionInfo, GetFactionInfoByID and IsFactionInactive  \n    only exist on Classic clients (retail removed them in 11.0), so the  \n    mainline annotations flag every call as undefined.  \n- feat: keep tracking factions under collapsed headers  \n    Reputation gained with a faction whose header was collapsed went  \n    unnoticed: no session summary entry, no standing change toast and no  \n    Auto Show Changed. Look up the known factions the list scan cannot see  \n    by ID and track them like the listed ones.  \n- fix: no new-faction toast when expanding a collapsed header  \n    The list scan skips the rows of collapsed headers, so expanding one made  \n    its factions look new to the session and could toast them as  \n    discoveries. Remember the factions a character has seen in a saved  \n    per-character set (TitanRep\\_CharData.KnownFactions, IDs only) and judge  \n    discoveries against it. Factions that appear because a header collapsed  \n    in the previous scan was expanded count as revealed, which also covers  \n    headers that stayed collapsed since before the set was filled.  \n- fix: keep showing the watched faction under a collapsed header  \n    The button looked its faction up by name in the list scan, which only  \n    sees rows of expanded headers: collapsing the header froze the button  \n    text, and after a reload it showed \"No Faction Selected\". Save the  \n    faction ID with the selection (name-only selections get it on first  \n    sight) and look the faction up by ID when it is not in the list.  \n    The per-row value computation moves into CreateFactionDetails so the  \n    scan and the lookup by ID share it.  \n- fix: keep equally named sub-headers apart in the menu  \n    Menu rows were attached to their parent by the parent's name alone, so  \n    two expansions with a sub-header of the same name (e.g. \"Alliance\") both  \n    listed the children of either. Also match the top-level header, the  \n    grouping the tooltip already uses; the root key is now computed once  \n    per scan for both.  \n- perf: handle each UPDATE\\_FACTION burst with one scan  \n    The client fires UPDATE\\_FACTION several times per reputation change and  \n    each event rescanned every faction. Schedule the processing 0.1s after  \n    the first event of a burst instead, so the events in between share one  \n    scan.  \n- fix: keep menu visibility choices across reloads  \n    FactionShowOverrides and HeaderSelfOverrides were written but not  \n    declared in the plugin registry, and Titan drops undeclared plugin  \n    settings when it loads the profile. So showing a faction under a hidden  \n    header, or hiding only a header row, was undone on every login or  \n    reload. Declare both.  \n- chore(dev): pin harness dependencies for a local venv  \n    tools/requirements.txt pins lupa, so the harness venv can be recreated on  \n    any machine (python -m venv tools/.venv, then pip install -r  \n    tools/requirements.txt); the venv itself and Python caches are ignored.  \n- chore(dev): harness: simulate collapsed headers, timers, settings sync  \n    - rows under collapsed headers (or hidden by a list filter) are not  \n      listed by index but can be looked up by ID, like in the client  \n    - each client flavor exposes only its own reputation API  \n    - C\\_Timer.After callbacks run when the driver flushes them  \n    - PLAYER\\_ENTERING\\_WORLD mirrors Titan's settings sync, which drops  \n      settings the plugin registry does not declare  \n    - sessions can be relogged with the saved variables carried over  \n- chore(dev): add offline Lua test harness  \n    Loads the addon into a Lua 5.1 VM (lupa) with stubbed WoW and Titan  \n    APIs, drives it through its real entry points and compares a git ref  \n    against the working tree scenario by scenario, so behaviour changes can  \n    be checked without a game client. Excluded from packages via .pkgmeta.  \n    Usage: pip install lupa; python tools/harness.py [--base REF] [SCENARIO...]  \n- chore(locale): remove unused strings, fix German wording  \n    Drop 11 strings no code references anymore from all locales. German: fix  \n    the \"Inititalisiert\" typo and the \"ehrfürchtige\" case, hyphenate  \n    compounds consistently and reword the max-friendship option.  \n- refactor: remove dead and duplicate code  \n    - drop the unused IsNodeExplicitlyHiddenByKey and ICONS  \n    - merge the two near-identical hidden-ancestor key helpers  \n    - drop headerLevel fallbacks the scan makes unreachable  \n    - drop a redundant nestedHeader reset and unused locals in the scan  \n    - GT: O(1) set for reported missing keys; English loaded only once  \n- perf: precompute faction visibility keys once per scan  \n    The visibility checks rebuilt each entry's node key and ancestor keys  \n    (string joins plus a table per ancestor) on every call, and opening the  \n    menu runs them per faction for every header row. Build both once when  \n    the faction list is scanned; the accessors still compute them for  \n    entries that come from elsewhere.  \n- refactor: pass faction details to GetAdjustedIDAndLabel  \n    Every caller unpacked the same five fields from a FactionDetails just to  \n    pass them along; take the details table instead.  \n- fix: hide time-to-level once the bar is full  \n    With a paragon reward pendin",
+      "truncated": true
+    },
+    {
+      "tag": "v12.1.0.1",
+      "published": "2026-09-20",
+      "notes": "# Titan [Reputation Continued]\n\n## [v12.1.0.1](https://github.com/paulbuechner/titan-reputation/tree/v12.1.0.1) (2026-09-20)\n[Full Changelog](https://github.com/paulbuechner/titan-reputation/compare/v12.1.0.0...v12.1.0.1) [Previous Releases](https://github.com/paulbuechner/titan-reputation/releases)\n\n- chore: update TOC"
+    },
+    {
+      "tag": "v12.1.0.0",
+      "published": "2026-08-18",
+      "notes": "# Titan [Reputation Continued]\n\n## [v12.1.0.0](https://github.com/paulbuechner/titan-reputation/tree/v12.1.0.0) (2026-08-18)\n[Full Changelog](https://github.com/paulbuechner/titan-reputation/compare/v12.0.7.2...v12.1.0.0) [Previous Releases](https://github.com/paulbuechner/titan-reputation/releases)\n\n- chore: update TOC  \n- chore: rm skinning support (merged upstream Titan Panel)"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation.png",
+    "https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation_Screenshot_01.png",
+    "https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation_Screenshot_02.png",
+    "https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation_Screenshot_06.png",
+    "https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation_Screenshot_07.png",
+    "https://raw.githubusercontent.com/paulbuechner/titan-reputation/main/assets/TitanReputation_Screenshot_05.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-05",
+    "releaseDates": [
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-09-20",
+      "2026-08-18",
+      "2026-07-28",
+      "2026-07-20",
+      "2026-07-19",
+      "2026-04-19",
+      "2026-03-04",
+      "2026-02-28",
+      "2026-02-28",
+      "2026-01-24",
+      "2026-01-24",
+      "2026-01-24",
+      "2026-01-23",
+      "2026-01-22",
+      "2026-01-11",
+      "2026-01-04",
+      "2026-01-01",
+      "2025-12-30",
+      "2025-12-29",
+      "2025-12-29",
+      "2025-12-23",
+      "2025-12-23",
+      "2025-12-23",
+      "2025-12-23",
+      "2025-12-22",
+      "2025-12-21",
+      "2025-12-20",
+      "2025-12-18",
+      "2025-12-18",
+      "2025-12-18",
+      "2025-10-16",
+      "2025-08-21",
+      "2025-08-10",
+      "2025-08-10",
+      "2025-08-06",
+      "2025-07-14",
+      "2025-07-14",
+      "2025-07-12",
+      "2024-12-18",
+      "2024-10-23",
+      "2024-09-14",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-06-07",
+      "2024-05-16",
+      "2024-05-08",
+      "2024-03-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TitanReputation"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Titan"
+    ],
+    "optional": [
+      "ElvUI",
+      "AddOnSkins"
+    ],
+    "savedVariables": [
+      "TitanRep_Data"
+    ],
+    "savedVariablesPerCharacter": [
+      "TitanRep_CharData"
+    ]
+  }
+}

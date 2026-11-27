@@ -104,6 +104,23 @@ Only releases that passed the release check, or that it found not updated yet, a
 }
 ```
 
+## Add-on details: addons/&lt;id&gt;.json
+One file per listed add-on released on GitHub, written by `scripts/details.cs`, never by hand (format: `schema/details.schema.json`). The app fetches it, with its ETag, only when the player opens the add-on, and shows `catalog.json`'s data while it loads or when it can't be fetched. An add-on with no GitHub source has none.
+
+| Field | What |
+|---|---|
+| `schemaVersion` | Always `1`. |
+| `id`, `repo` | The catalog ID (the file's name) and the repo it was read from. |
+| `about` | The README, as Markdown. `aboutTruncated` is `true` when it was cut at the size cap. |
+| `releases` | The five latest stable releases, newest first: `tag`, `name` (when it isn't the tag), `published` (UTC day), `notes` (Markdown; `truncated` when cut). |
+| `changelog` | The repo's CHANGELOG, as Markdown, only when no release has notes (`changelogTruncated` when cut). |
+| `screenshots` | Up to 12 images on GitHub (`raw.githubusercontent.com`, `user-images.githubusercontent.com`, `github.com/user-attachments/assets`), from the README and a `screenshots` folder. Linked, never copied. |
+| `stats` | `stars`; `openIssues` (left out when issues are off); `contributors` (left out when GitHub won't say); `lastRelease` and `releaseDates`, the days of the 50 latest stable releases. |
+| `languages` | Locales the main `.toc` has a `Title-xxXX` or `Notes-xxXX` for. |
+| `technical` | `folders` (as in `catalog.json`), `editions` (every edition its `.toc` files list an Interface for, checked or not), and from the main `.toc`: `requires`, `optional`, `savedVariables`, `savedVariablesPerCharacter`. |
+
+**Markdown is text only:** no raw HTML outside code, links are absolute http(s), mailto or `#` anchors, and images are https. Images can be on any host; an app may choose to load only those on GitHub. The validator checks all of it, that each file is named after its ID, and that the ID is listed in `catalog.json`.
+
 ## An author
 `authors` is keyed by a stable author ID, with the same rules as an add-on's `id`: lowercase words joined by hyphens (`plusmouse`, `nikita-snetkov`), never changed or reused. Every author an entry names has a record, so the app can group their add-ons and give them a page, and every record is used by at least one entry.
 

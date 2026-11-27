@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "fishywashy",
+  "repo": "veiset/fishywashy",
+  "about": "# FishyWashy\n\n![FishyWashy logo](https://raw.githubusercontent.com/veiset/fishywashy/main/docs/logo.png)\n\nA small World of Warcraft Classic fishing addon.\n\n- Boosts the volume while fishing so the bobber splash is easy to hear\n- Shows your total fishing skill and bait status\n- Apply bait and food buffs from your bags with a click\n- Cast Fishing with a double right-click or a hotkey, which applies bait first when none is on, and for priests can keep Levitate up\n- Auto assist: reel in with right-click, no need to aim at the bobber\n- Session and all-time stats: catches, catch rate, zones and when you fish\n\nThe window shows automatically when a fishing pole is equipped. `/fishy` toggles it.\n\n![FishyWashy window](https://raw.githubusercontent.com/veiset/fishywashy/main/docs/main.png)\n\n## Configurable\n\nShow only the panels you want, turn on advanced stats, and tune the sound.\n\n![Compact window](https://raw.githubusercontent.com/veiset/fishywashy/main/docs/compact.png)\n\n![Config panel](https://raw.githubusercontent.com/veiset/fishywashy/main/docs/config.png)\n\n## Fishing skill\n\nHover the fishing skill to see where it comes from: rank, bait, gear and buffs.\n\n![Fishing skill breakdown](https://raw.githubusercontent.com/veiset/fishywashy/main/docs/skill.png)\n\n## Global stats\n\nThe Global stats button opens all-time stats: bait used, everything caught grouped into fish, treasure and junk, and a loot table for each zone and area. Share your stats or your fishing skill in chat with the buttons at the top.\n\n![Global stats window](https://raw.githubusercontent.com/veiset/fishywashy/main/docs/global.png)\n\n## Changelog\n\nSee [CHANGELOG.md](https://github.com/veiset/fishywashy/blob/main/CHANGELOG.md).",
+  "releases": [
+    {
+      "tag": "v1.5.0",
+      "name": "FishyWashy 1.5.0",
+      "published": "2026-11-19",
+      "notes": "## 1.5.0\n\n- Added Camper's Lure (+60 Fishing) to the bait buttons\n- Added more fishing foods to the food button: Filet of Redgill, Spinefin Halibut, Rockscale Cod, Fillet of Frenzy and Loch Frenzy Delight. The button shows the best one in your bags that your level lets you eat"
+    },
+    {
+      "tag": "v1.4.2",
+      "name": "FishyWashy 1.4.2",
+      "published": "2026-11-17",
+      "notes": "## 1.4.2\n\n- Fixed sound sometimes not playing while another window is in front. Sound in background is now on the whole time a fishing pole is equipped, not just during each cast, and set back to your own setting when you unequip the pole or log out. The config option is renamed \"Sound in background\""
+    },
+    {
+      "tag": "v1.4.1",
+      "name": "FishyWashy 1.4.1",
+      "published": "2026-11-14",
+      "notes": "## 1.4.1\n\n- The Stats list shows at most 7 items, so the window no longer grows down the screen. Scroll through the rest with the mouse wheel or the small scroll bar at its right edge. It's back at the top whenever the window is opened again"
+    },
+    {
+      "tag": "v1.4.0",
+      "name": "FishyWashy 1.4.0",
+      "published": "2026-11-14",
+      "notes": "## 1.4.0\n\n- Auto loot while fishing: while a fishing pole is equipped, the game's Auto Loot is on or off as chosen in the config, whatever your own Auto Loot setting is. It's set back to your own setting when you unequip the pole or log out. On by default\n- Window opacity: a slider in the config sets how see-through the windows' background is, from fully see-through to fully solid. It changes both the main window and the Global stats window\n- Fish/hour is now also shown per hour spent fishing. \"Fish/hour\" still counts the whole session, including time logged out or away, which made it look low over long sessions. The new \"Fish/hour fishing\" line counts each break between casts as at most 5 minutes, and \"Fishing\" shows that time. Both are in the advanced stats\n- Priests: auto recast Levitate. When Levitate is on with less than 25 seconds left, the fishing hotkey casts it again first, and the next press casts. Off by default; shows in the config from level 34"
+    },
+    {
+      "tag": "v1.3.1",
+      "name": "FishyWashy 1.3.1",
+      "published": "2026-11-07",
+      "notes": "## 1.3.1\n\n- Auto apply bait skips bait your fishing skill is too low for, and applies the strongest one you can use. Before, the fishing hotkey kept trying to apply such bait and never cast"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/veiset/fishywashy/main/docs/main.png",
+    "https://raw.githubusercontent.com/veiset/fishywashy/main/docs/compact.png",
+    "https://raw.githubusercontent.com/veiset/fishywashy/main/docs/config.png",
+    "https://raw.githubusercontent.com/veiset/fishywashy/main/docs/skill.png",
+    "https://raw.githubusercontent.com/veiset/fishywashy/main/docs/global.png"
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-17",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-10-22",
+      "2026-10-06",
+      "2026-10-01"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FishyWashy"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "FishyWashyDB"
+    ]
+  }
+}

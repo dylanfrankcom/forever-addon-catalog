@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "breakables",
+  "repo": "parnic/breakables",
+  "about": "# Breakables\n\n## **Description**\n\nDisplays a bar on screen that allows quick access to enchanting, jewelcrafting, and inscription professions by presenting a Disenchant/Prospect/Mill button and all of the breakable items you have for that profession next to it. Also displays a bar for any locked junkboxes in your inventory if you're a Rogue. This allows one-click access for breaking down items instead of finding the item in your bag, clicking the appropriate profession/skill button, and clicking the item for each and every item you want to break. For prospecting and milling, you will see the number of items you have alongside the number of times you can break it. In the prospecting screenshot on the right, the player has 169 total Saronite Ore in his bags which will allow for 33 total prospects.\n\n## **Usage**\n\nBy default, if you have the appropriate profession and items in your inventory, a bar will appear with the profession ability followed by any items that are eligible for breaking. You can hold shift to drag the bar around if you want to move it. Clicking the profession button will activate that ability (disenchant/prospect/mill) and clicking an item will break it. You don't have to click the profession button first as simply clicking the item will automatically break it down. Right-clicking an item will place that item on the ignore list so it won't show up in the list again. The ignore list can be managed in the addon's configuration panel.\n\n## **Configuration**\n\nTyping */brk* will open the configuration settings (or you can get to it from Blizzard's Interface options) which consist of:\n\n* **Hide if no breakables**: this will control whether you see the profession button or not when nothing breakable is detected\n* **Max number to display**: this controls the highest number of items that you will see next to your profession button. If this is 5 but you have 10 breakable items in your bags, you will only see 5 at a time.\n* **Show soulbound items**: aimed at enchanters, this controls whether or not you will see items that are soulbound as breakable items or not.\n\n## **Known issues**\n\n* If you have more than 5 of a breakable item but split into stacks all smaller than 5, the game will say you do not have enough items to break. The default UI now has a built-in button to compress stacks that should solve this issue.",
+  "releases": [
+    {
+      "tag": "v1.11.8",
+      "published": "2026-10-24",
+      "notes": "## v1.11.8\n\n- Add WoW Forever support\n\n[View Full Changelog](https://github.com/parnic/breakables/blob/b8c2b04c3c45f049094022837ad8701fc29a67a3/changelog.md)"
+    },
+    {
+      "tag": "v1.11.7",
+      "published": "2026-08-12",
+      "notes": "## v1.11.7\n\n- Fix error when attempting to change scale in combat\n- Update TOCs\n\n[View Full Changelog](https://github.com/parnic/breakables/blob/70f43451e36824a5b7988539f53827dd82c855e1/changelog.md)"
+    },
+    {
+      "tag": "v1.11.6",
+      "published": "2026-06-15",
+      "notes": "## v1.11.6\n\n- Update TOCs\n\n[View Full Changelog](https://github.com/parnic/breakables/blob/6f1f9b2db290b9d810a5bbca29515126857fe383/changelog.md)"
+    },
+    {
+      "tag": "v1.11.5",
+      "published": "2026-04-22",
+      "notes": "## v1.11.5\n\n- Update TOCs\n\n[View Full Changelog](https://github.com/parnic/breakables/blob/7d16c7d211083bf3d68df26a97d87969d86d4010/changelog.md)"
+    },
+    {
+      "tag": "v1.11.4",
+      "published": "2026-03-07",
+      "notes": "## v1.11.4\n\n- Fix items not showing up as disenchantable in some non-English languages due to terms for Armor and Weapon in our localization library no longer matching the terms used by the game.\n\n[View Full Changelog](https://github.com/parnic/breakables/blob/93ec5c41df4d62457f2080ddf3a417ca29bdb90c/changelog.md)"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 1,
+    "contributors": 3,
+    "lastRelease": "2026-10-24",
+    "releaseDates": [
+      "2026-10-24",
+      "2026-08-12",
+      "2026-06-15",
+      "2026-04-22",
+      "2026-03-07",
+      "2026-01-28",
+      "2026-01-23",
+      "2026-01-15",
+      "2026-01-02",
+      "2025-12-23",
+      "2025-12-07",
+      "2025-10-11",
+      "2025-08-06",
+      "2025-07-03",
+      "2025-06-27",
+      "2025-04-26",
+      "2025-04-02",
+      "2025-02-23",
+      "2024-12-21",
+      "2024-11-13",
+      "2024-08-14",
+      "2024-08-14",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-05-09",
+      "2024-05-01",
+      "2024-04-15",
+      "2024-01-16",
+      "2023-12-11",
+      "2023-11-07",
+      "2023-10-12",
+      "2023-09-08",
+      "2023-08-03",
+      "2023-07-11",
+      "2023-07-04",
+      "2023-05-03",
+      "2023-04-01",
+      "2023-01-25",
+      "2023-01-15",
+      "2023-01-14",
+      "2023-01-01",
+      "2022-12-13",
+      "2022-12-05",
+      "2022-11-30",
+      "2022-11-17",
+      "2022-11-16",
+      "2022-11-15",
+      "2022-11-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Breakables"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibBabble-Inventory-3.0",
+      "Masque"
+    ],
+    "savedVariables": [
+      "BreakablesDB"
+    ]
+  }
+}

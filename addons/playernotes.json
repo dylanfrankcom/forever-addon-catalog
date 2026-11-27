@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "playernotes",
+  "repo": "quikmn/PlayerNotes",
+  "about": "# Player Notes\n\nPut a note on any player for WoW Forever: \"cool healer\", \"ninjalooted axe in ZF\", \"piece of shit\". Anything you like, no limits on what you write.\n\n## Set a note\n- Right-click a player: their portrait or target frame, a party or raid frame, focus, a name in chat, a friend, a guild or community member. Pick **Add note…** (or **Edit note…**).\n- Or type it:\n  - `/note <text>` notes your target.\n  - `/note Name <text>` or `/note Name-Realm <text>` notes anyone. With a player targeted, write `@Name <text>` or `Name-Realm <text>` to note someone else.\n  - `/note` opens the notes window: all your notes with search, edit and delete, a note by name, or on your target.\n  - `/note Name` shows a note, `/note del Name` deletes it, `/note list` shows them all in chat.\n  - `/note set chat off` (or `tooltip`, `chatlength 60`, `menu`, `groupjoin`, `hover`, `color ffb347`) changes where and how notes show; `/note get` lists them (`/note settings` too). The same options are in the window and under Settings > AddOns.\n  - `/note help` (or `?`), `/note status`, `/note version` and `/note search` (the window's search box) work too. Because `/note <text>` writes a note, these words count as commands only on their own, and settings always take `set` (or `get`). `/playernotes` works as well as `/note`.\n\nIn the note window, Enter saves and Escape closes. Saving an empty note deletes it.\n\n## Where notes show up\n- **Tooltips**: mouse over the player (in the world, on unit frames and portraits) and the note is the last line.\n- **Chat**: their messages get a short `[note]` in front (say, yell, whispers, party, raid, guild, channels, instance chat).\n- **Right-click menu**: the note sits under their name.\n- **Joining your group**: one chat line, \"Player Notes: Name — note\".\n- **Lists**: hover a player in the group finder (Looking for Group browse list: the leader and members), the who list, your friends list or a guild/community roster and a small note box appears beside it.\n\nNames are matched without regard to case; players on your own realm can be written without the realm.\n\n## Privacy\nYour notes stay on your computer, shared by all your characters. Player Notes never sends them anywhere: nobody else can see them.\n\n## License\n\nGPL-3.0-or-later (see LICENSE). Not affiliated with Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v0.3.0",
+      "published": "2026-11-22",
+      "notes": "- Notes now show when you hover a player on party and raid frames, also inside dungeons.\n- Tooltip: the note line matches the other EverlookDB addons. New setting \"Solid tooltip background\" (on by default)."
+    },
+    {
+      "tag": "v0.2.1",
+      "published": "2026-11-21",
+      "notes": "- Notes on players from your own realm work again after the latest WoW Forever client update. Older notes on them show again once the game reports realm names again."
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-20",
+      "notes": "- Settings window: switches, buttons and sliders use a softer shade of the accent colour, an on switch has a dark knob so it stands out, and boxes have cleaner rounded edges.\n\n- Notes window: one box instead of two. Type to search your notes; click \"Add / edit note\" (or press Enter on a player's name) to add a note on whoever you typed.\n- The note editor remembers where you dragged it, and uses the same colours as the notes window instead of its own orange.\n- A mistyped command like `/note hepl` no longer becomes a note on your target: it asks \"Did you mean /note help?\" and shows how to make a one-word note if that is what you wanted (`/note @Name hepl`).\n- Less chat spam: saving or deleting a note in the editor or the notes window no longer prints a chat line, and when several noted players join your group at once (a raid) you get one line naming them all instead of one line each.\n- Lighter on chat: with no notes yet, chat messages are passed straight through without being checked.\n- Lighter on your game: the note box beside the friends, who, guild and group finder lists only watches the mouse while one of those windows is open, never in the rest of play or in combat."
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-18",
+      "notes": "- Settings: an AI help button copies a description of every setting for an AI assistant, and `/note apply` runs the commands it gives back.\n- Chat commands now follow one pattern across all EverlookDB addons: `/note help` (or `?`) lists them in the same format as the others; `/note get` and `/note get chat`; `/note status` (how many notes) and `/note version`; `/note search` opens the window's search box. On their own only, so `/note status is unknown` is still a note on your target.\n- Tooltip lines now share one tidy layout with the other EverlookDB addons: the note sits last in the EverlookDB block after a blank line, as \"Note  cool healer\" with the label in the shared label colour and the note in your note colour.\n- The settings window has a search box at the top: type to find any setting.\n- Note editor: pressing Enter on an empty box for a player with no note no longer says it deleted a note.\n- Saving a note without changing it keeps the date it was set.\n- Notes window: the \"N of M match\" count follows the search as you type.\n- Options: the chat length slider explains that a longer note is cut short in chat only.\n- `/note` opens the notes window: every note with search, edit and delete, and adding a note by name or on your target. Options choose where notes show (tooltips, chat and how much of the note the chat tag shows, right-click menus, group joins, list hints) and the note colour; all on, as before. Also under Settings > AddOns. Settings from chat: `/note set chat off`, `/note settings`. With a player targeted, a bare `/note` used to open that player's note: now use the window's \"Note on ...\" button, right-click > Edit note, or `/note <text>`.\n- Note window: the hint line under the box is a size larger, easier to read.\n- The \"Note on \" button follows your target while the window is open.\n- Adding a note by name: Enter works like the button, and a bad name says why, with an example.\n- The note editor stays above the notes window, and its Delete asks for a second click like the list's.\n- Settings window: Escape closes an open dropdown list first, then the window; Escape in a text box puts the old text back; a number typed next to a slider snaps to the slider's steps; a Delete or Reset that asks for a second click no longer forgets it early."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PlayerNotes"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "PlayerNotesDB"
+    ]
+  }
+}

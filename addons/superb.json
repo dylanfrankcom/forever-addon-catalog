@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "superb",
+  "repo": "adamkdean/superb",
+  "about": "![Superb](https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/logo.webp)\n\n**A heads-up display for World of Warcraft: Forever, in one bar.**\n\nYour gold, bags, XP rate, gear and pet, live along the edge of your screen while you play.\n\n[![Release](https://img.shields.io/github/v/release/adamkdean/superb?style=flat-square&color=c9a227&label=release)](https://github.com/adamkdean/superb/releases/latest) ![WoW: Forever](https://img.shields.io/badge/WoW-Forever-1f4e8c?style=flat-square) ![Interface 16001](https://img.shields.io/badge/interface-16001-555555?style=flat-square) ![Lua](https://img.shields.io/badge/Lua-2C2D72?style=flat-square&logo=lua&logoColor=white) ![Libraries: none](https://img.shields.io/badge/libraries-none-4a7a32?style=flat-square) ![Licence: MIT](https://img.shields.io/badge/licence-MIT-6b6b6b?style=flat-square)\n\nSuperb is a bar that runs along the top or bottom of your screen and keeps the numbers you care about up to date: what you're carrying, how fast you're levelling, how worn your gear is and how your pet is doing. The rest of your interface shifts over to make room, so nothing hides behind it. Glance at it mid-fight, hover an item for the full picture, right-click it for options. There is no settings window to learn.\n\n![](https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/glance.jpg)\n\n**The things you keep checking**\n\nThe time, local or realm. Your zone and coordinates, your most worn piece of gear, your frame rate and latency. Click the clock for the calendar, or the zone for the map.\n\n![](https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/gold.jpg)\n\n**Gold and bags**\n\nYour gold, what you made this session, and the total across your characters on the realm. Free bag slots, and what your bags would fetch: auction prices if you run AuctionDB, vendor prices if you don't.\n\n![](https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/levelling.jpg)\n\n**Levelling you can trust**\n\nXP per hour only counts the time you spend playing, so a cup of tea won't drag the number down. You also get time to level, time to your next milestone and a record of every level, and your session carries over a `/reload`.\n\n![](https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/pet.jpg)\n\n**A happy pet**\n\nHunters see their pet's mood, health and food on the bar. Left-click feeds it the right food from your bags, and right-click casts Mend Pet. Superb warns you when your pet turns unhappy or the food runs low.\n\n![](https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/themes.jpg)\n\n**Yours to arrange**\n\nFive themes, from crisp light and dark to the game's own gold on dark. Hold Shift and drag any item to the left, centre or right of the bar, and switch off whatever you don't use.\n\n![](https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/notifications.jpg)\n\n**Quiet notifications**\n\nSmall cards drop from the bar for new mail, full bags, worn gear, level-ups and your pet. Good news, warnings and bad news each have their own soft chime, so you can tell them apart without looking, and one click turns the sound off.\n\nMore items are on the way. Want something on your bar? [Request a feature](https://github.com/adamkdean/superb/issues/new?labels=feature). Found a bug? [Report it](https://github.com/adamkdean/superb/issues/new?labels=bug).\n\n## Install\n\nSuperb is on [CurseForge](https://www.curseforge.com/wow/addons/superb) and [Wago](https://addons.wago.io/addons/superb), so WowUp or the CurseForge app can install it and keep it up to date. To install it by hand:\n\n1. Download the zip from the [latest release](https://github.com/adamkdean/superb/releases/latest) and unzip it.\n2. Put the `Superb` folder in `World of Warcraft/_forever_/Interface/AddOns/`.\n3. Start the game, or type `/reload` if it is already running.\n\nThe bar appears at the top of the screen. Click **Superb** at its left end for the menu.\n\n## More\n\n- [The guide](https://github.com/adamkdean/superb/blob/master/docs/GUIDE.md) covers every item, setting and command.\n- [Developing Superb](https://github.com/adamkdean/superb/blob/master/docs/DEVELOPMENT.md) shows addon authors how to put their own items on the bar, and how to run the tests.\n\n## Licence\n\n```text\nSPDX-License-Identifier: MIT\nCopyright (c) 2026 Adam K Dean\n```\n\nFree to use, change and share, as long as the copyright notice stays with it. The full text is in [LICENSE](https://github.com/adamkdean/superb/blob/master/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.5.1",
+      "published": "2026-11-10",
+      "notes": "# Superb\n\n## [v0.5.1](https://github.com/adamkdean/superb/tree/v0.5.1) (2026-11-10)\n[Full Changelog](https://github.com/adamkdean/superb/compare/v0.5.0...v0.5.1) [Previous Releases](https://github.com/adamkdean/superb/releases)\n\n- fix: open the menu under the clicked item, not at the cursor"
+    },
+    {
+      "tag": "v0.5.0",
+      "published": "2026-11-10",
+      "notes": "# Superb\n\n## [v0.5.0](https://github.com/adamkdean/superb/tree/v0.5.0) (2026-11-10)\n[Full Changelog](https://github.com/adamkdean/superb/compare/v0.4.0...v0.5.0) [Previous Releases](https://github.com/adamkdean/superb/releases)\n\n- feat: draw a flat menu in the bar's theme, with submenus that open on a click  \n- feat: add an XP bonus item with the total bonus, time left and click to eat"
+    },
+    {
+      "tag": "v0.4.0",
+      "published": "2026-11-09",
+      "notes": "# Superb\n\n## [v0.4.0](https://github.com/adamkdean/superb/tree/v0.4.0) (2026-11-09)\n[Full Changelog](https://github.com/adamkdean/superb/compare/v0.3.0...v0.4.0) [Previous Releases](https://github.com/adamkdean/superb/releases)\n\n- feat: show a bobbing arrow over every unit an active quest needs  \n- feat: add a professions item with each profession's icon and skill  \n- feat: add Hide to each item's right-click menu  \n- feat: add an item for each special bag: ammo count, soul and profession bags  \n- fix: count only general bags as free bag space, not quivers or other special bags"
+    },
+    {
+      "tag": "v0.3.0",
+      "published": "2026-11-08",
+      "notes": "# Superb\n\n## [v0.3.0](https://github.com/adamkdean/superb/tree/v0.3.0) (2026-11-08)\n[Full Changelog](https://github.com/adamkdean/superb/compare/v0.2.0...v0.3.0) [Previous Releases](https://github.com/adamkdean/superb/releases)\n\n- fix: raise the hunter pet portrait by 1 to sit level with the text  \n- feat: show pet XP on the hunter pet item, and food only when low, in place of health  \n- fix: show a square bag icon instead of the round backpack button  \n- fix: fade the rested part of the XP line so it stands apart from the fill  \n- test: pin the mock's local time so the 12-hour clock test passes in the morning"
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-07",
+      "notes": "# Superb\n\n## [v0.2.0](https://github.com/adamkdean/superb/tree/v0.2.0) (2026-11-07)\n[Full Changelog](https://github.com/adamkdean/superb/compare/v0.1.0...v0.2.0) [Previous Releases](https://github.com/adamkdean/superb/releases)\n\n- fix: show the hunter pet's health as a percent, which Forever keeps secret  \n- refactor: move the health percent text into Core for every pet item  \n- feat: add a warlock demon item with Health Funnel on a click  \n- fix: put the hunter pet item in the centre by default  \n- feat: show a bag icon instead of the word Bags  \n- feat: show bag value in the gold tooltip instead of its own item  \n- fix: make the location the first item on the right, leaving the centre for class items  \n- fix: drop the tilde from milestone times  \n- fix: label the durability item Durability, not Armour  \n- feat: draw a thin line between the parts of an item's text  \n- feat: turn the XP line on and off from the Level and XP menu  \n- fix: colour the XP line blue while rested, as the game's XP bar does  \n- feat: announce level-ups in guild and group chat  \n- docs: describe pull requests and version numbers  \n- docs: require a pull request for every change"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/glance.jpg",
+    "https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/gold.jpg",
+    "https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/levelling.jpg",
+    "https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/pet.jpg",
+    "https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/themes.jpg",
+    "https://raw.githubusercontent.com/adamkdean/superb/master/docs/readme/notifications.jpg"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Superb"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SuperbDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "SuperbLevellingDB"
+    ]
+  }
+}

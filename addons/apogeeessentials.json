@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "apogeeessentials",
+  "repo": "notify353/ApogeeForever",
+  "about": "# Apogee Forever\n\n## Current runtime policy — 2026-10-31\n\nOwner policy supersedes earlier runtime version and package-verification gates:\non Classic Era and Forever, in DEV and PROD, never disable an addon or feature\nsolely because client/build/interface text, package versions, advertised API/schema\nrevisions or legacy/unverified metadata differ. Select the native client adapter\nand check actual methods and data contracts. Preserve combat/protected-action,\nrestricted-value, failed-initialization, incompatible saved-data and actual\nDEV/PROD ownership safeguards. Do not infer binding ownership from APHB metadata.\nExact exports, immutable source pins and installer/release validation remain\noffline development/distribution requirements, not runtime expiry rules.\nCurrent policy implementation is coordinated by ApogeeForever's\n`distribution/RUNTIME_CAPABILITIES.md`; historical release bytes remain frozen.\n\nApogee has separate public packages for **World of Warcraft Forever 1.60.1** and\n**Classic Era 1.15.9**. Choose the file for your WoW instance. Era 1.14.12 and\nForever 1.14.13 are published on GitHub and CurseForge; see the\n[release links and verification](https://github.com/notify353/ApogeeForever/blob/main/distribution/releases/PUBLISHED_2026-10-31.md)\nand each version's player notes for changes and testing status. The historical\nbeta selection remains frozen for reproducibility.\n\nFive focused addons:\n\n- **Heals:** party frames, click healing and buff reminders.\n- **Keybinds:** configurable keyboard and mouse actions with combat HUDs.\n- **Group Alert:** dungeon group discovery and recruitment alerts.\n- **Essentials:** chat conveniences, UI fading and error controls.\n- **Stats:** role-aware gear guidance with NEED during loot rolls and UPGRADE on other item tooltips.\n\nTank and the standalone Auction addon are retired from both package families.\n\nKeep the top-level **Apogee** or **Apogee Era** addon enabled and select the\ncomponents you want in WoW's AddOns list. Gameplay modules retain their own\nsettings. Stats evaluates all supported roles outdoors and uses your assigned\nrole or instance fallback in dungeons. Its character-window Gear filter applies\nonly while that window is open. Era stat reading supports English tooltips.\n\nLegacy profiles are not imported, and Dungeon Guide is not included.\n\nInstall using the [CurseForge listing](https://www.curseforge.com/wow/addons/apogee-party-health-bars)\nor a packaged [GitHub release](https://github.com/notify353/ApogeeForever/releases).\nFor a manual installation, extract all six addon folders into Interface/AddOns.\nGitHub source archives are not installable packages.\n\nContributor documentation: [build workflow](https://github.com/notify353/ApogeeForever/blob/main/distribution/DUAL_WORKFLOW.md),\n[release checklist](https://github.com/notify353/ApogeeForever/blob/main/RELEASING.md), [client API reference](https://github.com/notify353/ApogeeForever/blob/main/docs/WOW_INTERFACE_EXPORT.md).\nCurrent unreleased Forever candidate: [live validation](https://github.com/notify353/ApogeeForever/blob/main/distribution/forever/README.md).\n\nFor work across the five addons, use the sibling\nApogee workspace and its\ncurrent handoff. These are local sibling\nlinks; the workspace has separate publication status. Distribution authority\nremains in this repository.\n\nStats auction browsing: click the left-side dice to enable upgrade filtering.\nThen optionally narrow by Max gold and role (All roles by default). Dice off\nrestores normal native results. Select best requires a specific native equipment\nslot, one role/playstyle, and complete checks; the status explains missing choices.\nClick it to select a freshly verified buyout. Buying remains manual. Each visit\nstarts off with no gold cap and All roles; native filter preferences are preserved.\n\nFiltering is available only in Armor and Weapons and their subcategories.\nElsewhere, normal results appear with dimmed/disabled controls and guidance.\nReturning restores the dice preference, gold and role; the filtered list waits\nfor a matching native Search.\n\nStats ranks Warrior and Paladin tank shields by Armor, then Stamina, followed by\nexisting defensive tie-breakers. Warrior tank weapons prioritize Weapon DPS, then\nStamina and existing tie-breakers within the current shield, two-handed or trained\ndual-wield setup. Hand restrictions are preserved; cross-layout switches are not\nrecommended. Other equipment and role priorities are unchanged.",
+  "releases": [
+    {
+      "tag": "v1.14.22",
+      "name": "Apogee Forever 1.14.22",
+      "published": "2026-11-22",
+      "notes": "# Apogee Forever 1.14.22\n\n- Refresh the Whispers window with compact, aligned rows grouped by class. Each player shows only their latest message.\n- Resize the window from its corner and keep player details, messages and actions together on one line.\n- Look up or refresh a player's location with the location-pin button. Known locations have readable text, and the pin replaces the separate Who button.\n- Improve player-level detection using available native sender information.\n- Fix Priest Penance being rejected by healing keybinds on Forever.\n\nFor World of Warcraft Forever 1.60.1. Reload the UI after updating."
+    },
+    {
+      "tag": "v1.14.21",
+      "name": "Apogee Forever 1.14.21",
+      "published": "2026-11-21",
+      "notes": "# Apogee Forever 1.14.21\n\n- Improve stability when clicking and comparing bag items, with safer tooltip cleanup and fewer redundant item-data refreshes.\n- Remove the Gear selector. Bags and the character window now show upgrades for all supported roles and playstyles, including in dungeons.\n- Keep Auction House role filters and dungeon loot role guidance separate. The session loot-role fallback is available in Apogee > Stats settings.\n- Contain tooltip, auction and settings errors so a failed feature does not keep generating errors.\n\nFor World of Warcraft Forever 1.60.1. Reload the UI after updating."
+    },
+    {
+      "tag": "v1.14.20",
+      "name": "Apogee Forever 1.14.20",
+      "published": "2026-11-20",
+      "notes": "# Apogee Forever 1.14.20\n\n- Improve healing-click reliability when spell information is temporarily unavailable, and recovery across combat and loading transitions.\n- Restore priest Magic debuff highlighting and cleanse clicks for both learned Dispel Magic ranks.\n- With Vanguard learned, automatic Warrior key 1 casts Charge in Defensive Stance without switching stance. Manual assignments retain priority.\n- Add class exclusions and playstyle filters for official multiplayer group listings in Dungeons settings.\n- Add a compact, movable whisper window with Reply, Invite and Who actions, class headings and known level/location information.\n- Show the whisper window when a new eligible message arrives, then fade it away after two minutes without another. Keep it above ordinary panels.\n- Who prepares an editable lookup; press Enter to search. Matching results update the window whether WoW displays them in chat or the Who list.\n- Improve whisper recipient safety, tooltip cleanup, filtering and listing-update performance. Messages remain session-only; class exclusions also apply to whispers.\n\nFor World of Warcraft Forever 1.60.1. Existing settings and manual key assignments are preserved. Native WoW chat remains unchanged."
+    },
+    {
+      "tag": "v1.14.19",
+      "name": "Apogee Forever 1.14.19",
+      "published": "2026-11-19",
+      "notes": "# Apogee Forever 1.14.19\n\n- Added raid-marker defaults: Middle Click for Skull, Shift + Middle Click for Cross, and Ctrl + Middle Click for Moon, consistently across stances and forms.\n- Marker defaults appear only when Enable default spells is on. Your own spell, item or macro replaces the default; clearing the assignment restores it.\n- Marker icons and tooltips appear only during Apogee keybind editing. The shortcuts remain active during normal play and combat.\n- Game sound now mutes while you have a focus and restores the prior sound setting when focus clears, including reload and logout recovery. A previously muted game stays muted.\n- Updated client-build recognition for the reviewed Forever client.\n\nIncludes the existing resurrection, Druid combat Rebirth, healing-range, and other improvements from earlier releases.\n\nFor World of Warcraft Forever 1.60.1. Automated source and generated-package checks cover these changes; complete live-client acceptance is still pending."
+    },
+    {
+      "tag": "v1.14.18",
+      "name": "Apogee Forever 1.14.18",
+      "published": "2026-11-09",
+      "notes": "# Apogee Forever 1.14.18\n\n- Added resurrection buttons to the left of dead party members and friendly player targets, including released party members.\n- Supports Priest Resurrection, Paladin Redemption, Shaman Ancestral Spirit and Druid Revive, using your highest learned rank.\n- Added a separate Druid Rebirth button that remains available during combat, including when a party member dies mid-fight.\n- Resurrection icons turn grey when the spell reports the recipient out of range and return to color in range. The game still checks corpse reachability, line of sight, cooldowns and reagents when you click.\n- Fixed excess Rebirth range polling during frequent combat updates.\n\nFor World of Warcraft Forever 1.60.1. Regular resurrection and range feedback have been tested in game; Druid combat behavior has automated coverage and still needs live testing."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-06",
+      "2026-11-04",
+      "2026-10-31",
+      "2026-10-31",
+      "2026-10-30",
+      "2026-10-30",
+      "2026-10-21",
+      "2026-10-19",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-05",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-13",
+      "2026-08-30",
+      "2026-08-30",
+      "2026-08-09",
+      "2026-08-03",
+      "2026-07-31",
+      "2026-07-25",
+      "2026-07-22",
+      "2026-07-20",
+      "2026-07-20",
+      "2026-07-20",
+      "2026-07-20",
+      "2026-07-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ApogeeEssentials",
+      "ApogeeGroupAlert",
+      "ApogeeHeals",
+      "ApogeeKeybinds",
+      "ApogeePartyHealthBars",
+      "ApogeeStats"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

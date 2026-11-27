@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "smartloot",
+  "repo": "Starlynk1/SmartLoot",
+  "about": "# Smart Loot\n---\n```\nThis is a BETA. It may have bugs, and behavior can change while it is tested.\n```\n---\nLoot the most important items first and make bag space for them.\n\nSmart Loot takes money, quest items, and better gear before junk, then deletes cheaper bag items only when that loot is worth more. It works on Retail, WoW Forever, and Classic Era.\n\n## Features\n\n* Loots money, quest items, and higher-value gear first\n* Makes bag space by destroying cheaper junk when the loot is worth more\n* One destroy-to-loot pair at a time\n* Classic Era: **Destroy Item**, then click the corpse again; Forever and Retail: **Destroy and Loot**\n* Auto-destroy when looting, up to Grey, White, or Green\n* Destroy junk from Grey items, Baganator, or RestedXP\n* Protect items (shift-click a bag item) and crafting reagents\n* Auctionator / TSM value when available\n* Auto-close leftover loot\n* Minimap button\n* Edit Mode on Retail\n\n## Commands\n\n| Command | Action |\n| --- | --- |\n| `/smartloot` or `/sl` | Toggle the options window |\n| `/smartloot enable` / `/smartloot on` | Enable the addon |\n| `/smartloot disable` / `/smartloot off` | Disable the addon |\n\n## Install\n\n1. Download from CurseForge / WowUp, or clone this repository into `Interface/AddOns/SmartLoot`.\n2. Enable **Smart Loot** in the addons list.\n\n## Supported clients\n\n| Client | TOC |\n| --- | --- |\n| Retail | 120100 |\n| WoW Forever | 16001 |\n| Classic Era | 11509 |\n\n## License\n\nGPLv3. See [LICENSE](https://github.com/Starlynk1/SmartLoot/blob/main/LICENSE).\n\n***\n\n### **If you like this addon, please check out my other addons.**\n\n| Addon                                                                                    | Description                                                             |\n| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |\n| [Easy Macros](https://www.curseforge.com/wow/addons/easy-macros)                         | Drop a spell from your spellbook to build a class-aware character macro |\n| [Vital Frame](https://www.curseforge.com/wow/addons/vital-frame)                         | Compact HUD for name, level, XP, reputation, and skill bars             |\n| [Incognito Resurrected](https://www.curseforge.com/wow/addons/incognito-resurrected)     | Adds your chosen name to your chat messages. World, Guild, etc.         |\n| [Nope Node](https://www.curseforge.com/wow/addons/nope-node)                             | Colors the Minimap harvesting nodes to your current skill color         |\n| [Thunderfury Auto Ignore](https://www.curseforge.com/wow/addons/thunderfury-auto-ignore) | Hides Thunderfury spam and ignores the sender                           |",
+  "releases": [
+    {
+      "tag": "v0.1.4",
+      "published": "2026-11-17",
+      "notes": "# Smart Loot 0.1.4\n\n- New Destroy Items window: left-click the minimap icon or the addon compartment to browse deletable bag items, cheapest first.\n- Protect or unprotect items from that list, and optionally show protected items.\n- Right-click the minimap icon or the addon compartment to open options.\n- Edit Mode’s Smart Loot checkbox now hides the loot frame.\n- Auto loot is left as you set it.\n\n# Smart Loot 0.1.3\n\n- Connects the CurseForge project so WowUp and CurseForge can receive builds.\n\n# Smart Loot 0.1.2\n\n- First CurseForge beta. Expect bugs while loot, destroy, and bag-space behavior are tested.\n- Auto-roll is not included in this beta.\n\n# Smart Loot 0.1.1\n\n- Prefer marked junk from Baganator or RestedXP when making bag space.\n- Destroy junk from Grey items, Baganator, or RestedXP."
+    },
+    {
+      "tag": "v0.1.3",
+      "published": "2026-11-16",
+      "notes": "# Smart Loot 0.1.3\n\n- Connects the CurseForge project so WowUp and CurseForge can receive builds.\n\n# Smart Loot 0.1.2\n\n- First CurseForge beta. Expect bugs while loot, destroy, and bag-space behavior are tested.\n- Auto-roll is not included in this beta.\n\n# Smart Loot 0.1.1\n\n- Prefer marked junk from Baganator or RestedXP when making bag space.\n- Destroy junk from Grey items, Baganator, or RestedXP."
+    },
+    {
+      "tag": "v0.1.2",
+      "published": "2026-11-16",
+      "notes": "# Smart Loot 0.1.2\n\n- First CurseForge beta. Expect bugs while loot, destroy, and bag-space behavior are tested.\n- Auto-roll is not included in this beta.\n\n# Smart Loot 0.1.1\n\n- Prefer marked junk from Baganator or RestedXP when making bag space.\n- Destroy junk from Grey items, Baganator, or RestedXP.\n\n# Smart Loot 0.1.0\n\n- First release. Loot important items first and make bag space by destroying cheaper junk."
+    },
+    {
+      "tag": "v0.1.1",
+      "name": "0.1.1",
+      "published": "2026-11-11",
+      "notes": "Grey items, Baganator junk, or RestedXP junk can be chosen from a dropdown when Smart Loot needs to make bag space.\n\nDownload `SmartLoot-0.1.1.zip` and extract the SmartLoot folder into `Interface\\AddOns`."
+    },
+    {
+      "tag": "v0.1.0",
+      "name": "0.1.0",
+      "published": "2026-11-09",
+      "notes": "First release of Smart Loot.\n\nLoot the most important items first and make bag space for them.\n\nSupported clients:\n- Retail (12.1)\n- Forever (1.60)\n- Classic Era (1.15)\n\nDownload `SmartLoot-0.1.0.zip` and extract the SmartLoot folder into `Interface\\AddOns`."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-11",
+      "2026-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SmartLoot"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "Baganator",
+      "RXPGuides",
+      "Pawn"
+    ],
+    "savedVariables": [
+      "SmartLootDB"
+    ]
+  }
+}

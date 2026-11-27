@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "mealbook",
+  "repo": "salty-max/mealbook",
+  "about": "# Mealbook\n\nA World of Warcraft addon for Classic Era and World of Warcraft: Forever: a\nchef's cookbook that fills in as you learn to cook, and the road to 300.\n\n- **Recipes:** every recipe you know gets its page, by chapter, written by\n  your side's chef (Kendor Kabonka in Stormwind, Eunice Burch in the\n  Undercity): what it makes, its colours now and at each threshold, its\n  ingredients as the game's items (with how many you carry), how you\n  learned it, how often you cooked it.\n- **Effects:** a choice under the search lists the dishes you know by what\n  they do (attack power, healing, a stat, regeneration, fishing skill, any\n  other buff or none), each with how many give it.\n- **The road:** from your skill now (or nothing) to 300, the surest recipe\n  at each step, one you know or one to learn on the way, where to learn it,\n  how many casts it takes on average, what to buy or gather and where (the\n  nearest vendor of your side, the creatures that drop it, where it is\n  fished, the herb), and each rank as it is really learned (a trainer, the\n  Expert Cookbook, Artisan's quest).\n\n- **Hunts:** the recipes no trainer teaches and no shop keeps for long, a\n  stall's limited stock, a creature's drop, a quest, or the other side's\n  recipe at a neutral auction house, each opening when your skill is ready\n  for it: who has it, where, how often.\n\n- **The pantry:** an ingredient's tooltip names the dishes you know it\n  cooks into (in the book, where it comes from too), and the book shows\n  what your bags can cook right now.\n- **Achievements:** the ranks, the recipes known, the dishes cooked, the\n  first of each kind of dish, the hunts found.\n\n`/mealbook` opens the book (or its button by the minimap), `/mealbook road`\nopens the road, `/mealbook settings` opens its page in the game's Options:\nwhose pages the book shows, the ingredients' tooltip line, the minimap\nbutton, the book's size and the paper colours (a reload applies them). One\nkey or pad button can open the book: **Options > Key Bindings > Open Mealbook**.\n\nIn English and French.\n\n## Building\n\n```bash\nbun run check     # everything a commit needs\nbun run package   # a test zip in dist/\n```\n\nThe recipes come from [wow-data](https://github.com/salty-max/wow-data),\nbeside this folder.\n\n## License\n\nMIT.",
+  "releases": [
+    {
+      "tag": "v0.3.0",
+      "published": "2026-11-14",
+      "notes": "Mealbook 0.3.0\n\n- New: a choice of effects under the search lists the dishes you know by what eating them does, such as attack power, healing power, a stat, regeneration, fishing skill, any other buff or no bonus. Each shows how many of your dishes give it.\n- A campfire or an oven is listed under no bonus, no longer under other.\n- New: **Book size** makes the whole window larger, in four steps from Normal to Largest, and **Paper colours** show dark ink on tan paper instead of the dark look. Both are in the settings. Paper colours apply after a reload, and the settings page now ends with a Reload button and a line saying so.\n- New: a key binding. **Options > Key Bindings** lists **Open Mealbook** under a heading of its own, so one key, or on Forever a controller button, opens and closes the book. Nothing is bound until you choose.\n- On Forever, the window now tells the Gamepad UI that it is open, so a controller's D-pad can move across its buttons.\n- On Forever with the Gamepad UI on, the game can show its blocked-action popup after an options page opens. That is a bug in the game's own Gamepad UI. A reload clears it, and the settings page now says so.\n- The game's data is brought up to date."
+    },
+    {
+      "tag": "v0.2.1",
+      "published": "2026-11-04",
+      "notes": "Fixed: the list on the left of the book now starts right under the search box, with no empty space above the first entry.\nUpdated for the game's latest Forever build."
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-02",
+      "notes": "Mealbook 0.2.0\n\n- Both chefs' pages were rewritten. Eunice and Kendor now sound like themselves, their facts are checked, and no seller is invented.\n- A recipe is known and a dish is cooked, and every command has its verb.\n- The book is quicker when you earn hunts, because a dish's sources are built once.\n- French is finished, with the two chefs apart and the client's spacing.\n- The interface is in English and French. German and Spanish stay English for now."
+    },
+    {
+      "tag": "v0.1.2",
+      "published": "2026-10-28",
+      "notes": "The family's look, second pass\n- The chefs' pages are set in the family's voice, like the Codex's pages, and signed by the chef. \"See the hunts\" and \"Open its recipe\" are real buttons now.\n- A new page is announced as a link to it, and the ingredient's line on the game's tooltip is named and set in the family's quiet ink.\n- The achievement sound is a choice of its own, and banners stay ten seconds with a setting to change that.\n- The book opens where you left it, and the addon's name in chat wears the theme's accent."
+    },
+    {
+      "tag": "v0.1.1",
+      "published": "2026-10-26",
+      "notes": "Mealbook 0.2.0\n\n- **German and Spanish.** The interface and both chefs' pages are translated, with Latin American Spanish keeping its own names for the dishes. These are first translations, so tell me what reads wrong.\n- **Achievements, a slash command and an options page**, the same ones the other addons in the family now have.\n- Cold-read fixes in all three non-English languages: a lost pun in the German, the Spanish subjunctives, and the chefs' pages brought closer to how the game writes things."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-04",
+      "2026-11-02",
+      "2026-10-28",
+      "2026-10-26",
+      "2026-10-21"
+    ]
+  },
+  "languages": [
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "Mealbook"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "MealbookSettings"
+    ],
+    "savedVariablesPerCharacter": [
+      "MealbookChar"
+    ]
+  }
+}

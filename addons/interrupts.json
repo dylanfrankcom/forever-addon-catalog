@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "interrupts",
+  "repo": "lua-wow/interrupts",
+  "about": "# Interrupts\n\nWorld of Warcraft addon to annaunce interrupts done by the player.\n\n## License\n\nPlease, read [LICENSE](https://github.com/lua-wow/interrupts/blob/master/LICENSE) file.",
+  "releases": [
+    {
+      "tag": "v1.6.0",
+      "published": "2026-11-24",
+      "notes": "**Full Changelog**: https://github.com/lua-wow/interrupts/compare/v1.5.0...v1.6.0"
+    },
+    {
+      "tag": "v1.5.0",
+      "published": "2026-10-15",
+      "notes": "**Full Changelog**: https://github.com/lua-wow/interrupts/compare/v1.4.0...v1.5.0"
+    },
+    {
+      "tag": "v1.4.0",
+      "published": "2025-06-02",
+      "notes": "**Full Changelog**: https://github.com/lua-wow/interrupts/compare/v1.3.0...v1.4.0"
+    },
+    {
+      "tag": "v1.3.0",
+      "published": "2024-07-27",
+      "notes": "**Full Changelog**: https://github.com/lua-wow/interrupts/compare/v1.2.0...v1.3.0"
+    },
+    {
+      "tag": "v1.2.0",
+      "published": "2024-07-26",
+      "notes": "**Full Changelog**: https://github.com/lua-wow/interrupts/compare/v1.1.0...v1.2.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-10-15",
+      "2025-06-02",
+      "2024-07-27",
+      "2024-07-26",
+      "2024-07-22",
+      "2024-01-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Interrupts"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

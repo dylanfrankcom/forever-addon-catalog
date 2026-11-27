@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "xanbufftimers",
+  "repo": "Xruptor/xanBuffTimers",
+  "releases": [
+    {
+      "tag": "v8.11",
+      "published": "2026-10-13",
+      "notes": "# xanBuffTimers\n\n## [v8.11](https://github.com/Xruptor/xanBuffTimers/tree/v8.11) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/xanBuffTimers/compare/v8.10...v8.11) [Previous Releases](https://github.com/Xruptor/xanBuffTimers/releases)\n\n- chore: update TOC interface numbers → v8.11"
+    },
+    {
+      "tag": "v8.10",
+      "published": "2026-09-19",
+      "notes": "# xanBuffTimers\n\n## [v8.10](https://github.com/Xruptor/xanBuffTimers/tree/v8.10) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/xanBuffTimers/compare/v8.9...v8.10) [Previous Releases](https://github.com/Xruptor/xanBuffTimers/releases)\n\n- chore: update TOC interface numbers → v8.10  \n- This should fix the TOC Issues."
+    },
+    {
+      "tag": "v8.9",
+      "published": "2026-09-19",
+      "notes": "# xanBuffTimers\n\n## [v8.9](https://github.com/Xruptor/xanBuffTimers/tree/v8.9) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/xanBuffTimers/compare/v8.8...v8.9) [Previous Releases](https://github.com/Xruptor/xanBuffTimers/releases)\n\n- chore: update TOC interface numbers → v8.9  \n- Updated the GitHub Actions to be better at automatic processing for TOC Updates.  \n    (attempt #5)  \n- Adding a automatic TOC Updater to GitHub Workflow"
+    },
+    {
+      "tag": "v8.8",
+      "published": "2026-04-11",
+      "notes": "# xanBuffTimers\n\n## [v8.8](https://github.com/Xruptor/xanBuffTimers/tree/v8.8) (2026-04-11)\n[Full Changelog](https://github.com/Xruptor/xanBuffTimers/compare/v8.7...v8.8) [Previous Releases](https://github.com/Xruptor/xanBuffTimers/releases)\n\n- TOC Update"
+    },
+    {
+      "tag": "v8.7",
+      "published": "2026-02-10",
+      "notes": "# xanBuffTimers\n\n## [v8.7](https://github.com/Xruptor/xanBuffTimers/tree/v8.7) (2026-02-10)\n[Full Changelog](https://github.com/Xruptor/xanBuffTimers/compare/v8.6...v8.7) [Previous Releases](https://github.com/Xruptor/xanBuffTimers/releases)\n\n- TOC Update  \n    * Updated TOC to latest patch 120001."
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-04-11",
+      "2026-02-10",
+      "2026-02-06",
+      "2026-02-06",
+      "2026-02-06",
+      "2026-02-04",
+      "2026-02-04",
+      "2026-02-04",
+      "2026-01-02",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-08-18",
+      "2025-07-27",
+      "2025-01-08",
+      "2025-01-07",
+      "2025-01-06",
+      "2025-01-03",
+      "2024-07-30",
+      "2024-07-26",
+      "2024-04-08",
+      "2024-04-06",
+      "2023-09-18",
+      "2023-05-26",
+      "2023-01-25",
+      "2022-11-15",
+      "2022-11-11",
+      "2022-11-02",
+      "2021-09-19",
+      "2021-05-28",
+      "2021-04-18",
+      "2021-04-06"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "XanBuffTimers"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tekDebug"
+    ],
+    "savedVariablesPerCharacter": [
+      "XBT_DB"
+    ]
+  }
+}

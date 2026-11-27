@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "livetowin",
+  "repo": "rodriada000/LiveToWinAddon",
+  "about": "# LiveToWinAddon\nSimple WoW TBC Classic Addon to enhance combat. Inspired by South Park.",
+  "releases": [
+    {
+      "tag": "v1.8",
+      "name": "v1.8 - Update for WoW Forever",
+      "published": "2026-11-24"
+    },
+    {
+      "tag": "v1.6",
+      "name": "Live To Win WoW Addon v1.6 Latest",
+      "published": "2025-11-08",
+      "notes": "fix to work with WoW API 10.0.0\n\ndownload and install with CurseForge via: https://www.curseforge.com/wow/addons/live-to-win"
+    },
+    {
+      "tag": "v1.5",
+      "name": "Live To Win WoW Addon v1.5",
+      "published": "2024-07-06"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2025-11-08",
+      "2024-07-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LiveToWin"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "LiveToWin_Config"
+    ]
+  }
+}

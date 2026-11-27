@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "healthtrail",
+  "repo": "AlexRedBlue/HealthTrail",
+  "about": "# Health Trail\n\nA World of Warcraft Forever Addon.\n\nA lingering **\"health lost\"** trail for nameplates. When a mob takes damage, its health bar drops instantly, but the chunk it just lost stays visible as a pale bar for a moment, then drains away smoothly, a classic fighting-game health bar effect.\n\n## Features\n\n*   **Works with any nameplate addon.** Plater, Platynator, Threat Plates and Blizzard's default nameplates are supported directly; most other nameplate addons are detected automatically.\n*   **Your current health is always accurate.** Only the trail lingers; the real health bar updates instantly.\n*   **Health ticks.** Thin half-height and thick full-height vertical lines on the filled part of the health bar make it easy to read how much health a target has left: every 100 / 1,000 health on players and normal mobs, every 1,000 / 10,000 on elites, and every 10,000 / 100,000 on bosses. In the options window, each mob type's thick-line spacing can be set to 10%, 25%, 50%, 200%, 400% or 1000% of the default, or any whole number, and the gap between thick lines can be split into 10, 4 or 2 thin lines.\n*   **Options window and minimap button.** Change the linger time, colours, tick spacing and how many tick lines each bar gets, without typing commands.\n*   **Lightweight.** No libraries.\n\n## Usage\n\nInstall and play - no setup needed. To change settings, left-click the minimap button, type `/healthtrail`, or find Health Trail in the game's AddOns settings.\n\nMinimap button: **left-click** opens options, **right-click** toggles health ticks, **drag** moves it around the minimap.\n\n*   `/healthtrail` - open the options window\n*   `/healthtrail 1.2` - set how many seconds the lost chunk holds before draining (0–5, saved between sessions)\n*   `/healthtrail ticks` - turn the health tick lines on or off (or `/healthtrail ticks on` / `off`)\n*   `/healthtrail minimap` - show or hide the minimap button\n*   `/healthtrail help` - list commands\n\n## Notes\n\n*   The trail replaces the health bar's background, so the empty part of the bar shows a dark background with the trail on top.\n*   Under sustained damage the trail steps down once per linger interval so it never falls too far behind.\n\n## Something not working?\n\nIf the trail is missing or misplaced with a particular nameplate addon, leave a comment naming the addon and I'll add support for it.",
+  "releases": [
+    {
+      "tag": "1.0.9",
+      "published": "2026-11-23",
+      "notes": "# Health Trail\n\n## [1.0.9](https://github.com/AlexRedBlue/HealthTrail/tree/1.0.9) (2026-11-23)\n[Full Changelog](https://github.com/AlexRedBlue/HealthTrail/compare/1.0.8...1.0.9) [Previous Releases](https://github.com/AlexRedBlue/HealthTrail/releases)\n\n- Merge pull request #10 from AlexRedBlue/feature/platynator-support  \n    Add Threat Plates support and resync after restyles  \n- Add Threat Plates support and resync after restyles  \n    Find Threat Plates' health bar through plate.TPFrame and rebuild the  \n    trail, background and ticks after it restyles the bar on combat changes.  \n    Hide the trail along with the bar in name-only mode. Only use Blizzard's  \n    bar while it is still parented to the plate, since some addons hide it  \n    by unparenting it.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Merge pull request #9 from AlexRedBlue/feature/platynator-support  \n    Add Platynator nameplate support  \n- Add Platynator nameplate support  \n    Find Platynator's health bar through its display widgets instead of the  \n    generic scan, which could pick its invisible absorb/cutaway bars. Hide its  \n    background, clip the trail and ticks to its bar shape, and follow the  \n    bar's range so trail and ticks stay aligned when absorbs change its max.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "1.0.8",
+      "published": "2026-11-23",
+      "notes": "# Health Trail\n\n## [1.0.8](https://github.com/AlexRedBlue/HealthTrail/tree/1.0.8) (2026-11-23)\n[Full Changelog](https://github.com/AlexRedBlue/HealthTrail/compare/1.0.7...1.0.8) [Previous Releases](https://github.com/AlexRedBlue/HealthTrail/releases)\n\n- Merge pull request #8 from AlexRedBlue/feature/options-ui  \n    Make tick presets set thick-line spacing  \n- Make tick presets set thick-line spacing  \n    - Presets and custom values now set the thick-line spacing; thin lines  \n      split each gap by the \"Thick line every\" setting (10, 4 or 2), so  \n      changing it re-spaces only the thin lines  \n    - Thick/thin chosen by line index, so fractional thin spacing works  \n    - Migrate saved custom values (thin -> thick) with DB version 2  \n    - Labels show thick / thin; README updated  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "1.0.7",
+      "published": "2026-11-23",
+      "notes": "# Health Trail\n\n## [1.0.7](https://github.com/AlexRedBlue/HealthTrail/tree/1.0.7) (2026-11-23)\n[Full Changelog](https://github.com/AlexRedBlue/HealthTrail/compare/1.0.6...1.0.7) [Previous Releases](https://github.com/AlexRedBlue/HealthTrail/releases)\n\n- Merge pull request #7 from AlexRedBlue/feature/options-ui  \n    Add per-mob tick spacing options  \n- Add per-mob tick spacing options  \n    - Tick spacing per mob type (players, normal, elites, bosses) with  \n      presets from 10% to 1000% of the default, or a custom whole number  \n    - \"Thick line every\" setting: 10, 4 or 2 thin lines  \n    - \"Max lines per bar\" slider (50-500)  \n    - Options window now uses two columns  \n    - Ignore local deploy scripts  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "1.0.6",
+      "published": "2026-11-23",
+      "notes": "# Health Trail\n\n## [1.0.6](https://github.com/AlexRedBlue/HealthTrail/tree/1.0.6) (2026-11-23)\n[Full Changelog](https://github.com/AlexRedBlue/HealthTrail/compare/1.0.5...1.0.6) [Previous Releases](https://github.com/AlexRedBlue/HealthTrail/releases)\n\n- Merge pull request #6 from AlexRedBlue/feature/options-ui  \n    Add options window and minimap button  \n- Add options window and minimap button  \n    - Options window (/healthtrail, minimap button, or AddOns settings entry)  \n      with linger slider, trail/background colours, health tick toggle and  \n      colours, minimap button toggle, and reset to defaults  \n    - Minimap button: left-click opens options, right-click toggles ticks,  \n      drag to move; supports custom minimap shapes and button-bag addons  \n    - Addon compartment entry and TOC icon  \n    - Tick colours are saved settings again, with a one-time migration from  \n      the old black values  \n    - New /healthtrail minimap and help commands; README updated  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "1.0.5",
+      "published": "2026-11-16",
+      "notes": "# Health Trail\n\n## [1.0.5](https://github.com/AlexRedBlue/HealthTrail/tree/1.0.5) (2026-11-16)\n[Full Changelog](https://github.com/AlexRedBlue/HealthTrail/compare/1.0.4...1.0.5) [Previous Releases](https://github.com/AlexRedBlue/HealthTrail/releases)\n\n- Merge pull request #5 from AlexRedBlue/feature/health-ticks  \n    Add health ticks feature and update README for usage instructions  \n- Add health ticks feature and update README for usage instructions"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HealthTrail"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "HealthTrailDB"
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "id": "bagvaluetracker",
+  "repo": "bovidiu/BagValueTracker",
+  "about": "![BagValueTracker WoW addon](https://raw.githubusercontent.com/bovidiu/BagValueTracker/main/icon.png)\n\n# BagValueTracker\n\n**See your gold before you sell it.** BagValueTracker is a World of Warcraft addon that shows the vendor and auction-house value of every item in your bags — right on the bag window, in your tooltips, and in a one-click junk seller — so you always know what your inventory is worth without opening an external site or app.\n\nWorks on **Retail** (including the Forever client), **Cataclysm Classic**, and **Mists of Pandaria Classic**.\n\n## Why BagValueTracker\n\n- \uD83D\uDCB0 **Instant bag value** - every open bag shows the total sell value of its contents at a glance.\n- \uD83C\uDFF7️ **Tooltip prices** - hover any item to see its sell value and full-stack value.\n- \uD83D\uDDD1️ **One-click junk selling** - vendor every grey item at once, or turn on auto-sell and never think about it again.\n- \uD83D\uDCC8 **Net worth tracking** - `/bvt worth` tracks your bags + gold over time, per character.\n- \uD83C\uDF92 **Bag capacity at a glance** - see free slots without opening your bags.\n- ⚡ **Lightweight** - minimal memory and CPU footprint, no unnecessary polling.\n\n## Install\n\n- [CurseForge](https://secure.lockn.link/curseforge-bag-value-tracker)\n- [Wago](https://secure.lockn.link/wago-bag-value-tracker)\n\n## Current features\n\n- **Bag capacity** - visually see how many free slots each bag has.\n- **Cataclysm & Mists** - open all bags by pressing **B**.\n- **Per-bag value** - each open bag shows the total sell value of its contents, based on the auction price* (falling back to the vendor price).\n- **Tooltip value** - item tooltips show the sell value per item and for the whole stack.\n- **Sell junk** - a \"Sell Junk\" button on the merchant window that vendors all your grey items, with an optional auto-sell.\n- **Net worth** - `/bvt worth` shows your total bag value plus gold, the change this session, and the change since your last play session. History is saved per character.\n- **Options panel** - open with `/bvt` (or `/bagvalue`), or from the game's AddOns settings.\n- **Lightweight and Efficient** - optimised for minimal impact on game performance.\n- Supported: Retail (including the Forever client), Cataclysm Classic, Mists of Pandaria Classic.\n\n## How to use\n\n1. Install the addon (and, optionally, [Auctionator](https://www.curseforge.com/wow/addons/auctionator) for auction-based pricing) and log in.\n2. Open your bags. Each enabled bag shows its total sell value in the top-right corner.\n   - With Retail's **Combine All Bags** turned on, a single combined total is shown at the bottom-left of the merged bag window (the Reagent Bag keeps its own).\n   - A trailing `...` means the game is still loading item data; the total finishes filling in after a moment.\n3. Hover any item to see its **Sell value** on the tooltip. Hovering a stack also shows the value of the whole stack.\n4. **Selling junk:** open any merchant and click the **Sell Junk** button (attached to the right edge of the merchant window). It shows how much your grey items are worth on its second line, sells them all in one click, and reports the gold earned in chat. Hovering the button lists exactly what will be sold; on Cataclysm and Mists those bag slots are also **tinted orange** while the merchant is open. Prefer it fully automatic? Turn on *Sell junk automatically at merchants* in the options.\n5. **Net worth:** type `/bvt worth` at any time to print, in chat:\n   - your net worth now (bag item value + gold), broken down into items and gold,\n   - how much it has changed **this session**,\n   - how much it has changed **since your last play session** (the baseline is saved at logout).\n\n   Turn on *Report net worth at login* to have this shown automatically each time you log in.\n\n   Note that net worth counts your **bags plus gold**, so selling items to a vendor barely moves it — the item value you lose is replaced by the gold you gain. It measures wealth, not income.\n6. Type `/bvt` (or `/bagvalue`), or go to **Game Menu -> Options -> AddOns -> Bag Value Tracker**, to change:\n   - **Show item value on tooltips** - turn the tooltip line on or off.\n   - **Use auction price when available** - when on, prices come from Auctionator's auction data (vendor price is used as a fallback); when off, only the vendor price is used.\n   - **Show \"Sell Junk\" button at merchants** - show or hide the merchant button.\n   - **Sell junk automatically at merchants** - vendor all grey items the moment any merchant window opens.\n   - **Highlight junk in bags at a merchant** - tint the bag slots that will be sold (Cataclysm and Mists only).\n   - **Track net worth history** - keep (or stop keeping) the per-character value history that `/bvt worth` reports from.\n   - **Report net worth at login** - print net worth and the change since last session at login.\n   - **Show value for:** - a checkbox per bag (Backpack, Bag 1-4, Reagent Bag) to hide the value on bags you don't care about.\n\n   Changes apply immediately and are saved per character.\n\n> **Notes:**\n> - \"Junk\" means poor-quality (grey) items that have a sell price. The vendor's buyback tab only holds the last few sold items, so anything beyond that cannot be bought back.\n> - Net worth currently counts your bags and gold only, not the bank. The value is taken a few seconds after login so item data has time to load.\n\n## Changelog\n\n### 1.5\n\n- **New:** added support for the Forever client (Interface 16001), which shares Retail's 12.1.5 API.\n\n### 1.4\n\n- **New:** net-worth tracking. `/bvt worth` prints your bag value + gold, the change this session, and the change since your last session.\n- **New:** a per-character value history, plus a logout baseline used for the \"since last session\" figure. Can be turned off with *Track net worth history*.\n- **New:** optional *Report net worth at login* setting.\n- **Fixed (Retail):** with **Combine All Bags** enabled the per-bag values were drawn on hidden frames and never appeared. A single combined total is now shown at the bottom-left of the merged bag window.\n\n### 1.3\n\n- **New:** \"Sell Junk\" button on the merchant window. It shows the total value of your grey items, sells them all with one click, and reports the gold earned. Hovering the button lists what will be sold; on Cataclysm and Mists those bag slots are also tinted orange while the merchant is open (toggle: *Highlight junk in bags at a merchant*).\n- **New:** optional *Sell junk automatically at merchants* setting that vendors grey items whenever a merchant window opens.\n\n### 1.2\n\n- **New:** in-game options panel, opened with `/bvt` / `/bagvalue` or from the AddOns settings list.\n- **New:** item tooltips show the sell value per item, plus the whole-stack value when hovering a stack.\n- **New:** settings are now saved between sessions (per character): tooltip toggle, auction-vs-vendor pricing, and per-bag show/hide.\n- **Changed:** on Cataclysm and Mists, the **Backpack** value is now hidden by default (matching Retail). Re-enable it in the options panel if you want it.\n- Bag values now cover the Retail **Reagent Bag**.\n\n### 1.1\n\n- **Fixed:** right after logging in, bag totals could read low because item data wasn't cached yet. Totals now refresh automatically as the data loads, and show a `...` marker while incomplete.\n- **Fixed:** newly added bag slots (such as the Reagent Bag) are no longer silently skipped when the saved bag list is shorter than the current number of bags.\n\n## Upcoming features\n\n- **Net-worth graph:** a visual history of your value over time in the options panel.\n- **Bank & warband bank valuation:** include bank contents in the per-bag display and in net worth.\n- **Junk value in bags:** see the grey-item total in your bags at any time, plus a \"keep\" list for greys you want to protect.\n\n## Dependency (Optional)\n\n*If you'd like to see the value of a bag based on auctioned items, you will need to install [Auctionator](https://www.curseforge.com/wow/addons/auctionator).",
+  "releases": [
+    {
+      "tag": "v1.25.3",
+      "published": "2026-11-08",
+      "notes": "# Bag Value Tracker\n\n## [v1.25.3](https://github.com/bovidiu/BagValueTracker/tree/v1.25.3) (2026-11-08)\n[Full Changelog](https://github.com/bovidiu/BagValueTracker/compare/v1.25.2...v1.25.3) [Previous Releases](https://github.com/bovidiu/BagValueTracker/releases)\n\n- forever compatibility"
+    },
+    {
+      "tag": "v1.25.2",
+      "published": "2026-10-21",
+      "notes": "# Bag Value Tracker\n\n## [v1.25.2](https://github.com/bovidiu/BagValueTracker/tree/v1.25.2) (2026-10-21)\n[Full Changelog](https://github.com/bovidiu/BagValueTracker/compare/v1.25.1...v1.25.2) [Previous Releases](https://github.com/bovidiu/BagValueTracker/releases)\n\n- updated bug  \n- fix bug with 12.1.5"
+    },
+    {
+      "tag": "v1.25.1",
+      "published": "2026-10-18",
+      "notes": "# Bag Value Tracker\n\n## [v1.25.1](https://github.com/bovidiu/BagValueTracker/tree/v1.25.1) (2026-10-18)\n[Full Changelog](https://github.com/bovidiu/BagValueTracker/compare/v1.25.0...v1.25.1) [Previous Releases](https://github.com/bovidiu/BagValueTracker/releases)\n\n- update retail to 120105"
+    },
+    {
+      "tag": "v1.25.0",
+      "published": "2026-08-30",
+      "notes": "# Bag Value Tracker\n\n## [v1.25.0](https://github.com/bovidiu/BagValueTracker/tree/v1.25.0) (2026-08-30)\n[Full Changelog](https://github.com/bovidiu/BagValueTracker/compare/v1.24.1...v1.25.0) [Previous Releases](https://github.com/bovidiu/BagValueTracker/releases)\n\n- Merge fix-wago-release: repair packaging pipeline so release zips contain the addon #minor  \n- Fix packaging: malformed .pkgmeta ignore entry shipped empty zips; enforce LF via .gitattributes"
+    },
+    {
+      "tag": "v1.24.1",
+      "published": "2026-08-30",
+      "notes": "# Bag Value Tracker\n\n## [v1.24.1](https://github.com/bovidiu/BagValueTracker/tree/v1.24.1) (2026-08-30)\n[Full Changelog](https://github.com/bovidiu/BagValueTracker/compare/v1.24.0...v1.24.1) [Previous Releases](https://github.com/bovidiu/BagValueTracker/releases)\n\n- MoP test  \n- retail test  \n- retail test  \n- net worth  \n- selling junk  \n- keeping documentation up to date  \n- bugs fixing and improve codebase"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-10-21",
+      "2026-10-18",
+      "2026-08-30",
+      "2026-08-30",
+      "2026-08-30",
+      "2026-06-21",
+      "2026-05-01",
+      "2026-02-13",
+      "2025-12-22",
+      "2025-11-05",
+      "2025-09-24",
+      "2025-08-30",
+      "2025-07-02",
+      "2025-06-18",
+      "2025-05-27",
+      "2025-05-26",
+      "2025-05-25",
+      "2025-03-23",
+      "2025-02-26",
+      "2025-02-23",
+      "2025-01-18",
+      "2024-11-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BagValueTracker"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "BagValueTrackerConfig"
+    ],
+    "savedVariablesPerCharacter": [
+      "BagValueTrackerCharDB"
+    ]
+  }
+}

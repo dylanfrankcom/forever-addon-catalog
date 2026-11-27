@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "quickkeybindmode",
+  "repo": "looterz/QuickKeybindMode",
+  "about": "# Quick Keybind Mode\n\n**One command, straight into keybinding.**\n\n## Overview\n\nWorld of Warcraft has a built in Quick Keybind Mode: hover any action button, press a key, and it binds instantly. No dropdowns, no scrolling through a list of every command in the game. The catch is that it sits behind the Game Menu, then Key Bindings, then a button in the corner of that panel.\n\nQuickKeybindMode puts it one chat command away. Type `/kb` and you are binding.\n\n## Usage\n\n| Command | Result |\n| --- | --- |\n| `/kb` | Enters Quick Keybind Mode |\n| `/quickkeybind` | The same thing, spelled out |\n| `/qkb` | Replaces `/kb` when ElvUI is enabled, since ElvUI already uses `/kb` for its own keybind mode |\n\nOnce you are in, hover an action button and press the key you want. Press Escape or click Okay when you are finished to save your bindings.\n\nIf you type the command during combat, it tells you to wait, because the game does not allow binding changes while you are in combat.\n\n## Supported versions\n\n| Client | TOC | Interface |\n| --- | --- | --- |\n| Retail | `QuickKeybindMode.toc` | 120100 |\n| World of Warcraft: Forever | `QuickKeybindMode_Camelot.toc` | 16001 |\n| Classic Era, Season of Discovery, Hardcore | `QuickKeybindMode_Vanilla.toc` | 11509 |\n| Anniversary (Burning Crusade) | `QuickKeybindMode_TBC.toc` | 20506 |\n| Wrath Titan Reforged | `QuickKeybindMode_Wrath.toc` | 38001 |\n| Classic (Mists of Pandaria) | `QuickKeybindMode_Mists.toc` | 50504 |\n\nWorld of Warcraft: Forever runs the modern client, so it has the same Quick Keybind Mode as Retail and `/kb` works there unchanged.\n\n## Installation\n\nInstall through the CurseForge app, or grab the latest release from [GitHub](https://github.com/looterz/QuickKeybindMode/releases) and drop the `QuickKeybindMode` folder into your `Interface\\AddOns` directory.\n\n## Feedback and support\n\nFound a bug or have a suggestion? Open an issue on the [issue tracker](https://github.com/looterz/QuickKeybindMode/issues).\n\n## Contribution\n\nPull requests are welcome on the [GitHub repository](https://github.com/looterz/QuickKeybindMode).\n\n## License\n\nReleased under the [MIT License](https://github.com/looterz/QuickKeybindMode/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.1.1",
+      "name": "Release v1.1.1",
+      "published": "2026-11-04",
+      "notes": "Changes in this Release:\n* QuickKeybindMode 1.1.1: CurseForge can now detect it in a World of Warcraft: Forever install"
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "Release v1.1.0",
+      "published": "2026-09-18",
+      "notes": "Changes in this Release:\n* QuickKeybindMode 1.1.0: World of Warcraft: Forever support, and Retail 12.1.0"
+    },
+    {
+      "tag": "v1.0.3",
+      "name": "Release v1.0.3",
+      "published": "2026-07-27",
+      "notes": "Changes in this Release:\n* QuickKeybindMode 1.0.3: GitHub releases now include the addon zip"
+    },
+    {
+      "tag": "v1.0.2",
+      "name": "Release v1.0.2",
+      "published": "2026-07-26",
+      "notes": "Changes in this Release:\n* Drop the icon from the README"
+    },
+    {
+      "tag": "v1.0.1",
+      "name": "Release v1.0.1",
+      "published": "2026-07-25",
+      "notes": "Changes in this Release:\n* Save bindings when the quick keybind frame closes"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-09-18",
+      "2026-07-27",
+      "2026-07-26",
+      "2026-07-25",
+      "2026-07-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuickKeybindMode"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

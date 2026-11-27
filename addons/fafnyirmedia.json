@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "fafnyirmedia",
+  "repo": "Fafnyir/FafnyirMedia",
+  "about": "# Fafnyir Media\n\nFonts and textures used by Fafnyir for select UI projects, accessible through LibSharedMedia.\n\nCanonical local repository: `/Users/fpatten/Documents/Codex/FafnyirMedia`.\nActive addon source: `src/FafnyirMedia`. The supplied v1.1.0 ZIP is imported without changing addon bytes. Original Git history is preserved.\n\n## Development\n\nRun `python3 tools/check.py`. Use `--baseline` to compare every addon file with the supplied archive fingerprint. After reviewing and committing changes, run `python3 tools/package.py` to build a verified ZIP and SHA-256 manifest in `dist/`. Packages contain only the top-level `FafnyirMedia/` addon folder.\n\n## Releases\n\nUse `FafnyirMedia_(version)_(commit).zip` for all test and release ZIP filenames, with the exact TOC version (including `v`) and the seven-character source commit hash. Example: `FafnyirMedia_v1.1.1_05eb40e.zip`. Preserve this filename when uploading release assets.\n\nIn GitHub Actions, run **Build GitHub Release** on the desired revision. Confirm the exact TOC version and choose draft, prerelease, or final. Draft is the default. Draft creates a GitHub release only; prerelease uploads the same ZIP to CurseForge as Beta; final uploads it as Release. Existing version tags are rejected, including the already published v1.1.0.\n\nConfigure repository Actions secret `CURSEFORGE_API_TOKEN` with your CurseForge upload token. GitHub authentication uses the workflow token. GitHub secrets cannot be copied out of FafnyirTools; add the token directly to this repository. No secrets belong in source control.\n\nUpdate `docs/RELEASE-NOTES.txt`, CHANGELOG.md, and the TOC together when a new version is authorized. Review supported game version names in the workflow when updating Interface metadata. Current upload targets are 12.1.5 and 1.60.1, matching the current TOC; this does not establish in-game compatibility.\n\nIf GitHub publishing succeeds but CurseForge fails, recover the exact ZIP from that GitHub release and upload it to CurseForge; do not rerun the release job and overwrite a tag.\n\nGitHub: https://github.com/Fafnyir/FafnyirMedia\nCurseForge: https://www.curseforge.com/wow/addons/fafnyir-media (project 1442918).",
+  "releases": [
+    {
+      "tag": "v1.1.2",
+      "name": "Fafnyir Media v1.1.2",
+      "published": "2026-10-14",
+      "notes": "Fafnyir Media v1.1.2\n\nUpdate Retail Interface metadata to 120105 (12.1.5).\nPreserve Forever Interface 16001 and all existing media.\nOffline validation passed; this metadata update has not been tested in-game."
+    },
+    {
+      "tag": "v1.1.1",
+      "name": "Fafnyir Media v1.1.1",
+      "published": "2026-10-03",
+      "notes": "Fafnyir Media v1.1.1\n\nRegister five bundled textures as LibSharedMedia backgrounds:\n- Arrow Glow\n- Combat\n- Tank\n- DPS\n- Healer\n\nExisting fonts and status bars remain unchanged. The addon logo remains unregistered.\nOffline validation passed; in-game verification is pending."
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-04-04"
+    },
+    {
+      "tag": "v1.0.9",
+      "published": "2026-02-28"
+    },
+    {
+      "tag": "v1.0.8",
+      "published": "2026-02-23"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-14",
+    "releaseDates": [
+      "2026-10-14",
+      "2026-10-03",
+      "2026-04-04",
+      "2026-02-28",
+      "2026-02-23",
+      "2026-02-13",
+      "2026-02-11",
+      "2026-02-02",
+      "2026-01-30",
+      "2026-01-30",
+      "2026-01-29",
+      "2026-04-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FafnyirMedia"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ]
+  }
+}

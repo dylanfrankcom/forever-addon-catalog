@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "id": "statstrimmer",
+  "repo": "Albert-RC/stats-trimmer",
+  "about": "# Stats Trimmer\n\nAn addon for **World of Warcraft: Forever** that trims the verbose green **Equip:** lines in item tooltips down to short stat lines, so you can compare gear at a glance.\n\n```\nEquip: Increases damage and healing done by magical spells and effects by up to 26.\n```\n\nbecomes\n\n```\n+26 spell power\n```\n\nEach line shows what the item adds, as in the game's own item comparison. The original \"up to\" is about how much of that bonus each spell gets, not the bonus itself.\n\nFood and drink get the same treatment: `+530 health (24 sec)`, `+10 attack power (well fed, 15 min)`. So do flasks, elixirs and potions: `+1200 health (2 hrs)`, `+25 agility (30 min)`.\n\n- **Any client language.** Lines are recognized through the game's own item data, not English text. The compact lines use the game's own stat names, in your client's language or another one you pick in the addon.\n- **When in doubt, it leaves the line alone.** A line is only rewritten when exactly one of the item's stats can own it.\n- **Original text on demand.** Hold Ctrl (or Alt, or Shift) over an item to see the original lines.\n- **Your colors.** A color for each kind of line, or one of the game's class colors, with a live preview.\n\nThe full list of rewritten lines is in [docs/curseforge/StatsTrimmer.md](https://github.com/Albert-RC/stats-trimmer/blob/main/docs/curseforge/StatsTrimmer.md).\n\n## Installation\n\n1. Download `StatsTrimmer-<version>.zip` from the latest release.\n2. Extract it into the Forever client's `Interface\\AddOns` folder. You should end up with `World of Warcraft\\_forever_\\Interface\\AddOns\\StatsTrimmer\\StatsTrimmer.toc`.\n3. Restart the game. Stats Trimmer appears in the AddOns list under User Interface.\n\n## Settings\n\nClick the minimap button, or go to **Options > AddOns > Stats Trimmer**:\n\n- **Show original text while holding:** Ctrl (default), Alt or Shift. Shift also compares items.\n- **Language:** your client's (default), or English, German, Spanish, Mexican Spanish, French, Italian or Portuguese. Russian, Korean and Chinese clients offer only English besides their own, since their fonts may lack accented letters. It changes at once, with no restart.\n- **Compact equip lines**, **Compact food and drink lines**, **Compact flask, elixir and potion lines:** on by default, one in each tab. Clear one to keep those lines in the game's own text.\n- **Split spell power into spell damage and spell healing when both values are the same:** off by default. Spell power that adds damage and healing shows as one line, `+26 spell power`, like the game's item comparison; with this on, it shows as `+26 spell damage` and `+26 spell healing`.\n- **Tabs:** Combat, for items' lines and the spell power setting, Food & Drink, for food's lines, and Alchemy, for flasks', elixirs' and potions' lines.\n- **Colors:** a row for each kind of line, in collapsible Attack, Defense, Spells and Damage extra (spell schools) sections in Combat, and Attributes, Attack, Defense, Spells and Damage extra in Alchemy, each with a swatch and a Reset button, plus \"Reset these colors\" for the tab. The color picker offers the game's class colors.\n- **Preview:** a sample item, food or potion, that updates as you pick colors.\n\n## Reporting a problem\n\nPlease open an issue with:\n\n- your client language;\n- the item name, or a link to it;\n- the exact tooltip line (hold Ctrl to see the original text);\n- for Lua errors, the BugSack stack trace.\n\n## Development\n\nSee [docs/DEVELOPMENT.md](https://github.com/Albert-RC/stats-trimmer/blob/main/docs/DEVELOPMENT.md) for the architecture, the tooltip mechanism, the rules and the test setup. The checks before a change:\n\n```\nstylua --check .\nluacheck .\n./scripts/test.ps1\n```\n\nCI runs them on every pull request. Merging a version bump into `main` publishes the release.\n\n## License\n\n[MIT](https://github.com/Albert-RC/stats-trimmer/blob/main/LICENSE). `StatsTrimmer/Locales.lua` holds Blizzard's own game strings, generated from the client data; they aren't covered by the MIT license.",
+  "releases": [
+    {
+      "tag": "v0.7.1",
+      "name": "Stats Trimmer v0.7.1",
+      "published": "2026-11-17",
+      "notes": "- German keeps the game's capitals, as German nouns are capitalized: `+10 Ausdauer (15 Min.)` instead of `+10 ausdauer (15 min.)`, in the tooltips, the preview and the color rows. Other languages stay in lowercase.\n\n## Installation\n\n1. Download `StatsTrimmer-v0.7.1.zip` below.\n2. Extract it into the Forever client's `Interface\\AddOns` folder. You should end up with `World of Warcraft\\_forever_\\Interface\\AddOns\\StatsTrimmer\\StatsTrimmer.toc`.\n3. Restart the game."
+    },
+    {
+      "tag": "v0.7.0",
+      "name": "Stats Trimmer v0.7.0",
+      "published": "2026-11-17",
+      "notes": "- Food, drink, flask, elixir and potion data come from the game's new build, 1.60.1.70938: Morning Glory Dew gets compact lines, and the Elixir of Wisdom, now +3 intellect for 30 minutes, gets them again. The new Elixirs of Endless... keep their original text.\n- Scrolls and other consumables get compact lines too, in a new Miscellaneous tab of the settings window with its own checkbox, \"Compact scroll and other consumable lines\", its own colors and a sample consumable. Scroll of Agility IV shows `+17 agility (30 min)`, R.O.I.D.S. `+25 strength (60 min)`, and Rumsey Rum `+10 stamina (15 min) and gets you drunk to boot!`, in the game's own words in the chosen language: `+10 aguante (15 min) ¡y por si fuera poco, te emborracha!`.\n- The 1 second cooldown scrolls share is left out. Any other cooldown keeps the original text.\n- After updating, restart the game instead of using `/reload`: the new file is only loaded on a restart.\n- WoW: Forever now installs in `World of Warcraft\\_forever_`: install the addon in `_forever_\\Interface\\AddOns`, not `_classic_beta_`.\n\n## Installation\n\n1. Download `StatsTrimmer-v0.7.0.zip` below.\n2. Extract it into the Forever client's `Interface\\AddOns` folder. You should end up with `World of Warcraft\\_forever_\\Interface\\AddOns\\StatsTrimmer\\StatsTrimmer.toc`.\n3. Restart the game."
+    },
+    {
+      "tag": "v0.6.0",
+      "name": "Stats Trimmer v0.6.0",
+      "published": "2026-10-18",
+      "notes": "- Flasks, elixirs and potions get compact lines too. `Use: Increases the player's maximum health by 1,200 for 2 hrs. You can only have the effect of one flask at a time. This effect persists through death.` becomes `+1200 health (2 hrs)`, and Elixir of the Mongoose shows `+25 agility (30 min)` and `+2% critical strike (30 min)`.\n- That covers flasks of health, mana, spell damage and resistances, elixirs of the primary stats, armor, health, spell damage, a spell school, healing, health or mana every 5 seconds (`+12 HP5 (1 hour)`) and crit, and potions of attack power, spell damage, healing, armor, resistances and attack power or spell damage against a creature type. Durations and stat names are the game's own, in the chosen language: `+1200 salud (2 h)`.\n- The cooldown every elixir and flask shares (3 seconds) and every potion shares (2 minutes) is left out. Any other cooldown keeps the original text.\n- Healing and mana potions, bandages, and anything whose text says something else (invisibility, water breathing, the Natural flasks' bonus in Hyjal's zones, rage) keep their original text.\n- Holding Ctrl switches recipe tooltips at once too, such as AtlasLoot's alchemy and cooking recipes, which show the crafted item's lines. Before, they only switched when the mouse moved to another recipe.\n- Each tab of the settings window has a checkbox to turn its lines on and off: \"Compact equip lines\", \"Compact food and drink lines\" and \"Compact flask, elixir and potion lines\". A cleared one leaves those lines in the game's own text; its colors stay as they are. The tab's settings sit under a divider and the tab's name, apart from the settings of the whole window.\n- The settings window has a third tab, Alchemy, with its own color rows in collapsible Attributes, Attack, Defense, Spells and Damage extra sections, and a sample potion.\n- After updating, restart the game instead of using `/reload`: the new files are only loaded on a restart.\n\n## Installation\n\n1. Download `StatsTrimmer-v0.6.0.zip` below.\n2. Extract it into the Forever client's `Interface\\AddOns` folder. You should end up with `World of Warcraft\\_classic_beta_\\Interface\\AddOns\\StatsTrimmer\\StatsTrimmer.toc`.\n3. Restart the game."
+    },
+    {
+      "tag": "v0.5.1",
+      "name": "Stats Trimmer v0.5.1",
+      "published": "2026-10-16",
+      "notes": "- An equip line with more than one percentage, such as a hit bonus next to a movement speed bonus, keeps its original text instead of losing the second one.\n- Food whose cooldown is a minute or an hour keeps its original text, which shows it. Only the 1 second cooldown foods share is left out.\n- The class colors no longer stay in the color picker, with it taller than usual, when another addon opens the picker while Stats Trimmer's pick is still open.\n- The settings window keeps its tabs on screen at large UI scales, including when dragged to the bottom edge, and adjusts when the UI scale or display size changes.\n- The game's texts are those of its current build, 1.60.1.70425. Italian keeps those of 1.60.1.70338, the last build with Italian texts available.\n- When the game has no name for a stat, the addon's own English matches the game's: `+1% hit`, `+1% critical strike`.\n- After updating, restart the game instead of using `/reload`: the new files are only loaded on a restart.\n\n## Installation\n\n1. Download `StatsTrimmer-v0.5.1.zip` below.\n2. Extract it into the Forever client's `Interface\\AddOns` folder. You should end up with `World of Warcraft\\_classic_beta_\\Interface\\AddOns\\StatsTrimmer\\StatsTrimmer.toc`.\n3. Restart the game."
+    },
+    {
+      "tag": "v0.5.0",
+      "name": "Stats Trimmer v0.5.0",
+      "published": "2026-10-15",
+      "notes": "- Food and drink get compact lines too. `Use: Restores 530 health over 24 sec. Must remain seated while eating.` becomes `+530 health (24 sec)`, and a drink `+803 mana (24 sec)`.\n- Well Fed buffs show as the stat they give and how long it lasts, `+10 attack power (well fed, 15 min)`, plus `+5% experience gained from kills` when the game shows that bonus. Foods that restore a percentage every second read `+2% health/s (25 sec)`.\n- Durations, \"well fed\" and the stat names are the game's own, in the chosen language: `+530 salud (24 s)`, `+10 poder de ataque (bien alimentado, 15 min)`.\n- The settings window has two tabs, named with the game's own words: Combat, with the item sections, the sample item and the spell power setting, and Food & Drink, with rows for health, mana, experience and the stats only Well Fed buffs give (stamina, intellect, strength, agility, spirit and armor), and a sample food. Well Fed attack power, spell damage, healing and crit use their rows in Combat.\n- \"Reset all colors\" is now \"Reset these colors\": it resets the open tab's colors only.\n- Foods whose text says something else keep it as it is: alcohol, fishing and herbalism buffs, buffs that only work in one zone, and a few special foods.\n- After updating, restart the game instead of using `/reload`: the new files are only loaded on a restart.\n\n## Installation\n\n1. Download `StatsTrimmer-v0.5.0.zip` below.\n2. Extract it into the Forever client's `Interface\\AddOns` folder. You should end up with `World of Warcraft\\_classic_beta_\\Interface\\AddOns\\StatsTrimmer\\StatsTrimmer.toc`.\n3. Restart the game."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-17",
+      "2026-10-18",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "StatsTrimmer"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "StatsTrimmerDB"
+    ]
+  }
+}

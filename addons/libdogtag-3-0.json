@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "libdogtag-3-0",
+  "repo": "parnic/LibDogTag-3.0",
+  "releases": [
+    {
+      "tag": "v120105.1",
+      "published": "2026-10-21",
+      "notes": "# Lib: DogTag-3.0\n\n## [v120105.1](https://github.com/parnic/LibDogTag-3.0/tree/v120105.1) (2026-10-16)\n[Full Changelog](https://github.com/parnic/LibDogTag-3.0/commits/v120105.1) [Previous Releases](https://github.com/parnic/LibDogTag-3.0/releases)\n\n- Update Interface version (#30)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>"
+    },
+    {
+      "tag": "v120100.1",
+      "published": "2026-08-12",
+      "notes": "# Lib: DogTag-3.0\n\n## [v120100.1](https://github.com/parnic/LibDogTag-3.0/tree/v120100.1) (2026-08-12)\n[Full Changelog](https://github.com/parnic/LibDogTag-3.0/commits/v120100.1) [Previous Releases](https://github.com/parnic/LibDogTag-3.0/releases)\n\n- Update Interface version (#27)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>"
+    },
+    {
+      "tag": "v120007.1",
+      "published": "2026-06-16",
+      "notes": "# Lib: DogTag-3.0\n\n## [v120007.1](https://github.com/parnic/LibDogTag-3.0/tree/v120007.1) (2026-06-02)\n[Full Changelog](https://github.com/parnic/LibDogTag-3.0/commits/v120007.1) [Previous Releases](https://github.com/parnic/LibDogTag-3.0/releases)\n\n- Update Interface version (#21)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>"
+    },
+    {
+      "tag": "v120005.1",
+      "published": "2026-04-22",
+      "notes": "# Lib: DogTag-3.0\n\n## [v120005.1](https://github.com/parnic/LibDogTag-3.0/tree/v120005.1) (2026-04-18)\n[Full Changelog](https://github.com/parnic/LibDogTag-3.0/commits/v120005.1) [Previous Releases](https://github.com/parnic/LibDogTag-3.0/releases)\n\n- Update Interface version (#18)  \n    Automated changes by  \n    [create-pull-request](https://github.com/peter-evans/create-pull-request)  \n    GitHub action  \n    Co-authored-by: parnic <888126+parnic@users.noreply.github.com>"
+    },
+    {
+      "tag": "v120001.2",
+      "published": "2026-03-08",
+      "notes": "# Lib: DogTag-3.0\n\n## [v120001.2](https://github.com/parnic/LibDogTag-3.0/tree/v120001.2) (2026-03-07)\n[Full Changelog](https://github.com/parnic/LibDogTag-3.0/commits/v120001.2) [Previous Releases](https://github.com/parnic/LibDogTag-3.0/releases)\n\n- Can't truncate a secret string"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 1,
+    "contributors": 19,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-08-12",
+      "2026-06-16",
+      "2026-04-22",
+      "2026-03-08",
+      "2026-02-12",
+      "2026-02-01",
+      "2026-01-21",
+      "2026-01-15",
+      "2025-12-07",
+      "2025-10-11",
+      "2025-08-06",
+      "2025-07-03",
+      "2025-06-27",
+      "2025-04-26",
+      "2025-04-02",
+      "2025-02-23",
+      "2024-12-21",
+      "2024-11-13",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-05-09",
+      "2024-04-15",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-09-08",
+      "2023-07-11",
+      "2023-05-03",
+      "2023-04-01",
+      "2023-01-25",
+      "2022-11-15",
+      "2022-10-26",
+      "2022-09-04",
+      "2022-03-22",
+      "2021-06-29",
+      "2021-04-25",
+      "2021-03-23",
+      "2021-03-23",
+      "2021-03-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LibDogTag-3.0"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

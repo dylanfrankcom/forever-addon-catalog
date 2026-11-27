@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "dyressounds",
+  "repo": "jbedworth/DyresSounds",
+  "about": "# Dyre's Sounds\n\nThe sounds and sound picker that Dyre's AddOns share, for World of Warcraft:\nForever (beta). It is a library: it does nothing on its own. Install it when\none of Dyre's AddOns asks for it.\n\n## What it has\n\n- **Dyre's Picks:** nine effect sounds that ship with it (fading, swoosh,\n  vanish, and magical disappear sounds), first in every sound menu.\n- **Dyre's Speed, Dyre's Cats, Dyre's Bears, and Dyre's Water:** 22 more, by\n  theme: speed boosts and engines for travel spells, and meows, growls, roars,\n  and splashes for the Druid's forms.\n- **Dyre's Aggression:** 11 battle cries and shouts, for Charge and other\n  Warrior moves, 10 roars of an angry man (Roaring-Man-1 to 10), a mad\n  man's warrior scream, and 3 screams of a girl.\n- **Dyre's Gore, Dyre's Smacks, and Dyre's Blades:** 14 crit sounds, from\n  slices and splats to slaps, kisses, and sword swings.\n- **Dyre's Sax:** an alto sax scale, eight notes from B-flat up to the\n  octave, for chimes that count up (combo points).\n- **Dyre's Bassoon:** a quick comic bassoon climb, eight rising steps,\n  for chimes that count up.\n- **Dyre's Alerts:** 15 warning sounds: alarms, danger stings, and cartoon\n  and musical alerts, for threat warnings and other alerts.\n- **Dyre's Frosty:** 14 frost sounds: 5 ice spells, 5 frozen whooshes, and 4\n  ice ball impacts, for Mage frost procs and frozen or chilled targets.\n- **Dyre's Fel Sounds:** a heartbeat, a wet smash, a mud splat, and a deep\n  demon growl, for dark crit themes.\n- The game's interface sounds, imp laughs and chirps (not on Classic Era or\n  Anniversary), and Text to Speech. The Cooldown Manager's alert sounds\n  (Animals, Devices, Impacts, Instruments, Warcraft 2, Warcraft 3) are off\n  for now: they played only some of the time, or not at all.\n- A sound menu grouped by theme; choosing a sound plays it.\n\nThe AddOns that use it list it as an optional dependency, so they always load;\nwithout it, they play no sounds and say once in chat what to install.\n\n## Compatibility\n\nFor the Forever beta client 1.60.1 (Interface 16001). WowUp users\n(2.24.0 or later) can install it from the repository URL; GitHub releases\ncarry the Forever metadata WowUp needs.\n\n## Support\n\nDyre's AddOns are free. If you enjoy them, you can support them on Ko-fi: https://ko-fi.com/dyre_janelle\n\n## License\n\nAll rights reserved: you may install and use Dyre's Sounds, but not copy,\nchange, or reuse its code or sounds. The sounds in `Sounds/` are licensed from\nEnvato for use in this AddOn only. See LICENSE.",
+  "releases": [
+    {
+      "tag": "v1.7.2",
+      "published": "2026-11-20",
+      "notes": "# Dyre's Sounds 1.7.2\n\n## Changes\n\n### Fixes\n- **Game settings:** changing a Blizzard setting, such as Interface > Status Text, after you opened a Dyre's AddOns settings page no longer gives an \"attempt to compare a secret number value\" error. The sound menus no longer change the settings rows that Blizzard's own settings reuse. A sound dropdown now shows the sound's name without its group.\n\n## Notes\n\n- For WoW: Forever and WoW Classic Era 1.15.9 (build 70003,\n  Interface 11509). Built for Forever beta 1.60.1, build 70450,\n  Interface 16001. It runs on later beta builds while the client provides\n  the APIs it needs.\n- A library: the sounds and sound picker that Dyre's AddOns share. It does\n  nothing on its own; install it when one of them asks for it."
+    },
+    {
+      "tag": "v1.7.1",
+      "published": "2026-11-19",
+      "notes": "# Dyre's Sounds 1.7.1\n\n## Changes\n\n### Features\n- **Dyre's Frosty:** 14 frost sounds: 5 ice spells, 5 frozen whooshes, and 4 ice ball impacts, for Mage frost procs and frozen or chilled targets.\n\n### Other changes\n- The release tests run in seconds, not minutes. The 1.7.0 build stopped at its time limit, so 1.7.0 was not released.\n\n## Notes\n\n- For WoW: Forever and WoW Classic Era 1.15.9 (build 70003,\n  Interface 11509). Built for Forever beta 1.60.1, build 70450,\n  Interface 16001. It runs on later beta builds while the client provides\n  the APIs it needs.\n- A library: the sounds and sound picker that Dyre's AddOns share. It does\n  nothing on its own; install it when one of them asks for it."
+    },
+    {
+      "tag": "v1.6.0",
+      "published": "2026-11-18",
+      "notes": "# Dyre's Sounds 1.6.0\n\n## Changes\n\n### Features\n- **Dyre's Aggression:** 10 new roars of an angry man, Roaring-Man-1 to Roaring-Man-10, from long roars to short barks, a mad man's warrior scream, and 3 screams of a girl.\n\n## Notes\n\n- For WoW: Forever and WoW Classic Era 1.15.9 (build 70003,\n  Interface 11509). Built for Forever beta 1.60.1, build 70450,\n  Interface 16001. It runs on later beta builds while the client provides\n  the APIs it needs.\n- A library: the sounds and sound picker that Dyre's AddOns share. It does\n  nothing on its own; install it when one of them asks for it."
+    },
+    {
+      "tag": "v1.5.0",
+      "published": "2026-11-12",
+      "notes": "# Dyre's Sounds 1.5.0\n\n## Changes\n\n### Features\n- **Dyre's Alerts:** 15 warning sounds, for threat warnings and other alerts: a bell buzz, a car alarm, a rising glass sting, a danger trill, a clarinet danger chord, a spooky sting, a cartoon shake, an angry bird, a magpie, a bird crowing, a cartoon select, a bubble, a computer alert, a steel drum, and a xylophone.\n\n## Notes\n\n- For WoW: Forever and WoW Classic Era 1.15.9 (build 70003,\n  Interface 11509). Built for Forever beta 1.60.1, build 70450,\n  Interface 16001. It runs on later beta builds while the client provides\n  the APIs it needs.\n- A library: the sounds and sound picker that Dyre's AddOns share. It does\n  nothing on its own; install it when one of them asks for it."
+    },
+    {
+      "tag": "v1.4.0",
+      "published": "2026-10-27",
+      "notes": "# Dyre's Sounds 1.4.0\n\n## Changes\n\n### Features\n- **Dyre's Bassoon:** a quick comic bassoon climb, eight rising steps from B-flat up to F (the last one held), for chimes that count up, such as combo points.\n- **Dyre's Fel Sounds:** four dark crit sounds, for Dyre's Crit Mayhem's Fel theme: a heartbeat, a wet smash, a mud splat, and a deep demon growl.\n\n### Fixes\n- **Louder chimes:** the Dyre's Sax notes are louder, and all eight now play at the same level, so combo-point chimes are easier to hear in combat.\n\n## Notes\n\n- For WoW: Forever and WoW Classic Era 1.15.9 (build 70003,\n  Interface 11509). Built for Forever beta 1.60.1, build 70450,\n  Interface 16001. It runs on later beta builds while the client provides\n  the APIs it needs.\n- A library: the sounds and sound picker that Dyre's AddOns share. It does\n  nothing on its own; install it when one of them asks for it."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-12",
+      "2026-10-27",
+      "2026-10-26",
+      "2026-10-25",
+      "2026-10-23",
+      "2026-10-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DyresSounds"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ]
+  }
+}

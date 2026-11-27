@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "opie-elvui",
+  "repo": "AcidWeb/OPie_ElvUI",
+  "about": "# OPie: ElvUI\n\n[Wago Addons](https://addons.wago.io/addons/opie-elvui-skin)\n\n[WoWInterface](https://www.wowinterface.com/downloads/info26446-OPieElvUISkin.html)\n\n## COPYRIGHT\n\nAll Rights Reserved unless otherwise explicitly stated.\n\nCopyright (c) 2022-2026 Paweł Jastrzębski <pawelj@iosphe.re>",
+  "releases": [
+    {
+      "tag": "v2.0.1",
+      "published": "2026-11-22",
+      "notes": "# OPie: ElvUI\n\n## [v2.0.1](https://github.com/AcidWeb/OPie_ElvUI/tree/v2.0.1) (2026-11-22)\n[Full Changelog](https://github.com/AcidWeb/OPie_ElvUI/compare/v2.0.0...v2.0.1) [Previous Releases](https://github.com/AcidWeb/OPie_ElvUI/releases)\n\n- Fixed compatibility with ElvUI 16.02"
+    },
+    {
+      "tag": "v2.0.0",
+      "published": "2026-11-17",
+      "notes": "# OPie: ElvUI\n\n## [v2.0.0](https://github.com/AcidWeb/OPie_ElvUI/tree/v2.0.0) (2026-11-17)\n[Full Changelog](https://github.com/AcidWeb/OPie_ElvUI/compare/v1.5.1...v2.0.0) [Previous Releases](https://github.com/AcidWeb/OPie_ElvUI/releases)\n\n- Refactored addon as ElvUI plugin  \n- Synced the skin with latest version of Mirage"
+    },
+    {
+      "tag": "v1.5.1",
+      "published": "2026-04-22",
+      "notes": "# OPie: ElvUI\n\n## [v1.5.1](https://github.com/AcidWeb/OPie_ElvUI/tree/v1.5.1) (2026-04-22)\n[Full Changelog](https://github.com/AcidWeb/OPie_ElvUI/compare/v1.5.0...v1.5.1) [Previous Releases](https://github.com/AcidWeb/OPie_ElvUI/releases)\n\n- TOC bump"
+    },
+    {
+      "tag": "v1.5.0",
+      "published": "2026-03-30",
+      "notes": "# OPie: ElvUI\n\n## [v1.5.0](https://github.com/AcidWeb/OPie_ElvUI/tree/v1.5.0) (2026-03-30)\n[Full Changelog](https://github.com/AcidWeb/OPie_ElvUI/compare/v1.4.1...v1.5.0) [Previous Releases](https://github.com/AcidWeb/OPie_ElvUI/releases)\n\n- Added support for OPie 8.3"
+    },
+    {
+      "tag": "v1.4.1",
+      "published": "2026-02-11",
+      "notes": "# OPie: ElvUI\n\n## [v1.4.1](https://github.com/AcidWeb/OPie_ElvUI/tree/v1.4.1) (2026-02-10)\n[Full Changelog](https://github.com/AcidWeb/OPie_ElvUI/compare/v1.4.0...v1.4.1) [Previous Releases](https://github.com/AcidWeb/OPie_ElvUI/releases)\n\n- TOC bump"
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-17",
+      "2026-04-22",
+      "2026-03-30",
+      "2026-02-11",
+      "2026-01-31",
+      "2025-08-21",
+      "2025-05-17",
+      "2025-04-24",
+      "2025-02-27",
+      "2024-12-21",
+      "2024-10-23",
+      "2024-09-09",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-05-08",
+      "2024-03-20",
+      "2024-01-17",
+      "2023-11-08",
+      "2023-09-14",
+      "2023-09-06",
+      "2023-08-23",
+      "2023-07-12",
+      "2023-05-03",
+      "2023-03-22",
+      "2023-01-25",
+      "2022-11-16",
+      "2022-11-06",
+      "2022-11-03",
+      "2022-11-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "OPie_ElvUI"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "ElvUI",
+      "OPie"
+    ]
+  }
+}

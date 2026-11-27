@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "totalrp3-extended",
+  "repo": "Total-RP/Total-RP-3-Extended",
+  "about": "# Total RP 3: Extended\n\nExtended module for the Total RP 3 add-on for World of Warcraft, adding creation tools.\n\n[Download on Curse.com](https://mods.curse.com/addons/wow/total-rp-3-extended)\n\n# Introduction\n\nWorld of Warcraft has a strong community of players with a lot of talent when it comes to role-playing, fan-fiction, and other artistic creations. One major problem is that all these original creations can only live outside of the game as we can't have any impact on the game itself. Total RP 3 Extended is aiming to change this.\n\nTotal RP 3 brought you the best way to customize your characters and companions (pets and mounts). Total RP 3: Extended brings you the best way to create new content in World of Warcraft: campaigns with quests, customized NPCs and dialogues, items, documents (books, signs, contracts ...) and much more!\n\n# Highlights\n\n- Create highly customizable items and share them securely with other people. When you receive an item from someone, the new security level system will warn you about potentially harmful effects and you can authorize them or not.\n- Place items on the ground to get them back later or place them in stashes that other players will be able to find and open.\n- Total RP 3: Extended gives you a brand new RP inventory to place items on your character visually. People with Total RP 3: Extend will be able to see the items you are wearing and you can inspect them too.\n- Create rich campaigns with multiple quests and steps, customize in game NPCs to fit your needs and create immersive 3D dialogs with multiple choices.\n- This is a separated add-on, we don't \"force\" any Total RP 3 user to use it. That was a reason why Total RP 2 was considered really heavy for casual roleplayers. If you want Total RP 3: Extended, just get it in addition of Total RP 3. But Total RP 3 alone will stay lightweight.\n- The interface is clean, pretty and easy to handle.\n- We provide different levels of complexity for the editors interfaces (Quick / Normal / Expert). So you will have a simple UI to quickly create simple items, but when you are ready to go to the next level and have the full unchained experience, you can use the tool in \"expert mode\". All these concepts will bring this addon to the saying \"Easy to learn, hard to master\".\n- The add-on is separated in two sub-add-ons. One contains the inventory management and a roleplay quest log. The other contains all the creation tools to create your items and quests.",
+  "releases": [
+    {
+      "tag": "2.3.7",
+      "published": "2026-11-10",
+      "notes": "# Changelog for version 2.3.7\n\n## Changed\n\n- Inspection frame now displays the RP name instead of the character name.\n- Speech: Player effect preview now displays the RP name instead of the character name.\n\n## Fixed\n\n- Preset name variables now correctly handle Forever surnames.\n- Unit name operand now correctly display the full name in Forever.\n- Fixed an error when right-clicking players in some cases on Forever.\n\n# Changelog for version 2.3.6\n\n## Added\n\n- Added support for icons without official filenames, as well as class/race icons.\n- Added 17 new campaign portrait options. Portraits are now selected using a scrolling dropdown.\n- Added copy/paste icon right-click menus on all icon browser buttons.\n\n## Fixed\n\n- Fixed the icon browser not closing properly when switching tabs.\n\n# Changelog for version 2.3.5\n\n## Fixed\n\n- Fixed some errors related to patch 12.1 API changes.\n\n# Changelog for version 2.3.4\n\n## Fixed\n\n- Fixed permanent auras causing errors during Extended inspection.\n\n# Changelog for version 2.3.3\n\n## Changed\n\n- Pickup and drop sound dropdowns are now sorted alphabetically regardless of language.\n\n## Fixed\n\n- Fixed issue with OPie preventing from dropping or deleting items from the bag.\n- Fixed issue with the player inventory having excess slots where items could get accidentally added.\n- Fixed punctuation in NPC speech effects for French locale, to have it appropriately formatted.\n\n# Changelog for version 2.3.2\n\n## Fixed\n\n- Fixed cast bar issues from patch 12.0.1.\n\n# Changelog for version 2.3.0\n\n## Fixed\n\n- Added support for patch 12.0.0.\n- Fixed a rare timing issue with local sounds which could trigger an error on login/reload.\n\n# Changelog for version 2.2.12\n\n## Fixed\n\n- Fixed a Lua error on load.\n\n# Changelog for version 2.2.11\n\n## Added\n\n- Added support local sounds in neighborhoods and private houses.\n\n## Fixed\n\n- Fixed local music not playing if it was enabled but local sounds were disabled.\n- Fixed local sounds not working for the player if they're alone in an instance.\n\n## Removed\n\n- Removed the setting to ask for permission to play local sounds/musics, as it was never implemented.\n  - Local sounds can still be disabled globally.\n  - As a reminder, you can see who is playing local sounds via the Sounds History window accessible from the TRP toolbar, and ignoring a player ignores their local sounds."
+    },
+    {
+      "tag": "2.3.6",
+      "published": "2026-10-13",
+      "notes": "# Changelog for version 2.3.6\n\n## Added\n\n- Added support for icons without official filenames, as well as class/race icons.\n- Added 17 new campaign portrait options. Portraits are now selected using a scrolling dropdown.\n- Added copy/paste icon right-click menus on all icon browser buttons.\n\n## Fixed\n\n- Fixed the icon browser not closing properly when switching tabs.\n\n# Changelog for version 2.3.5\n\n## Fixed\n\n- Fixed some errors related to patch 12.1 API changes.\n\n# Changelog for version 2.3.4\n\n## Fixed\n\n- Fixed permanent auras causing errors during Extended inspection.\n\n# Changelog for version 2.3.3\n\n## Changed\n\n- Pickup and drop sound dropdowns are now sorted alphabetically regardless of language.\n\n## Fixed\n\n- Fixed issue with OPie preventing from dropping or deleting items from the bag.\n- Fixed issue with the player inventory having excess slots where items could get accidentally added.\n- Fixed punctuation in NPC speech effects for French locale, to have it appropriately formatted.\n\n# Changelog for version 2.3.2\n\n## Fixed\n\n- Fixed cast bar issues from patch 12.0.1.\n\n# Changelog for version 2.3.0\n\n## Fixed\n\n- Added support for patch 12.0.0.\n- Fixed a rare timing issue with local sounds which could trigger an error on login/reload.\n\n# Changelog for version 2.2.12\n\n## Fixed\n\n- Fixed a Lua error on load.\n\n# Changelog for version 2.2.11\n\n## Added\n\n- Added support local sounds in neighborhoods and private houses.\n\n## Fixed\n\n- Fixed local music not playing if it was enabled but local sounds were disabled.\n- Fixed local sounds not working for the player if they're alone in an instance.\n\n## Removed\n\n- Removed the setting to ask for permission to play local sounds/musics, as it was never implemented.\n  - Local sounds can still be disabled globally.\n  - As a reminder, you can see who is playing local sounds via the Sounds History window accessible from the TRP toolbar, and ignoring a player ignores their local sounds."
+    },
+    {
+      "tag": "2.3.5",
+      "published": "2026-08-11",
+      "notes": "# Changelog for version 2.3.5\n\n## Fixed\n\n- Fixed some errors related to patch 12.1 API changes.\n\n# Changelog for version 2.3.4\n\n## Fixed\n\n- Fixed permanent auras causing errors during Extended inspection.\n\n# Changelog for version 2.3.3\n\n## Changed\n\n- Pickup and drop sound dropdowns are now sorted alphabetically regardless of language.\n\n## Fixed\n\n- Fixed issue with OPie preventing from dropping or deleting items from the bag.\n- Fixed issue with the player inventory having excess slots where items could get accidentally added.\n- Fixed punctuation in NPC speech effects for French locale, to have it appropriately formatted.\n\n# Changelog for version 2.3.2\n\n## Fixed\n\n- Fixed cast bar issues from patch 12.0.1.\n\n# Changelog for version 2.3.0\n\n## Fixed\n\n- Added support for patch 12.0.0.\n- Fixed a rare timing issue with local sounds which could trigger an error on login/reload.\n\n# Changelog for version 2.2.12\n\n## Fixed\n\n- Fixed a Lua error on load.\n\n# Changelog for version 2.2.11\n\n## Added\n\n- Added support local sounds in neighborhoods and private houses.\n\n## Fixed\n\n- Fixed local music not playing if it was enabled but local sounds were disabled.\n- Fixed local sounds not working for the player if they're alone in an instance.\n\n## Removed\n\n- Removed the setting to ask for permission to play local sounds/musics, as it was never implemented.\n  - Local sounds can still be disabled globally.\n  - As a reminder, you can see who is playing local sounds via the Sounds History window accessible from the TRP toolbar, and ignoring a player ignores their local sounds."
+    },
+    {
+      "tag": "2.3.4",
+      "published": "2026-06-16",
+      "notes": "# Changelog for version 2.3.4\n\n## Fixed\n\n- Fixed permanent auras causing errors during Extended inspection.\n\n# Changelog for version 2.3.3\n\n## Changed\n\n- Pickup and drop sound dropdowns are now sorted alphabetically regardless of language.\n\n## Fixed\n\n- Fixed issue with OPie preventing from dropping or deleting items from the bag.\n- Fixed issue with the player inventory having excess slots where items could get accidentally added.\n- Fixed punctuation in NPC speech effects for French locale, to have it appropriately formatted.\n\n# Changelog for version 2.3.2\n\n## Fixed\n\n- Fixed cast bar issues from patch 12.0.1.\n\n# Changelog for version 2.3.0\n\n## Fixed\n\n- Added support for patch 12.0.0.\n- Fixed a rare timing issue with local sounds which could trigger an error on login/reload.\n\n# Changelog for version 2.2.12\n\n## Fixed\n\n- Fixed a Lua error on load.\n\n# Changelog for version 2.2.11\n\n## Added\n\n- Added support local sounds in neighborhoods and private houses.\n\n## Fixed\n\n- Fixed local music not playing if it was enabled but local sounds were disabled.\n- Fixed local sounds not working for the player if they're alone in an instance.\n\n## Removed\n\n- Removed the setting to ask for permission to play local sounds/musics, as it was never implemented.\n  - Local sounds can still be disabled globally.\n  - As a reminder, you can see who is playing local sounds via the Sounds History window accessible from the TRP toolbar, and ignoring a player ignores their local sounds."
+    },
+    {
+      "tag": "2.3.3",
+      "published": "2026-04-21",
+      "notes": "# Changelog for version 2.3.3\n\n## Changed\n\n- Pickup and drop sound dropdowns are now sorted alphabetically regardless of language.\n\n## Fixed\n\n- Fixed issue with OPie preventing from dropping or deleting items from the bag.\n- Fixed issue with the player inventory having excess slots where items could get accidentally added.\n- Fixed punctuation in NPC speech effects for French locale, to have it appropriately formatted.\n\n# Changelog for version 2.3.2\n\n## Fixed\n\n- Fixed cast bar issues from patch 12.0.1.\n\n# Changelog for version 2.3.0\n\n## Fixed\n\n- Added support for patch 12.0.0.\n- Fixed a rare timing issue with local sounds which could trigger an error on login/reload.\n\n# Changelog for version 2.2.12\n\n## Fixed\n\n- Fixed a Lua error on load.\n\n# Changelog for version 2.2.11\n\n## Added\n\n- Added support local sounds in neighborhoods and private houses.\n\n## Fixed\n\n- Fixed local music not playing if it was enabled but local sounds were disabled.\n- Fixed local sounds not working for the player if they're alone in an instance.\n\n## Removed\n\n- Removed the setting to ask for permission to play local sounds/musics, as it was never implemented.\n  - Local sounds can still be disabled globally.\n  - As a reminder, you can see who is playing local sounds via the Sounds History window accessible from the TRP toolbar, and ignoring a player ignores their local sounds."
+    }
+  ],
+  "stats": {
+    "stars": 13,
+    "openIssues": 102,
+    "contributors": 14,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-10-13",
+      "2026-08-11",
+      "2026-06-16",
+      "2026-04-21",
+      "2026-02-13",
+      "2026-01-30",
+      "2026-01-20",
+      "2025-12-02",
+      "2025-12-02",
+      "2025-10-07",
+      "2025-08-05",
+      "2025-07-02",
+      "2025-04-23",
+      "2025-04-22",
+      "2025-04-22",
+      "2025-02-27",
+      "2025-02-25",
+      "2024-12-17",
+      "2024-08-13",
+      "2024-07-23",
+      "2024-05-07",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-09-05",
+      "2023-07-11",
+      "2023-05-02",
+      "2023-03-21",
+      "2022-11-15",
+      "2022-10-31",
+      "2022-10-25",
+      "2022-09-17",
+      "2022-05-31",
+      "2022-02-25",
+      "2021-11-03",
+      "2021-11-02",
+      "2021-06-30",
+      "2021-06-29",
+      "2020-11-17",
+      "2020-10-15",
+      "2020-10-14",
+      "2020-10-13",
+      "2020-03-16",
+      "2020-03-11",
+      "2020-03-09",
+      "2020-03-09",
+      "2020-01-14",
+      "2019-07-14",
+      "2019-07-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "totalRP3_Extended",
+      "totalRP3_Extended_ImpExport",
+      "totalRP3_Extended_Tools"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "totalRP3"
+    ],
+    "savedVariables": [
+      "TRP3_Tools_DB",
+      "TRP3_Exchange_DB",
+      "TRP3_Security",
+      "TRP3_Drop",
+      "TRP3_Stashes",
+      "TRP3_Extended_Flyway"
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "autocombatlogger",
+  "repo": "Talryn/AutoCombatLogger",
+  "about": "### Season of Discovery\nThe new Blackfathom Deeps is under Instances in the settings.  Normal is the old 5 player instance only in regular Classic and 10 is the new version in Season of Disocvery.  The game client considers the new BFD a 10 player instance/dungeon and not an actual raid.\n\n# Overview\n\nAutoCombatLogger is a World of Warcraft addon that automatically enables or disables the combat log based on location.  It's specifically tailored to control the logging based on the raid name and difficulty.\n\nLogging can be controlled for the following locations:\n\n* Raid (Can be customized per raid, raid size, and difficulty)\n* Instances (Can be customized per instance, current only)\n* Arenas (Can be customized per arena)\n* Battleground (Can be customized per battleground)\n* World\n* Garrison\n* Brawler's Arena \n\nCurrently, you cannot customize instances and world.\n\nIt also provides an LDB launcher and a minimap icon to control it.\n\nOptions are set under Interface Options or typing /acl.",
+  "releases": [
+    {
+      "tag": "12.1.7",
+      "published": "2026-11-24",
+      "notes": "# Auto Combat Logger\n\n## [12.1.7](https://github.com/Talryn/AutoCombatLogger/tree/12.1.7) (2026-11-24)\n[Full Changelog](https://github.com/Talryn/AutoCombatLogger/compare/12.1.6...12.1.7) [Previous Releases](https://github.com/Talryn/AutoCombatLogger/releases)\n\n- Add 10 player option for Blackrock Spire.  \n- Fix mistakes with instances and IDs.  \n- Add more Forever instances."
+    },
+    {
+      "tag": "12.1.6",
+      "published": "2026-10-30",
+      "notes": "# Auto Combat Logger\n\n## [12.1.6](https://github.com/Talryn/AutoCombatLogger/tree/12.1.6) (2026-10-30)\n[Full Changelog](https://github.com/Talryn/AutoCombatLogger/compare/12.1.5...12.1.6) [Previous Releases](https://github.com/Talryn/AutoCombatLogger/releases)\n\n- Add new retail raid.  \n- Add new retail raid."
+    },
+    {
+      "tag": "12.1.5",
+      "published": "2026-10-30",
+      "notes": "# Auto Combat Logger\n\n## [12.1.5](https://github.com/Talryn/AutoCombatLogger/tree/12.1.5) (2026-10-24)\n[Full Changelog](https://github.com/Talryn/AutoCombatLogger/compare/12.1.0...12.1.5) [Previous Releases](https://github.com/Talryn/AutoCombatLogger/releases)\n\n- Add two more Forever dungeons.  \n- Add Hall of Thanes.  \n- Add Forever data file to TOC.  \n- Add Forever instances, most TBD.  \n- Add Forever data file.  \n- Update TOC for Forever.  \n- Fix error in Forever."
+    },
+    {
+      "tag": "12.1.0",
+      "published": "2026-08-19",
+      "notes": "# Auto Combat Logger\n\n## [12.1.0](https://github.com/Talryn/AutoCombatLogger/tree/12.1.0) (2026-08-18)\n[Full Changelog](https://github.com/Talryn/AutoCombatLogger/compare/12.0.3...12.1.0) [Previous Releases](https://github.com/Talryn/AutoCombatLogger/releases)\n\n- Update for 12.1."
+    },
+    {
+      "tag": "12.0.3",
+      "published": "2026-06-17",
+      "notes": "# Auto Combat Logger\n\n## [12.0.3](https://github.com/Talryn/AutoCombatLogger/tree/12.0.3) (2026-05-15)\n[Full Changelog](https://github.com/Talryn/AutoCombatLogger/compare/12.0.2...12.0.3) [Previous Releases](https://github.com/Talryn/AutoCombatLogger/releases)\n\n- Reduce logging messages.  \n- Reduce concurrent timers.  \n- Add Midnight instances and raids."
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 3,
+    "contributors": 9,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-10-30",
+      "2026-10-30",
+      "2026-08-19",
+      "2026-06-17",
+      "2026-02-06",
+      "2026-01-30",
+      "2026-01-21",
+      "2025-08-21",
+      "2025-07-22",
+      "2025-07-02",
+      "2025-05-09",
+      "2025-04-22",
+      "2024-09-21",
+      "2024-09-09",
+      "2024-08-14",
+      "2024-07-28",
+      "2024-05-20",
+      "2024-04-06",
+      "2024-03-17",
+      "2024-02-14",
+      "2024-01-31",
+      "2024-01-30",
+      "2023-12-17",
+      "2023-12-17",
+      "2023-12-11",
+      "2023-10-12",
+      "2023-06-21",
+      "2023-05-07",
+      "2023-01-20",
+      "2022-12-18",
+      "2022-11-01",
+      "2022-10-28",
+      "2022-10-28",
+      "2022-10-25",
+      "2022-10-14",
+      "2022-08-30",
+      "2022-05-19",
+      "2022-05-16",
+      "2022-03-24",
+      "2022-03-01",
+      "2022-02-02",
+      "2021-09-19",
+      "2021-07-06",
+      "2021-06-29",
+      "2021-06-17",
+      "2021-06-16",
+      "2021-06-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AutoCombatLogger"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0"
+    ],
+    "savedVariables": [
+      "AutoCombatLoggerDB"
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "levelingconsumables",
+  "repo": "neilsun1225/LevelingConsumables",
+  "about": "# Leveling Consumables\n\n[English](#english) · [简体中文](#简体中文)\n\n## English\n\n**Keep food, drinks, and potions on the same four buttons as you level.**\n\nAs you level, food, drinks, and potions keep changing. Leveling Consumables updates four dedicated macros to match your level and the supplies in your bags, saving you from repeatedly replacing items on your action bars or using them from your inventory.\n\n**Tested and working in WoW Forever Beta.**\n\n### Set up once, keep using\n\nOpen `/macro`, find these account-wide macros, and drag them onto each character's action bar once:\n\n| Macro | Use |\n|---|---|\n| `LCF` | Food |\n| `LCD` | Drinks |\n| `LCH` | Healing potions |\n| `LCM` | Mana potions |\n\nThe selected items update when your supplies run out, your bags change, you level up, or you switch characters. Keep using the same familiar buttons.\n\n- **Use lower tiers first.** Within the same tier, prioritizes items you have fewer of in your bags.\n- **See your current item at a glance.** Icons and tooltips follow the selected consumable.\n- **Choose buff food yourself.** Foods with recognized eating-buff effects are excluded from the recovery macros.\n- **Keep your macros stable in combat.** Bag changes are applied after combat ends.\n\nNo configuration is needed for everyday use. Type `/lc` for optional commands. Automatic food and drink detection supports English and Simplified Chinese item tooltips.\n\nWhen upgrading, the addon removes old generated macros and reconnects their action-bar buttons to the short macros. Custom macro content is preserved. A chat message lets you know if anything needs your attention.\n\n## 简体中文\n\n**四个宏放进技能栏，升级路上少换图标、少翻背包。**\n\n升级途中，食物、饮料和药水会一档档更换。Leveling Consumables 帮你省去反复拖动消耗品、打开背包寻找物品的操作：把四个宏放到熟悉的技能栏位置，插件就会根据角色等级和背包物品，自动更新可用的恢复消耗品。\n\n**已在 WoW Forever Beta 中完成实际测试，可正常使用。**\n\n### 放一次，持续用\n\n进入游戏后，在 `/macro` 的“通用宏”栏找到以下四个宏，每个角色按需拖到技能栏一次即可：\n\n| 宏 | 用途 |\n|---|---|\n| `LCF` | 食物 |\n| `LCD` | 饮料 |\n| `LCH` | 治疗药水 |\n| `LCM` | 法力药水 |\n\n背包里的物品用完、角色升级或切换角色后，宏会自动更新，你继续使用原来的按键就好。\n\n- **先用低等级恢复品。** 同档物品优先消耗背包总数量较少的那种，减少零散物品。\n- **图标和提示跟随物品更新。** 鼠标移到技能栏，即可查看当前会使用的消耗品。\n- **增益食物留给你自己选。** 普通恢复宏会排除识别到的进食增益食物，方便你按职业和需求选择属性加成。\n- **战斗中保持稳定。** 战斗期间的背包变化会在脱战后更新。\n\n日常使用无需配置；输入 `/lc` 可查看可选命令。食物和饮料的自动识别支持简体中文与英文物品提示。\n\n从旧版升级时，插件会自动清理旧版生成的宏，将旧恢复宏的技能栏按钮接续到短宏，并保留用户自定义内容；遇到需要手动处理的情况，会在聊天栏提示。\n\n---\n\n**Author / 作者：Ballyh (B站八厉害)** · [MIT License / 开源许可](https://github.com/neilsun1225/LevelingConsumables/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v0.2.3",
+      "name": "0.2.3",
+      "published": "2026-10-25",
+      "notes": "## English\n\nStable update: clean up old generated macros automatically and keep their action-bar buttons useful.\n\n- Remove generated LC_Food, LC_Drink, LC_Heal and LC_Mana entries, including disabled leftovers. Continue removing generated LC_Buff entries.\n- Reconnect old recovery-macro buttons to LCF, LCD, LCH and LCM while preserving existing short macros and custom macro content.\n- Perform migration out of combat with an empty cursor.\n\n## 简体中文\n\n稳定版本更新：自动清理旧版宏，旧恢复宏的技能栏按钮接续到短宏。\n\n- 自动删除插件生成的 LC_Food、LC_Drink、LC_Heal、LC_Mana，包括此前停用的残留；继续清理 LC_Buff。\n- 将旧恢复宏按钮接续到 LCF、LCD、LCH、LCM，保留已有短宏和用户自定义内容。\n- 在脱战且鼠标未拖动物品时执行迁移。\n\nAuthor / 作者：Ballyh (B站八厉害)"
+    },
+    {
+      "tag": "v0.2.2",
+      "name": "0.2.2",
+      "published": "2026-10-25",
+      "notes": "## English\n\nStable release. Fixes migration of old generated macros after the game saves their bodies with a trailing newline or different line endings.\n\n- Rename old generated account macros in place when the short names are available.\n- If LCF/LCD/LCH/LCM already exist, disable leftover generated old-name macros and show a reminder to use the short macros.\n- Remove generated LC_Buff macros; preserve custom macro content.\n\n## 简体中文\n\n稳定版本。修复游戏保存后的末尾换行或不同平台换行格式导致旧宏未被迁移、停用和清理的问题。\n\n- 短名称可用时，直接修改旧版自动生成的通用宏名称。\n- LCF/LCD/LCH/LCM 已存在时，停用遗留的旧名称宏，并提示使用短宏。\n- 清理插件生成的 LC_Buff，保留自定义宏内容。\n\nAuthor / 作者：Ballyh (B站八厉害)"
+    },
+    {
+      "tag": "v0.2.1",
+      "name": "0.2.1",
+      "published": "2026-10-25",
+      "notes": "This release is superseded by [0.2.2](https://github.com/neilsun1225/LevelingConsumables/releases/tag/v0.2.2), which fixes migration of macros saved by the game. Please download 0.2.2.\n\n此版本的旧宏迁移存在换行识别问题，已由 [0.2.2](https://github.com/neilsun1225/LevelingConsumables/releases/tag/v0.2.2) 修复，请下载新版。"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-25",
+    "releaseDates": [
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-25"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "LevelingConsumables"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "LevelingConsumablesDB"
+    ]
+  }
+}

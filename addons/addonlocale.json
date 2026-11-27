@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "addonlocale",
+  "repo": "Meorawr/AddonLocale",
+  "about": "# AddonLocale\n\nWorld of Warcraft addon that allows configuring a custom client locale to be respected by addons that use AceLocale.\n\n## Usage\n\n- Run `/addonlocale` to show the currently configured locale, if any.\n- Run `/addonlocale set <locale name>` to configure a custom locale for addons.\n- Run `/addonlocale reset` to reset any custom locale configuration and allow the default client locale to be used.\n\n## Integration\n\nAddOns that use AceLocale will automatically be configured to use the appropriate locale. Otherwise, AddOns should check for the presence of a `GAME_LOCALE` global variable and use that in-preference to the return from [GetLocale], as shown below. It may also be beneficial to list `!!AddonLocale` as an optional dependency in your TOC.\n\n```lua\nif (GAME_LOCALE or GetLocale()) == \"deDE\" then\n    -- Set up translations for the deDE locale.\nend\n```\n\n## License\n\nThis addon is published under the terms of the [Creative Commons Zero v1.0 Universal] (CC0-1.0) license, of which a copy can be found in the [LICENSE] file at the root of this repository.\n\n## Contributors\n\n- Daniel \"Meorawr\" Yates \\<me@meorawr.io>\n\n[Creative Commons Zero v1.0 Universal]: https://spdx.org/licenses/CC0-1.0.html\n[GetLocale]: https://wowpedia.fandom.com/wiki/API_GetLocale\n[LICENSE]: https://github.com/Meorawr/AddonLocale/blob/main/LICENSE",
+  "releases": [
+    {
+      "tag": "1.20",
+      "published": "2026-10-13",
+      "notes": "# AddonLocale\n\n## [1.20](https://github.com/Meorawr/AddonLocale/tree/1.20) (2026-10-13)\n[Full Changelog](https://github.com/Meorawr/AddonLocale/commits/1.20) [Previous Releases](https://github.com/Meorawr/AddonLocale/releases)\n\n- TOC bump"
+    },
+    {
+      "tag": "1.19",
+      "published": "2026-01-24",
+      "notes": "# AddonLocale\n\n## [1.19](https://github.com/Meorawr/AddonLocale/tree/1.19) (2026-01-24)\n[Full Changelog](https://github.com/Meorawr/AddonLocale/commits/1.19) [Previous Releases](https://github.com/Meorawr/AddonLocale/releases)\n\n- Fixes for Classic and 'reset' command"
+    },
+    {
+      "tag": "1.18",
+      "published": "2026-01-24",
+      "notes": "# AddonLocale\n\n## [1.18](https://github.com/Meorawr/AddonLocale/tree/1.18) (2026-01-24)\n[Full Changelog](https://github.com/Meorawr/AddonLocale/commits/1.18) [Previous Releases](https://github.com/Meorawr/AddonLocale/releases)\n\n- Update for Midnight"
+    },
+    {
+      "tag": "1.17",
+      "published": "2025-10-18",
+      "notes": "# AddonLocale\n\n## [1.17](https://github.com/Meorawr/AddonLocale/tree/1.17) (2025-10-18)\n[Full Changelog](https://github.com/Meorawr/AddonLocale/commits/1.17) [Previous Releases](https://github.com/Meorawr/AddonLocale/releases)\n\n- hewwwo~! uwu, just bumping this~! >.<"
+    },
+    {
+      "tag": "1.16",
+      "published": "2025-08-06",
+      "notes": "# AddonLocale\n\n## [1.16](https://github.com/Meorawr/AddonLocale/tree/1.16) (2025-08-06)\n[Full Changelog](https://github.com/Meorawr/AddonLocale/commits/1.16) [Previous Releases](https://github.com/Meorawr/AddonLocale/releases)\n\n- hewwwo~! uwu, just bumping this~! >.<"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-01-24",
+      "2026-01-24",
+      "2025-10-18",
+      "2025-08-06",
+      "2025-07-01",
+      "2025-04-22",
+      "2025-03-05",
+      "2024-08-13",
+      "2024-07-23",
+      "2024-05-07",
+      "2024-03-19",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-07-11",
+      "2023-04-30",
+      "2023-03-21",
+      "2023-03-14",
+      "2022-11-15",
+      "2022-10-29"
+    ]
+  },
+  "languages": [
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "!!AddonLocale"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "GAME_LOCALE"
+    ]
+  }
+}

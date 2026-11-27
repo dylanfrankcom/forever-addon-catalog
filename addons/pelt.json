@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "pelt",
+  "repo": "sniffingpickles/Pelt",
+  "about": "# Pelt\n\n**Never walk away from a corpse you could skin.** For WoW Forever, and Burning Crusade Anniversary.\n\nYou kill a boar, loot it, and run off to the next one. Pelt notices the corpse turned skinnable, reminds you, nags if you walk away, and ticks it off when you skin it.\n\n![Pelt's settings window](https://raw.githubusercontent.com/sniffingpickles/Pelt/main/docs/settings.png)\n\n## What it does\n\n- **Spots skinnable corpses.** When a corpse you killed turns skinnable, a card slides in: what it is, the skill it needs and yours. Pelt reads the corpse's tooltip and the cursor it shows, so the skinning knife is enough.\n- **Catches the ones that dropped nothing.** No loot sparkle, no right-click, easy to forget. Pelt picks them up once the fight ends.\n- **Nags when you walk off.** Move away without skinning and the card shakes, a sound plays and \"Skin the Mottled Boar!\" flashes on screen. Walking up to a corpse doesn't count.\n- **Knows when you're on it.** Point at the corpse and the card lights up with \"Right-click to skin\". It fills up while you skin.\n- **Ticks it off.** Skin it and the card turns green, showing what you got, any skill-up and your streak.\n- **Counts the misses.** If a corpse sits too long, it counts as missed. Mouse over it again and it comes back.\n- **Learns as you go.** Once Pelt has seen a creature's corpse turn skinnable, it reminds you about that creature even if you never look at the corpse again.\n- **Tooltip hint.** Under the game's \"Skinnable\" line: the skill it needs and yours, green or red.\n- **Not just skinning.** Corpses you gather with Herbalism, Mining or Engineering on Burning Crusade Anniversary work the same way.\n\nIt stays quiet when it should:\n- In a fight, the card waits (\"After the fight\"), and time in combat doesn't count toward a miss.\n- Professions you don't have and corpses your skill is too low for are skipped. You can turn on reminders for low-skill corpses.\n- Someone else's kill you point at or target shows up as \"Up for grabs\". It nags only if you stood at it and walked off, and passing one up doesn't count as a miss. Turn on \"Only corpses I fought\" to leave these out.\n\n## Commands\n\n| Command | |\n|---|---|\n| `/pelt` | Settings |\n| `/pelt test` | Preview the card, the nag and the tick |\n| `/pelt move` | Drag the card somewhere else (again to lock) |\n| `/pelt stats` | What you've skinned and missed |\n| `/pelt check` | What Pelt can read off your target |\n| `/pelt log` | What Pelt saw and decided lately, to copy into a bug report |\n\nThe settings are also under Esc → Options → AddOns → Pelt, and in the addon compartment on the minimap.\n\n## Settings\n\n- **Reminders:** on or off, only corpses you fought, corpses your skill is too low for, and how long until a corpse counts as missed (15–120 seconds).\n- **Professions:** pick which of Skinning, Herbalism, Mining and Engineering to remind you about.\n- **Alerts:** the walk-away nag, the big text, and a sound for each moment. Every sound has a play button, in the list and next to it. Pick from Pelt's own sounds, the game's, EllesmereUI's and any SharedMedia packs.\n- **Display:** the tooltip hint and the card size.\n\n## WoW Forever notes\n\nForever doesn't give addons the combat log, and in combat it hides other units' names and IDs. Pelt works from what's left: your loot windows, the corpse's tooltip and cursor, your target and your skinning casts. Anything it can't read in a fight, it reads the moment combat ends.\n\nThat also limits what \"Only corpses I fought\" can know. A corpse counts as yours when you looted it, when it was your target as the fight started, or when nobody else tagged it and you look at it within 15 seconds of the fight ending.\n\nIf a corpse isn't picked up, target it and type `/pelt check`. It lists what Pelt can see. If Pelt gets one wrong, `/pelt log` shows what it saw and decided, ready to copy into a bug report.\n\n## Install\n\nExtract the `Pelt` folder into your AddOns folder, for example `World of Warcraft\\_forever_\\Interface\\AddOns`, then restart the game.\n\n---\n\n**Author:** muggles · **Twitch:** [twitch.tv/muggles](https://twitch.tv/muggles)",
+  "releases": [
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-13",
+      "notes": "# Pelt 1.2.0\n\n- New setting: **Only corpses I fought.** Leaves out corpses you only pointed at, like other people's kills. Your kills that dropped nothing still count. It replaces \"Only corpses I looted\" and \"Other people's kills\". It's on for new installs. If you had \"Other people's kills\" turned off, it starts on for you too.\n- Walking up to a corpse no longer counts as walking away from it. Pelt nags when you get further from a corpse, or walk a while without getting closer. A corpse you spot from a distance no longer nags the moment you target it.\n- Other people's kills (\"Up for grabs\") nag only if you stood at one and then walked off.\n- Fixed: looting a corpse could tick it off as skinned. Pelt now counts a loot window as skinning only right after a cast.\n- New `/pelt log`: what Pelt saw and decided lately, in a window you can copy from. Paste it into a comment if Pelt gets a corpse wrong.\n- `/pelt check` now says whether the corpse counts as yours, and roughly how far off it is.\n- New installs get \"GM message\" as the walk-away sound."
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-06",
+      "notes": "# Pelt 1.1.0\n\nFirst release on CurseForge.\n\n- A reminder card for corpses you can skin, with the skill each one needs and yours. Pelt reads the corpse's tooltip and the cursor it shows.\n- Catches corpses that dropped no loot, once the fight ends.\n- Other people's kills you point at or target show up as \"Up for grabs\". Passing one up doesn't count as a miss.\n- Shakes, plays a sound and shows big text when you walk away without skinning.\n- Lights up when you point at the corpse, and fills up while you skin.\n- Ticks the corpse off when you skin it, with what you got, any skill-up and your streak.\n- Counts missed corpses. Mouse over a missed one and it comes back.\n- Learns which creatures are skinnable as you play.\n- Adds the skill a corpse needs, and yours, to its tooltip.\n- Works for Herbalism, Mining and Engineering corpses too.\n- Six sounds made for Pelt, 28 from the game, plus EllesmereUI's and SharedMedia's, each with a play button.\n- `/pelt` settings, `/pelt test` preview, `/pelt move` to place the card, `/pelt stats`, and `/pelt check` to see what Pelt reads off your target."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/sniffingpickles/Pelt/main/docs/settings.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13",
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Pelt"
+    ],
+    "editions": [
+      "anniversary",
+      "forever"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0",
+      "SharedMedia",
+      "EllesmereUI"
+    ],
+    "savedVariables": [
+      "PeltDB"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "jumpmaster6000",
+  "repo": "MrZebra34/JumpMaster6000",
+  "about": "# JumpMaster6000\n\nA compact jump tracker for **World of Warcraft: Forever** (interface 16001).\n\n**Work in progress**\n\nJumpMaster6000 is under ~~active~~… some sort of development. It has a themed full panel and a minimal text-only view.\n\n**Upgrading from v0.3.0 or earlier.** The first login or UI reload after updating clears your saved jump totals across every character once. Your panel position, visibility, and display mode carry over.\n\n- **Character jumps** and **Account jumps** accumulate from the time you enable the addon. The account total combines all characters tracked in the same Forever account's local WoW settings.\n- **Session jumps** and **Jumps per hour** start over at login or `/reload`. The hourly figure projects the session's average pace, including idle time.\n- **Time without a jump** starts at `00:00` and resets when a jump is counted. It switches to `HH:MM:SS` at one hour.\n\nHover **Account jumps** for a character breakdown, **Session jumps** for your current character's last 10 completed sessions, or the **Jumps per hour** value for that character's average across recorded sessions. Session history and the character average start accumulating with this update.\n\n## Install\n\nIn WowUp CF/Wago, select **WoW Forever**, open **Get Addons → Install from URL**, and paste `https://github.com/MrZebra34/JumpMaster6000`. WowUp uses the repository's releases to check for updates.\n\nFor a manual install, download the `-forever.zip` asset from the [latest release](https://github.com/MrZebra34/JumpMaster6000/releases/latest), extract `JumpMaster6000/` into Forever's `Interface/AddOns/`, and /reload or restart the game.\n\n## Use\n\nClick **−** next to the close button for the borderless view, or **+** to restore the full panel. Drag the title bar in full mode or the first row in minimal mode to move it.\n\nThe full panel expands inward from the minimal view's position. Place it in the bottom right to expand up and left. Minimizing returns it to its compact position.\n\nThe full panel has artwork for all 27 Forever specializations. It follows the talent tree with the most spent points in the active build. A tie or a build with no spent points uses the original Shadow Priest panel. The largest tile shows character jumps. Account and session jumps sit to its right, with pace and the timer along the bottom.\n\nRight-click anywhere on the full or minimal tracker to open the theme selector, or use **`/jm6k themes`**. Pick a class and specialization to apply that theme for the current session, choose **Original Shadow Priest**, or select **Automatic** to follow your talents.\n\nUse the close button to hide the panel and `/jm6k` or `/jumpmaster6000` to bring it back. Tracking continues with the panel hidden. WoW saves your totals, panel position, and display mode on normal logout, exit, or UI reload.\n\nOn land, a jump input can earn one credit when WoW reports a new takeoff. A sampled landing allows the next jump to count immediately while moving. Extra presses during the same flight earn no additional credit.\n\nMoving jumps on land draw from a reserve of ten credits that refills at 100 per minute. Jumping at a normal pace never runs it dry. Faster jumping, such as a quick run up a slope, earns full credit until the reserve runs out, then earns at most 100 jumps per minute however fast you jump. Sustained spam of 30 takeoffs on land within 11 seconds, standing or moving, pauses all jump credit across your account, after a chat warning at 22. The first pause lasts one minute; further pauses within ten minutes after the preceding pause ends last five, five, then ten minutes, capped at ten. After ten minutes without another pause, the sequence resets. Ordinary slope runs stay well below this.\n\nWithin 0.7 yards of the first takeoff in a streak, up to ten jumps earn credit, at least 0.25 seconds apart. Move outside the radius to start a new streak.\n\nJumps from the water's surface can earn credit when Forever reports a clear airborne exit after a tap or held jump input. Each re-hop needs a fresh water contact. Surface jumps retain their 0.25-second minimum spacing and a separate reserve of 1.7 credits refilling at 1.3 per second.\n\nA transparent Shadow Priest overlay appears after more than 1.5 seconds of uninterrupted airtime. The timer sits between Longest Air Time and Total Air Time. The diamond ornament fills toward your previous airtime record and stays full if you pass it. The final reading holds for up to three seconds after landing. A new takeoff clears it and starts its own timer. Longest and total are saved per character for completed dry jumps and falls longer than 1.5 seconds. Water contact cancels the current airtime attempt. Air Time resumes after returning to dry ground. Flight paths, active flying, and vehicle travel are excluded.\n\nThe minimal view shows Total Air Time and Longest Air Time. In the full view, hover over **Jumps per hour** to see both values. Open WoW's **Edit Mode** to preview and drag **Air Time**. Its position saves when you drop it and is shared across characters.\n\nA fall that starts at nearly the same time as a jump press can be misclassified. The panel uses bundled artwork and WoW's built-in fonts.",
+  "releases": [
+    {
+      "tag": "v0.4.6.22",
+      "name": "JumpMaster6000 v0.4.6.22",
+      "published": "2026-11-25",
+      "notes": "For World of Warcraft: Forever.\n\n- Credit pauses now use an 11-second window for rapid takeoffs, with longer pauses for repeated incidents.\n- Tracker stats turn red during a credit pause, and the time since the last jump restarts when the pause ends."
+    },
+    {
+      "tag": "v0.4.6.17",
+      "name": "JumpMaster6000 v0.4.6.17",
+      "published": "2026-11-24",
+      "notes": "For World of Warcraft: Forever.\n\n- Compressed the specialization theme artwork to reduce addon size.\n- Simplified jump credit limits and added a warning and temporary pause for sustained rapid takeoffs."
+    },
+    {
+      "tag": "v0.4.6.4",
+      "name": "JumpMaster6000 v0.4.6.4",
+      "published": "2026-11-24",
+      "notes": "For World of Warcraft: Forever.\n\n- Improved credit for short bursts of quick moving jumps, including brief slope runs.\n- Sustained rapid jumping continues to follow the existing credit limits."
+    },
+    {
+      "tag": "v0.4.6.3",
+      "name": "JumpMaster6000 v0.4.6.3",
+      "published": "2026-11-24",
+      "notes": "For World of Warcraft: Forever.\n\n- Updated moving-jump credit pacing to support quick successive takeoffs while applying a sustained credit limit.\n- Stationary and water-surface jumps retain their separate protections."
+    },
+    {
+      "tag": "v0.4.6",
+      "name": "JumpMaster6000 v0.4.6",
+      "published": "2026-11-23",
+      "notes": "For World of Warcraft: Forever.\n\n- Improved jump tracking after leaving water, zoning, and rapid takeoffs.\n- Improved panel positioning when dragging near the center of the screen.\n- Fixed tracker tooltip areas intercepting clicks intended for action bars.\n- Included the MIT license in the addon package."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "JumpMaster6000"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "JumpMaster6000DB"
+    ]
+  }
+}

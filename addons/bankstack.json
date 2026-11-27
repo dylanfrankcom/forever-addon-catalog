@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "bankstack",
+  "repo": "kemayo/wow-bankstack",
+  "releases": [
+    {
+      "tag": "v2026.7",
+      "published": "2026-11-18",
+      "notes": "# BankStack\n\n## [v2026.7](https://github.com/kemayo/wow-bankstack/tree/v2026.7) (2026-11-18)\n[Full Changelog](https://github.com/kemayo/wow-bankstack/compare/v2026.6...v2026.7) [Previous Releases](https://github.com/kemayo/wow-bankstack/releases)\n\n- Forever: stacking could stall with a profession bag in the reagent slot  \n    Forever lets profession bags such as mining sacks go in the reagent  \n    slot. BankStack treated that slot as a reagent bag, so it could try to  \n    move any crafting reagent into it. When the slot holds a profession bag,  \n    use the normal bag family check instead.  \n- Forever: stacking said you must be at the bank while it was open  \n    Forever opens the bank as a CharacterBanker interaction, not a Banker  \n    one, so bank\\_open was never set. Treat both as the character bank.  \n- Remove unused locals and name the bag constants  \n    Also drops a redundant BTSI check and an unused createtex helper.  \n- Squash: could ignore the backfill direction  \n    The early-halt check scanned forwards even when Fill was working from the  \n    back, so it never detected a squashed state with backfill on and Fill kept  \n    moving items.  \n- ScanBags: clear the item caches first  \n    Slots emptied since an aborted or retried scan kept their old item, which  \n    could queue moves for items that were gone. The caches were only cleared  \n    once moves were queued.  \n- Fill: could stack into the warband bank  \n    core.Stack expanded the bank target itself, so /fill bags bank also stacked  \n    into the warband bank. Only StackSummary expands it now, once per bank on  \n    either side. Also drops the shared summary table and unreachable fallbacks.  \n- Stacking from the bank could ignore the bank\\_target setting  \n    Stack commands used the selected bank tab to pick the bank, so bank\\_target  \n    only applied to deposits, and only when no warband tab was selected. Stack  \n    commands now resolve \"bank\" without the selected tab, so bank\\_target decides  \n    in both directions. Sort and compress still follow the selected tab.  \n- Support stacking to character and warband banks  \n    Add configurable bank destinations and per-bank stacking summaries. Preserve compression targets and hide unsupported options. Use Blizzard bank labels and the shared WowAce localization layout.  \n    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>  \n    Copilot-Session: 8e5075c2-d6db-4c13-80a8-bc4f391387b1  \n- Localization: move to the shared locale layout  \n    Locale files now live in locale/ and share ns.L, as in SimpleItemLevel.  \n    This drops AceLocale. Translation keys are unchanged, so existing WowAce  \n    translations carry over. CI now pushes locale/enUS.lua to WowAce before  \n    packaging."
+    },
+    {
+      "tag": "v2026.6",
+      "published": "2026-10-03",
+      "notes": "# BankStack\n\n## [v2026.6](https://github.com/kemayo/wow-bankstack/tree/v2026.6) (2026-10-03)\n[Full Changelog](https://github.com/kemayo/wow-bankstack/compare/v2026.5...v2026.6) [Previous Releases](https://github.com/kemayo/wow-bankstack/releases)\n\n- Detect the guild bank by feature instead of expansion level  \n    Forever reports expansion level 0, so has\\_guild\\_bank was false and guild slots could be left out of the bag scan. Ask C\\_GuildBank.IsGuildBankEnabled where it exists, and keep the expansion check as a fallback.  \n- Use the retail sort button setup wherever the new bank exists  \n    On Forever this could put BankStack's classic sort buttons on top of Blizzard's own. The hijack default and label follow the same check.  \n- Detect the new bank by feature instead of by project  \n    Forever has the tabbed bank but is not the retail project, so has\\_new\\_bank was false and NUM\\_BANKBAGSLOTS (nil there) was used. The account bank check used the expansion level, and the account tab list stopped at 5 tabs."
+    },
+    {
+      "tag": "v2026.5",
+      "published": "2026-09-20",
+      "notes": "# BankStack\n\n## [v2026.5](https://github.com/kemayo/wow-bankstack/tree/v2026.5) (2026-09-20)\n[Full Changelog](https://github.com/kemayo/wow-bankstack/compare/v2026.4...v2026.5) [Previous Releases](https://github.com/kemayo/wow-bankstack/releases)\n\n- TOC for WoW Forever  \n- Stop calling some deprecated functions  \n- Move bagslot encoding from *100 to *1000  \n    98-slot bank tabs could easily expand to a place where the *100 encoding  \n    overlapped with other tabs.  \n- Bindings: move to a dedicated category  \n    Blizzard stopped `header` displaying anything back in 2022, and doesn't  \n    plan to change that (see: Stanzilla/WoWUIBugs#305). This makes a binding  \n    hard to interpret when mixed with other addon bindings. (And there's not  \n    enough space in the UI to include a prefix.)"
+    },
+    {
+      "tag": "v2026.4",
+      "published": "2026-08-12",
+      "notes": "# BankStack\n\n## [v2026.4](https://github.com/kemayo/wow-bankstack/tree/v2026.4) (2026-08-09)\n[Full Changelog](https://github.com/kemayo/wow-bankstack/compare/v2026.3...v2026.4) [Previous Releases](https://github.com/kemayo/wow-bankstack/releases)\n\n- Stack could inaccurately summarize how many items moved  \n- One message in stack was unlocalized  \n- Fix empty-slot check in stack  \n- Don't say perfection exists when running /bankstackdebug  \n- Fix account-bank tab detection  \n- Fix quest item detection  \n- Broker text showed a bare number while moving items  \n    The format call used a dot instead of a colon, so the locale string became the  \n    argument and was discarded.  \n- An aborted command could make the next one demand the bank  \n    check\\_for\\_banks sets bankrequired, and only StopStacking clears it. A command  \n    that aborted after that point -- too few bag groups given, or item data that  \n    never loaded -- left the flag set, so the next unrelated sort was stopped with  \n    \"You must be at the bank\". Clear both flags at the start of each command.  \n- The bag-ignore setting in the Blizzard UI did nothing on retail  \n    GetBackpackAutosortDisabled and GetBankAutosortDisabled moved into C\\_Container  \n    in 10.0 and have no global fallback, so the existence guard quietly turned the  \n    check off. Keep the guards, because neither name exists on classic in any form.  \n- Addon integration hooks never ran  \n    RegisterAddonHook keeps a callback for an addon that is not loaded yet, but  \n    ADDON\\_LOADED was never registered, so the callback never fired. This left the  \n    Inventorian sort button dead on classic.  \n- TOC for 12.1.0, 12.0.7, 5.5.4, 2.5.6  \n- Actions: use the luacheck action instead of installing it from luarocks  \n    The lint job ran apt-get install with no apt-get update ahead of it, which  \n    fails whenever the runner image package index is stale.  \n    lunarmodules/luacheck@v1 replaces those three steps and runs the same  \n    luacheck . --no-color -q. Updates the checkout action from v2 to v7, which  \n    was still running a node version GitHub is retiring; nothing in that range  \n    affects a push-triggered workflow. Pins the packager to v2 rather than  \n    master, so an upstream change can no longer land in a release without  \n    warning; v2 is the maintained major tag, so fixes within the v2 line still  \n    arrive."
+    },
+    {
+      "tag": "v2026.3",
+      "published": "2026-02-21",
+      "notes": "# BankStack\n\n## [v2026.3](https://github.com/kemayo/wow-bankstack/tree/v2026.3) (2026-02-18)\n[Full Changelog](https://github.com/kemayo/wow-bankstack/compare/v2026.2...v2026.3) [Previous Releases](https://github.com/kemayo/wow-bankstack/releases)\n\n- Don't error if the player goes AFK in combat"
+    }
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 11,
+    "contributors": 13,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-10-03",
+      "2026-09-20",
+      "2026-08-12",
+      "2026-02-21",
+      "2026-01-24",
+      "2026-01-14",
+      "2025-12-19",
+      "2025-08-09",
+      "2025-12-19",
+      "2025-08-08",
+      "2025-08-08",
+      "2025-08-08",
+      "2025-08-04",
+      "2025-07-02",
+      "2025-03-01",
+      "2024-07-24",
+      "2024-05-06",
+      "2023-09-14",
+      "2023-02-11",
+      "2022-12-06",
+      "2022-11-21",
+      "2022-11-15",
+      "2022-11-12",
+      "2022-02-22",
+      "2021-05-29",
+      "2019-09-14",
+      "2019-09-14",
+      "2019-09-03",
+      "2019-09-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BankStack"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDBIcon-1.0",
+      "LibBankTabSuitableItems-1.0",
+      "tekDebug"
+    ],
+    "savedVariables": [
+      "BankStackDB"
+    ]
+  }
+}

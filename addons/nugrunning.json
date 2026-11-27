@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "nugrunning",
+  "repo": "rgd87/NugRunning",
+  "releases": [
+    {
+      "tag": "12.1.9a",
+      "published": "2026-11-19",
+      "notes": "# NugRunning\n\n## [12.1.9a](https://github.com/rgd87/NugRunning/tree/12.1.9a) (2026-11-19)\n[Full Changelog](https://github.com/rgd87/NugRunning/compare/12.1.8...12.1.9a) [Previous Releases](https://github.com/rgd87/NugRunning/releases)\n\n- Renamed Options TOC  \n- New borders"
+    },
+    {
+      "tag": "12.1.8",
+      "published": "2026-11-18",
+      "notes": "# NugRunning\n\n## [12.1.8](https://github.com/rgd87/NugRunning/tree/12.1.8) (2026-11-18)\n[Full Changelog](https://github.com/rgd87/NugRunning/compare/12.1.7...12.1.8) [Previous Releases](https://github.com/rgd87/NugRunning/releases)\n\n- Mage, Hunter config update  \n- Option to globally disable ghost timers  \n- Added glowIconInactive spell setting  \n- Renamed glow to glowIcon  \n- Background Color Multiplier setting  \n- Ghosting on CDM Bars & BuffIcons"
+    },
+    {
+      "tag": "12.1.7",
+      "published": "2026-11-17",
+      "notes": "# NugRunning\n\n## [12.1.7](https://github.com/rgd87/NugRunning/tree/12.1.7) (2026-11-17)\n[Full Changelog](https://github.com/rgd87/NugRunning/compare/12.1.5...12.1.7) [Previous Releases](https://github.com/rgd87/NugRunning/releases)\n\n- Paladin, Druid config update  \n- Warlock, Priest, Shaman config update  \n- Added Glow as BuffIcon feature  \n- Update /nrun help message  \n- Fixed Durations feature restored  \n- Dynamic Layout for BuffIcon and BuffBar  \n- Warrior, Rogue config updates  \n- Fixed the Spell List, removed most things from spell settings  \n- Added '/nrun check' command to transition old configs to CDM IDs  \n- Spell List initial fix"
+    },
+    {
+      "tag": "12.1.5",
+      "published": "2026-11-15",
+      "notes": "# NugRunning\n\n## [12.1.5](https://github.com/rgd87/NugRunning/tree/12.1.5) (2026-11-15)\n[Full Changelog](https://github.com/rgd87/NugRunning/compare/12.1.4...12.1.5) [Previous Releases](https://github.com/rgd87/NugRunning/releases)\n\n- Disabled static boxes by default  \n- Split options into subcategories for bars and icons  \n- CDM static box size & bar growth dir features"
+    },
+    {
+      "tag": "12.1.4",
+      "published": "2026-11-13",
+      "notes": "# NugRunning\n\n## [12.1.4](https://github.com/rgd87/NugRunning/tree/12.1.4) (2026-11-13)\n[Full Changelog](https://github.com/rgd87/NugRunning/compare/12.1.3...12.1.4) [Previous Releases](https://github.com/rgd87/NugRunning/releases)\n\n- Swapped ToC to Camelot  \n- Using smaller Font on UtilityCooldowns"
+    }
+  ],
+  "stats": {
+    "stars": 26,
+    "openIssues": 16,
+    "contributors": 4,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-15",
+      "2026-11-13",
+      "2026-10-31",
+      "2026-10-31",
+      "2026-10-31",
+      "2026-10-30",
+      "2026-08-16",
+      "2026-07-16",
+      "2026-07-16",
+      "2026-01-27",
+      "2025-07-29",
+      "2024-09-23",
+      "2024-09-04",
+      "2024-08-29",
+      "2024-08-27",
+      "2024-07-23",
+      "2024-05-29",
+      "2024-05-08",
+      "2024-04-30",
+      "2024-02-05",
+      "2024-01-10",
+      "2024-01-09",
+      "2023-11-27",
+      "2023-11-21",
+      "2023-11-16",
+      "2023-09-12",
+      "2023-08-27",
+      "2023-07-12",
+      "2023-01-10",
+      "2022-10-25",
+      "2022-10-25",
+      "2023-08-25",
+      "2022-09-06",
+      "2022-08-30",
+      "2022-03-05",
+      "2022-02-23",
+      "2021-06-30",
+      "2021-06-29",
+      "2021-02-25",
+      "2020-11-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NugRunning",
+      "NugRunningOptions"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "NRunDB_Global",
+      "NugRunningConfigCustom"
+    ],
+    "savedVariablesPerCharacter": [
+      "NRunDB_Char"
+    ]
+  }
+}

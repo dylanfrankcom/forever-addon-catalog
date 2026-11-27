@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "lfgforever",
+  "repo": "Pinta365/LFGForever",
+  "about": "# LFGForever - World of Warcraft Addon\n\nTired of hovering over every listing to find out who's actually in a group? **LFGForever** puts it all right on the Looking For Group list in WoW Forever!\n\n## Description\n\nLFGForever is a lightweight addon that enhances Blizzard's Looking For Group finder. It doesn't replace anything – it adds the information you'd otherwise have to dig out of tooltips. It will:\n\n* Show every group member as a class icon with their role badge, leader first.\n* Show the leader's level next to their name and the group's level range when members differ.\n* Highlight groups with an open spot for the roles you've selected, with a pulsing role icon for each spot you could fill and a green edge on the row.\n* Show the listing comment on Quests & Zones rows instead of hiding it in the tooltip.\n* List the actual zones instead of \"12 activities\", best fit for your level first.\n* Colour zones by your level, in both the browse list and the listing tab: white when it fits you, grey when you've outgrown it, red when it's too high.\n* Show class name, class icon and selected roles on solo player rows.\n* Add class icons, class coloured names and level difficulty colours to the Who list.\n\nHover over a member icon to see their name, level, class and zone.\n\n### Filters\n\nA filter panel docks to the right of the group finder (close it with its X, reopen it with the spyglass button). Your choices are saved between sessions.\n\n* **Show:** groups, solo players or both, and optionally hide delisted listings.\n* **Groups:** only groups with a spot for your role, groups that already have a tank or a healer, and hide full groups.\n* **Players:** filter solo players by role, level range (\"Near me\" picks your level ±3) and class.\n* **Playstyle:** hide listings with playstyles you're not after.\n\nThe panel shows how many listings it's hiding, and Reset brings everything back. Your own listing is never hidden.\n\n## Download\n\nYou can download LFGForever from these popular sources:\n\n* [Wago Addons](https://addons.wago.io/addons/lfgforever)\n* [CurseForge](https://www.curseforge.com/wow/addons/lfgforever)\n\n## Slash Commands\n\nLFGForever offers the following slash commands:\n\n* `/lfgf filters`: Shows or hides the filter panel.\n* `/lfgf reset`: Resets all filters.\n* `/lfgf debug`: Toggles debug mode.\n* `/lfgf help`: Displays a help message with usage instructions.\n\n## For Addon Developers\n\nLFGForever uses the `Group Finder` addon category, because in Forever the group finder is so much more than dungeons and raids. If you make a group finder addon, use the exact same line in your TOC so we all end up together in the addon list:\n\n```\n## Category: Group Finder\n```\n\n## Troubleshooting\n\nIf you encounter any issues, try these steps:\n\n* **Reload your UI:** Type `/reload` in the chat frame.\n* **Check for error messages:** Pay attention to any error messages in the chat frame. Install BugSack and BugGrabber to get better error reporting.\n\n## Reporting Issues\n\nIf something goes wrong while LFGForever draws the group finder, the error is reported once and that part of the addon turns itself off until your next `/reload`, so the rest of your group finder keeps working. Install BugSack and BugGrabber to capture the full error.\n\n`/lfgf debug` shows which parts of the group finder LFGForever has attached to, which helps if an enhancement doesn't show up at all.\n\nIf you're still unable to resolve the issue, please open an issue on the [GitHub repository](https://github.com/Pinta365/LFGForever/issues) and include the following information:\n\n* A description of the issue.\n* Steps to reproduce the error.\n* Any relevant error messages. (Use BugSack and BugGrabber)\n* A screenshot of the group finder, if it's a visual issue.\n\nBy providing this information, you'll help me identify and fix bugs more efficiently, making LFGForever even better!",
+  "releases": [
+    {
+      "tag": "0.2.0",
+      "published": "2026-11-24",
+      "notes": "# LFGForever\n\n## [0.2.0](https://github.com/Pinta365/LFGForever/tree/0.2.0) (2026-11-24)\n[Full Changelog](https://github.com/Pinta365/LFGForever/compare/0.1.1...0.2.0) [Previous Releases](https://github.com/Pinta365/LFGForever/releases)\n\n- Bump LFGForever version to 0.2.0  \n- Add filter panel to the group finder"
+    },
+    {
+      "tag": "0.1.1",
+      "published": "2026-10-04",
+      "notes": "# LFGForever\n\n## [0.1.1](https://github.com/Pinta365/LFGForever/tree/0.1.1) (2026-10-04)\n[Full Changelog](https://github.com/Pinta365/LFGForever/commits/0.1.1) [Previous Releases](https://github.com/Pinta365/LFGForever/releases)\n\n- Bump LFGForever version to 0.1.1  \n- Add GitHub Actions workflow for release and update README with download links  \n- initial"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-10-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LFGForever"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "LFGForeverDB"
+    ]
+  }
+}

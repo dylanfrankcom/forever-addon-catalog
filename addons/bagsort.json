@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "bagsort",
+  "repo": "shurururuun/BagSort",
+  "releases": [
+    {
+      "tag": "v0.6",
+      "published": "2026-11-20",
+      "notes": "# BagSort\n\n## [v0.6](https://github.com/shurururuun/BagSort/tree/v0.6) (2026-11-20)\n[Full Changelog](https://github.com/shurururuun/BagSort/compare/v0.5...v0.6) [Previous Releases](https://github.com/shurururuun/BagSort/releases)\n\n- add detection if WoW refuses to move an item  \n- fix specialized bags in reagent bag slot 5  \n    This fixes players equipping a non-generic reagent bag in bag slot 5 (e.g. a herb bag or soul shard bag)  \n- copy AceDBOptions Profiles tab before changing it"
+    },
+    {
+      "tag": "v0.5",
+      "published": "2026-11-19",
+      "notes": "# BagSort\n\n## [v0.5](https://github.com/shurururuun/BagSort/tree/v0.5) (2026-11-19)\n[Full Changelog](https://github.com/shurururuun/BagSort/compare/v0.4...v0.5) [Previous Releases](https://github.com/shurururuun/BagSort/releases)\n\n- Filter item classes marked as \"OBSOLETE\"  \n- Rework soulbound Junk detection  \n    Retail: Support Warbound items.  \n    Forever: Items that are class-restricted should be detected.  \n    Forever: Does not flag items that are usable in the future, for example  \n    by weapon skills or the level 40 armor upgrade.  \n- make Junk options global  \n- Sort by Value: fix stacked items"
+    },
+    {
+      "tag": "v0.4",
+      "published": "2026-11-19",
+      "notes": "# BagSort\n\n## [v0.4](https://github.com/shurururuun/BagSort/tree/v0.4) (2026-11-18)\n[Full Changelog](https://github.com/shurururuun/BagSort/compare/v0.3...v0.4) [Previous Releases](https://github.com/shurururuun/BagSort/releases)\n\n- Add integration for the addon Vendor  \n    Treats Sell and Destroy list items from the Vendor addon as Junk.  \n    https://www.curseforge.com/wow/addons/vendor  \n- fix Junk category \"include low level soulbound\"  \n    Entry box was not showing when the option was triggered."
+    },
+    {
+      "tag": "v0.3",
+      "published": "2026-09-18",
+      "notes": "# BagSort\n\n## [v0.3](https://github.com/shurururuun/BagSort/tree/v0.3) (2026-09-18)\n[Full Changelog](https://github.com/shurururuun/BagSort/compare/v0.2...v0.3) [Previous Releases](https://github.com/shurururuun/BagSort/releases)\n\n- support for WoW Forever Beta"
+    },
+    {
+      "tag": "v0.2",
+      "published": "2026-09-13",
+      "notes": "# BagSort\n\n## [v0.2](https://github.com/shurururuun/BagSort/tree/v0.2) (2026-09-10)\n[Full Changelog](https://github.com/shurururuun/BagSort/compare/v0.1...v0.2) [Previous Releases](https://github.com/shurururuun/BagSort/releases)\n\n- detect gear slot items by slot and not by item id,  \n    so that duplicate items are all in the gear set  \n- fix watchdog timer to detect stuck sorts"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-09-18",
+      "2026-09-13",
+      "2026-09-01"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BagSort"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Ace3",
+      "Baganator",
+      "ElvUI",
+      "Vendor"
+    ],
+    "savedVariables": [
+      "BagSortDB"
+    ]
+  }
+}

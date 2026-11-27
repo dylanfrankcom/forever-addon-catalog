@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "vimdialogue",
+  "repo": "d0ub7/vimdialogue",
+  "about": "![](https://raw.githubusercontent.com/d0ub7/vimdialogue/main/assets/icon.svg)\n\n# Vim Dialogue\n\nVim keys for dialogue in World of Warcraft: Forever. Talk to an NPC, move through the list, and answer without the mouse.\n\nOn the window in the screenshot, the quest is already highlighted. Space or Enter takes it. Esc says goodbye.\n\n```\nj  l  down     next row\nk  h  up       previous row\nspace  enter   confirm\nesc            goodbye, decline, or cancel\n```\n\nArrows do the same as hjkl. A single option is already selected, so Space takes it. With several quests or gossip lines, j and k move the gold bar. h and l move too, which matters more on a reward row or a book than on a tall list.\n\nThe open window lists every key along its bottom edge. The words follow the window: a gossip line says select and goodbye, a quest offer says accept and decline, a turn-in says complete and cancel, and a book says next page and close. If the window is already against the bottom of the screen, the list sits above it.\n\nThe same keys cover the whole conversation:\n\n| Window | Space or Enter | Esc |\n|---|---|---|\n| Gossip, or a quest greeting | The highlighted quest or line | Goodbye |\n| Quest offer | Accept | Decline |\n| Quest progress | Continue | Cancel |\n| Turn-in | Complete. j and k pick a reward first | Cancel |\n| Book or letter | Next page, then close | Close |\n\nA yes or no popup in front of the window takes the keys. Space confirms it. Esc cancels it.\n\nThe keys are borrowed only while a dialogue window is open. Jump, chat, and the quest log keep their keys the rest of the time. Typing in a box keeps the keys too.\n\n`/vimdialogue` or `/vd` turns it on or off. `on`, `off`, and `help` work after either command.\n\n## Install\n\nThe addon is the `VimDialogue` folder. Copy or symlink it into:\n\n`World of Warcraft/_forever_/Interface/AddOns/VimDialogue`\n\nIt loads on Forever (interface **16001**). If the addon list marks it out of date after a patch, check the live interface with `/dump select(4, GetBuildInfo())` and put that number in `## Interface` in `VimDialogue.toc`.\n\nThese keys drive Blizzard's dialogue window. A skin that only repaints that window is fine. An addon that replaces the window with its own is outside this one.\n\nIf a dialogue window closes while you are in combat, the game will not give the keys back until combat ends. Pressing them in that gap does nothing.\n\n## License\n\n[MIT](https://github.com/d0ub7/vimdialogue/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.1.2",
+      "name": "1.1.2",
+      "published": "2026-11-18",
+      "notes": "**Full Changelog**: https://github.com/d0ub7/vimdialogue/compare/v1.1.1...v1.1.2"
+    },
+    {
+      "tag": "v1.1.1",
+      "name": "1.1.1",
+      "published": "2026-11-18",
+      "notes": "**Full Changelog**: https://github.com/d0ub7/vimdialogue/commits/v1.1.1"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "VimDialogue"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "VimDialogueDB"
+    ]
+  }
+}

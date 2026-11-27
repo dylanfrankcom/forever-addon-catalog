@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "disenchantbuddy",
+  "repo": "BreakBB/DisenchantBuddy",
+  "about": "# Disenchant Buddy\n\n[![Downloads](https://img.shields.io/github/downloads/BreakBB/DisenchantBuddy/total.svg)](https://github.com/BreakBB/DisenchantBuddy/releases/)\n[![Downloads Latest](https://img.shields.io/github/downloads/BreakBB/DisenchantBuddy/v2.9.0/total.svg)](https://github.com/BreakBB/DisenchantBuddy/releases/latest)\n\nDisenchant Buddy is a lightweight World of Warcraft addon that displays disenchant results on item tooltips.\nIt helps players to quickly see what materials they can expect to receive from disenchanting an item.\n\nWhen [Auctionator](https://github.com/Auctionator/Auctionator) is installed, then Disenchant Buddy will also show the auction prices for the materials.\n\n## Slash commands\n\n- `/debuddy` or `/disenchantbuddy`: opens the settings\n- `/debuddy materials`: opens the materials overview\n\n## API for other addons\n\n`DisenchantBuddy.API.v1.GetDisenchantResults(callerName, itemLinkOrId)` returns a list of\n`{ itemId, probability (0-100), minQuantity, maxQuantity }` entries for the given item.\n`callerName` must be the name of your addon.\nIt returns `nil` for invalid arguments, unknown or uncached items and items that can't be disenchanted.\n\n## Compatibility\n\nDisenchant Buddy is compatible with and available for the following World of Warcraft versions:\n\n- Classic Era/HC/Anniversary :white_check_mark:\n- Season of Discovery :white_check_mark:\n- Wrath of the Lich King :white_check_mark:\n- Cataclysm :white_check_mark:\n- Mists of Pandaria :white_check_mark:\n- Forever :white_check_mark:\n- Retail :x: (not planned)\n\n## Installation\n\nI suggest you use an addon manager like the [CurseForge Client](https://curseforge.overwolf.com/) to ease the installation and update process. You will find\nDisenchantBuddy [here on CurseForge](https://www.curseforge.com/wow/addons/disenchantbuddy).\n\nAlternatively you can always use [the latest GitHub release](https://github.com/BreakBB/DisenchantBuddy/releases/latest) and manually install it:\n\n1. Extract the contents of the zip file to your World of Warcraft Interface\\AddOns directory:\n    - Era/HC/Anniversary/SoD: `World of Warcraft\\_classic_era_\\Interface\\AddOns\\DisenchantBuddy`\n    - Cata and beyond: `World of Warcraft\\_classic_\\Interface\\AddOns\\DisenchantBuddy`\n    - Forever: `World of Warcraft\\_forever_\\Interface\\AddOns\\DisenchantBuddy`\n2. Restart World of Warcraft or reload your UI\n\n## Development\n\n### Installing lua\n\n1. Install [Lua](https://www.lua.org/download.html) (5.1, since the WoW client uses Lua 5.1)\n    - For macOS that is `brew install lua@5.1`\n2. Install [luarocks](https://luarocks.org/)\n    - For macOS that is `brew install luarocks`\n3. Configure `luarocks` to use the correct Lua version (by default luarocks uses the latest installed Lua version)\n    - `luarocks config lua_version 5.1`\n4. Install [busted](https://github.com/lunarmodules/busted)\n    - `luarocks install busted`\n5. Install [luacheck](https://github.com/lunarmodules/luacheck/)\n    - `luarocks install luacheck`\n\n### luacheck\n\nThis project uses `luacheck` for linting. To run the linter, execute the following command:\n\n```sh\nluacheck -q .\n```\n\n### Unit Tests\n\nThis project uses `busted` for unit testing. To run the tests, execute the following command:\n\n```sh\nbusted -p \".test.lua\" .\n```\n\n### Releasing\n\nReleases are created via GitHub Actions: **Actions → Release → Run workflow** on `main`, with the new version without \"v\" prefix (e.g. `2.8.0` or `2.8.0-b1` for a beta).\n\nThe workflow runs the tests, bumps the version, creates and pushes the tag and then triggers the Publish workflow, which uploads the release to GitHub, CurseForge and Wago.",
+  "releases": [
+    {
+      "tag": "v2.9.0",
+      "published": "2026-11-15",
+      "notes": "## New Features\n\n* Add /debuddy materials command to open the materials overview\n* Add ingame settings panel\n* Add materials overview to the settings\n* Add settings to hide material and average prices in the tooltip\n* Create Auctionator shopping lists from the materials overview\n* Support modifier slash command without settings panel"
+    },
+    {
+      "tag": "v2.8.0",
+      "published": "2026-10-29",
+      "notes": "## New Features\n\n* Show \"can not be disenchanted\" on legendary items"
+    },
+    {
+      "tag": "v2.7.0",
+      "published": "2026-10-14",
+      "notes": "## New Features\n\n* Add Forever support"
+    },
+    {
+      "tag": "v2.6.5",
+      "published": "2026-08-01",
+      "notes": "## General Fixes\n\n* Bump interface version for 3.80.2"
+    },
+    {
+      "tag": "v2.6.4",
+      "published": "2026-07-23",
+      "notes": "## General Fixes\n\n* Bump interface version for 1.15.9"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/BreakBB/DisenchantBuddy/main/screenshots/epic_item.png",
+    "https://raw.githubusercontent.com/BreakBB/DisenchantBuddy/main/screenshots/rare_item.png",
+    "https://raw.githubusercontent.com/BreakBB/DisenchantBuddy/main/screenshots/uncommon_armor.png",
+    "https://raw.githubusercontent.com/BreakBB/DisenchantBuddy/main/screenshots/uncommon_armor_with_auctionator.png",
+    "https://raw.githubusercontent.com/BreakBB/DisenchantBuddy/main/screenshots/uncommon_weapon.png"
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 4,
+    "contributors": 6,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-10-29",
+      "2026-10-14",
+      "2026-08-01",
+      "2026-07-23",
+      "2026-07-16",
+      "2026-07-08",
+      "2026-05-18",
+      "2026-04-27",
+      "2026-04-17",
+      "2026-03-30",
+      "2026-03-27",
+      "2026-03-14",
+      "2026-02-13",
+      "2026-02-05",
+      "2026-01-29",
+      "2026-01-23",
+      "2026-01-04",
+      "2025-12-23",
+      "2025-12-09",
+      "2025-11-22",
+      "2025-11-04",
+      "2025-10-23",
+      "2025-10-06",
+      "2025-09-09",
+      "2025-07-27",
+      "2025-07-13",
+      "2025-06-11",
+      "2025-05-31",
+      "2025-04-16",
+      "2025-04-10",
+      "2025-01-30",
+      "2025-01-11",
+      "2024-12-19",
+      "2024-12-10",
+      "2024-12-06",
+      "2024-12-05",
+      "2024-12-02",
+      "2024-12-02",
+      "2024-12-01",
+      "2024-11-29",
+      "2024-11-29",
+      "2024-11-29",
+      "2024-11-29",
+      "2024-11-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DisenchantBuddy"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "DisenchantBuddy_Profile"
+    ]
+  }
+}

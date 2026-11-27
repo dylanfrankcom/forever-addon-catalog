@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "whatmats",
+  "repo": "nathanb/wow-addon-whatmats",
+  "about": "WhatMats/README.md",
+  "releases": [
+    {
+      "tag": "v0.5.19",
+      "published": "2026-11-25",
+      "notes": "- Hovering the bag / bank count in the Materials list now explains the numbers and colors. (#28)\n - Qty and the Totals amounts now have arrow buttons to step them down or up. (#22)"
+    },
+    {
+      "tag": "v0.5.18",
+      "published": "2026-11-24",
+      "notes": "- WhatMats now shows its own icon in the AddOns list instead of a question mark. (#27)"
+    },
+    {
+      "tag": "v0.5.17",
+      "published": "2026-11-24",
+      "notes": "- Shift-clicking an item (for example to split a stack in your bags) no longer loads it into WhatMats. Load recipes with the WhatMats button in the profession window, the tracker, or `/mats`.\n - Clicking a recipe or part in WhatMats switches the open profession window to it again, without bringing back the \"blocked from an action\" error fixed in 0.5.16."
+    },
+    {
+      "tag": "v0.5.16",
+      "published": "2026-11-22",
+      "notes": "- Fixed \"WhatMats has been blocked from an action\" when using items from your bags (such as learning a recipe) after clicking a recipe in WhatMats while a profession window was open. Clicking a recipe while that profession window is already open may no longer switch it to that recipe."
+    },
+    {
+      "tag": "v0.5.15",
+      "published": "2026-11-22",
+      "notes": "- Tracked totals now have their own panel, styled like the objective tracker, instead of sitting inside it. Counts update during combat, and the panel can't interfere with quest item buttons. Drag its header to move it; the spot is saved per character. (#19)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 2,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WhatMats"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "WhatMatsVendorDB",
+      "WhatMatsPriceDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "WhatMatsDB"
+    ]
+  }
+}

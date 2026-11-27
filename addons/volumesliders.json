@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "volumesliders",
+  "repo": "SheldonMichaels/WoW-Volume-Sliders",
+  "about": "# Volume Sliders\n\nQuick-access vertical volume sliders for every WoW sound channel, right from your minimap.\n\n![WoW Retail](https://img.shields.io/badge/WoW%20Retail-12.1.5-blue)\n![WoW Forever](https://img.shields.io/badge/WoW%20Forever-1.60.1-blue)\n![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-lightgrey)\n\n  ![Volume Sliders popup window](https://raw.githubusercontent.com/SheldonMichaels/WoW-Volume-Sliders/master/docs/screenshot.png)\n\n## Installation\n\n**CurseForge (recommended)**\n[curseforge.com/wow/addons/volume-sliders](https://www.curseforge.com/wow/addons/volume-sliders)\n\n**Manual**\n1. Download or clone this repository.\n2. Copy the inner `VolumeSliders/` folder into your WoW addons directory:\n   ```\n   - Retail: World of Warcraft/_retail_/Interface/AddOns/\n   - Forever: World of Warcraft/_forever_/Interface/AddOns/\n   ```\n3. Restart WoW or type `/reload` in chat.\n\n## Quick Reference\n\n| Action | Result |\n|--------|--------|\n| **Left-click** minimap icon | Open / close the slider panel |\n| **Right-click** minimap icon | Toggle master mute |\n| **Scroll wheel** on minimap icon | Adjust volume for a mapped channel |\n| **Hold left-click** (minimalist icon) | Push-to-Talk bypass (forces Open Mic) |\n| **Ctrl + scroll** | Fine adjustment (1 % steps) |\n| **▲ / ▼ arrows** on sliders | Snap to nearest 5 % |\n| **Click outside** or **Escape** | Close the panel |\n\n## Features\n\n### Sliders & Sound Control\n- **12 vertical volume sliders** covering Master, Effects, Music, Ambience, Dialog, Warnings, Gameplay, Pings, Voice Chat, Voice Ducking, Mic Volume, and Mic Sensitivity — each with per-channel mute toggles and stepper arrows that snap to the nearest 5 %.\n- **Output device selector** with automatic per-device volume memory, plus a one-click Positional Audio toggle (\"Sound at Character\").\n\n### Minimap Integration\n- **Two icon styles** — classic ringed button or a minimalist speaker that auto-fades when idle.\n- **Drag-and-drop tooltip builder** — choose which data rows appear on hover (volume levels, active presets, output device, etc.) and reorder them freely. Tooltips refresh live as you scroll or click.\n- **Configurable scroll-wheel channels** with `Shift` / `Ctrl` / `Alt` modifier bindings for quick multi-channel control.\n\n### Presets & Automation\n- **Savable volume presets** with Absolute, Floor (minimum), and Ceiling (maximum) modes for granular control over how values are applied.\n- **Manual toggle presets** — apply from the dropdown or minimap hotkey; press again to restore your original volumes. Presets support opt-in per-channel muting.\n- **Context-aware automation** — zone-based presets activate on entry and revert on exit; LFG queue-pop and fishing-cast presets fire automatically and restore when the event ends.\n\n### Window & Appearance\n- **2D resizable window** — drag edges or corners; sliders and footer elements reflow automatically.\n- **Custom backgrounds** — adjust window color and opacity via the native Blizzard color picker.\n- **Volume display formats** — show values as percentages, decimals, or decibels across sliders and minimap displays.\n- **Lock, persist, or auto-close** — pin the window in place, keep it open across sessions, or let it dismiss on click-away.\n\n### Ecosystem\n- Fully integrated with the WoW 10.x+ **Addon Compartment** menu.\n- **LibDataBroker** compatible — works with Titan Panel, ChocolateBar, ElvUI data texts, and similar display addons.\n\n## Roadmap\n\nHave an idea or want to see what's planned?\nBrowse the [open issues](https://github.com/SheldonMichaels/WoW-Volume-Sliders/issues) — feature requests and bug reports all live there.\n\n## Development Docs\n\n- [Contributing](https://github.com/SheldonMichaels/WoW-Volume-Sliders/blob/master/CONTRIBUTING.md)\n- [Security Policy](https://github.com/SheldonMichaels/WoW-Volume-Sliders/blob/master/SECURITY.md)\n- [Architecture](https://github.com/SheldonMichaels/WoW-Volume-Sliders/blob/master/docs/ARCHITECTURE.md)\n- [Testing Infrastructure](https://github.com/SheldonMichaels/WoW-Volume-Sliders/blob/master/docs/TESTING_INFRA.md)\n- [CI and Release](https://github.com/SheldonMichaels/WoW-Volume-Sliders/blob/master/docs/CI_AND_RELEASE.md)\n- [AI Agent Guide](https://github.com/SheldonMichaels/WoW-Volume-Sliders/blob/master/AGENTS.md)\n- [In-Game Test Checklist](https://github.com/SheldonMichaels/WoW-Volume-Sliders/blob/master/docs/IN_GAME_TESTING.md)\n\n## Libraries\n\nThis addon bundles the following libraries (included in `Libs/`):\n\n- [LibStub](https://www.wowace.com/projects/libstub)\n- [CallbackHandler-1.0](https://www.wowace.com/projects/callbackhandler)\n- [LibDataBroker-1.1](https://www.wowace.com/projects/libdatabroker-1-1)\n- [LibDBIcon-1.0](https://www.wowace.com/projects/libdbicon-1-0)\n\n## License\n\nAll Rights Reserved © 2026 Sheldon Michaels — free for personal, non-commercial use. See [LICENSE](https://github.com/SheldonMichaels/WoW-Volume-Sliders/blob/master/LICENSE) for details.",
+  "releases": [
+    {
+      "tag": "v3.12.0",
+      "published": "2026-11-07",
+      "notes": "## v3.12.0 — 2026-11-06\n\n### Added\n- **World of Warcraft: Forever Compatibility**: Added full support for the new *World of Warcraft: Forever* client (interface `16001`), including automatic multi-flavor TOC generation for package releases.\n- **WoW Retail (Midnight 12.1.x) Support**: Updated interface version targeting to support modern Retail patches up through `12.1.5` (`120100`, `120105`)."
+    },
+    {
+      "tag": "v3.11.0",
+      "published": "2026-05-22",
+      "notes": "## v3.11.0 — 2026-05-14\n\n### Added\n- **Custom Minimap Icon Positioning**: The custom minimalist minimap icon can now be freely detached from the minimap and positioned anywhere on the screen using a dedicated toggle, along with precise X/Y nudging via the settings.\n- **Advanced Icon Customization**: Added comprehensive customization options for the minimap icon, including scaling (50% to 200%), icon tint/color selection, and distinct fade speed controls for both mouse-over and mouse-out states."
+    },
+    {
+      "tag": "v3.10.0",
+      "published": "2026-05-13",
+      "notes": "## v3.10.0 — 2026-05-12\n\n### Added\n- **Volume Display Formats**: Added a new Slider Customization option to display volume values as percentages, decimals, or decibels across the popup window, minimap broker text, minimap tooltip, and preset editor sliders."
+    },
+    {
+      "tag": "v3.9.1",
+      "published": "2026-05-12",
+      "notes": "## v3.9.1 — 2026-05-12\n\n### Fixed\n- **Mute Toggle Volume Restore**: Fixed an issue where unmuting one channel could unexpectedly restore a different channel to an older volume when no presets were active."
+    },
+    {
+      "tag": "v3.9.0",
+      "published": "2026-05-07",
+      "notes": "## v3.9.0 — 2026-05-07\n\n### Added\n- **Volume Chimes (Sample Sounds)**: Added the ability to play a sample sound (\"chime\") whenever you adjust a volume slider or scroll over the minimap icon.\n- **Enhanced Customization**: Choose from 12 built-in WoW sounds or provide your own custom sound file path.\n- **Independent Toggles**: Sample sounds can be enabled or disabled independently for the main volume window and the minimap icon hover actions.\n- **Loop Protection**: Implemented a 5-second safety cutoff for all sample sounds to prevent accidental infinite looping of long ambient tracks or music.\n\n### Fixed\n- **LFG Application Sound**: Restored the \"LFG Application\" sound (73275) to the sample sound selection menu."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/SheldonMichaels/WoW-Volume-Sliders/master/docs/screenshot.png"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 12,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-05-22",
+      "2026-05-13",
+      "2026-05-12",
+      "2026-05-07",
+      "2026-04-29",
+      "2026-04-24",
+      "2026-04-21",
+      "2026-04-17",
+      "2026-04-17",
+      "2026-04-17",
+      "2026-04-16",
+      "2026-04-16",
+      "2026-04-16",
+      "2026-04-16",
+      "2026-04-11",
+      "2026-04-08",
+      "2026-04-08",
+      "2026-04-06",
+      "2026-04-02",
+      "2026-03-31",
+      "2026-03-31",
+      "2026-03-28",
+      "2026-03-26",
+      "2026-03-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "VolumeSliders"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "VolumeSlidersMMDB"
+    ]
+  }
+}

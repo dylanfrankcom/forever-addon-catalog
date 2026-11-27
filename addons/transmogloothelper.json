@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "id": "transmogloothelper",
+  "repo": "Slackluster/TransmogLootHelper",
+  "about": "# Transmog Loot Helper\nA World of Warcraft addon. Download locations: [CurseForge](https://www.curseforge.com/wow/addons/transmog-loot-helper) | [Wago](https://addons.wago.io/addons/tlh)\n\n[![](https://media.forgecdn.net/attachments/1439/398/buymeacoffee-png.png)](https://www.buymeacoffee.com/Slackluster)\n\n**Transmog Loot Helper (TLH)** shows icons for unlearned transmog, mounts, pets, toys, recipes, decor, and more. These show on:\n- Bags and bank\n- (Black Market) Auction House\n- Mailbox\n- Loot window and loot rolls\n- Vendors\n- Profession window\n- World quests and quest rewards\n- Encounter Journal\n- Great Vault\n\n![](https://media.forgecdn.net/attachments/description/1033752/description_17172ffd-6371-4979-a00d-b4da2bca0fa6.png)\n\nThere are several styles of icons to choose from!\n\n![](https://media.forgecdn.net/attachments/1526/743/styles-png.png)\n\nIt also features a loot tracker, showing you transmog looted by your fellow party/raid members that you still need, and features icons to show items' collection status. Alt+clicking lets you whisper them to ask for the item!\n\n![](https://media.forgecdn.net/attachments/description/1033752/description_62349c27-183a-4589-9013-d193e7a7a519.png)\n\nCurrently supported addons:\n- ArkInventory\n- Baganator\n- Bagforge\n- BetterBags\n- ElvUI\n- Krowi's Extended Vendor UI\n- World Quest Tab\n- World Quests List\n- WoWNotes Bags\n\n## If you are experiencing issues\n- Check if the issue occurs with only this addon enabled, or if the issue is a feature you can disable from the addon's settings menu.\n- If you run into any issues or if you have other feedback, feel free to join the [Discord](https://discord.gg/FwWZZ39kPX) and ask in the `#transmog-loot-helper` channel, or create a [ticket on GitHub](https://github.com/Slackluster/TransmogLootHelper/issues). :)",
+  "releases": [
+    {
+      "tag": "v120",
+      "published": "2026-11-23",
+      "notes": "# Transmog Loot Helper\n\n## [v120](https://github.com/Slackluster/TransmogLootHelper/tree/v120) (2026-11-23)\n[Full Changelog](https://github.com/Slackluster/TransmogLootHelper/compare/v119...v120) [Previous Releases](https://github.com/Slackluster/TransmogLootHelper/releases)\n\n- Hide the Tweaks page again on Forever, as it is not applicable there (accidentally enabled it alongside the Loot Tracker, oops)"
+    },
+    {
+      "tag": "v119",
+      "published": "2026-11-23",
+      "notes": "# Transmog Loot Helper\n\n## [v119](https://github.com/Slackluster/TransmogLootHelper/tree/v119) (2026-11-23)\n[Full Changelog](https://github.com/Slackluster/TransmogLootHelper/compare/v118...v119) [Previous Releases](https://github.com/Slackluster/TransmogLootHelper/releases)\n\n- Fix keybind error on Forever"
+    },
+    {
+      "tag": "v118",
+      "published": "2026-11-23",
+      "notes": "# Transmog Loot Helper\n\n## [v118](https://github.com/Slackluster/TransmogLootHelper/tree/v118) (2026-11-23)\n[Full Changelog](https://github.com/Slackluster/TransmogLootHelper/compare/v117...v118) [Previous Releases](https://github.com/Slackluster/TransmogLootHelper/releases)\n\n- Machine-translated all untranslated strings. I still prefer this be done by humans and existing translators' work is preserved and prioritised. This should make the addon more accessible until other volunteer translators show up! :)  \n- Grab translations from my other addons  \n- Fix wrong variable names for locales  \n- Add a decor command (WIP, undocumented for now)  \n- Nil guards  \n- Use a different method for deciding when to hide our icons, which should??? stop them from flickering and appearing when they shouldn't  \n- Use our callback to stop the recipe icons from being quite so jumpy (though they still blink aaa)  \n- Update ruRU.lua (#122)  \n- Rework internal logic for bugged/unlearnable items, and mark Darkmoon Flower and Fightin' Fish as unlearnable on Forever  \n- Add tooltip info for bugged item(s)  \n- Fix learn item tooltip message in Forever"
+    },
+    {
+      "tag": "v117",
+      "published": "2026-11-12",
+      "notes": "# Transmog Loot Helper\n\n## [v117](https://github.com/Slackluster/TransmogLootHelper/tree/v117) (2026-11-12)\n[Full Changelog](https://github.com/Slackluster/TransmogLootHelper/compare/v116...v117) [Previous Releases](https://github.com/Slackluster/TransmogLootHelper/releases)\n\n- Check tooltip line spacing for both types of entries  \n- Secrets REEEE  \n- Add First Aid and two faux professions' icons  \n- Update ruRU.lua (#120)"
+    },
+    {
+      "tag": "v116",
+      "published": "2026-11-12",
+      "notes": "# Transmog Loot Helper\n\n## [v116](https://github.com/Slackluster/TransmogLootHelper/tree/v116) (2026-11-12)\n[Full Changelog](https://github.com/Slackluster/TransmogLootHelper/compare/v115...v116) [Previous Releases](https://github.com/Slackluster/TransmogLootHelper/releases)\n\n- Account for different playerNames on Forever for the Loot Tracker (kinda important)"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 22,
+    "contributors": 6,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-28",
+      "2026-10-28",
+      "2026-10-26",
+      "2026-10-22",
+      "2026-10-14",
+      "2026-10-04",
+      "2026-09-20",
+      "2026-09-14",
+      "2026-08-30",
+      "2026-08-19",
+      "2026-08-16",
+      "2026-08-14",
+      "2026-08-13",
+      "2026-08-12",
+      "2026-08-07",
+      "2026-07-25",
+      "2026-07-24",
+      "2026-07-23",
+      "2026-07-23",
+      "2026-07-05",
+      "2026-06-25",
+      "2026-06-17",
+      "2026-06-14",
+      "2026-05-21",
+      "2026-05-18",
+      "2026-04-24",
+      "2026-04-20",
+      "2026-03-04",
+      "2026-02-13",
+      "2026-02-10",
+      "2026-02-10",
+      "2026-01-29",
+      "2026-01-28",
+      "2026-01-23",
+      "2026-01-23",
+      "2026-01-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TransmogLootHelper"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "TransmogLootHelper_Settings",
+      "TransmogLootHelper_Cache"
+    ]
+  }
+}

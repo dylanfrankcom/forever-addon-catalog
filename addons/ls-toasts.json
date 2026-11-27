@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "ls-toasts",
+  "repo": "ls-/ls_Toasts",
+  "about": "# LS: Toasts\n\nReplacement for the default alert system. Better toasts, cheers!\n\n![image](https://i.imgur.com/PvzX6VF.gif)\n\n## Download\n\n- [CurseForge](https://www.curseforge.com/wow/addons/ls-toasts)\n- [Wago](https://addons.wago.io/addons/ls-toasts)\n\n## Options\n\n- Use **`/LSTOASTS`** or **`/LST`** to open in-game config.\n- Anchors and most of their settings are available via **Edit Mode**.\n- Go to **Options** > **AddOns** > **LS: Toasts** to manage profiles and the layout data.\n\n## Feedback and Feature Requests\n\nIf you found a bug or want to share an idea on how to improve my addon, either use the issue tracker on [GitHub](https://github.com/ls-/ls_Toasts/issues) or join our [Discord](https://discord.gg/7QcJgQkDYD) server.\n\n## Localisation\n\nFeel free to add and/or review translations on [CurseForge](https://www.curseforge.com/wow/addons/ls-toasts/localization), alternatively, you may create a PR on [project's GitHub page](https://github.com/ls-/ls_Toasts/pulls).\n\n## FAQ\n\n**Q:** Is it possible to use the default achievement/loot/etc toast while using the addon?\n**A:** No, the default system is written in a way that makes it hard or even impossible to toggle parts of it individually.\n\n## License\n\nPlease see [LICENSE](https://github.com/ls-/ls_Toasts/blob/master/LICENSE.txt) file.",
+  "releases": [
+    {
+      "tag": "120105.07",
+      "published": "2026-11-17",
+      "notes": "- Added a toggle for Slug rendering to the font settings. Disabled by default."
+    },
+    {
+      "tag": "120105.06",
+      "published": "2026-11-14",
+      "notes": "- Use SLUG rendering for fonts by default."
+    },
+    {
+      "tag": "120105.05",
+      "published": "2026-11-09",
+      "notes": "- Added WoW Forever support.\n- Updated Traditional Chinese translation. Translated by BNS333@Curse."
+    },
+    {
+      "tag": "120105.04",
+      "published": "2026-11-01",
+      "notes": "- Added a button to reset the anchor frame's position to the config panel. It should help in cases where the frame gets\n  lost due to past shenanigans from other addons.\n- Added info on where to find anchor frames and their settings to the config panel.\n- Added a frame to adjust the position of the anchor frame while in Edit Mode. Unfortunately, for now it's not\n  pixel-perfect because this requires a more substantial updated to the underlying Edit Mode library rather than my\n  addon.\n- Added dummy toasts to anchor frames in Edit Mode which should make it easier to locate them on the screen."
+    },
+    {
+      "tag": "120105.03",
+      "published": "2026-10-15",
+      "notes": "- Added the manager for layout-specific settings. There you can reset, copy, and delete them. Available at the\n  \"Layouts\" tab in Blizz config panel.\n- Added the `/lst reparentanchors` command (case-insensitive) to reset positions of all anchors in case they got lost\n  for some reason.\n\n![Imgur](https://i.imgur.com/JPyhjTb.png)"
+    }
+  ],
+  "stats": {
+    "stars": 30,
+    "openIssues": 3,
+    "contributors": 7,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-14",
+      "2026-11-09",
+      "2026-11-01",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-14",
+      "2026-08-11",
+      "2026-06-16",
+      "2026-05-18",
+      "2026-05-16",
+      "2026-05-01",
+      "2026-03-01",
+      "2026-01-26",
+      "2026-01-24",
+      "2026-01-23",
+      "2026-01-21",
+      "2026-01-20",
+      "2025-12-15",
+      "2025-12-01",
+      "2025-10-07",
+      "2025-08-16",
+      "2025-08-05",
+      "2025-06-23",
+      "2025-04-22",
+      "2025-02-25",
+      "2024-12-03",
+      "2024-09-28",
+      "2024-09-25",
+      "2024-09-12",
+      "2024-07-31",
+      "2024-07-23",
+      "2024-06-04",
+      "2024-05-17",
+      "2024-03-21",
+      "2024-02-09",
+      "2024-01-23",
+      "2024-01-23",
+      "2024-01-23",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-11-03",
+      "2023-11-03",
+      "2023-10-27",
+      "2023-07-11",
+      "2023-06-28",
+      "2023-05-22",
+      "2023-05-04",
+      "2023-05-02",
+      "2023-03-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ls_Toasts"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "LS_TOASTS_GLOBAL_CONFIG"
+    ]
+  }
+}

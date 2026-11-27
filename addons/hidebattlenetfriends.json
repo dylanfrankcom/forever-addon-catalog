@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "hidebattlenetfriends",
+  "repo": "Metalhearf/HideBattleNetFriends",
+  "about": "![HideBattleNetFriends](https://raw.githubusercontent.com/Metalhearf/HideBattleNetFriends/main/Screenshots/logo400.png)\n\n# HideBattleNetFriends\n\n[![GitHub Release](https://img.shields.io/github/v/release/Metalhearf/HideBattleNetFriends)](https://github.com/Metalhearf/HideBattleNetFriends/releases/latest)\n[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)\n[![CurseForge](https://img.shields.io/badge/CurseForge-HideBattleNetFriends-orange)](https://www.curseforge.com/wow/addons/hidebattlenetfriends)\n\nKeep your real names and Battle.net contacts out of World of Warcraft. Hide Battle.net friends entirely, show BattleTags instead of real names, or filter the list down to the friends who are actually playing WoW. Every change shows up live in your friends list.\n\n![Settings window next to the friends list](https://raw.githubusercontent.com/Metalhearf/HideBattleNetFriends/main/Screenshots/window.png)\n\n## Why?\n\n- **Streaming and screenshots** - real names never show up on stream: not in the friends list, tooltips, whispers, pop-ups or chat.\n- **A cleaner friends list** - see only the people playing WoW right now, not everyone idling in the Battle.net app or playing another game.\n- **The classic feel** - one click turns the friends list back into the plain WoW friends list, without Battle.net clutter or modern tabs.\n\n## Profiles\n\nPick a starting point, then fine-tune any option by hand.\n\n| Profile | What you get |\n|---|---|\n| **Classic experience** | No Battle.net at all: friends, requests, notifications, your BattleTag and the modern tabs are hidden. |\n| **No Battle.net** | Same, but keeps the tabs. Not on Forever, where it would be identical to Classic experience. |\n| **Online friends** | Every friend, but only those who are online. |\n| **WoW friends** | Only friends playing World of Warcraft right now. |\n| **Show everything** | Nothing hidden, the friends list as Blizzard made it. |\n\n## Options\n\n**Friends list**\n- Hide Battle.net friends\n- Hide friend requests\n- BattleTags instead of real names, everywhere a real name can appear (see below)\n- Hide friend notes and friends' broadcasts\n- Hide offline WoW (character) friends\n\n**Battle.net friends filter**\n- Hide offline friends\n- Hide friends who are only in the Battle.net app or mobile app\n- Hide friends playing another game\n\n**Privacy**\n- Hide your own BattleTag at the top of the friends list\n- Hold **Shift** while opening the friends list to see everything until you close it\n\n**Notifications**\n- Mute Battle.net notifications (online, offline, broadcasts, requests). Your previous settings come back when you turn it off.\n- Hide Quick Join pop-ups\n\n**Display**\n- Use the classic friends window (Forever): the friends key opens the old friends window instead of the new social window\n- Hide the minimap button\n- Hide the friends list button, for a minimal friends list\n\n**Tabs** (Retail)\n- Hide the Quick Join, Recent Allies and Recruit A Friend tabs\n\nOptions that do not exist on your version of the game are not shown.\n\n### WoW Forever\n\nForever has a new social window, and Blizzard blocks any addon that changes its friends list. HideBattleNetFriends keeps Blizzard's window (tabs, status, search, Filter button) and lays its own filtered copy of the friends list over it.\n\n- **Hide Battle.net friends** keeps your in-game friends (their character names) and hides Battle.net/BattleTag friends.\n- **Hide offline WoW friends** applies to those in-game friends.\n- Blizzard's search and Filter button still work on the filtered list.\n- Hiding friend requests and tabs is not available there: it would mean changing Blizzard's window.\n- **Use the classic friends window** makes the friends key open the old friends window instead. The social button and Blizzard's tab shortcuts still open the new one.\n- For a fuller classic look (who list, guild roster, combat-safe opening), [ClassicUI Forever](https://www.curseforge.com/wow/addons/classicui-forever) brings back the old window too: the filters and profiles work there, and the HideBattleNetFriends button sits next to its lock button. The option above is hidden while it is installed.\n\n### Where real names are replaced\n\nWith *BattleTags instead of real names*, the BattleTag (without its #number) replaces the real name in:\n\n- the friends list and its tooltip\n- Battle.net whispers, sent and received, and the \"Tell ...\" line while typing (`/r` still works)\n- separate whisper tabs\n- online/offline messages in chat (clicking the name still opens a whisper)\n- Battle.net pop-up notifications\n- the right-click menu on a Battle.net friend\n- the block, remove and note confirmation dialogs\n\nOn Forever, in-game friends have no BattleTag and keep their character name.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/hbnf` | Open or close the settings window |\n| `/hbnf off` | Turn all hiding off until the next `/reload` |\n| `/hbnf on` | Turn it back on |\n| `/hbnf buttons` | Show the minimap and friends list buttons again |\n| `/hbnf help` | List these commands in chat |\n\n### Where to find the settings\n\n- **Friends list:** the HideBattleNetFriends button at the top right of the friends list, next to the close button.\n- **Minimap:** the round HideBattleNetFriends button (drag it to move it).\n- **Addon compartment:** the addons button under the minimap (Retail).\n- **Game options:** *Options > AddOns > HideBattleNetFriends*.\n- **Chat:** `/hbnf`.\n\n![The HideBattleNetFriends button next to the close button of the friends list](https://raw.githubusercontent.com/Metalhearf/HideBattleNetFriends/main/Screenshots/friends-button.png)\n\nA key binding for on/off is in *Options > Key Bindings > AddOns*.\n\nHiding the minimap or friends list button is safe: `/hbnf` always opens the window, and `/hbnf buttons` brings both buttons back.\n\n## Compatibility\n\n| Client | Supported |\n|---|---|\n| Retail | Yes |\n| Classic (Mists of Pandaria) | Yes |\n| Classic Era | Yes |\n| Anniversary Edition | Yes |\n| Forever | Yes (see [WoW Forever](#wow-forever)) |\n\nAvailable in English, French, German, Spanish, Italian, Portuguese, Russian, Korean and Chinese (simplified and traditional).\n\nNothing is changed on Blizzard's side: the addon only changes what your game displays. Your Battle.net friends are still there in the Battle.net app, and whispers and friend requests keep working.\n\n## Installation\n\n### From CurseForge\nInstall via [CurseForge](https://www.curseforge.com/wow/addons/hidebattlenetfriends) or any CurseForge-compatible addon manager (CurseForge app, WowUp, etc.).\n\n### From GitHub Releases\n1. Download `HideBattleNetFriends.zip` from the [latest release](https://github.com/Metalhearf/HideBattleNetFriends/releases/latest).\n2. Extract the `HideBattleNetFriends` folder into your WoW addons directory:\n   - **Windows:** `C:\\Program Files (x86)\\World of Warcraft\\_retail_\\Interface\\AddOns\\`\n   - **macOS:** `/Applications/World of Warcraft/_retail_/Interface/AddOns/`\n   - For other versions, replace `_retail_` with `_classic_`, `_classic_era_`, `_anniversary_` or `_forever_`.\n3. Restart WoW or type `/reload` in-game.\n\n### Manual\nClone this repository and copy (or symlink) the `HideBattleNetFriends/` folder into your AddOns directory.\n\n## Screenshots\n\n![The friends list under four profiles](https://raw.githubusercontent.com/Metalhearf/HideBattleNetFriends/main/Screenshots/profiles.png)\n\n*The same friends list under Classic experience, No Battle.net, Online friends and Show everything.*\n\n## Contributing\n\nContributions are welcome! Feel free to open issues or submit pull requests.\n\n## License\n\nThis project is licensed under the [GNU General Public License v3.0](https://github.com/Metalhearf/HideBattleNetFriends/blob/main/LICENSE).\n\nMade by Metalhearf.",
+  "releases": [
+    {
+      "tag": "v2.3.1",
+      "published": "2026-11-21",
+      "notes": "- Fixed: \"Mute Battle.net notifications\" did not hide the Battle.net friend pop-ups on WoW Forever. The option now also applies right away, without /reload."
+    },
+    {
+      "tag": "v2.3.0",
+      "published": "2026-11-07",
+      "notes": "- WoW Forever: new option \"Use the classic friends window\" to open the old friends window with the friends key.\n- Works with ClassicUI Forever's old friends window: filters and profiles apply, Hide Battle.net friends keeps your in-game friends, and the HideBattleNetFriends button no longer overlaps its lock button.\n- In-game friends keep their character name with BattleTags instead of real names.\n- The settings window closes together with the friends list.\n- Opening the settings with the friends list closed no longer risks an empty friends list on Forever."
+    },
+    {
+      "tag": "v2.2.0",
+      "published": "2026-11-05",
+      "notes": "- New option: hide the friends list button, for a minimal friends list.\n- New command: /hbnf buttons shows the minimap and friends list buttons again."
+    },
+    {
+      "tag": "v2.1.0",
+      "published": "2026-11-05",
+      "notes": "- WoW Forever: works with the new social window. Hide Battle.net friends keeps your in-game friends; filters, profiles and Blizzard's search and Filter button work on the list.\n- Fixed on Forever: empty friends list every other opening and the \"blocked\" message.\n- BattleTags instead of real names, hidden notes and broadcasts in the new window's cards and tooltips.\n- Forever: friend request and tab options are not available (they would require changing Blizzard's window)."
+    },
+    {
+      "tag": "v2.0.0",
+      "published": "2026-11-03",
+      "notes": "- New settings window (/hbnf, minimap button, button next to the friends list close button, Options > AddOns).\n- Profiles: Classic experience, No Battle.net, Online friends, WoW friends, Show everything.\n- Friend filters: offline, app-only, other games, offline WoW friends.\n- BattleTags instead of real names in the friends list, tooltips, Battle.net whispers, chat, pop-ups, menus and dialogs.\n- Hide friend notes, broadcasts, requests, your own BattleTag, Quick Join pop-ups and tabs; mute Battle.net notifications.\n- /hbnf off and /hbnf on, a key binding, and /hbnf help.\n- Hold Shift while opening the friends list to see everything.\n- 11 languages.\n\nNew defaults on top of 1.x (Battle.net friends hidden): BattleTags instead of real names, hidden friend requests, hidden friend notes and hidden Quick Join pop-ups."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Metalhearf/HideBattleNetFriends/main/Screenshots/window.png",
+    "https://raw.githubusercontent.com/Metalhearf/HideBattleNetFriends/main/Screenshots/friends-button.png",
+    "https://raw.githubusercontent.com/Metalhearf/HideBattleNetFriends/main/Screenshots/profiles.png",
+    "https://raw.githubusercontent.com/Metalhearf/HideBattleNetFriends/main/Screenshots/logo.png",
+    "https://raw.githubusercontent.com/Metalhearf/HideBattleNetFriends/main/Screenshots/logo400.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-07",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-03",
+      "2026-10-14",
+      "2026-09-27",
+      "2026-08-12",
+      "2026-07-23",
+      "2026-06-17",
+      "2026-06-03",
+      "2026-04-22",
+      "2026-04-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HideBattleNetFriends"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "HideBattleNetFriendsDB"
+    ]
+  }
+}

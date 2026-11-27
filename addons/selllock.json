@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "selllock",
+  "repo": "Nigeltve/SellLock",
+  "about": "# SellLock\n\nA World of Warcraft **Forever** addon that locks items so they can't be sold by accident.\n\n## How it works\n\n1. Bind a key in **Game Menu → Key Bindings → AddOns → SellLock → Toggle sell lock on hovered item** (unbound by default).\n2. Hover over a stack in your bags and press the key. A lock icon appears on it. Press again to unlock.\n3. While a merchant is open, clicks on a locked stack are blocked, so right-clicking or dragging it can't sell it. (You also can't move it until you close the merchant or unlock it.)\n4. If a locked stack gets sold anyway (a bag addon's auto-sell or a \"sell junk\" button), SellLock buys it straight back from the buyback tab and locks it again. A buyback costs exactly what the merchant paid, so your gold doesn't change.\n\nNotes:\n\n- A lock belongs to that one stack, not every copy of the item. Split-off stacks start unlocked; merging a locked stack into another can lose the lock.\n- Lock icons and click blocking work in the default bags and in BetterBags. In other bag addons the keybind still locks and the auto-buyback still protects, but there's no icon or click blocking.\n- Only selling is protected. Deleting, mailing, trading and auction listings are not.\n- Locks are saved per character. Disabling the addon stops buybacks and hides the icons; the locks stay saved.\n\n## Requirements\n\n- WoW Forever client (Interface `16001`)\n\n## Installation\n\n1. Download the latest `SellLock-vX.Y.Z.zip` from the Releases page.\n2. Extract it into `World of Warcraft\\_forever_\\Interface\\AddOns\\`, so you end up with `AddOns\\SellLock\\SellLock.toc`.\n3. Restart the game or `/reload`.\n\n## Settings\n\nOpen **Settings → AddOns → SellLock**, or type `/slock`.\n\n| Setting | Default | Saved |\n|---|---|---|\n| Enabled | On | Per character |\n\n## Slash commands\n\n`/selllock` works the same as `/slock`.\n\n| Command | What it does |\n|---|---|\n| `/slock` | Show the addon version and open the options panel |\n| `/slock config` | Open the options panel |\n| `/slock help` | List the commands |\n| `/slock toggle` | Turn the addon on/off for this character |\n| `/slock status` | Print the version and whether the addon is enabled |\n| `/slock lock` | Toggle the sell lock on the bag item under the mouse (what the keybind does; handy in a macro) |\n\n## Troubleshooting\n\n- **Locked item was sold and not bought back:** SellLock says so in chat. Buy it back from the merchant's buyback tab before you log out.\n- **Lua errors:** enable them with `/console scriptErrors 1`, `/reload`, and include the error text in an issue.\n\n## Releasing (maintainers)\n\nRaise `## Version:` in `SellLock.toc` (format `X.Y.Z`) and push to `main`. GitHub Actions then zips the addon and publishes release `vX.Y.Z` with generated notes. Pushes where the version isn't higher than the latest release are skipped. You can also run **Actions → Create Release → Run workflow** to release the current `.toc` version if it hasn't been released yet.\n\n## Author\n\nNuggyNige",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "name": "Release v1.0.1",
+      "published": "2026-11-17",
+      "notes": "**Full Changelog**: https://github.com/Nigeltve/SellLock/compare/v1.0.0...v1.0.1"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Release v1.0.0",
+      "published": "2026-11-17",
+      "notes": "**Full Changelog**: https://github.com/Nigeltve/SellLock/commits/v1.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SellLock"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "BetterBags"
+    ],
+    "savedVariables": [
+      "SL_DB"
+    ],
+    "savedVariablesPerCharacter": [
+      "SL_DB_CHAR"
+    ]
+  }
+}

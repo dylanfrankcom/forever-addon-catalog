@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "patchtoolsbags",
+  "repo": "csBlackWolf/PatchToolsBags",
+  "about": "# \uD83C\uDDEC\uD83C\uDDE7 PatchToolsBags\n\n_A compact bag addon for PatchTools with fast item sorting for Classic Era and Forever._\n\n## Features\n\n- All bags in one window, with separate sections for specialty bags\n- A matching bank window\n- Fast sorting at the click of a button\n- Merge partial stacks to free up bag space\n- Optional sorting when opening your bags or bank\n- Search by name, item ID or item type\n- Colored rarity borders and gold borders for quest items\n- Visual markers for quest items, protected items, junk and items marked for sale\n- Pawn upgrade arrows, including future upgrades above your current level\n- A movable, scalable window with adjustable background transparency\n- Remember window position and size for each character\n\nOpen the settings directly from the bag window using the cogwheel.\n\n**[PatchTools](https://www.curseforge.com/wow/addons/patchtools) is required and must be enabled!** [Pawn](https://www.curseforge.com/wow/addons/pawn) is optional and enables upgrade arrows.\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/ptbags` | Open or close the bag window. |\n| `/ptbags bank` | Return to the compact bank view while visiting the banker. |\n| `/ptbags reset` | Reset bag and bank window positions, sizes and columns. |\n| `/ptbags debug` | Open the shared diagnostic report with addon versions and load states. |\n\nYou can also use `/patchtoolsbags` instead of `/ptbags`.\n\n[Source code](https://github.com/csBlackWolf/PatchToolsBags) · [Report bugs and suggest ideas](https://github.com/csBlackWolf/PatchTools/issues/new/choose)\n\n[User guide](https://github.com/csBlackWolf/PatchToolsBags/blob/main/GUIDE.md) · [Developer guide](https://github.com/csBlackWolf/PatchToolsBags/blob/main/DEVELOPMENT.md)\n\n---\n\n# \uD83C\uDDE9\uD83C\uDDEA PatchToolsBags\n\n_Ein kompaktes Taschen-Addon für PatchTools mit schneller Item-Sortierung für Classic Era und Forever._\n\n## Funktionen\n\n- Alle Taschen in einem Fenster, mit getrennten Bereichen für Spezialtaschen\n- Ein dazu passendes Bankfenster\n- Schnelle Sortierung per Klick\n- Angebrochene Stapel zusammenführen und Taschenplätze freimachen\n- Optionale Sortierung beim Öffnen von Taschen oder Bank\n- Suchfunktion für Namen, Item-IDs oder Itemtypen\n- Farbige Seltenheitsrahmen und goldene Rahmen für Questitems\n- Symbole für Questitems, geschützte Items, Schrott und zum Verkauf vorgesehene Items\n- Pawn-Verbesserungspfeile, auch für zukünftige Upgrades über deiner aktuellen Stufe\n- Verschiebbares und skalierbares Fenster mit einstellbarer Hintergrundtransparenz\n- Position und Größe für jeden Charakter merken\n\nÜber das Zahnrad im Taschenfenster erreichst du die Einstellungen direkt.\n\n**[PatchTools](https://www.curseforge.com/wow/addons/patchtools) wird benötigt und muss aktiviert sein!** [Pawn](https://www.curseforge.com/wow/addons/pawn) ist optional und ermöglicht die Verbesserungspfeile.\n\n## Befehle\n\n| Befehl | Funktion |\n| --- | --- |\n| `/ptbags` | Taschenfenster öffnen oder schließen. |\n| `/ptbags bank` | Beim Bankier zur kompakten Bankansicht zurückkehren. |\n| `/ptbags reset` | Position, Größe und Spaltenzahl von Taschen- und Bankfenster zurücksetzen. |\n| `/ptbags debug` | Den gemeinsamen Diagnosebericht mit Addon-Versionen und Ladestatus öffnen. |\n\nStatt `/ptbags` funktioniert auch `/patchtoolsbags`.\n\n[Quellcode](https://github.com/csBlackWolf/PatchToolsBags) · [Fehler und Ideen melden](https://github.com/csBlackWolf/PatchTools/issues/new/choose)\n\n[Bedienungsanleitung](https://github.com/csBlackWolf/PatchToolsBags/blob/main/GUIDE.md) · [Entwicklerinfos](https://github.com/csBlackWolf/PatchToolsBags/blob/main/DEVELOPMENT.md)",
+  "releases": [
+    {
+      "tag": "v0.1.6",
+      "name": "PatchToolsBags 0.1.6",
+      "published": "2026-11-06",
+      "notes": "# PatchToolsBags 0.1.6 — 2026-11-06\n\n- Respect material restrictions when moving items into profession-slot bags. Crafting materials are no longer treated as universally compatible with every profession bag.\n- Avoid repeating a refused item move when the affected slots are unchanged, preventing repeated pickup sounds and stack flicker on automatic bag opening.\n- Allow a fresh attempt when either affected slot or its relevant item metadata changes.\n\nValidation: automated tests cover restricted profession bags, refused-drop restoration, unchanged repeated sorting without pickup calls, and successful retry after item changes. The local Forever test was confirmed in game."
+    },
+    {
+      "tag": "v0.1.5",
+      "name": "PatchToolsBags 0.1.5",
+      "published": "2026-11-06",
+      "notes": "# PatchToolsBags 0.1.5 — 2026-11-06\n\n- Keep confirmed Pawn upgrade arrows visible while their ratings are refreshed, reducing flicker when items enter the inventory.\n- Optionally move matching items into specialty and reagent bags when sorting outside combat. Enabled by default; combat sorting still changes the display only.\n- Start with bank expansion slots collapsed on both clients and align them with the inventory grid.\n- Label the next bank-slot price beside the expansion controls.\n\nValidation: automated checks cover upgrade-cache refresh, specialty-bag routing, bank layout and existing item interactions on both supported clients. Broader gameplay testing remains welcome."
+    },
+    {
+      "tag": "v0.1.4",
+      "name": "PatchToolsBags 0.1.4",
+      "published": "2026-11-05",
+      "notes": "# PatchToolsBags 0.1.4 — 2026-11-05\n\n- Fix the blocked first bank-tab setup on Forever while preserving Blizzard's secure opening flow.\n- Show Forever bank expansion slots and forward locked-slot clicks to Blizzard's purchase confirmation.\n- Refresh the bank when additional slots become available.\n- Prevent Blizzard's carried-bag windows from briefly flashing before the PatchToolsBags window appears.\n- Preserve Classic Era support and restore native bag visibility when replacement is disabled.\n\nValidation: Forever bank opening, deposits and withdrawals were confirmed in game. Automated checks cover secure opening, expansion controls and confirmation forwarding, native visibility restoration, sorting and existing item interactions. The final expansion controls and flash correction still need broader gameplay coverage."
+    },
+    {
+      "tag": "v0.1.3",
+      "name": "PatchToolsBags 0.1.3",
+      "published": "2026-11-05",
+      "notes": "# PatchToolsBags 0.1.3 — 2026-11-05\n\n- Fix opening the bag window on Forever.\n- Restore item icons and stack counts with the correct Forever item-button type.\n- Fix the money display and keep bank-slot prices compatible with the current currency API.\n- Preserve Classic Era support and the existing native item interactions.\n\nValidation: bag opening confirmed in game on Forever. Automated checks cover missing legacy mouse/currency functions, item rendering, stack counts, profession bags, dragging and the existing inventory/bank regressions."
+    },
+    {
+      "tag": "v0.1.2",
+      "name": "PatchToolsBags 0.1.2",
+      "published": "2026-10-27",
+      "notes": "# PatchToolsBags 0.1.2 — 2026-10-27\n\nThe tested bag and bank improvements are now part of the regular release.\n\n- A compact bank window with search, sorting and separate specialty-bag sections.\n- Open bank bag slots with the Bank bags button; insert or change bags using the usual controls.\n- Click a locked bank bag slot or drop a bag onto it to open Blizzard's purchase confirmation. The bag stays on the cursor.\n- Access Blizzard's original bank view from settings.\n- Optional sorting when opening bags or the bank, disabled by default. In combat only the display is sorted; stack merging runs outside combat.\n- Larger Pawn upgrade arrows, including future upgrades above your current level, with a setting to hide them.\n- Adjustable background transparency, including empty slots, and direct settings access from the bag window.\n- Position, size and columns saved separately for each character, with separate bank geometry.\n- Correct main-bank item tooltips and improved native drag/drop, merchant cursors and item highlights.\n- `/ptbags debug` opens the shared diagnostic report with addon versions and load states.\n\nRequires PatchTools. Recommended companion: PatchTools 0.9.0.\n\nValidation: Classic Era gameplay testing by the maintainer and testers, plus automated inventory, bank and Era/Forever compatibility checks. Live Forever bank testing remains pending."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-10-27",
+      "2026-10-25",
+      "2026-10-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PatchToolsBags"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "requires": [
+      "PatchTools"
+    ],
+    "optional": [
+      "Pawn"
+    ],
+    "savedVariables": [
+      "PatchToolsBagsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "PatchToolsBagsCharacterDB"
+    ]
+  }
+}

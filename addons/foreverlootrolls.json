@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverlootrolls",
+  "repo": "sudo-elmo/ForeverLootRolls",
+  "about": "# Forever Loot Rolls\n\nAn extended loot roll window for **World of Warcraft: Forever**.\n\nAs soon as your group has to roll on an item, the window opens and shows live who picked **Need**, **Greed** or **Pass**, who is still choosing, every roll and who won. When all rolls are done it closes again by itself.\n\n---\n\n## Features\n\n- Opens by itself when a roll starts – optionally only in dungeons and raids\n- Plain and small: per item its name and a thin time bar, below it every player with the icon of their choice and their roll – no other text\n- Hover an item for its tooltip; click it to fold it in or out\n- Winner on top, then Need, Greed, Disenchant and Pass, highest roll first\n- Players who have not chosen yet are shown as \"waiting\"\n- Big Need / Greed / Pass buttons right under the item while you still have to roll (can be turned off)\n- Closes a few seconds after the last roll is done; stays open while your mouse is over it\n- Finished rolls stay in the list per character (also after `/reload`); the Clear button empties it\n- The list starts fresh when you enter a different dungeon or raid (can be turned off)\n- **Loot history** (note button, top left): every item ever rolled on, newest first, grouped by dungeon, raid or zone visit, with time, winner and roll. Kept when you clear the list or change dungeons. Filter \"only my wins\".\n- Shift-click an item to link it in chat, Ctrl-click to try it on\n- English and German (follows your game language); the chat messages are read in every game language\n\n## Commands\n\n| Command | |\n|---|---|\n| `/lootrolls` or `/flr` | Show or hide the window |\n| `/lootrolls test` | Made-up demo rolls to try the window (only you see them) |\n| `/lootrolls history` | Show or hide the loot history |\n| `/lootrolls clear` | Remove finished rolls |\n| `/lootrolls options` | Open the settings |\n\n## Settings\n\nOptions → AddOns → Forever Loot Rolls, or the gear in the window:\n\n- When finished items fold in: right away, a few seconds after everyone has rolled (default), when the next roll starts, or never\n- Two sections, set separately: **Dungeons and raids** (open when entering – off by default, open when a roll starts, close when everyone has rolled + seconds) and **Open world** (open when a roll starts, close when everyone has rolled + seconds)\n- Close with Escape\n- Need / Greed / Pass buttons in the window\n- Clear the list when entering a new dungeon\n- Background opacity (100 % = solid black)\n- Maximum window height (longer lists scroll)\n- How many rolls the list keeps\n\n## How it works\n\nChoices, rolls and winners come from the game's loot chat messages (the same lines you see in the chat), using the game's own text for your language. The item, time left and whether you may roll Need come from the roll itself.\n\n## Development\n\nTests run without a WoW client:\n\n```sh\nlua5.1 tests/rolls_test.lua .\nlua5.1 tests/archive_test.lua .\nlua5.1 tests/ui_smoke_test.lua .\n```\n\nReleases: push a tag like `v0.1.0`. GitHub Actions runs the tests, builds the zip with the BigWigs packager and uploads it to CurseForge (needs `## X-Curse-Project-ID` in the `.toc` and the `CF_API_KEY` secret). Every release needs a section for its version in `CHANGELOG.md`.\n\n## License\n\nMIT – see [LICENSE](https://github.com/sudo-elmo/ForeverLootRolls/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-14",
+      "notes": "- First version.\n- The window opens by itself as soon as a group roll starts and closes a few seconds after the last roll has a winner (it stays open while the mouse is over it).\n- Plain, small window. For every item: who picked Need, Greed, Disenchant or Pass, who is still choosing, every roll and the winner – live.\n- Big Need / Greed / Pass buttons under the item while you still have to roll (can be turned off).\n- Finished rolls stay in the list per character, also after `/reload`. A Clear button empties the list.\n- The list is cleared on a new dungeon or raid run: another dungeon, another group, or after a reset message (setting, on by default).\n- Loot history (note button, top left, or `/lootrolls history`): every item ever rolled on, newest first and grouped by dungeon run (also the same dungeon twice in a row), raid or zone visit. It stays when you clear the list or enter a new dungeon. Filters for your own wins and for item quality (e.g. from rare, to hide green items).\n- Loot history: only the newest dungeon run is open, older ones are folded in. A button at the bottom collapses or expands all of them at once.\n- `/lootrolls test` shows made-up demo rolls to try the window.\n- Settings under Options → AddOns → Forever Loot Rolls.\n- English and German."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "ForeverLootRolls"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverLootRollsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ForeverLootRollsCharDB"
+    ]
+  }
+}

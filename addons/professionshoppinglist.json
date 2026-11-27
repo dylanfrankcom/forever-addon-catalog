@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "professionshoppinglist",
+  "repo": "Slackluster/ProfessionShoppingList",
+  "about": "# Profession Shopping List\nA World of Warcraft addon. Download locations: [CurseForge](https://www.curseforge.com/wow/addons/profession-shopping-list) | [Wago](https://addons.wago.io/addons/psl)\n\n[![](https://media.forgecdn.net/attachments/1439/398/buymeacoffee-png.png)](https://www.buymeacoffee.com/Slackluster)\n\n**Profession Shopping List (PSL)** allows you to track recipes, and it shows you the materials you need to craft them. It also tracks recipe cooldowns.\n\n![](https://media.forgecdn.net/attachments/description/498475/description_2221bf7d-a25f-455c-be98-a583840ca8eb.png)\n\nWhen viewing your profession knowledge, see at a glance how many perks you have unlocked and what one-time knowledge you can still obtain.\n\n![](https://media.forgecdn.net/attachments/description/498475/description_6a09055d-0fba-4a28-9f6a-5101b38c8d9d.png)\n\nEasily shows you what a crafting orders's rewards are and how profitable they are.\n\n![](https://media.forgecdn.net/attachments/1587/809/psl-07-png.png)\n\nQuickly send work orders to your alts with the Quick Order preset, and repeat your last work order sent with the click of a button.\n\n![](https://media.forgecdn.net/attachments/description/498475/description_63b8d23a-a163-4674-a515-57d060a53c71.png)\n\nEasily track profession achievements and let Profession Shopping List grab the necessary recipes for you.\n\n![](https://media.forgecdn.net/attachments/description/498475/description_5e7b3f4d-5d1f-4cf8-afa7-a0d49ae8ba3d.png)\n\nIncludes handy buttons for your professions, such as portable anvils or the cooking fire.\n\n![](https://media.forgecdn.net/attachments/description/498475/description_6ad0619e-e7b5-4572-a793-ccacd3e462ee.png)\n\nAlso lets you track the cost of vendor items. Say goodbye to scribbling on a notepad.\n\n![](https://media.forgecdn.net/attachments/description/498475/description_98cccb19-e982-44c7-9b27-99ae5906c085.png)\n\nA full list of features and slash commands can be found in-game by reading the tooltips on the tracking window and viewing the addon's settings.\n\nCurrently supported addons:\n- CraftSim\n- TestFlight\n\n## If you are experiencing issues\n- Use `/psl clear`. Sometimes stuff gets stuck, or old data needs to be cleared.\n- Check if the issue occurs with only this addon enabled, or if the issue is a feature you can disable from the addon's settings menu.\n- If the issues persist or you have other feedback, feel free to join the [Discord](https://discord.gg/FwWZZ39kPX) and ask in the `#profession-shopping-list` channel, or create a [ticket on GitHub](https://github.com/Slackluster/ProfessionShoppingList/issues). :)",
+  "releases": [
+    {
+      "tag": "v246",
+      "published": "2026-11-23",
+      "notes": "# Profession Shopping List\n\n## [v246](https://github.com/Slackluster/ProfessionShoppingList/tree/v246) (2026-11-23)\n[Full Changelog](https://github.com/Slackluster/ProfessionShoppingList/compare/v245...v246) [Previous Releases](https://github.com/Slackluster/ProfessionShoppingList/releases)\n\n- Fix personal recrafting orders calculating as full crafts (fixes #385, merges #427)  \n- Fix skill thresholds and SL legendary rank when selecting ranked recipes (fixes #257, fixes #409, merges #426)  \n- Fix Track New Mogs tracking multiple ranks of ranked recipes (fixes #365) (merges #425)  \n- Comments  \n- Exclude vendor reagents from AH shopping list unless AH is cheaper (fixes #382) (merges #422)  \n- Remove/decrement items in Auctionator shopping list on purchase (fixes #398) (merges #421)  \n- Added a toggle for the tab  \n- Machine-translated all untranslated strings. I still prefer this be done by humans and existing translators' work is preserved and prioritised. This should make the addon more accessible until other volunteer translators show up! :)  \n- GlobalStrings  \n- Grab translations from my other addons"
+    },
+    {
+      "tag": "v245",
+      "published": "2026-11-19",
+      "notes": "# Profession Shopping List\n\n## [v245](https://github.com/Slackluster/ProfessionShoppingList/tree/v245) (2026-11-19)\n[Full Changelog](https://github.com/Slackluster/ProfessionShoppingList/compare/v244...v245) [Previous Releases](https://github.com/Slackluster/ProfessionShoppingList/releases)\n\n- Update ruRU.lua (#428)  \n- Don't round gold values as aggressively in Forever  \n- Add a keybind to the orders queue  \n- Localise \"cancel form\"  \n- Add a cancel shapeshift button  \n- Update new Concentration dropdown  \n- Track concentration patron orders per profession per character (#423) Closes #368\n- Fix an error when trying to shift+click search an enchanting craft on the AH  \n- More returns, less indentation  \n- Tanning Rack skill requirement lowered to 125 (was 140)."
+    },
+    {
+      "tag": "v244",
+      "published": "2026-11-07",
+      "notes": "# Profession Shopping List\n\n## [v244](https://github.com/Slackluster/ProfessionShoppingList/tree/v244) (2026-11-07)\n[Full Changelog](https://github.com/Slackluster/ProfessionShoppingList/compare/v12.1.5-07...v244) [Previous Releases](https://github.com/Slackluster/ProfessionShoppingList/releases)\n\n- Update bug\\_report.yaml  \n- Addon comms now use cbor/base64 encoded tables, instead of precariously formatted strings (fixes #362)  \n- Update our version comms to support our new version numbering  \n- Update bug\\_report.yaml  \n- Potentially fix an issue where a filter was applied incorrectly (fixes #418)"
+    },
+    {
+      "tag": "v12.1.5-07",
+      "published": "2026-11-06",
+      "notes": "# Profession Shopping List\n\n## [v12.1.5-07](https://github.com/Slackluster/ProfessionShoppingList/tree/v12.1.5-07) (2026-11-06)\n[Full Changelog](https://github.com/Slackluster/ProfessionShoppingList/compare/v12.1.5-06...v12.1.5-07) [Previous Releases](https://github.com/Slackluster/ProfessionShoppingList/releases)\n\n- Add First Aid icon for tooltip craft info  \n- Properly round crafting costs below 1g"
+    },
+    {
+      "tag": "v12.1.5-06",
+      "published": "2026-11-06",
+      "notes": "# Profession Shopping List\n\n## [v12.1.5-06](https://github.com/Slackluster/ProfessionShoppingList/tree/v12.1.5-06) (2026-11-06)\n[Full Changelog](https://github.com/Slackluster/ProfessionShoppingList/compare/v12.1.5-05...v12.1.5-06) [Previous Releases](https://github.com/Slackluster/ProfessionShoppingList/releases)\n\n- Unused x/y (thank you, Phiir42)  \n- Fix an error that could occur on Forever when the professions tab was not yet created, but another tab was (fixes #417)  \n- Fix Forever recipe names bouncing back after crafting"
+    }
+  ],
+  "stats": {
+    "stars": 10,
+    "openIssues": 39,
+    "contributors": 12,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-19",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-11-02",
+      "2026-10-31",
+      "2026-10-14",
+      "2026-10-07",
+      "2026-09-30",
+      "2026-09-25",
+      "2026-09-22",
+      "2026-09-14",
+      "2026-08-30",
+      "2026-08-26",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-08-07",
+      "2026-07-20",
+      "2026-07-04",
+      "2026-06-29",
+      "2026-06-29",
+      "2026-06-29",
+      "2026-06-28",
+      "2026-06-25",
+      "2026-06-17",
+      "2026-06-14",
+      "2026-06-07",
+      "2026-05-30",
+      "2026-05-26",
+      "2026-05-24",
+      "2026-05-23",
+      "2026-05-23",
+      "2026-05-22",
+      "2026-05-22",
+      "2026-05-21",
+      "2026-05-18",
+      "2026-05-18",
+      "2026-04-24",
+      "2026-04-20",
+      "2026-04-06",
+      "2026-04-03",
+      "2026-03-24",
+      "2026-03-21",
+      "2026-03-21",
+      "2026-03-21",
+      "2026-03-21",
+      "2026-03-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ProfessionShoppingList"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ProfessionShoppingList_Settings",
+      "ProfessionShoppingList_Data",
+      "ProfessionShoppingList_Library",
+      "ProfessionShoppingList_Cache"
+    ],
+    "savedVariablesPerCharacter": [
+      "ProfessionShoppingList_CharacterData"
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "lastseen",
+  "repo": "LightskyGG/LastSeen",
+  "releases": [
+    {
+      "tag": "5.1.4",
+      "published": "2026-09-24",
+      "notes": "# LastSeen\n\n## [5.1.4](https://github.com/Saaappi/LastSeen/tree/5.1.4) (2026-09-24)\n[Full Changelog](https://github.com/Saaappi/LastSeen/compare/5.1.3...5.1.4) [Previous Releases](https://github.com/Saaappi/LastSeen/releases)\n\n- Update interface version for Forever and improve item usage hook in Containers.lua as Forever was unhappy about this."
+    },
+    {
+      "tag": "5.1.3",
+      "published": "2026-08-12",
+      "notes": "# LastSeen\n\n## [5.1.3](https://github.com/Saaappi/LastSeen/tree/5.1.3) (2026-08-12)\n[Full Changelog](https://github.com/Saaappi/LastSeen/compare/5.1.2...5.1.3) [Previous Releases](https://github.com/Saaappi/LastSeen/releases)\n\n- Update interface version to 12.1"
+    },
+    {
+      "tag": "5.1.2",
+      "published": "2026-07-12",
+      "notes": "# LastSeen\n\n## [5.1.2](https://github.com/Saaappi/LastSeen/tree/5.1.2) (2026-07-12)\n[Full Changelog](https://github.com/Saaappi/LastSeen/compare/5.1.1...5.1.2) [Previous Releases](https://github.com/Saaappi/LastSeen/releases)\n\n- Update interface version in LastSeen.toc to 120007  \n- Merge pull request #108 from emptyrivers:patch-1  \n    guard against secret tooltips  \n- guard against secret tooltips"
+    },
+    {
+      "tag": "5.1.1",
+      "published": "2026-05-03",
+      "notes": "# LastSeen\n\n## [5.1.1](https://github.com/Saaappi/LastSeen/tree/5.1.1) (2026-05-03)\n[Full Changelog](https://github.com/Saaappi/LastSeen/compare/5.1.0...5.1.1) [Previous Releases](https://github.com/Saaappi/LastSeen/releases)\n\n- Add checks for secret values in GetUnitTypeFromGUID and GetIDFromGUID functions"
+    },
+    {
+      "tag": "5.1.0",
+      "published": "2026-02-07",
+      "notes": "# LastSeen\n\n## [5.1.0](https://github.com/Saaappi/LastSeen/tree/5.1.0) (2026-02-04)\n[Full Changelog](https://github.com/Saaappi/LastSeen/compare/5.0.7...5.1.0) [Previous Releases](https://github.com/Saaappi/LastSeen/releases)\n\n- Add check for secret values in ExtractItemLinkFromText function  \n- Uncommented lines that shouldn't have remained commented  \n- Massive performance overhaul to Core.lua and Search.lua.  \n- Removed debug prints  \n- Containers should now track reliably (both with and without a loot window).  \n- Trying to reliably track container loot that doesn't generate loot windows. I'm successful in tracking the first item from these containers, but not successive ones.  \n- Patched a reliability hole: item GUID sources shouldn't require immediate GUID->link resolution.  \n- Load Containers.lua.  \n- An attempt at fixing container loot."
+    }
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 8,
+    "contributors": 5,
+    "lastRelease": "2026-09-24",
+    "releaseDates": [
+      "2026-09-24",
+      "2026-08-12",
+      "2026-07-12",
+      "2026-05-03",
+      "2026-02-07",
+      "2026-01-31",
+      "2026-01-22",
+      "2025-11-30",
+      "2025-06-09",
+      "2025-05-20",
+      "2024-11-13",
+      "2024-11-12",
+      "2024-11-09",
+      "2023-07-24",
+      "2023-07-05",
+      "2023-07-03",
+      "2023-06-28",
+      "2023-06-27",
+      "2023-06-25",
+      "2023-06-25",
+      "2023-06-25",
+      "2020-10-28",
+      "2020-10-20",
+      "2020-10-16",
+      "2020-10-16",
+      "2020-10-16",
+      "2020-07-01",
+      "2020-06-18",
+      "2020-06-15",
+      "2020-06-04",
+      "2019-12-12",
+      "2019-11-24",
+      "2019-11-23",
+      "2019-11-23",
+      "2019-11-22",
+      "2019-10-23",
+      "2019-10-21",
+      "2019-10-02",
+      "2019-09-24",
+      "2019-09-20",
+      "2019-08-30",
+      "2019-08-16",
+      "2019-08-02",
+      "2019-07-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LastSeen"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "LastSeenDB"
+    ]
+  }
+}

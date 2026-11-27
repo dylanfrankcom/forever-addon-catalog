@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "claude-in-wow",
+  "repo": "tomlrd/claude-in-wow",
+  "about": "# Claude in WoW\n\n[![tests](https://github.com/tomlrd/claude-in-wow/actions/workflows/test.yml/badge.svg)](https://github.com/tomlrd/claude-in-wow/actions/workflows/test.yml)\n[![license](https://img.shields.io/badge/license-all%20rights%20reserved-555)](https://github.com/tomlrd/claude-in-wow/blob/main/LICENSE)\n[![WoW](https://img.shields.io/badge/WoW-Retail%20%C2%B7%20Classic%20%C2%B7%20Forever-148EFF)](#)\n[![languages](https://img.shields.io/badge/languages-EN%20FR%20DE%20ES%20IT-brightgreen)](https://github.com/tomlrd/claude-in-wow/blob/main/TRANSLATING.md)\n[![Claude Code](https://img.shields.io/badge/works%20with-Claude%20Code-D97757?logo=claude&logoColor=white)](https://claude.com/claude-code)\n[![Lire en français](https://img.shields.io/badge/-Lire%20en%20fran%C3%A7ais-555)](https://github.com/tomlrd/claude-in-wow/blob/main/README.fr.md)\n[![release](https://img.shields.io/github/v/release/tomlrd/claude-in-wow)](https://github.com/tomlrd/claude-in-wow/releases)\n[![CurseForge](https://img.shields.io/curseforge/dt/1831581?logo=curseforge&label=CurseForge)](https://www.curseforge.com/wow/addons/claude-in-wow)\n\n![What it does: links, answers, routes, the party chat, the bags, ForeverAuras](https://raw.githubusercontent.com/tomlrd/claude-in-wow/main/docs/images/claude-in-wow.gif)\n\nAsk [Claude](https://claude.com/) about your World of Warcraft game, **from the game itself**: your character, your quests, your bags, where to go and why. The answer shows in a window in the game, with its links, its buttons, its marks on your bags and its routes to follow.\n\n**The addon: [on CurseForge](https://www.curseforge.com/wow/addons/claude-in-wow)** (or the zip of each [release](https://github.com/tomlrd/claude-in-wow/releases)).\n\n**Unofficial.** Works with Claude, by Anthropic. Not affiliated with Anthropic nor Blizzard.\n\n![How it works](https://raw.githubusercontent.com/tomlrd/claude-in-wow/main/docs/images/12-how.jpg)\n\nIt is two things that go together:\n\n- **the addon** (`addon/`), in the game: the window, what is read from the game, what is drawn. Retail, the Classic versions and WoW Forever, in English, French, German, Spanish and Italian;\n- **the plugin** (`plugin/`), on your computer: a [Claude Code](https://claude.com/claude-code) plugin that receives your questions, gives Claude the state of your game, and puts the answers in the game.\n\nIt only proposes. It plays nothing in your place: one click is one action, and nothing that loses something has a button.\n\n## Installing it\n\n1. Install [Claude Code](https://claude.com/claude-code) and sign in with your Claude account (an active plan: Pro, Max...). No plan? An API key of yours works too, paid by use: step 4 tells how.\n2. Install the addon from [CurseForge](https://www.curseforge.com/wow/addons/claude-in-wow), or put the zip of a [release](https://github.com/tomlrd/claude-in-wow/releases) in the game's `Interface\\AddOns` folder.\n3. In Claude Code, type `/plugin marketplace add tomlrd/claude-in-wow`, then `/plugin install wow-mcp@claude-in-wow`.\n4. Type `/wow-mcp:setup`: it checks everything, offers to install [Node.js](https://nodejs.org/) when it is missing, and starts the answers.\n5. Quit the game and start it again, once. A click on the spark on the minimap opens the window.\n\nEach answer uses your own Claude plan, or your API key (kept encrypted on your computer, given to Claude Code alone). The answers come even with no Claude window open: a hidden program waits for your questions (the silent mode). Or talk to a Claude session you see: you choose, in the addon's settings. It works on Windows; on macOS it should, tell us how it goes.\n\n## What is read, and where it goes\n\nRead in the game: your character, quests, bags, the places and people around, your addons' list and Lua errors, and what a question needs. **Never**: whispers, Battle.net, officers' chat and notes, your account's settings. Your question goes to the plugin in a screenshot that only holds that data, which the plugin reads on your computer, and deletes once another replaces it; Claude then gets the question and what it needs of it. Besides that, only the web is asked: the searches Claude makes, and the names of items, quests or creatures in an answer, looked up to make them links (never those of players). You may turn both off. Once a day the plugin also reads this project's last release on GitHub, for the updates.\n\nHow the two parts talk: [docs/protocol.md](https://github.com/tomlrd/claude-in-wow/blob/main/docs/protocol.md).\n\n## Taking part\n\nBugs, ideas, translations and code are welcome: [CONTRIBUTING.md](https://github.com/tomlrd/claude-in-wow/blob/main/CONTRIBUTING.md), [TRANSLATING.md](https://github.com/tomlrd/claude-in-wow/blob/main/TRANSLATING.md).\n\n## License\n\n[All rights reserved](https://github.com/tomlrd/claude-in-wow/blob/main/LICENSE). Read it, fork it on GitHub, change it to propose your changes, use it for yourself: yes. Publish it elsewhere (CurseForge, Wago or any other site) or sell it: not without permission. The embedded libraries (`addon/Libs`) and fonts (`addon/Media/Fonts`) have their own licenses.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-26",
+      "notes": "- The button that opens the window can go anywhere on the screen, in the look of your skin (settings, Window).\n- With a Claude session you see, what you say to it there now shows here by itself, with its answer.\n- An answer that shows here by itself no longer replaces what is in your clipboard."
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-26",
+      "notes": "First version."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/tomlrd/claude-in-wow/main/docs/images/claude-in-wow.gif",
+    "https://raw.githubusercontent.com/tomlrd/claude-in-wow/main/docs/images/12-how.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-26"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT"
+  ],
+  "technical": {
+    "folders": [
+      "claude-in-wow"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ClaudeInWoWDB"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "arkinventoryrules-restedxp",
+  "repo": "byWulf/wow-arkinventory-rules-restedxp",
+  "about": "# ArkInventory [Rules] RestedXP\n\nA small plugin for [ArkInventory](https://www.curseforge.com/wow/addons/ark-inventory) that lets ArkInventory rules match items used by the **remaining steps of your current [RestedXP](https://www.restedxp.com/) guide and the guide after it**.\n\nArkInventory evaluates rule formulas in a sandbox where only its own functions are available. It knows nothing about RestedXP. This plugin registers the rule function `rxpitem()` to fill that gap.\n\nTypical use: a **\"Guide items\"** bar that holds everything the guide will still ask you to collect, use, buy or equip, so you don't sell or bank it by accident.\n\n## Supported game versions\n\n| Version | Interface |\n|---|---|\n| WoW Forever | 16001 |\n\nClassic Era and other versions are not supported.\n\n## Requirements\n\n- ArkInventory including **ArkInventoryRules** (enabled)\n- RestedXP Guides with a guide loaded\n\n## Installation\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/arkinventory-rules-restedxp), e.g. with the CurseForge app.\n\nFor a manual installation, note that the folder in your AddOns directory **must** be named `ArkInventoryRules_RestedXP`, otherwise WoW will not load the addon:\n\n```bash\ncd \"C:/Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns\"\ngit clone https://github.com/byWulf/wow-arkinventory-rules-restedxp.git ArkInventoryRules_RestedXP\n```\n\nAlternatively, download the ZIP from the [releases](https://github.com/byWulf/wow-arkinventory-rules-restedxp/releases) and extract it into `Interface/AddOns`.\n\nThen `/reload` in game.\n\n## Rule function\n\n| Function | Returns |\n|---|---|\n| `rxpitem()` | `true` if the item appears in the current step or any later step of the loaded guide, or anywhere in the next guide |\n| `rxpitem(\"use\", \"collect\", …)` | Same, but only for the given guide commands |\n\nSteps that count:\n\n- the current step and every step after it,\n- earlier steps that are still active (sticky steps),\n- except steps you skipped,\n- plus every step of the next guide (the one RestedXP loads when the current guide ends).\n\nItems from steps already behind you (finished or skipped) still count for `collect`, `collectmultiple` and `questitemcount` while the quest they belong to is in your quest log. The turn-in step only names the quest, not the items it needs, so without this the items would drop out as soon as you finish collecting them.\n\nItems from a finished (not skipped) `collect` or `collectmultiple` step that names a quest are also remembered per character until that quest is turned in, even after you moved on to other guides. Typical case: the guide tells you to buy something at the auction house for a quest you only accept a few guides later.\n\nGuide commands that count, and the name to pass to `rxpitem(...)` to filter by them:\n\n| Command | Meaning |\n|---|---|\n| `collect`, `collectmultiple` | Items to collect (quest items, drops) |\n| `use` | Items to use (the item button of the step) |\n| `buy` | Items to buy from a vendor |\n| `equip` | Items to equip |\n| `itemcount`, `questitemcount` | Steps that depend on having the item |\n| `bankdeposit`, `bankwithdraw`, `retrieveitem` | Items to put into or take out of the bank |\n\nLeft out on purpose: `destroy` (items the guide tells you to throw away) and `usespell` (spells, not items).\n\n## Examples\n\nEverything the rest of the guide needs:\n\n```\nrxpitem()\n```\n\nOnly items you still have to use:\n\n```\nrxpitem(\"use\")\n```\n\nGuide items, but not quest items that already have their own bar:\n\n```\nrxpitem() and not rxpitem(\"collect\")\n```\n\n## In-game setup\n\n1. Open `/ai rules` and create a new rule, e.g. \"Guide items\".\n2. Enter a formula, e.g. `rxpitem()`, and enable the rule.\n3. In the bag window, right-click a bar → *Categories – Assignable* → *Rule* → assign the new rule to the bar.\n\n## Good to know\n\n- **The next guide counts too.** Guides often say \"keep these, you will need them later\" only in the step text, while the matching `collect` is in the next guide (e.g. Murloc Fins in the Wetlands guide for a Redridge quest). So all steps of the guide after the loaded one count as well. Guides further ahead don't.\n- **Collected items stay in until the turn-in.** Quest items keep counting after you move past the `collect` step until the quest is turned in, also across guides (saved per character in `ArkInventoryRules_RestedXPCharDB`). Items without a quest (e.g. a plain `collect` for a profession) drop out once their step is behind you.\n- **Refresh.** ArkInventory caches rule results. The plugin checks every 2 seconds whether the guide or the current step changed, and also reacts to accepting, turning in or abandoning quests. Only when the resulting item list changed it clears the cache and redraws the bags.\n- **Rules beat built-in categories.** A matching rule always wins over default categories. A rule's priority only matters against other rules.\n- **Manual assignments beat rules.** An item you assigned to a category by hand stays there.\n- Without RestedXP loaded, or without a guide, `rxpitem()` never matches. No errors are raised.\n\n## License\n\nMIT, see [LICENSE](https://github.com/byWulf/wow-arkinventory-rules-restedxp/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-08",
+      "notes": "# ArkInventory [Rules] RestedXP\n\n## [v1.2.0](https://github.com/byWulf/wow-arkinventory-rules-restedxp/tree/v1.2.0) (2026-11-08)\n[Full Changelog](https://github.com/byWulf/wow-arkinventory-rules-restedxp/compare/v1.1.0...v1.2.0) [Previous Releases](https://github.com/byWulf/wow-arkinventory-rules-restedxp/releases)\n\n- Keep items of finished collect steps until their quest is turned in  \n    Guides tell you to buy items at the auction house for quests that are  \n    only accepted a few guides later (e.g. Jungle Remedy for Bad Medicine).  \n    Items of finished, not skipped collect steps with a quest are now  \n    remembered per character (ArkInventoryRules\\_RestedXPCharDB) and count  \n    until the quest is turned in, also across guide changes.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-07",
+      "notes": "# ArkInventory [Rules] RestedXP\n\n## [v1.1.0](https://github.com/byWulf/wow-arkinventory-rules-restedxp/tree/v1.1.0) (2026-11-07)\n[Full Changelog](https://github.com/byWulf/wow-arkinventory-rules-restedxp/compare/v1.0.0...v1.1.0) [Previous Releases](https://github.com/byWulf/wow-arkinventory-rules-restedxp/releases)\n\n- Count items of the next guide and bankwithdraw steps  \n    Guides often only say \"keep these, you will need them later\" in the step  \n    text while the matching collect is in the next guide (e.g. Murloc Fins in  \n    the Wetlands guide for a Redridge quest). rxpitem() now also reads every  \n    step of the guide named by #next, and handles .bankwithdraw.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Include the hidden .release folder in the test artifact  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Fix the artifact path of manual release workflow runs  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Release via GitHub Actions with the BigWigs packager  \n    - .pkgmeta: package folder name, leave out AGENTS.md and CLAUDE.md  \n    - Release workflow: tag v* builds the zip and uploads it to CurseForge  \n      and GitHub releases; manual runs only build an artifact  \n    - TOC version comes from the tag (@project-version@)  \n    - Document the release steps in AGENTS.md  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "ArkInventory [Rules] RestedXP 1.0.0",
+      "published": "2026-11-06",
+      "notes": "First release on CurseForge, for WoW Forever (interface 16001).\n\nExtract `ArkInventoryRules_RestedXP-1.0.0.zip` into `Interface/AddOns` of your WoW Forever installation, or install it with the CurseForge app."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-06"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "ArkInventoryRules_RestedXP"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "ArkInventoryRules"
+    ],
+    "optional": [
+      "RXPGuides"
+    ],
+    "savedVariablesPerCharacter": [
+      "ArkInventoryRules_RestedXPCharDB"
+    ]
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "id": "questie",
+  "repo": "Questie/Questie",
+  "about": "# Questie\n\n[![Discord](https://img.shields.io/badge/discord-Questie-738bd7)](https://discord.gg/s33MAYKeZd)\n[![Stars](https://img.shields.io/github/stars/Questie/Questie)](https://img.shields.io/github/stars/Questie/Questie)\n\n[![Downloads](https://img.shields.io/github/downloads/Questie/Questie/total.svg)](https://github.com/Questie/Questie/releases/)\n[![Downloads Latest](https://img.shields.io/github/downloads/Questie/Questie/latest/total.svg)](https://github.com/Questie/Questie/releases/latest)\n[![Date Latest](https://img.shields.io/github/release-date/Questie/Questie.svg)](https://github.com/Questie/Questie/releases/latest)\n[![Commits Since Latest](https://img.shields.io/github/commits-since/Questie/Questie/latest.svg)](https://github.com/Questie/Questie/commits/master)\n\n## Language version\n- [English](https://github.com/Questie/Questie/blob/master/README.md)\n- [Español](https://github.com/Questie/Questie/blob/master/README_ES.md)\n- [简体中文](https://github.com/Questie/Questie/blob/master/README_CN.md)\n\n## Download\nWe suggest you use the [CurseForge Client](https://curseforge.overwolf.com/) to manage your WoW addons in general. You will find Questie [here on CurseForge](https://www.curseforge.com/wow/addons/questie).\n\nAlternatively you can always use [the latest GitHub release](https://github.com/Questie/Questie/releases/latest) and follow the [Installation Guide](https://github.com/Questie/Questie/wiki/Installation-Guide) in the Wiki to get the latest version of Questie up and running.\n\nIf you have problems, please read the [Frequently Asked Questions](https://github.com/Questie/Questie/wiki/FAQ-for-Classic-(1.13)).\n\n## Questie DB\n\nSince Questie version 12.0.0 the database is kept in a separate addon called QuestieDB that is required for Questie to work and the Curseforge release is now separated.\n\nThe Curseforge app should install it automatically, but if you install manually, [download QuestieDB as well from here](https://www.curseforge.com/wow/addons/questiedb).\n\nAlternatively, the Github release for [QuestieDB can be found here](https://github.com/Questie/QuestieDB/releases/latest).\n\n[Github releases for Questie](https://github.com/Questie/Questie/releases/latest) also include the latest QuestieDB at time of release.\n\n## Information\n- [Frequently Asked Questions](https://github.com/Questie/Questie/wiki/FAQ)\n- Come chat with us on [our Discord server](https://discord.gg/s33MAYKeZd).\n- You can use the [issue tracker](https://github.com/Questie/Questie/issues) to report bugs and post feature requests (requires a GitHub account).\n- When creating an issue please follow the templated structure to speed up a possible fix.\n- If you get an error message from the WoW client, please include the **complete** text or a screenshot of it in your report.\n    - You need to enter `/console scriptErrors 1` once in the ingame chat for Lua error messages to be shown. You can later disable them again with `/console scriptErrors 0`.\n\nTrust us it's (Good)!\n\n## Languages\n\nQuestie comes with translations for all offical WoW Classic languages. These are:\n\nEnglish, German, French, Spanish, Portuguese, Russian, Simplified Chinese, Traditional Chinese and Korean.\n\nIf you want to help with translations then checkout the [Translation folder](https://github.com/Questie/Questie/tree/master/Localization/Translations) and search for missing translations by:\n> `[\"<yourLanguage>\"] = false` (e.g. `[\"deDE\"] = false`) and replace the `false` with a string of the new translation, e.g. `[\"<yourLanguage>\"] = \"YourTranslation\"`.\n\nOn top of that there is support for Ukrainian ([through another addon](https://www.curseforge.com/wow/addons/questie-translation-ukrainian)).\nFollowing [this guide](https://github.com/Questie/Questie/wiki/Localization-to-more-languages) you can add support for even more languages.\n\n## Contribution\n\n[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com/)\n- We are happy about every help and contribution we get, so feel free to submit a Pull Request on GitHub\n- Additional information you might find interesting can be found [here](https://github.com/Questie/Questie/wiki/Contributing)\n\n### Installing Lua\n\n1. Install [Lua](https://www.lua.org/download.html) (5.1, since the WoW client uses Lua 5.1)\n   - Homebrew no longer provides Lua 5.1; get 5.1.5 from the [Lua source archive](https://www.lua.org/ftp/)\n2. Install [luarocks](https://luarocks.org/)\n   - For macOS that is `brew install luarocks`\n3. Configure `luarocks` to use the correct Lua version (by default luarocks uses the latest installed Lua version)\n   - `luarocks config lua_version 5.1`\n4. Install [busted](https://github.com/lunarmodules/busted)\n   - `luarocks install busted`\n5. Install `bit32`\n    - `luarocks install bit32`\n6. Install [luacheck](https://github.com/lunarmodules/luacheck)\n    - `luarocks install luacheck`\n\n### luacheck\n\nQuestie uses `luacheck` for linting. You can run it locally with:\n\n`luacheck -q Database Localization Modules Questie.lua`\n\n### Unit Tests\n\n1. Run `busted -p \".test.lua\" .` in the root directory of the project\n2. When adding new tests, make sure to name them `<module>.test.lua` and place them next to the module\n\n### Entity database validation\n\nSee [QuestieDB integration](https://github.com/Questie/Questie/blob/master/docs/questiedb-integration.md) for data ownership, initialization, and testing against the real provider.\n\nEntity database validation is owned by QuestieDB. Questie retains loader-usage validation, which you can run with:\n\n`lua cli/validate-loader-usage.lua`\n\nIf your system `lua` is newer than 5.1, run it with your Lua 5.1 binary instead, e.g. `lua5.1 cli/validate-loader-usage.lua`.\n\n## Donation\nIf you'd like to support the development of Questie by donating, you can do so via PayPal:\n\n[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JCUBJWKT395ME&source=url)\n\n## Integrate Questie into your addon\n\nCheckout the [README of the Questie API](https://github.com/Questie/Questie/blob/master/Public/README.md).\n\n## Features\n\n### Show quests on map\n- Show notes for quest start points, turn in points, and objectives.\n- Waypoint lines for NPCs showing their pathing.\n\n![Questie Quest Givers](https://i.imgur.com/4abi5yu.png)\n![Questie Complete](https://i.imgur.com/DgvBHyh.png)\n![Questie Tooltip](https://i.imgur.com/uPykHKC.png)\n\n### Quest Tracker\n- Automatically tracks quests on accepting\n- Can show all quests from the log at once (instead of default 5)\n- Left click quest to open quest log (configurable)\n- Hover a quest title or objective to see your progress and party members' progress on clients with native quest-party tooltips (including Forever). Uses Questie's quest formatting where supported, while keeping native completion icons and localized text.\n- Right-click for more options, e.g.:\n    - Focus quest (makes other quest icons translucent)\n    - Point arrow towards objective (requires [TomTom addon](https://www.curseforge.com/wow/addons/tomtom))\n\n![QuestieTracker](https://user-images.githubusercontent.com/8838573/67285596-24dbab00-f4d8-11e9-9ae1-7dd6206b5e48.png)\n\n### Quest Communication\n- You can see party members quest progress on the tooltip.\n\n### Tooltips\n- Show tooltips on map notes and quest NPCs/objects.\n- Holding Shift while hovering over a map icon displays more information, like quest XP.\n\n### Journey Log\n- Questie records the steps of your journey in the \"My Journey\" window. (left-click on minimap button and select the \"My Journey\" tab or type `/questie journey`)\n\n![Journey](https://user-images.githubusercontent.com/8838573/67285651-3cb32f00-f4d8-11e9-95d8-e8ceb2a8d871.png)\n\n### Quests by Zone\n- Questie lists all the quests of a zone divided between completed and available quest. Gotta complete 'em all. (left-click on minimap button (or type `/questie journey`) and select the \"Quests by Zone\" tab)\n\n![QuestsByZone](https://user-images.githubusercontent.com/8838573/67285665-450b6a00-f4d8-11e9-9283-325d26c7c70d.png)\n\n### Search\n- Questie's database can be searched. (left-click on minimap button (or type `/questie journey`) and select the \"Advances Search\" tab)\n\n![Search](https://user-images.githubusercontent.com/8838573/67285691-4f2d6880-f4d8-11e9-8656-b3e37dce2f05.png)\n\n### Configuration\n- Extensive configuration options. (hold shift and left-click on minimap button to open or type `/questie`)",
+  "releases": [
+    {
+      "tag": "bundle/v12.15.0+v1.1.6",
+      "name": "v12.15.0+v1.1.6",
+      "published": "2026-11-25",
+      "notes": "## Questie 12.15.0\n\nBuild: [7cbd9c3](https://github.com/Questie/Questie/commit/7cbd9c305c9e885d69b2317c690ecf4e9fcf75fb)\n\n### New Features\n\n- Added \"By Latest\" tracker sorting option ([Samuele Yang](https://github.com/Questie/Questie/commit/2e668479dd488261b022e087426cd0b4867d2b79))\n\n### General Fixes\n\n- Detect quests the game completes together with a turned in quest ([Logonz](https://github.com/Questie/Questie/commit/9685e17c7ac5426b6aaaf0943b00729d05c5e25d))\n- Show the localized tracker sorting ([Cabro](https://github.com/Questie/Questie/commit/f466e6e9a10d3d0e056b808bbc735cc473e3dcd6))\n- \\[Forever\\] Adjust quest XP fraction modifier ([Cabro](https://github.com/Questie/Questie/commit/fecc6326ea142794384044fbb71e93840633b096))\n- \\[Forever\\] Open the quest details from the tracker without tainting the map ([BreakBB](https://github.com/Questie/Questie/commit/a3f79844b85f54467006d6ab95f1c7fbaf5b84a6))\n\n### Quest Fixes\n\n- Hide Season of Discovery's profession quest replacements on Forever ([Elod Molna](https://github.com/Questie/Questie/commit/21cd8101464f30c7d226ef25c1a4fd9760c3217f), [Claude Opus 5.5](https://github.com/Questie/Questie/commit/21cd8101464f30c7d226ef25c1a4fd9760c3217f))\n\n## QuestieDB 1.1.6\n\nBuild: [4377c98](https://github.com/Questie/QuestieDB/commit/4377c981ac368d1593ec92788218e0a689a6a02b)\n\n### Quest Fixes\n\n- Fix tooltips for A Moon-Kissed Blade ([Cabro](https://github.com/Questie/QuestieDB/commit/b1ea7bf239a2ed71e28397bfc86225ea46faeee8))\n- Glue quests in chain for Breaking the Keystone ([Cabro](https://github.com/Questie/QuestieDB/commit/afddbf2e71866158b6798375463b643ad0fbf503))\n- \\[Forever\\] Add starter for \"Tattered Journal\" ([BreakBB](https://github.com/Questie/QuestieDB/commit/0fca8318009043dfc79429a2d46ac30ae80d74cc))\n- \\[Forever\\] Update quest XP data ([BreakBB](https://github.com/Questie/QuestieDB/commit/4d170ef7f914c345776781a5b94f5e083a1af0ed))\n\n### Database Fixes\n\n- \\[Forever\\] Adjust drop rate for Thunder Lizard Blood and Super Reaper 6000 Blueprints ([Cabro](https://github.com/Questie/QuestieDB/commit/268f30b6a3307b522cf749dca3c8190703fbaaf3))\n- \\[Forever\\] Adjust faction for Arille Azuregaze, Alfred Copperworth, Paige and Angelique Butler ([Cabro](https://github.com/Questie/QuestieDB/commit/74109eb7f00e0b3697c2ac6692c9236744c14ffb))\n- \\[Forever\\] Update quests, NPCs, objects and items data ([BreakBB](https://github.com/Questie/QuestieDB/commit/b9aa3789371920aa64f282f0cf3fc3c6f955c354))\n\n### Localization Fixes\n\n- \\[Forever\\] Update NPC subnames ([BreakBB](https://github.com/Questie/QuestieDB/commit/a69fedc4de47fc05a9cd00d07bb2062b6c18eeca))\n- \\[Forever\\] Update all translations ([BreakBB](https://github.com/Questie/QuestieDB/commit/3fb2fdaa18262617cb811f108548d868106f4f2f))"
+    },
+    {
+      "tag": "bundle/v12.14.0+v1.1.6",
+      "name": "v12.14.0+v1.1.6",
+      "published": "2026-11-24",
+      "notes": "## Questie 12.14.0\n\nBuild: [acdd0d0](https://github.com/Questie/Questie/commit/acdd0d00f63e0300ed56fbe682e5095ca16086d4)\n\n### New Features\n\n- Added TaintWatch to report how Questie taints Blizzard's UI ([BreakBB](https://github.com/Questie/Questie/commit/0f44a4ecd56964c7bf141e206ad6cbe193da9b9f))\n\n### General Fixes\n\n- \\[Forever\\] Open the quest details from the tracker when the quest has no map ([babyhuey](https://github.com/Questie/Questie/commit/5ccc87fa1675194373ed402bdc99a69472d0592c))\n\n### Database Fixes\n\n- \\[Forever\\] Label Strahad Farsan a warlock trainer ([Cabro](https://github.com/Questie/Questie/commit/48e43102aab5ab6d50be09b11df0f881293657cc))\n\n### Localization Fixes\n\n- \\[ruRU\\] Fix some translations for map related settings ([BreakBB](https://github.com/Questie/Questie/commit/9b03a8b9595cc4d1bd7b91a61c50585c1e52cdaf))\n\n## QuestieDB 1.1.6\n\nBuild: [4377c98](https://github.com/Questie/QuestieDB/commit/4377c981ac368d1593ec92788218e0a689a6a02b)\n\n### Quest Fixes\n\n- Fix tooltips for A Moon-Kissed Blade ([Cabro](https://github.com/Questie/QuestieDB/commit/b1ea7bf239a2ed71e28397bfc86225ea46faeee8))\n- Glue quests in chain for Breaking the Keystone ([Cabro](https://github.com/Questie/QuestieDB/commit/afddbf2e71866158b6798375463b643ad0fbf503))\n- \\[Forever\\] Add starter for \"Tattered Journal\" ([BreakBB](https://github.com/Questie/QuestieDB/commit/0fca8318009043dfc79429a2d46ac30ae80d74cc))\n- \\[Forever\\] Update quest XP data ([BreakBB](https://github.com/Questie/QuestieDB/commit/4d170ef7f914c345776781a5b94f5e083a1af0ed))\n\n### Database Fixes\n\n- \\[Forever\\] Adjust drop rate for Thunder Lizard Blood and Super Reaper 6000 Blueprints ([Cabro](https://github.com/Questie/QuestieDB/commit/268f30b6a3307b522cf749dca3c8190703fbaaf3))\n- \\[Forever\\] Adjust faction for Arille Azuregaze, Alfred Copperworth, Paige and Angelique Butler ([Cabro](https://github.com/Questie/QuestieDB/commit/74109eb7f00e0b3697c2ac6692c9236744c14ffb))\n- \\[Forever\\] Update quests, NPCs, objects and items data ([BreakBB](https://github.com/Questie/QuestieDB/commit/b9aa3789371920aa64f282f0cf3fc3c6f955c354))\n\n### Localization Fixes\n\n- \\[Forever\\] Update NPC subnames ([BreakBB](https://github.com/Questie/QuestieDB/commit/a69fedc4de47fc05a9cd00d07bb2062b6c18eeca))\n- \\[Forever\\] Update all translations ([BreakBB](https://github.com/Questie/QuestieDB/commit/3fb2fdaa18262617cb811f108548d868106f4f2f))"
+    },
+    {
+      "tag": "bundle/v12.13.0+v1.1.5",
+      "name": "v12.13.0+v1.1.5",
+      "published": "2026-11-23",
+      "notes": "## Questie 12.13.0\n\nBuild: [d8faa3c](https://github.com/Questie/Questie/commit/d8faa3ce8c6914c6ebd38f9f234f798db771d4eb)\n\n### New Features\n\n- Added search bar to Questie options ([anon1231823](https://github.com/Questie/Questie/commit/9edbbe9752144120fc875d2bb0bcea3de024f167))\n- Added support for LunaUnitFrames target frame ([BreakBB](https://github.com/Questie/Questie/commit/196c71a9764fabab2ed45f1e3257caf3876243f6))\n\n### General Fixes\n\n- Allow changing Follow Blizzard Super Tracking without active tracker ([BreakBB](https://github.com/Questie/Questie/commit/b2be156e76bb2493a7ce94c2d73e0868300faef0))\n- Hide townsfolk icons in unexplored areas when setting is active ([Hannah Lyons](https://github.com/Questie/Questie/commit/5b75f4030a95d031f9c087717662ea910e324ebe))\n- Let DugiGuide integration be handled by DugiGuide ([BreakBB](https://github.com/Questie/Questie/commit/fc8d2f9307f51a77a7d076c8fb0b8c40d5a19fa3))\n- Package standalone releases under the Questie folder ([Cursor Agent](https://github.com/Questie/Questie/commit/6632b2cea60e1193cb90496f78bce2d9f29bacbd), [Orion Wills](https://github.com/Questie/Questie/commit/6632b2cea60e1193cb90496f78bce2d9f29bacbd))\n- \\[Forever\\] Fix a taint when opening the map from the tracker ([BreakBB](https://github.com/Questie/Questie/commit/a35beca48fe97aee3b180a618cb472270bd50659), [Pimptasty](https://github.com/Questie/Questie/commit/a35beca48fe97aee3b180a618cb472270bd50659))\n- \\[Forever\\] Open settings on addon compartment left click ([BreakBB](https://github.com/Questie/Questie/commit/7df91a1a793c37d2378fa0e722f709f830832e7a))\n- Updated QuestieTrace to [v1.14.0](https://github.com/Questie/QuestieTrace/releases/tag/v1.14.0)\n\n### Quest Fixes\n\n- \\[Forever\\] Blacklist \"Khan Shaka\" ([BreakBB](https://github.com/Questie/Questie/commit/0541c9919ba3e9d1218406231ca54d7764d2cba6))\n\n### Database Fixes\n\n- Hide event vendors when event is not active ([anon1231823](https://github.com/Questie/Questie/commit/6680af6d454f4da744dd1c5ca406358144ab5026))\n- \\[Forever\\] Blacklist the SoD daily mission quests ([Cabro](https://github.com/Questie/Questie/commit/58ab19cb5c34cad68de42e468375adbcd48017f8))\n\n### Localization Fixes\n\n- Move extra objective translations to QuestieDB ([BreakBB](https://github.com/Questie/Questie/commit/31f0cea6af93e84122c57221dcbf896dab34c82a))\n\n## QuestieDB 1.1.5\n\nBuild: [47a4756](https://github.com/Questie/QuestieDB/commit/47a4756b775e8c73687fd3066d6c13f0bc43a55e)\n\n### General Fixes\n\n- Translate quest extraObjectives texts ([BreakBB](https://github.com/Questie/QuestieDB/commit/c794cbc4e7dcb317f0e03988dcb619b05f39575a))\n\n### Quest Fixes\n\n- \\[Forever\\] Add objective location for \"Zimmix's Great Escape\" ([BreakBB](https://github.com/Questie/QuestieDB/commit/9f934ddb04acd5776edc197930cdde06c678b372))\n- \\[Forever\\] Update quest XP data ([BreakBB](https://github.com/Questie/QuestieDB/commit/79927e9379f936d440f9836a6b3acaec6778cee8))\n- \\[Forever\\] mark \"The Shamed Lieutenant\" as a breadcrumb for \"Down the Coast\" ([babyhuey](https://github.com/Questie/QuestieDB/commit/9b8b82ecd85bfe504a2d2c8a020dedde100230ca))\n\n### Database Fixes\n\n- Label the new Craftsman's Writ quests as repeatable and daily ([Cabro](https://github.com/Questie/QuestieDB/commit/5193720f2a381bfdd7098f556fc2e75ed5795e79))\n- \\[Forever\\] Mark \"Economic Warfare\" as repeatable ([BreakBB](https://github.com/Questie/QuestieDB/commit/516a8c69fb22d5bc304688682f6b3780eb5987ff))\n- \\[Forever\\] Update quests, NPCs, objects and items data ([BreakBB](https://github.com/Questie/QuestieDB/commit/5817a27fe013ab680864629d6f532bcc5c3ede14))\n\n### Localization Fixes\n\n- \\[Forever\\] Update all translations ([BreakBB](https://github.com/Questie/QuestieDB/commit/c38d7e1a925e4568338233f6a7dd85d68a543390))"
+    },
+    {
+      "tag": "bundle/v12.12.0+v1.1.4",
+      "name": "v12.12.0+v1.1.4",
+      "published": "2026-11-21",
+      "notes": "## Questie 12.12.0\n\nBuild: [94ee335](https://github.com/Questie/Questie/commit/94ee3358d8f24d5a82ec1339b87800fe40ce8e72)\n\n### New Features\n\n- Added crafting stations to the minimap menu ([anon1231823](https://github.com/Questie/Questie/commit/1e74ea4bd7253e5d766782c100078ee58e659246))\n\n### General Fixes\n\n- Also detect bonus roll loot ([babyhuey](https://github.com/Questie/Questie/commit/eed593d6c66444b9e060ad706cfe2e5b867d611c), [Claude Sonnet 5.5](https://github.com/Questie/Questie/commit/eed593d6c66444b9e060ad706cfe2e5b867d611c))\n- Calculate tracker height from line heights instead of screen coordinates ([BreakBB](https://github.com/Questie/Questie/commit/cd339e62cbc8d4a8e3c0be417e24d41ef8837b35))\n- Detect own quest item loot on non-English clients ([babyhuey](https://github.com/Questie/Questie/commit/81c8251bf03fe71e0677d4fb44ac20d767014ebf), [Claude Sonnet 5.5](https://github.com/Questie/Questie/commit/81c8251bf03fe71e0677d4fb44ac20d767014ebf))\n- Hide the quest complete popup when the quest is abandoned ([babyhuey](https://github.com/Questie/Questie/commit/10cf22a2a15aa0f1402d187d365755755bc2b328), [Claude Sonnet 5.5](https://github.com/Questie/Questie/commit/10cf22a2a15aa0f1402d187d365755755bc2b328))\n- Make Isle of Quel'Danas phase selector usable and use the global setting ([babyhuey](https://github.com/Questie/Questie/commit/b5ba0c4ae2ab65f216102dce3af935aeb324df40), [Claude Sonnet 5.5](https://github.com/Questie/Questie/commit/b5ba0c4ae2ab65f216102dce3af935aeb324df40))\n- Make the Quel'Danas phase reminder toggle usable on TBC ([babyhuey](https://github.com/Questie/Questie/commit/704134354005c8ce1c030ad2e8fb1e9ac7499a02), [Claude Sonnet 5.5](https://github.com/Questie/Questie/commit/704134354005c8ce1c030ad2e8fb1e9ac7499a02))\n- Prevent Lua error when tracker position is not resolved after dragging ([BreakBB](https://github.com/Questie/Questie/commit/974fce248611455e753f4c8a8ebedc9e0a2ba668))\n- Rework minimap menu to support controller ([BreakBB](https://github.com/Questie/Questie/commit/a59b767a97ed21e5f3c80f56875b31c5039090d2))\n- Show Crafting section in QBZ ([Cabro](https://github.com/Questie/Questie/commit/3ebca824d22e953f4dd7af858a4a6034e214c8d9))\n- Skip the hunter-only pet food scan at login ([Logonz](https://github.com/Questie/Questie/commit/1651459dbd612ac41a5029e577a69fee5a5035c5))\n- \\[Forever\\] Use correct \"Elite\" term for quests ([Cabro](https://github.com/Questie/Questie/commit/2427bd561c4e218fe111b99dcc133bddd70c6bbb))\n- Updated QuestieTrace to [v1.13.2](https://github.com/Questie/QuestieTrace/releases/tag/v1.13.2)\n\n### Quest Fixes\n\n- Prevent \"The Missing Diplomat\" \\(ID 1249\\) to be auto accepted ([BreakBB](https://github.com/Questie/Questie/commit/99bef7a7b721aefb4ba070029ef91d62e9108d61))\n\n### Database Fixes\n\n- Hide the Alliance \"The Heart of the Void\" outside Season of Discovery ([babyhuey](https://github.com/Questie/Questie/commit/4117288aedbae5474e85ec1263fb591cd1e81282), [Claude Sonnet 5.5](https://github.com/Questie/Questie/commit/4117288aedbae5474e85ec1263fb591cd1e81282))\n- Marked Forever dungeon quests as dungeon ([babyhuey](https://github.com/Questie/Questie/commit/f656393800eba33e331cdc52d7dc129e0280baff), [Claude Sonnet 5.5](https://github.com/Questie/Questie/commit/f656393800eba33e331cdc52d7dc129e0280baff))\n- Updated tags for dungeon quests ([Cabro](https://github.com/Questie/Questie/commit/fe801edf4274f7f712a6de61b91db9ca6495ff2c))\n- Updated tags for elite quests ([Cabro](https://github.com/Questie/Questie/commit/a9dcf15a8050a880874566b4706506d26be4c2e7))\n\n## QuestieDB 1.1.4\n\nBuild: [933ec77](https://github.com/Questie/QuestieDB/commit/933ec77a8151441c31a6356816feadaf145af73d)\n\n### General Fixes\n\n- Show QuestieDB version in addon list ([Cabro](https://github.com/Questie/QuestieDB/commit/0dc2169173c463e72afc4f93ff1e34197f7e186f))\n\n### Quest Fixes\n\n- \\[Forever\\] Update quest XP data ([BreakBB](https://github.com/Questie/QuestieDB/commit/89f208e26ba06f387a87b64953678883fe846450))\n\n### Database Fixes\n\n- \\[Forever\\] Fix location of \"Henrig Lonebrow's Journal\" ([BreakBB](https://github.com/Questie/QuestieDB/commit/0388969651832b7dea5a6ee5a9d19f767cd4ce86))\n- \\[Forever\\] Rename \"Elixir of Fortitude\" to \"Elixir of Lesser Fortitude\" \\(item 3825\\) ([BreakBB](https://github.com/Questie/QuestieDB/commit/4eca55553db99c8142f83ec07975b7dec8f6e28f))\n- \\[Forever\\] Update quests, NPCs, objects and items data ([BreakBB](https://github.com/Questie/QuestieDB/commit/1a1edf3116490fa371c9f1b21b8acae008e7ad60))\n\n### Localization Fixes\n\n- Restore profession station object translations ([anon1231823](https://github.com/Questie/QuestieDB/commit/9cf27d6491dd80f1998aa0a846dbea9a3c5daad9))\n- \\[Forever\\] Update all translations ([BreakBB](https://github.com/Questie/QuestieDB/commit/51ebc17d853f1cd67f24a9e79e266a5cd2e2833a))"
+    },
+    {
+      "tag": "bundle/v12.11.1+v1.1.3",
+      "name": "v12.11.1+v1.1.3",
+      "published": "2026-11-19",
+      "notes": "## Questie 12.11.1\n\nBuild: [0a73771](https://github.com/Questie/Questie/commit/0a737719fb04496d9e004f0516fd6c747c4d3def)\n\n### General Fixes\n\n- Keep available quest icons visible on the minimap after their color changes ([Logonz](https://github.com/Questie/Questie/commit/58f8a2c2b08560283e7a1bd2bd4a81e2284c505e))\n- Tracker shortcuts like Ctrl + Click run only the action bound to them ([Logonz](https://github.com/Questie/Questie/commit/0a737719fb04496d9e004f0516fd6c747c4d3def))\n- Updated QuestieTrace to [v1.13.0](https://github.com/Questie/QuestieTrace/releases/tag/v1.13.0)\n\n## QuestieDB 1.1.3\n\nBuild: [8b8df2d](https://github.com/Questie/QuestieDB/commit/8b8df2dc12a34e2eb82bc7105b40405dce1c01f7)\n\n### Quest Fixes\n\n- Fix Raene's Cleansing quests ([Cabro](https://github.com/Questie/QuestieDB/commit/996cea9bc5aae3d410cee5a193dc1d08904d1e1f))\n- \\[Forever\\] Update quest XP data ([BreakBB](https://github.com/Questie/QuestieDB/commit/d85f6e1874687049573d8c8156575dd887705c5b))\n- \\[Forever\\] require Neutral reputation for \"Buying Friendship\" quests ([babyhuey](https://github.com/Questie/QuestieDB/commit/4a73dc6513f05714101cfc93eda147947b75574a), [Claude Sonnet 5.5](https://github.com/Questie/QuestieDB/commit/4a73dc6513f05714101cfc93eda147947b75574a))\n\n### Database Fixes\n\n- Update race required for Stalk With The Earthmother quests ([Cabro](https://github.com/Questie/QuestieDB/commit/000495c2198ce12ea27ba5271d018c7382faf512))\n- \\[Forever\\] Fix location of \"Image of Archmage Modera\" ([BreakBB](https://github.com/Questie/QuestieDB/commit/e97375f66ce21e4c8da092660e669e727a77b99f))\n- \\[Forever\\] Update quests, NPCs, objects and items data ([BreakBB](https://github.com/Questie/QuestieDB/commit/405d648da766edf487ba2c1e3a9d23b1fde633e1))\n\n### Localization Fixes\n\n- \\[Forever\\] Update all translations ([BreakBB](https://github.com/Questie/QuestieDB/commit/45264013cca3c4db6fcfb0c169d1e6bf7066030d))"
+    }
+  ],
+  "screenshots": [
+    "https://user-images.githubusercontent.com/8838573/67285596-24dbab00-f4d8-11e9-9ae1-7dd6206b5e48.png",
+    "https://user-images.githubusercontent.com/8838573/67285651-3cb32f00-f4d8-11e9-95d8-e8ceb2a8d871.png",
+    "https://user-images.githubusercontent.com/8838573/67285665-450b6a00-f4d8-11e9-9283-325d26c7c70d.png",
+    "https://user-images.githubusercontent.com/8838573/67285691-4f2d6880-f4d8-11e9-8656-b3e37dce2f05.png"
+  ],
+  "stats": {
+    "stars": 1173,
+    "openIssues": 266,
+    "contributors": 178,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-21",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-14",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-11-03",
+      "2026-11-02",
+      "2026-10-26",
+      "2026-10-26",
+      "2026-10-23",
+      "2026-10-12",
+      "2026-10-06",
+      "2026-09-30",
+      "2026-09-28",
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-15",
+      "2026-08-26",
+      "2026-08-25",
+      "2026-08-19",
+      "2026-08-17",
+      "2026-08-17",
+      "2026-08-15",
+      "2026-08-14",
+      "2026-08-14",
+      "2026-08-10",
+      "2026-08-07",
+      "2026-08-04",
+      "2026-08-01",
+      "2026-08-01",
+      "2026-07-23",
+      "2026-07-21",
+      "2026-07-20",
+      "2026-07-16",
+      "2026-07-16",
+      "2026-07-08",
+      "2026-06-29"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Questie",
+      "QuestieDB",
+      "QuestieTrace"
+    ],
+    "editions": [
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "QuestieDB",
+      "QuestieTrace",
+      "Ace3",
+      "CallbackHandler-1.0",
+      "HereBeDragons",
+      "Krowi_WorldMapButtons",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "LibSharedMedia-3.0",
+      "LibStub"
+    ],
+    "savedVariables": [
+      "QuestieConfig",
+      "QuestieProfilerEnabled"
+    ],
+    "savedVariablesPerCharacter": [
+      "QuestieConfigCharacter"
+    ]
+  }
+}

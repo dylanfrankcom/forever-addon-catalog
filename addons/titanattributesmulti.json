@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "titanattributesmulti",
+  "repo": "Canettieri/attributesmulti",
+  "about": "# Titan Attributes Multi\n\nTitan Attributes Multi is a collection of Titan Panel plugins for tracking character attributes, combat ratings, progression, and other character information across multiple versions of World of Warcraft.\n\nTitan Panel is required.\n\n![Titan Attributes Multi menu](https://i.imgur.com/SMGR1f4.jpg)\n\n![Attribute plugins on the Titan bar](https://i.imgur.com/ZUZ9g24.jpg)\n\n## Features\n\n- Individual Titan plugins, so you can place only the attributes and information you want on the bar.\n- Primary and combat statistics, including attributes, armor, critical strike, haste, mastery, versatility, speed, avoidance, leech, and more when supported by the game client.\n- Session gains and losses for supported attribute plugins, optionally displayed directly on the Titan bar.\n- Character information plugins for experience, quests, achievement points, deaths, honor, honorable kills, item level, PvP results, and specializations where available.\n- Detailed tooltips with current values, session changes, rested experience, character item levels, and PvP win/loss totals as applicable.\n- Left-click shortcuts to the relevant WoW window, such as the Character, Achievements, Quest Log, PvP, or Talents window.\n- Retail specialization switching, talent-loadout selection, loot-specialization selection, and optional equipment-set and loot-specialization bindings per specialization.\n- Expansion-aware loading, so each game client loads only the plugins it supports.\n\n## Supported game versions\n\n| Game client | Included plugins | Additional coverage |\n| --- | ---: | --- |\n| Retail / Midnight | 28 | Full combat-stat set, item level, achievements, honor, honorable kills, PvP results, quests, experience, deaths, and specializations |\n| Mists of Pandaria Classic | 21 | Combat stats, Hit Chance, Mastery, Spirit, quests, achievements, and experience |\n| The Burning Crusade Classic | 22 | Combat stats, Hit Chance, Spirit, quests, and experience |\n| Classic Era | 19 | Combat stats, Spirit, quests, and experience |\n| WoW: Forever / Camelot | 24 | Classic combat stats, Hit Chance, Haste, Ranged Power, Spirit, modern quests, experience, and talent profiles |\n\nEach game client loads only the plugins listed in its corresponding `.toc` file.\n\nForever uses `TitanAttributesMulti_Camelot.toc` (interface 16001) with shared stat modules and the modern quest API. Its XP plugin uses the level-60 cap independently of the client's expansion constants. Install a Forever-compatible Titan Panel. Forever loads its own Specializations module; the Retail module and PvP Results are not loaded. In-game validation on Forever is still pending.\n\n## Attribute plugins\n\nThe addon provides individual plugins for the following character statistics when they are available in your game client: Agility, Armor, Avoidance, Block, Critical Strike, Dodge, Haste, Intellect, Leech, Mana Regeneration, Mastery, Melee Power, Parry, Ranged Power, Speed, Spell Power, Stamina, Strength, and Versatility.\n\nHit Chance and Spirit are also available on supported Classic clients.\n\nMost attribute plugins show the current value and can optionally show the change made during the current session. Left-click an attribute plugin to open the Character window.\n\n## Character information plugins\n\nRetail also includes plugins for Achievement Points, player deaths, Honor, Honorable Kills, Item Level, PvP Results, Quests, Experience, and Specializations. Some of these are also available on the supported Classic clients.\n\n- **Experience** displays level progress, the remaining experience needed, and rested experience. Its menu can simplify the bar text or hide rested experience.\n- **Item Level** displays equipped and overall item level, the current-session change, and saved equipped item levels for characters from the same faction.\n- **PvP Results** displays wins, losses, and total matches for battlegrounds, rated battlegrounds, Battleground Blitz, and arenas.\n- **Quests** shows active, completed, and maximum quest counts.\n- **Mana Regeneration** is loaded on every supported client. The bar shows the normal rate with decimals and no unit; the tooltip also shows the rate while casting in mana per second. The normal rate is not automatically the active rate during combat. Protected readings show Combat in red during combat, or an em dash outside combat, and recover automatically when readable. Session changes retain decimals.\n- **Magic Resistances** displays Fire, Nature, Frost, Shadow, and Arcane side by side on the bar and in the tooltip. It loads on Classic Era, TBC, Mists, and Forever when the API exists.\n- **Defense** shows the effective defense skill and level-based maximum, with nonzero bonuses and session change in the tooltip, on Classic Era, TBC, and Forever.\n- **Weapon Skills** shows a learned weapon skill and its maximum rank, including temporary and equipment bonuses. The tooltip lists learned weapons; right-click to choose which skill appears on the bar. It loads on Classic Era, TBC, and Forever. Classic clients using the legacy skill list require the weapon-skills category to be expanded for those rows to be available.\n- **Healing Power** displays the spell healing bonus returned by the game, with a session balance and an optional balance on the bar. It is available on Classic Era, TBC Classic, and Forever (Camelot). Unavailable or protected readings show a dash.\n- **Health Regeneration** is available on Forever (Camelot), using the native `GetHealthRegen` API. The bar selects the normal or combat rate automatically, without units, and shows a red Combat label when the combat rate is zero. The tooltip shows both passive rates in HP/s and the session balance. It does not measure healing spells or leech. Clients without this API do not register the plugin. Combat readings still need in-game validation.\n- **Honor** and **Honorable Kills** track your current PvP progression and session changes.\n\n## Specializations (Retail)\n\nThe **Specializations** plugin shows your active specialization, talent loadout, equipped set, and loot specialization. Left-click it to open the Talents window.\n\nRight-click the plugin to switch specializations, choose a saved talent loadout, use an equipment set, or change your loot specialization. You can also bind an equipment set and loot specialization to each specialization; the addon applies those bindings when you switch specializations. Changes that cannot be made in combat are applied after combat ends when possible.\n\n## Talent profiles (Forever)\n\nForever has a separate **Specializations** module in `Forever/TitanSpecializations.lua`. It shows the active primary or secondary talent profile, with an optional compact distribution such as `31/15/5`. The tooltip names each talent tree and shows its spent points for each unlocked profile.\n\nLeft-click opens the Talents window. Right-click switches between unlocked talent profiles, equips a saved equipment set, or links a set to the current profile. Linked equipment is applied after the client confirms a profile change; equipment changes caused by an external profile change during combat wait until combat ends. The plugin does not equip a linked set merely because you log in. Changing a binding saves the association; **Equip set now** equips it immediately.\n\nThe module follows Forever's dual-spec model, so it does not show Retail loadout or loot-specialization menus. Profile bindings use their own per-character saved variable, separate from Retail settings.\n\n## How to use\n\n1. Right-click the Titan Panel.\n2. Open the **Information** category. Its name may differ depending on your game language.\n3. Enable the attribute or character-information plugins you want to display.\n4. Right-click an enabled plugin to configure its icon, label, bar position, session balance, and other options available for that plugin.\n\n## Languages\n\nThe addon currently includes translations for:\n\n- English\n- Brazilian Portuguese\n- German\n- Spanish (Spain)\n- Korean\n- Russian\n\nUnsupported locales fall back to English.\n\n## Support\n\nPlease report problems through the [GitHub issue tracker](https://github.com/Canettieri/attributesmulti/issues). When reporting an issue, include the WoW game version, character locale, and any error message shown by the client.\n\n## Donations\n\nIf you would like to support continued development, you can [donate through PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=7AEAZ7XG7WVDS&lc=US&item_name=Titan%20Multi%20Addons&currency_code=USD&bn=PP-DonationsBF%3abtn_donate_SM.gif%3aNonHosted).\n\nMany thanks to the people who have helped maintain this project:\n\n- Colleen Harper\n- Patricia Rich\n- Adrian Collins\n- Jessica Allen\n- Randol Ford\n- Sebastian Edelmann\n- Edwin Sutton Jr.\n- Dean Grable\n- Peter Cebull\n- Max Toedtemeier",
+  "releases": [
+    {
+      "tag": "v9.5.0",
+      "published": "2026-11-23",
+      "notes": "## [9.5.0] - 2026-11-23\n\n### Fixed\n\n- Fixed **Display on Right Side** in the Honor, PvP, Quests, Experience, and Specializations menus using the Titan Panel side-switch API."
+    },
+    {
+      "tag": "v9.4.0",
+      "published": "2026-11-18",
+      "notes": "## [9.4.0] - 2026-11-18\n\n### Added\n\n- Added a separate Healing Power plugin on Classic Era, TBC Classic, and Forever (Camelot), with session balances, six translations, and protected-value handling."
+    },
+    {
+      "tag": "v9.3.0",
+      "published": "2026-11-11",
+      "notes": "## [9.3.0] - 2026-11-11\n\n### Fixed\n\n- Preserve fractional mana-regeneration rates and session changes, show the casting rate in tooltips, and replace unavailable readings instead of keeping stale values. Restricted readings during combat show a red Combat label.\n- Use Titan's side-switch API in attribute and default plugin menus instead of the removed panel-initialization function.\n- Resolve the addon namespace locally when building default plugin menus.\n\n### Added\n\n- Added Magic Resistances with all five schools side by side on the bar and named values in the tooltip.\n- Added Defense with the current value, level-based maximum, and session balance.\n- Added Weapon Skills with automatic main-hand skill selection, manual selection of learned skills, and session balance.\n- Added Health Regeneration using the game's normal and combat regeneration rates.\n\n| New plugin | Retail / Midnight | Mists of Pandaria Classic | TBC Classic | Classic Era | WoW: Forever (Camelot) |\n| --- | --- | --- | --- | --- | --- |\n| Magic Resistances | No | Yes | Yes | Yes | Yes |\n| Defense | No | No | Yes | Yes | Yes |\n| Weapon Skills | No | No | Yes | Yes | Yes |\n| Health Regeneration | No | No | No | No | Yes |\n\nEach plugin requires its corresponding game API to be available on the client. Defense, Weapon Skills, and Health Regeneration include translations in all six supported languages."
+    },
+    {
+      "tag": "v9.2.0",
+      "published": "2026-11-08",
+      "notes": "## [9.2.0] - 2026-11-08\n\n### Fixed\n\n- Open the character window through a secure Blizzard button click on clients with secret values, avoiding character-window status bar errors in Forever (Camelot).\n- Keep secure click buttons independent of Titan's layout to avoid blocked scale updates during combat.\n- Synchronize click button visibility, position, size, and scale after Titan initializes or moves plugins, while preserving character-window access during combat where allowed by the game."
+    },
+    {
+      "tag": "v9.1.0",
+      "published": "2026-11-03",
+      "notes": "## [9.1.0] - 2026-11-02\n\n### Added\n\n- Added the Item Level plugin to Mists of Pandaria Classic."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-18",
+      "2026-11-11",
+      "2026-11-08",
+      "2026-11-03",
+      "2026-11-01",
+      "2026-09-21",
+      "2026-08-03",
+      "2026-08-03",
+      "2026-05-01",
+      "2026-03-08",
+      "2026-03-07",
+      "2026-02-02",
+      "2026-01-21",
+      "2025-11-15",
+      "2025-07-09",
+      "2025-07-06",
+      "2025-07-05",
+      "2025-07-05",
+      "2025-04-27",
+      "2024-12-19",
+      "2024-08-26",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-06-28",
+      "2024-05-12",
+      "2024-03-20",
+      "2024-01-18",
+      "2023-11-22",
+      "2023-11-03",
+      "2023-09-20",
+      "2023-07-20",
+      "2023-05-12",
+      "2023-04-02",
+      "2023-01-25",
+      "2022-11-17",
+      "2022-11-13",
+      "2022-10-25",
+      "2022-09-07",
+      "2022-05-14"
+    ]
+  },
+  "languages": [
+    "ptBR"
+  ],
+  "technical": {
+    "folders": [
+      "TitanAttributesMulti"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Titan"
+    ],
+    "savedVariables": [
+      "TitanAttributesMultiDb"
+    ],
+    "savedVariablesPerCharacter": [
+      "TitanForeverSpecializationsMultiDB"
+    ]
+  }
+}

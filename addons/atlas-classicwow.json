@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "atlas-classicwow",
+  "repo": "arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms",
+  "about": "# Atlas Kalimdor & Eastern Kingdoms\n\nAn instance map module for the World of Warcraft Atlas addon, covering\nKalimdor and the Eastern Kingdoms.\n\nRequires the Atlas core addon.\n\n## Naming and Compatibility\n\nThis module was previously named Atlas Classic WoW.\n\nThe current name describes its map coverage, not a specific WoW client.\nChoose a release compatible with your game client.\n\nThe installed addon folder and package name remain `Atlas_ClassicWoW`\nfor continuity with existing installations and integrations.",
+  "releases": [
+    {
+      "tag": "v1.54.06",
+      "published": "2026-11-25",
+      "notes": "# Atlas Kalimdor & Eastern Kingdoms\n\n## [v1.54.06](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/tree/v1.54.06) (2026-11-25)\n[Full Changelog](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/compare/v1.54.05...v1.54.06) [Previous Releases](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/releases)\n\n- Merge pull request #18 from arithmandar/release/v1.54.06  \n    - Forever:  \n- - Forever:  \n      - Updated creature IDs for The Drowned City and Krol'dok Stronghold maps  \n      - Updated The Drowned City and Krol'dok Stronghold maps  \n      - Added Alcaz Prison map  \n- Merge pull request #17 from arithmandar/fix/locale-update  \n    locale update  \n- locale update"
+    },
+    {
+      "tag": "v1.54.05",
+      "published": "2026-11-12",
+      "notes": "# Atlas Kalimdor & Eastern Kingdoms\n\n## [v1.54.05](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/tree/v1.54.05) (2026-11-12)\n[Full Changelog](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/compare/v1.54.04...v1.54.05) [Previous Releases](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/releases)\n\n- Merge pull request #15 from arithmandar/release/v1.54.05  \n    - Retired LibBabble-Faction-3.0 and use WoW API call to get the facti…  \n- - Retired LibBabble-Faction-3.0 and use WoW API call to get the faction info  \n    - Mainline:  \n      - Stormwind Stockade map updated to reflect the new naming convention  \n      - Fixed auto-select issue for Stormwind Stockade and the Deadmines  \n      - Maps revamped:  \n        - Deadmines entrance  \n        - Stormwind Stockade  \n        - Blackrock Mountain  \n        - The Molten Core"
+    },
+    {
+      "tag": "v1.54.04",
+      "published": "2026-11-10",
+      "notes": "# Atlas Kalimdor & Eastern Kingdoms\n\n## [v1.54.04](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/tree/v1.54.04) (2026-11-10)\n[Full Changelog](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/compare/v1.54.03...v1.54.04) [Previous Releases](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/releases)\n\n- Merge pull request #14 from arithmandar/release/v1.54.04  \n    - Forever:  \n- - Forever:  \n      - Added auto-select for Hall of Thanes  \n      - Remove redundant of \"Pit of Fangs\" from Wailing Caverns subzone data  \n      - Added new dungeon maps:  \n        - The Drowned City  \n        - Krol'dok Stronghold"
+    },
+    {
+      "tag": "v1.54.03",
+      "published": "2026-11-05",
+      "notes": "# Atlas Kalimdor & Eastern Kingdoms\n\n## [v1.54.03](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/tree/v1.54.03) (2026-11-05)\n[Full Changelog](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/compare/v1.54.02...v1.54.03) [Previous Releases](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/releases)\n\n- Merge pull request #13 from arithmandar/locale-update  \n    - Locale update  \n- - Locale update"
+    },
+    {
+      "tag": "v1.54.02",
+      "published": "2026-10-22",
+      "notes": "# Atlas Kalimdor & Eastern Kingdoms\n\n## [v1.54.02](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/tree/v1.54.02) (2026-10-22)\n[Full Changelog](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/compare/v1.54.01...v1.54.02) [Previous Releases](https://github.com/arithmandar/Atlas-Kalimdor-and-Eastern-Kingdoms/releases)\n\n- Merge pull request #12 from arithmandar/mapsdataupdate  \n    Mapsdataupdate  \n- - Forever:  \n      - Map revamped:  \n        - The Molten Core  \n        - Stormwind Stockades  \n        - Uldaman  \n        - Maraudon  \n        - Wailing Caverns  \n        - Razorfen Downs  \n        - Razorfen Kraul  \n- - Forever:  \n      - Map revamped:  \n        - The Molten Core  \n        - Stormwind Stockades  \n        - Uldaman  \n        - Maraudon  \n        - Wailing Caverns  \n- - Blackfathom Deeps entrance and instance maps revamped  \n- - Blackfathom Deeps entrance map revamped"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-05",
+      "2026-10-22",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-07",
+      "2026-10-06"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Atlas_ClassicWoW"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Atlas"
+    ]
+  }
+}

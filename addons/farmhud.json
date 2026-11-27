@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "farmhud",
+  "repo": "HizurosWoWAddOns/FarmHud",
+  "about": "# FarmHud (WoW AddOn)\n![Build](https://img.shields.io/github/actions/workflow/status/HizurosWoWAddOns/FarmHud/packager.yml?style=flat-square)\n![Tag](https://img.shields.io/github/v/tag/HizurosWoWAddOns/FarmHud?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/FarmHud/total?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/FarmHud/latest/total?style=flat-square)\n&nbsp; &nbsp; &nbsp; &nbsp;\n[![Patreon](https://img.shields.io/badge/&zwj;-Patreon-gray?logo=patreon&color=red&style=flat-square)](https://www.patreon.com/bePatron?u=12558524)\n[![Paypal](https://img.shields.io/badge/&zwj;-Paypal-gray?logo=paypal&color=blue&style=flat-square)](https://paypal.me/hizuro)\n![Sponsors](https://img.shields.io/github/sponsors/HizurosWoWAddOns?logo=github&style=flat-square)\n\n## Description\nTurn your minimap into a hud for farming ore / herb.\n\n![FarmHud Screenshot1](https://raw.githubusercontent.com/HizurosWoWAddOns/FarmHud/master/.github/media/farmhud1.jpg) ![FarmHud Screenshot2](https://raw.githubusercontent.com/HizurosWoWAddOns/FarmHud/master/.github/media/farmhud2.jpg)\n\n## WARNING: ADDON_ACTION_FORBIDDIN with Midnight\nUnfortunately, I have to disable the ping function for FarmHud, and it will remain disabled until /reload is executed.\n\nThe reason: The PingLocation function is now a protected function.\u00A0Unfortunately, I currently see no other way to prevent ADDON_ACTION_FORBIDDEN.\n\n__Classic clients are not currently affected.__\n\n**I'm currently frustrated and angry with Blizzard. Not a good state to be in when contacting Blizzard.**\n\n## Minimap / Nodes / FarmHud\nBlizzard has designed the Minimap element as All-in-One (Terrain texture + Nodes).\nIt could not be separated. It could not be copied. Minimap and FarmHud can't be displayed at the same time.\nWhile mouseover is activated (Mouse on), the area for access to the 3D world is limited to the left and right on the screen boundaries.\n*(It's like the Highlander: There can only be one.)*\n\n## Contains\n* Gather circle *( color / transparency adjustable )*\n* Direction indicators (cardinal points) *( color / transparency adjustable )*\n* Player coordinations *( color / transparency adjustable )*\n* Minimap button (and broker panel integration) *( optional )*\n* Show minimap terrain texture *( transparency adjustable )*\n* Key bindings\n* OnScreen buttons *( transparency adjustable )*\n  * Toggle mouseover mode\n  * Toggle background\n  * Toggle option panel\n  * Close HUD\n* Tracking options *( retail client only )*\n* !! New experimental module !! TrailPath\n   * Display your path on Minimap/FarmHud with red arrows.\n   * Color, transparency and icons are adjustable\nTrailPath - Display your path on minimap and farmhud with red arrows. Color, transparency and icons are adjustable.Trail path options\n\n## Option panel\nThe option panel are available over  Game Menu > Interface > AddOns > FarmHud\nor by chat command  `/run FarmHud:ToggleOptions()`\n\n## Supports\n* GatherMate2\n* Routes\n* \\_NPCScan.Overlay *( outdated )*\n* Bloodhound2 *( outdated )*\n* By library LibHijackMinimap\n  * Magneto *( outdated, owner is missing )*\n* By library HereBeDragon\n  * TomTom\n  * HandyNotes\n\n## Addon compatibility\nI know it is not a complete list of addons, but you can report addons for the list.\nFrom time to time i will look on updated versions.\n\n## Minimap AddOns\n* BasicMinimap v9.2.0 | Okay\n* bdMinimap v1.53 | Unknown -- *outdated since 9.x*\n* Chinchilla Minimap v2.12.2 | Okay\n* Mappy v3.8.5 | Unknown -- *outdated since 9.x*\n* ObeliskMinimap r14 | Okay  -- *outdated since 9.x / owner is missing*\n* SexyMap v9.2.0 | Okay\n\n## UI AddOns\n* ElvUI | Okay\n* GW2_UI R1.913_Retail | Difficulty -- *No Lua errors but could not move some elements to placeholder.*\n  * QuestTracker disappears (move out of screen). Calendar and minimap button container moved on screen.\n\n## Problems and possible workarounds\n1. Use of anonymous frames makes correct functioning more difficult. Possible workaround: Disable \"Show elements\" in FarmHud Options.\n\n## @Authors of Minimap and UI AddOns\nI've added a function to register (anonymous) frames that anchored on Minimap.\nPlease use it to make smooth cooperation between our AddOns possible.\n* `FarmHud:RegisterForeignAddOnObject( <frame object>, <addon name>)`\n* Or let me known your function i could trigger on show and hide farmhud.\n\n## Dragonflight problems\n* I'm currently getting error messages after changing the keyboard layout. Hope it only happens to me.\n\n## Bug reports, feature requests and Support\n* [Bug reports & feature requests on Github](https://github.com/HizurosWoWAddOns/FarmHud/issues)\n* [Comments & Criticism on Curseforge](https://www.curseforge.com/wow/addons/farmhud)\n\n## Localization\nDo you want to help translate this addon?\nSee Curseforge localization tool\n\n## Macro functions\n* `/run FarmHud:Toggle()`\n* `/run FarmHud:ToggleMouse()`\n* `/run FarmHud:ToggleBackground()`\n* `/run FarmHud:ToggleOptions()`\n\n## Our other projects\n* [TorvaldsMP1's projects](https://www.curseforge.com/members/torvaldsmp1/projects) (also known as CodeRedLin before Twitch as purchased Curseforge)\n* Hizuro's projects on: [Curseforge](https://www.curseforge.com/members/hizuro_de/projects) or [Github](https://github.com/HizurosWoWAddOns?tab=repositories)\n\n## Disclaimer\n> World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "11.0.0-release",
+      "published": "2026-11-07",
+      "notes": "# FarmHud\n\n## [11.0.0-release](https://github.com/HizurosWoWAddOns/FarmHud/tree/11.0.0-release) (2026-11-07)\n[Full Changelog](https://github.com/HizurosWoWAddOns/FarmHud/commits/11.0.0-release) [Previous Releases](https://github.com/HizurosWoWAddOns/FarmHud/releases)\n\n- RangeCircles: Update option panel section and added annotation for the gather circle"
+    },
+    {
+      "tag": "10.3.0-release",
+      "published": "2026-08-22",
+      "notes": "# FarmHud\n\n## [10.3.0-release](https://github.com/HizurosWoWAddOns/FarmHud/tree/10.3.0-release) (2026-08-22)\n[Full Changelog](https://github.com/HizurosWoWAddOns/FarmHud/commits/10.3.0-release) [Previous Releases](https://github.com/HizurosWoWAddOns/FarmHud/releases)\n\n- Removed never used xml frame template"
+    },
+    {
+      "tag": "10.1.13-release",
+      "published": "2026-06-19",
+      "notes": "# FarmHud\n\n## [10.1.13-release](https://github.com/HizurosWoWAddOns/FarmHud/tree/10.1.13-release) (2026-06-19)\n[Full Changelog](https://github.com/HizurosWoWAddOns/FarmHud/commits/10.1.13-release) [Previous Releases](https://github.com/HizurosWoWAddOns/FarmHud/releases)\n\n- Fix typo in option panel table"
+    },
+    {
+      "tag": "10.1.12-release",
+      "published": "2026-06-16",
+      "notes": "# FarmHud\n\n## [10.1.12-release](https://github.com/HizurosWoWAddOns/FarmHud/tree/10.1.12-release) (2026-06-16)\n[Full Changelog](https://github.com/HizurosWoWAddOns/FarmHud/commits/10.1.12-release) [Previous Releases](https://github.com/HizurosWoWAddOns/FarmHud/releases)\n\n- Removed quest arrow from option panel"
+    },
+    {
+      "tag": "10.1.11-release",
+      "published": "2026-06-16",
+      "notes": "# FarmHud\n\n## [10.1.11-release](https://github.com/HizurosWoWAddOns/FarmHud/tree/10.1.11-release) (2026-06-16)\n[Full Changelog](https://github.com/HizurosWoWAddOns/FarmHud/commits/10.1.11-release) [Previous Releases](https://github.com/HizurosWoWAddOns/FarmHud/releases)\n\n- Update toc file"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/HizurosWoWAddOns/FarmHud/master/.github/media/farmhud1.jpg",
+    "https://raw.githubusercontent.com/HizurosWoWAddOns/FarmHud/master/.github/media/farmhud2.jpg"
+  ],
+  "stats": {
+    "stars": 7,
+    "openIssues": 17,
+    "contributors": 8,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-08-22",
+      "2026-06-19",
+      "2026-06-16",
+      "2026-06-16",
+      "2026-03-06",
+      "2026-03-01",
+      "2026-02-27",
+      "2026-01-22",
+      "2025-08-09",
+      "2025-07-20",
+      "2025-06-26",
+      "2025-06-24",
+      "2025-06-18",
+      "2025-05-20",
+      "2025-05-12",
+      "2025-03-09",
+      "2025-02-27",
+      "2025-02-10",
+      "2025-01-28",
+      "2025-01-27",
+      "2025-01-17",
+      "2024-12-17",
+      "2024-11-05",
+      "2024-11-01",
+      "2024-08-28",
+      "2024-08-14",
+      "2024-07-27",
+      "2024-07-25",
+      "2024-06-02",
+      "2024-06-01",
+      "2024-05-10",
+      "2024-03-03",
+      "2024-01-28",
+      "2023-11-11",
+      "2023-11-05",
+      "2023-09-01",
+      "2023-08-02",
+      "2023-07-03",
+      "2023-06-26",
+      "2023-06-24",
+      "2023-06-11",
+      "2023-03-24",
+      "2022-12-04",
+      "2022-10-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FarmHud"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "CallbackHandler-1.0",
+      "LibDBIcon-1.0",
+      "LibStub",
+      "HereBeDragons"
+    ],
+    "savedVariables": [
+      "FarmHudDB"
+    ]
+  }
+}

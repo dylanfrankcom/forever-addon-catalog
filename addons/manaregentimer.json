@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "manaregentimer",
+  "repo": "npatten/wow-mana-regen-timer",
+  "about": "# ManaRegenTimer\n\nA WoW: Forever addon for mana users. After you cast a spell that costs mana, your spirit regen stops for five seconds. ManaRegenTimer shows a thin bar that drains over those five seconds, with the seconds left on it. When the bar is gone, you are back in full regen.\n\nOnly a successful cast that costs mana starts the bar. Wand shots, failed casts and interrupted casts do not. Casting again while the bar is up restarts the five seconds.\n\n## Install\n\n1. Copy the `addons/ManaRegenTimer` folder into `World of Warcraft/_forever_/Interface/AddOns/`.\n2. Restart the game or type `/reload`.\n\nThe bar is on by default for characters that use mana, and off for the rest.\n\n## Options\n\nType `/mrt` to open the options window (type it again, or press Escape, to close it). While it is open the bar is shown so you can see your changes.\n\n- **Show on this character**: turn the bar on or off for this character.\n- **Unlock to move and resize**: tick it, drag the bar or dial where you want it, untick it. Both get a grip in the bottom-right corner: drag it to resize. The bar takes any width and height; the dial stays round.\n- **Bar / Dial / Mana bar**: where the timer shows.\n  - **Bar**: the thin draining bar.\n  - **Dial**: a round timer whose blue wedge shrinks toward 12 o'clock; one tick per second.\n  - **Mana bar**: drawn on the default player frame's mana bar, sweeping left to right. Pick **Spark** (a pulsing glow, with the time still to go dimmed) or **Band** (a tinted block that shrinks). If the default player frame is hidden, for example by a unit-frame addon, the Bar is used instead.\n- **Opacity**: 10% to 100%.\n- **Test bar**: run the bar once without casting.\n- **Reset layout**: back to the default spot and sizes.\n\nPosition, lock and opacity are shared by all your characters. On/off is per character.\n\n## Development\n\n- `luacheck addons` (needs the sibling `wow-forever-home` repo for client globals).\n- `luajit tests/state_test.lua` (timer logic)\n- `luajit tests/addon_test.lua` (whole addon against a fake client)",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-16",
+      "notes": "# ManaRegenTimer\n\n## [v0.1.0](https://github.com/npatten/wow-mana-regen-timer/tree/v0.1.0) (2026-11-16)\n[Full Changelog](https://github.com/npatten/wow-mana-regen-timer/commits/v0.1.0) [Previous Releases](https://github.com/npatten/wow-mana-regen-timer/releases)\n\n- Add MIT license  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add CurseForge packaging: .pkgmeta and tag-triggered release workflow  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Make the mana-bar Spark readable  \n    Own Spark.tga glow (ADD), 3px core, overhangs bar 5px, pulses 2 Hz.  \n    Still-to-go stretch darkened; tint drawn on the host bar under its text.  \n    WIP in 0004: druid forms, Band re-check in game.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Track bar resize in Clew (#0005 done)  \n    #0003 still open: dial wedge and dial grip not confirmed in game.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add corner grip to resize the bar's width and height  \n    The bar now gets the same unlock-and-drag grip as the dial. Its width  \n    (80-400) and height (6-30) are saved separately from the dial size, and  \n    Reset layout restores both. The grip logic is shared through addGrip.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add dial resize grip and mana-bar overlay style (spark, band)  \n    - Dial: corner grip resizes it while unlocked (40-200), size saved;  \n      \"Reset layout\" restores place and size.  \n    - Third style \"frame\": overlay on the stock player frame mana bar via  \n      PlayerFrame\\_GetManaBar(), flavors spark and band; falls back to the bar  \n      when that mana bar is missing or hidden.  \n    - Options: Bar / Dial / Mana bar picker plus a Spark / Band row.  \n    WIP: wedge sweep, grip and overlay are not yet confirmed in game  \n    (Clew 0003, 0004). Druid forms undecided.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add round dial display; rename to ManaRegenTimer  \n    Dial: a Cooldown-swipe wedge that shrinks toward 12 o'clock over the 5s,  \n    with shipped disc/ring textures (scripts/make-textures.lua) and a  \n    \"Round dial instead of bar\" checkbox. Bar stays the default.  \n    Rename: FiveSecondRule and /fsr were taken. Addon folder, TOC, frames and  \n    SavedVariables are now ManaRegenTimer, slash is /mrt, CurseForge project  \n    ID 1808734 is in the TOC. Packaging plan (Clew 0002) updated.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Update CLAUDE.md layout and dev loop for the MVP  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Add FiveSecondRule MVP: countdown bar and /fsr options window  \n    A mana-costing UNIT\\_SPELLCAST\\_SUCCEEDED starts a 5s draining bar; no bar  \n    means full regen. /fsr toggles an options window (per-character toggle,  \n    unlock to drag, opacity, test, reset position). Timer logic is pure Lua  \n    with tests; the whole addon is also tested against a fake client.  \n    Clew #0001 stays open: combat and per-character-off checks still to do  \n    in game.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Scaffold FiveSecondRule repo with MVP spec  \n    Clew #0001 holds the MVP build spec from the RegenProbe findings; #0002 tracks packaging for sharing.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ManaRegenTimer"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ManaRegenTimerDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ManaRegenTimerCharDB"
+    ]
+  }
+}

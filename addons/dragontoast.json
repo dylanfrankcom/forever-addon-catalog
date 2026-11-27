@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "dragontoast",
+  "repo": "Xerrion/DragonToast",
+  "about": "![Dragon Toast logo](https://raw.githubusercontent.com/Xerrion/DragonToast/master/assets/dragon-toast.png)\n\n# Dragon Toast\n\n**See what dropped while the group keeps moving.**\n\n[Get it on CurseForge](https://www.curseforge.com/wow/addons/dragon-toast) · [Get it on Wago](https://addons.wago.io/addons/dragon-toast) · [GitHub releases](https://github.com/Xerrion/DragonToast/releases/latest)\n\nAn orange item name catches your eye. It’s a Warglaive of Azzinoth, item level 156, and Vaela just looted it.\nHover over the card to inspect it or shift-click to share it in chat. On a cloth run, that same spot can show six pieces\nof Runecloth coming in and how many you now have in your bags.\n\n![Dragon Toast showing a group member’s Warglaive, six Runecloth bringing the bag total to 48, gold, and reputation with The Sha’tar](https://raw.githubusercontent.com/Xerrion/DragonToast/master/docs/images/toast-stack.png)\n\n*Offline render of the Modern skin with bag counts enabled. Type `/dt test` to see a card animate in your own UI.*\n\n## Pick what gets your attention\n\n**On a farming run**, repeat drops add to the card that’s already on screen. Turn on **Show Item Count** and you can\nsee when you’ve collected enough cloth for your next bandage.\n\n**In a raid**, choose the minimum item quality you want to see and whether to include other players’ drops. Give epics\na pulse when they land. If you want the screen clear during a fight, **Defer in Combat** holds new cards until combat\nends.\n\n**While leveling**, watch XP from a string of kills add up on one card. Reputation changes show the faction involved.\nUse **Filters** to decide whether gold, currency, honor, and mailbox pickups belong in the stack too.\n\n## Make it fit your UI\n\nTry **Parchment** for a warm, paper-colored backdrop or **Minimal** for a small icon and borderless card. The sample\nin `/dt config` stays in view as you change fonts, glow, textures, or spacing. Set the stack to grow upward from\nyour action bars or downward beside your unit frames. If you run ElvUI, you can use its font and border color here too.\n\n![Dragon Toast Layout settings showing an epic item preview above the card size, spacing, and stack controls](https://raw.githubusercontent.com/Xerrion/DragonToast/master/docs/images/layout-settings.png)\n\n*Offline preview of the Layout page in `/dt config`.*\n\n## Get started\n\n1. Install Dragon Toast with your addon manager. For a manual install, extract both `DragonToast` and `DragonToast_Options` from the release ZIP into your client’s `Interface/AddOns/` folder and reload the UI.\n2. In game, type `/dt test` for a sample drop. Type `/dt lock`, drag the anchor where you want your cards, and type\n   `/dt lock` again to keep it there.\n3. Open `/dt config` and pick a skin under **Appearance**. To see how it handles a busy pull, run `/dt massloot 8`.\n   Clear the samples with `/dt clear`.\n\n**Supported clients** include Retail, WoW Forever, Classic Era, TBC Anniversary, and Mists of Pandaria Classic.\n\n## Pair it with Dragon Loot\n\nDragon Loot handles the loot window and group rolls. Use the two together to see who won a roll in your toast stack.\nWhile the loot window is open, Dragon Loot can keep those same items from popping up a second time.\n[Get Dragon Loot](https://github.com/Xerrion/DragonLoot)\n\nMore commands and project links\n\n| Command | What it does |\n| --- | --- |\n| `/dt config` | Open settings. Left-clicking the minimap button also opens them. |\n| `/dt lock` | Unlock or lock the movable anchor. |\n| `/dt reset` | Return the anchor to its original position. |\n| `/dt test` · `/dt testmode` | Show one sample, or toggle a continuous stream while you adjust the stack. |\n| `/dt massloot [count]` · `/dt clear` | Preview a burst of drops, or dismiss everything on screen and in the queue. |\n| `/dt toggle` · `/dt status` | Enable or disable the addon, or check its current settings. |\n| `/dt help` | List all commands. |\n\nFor authors, Dragon Toast accepts custom notifications and item suppression requests through local AceEvent messages.\n[Integration API and example](https://github.com/Xerrion/DragonToast/blob/master/AGENTS.md#cross-addon-messaging-api) · [Options preview guide](https://github.com/Xerrion/DragonToast/blob/master/docs/options-preview.md)\n\nFound a bug or want to help with a translation? Please include your client and addon version when reporting a problem.\n[Report an issue](https://github.com/Xerrion/DragonToast/issues) · [Contributing](https://github.com/Xerrion/DragonToast/blob/master/CONTRIBUTING.md)\n\nMade by [Xerrion](https://github.com/Xerrion). [MIT License](https://github.com/Xerrion/DragonToast/blob/master/LICENSE) · [GitHub Sponsors](https://github.com/sponsors/Xerrion) · [Ko-fi](https://ko-fi.com/Xerrion). World of Warcraft artwork and icons © Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "3.11.0",
+      "published": "2026-11-22",
+      "notes": "# DragonToast\n\n## [3.11.0](https://github.com/Xerrion/DragonToast/tree/3.11.0) ()\n[Full Changelog](https://github.com/Xerrion/DragonToast/compare/3.10.2...3.11.0) [Previous Releases](https://github.com/Xerrion/DragonToast/releases)\n\n- chore(master): release 3.11.0 [#232](https://github.com/Xerrion/DragonToast/pull/232)\n- feat: add Classic Era (Vanilla) support [#222](https://github.com/Xerrion/DragonToast/pull/222)"
+    },
+    {
+      "tag": "3.10.2",
+      "published": "2026-11-18",
+      "notes": "# DragonToast\n\n## [3.10.2](https://github.com/Xerrion/DragonToast/tree/3.10.2) ()\n[Full Changelog](https://github.com/Xerrion/DragonToast/compare/3.10.1...3.10.2) [Previous Releases](https://github.com/Xerrion/DragonToast/releases)\n\n- chore(master): release 3.10.2 [#226](https://github.com/Xerrion/DragonToast/pull/226)\n- ci: run the PR labeler on pull_request_target for fork PRs [#231](https://github.com/Xerrion/DragonToast/pull/231)\n- ci: use pull_request triggers and update action versions [#230](https://github.com/Xerrion/DragonToast/pull/230)\n- ci: add PR labeler and unify release note categories [#229](https://github.com/Xerrion/DragonToast/pull/229)\n- docs: drop AI disclosure requirement [#1](https://github.com/Xerrion/DragonToast/pull/1) [#228](https://github.com/Xerrion/DragonToast/pull/228)\n- ci: include vanilla in TOC update flavors [#1](https://github.com/Xerrion/DragonToast/pull/1) [#227](https://github.com/Xerrion/DragonToast/pull/227)\n- ci: run lint and tests on pull_request instead of pull_request_target [#1](https://github.com/Xerrion/DragonToast/pull/1) [#223](https://github.com/Xerrion/DragonToast/pull/223)\n- chore: use GitHub-generated release notes to credit contributors [#1](https://github.com/Xerrion/DragonToast/pull/1) [#224](https://github.com/Xerrion/DragonToast/pull/224)\n- ci: validate PR titles as conventional commits [#1](https://github.com/Xerrion/DragonToast/pull/1) [#225](https://github.com/Xerrion/DragonToast/pull/225)\n- docs: showcase Dragon Toast with updated artwork and screenshots [#221](https://github.com/Xerrion/DragonToast/pull/221)"
+    },
+    {
+      "tag": "3.10.1",
+      "published": "2026-11-17",
+      "notes": "# DragonToast\n\n## [3.10.1](https://github.com/Xerrion/DragonToast/tree/3.10.1) ()\n[Full Changelog](https://github.com/Xerrion/DragonToast/compare/3.10.0...3.10.1) [Previous Releases](https://github.com/Xerrion/DragonToast/releases)\n\n- chore(master): release 3.10.1 [#220](https://github.com/Xerrion/DragonToast/pull/220)\n- chore: pin DragonWidgets to 0.4.0 [#219](https://github.com/Xerrion/DragonToast/pull/219)"
+    },
+    {
+      "tag": "3.10.0",
+      "published": "2026-11-17",
+      "notes": "# DragonToast\n\n## [3.10.0](https://github.com/Xerrion/DragonToast/tree/3.10.0) ()\n[Full Changelog](https://github.com/Xerrion/DragonToast/compare/3.9.0...3.10.0) [Previous Releases](https://github.com/Xerrion/DragonToast/releases)\n\n- chore(master): release 3.10.0 [#217](https://github.com/Xerrion/DragonToast/pull/217)\n- fix: package DragonToast with pinned DragonWidgets [#218](https://github.com/Xerrion/DragonToast/pull/218)\n- feat: use shared DragonWidgets options defaults [#216](https://github.com/Xerrion/DragonToast/pull/216)"
+    },
+    {
+      "tag": "3.9.0",
+      "name": "v3.9.0",
+      "published": "2026-11-17",
+      "notes": "## [3.9.0](https://github.com/Xerrion/DragonToast/compare/3.8.0...3.9.0) (2026-11-17)\n\n### \uD83D\uDE80 Features\n\n* modernize toast defaults and organize customization ([#215](https://github.com/Xerrion/DragonToast/issues/215)) ([bc8182f](https://github.com/Xerrion/DragonToast/commit/bc8182f43f9465565012f292022bfa4dc0e2bb5a))\n* redesign options with sidebar and live toast preview ([#211](https://github.com/Xerrion/DragonToast/issues/211)) ([669012f](https://github.com/Xerrion/DragonToast/commit/669012f791df3bab019756bc51734501610222fc))\n\n### \uD83D\uDC1B Bug Fixes\n\n* declare Forever compatibility in source manifests ([#213](https://github.com/Xerrion/DragonToast/issues/213)) ([2986b56](https://github.com/Xerrion/DragonToast/commit/2986b5691c6b23dd9769bcab41c6e01a761cfb20))\n\n### \uD83D\uDE9C Refactor\n\n* separate toast layout from effects and rewrite ToastFrame ([#214](https://github.com/Xerrion/DragonToast/issues/214)) ([3c07b1c](https://github.com/Xerrion/DragonToast/commit/3c07b1ceb2d02acc3acb21224191727d88844ae3))"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Xerrion/DragonToast/master/assets/dragon-toast.png",
+    "https://raw.githubusercontent.com/Xerrion/DragonToast/master/docs/images/toast-stack.png",
+    "https://raw.githubusercontent.com/Xerrion/DragonToast/master/docs/images/layout-settings.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-08",
+      "2026-10-26",
+      "2026-10-14",
+      "2026-08-19",
+      "2026-07-20",
+      "2026-07-09",
+      "2026-06-17",
+      "2026-06-08",
+      "2026-06-01",
+      "2026-04-22",
+      "2026-04-20",
+      "2026-04-15",
+      "2026-04-15",
+      "2026-04-09",
+      "2026-04-05",
+      "2026-03-28",
+      "2026-03-15",
+      "2026-03-15",
+      "2026-03-15",
+      "2026-03-15",
+      "2026-03-15",
+      "2026-03-13",
+      "2026-03-13",
+      "2026-03-07",
+      "2026-03-06",
+      "2026-03-06",
+      "2026-03-05",
+      "2026-03-02",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-02-27",
+      "2026-02-25",
+      "2026-02-25",
+      "2026-02-25",
+      "2026-02-24",
+      "2026-02-24",
+      "2026-02-23",
+      "2026-02-23",
+      "2026-02-22",
+      "2026-02-22",
+      "2026-02-22",
+      "2026-02-22",
+      "2026-02-22"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "DragonToast",
+      "DragonToast_Options"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "DragonToastDB"
+    ]
+  }
+}

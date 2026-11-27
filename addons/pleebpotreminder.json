@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "pleebpotreminder",
+  "repo": "grimboso/PleebPotReminder",
+  "releases": [
+    {
+      "tag": "v2.0",
+      "published": "2026-11-06",
+      "notes": "# PleebPot\n\n## [v2.0](https://github.com/grimboso/PleebPotReminder/tree/v2.0) (2026-11-06)\n[Full Changelog](https://github.com/grimboso/PleebPotReminder/compare/v1.8.6...v2.0) [Previous Releases](https://github.com/grimboso/PleebPotReminder/releases)\n\n- Add WoW: Forever consumable support  \n    Include interface 16001 and add Forever-specific healthstone and potion selection, including cooldown-aware choice and battleground draught handling.  \n- Register addon with LibPleebug  \n    Add Profiling.lua to the addon load order and register Pleeb Pot Reminder with LibPleebug when the library is available."
+    },
+    {
+      "tag": "v1.8.6",
+      "published": "2026-10-06",
+      "notes": "# PleebPot\n\n## [v1.8.6](https://github.com/grimboso/PleebPotReminder/tree/v1.8.6) (2026-10-06)\n[Full Changelog](https://github.com/grimboso/PleebPotReminder/compare/v1.8.5...v1.8.6) [Previous Releases](https://github.com/grimboso/PleebPotReminder/releases)\n\n- 12.1.5 ToC update"
+    },
+    {
+      "tag": "v1.8.5",
+      "published": "2026-10-06",
+      "notes": "# PleebPot\n\n## [v1.8.5](https://github.com/grimboso/PleebPotReminder/tree/v1.8.5) (2026-10-06)\n[Full Changelog](https://github.com/grimboso/PleebPotReminder/compare/v1.8...v1.8.5) [Previous Releases](https://github.com/grimboso/PleebPotReminder/releases)\n\n- Fix event wiring for ready health items  \n    Refresh runtime event wiring after cooldown readiness changes so UNIT\\_HEALTH and UNIT\\_POWER\\_UPDATE listeners only remain active while the relevant item is ready. This prevents stale reminder behavior and ensures updates happen immediately when health stones, potions, or mana potions become usable again."
+    },
+    {
+      "tag": "v1.8",
+      "published": "2026-10-01",
+      "notes": "# PleebPot\n\n## [v1.8](https://github.com/grimboso/PleebPotReminder/tree/v1.8) (2026-10-01)\n[Full Changelog](https://github.com/grimboso/PleebPotReminder/compare/v1.7.1...v1.8) [Previous Releases](https://github.com/grimboso/PleebPotReminder/releases)\n\n- Fix mana potion layout sizing  \n    Refreshing the mana potion option now reapplies the UI appearance immediately. The holder sizing logic was adjusted to compute width and height based on the enabled potion rows and icon-only spacing, preventing the mana potion row from overlapping or clipping when toggled.  \n- fixes to license"
+    },
+    {
+      "tag": "v1.7.1",
+      "published": "2026-09-16",
+      "notes": "# PleebPot\n\n## [v1.7.1](https://github.com/grimboso/PleebPotReminder/tree/v1.7.1) (2026-09-16)\n[Full Changelog](https://github.com/grimboso/PleebPotReminder/compare/v1.7...v1.7.1) [Previous Releases](https://github.com/grimboso/PleebPotReminder/releases)\n\n- Update .gitattributes  \n- Fix config panel scroll alignment  \n    Adjust the scroll frame anchor offset in the options window so it aligns correctly with the footer and keeps the configuration content positioned as intended."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-01",
+      "2026-09-16",
+      "2026-09-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PleebPotReminder"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "PleebUI"
+    ],
+    "savedVariables": [
+      "PleebPotReminderDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "PleebPotReminderCharacterDB"
+    ]
+  }
+}

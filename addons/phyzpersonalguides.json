@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "phyzpersonalguides",
+  "repo": "phyzikalgamer/Phyz-s-Personal-Guides-companion",
+  "about": "# Phyz Personal Guides\n\nA lightweight setup companion for [Phyz Leveling](https://github.com/phyzikalgamer/Phyz-s-Leveling-Addon) on **World of Warcraft: Forever**.\n\nThe companion gives you a copyable guide website address and opens Phyz Leveling's existing manual importer. **No guides or encrypted imports are included.**\n\n## Install\n\n1. Install and enable Phyz Leveling.\n2. Download this repository using **Code → Download ZIP** and extract it.\n3. Copy the `PhyzPersonalGuides` folder into your Forever client's `Interface/AddOns/` folder.\n4. Confirm the path is `Interface/AddOns/PhyzPersonalGuides/PhyzPersonalGuides.toc`.\n5. Fully restart WoW and enable **Phyz Personal Guides**.\n\nIf you already have an older personal-import companion, back up its folder outside `AddOns` and replace it with this one. This version does not load the old `Import.lua` file.\n\n## Add guides\n\n1. Type `/phyzguides` or `/ppg`.\n2. Copy the website address with **Ctrl+C** and open it in your browser: [xp.bulo.cloud](https://xp.bulo.cloud/).\n3. Follow the website's instructions to obtain an import for your own account.\n4. Return to WoW and click **Open guide importer**.\n5. Paste the import into Phyz Leveling's importer, follow its prompts, and select your guide in Phyz Leveling.\n\n`/phyzguides import` opens the importer directly. Phyz Leveling's `/phyzleveling import` command is also available.\n\n## Requirements and limits\n\n- Targets Forever interface `16001`.\n- Phyz Leveling must be installed and enabled to import guides.\n- WoW addons cannot download files from websites. Downloads and any website sign-in happen in your browser.\n- The companion does not detect, collect, or transmit your Battle.net identity.\n- Guide decoding, account checks and storage remain with Phyz Leveling. Account-specific imports must match the account using them.\n- The website is a separate service; this companion does not verify its availability or the guide content it provides. Use guide content you are authorised to access.\n\n## Troubleshooting\n\n**Importer does not open:** enable Phyz Leveling, finish combat and try `/phyzleveling import`. Restart WoW after installing or changing addon manifests.\n\n**Account mismatch or invalid import:** obtain a complete import for the correct account. The companion does not change or bypass import validation.\n\n## Licence\n\nCompanion code is released under the [MIT licence](https://github.com/phyzikalgamer/Phyz-s-Personal-Guides-companion/blob/main/LICENSE). Guide content and third-party services are not covered by this licence.",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "name": "Phyz Personal Guides v1.1.0",
+      "published": "2026-11-17",
+      "notes": "Manual guide setup companion for Phyz Leveling on World of Warcraft: Forever (Interface 16001).\n\n- /phyzguides or /ppg opens setup with a copyable website address.\n- /phyzguides import opens Phyz Leveling's existing manual importer.\n- No guide content, encrypted imports or Battle.net credentials are included.\n- Existing account checks and guide validation remain in Phyz Leveling.\n\nInstallation: install Phyz Leveling, then extract PhyzPersonalGuides-1.1.0.zip into your Forever Interface/AddOns folder. Fully restart WoW and type /phyzguides.\n\nDownloads and any website sign-in happen in your browser. Automatic downloading is not included.\n\nLua syntax, addon manifest and ZIP structure validated. The setup window and importer handoff still need in-game verification."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PhyzPersonalGuides"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "PhyzLeveling"
+    ]
+  }
+}

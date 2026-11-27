@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "simpleswing",
+  "repo": "kolefield/SimpleSwing",
+  "about": "# Simple Swing\n\nA minimal, text-free swing timer for **WoW: Forever**. Flat bars with no numbers, icons, border, or spark.\n\n## Features\n\n- Move the bar in the game's **Edit Mode**.\n- Set width, height, primary color, background color, and opacity in Edit Mode.\n- Automatically switch between ranged and melee swings. Hunters use Automatic by default.\n- When dual wielding, show two independent stacked timers: **main hand on top, off hand below**.\n- Optionally lock the display to Ranged / Auto Shot or Melee. Old single-hand settings migrate to Melee.\n- Hide outside combat, with a preview while editing.\n- Save settings per character and Edit Mode layout.\n\n## Install\n\nDownload the addon ZIP from [Releases](https://github.com/kolefield/SimpleSwing/releases), then extract its `SimpleSwing` folder into your Forever client's `Interface/AddOns` folder. `SimpleSwing.toc` should be directly inside that folder. Enable **Simple Swing** in the AddOns list.\n\nIf newly installed while the game is running, restart the game when convenient. Updating an already installed copy normally requires only `/reload`.\n\nThis addon targets Forever's interface version **16001**. Other WoW editions are not supported.\n\n## Customize\n\nOpen **Escape > Edit Mode**, select **Simple Swing**, and drag it into position. Its panel provides width (40–1000), height (2–100), both colors with opacity, and attack selection. Width and height also accept typed values.\n\nHeight controls the total area of both stacked bars, including their small gap. Both rows share the width and color settings and move together. Ranged attacks and single-weapon melee use one bar filling that area. The off-hand row appears only with an off-hand weapon; a shield does not add a timer.\n\nEdit Mode previews the primary bar at 65% and the off-hand bar at 40%. Coordinates display to two decimal places, with tiny rounding errors shown as zero. Settings save immediately, independently of Blizzard's Save/Revert buttons. Settings follow local layout copies and renames, but are not included in Blizzard's exported layout strings.\n\n## Timing\n\nEach bar empties on its weapon's native `PLAYER_SWING(duration, swingType)` event, fills over the reported duration, and stays full until that hand swings again. Main-hand and off-hand timers are independent. Automatic mode switches between the melee display and one ranged bar based on the latest attack.\n\nThe bar does not predict unreported movement/cast delays, mid-cycle haste changes, or parry haste. After loading or changing weapons, the next swing synchronizes it. Existing Blizzard bars and other addons are not changed.\n\n## Development\n\nThe addon files live at the repository root. Run `npm ci` and `npm test` with Node.js to compile all Lua files, validate addon file references, and execute 174 mocked behavior checks, including the actual coordinate widget. The earlier ranged-timer fix was confirmed in game; the stacked display and coordinate fix still need in-game confirmation.\n\nRun `pwsh -File scripts/package.ps1` to build the installable ZIP in `dist/`.\n\n## Automatic publishing\n\nEvery push to `main` runs the addon checks in GitHub Actions, then automatically creates an annotated release tag. CurseForge project **1786390** packages those tags as **full releases**, not alpha builds. Failed checks prevent the release tag from being created.\n\nVersions use `v<package version>.<workflow run number>`, for example `v1.0.2.1`. The packager writes the actual tag into the addon's version field. Update `package.json`, its lockfile, and `CHANGELOG.md` when changing the base version. Feature branches do not publish. Rerunning the same workflow reuses its release tag. CurseForge moderation still applies.\n\nA private GitHub push webhook triggers CurseForge's packager; its credential is stored only in webhook settings, never in this repository. GitHub Actions uses its built-in repository token to push tags and does not receive the CurseForge credential.\n\n`.pkgmeta` packages the addon as `SimpleSwing` and excludes development files. LibEditMode is vendored at the pinned revision, so builds do not fetch changing library versions.\n\nSee [CurseForge's automatic packaging guide](https://support.curseforge.com/support/solutions/articles/9000197281) for webhook administration.\n\n## License and credits\n\nOriginal Simple Swing code is MIT licensed. The bundled, unmodified **LibEditMode** by Adrian L Lange has its own license in `Libs/LibEditMode/LICENSE.txt`; the MIT license does not replace it.\n\nLibEditMode source: https://github.com/p3lim-wow/LibEditMode at commit `b4816be444fec1160eac31d9a841f74636898acc`.",
+  "releases": [
+    {
+      "tag": "v1.1.0.2",
+      "name": "Simple Swing 1.1.0 — stacked dual-wield timers",
+      "published": "2026-11-06",
+      "notes": "# Changelog\n\n## 1.1.0\n\n- Show independent vertically stacked timers when dual wielding: main hand on top, off hand below.\n- Replace separate Main Hand / Off Hand choices with Melee; migrate existing settings automatically.\n- Keep Automatic switching between a single ranged bar and the combined melee display.\n- Keep both rows in one movable Edit Mode area with shared size and color settings.\n- Round saved and displayed coordinates to two decimal places, fixing tiny scientific-notation values after entering zero.\n- Preserve the ammunition/inventory timer fix. The bundled LibEditMode files remain unchanged.\n\n## 1.0.2\n\n- Keep active swing timers running when ammunition or ordinary inventory updates occur.\n- Reset on actual weapon changes using `WEAPON_SLOT_CHANGED`.\n\n## 1.0.1\n\n- Hide outside combat, except during Edit Mode.\n\n## 1.0.0\n\n- Initial text-free swing timer with native Edit Mode placement, sizing, and colors.\n- Automatic switching between ranged and melee swings, with manual attack selection."
+    },
+    {
+      "tag": "v1.0.2",
+      "name": "Simple Swing 1.0.2",
+      "published": "2026-11-06",
+      "notes": "# Changelog\n\n## 1.0.2\n\n- Keep active swing timers running when ammunition or ordinary inventory updates occur.\n- Reset on actual weapon changes using `WEAPON_SLOT_CHANGED`.\n\n## 1.0.1\n\n- Hide outside combat, except during Edit Mode.\n\n## 1.0.0\n\n- Initial text-free swing timer with native Edit Mode placement, sizing, and colors.\n- Automatic switching between ranged and melee swings, with manual attack selection."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SimpleSwing"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Blizzard_EditMode"
+    ],
+    "savedVariablesPerCharacter": [
+      "SimpleSwingDB"
+    ]
+  }
+}

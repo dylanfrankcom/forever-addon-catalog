@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "id": "btex",
+  "repo": "BTexMenu/Btex",
+  "about": "**BTex**\n\n__**What is it? :**__  \nBtex (for 'Bottom TEXture') is a very lightweight addon for World Of Warcraft providing Background texture at the bottom of the screen and was created by Tiggy.  \nIt contains a package of pre-made skins, a simple menu for settings skins, texture height,width,transparency,colors, positions, viewport,etc ..\n\n\u00A0\n\n__**What can it do? :**__  \n\\- Put a texture of your choice on the bottom of the screen via menu options (use /bx menu or /btex menu),  \n\\- Set height/width/transparency/position/colors/layer of your texture,  \n\\- Use any other TGA/BLP texture file or any other 'pack' of skin,  \n\\- Display a grid to setup your interface correctly,  \n\\- Modify the 3D rendering area with viewport function,  \n\\- Work in any resolution,  \n\\- Low memory usage & standalone addon (no libs or dependency are needed.\n\n__**Ready to use skins :**__\n\n|                   | Skins with the addon |                               |\n| ----------------- | -------------------- | ----------------------------- |\n| Dark Shadow serie | Simple Black         | Fade Black                    |\n| Warcraft Classic  | Ice Dragon           | Ice Dragon remake (Xaphiroth) |\n| Wall              | White Dragon         | ElvUI                         |\n\n**WARNING!! If you are updating BTex:** ___backup your Interface\\\\Btex\\\\Skin folder if you use custom skin !___\n\n__**Skins package known to work (Thanks to all artists sharing artwork !):**__  \nYou can download and use this skins too (copy them to /Interface/Addons/btex/skins/ and just use \"Custom skins\" then type the name of the file u want to use without the \"-1.tga\" :\n\n|                                                                                                              | Skins by                                                                                                        |                                                                                                                                            |\n| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |\n| [Duxy](http://www.wowinterface.com/downloads/author-204503.html)   | [Brandon87](http://www.wowinterface.com/downloads/author-272366.html) | [RosyBijou](http://www.wowinterface.com/downloads/info14777-BTEX--IceDragoncustomized.html#info) |\n| [Jaimie](http://www.wowinterface.com/downloads/author-272286.html) | [Chemmy](http://www.wowinterface.com/downloads/author-44144.html)     | [Bloodfest](http://www.wowinterface.com/downloads/author-277862.html)                            |\n\nundefined**Making your own skins :undefined**\n\n| Download                                                                                                                               |                                                                                                                                                 |\n| -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |\n| [BTexUI](https://github.com/BTexMenu/BTex-UI-Template/releases/download/UI/btex_example.zip) | [BornabeUI](https://github.com/BTexMenu/BTex-UI-Template/releases/download/UI/BornabeUI.Template.zip) |\n\n__**When done, make 4 tga like this :**__  \n\\- image must be in RGB,  \n\\- Width and height must be a 512x256,  \n\\- Color depth must be 24-bit (8x8x8),  \n\\- 8-bit alpha channel must be present (thus making a 32 bit depth),  \n\\- Image must be uncompressed,  \n\\- Image must be TGA or BLP\n\n__**How can i share my artwork ? :**__  \nCreate an account on [wowinterface](https://www.wowinterface.com/), then upload it there as a plugin under Plug-Ins & Patches\n\n__**Translation :**__\n\n|      | Languages |      |\n| ---- | --------- | ---- |\n| enUS | frFR      | deDE |\n| ruRU | zhTW      | zhCN |\n\n__**FAQ :**__  \nHow do I run menu config ? type `/Btex Menu` or `/Bx` in the chat windows, or use the minimap button.  \nWhy the download is so big ? it's because it contain many images.  \nHow do i load custom skins? Copy TGA or BLP files to /interface/btex/skins/ directory, and use the \"custom texture\" options on the top dropdown menu. Write name file without the end \"-1.tga\".  \nExample: for 'blabla' skin, you have 4 tga named blabla-1.tga, blabla-2.tga. Write 'blabla' in the custom name.  \nDo the skin support transparency ? yes. Via images files and via WOW API.  \nCan i use BLP file? Yes. use custom load skin, and do like with any other tga file.\n\n\u00A0\n\nA development of Tiggy's excellent addon  \nOriginal file/addon can be found here : [Tiggy's Btex](http://www.wowinterface.com/downloads/info7906-BTex.html)",
+  "releases": [
+    {
+      "tag": "v12.1.5v3",
+      "name": "Btex 12.1.5v3",
+      "published": "2026-10-16",
+      "notes": "Added a function to turn on/off the new minimap button"
+    },
+    {
+      "tag": "v12.1.5v2",
+      "name": "Btex 12.1.5v2",
+      "published": "2026-10-16",
+      "notes": "Fixed a issue with \"Change Colors\" button not working\n\nAdded a minimap button with this function\n- Left click for open\n- Right click for close\n- All of /Btex Menu and /Bx are stil working"
+    },
+    {
+      "tag": "v12.1.5",
+      "name": "Btex 12.1.5",
+      "published": "2026-10-12",
+      "notes": "TOC bump for Retail\nAdded Forever support"
+    },
+    {
+      "tag": "v12.1",
+      "name": "Btex 12.1",
+      "published": "2026-08-20",
+      "notes": "TOC Bump"
+    },
+    {
+      "tag": "v12.0.7",
+      "name": "Btex 12.0.7",
+      "published": "2026-06-14",
+      "notes": "TOC Bump"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-16",
+    "releaseDates": [
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-12",
+      "2026-08-20",
+      "2026-06-14",
+      "2026-03-16",
+      "2026-02-10",
+      "2026-01-20",
+      "2025-12-01",
+      "2025-10-05",
+      "2025-08-04",
+      "2025-08-01",
+      "2025-06-12",
+      "2025-04-20",
+      "2025-04-08",
+      "2025-02-24",
+      "2024-12-18",
+      "2024-10-21",
+      "2024-08-22",
+      "2024-07-24",
+      "2024-05-08",
+      "2024-03-19",
+      "2024-01-16",
+      "2023-11-08",
+      "2023-09-06",
+      "2023-07-11",
+      "2023-05-02",
+      "2023-03-21",
+      "2023-01-24",
+      "2022-11-15",
+      "2022-10-25",
+      "2022-05-31",
+      "2022-05-03"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "enUS",
+    "frFR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Btex"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariablesPerCharacter": [
+      "TEX_CHOICE",
+      "TEX_HEIGHT",
+      "UI_WIDTH",
+      "TEX_ALPHA",
+      "TEX_WIDTH",
+      "TEX_X",
+      "TEX_Y",
+      "TEX_STRATA",
+      "TEX_VERTEX_R",
+      "TEX_VERTEX_G",
+      "TEX_VERTEX_B",
+      "TEX_VIEWPORT_BL",
+      "TEX_VIEWPORT_BR",
+      "TEX_VIEWPORT_TL",
+      "TEX_VIEWPORT_TR",
+      "TEX_CHAT",
+      "TEX_MINIMAP_ANGLE",
+      "TEX_MINIMAP_SHOW"
+    ]
+  }
+}

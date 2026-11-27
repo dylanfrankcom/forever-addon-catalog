@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "shaaenfct",
+  "repo": "NLshaen/ShaaenFCT",
+  "about": "# ShaaenFCT\n\nFloating combat text addon for **WoW Forever**.\n\nCurrent version: **v0.7.48**.\n\n## Installation\n\nDownload [ShaaenFCT_v0.7.48.zip](https://github.com/NLshaen/ShaaenFCT/releases/download/v0.7.48/ShaaenFCT_v0.7.48.zip), extract the `shaaenFCT` folder into `Interface/AddOns/`, then run `/reload` in game. Open the addon settings with `/sfct` or the minimap icon.\n\n## Features\n\n- Damage numbers on independent frames anchored to enemy nameplates, with Arc, Popup, Float, Bounce and POW animations\n- **Coverage** mode for available melee, spell, DoT and area-damage reports on tracked nameplates\n- Green incoming-heal numbers in a dedicated frame attached to the player\n- Purple experience-gain numbers in a separate player frame\n- MISS, DODGE, PARRY, BLOCK and GLANCING feedback, plus configurable Overkill effects\n- Custom fonts and interface themes, scale (75–120%) and opacity (30–100%) controls\n- Minimap icon opens the configuration window in the screen center\n- v0.7.45 fixes WoW Forever's 60-upvalue limit by splitting the nameplate event handlers\n\n## Limitations\n\nWoW Forever may restrict combat values and event attribution. **Coverage is best-effort in solo play** for unconfirmed source events; an observed damage event is not proof that the player caused it. For details and commands, see [README.txt](https://github.com/NLshaen/ShaaenFCT/blob/main/README.txt).\n\n## Releases\n\nDownload the latest package from [GitHub Releases](https://github.com/NLshaen/ShaaenFCT/releases/latest).",
+  "releases": [
+    {
+      "tag": "v0.7.48",
+      "name": "ShaaenFCT_v0.7.48",
+      "published": "2026-11-23",
+      "notes": "## New features\n- A fifth **POW** animation tab with native Blizzard FCT-inspired critical-hit scaling, scrolling, and fade.\n- Independent POW **horizontal** and **vertical** direction controls, with Left/Right/Alternate/Random and Up/Down/Alternate/Random selections.\n- Updated typography on ON/OFF slider switches.\n- GitHub Releases link popup when a newer ShaaenFCT version is detected on another player's addon.\n\n## Improvements and fixes\n- Renamed the native text mode to **Blizzard FCT**.\n- Disables supported native Blizzard floating-combat-text CVars (including available XP aliases) when Blizzard FCT is OFF, restoring previous values when selected.\n- Top-bar scale control renamed to **SCALE**, and minimum settings-window opacity increased to 30%.\n- POW motion adjusted toward native Blizzard FCT's fast critical pop and scrolling.\n\n## Important compatibility notes\n- Built for **WoW Forever** (Interface 16001).\n- WoW addons cannot directly query GitHub; update prompts depend on in-game peer version announcements and do not independently verify a published GitHub release.\n- Some WoW Forever XP notifications have no supported CVar and may still appear.\n- Combat values remain subject to WoW Forever's protected-value restrictions.\n- The code has passed local syntax and mocked tests; live gameplay testing remains recommended.\n\n## Installation\nExtract the shaaenFCT folder from the ZIP to Interface/AddOns/, then enter /reload."
+    },
+    {
+      "tag": "v0.7.47",
+      "name": "ShaaenFCT_v0.7.47",
+      "published": "2026-11-22",
+      "notes": "## Nouveautés\n- Cadre d'aperçu animé des polices et des trajectoires dans **Animation**, synchronisé avec le thème.\n- Réglages de direction verticale et horizontale pour Arc, Popup, Float et Bounce.\n- Interrupteurs ON/OFF pour Addon, modes de combat, Combat Log, Pet Damage et Overkill.\n- Sélecteur des polices avec flèche et interrupteur Outline ON/OFF.\n- Curseur de l'intensité Overkill en pourcentage et terminologie simplifiée.\n- Suppression des symboles décoratifs dans l'interface.\n- Lien Guild Discord : https://discord.gg/T6dYnaPsh.\n- Mode Coverage : soins verts au format +1234 HP.\n\n## Corrections\n- Le réglage Pet Damage est respecté lors du suivi des incantations du familier.\n- Le contrôle Outline active correctement son rappel de changement.\n- Migration des anciennes intensités Overkill vers les pourcentages.\n\n## Compatibilité\n- WoW Forever (Interface 16001). Les restrictions du client sur les valeurs de combat protégées subsistent.\n- Tous les changements sont répartis en 10 commits distincts basés sur v0.7.45.\n\n## Installation\nExtraire le dossier `shaaenFCT` dans `Interface/AddOns/`, puis saisir `/reload`.\n\n## Modifications depuis v0.7.45\n\n### Ajouts\n- add in-panel live font and motion preview ([`36d18b9`](https://github.com/NLshaen/ShaaenFCT/commit/36d18b9342ad5b7946509bedd94037bee0441809))\n- toggles for addon, combat sources, log, pet and Overkill ([`5440da8`](https://github.com/NLshaen/ShaaenFCT/commit/5440da8c53fa26182dfb4a19018ae49516001005))\n- outline toggle and font dropdowns with visible caret ([`bd3174a`](https://github.com/NLshaen/ShaaenFCT/commit/bd3174a46e6c49add902bf7cd2b452dbed6e96c8))\n- theme-aware live preview and vertical motion selectors ([`bff5f63`](https://github.com/NLshaen/ShaaenFCT/commit/bff5f6391e23211f72e79560c7eddd4997bb65aa))\n- show fixed Les No Life guild Discord invitation ([`745c5e8`](https://github.com/NLshaen/ShaaenFCT/commit/745c5e8aa3e57771010cf665630598dacf530167))\n- show green healing amounts with plus prefix and HP suffix ([`7961240`](https://github.com/NLshaen/ShaaenFCT/commit/7961240399da12f504ddac3e26320d26fa58c1fc))\n\n### Corrections\n- honor pet toggle when tracking pet cast targets ([`0929cb7`](https://github.com/NLshaen/ShaaenFCT/commit/0929cb7db85925d85bcd8f233ce64ccca956123c))\n- bind the outline switch callback to its local control ([`482f2ac`](https://github.com/NLshaen/ShaaenFCT/commit/482f2ac404d832e6fdcf89ff4f9fa0e7446df557))\n\n### Maintenance et documentation\n- publish ShaaenFCT_v0.7.45.zip as tagged Release ([`30e4e41`](https://github.com/NLshaen/ShaaenFCT/commit/30e4e41dc20405c91cd2877d5f98427b14845762))\n- remove decorative selection symbols and resize diamonds ([`96e3b43`](https://github.com/NLshaen/ShaaenFCT/commit/96e3b432e1838d13752fd86da3ea1ccf89115a3d))\n- prepare local ShaaenFCT v0.7.47 package ([`1453779`](https://github.com/NLshaen/ShaaenFCT/commit/145377998636f69949baf688bba9c2fe8302d07e))\n\n**Comparaison complète :** https://github.com/NLshaen/ShaaenFCT/compare/v0.7.45...v0.7.47"
+    },
+    {
+      "tag": "v0.7.45",
+      "name": "ShaaenFCT_v0.7.45",
+      "published": "2026-11-18",
+      "notes": "## Ajouts\n- Affichage des dégâts mêlée, sorts et DoT dans des frames indépendantes attachées aux nameplates.\n- Mode Coverage pour les cibles suivies, incluant les dégâts de zone disponibles.\n- Deux frames attachées au joueur : soins en vert et gains d'XP en violet.\n- Sliders Scale et Opacity alignés dans la top bar, aperçu des animations et fenêtre recentrée via la minimap.\n\n## Corrections\n- Correction de l'ouverture de la configuration depuis l'icône de minimap, notamment après une opacité de 0 %.\n- Correction de l'erreur WoW Forever : `function has more than 60 upvalues` dans `Core.lua`, grâce à l'extraction des gestionnaires de nameplates.\n- Stabilisation du recyclage et de l'ancrage des frames de nameplates.\n\n## Compatibilité\n- Version WoW Forever (Interface 16001).\n- L'attribution de certains dégâts dans le mode Coverage peut être approximative sur ce client ; aucun montant protégé n'est interprété ou inventé.\n\n## Installation\nExtraire le dossier `shaaenFCT` dans `Interface/AddOns/`, puis taper `/reload`.\n\n## Modifications depuis v0.7.30\n\n### Ajouts\n- release ShaaenFCT v0.7.45 with nameplate coverage and player notifications ([`59a6c2d`](https://github.com/NLshaen/ShaaenFCT/commit/59a6c2df5f0e4e394a0aded67a52f24f9f961ff7))\n\n### Corrections\n- Aucun commit de correction distinct pour cette version.\n\n### Maintenance et documentation\n- sync README version with shaaenFCT.toc ([`7620c71`](https://github.com/NLshaen/ShaaenFCT/commit/7620c71f73226797bbfbdd5a6dbd5e0c9e46668d))\n- publish ShaaenFCT_v0.7.30.zip and tagged Release ([`4a98651`](https://github.com/NLshaen/ShaaenFCT/commit/4a98651a2f27f9cbfb5fd2b0b8509766e279cbc1))\n- automate ShaaenFCT release cleanup and Discord notifications ([`5fa0243`](https://github.com/NLshaen/ShaaenFCT/commit/5fa024371b70e3e2dcd17dbe2e815b441a56952d))\n- automatically publish new GitHub releases to CurseForge ([`dff8057`](https://github.com/NLshaen/ShaaenFCT/commit/dff8057ae5a854b6cf2fc6f9e842c4885fb9e91d))\n\n**Comparaison complète :** https://github.com/NLshaen/ShaaenFCT/compare/v0.7.30...v0.7.45"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "shaaenFCT"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "shaaenFCTDB"
+    ]
+  }
+}

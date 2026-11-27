@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "addonmrgl",
+  "repo": "sfmict/Addon-Manargl",
+  "about": "# Addon Manargl\n\nConvenient manarglement of your addons.\n\n[![Build](https://github.com/sfmict/Addon-Manargl/workflows/Build/badge.svg)](https://github.com/sfmict/Addon-Manargl/releases) [![](https://cf.way2muchnoise.eu/full_1250006_downloads.svg)](https://www.curseforge.com/wow/addons/addonmrgl)\n\n### Features:\n\n* Filters\n* Grouping addons\n* Profiles\n* Autoload profile\n* And many other flexible settings\n\n### Commands:\n\n`/addonmrgl` or `/mrgl` or `/am` - to open the Addon  \n`/mrgl -lp [profile name]` - to load profile\n\n![](https://i.imgur.com/J1UWulk.png)\n\nDownload [Curse page](https://www.curseforge.com/wow/addons/addonmrgl) or [Wago page](https://addons.wago.io/addons/addonmrgl)",
+  "releases": [
+    {
+      "tag": "v12.1.4",
+      "published": "2026-11-22",
+      "notes": "# AddonMrgl - Midnight\n[Full Changelog](https://github.com/sfmict/Addon-Manargl/compare/v12.1.3...v12.1.4)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/Addon-Manargl/releases)\n\n* Added \"Tooltip Metrics\" option"
+    },
+    {
+      "tag": "v12.1.3",
+      "published": "2026-10-20",
+      "notes": "# AddonMrgl - Classic\n[Full Changelog](https://github.com/sfmict/Addon-Manargl/compare/v12.1.2...v12.1.3)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/Addon-Manargl/releases)\n\n* Added locked/unlocked filters"
+    },
+    {
+      "tag": "v12.1.2",
+      "published": "2026-10-14",
+      "notes": "# AddonMrgl - Classic\n[Full Changelog](https://github.com/sfmict/Addon-Manargl/compare/v12.1.1...v12.1.2)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/Addon-Manargl/releases)\n\n* Bump toc"
+    },
+    {
+      "tag": "v12.1.1",
+      "published": "2026-09-26",
+      "notes": "# AddonMrgl - Classic\n[Full Changelog](https://github.com/sfmict/Addon-Manargl/compare/v12.1.0...v12.1.1)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/Addon-Manargl/releases)\n\n* Added support for Forever"
+    },
+    {
+      "tag": "v12.1.0",
+      "published": "2026-08-29",
+      "notes": "# AddonMrgl - Midnight\n[Full Changelog](https://github.com/sfmict/Addon-Manargl/compare/v12.0.6...v12.1.0)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/Addon-Manargl/releases)\n\n* Now metrics icons can be darkened"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-10-20",
+      "2026-10-14",
+      "2026-09-26",
+      "2026-08-29",
+      "2026-07-23",
+      "2026-07-10",
+      "2026-05-07",
+      "2026-05-03",
+      "2026-05-03",
+      "2026-04-14",
+      "2026-03-26",
+      "2026-02-03",
+      "2026-01-13",
+      "2025-12-22",
+      "2025-12-02",
+      "2025-11-11",
+      "2025-10-08",
+      "2025-09-18",
+      "2025-09-11",
+      "2025-09-06",
+      "2025-08-30",
+      "2025-08-27",
+      "2025-08-23",
+      "2025-08-23",
+      "2025-08-19",
+      "2025-08-17",
+      "2025-08-16",
+      "2025-08-06",
+      "2025-08-01",
+      "2025-07-30",
+      "2025-07-21",
+      "2025-07-18",
+      "2025-07-18",
+      "2025-07-17",
+      "2025-07-17",
+      "2025-07-16",
+      "2025-07-15",
+      "2025-07-02",
+      "2025-06-30",
+      "2025-05-27",
+      "2025-05-19",
+      "2025-05-15",
+      "2025-05-07",
+      "2025-05-06",
+      "2025-04-30",
+      "2025-04-30",
+      "2025-04-29",
+      "2025-04-28",
+      "2025-04-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AddonMrgl"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "LibSFDropDown",
+      "ElvUI"
+    ],
+    "savedVariables": [
+      "AddonMgrDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "AddonMgrAutoLoadChar"
+    ]
+  }
+}

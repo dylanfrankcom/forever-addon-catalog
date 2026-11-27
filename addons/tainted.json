@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "tainted",
+  "repo": "lua-wow/Tainted",
+  "about": "# Tainted\n\n## Description\n\n**Tainted** is a minimalistic user interface replacement for **World of Warcraft**, heavily\ninspired by [Tukui](https://www.tukui.org/) and built on [oUF](https://github.com/oUF-wow/oUF).\nA single addon folder serves every supported client and should look the same on all of them.\n\n> Tainted is being revived after a long break. Most modules are done but still **pending in-game\n> verification**; see [known limitations](https://github.com/lua-wow/Tainted/blob/master/docs/limitations.md) and\n> [unverified features](https://github.com/lua-wow/Tainted/blob/master/docs/unverified.md).\n\n## Supported clients\n\n| Client                | Interface |\n|:----------------------|:----------|\n| Retail (Midnight)     | `120105`  |\n| Classic Forever       | `16001`   |\n| Classic Era           | `11509`   |\n| Classic TBC           | `20506`   |\n| Classic WotLK (Titan) | `38002`   |\n| Classic MoP           | `50504`   |\n\nCataclysm is not supported.\n\n## Modules\n\n| Feature                                                                       | Retail | Forever | Era | TBC | WotLK | MoP |\n|:------------------------------------------------------------------------------|:------:|:-------:|:---:|:---:|:-----:|:---:|\n| **Unit frames**: player, target, target of target, pet, focus, focus target, party, raid, boss and arena, with class resources, castbars and auras | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Nameplates**                                                                | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Minimap**: square minimap with a datatext strip; styled world map with coordinates | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Chat**: styled chat frames, history across reloads, copy chat text, clickable URLs | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Datatexts**: guild, character (durability), friends, system, specialization, gold, time, coordinates, micro menu, voice chat | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Action bars**: main, multi bars (6–8 off by default), pet, stance, extra and zone ability buttons, micro menu and bags bars | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Auras**: player buffs, debuffs and weapon enchants next to the minimap      | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Tooltips**: styled tooltips with extra information such as spell IDs       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Bags**: a single bag window with a sort button (Blizzard's sort on Retail and Forever, Tainted's own on Classic) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Bank**: a single bank window                                                | — | — | ✅ | ✅ | ✅ | ✅ |\n| **Blizzard UI tweaks**: durability, experience/reputation bars, framerate, mirror timers, objective tracker, queue status, UI widgets | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Ghost frame** tweak                                                         | ✅ | ✅ | — | — | — | ✅ |\n| **Talking head**: hidden                                                      | ✅ | ✅ | — | — | — | — |\n| **Auto Repair** and **Auto Sell Junk** at merchants                           | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Auto Screenshots** on level up, achievements, boss kills and Mythic+ completion | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Threat bar**                                                                | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |\n| **Interrupts** and **Dispels**: announce your interrupts and (a few) dispels in group chat | — | — | ✅ | ✅ | ✅ | ✅ |\n| **Auto Keystone**: places your keystone when the Mythic+ frame opens          | ✅ | — | — | — | — | — |\n| **Dungeon Portals**: teleport buttons on the Mythic+ frame                    | ✅ | — | — | — | — | — |\n\n## Usage\n\n### Commands\n\n-   `/tainted` - List all available commands.\n-   `/tainted healer` - Set the healer role: raid frames move to the centre (groups of up to 20).\n-   `/tainted tank` - Set the tank role: raid frames stay above the chat.\n-   `/tainted dps` - Set the damage role: raid frames stay above the chat.\n-   `/tainted auto` - Clear the manual role and use the detected one.\n-   `/tainted spell <spellID|name>` - Print a spell's name, ID and whether it is known.\n-   `/tainted test` - Show the unit frames with the player as unit.\n-   `/tainted reset` - Reset Tainted's saved data for this character and reload the UI.\n-   `/rl` - Reload the UI.\n\n> The role is detected from your specialization (talent points on Era, TBC and WotLK); the role commands override it per character.\n\n### Minimap\n\n-   `Right-Click`: open the tracking menu (on clients that have one).\n-   `Middle-Click`: open the expansion landing page (Retail and Forever, when it is available).\n\n### Datatexts\n\n-   `Gold`: `Click` toggles the bags; `Shift-Click` shows the bag slots.\n-   `Micro Menu`: `Click` shows the micro menu bar and the game menu.\n-   `Character`: `Click` opens the character frame.\n-   `Time`: `Click` opens the calendar (where it exists); `Right-Click` opens the time manager.\n-   `Coords`: `Click` opens the world map; `Shift-Click` prints map IDs.\n\n> Some datatexts will display extra information while holding `Shift`.\n\n## Configuration\n\nThere is no in-game configuration.\n\nPlease report Lua errors as [issues](https://github.com/lua-wow/Tainted/issues).\n\n## Installation\n\n1.  Download the latest version of [**Tainted**](https://github.com/lua-wow/Tainted/releases)\n2.  Backup your **Interface** and **WTF** folders.\n3.  Delete the **Cache** and **WTF** folders for a clean install.\n4.  Copy the **Tainted** folder into the client's AddOns folder.\n    - `World of Warcraft/_retail_/Interface/AddOns`\n    - `World of Warcraft/_classic_era_/Interface/AddOns`\n5.  Now you're ready to launch World of Warcraft.\n\nTo install from git, clone **with submodules**: the bundled libraries in `libs/` and the\nannouncer/screenshot modules are git submodules, and the addon won't load without them.\n\n## Development Setup\n\n### Method 1\n\n```bash\n# clone the repository along with submodules\ngit clone --recurse-submodules git@github.com:lua-wow/Tainted.git\n```\n\n### Method 2\n\n```bash\n# clone just the main repository\ngit clone git@github.com:lua-wow/Tainted.git\n\n# initialize/clone submodules\ngit submodule update --init --recursive\n```\n\n### Linting\n\nStatic analysis uses [luacheck](https://github.com/lunarmodules/luacheck), configured in [.luacheckrc](https://github.com/lua-wow/Tainted/blob/master/.luacheckrc).\n\nRequirements: **Lua 5.1** and **LuaRocks** (e.g. via [mise](https://mise.jdx.dev/): `mise use lua@5.1`).\n\n```bash\n# install lua + luarocks + luacheck\nmise install\n\n# list available make commands\nmake help\n\n# lint the whole addon (submodules under libs/ are excluded)\nmake check\n# or, with mise\nmise exec -- make check\n\n# lint a directory or a single file, showing warning codes\nluacheck core/\nluacheck modules/chat/chatframe.lua --codes\n```\n\nWhen using a new WoW API function, frame or constant, add it to `read_globals` in `.luacheckrc`.\nGlobals the addon intentionally sets or mutates go in `globals`.\n\n## Credits\n\n-   [oUF](https://github.com/oUF-wow/oUF) by Haste, lightspark, p3lim and Rainrider (MIT).\n    `libs/oUF` is a fork of upstream; `libs/oUF_Classic` is its classic branch.\n-   [Tukui](https://www.tukui.org/) by Tukz, the visual and layout reference.\n-   [TaintLess](https://www.townlong-yak.com/addons/taintless) by Townlong Yak (see upstream for its terms).\n-   [LibStub](https://www.curseforge.com/wow/addons/libstub) by Kaelten\n\nThe MIT-licensed libraries keep their license file in their folder.\n\n## License\n\nPlease, see [LICENSE](https://github.com/lua-wow/Tainted/blob/master/LICENSE) file.",
+  "releases": [
+    {
+      "tag": "v1.7.0",
+      "published": "2026-11-10",
+      "notes": "## What's Changed\n* Forever fixes by @pedrozc90 in https://github.com/lua-wow/Tainted/pull/23\n\n**Full Changelog**: https://github.com/lua-wow/Tainted/compare/v1.6.0...v1.7.0"
+    },
+    {
+      "tag": "v1.6.0",
+      "published": "2026-11-04",
+      "notes": "## What's Changed\n* unitframes: mirror Retail oUF on Classic by @pedrozc90 in https://github.com/lua-wow/Tainted/pull/17\n* Classic unit frames on Retail oUF plus Classic compat by @pedrozc90 in https://github.com/lua-wow/Tainted/pull/22\n\n**Full Changelog**: https://github.com/lua-wow/Tainted/compare/v1.5.0...v1.6.0"
+    },
+    {
+      "tag": "v1.5.0",
+      "published": "2026-10-20",
+      "notes": "## What's Changed\n* fix #13: never enable taintLog on Retail, make it a level elsewhere by @pedrozc90 in https://github.com/lua-wow/Tainted/pull/14\n* Bags: usable in combat on Classic, Retail-like layout by @pedrozc90 in https://github.com/lua-wow/Tainted/pull/15\n\n**Full Changelog**: https://github.com/lua-wow/Tainted/compare/v1.4.0...v1.5.0"
+    },
+    {
+      "tag": "v1.4.0",
+      "published": "2026-10-16",
+      "notes": "## What's Changed\n* Midnight and Classic Forever support; one TOC for all six clients by @pedrozc90 in https://github.com/lua-wow/Tainted/pull/12\n\n## New Contributors\n* @pedrozc90 made their first contribution in https://github.com/lua-wow/Tainted/pull/12\n\n**Full Changelog**: https://github.com/lua-wow/Tainted/compare/v1.3.5...v1.4.0"
+    },
+    {
+      "tag": "v1.3.5",
+      "published": "2026-04-23",
+      "notes": "**Full Changelog**: https://github.com/lua-wow/Tainted/compare/v1.3.4...v1.3.5"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 2,
+    "contributors": 1,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-04",
+      "2026-10-20",
+      "2026-10-16",
+      "2026-04-23",
+      "2025-06-02",
+      "2025-06-02",
+      "2024-10-29",
+      "2024-10-16",
+      "2024-10-15",
+      "2024-08-15",
+      "2024-08-09",
+      "2024-07-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Tainted"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tbc"
+    ],
+    "savedVariables": [
+      "TaintedDatabase",
+      "TaintedChatHistory"
+    ]
+  }
+}

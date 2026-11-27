@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "loca",
+  "repo": "Bl4ut0/LoCA-Anniversary",
+  "about": "# Loss of Control Alerter (LoCA) - TBC Anniversary Edition\n\n**Loss of Control Alerter (LoCA)** is a lightweight addon that detects and displays Crowd Control (CC) effects on your character. It provides a highly visible, customizable alert showing the type of CC (Stun, Fear, Root, etc.) and its remaining duration.\n\nThis repository hosts the updated version compatible with **World of Warcraft: TBC Anniversary (Classic)**.\n\n## Features\n\n*   **Instant Alerts**: Immediately shows an icon and timer when you are hit by CC.\n*   **Categories**: Supports all major CC types including:\n    *   **Stuns** (Kidney Shot, Hammer of Justice, etc.)\n    *   **Fears** (Psychic Scream, Fear)\n    *   **Roots** (Entangling Roots, Frost Nova)\n    *   **Silences** & **Disarms**\n    *   **Polymorphs** & **Cyclones**\n*   **Visual Styles**: Choose between:\n    *   **Box Style**: A clean, bordered frame (Modern look).\n    *   **Default Style**: The classic shadow/glow look.\n*   **Lightweight**: Minimal CPU/Memory usage.\n\n## Compatibility\n\nThis version has been specifically updated for the **TBC Anniversary (2.5.5)** client.\n\n### Recent Updates\n*   **Modern API Support**: logic updated to use `C_UnitAuras` for reliable debuff scanning on the Anniversary engine.\n*   **Crash Fixes**: Patched `C_AddOns` and `C_Spell` namespace changes to prevent Lua errors.\n*   **Visual Options**: Added a configuration toggle for frame styling.\n\nProvides an audible and visual alert when you acquire a loss of control debuff and also creates a central UI icon with a countdown timer to denote when the CC effect will expire.\n\n## Supported Game Versions\nLoss of Control Alerter supports all active World of Warcraft clients:\n- **Retail / Midnight** (`12.0.5` / `12.1.5` / `12.1.7`)\n- **Mists of Pandaria Classic** (`5.5.4`)\n- **Cataclysm Classic** (`4.4.0`)\n- **Wrath of the Lich King Classic** (`3.4.3`)\n- **The Burning Crusade (Anniversary)** (`2.5.5` / `2.5.6`)\n- **WoW Forever (Camelot)** (`1.60.1`)\n- **Classic Era / SoD / Hardcore** (`1.15.9`)\n\nThe codebase automatically utilizes modern C_LossOfControl events if available, and gracefully falls back to combat log parsing for older Classic clients.\n\n## Installation\n\n1.  Download the latest release.\n2.  Extract the `LoCA` folder into your WoW AddOns directory:\n    *   `_classic_\\Interface\\AddOns\\`\n3.  Launch the game.\n\n## Configuration\n\nType `/loca` or go to **Interface Options -> AddOns -> Loss of Control Alerter**.\n*   **Unlock**: Move the alert frame anywhere on your screen.\n*   **Test**: Preview the alert to adjust scale and positioning.\n*   **Style**: Switch between \"Box\" and \"Default\" visuals.\n*   **Add Custom Spell**: Dynamically add unsupported or missing abilities (such as `5530` Mace Stun) by inputting their Spell ID directly in the game, categorized exactly how you want. These immediately save to your profile and can be removed later!\n\n## Credits\n\n*   **Original Author**: [Rdmx](https://www.curseforge.com/wow/addons/loca-loss-of-control-alerter-for-tbc-classic)\n*   **Anniversary Port**: Bl4ut0\n\nAll creative rights belong to the original author. This repository simply serves to provide compatibility for the Anniversary game client.",
+  "releases": [
+    {
+      "tag": "v1.33",
+      "name": "LoCA v1.33",
+      "published": "2026-11-21",
+      "notes": "# LoCA v1.33 (Release)\n\n### Fixed\n- **Secret Aura Guard (`GetDebuffDataByIndex`)**: Guarded `C_UnitAuras.GetDebuffDataByIndex` with `C_Secrets.ShouldAurasBeSecret()` and `pcall` in `OnDebuffsChanged` so Forever/Midnight clients never throw `Auras cannot be accessed when secret` in `custom` mode.\n- **Forever Profile Mode Migration**: Automatically migrates existing Forever profiles from the previously forced `\"custom\"` mode to `\"retail\"` (`C_LossOfControl`) unless the user explicitly chose a mode (`userSelectedMode`)."
+    },
+    {
+      "tag": "v1.32",
+      "name": "LoCA v1.32",
+      "published": "2026-11-21",
+      "notes": "# LoCA v1.32 (Release)\n\n### Fixed\n- **WoW Forever / Midnight `ADDON_ACTION_FORBIDDEN`**: Stopped registering `COMBAT_LOG_EVENT_UNFILTERED` on clients with `issecretvalue` (WoW Forever `1.60.1` and Retail `12.x`), eliminating the `ADDON_ACTION_FORBIDDEN` error on login/reload.\n- **Native `C_LossOfControl` on Forever**: Enabled `retail` mode (`C_LossOfControl`) on non-Mainline clients that provide `C_LossOfControl.GetActiveLossOfControlData` (such as WoW Forever), so school lockouts and Loss of Control events work natively without needing `COMBAT_LOG_EVENT_UNFILTERED`.\n- **Combat-Safe Blizzard Frame Hiding**: Removed `EnableMouse` mutation on `LossOfControlFrame` in `UpdateBlizzardFrameVisibility()` so hiding the built-in frame only uses `SetAlpha(0)`."
+    },
+    {
+      "tag": "v1.31",
+      "name": "LoCA v1.31",
+      "published": "2026-11-20",
+      "notes": "# LoCA v1.31 (Release)\n\n### Added\n- **Hide Blizzard Default Frame**: Added a `Hide Blizzard Default Frame` toggle under `/loca` -> `Debuffs` (visible on Retail and WoW Forever where `LossOfControlFrame` exists) to hide Blizzard's built-in Loss of Control frame in a taint-safe way (`SetAlpha(0)` + `EnableMouse(false)`) while keeping `C_LossOfControl` events active for LoCA."
+    },
+    {
+      "tag": "v1.30",
+      "name": "LoCA v1.30",
+      "published": "2026-11-20",
+      "notes": "# LoCA v1.30 (Release)\n\n### Added\n- **Recent & Quick Filter Tab**: Auto-captures detected LoC spells/debuffs/interrupts during your session with their icon, name, and Spell ID so you can block or group them with one click—no manual Spell ID lookup required.\n- **Per-Spell Blacklist**: Ignore any specific spell in both Retail and Custom modes via the visual Recent list or by Spell ID.\n- **Custom Alert Groups**: Create named groups with independent **Enabled** toggles, **Priority/Weight**, and **Scale Override** (e.g., smaller roots or high-priority PvE mechanics).\n- **Per-Category Scale**: Added a `Category Scale` multiplier slider to each built-in category (`Movement/Root`, `Silence/Disarm`, `Stun`, `Full`).\n- **Non-Blanket Interrupt Lockout Alerts**: Added `COMBAT_LOG_EVENT_UNFILTERED` (`SPELL_INTERRUPT`) tracking in Custom mode so partial/school interrupts display `\"<School> Locked\"` (e.g., `\"Fire Locked\"`).\n- **Retail & WoW Forever Support**: Re-added `LoCA_Mainline.toc` (`120005, 120105, 120107`) with `issecretvalue` guards for Midnight, and added `LoCA_Camelot.toc` (`16001`) for WoW Forever.\n\n### Fixed\n- **Disabled Category Filtering**: Fixed `OnDebuffsChanged` so disabled categories (such as `Movement/Root`) are excluded before selecting the highest-priority alert instead of suppressing lower-priority active debuffs.\n- **Options & `/loca` Reliability**: Wrapped `AceConfigDialog:AddToBlizOptions` in `pcall` with an `addonTitle` fallback so `/loca` always registers even if another addon loads an incompatible `AceConfigDialog-3.0`."
+    },
+    {
+      "tag": "v1.23",
+      "name": "LoCA v1.23",
+      "published": "2026-11-20",
+      "notes": "# LoCA v1.23 (Release)\n\n### Changed\n- **Expansion & Interface Updates**: Updated TOC interface versions for **Classic Era (`11509`)**, **TBC Anniversary (`20505`, `20506`)**, and added **`LoCA_Mists.toc` (`50504`)** for Mists of Pandaria Classic.\n- **Retail Removal**: Removed `LoCA_Mainline.toc` (Retail and WoW Forever both have built-in Loss of Control alerts and do not need LoCA).\n- **Release & CI Automation**: Added `.pkgmeta`, `.tools/`, `package.json`, and GitHub Actions workflow (`curseforge-release.yml`) for automated Lua/structure validation, immutable release packaging, and CurseForge deployment.\n\n### Fixed\n- **`C_Spell.GetSpellInfo` Shim**: Updated the `GetSpellInfo` compatibility shim in `LoCA.lua` to unpack the `C_Spell.GetSpellInfo` table into legacy multiple return values on modern Classic/Progression clients where `GetSpellInfo` is absent."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-03-09",
+      "2026-01-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LoCA"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "LoCADB"
+    ]
+  }
+}

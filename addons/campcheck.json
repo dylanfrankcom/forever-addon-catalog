@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "campcheck",
+  "repo": "jjrankin/CampCheck",
+  "about": "# CampCheck (WoW: Forever)\n\nA lightweight, zero-bloat campfire & profession station tracker for *World of Warcraft: Forever*.\n\n## Features\n- **Pre-Sit Ground Scan:** Hover your mouse over props around a campfire before sitting to see what is already placed (`X/3` slots) without hitting the \"There is no more room\" limit.\n- **Smart Profession Suggestions:** Automatically reads your character's learned professions and suggests the highest-value station to add next, prioritizing items already in your bags.\n- **Bag Inventory Audit:** Shows which campfire kits, Cozy Sleeping Bags, and profession stations you have on hand vs. what you are missing.\n- **Zero Layer/Shard Desync:** Reads live server auras and mouseover tooltips directly—no stale map pins across layers.\n\n## Installation\n1. Download the latest `CampCheck.zip` from Releases (or clone this repo).\n2. Place the `CampCheck` folder into your `_forever_` AddOns directory:\n   - **macOS:** `/Applications/World of Warcraft/_forever_/Interface/AddOns/CampCheck/`\n   - **Windows:** `C:\\Program Files (x86)\\World of Warcraft\\_forever_\\Interface\\AddOns\\CampCheck\\`\n3. Restart WoW (or check **Load out of date AddOns** at character select if needed).\n\n## Slash Commands\n- `/cc` or `/campcheck` — Toggle the CampCheck window (click inside to highlight & copy text).\n- `/cc clear` — Clear the ground mouseover cache when moving to a new campfire.",
+  "releases": [
+    {
+      "tag": "v0.1.1",
+      "name": "CampCheck v0.1.1",
+      "published": "2026-11-15",
+      "notes": "Fixes combat aura taint error by pausing aura and tooltip scans while in combat."
+    },
+    {
+      "tag": "v0.1.0",
+      "name": "CampCheck v0.1.0",
+      "published": "2026-11-15"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CampCheck"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

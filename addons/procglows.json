@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "procglows",
+  "repo": "muleyo/ProcGlows",
+  "about": "# muleyo's ProcGlows\n\nAdd custom glow effects to your action buttons based on buffs, spell cooldowns, and usable items.\n\n## Features\n\n**Aura Glows** &mdash; Watch for a specific buff or proc (tracked by the CooldownManager) and make a target action button glow with a custom color.\n\n**Spell Glows** &mdash; Make an action button glow whenever a spell is off cooldown and usable.\n\n**Item Glows** &mdash; Make an action button glow when an item becomes usable.\n\n**Custom Colors** &mdash; Set a unique glow color for every entry individually.\n\n**Hide Cast Animations** &mdash; Optionally hide Blizzard's spell-cast, interrupt, and reticle overlay animations on action buttons.\n\n**Full GUI** &mdash; Add, edit, and remove entries through an in-game configuration panel. No manual editing required.\n\n## Slash Commands\n\n`/pg` or `/procglows` &mdash; Open the configuration window\n\nThe settings panel is also available under **Game Menu &rarr; Options &rarr; AddOns &rarr; ProcGlows**.\n\n## How It Works\n\n### Auras\n\nSelect the **Buff/Proc** you want to watch for from the dropdown menu and enter the **Target Spell ID** (the spell on your bar that should glow). The addon monitors the CooldownManager and lights up the corresponding button when the buff is active.\n\n**Note:** Only buffs tracked by the CooldownManager appear in the dropdown. Use the **BaseSpellID / Talent SpellID**, not rank-specific or override spell IDs.\n\n### Spells\n\nEnter a **Spell ID** and the addon will glow its action button whenever the spell is usable (off cooldown, resources available, etc.).\n\n### Items\n\nEnter an **Item ID** and the addon will glow its action button whenever the item is usable.\n\n## Feedback &amp; Bugs\n\nFound a bug or have a suggestion? Please open an issue on the project page!\n\n## Donate\n\nIf you enjoy ProcGlows and would like to support development, consider [making a donation](https://pay.muleyo.dev/?donation=true). Thank you!",
+  "releases": [
+    {
+      "tag": "1.3.1",
+      "published": "2026-11-11",
+      "notes": "# 1.3.1\n\n### Changes since 1.3.0\n\n- Update release workflow (59d0920)\n- Added EllesmereUI Support (6a151e4)"
+    },
+    {
+      "tag": "1.3.0",
+      "published": "2026-11-10",
+      "notes": "# 1.3.0\n\n### Changes since 1.2.9\n\n- Added Forever Support Updated TOC to 12.1.5 (f35cb67)"
+    },
+    {
+      "tag": "1.2.9",
+      "published": "2026-08-22",
+      "notes": "# 1.2.9\n\n### Changes since 1.2.8\n\n- Added secret check (dc6cc9f)"
+    },
+    {
+      "tag": "1.2.8",
+      "published": "2026-08-17",
+      "notes": "# 1.2.8\n\n### Changes since 1.2.7\n\n- Added sound channel option (020ad12)\n- Potential error fixes (2a53db0)"
+    },
+    {
+      "tag": "1.2.7",
+      "published": "2026-08-12",
+      "notes": "# 1.2.7\n\n### Changes since 1.2.6\n\n- Bumped TOC version (525cc4f)"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 10,
+    "contributors": 3,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11",
+      "2026-11-10",
+      "2026-08-22",
+      "2026-08-17",
+      "2026-08-12",
+      "2026-07-22",
+      "2026-07-21",
+      "2026-06-17",
+      "2026-06-02",
+      "2026-06-01",
+      "2026-05-28",
+      "2026-05-28",
+      "2026-04-23",
+      "2026-04-03",
+      "2026-03-31",
+      "2026-03-27",
+      "2026-02-22",
+      "2026-02-19",
+      "2026-02-19",
+      "2026-02-18",
+      "2026-02-18",
+      "2026-02-17",
+      "2026-02-16",
+      "2026-02-16",
+      "2026-02-16",
+      "2026-02-16",
+      "2026-02-16",
+      "2026-02-15",
+      "2026-02-14",
+      "2026-02-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ProcGlows"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "muleyoProcGlowDB"
+    ]
+  }
+}

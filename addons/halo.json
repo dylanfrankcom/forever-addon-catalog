@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "halo",
+  "repo": "Mimezu/forever-Halo",
+  "about": "# Halo\n\nRadial menus for WoW Forever: hold a key, point at a slice, let go to use it.\n\n## Install\n\nPut the `Halo` folder in `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n\n## Use\n\n- `/halo`, the minimap icon or the **Open Halo** key (Options) opens the window. Starter rings: Supplies, Travel, Emotes.\n- **New ring**, then set a **Key** or **Gamepad** button.\n- Drop spells, items, mounts, toys, pets or macros on the ring. **+** adds emotes, markers, lists, other rings, macros.\n- Drag a slice to move it. Drag the ring to turn it. Right-click removes a slice.\n- A ring holds 12 slices. Automatic lists fill what is left.\n- Gamepad layers: give a ring R3, another R3 + L1. Hold L1 in the R3 ring to switch.\n- Gamepad bar combos (R1 + D-pad): **...** → **Make macro**, put it on that slot.\n- Works in combat. Ring changes made in combat apply after.\n\n| Input | Action |\n|---|---|\n| Hold key, release on slice | Use |\n| Release in the middle | Ring stays open |\n| Click, or 1-9, 0 | Use |\n| Right-click | Back |\n| Esc | Close |\n| Gamepad: stick, then release or A, L1, R1, L2, R2 | Use |\n| Gamepad: B | Back or close |\n\n| Command | Does |\n|---|---|\n| `/halo layout a` · `b` | Window layout |\n| `/halo reset yes` | Delete all rings and options |\n| `/halo status` · `debug` · `camstate` | Diagnostics |\n\n## Data\n\n`WTF\\Account\\<account>\\SavedVariables\\Halo.lua` (`HaloDB`).\n\n## Tests\n\n```\nlua5.1 tests/Smoke.lua\n```\n\n## More\n\n[docs/Details.md](https://github.com/Mimezu/forever-Halo/blob/main/docs/Details.md): styles, folders, automatic lists, how it works.",
+  "releases": [
+    {
+      "tag": "v0.9.32",
+      "name": "Halo 0.9.32",
+      "published": "2026-11-19",
+      "notes": "Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n\n### Fixed\n- Blizzard gamepad windows keep their buttons: R3 sets the amount while crafting\n- A ring takes its button back when the window closes"
+    },
+    {
+      "tag": "v0.9.31",
+      "name": "Halo 0.9.31",
+      "published": "2026-11-15",
+      "notes": "Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n\n### New\n- Drag the ring's background to turn the whole ring\n- Key binding to open Halo, minimap icon, Settings page entry\n\n### Fixed\n- Equipment set slices show the set's own icon\n- The worn equipment set lights up on the ring"
+    },
+    {
+      "tag": "v0.9.28",
+      "name": "Halo 0.9.28",
+      "published": "2026-11-14",
+      "notes": "Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n\n### New\n- Gamepad layers: R3 + L1 ring shows while L1 is held in the R3 ring\n- Drag slices to move them on the ring\n- Window layout B, switch in the footer\n- One food slice, one drink slice (drink for mana classes)\n- One best usable bandage slice\n\n### Changed\n- Shorter text in the window, tooltips and messages\n- Hand-placed slices keep their place in a full ring\n- Gamepad Companion can rumble on slice changes"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-15",
+      "2026-11-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Halo"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "FrameGambit"
+    ],
+    "savedVariables": [
+      "HaloDB"
+    ]
+  }
+}

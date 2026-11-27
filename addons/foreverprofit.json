@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverprofit",
+  "repo": "konderziller/ForeverProfit",
+  "about": "# ForeverProfit\n\nCrafting profit helper for the **WoW Forever** client (Interface 16001), using **Auctionator** or **TradeSkillMaster** prices.\n\n*Deutsch weiter unten.*\n\n## Features\n\n- **Profit list** – every recipe of your character with reagent cost, sale price (after the 5% AH cut) and profit, sorted by profit.\n- **Prices from Auctionator** – full scans, normal searches and the selling tab all feed the list. Vendor prices for reagents (thread, salt, flux …) are used when cheaper.\n- **TradeSkillMaster prices** – with TSM 4.15+ (Forever support) TSM is the default price source: all prices come from TSM (Auctionator is only used when the TSM addon is not installed). Auctionator, the own AH scan or manual prices can still be picked with the price button. Price formula via `/fp tsm <formula>`, default `first(dbmarket, dbregionmarketavg, dbhistorical, dbregionhistorical, dbminbuyout)`.\n- **Sub-recipes** – reagents you can craft cheaper yourself (e.g. Cured Light Hide) are calculated at their crafting cost, recursively.\n- **Market check** – number of listings at the AH, median price, warnings for old prices (`~`) and price spikes (`!`).\n- **Queue & shopping list** – queue recipes with quantities; the shopping list subtracts bags and bank and is sent to Auctionator as list `ForeverProfit`.\n- **Craft list** – craft the queue step by step (“Craft next”), intermediate steps first. The queue counts down automatically.\n- **Professions bar** – left-click opens a profession, right-click filters the list.\n- **Leveling mode** – recipes that still give skill, sorted by estimated cost per skill point.\n- **Custom prices** – `/fp price [item] 1g20s`.\n- German and English (follows the client language).\n\n## Requirements\n\n- WoW Forever client (`_classic_beta_`, Interface 16001)\n- [Auctionator](https://www.curseforge.com/wow/addons/auctionator) and/or [TradeSkillMaster](https://www.tradeskillmaster.com/) 4.15+\n\n## Installation\n\nCopy the `ForeverProfit` folder to `World of Warcraft\\_classic_beta_\\Interface\\AddOns\\` and restart the game.\n\n## Usage\n\n| | |\n|---|---|\n| `/fp show` or minimap button | open the window |\n| Left-click recipe | +1 to queue (Shift: +5) |\n| Right-click recipe | −1 from queue |\n| `/fp shop` | send shopping list to Auctionator |\n| `/fp price [item] 1g20s` | set a custom price (`clear` removes it) |\n| `/fp help` | all commands |\n\nCrafting requires the matching profession window to be open (Blizzard restriction).\n\n---\n\n## Deutsch\n\nProfit-Rechner für Berufe im **WoW-Forever**-Client mit Preisen aus **Auctionator** oder **TradeSkillMaster** (ab TSM 4.15): Profit-Liste, Händlerpreise, Teilrezepte, Marktlage, Queue mit Einkaufsliste für Auctionator, Herstellliste, Berufe-Leiste und Skill-Modus. Die Sprache folgt automatisch dem Spiel-Client.\n\nInstallation: Ordner `ForeverProfit` nach `World of Warcraft\\_classic_beta_\\Interface\\AddOns\\` kopieren, Spiel neu starten, `/fp show`.\n\n## License\n\nMIT – see [LICENSE](https://github.com/konderziller/ForeverProfit/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.8.0",
+      "published": "2026-11-05",
+      "notes": "# ForeverProfit\n\n## [v1.8.0](https://github.com/konderziller/ForeverProfit/tree/v1.8.0) (2026-11-05)\n[Full Changelog](https://github.com/konderziller/ForeverProfit/compare/v1.7.0...v1.8.0) [Previous Releases](https://github.com/konderziller/ForeverProfit/releases)\n\n- Make TSM the fixed default price source, remove auto mode  \n    Old \"auto\" settings migrate to \"tsm\". Auctionator is only used when the  \n    TSM addon is not installed.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.7.0",
+      "published": "2026-11-04",
+      "notes": "# ForeverProfit\n\n## [v1.7.0](https://github.com/konderziller/ForeverProfit/tree/v1.7.0) (2026-11-04)\n[Full Changelog](https://github.com/konderziller/ForeverProfit/compare/v1.6.0...v1.7.0) [Previous Releases](https://github.com/konderziller/ForeverProfit/releases)\n\n- Price source button in the main window  \n    - \"Prices: \n\" button in the status line: left-click next source,  \n      right-click previous; tooltip shows current/loaded sources and the TSM  \n      formula  \n    - Shared Prices.Modes/Cycle/ModeLabel (button and /fp source); sources  \n      that are not loaded are skipped  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- TradeSkillMaster as price source  \n    - TSM\\_API.GetCustomPriceValue as fourth price source (TSM 4.15+ supports  \n      WoW Forever): mode \"tsm\" in /fp source, and in \"auto\" after Auctionator  \n    - /fp tsm  sets the TSM price formula (default  \n      first(dbmarket, dbregionmarketavg)); invalid formulas fall back to dbmarket  \n    - tools/test\\_prices.py: load test for both languages and all price modes  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- \uFEFFRelease workflow: actions/checkout v5 (Node 20 deprecation)  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.6.0",
+      "published": "2026-10-11",
+      "notes": "# ForeverProfit\n\n## [v1.6.0](https://github.com/konderziller/ForeverProfit/tree/v1.6.0) (2026-10-11)\n[Full Changelog](https://github.com/konderziller/ForeverProfit/commits/v1.6.0) [Previous Releases](https://github.com/konderziller/ForeverProfit/releases)\n\n- Detect secondary professions like Cooking and First Aid  \n    Professions are also read from the spellbook (GetProfessions), which is  \n    where Forever reports Cooking. Crafting professions show in the sidebar  \n    even before their recipes were read, gathering professions stay hidden,  \n    and recipes of professions not returned by the current scan are kept.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Automatic CurseForge upload on version tags  \n    - GitHub Action with the BigWigs packager: every pushed tag v* is packaged  \n      and uploaded to CurseForge (-alpha/-beta tags as alpha/beta)  \n    - X-Curse-Project-ID in the TOC; version comes from the git tag  \n      (@project-version@, shows \"dev\" in the development folder)  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Prepare CurseForge packaging  \n    Add .pkgmeta for the CurseForge packager and take the addon version from  \n    the TOC, where the packager replaces @project-version@ with the git tag.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- ForeverProfit 1.5.0: open together with the profession window  \n    ForeverProfit now opens next to the profession window, filtered to that  \n    profession, and closes with it if it was opened automatically. Toggle via  \n    the \"Open with profession\" checkbox or /fp auto.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Fix broken escape sequences in locale tables  \n    Three translated strings contained raw newlines and a mangled middle dot  \n    instead of Lua escapes, so Core.lua failed to load and /fp disappeared.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- ForeverProfit 1.4.0: crafting profit helper for WoW Forever  \n    Profit list with Auctionator and vendor prices, sub-recipes, market check, queue with Auctionator shopping list, craft list, professions bar, leveling mode, German/English localization."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-11"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "ForeverProfit"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "ForeverProfitDB"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "quickabandon",
+  "repo": "sirj0k3r/QuickAbandon",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "name": "QuickAbandon 1.1.0",
+      "published": "2026-11-08",
+      "notes": "## What's Changed\n* Update TOC for 12.1 and refresh icons by @sirj0k3r in https://github.com/sirj0k3r/QuickAbandon/pull/1\n\n## New Contributors\n* @sirj0k3r made their first contribution in https://github.com/sirj0k3r/QuickAbandon/pull/1\n\n**Full Changelog**: https://github.com/sirj0k3r/QuickAbandon/compare/v1.0.1...v1.1.0"
+    },
+    {
+      "tag": "11.0.2",
+      "published": "2024-07-25",
+      "notes": "# Change Log (2024/09/28)\n* Instead of printing to console (which would result in only printing on the default chat frame) the message is now displayed as a system message which makes it possible for it to be shown on every chat frame that's configured for system messages\n\n**Full Changelog**: https://github.com/sirj0k3r/QuickAbandon/commits/11.0.2"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2024-07-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuickAbandon"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ]
+  }
+}

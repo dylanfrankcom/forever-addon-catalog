@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "grid2",
+  "repo": "michaelnpsp/Grid2",
+  "about": "# Grid2\n\nGrid2 is a party/raid unit frame addon for World of Warcraft.\n\nGrid2 is fully customizable. New zones (indicators) can be defined in unit frames to display information (statuses). The indicators can be customized and placed anywhere. Grid2 supports several types of indicators: icon, icons, square, text, bar, multibar. You can configure what statuses are displayed on each indicator.\n\nGrid2 includes a huge amount of available statuses, but not all enabled by default, look through the configuration and familiarize yourself with the available options and statuses.\n\nGrid2 is fast: consumes between 4 and 10 times less CPU cycles than other similar addons.\n\nTo open the configuration UI type \"/grid2\", left-click the minimap Icon, DataBroker icon launcher or use WoW addons list window.\n\n### Grid2 components\n\nGrid2 package includes:\n\nGrid2\n\nGrid2 Options\n\nGrid2 Raid Debuffs\n\nGrid2 Raid Debuffs Options\n\nGrid2 LDB\n\n### Grid2 does not work or I think I found a bug\n\nUpdate to the latest versions of Grid2.\n\nIf you still get an error, go ahead and log it. Install and use the [BugGrabber](http://wow.curse.com/downloads/wow-addons/details/bug-grabber.aspx) and [BugSack](http://wow.curse.com/downloads/wow-addons/details/bugsack.aspx) mods to record the error and make it easy to cut and paste it.\n\nThen, [Post a ticket](http://www.wowace.com/addons/grid2/tickets/). Check for existing tickets about your bug first. Remember to check back on your ticket later in case we need more information.\n\n### Tutorials/Guides\n\nhttps://michaelnpsp.github.io/grid2-murloc-guide/\n\nhttps://keyandheal.com/addons/grid-2/\n\n### Common issues/FAQ\n\n###### Raid debuffs not showing up !!!:\n\nRaid debuffs are not enabled by default. Go to statuses -&gt; Raid Debuffs and enable at least the Cataclysm module (if you are inside a instance you must exit and enter the instance or reload the UI after enabling the module)\n\n###### I cant push the grid boxes as close together as before:\n\nThe border indicator has 2 pixels size and it has a transparent background color now. If you want the old grid2 appearance. Goto Indicators -&gt; border -&gt; Layout tab: Set a border size 1. And select a black and opaque background color for the border.\n\n###### What about mana bars ?\n\nGrid2 supports mana bars, but they are not created by default. If you want mana bars, create a new indicator of type \"bar\", place it wherever you want and map the \"mana\" or the \"power\" status to it (remember you must map some color status to the bar:color indicator too).\n\n###### What is the poweralt status ?\n\nPoweralt status is a power type (like mana/rage/energy,etc). This power type is enabled by Wow in some combats. It shows: Atremedes sound, Chog'al corruption, etc. This status is not active by default in Grid2: you must map poweralt to any compatible indicator (text or bar indicator).",
+  "releases": [
+    {
+      "tag": "4.1.13",
+      "published": "2026-11-15",
+      "notes": "# Grid2\n\n## [4.1.13](https://github.com/michaelnpsp/Grid2/tree/4.1.13) (2026-11-15)\n[Full Changelog](https://github.com/michaelnpsp/Grid2/compare/4.1.12...4.1.13) [Previous Releases](https://github.com/michaelnpsp/Grid2/releases)\n\n- Status range: Avoid crash when an invalid range spell is used.  \n- Range status: Fixing wrong paladin hostile spell in forever."
+    },
+    {
+      "tag": "2.9.37",
+      "published": "2026-11-14",
+      "notes": "# Grid2\n\n## [2.9.37](https://github.com/michaelnpsp/Grid2/tree/2.9.37) (2026-11-14)\n[Full Changelog](https://github.com/michaelnpsp/Grid2/compare/2.9.36...2.9.37) [Previous Releases](https://github.com/michaelnpsp/Grid2/releases)\n\n- Removed some Midnight code."
+    },
+    {
+      "tag": "4.1.12",
+      "published": "2026-11-14",
+      "notes": "# Grid2\n\n## [4.1.12](https://github.com/michaelnpsp/Grid2/tree/4.1.12) (2026-11-14)\n[Full Changelog](https://github.com/michaelnpsp/Grid2/compare/4.1.11...4.1.12) [Previous Releases](https://github.com/michaelnpsp/Grid2/releases)\n\n- Fixing some range spells in Forever (CF issue #1592)  \n- Added Food, Drink and Well fed spells for Forever.  \n    Removed invalid Forever spell."
+    },
+    {
+      "tag": "4.1.11",
+      "published": "2026-11-09",
+      "notes": "# Grid2\n\n## [4.1.11](https://github.com/michaelnpsp/Grid2/tree/4.1.11) (2026-11-09)\n[Full Changelog](https://github.com/michaelnpsp/Grid2/compare/4.1.9...4.1.11) [Previous Releases](https://github.com/michaelnpsp/Grid2/releases)\n\n- Merge branch 'main' of https://github.com/michaelnpsp/grid2  \n- Fully disabled bosses header in Forever (GH issue #481)  \n- Merge pull request #480 from sfjuocekr/main  \n    Update priest spells  \n- Update priest spells  \n    Still missing some auras that are new to Forever like campfire's, well fed, etc.  \n- Fixing pet warlock range check for retail (GH issue #479)"
+    },
+    {
+      "tag": "2.9.36",
+      "published": "2026-10-22",
+      "notes": "# Grid2\n\n## [2.9.36](https://github.com/michaelnpsp/Grid2/tree/2.9.36) (2026-10-22)\n[Full Changelog](https://github.com/michaelnpsp/Grid2/compare/2.9.35...2.9.36) [Previous Releases](https://github.com/michaelnpsp/Grid2/releases)\n\n- Fixing missing file."
+    }
+  ],
+  "stats": {
+    "stars": 31,
+    "openIssues": 1,
+    "contributors": 38,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-09",
+      "2026-10-22",
+      "2026-10-21",
+      "2026-10-21",
+      "2026-10-14",
+      "2026-10-11",
+      "2026-09-16",
+      "2026-09-12",
+      "2026-09-10",
+      "2026-09-11",
+      "2026-09-08",
+      "2026-08-26",
+      "2026-08-26",
+      "2026-08-22",
+      "2026-08-22",
+      "2026-08-19",
+      "2026-08-17",
+      "2026-08-15",
+      "2026-08-14"
+    ]
+  },
+  "languages": [
+    "esES",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Grid2",
+      "Grid2LDB",
+      "Grid2Options"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "Clique"
+    ],
+    "savedVariables": [
+      "Grid2DB"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "yourstruly",
+  "repo": "salty-max/yours-truly",
+  "about": "# Yours Truly\n\nA World of Warcraft addon for Classic Era and World of Warcraft: Forever:\nletters from the people you helped.\n\n- **The letters.** Finish a quest chain that changed someone's life, and\n  they write to you: Iverron from the cave you found him by, Maybell Maclure\n  after her secret visit to the river, Gryan Stoutmantle once VanCleef is\n  dead, Gazlowe, who still owes you. Each in their own voice, about what\n  happened and what came after.\n- **The mailbox.** The letter spends a little while in the post, then waits\n  at the next mailbox you open, sealed, beside the game's mail window, a row each\n  as the game's inbox lists mail. Click one to break its seal, or open them\n  all at once.\n- **The book.** Every letter you receive, kept: who wrote, from where, the\n  chain it answers. A few achievements along the way.\n\nEnglish and French. `/yourstruly` opens the book.\n\nThe settings also offer the book's size (four steps) and paper colours (dark ink on tan paper, applied by a\nreload: the page ends with a Reload button). **Options > Key Bindings** lists **Open Yours Truly**: one key,\nor on Forever a controller button, opens and closes the book. Nothing is bound until you choose.\n\nThe game's data comes from [wow-data](https://github.com/salty-max/wow-data):\nthe game clients' tables, [Questie](https://github.com/Questie/Questie)'s\ndatabase and the [cmangos](https://github.com/cmangos/classic-db) Classic\ndatabase. The letters are original.\n\nMIT licence.",
+  "releases": [
+    {
+      "tag": "v0.4.0",
+      "published": "2026-11-14",
+      "notes": "Yours Truly 0.4.0\n\n- New: **Book size** makes the whole window larger, in four steps from Normal to Largest, and **Paper colours** show dark ink on tan paper instead of the dark look. Both are in the settings. Paper colours apply after a reload, and the settings page now ends with a Reload button and a line saying so.\n- New: a key binding. **Options > Key Bindings** lists **Open Yours Truly** under a heading of its own, so one key, or on Forever a controller button, opens and closes the book. Nothing is bound until you choose.\n- On Forever, the window now tells the Gamepad UI that it is open, so a controller's D-pad can move across its buttons.\n- On Forever with the Gamepad UI on, the game can show its blocked-action popup after an options page opens. That is a bug in the game's own Gamepad UI. A reload clears it, and the settings page now says so.\n- The game's data is brought up to date."
+    },
+    {
+      "tag": "v0.3.2",
+      "published": "2026-11-04",
+      "notes": "Fixed: the list of letters now starts right under the search box, with no empty space above the first entry.\nUpdated for the game's latest Forever build."
+    },
+    {
+      "tag": "v0.3.1",
+      "published": "2026-11-04",
+      "notes": "A fix for Forever's launch, and fresh game data.\n\n- The mailbox no longer risks an error when the game hides the state of the mail window.\n- The game's data is refreshed."
+    },
+    {
+      "tag": "v0.3.0",
+      "published": "2026-11-02",
+      "notes": "Yours Truly 0.3.0\n\n- The letters were revised in English and French, with a reworded welcome line (\"A letter waits\") and the minimap button's lines taken from the shared kit.\n- French is finished, brought to the final English, with the client's spacing before : ? ! and percent signs.\n- The interface is in English and French. German and Spanish stay English for now."
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-10-28",
+      "notes": "Yours Truly's first release on CurseForge and Wago (it has been on GitHub since 0.1.0).\n- Your letters are listed the way the game lists mail: a row for each letter, a pager, open all, and back to the list.\n- The letter window docks beside the mail window, on the mail window's stone and parchment, the same size, in the game's own text face.\n- The game's own mail icon shows on the minimap while a letter waits.\n- No more bundle: letters from chains you finished before installing arrive together at your first mailbox, a row each. Break the seals one by one or all at once.\n- The welcome page says the minimap icon tells you a letter is coming.\n- Laid out from the game's own mail window, for Classic and for Forever.\n- French, German and Spanish read again."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-04",
+      "2026-11-04",
+      "2026-11-02",
+      "2026-10-28",
+      "2026-10-26"
+    ]
+  },
+  "languages": [
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "YoursTruly"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "YoursTrulySettings"
+    ],
+    "savedVariablesPerCharacter": [
+      "YoursTrulyChar"
+    ]
+  }
+}

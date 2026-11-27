@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "accwideuilayoutselection",
+  "repo": "NinerBull/AccWideUILayoutSelection",
+  "about": "# Account Wide Interface Settings\n\nAn addon for World of Warcraft!\n\n![Info Img](https://cdn.wago.io/gallery/qwgAzgKbGKKBYgipPOBzJrsKv5d2mJKUqxLYZKx7.jpg)\n\n## About\nThis QOL addon synchronizes various Blizzard Interface Settings that are **normally character specific** and applies them to **all** of your characters on your account automatically, including brand new characters.\n\nThe addon can synchronise the following, and you can disable any that you'd rather keep character specific:\n\n* Combat\n\t* Action Targeting Settings\n\t* Assisted Highlight Setting\n\t* Auto Loot Settings\n\t* Empowered Spell Input Setting\n\t* Loss of Control Settings\n\t* Mouseover Cast Setting\n\t* Self Cast Setting\n\t* Misc. Combat Settings\n* Unit Frames & Nameplates\n\t* Arena Frame Settings\n\t* Nameplate Settings\n\t* Party/Raid Frame Settings\n* HUD & Interface\n\t* Calendar Filter Settings\n\t* Camera Settings\n\t* Cooldown Manager Visibility Setting\n\t* Chosen Edit Mode Layout\n\t* Damage Meter Settings\n\t* External Defensives Visibility Setting\n\t* Gamepad Settings\n\t* Minimap Settings\n\t* Spell Overlay Settings\n\t* Viewed Tutorial Tooltips\n\t* Visible Action Bars\n    * World Map Settings\n\t* Zone Map (Shift-M) Settings\n\t* Misc. UI Settings\n* Social\n\t* Block Channel Invite Setting\n\t* Block Guild Invite Setting\n\t* Block Neighborhood Invite Setting\n\t* Block Trade Request Setting\n\t* Chat Window Settings\n\t* Chat Position/Size Settings\n\t* Custom Chat Channels\n\t* Location Visibility Setting\n* System\n\t* Graphics Settings\n\t* Audio Settings\n\t* Modifier Keybinds\n* Experimental (Togglable in Advanced Options)\n\t* Bag Organisation Settings\n\n### Additional Functionality\n* Profile Support - Save and switch between multiple Interface configurations\n* Profile Import/Export - Share your profile as a text string with others online, or import a profile string that has been shared with you\n* Graphics & Audio Settings Import/Export - Export your system settings from one WoW client and import into another\n* Force Leave/Join Blizzard Chat Channels - Never see Services spam on any character again, or perhaps always make them join Trade Chat?\n* Screen Resolution Specific Settings - Useful for users who sync addon settings across multiple PCs, enable in Advanced Settings\n* Custom CVar Support - Enter your own additional list of CVars to synchronise across characters, enable in Advanced Settings\n\n## Compatibility\n* **Midnight** - 12.1.5\n* **MoP Classic** - 5.5.4\n* **TBC Classic** - 2.5.6\n* **Forever** - 1.60.1\n* **Classic Era** - 1.15.9\n\n## Installation\nDownload the latest version from one of the places below, and unzip it in your `<warcraft>\\<_version_>\\Interface\\Addons` folder if installing manually.\n* [CurseForge](https://www.curseforge.com/wow/addons/account-wide-ui)\n* [WoWInterface](https://www.wowinterface.com/downloads/info26459-AccountWideUILayoutSelection.html)\n* [Wago](https://addons.wago.io/addons/account-wide-ui)\n* [GitHub](https://github.com/NinerBull/AccWideUILayoutSelection/releases/latest)\n* Or put `https://github.com/NinerBull/AccWideUILayoutSelection` into your favourite Addon Manager\n\n## Configuration\nYou can access the config by any of the following methods:\n- Game Menu > Options > Addons > Account Wide Interface\n- Typing `/awi` into chat\n- Clicking the 'Account Wide Interface' option in the Addon Compartment\n\n## Commands\n- `/awi` - Opens the settings window for this addon\n- `/awi profiles load` - Loads settings from the current profile\n- `/awi profiles save` - Saves settings to the current profile\n- `/awi profiles new PROFILENAME` - Create a new profile called PROFILENAME\n- `/awi profiles choose PROFILENAME` - Switch to the profile called PROFILENAME\n- `/awi profiles copyfrom PROFILENAME` - Copies data from PROFILENAME to the currently enabled profile\n- `/awi profiles delete PROFILENAME` - Deletes the profile called PROFILENAME\n\n## Translations\n* **Russian** by [ZamestoTV](https://github.com/Hubbotu)\n* **Simplified Chinese** by [nanjuekaien1](https://github.com/nanjuekaien1)\n* **French** by [Machou](https://github.com/Machou)\n\n## ⚠️ Known Issues\n- The following functions are not automatically synced in Midnight due to them triggering secret-related errors, and must be synced manually:\n  - Damage Meter Settings, other than toggling visibility.\n  - Syncing Showing/Hiding Chat Channels per Chat Window.",
+  "releases": [
+    {
+      "tag": "v2.5.2",
+      "published": "2026-10-27",
+      "notes": "# WoW: Forever\nThis version adds initial support for WoW: Forever!\n- Added Gamepad Settings Sync.\n- Added syncing Gamepad Specific Edit Mode Layout.\n- Added multiple new CVars.\n- Added Trade (Local) to Chat Channel Manager for WoW: Forever.\n\n## Additional Changes\n- Updated Simplified Chinese translations by nanjuekaien1, thank you!\n- Switched Profile and Graphics Import/Export settings to use Blizz's own Encoding/Decoding functions.\n- Most Chat Window Settings will now only be changed if needed, instead upon every addon settings load. This is a test to try and prevent taint in Mythic+/Boss Encounters.\n- Numerous fixes and improvements submitted by [Erdmann5150](https://github.com/NinerBull/AccWideUILayoutSelection/pull/54), thank you!\n\n### Known Issues\n- (Forever) Any time Action Bar visibility is changed by this addon, a UI Reload will be required, as modifying Action Bar visibility taints the interface.\n  - A prompt will appear asking you to reload when required."
+    },
+    {
+      "tag": "v2.5.1",
+      "published": "2026-10-27",
+      "notes": "# WoW: Forever\nThis version adds initial support for WoW: Forever!\n- Added Gamepad Settings Sync.\n- Added syncing Gamepad Specific Edit Mode Layout.\n- Added multiple new CVars.\n- Added Trade (Local) to Chat Channel Manager for WoW: Forever.\n\n## Additional Changes\n- Updated Simplified Chinese translations by nanjuekaien1, thank you!\n- Switched Profile and Graphics Import/Export settings to use Blizz's own Encoding/Decoding functions.\n- Most Chat Window Settings will now only be changed if needed, instead upon every addon settings load. This is a test to try and prevent taint in Mythic+/Boss Encounters.\n- Numerous fixes and improvements submitted by [Erdmann5150](https://github.com/NinerBull/AccWideUILayoutSelection/pull/54), thank you!\n\n### Known Issues\n- (Forever) Any time Action Bar visibility is changed by this addon, a UI Reload will be required, as modifying Action Bar visibility taints the interface.\n  - A prompt will appear asking you to reload when required."
+    },
+    {
+      "tag": "v2.5.0",
+      "published": "2026-10-13",
+      "notes": "# WoW: Forever\nThis version adds initial support for WoW: Forever!\n- Added Gamepad Settings Sync.\n- Added syncing Gamepad Specific Edit Mode Layout.\n- Added multiple new CVars.\n- Added Trade (Local) to Chat Channel Manager for WoW: Forever.\n\n## Additional Changes\n- Updated Simplified Chinese translations by nanjuekaien1, thank you!\n- Switched Profile and Graphics Import/Export settings to use Blizz's own Encoding/Decoding functions.\n- Most Chat Window Settings will now only be changed if needed, instead upon every addon settings load. This is a test to try and prevent taint in Mythic+/Boss Encounters.\n- Numerous fixes and improvements submitted by [Erdmann5150](https://github.com/NinerBull/AccWideUILayoutSelection/pull/54), thank you!\n- Updated TOC for 12.1.5 and 1.60.1.\n\n### Known Issues\n- (Forever) Any time Action Bar visibility is changed by this addon, a UI Reload will be required, as modifying Action Bar visibility taints the interface.\n    - Due to this, Action Bar visibility syncing is disabled by default in WoW: Forever, but can be enabled if you wish. A notice will appear asking you to Reload the interface whenever required."
+    }
+  ],
+  "stats": {
+    "stars": 7,
+    "openIssues": 5,
+    "contributors": 6,
+    "lastRelease": "2026-10-27",
+    "releaseDates": [
+      "2026-10-27",
+      "2026-10-27",
+      "2026-10-13",
+      "2026-08-10",
+      "2026-07-22",
+      "2026-07-08",
+      "2026-06-17",
+      "2026-06-15",
+      "2026-06-08",
+      "2026-06-03",
+      "2026-04-21",
+      "2026-03-23",
+      "2026-03-08",
+      "2026-02-20",
+      "2026-02-12",
+      "2026-02-05",
+      "2026-01-31"
+    ]
+  },
+  "languages": [
+    "frFR",
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "AccWideUILayoutSelection"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "CallbackHandler-1.0",
+      "LibDBIcon-1.0",
+      "LibDataBroker-1.1",
+      "MoveAny",
+      "EditModeExpanded",
+      "ZygorGuidesViewer",
+      "Prat-3.0",
+      "RaiderIO",
+      "EllesmereUI",
+      "EUIStandaloneChat",
+      "Plumber",
+      "EnhanceQoL",
+      "Plater",
+      "Platynator",
+      "Chattynator",
+      "Titan",
+      "RareScanner",
+      "Details",
+      "IceHUD",
+      "TomTom"
+    ],
+    "savedVariables": [
+      "AccWideUIAceDB"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "untethered",
+  "repo": "AlrikOlson/untethered",
+  "about": "# Untethered\n\nWoW: Forever addon. When your warrior hits 100 rage, Dennis screams \"I am untethered and my rage knows no bounds\" at you. That's it. That's the addon.\n\nMade for the Forever beta (client 1.60.1). Should work at launch unless Blizzard renames the player frame again.\n\n## Install\n\nGrab the zip from [Releases](https://github.com/AlrikOlson/untethered/releases) (or CurseForge once it's up there) and unzip it into\n\n```\nC:\\Program Files (x86)\\World of Warcraft\\_classic_beta_\\Interface\\AddOns\\\n```\n\nso you end up with `AddOns\\Untethered\\Untethered.toc`. If you're cloning instead, clone straight into a folder called `Untethered` inside AddOns. The folder name matters.\n\nThen **restart the game**. `/reload` isn't enough the first time. WoW only picks up sound files that existed when the client started, so if you skip this you'll get a \"could not play rage.ogg\" message and no Dennis.\n\nIf the addon list says it's out of date, tick \"Load out of date AddOns\". The Interface number in the .toc (16001) is what other Forever addons are using but Blizzard hasn't confirmed it anywhere I could find.\n\n## Usage\n\nRoll a warrior. Get hit. That's honestly the whole loop, but there are a few commands:\n\n```\n/rage test          play it now\n/rage on            turn it on (default)\n/rage off           turn it off\n/rage cd 30         seconds between plays, default 30. 0 = every single time\n/rage channel sfx   master (default), sfx, music, ambience or dialog\n/rage debug         what it's hooked into and whether it's seen anything fire\n/rage verbose       spam chat every time a trigger fires, handy for checking it works\n/rage reset         re-arm the fallback sensor. only matters if you see it fire out of sync\n```\n\nOnly does anything on warriors. Loads fine on other classes, just sits there.\n\n## How it works\n\nYou'd think this is `if UnitPower(\"player\") == UnitPowerMax(\"player\")`. It isn't, and that's the reason this addon is more than 10 lines.\n\nForever runs the retail 12.x \"secret value\" system. Your own rage comes back from `UnitPower` as a secret number, and not just in combat, always. You can't compare it, do math on it, format it, or read it back out of a StatusBar or FontString. I tried all of those. Every one comes back secret.\n\nSo the addon never reads the number. Two things it does instead:\n\n- Blizzard's own player frame has a `FullPowerFrame` on the mana bar that plays a `SpikeAnim` the moment power caps. Blizzard's code runs secure and is allowed to compare secrets. Hooking `OnPlay` on that animation is allowed, so that's the trigger. This is what actually fires in practice.\n- Fallback, only used if the frame above isn't found: a hidden StatusBar with range max-1..max gets fed the secret value. Its fill texture is 0 wide below max and full width at max, so it only resizes when you cross the cap. A frame anchored to that texture gets `OnSizeChanged` on each crossing, and crossings alternate in/out. Works in testing, but it assumes rage isn't full when the addon arms itself at login. If it ever gets flipped, `/rage reset` while you're below 100.\n\nIf Blizzard renames `SpikeAnim` or moves `FullPowerFrame`, the first path breaks silently and the fallback takes over. Run `/rage debug` and it'll tell you which one it's on.\n\n## The audio\n\n`rage.ogg` is a 4.5 second clip from It's Always Sunny (S10E06, \"The Gang Misses the Boat\"). It's obviously not mine. It's here because the addon is pointless without it. If you want a different line, drop in any `.ogg` or `.mp3` at 44.1 kHz with the same name and restart the client.\n\n## Releasing\n\nPush a tag and GitHub Actions runs the [BigWigs packager](https://github.com/BigWigsMods/packager), which zips it, makes a GitHub release, and uploads to CurseForge if the `CF_API_KEY` secret is set and the toc has an `X-Curse-Project-ID`.\n\n```sh\ngit tag v1.0.2\ngit push origin v1.0.2\n```\n\n## Known issues\n\n- Only tested on one warrior, on the beta, on Windows. Retail and Classic Era have different frame layouts and I haven't tried either.\n- The Interface number is unconfirmed (see Install).\n- It fires once per cap. Sitting at 100 doesn't loop it. If you want that, change `trigger` in the Lua to also match `PulseAnim`.\n\n## License\n\nMIT for the code. The audio clip belongs to FX.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-09-18",
+      "notes": "# Untethered\n\n## [v1.0.1](https://github.com/AlrikOlson/untethered/tree/v1.0.1) (2026-09-18)\n[Full Changelog](https://github.com/AlrikOlson/untethered/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/AlrikOlson/untethered/releases)\n\n- rename to Untethered  \n    repo, folder, toc, saved vars, logo. /rage stays as the slash command.  \n    Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>  \n- add logo  \n    Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-09-18",
+    "releaseDates": [
+      "2026-09-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Untethered"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "UntetheredDB"
+    ]
+  }
+}

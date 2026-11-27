@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "bartender4",
+  "repo": "Nevcairiel/Bartender4",
+  "releases": [
+    {
+      "tag": "4.19.2",
+      "published": "2026-11-19",
+      "notes": "# Bartender4\n\n## [4.19.2](https://github.com/Nevcairiel/Bartender4/tree/4.19.2) (2026-11-18)\n[Full Changelog](https://github.com/Nevcairiel/Bartender4/compare/4.19.1...4.19.2) [Previous Releases](https://github.com/Nevcairiel/Bartender4/releases)\n\n- Fix the quest XP of the XP bar in a few edge cases  \n    The rested XP is shown up to the end of the bar on clients which show it  \n    when it reaches beyond the level, a quest which was turned in is forgotten  \n    even while the XP bar is not shown, the level up animation is reset when it  \n    was interrupted, and nothing is done at all while the quest XP is disabled."
+    },
+    {
+      "tag": "4.19.1",
+      "published": "2026-11-18",
+      "notes": "# Bartender4\n\n## [4.19.1](https://github.com/Nevcairiel/Bartender4/tree/4.19.1) (2026-11-18)\n[Full Changelog](https://github.com/Nevcairiel/Bartender4/compare/4.19.0...4.19.1) [Previous Releases](https://github.com/Nevcairiel/Bartender4/releases)\n\n- Show the XP of completed quests on the status tracking bar  \n    The XP bar can show the XP of the quests which are ready to be turned in,  \n    as a segment following the XP.  \n    The option is off by default.  \n    The manager and the containers of the status tracking bar are given global  \n    names, so other addons can find the bars more easily.  \n- Make the bag buttons immune to the layout of the Blizzard bags bar  \n    The bags bar of the Blizzard UI anchors every bag button to itself  \n    whenever it runs its layout, which happens on every update of the edit  \n    mode layout and when the bag bar expands or collapses. The module used  \n    to move the buttons back from a hook on that layout function. A layout  \n    that did not go through the hooked function, or that failed part way,  \n    left the buttons at the position of the hidden Blizzard bar until the  \n    UI was reloaded. This was seen on WoW Forever after releasing through a  \n    loading screen, the call that got past the hook was not identified.  \n    The buttons are now detached once, when the bar is created: their  \n    SetPoint and ClearAllPoints do nothing, and the bar positions them  \n    through the original functions of their frame type. The hook on the  \n    layout and the removal of the expand callback are no longer needed.  \n    The keyring is reset to the horizontal orientation and no longer follows  \n    the orientation of the edit mode, which rotated and resized it on the  \n    bar.  \n    Buttons that are not on the bar are parked on the hidden frame, instead  \n    of hidden in the center of the screen or left without anchors. The  \n    classic clients show the keyring again on every bag update.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Remove unused symbols from the luacheck configuration  \n- Remove dead compat code from the MicroMenu module  \n    MicroMenu, MicroMenuContainer and C\\_PetBattles exist on every supported  \n    client, and UpdateMicroButtonsParent on none of them. Drop the checks and  \n    the code which only the UpdateMicroButtonsParent hook could reach.  \n- Remove compat shims for APIs available on all clients  \n- Remove the upvalues of Lua and API functions  \n    None of them were used in a hot code path, so they only added noise.  \n- Remove the old GLOBALS comment blocks  \n- Make the extra ability container immune to the edit mode  \n    The container of the extra action button and the zone abilities is a  \n    system of the edit mode, and a frame that the frame position management  \n    of the Blizzard UI places. Both move and reparent it, also in combat.  \n    The module used to undo that from hooks, which is not possible in combat  \n    and was never repeated afterwards. The cleanup of the frame position  \n    management also used a name that only exists on the classic clients, so  \n    on Retail and Forever the container could be pulled off the bar.  \n    The container is now detached once, when the bar is created: it is taken  \n    out of the frame position management, and its SetPoint and ClearAllPoints  \n    do nothing, so the anchors of the edit mode have no effect. The bar  \n    positions it through the original functions, which the edit mode keeps as  \n    SetPointBase and ClearAllPointsBase."
+    },
+    {
+      "tag": "4.19.0",
+      "published": "2026-11-16",
+      "notes": "# Bartender4\n\n## [4.19.0](https://github.com/Nevcairiel/Bartender4/tree/4.19.0) (2026-11-16)\n[Full Changelog](https://github.com/Nevcairiel/Bartender4/compare/4.18.4.1...4.19.0) [Previous Releases](https://github.com/Nevcairiel/Bartender4/releases)\n\n- Replace the Blizzard status tracking bars with a custom implementation  \n    The module used to reparent Blizzard's StatusTrackingBarManager into a  \n    Bartender bar and disable its edit mode behaviour. It now owns its manager  \n    and both bar containers, and no longer touches the Blizzard manager, its  \n    containers or the edit mode.  \n    Only the leaf bar templates are still taken from Blizzard, since they hold  \n    the per-client rules for experience, reputation, honor, artifact, azerite  \n    and house favor.  \n- Add the totem bar to the WoW Forever presets  \n    The totem bar takes the place of the stance bar, as no class has both.  \n    In the three bars stacked preset, which has no stance bar, it sits above  \n    the action bars with the pet bar moved up above it.  \n- Add key bindings and readable binding names for the totem bar  \n    The buttons are listed in the key binding UI of WoW Forever through a  \n    separate bindings file, and show the same names in LibKeyBound.  \n    The totem buttons are numbered in the order they are shown in (earth,  \n    fire, water, air), which differs from the order of the totem slots their  \n    frame names are based on.  \n- Remove the classic XP and Reputation bar modules  \n    All classic clients have moved to the StatusTrackingBarManager, so the  \n    MainMenuExpBar and ReputationWatchBar frames these modules wrapped no  \n    longer exist on any client.  \n- Replace the Blizzard totem bar with a fully custom implementation  \n    The old module reparented the protected MultiCastActionBarFrame, which  \n    EditMode repositions in combat, where it cannot be moved back.  \n    The new bar is built from LibActionButton buttons for summon, the four  \n    totems and recall, with secure flyouts to assign totems and to switch  \n    between the summon spells. As a ButtonBar it supports padding, growth  \n    direction, zoom and the other button options.  \n    It is only loaded in WoW Forever for now. The settings of the old module  \n    are reused, so the bar keeps its position.  \n- Let bars report mouse over content outside of their overlay  \n    A bar can implement IsMouseOverContent to count additional frames as  \n    part of the bar for the mouse-over fade, eg. flyouts that extend beyond  \n    the bar overlay.  \n- Add a button margin and a fixed button count to the ButtonBar layout  \n    button\\_margin reserves space around every button for art that extends  \n    beyond the button frame, so that the bar overlay covers it.  \n    fixed\\_button\\_count sizes the bar for a set number of buttons instead of  \n    the number of buttons currently shown, so a bar keeps its size while its  \n    buttons come and go.  \n    Both default to the previous behavior for all existing bars.  \n- Implement a fully custom vehicle button  \n    Stop reusing the vanilla button, as its encumbered with EditMode hooks  \n    and can cause taint issues depending on how its anchored.  \n    None of the vehicle functions are protected, so this button is a lot  \n    simpler and avoids one source of bugs."
+    },
+    {
+      "tag": "4.18.4.1",
+      "published": "2026-11-14",
+      "notes": "# Bartender4\n\n## [4.18.4.1](https://github.com/Nevcairiel/Bartender4/tree/4.18.4.1) (2026-11-03)\n[Full Changelog](https://github.com/Nevcairiel/Bartender4/compare/4.18.3.1...4.18.4.1) [Previous Releases](https://github.com/Nevcairiel/Bartender4/releases)\n\n- Enable Totem bar in Wow Forever   \n- Disable more EditMode hooks for the Status Tracking Bars"
+    },
+    {
+      "tag": "4.18.4",
+      "published": "2026-11-03",
+      "notes": "# Bartender4\n\n## [4.18.4](https://github.com/Nevcairiel/Bartender4/tree/4.18.4) (2026-11-03)\n[Full Changelog](https://github.com/Nevcairiel/Bartender4/compare/4.18.3.1...4.18.4) [Previous Releases](https://github.com/Nevcairiel/Bartender4/releases)\n\n- Enable Totem bar in Wow Forever   \n- Disable more EditMode hooks for the Status Tracking Bars"
+    }
+  ],
+  "stats": {
+    "stars": 76,
+    "openIssues": 88,
+    "contributors": 22,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-16",
+      "2026-11-14",
+      "2026-11-03",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-09-30",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-07-22",
+      "2026-07-09",
+      "2026-06-26",
+      "2026-06-03",
+      "2026-03-24",
+      "2026-01-19",
+      "2026-01-15",
+      "2026-01-14",
+      "2026-01-14",
+      "2025-12-15",
+      "2025-12-12",
+      "2025-12-04",
+      "2025-12-03",
+      "2025-12-03",
+      "2025-09-23",
+      "2025-08-02",
+      "2025-07-02",
+      "2025-07-02",
+      "2025-04-26",
+      "2025-04-25",
+      "2025-04-09",
+      "2025-03-08",
+      "2025-03-03",
+      "2025-03-03",
+      "2025-02-26",
+      "2025-01-10",
+      "2024-09-25",
+      "2024-07-23",
+      "2024-06-06",
+      "2024-05-06",
+      "2024-05-01",
+      "2024-03-20",
+      "2024-02-06",
+      "2023-11-11",
+      "2023-10-11",
+      "2023-08-12",
+      "2023-06-21",
+      "2023-05-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Bartender4"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Masque",
+      "LibButtonGlow-1.0",
+      "LibActionButton-1.0",
+      "LibKeyBound-1.0",
+      "LibDBIcon-1.0",
+      "LibWindow-1.1",
+      "LibSharedMedia-3.0",
+      "AceGUI-3.0-SharedMediaWidgets",
+      "LibDualSpec-1.0",
+      "LibClassicSpellActionCount-1.0"
+    ],
+    "savedVariables": [
+      "Bartender4DB"
+    ]
+  }
+}

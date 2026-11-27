@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "glass",
+  "repo": "mixxorz/Glass",
+  "about": "![Glass](https://user-images.githubusercontent.com/3102758/90884068-9549a600-e3e1-11ea-944f-481bd894560e.png)\n\n#### An immersive and minimalistic chat UI for World of Warcraft\n\n_Now with support for Retail (Midnight), WoW Forever, Classic Era/Hardcore,\nBurning Crusade Anniversary, and Mists of Pandaria Classic._\n\n## Demo\n\nhttps://github.com/user-attachments/assets/7f218129-6529-436d-aee4-ccfb3227a0ec\n\n## Why?\n\nI wanted to have a chat UI that didn't look like it was designed in 2004.\n\nI tried several addons that customize the chat interface but was left\nunsatisfied. So I decided to make one myself.\n\nThe goal of Glass is to be unobtrusive. Messages only appear when they come in\nand fades out after a few seconds. Chat tabs are hidden until the player hovers\nover the chat UI. There is no always-visible background. Glass is invisible\nuntil the player needs it.\n\n## Install\n\nGlass is available on [CurseForge](https://www.curseforge.com/wow/addons/glass)\n\nYou may also download the latest release on [GitHub](https://github.com/mixxorz/Glass/releases)\n\n## Commands\n\n- `/glass` - open the Home page\n- `/glass lock` - unlock all Glass windows for moving and resizing\n- `/glass demo` - turn demo mode on or off\n\nBy default scrolling scrolls _per message_. If you have a really long message\nand you want to scroll within it, use Shift+Scroll.\n\n## Features\n\n- **Smooth animations** — messages slide in and fade away.\n- **Flexible windows** — add, move, and resize chat panes.\n- **Custom styling** — choose your fonts, spacing, colors, and backgrounds.\n- **Short channel labels** — use built-in abbreviations or create your own.\n- **Built-in timestamps** — 12- or 24-hour time, with optional seconds.\n- **Player names** — optional race icons, class icons, and class-colored names.\n- **Addon compatibility** — works with Prat, ElvUI, and Leatrix Plus.\n\n## Chat options\n\nOpen `/glass` → **Chat options** for timestamps and player-name formatting.\n\nUnder **Player names**, enable **Race icon**,\n**Class icon**, or **Class-colored names**. All three are off by default and apply\nto every Glass window in the current profile. Icons fade with the messages.\n\nFormatting requires accessible character information and native sender metadata.\nUnknown characters, restricted chat, and legacy history may retain their original\nappearance. Turning an option off preserves incoming formatting, including native\nclass colors.\n\n## Addon compatibility\n\n### ElvUI\n\nGlass works with ElvUI, but make sure to disable the Chat module.\n\n### Prat 3.0\n\nGlass works with Prat, but make sure to disable the EditBox module.\n\nThere is no Prat timestamp-provider integration. Prat history can still flow\nthrough native chat buffers; Glass uses saved original epoch times and identity\nmetadata where available. Missing metadata and uncertain provenance limit\nhistorical timestamp and channel formatting, and custom or legacy histories\nmay retain their original styles.\n\nArbitrary timestamps already baked into Prat's saved text may remain and can\ncoexist with a Glass timestamp. Disable Prat timestamp generation for future\nmessages when using Glass-owned timestamps. This does not erase prefixes\nalready saved in history.\n\n### Leatrix Plus\n\nGlass works with Leatrix Plus. You might encounter issues when enabling features\nthat modify chat behaviour such as \"Recent chat window\" or \"Use easy resizing\".\nSwitching these features off will resolve issues with Glass.\n\n## Issues and suggestions\n\nCheck the [Issue tracker](https://github.com/mixxorz/Glass/issues) on GitHub\nto see if someone else has already reported your issue. If not, leave a comment\non [CurseForge](https://www.curseforge.com/wow/addons/glass).\n\n## License\n\nMIT License\n\nCopyright (c) 2020 Mitchel Cabuloy",
+  "releases": [
+    {
+      "tag": "2.2.0",
+      "published": "2026-11-16",
+      "notes": "# 2.2.0 (2026-11-16)\n\n## New features\n\n- Add optional race icons, class icons, and class-colored player names.\n\n## Changes\n\n- Move Glass settings to Settings → AddOns → Glass.\n- Move timestamps and player-name settings to Chat options.\n- Match Message formatting categories and entries to WoW's native chat settings.\n- Expand the unlocked Social mover to cover the icon and Battle.net notification area.\n\n## Bug fixes\n\n- Make Battle.net notifications follow the Social icon's position."
+    },
+    {
+      "tag": "2.1.0",
+      "published": "2026-11-11",
+      "notes": "# 2.1.0 (2026-11-11)\n\nNew features\n\n- Customize channel labels, text colors, and message backgrounds under Message formatting.\n- Add native timestamp functionality, with 12 or 24 hour formats, seconds, and a color customization.\n- Customizable chat channel aliases like `[1]` for General, `[G]` for Guild, and so on.\n- Preview message formatting with `/glass demo`.\n\nChanges\n\n- Chat labels are shortened by default, such as `[Guild]` to `[G]`; customize or disable this in Message formatting.\n- Native timestamps replace WoW's built-in timestamps.\n\nBug fixes\n\n- Fix extra messages appearing in restored chat history."
+    },
+    {
+      "tag": "2.0.0",
+      "published": "2026-11-05",
+      "notes": "# 2.0.0 (2026-11-05)\n\nGlass 2.0 brings the changes from the 1.9 and 2.0 alphas to the stable release.\n\nNew features\n\n- Add extra chat windows with independent source tabs, styles, layout, scrollback, and mouse-interaction settings.\n- Add drag-to-resize controls while windows are unlocked with `/glass lock`.\n- Add demo mode on Home and `/glass demo` to preview styles and animations without changing real chat history.\n- Add configurable message and tab gradients, fonts, padding, spacing, and top/bottom message fades.\n- Add separate transition controls for messages, tab bars, and the edit box, plus Never fade out options for messages and tab bars.\n- Add configurable Alt-arrow editing and grouped chat-input settings under Edit box.\n- Restore Blizzard's chat menu, Chat Channels button, and movable Social/Friends widget with independent visibility settings.\n\nImprovements\n\n- Update client compatibility for Retail (Midnight), WoW Forever, Classic Era/Hardcore, Burning Crusade Anniversary, and Mists of Pandaria Classic.\n- Reorganize settings around Home and individual windows.\n- Add a circular jump-to-latest button with an unread glow and a Glass icon in WoW's AddOn List and Home settings.\n- Mouse wheel scrolls per message; use Shift+Scroll to move within long messages.\n- Reduce layout work during profile changes, large history restorations, and incoming message bursts.\n\nBug fixes\n\n- Fix errors caused by secret chat text during boss encounters and other restricted content. Secret messages retain Glass's styling and fades; incoming batches containing secret text skip sliding.\n- Support multilingual text with native font families; custom fonts apply to Latin text.\n- Fix Classic chat-tab initialization, optional chat-button startup errors, and duplicate temporary-window allocation.\n- Preserve native chat-input handlers and fix Prat Editbox hook errors. Prat's Editbox module must still be disabled to avoid layout and visibility conflicts.\n- Fix empty custom chat tabs, Combat Log toolbar overlap, message rewrapping, slider dragging, and messages appearing below the window when jumping to the latest message.\n- Fix missing or invalid fonts leaving chat text without a usable font."
+    },
+    {
+      "tag": "1.8.0",
+      "published": "2020-10-13",
+      "notes": "# 1.8.0 (2020-10-14)\n\nWhat's new\n\n- New: Updated for Shadowlands!"
+    }
+  ],
+  "screenshots": [
+    "https://user-images.githubusercontent.com/3102758/90884068-9549a600-e3e1-11ea-944f-481bd894560e.png"
+  ],
+  "stats": {
+    "stars": 21,
+    "openIssues": 24,
+    "contributors": 2,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-11",
+      "2026-11-05",
+      "2020-10-13",
+      "2020-09-29",
+      "2020-09-22",
+      "2020-09-14",
+      "2020-09-10",
+      "2020-09-08",
+      "2020-09-06",
+      "2020-09-06",
+      "2020-09-01",
+      "2020-08-31",
+      "2020-08-25",
+      "2020-08-24",
+      "2020-08-22",
+      "2020-08-22",
+      "2020-08-22",
+      "2020-08-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Glass"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "GlassDB"
+    ]
+  }
+}

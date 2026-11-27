@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "thugui",
+  "repo": "Squirrelthug/ThugUI_",
+  "about": "# ThugUI\n\nA UI suite for World of Warcraft (Retail) and WoW Forever, from one download.\nEvery part is a module you switch on or off from the Modules page, so the\nparts you do not use cost nothing. It plays with a mouse and keyboard or a\ncontroller, and the two get the same features.\n\n- **Combat HUD:** cooldown grids anchored to your cursor, action bars and\n  nameplates.\n- **UI:** health and resource orbs with faction art, cast and GCD rings and\n  your class resource as pips; target and target-of-target frames; and party\n  frames as bars, squares or circles, with shields and incoming heals and a\n  different look per role if you want one. Right-click a unit frame for its\n  options. Plus dialogue and camera settings and a minimap panel.\n- **Interface:** a see-through chat stream, a buff window, a frame hider\n  (with visibility rules for the objective tracker), world map additions,\n  gear flags and a seasonal panel (Retail).\n- **General:** profiles you can share as a string (separate settings for\n  mouse and controller play on WoW Forever), themes for the settings\n  window (class, place and faction looks, or your own), vendor automation and\n  fishing by double-click.\n- **Controller (WoW Forever):** a ThugUI wheel on Start (double tap) with\n  group, party, travel and tracking pages; Triangle opens the target's options\n  on the same wheel; a controller chat window and stream; and hints beside\n  Blizzard's button legend.\n- **Visibility everywhere:** most frames can show only in or out of combat,\n  hide while resting, show for a target, fade while you move, or appear on\n  gamepad input.\n\n## Install\n\nDownload the zip from Releases or CurseForge, and extract the\n`ThugUI` folder into `World of Warcraft\\_retail_\\Interface\\AddOns` (or\n`_forever_` for WoW Forever). `/thugui` opens the settings. What changed\nin each version is in the release notes.\n\n## Feedback\n\nThe best place for bug reports, ideas and questions is the ThugUI section of\nthe [Last Attempt Discord](https://discord.gg/fcw4UMmrw). If you'd rather\nfile a formal bug report, issues here work too. Include the\nerror text from BugSack or BugGrabber if you have it.\n\n## About me\n\nI'm **Squirrelthug**. I build ThugUI for the way I play, and I also host\n**Last Attempt**, a weekly World of Warcraft guildcast: Warcraft discussed by\npeople who play it. We cover Retail and WoW Forever every week, and between\nepisodes I publish written commentary on the site.\n\nIf ThugUI has made your game a little better, the best way to say thanks is\nto listen to an episode or join us in the Discord.\n\n- **Website:** [lastattempt.net](https://lastattempt.net/) (articles, episodes and news)\n- **Listen:** [Spotify](https://open.spotify.com/show/7DeyxVjwhWHW4K7UyLCiZT) ·\n  [Apple Podcasts](https://podcasts.apple.com/us/podcast/last-attempt-a-world-of-warcraft-guildcast/id1876268344) ·\n  [YouTube](https://www.youtube.com/@LastAttemptPod)\n- **Live:** [Twitch](https://www.twitch.tv/squirrelthug_)\n- **Community:** [Discord](https://discord.gg/fcw4UMmrw)\n- **Follow:** [Instagram](https://www.instagram.com/lastattemptpod/) ·\n  [X](https://x.com/LastAttemptPod) ·\n  [TikTok](https://www.tiktok.com/@lastattemptpod)\n\n## License\n\nAll rights reserved. You may download ThugUI and use it to play; you may not\ncopy, redistribute, sell, or reuse its code without written permission. See\n[LICENSE](https://github.com/Squirrelthug/ThugUI_/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v3.0.2",
+      "name": "ThugUI v3.0.2",
+      "published": "2026-11-22",
+      "notes": "- Changed (Full-screen inventory): off by default. This update turns it off\n  once even if you had it on; turn it back on with the new button at the top\n  of its page (Settings, Controller, Full-screen inventory).\n- New (Full-screen inventory): Window mode. The inventory becomes a window\n  you move by dragging and resize from its bottom-right corner, for screens\n  where full screen is not all visible. The rest of the screen is covered\n  (adjustable), and a Reset window position button puts it back.\n- New (Full-screen inventory): Window scale, 30% to 200%, in both modes.\n  Icon sizes now go from 25% to 400% and text size from 8 to 48.\n- Changed (Full-screen inventory): swapping a bag is left to the game. A\n  bag that holds items can be replaced by another; if the game refuses a\n  swap, its own message shows in the window. Removing a bag that holds\n  items still asks you to empty it first."
+    },
+    {
+      "tag": "v3.0.1",
+      "name": "ThugUI v3.0.1",
+      "published": "2026-11-20",
+      "notes": "- Changed (Full-screen window, controller): in combat the bags are\n  Blizzard's. Opening the bags mid-fight shows Blizzard's own bag, whose\n  controller cursor can use a potion; ThugUI's window is back the next time\n  you open the bags out of combat. With \"Close when combat starts\" off, the\n  window says to close it to use items from Blizzard's bag.\n- Fixed (Full-screen window): items that open (\"Right Click to Open\", like a\n  barnacle or a satchel) can be opened from the window: they are on the\n  Usable tab, and the left face button says Open.\n- Changed (Orbs): the resource orb's \"Only show when not full\" now has the\n  same label as the health orb's; the rage note is in the tooltip."
+    },
+    {
+      "tag": "v3.0.0",
+      "name": "ThugUI v3.0.0",
+      "published": "2026-11-20",
+      "notes": "- New (WoW Forever, controller): the Pad layout page (Settings, Controller).\n  Pictures of your PlayStation or Xbox pad in four tabs: face buttons, L1 /\n  R1 + D-pad right, both bumpers held, and the menu buttons. Pick a button\n  and choose what it does from short lists: your macros, spells, ThugUI\n  actions or Blizzard's own. Every button starts on Blizzard's default, a\n  red band warns when a default action no longer has a button, and \"Back to\n  Blizzard's defaults\" puts everything back.\n- New (controller): Start and Select (Create / View) open windows that close\n  on the same press: the radial, ThugUI menu, map, character, bags,\n  spellbook, talents, quest log, professions, group finder, game menu and\n  Focus UI.\n- New (controller): a double press on Start and on Select, off until you set\n  one: ThugUI menu, reload or screenshot.\n- New (controller): a hold on the PS / Xbox button, off until you set one:\n  ThugUI menu, escape menu or hide the interface. A tap still does the\n  button's single action, on release.\n- New (controller): the ThugUI menu and Blizzard's radial close each other.\n  Start on the ThugUI menu opens Blizzard's radial; your ThugUI menu button\n  on Blizzard's radial opens ours.\n- New (Full-screen inventory): using an item on another item (Shiny Bauble,\n  sharpening stone, enchant) opens the bags with a cyan outline; X applies\n  it, Back cancels, items it fits are ticked when the game knows. The\n  target's icon fills back in as the cast runs, inside a thick ring.\n- New (controller chat): hold D-pad up or down to keep scrolling.\n- Changed (controller): the built-in double presses (Start twice for the\n  ThugUI menu, Select twice to reload, touchpad twice for a screenshot) are\n  gone; set the ones you want on the Pad layout page.\n- Fixed: the fishing macro skipped to lures you cannot use yet (Nightcrawlers\n  below Fishing 50); it now picks the best usable one."
+    },
+    {
+      "tag": "v2.6.2",
+      "name": "ThugUI v2.6.2",
+      "published": "2026-11-18",
+      "notes": "- New (Full-screen inventory): bag space as gauges in the footer. A\n  backpack icon and a bar for your normal bags, filled by the slots used,\n  with the slots left written on it. Profession bags, quivers, ammo pouches\n  and the reagent bag each get their own gauge beside it with the bag's own\n  icon, so \"Bags\" is only the space any loot can go in. A full kind says\n  \"Full\" and turns red.\n- New: a notice when another addon does the same job as a ThugUI module\n  (Bartender4, Plater, ElvUI and others). \"Turn ours off\" switches only that\n  part of ThugUI off; \"Don't show again\" stops asking about that addon.\n- New (controller): ThugUI's popups answer to the pad. D-pad moves between\n  the buttons, Cross presses, Circle closes.\n- Changed (controller wheel): a slice that acts closes the wheel; Circle\n  steps back one level.\n- Fixed (WoW Forever, controller): the pet bar no longer lands on the\n  controller's stuck \"S\" page."
+    },
+    {
+      "tag": "v2.6.1",
+      "name": "ThugUI v2.6.1",
+      "published": "2026-11-17",
+      "notes": "- New (WoW Forever, controller): double-tap Select to reload the interface,\n  in combat too. One tap shows \"Tap again to reload\". Switch it off on the\n  Controller page.\n- New (Full-screen inventory): \"Bind to controller button\" in an item's Y\n  menu. Press the button you want it on; hold L2, R2 or both for the other\n  bars. B goes back to the menu. It never opens the game's binding screen,\n  so your controller keeps working afterwards.\n- New (Full-screen inventory): moving onto gear in your bags shows the stat\n  changes against what you wear, under each slot's name.\n- New (Full-screen inventory): size sliders for the equipped items, armor\n  chest, inventory tabs, reagent strip and bag slots.\n- Fixed (Full-screen inventory): the L1/R1 icons at the ends of the tab rows\n  showed as text."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-10-16",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-10",
+      "2026-10-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ThugUI"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariablesPerCharacter": [
+      "ThugUI_Character"
+    ]
+  }
+}

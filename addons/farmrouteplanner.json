@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "farmrouteplanner",
+  "repo": "BGannon2/FarmRoutePlanner",
+  "about": "# Farm Route Planner\n\nA World of Warcraft (WoW Forever) addon for planning and running gathering routes.\nYou draw a route on a zone map, or have one built from your GatherMate2 nodes. The\nroute then shows on the minimap (including FarmHud) and the world map, and TomTom can\nwalk you through it.\n\n## Features\n\n- **Its own planner window** opens on your current zone, with a dropdown of every zone and the real zone map art.\n- **Click-to-draw routes:** click to add a point and drag a point to move it. Click a point to select it (it turns green) and new points go after it; right-click a point to delete it. Undo works for every edit.\n- **Saved routes with names**, one list per zone. Tick a route to show it.\n- **Minimap and FarmHud display:** each route shows as a line with direction arrows. It's drawn with HereBeDragons, the same library GatherMate2 uses for its icons, so it lines up with the nodes.\n- **World map display:** saved routes show on the zone and continent maps.\n- **GatherMate2 integration:**\n  - Your GatherMate2 nodes are shown on the planner map.\n  - You can turn node types and individual nodes (Copper Vein, Peacebloom, ...) on or off.\n  - **GatherMate Optimized Route** builds a short loop through every chosen node.\n- **Record Path:** the addon drops a point every few yards as you walk. Use it to record the real path between two nodes of an optimized route.\n- **TomTom follow mode:** the TomTom arrow moves to the next point once you're within a distance you choose.\n- **Range ring:** a ring around you on the minimap, 185 yards by default (about the Find Minerals / Find Herbs range). Pick another size, or match GatherMate2's tracking distance.\n- **Import / Export:** share routes as text strings.\n\n## Install\n\n1. Download the latest release from [CurseForge](https://www.curseforge.com/wow/addons/farm-route-planner), [Wago](https://addons.wago.io/addons/farm-route-planner), or the [GitHub Releases page](https://github.com/BGannon2/FarmRoutePlanner/releases).\n2. Extract the `FarmRoutePlanner` folder into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Optional companions: GatherMate2, TomTom, FarmHud.\n\n## Using it\n\nOpen the planner with the map button on the minimap (left-click) or `/frp`.\nRight-clicking the minimap button starts or stops TomTom following.\n\n| Command | What it does |\n|---|---|\n| `/frp` | Open or close the planner |\n| `/frp follow [name]` | Follow a saved route in this zone with TomTom |\n| `/frp stop` | Stop following |\n| `/frp dist 25` | Distance (yards) at which the arrow moves to the next point |\n| `/frp record` | Start or stop recording a path |\n| `/frp ring [yards]` | Turn the range ring on or off, or set its size |\n| `/frp minimap` | Show or hide routes on the minimap |\n| `/frp button` | Show or hide the minimap button |\n| `/frp exportall` | Export every saved route as one string |\n| `/frp debug` | Print diagnostic information |\n\n## GatherMate2 data\n\nGatherMate2 only knows nodes you've gathered or imported. To import its bundled data,\ntype `/gm`, open **Import Data**, tick the node types, and click **Import** (choose **Merge**).\n\n## Releasing (maintainers)\n\nPushing a tag such as `v1.0.0` runs the GitHub Actions workflow in\n`.github/workflows/release.yml`. It uses the [BigWigs packager](https://github.com/BigWigsMods/packager)\nto build the zip, create a GitHub release, and upload to CurseForge and Wago.\n\nThe project IDs are already in `FarmRoutePlanner.toc` (`## X-Curse-Project-ID:` and `## X-Wago-ID:`).\nEach site's API token must be stored as a repository secret: `CF_API_KEY` and `WAGO_API_TOKEN`.\n\n## License\n\nMIT. See [LICENSE](https://github.com/BGannon2/FarmRoutePlanner/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-23",
+      "notes": "# Farm Route Planner\n\n## [v1.0.1](https://github.com/BGannon2/FarmRoutePlanner/tree/v1.0.1) (2026-11-23)\n[Full Changelog](https://github.com/BGannon2/FarmRoutePlanner/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/BGannon2/FarmRoutePlanner/releases)\n\n- Hide routes in instances, fit the optimize button, add a world map button  \n    - Routes, arrows and the range ring no longer show on the minimap in  \n      dungeons, raids and battlegrounds.  \n    - The GatherMate Optimized Route button sizes itself to its label.  \n    - An FRP button on the world map opens the planner on the viewed zone.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-20",
+      "notes": "# Farm Route Planner\n\n## [v1.0.0](https://github.com/BGannon2/FarmRoutePlanner/tree/v1.0.0) (2026-11-20)\n[Full Changelog](https://github.com/BGannon2/FarmRoutePlanner/commits/v1.0.0) [Previous Releases](https://github.com/BGannon2/FarmRoutePlanner/releases)\n\n- Keep minimap routes working when FarmHud opens and closes  \n    - Draw on a layer parented to UIParent and aligned over the active  \n      minimap; FarmHud re-parents Minimap children and didn't return ours  \n    - Fall back to the normal minimap while FarmHud's HUD is hidden but  \n      HereBeDragons hasn't switched back yet  \n    - Anchor lines, arrows and the range ring to our layer: the client  \n      refuses Line anchors on Minimap while FarmHud moves it  \n    - Report the first minimap drawing error in chat  \n    - /frp debug reports the route layer's state  \n    - Add a planner screenshot for the hosting pages  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Add hosting project IDs, logo, and GatherMate2 distance sync  \n    - TOC: CurseForge (1819826) and Wago (n6VYdONd) project IDs for the  \n      release workflow  \n    - Range ring size set in the addon now also sets GatherMate2's tracking  \n      distance (GM dist mode leaves it alone)  \n    - Add the project logo under assets/ (excluded from the packaged zip)  \n    - README: download links; release notes cover CurseForge and Wago  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Default the range ring to 185 yards  \n    185 yards matches the observed Find Minerals / Find Herbs range better than  \n    GatherMate2's tracking distance. Adds 185 and 240 to the ring-size choices.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Range ring follows GatherMate2's tracking distance by default  \n    The ring now matches where GatherMate2 turns nodes into tracking circles.  \n    Fixed sizes are still available from the planner's size button.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- Initial release of Farm Route Planner  \n    Planner window with zone map art, click-to-draw routes, named saves,  \n    GatherMate2 node display and optimized routes, path recording,  \n    TomTom follow mode, minimap/FarmHud and world map display, range ring,  \n    and import/export strings. Includes BigWigs packager release workflow.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FarmRoutePlanner"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "GatherMate2",
+      "TomTom",
+      "FarmHud"
+    ],
+    "savedVariables": [
+      "FarmRoutePlannerDB"
+    ]
+  }
+}

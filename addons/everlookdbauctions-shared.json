@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "everlookdbauctions-shared",
+  "repo": "quikmn/EverlookDBAuctions_Shared",
+  "about": "# EverlookDB Auctions: Price Feed\n\nOther players' newest auction prices from [everlookdb.com](https://everlookdb.com/), for\n[EverlookDB Auctions](https://github.com/quikmn/EverlookDBAuctions) in WoW Forever.\n\nThis addon ships empty. The free [EverlookDB App](https://github.com/quikmn/everlookdb-uploader) keeps it filled with the\nnewest prices players uploaded for the auction houses you play on. EverlookDB Auctions picks them up at your next\n`/reload` or login, so prices are fresh even when you haven't been to the auction house for days. Such prices always\nsay so: \"other players' scan · 12 min ago\".\n\n- Needs EverlookDB Auctions (it shows under it in the addon list).\n- Without the app it stays empty, and EverlookDB Auctions says \"Price Feed: no data yet\".\n- After an addon update the app fills it again within about a minute.\n- The data has no player names.\n- Turn it off in the app (the Price Feed switch), or in game on the General page of `/eah`.\n\n## License\n\nGPL-3.0, see LICENSE.",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-21",
+      "notes": "- First version: the Price Feed for EverlookDB Auctions, as its own addon. It ships empty; the EverlookDB App fills it with other players' newest auction scans from everlookdb.com, and EverlookDB Auctions shows them as \"other players' scan · N min ago\"."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/quikmn/EverlookDBAuctions_Shared/main/screenshots/1-price-feed-bar.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookDBAuctions_Shared/main/screenshots/2-price-feed-tooltip.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookDBAuctions_Shared/main/screenshots/3-price-feed-settings.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookDBAuctions_Shared/main/screenshots/4-price-feed-no-data.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EverlookDBAuctions_Shared"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "EverlookDBAuctions"
+    ]
+  }
+}

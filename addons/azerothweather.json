@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "azerothweather",
+  "repo": "tr1age/weather-forever",
+  "about": "# Weather Forever\n\nWeather Forever tracks live weather in World of Warcraft: Forever. The optional desktop companion syncs observations with the community website, where you can check reported weather while away from the game.\n\n## In game\n\nOpen the dashboard with /weather, /wf, or the minimap button.\n\n- Check local conditions, forecasts based on your observations, and regional storm history.\n- Browse weather pins on the built-in map or on OpenMap when installed. Filter by observed, storming, or watched zones.\n- Browse the fishing guide by fish or zone and keep a personal catch log.\n- Move or lock the compact weather HUD and configure weather alerts in Settings.\n- Browse and filter zone reports, report current conditions, and copy a report for manual sharing.\n\n## Companion website and sharing\n\nVisit [Weather Forever](https://weather.craftingworlds.com/) to view community reports. Website uploads require the optional desktop companion and your consent. The companion sends weather, location, realm, estimated layer, observation time, report source, optional intensity, and a pseudonymous installation identifier. The companion does not send character or account names.\n\nIn-game weather sharing and guild or group presence are separate controls. Presence shares character name, zone, and estimated layer with guild or group peers. Layer requests use the game's normal invitation flow.\n\nSee the [addon guide](https://github.com/tr1age/weather-forever/blob/main/addon/README.md) and [companion setup](https://github.com/tr1age/weather-forever/blob/main/companion/README.md) for usage and installation details.\n\nWeather Forever is made by Crafting Worlds. Blizzard Entertainment provides the native game interface assets and APIs.",
+  "releases": [
+    {
+      "tag": "v1.2",
+      "name": "Weather Forever 1.2",
+      "published": "2026-11-20",
+      "notes": "Weather Forever for WoW Forever 1.60.1. Download the addon ZIP below."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AzerothWeather"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "EllesmereUI",
+      "OpenMap"
+    ],
+    "savedVariables": [
+      "AzerothWeatherDB"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "rxpdock",
+  "repo": "speedlnq1/RXPDock",
+  "about": "![RXP Dock logo](https://raw.githubusercontent.com/speedlnq1/RXPDock/main/logo.png)\n\n# RXP Dock\n\n**Quests | RestedXP | Polestar tabs on top of the Questie quest tracker.**\nOne panel at a time, in the same spot. Made for WoW Forever.\n\n> Unofficial. Not made by or affiliated with RestedXP, Questie or Polestar.\n\n## Features\n- Three tabs above the Questie tracker: **Quests**, **RestedXP** and **Polestar**.\n- **Polestar tab (new in 1.1.0):** the Polestar guide window docks in the same spot. Polestar is optional: no Polestar, the tab just shows your quests.\n- The RestedXP guide sits right under the tabs, where your quest list is.\n- **RestedXP never pauses.** On the Quests tab the guide is only made invisible and click-through, so steps keep tracking and quests keep auto accepting and turning in.\n- Never an empty slot: if Questie has nothing to show (no quests, in a dungeon), RestedXP shows instead. If RestedXP is closed, Questie shows.\n- Works with RestedXP's normal window and its beta \"V2\" window.\n- Safe in combat: no \"action blocked\" errors. A tab switch in combat happens when combat ends.\n- Remembers your tab for each character.\n\n## Install\n1. Download the zip from Releases.\n2. Unzip it into `World of Warcraft\\_forever_\\Interface\\AddOns\\` so you get `AddOns\\RXPDock\\`.\n3. Fully restart the game.\n\nAlso on [CurseForge](https://www.curseforge.com/wow/addons/rxp-dock).\n\nNeeds **Questie** (with its tracker on) and **RestedXP Guides**.\n\n## Use\n- Click **Quests**, **RestedXP** or **Polestar**.\n- `/rxpdock` switches to the next tab.\n- **Ctrl + drag the tab bar** to move everything (tabs, tracker and guide). Questie saves the spot.\n\n## Good to know\n- The RestedXP window is docked, so dragging it snaps back. Move the dock with Ctrl + drag on the tabs.\n- On the Quests tab, RestedXP's tip boxes and timer bars are hidden too. The quest item button, target buttons and arrow stay.\n- For a plainer look: `/rxp` → Choose Theme → DarkMode.\n\n## License\nMIT",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "name": "RXP Dock 1.1.0",
+      "published": "2026-11-24",
+      "notes": "- New **Polestar** tab: the Polestar guide window docks under the tabs too. Its guide keeps running on the other tabs.\n- `/rxpdock` now cycles Quests → RestedXP → Polestar.\n- The tab bar is as wide as the window it sits on, so the RestedXP guide no longer gets pushed off the screen edge."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "RXP Dock 1.0.0",
+      "published": "2026-11-22",
+      "notes": "First release. Download RXPDock-1.0.0.zip, unzip into Interface\\AddOns, restart the game. Needs Questie and RestedXP Guides. Unofficial."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RXPDock"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Questie",
+      "RXPGuides",
+      "Polestar"
+    ],
+    "savedVariablesPerCharacter": [
+      "RXPDockDB"
+    ]
+  }
+}

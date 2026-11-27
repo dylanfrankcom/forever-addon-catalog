@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "requiemledger",
+  "repo": "Nemu-x/nemux-ledger",
+  "about": "![Nemux Ledger emblem](https://raw.githubusercontent.com/Nemu-x/nemux-ledger/main/assets/nemux-ledger-logo-512.png)\n\n# Nemux Ledger\n\n  A guild companion addon for **World of Warcraft: Forever**.\n\n  Readiness HUD · deaths · recipe search · feats · leaderboards · weekly report · loot log\n\n  [CurseForge](https://www.curseforge.com/wow/addons/nemux-ledger) ·\n  [MIT License](https://github.com/Nemu-x/nemux-ledger/blob/main/LICENSE)\n\n---\n\n## What it does\n\n- **Readiness HUD.** A small panel that shows up only when something is missing or about to run out: food buff, flask, elixir, weapon oil, potions, Well-Rested. You choose the checks for solo, party and raid.\n- **Guild roster and recipe search.** \"Who can craft Silver Rod?\" Recipes are shared when a member opens their profession window, so offline crafters are found too. Hover a recipe to see its reagents, what you have in bags and bank, and an approximate cost (with Auctionator).\n- **Recipe tracker.** A shopping list on screen that updates as you loot and buy.\n- **Leaderboards.** Deaths (all time and this week) and honorable kills, a guild death feed, and a weekly report ready for Discord.\n- **Feats.** 33 small achievements plus guild goals with progress bars.\n- **Level-up alerts** for the whole guild (can be turned off).\n- **Loot log.** Reads awards from **Gargul** and **RCLootCouncil**. Nemux Ledger never hands out loot itself.\n\nEverything that involves other players works between guild mates who also run the addon. The UI is in English.\n\n## Install\n\n- **CurseForge app:** search for *Nemux Ledger*.\n- **Manually:** download the zip from Releases or CurseForge and extract the `RequiemLedger` folder into\n  `Interface\\AddOns\\` inside your WoW: Forever game folder.\n\n> The folder, SavedVariables and addon-message prefix are still named `RequiemLedger` / `RQLedger`, so data from early builds is kept.\n\nType `/rq` to open the window, or `/rq help` to list the commands.\n\n## Privacy: what is sent to the guild\n\nHidden addon messages on the guild channel and in whispers, only to guild mates who run Nemux Ledger:\naddon version, death count and death location type, profession skill levels, known recipe IDs, feats, honorable kill count.\n\nIt never sends chat text, gold, items or anything from other addons. Incoming data is checked against strict formats and only ever displayed as text. Nothing received is ever run as code.\n\n## Repository layout\n\n```\nRequiemLedger/     the addon itself (this folder goes into Interface\\AddOns)\n  Core/            init, DB, API compatibility layer, slash commands\n  Data/            consumable tables, death phrases\n  Modules/         readiness, deaths, guild sync, recipes, feats, boards, weekly, tracker, loot\n  UI/              main window, HUD, minimap button, theme, export\ntests/             mock WoW client (fengari) and unit tests\ndocs/              CurseForge description, research notes, tester guide\nassets/            logo and emblem sources\n```\n\n## Development\n\nTests run the addon in a fake WoW client inside [fengari](https://github.com/fengari-lua/fengari) (Lua 5.3 in JavaScript):\n\n```sh\ncd tests\nnpm install\nnpm test\n```\n\nPassing mock tests do not prove the addon works in game; every feature is also checked in the live client.\n\nTargets: WoW: Forever 1.60.x, `## Interface: 16001` (Mainline 12.x API).\n\n## License\n\n[MIT](https://github.com/Nemu-x/nemux-ledger/blob/main/LICENSE) © 2026 Nemux",
+  "releases": [
+    {
+      "tag": "v0.5.1",
+      "name": "Nemux Ledger 0.5.1",
+      "published": "2026-11-13",
+      "notes": "First public release (beta). Built for WoW: Forever 1.60.1 (Interface 16001).\n\nExtract the `RequiemLedger` folder into `Interface\\AddOns\\` and type `/rq` in game. Also on [CurseForge](https://www.curseforge.com/wow/addons/nemux-ledger)."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Nemu-x/nemux-ledger/main/assets/nemux-ledger-logo-512.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RequiemLedger"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "RequiemLedgerDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "RequiemLedgerCharDB"
+    ]
+  }
+}

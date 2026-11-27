@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "blizzhudtweaks",
+  "repo": "PhenomDevel/BlizzHUDTweaks",
+  "about": "# BlizzHUDTweaks\n\n![BlizzHUDTweaks logo](https://raw.githubusercontent.com/PhenomDevel/BlizzHUDTweaks/main/docs/logo/logo.png)\n\n[![Version](https://img.shields.io/github/v/release/PhenomDevel/BlizzHUDTweaks?label=version)](https://github.com/PhenomDevel/BlizzHUDTweaks/releases/latest)\n[![CurseForge](https://img.shields.io/curseforge/dt/698104?label=CurseForge)](https://www.curseforge.com/projects/698104)\n[![License](https://img.shields.io/github/license/PhenomDevel/BlizzHUDTweaks)](https://github.com/PhenomDevel/BlizzHUDTweaks/blob/main/LICENSE)\n\n**Fade and tweak the default Blizzard HUD, without replacing it.**\n\nFade the default frames by situation (combat, mouseover, target, rested area\nand more), fade frames of other addons too, and tweak small parts of the\ndefault HUD.\n\n## Supported versions\n\n| Client | Interface |\n| --- | --- |\n| WoW: Forever | 16001 |\n| Retail | 120105 (12.1.5) and 120107 (12.1.7 PTR) |\n\nClassic Era, Cataclysm/Mists Classic and other clients are not supported.\n\n## Installation\n\n1. Install it with the [CurseForge](https://www.curseforge.com/projects/698104)\n   or [Wago](https://addons.wago.io/addons/rkGrWlNy) app, or download the zip\n   from [GitHub releases](https://github.com/PhenomDevel/BlizzHUDTweaks/releases/latest).\n2. Manual install: extract `BlizzHUDTweaks` into\n   `World of Warcraft/<client>/Interface/AddOns/`.\n3. Log in and type `/bht`.\n\nWhat changed: [CHANGELOG.md](https://github.com/PhenomDevel/BlizzHUDTweaks/blob/main/CHANGELOG.md)\n\n## Features\n\n- **Frame fading:** an alpha value per situation for action bars, unit\n  frames, auras, status bars, the minimap, the objective tracker, the\n  cooldown manager and more. Situations: In Combat, Has Target, Vehicle,\n  Neighborhood (Retail), Instanced Area, Rested Area, Out of Combat; the first\n  that applies wins.\n- **Mouseover** shows a faded frame at full alpha, optionally also in combat.\n  Fade duration and out-of-combat delay are adjustable.\n- **Edit Mode:** select a frame in Blizzard's Edit Mode to change its most\n  important fade settings right there.\n- **Global or per-frame settings**, and **frame links**: hovering one frame\n  also shows its linked frames (e.g. all action bars at once).\n- **Custom frames:** fade any named frame, also of other addons. Pick it with\n  the mouse or enter its name.\n- **Swing timer** frames (WoW: Forever).\n- **Miscellaneous:** action bar button padding (also below Blizzard's minimum\n  of 2), hide name, level or group indicator on unit frames, overwrite the\n  player name, font size of health and mana texts, flash the objective\n  tracker and experience bar after an update.\n- **Tooltip:** anchor to the mouse, show spell IDs.\n- **Profiles** with import/export strings (custom frames included).\n- Options window with search, also under *Options → AddOns*.\n\n### Commands\n\n| Command | |\n| --- | --- |\n| `/bht` | Open/close the options (also `/blizzhudtweaks`) |\n| `/bht minimap` | Show/hide the minimap icon |\n| `/bht news` | Show what's new |\n\n## Support\n\n- A frame does not show: set *Bar Visible* in Blizzard's Edit Mode to\n  *Always visible*, otherwise Edit Mode wins.\n- Questions: [Discord](https://discord.gg/4fSVKCVJWy)\n- Bugs and ideas: [GitHub issues](https://github.com/PhenomDevel/BlizzHUDTweaks/issues)\n- If you like the addon, star it on GitHub or leave a tip on\n  [Streamlabs](https://streamlabs.com/phenombutbetter/tip).\n\n---\n\nDeveloped with the help of AI ([Claude](https://claude.ai/) by Anthropic).\nEvery change is reviewed by a professional software developer before it is\nmerged.",
+  "releases": [
+    {
+      "tag": "v3.9.1",
+      "published": "2026-11-22",
+      "notes": "## v3.9.1 (2026-11-22)\n\n- Frame Fading: no more \"attempt to perform boolean test on a secret boolean value\" errors with Chat Frame fading in Retail. Before, the error came up on every mouseover check while the game restricts the chat (e.g. in M+, raids or PvP)."
+    },
+    {
+      "tag": "v3.9.0",
+      "published": "2026-11-19",
+      "notes": "## v3.9.0 (2026-11-19)\n\n- Frame Fading: new frame \"Totem Bar\" in \"Action Bars\". It fades the Shaman totem bar in WoW: Forever (including the totem flyout) and the totem frame below the player frame in Retail."
+    },
+    {
+      "tag": "v3.8.2",
+      "published": "2026-11-15",
+      "notes": "## v3.8.2 (2026-11-15)\n\n- Frame Fading: frames now always show up when a fight starts while a fade delay (\"Fade Delay\" after combat or \"Delay after mouseover\") is still running. Before, the waiting fade went on and the frames faded out in combat, e.g. when a rogue opened from stealth shortly after the last fight. Entering or leaving stealth or a shapeshift form also no longer skips the running fade delay.\n- Frame Fading: extra damage meter windows (Damage Meter Frame 2 and 3) now fade. Before, they did not fade, because the game creates them after the addon has loaded, e.g. when you open a second window."
+    },
+    {
+      "tag": "v3.8.1",
+      "published": "2026-11-13",
+      "notes": "## v3.8.1 (2026-11-13)\n\n- Frame Fading: the minimap no longer loses its map indoors after it fades. Before, only the border and the icons stayed until you zoomed in or out."
+    },
+    {
+      "tag": "v3.8.0",
+      "published": "2026-11-10",
+      "notes": "## v3.8.0 (2026-11-10)\n\n- New \"About\" page in the options: who made the addon (Phenom), version, and links to Discord, CurseForge, Wago, GitHub and bug reports, ready to copy."
+    }
+  ],
+  "stats": {
+    "stars": 11,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-19",
+      "2026-11-15",
+      "2026-11-13",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-10-25",
+      "2026-10-24",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-21",
+      "2026-09-19",
+      "2026-08-29",
+      "2026-08-13",
+      "2026-08-12",
+      "2026-06-17",
+      "2026-04-22",
+      "2026-04-16",
+      "2026-03-28",
+      "2026-03-26",
+      "2026-03-24",
+      "2026-03-09",
+      "2026-03-09",
+      "2026-03-09",
+      "2026-03-09",
+      "2026-03-04",
+      "2026-02-26",
+      "2026-02-18",
+      "2026-02-17",
+      "2026-02-11",
+      "2026-02-05",
+      "2026-02-05",
+      "2026-02-05",
+      "2026-02-04",
+      "2026-02-04",
+      "2026-01-31",
+      "2026-01-31",
+      "2026-01-26",
+      "2026-01-24",
+      "2026-01-23",
+      "2026-01-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BlizzHUDTweaks"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "EditModeExpanded",
+      "WorldQuestTracker"
+    ],
+    "savedVariables": [
+      "BlizzHUDTweaksDB"
+    ]
+  }
+}

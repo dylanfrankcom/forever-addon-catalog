@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "bejeweledredux",
+  "repo": "Nighthawk42/wow_bejeweled_redux",
+  "about": "# Bejeweled Redux for World of Warcraft\n\nBejeweled has returned to Azeroth! A game originally made by PopCap Games, Inc., rebuilt for modern World of Warcraft clients.\n\nBejeweled Redux is a ground-up modernization of the original addon. It installs as its own addon (`BejeweledRedux`) with its own saved data, so it can sit alongside the original. The original addon and its Classic releases are archived at [Nighthawk42/wow_bejeweled](https://github.com/Nighthawk42/wow_bejeweled).\n\n## Supported Clients\n\nOne download works on every supported client.\n\n| Client | Interface | Status |\n|---|---|---|\n| **Retail** (Midnight) | `120100` | Supported |\n| **WoW Forever** | `16001` | Supported (beta client) |\n| **Mists of Pandaria Classic** | `50504` | Supported |\n| **Titan Reforged** (Wrath) | `38002` | Supported |\n| **TBC Anniversary** | `20506` | Supported |\n| **Classic Era** | `11509` | Supported |\n\nOn Classic Era, \"Two Gems Enter, One Gem Leaves\" (win an arena match) is unavailable because the client has no arenas, and it doesn't count against \"Complete all Achievements\".\n\n## Installation\n\n1. Download the latest release zip from the [Releases](https://github.com/Nighthawk42/wow_bejeweled_redux/releases) page.\n2. Extract the `BejeweledRedux` folder into your client's `Interface/AddOns/` folder, for example `World of Warcraft/_retail_/Interface/AddOns/` or `World of Warcraft/_classic_era_/Interface/AddOns/`.\n\nRelease archives include everything. If you install straight from a git checkout instead, run `scripts/fetch-libs.sh` first: the libraries (Ace3, LibDataBroker, LibDBIcon) are downloaded, not committed.\n\n## Texture Packs\n\nTexture packs change the game's art. Each pack is a small addon of its own, attached to every [release](https://github.com/Nighthawk42/wow_bejeweled_redux/releases) next to the main download:\n\n| Download | Pack | What it changes |\n|---|---|---|\n| `BejeweledRedux_2x-<version>.zip` | **HD (2x)** | Every texture at twice the original resolution (AI-upscaled original art) |\n| `BejeweledRedux_4x-<version>.zip` | **Ultra HD (4x)** | Every texture at four times the original resolution (AI-upscaled original art) |\n| `BejeweledRedux_Concept-<version>.zip` | **Concept** | New gems that spin in 3D, a new logo, window border, icon and stone background, in a darker fantasy style |\n\nTo use a pack:\n\n1. Install Bejeweled Redux first; packs need it.\n2. Extract the pack's folder (for example `BejeweledRedux_4x`) into the same `Interface/AddOns/` folder.\n3. Restart the game client fully. The game only picks up new addon folders at startup.\n4. Open **Options → General → Texture Pack**, choose the pack, then type `/reload`.\n\nChoose **Default** in the same place to go back to the original art. You can install several packs and switch between them.\n\nThe packs use PNG images. PNG is confirmed on Retail and WoW Forever; on the Classic clients it hasn't been tested yet, so if a pack shows blank textures there, switch back to Default and let us know.\n\nWant to make your own? See [art/README.md](https://github.com/Nighthawk42/wow_bejeweled_redux/blob/main/art/README.md). All you need is an image editor.\n\n## Usage\n\n- `/bej` toggles the game window. Subcommands: `show`, `hide`, `options`, `reset` (erases this character's progress) and `help`. `/bejeweled` works too; if the original Bejeweled addon is also installed, use `/bejredux`, which always reaches this one.\n- Click the minimap button or the addon compartment entry to toggle the window; right-click the minimap button for options.\n- Options are also under **Settings → AddOns → Bejeweled Redux**, including a key binding to toggle the window.\n\n## Feedback & Contributions\n\n- If you encounter bugs, please report them with detailed error messages/traces.\n- Contributions and Pull Requests are welcome! Please read [CONTRIBUTING.md](https://github.com/Nighthawk42/wow_bejeweled_redux/blob/main/CONTRIBUTING.md) for the code layout and workflow.\n\n## Documentation & License\n\n- [Contributing Guide](https://github.com/Nighthawk42/wow_bejeweled_redux/blob/main/CONTRIBUTING.md)\n- [Changelog](https://github.com/Nighthawk42/wow_bejeweled_redux/blob/main/CHANGELOG.md)\n- [Acknowledgements](https://github.com/Nighthawk42/wow_bejeweled_redux/blob/main/ACKNOWLEDGEMENT.md)\n- [License (MIT)](https://github.com/Nighthawk42/wow_bejeweled_redux/blob/main/LICENSE)\n\n---\n\n[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P21QRW51)",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "Bejeweled Redux 1.0.0",
+      "published": "2026-10-21",
+      "notes": "The first release of **Bejeweled Redux**, a ground-up rebuild of the classic PopCap Bejeweled addon for World of Warcraft.\n\n## Downloads\n\n| File | What it is |\n|---|---|\n| **`BejeweledRedux-v1.0.0.zip`** | **The addon.** This is the one you need. |\n| `BejeweledRedux_2x-v1.0.0.zip` | Optional texture pack: **HD**, every texture at 2× resolution |\n| `BejeweledRedux_4x-v1.0.0.zip` | Optional texture pack: **Ultra HD**, every texture at 4× resolution |\n| `BejeweledRedux_Concept-v1.0.0.zip` | Optional texture pack: **Concept**, new gems that spin in 3D, plus a new logo, window border, icon and stone background |\n\n## Install\n\n1. Extract `BejeweledRedux` into your client's `Interface/AddOns/` folder, for example `World of Warcraft/_retail_/Interface/AddOns/`.\n2. For a texture pack, extract its folder into the same `Interface/AddOns/` folder, restart the game, then choose it under **Options → General → Texture Pack** and type `/reload`.\n\nType `/bej` in game to play.\n\n## Highlights\n\n- **One download for every client:** Retail (Midnight), WoW Forever, Mists of Pandaria Classic, Titan Reforged, TBC Anniversary and Classic Era.\n- **Rebuilt for current WoW:** readable modular code on Ace3, achievements that work under Midnight's restrictions, a new options panel with profiles and a key binding, LibDBIcon minimap button and addon compartment entry.\n- **Texture packs:** every image is described in a texture database, and packs are separate addons you can switch between. [Make your own](https://github.com/Nighthawk42/wow_bejeweled_redux/blob/main/art/README.md) with any image editor.\n- **Many fixes** to the original: friend high scores, missing scrollbars, invisible lightning, first-time tips, flight-mode games and more. See the [changelog](https://github.com/Nighthawk42/wow_bejeweled_redux/blob/main/CHANGELOG.md).\n\n## Good to know\n\n- Bejeweled Redux uses **new saved data** and a **new score-sync protocol**. Stats from the original addon aren't carried over, and scores sync only with other Redux players.\n- It installs as its own addon, so it can sit alongside the original Bejeweled. If both are installed, use `/bejredux`.\n- The texture packs use PNG images, confirmed on Retail and WoW Forever. On the Classic clients PNG hasn't been tested yet; if a pack shows blank textures there, switch back to **Default**."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BejeweledRedux"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "BejeweledReduxDB"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "darkmode",
+  "repo": "d4kir92/DarkMode",
+  "about": "# DarkMode\n\nDarkMode darkens or colors the World of Warcraft user interface: windows, unit frames, action bars, buffs, nameplates, tooltips, the minimap and more. Every area can get its own color mode.\n\n## Features\n\n- Color modes per area: **Dark**, **More Dark**, **Darker**, **More Darker**, **Black**, **Class Color**, **Custom** (own color via color picker), and **Off**.\n- A **General Color Mode** that sets the main areas at once; each area can still be changed on its own afterwards.\n- Areas:\n  - **Interface & HUD**: UI/HUD, micro menu, bags, buttons\n  - **Windows**: Blizzard windows, add-on windows, quest background\n  - **Unit Frames**: frames, health bar, portrait, reputation status, dragon art, player frame dragon (elite/rare/rare elite)\n  - **Action Bars**: action buttons and gryphons\n  - **Buffs and Debuffs**, **Nameplates**, **Tooltips**\n- Extra borders: Blizzard's minimap buttons, action buttons, and buffs have no separate border, it is part of the icon. DarkMode draws its own border on top so it can be colored, optionally thin or with an inner shadow.\n- **Own Target/Focus Auras** (WoW Forever): there the target and focus auras of Blizzard are locked and cannot get a border. DarkMode hides them and shows its own aura icons in the same place, sizes and order like Blizzard's, with the extra border. The cast bar, target of target, and \"Buffs on Top\" keep working as before.\n- **Grayscale**: removes the original colors of textures DarkMode colors, so the chosen color shows cleanly.\n- Transparent name background on the target and focus frame.\n- Support for other add-ons, among them Auctionator, BetterBlizzFrames, BugSack, ClassicUIForever, DragonflightUI, Leatrix Plus, and TrinketMenu.\n- Settings window with sidebar, search, **What's New** window, language selection, and a minimap button.\n\n## Usage\n\n- Open the settings with `/dm`, `/dark`, `/darkmode`, or a left click on the minimap button. A right click on the minimap button hides it.\n- The sidebar on the left jumps to an area; the search box filters all options.\n- Some changes need a reload: **Save** in the footer reloads the interface once a setting that needs it was changed. `/rl` is a short form of `/reload`.\n- New options are marked **[NEW]** for a few days, and the **What's New** window lists them once after login. It can be turned off in the window or under **General**.\n\n## Notes\n\n- With Masque installed, the border options are hidden because Masque styles the buttons.\n- **Own Target/Focus Auras** only appears on clients that lock Blizzard's target auras (WoW Forever). Turning it off needs a reload.\n- Supported clients: Retail, WoW Forever, Classic Era, The Burning Crusade, Wrath, Cataclysm, and Mists of Pandaria Classic.\n\n## Localization\n\nLocale files exist for all World of Warcraft client locales:\n\n`deDE`, `enUS`, `esES`, `esMX`, `frFR`, `itIT`, `koKR`, `ptBR`, `ruRU`, `zhCN`, and `zhTW`.\n\nThe language can be changed in the settings window independently of the client language, without a reload. Translations other than English and German are machine-generated and may benefit from native-speaker review.\n\n## Author\n\nD4KiR",
+  "releases": [
+    {
+      "tag": "v0.9.8",
+      "published": "2026-11-26",
+      "notes": "# DarkMode by D4KiR\n\n## [v0.9.8](https://github.com/d4kir92/DarkMode/tree/v0.9.8) (2026-11-26)\n[Full Changelog](https://github.com/d4kir92/DarkMode/compare/v0.9.7...v0.9.8) [Previous Releases](https://github.com/d4kir92/DarkMode/releases)\n\n- v0.9.8"
+    },
+    {
+      "tag": "v0.9.7",
+      "published": "2026-11-24",
+      "notes": "# DarkMode by D4KiR\n\n## [v0.9.7](https://github.com/d4kir92/DarkMode/tree/v0.9.7) (2026-11-24)\n[Full Changelog](https://github.com/d4kir92/DarkMode/compare/v0.9.6...v0.9.7) [Previous Releases](https://github.com/d4kir92/DarkMode/releases)\n\n- v0.9.7  \n- Add animated glow toggle for target aura purge and dispel glow  \n    - Add an Animated Glow option under the purgeable buff and dispellable debuff glow settings  \n    - Show a static glow without animation when disabled, updating both live auras and the settings preview  \n- Fix BetterBlizzFrames big health bar dragon colors on Forever  \n    - Match BetterBlizzFrames big health bar and no-level classic unit frame dragon textures  \n    - Color BetterBlizzFrames classic HD elite dragons on target and focus frames with the dragon color"
+    },
+    {
+      "tag": "v0.9.6",
+      "published": "2026-11-23",
+      "notes": "# DarkMode by D4KiR\n\n## [v0.9.6](https://github.com/d4kir92/DarkMode/tree/v0.9.6) (2026-11-23)\n[Full Changelog](https://github.com/d4kir92/DarkMode/compare/v0.9.5...v0.9.6) [Previous Releases](https://github.com/d4kir92/DarkMode/releases)\n\n- v0.9.6  \n- Fix purge glow on enemy Magic buffs and preview spacing  \n    - Show purgeable buff glow on hostile buffs with a dispel type (Magic/Enrage) even when isStealable is false  \n    - Fall back to starting the flipbook animation directly if AddAuraShownAnimation fails  \n    - Shift Buff and Debuff preview icons slightly left so the Debuff label is not clipped"
+    },
+    {
+      "tag": "v0.9.5",
+      "published": "2026-11-23",
+      "notes": "# DarkMode by D4KiR\n\n## [v0.9.5](https://github.com/d4kir92/DarkMode/tree/v0.9.5) (2026-11-23)\n[Full Changelog](https://github.com/d4kir92/DarkMode/compare/v0.9.4...v0.9.5) [Previous Releases](https://github.com/d4kir92/DarkMode/releases)\n\n- v0.9.5  \n- Animate target aura purge and dispel glow  \n    - Switch target aura purge and dispel glow to Blizzard's animated proc loop flipbook behind the icon and border  \n    - Animate the Buff and Debuff glow preview in settings  \n- Use action button glow, fix combat buff borders, add glow preview  \n    - Switch target aura purge and dispel glow to the UI-HUD-RotationHelper-ProcAltGlow atlas drawn behind the icon and border  \n    - Keep the DarkMode border visible on normal buffs during combat target switches  \n    - Add a live Buff and Debuff glow preview row in the settings window  \n- Fix aura glow colour swatch click blocked by checkbox  \n    - Clicking the target aura glow colour swatches in settings now opens the colour picker instead of toggling the checkbox  \n- Fix missing dispellable and purge glow on target auras  \n    - Restore dispellable and purgeable aura glow on custom target and focus auras  \n    - Preserve chosen glow colour and intensity across aura updates and live changes  \n    - Defer glow setting updates cleanly until leaving combat if auras are restricted  \n    - Re-fit aura glow texture tightly to the icon border"
+    },
+    {
+      "tag": "v0.9.4",
+      "published": "2026-11-23",
+      "notes": "# DarkMode by D4KiR\n\n## [v0.9.4](https://github.com/d4kir92/DarkMode/tree/v0.9.4) (2026-11-23)\n[Full Changelog](https://github.com/d4kir92/DarkMode/compare/v0.9.3...v0.9.4) [Previous Releases](https://github.com/d4kir92/DarkMode/releases)\n\n- v0.9.4  \n- Fix target aura glow toggles and tone down glow  \n    - Disabling purgeable/dispellable glow now actually hides it  \n    - Dispellable debuff glow only shows on friendly targets, not on your own debuffs on enemies  \n    - Glow is smaller and softer"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 3,
+    "contributors": 2,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-10-29",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-10-06",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-03",
+      "2026-10-03",
+      "2026-10-03",
+      "2026-09-30",
+      "2026-09-29"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "DarkMode"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "DMTAB"
+    ],
+    "savedVariablesPerCharacter": [
+      "DMTABPC"
+    ]
+  }
+}

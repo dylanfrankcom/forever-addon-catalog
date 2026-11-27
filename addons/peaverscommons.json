@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "peaverscommons",
+  "repo": "peavers-warcraft/PeaversCommons",
+  "about": "# PeaversCommons\n\n[![AddonSentry](https://addonsentry.io/api/public/repos/peavers-warcraft/PeaversCommons/badge.svg)](https://addonsentry.io/dashboard/peavers-warcraft/PeaversCommons)\n\nA common library for Peavers addons providing shared utilities and UI components.\n\n## Features\n\n- Standardized event handling\n- Slash command registration\n- Utility functions (formatting, table operations, player info)\n- Common UI components and frame utilities\n- Configuration UI framework\n- Settings integration\n- Patron support system\n\n## For Developers\n\nAdd as a dependency in your .toc file:\n\n```\n<!-- /peavers:custom -->\n\n## Installation\n\n### Recommended: PeaversUpdater\n\nDownload and install [PeaversUpdater](https://github.com/peavers-warcraft/PeaversUpdater/releases/latest), the desktop updater for the whole Peavers collection. It installs PeaversCommons together with its required dependencies and delivers updates before they reach CurseForge.\n\n### Alternative: CurseForge\n\n1. Download from [CurseForge](https://www.curseforge.com/wow/addons/peaverscommons)\n2. Ensure [PeaversCommons](https://www.curseforge.com/wow/addons/peaverscommons) is also installed\n3. Ensure [PeaversConfig](https://www.curseforge.com/wow/addons/peaversconfig) is also installed\n4. Enable the addon on the character selection screen\n\n---\n\n*Part of the [Peavers](https://peavers.io) addon collection · [Report an issue](https://github.com/peavers-warcraft/PeaversCommons/issues) · [Support development on Patreon](https://www.patreon.com/Peavers)*\n\n```",
+  "releases": [
+    {
+      "tag": "PeaversCommons-1.1.76",
+      "name": "PeaversCommons v1.1.76",
+      "published": "2026-11-24",
+      "notes": "Maintenance update — internal improvements"
+    },
+    {
+      "tag": "PeaversCommons-1.1.75",
+      "name": "PeaversCommons v1.1.75",
+      "published": "2026-11-24",
+      "notes": "## What's New in 1.1.75\n\n### Features\n- The Edit Mode settings window now opens beside the frame you select instead of in one fixed spot\n- Frames now snap to each other, to Blizzard's frames, the screen and the grid in Edit Mode\n- Edit Mode settings panels now use Blizzard's own controls, so they match the Edit Mode dialog"
+    },
+    {
+      "tag": "PeaversCommons-1.1.74",
+      "name": "PeaversCommons v1.1.74",
+      "published": "2026-11-21",
+      "notes": "Maintenance update — internal improvements"
+    },
+    {
+      "tag": "PeaversCommons-1.1.73",
+      "name": "PeaversCommons v1.1.73",
+      "published": "2026-10-26",
+      "notes": "## What's New in 1.1.73\n\n### Features\n- Bars can be shown or hidden per content type: Mythic+, raids, dungeons, delves, scenarios, PvP and the open world"
+    },
+    {
+      "tag": "PeaversCommons-1.1.72",
+      "name": "PeaversCommons v1.1.72",
+      "published": "2026-10-26",
+      "notes": "## What's New in 1.1.72\n\n### Features\n- Bars now glide to new values during combat instead of jumping\n\n### Bug Fixes\n- Bars no longer stick on their combat value after a fight ends"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-21",
+      "2026-10-26",
+      "2026-10-26",
+      "2026-10-14",
+      "2026-09-28",
+      "2026-09-21",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-17",
+      "2026-09-17",
+      "2026-09-17",
+      "2026-09-17",
+      "2026-09-17",
+      "2026-09-17",
+      "2026-09-16",
+      "2026-09-16",
+      "2026-09-16",
+      "2026-09-07",
+      "2026-09-07",
+      "2026-09-01",
+      "2026-08-30",
+      "2026-08-22",
+      "2026-08-22",
+      "2026-08-11",
+      "2026-08-11",
+      "2026-07-31",
+      "2026-07-31",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-07-19",
+      "2026-07-18",
+      "2026-07-18",
+      "2026-07-12",
+      "2026-07-12",
+      "2026-07-11",
+      "2026-07-11",
+      "2026-07-10",
+      "2026-07-10",
+      "2026-07-10",
+      "2026-06-19",
+      "2026-06-19",
+      "2026-06-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PeaversCommons"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "AceDB-3.0"
+    ],
+    "savedVariables": [
+      "PeaversCommonsDB"
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "bigwigs-countdown-heroesofthestorm",
+  "repo": "BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm",
+  "releases": [
+    {
+      "tag": "1.4.11",
+      "published": "2026-11-04",
+      "notes": "# BigWigs +Countdown: Heroes of the Storm\n\n## [1.4.11](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/tree/1.4.11) (2026-11-04)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/compare/1.4.10...1.4.11) [Previous Releases](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "1.4.10",
+      "published": "2026-09-24",
+      "notes": "# BigWigs +Countdown: Heroes of the Storm\n\n## [1.4.10](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/tree/1.4.10) (2026-09-24)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/compare/1.4.9...1.4.10) [Previous Releases](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/releases)\n\n- Bump toc  \n- Update workflow"
+    },
+    {
+      "tag": "1.4.9",
+      "published": "2026-08-10",
+      "notes": "# BigWigs +Countdown: Heroes of the Storm\n\n## [1.4.9](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/tree/1.4.9) (2026-08-10)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/compare/1.4.8...1.4.9) [Previous Releases](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "1.4.8",
+      "published": "2026-07-13",
+      "notes": "# BigWigs +Countdown: Heroes of the Storm\n\n## [1.4.8](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/tree/1.4.8) (2026-07-13)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/compare/1.4.7...1.4.8) [Previous Releases](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "1.4.7",
+      "published": "2026-06-26",
+      "notes": "# BigWigs +Countdown: Heroes of the Storm\n\n## [1.4.7](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/tree/1.4.7) (2026-06-26)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/compare/1.4.6...1.4.7) [Previous Releases](https://github.com/BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm/releases)\n\n- Bump toc  \n- Update workflow  \n- Update workflow  \n- Update workflow"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-09-24",
+      "2026-08-10",
+      "2026-07-13",
+      "2026-06-26",
+      "2026-05-17",
+      "2026-04-27",
+      "2026-04-11",
+      "2026-04-02",
+      "2026-01-14",
+      "2025-10-22",
+      "2025-09-03",
+      "2025-07-12",
+      "2025-05-02",
+      "2025-03-23",
+      "2025-02-07",
+      "2024-11-21",
+      "2024-09-10",
+      "2024-08-30",
+      "2024-07-07",
+      "2024-05-08",
+      "2024-04-30",
+      "2024-04-10",
+      "2024-02-07",
+      "2024-01-16",
+      "2023-11-16",
+      "2023-11-08",
+      "2023-10-11",
+      "2023-09-18",
+      "2023-07-12",
+      "2023-05-03",
+      "2023-03-22",
+      "2023-02-05",
+      "2023-01-22",
+      "2022-11-15",
+      "2022-10-26",
+      "2022-09-30",
+      "2022-04-15",
+      "2021-06-30",
+      "2021-06-02"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "BigWigs_Countdown_HeroesOfTheStorm"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "BigWigs"
+    ],
+    "savedVariables": [
+      "BWCHeroesOfTheStormDB"
+    ]
+  }
+}

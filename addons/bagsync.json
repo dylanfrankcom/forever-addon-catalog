@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "bagsync",
+  "repo": "Xruptor/BagSync",
+  "releases": [
+    {
+      "tag": "v20.41",
+      "published": "2026-11-17",
+      "notes": "# BagSync\n\n## [v20.41](https://github.com/Xruptor/BagSync/tree/v20.41) (2026-11-17)\n[Full Changelog](https://github.com/Xruptor/BagSync/compare/v20.40...v20.41) [Previous Releases](https://github.com/Xruptor/BagSync/releases)\n\n- WoW Forever Bank Fix (part 2)  \n    * Fixed bank items on your other characters still not showing on WoW Forever.  BagSync was only watching for the \"Banker\" interaction to know you were at the bank, but the bank window can also be opened by the Character Banker and Account Banker types.  When that happened BagSync never knew you were at the bank, so nothing in your bank was ever saved.  It now uses the bank window open/close events like other bag addons do. (Fixes #481) (Fixes #482)  \n    * Bags placed in the bank bag slots on WoW Forever are now saved and counted for your other characters.  \n    * Opening the bank at a Warband-only banker will no longer save your character bank, since your character bank can't be viewed there.  \n    * The Warband bank is now only scanned once when the bank opens, instead of once for the bank window and again for the Warband banker.  Several Warband tab changes in a row are also grouped into a single scan.  \n    * Fixed the item type tooltip line leaking a global variable, which could cause taint issues with other addons."
+    },
+    {
+      "tag": "v20.40",
+      "published": "2026-11-15",
+      "notes": "# BagSync\n\n## [v20.40](https://github.com/Xruptor/BagSync/tree/v20.40) (2026-11-15)\n[Full Changelog](https://github.com/Xruptor/BagSync/compare/v20.39...v20.40) [Previous Releases](https://github.com/Xruptor/BagSync/releases)\n\n- WoW Forever Bank Fix + Code Cleanup  \n    * Been working on some code cleanup for awhile, figured I'd just release it with Forever fixes.  \n    * Fixed an issue on WoW Forever where bank items on your other characters were showing the wrong amounts or not showing at all.  The bank was only being saved when you opened it, and Forever doesn't have all the bank tabs loaded at that point.  The bank is now saved again when you close it, and BagSync will no longer wipe your saved bank if the tabs haven't finished loading yet. (Fixes #481) (Fixes #482)  \n    * Placing a bag into a bank tab slot or purchasing a new bank tab will now rescan the bank, since Blizzard doesn't send a normal bag update for those. (Fixes #481) (Fixes #482)  \n    * Fixed realm names like \"Realm 5 PvE\" being saved as \"Realm 5 Pv E\".  This caused guilds on WoW Forever realms to be saved under a different realm than your characters.  Anything saved under the bad realm name will be moved back to the correct realm automatically.  \n    * Fixed currency transfers not removing the transfer fee from the character the currency was sent from.  \n    * Fixed an issue where scanning the guild bank would wipe the saved data for tabs your character doesn't have permission to view.  \n    * Warband bank tabs that haven't finished loading will no longer be saved as empty.  \n    * Mail sent to your other characters will now be tracked even if the name isn't typed with the exact capitalization, and works with realm names that have a hyphen in them.  \n    * Fixed a Gold window error when the Warband bank had no gold saved, and a currency tooltip error for currencies without a count.  \n    * The bag equipped in your Reagent Bag slot is now counted, and the reagent bag is rescanned after crafting.  \n    * Errors inside BagSync will now properly show up in BugSack/BugGrabber instead of being silently ignored.  You may see some errors that were previously hidden, please report them!  \n    * General code cleanup, a few small bug fixes and some performance improvements for tooltips.  \n- Merge pull request #480 from drsleo/patch-1  \n    Update Portuguese translations in ptBR.lua  \n- Update Portuguese translations in ptBR.lua  \n    best meanings"
+    },
+    {
+      "tag": "v20.39",
+      "published": "2026-11-07",
+      "notes": "# BagSync\n\n## [v20.39](https://github.com/Xruptor/BagSync/tree/v20.39) (2026-11-07)\n[Full Changelog](https://github.com/Xruptor/BagSync/compare/v20.38...v20.39) [Previous Releases](https://github.com/Xruptor/BagSync/releases)\n\n- WoW Forever surname support + live client fixes (Fixes #479)  \n    - Forever characters are now saved as \"FirstName Surname\". Forever's UnitName()  \n      returns the surname as a second value, so alts sharing a first name were  \n      overwriting each other. Existing first-name-only entries are migrated  \n      automatically when the matching character (by GUID) logs in.  \n    - Currency transfers on Forever now look up the source character by GUID first.  \n    - Fixed IsForever detection on the live client.  \n    - Search modules button uses BSYC.IsRetail instead of a raw MAINLINE check.  \n    - Warband bank is only used when it's actually available. Forever has the  \n      account bank API but the feature is locked, which caused an empty 0g Warband  \n      entry to show in Gold, Search, Sort Order and Details. It's re-checked on  \n      login and bank open, so it will turn on automatically if Blizzard enables it."
+    },
+    {
+      "tag": "v20.38",
+      "published": "2026-10-13",
+      "notes": "# BagSync\n\n## [v20.38](https://github.com/Xruptor/BagSync/tree/v20.38) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/BagSync/compare/v20.37...v20.38) [Previous Releases](https://github.com/Xruptor/BagSync/releases)\n\n- chore: update TOC interface numbers → v20.38"
+    },
+    {
+      "tag": "v20.37",
+      "published": "2026-09-29",
+      "notes": "# BagSync\n\n## [v20.37](https://github.com/Xruptor/BagSync/tree/v20.37) (2026-09-29)\n[Full Changelog](https://github.com/Xruptor/BagSync/compare/v20.36...v20.37) [Previous Releases](https://github.com/Xruptor/BagSync/releases)\n\n- WoW Forever compatibility + Skyborne race icon support  \n    This is just a small compatibility patch to support WOW Forever.  I will be adding more fixes to ensure it works correctly over time until release.  (Fixes #477) (Fixes #478)  \n    - Added `BSYC.IsForever` flag in core.lua via TOC version check  \n      (Retail API + 5-digit interface number < 100000; no pre-file tricks)  \n    - Added `BSYC.API.GetItemQualityColor` wrapper (C\\_Item fallback)  \n    - Added `BSYC.API.IsEquippableItem` wrapper (C\\_Item fallback)  \n    - Routed modules/search.lua, modules/details.lua, modules/recipes.lua,  \n      modules/professions.lua, and LibItemScout-1.0 through BSYC.API wrappers  \n      (WoW Forever runs 12.x API without deprecated global fallbacks)  \n    - Added `BSYC.BankTabIndex` and `BSYC.WarbandIndex` built at runtime by  \n      enumerating Enum.BagIndex instead of hardcoding ranges  \n    - Forever supports 9 character bank tabs (vs retail's 6) and 8 warband  \n      tabs (vs retail's 5); scanner and tooltip now handle both automatically  \n    - Expansion source tooltip line hidden on Forever (IsForever guard)  \n    - Pandaren/neutral faction icon kept in legend on Forever (still valid)  \n    - Stores C\\_PlayerInfo.GetPlayerCharacterData().createScreenIconAtlas as  \n      race\\_atlas in SavedVariables via unit.lua and data.lua  \n    - GetRaceIcon() falls back to stored atlas when name-based lookup fails,  \n      covering new races like Skyborne whose clientFileString may not yet  \n      be in the FIXED\\_RACE\\_ATLAS table  \n    - Added wago.tools link comment above FIXED\\_RACE\\_ATLAS for future atlas  \n      name lookups"
+    }
+  ],
+  "stats": {
+    "stars": 33,
+    "openIssues": 1,
+    "contributors": 25,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-15",
+      "2026-11-07",
+      "2026-10-13",
+      "2026-09-29",
+      "2026-09-21",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-07-28",
+      "2026-06-20",
+      "2026-05-27",
+      "2026-05-22",
+      "2026-04-24",
+      "2026-04-15",
+      "2026-04-13",
+      "2026-04-12",
+      "2026-04-12",
+      "2026-04-11",
+      "2026-04-08",
+      "2026-04-07",
+      "2026-03-29",
+      "2026-03-25",
+      "2026-03-23",
+      "2026-03-14",
+      "2026-03-11",
+      "2026-03-11",
+      "2026-03-09",
+      "2026-03-02",
+      "2026-02-12",
+      "2026-02-10",
+      "2026-02-09",
+      "2026-02-08",
+      "2026-02-07",
+      "2026-02-06",
+      "2026-02-05",
+      "2026-02-04",
+      "2026-02-01",
+      "2026-01-21",
+      "2026-01-19",
+      "2026-01-18",
+      "2026-01-02",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-10-28",
+      "2025-09-28",
+      "2025-09-27",
+      "2025-08-17",
+      "2025-08-11",
+      "2025-08-09"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "frFR",
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "BagSync"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0"
+    ],
+    "savedVariables": [
+      "BagSyncDB"
+    ]
+  }
+}

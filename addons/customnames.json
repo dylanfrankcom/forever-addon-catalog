@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "customnames",
+  "repo": "Jods-GH/CustomNames",
+  "about": "[![Discord](https://img.shields.io/badge/Discord-7289da?logo=discord&logoColor=fff&style=for-the-badge)](https://discord.gg/v3gYmYamGJ) \n[![Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3DJodsderechte%26type%3Dpatrons&style=for-the-badge)](https://patreon.com/Jodsderechte) \n[![Twitch](https://custom-icon-badges.demolab.com/badge/-Catch%20me%20Live-lightgrey?style=for-the-badge&logo=Twitch&color=22283D)](https://www.twitch.tv/Jodsderechte)\n[![Release][SVG-Release]][Release]\n# CustomNames\nAdds Management of Custom Names\n# Managing names\nOpen the CustomNames window with `/cn`, through the Addon Compartment (Retail) or with the button under Options -> AddOns -> CustomNames.\n\n* **Right-click** a player or npc (unit frames, friends list, chat, guild and community rosters) and pick **CustomNames** to set, change or remove a name without opening the window. For Battle.net friends the name can be set for the whole BattleTag. Bosses are not supported, their names are not available to addons.\n* The window lists your names on the left. Select one to change or remove its name on the right, press Enter to save.\n* **Characters** tab: names of single characters (`Name-Realm`) and npcs, colored by class once the character was seen.\n* **BattleTags** tab: a name for a BattleTag (`BattleTag#12345`, your own account is always listed) applies to all characters linked to it. The linked characters are shown on the right, grouped by realm.\n* **Search** filters the list and also finds a BattleTag by one of its characters. **+ Add name** lets you type a name yourself, **Export** creates a string with all your names and **Import** adds the names of such a string to your list.\n\nThe chat commands still work:\n```\n/cn add Name to CustomName\n/cn edit Name to CustomName\n/cn del Name\n/cn list\n```\n# Plugins\nThe **Plugins** tab of the window lists the plugins and addons that show custom names in other parts of the game. It only shows the ones that fit your setup: plugins for the default UI, plugins for addons you have enabled, and addons that support CustomNames on their own. Each entry shows whether it is active, missing, disabled or waiting for a reload. Missing plugins come with a download address and count towards the badge on the tab, unless you tick **Don't suggest this plugin**.\n\n## Adding your addon\nOpen a pull request that adds an entry to `Data/Plugins.lua`:\n```lua\n{\n    addon = \"MyAddon_CustomNames\",   -- folder name of the plugin, or of your addon if it supports CustomNames itself\n    title = \"MyAddon\",               -- shown in the list\n    description = \"Shows custom names in MyAddon.\", -- one or two sentences in English\n    requires = { \"MyAddon\" },        -- addons the plugin is for, leave it out for plugins of the default UI\n    replacedBy = \"unitFrames\",       -- optional: hidden while an addon of that group in private.AddonGroups is enabled\n    url = \"https://www.curseforge.com/wow/addons/myaddon-customnames\", -- download address of the plugin\n},\n-- or, if your addon uses CustomNames without a plugin:\n{ addon = \"MyAddon\", title = \"MyAddon\", builtIn = true, description = \"Shows custom names in MyAddon.\" },\n```\nIf your addon replaces Blizzard's unit frames or nameplates, add its folder name to `unitFrames` or `nameplates` in `private.AddonGroups` (same file), so the plugins for Blizzard's frames aren't suggested to your users.\n# Usage \n```lua\nlocal Lib = LibStub(\"CustomNames\")\n\n-- Setting Names both accept units aswell as Names in the format of Name-Realm (for players) or just Name (for npcs) and Btag in format \"BattleTag#12345\"\nlocal success = Lib.Set(name, customName) -- for adding/editing \nlocal success = Lib.Set(name) -- for deleting \n-- Getting Names\nlocal customName = Lib.Get(name) -- this works both for Get(Charname) and Get(Btag)\nlocal customName = Lib.UnitName(unit) -- behaves equivalent to normal UnitName()\nlocal customName = Lib.UnitFullName(unit) -- behaves equivalent to normal UnitFullName()\nlocal customName = Lib.UnitNameUnmodified(unit) -- behaves equivalent to normal UnitNameUnmodified()\nlocal customName = Lib.GetUnitName(unit,showServerName) -- behaves equivalent to normal GetUnitName()\nlocal NameList = Lib.GetList() -- returns a list with all Database entrys\nlocal NameList = Lib.GetCharList() -- returns a list with all names that are set directly on a character or npc (without the names characters get from their btag)\nlocal NameList = Lib.GetLinkedCharacters(name) --- returns all characters linked to a given character or btag\n\n-- NameList Format\nNameList = {\n\t[\"Name-Realm1\"] = \"CustomName1\",\n\t[\"Name-Realm2\"] = \"CustomName2\",\n}\n\n-- Bnet api\nlocal isInDatabase = Lib.IsInBnetDatabase(name) -- returns true if the charname is already linked to a bnet account or the btag is known (false otherwise)\nlocal isInDatabase = Lib.isCharInDatabase(name) --returns true if custom name exists for char either through btag or direct otherwise false\nlocal isInDatabase = Lib.isInDatabase(name) --returns true if exists, otherwise returns false. Expects Name-Realm for Players and Name for NPCs. Also allows for the Lookup of battletags in format \"Name#1234\"\n\nlocal success = Lib.AddCharToBtag(charname,btag) -- links a char to a Given Btag. Btag should be in format \"BattleTag#12345\" NOTE: Friends characters get auto linked to their bnet's when they login so this never needs to be called for people on a users friendlist\n```\n# Callbacks\n\nevent names: Name_Removed , Name_Update, Name_Added \n\nName_Removed (Name) -- will return the name in the database that got removed  \n\nName_Updated (Name, newCustomName, oldCustomName) -- will return the name in the database, the new CustomName the database was updated to and the old CustomName as it was previously returned by the Getter functions \n\nName_Added (Name, customName) -- will return the name in the database aswell as the CustomName that was added \n\nName is always in the format Name-Realm for all player characters and Name for npc's as returned by UnitName()\n```lua\nLib.RegisterCallback(self, \"eventName\"[, method, [arg]])\nLib.UnregisterCallback(self, \"eventname\")\nLib.UnregisterAllCallbacks(self)\n```\n\n# Example:\n\n```lua\nLib:RegisterCallback(\"Name_Added\", function(event, name, customName)\n\tprint(\"Added: \" .. name .. \" is now Renamed to \" .. customName) -- this will print whenever a new Name is added \nend)\n```\nCheck CustomNames.lua for more code examples.\n\n[//]: # (Links)\n\n[Discord]: https://discord.com/invite/v3gYmYamGJ (Join the Discord)\n[PayPal]: https://ko-fi.com/jodsderechte (Donate via PayPal)\n[Release]: https://github.com/Jodsderechte/CustomNames/releases/latest (Latest release)\n\n[//]: # (Images)\n[SVG-Discord]: https://img.shields.io/badge/Discord-7289da?logo=discord&logoColor=fff&style=flat-square\n[SVG-PayPal]: https://custom-icon-badges.demolab.com/badge/-Support-lightgrey?style=flat-square&logo=kofi&color=222222\n[SVG-Release]: https://badgen.net/github/release/Jodsderechte/CustomNames?style=flat-square",
+  "releases": [
+    {
+      "tag": "v1.2.3a",
+      "published": "2026-11-13",
+      "notes": "# CustomNames\n\n## [v1.2.3a](https://github.com/Jods-GH/CustomNames/tree/v1.2.3a) (2026-11-13)\n[Full Changelog](https://github.com/Jods-GH/CustomNames/compare/v1.2.3...v1.2.3a) [Previous Releases](https://github.com/Jods-GH/CustomNames/releases)\n\n- make sure dbs exist before loading it"
+    },
+    {
+      "tag": "v1.2.3",
+      "published": "2026-11-13",
+      "notes": "# CustomNames\n\n## [v1.2.3](https://github.com/Jods-GH/CustomNames/tree/v1.2.3) (2026-11-13)\n[Full Changelog](https://github.com/Jods-GH/CustomNames/compare/v1.2.2...v1.2.3) [Previous Releases](https://github.com/Jods-GH/CustomNames/releases)\n\n- add blizzard and blizzardnameplates plugins to install list"
+    },
+    {
+      "tag": "v1.2.2",
+      "published": "2026-11-13",
+      "notes": "# CustomNames\n\n## [v1.2.2](https://github.com/Jods-GH/CustomNames/tree/v1.2.2) (2026-11-13)\n[Full Changelog](https://github.com/Jods-GH/CustomNames/compare/v1.2.1...v1.2.2) [Previous Releases](https://github.com/Jods-GH/CustomNames/releases)\n\n- make sure single name characters on forever don't error  \n- add logo  \n- Update Plugins.lua  \n- add plugin tab  \n- make it possible to remove characters from an account  \n- Add guildsync support"
+    },
+    {
+      "tag": "v1.2.1",
+      "published": "2026-10-25",
+      "notes": "# CustomNames\n\n## [v1.2.1](https://github.com/Jods-GH/CustomNames/tree/v1.2.1) (2026-10-25)\n[Full Changelog](https://github.com/Jods-GH/CustomNames/compare/v1.2.0...v1.2.1) [Previous Releases](https://github.com/Jods-GH/CustomNames/releases)\n\n- make sure the players btag works correctly in the api  \n- make it possible to add chars to bnet using the ui  \n- chore: Update toc to newest wow interface version"
+    },
+    {
+      "tag": "v1.2.0",
+      "published": "2026-10-15",
+      "notes": "# CustomNames\n\n## [v1.2.0](https://github.com/Jods-GH/CustomNames/tree/v1.2.0) (2026-10-15)\n[Full Changelog](https://github.com/Jods-GH/CustomNames/compare/v1.1.26...v1.2.0) [Previous Releases](https://github.com/Jods-GH/CustomNames/releases)\n\n- add Ui for adding and removing names  \n- add proper localisation  \n- update Readme to properly reflect api state  \n- chore: Update toc to newest wow interface version  \n- chore: Update toc to newest wow interface version  \n- add forever support  \n    # Conflicts:  \n    #\tCustomNames.toc  \n- chore: Update toc to newest wow interface version"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-10-25",
+      "2026-10-15",
+      "2026-08-22",
+      "2026-02-24",
+      "2026-01-27",
+      "2025-12-03",
+      "2025-10-08",
+      "2025-08-06",
+      "2025-06-18",
+      "2025-04-23",
+      "2025-03-18",
+      "2025-02-26",
+      "2024-12-19",
+      "2024-10-23",
+      "2024-10-05",
+      "2024-08-14",
+      "2024-07-28",
+      "2024-07-23",
+      "2024-07-12",
+      "2024-05-08",
+      "2024-04-06",
+      "2024-03-22",
+      "2024-01-17",
+      "2023-11-07",
+      "2023-10-25",
+      "2023-10-03",
+      "2023-07-11",
+      "2023-07-05",
+      "2023-06-15",
+      "2023-06-05",
+      "2023-05-31",
+      "2023-05-31",
+      "2023-05-30",
+      "2023-05-30",
+      "2023-05-30",
+      "2023-05-29",
+      "2023-05-29",
+      "2023-05-29",
+      "2023-05-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CustomNames"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "CustomNamesDB",
+      "CustomNames"
+    ]
+  }
+}

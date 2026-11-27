@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "click-to-cast-button",
+  "repo": "jbolduan/Click-To-Cast-Button",
+  "about": "# Click-To-Cast-Button\n\nA World of Warcraft addon that adds a convenient button to the spellbook window for quick access to click-to-cast bindings.\n\n## Features\n\n- Adds a \"Click-to-Cast\" button to the bottom of the spellbook window\n- One-click access to the click-to-cast binding interface\n- Tooltip with description on hover\n\n## Installation\n\n1. Download the addon files\n2. Extract to your World of Warcraft addons folder:\n   - `World of Warcraft\\_retail_\\Interface\\AddOns\\Click-To-Cast-Button`\n3. Restart WoW or reload your UI with `/reload`\n\n## Usage\n\n1. Open your spellbook (default key: P)\n2. Click the \"Click-to-Cast\" button at the bottom of the window\n3. The click-to-cast binding interface will open\n\n## Compatibility\n\n- World of Warcraft: The War Within (11.x)\n- Requires the modern spellbook (PlayerSpellsFrame)\n\n## License\n\nThis addon is provided as-is for personal use.",
+  "releases": [
+    {
+      "tag": "1.0.8",
+      "published": "2026-11-06",
+      "notes": "# Click-To-Cast-Button\n\n## [1.0.8](https://github.com/jbolduan/Click-To-Cast-Button/tree/1.0.8) (2026-11-06)\n[Full Changelog](https://github.com/jbolduan/Click-To-Cast-Button/commits/1.0.8) [Previous Releases](https://github.com/jbolduan/Click-To-Cast-Button/releases)\n\n- Update addon compatibility metadata  \n    This commit updates the addon manifest to list the 12.1.5 interface version before the older 16.0.1 value and bumps the version to 1.0.8. This keeps the addon metadata aligned with the currently supported World of Warcraft client versions."
+    },
+    {
+      "tag": "1.0.7",
+      "published": "2026-11-05",
+      "notes": "# Click-To-Cast-Button\n\n## [1.0.7](https://github.com/jbolduan/Click-To-Cast-Button/tree/1.0.7) (2026-11-05)\n[Full Changelog](https://github.com/jbolduan/Click-To-Cast-Button/commits/1.0.7) [Previous Releases](https://github.com/jbolduan/Click-To-Cast-Button/releases)\n\n- Add 1.61 TOC compatibility  \n    Updated the addon manifest to declare compatibility with the 16.0.1 interface while retaining support for the existing 12.1.5 client, and bumped the addon version to 1.0.7."
+    },
+    {
+      "tag": "1.0.6",
+      "published": "2026-10-13",
+      "notes": "# Click-To-Cast-Button\n\n## [1.0.6](https://github.com/jbolduan/Click-To-Cast-Button/tree/1.0.6) (2026-10-13)\n[Full Changelog](https://github.com/jbolduan/Click-To-Cast-Button/commits/1.0.6) [Previous Releases](https://github.com/jbolduan/Click-To-Cast-Button/releases)\n\n- Bump addon for WoW 12.1.5  \n    This updates the addon TOC metadata for the latest World of Warcraft client (Interface 120105) and bumps the addon version to 1.0.6 so it continues to load correctly in patch 12.1.5."
+    },
+    {
+      "tag": "1.0.5",
+      "published": "2026-09-11",
+      "notes": "# Click-To-Cast-Button\n\n## [1.0.5](https://github.com/jbolduan/Click-To-Cast-Button/tree/1.0.5) (2026-09-11)\n[Full Changelog](https://github.com/jbolduan/Click-To-Cast-Button/commits/1.0.5) [Previous Releases](https://github.com/jbolduan/Click-To-Cast-Button/releases)\n\n- Bump TOC for patch 12.1.0 release  \n    Updates addon metadata in `Click-To-Cast-Button.toc` by raising the WoW interface version from `120007` to `120100` and bumping the addon version from `1.0.4` to `1.0.5` for the new release."
+    },
+    {
+      "tag": "1.0.4",
+      "published": "2026-06-25",
+      "notes": "# Click-To-Cast-Button\n\n## [1.0.4](https://github.com/jbolduan/Click-To-Cast-Button/tree/1.0.4) (2026-06-24)\n[Full Changelog](https://github.com/jbolduan/Click-To-Cast-Button/commits/1.0.4) [Previous Releases](https://github.com/jbolduan/Click-To-Cast-Button/releases)\n\n- Bump interface and addon version  \n    Update Click-To-Cast-Button.toc to use Interface 120007 and bump addon Version from 1.0.3 to 1.0.4. This aligns the addon with the latest client API changes and prepares a new release."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-11-05",
+      "2026-10-13",
+      "2026-09-11",
+      "2026-06-25",
+      "2026-04-22",
+      "2026-03-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Click-To-Cast-Button"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ]
+  }
+}

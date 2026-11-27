@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "whatitdrops",
+  "repo": "SokratisV/WhatItDrops",
+  "about": "# WhatItDrops\n\n**Target any enemy in World of Warcraft (Retail, WoW: Forever or TBC Classic) and instantly see its loot table.**\n\n[![License: GPL v3](https://img.shields.io/badge/license-GPL--3.0-blue)](https://github.com/SokratisV/WhatItDrops/blob/master/LICENSE)\n[![Release](https://img.shields.io/github/v/release/SokratisV/WhatItDrops)](https://github.com/SokratisV/WhatItDrops/releases/latest)\n![WoW](https://img.shields.io/badge/WoW-Retail%20%2F%20Forever%20%2F%20TBC%20Classic-f8b700)\n![Interface](https://img.shields.io/badge/interface-120100%20%7C%2016001%20%7C%2020505-555)\n\n> **WoW: Forever data.** Forever loads its own database, the CMaNGOS **Vanilla 1.12** one, chosen by its own `_Forever.toc` files; the TBC clients load the TBC one. Forever is Vanilla-based but not identical to the 1.12 server data, so some drop rates and items can still differ from the game. Treat the lists as a guide, not gospel. `/loot data` says which database your client loaded.\n\n> **Client support.** One download runs on **Retail** (interface `120100`), **WoW Forever**\n> (`16001`) and the **TBC Classic / Anniversary** client (`20505`). Forever serves Classic content\n> from the Midnight 12.x client, so it reports a Classic project id but only exposes the modern\n> namespaced API; every call that moved is feature-detected rather than switched on project id.\n\n> **Languages.** The interface is translated into English, Deutsch, Español (España and México), Français, Italiano, Português (Brasil), Русский, 한국어, 简体中文 and 繁體中文; the game client's own language is used automatically. Item and creature names follow your client too, where the client can tell us them: on a non-English Classic client the browser's search and the quest view work in your language (the first search collects the item names in the background, a few at a time, and remembers them), and creature names are asked of the client one at a time as they are shown. Anything the client can't name stays in English, and searching in English always works. Check what your client gives with `/loot names`.\n\nWhatItDrops shows you what whatever you are looking at drops, with no website and no alt-tab.\nTarget a mob, open the window, and see its loot and how often it drops. Search items or creatures\nby name, drill into \"who drops this\", list the bosses of the instance you are standing in, and see\nwhich items a quest needs and where they come from.\n\n## Features\n\n- \uD83C\uDFAF **Loot table for your target**, via `/loot`, a keybind, or auto-show on target.\n- \uD83D\uDD0E **Item and creature browser.** Search by name; click an item to see every creature that\n  drops it, or click a creature to open its loot table.\n- \uD83D\uDC09 **Instance boss list.** With no target inside a dungeon or raid, the keybind lists that\n  instance's bosses, each clickable to its loot.\n- \uD83D\uDCDC **Quest loot.** A **\"Loot Needed\"** button in the quest log shows the items the selected\n  quest needs and where they drop. It can be turned off in the settings, made round like a minimap button, or Shift-dragged elsewhere. Quest-class drops are flagged with a yellow **!**.\n- \uD83C\uDF9A️ **Chance filter.** Type a minimum and/or maximum chance right in the loot window to hide drops below or above it (for example only the rare ones).\n- \uD83E\uDDCD **Player gear.** Target another player to see what they have equipped.\n- \uD83D\uDDFA️ **Retail bosses from the Encounter Journal.** Current dungeon and raid bosses are read from\n  the game itself, so they stay current. The Journal has no drop rates, so those rows show the\n  item slot instead.\n- ✨ **Loot window polish.** A drop-rate bar behind each row, quality-coloured icon borders, a\n  sparkle on rare-or-better drops under 2%, rows that fade in, and an optional 3D model of the\n  target. Each effect has its own switch.\n- \uD83C\uDFA8 **Settings window.** Themes (**Flare**, the default, in the style of FlareUI; Blizzard, ElvUI, Slate, Parchment), accent colour, opacity,\n  scale and row height, all applied live. Every setting is explained in a panel as you hover it.\n- \uD83D\uDDFA️ **Minimap button.** Left-click reloads the UI, right-click does a loot lookup, drag to\n  reposition. Toggle it in the settings.\n- \uD83E\uDEB6 **Lightweight.** Per-region data loads **on demand**, so memory tracks where you actually\n  play. On the Classic clients, item and creature names are baked in (no `GetItemInfo`\n  flicker); on Retail they come from the game.\n\n## Usage\n\n| Command | What it does |\n|---|---|\n| `/loot` (or `/fullloot`) | Loot table for your current target. |\n| `/loot browse [text]` | Search items **or** creatures by name. |\n| `/loot bosses` | The bosses of the instance you are in. |\n| `/loot quest` | Items the selected quest needs, and where they drop. |\n| `/loot data` | Which loot database this client loaded (Vanilla for WoW: Forever, TBC for the TBC clients). |\n| `/loot keywatch` / `/loot keycheck` | Name the addon frame that blocks the keyboard in combat (watch every fight, or check now). |\n| `/loot names` | Non-English clients: how many item and creature names your client has given us, and whether it names the creature you are targeting. |\n| `/loot auto` | Toggle auto-show on target. |\n| `/wid` (or `/loot config`) | Open the settings window. |\n| `/wid appearance` | Open it on the Appearance page. |\n| `/wid export` / `/wid import` | Copy your whole setup as one line of text, or paste one back. |\n| `/loot journal [boss]` | Retail: say whether the Encounter Journal source is working and what it found. Useful when a boss is missing. |\n\n**Keybind** (default **CTRL-L**, set once and only if that key is free): looks up your target.\nWith no target inside a dungeon or raid it lists that instance's bosses; otherwise it opens the\nitem browser. Rebind it on the Keybinds page. Pressing it again closes the window it opened (unless your target\nchanged); that can be switched off on the same page.\n\nIn the loot window: **Hide common loot** drops greys and whites, **Show world drops** includes\nthe generic world-drop pool (Classic data only), with the mouse over the window **Ctrl+C** reveals the Wowhead link (press again\nto copy and close), **Ctrl-click** previews an item in the dressing room, and **Shift-click**\nlinks it in chat.\n\n## What's in this repo\n\nA small **family of addons**: one always-loaded UI addon plus data packs that load on demand.\n\n| Addon | Loads | Purpose |\n|---|---|---|\n| **WhatItDrops** | always (about 1 MB) | The windows, slash commands, keybinds, settings, item browser, the data loader, and (on Classic clients) baked item and creature names. |\n| **WhatItDrops_EasternKingdoms** / **_Kalimdor** / **_Outland** / **_Instances** / **_Misc** | on demand (about 0.3 to 1.5 MB each) | Classic-side loot data per continent or instance, loaded only for the region you are in. |\n| **WhatItDrops_Retail** | on demand (about 3 MB) | Retail creature loot, loaded only on Retail. |\n\n> ⚠️ All the folders must sit **directly** under `Interface/AddOns/`. The data packs are separate\n> `LoadOnDemand` addons that the main addon loads by name, so they can't be nested inside one\n> folder. The download contains all of them; the ones your client doesn't use simply stay unloaded.\n\n## Data and accuracy\n\n- **Classic clients.** Everything comes from the **CMaNGOS** world databases (GPL v3): loot tables\n  resolved into plain drop chances, item names and quality, creature names, bosses and quest-item\n  flags. **TBC Classic** uses `cmangos/tbc-db` (TBC 2.4.3); **WoW: Forever** uses\n  `cmangos/classic-db` (Vanilla 1.12), loaded through its own `_Forever.toc` files so each client\n  parses only its own database. These are a server emulator's numbers rather than live\n  measurements, and Forever is Vanilla-based but not identical to the 1.12 server data. Creatures\n  are bucketed into per-continent and per-instance packs using the spawn tables.\n- **Retail creatures.** Loot and chances come from the **TrinityCore** `TDB` world database\n  (GPL v3), covering about 8,400 creatures. It has no loot for current instanced bosses, because\n  Retail builds that from the Encounter Journal.\n- **Retail bosses.** Read live from the in-game Encounter Journal: always current, but items only,\n  with no drop rates.\n\n> **Boss list note (Classic clients):** there is no Encounter Journal API there, so bosses are\n> derived from the world database (a single-spawn rare-or-better dropper, or a Rank 3 elite). That\n> covers 5-man rosters well; the gap is script-**summoned** raid bosses (Ragnaros, Majordomo,\n> Nefarian), which have no spawn point to map to an instance.\n\nRegenerating the bundled data is documented in [`WhatItDrops/README.md`](https://github.com/SokratisV/WhatItDrops/blob/master/WhatItDrops/README.md).\n\n## Contributing\n\nBug reports and feature ideas are welcome. See [CONTRIBUTING.md](https://github.com/SokratisV/WhatItDrops/blob/master/CONTRIBUTING.md) and open an\n[issue](https://github.com/SokratisV/WhatItDrops/issues). Changes are tracked in\n[CHANGELOG.md](https://github.com/SokratisV/WhatItDrops/blob/master/CHANGELOG.md).\n\n## License and credits\n\nDistributed under the **GNU General Public License v3.0**; see [LICENSE](https://github.com/SokratisV/WhatItDrops/blob/master/LICENSE).\n\nThis project incorporates data generated from **cmangos/tbc-db** (GPL v3) and the **TrinityCore**\nTDB (GPL v3); as a derivative work it is necessarily GPL v3. Credit to the **CMaNGOS** project and\nthe **TrinityCore** project.\nThe settings window is in the style of **FlareUI** by Malkkav (MIT).",
+  "releases": [
+    {
+      "tag": "v1.5.4",
+      "published": "2026-11-24",
+      "notes": "**Full Changelog**: https://github.com/SokratisV/WhatItDrops/compare/v1.5.3...v1.5.4"
+    },
+    {
+      "tag": "v1.5.3",
+      "published": "2026-11-20",
+      "notes": "**Full Changelog**: https://github.com/SokratisV/WhatItDrops/compare/v1.5.2...v1.5.3"
+    },
+    {
+      "tag": "v1.5.2",
+      "published": "2026-11-16",
+      "notes": "**Full Changelog**: https://github.com/SokratisV/WhatItDrops/compare/v1.5.1...v1.5.2"
+    },
+    {
+      "tag": "v1.5.1",
+      "published": "2026-11-16",
+      "notes": "**Full Changelog**: https://github.com/SokratisV/WhatItDrops/compare/v1.5.0...v1.5.1"
+    },
+    {
+      "tag": "v1.5.0",
+      "published": "2026-11-15",
+      "notes": "**Full Changelog**: https://github.com/SokratisV/WhatItDrops/compare/v1.4.0...v1.5.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-20",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-10-22",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-18",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-06-07",
+      "2026-06-07"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "WhatItDrops",
+      "WhatItDrops_EasternKingdoms",
+      "WhatItDrops_Instances",
+      "WhatItDrops_Kalimdor",
+      "WhatItDrops_Misc",
+      "WhatItDrops_Outland",
+      "WhatItDrops_Retail"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "WhatItDropsDB"
+    ]
+  }
+}

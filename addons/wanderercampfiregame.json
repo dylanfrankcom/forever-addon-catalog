@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "wanderercampfiregame",
+  "repo": "Jaecko/wanderer-campfire-game",
+  "about": "# Wanderer Campfire Game\n\nA little idle game by the fire, fed by your journey through Azeroth. Made for World of Warcraft Forever.\nAn extension of [Wanderer](https://github.com/Jaecko/wanderer): it needs Wanderer 1.4 or later.\n\n- A campfire in a tall window: stoke it, buy its producers and upgrades; it burns while you are away. Seven tiers, the seventh without end; a new fire for its ashes, stronger each time.\n- Companions with faces, NPCs of the game in real game gear, with roles, traits, talents and three rarities, set out on real-time expeditions across Azeroth (forty-four zones, twenty-three dungeons, seven raids).\n- Threats and counters with real spells, the best party in one click, contracts on the board, a standing order to set out again on each return.\n- One card when you come back, reports that tell the story of the road, a rested camp after a long absence; seen contracts and last week's chest wait for you.\n- Your real journey feeds the camp: exploration opens zones, your level opens tiers and dungeons, your professions, quests, fish, dishes and the bosses you kill make it stronger.\n- It gives nothing in the real game and runs nothing while its window is closed but one timer for the next return. Opened from Wanderer's menu, a key of yours or /wcampfire.\n\nDownload: [CurseForge](https://www.curseforge.com/wow/addons/wanderer-campfire-game). More on [wanderer-addon.com](https://wanderer-addon.com/).\n\nFree software under the GNU General Public License 3.0 or later (see LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.3.0",
+      "published": "2026-11-12",
+      "notes": "# Wanderer Campfire Game 1.3.0\n\nThe last version\n- Wanderer Campfire Game is no longer followed: this is its last version. Your camp keeps working as it is, and each character is told once, quietly. Thank you for the evenings by the fire."
+    },
+    {
+      "tag": "v1.2.2",
+      "published": "2026-11-10",
+      "notes": "# Wanderer Campfire Game 1.2.2\n\n### Changed\n- With the game's controller interface on, the top button acts as a right click on the lists, and the gear squares of a companion's sheet answer the bottom button. Needs Wanderer 1.4.36 or later."
+    },
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-08",
+      "notes": "# Wanderer Campfire Game 1.2.0\n\nNeeds Wanderer 1.4 or later.\n\n### New\n- Companions with faces: each one is an NPC of the game, of a race of your faction their class allows, ringed in their class color. Their page lays them out as cards: what they do now, the road's progress, their strength, their experience.\n- A real sheet for each companion: standing in 3D (drag to turn them) between seven pieces of real game gear; their strength and item level; statistics, talents and their journey.\n- Gear found on won expeditions: uncommon in zones, rare in dungeons, epic in raids, worn at once when better, otherwise taken apart at the forge for supplies. The armory (off) keeps the pieces no one wears yet, to give to whoever they suit.\n- Threats and counters: each place holds two to four threats (spellcasters, many foes, poison, a mighty brute, curses, ambushes); companions know abilities of their class, real spells of the game, that counter some. A threat countered raises the odds.\n- The best party in one click, for the best odds or for the most experience.\n- Companions of three rarities, and a faithful companion is promoted once their level and roads allow it.\n- Contracts on the board: a road of a fixed length with its own reward once won (an epic piece, twice the experience, the next trophy, a rare recruit, three times the renown).\n- An expedition's report when it comes back: the place in its picture, victory or defeat, the experience filling up to the levels gained, the spoils, the gear found. \"Same road\" sends the party again.\n- The story of the road in each report: which companion held off which threat, and with what spell; which threat no one countered; and why a lost road was lost.\n- \"Set out again on each return\": a standing order on a place, the same party takes the same road each time it comes back, counted when you look at the camp, until someone is hurt, provisions run short or you were away longer than the fire burns.\n- A rested camp: an absence longer than the fire burns is no longer lost; the roads that leave after you come back teach 50 % more, for up to a day of roads.\n- One card when you come back to the camp: what the camp made and the expeditions back, \"Collect all\" in one click or the reports one by one. Space collects, 1 to 5 switch the tabs.\n- The map of the roads: the Eastern Kingdoms and Kalimdor, each party's face going along a dotted road from where you stand.\n- Three goals each week and their chest: renown, supplies and a rare piece.\n- The companions at camp sit around the fire; the buildings as cards; the trophies as a cabinet, a shelf for each place.\n- WoW Forever's own places open to expeditions: Zephras Isle, the Riverglades, Shen'dralas, Mount Hyjal, the Hall of Thanes, the Ruins of Lordaeron, the Wetlands Excavation Site and the City of Dalaran.\n\n### Changed\n- No more pressure to log in: a contract you have seen stays on the board until you take it; a week's chest not opened stays yours the week after; a candidate you like can be kept through the next draws (one at most).\n- The notice of an expedition back waits during a fight or inside a dungeon, then comes once for all of them.\n- Wanderer's menu says what waits at camp (an order, an event, the week's chest, a talent) and when the first expedition comes back.\n- Faster levels: longer roads and higher places teach more, and a companion below the place learns much more once it is won.\n- The last tab is the Chronicle: the road, the orders, the trophies, the feats.\n\n### Fixed\n- One timer waits for the next expedition's return, not one more at every look.\n- Long numbers and names no longer run into their neighbors.\n- A save of an older version without an expedition's chance no longer stops its return."
+    },
+    {
+      "tag": "v0.3.0",
+      "published": "2026-10-19",
+      "notes": "# Wanderer Campfire Game 0.3.0\n\nFirst release, an extension of Wanderer (0.43 or later).\n\n### New\n- A campfire game in a tall window, read at a glance: the fire always in sight, the tabs at the bottom (the fire, the camp, the companions, the expeditions, more), pages opened from others with their way back. Light animations and the game's own icons.\n- A clicker: stoke the fire, buy its producers, their ranks and the click's upgrades. The embers count up while you look, and the fire burns while you are away (twelve hours, more with the ashes).\n- Seven tiers of the fire; the seventh, the eternal blaze, never ends, each of its levels asking more. Very large numbers said with letters past Q (AA, AB...).\n- A new fire: once this one has grown, let it go out for its ashes. Only the fire begins again; the tier, the buildings, the companions, the expeditions and the resources stay. Each ash makes every fire after it stronger, for good, and the ashes' tree opens between two fires only.\n- Six buildings (kitchen, forge, apothecary, tents, storehouse, watchtower), the peddler and the feasts, and four resources: embers, provisions, renown, supplies.\n- Companions in the colors of WoW's classes, protectors, healers and fighters, each with a trait; they level up on the road, choose a talent at levels 20, 40 and 60, wear the gear your forge makes, and work better with those they often travel with.\n- Real-time expeditions to forty zones, nineteen dungeons and seven raids: who goes and how long, the odds, the provisions and what it should bring said before you leave. A short notice when they come back.\n- Your real journey feeds the camp: a zone opens with its exploration achievement, your level opens the fire's tiers and the dungeons, your professions strengthen the camp and fill the quartermaster's orders (goods shown from your bags or bank, never taken), each quest handed in, fish caught and dish cooked brings its share, a boss you kill in a dungeon or a raid makes it lived for good.\n- The traveler's heritage (a first camp that matches the road you have already traveled), a card of what the camp did while you were away, fireside events with choices, incidents on the road, stories over three nights, trophies in every place, feats of the camp, champions of your exalted factions.\n- In ten languages; opened from Wanderer's menu, a key of yours or /wcampfire. It gives nothing in the real game and runs nothing while its window is closed."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-12",
+    "releaseDates": [
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-10-19"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "WandererCampfireGame"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Wanderer"
+    ],
+    "savedVariablesPerCharacter": [
+      "WandererCampfireGameDB"
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "autopayout",
+  "repo": "Oppzippy/AutoPayout",
+  "about": "# AutoPayout\n\nWorld of Warcraft addon for sending out gold to large numbers of players quickly.\n\n[demo.webm](https://user-images.githubusercontent.com/2236514/204931427-18f1663f-fa15-486d-90d2-685ecc6011f9.webm)\n\n## Download\n\n[CurseForge](https://www.curseforge.com/wow/addons/auto-payout)  \n[Wago](https://addons.wago.io/addons/auto-payout)  \n[WoWInterface](https://www.wowinterface.com/downloads/info26430-AutoPayout.html)  \n[GitHub](https://github.com/Oppzippy/AutoPayout/releases)\n\n## Commands\n\n/payout - Toggle AutoPayout UI  \n\n## Usage\n\nData is stored in a CSV with the first column being player names and the second being gold. The unit is configurable in the addon's settings (copper, silver, gold, 10k gold). The addon will attempt to send mail until you're mail capped and then provide you with a CSV containing all unsent mail. That can then be copy and pasted to another WoW account until payouts are done.",
+  "releases": [
+    {
+      "tag": "v2.2.26",
+      "published": "2026-11-06",
+      "notes": "# Auto Payout\n\n## [v2.2.26](https://github.com/Oppzippy/AutoPayout/tree/v2.2.26) (2026-11-06)\n[Full Changelog](https://github.com/Oppzippy/AutoPayout/compare/v2.2.25...v2.2.26) [Previous Releases](https://github.com/Oppzippy/AutoPayout/releases)\n\n- Disable packager toc creation  \n    nolib defaults to no, so that line is also removed  \n- Update Interface version (#41)  \n- Remove old toc entries  \n- Switch to p3lim's toc updater"
+    },
+    {
+      "tag": "v2.2.25",
+      "published": "2026-10-14",
+      "notes": "# Auto Payout\n\n## [v2.2.25](https://github.com/Oppzippy/AutoPayout/tree/v2.2.25) (2026-10-14)\n[Full Changelog](https://github.com/Oppzippy/AutoPayout/compare/v2.2.24...v2.2.25) [Previous Releases](https://github.com/Oppzippy/AutoPayout/releases)\n\n- Update Interface version (#40)  \n    Co-authored-by: Oppzippy <Oppzippy@users.noreply.github.com>"
+    },
+    {
+      "tag": "v2.2.24",
+      "published": "2026-08-13",
+      "notes": "# Auto Payout\n\n## [v2.2.24](https://github.com/Oppzippy/AutoPayout/tree/v2.2.24) (2026-08-13)\n[Full Changelog](https://github.com/Oppzippy/AutoPayout/compare/v2.2.23...v2.2.24) [Previous Releases](https://github.com/Oppzippy/AutoPayout/releases)\n\n- Update Interface version (#39)  \n    Co-authored-by: Oppzippy <Oppzippy@users.noreply.github.com>  \n- Update Interface version (#38)  \n    Co-authored-by: Oppzippy <Oppzippy@users.noreply.github.com>"
+    },
+    {
+      "tag": "v2.2.23",
+      "published": "2026-06-19",
+      "notes": "# Auto Payout\n\n## [v2.2.23](https://github.com/Oppzippy/AutoPayout/tree/v2.2.23) (2026-06-17)\n[Full Changelog](https://github.com/Oppzippy/AutoPayout/compare/v2.2.22...v2.2.23) [Previous Releases](https://github.com/Oppzippy/AutoPayout/releases)\n\n- Update Interface version (#37)  \n    Co-authored-by: Oppzippy <Oppzippy@users.noreply.github.com>"
+    },
+    {
+      "tag": "v2.2.22",
+      "published": "2026-06-03",
+      "notes": "# Auto Payout\n\n## [v2.2.22](https://github.com/Oppzippy/AutoPayout/tree/v2.2.22) (2026-06-03)\n[Full Changelog](https://github.com/Oppzippy/AutoPayout/compare/v2.2.21...v2.2.22) [Previous Releases](https://github.com/Oppzippy/AutoPayout/releases)\n\n- Update Interface version (#36)  \n    Co-authored-by: Oppzippy <Oppzippy@users.noreply.github.com>"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-10-14",
+      "2026-08-13",
+      "2026-06-19",
+      "2026-06-03",
+      "2026-04-23",
+      "2026-02-11",
+      "2026-01-22",
+      "2025-10-19",
+      "2025-09-24",
+      "2025-07-03",
+      "2025-02-28",
+      "2025-02-21",
+      "2024-10-30",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-05-08",
+      "2024-05-01",
+      "2024-03-22",
+      "2024-01-18",
+      "2023-11-09",
+      "2023-09-06",
+      "2023-07-12",
+      "2023-05-04",
+      "2023-03-27",
+      "2023-02-05",
+      "2022-11-30",
+      "2022-11-30",
+      "2022-11-17",
+      "2022-10-26",
+      "2022-10-24",
+      "2022-10-23",
+      "2021-12-01",
+      "2021-12-01",
+      "2021-03-26",
+      "2021-03-26",
+      "2020-10-10",
+      "2020-10-10",
+      "2020-07-31",
+      "2020-07-26",
+      "2020-07-26",
+      "2020-07-25",
+      "2020-07-25",
+      "2020-07-24",
+      "2020-07-18",
+      "2020-07-15",
+      "2020-07-15",
+      "2020-07-15",
+      "2020-07-15",
+      "2020-07-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AutoPayout"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "AutoPayoutDB"
+    ]
+  }
+}

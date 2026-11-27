@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "shotta",
+  "repo": "martinbjeldbak/Shotta",
+  "about": "# Shotta\n\n[![Release](https://github.com/martinbjeldbak/shotta/actions/workflows/release.yml/badge.svg)](https://github.com/martinbjeldbak/shotta/actions/workflows/release.yml)\n[![Lint](https://github.com/martinbjeldbak/shotta/actions/workflows/lint.yml/badge.svg)](https://github.com/martinbjeldbak/shotta/actions/workflows/lint.yml)\n\n(_screen_)-shotta, mate. Automatically take screenshots of your best moments in\nAzeroth so you can keep them forever.\n\n![Shotta options page](https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/options.jpg)\n\n## Shotta Discord\n\nJoin the [Shotta Discord server](https://discord.gg/MHqGRpZxbB) to share your\nbest screenshots, suggest features, or just chat.\n\n## Features\n\nShotta takes screenshots for you automatically, so the moments worth keeping\nare saved without you thinking about it. Each event can be toggled on its own:\n\n- levelling up, quest completions and reputation/renown gains\n- achievements, loot rolls and hearthstone binds\n- boss kills, including first kills and raid encounters\n- entering a new zone or area\n- ready checks, trade windows and group formation\n- emotes, mailboxes, auction houses and chat channels\n- death\n- on a timer: every 5, 10 or 30 minutes\n\nScreenshots include the interface by default. You can also take one on demand\nfrom Shotta's entry in the minimap's addon compartment (the icon next to the\nminimap): click it to open the settings, shift-click for a screenshot without\nthe UI, or control-click to include the UI. Prefer a button on the minimap\nring? Enable \"Show minimap button too\" in the settings.\n\nMists of Pandaria Classic, Classic Era and Burning Crusade Classic Anniversary\nhave no addon compartment, so on those clients Shotta always shows the minimap\nbutton instead — that is the only way in.\n\nEvery library is embedded, so there is nothing else to install. New events are\nadded regularly and suggestions are very welcome via GitHub issues or Discord.\n\nShotta supports Retail, Forever, Mists of Pandaria Classic, Classic Era, and\nBurning Crusade Classic Anniversary.\n\nScreenshots are saved to the `Screenshots` folder inside the game installation\nfor the client you are playing:\n\n| Client | Folder |\n| --- | --- |\n| Retail | `_retail_/Screenshots` |\n| Forever | `_forever_/Screenshots` |\n| Mists of Pandaria Classic | `_classic_/Screenshots` |\n| Classic Era | `_classic_era_/Screenshots` |\n| Burning Crusade Classic Anniversary | `_anniversary_/Screenshots` |\n\nOn Windows these live under `C:\\Program Files (x86)\\World of Warcraft\\`, and on\nmacOS under `/Applications/World of Warcraft/`.\n\n## Installing\n\nShotta is available from:\n\n- [CurseForge](https://www.curseforge.com/wow/addons/shotta)\n- [WoWInterface](https://www.wowinterface.com/downloads/info26687-Shotta.html)\n- [Wago Addons](https://addons.wago.io/addons/shotta)\n\n### WoWUp\n\n[WoWUp][WoWUp] is a great open-source addon manager.\n\nIf you use WoWUp CurseForge edition, Shotta is just a normal search: open\n`Get Addons`, search for \"Shotta\" and click `Install`.\n\n![Shotta listed in WoWUp CurseForge edition](https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/wowup-curseforge.png)\n\nIf you use the standard WoWUp, choose `Install from URL` and paste\n[https://github.com/martinbjeldbak/shotta](https://github.com/martinbjeldbak/shotta) before clicking `Import`.\n\nEither way you're done, and you will be prompted about future updates. See the\n[WoWUp guide][wowup-get-addons] for details.\n\n## Usage\n\nAfter logging in, Shotta prints a loaded message to chat:\n\n![Addon loaded](https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/screenshot-taken.png)\n\nType `/sh` or `/shotta` to open the options. Shotta has its own page in the\nstandard addon options: a settings page, the events list, boss kill handling and\nprofiles.\n\n![Shotta events page](https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/events.jpg)\n\nOn the **Events** page you tick the events that should take a screenshot. Hover\nover an option to see what it does — this is also how you check whether a nested\noption only applies while its parent event is enabled.\n\nUnder **Boss kills** you can have each boss screenshotted only the first time you\ndefeat it. Kills are remembered per character, and any boss can be forgotten from\nthe list so that its next kill counts as a first kill again:\n\n![Shotta boss kills page](https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/boss-kills.jpg)\n\nOnce configured, Shotta takes a screenshot the next time each event happens. For\na level up, for example, you get a confirmation:\n\n![Level up screenshot confirmation](https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/level-up.png)\n\n...followed by a screenshot like this:\n\n![Level up screenshot](https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/level-up-screenshot.jpg)\n\n## Contributing\n\nThanks for helping out! The most useful contributions are:\n\n- filing feature requests, bugs and general issues via\n  [https://github.com/martinbjeldbak/shotta/issues/new](https://github.com/martinbjeldbak/shotta/issues/new)\n- code contributions\n- translation strings for each supported language\n\n> If you want to run this addon from a local checkout, symlink the cloned\n> repository directory into your `Interface/AddOns` folder following\n> [https://wowpedia.fandom.com/wiki/Symlinking_AddOn_folders](https://wowpedia.fandom.com/wiki/Symlinking_AddOn_folders). You then only\n> need `/reload` to see your changes.\n\n### Development\n\nShotta targets the WoW Lua 5.1 sandbox. The libraries in `Libs/` are vendored\nand refreshed by the packaging tool at release time, so do not edit or format\nthem.\n\nRecommended tooling:\n\n- [LuaLS](https://luals.github.io/) with the [WoW API extension](https://marketplace.visualstudio.com/items?itemName=Ketho.wow-api)\n  for API completion and type checking. `.luarc.json` configures Lua 5.1,\n  disables libraries that are unavailable in the game, and ignores `Libs/`.\n- [StyLua](https://github.com/JohnnyMorganz/StyLua) for formatting\n  (`.stylua.toml`; `Libs/` is ignored via `.styluaignore`).\n- [Luacheck](https://github.com/lunarmodules/luacheck) and\n  [Selene](https://github.com/Kampfkarren/selene) for linting.\n\nTool versions are pinned in `.mise.toml` and managed by\n[mise](https://mise.jdx.dev/). `just` is pinned there too.\n\n```sh\nmise install         # or: just setup\njust lint            # luacheck, selene, StyLua, and justfile formatting\njust check           # lint plus actionlint for the workflows\njust fmt             # format Lua sources with StyLua\njust release 2.9.1   # tag HEAD on main as v2.9.1 and push the tag to release\n```\n\nThe recipes invoke `mise exec` internally, so they use the pinned tools even\nwithout shell activation. If `just` is not on your `PATH` yet, run\n`mise exec -- just lint`.\n\nThe underlying commands are also available directly:\n\n```sh\nmise exec -- luacheck .\nmise exec -- selene .\nmise exec -- stylua --check .\n```\n\n`just doctor` verifies mise and the pinned tools are available. CI installs the\nsame `.mise.toml` tools and runs `just check` on every pull request. Renovate\nkeeps both the tool pins and GitHub Actions up to date (see `renovate.json`).\n\n### TODO\n\n- [x] Ability to hide/show minimap icon (compartment entry on Retail and Forever, always-on minimap button on the Classic clients)\n- [ ] Ability to take 2 screenshots for every event: 1 with UI, 1 without\n- [ ] Setting to take screenshots with or without UI\n- [ ] More translation strings, see `localization.enUS.lua`\n- [ ] UI Button: Reset state to default\n- [x] Profiles via AceDB (per-character/profile settings)\n- [x] [Timer](https://wowpedia.fandom.com/wiki/API_C_Timer.After) after ie 10s after readcheck\n- [x] Add slash command to open up options (if possible?)\n- [x] ~~Consider using [AceDB](https://www.wowace.com/projects/ace3)~~ too complicated, extra dependency\n- [ ] Make event success printing an option. Currently always printing to chat\n- [x] Create a better options frame - Could be 2 columns of events in case of too many events\n- [x] If simpler: Implement the settings UI (+ more) using [Ace3](https://www.curseforge.com/wow/addons/ace3)\n\n### Event ideas\n\nnot sure if any of these are possible\n\n- [x] Boss/Rare/elite kills\n- [x] Every 5/10/30 minutes\n- [x] On death\n- [ ] When joining a party (with a friend)\n- [ ] When close to a friend\n- [ ] When emoting with a friend/target\n- [x] When emoting at all\n- [ ] Low health\n- [x] Trade windows\n- [ ] More customizable every x minutes with [slider](https://wowpedia.fandom.com/wiki/API_Slider_SetStepsPerPage)\n- [ ] Reputation level ups ([event](https://github.com/AtheneGenesis/Vanilla_enUS_FrameXML/blob/master/GlobalStrings.lua#L1944))\n- [ ] PvP: Arena endings\n- [ ] PvP: Battleground endings\n- [ ] PvE: Mythic+ dungion runs\n\nFull event list [here]([https://wowwiki-archive.fandom.com/wiki/Events_A-Z_(full_list)](https://wowwiki-archive.fandom.com/wiki/Events_A-Z_(full_list)))\n\n### Consider events\n\n- [`CHAT_MSG_BN_INLINE_TOAST_ALERT`](https://wowpedia.fandom.com/wiki/CHAT_MSG_BN_INLINE_TOAST_ALERT)\n- [`CHAT_MSG_LOOT`](https://wowpedia.fandom.com/wiki/CHAT_MSG_LOOT)\n\n## Resources\n\n- [WoW API](https://github.com/Gethe/wow-ui-source)\n- [Events](https://warcraft.wiki.gg/wiki/Events)\n\n### Similar addons\n\n- [Memoria](https://www.curseforge.com/wow/addons/memoria), simpler triggers\n- [Multishot](https://www.wowinterface.com/downloads/info9590-MultishotScreenshot.html), not updated since april 2015\n\n[WoWUp]: https://wowup.io/\n[wowup-get-addons]: https://wowup.io/guide/get-addons/overview",
+  "releases": [
+    {
+      "tag": "v2.9.6",
+      "published": "2026-11-15",
+      "notes": "# Shotta\n\n## [v2.9.6](https://github.com/martinbjeldbak/Shotta/tree/v2.9.6) (2026-11-15)\n[Full Changelog](https://github.com/martinbjeldbak/Shotta/compare/v2.9.5...v2.9.6) [Previous Releases](https://github.com/martinbjeldbak/Shotta/releases)\n\n- ci: revert to bigwigs packager-owned GitHub release"
+    },
+    {
+      "tag": "v2.9.5",
+      "published": "2026-11-15",
+      "notes": "# Shotta\n\n## [v2.9.5](https://github.com/martinbjeldbak/Shotta/tree/v2.9.5) (2026-11-15)\n[Full Changelog](https://github.com/martinbjeldbak/Shotta/compare/v2.9.4...v2.9.5) [Previous Releases](https://github.com/martinbjeldbak/Shotta/releases)\n\n- ci: only attach the packaged zip to the GitHub release"
+    },
+    {
+      "tag": "v2.9.2",
+      "published": "2026-11-15",
+      "notes": "# Shotta\n\n## [v2.9.2](https://github.com/martinbjeldbak/Shotta/tree/v2.9.2) (2026-11-15)\n[Full Changelog](https://github.com/martinbjeldbak/Shotta/compare/v2.9.1...v2.9.2) [Previous Releases](https://github.com/martinbjeldbak/Shotta/releases)\n\n- chore: create recipe to release drafts"
+    },
+    {
+      "tag": "v2.9.1",
+      "published": "2026-11-15",
+      "notes": "# Shotta\n\n## [v2.9.1](https://github.com/martinbjeldbak/Shotta/tree/v2.9.1) (2026-11-15)\n[Full Changelog](https://github.com/martinbjeldbak/Shotta/compare/v2.9.0...v2.9.1) [Previous Releases](https://github.com/martinbjeldbak/Shotta/releases)\n\n- chore: drop DevTool as vendored dependency  \n- fix: folder name is forever, not camelot"
+    },
+    {
+      "tag": "v2.9.0",
+      "published": "2026-11-15",
+      "notes": "# Shotta\n\n## [v2.9.0](https://github.com/martinbjeldbak/Shotta/tree/v2.9.0) (2026-11-15)\n[Full Changelog](https://github.com/martinbjeldbak/Shotta/compare/v2.8.0...v2.9.0) [Previous Releases](https://github.com/martinbjeldbak/Shotta/releases)\n\n- chore(deps): update all non-major dependencies (#29)  \n    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>  \n- chore(deps): update actions/checkout action to v7 (#30)  \n    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>  \n- chore: move to addon compartment if available  \n- chore: set Addon Category values  \n    Source of these values: https://warcraft.wiki.gg/wiki/Addon\\_Categories#Other  \n- docs: fix reference to Forever"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/options.jpg",
+    "https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/wowup-curseforge.png",
+    "https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/screenshot-taken.png",
+    "https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/events.jpg",
+    "https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/boss-kills.jpg",
+    "https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/level-up.png",
+    "https://raw.githubusercontent.com/martinbjeldbak/Shotta/main/.previews/level-up-screenshot.jpg"
+  ],
+  "stats": {
+    "stars": 7,
+    "openIssues": 2,
+    "contributors": 5,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-06",
+      "2026-10-25",
+      "2026-10-25",
+      "2025-08-11",
+      "2025-06-23",
+      "2025-04-23",
+      "2025-03-04",
+      "2024-10-24",
+      "2024-09-09",
+      "2024-09-09",
+      "2024-09-09",
+      "2024-05-12",
+      "2024-05-12",
+      "2024-05-12",
+      "2024-05-05",
+      "2024-05-04",
+      "2024-05-01",
+      "2024-04-22",
+      "2024-04-12",
+      "2024-04-12",
+      "2024-04-05",
+      "2024-04-04",
+      "2024-04-03",
+      "2024-03-28",
+      "2024-03-12",
+      "2024-03-12",
+      "2024-03-12",
+      "2024-03-12",
+      "2024-03-11",
+      "2024-03-07",
+      "2024-02-08",
+      "2024-02-08"
+    ]
+  },
+  "languages": [
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Shotta"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ShottaDBv2"
+    ]
+  }
+}

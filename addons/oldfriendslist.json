@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "oldfriendslist",
+  "repo": "paulohva/OldFriendsList",
+  "about": "# Old Friends List\n\n**The classic friends list, back in World of Warcraft: Forever.**\n\nForever's friends system is account-based only: you add people, not characters. Old Friends List\nbrings back the old way. Add the *characters* you meet, see at a glance who's online, whisper or\ninvite them with a click, and get the familiar yellow line in chat when one of them logs in:\n\n> **[Asha Brightvale]** has come online.\n\nIt works with any character, whether or not they use the addon.\n\n---\n\n## Features\n\n- **A list of characters.** Add them by name, or right-click a player and choose\n  **Add to Old Friends List**: on portraits, party and raid frames, names in chat and the guild roster.\n- **Online status at a glance.** Level, class and zone for each friend, and \"last seen\" with the\n  last known level and class for friends who are offline. Offline friends can be hidden, with an\n  option.\n- **One-click actions.** Double-click a friend to whisper them; use the buttons or the right-click\n  menu to **Invite**, **Who**, **Set Note** or **Remove**.\n- **Login and logout notifications.** A chat line and a sound when a friend comes online, a line\n  when they go offline.\n- **Shortcut and options.** **Shift-O** opens the list. The gear in the window (or `/ofl config`)\n  opens the options: level and zone in the list, offline friends shown or hidden, class colors,\n  notifications, minimap button and the key binding. In the Social window, right-click the group's\n  header for the settings.\n- **In the game's Social window (optional).** Old Friends List can appear as a group above\n  Favorites in the friends window (O), scrolling together with the game's list, with an invite\n  button on each card and a \"+\" on its header to add a character. Or the separate window can\n  take the O key. You choose on first login (`/ofl setup` to choose again).\n- **Battle.net friends.** A character a Battle.net friend is playing right now shows as online at\n  once. Optionally, the separate window also lists your Battle.net friends who are playing, and\n  the Social window can skip characters the game already shows on a Battle.net card. Battle.net\n  friends who aren't on your list get login and logout lines too, with their BattleTag.\n  Right-click a Battle.net friend in the Social window to add the character they're playing.\n- **Mail.** Typing a name in the mail's To: field suggests the friends on your list too, next to\n  the game's own suggestions.\n- **Minimap button.** Click to open the list, right-click for the\n  options or to hide the button. Optionally, a tab in the game's Social window (O) opens it too.\n- **Better with friends.** Friends who also run Old Friends List show up instantly and share\n  their level, class and zone.\n\n## Languages\n\nOld Friends List follows your game client's language. It includes **English** and\n**Português (Brasil)**; other languages fall back to English, except for the texts the game\nalready translates (buttons like Whisper and Invite, \"Level 23 Warrior\", the \"has come online\"\nmessage), which always match your client. Translations are welcome; see\n[CONTRIBUTING.md](https://github.com/paulohva/OldFriendsList/blob/main/CONTRIBUTING.md).\n\n## Installation\n\n- **CurseForge:** install *Old Friends List* with the CurseForge app.\n- **Manual:**\n  1. Download the latest release zip.\n  2. Extract it into `World of Warcraft\\_forever_\\Interface\\AddOns\\`. You should end up with\n     `...\\AddOns\\OldFriendsList\\OldFriendsList.toc`.\n  3. Restart the game, or type `/reload` if you're already logged in.\n\n## Usage\n\nPress **Shift-O** or type `/ofl` to open the list. Shift-O is set on your first login if that key\nis free; change it in the options.\n\n| Command | What it does |\n|---|---|\n| `/ofl` | Open or close the list |\n| `/ofl add <first last>` | Add a character, e.g. `/ofl add Asha Brightvale` |\n| `/ofl remove <first last>` | Remove a character |\n| `/ofl note <first last> <text>` | Set a note; leave the text out to clear it |\n| `/ofl list` | Print your list in chat |\n| `/ofl config` | Open the options (settings and key binding) |\n| `/ofl minimap` | Show or hide the minimap button |\n\nType `/ofl advanced` in game for every command (notification toggles, check interval, `diag`,\n`debug`...).\n\n## How it works\n\nWoW: Forever has no character friends list, and addons can only send `/who` when you click. So\nOld Friends List checks your friends another way:\n\n1. **Silent check.** The addon sends each friend a tiny invisible message every so often. If\n   they're offline, the server says so; the addon hides that reply and marks them offline. No\n   reply means they're online.\n2. **Handshake.** Friends who also run the addon answer straight away, and their addon tells\n   yours when they log in.\n3. **What you see.** Chatting, grouping with or targeting a friend also updates their status.\n4. **Who.** Right-click a friend and choose **Who** for a fresh `/who` on them.\n\nLevel, class and zone come from your group, your target, a friend's addon or **Who**, and are\nremembered.\n\n### Limitations\n\n- **Same faction and realm type.** You can only reach characters of your own faction and realm\n  type (PvP, PvE, RP, RP-PvP), the same limit as whispers and invites. Your list is shared\n  across your account, and each character only sees the friends of its own faction and realm type.\n- **Paused in combat and instances.** Checks pause there, because the game blocks addon messages.\n  Statuses shown meanwhile are the last ones known, with a small clock to say so.\n- **A short delay.** A friend who doesn't use the addon shows as online within about a minute of\n  logging in, depending on how many friends you have and the check interval.\n\n### Privacy\n\nThe only data the addon sends is the invisible check message and, between two players who both\nuse the addon, their class, level and zone. Your zone is sent only to people who are on *your*\nlist, and you can turn that off in the options. Everything else stays in your local saved\nvariables.\n\n## Contributing\n\nBug reports, ideas and pull requests are welcome! See [CONTRIBUTING.md](https://github.com/paulohva/OldFriendsList/blob/main/CONTRIBUTING.md) to get\nstarted. When reporting a bug, please include the output of `/ofl diag` and any Lua error text.\n\n## Credits\n\nOld Friends List was developed with the help of AI tools.\n\n## License\n\n[MIT](https://github.com/paulohva/OldFriendsList/blob/main/LICENSE). You're free to use, modify and share this addon. Please keep the copyright notice.",
+  "releases": [
+    {
+      "tag": "v1.3.1",
+      "name": "Old Friends List 1.3.1",
+      "published": "2026-11-25",
+      "notes": "## 1.3.1\n\n- **Fix:** typing in the game's Options search could make the game block an action\n  (`IsUserOAuthed()`, Discord) and blame Old Friends List. The **Blizzard Social** settings in the\n  options are always shown again (their tooltips say they're for the Social window).\n- **Fix:** when the server lagged, an offline friend could show \"has come online\" and then\n  \"has gone offline\" a few seconds later, with \"No player named '…' is currently playing.\" in\n  chat. Before saying an offline friend came online, Old Friends List now checks once more, and\n  a late \"No player named\" answer stays hidden.\n\n### Install\nDownload **OldFriendsList-1.3.1.zip** below and extract it into your **_forever_/Interface/AddOns** folder."
+    },
+    {
+      "tag": "v1.3.0",
+      "name": "Old Friends List 1.3.0",
+      "published": "2026-11-25",
+      "notes": "## 1.3.0\n\n- **New:** hide offline friends: turn off **Show offline friends** in the options (Options >\n  AddOns > Old Friends List, under General), for the Social window and the separate window. The\n  count stays the same (\"3/6\"), so you still see how many there are. Also\n  `/ofl showoffline on|off`.\n- In the Social window (O), right-click the Old Friends List group's header for the settings.\n- The options are tidier: after the choice of where to show the list, each window has its own\n  title, **Blizzard Social** and **Old Friends List window**. The Social window's settings only\n  show with Old Friends List in it; the separate window's always do, since it's still there with\n  its key. Shorter names, so they're no longer cut off; the details are in their tooltips.\n- The right-click menus (minimap button, the Social window's header) say just **Settings**; the\n  minimap button's no longer has \"Open the list\" (left-click does that).\n- The minimap button's tooltip is shorter: just what left-click and right-click do.\n- `/ofl diag`: for the game's \"action failed\" messages, the Blizzard function that showed the\n  last one and the first addon in the calls that led to it.\n- `/ofl errors` is gone: turning on the game's taint log and Lua errors is a job for developers,\n  not for the addon. If you had it on, Lua errors on screen go back to how they were.\n- `/ofl advanced` lists `/ofl showoffline` and `/ofl diag mail`, with clearer descriptions.\n\n### Install\nDownload **OldFriendsList-1.3.0.zip** below and extract it into your **_forever_/Interface/AddOns** folder."
+    },
+    {
+      "tag": "v1.2.6",
+      "name": "Old Friends List 1.2.6",
+      "published": "2026-11-23",
+      "notes": "## 1.2.6\n\n- **Fix:** with a controller, moving the cursor in the Social window (O) could show \"Interface\n  action failed because of an AddOn\" and stop at the Old Friends List group. With the game's\n  controller interface on, Blizzard's list now stays in its own scroll, and the controller's\n  cursor moves through the Old Friends List cards too: select a friend, or open their menu to\n  whisper or invite. In the separate window the cursor skips the list and goes to the buttons.\n  With mouse and keyboard nothing changes.\n- `/ofl diag` is easier to read: the setup (where your list is shown, controller interface on or\n  off), status sources and missing game APIs, and the problems last. It also counts the game's\n  \"action failed\" messages (and where they came from) and this addon's script errors.\n- New `/ofl errors`, for bug reports: turns on the game's taint log and its Lua errors on screen\n  (typed again, turns them off and puts Lua errors back as they were). It stays on at each login\n  until turned off, and says so once in chat.\n\n### Install\nDownload **OldFriendsList-1.2.6.zip** below and extract it into your **_forever_/Interface/AddOns** folder."
+    },
+    {
+      "tag": "v1.2.5",
+      "name": "Old Friends List 1.2.5",
+      "published": "2026-11-21",
+      "notes": "## 1.2.5\n\n- **Fix:** in the separate window, the Whisper button didn't sink when clicked. It now presses\n  down like the other buttons.\n\n### Install\nDownload **OldFriendsList-1.2.5.zip** below and extract it into your **_forever_/Interface/AddOns** folder."
+    },
+    {
+      "tag": "v1.2.4",
+      "name": "Old Friends List 1.2.4",
+      "published": "2026-11-20",
+      "notes": "## 1.2.4\n\n- **Fix:** in the separate window, with a friend selected, the Remove, Invite and Add buttons\n  didn't take clicks: an invisible part of the Whisper button ran over them. It now covers just\n  the Whisper button.\n- **Fix:** in the separate window, the Whisper button's highlight blinked while the mouse moved\n  over it, and could stay lit after moving on to the next button. It now lights up and goes out\n  like the other buttons.\n\n### Install\nDownload **OldFriendsList-1.2.4.zip** below and extract it into your **_forever_/Interface/AddOns** folder."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-23",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "OldFriendsList"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "OldFriendsListDB"
+    ]
+  }
+}

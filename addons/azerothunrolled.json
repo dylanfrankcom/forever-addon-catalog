@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "azerothunrolled",
+  "repo": "rhadlock/EndlessMap",
+  "about": "# Endless Map\n\n**[Download on CurseForge](https://www.curseforge.com/wow/addons/endless-map)** · **[Watch the video](https://www.youtube.com/watch?v=KgaUoFabvK0)** · [Report a bug](https://github.com/rhadlock/EndlessMap/issues/new?template=bug_report.yml)\n\n[![The Map Blizzard Should Have Made | WoW Forever Endless Map - watch it on YouTube](https://img.youtube.com/vi/KgaUoFabvK0/maxresdefault.jpg)](https://www.youtube.com/watch?v=KgaUoFabvK0)\n\nA seamless world map for World of Warcraft - retail and WoW Forever: one smooth zoom from the whole world to every\nzone, city and cave, every portal and boat with where it goes, real minimap terrain, and a map that follows you and\nyour party.\n\nThe CurseForge app installs it and keeps it up to date. The zips are also under\n[Releases](https://github.com/rhadlock/EndlessMap/releases).\n\n## Which download\n\n| Game | File | Its folder in `Interface\\AddOns` |\n|---|---|---|\n| WoW Forever, Classic Era | `EndlessMap-Forever-<version>.zip` | `AzerothUnrolled` |\n| Retail | `EndlessMap-Retail-<version>.zip` | `EndlessMap` |\n\n## Found a bug?\n\nIn the game (from 1.6.1): map menu > **Report a bug**. Copy the report and the form link, open the link and paste the\nreport - the game and the add-on's version are already filled in. Or open the\n[bug form](https://github.com/rhadlock/EndlessMap/issues/new?template=bug_report.yml) here.\n\n## This repository\n\n`AzerothUnrolled/` is the add-on's source: one folder for both games - the retail download is made from it. It keeps\nthe add-on's first name, Azeroth Unrolled, because the game names your saved settings after that folder. Each version\nis one commit, tagged. What changed: [CHANGELOG.md](https://github.com/rhadlock/EndlessMap/blob/main/AzerothUnrolled/CHANGELOG.md) (WoW Forever and Classic Era) and\n[CHANGELOG_Retail.md](https://github.com/rhadlock/EndlessMap/blob/main/AzerothUnrolled/CHANGELOG_Retail.md) (retail).\n\n## Licence\n\nGPL-3.0-or-later ([LICENSE](https://github.com/rhadlock/EndlessMap/blob/main/LICENSE)). World of Warcraft's art and data belong to Blizzard Entertainment - what the\nadd-on uses of them: [NOTICE.md](https://github.com/rhadlock/EndlessMap/blob/main/AzerothUnrolled/NOTICE.md). Endless Map is not affiliated with or endorsed by Blizzard.",
+  "releases": [
+    {
+      "tag": "v1.8.2",
+      "name": "Endless Map 1.8.2",
+      "published": "2026-11-23",
+      "notes": "## WoW Forever\n\n**The same deepest zoom everywhere.**\n\n- How far the mouse wheel zoomed in depended on the map under the cursor: over the open sea it stopped at 5x, in the Barrens at 18x, in the Wetlands at 43x, over Ironforge at 226x. It now goes in as far everywhere - as far as it went over Ironforge - and the Zoom depth setting sets that one depth: 113x, 226x, 339x or 565x. Zoomed in that deep near a capital, the map is no longer held on the city.\n\n**Keep the map solid while you move.**\n\n- The game turns the map see-through whenever your character moves. Untick \"Map fades while you move\" in the map menu or on the Settings page (or `/unroll fade`) and it stays solid. It is the game's own setting, kept for your account.\n\n**Hear when a newer version is out.**\n\n- Endless Map now tells the Endless Map of players in your guild and group which version it is, in hidden add-on messages - nothing in chat. When one of them has a newer version, a line in chat says so, and again each time you log in or reload until you update. `/unroll version` shows what it has heard; untick \"Tell me when a newer version is out\" on the Settings page (or `/unroll updates`) to turn it off. It learns only from players who have this version or a later one.\n\n**Sharper imagery, the right coordinates.**\n\n- Sharper minimap imagery when zoomed in: from about a zone's own view in, the imagery stretched its pictures up to four times before the game's own map tiles took over. A finer set of pictures now fills that range.\n- The coordinates at the map's lower left always give the zone or city under the cursor - with its name when it isn't the map shown - and your own zone's for you, not the continent's numbers when zoomed out.\n\n**Fixes.**\n\n- No more \"attempted to call a forbidden function (CopyToClipboard())\" error when you shift-click your map pin to share it. The pin's link goes into chat without the copy the game refuses once Endless Map has moved the map.\n\n## Retail\n\n**Keep the map solid while you move.**\n\n- The game turns the map see-through whenever your character moves. Untick \"Map fades while you move\" in the map menu or on the Settings page (or `/emap fade`) and it stays solid. It is the game's own setting, kept for your account.\n\n**Hear when a newer version is out.**\n\n- Endless Map now tells the Endless Map of players in your guild and group which version it is, in hidden add-on messages - nothing in chat. When one of them has a newer version, a line in chat says so, and again each time you log in or reload until you update. `/emap version` shows what it has heard; untick \"Tell me when a newer version is out\" on the Settings page (or `/emap updates`) to turn it off. It learns only from players who have this version or a later one.\n\n**Fixes.**\n\n- No more \"attempted to call a forbidden function (CopyToClipboard())\" error when you shift-click your map pin to share it. The pin's link goes into chat without the copy the game refuses once Endless Map has moved the map."
+    },
+    {
+      "tag": "v1.8.1",
+      "name": "Endless Map 1.8.1",
+      "published": "2026-11-22",
+      "notes": "## WoW Forever\n\n**The fog of war at every zoom.**\n\n- With the minimap imagery on, the land you have not discovered stays grey at every zoom, out to the whole world, and what you have explored keeps its colour. It used to show only from about a zone's view in.\n\n**Fixes.**\n\n- No more \"attempted to call a protected function (Button:SetPassThroughButtons())\" error in combat. With the map closed, the game still remakes the quest markers of the last map shown whenever the quest you track changes, and in a fight it refused one of their calls - naming Endless Map, which had moved the map. The closed map now waits on the world map, which has no quest markers to make; it still opens on your zone.\n- In a map window taller than the game's, the quest list's background and the parchment behind a quest's page now reach the window's foot.\n- The party bubbles start below Questie's map button, and any other add-on's button stacked in the map's top left corner, instead of covering it.\n- Moved or widened to the screen's right edge, the map window pushed the quest log's own tabs and panels docked beside it, such as Spoken's Place Story panel, off the screen. The window now stops where they still fit and makes room when such a panel opens, going back to your place and size once it closes.\n\n## Retail\n\n**Fixes.**\n\n- No more \"attempted to call a protected function (Button:SetPassThroughButtons())\" error in combat. With the map closed, the game still remakes the quest markers of the last map shown whenever the quest you track changes, and in a fight it refused one of their calls - naming Endless Map, which had moved the map. The closed map now waits on the world map, which has no quest markers to make; it still opens on your zone.\n- In a map window taller than the game's, the quest list's background and the parchment behind a quest's page now reach the window's foot.\n- Moved or widened to the screen's right edge, the map window pushed the quest log's own tabs (Quests, Events, Map Legend) and panels other add-ons dock beside it off the screen. The window now stops where they still fit and makes room when such a panel opens, going back to your place and size once it closes."
+    },
+    {
+      "tag": "v1.8.0",
+      "name": "Endless Map 1.8.0",
+      "published": "2026-11-17",
+      "notes": "## WoW Forever\n\n**Travel points at every zoom.**\n\n- The boats, zeppelins, portals and the Deeprun Tram stay on the map at every zoom, the whole world too. Hover one to see where it goes, click it to fly there. Zoomed far out, the tram shows its icon alone.\n- Click a marker with several destinations and its list stays open: move to a destination and click it to fly there. Click the marker again, click elsewhere on the map or move the map to close the list.\n\n**Blend the drawn map and the minimap imagery.**\n\n- Rest the cursor on the imagery button and a slider comes up above it: the imagery at its top, the drawn map at its foot. Drag it, or turn the mouse wheel over it or over the button, to see the one through the other.\n- A click on the button still switches at once, the imagery coming back at your blend. `/unroll blend <N>` sets it too.\n\n**Fixes.**\n\n- The quest log's Back takes you back to the place and zoom you opened the quest from. It used to zoom out to a whole map - the continent's, if that was the map behind your view.\n- In a map window made taller than the game's, the page of a quest in the quest log now reaches the window's foot, its text and rewards with it.\n\n## Retail\n\n**Travel points by how far they go.**\n\n- In space, the portals to other worlds; from Azeroth's own map, the boats and portals between its continents too; closer in, the ways within a continent, as before. Hover one to see where it goes, click it to fly there.\n- Click a marker with several destinations and its list stays open: move to a destination and click it to fly there. Click the marker again, click elsewhere on the map or move the map to close the list.\n\n**Blend the drawn map and the minimap imagery.**\n\n- Rest the cursor on the imagery button and a slider comes up above it: the imagery at its top, the drawn map at its foot. Drag it, or turn the mouse wheel over it or over the button, to see the one through the other.\n- A click on the button still switches at once, the imagery coming back at your blend. `/emap blend <N>` sets it too.\n\n**Fixes.**\n\n- The quest log's Back takes you back to the place and zoom you opened the quest from. It used to leave the map at the quest.\n- In a map window made taller than the game's, the page of a quest in the quest log now reaches the window's foot, its text and rewards with it."
+    },
+    {
+      "tag": "v1.7.0",
+      "name": "Endless Map 1.7.0",
+      "published": "2026-11-16",
+      "notes": "## WoW Forever\n\n**Move and size the map window.**\n\n- Drag the map's title bar to move the window, and the grip at its lower right corner to change its width and height, like any window. The map fills the window; its text and buttons keep their size.\n- It stays where you put it: after closing the map, after a /reload, and in combat too. The full map stays full size.\n- The map menu's \"Reset the map window\" (or /unroll window reset) gives the game's place and size back. Untick \"Move and size the map window\" if another add-on moves your map.\n- With the game's Gamepad UI on, Endless Map leaves the window to the game, as it does the map.\n\n## Retail\n\n**Move and size the map window.**\n\n- Drag the map's title bar to move the window, and the grip at its lower right corner to change its width and height, like any window. The map fills the window; its text and buttons keep their size.\n- It stays where you put it: after closing the map, after a /reload, and in combat too. The full map stays full size.\n- The map menu's \"Reset the map window\" (or /emap window reset) gives the game's place and size back. Untick \"Move and size the map window\" if another add-on moves your map.\n\n**Ready for the game's Gamepad UI (retail's 12.1.7 brings it).**\n\n- While the Gamepad UI is on, Endless Map leaves the world map to the game and comes back when you turn it off. Its map changes would otherwise run into the controller's own code and stop the controller from talking to an NPC."
+    },
+    {
+      "tag": "v1.6.4",
+      "name": "Endless Map 1.6.4",
+      "published": "2026-11-16",
+      "notes": "## WoW Forever\n\n**With the game's Gamepad UI on, the map is the game's own.**\n\n- With the Gamepad UI on, opening and closing the map could leave your controller unable to talk to an NPC, with \"ADDON_ACTION_FORBIDDEN ... SetPreferredGamepadInteractTarget()\" errors: Endless Map's map changes ran into the controller's own code.\n- While the Gamepad UI is on, Endless Map now leaves the world map to the game: the game's own map and quest icons, none of Endless Map's buttons. Turn the Gamepad UI off and Endless Map is back.\n- If you turn the Gamepad UI on after using the map in the same session, Endless Map says once to /reload: only that clears what the map already did."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-11",
+      "2026-11-09",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AzerothUnrolled"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "AzerothUnrolledDB"
+    ]
+  }
+}

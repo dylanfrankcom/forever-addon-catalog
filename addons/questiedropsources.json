@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "questiedropsources",
+  "repo": "byWulf/wow-questie-drop-sources",
+  "about": "# Questie Drop Sources\n\nA World of Warcraft addon for [Questie](https://github.com/Questie/Questie) users that shows where Questie's drop rates come from, and what the other sources say.\n\n## Why\n\nQuestie shows a drop rate next to quest items in NPC tooltips, but it only shows one value. It takes that value from three sources in a fixed order:\n\n1. **Questie corrections**: manual values by the Questie developers (rare)\n2. **Private server data** (CMaNGOS): loot tables from a private server emulator, used for items that only drop while on the quest\n3. **Wowhead**: a snapshot of Wowhead's crowdsourced drop rates, taken when Questie was built\n\nQuestie prefers the private server data for quest items because Wowhead also counts kills by players who don't have the quest, which would make quest-only drop rates look too low. In practice the private server values are often rough guesses. For example, the Woodpaw Gnoll Mane has 60% for all six Woodpaw gnoll types there, while Wowhead has about 10% for the Woodpaw Mystic.\n\nThis addon shows all three values side by side, so you can judge for yourself.\n\n## What it looks like\n\n```\nWoodpaw Gnoll Mane: 9/10  [Q -  C 60%  W 9.6%]\n```\n\n- Each value has Questie's own source icon: Questie, CMaNGOS (or Mangos3) and Wowhead.\n- **White** is the value Questie uses, **grey** are the other two.\n- `-` means the source has no value for this item and NPC.\n\nNo configuration and no Questie debug mode needed. If you turn off drop rates in Questie's tooltip options, this addon shows nothing either.\n\n## Supported game versions\n\n| Version | Interface |\n|---|---|\n| WoW Forever | 16001 |\n\nClassic Era and other versions are not supported.\n\nRequires Questie. Tested with Questie 12.3.1. The addon hooks into Questie internals, so a future Questie update may break it; in that case the tooltip simply falls back to Questie's own drop rate.\n\n## Installation\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/questie-drop-sources), e.g. with the CurseForge app.\n\nFor a manual installation, note that the folder in your AddOns directory **must** be named `QuestieDropSources`, otherwise WoW will not load the addon:\n\n```bash\ncd \"C:/Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns\"\ngit clone https://github.com/byWulf/wow-questie-drop-sources.git QuestieDropSources\n```\n\nAlternatively, download the ZIP from the [releases](https://github.com/byWulf/wow-questie-drop-sources/releases) and extract it into `Interface/AddOns`.\n\nThen restart WoW (or log out) and enable the addon in the AddOns list.\n\n## Limitations\n\nIf an NPC drops several items for your active quests, each tooltip line is matched to its item by the item name in that line. If that doesn't work, the line keeps Questie's original drop rate.\n\n## License\n\nMIT, see [LICENSE](https://github.com/byWulf/wow-questie-drop-sources/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "Questie Drop Sources 1.0.0",
+      "published": "2026-11-06",
+      "notes": "First release on CurseForge, for WoW Forever (interface 16001).\n\nExtract `QuestieDropSources-1.0.0.zip` into `Interface/AddOns` of your WoW Forever installation, or install it with the CurseForge app."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "QuestieDropSources"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Questie"
+    ]
+  }
+}

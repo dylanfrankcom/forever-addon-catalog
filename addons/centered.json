@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "centered",
+  "repo": "d4kir92/Centered",
+  "releases": [
+    {
+      "tag": "v1.1.44",
+      "published": "2026-10-14",
+      "notes": "# Centered by D4KiR\n\n## [v1.1.44](https://github.com/d4kir92/Centered/tree/v1.1.44) (2026-10-14)\n[Full Changelog](https://github.com/d4kir92/Centered/compare/v1.1.43...v1.1.44) [Previous Releases](https://github.com/d4kir92/Centered/releases)\n\n- v1.1.44  \n- icon"
+    },
+    {
+      "tag": "v1.1.43",
+      "published": "2026-10-14",
+      "notes": "# Centered by D4KiR\n\n## [v1.1.43](https://github.com/d4kir92/Centered/tree/v1.1.43) (2026-10-14)\n[Full Changelog](https://github.com/d4kir92/Centered/compare/v1.1.42...v1.1.43) [Previous Releases](https://github.com/d4kir92/Centered/releases)\n\n- v1.1.43"
+    },
+    {
+      "tag": "v1.1.42",
+      "published": "2026-10-11",
+      "notes": "# Centered by D4KiR\n\n## [v1.1.42](https://github.com/d4kir92/Centered/tree/v1.1.42) (2026-10-11)\n[Full Changelog](https://github.com/d4kir92/Centered/compare/v1.1.41...v1.1.42) [Previous Releases](https://github.com/d4kir92/Centered/releases)\n\n- v1.1.42  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref  \n- ref"
+    },
+    {
+      "tag": "v1.1.41",
+      "published": "2026-09-19",
+      "notes": "# Centered by D4KiR\n\n## [v1.1.41](https://github.com/d4kir92/Centered/tree/v1.1.41) (2026-09-19)\n[Full Changelog](https://github.com/d4kir92/Centered/compare/v1.1.40...v1.1.41) [Previous Releases](https://github.com/d4kir92/Centered/releases)\n\n- v1.1.41  \n- git  \n- refactor  \n- refactor"
+    },
+    {
+      "tag": "v1.1.40",
+      "published": "2026-08-11",
+      "notes": "# Centered by D4KiR\n\n## [v1.1.40](https://github.com/d4kir92/Centered/tree/v1.1.40) (2026-08-11)\n[Full Changelog](https://github.com/d4kir92/Centered/compare/v1.1.39...v1.1.40) [Previous Releases](https://github.com/d4kir92/Centered/releases)\n\n- v1.1.40  \n- license"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-14",
+    "releaseDates": [
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-11",
+      "2026-09-19",
+      "2026-08-11",
+      "2026-08-10",
+      "2026-08-10",
+      "2026-07-23",
+      "2026-07-08",
+      "2026-06-06",
+      "2026-04-20",
+      "2026-03-17",
+      "2026-02-11",
+      "2026-01-13",
+      "2025-12-14",
+      "2025-12-02",
+      "2025-11-11",
+      "2025-10-22",
+      "2025-10-08",
+      "2025-09-24",
+      "2025-07-02",
+      "2025-07-02",
+      "2025-06-18",
+      "2025-04-19",
+      "2025-04-09",
+      "2025-03-04",
+      "2025-02-25",
+      "2025-02-12",
+      "2025-01-30",
+      "2024-12-08",
+      "2024-11-20",
+      "2024-11-12",
+      "2024-11-12",
+      "2024-10-22",
+      "2024-10-08",
+      "2024-10-05",
+      "2024-09-25",
+      "2024-09-03",
+      "2024-08-14",
+      "2024-07-10",
+      "2024-06-21",
+      "2024-06-10",
+      "2024-06-09",
+      "2024-05-09",
+      "2024-04-11",
+      "2024-04-03",
+      "2024-04-03",
+      "2024-03-20",
+      "2024-03-18",
+      "2024-02-07"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Centered"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "D4CEN"
+    ],
+    "savedVariablesPerCharacter": [
+      "D4CENPC"
+    ]
+  }
+}

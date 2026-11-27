@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "waylaidcratesmadeeasy",
+  "repo": "lucasreppewelander/waylaid-crate-made-easy",
+  "about": "# Waylaid Crates Made Easy\n\nA World of Warcraft Forever addon that shows which bundle is cheapest to fill a Waylaid Crate with.\n\nHover any Waylaid Crate and a block is added to its tooltip. Each bundle the crate accepts gets its own line, showing how many of that item you have in your bags and what the whole bundle costs at the auction house, using [Auctionator](https://www.curseforge.com/wow/addons/auctionator) prices. The cheapest bundle is shown in green.\n\n![Waylaid Crate tooltip with bundle costs, cheapest bundle in green](https://raw.githubusercontent.com/lucasreppewelander/waylaid-crate-made-easy/main/screenshots/tooltip-prices.png)\n\n## Features\n\n- **Works on every Waylaid Crate.** It reads the bundle list straight from the crate's tooltip, so new crates work without an update.\n- **Total cost per bundle:** quantity × Auctionator's latest price.\n- **Cost to buy what you're missing:** if you already have some of the item, the line also shows what the rest would cost, for example `1g 20s (81s to buy)`, or `(have all)` when your bags cover the whole bundle.\n- **Cheapest bundle in green:** the bundle that costs the least to buy, counting what's in your bags. Bundles without a price are never marked cheapest.\n- **Bag count:** how many of each item you already have in your bags (bank not included).\n- **\"no price\"** appears when Auctionator has no scan data for the item, or the game hasn't loaded that item yet. The addon learns item names from Auctionator scans (including the summary-mode full scan), your bags and item tooltips you see, and remembers them between sessions. After a full scan, give it a few seconds to look up names before hovering a crate.\n- **Without Auctionator** you still get the bag counts.\n\n![A crate where Auctionator has no prices yet](https://raw.githubusercontent.com/lucasreppewelander/waylaid-crate-made-easy/main/screenshots/tooltip.png)\n\n## Installation\n\n1. **[Download WaylaidCratesMadeEasy.zip](https://github.com/lucasreppewelander/waylaid-crate-made-easy/releases/latest/download/WaylaidCratesMadeEasy.zip)**\n2. Extract it into `World of Warcraft/_forever_/Interface/AddOns/`. You should end up with `AddOns/WaylaidCratesMadeEasy/WaylaidCratesMadeEasy.toc`.\n3. Restart the game or type `/reload`.\n\nDon't use GitHub's green **Code → Download ZIP** button. It names the folder `waylaid-crate-made-easy-main`, and WoW won't load the addon from a folder with that name.\n\nFor prices, install [Auctionator](https://www.curseforge.com/wow/addons/auctionator) and run a scan at the auction house.\n\nIf the addon shows as out of date, tick **Load out of date AddOns** on the character select screen. You can also update the `## Interface:` line in `WaylaidCratesMadeEasy.toc` to your client's version. Run `/dump select(4, GetBuildInfo())` in game to find it.\n\n## Limitations\n\n- English game client only. The addon finds the bundle list by the text \"Fill the crate with any bundle from the following list:\".\n\n## Development\n\nThe tooltip parser has tests that run outside the game:\n\n```sh\nluajit tests/parse_test.lua\n```",
+  "releases": [
+    {
+      "tag": "v1.0.3",
+      "published": "2026-11-10",
+      "notes": "Packaging update, no changes in game.\n\n- Added a `.pkgmeta` so CurseForge's automatic packager names the addon folder `WaylaidCratesMadeEasy` (matching the `.toc`) and leaves the tests and screenshots out.\n\n**Install:** extract `WaylaidCratesMadeEasy.zip` into `World of Warcraft/_forever_/Interface/AddOns/`."
+    },
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-10",
+      "notes": "### New\n- **Cost to buy what you're missing:** when you already have some of a bundle's item in your bags, the line also shows what the rest would cost, like `1g 20s (81s to buy)`, or `(have all)` when your bags cover the whole bundle.\n- **Coin icons:** prices now show gold, silver and copper coin icons, matching Auctionator's tooltip, instead of plain \"18s 00c\" text.\n\n### Changed\n- The green \"cheapest\" bundle is now the one that costs the least gold to buy, counting what's in your bags. A bundle your bags already cover counts as free.\n\n**Install:** extract `WaylaidCratesMadeEasy.zip` into `World of Warcraft/_forever_/Interface/AddOns/`."
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-09",
+      "notes": "**Fix:** prices now show after an Auctionator full scan (summary mode). Before, you had to search each item by hand.\n\nAuctionator's scans store prices by item ID, but crate tooltips only list item names. The addon now learns the name of every item a scan sees, so one scan is enough. Give it a few seconds after the scan finishes before hovering a crate.\n\n**Install:** extract `WaylaidCratesMadeEasy.zip` into `World of Warcraft/_forever_/Interface/AddOns/`."
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-09",
+      "notes": "First release.\n\n- Adds a block to every Waylaid Crate tooltip with the total Auctionator price of each bundle and how many of the item you have in your bags.\n- The cheapest bundle is shown in green; bundles without a price show \"no price\".\n- Works without Auctionator (bag counts only).\n\n**Install:** extract `WaylaidCratesMadeEasy.zip` into `World of Warcraft/_forever_/Interface/AddOns/`."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/lucasreppewelander/waylaid-crate-made-easy/main/screenshots/tooltip-prices.png",
+    "https://raw.githubusercontent.com/lucasreppewelander/waylaid-crate-made-easy/main/screenshots/tooltip.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WaylaidCratesMadeEasy"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "WaylaidCratesMadeEasyDB"
+    ]
+  }
+}

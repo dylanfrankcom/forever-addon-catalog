@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "mappintimers",
+  "repo": "dekallo/MapPinTimers",
+  "about": "# MapPinTimers\n\nA WoW Addon.\n\n- Calculates how long until you reach a map pin based on your current speed.\n- Displays the travel time remaining under the distance remaining.\n- Auto-tracks newly placed map pins.\n- Ensures the map pins will always be at full opacity at any distance so the timer can be seen.\n\nhttps://www.curseforge.com/wow/addons/map-pin-timers",
+  "releases": [
+    {
+      "tag": "v38",
+      "published": "2026-09-19",
+      "notes": "# Map Pin Timers\n\n## [v38](https://github.com/dekallo/MapPinTimers/tree/v38) (2026-09-19)\n[Full Changelog](https://github.com/dekallo/MapPinTimers/compare/v37...v38) [Previous Releases](https://github.com/dekallo/MapPinTimers/releases)\n\n- Support Forever  \n- 12.1.5  \n- toc update"
+    },
+    {
+      "tag": "v37",
+      "published": "2026-08-09",
+      "notes": "# Map Pin Timers\n\n## [v37](https://github.com/dekallo/MapPinTimers/tree/v37) (2026-06-21)\n[Full Changelog](https://github.com/dekallo/MapPinTimers/compare/v36...v37) [Previous Releases](https://github.com/dekallo/MapPinTimers/releases)\n\n- Update workflows  \n- 12.1"
+    },
+    {
+      "tag": "v36",
+      "published": "2026-06-20",
+      "notes": "# Map Pin Timers\n\n## [v36](https://github.com/dekallo/MapPinTimers/tree/v36) (2026-06-20)\n[Full Changelog](https://github.com/dekallo/MapPinTimers/compare/v35...v36) [Previous Releases](https://github.com/dekallo/MapPinTimers/releases)\n\n- toc update  \n- Bump actions/checkout from 6 to 7 (#2)  \n- 12.0.7  \n- Update workflows"
+    },
+    {
+      "tag": "v35",
+      "published": "2026-04-26",
+      "notes": "# Map Pin Timers\n\n## [v35](https://github.com/dekallo/MapPinTimers/tree/v35) (2026-04-26)\n[Full Changelog](https://github.com/dekallo/MapPinTimers/compare/v34...v35) [Previous Releases](https://github.com/dekallo/MapPinTimers/releases)\n\n- toc update  \n- Add dependabot.yml"
+    },
+    {
+      "tag": "v34",
+      "published": "2026-03-20",
+      "notes": "# Map Pin Timers\n\n## [v34](https://github.com/dekallo/MapPinTimers/tree/v34) (2026-03-20)\n[Full Changelog](https://github.com/dekallo/MapPinTimers/compare/v33...v34) [Previous Releases](https://github.com/dekallo/MapPinTimers/releases)\n\n- Bump actions  \n- 12.0.5"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-09-19",
+    "releaseDates": [
+      "2026-09-19",
+      "2026-08-09",
+      "2026-06-20",
+      "2026-04-26",
+      "2026-03-20",
+      "2026-02-15",
+      "2025-12-29",
+      "2025-10-07",
+      "2025-08-05",
+      "2025-06-14",
+      "2025-04-05",
+      "2025-02-01",
+      "2024-12-26",
+      "2024-11-27",
+      "2024-11-02",
+      "2024-07-24",
+      "2024-05-07",
+      "2024-03-20",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-07-11",
+      "2023-05-02",
+      "2023-03-21",
+      "2023-01-24",
+      "2022-11-15",
+      "2022-10-29",
+      "2022-10-25",
+      "2022-08-22",
+      "2022-06-01",
+      "2022-02-23",
+      "2021-11-21",
+      "2021-11-03",
+      "2021-06-30",
+      "2021-03-09",
+      "2020-11-26",
+      "2020-11-26",
+      "2020-11-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MapPinTimers"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Blizzard_QuestNavigation"
+    ],
+    "optional": [
+      "UnlimitedMapPinDistance"
+    ],
+    "savedVariables": [
+      "MapPinTimersDB"
+    ]
+  }
+}

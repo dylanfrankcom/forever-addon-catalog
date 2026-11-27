@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "chatutils",
+  "repo": "d4kir92/chatutils",
+  "releases": [
+    {
+      "tag": "v0.5.2",
+      "published": "2026-11-24",
+      "notes": "# ChatUtils by D4KiR\n\n## [v0.5.2](https://github.com/d4kir92/chatutils/tree/v0.5.2) (2026-11-24)\n[Full Changelog](https://github.com/d4kir92/chatutils/compare/v0.5.1...v0.5.2) [Previous Releases](https://github.com/d4kir92/chatutils/releases)\n\n- v0.5.2"
+    },
+    {
+      "tag": "v0.5.1",
+      "published": "2026-11-20",
+      "notes": "# ChatUtils by D4KiR\n\n## [v0.5.1](https://github.com/d4kir92/chatutils/tree/v0.5.1) (2026-11-20)\n[Full Changelog](https://github.com/d4kir92/chatutils/compare/v0.5.0...v0.5.1) [Previous Releases](https://github.com/d4kir92/chatutils/releases)\n\n- v0.5.1  \n- Fix player level detection for group and /who on Forever  \n    - Group and raid members' level now shows in chat on Forever  \n    - Levels from /who results are picked up more reliably  \n    - Group levels update when members level up"
+    },
+    {
+      "tag": "v0.5.0",
+      "published": "2026-11-20",
+      "notes": "# ChatUtils by D4KiR\n\n## [v0.5.0](https://github.com/d4kir92/chatutils/tree/v0.5.0) (2026-11-20)\n[Full Changelog](https://github.com/d4kir92/chatutils/compare/v0.4.23...v0.5.0) [Previous Releases](https://github.com/d4kir92/chatutils/releases)\n\n- v0.5.0  \n- Add settings sidebar, What's New and reorganize categories  \n    - Settings window has a category sidebar  \n    - New What's New window shows newly added settings  \n    - Settings regrouped into Chat Window, Character and Items & Money  \n- Add per-message chat fade option  \n    - New option to fade out chat messages one by one  \n    - Adjustable fade time (5-600 seconds, default 60)  \n- Fix guild member level missing in chat  \n    - Guild member levels are now found by character ID, so they show in chat on Forever"
+    },
+    {
+      "tag": "v0.4.23",
+      "published": "2026-11-20",
+      "notes": "# ChatUtils by D4KiR\n\n## [v0.4.23](https://github.com/d4kir92/chatutils/tree/v0.4.23) (2026-11-20)\n[Full Changelog](https://github.com/d4kir92/chatutils/compare/v0.4.22...v0.4.23) [Previous Releases](https://github.com/d4kir92/chatutils/releases)\n\n- v0.4.23"
+    },
+    {
+      "tag": "v0.4.22",
+      "published": "2026-11-17",
+      "notes": "# ChatUtils by D4KiR\n\n## [v0.4.22](https://github.com/d4kir92/chatutils/tree/v0.4.22) (2026-11-17)\n[Full Changelog](https://github.com/d4kir92/chatutils/compare/v0.4.21...v0.4.22) [Previous Releases](https://github.com/d4kir92/chatutils/releases)\n\n- v0.4.22  \n- Add stronger class colors to chat  \n    - Add an optional boost for class-colored player names  \n    - Translate the setting and sort all locale keys  \n- d4lib"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-17",
+      "2026-11-15",
+      "2026-11-12",
+      "2026-11-08",
+      "2026-10-28",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-11",
+      "2026-10-08",
+      "2026-10-07",
+      "2026-10-03",
+      "2026-09-28",
+      "2026-09-27",
+      "2026-09-25",
+      "2026-09-24",
+      "2026-09-22",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-17",
+      "2026-09-09",
+      "2026-09-08",
+      "2026-09-08",
+      "2026-09-07",
+      "2026-08-31",
+      "2026-08-11",
+      "2026-08-10",
+      "2026-08-10",
+      "2026-07-23",
+      "2026-07-22",
+      "2026-07-08",
+      "2026-07-08",
+      "2026-06-06",
+      "2026-05-26",
+      "2026-05-17",
+      "2026-05-13",
+      "2026-05-10",
+      "2026-05-08",
+      "2026-05-05",
+      "2026-05-03",
+      "2026-05-03",
+      "2026-04-29",
+      "2026-04-23",
+      "2026-04-20",
+      "2026-04-20",
+      "2026-04-15",
+      "2026-04-15"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "ChatUtils"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "CHUT"
+    ],
+    "savedVariablesPerCharacter": [
+      "CHUTPC"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "avrep",
+  "repo": "JulioCruzdev/Alterac-Valley-Reputation",
+  "about": "# Alterac Valley Reputation (AV REP)\n\nA lightweight World of Warcraft addon for **WoW Forever** that tracks your road to **Exalted** with your Alterac Valley faction:\n\n- **Horde:** Frostwolf Clan\n- **Alliance:** Stormpike Guard\n\nReputation is the focus. Honor is shown too, as secondary info.\n\n## What it shows\n\nA small, movable frame on your screen:\n\n```\nFrostwolf Clan: 15 wins to Exalted (~4:10:00 of AV)\n19,114 rep left - avg +1,319 over 8 wins\nLast AV: Loss - 12:08 - +412 rep (+260 honor)\nAvg: 14:30 per AV - +980 rep - 4,055 rep/h (+349 honor) (4 AVs)\n```\n\n- **Wins to Exalted**, based on the average rep of your last 30 wins\n- **Estimated play time** to Exalted, based on your rep per hour\n- **Current match:** live timer, rep and honor gained so far\n- **Last match:** result, duration, rep and honor\n- **Averages:** match length, rep per AV, rep per hour and honor per AV (wins and losses)\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/avrep` or `/avr` | Show the command list |\n| `/avrep hist [n]` | Show your last `n` AVs (default 10) |\n| `/avrep stats` | Toggle the averages line |\n| `/avrep lock` | Lock/unlock the frame position (drag to move) |\n| `/avrep show` / `/avrep hide` | Show or hide the frame |\n| `/avrep avg <n>` | Set a starting rep-per-win average (used until your first tracked win) |\n| `/avrep add <n>` | Add a win manually |\n| `/avrep reset` | Clear all history |\n\n## Installation\n\n**WowUp:** use *Get Addons → Install from URL* and paste this repository's URL.\n\n**Manual:** download the latest zip from Releases and extract the `AVRep` folder into `World of Warcraft/<game folder>/Interface/AddOns/`.\n\n## Notes\n\n- Matches you leave before the end are not recorded.\n- Only wins that gave reputation count toward the \"wins to Exalted\" average.\n- During a battleground the game may hide scoreboard honor from addons. When that happens, honor is calculated from your total honor before and after the match.\n- Data is saved per character.\n\n## License\n\n[MIT](https://github.com/JulioCruzdev/Alterac-Valley-Reputation/blob/main/LICENSE)\n\n## Releasing (maintainers)\n\nEither push a tag (`git tag v2.0.1 && git push origin v2.0.1`) or go to **Actions → Release → Run workflow** and type the version. The workflow builds `Alterac-Valley-Reputation-AV-REP-vX.Y.Z.zip` and publishes the GitHub release that WowUp picks up.",
+  "releases": [
+    {
+      "tag": "v2.0.1",
+      "name": "Alterac Valley Reputation (AV REP) v2.0.1",
+      "published": "2026-11-26",
+      "notes": "**Full Changelog**: https://github.com/JulioCruzdev/Alterac-Valley-Reputation/compare/v2.0.0...v2.0.1"
+    },
+    {
+      "tag": "v2.0.0",
+      "name": "AV REP v2.0.0",
+      "published": "2026-11-26",
+      "notes": "**Full Changelog**: https://github.com/JulioCruzdev/AVREPTRACKER/commits/v2.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AVRep"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "AVRepDB",
+      "FrostwolfWinsDB"
+    ]
+  }
+}

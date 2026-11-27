@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "id": "dbm-countpack-hots",
+  "repo": "DeadlyBossMods/DBM-CountPack-HotS",
+  "about": "[https://www.patreon.com/deadlybossmods](https://www.patreon.com/deadlybossmods)\n\n# History:\n\nInitially, the Heroes of the Storm countdown sounds were added to DBM-Core directly. These expanded the countdown sound options with several Characters that launched with base game. Since then, several more character countdowns have been added to game such as Illiden, Li'Li, etc. I weighed for a while on whether I should keep adding new files to DBM core and continuing to inflate the media foot print, or split the package into a stand alone before adding additional media options.\n\nI have finally decided now is best time to split the media out of core and into stand alone. Then I can more easily update the Heroes of the Storm counts without worrying about how big it gets in media size since it's not something you have to redownload often (versus dbm which can be downloaded daily, or more if using alpha versions).\n\nYou might wonder, why concern self with how big the DBM download is. Believe it or not, MANY players still play on rural internet connections or on connections that have limited bandwidth monthly caps. A few megabytes per download can make a big difference for a very active user who updates DBM daily. Not to mention the many thousands of users who download the file directly from deadlybossmods.com as well. Not that the bandwidth is killing us by any means but it's still inefficient. I want the core package to be more minimalistic so when core is updated it's a small download and all the media to be stand alone from now on.\n\n# Installation:\n\nJust install this with your addon client, or download and unzip and drop the DBM-CountPack-HoTS folder directly into addons folder and DBM-Core version 7.2.7 or higher will be able to add the counts to countdown drop downs.\n\nAfter that, just select the Heroes of the Storm files from the countdown drop down menus",
+  "releases": [
+    {
+      "tag": "1.7.49",
+      "published": "2026-10-14",
+      "notes": "#  Countpack HotS\n\n## [1.7.49](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/tree/1.7.49) (2026-10-14)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/compare/1.7.48...1.7.49) [Previous Releases](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/releases)\n\n- Toc Bumps  \n- tweaks"
+    },
+    {
+      "tag": "1.7.48",
+      "published": "2026-09-19",
+      "notes": "#  Countpack HotS\n\n## [1.7.48](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/tree/1.7.48) (2026-09-19)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/compare/1.7.47...1.7.48) [Previous Releases](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/releases)\n\n- Upgrade actions/checkout to v5 and modify fetch depth  \n    Updated actions/checkout version and adjusted fetch depth.  \n- toc update  \n- toc update  \n- revert toc change  \n- switch from using mainline to standard, since forever is also mainline"
+    },
+    {
+      "tag": "1.7.47",
+      "published": "2026-08-11",
+      "notes": "#  Countpack HotS\n\n## [1.7.47](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/tree/1.7.47) (2026-08-11)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/compare/1.7.46...1.7.47) [Previous Releases](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/releases)\n\n- toc bumps  \n- toc bumps  \n- cleanup obsolete mop game version  \n- 12.0.7 toc  \n- Support 10 second highlight duration for blizz api countdowns  \n- remove 12.0.1 toc, take 2 (CN and KR updated now)  \n- Bring tocs in compliance with current standards  \n- Mist toc bumps for PTR  \n- toc updates"
+    },
+    {
+      "tag": "1.7.46",
+      "published": "2026-03-16",
+      "notes": "#  Countpack HotS\n\n## [1.7.46](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/tree/1.7.46) (2026-03-13)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/compare/1.7.45...1.7.46) [Previous Releases](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/releases)\n\n- update to midnight compatible api  \n- five/three count audio files for Mystical  \n- five/three count audio files for Mystical  \n- toc cleanup"
+    },
+    {
+      "tag": "1.7.45",
+      "published": "2026-01-21",
+      "notes": "#  Countpack HotS\n\n## [1.7.45](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/tree/1.7.45) (2025-12-15)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/compare/1.7.44...1.7.45) [Previous Releases](https://github.com/DeadlyBossMods/DBM-CountPack-HotS/releases)\n\n- Fix some missed tocs  \n- add 12.0.1 toc  \n- Cleanup 11.2.5 tocs  \n- apparently vanilla also had a patch this week. bump toc  \n- toc updates  \n- Update TOCs  \n- toc bumps for current PTRs  \n- Remove 11.1.7 toc"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-10-14",
+    "releaseDates": [
+      "2026-10-14",
+      "2026-09-19",
+      "2026-08-11",
+      "2026-03-16",
+      "2026-01-21",
+      "2025-07-01",
+      "2025-04-22",
+      "2025-01-09",
+      "2024-12-20",
+      "2024-11-03",
+      "2024-09-28",
+      "2024-06-07",
+      "2024-05-07",
+      "2024-04-02",
+      "2024-03-19",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-10-14",
+      "2023-09-05",
+      "2023-08-22",
+      "2023-07-25",
+      "2023-07-11",
+      "2023-06-21",
+      "2023-05-02",
+      "2023-03-21",
+      "2023-01-24",
+      "2023-01-17",
+      "2022-11-15",
+      "2022-10-25",
+      "2022-08-20",
+      "2022-08-16",
+      "2022-05-31",
+      "2022-02-08",
+      "2022-01-18",
+      "2021-11-02",
+      "2021-08-31",
+      "2021-06-29",
+      "2021-04-21",
+      "2021-03-09",
+      "2020-11-17",
+      "2020-10-13",
+      "2020-07-07",
+      "2020-05-18",
+      "2020-03-10",
+      "2020-01-14",
+      "2019-12-10",
+      "2019-09-24",
+      "2019-08-10",
+      "2019-08-10"
+    ]
+  },
+  "languages": [
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "DBM-CountPack-HotS"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "DBM-Core"
+    ]
+  }
+}

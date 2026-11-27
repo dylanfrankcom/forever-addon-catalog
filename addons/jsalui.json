@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "id": "jsalui",
+  "repo": "superjsal/jsal-ui",
+  "about": "# jsal.ui\n\n**From level 1 to raid night in WoW Forever, planned.** One dashboard for the things you'd normally alt-tab for: when to visit the trainer, where your talent points go, what gear to chase, which dungeons are worth the run, and how to level your professions without going broke. Free, from [jsal.io](https://jsal.io/jsal-ui/).\n\n![jsal.ui's dashboard](https://jsal.io/img/jsal-ui/store/cards-0362/01-home.jpg)\n\n## Get it\n\n1. Install it from [CurseForge](https://www.curseforge.com/wow/addons/jsal-ui) or [Wago](https://addons.wago.io/addons/jsal-ui). Or download the zip from [Releases](https://github.com/superjsal/jsal-ui/releases) and put the `jsalUI` folder in `World of Warcraft\\_forever_\\Interface\\AddOns`.\n2. Log in and type `/jsal`, or click the minimap button.\n3. The first time, a short welcome shows you round and lets you switch off anything you don't want.\n\nIt needs WoW Forever (1.60.1) and no other addon.\n\n## What's in it\n\n### Plan\n\n| Page | What it does |\n| --- | --- |\n| Training Planner | Which spells are ready at the trainer and what they cost, a pin on the nearest trainer, and every visit from here to 60. Pet and weapon training too. |\n| Build Planner | Follow a ready-made leveling build for your class, or make your own and share it as a line of text. A card shows your next point and what it does. |\n| Gear plan | The best upgrade for every slot, ranked for your spec, with where each piece comes from. Star what you're after. An \"At 60\" view shows your pre-raid set slot by slot. |\n| Dungeon guide | Every dungeon by level. Each boss has a card with its best drops for you and their drop chances, the quests to pick up first, and a map. |\n| Endgame | Your page for 60: how far along your pre-raid set is, what to bring to raid night and what it costs, your raid lockouts and long cooldowns. |\n\n### Craft\n\n| Page | What it does |\n| --- | --- |\n| Professions | The cheapest way to your next rank: what to craft and how many, where to learn or buy each recipe, and one click to make a shopping list. |\n| Guild Crafts | See who in your guild can make what, and place orders with each other. |\n| Crafting profit | What each recipe costs to make against what it sells for. |\n\n### Play\n\n| Page | What it does |\n| --- | --- |\n| Journal | Your character's story as you play: levels, deaths, loot, time and gold, and all your characters at a glance. At 60 it turns to boss kills and raid nights. |\n| Daily games | Daily Word, Icon Guess and Pal run: one of each a day, the same for everyone, with your guild's results side by side. |\n| Jsal's Pals | Hatch an egg, name what comes out and look after it. It grows up and wanders along your screen while you play. |\n\n### And the little things\n\nQuick buttons, a flight bar that times your flights, a waypoint label, a vendor run that repairs and sells your greys, warnings before your bags fill or your gear breaks, quest tags, an arrow on quest rewards that are upgrades, a food reminder, and for hunters pet feeding, a range check and what a beast would teach your pet. Each one is described on the [store page](https://www.curseforge.com/wow/addons/jsal-ui).\n\n## Commands\n\n`/jsal` opens the dashboard. Add a word to go straight somewhere:\n\n| Command | Opens |\n| --- | --- |\n| `/jsal journal` | The Journal |\n| `/jsal gear` | The Gear plan |\n| `/jsal dungeons` | The Dungeon guide |\n| `/jsal crafts` | Guild Crafts |\n| `/jsal profit` | Crafting profit |\n| `/jsal shop` | Your shopping list |\n| `/jsal word`, `icons`, `run` | The daily games |\n| `/jsal pet` | Your pal |\n| `/jsal recap` | A recap of your session |\n| `/jsal welcome` | The welcome, again |\n| `/jsal unlock` | Move jsal.ui's pieces around the screen |\n| `/jsal bug` | Report a problem |\n\n## Good to know\n\n- **Almost everything is on to start.** Only the talent helper starts off, since it speaks up about your talents unasked: switch it on in the welcome or in Settings. Every part has its own switch in Settings.\n- **It stays out of the way in a fight.** Nothing heavy runs in combat, and jsal.ui never reads the combat log.\n- **What guildmates share stays between guildmates.** Scores, recipes, orders and boss loot go over hidden addon messages, never in chat.\n- **It works alongside** [EllesmereUI](https://www.curseforge.com/wow/addons/ellesmereui) and RestedXP Guides, and uses Auctionator's prices for Crafting profit when you have it. None of them is needed.\n- **Its own text is in English.**\n\n## Where the data comes from\n\n- Stat weights, level 60 sets and raid consumables: [WoWSims Forever](https://github.com/wowsims/forever).\n- Items, drop chances, recipe sources and leveling builds: [Wowhead](https://www.wowhead.com/forever)'s Forever pages.\n- Quests, trainers and vendors: [pfQuest](https://github.com/shagu/pfQuest) and [EG Link](https://github.com/JIVESCORP/eg-link-output-wowf) (data from [Efficient Games](https://efficient.games/)).\n- The maps of Forever's own dungeons: Santiago Reyes, from his *Atlas de Azeroth: Forever*, used with his permission. See more at [sreyesmaps.com](https://sreyesmaps.com/).\n- Everything else: the game's own tables.\n\nHow each table is rebuilt is in [`tools/README.md`](https://github.com/superjsal/jsal-ui/blob/main/tools/README.md). Who made what, and on what terms, is in [THIRD-PARTY-NOTICES.md](https://github.com/superjsal/jsal-ui/blob/main/THIRD-PARTY-NOTICES.md).\n\n## Say hello\n\nFound a bug or have an idea? Come to [jsal.ui's Discord](https://discord.gg/BfUKeCjNeZ), use **Report a problem** in the dashboard (`/jsal bug`), or email [dev@jsal.io](mailto:dev@jsal.io).\n\nWhat changed in each version is on [jsal.io/jsal-ui/updates](https://jsal.io/jsal-ui/updates/).\n\n## Licence\n\njsal.ui's code is free to use under the [MIT License](https://github.com/superjsal/jsal-ui/blob/main/LICENSE): read it, learn from it, fork it.\n\nIts pictures, sounds and name are jsal's and stay with jsal.ui: the pals, the icons, the logo and the name\n\"jsal.ui\". A fork needs its own.\n\nSome parts are other people's and keep their own terms: Santiago Reyes's dungeon maps (used with his permission),\nthe Outfit and Inter fonts, data from WoWSims, pfQuest and EG Link, and the game's own data. Who made what is in\n[THIRD-PARTY-NOTICES.md](https://github.com/superjsal/jsal-ui/blob/main/THIRD-PARTY-NOTICES.md).",
+  "releases": [
+    {
+      "tag": "v0.3.63",
+      "published": "2026-11-25",
+      "notes": "# jsal.ui 0.3.63\n\nRestart the game for this one.\n\n- Professions: Fishing has its own tile, with the nearest water where no fish get away from you and your nearest trainer.\n- Horde characters are sent to Horde trainers, vendors and dungeons, and are no longer offered Alliance-only patterns, portals or gear.\n- Training Planner: your nearest trainer is one who teaches the spells you need, in your starting area or town, not always a capital.\n- Gear plan: one spec picker at the top sets both your weights and your At 60 set.\n- Quest rewards: when a quest lets you choose a reward, the biggest upgrade for you wears a gold crown, in the quest window, the quest log and the map.\n- Everything in this version: jsal.io/jsal-ui/updates"
+    },
+    {
+      "tag": "v0.3.62",
+      "published": "2026-11-23",
+      "notes": "# jsal.ui 0.3.62\n\nRestart the game for this one.\n\n- Level 60: a new Endgame page with your gear goal, your raid nights and what to bring, and the Journal turns to bosses, lockouts and raid nights.\n- Dungeon guide: every dungeon listed down the left, boss cards kept to their four best drops, and a Trash card for what a dungeon's ordinary creatures drop.\n- Flight bar: flights that pass through other towns are much closer to the real time. A first flight on a long route can still be a few seconds out; after that it's timed from your own flight. Thanks, cloudy2k/frickin packet, for finding it.\n- Quest rewards: an arrow on every reward that's an upgrade, gold on the best.\n- And a few smaller fixes."
+    },
+    {
+      "tag": "v0.3.61",
+      "published": "2026-11-22",
+      "notes": "# jsal.ui 0.3.61\n\n- Professions: the road goes the cheapest way at auction prices, whatever's in your bags. Thanks, cloudy2k/frickin packet, for finding it.\n- Professions: a Craft button on the step you're on, and a + to put any step on your shopping list.\n- Shopping list: a material you can make yourself is listed to make, at what each vendor charges you.\n- Gear plan: item tooltips say how much better a piece is, and a unique ring or trinket is offered once.\n- And a few smaller fixes."
+    },
+    {
+      "tag": "v0.3.60",
+      "published": "2026-11-21",
+      "notes": "# jsal.ui 0.3.60\n\n- Build Planner: Learn your next points right on the next point's card. It asks first, and says when they're learned.\n- Build Planner: the build you follow is tagged, and with dual spec each spec's build is.\n- Food reminder: back after dying takes your Well Fed. Thanks, Yari, for finding it.\n- Jsal's Pals: the pal nearer the front is drawn in front.\n- And a few smaller fixes."
+    },
+    {
+      "tag": "v0.3.59",
+      "published": "2026-11-20",
+      "notes": "# jsal.ui 0.3.59\n\n- Restart the game once for this version: its files changed.\n- Layers: taken out. The game no longer lets addons read your layer.\n- Dungeon guide: a Map tab for 33 dungeons and raids, Forever's own drawn by Santiago Reyes, with the bosses that have gear or a quest for you marked.\n- Jsal's Pals: a new pal, and a new egg to find.\n- Games: three cards across, and officers can set the Guild Word.\n- Talent helper: off until you switch it on in Settings, and its note no longer spends a point."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "jsalUI"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "EllesmereUI",
+      "RXPGuides",
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "jsalUIDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "jsalUICharDB"
+    ]
+  }
+}

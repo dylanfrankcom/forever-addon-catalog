@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "chitchat",
+  "repo": "goobyspace/ChitChat",
+  "releases": [
+    {
+      "tag": "1.8",
+      "published": "2026-11-15",
+      "notes": "# ChitChat\n\n## [1.8](https://github.com/goobyspace/ChitChat/tree/1.8) (2026-11-15)\n[Full Changelog](https://github.com/goobyspace/ChitChat/compare/1.7...1.8) [Previous Releases](https://github.com/goobyspace/ChitChat/releases)\n\n- annoying taint issue with social settings maybe fixed?"
+    },
+    {
+      "tag": "1.7",
+      "published": "2026-11-14",
+      "notes": "# ChitChat\n\n## [1.7](https://github.com/goobyspace/ChitChat/tree/1.7) (2026-11-14)\n[Full Changelog](https://github.com/goobyspace/ChitChat/compare/1.6...1.7) [Previous Releases](https://github.com/goobyspace/ChitChat/releases)\n\n- small isSecret fix"
+    },
+    {
+      "tag": "1.6",
+      "published": "2026-11-14",
+      "notes": "# ChitChat\n\n## [1.6](https://github.com/goobyspace/ChitChat/tree/1.6) (2026-11-14)\n[Full Changelog](https://github.com/goobyspace/ChitChat/compare/1.5...1.6) [Previous Releases](https://github.com/goobyspace/ChitChat/releases)\n\n- fix backgrounds in combat"
+    },
+    {
+      "tag": "1.5",
+      "published": "2026-11-06",
+      "notes": "# ChitChat\n\n## [1.5](https://github.com/goobyspace/ChitChat/tree/1.5) (2026-11-06)\n[Full Changelog](https://github.com/goobyspace/ChitChat/compare/1.4...1.5) [Previous Releases](https://github.com/goobyspace/ChitChat/releases)\n\n- this wasnt needed fix for forever"
+    },
+    {
+      "tag": "1.4",
+      "published": "2026-11-05",
+      "notes": "# ChitChat\n\n## [1.4](https://github.com/goobyspace/ChitChat/tree/1.4) (2026-11-05)\n[Full Changelog](https://github.com/goobyspace/ChitChat/compare/1.3...1.4) [Previous Releases](https://github.com/goobyspace/ChitChat/releases)\n\n- fix social button and chat type dropdown in wow forever"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ChitChat"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Blizzard_ChatFrameBase"
+    ],
+    "savedVariables": [
+      "ChitChatGlobalStorage"
+    ]
+  }
+}

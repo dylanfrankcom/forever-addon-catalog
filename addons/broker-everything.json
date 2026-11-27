@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "broker-everything",
+  "repo": "HizurosWoWAddOns/Broker_Everything",
+  "about": "# Broker_Everything (WoW AddOn)\n![Build](https://img.shields.io/github/actions/workflow/status/HizurosWoWAddOns/Broker_Everything/packager.yml?style=flat-square)\n![Tag](https://img.shields.io/github/v/tag/HizurosWoWAddOns/Broker_Everything?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/Broker_Everything/total?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/Broker_Everything/latest/total?style=flat-square)\n&nbsp; &nbsp; &nbsp; &nbsp;\n[![Patreon](https://img.shields.io/badge/&zwj;-Patreon-gray?logo=patreon&color=red&style=flat-square)](https://www.patreon.com/bePatron?u=12558524)\n[![Paypal](https://img.shields.io/badge/&zwj;-Paypal-gray?logo=paypal&color=blue&style=flat-square)](https://paypal.me/hizuro)\n![Sponsors](https://img.shields.io/github/sponsors/HizurosWoWAddOns?logo=github&style=flat-square)\n\n## Description\nThis addon is a collection of modules to display various informations ingame about the game, your character, friends, guild and many many more. :-)\n\n[![BE Screenshot1](./.github/media/be_00t.jpg)](https://raw.githubusercontent.com/HizurosWoWAddOns/Broker_Everything/master/.github/media/be_00.jpg)  [![BE Screenshot2](./.github/media/be_01t.png)](https://raw.githubusercontent.com/HizurosWoWAddOns/Broker_Everything/master/.github/media/be_01.png)  [![BE Screenshot3](./.github/media/be_02t.png)](https://raw.githubusercontent.com/HizurosWoWAddOns/Broker_Everything/master/.github/media/be_02.png)\n\n## Recommentation\nIt is recommended to use this addon with a data broker display addon... A little list of possible addons:\n* panel-addons:\\\n  [Bazooka](https://www.curseforge.com/wow/addons/bazooka), [ChocolateBar](https://www.curseforge.com/wow/addons/chocolatebar), [DockingStation](https://www.wowinterface.com/downloads/info11831-DockingStationDisplay.html), [NinjaPanel](https://www.curseforge.com/wow/addons/ninjapanel), [TitanPanel](https://www.curseforge.com/wow/addons/titan-panel)\\\n  ~~FuBar~~ *(was a good old partner in classic times, R.i.P.)*\n* single-button-addons:\\\n  [Candy](https://www.curseforge.com/wow/addons/candy), [StatBlockCore](https://www.curseforge.com/wow/addons/stat-block-core)\\\n  ~~[Fortress](https://www.wowace.com/addons/fortress/)~~ *(outdated/abandoned/owner is missing)*\n\n## Broker (Modules)\nSee [List of Modules](https://www.curseforge.com/wow/addons/broker-everything/pages/modules)\n\n## Important\n* CPU / Memory Usage\nAny enabled module need cpu time and memory and this addon is a summary of modules. It is normal heavier than single broker addons but i try to\n* For Iconsets and Localization\nI have add some php scripts. the script generates the 3 example files for iconset and localization.\nI will try to use the php script in this folder to keep all examples up to date... :)\n* ElvUI / TukUI skin support missing?\nPlease install/enable the addon AddOnSkins or AddOnSkins Classic.\nIt is not a plugin from ElvUI/TukUI, but it is required to help other addons support ElvUI/TukUI skins.\n\n## Known bugs\n* GPS/Location/ZoneText: Currently the transport menu has a problem with items that must be equipped before use.\n\n## Icon sets support\nA few years ago i added support for icon sets. My coal was support third party addons to change the icons used by modules from broker_everything. An outdated demo can be found [here](https://www.wowinterface.com/downloads/info22790.html).\n\n## Bug reports, feature requests and Support\nPlease use the [Issues page](https://www.curseforge.com/wow/addons/broker-everything/issues) for bug reports and feature requests.\n\n## Localization\nDo you want to help translate this addon?\\\nSee [Curseforge localization tool](https://www.curseforge.com/wow/addons/broker-everything/localization)\n\n## Credits\nThanks to Hungtar for the original Broker_Everything and Ekaterina for futher developing. WowInterface and Curse community for an amazing amount of help.\n\n## My other projects\n* [On Curseforge](https://www.curseforge.com/members/hizuro_de/projects)\n* [On Github](https://github.com/HizurosWoWAddOns?tab=repositories)\n\n## Disclaimer\n> World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "5.0.3-release",
+      "published": "2026-11-22",
+      "notes": "# Broker: Everything\n\n## [5.0.3-release](https://github.com/HizurosWoWAddOns/Broker_Everything/tree/5.0.3-release) (2026-11-22)\n[Full Changelog](https://github.com/HizurosWoWAddOns/Broker_Everything/commits/5.0.3-release) [Previous Releases](https://github.com/HizurosWoWAddOns/Broker_Everything/releases)\n\n- More realm name changes for Forever clients"
+    },
+    {
+      "tag": "5.0.2-release",
+      "published": "2026-11-21",
+      "notes": "# Broker: Everything\n\n## [5.0.2-release](https://github.com/HizurosWoWAddOns/Broker_Everything/tree/5.0.2-release) (2026-11-21)\n[Full Changelog](https://github.com/HizurosWoWAddOns/Broker_Everything/commits/5.0.2-release) [Previous Releases](https://github.com/HizurosWoWAddOns/Broker_Everything/releases)\n\n- Better missing realm fix name on Forever clients. Thanks at Thaodan on Github #88"
+    },
+    {
+      "tag": "5.0.1-release",
+      "published": "2026-11-21",
+      "notes": "# Broker: Everything\n\n## [5.0.1-release](https://github.com/HizurosWoWAddOns/Broker_Everything/tree/5.0.1-release) (2026-11-21)\n[Full Changelog](https://github.com/HizurosWoWAddOns/Broker_Everything/commits/5.0.1-release) [Previous Releases](https://github.com/HizurosWoWAddOns/Broker_Everything/releases)\n\n- Hotfix missing realm name on Forever clients. Search a new way to get current game mode."
+    },
+    {
+      "tag": "5.0.0-release",
+      "published": "2026-11-06",
+      "notes": "# Broker: Everything\n\n## [5.0.0-release](https://github.com/HizurosWoWAddOns/Broker_Everything/tree/5.0.0-release) (2026-11-06)\n[Full Changelog](https://github.com/HizurosWoWAddOns/Broker_Everything/commits/5.0.0-release) [Previous Releases](https://github.com/HizurosWoWAddOns/Broker_Everything/releases)\n\n- Bags: Fix missing ammo bags on classic and forever clients"
+    },
+    {
+      "tag": "4.35.9-release",
+      "published": "2026-10-24",
+      "notes": "# Broker: Everything\n\n## [4.35.9-release](https://github.com/HizurosWoWAddOns/Broker_Everything/tree/4.35.9-release) (2026-10-24)\n[Full Changelog](https://github.com/HizurosWoWAddOns/Broker_Everything/commits/4.35.9-release) [Previous Releases](https://github.com/HizurosWoWAddOns/Broker_Everything/releases)\n\n- Currency: Update currency list"
+    }
+  ],
+  "stats": {
+    "stars": 13,
+    "openIssues": 29,
+    "contributors": 6,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-06",
+      "2026-10-24",
+      "2026-10-18",
+      "2026-10-12",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-10-08",
+      "2026-10-07",
+      "2026-10-06",
+      "2026-09-25",
+      "2026-08-29",
+      "2026-08-14",
+      "2026-08-13",
+      "2026-08-13",
+      "2026-06-26",
+      "2026-06-26",
+      "2026-06-21",
+      "2026-04-15",
+      "2026-03-23",
+      "2026-03-21",
+      "2026-03-08",
+      "2026-03-04",
+      "2026-02-26",
+      "2025-10-10",
+      "2025-08-31",
+      "2025-08-22",
+      "2025-08-21",
+      "2025-08-20",
+      "2025-08-09",
+      "2025-07-28",
+      "2025-07-24",
+      "2025-07-23",
+      "2025-06-18",
+      "2025-06-06",
+      "2025-05-24",
+      "2025-05-21",
+      "2025-03-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Broker_Everything"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "LibSharedMedia-3.0",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "LibQTip-1.0",
+      "LibColors-1.0",
+      "LibRealmInfo",
+      "LibTime-1.0",
+      "Ace3",
+      "LibDropDownMenu"
+    ],
+    "savedVariables": [
+      "Broker_Everything_DataDB",
+      "Broker_Everything_CharacterDB",
+      "Broker_Everything_AceDB"
+    ]
+  }
+}

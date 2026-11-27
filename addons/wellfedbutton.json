@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "wellfedbutton",
+  "repo": "postazure/wow-addon-well-fed-button",
+  "about": "# Well Fed Button\n\nA WoW Forever addon that puts all the Well Fed food in your bags into one button. Click to eat. The button glows when you're missing the buff, so you remember to eat before the next pull.\n\n![icon](https://raw.githubusercontent.com/postazure/wow-addon-well-fed-button/main/icon.png)\n\n## Screenshots\n\n![The button](https://raw.githubusercontent.com/postazure/wow-addon-well-fed-button/main/screenshots/1-button.png)\n\n![The expanded food bar](https://raw.githubusercontent.com/postazure/wow-addon-well-fed-button/main/screenshots/2-expanded.png)\n\n![The tooltip with click hints](https://raw.githubusercontent.com/postazure/wow-addon-well-fed-button/main/screenshots/3-tooltip.png)\n\n![The settings menu](https://raw.githubusercontent.com/postazure/wow-addon-well-fed-button/main/screenshots/4-settings.png)\n\n## Features\n\n- One button for every Well Fed food in your bags, with a count.\n- Right-click to open a bar with each Well Fed food; click any of them to eat it.\n- Glows while you're alive and not Well Fed (blue, gold, green or white, or off).\n- Choose which food the button shows: smallest stack, last eaten, or cheapest.\n- Greys out when you can't eat, like an action bar button.\n- Hotkeys to eat and to open the bar (Key Bindings → AddOns).\n\n## Usage\n\n| Action | Result |\n|---|---|\n| Left-click | Eat |\n| Right-click | Open or close the food bar |\n| Shift + drag | Move the button |\n| Gear button (end of the bar) | Settings |\n\nSlash commands: `/wfb` or `/wellfed`. Run `/wfb` on its own for the list.\n\n## Requirements\n\n- WoW Forever (interface 16001)\n\n## Development\n\nThe tests syntax-check the addon under Lua 5.1, check widget methods against Forever's API docs, and test the release helpers:\n\n```bash\npip install lupa\npython tests/run.py\n```\n\n## Releasing\n\nPushing an annotated `v<version>` tag on `main` runs the Release workflow. It checks the tag against the `.toc` version and `CHANGELOG.md`, then tests, zips, creates the GitHub release and uploads to CurseForge. The tag's message is the release notes. The release skill in `.claude/skills/release` walks through it.\n\nThe CurseForge upload is skipped until the repo has a `CURSEFORGE_TOKEN` secret and a `CURSEFORGE_PROJECT_ID` variable.\n\n## License\n\nMIT. See [LICENSE](https://github.com/postazure/wow-addon-well-fed-button/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.3",
+      "name": "Well Fed Button 1.0.3",
+      "published": "2026-11-14",
+      "notes": "First release.\n\n- One button for all the Well Fed food in your bags, with a count. Left-click to eat.\n- Right-click to open a bar with each Well Fed food. Click anywhere else to close it.\n- The button glows while you're alive and not Well Fed. Pick the color or turn it off.\n- Choose which food the button shows: smallest stack, last eaten, or cheapest.\n- Icons grey out when you can't eat, for example in combat.\n- Hotkeys to eat and to open the bar, under Key Bindings → AddOns.\n- Shift-drag to move the button. The gear at the end of the bar opens settings."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/postazure/wow-addon-well-fed-button/main/screenshots/1-button.png",
+    "https://raw.githubusercontent.com/postazure/wow-addon-well-fed-button/main/screenshots/2-expanded.png",
+    "https://raw.githubusercontent.com/postazure/wow-addon-well-fed-button/main/screenshots/3-tooltip.png",
+    "https://raw.githubusercontent.com/postazure/wow-addon-well-fed-button/main/screenshots/4-settings.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WellFedButton"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "WellFedButtonDB"
+    ]
+  }
+}

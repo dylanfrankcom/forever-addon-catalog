@@ -2,7 +2,8 @@
 #:property PublishAot=false
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-// Validates catalog.json: the schema, plus the rules a schema can't express.
+// Validates catalog.json: the schema, plus the rules a schema can't express. With no file named, also versions.json,
+// optout.json, overrides/ and the detail files in addons/ (summed up in one line).
 //
 // Run it through the app repo's dev.ps1, so NuGet stays in Documents\Developer\.tools:
 //   powershell -ExecutionPolicy Bypass -File ..\ForeverAddonManager\dev.ps1 dotnet run scripts/validate.cs                 # ./catalog.json
@@ -47,6 +48,22 @@ var paths = catalogArg is not null
     : new[] { "catalog.json", "versions.json", "optout.json" }.Select(Path.GetFullPath).Where((p, i) => i == 0 || File.Exists(p))
         .Concat(Directory.Exists("overrides") ? Directory.GetFiles("overrides", "*.json").Order(StringComparer.Ordinal).Select(Path.GetFullPath) : []).ToList();
 var exit = 0;
+if (catalogArg is null && Directory.Exists("addons"))
+{
+    var detailFiles = Directory.GetFiles("addons", "*.json").Order(StringComparer.Ordinal).ToList();
+    var bad = 0;
+    foreach (var file in detailFiles)
+    {
+        var problems = CatalogValidator.Validate(Path.GetFullPath(file));
+        foreach (var p in problems)
+        {
+            Console.Error.WriteLine($"addons/{Path.GetFileName(file)}: {p.Code}: {p.Message}");
+        }
+        bad += problems.Count > 0 ? 1 : 0;
+    }
+    Console.WriteLine(bad == 0 ? $"addons/: {detailFiles.Count} detail files are valid." : $"addons/: {bad} of {detailFiles.Count} detail files have problems.");
+    exit = bad == 0 ? 0 : 1;
+}
 foreach (var path in paths)
 {
     var problems = CatalogValidator.Validate(path);
@@ -65,6 +82,112 @@ foreach (var path in paths)
     }
 }
 return exit;
+
+/// <summary>
+/// A detail file (addons/&lt;id&gt;.json): its Markdown has no raw HTML outside code, its links are http(s), mailto or
+/// #anchors and its images https; in addons/, it's named after its ID and that ID is listed in catalog.json beside it.
+/// </summary>
+static class DetailsRules
+{
+    static readonly System.Text.RegularExpressions.Regex Fence = new(@"^ {0,3}(`{3,}|~{3,})");
+    static readonly System.Text.RegularExpressions.Regex InlineCode = new(@"(`+)(?!`)(.+?)(?<!`)\1(?!`)");
+    static readonly System.Text.RegularExpressions.Regex Tag = new(@"</?[A-Za-z][A-Za-z0-9-]*(\s[^<>]*)?/?>");
+    static readonly System.Text.RegularExpressions.Regex Link = new(@"(!?)\[((?:[^\[\]]|\[[^\[\]]*\])*)\]\(\s*<?([^\s()<>]*(?:\([^\s()<>]*\)[^\s()<>]*)*)>?(\s+(?:""[^""]*""|'[^']*'))?\s*\)");
+    static readonly System.Text.RegularExpressions.Regex Definition = new(@"^ {0,3}\[[^\]]+\]:[ \t]*<?(\S+?)>?([ \t]+.*)?$", System.Text.RegularExpressions.RegexOptions.Multiline);
+
+    public static List<Problem> Check(JsonNode root, string path)
+    {
+        var problems = new List<Problem>();
+        var id = (string)root["id"]!;
+        var dir = Path.GetDirectoryName(path)!;
+        if (Path.GetFileName(dir) == "addons")
+        {
+            if (Path.GetFileNameWithoutExtension(path) != id)
+            {
+                problems.Add(new("details-id", $"addons/{Path.GetFileName(path)} holds '{id}': the file name must be its ID."));
+            }
+            var catalog = Path.Combine(Path.GetDirectoryName(dir)!, "catalog.json");
+            if (File.Exists(catalog) && !Listed(catalog).Contains(id))
+            {
+                problems.Add(new("details-unlisted", $"'{id}' isn't listed in catalog.json, so its detail file should be gone."));
+            }
+        }
+        var fields = new List<(string Name, string Text)>();
+        foreach (var name in new[] { "about", "changelog" })
+        {
+            if (root[name] is JsonValue v)
+            {
+                fields.Add((name, (string)v!));
+            }
+        }
+        foreach (var (release, i) in (root["releases"]?.AsArray() ?? []).Select((r, i) => (r, i)))
+        {
+            if (release?["notes"] is JsonValue v)
+            {
+                fields.Add(($"releases[{i}].notes", (string)v!));
+            }
+        }
+        foreach (var (name, text) in fields)
+        {
+            var prose = Prose(text);
+            if (Tag.Match(prose) is { Success: true } tag)
+            {
+                problems.Add(new("details-html", $"'{id}' {name} has raw HTML outside code: {tag.Value[..Math.Min(60, tag.Value.Length)]}"));
+            }
+            var targets = Link.Matches(prose).Select(m => (Image: m.Groups[1].Value == "!", Url: m.Groups[3].Value))
+                .Concat(Definition.Matches(prose).Select(m => (Image: false, Url: m.Groups[1].Value)));
+            foreach (var (image, url) in targets)
+            {
+                var ok = image ? url.StartsWith("https://", StringComparison.Ordinal)
+                    : url.StartsWith("https://", StringComparison.Ordinal) || url.StartsWith("http://", StringComparison.Ordinal) || url.StartsWith("mailto:", StringComparison.Ordinal) || url.StartsWith('#');
+                if (!ok)
+                {
+                    problems.Add(new("details-link", $"'{id}' {name} has {(image ? "an image" : "a link")} that isn't absolute and safe: {url[..Math.Min(80, url.Length)]}"));
+                }
+            }
+        }
+        return problems;
+    }
+
+    static readonly Dictionary<string, HashSet<string>> listed = new(StringComparer.OrdinalIgnoreCase);
+
+    static HashSet<string> Listed(string catalog)
+    {
+        if (!listed.TryGetValue(catalog, out var ids))
+        {
+            ids = (JsonNode.Parse(File.ReadAllText(catalog))?["addons"]?.AsArray() ?? []).Select(a => (string?)a?["id"]).OfType<string>().ToHashSet(StringComparer.Ordinal);
+            listed[catalog] = ids;
+        }
+        return ids;
+    }
+
+    /// <summary>The text outside code fences and inline code, where HTML would be rendered.</summary>
+    static string Prose(string text)
+    {
+        var output = new System.Text.StringBuilder();
+        string? fence = null;
+        foreach (var line in text.Split('\n'))
+        {
+            var m = Fence.Match(line);
+            if (fence is null && m.Success)
+            {
+                fence = m.Groups[1].Value;
+            }
+            else if (fence is not null)
+            {
+                if (m.Success && m.Groups[1].Value[0] == fence[0] && m.Groups[1].Value.Length >= fence.Length && line.Trim().Trim(fence[0]).Length == 0)
+                {
+                    fence = null;
+                }
+            }
+            else
+            {
+                output.Append(InlineCode.Replace(line, "")).Append('\n');
+            }
+        }
+        return output.ToString();
+    }
+}
 
 /// <summary>One thing wrong with a catalog. Codes are stable, so tests can expect them.</summary>
 record Problem(string Code, string Message);
@@ -131,6 +254,10 @@ static class CatalogValidator
         if (versions)
         {
             return Dedupe(VersionsRules(root!));
+        }
+        if (kind == "details")
+        {
+            return Dedupe(DetailsRules.Check(root!, catalogPath));
         }
         if (kind != "catalog")
         {
@@ -318,7 +445,8 @@ static class CatalogValidator
     {
         var name = Path.GetFileName(path);
         var inOverrides = Path.GetFileName(Path.GetDirectoryName(path)) == "overrides";
-        return name.Contains("versions", StringComparison.OrdinalIgnoreCase) ? "versions"
+        return Path.GetFileName(Path.GetDirectoryName(path)) == "addons" || name.Contains("details-file", StringComparison.OrdinalIgnoreCase) ? "details"
+            : name.Contains("versions", StringComparison.OrdinalIgnoreCase) ? "versions"
             : name.Contains("optout", StringComparison.OrdinalIgnoreCase) ? "optout"
             : name.Contains("_authors", StringComparison.OrdinalIgnoreCase) || name.Contains("curated-authors", StringComparison.OrdinalIgnoreCase) ? "authors"
             : inOverrides || name.Contains("override-file", StringComparison.OrdinalIgnoreCase) ? "override"
@@ -564,7 +692,7 @@ static class SelfTest
     }
 
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
-    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date", "released-date",
+    static readonly string[] Codes = ["schema", "json", "details-html", "details-link", "details-id", "details-unlisted", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date", "released-date",
         "unknown-author", "unused-author", "author-profile", "edition-interface", "unknown-edition", "edition-up-to-date",
         "versions-same-file", "test-client-edition", "edition-facts", "override-name"];
 

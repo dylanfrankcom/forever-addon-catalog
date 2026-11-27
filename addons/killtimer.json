@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "killtimer",
+  "repo": "askau2003/killTimer",
+  "about": "# killTimer\n\nLive kill/time/drop-% overlay for WoW: Forever players leveling with RestedXP.\n\n![killTimer overlay panel showing elapsed time, kill count, and quest-item drop rates](https://raw.githubusercontent.com/askau2003/killTimer/main/screenshots/overlay.png)\n\nFollow the steps below to install, enable, and configure it.\n\n## 1. Check the prerequisites\n\n- World of Warcraft: Forever (addon interface 16001).\n- [RestedXP](https://www.restedxp.com/) is optional - without it you still get the live\n  overlay, just not the per-step scoping and the logging of finished objectives.\n\n## 2. Install the addon\n\nPick one of the two methods.\n\n### Option A: WowUp\n\n1. Open WowUp and check that your Forever client shows up under **Options > Clients**\n   (usually auto-detected as `_forever_`; if not, add it there with **Add New**).\n2. Go to **Get Addons > Install from URL**.\n3. Paste `https://github.com/askau2003/killTimer` and confirm.\n4. WowUp installs the latest tagged release. Once a new version is tagged, WowUp's update\n   button will offer it the same way.\n\n### Option B: Manual\n\n1. Download the repo (`Code > Download ZIP` on GitHub, or `git clone`).\n2. Copy the folder into your AddOns directory, named exactly `killTimer`:\n   ```\n   World of Warcraft/_forever_/Interface/AddOns/killTimer/\n   ```\n   It must directly contain `killTimer.toc`, `killTimer.lua` and `killTimerOptions.lua`.\n3. Restart the client, or `/reload` if it's already running.\n\n## 3. Turn it on\n\n1. At the character-select screen, open the AddOns list.\n2. Make sure `killTimer` is checked/enabled.\n3. Log into a character - a small overlay panel appears on screen automatically.\n\n## 4. Adjust the panel to your liking\n\n1. Open **Settings > AddOns > killTimer**.\n2. Drag the **Scale** slider to resize the whole panel.\n3. Drag **Width** and **Height** to set a fixed panel size - content wraps/clips to it\n   instead of the panel resizing itself.\n4. Check **Lock position** to stop the panel from being dragged by accident.\n5. Drag the panel (while unlocked) to move it, or click **Reset position** to put it back\n   where it started.\n\n## 5. Use it while leveling\n\n1. Kills, time spent, and quest-item drops are tracked automatically - nothing to set up.\n2. Run `/killtimer` any time to manually reset the overlay and its counters.\n3. The clock is time spent working, not wall-clock: it only runs while you're on the step\n   that the line below it is about, so walking to a turn-in or doing an unrelated step\n   doesn't inflate it.\n4. With RestedXP installed, a quest objective keeps its kill count, mob breakdown and time\n   across step changes for as long as it stays in your quest log - RestedXP often asks you\n   to kill or loot something \"on the way\" over several steps. Once an objective is turned\n   in or abandoned, its result is printed to chat (and saved to `killTimerLog`, per\n   character):\n\n   ```\n   killTimer: step 3\n     2:14  87 kills\n     12  Timber Wolf\n     5  Mottled Boar (62%)  5/8  1:48\n   ```\n\n5. Run `/killtimer log` to print the most recent logged results back into chat. The log\n   keeps the last 200 entries.\n\n## 6. Share your data\n\nClick the **Copy** button on the overlay (or run `/killtimer copy`, or use the **Copy data\nto share** button under **Settings > AddOns > killTimer**) to open a small window with the\ncurrent stats as plain text. Press **Ctrl+A** then **Ctrl+C** to copy it, then paste it\nanywhere (Discord, chat, etc.) - WoW addons can't write to the clipboard directly, so this\nselect-and-copy box is the standard workaround.\n\n## Reporting bugs and requesting features\n\n- [Report a bug](https://github.com/askau2003/killTimer/issues/new?template=bug_report.yml) -\n  asks for the addon version, whether RestedXP is installed, and any Lua errors, which is\n  normally all that's needed to track down a problem.\n- [Request a feature](https://github.com/askau2003/killTimer/issues/new?template=feature_request.yml) -\n  asks what problem it would solve and what you'd like to happen.\n\n## Development\n\nThe addon can't be unit-tested inside WoW, so `tests/wow_api.lua` stubs just enough of the\nclient - frames, the quest log, loot events and RestedXP's guide window - to load\n`killTimer.lua` outside the game and drive it kill by kill. Every case in\n`tests/killtimer_spec.lua` is a regression that was once real.\n\n```sh\nlua5.1 tests/run.lua        # behaviour tests\nluacheck .                  # undefined globals, shadowing, dead locals\n./scripts/check-versions.sh # killTimer.toc vs CHANGELOG.md\n```\n\nAll three run on every push and pull request (`.github/workflows/ci.yml`). Nothing here\nreplaces a `/reload` in game - the stub only covers the API calls the addon makes, so UI\nand timing still need a real client.\n\n## License\n\n[MIT](https://github.com/askau2003/killTimer/blob/main/LICENSE)\n\n## For agents\n\nSee [CLAUDE.md](https://github.com/askau2003/killTimer/blob/main/CLAUDE.md) for the local testing workflow.",
+  "releases": [
+    {
+      "tag": "v1.7",
+      "published": "2026-11-20",
+      "notes": "### Added\n- Each quest objective line now shows how long you have spent working on it,\n  next to its progress.\n- `/killtimer log` prints the most recent logged step results back into chat.\n  The log is kept per character and now holds the last 200 entries - it used\n  to grow for the lifetime of the character with no way to read it back.\n\n### Changed\n- An open quest objective now keeps its kill count, mob breakdown and time\n  across RestedXP step changes instead of being reset at every step boundary -\n  RestedXP often asks you to kill or loot something \"on the way\" over several\n  steps of the same quest. Its result is printed to chat when the objective\n  actually leaves your quest log (turned in or abandoned) rather than at every\n  step change, which also stops the same kills being repeated in entry after\n  entry.\n- The clock is now time spent working rather than wall-clock: it only runs\n  while you are on a step the line below it is about, so walking to a turn-in,\n  taking a flight path or doing an unrelated step no longer inflates it.\n- Item-farming kills group on a shared family word instead of any shared word,\n  so \"Mangy Wolf\" and \"Mangy Jaguar\" stay apart while \"Dreaming Whelp\" and\n  \"Adolescent Whelp\" still group under \"Whelp\". A group holding a single mob\n  type is now labelled with its full name instead of just its first word, and\n  a name's punctuation no longer prevents a match (\"Kolkar's\" and \"Kolkar\").\n\n### Fixed\n- A mob that counts towards two quests at once was added to the kill total\n  once per quest, so a single kill read as two.\n- A mob killed for an item drop in the same moment as a quest-objective kill\n  was dropped from the counts entirely.\n- A quest item that is not of Blizzard's \"Quest\" item class - plenty of\n  collection quests ask for a trade good or a plain junk item - was shown at\n  0% forever while it was in fact being looted.\n- A quest-item goal that had not dropped yet was forgotten as soon as the\n  current step stopped naming it, losing exactly the long dry streak that is\n  worth tracking.\n- A drop counted whenever the last thing looted had been a corpse, so a quest\n  item received well afterwards, or from a chest, could be counted as a drop.\n- Quest progress that arrives without a kill message - a grey mob, or any kill\n  at the level cap - was credited to whatever died last, even if that was\n  minutes earlier. It is listed as Unknown instead, and still counted.\n- An objective's work time could sit at 0:00 for an entire farm when\n  RestedXP's step wording didn't match the quest log's; objectives are now\n  matched by quest ID, and recent progress keeps the clock running on its own.\n- The overlay rebuilt its quest-log data several times per update, five times\n  a second, where once per update is enough."
+    },
+    {
+      "tag": "v1.6",
+      "published": "2026-11-18",
+      "notes": "### Changed\n- Pure item-farming kills are now grouped by any word shared with another\n  already-seen mob, not just the first word - e.g. \"Dreaming Whelp\" and\n  \"Adolescent Whelp\" now group together under \"Whelp\" instead of staying\n  split apart by their differing first word."
+    },
+    {
+      "tag": "v1.5",
+      "published": "2026-11-18",
+      "notes": "### Fixed\n- Pure item-farming (e.g. a \"loot X Charms\" quest with no kill-count\n  objective) only disabled monster-objective grouping for the current\n  RestedXP step, not the whole quest log - an unrelated item quest sitting\n  elsewhere no longer turns off mob filtering on other steps.\n- A step that tracks both a \"kill X\" quest objective and a separate item drop\n  no longer loses the monster-objective grouping (e.g. every Centaur variant)\n  to the item-farming fallback - both are credited correctly.\n\n### Added\n- Pure item-farming kills with no Blizzard kill-count objective (e.g. every\n  Kolkar variant while farming Crude Charms) are now grouped by the mob\n  name's first word into one summary line, with the individual mob counts\n  shown in a tooltip on hover - consistent with quest-objective grouping."
+    },
+    {
+      "tag": "v1.1",
+      "published": "2026-11-16",
+      "notes": "Initial release: live kill count, elapsed time, and quest-item drop-% overlay while leveling,\nwith RestedXP step-change integration - the overlay resets and logs a chat summary each time\nthe active guide step changes. Redesigned with a title, a larger header for time/kills, and\nan auto-sizing panel.\n\nInstall via WowUp: Get Addons > Install from URL > paste this repo's URL."
+    },
+    {
+      "tag": "v1.4",
+      "published": "2026-11-16",
+      "notes": "### Added\n- Group every mob that contributes to the same \"kill X\" quest objective (e.g. every\n  Centaur variant) into one summary line instead of one line per NPC name, with the\n  individual mob counts shown in a tooltip on hover.\n- Remember the overlay's dragged screen position across `/reload` and relog - previously\n  only scale, width, height and the lock setting were saved.\n\n### Fixed\n- The panel no longer renders at the wrong scale/size right after login until a slider in\n  Settings is touched.\n- The Options panel's sliders and lock checkbox now reflect the saved values every time\n  the panel is reopened, instead of only on the very first load.\n- Dragging the panel from inside its body (the kill/quest list area) stopped working once\n  hover tooltips were added - that area now forwards drags to the panel instead of\n  swallowing the click.\n\nInstall via WowUp: Get Addons > Install from URL > paste this repo's URL."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/askau2003/killTimer/main/screenshots/overlay.png"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "killTimer"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "killTimerDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "killTimerLog"
+    ]
+  }
+}

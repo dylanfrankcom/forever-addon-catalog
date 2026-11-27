@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "whoolist",
+  "repo": "Meorawr/WhooList",
+  "about": "# WhooList\n\nWorld of Warcraft: Forever addon that replaces the Who list tab icon with an owl. That is all.",
+  "releases": [
+    {
+      "tag": "1.0.2",
+      "published": "2026-09-25",
+      "notes": "# WhooList\n\n## [1.0.2](https://github.com/Meorawr/WhooList/tree/1.0.2) (2026-09-25)\n[Full Changelog](https://github.com/Meorawr/WhooList/commits/1.0.2) [Previous Releases](https://github.com/Meorawr/WhooList/releases)\n\n- Heightened immersion"
+    },
+    {
+      "tag": "1.0.1",
+      "published": "2026-09-25",
+      "notes": "# WhooList\n\n## [1.0.1](https://github.com/Meorawr/WhooList/tree/1.0.1) (2026-09-25)\n[Full Changelog](https://github.com/Meorawr/WhooList/commits/1.0.1) [Previous Releases](https://github.com/Meorawr/WhooList/releases)\n\n- Literal missed opportunities smh"
+    },
+    {
+      "tag": "1.0.0",
+      "published": "2026-09-24",
+      "notes": "# WhooList\n\n## [1.0.0](https://github.com/Meorawr/WhooList/tree/1.0.0) (2026-09-24)\n[Full Changelog](https://github.com/Meorawr/WhooList/commits/1.0.0) [Previous Releases](https://github.com/Meorawr/WhooList/releases)\n\n- Initial and probably only ever commit"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-09-25",
+    "releaseDates": [
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WhooList"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

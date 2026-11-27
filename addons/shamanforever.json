@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "id": "shamanforever",
+  "repo": "cassidymichael/ShamanForever",
+  "about": "![ShamanForever: a shaman HUD for World of Warcraft: Forever](https://raw.githubusercontent.com/cassidymichael/ShamanForever/main/docs/banner.png)\n\nA configurable HUD for shamans on World of Warcraft: Forever: the buffs, imbues and cooldowns a shaman watches, as icons you can arrange anywhere. Requires WoW: Forever (interface 16001).\n\n[![ShamanForever's HUD in preview mode with positioning unlocked](docs/gallery/hud-preview-and-unlocked.png)](https://github.com/cassidymichael/ShamanForever/blob/main/docs/gallery/README.md)\n\nMore screenshots: [options gallery](https://github.com/cassidymichael/ShamanForever/blob/main/docs/gallery/README.md).\n\n## Download\n\n- [CurseForge](https://www.curseforge.com/wow/addons/shamanforever)\n- [Wago](https://addons.wago.io/addons/shamanforever)\n- [GitHub releases](https://github.com/cassidymichael/ShamanForever/releases) — download `ShamanForever-<version>-forever.zip` (not GitHub's *Source code* archive, which has no `Libs/` folder)\n\n## Features\n\nA collection of highly configurable HUD elements designed to help shamans playing World of Warcraft: Forever.\n\nSome highlights include:\n\n**Totem bar**: Fully configurable totem bar replacing the default or active totem frames: drop, pick and dismiss totems, Call of the Elements and Totemic Recall, totem sets for each Call (set ahead of time, switched in combat), out of range warning, key bindings, themes, and more.\n\n**Shield helpers**: Lightning Shield and Water Shield tracking. Style and animate based on charges left.\n\n**Shock trackers**: Earth, Flame, and Frost Shock monitoring for cooldown, range, mana.\n\n**Flame Shock**: Track Flame Shock on your target with style and animations based on time left or debuff missing.\n\n**Purge**: Show and glow an icon when your target has a purgeable magic buff, with buff duration filter.\n\n**Weapon Imbues**: Rockbiter, Flametongue, Frostbrand, and Windfury imbue status. Warn when missing.\n\n**Swing timer**: Melee swing timer shown as a bar.\n\n**Windfury proc alerts**: See and hear every Windfury proc, from Windfury Weapon or Windfury Totem, each with its own words, icon, look, sound and place on screen.\n\n**Dedicated ability and proc trackers**: Custom made indicators for shaman abilities such as Stormstrike, Fire Nova, Chain Lightning, Riptide, Lightning Mastery, Rage of the Farseer, Nature's Swiftness, Mana Tide Totem, Earthbind Totem, Tremor Totem, Grounding Totem, Stoneclaw Totem, Totemic Call, Elemental Focus, Maelstrom Weapon, Flurry, Improved Stormstrike. Not just cooldowns, also event, duration and condition-based warnings and animation styles.\n\n**Utility and reagent trackers**: Water Walking, Water Breathing, Reincarnation. Know when you are low on reagents, see Reincarnation cooldown, get warnings on buff expiry or when drowning.\n\n**Racial trackers**: All shaman races have their racial abilities included; Stoneform, Blood Fury, Shatter Curse, Berserking, Rapid Regeneration, Skysight, Walk on Air, War Stomp.\n\n**Extremely customisable styling**: Font and text styles, border options, bar textures, including those from other installed addons through LibSharedMedia.\n\n**Layout and preview system**: Drag and drop element groups live on the screen and quickly adjust size, scale, opacity. Get a sense of the action with preview modes. Structured group-based layout for consistency of layout.\n\n**Many opacity and idle settings**: Control the opacity of all groups, plus dedicated \"idle when\" logic to allow setups like hiding an element when it's on or off cooldown, when a buff is up or down, only in combat, and more.\n\n... and many more! Feature requests are highly encouraged. Please help us make this addon more valuable for all shamans!\n\n## Usage\n\n*   `/sf` opens the options window (or use the minimap button).\n*   Key bindings for the totem bar: Escape > Options > Keybindings > ShamanForever, or use the Quick Keybinds feature.\n*   `/sf lock` to unlock positioning.\n*   `/sf preview` shows your HUD in various modes to get a sense of it in action.\n\n## Feedback\n\nIdeas, requests or problems are welcome, any of these ways:\n\n- A post in `#feedback` on [Discord](https://discord.gg/VaXH8CQZFG).\n- A comment on [CurseForge](https://www.curseforge.com/wow/addons/shamanforever/comments).\n- An [issue on GitHub](https://github.com/cassidymichael/ShamanForever/issues).\n\n## Development\n\nShamanForever is created and maintained with the help of AI tools.\n\n- [CHANGELOG.md](https://github.com/cassidymichael/ShamanForever/blob/main/CHANGELOG.md): what changed in each version.\n\n## Art\n\nThe options banners are public-domain paintings: Thomas Moran, *The Chasm of the Colorado*; Joseph Wright of Derby, *Vesuvius from Portici*; Frederic Edwin Church, *Rainy Season in the Tropics* and *Aurora Borealis*; Francisque Millet, *Mountain Landscape with Lightning*. The corner and divider ornaments are public domain / CC0 (Wikimedia Commons). The logo is Blizzard's shaman crest, redrawn, over the same paintings and Ivan Aivazovsky's *Breaking Wave*, with a CC0 wood texture from ambientCG. The link icons on the About page are from Simple Icons (CC0). Spell icons are Blizzard's, from the game, as is the art of the Cooldown Manager, Forever action button, Outer halo, Proc glow and Blizzard's flash looks, and of the totem theme modelled on Blizzard's totem bar. The Carved stone, Aged bronze and Carved wood borders and the Emblem pop burst were made with an AI image model (Google Gemini), as was the art of the Stone and bronze, Stone bosses, Wood and bone and Iron and ember totem themes.\n\n## Licence\n\nCopyright (C) 2026 Michael Cassidy. ShamanForever is free software: you can redistribute it and/or\nmodify it under the terms of the GNU General Public License as published by the Free Software\nFoundation, either version 3 of the License, or (at your option) any later version. See LICENSE.\n\nReleases up to 0.12.1 were published under the MIT licence. The bundled libraries (LibStub,\nCallbackHandler, LibDataBroker, LibDBIcon) keep their own licences.",
+  "releases": [
+    {
+      "tag": "v0.17.2",
+      "published": "2026-11-24",
+      "notes": "## 0.17.2 (2026-11-25)\n\n- Totem bar: An open totem picker now shows on top of your action bars and other parts of the HUD, instead of behind them.\n- Totem bar: When not using the hover-option for totem picker (using the arrow buttons instead), a click away from an expanded totem picker no longer blocks a click on an action button. And a new option has been added to make clicks away from an expanded totem picker not close the picker, but rather leave it open.\n- Swing timer: \"Show\" now has the choices \"While swinging\", \"In combat (even when not swinging)\", \"Always\" and \"Never\". If you had \"Always\" picked, the bar now stays on screen between swings.\n- Swing timer: New options \"Bar between swings\" (empty or full) for how the bar looks when it is on screen but you are not swinging, \"Spark on the bar\", and more options for Flurry charges on swing timer (position, thickness, and colour for the Flurry charges' pips).\n\nEarlier versions: [CHANGELOG.md](https://github.com/cassidymichael/ShamanForever/blob/v0.17.2/CHANGELOG.md)"
+    },
+    {
+      "tag": "v0.17.1",
+      "published": "2026-11-22",
+      "notes": "## 0.17.1 (2026-11-22)\n\n- Fixed the profile going back to Default every time you log in. A recent WoW update, along with a quirk in ShamanForever's character identification technique, caused this. Thank you to those who reported this bug so I could promptly fix it.\n\nEarlier versions: [CHANGELOG.md](https://github.com/cassidymichael/ShamanForever/blob/v0.17.1/CHANGELOG.md)"
+    },
+    {
+      "tag": "v0.17.0",
+      "published": "2026-11-17",
+      "notes": "## 0.17.0 (2026-11-17)\n\n- New: Windfury proc alerts. An alert on screen, with a sound if you pick one, each time Windfury Weapon or Windfury Totem procs. Each alert has its own text, icon, size, animation and place. Off by default: turn it on from its new page in the options.\n- Totem bar: set up the four totems each Call drops ahead of time, in a new grid under Totem sets, and choose which Call's totems the bar uses.\n- Totem bar: totem sets now switch in combat too, by right-clicking Call, from its set picker, or with the \"Next totem set\" key binding.\n- New sounds to pick from: five bonks and three lightsaber sounds.\n- Many other minor fixes and improvements, including a new \"Open the set picker on hover\" option.\n\nEarlier versions: [CHANGELOG.md](https://github.com/cassidymichael/ShamanForever/blob/v0.17.0/CHANGELOG.md)"
+    },
+    {
+      "tag": "v0.16.9",
+      "published": "2026-11-15",
+      "notes": "## 0.16.9 (2026-11-15)\n\n- Totem bar: \"Different totem down\" has a new \"Side\" option, so your pick can show above or below the bar (left or right on a vertical bar).\n- Settings like pixel offsets, gaps, and spacing now accept typed values far greater than what the default slider reaches (up to 500px typically, more for some).\n\nEarlier versions: [CHANGELOG.md](https://github.com/cassidymichael/ShamanForever/blob/v0.16.9/CHANGELOG.md)"
+    },
+    {
+      "tag": "v0.16.8",
+      "published": "2026-11-14",
+      "notes": "## 0.16.8 (2026-11-14)\n\n- Totem bar: the out of range indicator for Windfury Totem and Flametongue Totem should now work.\n\nEarlier versions: [CHANGELOG.md](https://github.com/cassidymichael/ShamanForever/blob/v0.16.8/CHANGELOG.md)"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-22",
+      "2026-11-17",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-10",
+      "2026-11-06",
+      "2026-11-03",
+      "2026-10-22",
+      "2026-10-21",
+      "2026-10-19",
+      "2026-10-16",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-05",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-10-01",
+      "2026-09-30",
+      "2026-09-30",
+      "2026-09-30",
+      "2026-09-29",
+      "2026-09-27",
+      "2026-09-26",
+      "2026-09-26",
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-24",
+      "2026-09-24",
+      "2026-09-23",
+      "2026-09-23",
+      "2026-09-23",
+      "2026-09-23",
+      "2026-09-23",
+      "2026-09-23",
+      "2026-09-22",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ShamanForever"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0",
+      "SharedMedia"
+    ],
+    "savedVariables": [
+      "ShamanForeverDB"
+    ]
+  }
+}

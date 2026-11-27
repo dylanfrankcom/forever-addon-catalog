@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "spelldamageinfo",
+  "repo": "Ironship/SpellDamageInfo",
+  "about": "# SpellDamageInfo\n\n![image](https://github.com/user-attachments/assets/53ce8d22-72de-412f-a048-e44b9a319e1d)\n\nA World of Warcraft addon for WoW: Forever, Classic Era and Retail. It puts the damage (or healing) of each spell on your action buttons and adds a line or two to the spell tooltip. The numbers come from the spell's own description, in English or German, whichever each text is in; an optional estimate adds your spell power, at the share the game's own spell data gives each spell on WoW: Forever and Classic Era (Classic's coefficient rules for a spell the data does not cover), and says so. Debuffs that lower the enemy's damage or attack power, such as Curse of Weakness or Demoralizing Shout, show the reduction in red (\"-3\", \"-10%\"). A lower attack power shows what it takes off each hit of your target, \"-7\" for -50 attack power on a target that attacks every 2 seconds (14 attack power are 1 damage per second of its attack speed), or \"-50 AP\" while that speed is not known, as in combat on a target you had not selected before.\n\nAbilities that hit with your weapon (Heroic Strike, Maul, Claw, Shred, Sinister Strike, Aimed Shot and the like) show their potential damage in blue: your weapon's average hit, times the ability's percentage, plus its bonus. Spells that raise attack power (Battle Shout, Rockbiter Weapon, Blessing of Might, Seal of the Crusader, Bear and Cat Form, Aspect of the Hawk) show what they add to each hit, as \"+103\". Both are estimates from your weapon's numbers, read out of combat, and the tooltip says so; `/sdi weapon off` turns them off. `/sdi misses` lists the spells on your bars that give no number, which is the list to send when something is missing.\n\nSeals show what they add to every hit (Seal of Righteousness and Flametongue Weapon, whose texts give a range for all weapon speeds, at your weapon's speed), and Judgement shows the damage of the seal that is active. Effects that trigger by chance (Windfury, Seal of Command, Seal of Light, poisons, Frostbrand) show what one trigger does, and the tooltip gives the chance. Shields show what they absorb (in purple), finishers their damage at five combo points with the other points in the tooltip, and totems, Lay on Hands, Execute and Mana Burn what their descriptions work out to (a totem's or trap's number gets no spell power estimate: it is the totem's own spell, which the data does not name). `/sdi dump` writes your spellbook's descriptions, as your client shows them, to the saved variables, for testing; `/sdi dump all` does the same for every class's abilities.\n\nThe pet bar shows the pet's spells too (the Imp's Firebolt, for example), with the numbers from the description only, since the pet has its own spell power.\n\nThe numbers are drawn on Blizzard's own action bars, the pet bar and Forever's Totem Bar. Bars from Bartender4, ElvUI and other addons built on LibActionButton get none (`/sdi status` says so when one is loaded); the tooltip lines work with them all the same.\n\nOn Retail, whose descriptions already include your stats, the numbers are the descriptions' own: the spell power estimate and the weapon arithmetic are off there.\n\nThe addon's interface language (labels, chat messages, number formatting) can be switched independently of the game language via the settings window or `/sdi lang auto|en|de`. Auto follows the game's language.\n\n**Install:** unzip `SpellDamageInfo-0.7.3.zip` into `Interface\\AddOns` of your game folder (`_classic_beta_` for Forever, `_classic_era_` for Classic Era, `_retail_` for Retail), then restart the game: a new addon folder is only picked up at start. Type `/sdi` (or open Options > AddOns > SpellDamageInfo) for the settings window, with a live preview of the numbers on a sample button; `/sdi help` lists the commands, such as the size (`/sdi size 50-200`) and place (`/sdi position bottom|center|top`) of the numbers.\n\nInspired by DrDamage by Gagorian. The options window is adapted from DoesItDie by Joe Greive (MIT). Licence: MIT (see `LICENSE`).",
+  "releases": [
+    {
+      "tag": "v0.8.0",
+      "name": "SpellDamageInfo 0.8.0",
+      "published": "2026-09-26",
+      "notes": "- Spell power estimates use each spell's own share from the game's data (area, channeled and hybrid spells, DoTs).\n- Flametongue Totem ranks 2-4 show as a bonus on each hit.\n- Seal of the Crusader, Cat and Bear Form, and per-hit seals by weapon speed.\n- Pet spells in the spellbook, numbers on the Totem Bar, and the count on a button no longer covers the number."
+    },
+    {
+      "tag": "v0.7.4",
+      "name": "SpellDamageInfo 0.7.4",
+      "published": "2026-09-26",
+      "notes": "- The numbers come back by themselves when Resurrection Sickness ends; no /reload needed."
+    },
+    {
+      "tag": "v0.7.3",
+      "name": "SpellDamageInfo 0.7.3",
+      "published": "2026-09-25",
+      "notes": "Weapon abilities and spells that raise attack power now show their potential damage in blue, and chance effects such as Windfury, Seal of Command and the poisons show what one trigger does. Seals, Judgement, shields, finishers, totems and Retail are covered too. Every description of all nine classes was checked against WoW Forever's own German and English client text, so the German client reads the same numbers as the English one. The interface can be switched to English or German with /sdi lang."
+    },
+    {
+      "tag": "v0.4.1",
+      "name": "SpellDamageInfo 0.4.1",
+      "published": "2026-09-25",
+      "notes": "The painted icon."
+    },
+    {
+      "tag": "v0.4.0",
+      "name": "SpellDamageInfo 0.4.0",
+      "published": "2026-09-25",
+      "notes": "A settings window (/sdi or Options > AddOns) with a live preview of the button numbers, and an icon for the AddOns list."
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/53ce8d22-72de-412f-a048-e44b9a319e1d"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-09-26",
+    "releaseDates": [
+      "2026-09-26",
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "SpellDamageInfo"
+    ],
+    "editions": [
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "SpellDamageInfoDB"
+    ]
+  }
+}

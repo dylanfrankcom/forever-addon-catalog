@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "tagger",
+  "repo": "stevin05/Tagger",
+  "about": "Temporarily re-bind mousewheel up and down to a macro that targets, pings, and casts a spell at the named NPC. In quest mode, it will target and accept all quests provided by the NPC. (Note that it's 'The Defias Traitor', not 'Defias Traitor')\n\n/tagger to enable the GUI.\n\nClick the spell icon to change it. (Bugged - /reload after choosing the spell to make your spellbook usable again.)\n\nClick the arrow to toggle exact vs prefix matching.\n\nType the name of the NPC to target. Hit enter/tab on an empty box to autocomplete to your current target's name.\n\nSelect the mode across the top.\n\n - Tag Mob - to target and cast the spell at the named mob\n - Start Quest - to target and interact with the named quest giver\n\nDisable or close the window to restore your scroll wheel binds.",
+  "releases": [
+    {
+      "tag": "v1.0.4",
+      "published": "2026-09-28",
+      "notes": "# Tagger\n\n## [v1.0.4](https://github.com/stevin05/Tagger/tree/v1.0.4) (2026-09-28)\n[Full Changelog](https://github.com/stevin05/Tagger/compare/v1.0.2...v1.0.4) [Previous Releases](https://github.com/stevin05/Tagger/releases)\n\n- Fix release.yml syntax error"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-09-28",
+    "releaseDates": [
+      "2026-09-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Tagger"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "TaggerDB"
+    ]
+  }
+}

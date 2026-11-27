@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "unhaltedunitframes",
+  "repo": "Reloe/UnhaltedUnitFrames-Forked",
+  "about": "You can install GitHub Addons via WowUp.\n\nThis Version won't work on Patches prior to 12.1\n\nIf your frames are not appearing on screen at all, you likely just need to change the Anchor Parent\n\nFork of Unhalted Unit Frames as development of it has halted.\nYou may create Issues or Pull Requests on this GitHub - However keep in mind that I will mainly just maintain this Addon and not actively develop it.\nUnless a feature request is extremely important or fully completed in a pull request already, it is likely I will reject it.\nAny issues that came from previous versions will be ignored. Please do not report those.",
+  "releases": [
+    {
+      "tag": "12.1.13",
+      "published": "2026-10-10",
+      "notes": "# UnhaltedUnitFrames\n\n## [12.1.13](https://github.com/Reloe/UnhaltedUnitFrames-Forked/tree/12.1.13) (2026-10-10)\n[Full Changelog](https://github.com/Reloe/UnhaltedUnitFrames-Forked/compare/12.1.12...12.1.13) [Previous Releases](https://github.com/Reloe/UnhaltedUnitFrames-Forked/releases)\n\n- update sharedmedia and fix registration  \n- compatibility fix on forever  \n- add setting to hide pet happiness if at maximum  \n- update toc  \n- update ouf  \n- Update PetHappiness.lua  \n- Update Range.lua  \n- add pet happines in forever  \n- refresh auras on boss unit update  \n- fix for forever  \n- Update GUI.lua"
+    },
+    {
+      "tag": "12.1.12",
+      "published": "2026-08-27",
+      "notes": "# UnhaltedUnitFrames\n\n## [12.1.12](https://github.com/Reloe/UnhaltedUnitFrames-Forked/tree/12.1.12) (2026-08-27)\n[Full Changelog](https://github.com/Reloe/UnhaltedUnitFrames-Forked/compare/12.1.11...12.1.12) [Previous Releases](https://github.com/Reloe/UnhaltedUnitFrames-Forked/releases)\n\n- Merge pull request #7 from emptyrivers/fixfixfix  \n    fix some nil errors  \n- fix some nil errors"
+    },
+    {
+      "tag": "12.1.11",
+      "published": "2026-08-24",
+      "notes": "# UnhaltedUnitFrames\n\n## [12.1.11](https://github.com/Reloe/UnhaltedUnitFrames-Forked/tree/12.1.11) (2026-08-24)\n[Full Changelog](https://github.com/Reloe/UnhaltedUnitFrames-Forked/compare/12.1.10...12.1.11) [Previous Releases](https://github.com/Reloe/UnhaltedUnitFrames-Forked/releases)\n\n- Update UnhaltedUnitFrames.toc  \n- Update CHANGELOG.md  \n- Merge pull request #6 from Skeletor-gh/main  \n    Fix settings loading issue by refreshing unit frame settings  \n- Merge pull request #4 from lb1598/main  \n    Fixed debuff colored borders not showing  \n- Update version number to V12.1.01-alpha  \n- Merge pull request #2 from Skeletor-gh/codex/fix-taint-in-unitclassification-function  \n    Fix ClassificationIndicator ForceUpdate to use oUF internal `__unit` token  \n- Fix classification indicator force update unit  \n- Merge pull request #1 from Skeletor-gh/codex/fix-settings-loading-issue-in-addon  \n    Refresh unit frame settings after startup to fix settings issue(s).  \n- Refresh unit frame settings after startup  \n- Update TagsDatabase.lua  \n- Fixed debuff borders"
+    },
+    {
+      "tag": "12.1.10",
+      "published": "2026-08-18",
+      "notes": "# UnhaltedUnitFrames\n\n## [12.1.10](https://github.com/Reloe/UnhaltedUnitFrames-Forked/tree/12.1.10) (2026-08-18)\n[Full Changelog](https://github.com/Reloe/UnhaltedUnitFrames-Forked/compare/12.1.9...12.1.10) [Previous Releases](https://github.com/Reloe/UnhaltedUnitFrames-Forked/releases)\n\n- fix secret error"
+    },
+    {
+      "tag": "12.1.9",
+      "published": "2026-08-12",
+      "notes": "# UnhaltedUnitFrames\n\n## [12.1.9](https://github.com/Reloe/UnhaltedUnitFrames-Forked/tree/12.1.9) (2026-08-12)\n[Full Changelog](https://github.com/Reloe/UnhaltedUnitFrames-Forked/compare/12.1.8...12.1.9) [Previous Releases](https://github.com/Reloe/UnhaltedUnitFrames-Forked/releases)\n\n- fix secret error for class color  \n- fix boss preview"
+    }
+  ],
+  "stats": {
+    "stars": 6,
+    "openIssues": 0,
+    "contributors": 6,
+    "lastRelease": "2026-10-10",
+    "releaseDates": [
+      "2026-10-10",
+      "2026-08-27",
+      "2026-08-24",
+      "2026-08-18",
+      "2026-08-12",
+      "2026-08-11",
+      "2026-08-01",
+      "2026-07-29",
+      "2026-07-24",
+      "2026-07-22",
+      "2026-07-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "UnhaltedUnitFrames"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "UUFDB"
+    ]
+  }
+}

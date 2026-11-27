@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "foodoptimizer",
+  "repo": "lucasreppewelander/FoodOptimizer",
+  "about": "# Food Optimizer\n\nA World of Warcraft Classic addon that decides which food and drink to eat for you, so your bags stay tidy.\n\nBy default it eats the food you have the **fewest** of first. That stack runs out sooner and frees up a bag slot. When two foods tie, it eats the one that restores the **least** first, and it saves your best food for later. You can also set the order yourself.\n\n![Food Optimizer panel](https://raw.githubusercontent.com/lucasreppewelander/FoodOptimizer/main/screenshots/panel.png)\n\n## Features\n\n- **Scans all your bags** and finds every food (restores health over time) and drink (restores mana over time). It skips potions, recipes, and food that needs a higher level than you are.\n- **Smart default order:** fewest first, then lowest amount restored. It always eats from your smallest stack.\n- **Your own order:** open the panel with `/fo` and move items up or down with the arrows. Your order is saved.\n- **Never use an item:** untick **Use** to keep something out of rotation, such as buff food you're saving for a raid.\n- **Separate food and drink**, each with its own tab, button and macro.\n- **Optional on-screen buttons:** hidden by default. Turn them on in the panel or with `/fo show`. Drag the handle above them to put them anywhere, then lock them in place from the panel.\n- **Action bar macros:** one click creates a macro. The action bar button always shows the icon, tooltip and count of what it will eat next.\n\n![Macro on the action bar](https://raw.githubusercontent.com/lucasreppewelander/FoodOptimizer/main/screenshots/macro-button.png)\n\n## Installation\n\n1. **[Download FoodOptimizer.zip](https://github.com/lucasreppewelander/FoodOptimizer/releases/latest/download/FoodOptimizer.zip)**\n2. Extract it into `World of Warcraft/_classic_era_/Interface/AddOns/`. You should end up with `AddOns/FoodOptimizer/FoodOptimizer.toc`.\n3. Restart the game or type `/reload`.\n\nDon't use GitHub's green **Code → Download ZIP** button. It names the folder `FoodOptimizer-main`, and WoW won't load the addon from a folder with that name.\n\nIf the addon shows as out of date, tick **Load out of date AddOns** on the character select screen. You can also update the `## Interface:` line in `FoodOptimizer.toc` to your client's version. Run `/dump select(4, GetBuildInfo())` in game to find it.\n\n## Usage\n\n1. Type `/fo` to open the panel.\n2. Pick the **Food** or **Drink** tab and arrange the order if you want. The top item is eaten first.\n3. Click **Create Food macro** or **Create Drink macro**. The macro lands on your cursor, so drop it on an action bar.\n4. Press the action bar button whenever you want to eat or drink.\n\nThe addon keeps the macros up to date as your bags change. Macros can't be changed during combat, so any changes made in combat apply as soon as the fight ends.\n\n### Moving the on-screen buttons\n\nWhile the buttons are unlocked, a **Drag** handle sits above them. Left-drag the handle, or right-drag either button, to move both buttons together. Tick **Lock button position** in the panel, or type `/fo lock`, to hide the handle and keep them in place. You can't move them during combat.\n\nPosition, show/hide and lock are saved per character. Food order and unticked items are shared by all your characters.\n\n### Slash commands\n\n| Command | Description |\n| --- | --- |\n| `/fo` | Open or close the order panel |\n| `/fo show` / `/fo hide` | Show or hide the small on-screen buttons |\n| `/fo lock` / `/fo unlock` | Lock or unlock the on-screen buttons' position |\n| `/fo reset` | Move the on-screen buttons back to their default spot |\n| `/fo debug` | Open a window with details about how settings were loaded, which you can copy into a bug report |\n\n### Manual macros\n\nIf you'd rather write the macros yourself:\n\n```\n/click FoodOptimizerFoodButton\n```\n\n```\n/click FoodOptimizerDrinkButton\n```\n\n## Notes\n\n- WoW doesn't let addons use items on their own, so eating always needs a key press or click. The addon only picks *what* gets eaten.\n- Items that restore both health and mana (like Conjured Mana Biscuits) show up on both tabs. Untick them on the tab you don't want them used from.\n- Tooltip reading only works on English game clients.\n- Built for Classic clients 1.15.x and 1.60.x.",
+  "releases": [
+    {
+      "tag": "v1.2.4",
+      "name": "Food Optimizer 1.2.4",
+      "published": "2026-09-24",
+      "notes": "- On-screen buttons are now hidden by default. Turn them on in the `/fo` panel or with `/fo show`. The action bar macros work either way.\n\nExtract `FoodOptimizer.zip` into your `Interface/AddOns/` folder."
+    },
+    {
+      "tag": "v1.2.3",
+      "name": "Food Optimizer 1.2.3",
+      "published": "2026-09-24",
+      "notes": "- Mark the addon as up to date for the 1.60 client (interface 16001).\n- `/fo debug` now opens a window where the text can be selected and copied.\n\nExtract `FoodOptimizer.zip` into your `Interface/AddOns/` folder."
+    },
+    {
+      "tag": "v1.2.2",
+      "name": "Food Optimizer 1.2.2",
+      "published": "2026-09-24",
+      "notes": "- Fix: saved button position and lock not applied after logging in.\n- New: `/fo debug` shows how the saved settings were loaded.\n\nExtract `FoodOptimizer.zip` into your `Interface/AddOns/` folder."
+    },
+    {
+      "tag": "v1.2.1",
+      "name": "Food Optimizer 1.2.1",
+      "published": "2026-09-24",
+      "notes": "- Fix: no food/drink found right after logging in (worked only after /reload).\n\nExtract `FoodOptimizer.zip` into your `Interface/AddOns/` folder."
+    },
+    {
+      "tag": "v1.2.0",
+      "name": "Food Optimizer 1.2.0",
+      "published": "2026-09-24",
+      "notes": "- Button position, show/hide and lock are now saved per character and no longer reset at login.\n\nExtract `FoodOptimizer.zip` into `World of Warcraft/_classic_era_/Interface/AddOns/`."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/lucasreppewelander/FoodOptimizer/main/screenshots/panel.png",
+    "https://raw.githubusercontent.com/lucasreppewelander/FoodOptimizer/main/screenshots/macro-button.png"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-09-24",
+    "releaseDates": [
+      "2026-09-24",
+      "2026-09-24",
+      "2026-09-24",
+      "2026-09-24",
+      "2026-09-24",
+      "2026-09-23",
+      "2026-09-23",
+      "2026-09-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FoodOptimizer"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "FoodOptimizerDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "FoodOptimizerCharDB"
+    ]
+  }
+}

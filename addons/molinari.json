@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "molinari",
+  "repo": "p3lim-wow/Molinari",
+  "about": "# Molinari\n\nThis is an addon for the popular MMORPG \"World of Warcraft\".  \nIt can be downloaded at one of the following sites:\n\n- [CurseForge](https://www.curseforge.com/wow/addons/molinari)\n- [WoWInterface](https://wowinterface.com/downloads/info13188)\n- [Wago](https://addons.wago.io/addons/molinari)\n- [GitHub](https://github.com/p3lim-wow/Molinari/releases)\n\n## Description\n\nMolinari allows the player to easily \"salvage\" items directly from the inventory by holding down the `Alt` key and clicking on the item in their bags, instead of dealing with the tradeskill UI, spellbook, macros or actions.\n\nThe following \"salvaging\" is supported:\n\n- [Milling](https://www.wowhead.com/spell=51005)\n- [Prospecting](https://www.wowhead.com/spell=31252)\n- [Disenchanting](https://www.wowhead.com/spell=13262)\n- [Lockpicking](https://www.wowhead.com/spell=1804)\n  - [Skeleton Pinkie](https://www.wowhead.com/spell=312890) (Mechagnome racial)\n  - [Kevin's Keyring](https://www.wowhead.com/spell=323427) (Necrolord soulbind ability)\n  - [Blacksmithing picks](https://www.wowhead.com/items/name:key?filter=86;2;0)\n  - [Jewelcrafting picks](https://www.wowhead.com/items/name:lock?filter=86;7;0)\n  - [Inscription picks](https://wowhead.com/items?filter=107:99;0:15;lockpick:0)\n  - [Engineering picks](https://www.wowhead.com/items/consumables?filter=107:99;0:5;lock:0#0+2+18)\n- [Scrapping](https://www.wowhead.com/spell=382374)\n- [Crushing](https://www.wowhead.com/spell=395696)\n- [Shattering](https://www.wowhead.com/spell=391302)\n- [Transmuting](https://www.wowhead.com/spell=430315)\n- [Comprehension](https://www.wowhead.com/forever/skill=3012)\n- [Feed Pet](https://www.wowhead.com/forever/spell=6991) ([Forever](https://warcraft.wiki.gg/wiki/World_of_Warcraft:_Forever) only)\n- Cooking [Hearty Food](https://www.wowhead.com/search?q=hearty%20food#professions), [Hearty Feast](https://www.wowhead.com/search?q=hearty%20feast#professions;reagents=%3D0) and [Prepared Ingredients](https://warcraft.wiki.gg/wiki/Midnight_cooking_recipes)\n\nIn addition, Molinari also works for picking locks in the trade window.\n\n## Translations\n\nIf you want to help translate Molinari, please go here:  \n[https://legacy.curseforge.com/wow/addons/molinari/localization](https://legacy.curseforge.com/wow/addons/molinari/localization)\n\n## Feedback & issues\n\nIf you have a question, please use the [discussion section on GitHub](https://github.com/p3lim-wow/Molinari/discussions).  \nIf you would like to report a bug or contribute to the project, please visit GitHub:  \n[https://github.com/p3lim-wow/Molinari/issues/new/choose](https://github.com/p3lim-wow/Molinari/issues/new/choose)\n\n## Legal\n\nPlease see the [LICENSE](https://github.com/p3lim-wow/Molinari/blob/master/LICENSE.txt) file.",
+  "releases": [
+    {
+      "tag": "120100.152-Release",
+      "published": "2026-11-23",
+      "notes": "### Changes in 120100.152-Release:\n\n- Added: Disenchanting support for certain quest related items"
+    },
+    {
+      "tag": "120100.151-Release",
+      "published": "2026-10-31",
+      "notes": "### Changes in 120100.151-Release:\n\n- Changed: Update Interface version for retail\n- Changed: Update retail data\n- Changed: Update wrath data"
+    },
+    {
+      "tag": "120100.150-Release",
+      "published": "2026-10-03",
+      "notes": "### Changes in 120100.150-Release:\n\n- Added: Support for Hearty Food/Feast and Prepared Ingredients for Cooking\n- Fixed: Enchanting skill requirement for disenchanting in TBC/Wrath/Mists"
+    },
+    {
+      "tag": "120100.149-Release",
+      "published": "2026-09-27",
+      "notes": "### Changes in 120100.149-Release:\n\n- Addded: Tooltips help text to all clients\n- Fixed: Errors on Anniversary/Era"
+    },
+    {
+      "tag": "120100.148-Release",
+      "published": "2026-09-26",
+      "notes": "### Changes in 120100.148-Release:\n\n- Added: Support for Forever\n- Added: Support for feeding pets\n- Added: Support for mage comprehension spell\n- Changed: Now checks skill levels in Forever/Classic properly\n- Changed: Optimized code a bit\n- Removed: Old compatibility checks\n- Removed: Migration of old savedvariables"
+    }
+  ],
+  "stats": {
+    "stars": 17,
+    "openIssues": 0,
+    "contributors": 6,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-10-31",
+      "2026-10-03",
+      "2026-09-27",
+      "2026-09-26",
+      "2026-09-01",
+      "2026-07-30",
+      "2026-06-30",
+      "2026-04-17",
+      "2026-03-22",
+      "2026-03-17",
+      "2026-02-28",
+      "2026-02-12",
+      "2026-02-11",
+      "2026-01-17",
+      "2025-10-17",
+      "2025-10-10",
+      "2025-08-31",
+      "2025-08-31",
+      "2025-08-04",
+      "2025-06-23",
+      "2025-04-23",
+      "2025-01-27",
+      "2025-01-09",
+      "2024-12-31",
+      "2024-12-20",
+      "2024-11-29",
+      "2024-11-14",
+      "2024-11-01",
+      "2024-10-29",
+      "2024-10-07",
+      "2024-09-26",
+      "2024-09-25",
+      "2024-08-19",
+      "2024-08-18",
+      "2024-08-11",
+      "2024-07-24",
+      "2024-07-23",
+      "2024-06-02",
+      "2024-05-27",
+      "2024-05-09",
+      "2024-02-08",
+      "2023-11-20",
+      "2023-07-14",
+      "2023-06-23",
+      "2023-06-22",
+      "2023-06-13",
+      "2023-05-19",
+      "2023-05-16",
+      "2023-05-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Molinari"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "MolinariDB2",
+      "MolinariDB3"
+    ]
+  }
+}

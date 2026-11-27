@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "oakui-installer",
+  "repo": "Smokenoaken/OakUI_Installer",
+  "about": "# OakUI_Installer\n\nOakUI Installer delivers the OakUI suite through a guided, one-click installer. The same addon detects Retail or WoW Forever and selects the appropriate install path.\n\n## WoW Forever Beta Support\n\nOakUI now supports WoW Forever Beta and Retail in the same addon. Forever installation and Edit Mode import were confirmed in-game on client `1.60.1.70009` (interface `16001`) with EllesmereUI `9.2.8`. Beta client updates may require further compatibility fixes.\n\n- Install the same `OakUI_Installer` folder on either client; Retail keeps its existing behavior.\n- Forever excludes DBM, BigWigs, Blizzi Party Tools, wMarker, Mythic+ forces, and Dragon Riding integrations.\n- Forever imports OakUI's supported EUI styling and the same OakUI Blizzard Edit Mode layout used on Retail. Layout import is included in fresh installs and is also available separately from the Installer and Raw Imports tabs.\n- The current EUI Cooldown Manager, AuraBuff Reminders, and Quickdraw setup is retained rather than replaced with Retail spell configuration. Retail spec assignments and condition overrides are excluded. Select the Tank/DPS or Healer profile manually.\n- Use `/oaklayout` or the Installer's **Import Layout** button to import and select the OakUI Edit Mode layout separately.\n- Run `/oak`, install the desired profile, accept the reload prompt, and check the layout, visibility toggles, combat, and group changes. BugSack errors are useful for beta follow-up fixes.\n\n## Highlights\n\n- one-click installation flow for the OakUI flagship suite\n- built-in chat layout and chat filter tools\n- bundled raw import strings as a manual fallback\n- custom font setup guidance\n- in-game changelog tab\n- resizable installer window with persistent module-driven layout\n\n## Requirements\n\n- World of Warcraft Retail or WoW Forever Beta\n- A compatible EllesmereUI installation\n- Forever interface `16001`; supported Retail interfaces are listed in `OakUI_Installer.toc`\n\n## Installation\n\n1. Download or clone this repo.\n2. Place the addon folder here:\n\n```text\nWorld of Warcraft\\_retail_\\Interface\\AddOns\\OakUI_Installer\nWorld of Warcraft\\_classic_beta_\\Interface\\AddOns\\OakUI_Installer\n```\n\nUse the path for your client.\n\n3. Launch WoW.\n4. Make sure `OakUI Standalone Installer` is enabled in the AddOns list.\n\n## Usage\n\nOpen the OakUI installer in-game and follow the guided tabs to import the OakUI suite, apply chat layout changes, or copy raw profile strings.\n\n## Files\n\n- [OakUI_Installer.toc](https://github.com/Smokenoaken/OakUI_Installer/blob/main/OakUI_Installer.toc) loads the addon and declares metadata\n- [Profiles.lua](https://github.com/Smokenoaken/OakUI_Installer/blob/main/Profiles.lua) stores version info, profile strings, and the in-addon changelog\n- [Core.lua](https://github.com/Smokenoaken/OakUI_Installer/blob/main/Core.lua) builds the main installer frame and routes between tabs\n- [InstallerTab.lua](https://github.com/Smokenoaken/OakUI_Installer/blob/main/InstallerTab.lua) powers the primary one-click installation flow\n- [RawImports.lua](https://github.com/Smokenoaken/OakUI_Installer/blob/main/RawImports.lua) exposes fallback import strings\n- [ChatLayout.lua](https://github.com/Smokenoaken/OakUI_Installer/blob/main/ChatLayout.lua) and [ChatFilters.lua](https://github.com/Smokenoaken/OakUI_Installer/blob/main/ChatFilters.lua) manage chat setup helpers\n\n## Releasing\n\nThis repo supports manual zip builds, CurseForge automatic packaging, and Wago publishing from GitHub tags.\n\nFor automatic packaging, configure a GitHub webhook that points at your CurseForge project packaging URL. The repo root already includes a [`.pkgmeta`](https://github.com/Smokenoaken/OakUI_Installer/blob/main/.pkgmeta) file so CurseForge packages the addon under the correct top-level folder name.\n\nFor Wago, the repo includes [`.github/workflows/wago-release.yml`](https://github.com/Smokenoaken/OakUI_Installer/blob/main/.github/workflows/wago-release.yml). After you add your `## X-Wago-ID` to [OakUI_Installer.toc](https://github.com/Smokenoaken/OakUI_Installer/blob/main/OakUI_Installer.toc) and set a `WAGO_API_TOKEN` GitHub secret, pushed version tags will publish there automatically too.\n\nFor the easiest tagged release flow, use:\n\n```powershell\npowershell -NoProfile -ExecutionPolicy Bypass -File .\\release-addon.ps1 -Version 1.41.3\n```\n\nPut one bullet per line in [NEXT_CHANGELOG.md](https://github.com/Smokenoaken/OakUI_Installer/blob/main/NEXT_CHANGELOG.md), then run the command. The script rolls those notes into [CHANGELOG.md](https://github.com/Smokenoaken/OakUI_Installer/blob/main/CHANGELOG.md), updates the addon version files, updates the in-addon changelog tab, commits the release, creates and pushes the Git tag, and builds a local zip in `dist\\`.\n\n## Version\n\nCurrent repo version: `2.7.13`\n\n## Project Summary\n\nOakUI Installer is the flagship OakUI suite built around the selected base UI framework. It focuses on a lightweight, one-click installation experience for a polished 1440p setup, with profiles and layout tools tuned for Mythic+, raiding, and general play.\n\nThe addon is designed to inject curated profiles into the core UI addons it works with, while adapting to role-specific needs like Healer and Tank/DPS layouts. Alongside the installer flow, it includes chat cleanup tools, raw import fallbacks, custom font guidance, and direct access to changelog content inside the addon itself.",
+  "releases": [
+    {
+      "tag": "v2.7.12",
+      "published": "2026-11-07",
+      "notes": "## v2.7.12\n\n- Keep Forever action bars 6-10 enabled and selectable, with Visibility set to Never by default.\n- Repair extra action bars disabled by v2.7.11 without changing their saved visibility or other bar customization."
+    },
+    {
+      "tag": "v2.7.11",
+      "published": "2026-11-06",
+      "notes": "## v2.7.11\n\n- Forever installs now show action bars by default and enable only action bars 1-5.\n- Removed the Forever Bar 6 / Hide Cooldown Manager coupling so visibility changes cannot re-enable Bar 6.\n- Cleared unintended gamepad-hide flags from Forever action bars and player cast bars, with a one-time repair for existing OakUI profiles.\n- Kept Forever action-bar visibility conditions and opacity consistent when toggling Always / Mouseover.\n- Updated the Forever Tank/DPS and healer profile imports."
+    },
+    {
+      "tag": "v2.7.10",
+      "name": "OakUI v2.7.10",
+      "published": "2026-10-30",
+      "notes": "## v2.7.10\n\n- Fixed chat placement and hidden input boxes when installing alternate UI scales.\n- Fixed damage meter alignment after the installation reload while preserving the existing meter stack and spacing.\n- Validated placement across Retail install presets. WoW Forever uses the shared fix and awaits live testing."
+    },
+    {
+      "tag": "v2.6.28",
+      "name": "OakUI v2.6.28-EllesmereEdition",
+      "published": "2026-08-03",
+      "notes": "- Restored 1920×1080 at 0.711 with a dedicated Edit Mode profile and on-screen General window placement.\n- Fixed “Show Player in Group” visibility for EUI player and pet unit frames."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-11-06",
+      "2026-10-30",
+      "2026-08-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "OakUI_Installer"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "EllesmereUI",
+      "EllesmereUIActionBars",
+      "EllesmereUIAuraBuffReminders",
+      "EllesmereUIBags",
+      "EllesmereUIBlizzardSkin",
+      "EllesmereUIChat",
+      "EllesmereUICooldownManager",
+      "EllesmereUIDataBars",
+      "EllesmereUIDamageMeters",
+      "EllesmereUIFriends",
+      "EllesmereUIMinimap",
+      "EllesmereUIMythicTimer",
+      "EllesmereUINameplates",
+      "EllesmereUIQoL",
+      "EllesmereUIQuestTracker",
+      "EllesmereUIRaidFrames",
+      "EllesmereUIResourceBars",
+      "EllesmereUIUnitFrames",
+      "SharedMedia",
+      "DBM-Core",
+      "BigWigs",
+      "BliZzi_Interrupts",
+      "wMarker"
+    ],
+    "savedVariables": [
+      "OakUI_DB"
+    ]
+  }
+}

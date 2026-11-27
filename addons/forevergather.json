@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "forevergather",
+  "repo": "foreverui-dev/forever-gather",
+  "about": "# Forever Harvest\n\nKräuter, Erze und Schätze auf Welt- und Minikarte für WoW Forever. Teil der ForeverUI-Reihe, mehr auf [foreverui.de](https://foreverui.de/).\n\n## Was es kann\n\n- **Fundorte merken:** Jedes Mal, wenn du ein Kraut pflückst, eine Ader abbaust oder eine Truhe öffnest, merkt sich das Addon den Ort. Kontoweit für alle Charaktere, nahe Funde derselben Sorte werden zusammengelegt.\n- **Welt- und Minikarte:** Symbole mit dem Bild des Materials. Klick setzt einen Wegpunkt, Rechtsklick löscht einen Fundort, Umschalt+Rechtsklick blendet die Sorte aus. Vorkommen über deiner Fertigkeit erscheinen blass.\n- **Filter:** Kräuter, Erze und Schätze getrennt ein- und ausschalten, jede Sorte einzeln, nur eigene Berufe, nur abbaubare.\n- **Fertigkeit im Tooltip:** Am Vorkommen in der Welt siehst du die nötige Stufe und ob du es schon abbauen kannst.\n- **Lager aller Charaktere:** Kräuter, Erze, Leder und Elementares aus Taschen und Bank aller Charaktere, im Fenster und im Gegenstands-Tooltip.\n- **Farmrouten:** Route aus allen Fundorten einer Gegend (kürzester Rundweg) oder eigene Runde aufnehmen. Beim Abfahren springt der Wegpunkt automatisch zum nächsten Punkt.\n- **Teilen:** Neue Funde gehen live an Gruppe oder Gilde. Routen und Fundorte als Code zum Kopieren (Discord, foreverui.de) oder direkt an Gruppe, Gilde oder einen Spieler.\n- **Sitzung:** Was du gesammelt hast, Stück pro Stunde und Wert (Händlerpreis oder Auktionspreis, wenn ein Preisaddon installiert ist).\n- **Kartenfenster:** kleine, frei verschiebbare Karte der Gegend mit deiner Position, allen Fundorten und der Route als Linie. Mausrad zoomt, Klick auf einen Fundort setzt einen Wegpunkt.\n- **Radar und Ziele:** Fenster mit den nächsten Fundorten samt Pfeil, Sammelziele mit Fortschritt, Fertigkeitspunkte in Spielfarben mit Wort, beste Gegenden für deinen Charakter, Statistik der letzten Tage.\n- **Seltenes:** Schwarzer Lotus, Silber, Gold und Co. hervorgehoben, Alarm in der Nähe oder wenn die Gruppe eins findet.\n- **Hervorheben:** Nahe Vorkommen pulsieren auf Minikarte und Kartenfenster, Leuchtrahmen und Richtungspfeil zum nächsten Vorkommen, Hinweis oben am Bildschirm, leuchtender Bildschirmrand bei Seltenem und ein durchsichtiges HUD in der Bildschirmmitte (`/fg hud`). Alles über Karten und Bildschirm, ohne Eingriff ins Spiel.\n- **Fortschritt:** Planer für die nächsten Fertigkeitspunkte, beste Gegenden dafür, Lehrer-Hinweise, Warnung an der Fertigkeitsgrenze und Fertigkeitsziele.\n- **Chronik:** die letzten 20 Sitzungen, Rekorde, Wochenvergleich, bester Tag, Ertrag und Zusatzbeute je Vorkommen.\n- **Komfort:** Warnung bei vollen Taschen, Sammel-Timer, Ruhe in Städten und im Kampf, Notizen an Fundorten, Rückgängig, Sicherung vor dem Aufräumen, Sammelkette.\n- **Englisch:** Das Addon spricht Deutsch und Englisch und folgt der Spielsprache (`/fg sprache en`).\n- **Barrierefreiheit:** Vorlesen, nahe Fundorte mit Entfernung und Richtung ansagen, hoher Kontrast, Farbenblind-Modus, alles größer, weniger Bewegung, Tastenkürzel für alle Funktionen.\n\n## Bilder\n\n![Übersicht: deine Berufe, bekannte Fundorte und Schnellknöpfe](https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-uebersicht.png)\n*Übersicht: deine Berufe, bekannte Fundorte und Schnellknöpfe*\n\n![Karte: was angezeigt wird, mit allen Kräutern und Erzen samt Fertigkeitsstufe](https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-karte.png)\n*Karte: was angezeigt wird, mit allen Kräutern und Erzen samt Fertigkeitsstufe*\n\n![Lager: Materialien aller Charaktere mit Filter und Suche](https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-lager.png)\n*Lager: Materialien aller Charaktere mit Filter und Suche*\n\n![Routen: erstellen, abfahren und teilen](https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-routen.png)\n*Routen: erstellen, abfahren und teilen*\n\n![Statistik: die letzten Tage und die besten Gegenden](https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-statistik.png)\n*Statistik: die letzten Tage und die besten Gegenden*\n\n![Teilen: Codes und Funde mit Gruppe und Gilde](https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-teilen.png)\n*Teilen: Codes und Funde mit Gruppe und Gilde*\n\n![Hilfen: Radar, Alarme und Sammelziele](https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-hilfen.png)\n*Hilfen: Radar, Alarme und Sammelziele*\n\n![Einstellungen: Barrierefreiheit, Allgemeines und Sprache](https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-einstellungen.png)\n*Einstellungen: Barrierefreiheit, Allgemeines und Sprache*\n\n## Befehle\n\n`/fg` öffnet das Fenster, `/fg hilfe` zeigt alle Befehle. Die wichtigsten:\n\n| Befehl | Wirkung |\n| --- | --- |\n| `/fg naechster` | Wegpunkt zum nächsten Fundort |\n| `/fg route neu` | Route aus den Fundorten dieser Gegend |\n| `/fg route` | Route starten oder anhalten |\n| `/fg aufnahme` | eigene Runde aufnehmen |\n| `/fg teilen [route] [gilde \\| Name]` | Fundorte oder Route senden |\n| `/fg lager [Suche]` | Materialien aller Charaktere |\n| `/fg radar` | Radar ein oder aus |\n| `/fg karte [Größe]` | Kartenfenster ein oder aus |\n| `/fg ziel 40 Friedensblume` | Sammelziel setzen |\n| `/fg statistik` | Tage, Gesamtmengen, beste Gegend |\n| `/fg vorlesen` | nahe Fundorte vorlesen |\n| `/fg hud` | HUD in der Bildschirmmitte ein oder aus |\n| `/fg planer` | was gerade Fertigkeitspunkte bringt |\n| `/fg wohin` | Gegenden mit Fertigkeitspunkten |\n| `/fg fertigkeit 150 kraut` | Fertigkeitsziel setzen |\n| `/fg chronik` | letzte Sitzungen und Wochenvergleich |\n| `/fg timer 30` | Sammel-Timer in Minuten |\n| `/fg selten` | Wegpunkt zum nächsten seltenen Vorkommen |\n| `/fg zielort` | Wegpunkt zum Vorkommen für ein Sammelziel |\n| `/fg rueckgaengig` | gelöschten Fundort zurückholen |\n| `/fg wiederherstellen` | Sicherung vor dem Aufräumen zurückholen |\n| `/fg sperren Name` | Funde eines Spielers ignorieren |\n| `/fg beitraege` | wer wie viele Fundorte geteilt hat |\n| `/fg sprache en` | Sprache umschalten (de, en) |\n| `/fg diagnose` | technische Infos für Fehlerberichte |\n\n## Erste Schritte\n\n1. Addon installieren und einloggen. Einrichten musst du nichts.\n2. Losziehen und sammeln: Jeder Fundort erscheint ab jetzt auf Welt- und Minikarte.\n3. Mit `/fg` öffnest du das Fenster mit Übersicht, Karte, Routen, Lager, Statistik, Teilen, Hilfen und Einstellungen.\n\nFundorte füllen sich durch dein eigenes Sammeln und durch Funde deiner Gruppe, Gilde und geteilte Codes.\n\n## Links\n\n- Webseite: [foreverui.de](https://foreverui.de/)\n- Fragen und Ideen: [Discord](https://discord.gg/Sh8zyYUKRX)\n- Änderungen: siehe CHANGELOG.md\n\nLizenz: MIT",
+  "releases": [
+    {
+      "tag": "v0.2.2",
+      "published": "2026-11-18",
+      "notes": "# Forever Harvest\n\n## [v0.2.2](https://github.com/foreverui-dev/forever-gather/tree/v0.2.2) (2026-11-18)\n[Full Changelog](https://github.com/foreverui-dev/forever-gather/compare/v0.2.1...v0.2.2) [Previous Releases](https://github.com/foreverui-dev/forever-gather/releases)\n\n- 0.2.2: Leise ab Werk  \n    Kein Alarm-Ton, keine Schlachtzugswarnung, keine Rundenansage und kein  \n    Fenster von selbst. Bestehende Einstellungen bekommen die stillen Werte  \n    einmalig (Merker leiseAbWerk)."
+    },
+    {
+      "tag": "v0.2.1",
+      "published": "2026-11-09",
+      "notes": "# Forever Harvest\n\n## [v0.2.1](https://github.com/foreverui-dev/forever-gather/tree/v0.2.1) (2026-11-09)\n[Full Changelog](https://github.com/foreverui-dev/forever-gather/commits/v0.2.1) [Previous Releases](https://github.com/foreverui-dev/forever-gather/releases)\n\n- Weitere Screenshots  \n- Screenshots in der README, richtige Einzahl in Texten  \n- Screenshots für die README  \n- CurseForge-Projekt-ID eintragen, Screenshots nicht ins Paket  \n- Neuer Name: Forever Harvest (Ordner, /fg und Daten bleiben gleich)  \n- Titel Forever Gathering (Name auf CurseForge vergeben)  \n- TOC: Kurzbeschreibung ehrlich (gemerkte Fundorte), Website auf foreverui.de  \n- README ins Paket aufnehmen (Beschreibung für Addon-Seiten)  \n- README als Beschreibung für die Addon-Seiten  \n- 0.2.1: globale Tabelle der Bestätigungsfenster nicht mehr überschreiben (Aktion blockiert)  \n- Forever Gather 0.2.0: geschützte Werte abgefangen, 20 neue Funktionen  \n    Behebt den Tooltip-Fehler mit geschützten Texten. Neu: Radar, Sammelziele,  \n    Fertigkeitspunkte, Favoriten, Seltenes mit Alarm, Statistik, Kontinentkarte,  \n    Routenrunden, Berufe aller Charaktere und mehr.  \n- Forever Gather 0.1.0: Fundorte von Kräutern, Erzen und Schätzen auf Welt- und Minikarte  \n    Farmrouten, Teilen per Code und mit Gruppe/Gilde, Lager aller Charaktere,  \n    Sitzungsanzeige und Barrierefreiheit."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-uebersicht.png",
+    "https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-karte.png",
+    "https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-lager.png",
+    "https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-routen.png",
+    "https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-statistik.png",
+    "https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-teilen.png",
+    "https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-hilfen.png",
+    "https://raw.githubusercontent.com/foreverui-dev/forever-gather/main/screenshots/fenster-einstellungen.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-09"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "ForeverGather"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "ForeverUI"
+    ],
+    "savedVariables": [
+      "ForeverGatherDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ForeverGatherCharDB"
+    ]
+  }
+}

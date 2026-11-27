@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "warmth",
+  "repo": "danielcosta42/Warmth",
+  "about": "# Warmth\n\nCampfires lit by players, on your map, for **WoW: Forever** (interface 16001). See what each camp offers and who\nis around the fire, go there, and set up your own. Runs on the [ChehulNet](https://github.com/danielcosta42/chehulnet)\nnetwork, shared with GuildOS, Lodestar and PartyLens.\n\nThe store page text is in [CURSEFORGE-DESCRIPTION.md](https://github.com/danielcosta42/Warmth/blob/main/CURSEFORGE-DESCRIPTION.md). The design is in\n[docs/superpowers/specs/2026-11-11-warmth-design.md](https://github.com/danielcosta42/Warmth/blob/main/docs/superpowers/specs/2026-11-11-warmth-design.md).\n\n## Layout\n\n| Path | What it is |\n|---|---|\n| `Core/` | No frames: data tables, the `ChehulCamp` wire format (`C2`), camp state, network rules, game watchers |\n| `UI/` | The window (list, circle, set-up), map and minimap pins, toast and questions, options, entry points |\n| `Media/` | Textures drawn by `tools/gen-media.py`, the store logo and the title font (Young Serif, OFL) |\n| `Libs/` | LibStub, AceComm-3.0, and the ChehulNet library synced from its own repository (`chehulnet.lock`) |\n| `tools/` | Harnesses that run the real files under a simulated client, the texture script, the key lister |\n\n## Working on it\n\n```bash\nluacheck Core UI                      # undefined globals are errors (.luacheckrc is the API inventory)\nluajit tools/core.lua                 # wire format, camps, network and consent rules\nluajit tools/ui.lua                   # views, motion bounds, pins, toast, options, ptBR completeness\npython -I tools/gen-media.py          # redraw Media/*.tga (add --check to verify, --preview DIR for PNGs)\npython -I tools/gen-questie.py        # rebuild Core/VendorData.lua and Core/SourceData.lua from the QuestieDB addon\n                                      # (needs Lodestar's tools/)\nbash tools/chehulnet-lock.sh          # the vendored network library is untouched\n```\n\nRules that are easy to break:\n\n- **What leaves the client is what the player knows about.** A campfire is announced as it is lit\n  (`WarmthDB.auto`, on by default, said in chat the first time) or, with that off, only by a click; presence in a\n  circle needs the one-time yes (`WarmthDB.consent`). `tools/core.lua` asserts all of it on a fake mesh.\n- **What the network says about a vendor is hearsay.** It never corrects the generated table or a vendor the player\n  opened, never counts as a trusted seller, expires, and is never passed on. A vendor the player opens is told\n  later (never on the spot, which would give away where they are), and only with `WarmthDB.shareVendors` on.\n- **Secure buttons are owned by UIParent and touched only outside combat** (the Light button, the ring's slices):\n  anchored to the window or the compass they would make it protected.\n- **Only the owner's announce uses the realm bus.** Presence and invite requests go to the owner by whisper.\n- **No looping `Scale` animation.** On the Forever client it accumulates until the region covers the screen.\n  Everything that moves is computed per frame in `UI/Motion.lua`.\n- **Item and spell ids are unverified** (third-party guides). Every feature built on them has a manual path.\n  `/warmth probe` records what the client reveals (casts, auras, vignettes, tooltips, the interact target, which\n  APIs exist) into `WarmthDB.probe`; read it in `WTF/Account/<account>/SavedVariables/Warmth.lua` after a `/reload`.\n- **The network library is never edited here.** Change it in `danielcosta42/chehulnet` and run its `tools/sync.sh`.\n- **Every user-facing string goes through `W.L`**; `luajit tools/keys.lua` lists them and `tools/ui.lua` fails\n  when ptBR misses one.\n\n## Releasing\n\nEdit `VERSION` and `CHANGELOG.md` and merge to `main`. `auto-tag.yml` tags `vX.Y.Z`; `release.yml` packages with\nBigWigsMods/packager and publishes to CurseForge. It needs the secrets `CF_API_KEY` and `RELEASE_PAT`, and\n`## X-Curse-Project-ID` in `Warmth.toc` once the CurseForge project exists.\n\n## License\n\nMIT. The title font is Young Serif, under the SIL Open Font License (`Media/Fonts/OFL.txt`). `Core/VendorData.lua`\nand `Core/SourceData.lua` are generated from [QuestieDB](https://github.com/Questie/Questie) (GPL-3.0) by\n`tools/gen-questie.py` and are distributed under that licence (`LICENSE-GPL-3.0.md`).",
+  "releases": [
+    {
+      "tag": "v0.5.0",
+      "published": "2026-11-12",
+      "notes": "# Warmth\n\n## [v0.5.0](https://github.com/danielcosta42/Warmth/tree/v0.5.0) (2026-11-12)\n[Full Changelog](https://github.com/danielcosta42/Warmth/compare/v0.4.0...v0.5.0) [Previous Releases](https://github.com/danielcosta42/Warmth/releases)\n\n- Merge pull request #16 from danielcosta42/feat/15-semear  \n    feat: avistamento sem dono, um jogador semeia as fogueiras por onde passa (#15)  \n- chore: versão 0.5.0 (#15)  \n- feat: avistamento é entidade própria, sem dono: um jogador semeia as fogueiras por onde passa (#15)"
+    },
+    {
+      "tag": "v0.4.0",
+      "published": "2026-11-12",
+      "notes": "# Warmth\n\n## [v0.4.0](https://github.com/danielcosta42/Warmth/tree/v0.4.0) (2026-11-12)\n[Full Changelog](https://github.com/danielcosta42/Warmth/compare/v0.3.0...v0.4.0) [Previous Releases](https://github.com/danielcosta42/Warmth/releases)\n\n- Merge pull request #12 from danielcosta42/feat/11-avistar  \n    feat: fogueira avistada é anunciada sozinha (#11)  \n- chore: versão 0.4.0 (#11)  \n- feat: fogueira avistada é anunciada sozinha, marcada como vista por quem a encontrou (#11)"
+    },
+    {
+      "tag": "v0.3.0",
+      "published": "2026-11-12",
+      "notes": "# Warmth\n\n## [v0.3.0](https://github.com/danielcosta42/Warmth/tree/v0.3.0) (2026-11-12)\n[Full Changelog](https://github.com/danielcosta42/Warmth/compare/v0.2.0...v0.3.0) [Previous Releases](https://github.com/danielcosta42/Warmth/releases)\n\n- Merge pull request #9 from danielcosta42/feat/7-enriquecer  \n    feat: tempos na bússola, benefícios para você, pedido de objeto e calor do anfitrião  \n- feat: peças colocadas por quem não tem o addon são anotadas ao apontar o mouse (#7)  \n- fix: rótulo do botão de pedido cabia mal (#7)  \n- chore: versão 0.3.0 (#7)  \n- feat: tempos na bússola, benefícios para você, pedido de objeto, calor do anfitrião e livro de visitas (#7)  \n- feat: o Warmth responde ao diagnóstico do operador (cf.*) (#7)"
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-12",
+      "notes": "# Warmth\n\n## [v0.2.0](https://github.com/danielcosta42/Warmth/tree/v0.2.0) (2026-11-12)\n[Full Changelog](https://github.com/danielcosta42/Warmth/compare/v0.1.0...v0.2.0) [Previous Releases](https://github.com/danielcosta42/Warmth/releases)\n\n- Merge pull request #6 from danielcosta42/feat/5-oficina  \n    feat: Oficina, vendedores e como conseguir cada material (0.2.0)  \n- fix: achados da revisão da Oficina: três graus de confiança para vendedores, nada é enviado ao abrir um vendedor, tetos separados, zonas por facção, níveis da criatura certa, licença GPL dos dados; versão 0.2.0 (#5)  \n- feat: a Oficina diz como conseguir cada material: nós por zona, quem solta, do que é feito, faixas de nível (#5)  \n- feat: a tabela de vendedores vem do QuestieDB do Forever (413 vendedores de 23 materiais), por facção e por distância no continente (#5)  \n- feat: a Oficina: o que as profissões fazem para um acampamento, o que falta e onde, com vendedores aprendidos pela rede (#5)  \n- feat: a sonda mede profissões, receitas, vendedores e instrutores, e o desenho da Oficina (#5)"
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-12",
+      "notes": "# Warmth\n\n## [v0.1.0](https://github.com/danielcosta42/Warmth/tree/v0.1.0) (2026-11-12)\n[Full Changelog](https://github.com/danielcosta42/Warmth/commits/v0.1.0) [Previous Releases](https://github.com/danielcosta42/Warmth/releases)\n\n- Merge pull request #4 from danielcosta42/chore/3-curseforge  \n    chore: id do projeto na CurseForge e logo da loja  \n- chore: id do projeto na CurseForge (#3)  \n- chore: logo quadrado para a página da loja  \n- Merge pull request #2 from danielcosta42/feat/mvp  \n    feat: Warmth 0.1.0, a primeira versão  \n- feat: lib ChehulNet v1.4.0, a família inteira repassa os acampamentos  \n- feat: a roda da bússola com animação de abrir e fechar, selo de contagem, halo e destaque ao passar o mouse  \n- fix: a fatia de acender fica sempre na roda quando há kit na bolsa  \n- feat: bússola na tela com roda de ações de acampamento, e anúncio automático ao acender  \n- feat: o nível da fogueira vem do kit aceso; Montar acampamento segue o estado do fogo; o botão de acender fica acima da janela  \n- feat: o acampamento sem objetos avisa que o fogo sozinho não dá benefício  \n- feat: o addon cronometra o próprio fogo (do acender até a aura cair) e conta o que o saco de dormir dá  \n- feat: a fogueira de chamas violetas diz que os benefícios duram duas horas  \n- feat: o que a sonda mediu: ids confirmados, fogo de verdade pela aura Campfire Nearby, anúncio que encerra quando o fogo apaga, chamas violetas, culinária por C\\_TradeSkillUI e a bolsa de dormir na sonda  \n- fix: abrir a janela pela primeira vez não quebra mais (o botão de acender consultava a janela antes de ela existir); o simulador dispara OnShow/OnHide  \n- feat: acender pelo addon (botão seguro que usa o kit da bolsa) e a sonda /warmth probe  \n- fix: os filtros da lista são medidos e posicionados a cada desenho, sem sobrepor  \n- fix: achados da revisão: o objeto fica no acampamento onde foi posto, um fogo por vez, a idade do acampamento no anúncio, nomes de item do jogo, filtro do 'No player named', entradas hostis e textos de privacidade  \n- fix: o grão do fundo repete de verdade e o ícone do objeto acompanha o canto arredondado  \n- chore: empacotamento, CI, README, changelog e descrição da CurseForge  \n- feat: a interface do Warmth: roda, lista, montar acampamento, pinos, avisos, opções, botão nativo e ptBR  \n- feat: texturas desenhadas por script (chama animada, brilho, anéis, fundo) e a fonte dos títulos  \n- feat: núcleo do Warmth: formato C2, acampamentos, rede com consentimento e vigias  \n- chore: repositório do Warmth"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 3,
+    "contributors": 1,
+    "lastRelease": "2026-11-12",
+    "releaseDates": [
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12"
+    ]
+  },
+  "languages": [
+    "ptBR"
+  ],
+  "technical": {
+    "folders": [
+      "Warmth"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "WarmthDB"
+    ]
+  }
+}

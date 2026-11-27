@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "wowheadquicklink",
+  "repo": "NielsHeltner/wowhead-quick-link",
+  "about": "# Wowhead Quick Link\nMouse over and press CTRL-C on (almost) anything to generate a Wowhead or Armory link. Allows you to quickly look up anything on Wowhead without having to manually search for it. Lightweight and efficient.\n\nSupports generating links to the Wowhead page for quests, achievements, items, spells, buffs, NPCs, mounts, battle pets, factions, or currencies by pressing CTRL-C while mousing over, as well as armory links for player characters. Also supports Raider.IO links by pressing CTRL-SHIFT-C.\n\nAvailable as an AddOn here: https://www.curseforge.com/wow/addons/wowhead-quick-link",
+  "releases": [
+    {
+      "tag": "2.18.0",
+      "published": "2026-10-21",
+      "notes": "# Wowhead Quick Link\n\n## [2.18.0](https://github.com/NielsHeltner/wowhead-quick-link/tree/2.18.0) (2026-10-21)\n[Full Changelog](https://github.com/NielsHeltner/wowhead-quick-link/compare/2.17.0...2.18.0) [Previous Releases](https://github.com/NielsHeltner/wowhead-quick-link/releases)\n\n- Merge pull request #59 from cfonger/fix/secret-aura-taint  \n    Guard aura lookups against secret-aura errors  \n- Guard aura lookups against secret-aura errors  \n    Since 12.1, C\\_UnitAuras.GetAuraDataByIndex and GetAuraDataByAuraInstanceID  \n    throw when the aura is secret and the caller is tainted, so the existing  \n    IsSecret(aura.spellId) check is never reached. Wrap both lookups in pcall  \n    and skip the aura when the call fails.  \n    Fixes #57  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "2.17.0",
+      "published": "2026-09-30",
+      "notes": "# Wowhead Quick Link\n\n## [2.17.0](https://github.com/NielsHeltner/wowhead-quick-link/tree/2.17.0) (2026-09-30)\n[Full Changelog](https://github.com/NielsHeltner/wowhead-quick-link/compare/2.16.17...2.17.0) [Previous Releases](https://github.com/NielsHeltner/wowhead-quick-link/releases)\n\n- Merge pull request #58 from RafaelHGOliveira/forever-support  \n    Add WoW Forever support  \n- Add WoW Forever support  \n    WoW Forever runs on the retail client with the same WOW\\_PROJECT\\_ID, so  \n    detect it by interface version (16000-19999) and:  \n    - add WowheadQuickLink\\_Camelot.toc (interface 16001)  \n    - link to wowhead.com/forever, which has its own database  \n    - skip the Armory and Raider.IO links there  \n    - enable the Questie tracker/map strategies there  \n    - only hook SetRecipeReagentItem/SetUnitAura when the tooltip has them  \n    - skip secret values for the NPC GUID and aura spell IDs"
+    },
+    {
+      "tag": "2.16.17",
+      "published": "2026-07-29",
+      "notes": "# Wowhead Quick Link\n\n## [2.16.17](https://github.com/NielsHeltner/wowhead-quick-link/tree/2.16.17) (2026-07-29)\n[Full Changelog](https://github.com/NielsHeltner/wowhead-quick-link/compare/2.16.16...2.16.17) [Previous Releases](https://github.com/NielsHeltner/wowhead-quick-link/releases)\n\n- Merge pull request #56 from ngrudnitsky/fix/classic-era-tbc-interface  \n    Update Classic Era and TBC interface versions  \n- Update Classic Era and TBC interface versions"
+    },
+    {
+      "tag": "2.16.16",
+      "published": "2026-04-30",
+      "notes": "# Wowhead Quick Link\n\n## [2.16.16](https://github.com/NielsHeltner/wowhead-quick-link/tree/2.16.16) (2026-04-30)\n[Full Changelog](https://github.com/NielsHeltner/wowhead-quick-link/compare/2.16.15...2.16.16) [Previous Releases](https://github.com/NielsHeltner/wowhead-quick-link/releases)\n\n- Merge pull request #55 from pnevares/master  \n    fix: close window on KeyUp in either order  \n- fix: close window on KeyUp in either order"
+    },
+    {
+      "tag": "2.16.15",
+      "published": "2026-01-23",
+      "notes": "# Wowhead Quick Link\n\n## [2.16.15](https://github.com/NielsHeltner/wowhead-quick-link/tree/2.16.15) (2026-01-23)\n[Full Changelog](https://github.com/NielsHeltner/wowhead-quick-link/compare/2.16.14...2.16.15) [Previous Releases](https://github.com/NielsHeltner/wowhead-quick-link/releases)\n\n- Merge pull request #51 from i5o/patch-2  \n    Update .toc to allow in 11.2.7, 12.0.0, 12.0.1  \n- Update .toc to allow in 11.2.7, 12.0.0, 12.0.1"
+    }
+  ],
+  "stats": {
+    "stars": 10,
+    "openIssues": 8,
+    "contributors": 12,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-09-30",
+      "2026-07-29",
+      "2026-04-30",
+      "2026-01-23",
+      "2026-01-23",
+      "2026-01-18",
+      "2025-11-26",
+      "2025-09-28",
+      "2025-08-06",
+      "2025-08-05",
+      "2025-07-12",
+      "2025-03-05",
+      "2025-02-19",
+      "2024-12-30",
+      "2024-10-06",
+      "2024-09-09",
+      "2024-09-09",
+      "2024-08-30",
+      "2024-08-27",
+      "2024-08-16",
+      "2024-07-24",
+      "2024-05-08",
+      "2024-05-04",
+      "2024-05-01",
+      "2024-02-10",
+      "2024-01-17",
+      "2023-12-08",
+      "2023-12-02",
+      "2023-11-30",
+      "2023-11-08",
+      "2023-10-10",
+      "2023-09-07",
+      "2023-07-21",
+      "2023-07-14",
+      "2023-06-23",
+      "2023-05-03",
+      "2023-03-23",
+      "2023-01-25",
+      "2023-01-18",
+      "2022-11-21",
+      "2022-11-18",
+      "2022-11-08",
+      "2022-10-30",
+      "2022-10-26",
+      "2022-09-04",
+      "2022-09-04",
+      "2022-09-04",
+      "2022-08-16",
+      "2022-06-01"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WowheadQuickLink"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "WowheadQuickLinkCfg"
+    ]
+  }
+}

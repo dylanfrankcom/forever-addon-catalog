@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "forevermousetooltip",
+  "repo": "Ninjaskurk/forever-mouse-tooltip",
+  "about": "# Forever Mouse Tooltip\n\nA tiny WoW addon that anchors the default game tooltip to the mouse cursor\ninstead of Blizzard's default lower-right corner. Built for **WoW Forever**\n(the Classic beta, client flavor `wow_classic_beta`, version `1.60.x`),\nwhich doesn't offer this as a built-in option.\n\n## How it works\n\nBlizzard's FrameXML routes almost all \"default position\" tooltips (action\nbars, bags, character panel, quest log, merchant frame, etc.) through a\nshared helper function, `GameTooltip_SetDefaultAnchor(tooltip, parent)`.\nThis addon uses `hooksecurefunc` to run *after* that helper and re-anchor\nthe tooltip to the cursor, using Blizzard's own native `ANCHOR_CURSOR` /\n`ANCHOR_CURSOR_LEFT` / `ANCHOR_CURSOR_RIGHT` anchor types (applied via\n`SetAnchorType`, never `SetOwner`). This gives continuous, zero-lag cursor\ntracking straight from the engine with no per-frame Lua involvement — an\nearlier manual `SetPoint`-based implementation was found (through testing)\nto interfere with GameTooltip's own internal fade timer, causing unit\ntooltips to visibly \"stick\" for about a second after the mouse moved away\nbefore fading out.\n\nIt intentionally does **not** reassign the global function directly.\nForever taints the global itself when an addon replaces it, and every\nlater caller — including unrelated Blizzard code such as party/raid frame\nupdates — inherits that taint for its whole call chain, which then trips\nForever's new \"secret value\" protections (e.g. health-bar color\ncomparisons throwing errors). `hooksecurefunc` runs strictly after\nBlizzard's own untainted call, so the original global is never\ncontaminated.\n\nTooltips deliberately anchored elsewhere on purpose (comparison tooltips,\ncontextual anchors next to a specific button, static minimap tooltips,\netc.) are left untouched — they don't go through the shared helper, and\nthere's no reliable way to tell \"the default corner tooltip\" apart from an\nintentionally custom-positioned one just from the anchor type, so this\naddon doesn't try to guess.\n\n## Install\n\nCopy (or symlink) this folder into:\n\n```\nWorld of Warcraft/_classic_beta_/Interface/AddOns/ForeverMouseTooltip\n```\n\n## Usage\n\n- `/fmt on` — enable cursor-anchored tooltips (default).\n- `/fmt off` — restore Blizzard's default tooltip position.\n- `/fmt offset <x> <y>` — adjust the pixel offset from the cursor (default `0 0`).\n- `/fmt combat on|off` — while `on`, keep Blizzard's default tooltip position during combat instead of following the cursor (default `off`).\n- `/fmt options` — open the graphical options panel (Escape -> Options -> AddOns -> Forever Mouse Tooltip). Also reachable directly from the Escape menu without the slash command.\n\nThe options panel additionally offers:\n- **Pause Key** — hold Shift/Ctrl/Alt to temporarily keep the tooltip at\n  Blizzard's default position instead of following the cursor.\n- **Tooltip Anchor** — Default (Blizzard's own bottom-right-of-cursor\n  anchor; can't be offset), Bottom Left, Bottom Right, or Bottom Center\n  (calculated so the tooltip is visually centered under the cursor).\n- **Tooltip Scale** — resize the tooltip (50%-200%).\n- **Extra Information** — optionally add NPC ID, Item ID, Spell ID, and/or\n  faction lines to tooltips.\n\nAll of the above are also available as checkboxes/sliders in the options\npanel, which reads and writes the same SavedVariables the slash commands\ndo.\n\n## Icon\n\n`icon.png` (256x256, referenced via `## IconTexture` in the TOC) is shown\nnext to the addon's name in the in-game AddOns list, if the client's AddOns\nUI supports the `IconTexture` field. Source SVG lives in `assets/icon.svg`.\n\n## Notes on the `## Interface:` version\n\nThe TOC `## Interface:` number (`16001`) was confirmed in-game via\n`/run print(select(4, GetBuildInfo()))` on client build `1.60.1.69913`.\nClassic-flavored clients bump this with content patches, so if the addon\nshows as \"out of date\" after a client update, re-run that command and\nupdate `ForeverMouseTooltip.toc` accordingly.\n\n## A note on Forever's addon restrictions\n\nForever inherits Midnight's addon restrictions, which block *combat\nautomation* (auto target-marking, auto raid assignments, real-time\nmechanic-solving, automated WeakAuras-style responses) so player skill\ndecides fights rather than addon automation. Pure UI/customization addons\n(unit frames, action bar skins, tooltip positioning, etc.) are unaffected.\nThis addon only repositions the default `GameTooltip`/`ItemRefTooltip`\nframes — it reads no combat state and makes no decisions — so it falls\nin the unrestricted \"customization\" category.",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "published": "2026-10-02",
+      "notes": "### Added\n- Graphical options panel under Escape -> Options -> AddOns -> Forever Mouse Tooltip (via the modern `Settings` API).\n- \"Disable in Combat\" option: keeps Blizzard's default tooltip position while in combat.\n- \"Pause Key\" option: hold Shift/Ctrl/Alt to temporarily keep the tooltip at Blizzard's default position.\n- \"Tooltip Anchor\" option: Default (Blizzard's own bottom-right cursor anchor, can't be offset), Bottom Left, Bottom Right, or Bottom Center.\n- \"Tooltip Scale\" slider (50%-200%).\n- \"Extra Information\" options: NPC ID, Item ID, Spell ID, faction name lines.\n- `/fmt combat on|off` and `/fmt options` slash commands.\n\n### Changed\n- Positioning is now driven by `SetAnchorType` (called after Blizzard's own `SetOwner`) instead of passing the offset directly to `SetOwner`. This is what makes the new anchor-side options possible: offsets only actually take effect for `ANCHOR_CURSOR_LEFT`/`ANCHOR_CURSOR_RIGHT` on this client, not plain `ANCHOR_CURSOR` (the only anchor 0.1.x used) — so the offset setting never actually did anything before now. Default offset is `0, 0`.\n\nTargets WoW Forever (Classic beta, `wow_classic_beta`), Interface `16001` / build `1.60.1.69913`."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-02",
+    "releaseDates": [
+      "2026-10-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverMouseTooltip"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverMouseTooltipDB"
+    ]
+  }
+}

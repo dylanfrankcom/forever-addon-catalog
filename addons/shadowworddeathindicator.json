@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "shadowworddeathindicator",
+  "repo": "zakpruitt/ShadowWordDeathIndicator",
+  "about": "# Shadow Word: Death Indicator\n\nKnow when Shadow Word: Death will finish your target.\n\nWhen your highest rank of Shadow Word: Death will kill your target, a soft purple glow hugs its health and power bars and its portrait turns into the Shadow Word: Death icon with a pulsing halo. It works with EllesmereUI, ElvUI, Shadowed Unit Frames and Blizzard's target frame without any setup.\n\n## Commands\n\n| Command | Description |\n|---|---|\n| `/swd test` | Show the effects for 5 seconds |\n| `/swd debug` | Show the rank, tooltip and damage being used |\n| `/swd border` / `portrait` | Turn the bar glow / portrait icon on or off |\n| `/swd intensity <0-1>` | How strong the glow is (default 0.4) |\n| `/swd color <r> <g> <b>` | Glow color, 0-1 each |\n| `/swd pulse` / `label` | Turn the pulse / \"SW:D KILL\" text on or off |\n| `/swd shape auto` / `round` / `square` | Portrait icon shape |\n| `/swd frame mouse` / `portraitframe mouse` | Glow around, or cover, the frame under your mouse (`auto` to reset) |\n\n## Tuning the estimate\n\nThe damage comes from the spell's tooltip, and the low end of its range is used by default, so the glow never shows on a target that would survive. If your tooltip leaves out spell power or Shadowform, compare `/swd debug` with your real hits and adjust:\n\n| Command | Description |\n|---|---|\n| `/swd mode min` / `avg` / `max` | Which end of the damage range to trust |\n| `/swd mult <n>` | Multiply the estimate, e.g. `1.15` for Shadowform |\n| `/swd sp <coef>` | Add your spell power times this |\n| `/swd flat <n>` | Add a flat amount, negative to play it safer |\n\n## How detection works\n\nForever hides the target's health from addons in combat, so the addon can't compare it with Shadow Word: Death's damage itself. A status bar still accepts the hidden value, so the addon feeds an invisible, very long bar with the target's health as its maximum and the spell's damage as its value. The bar only fills to its end when the hit is lethal, and the glow sits at the end of the fill inside a clipped window, so it's only on screen when Shadow Word: Death will kill.",
+  "releases": [
+    {
+      "tag": "v1.0.6",
+      "published": "2026-11-16",
+      "notes": "Changes:\n\n- chore: drop the addon list category from the toc\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/ShadowWordDeathIndicator`"
+    },
+    {
+      "tag": "v1.0.5",
+      "published": "2026-11-16",
+      "notes": "Changes:\n\n- ci: add the CurseForge project ID to the toc\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/ShadowWordDeathIndicator`"
+    },
+    {
+      "tag": "v1.0.4",
+      "published": "2026-11-16",
+      "notes": "Changes:\n\n- ci: upload releases to CurseForge tagged for Forever\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/ShadowWordDeathIndicator`"
+    },
+    {
+      "tag": "v1.0.3",
+      "published": "2026-11-09",
+      "notes": "Changes:\n\n- fix: upload release.json with each release\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/ShadowWordDeathIndicator`"
+    },
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-09",
+      "notes": "Changes:\n\n- fix: repair the interface regex in the release workflow\n- ci: attach release.json so WoWUp can match the game version\n- ci: build and publish a release on every push to master\n- docs: rewrite README for CurseForge and add a changelog\n- feat: add an icon to the AddOns list\n- docs: add README\n- feat: show when Shadow Word: Death will kill the target\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/ShadowWordDeathIndicator`"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-09",
+      "2026-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ShadowWordDeathIndicator"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ShadowWordDeathIndicatorDB"
+    ]
+  }
+}

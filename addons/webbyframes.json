@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "webbyframes",
+  "repo": "DrangedAddons/WebbyFrames",
+  "about": "# Webby Frames\n\nRetail-style player, target, target of target, focus, focus target, pet and party frames for WoW Forever, built\nfrom Blizzard's own unit frame art (gold ring with the pointed corner, pointed bars). Nothing else is needed.\n\n## Install\nUnzip the `WebbyFrames` folder into `World of Warcraft/_forever_/Interface/AddOns`\n(delete any older `DFFramesForever` or `WebbyFrames` folder first; settings carry over).\n\n## Use\n- `/webby` (or the web icon on the minimap) opens the options window: **General**, **All frames** (sets the\n  common options on every frame at once) and one page per frame, in collapsible sections. It's a window of its\n  own, so it can stay open while you play. Esc > Options > AddOns > Webby Frames has a button that opens it.\n  Right-click the minimap icon for Edit Mode; it can be turned off on the General page.\n- `/webby edit` opens Edit Mode to move the frames: they snap to each other, a frame dropped next to another\n  sticks to it and moves with it, and the arrow keys nudge the clicked frame (1px, or 10px with Shift).\n- With EllesmereUI, the frames can also be moved in its Unlock Mode (same saved positions).\n- Everything is saved per Edit Mode layout. Profiles can be exported and imported as text (General page).\n\nCommands: `/webby` (options), `/webby edit`, `/webby reset`, `/webby test` (preview heals, shields and a combat\nnumber), `/webby export` / `import`,\n`/webby errors`, `/webby help`.\n\n## Options per frame\n- **Frame:** show or hide (target of target, focus, focus target, pet), scale, name, portrait (picture or class\n  icon), frame colour (gold, your class colour or any colour; the player's resting glow follows it), corner\n  accent and spell costs (player), combo points (target; rogues, and druids in cat form), druid mana in bear\n  and cat form, movable in Edit Mode (player; druids), pet happiness (pet)\n- **Bars:** health and power textures, font (SharedMedia ones too), numbers always / on mouseover / never as\n  totals, percentages or both\n- **Health bar:** class colour for every player, yellow for a neutral or passive NPC, green for every other NPC. Recent damage with its own look, spell damage preview (target, focus; channelled spells too)\n- **Incoming heals and shields:** texture, colour, opacity and a live preview on the frame, with glows (soft pulse,\n  shimmer, snowglobe or blizzard) and a border glow. A shield bigger than the missing health grows back over the\n  health from the bar's right end, and its amount shows as a number with the Numbers setting\n- **Buffs and debuffs:** buffs and debuffs sized separately, only your debuffs, below / above the frame or\n  dragged anywhere in Edit Mode, row direction, gap, per row, how many, stack size, and time left as a sweep,\n  numbers, both or nothing\n- **Cast bar and threat** (target, focus): a cast bar built into the frame art (spell name and icon). Yellow for a cast, green for a channel, purple while your interrupt is on cooldown, grey when the cast can't be interrupted, red when interrupted. Threat is a glow and / or a % (by the raid marker or in a box), green to red or in Blizzard's colours\n\nAlways on: the player's corner accent, raid markers, combat swords and resting Zzz, the PvP shield, enemy level\ncolours (and the skull for unknown levels). Combat numbers on you, your pet and the focus have one switch on\nthe General page, and can sit still, rise, or arc like a fountain. The target's numbers have their own switch, since every hit on the target shows. Mobs tagged by someone else stay grey.\n\n## Party and more\n- **Party frames:** portrait frames like your own, or flat raid-style tiles, with pets, range fade, missing buffs\n  and a dispel glow. Blizzard's party frames come back if you turn them off.\n- **Healer mana** (party): a small list of your group's healers and their mana, placed in Edit Mode.\n- **Click casting:** bind spells to mouse clicks on the frames, on its own page in the options.\n\n## Credits\nMade by **Webby**, **Lexible** and **Dranged**.\n\nIncludes LibEditMode by p3lim (unmodified, see Libs/LibEditMode/LICENSE.txt), the public-domain LibStub, and\nCallbackHandler-1.0, LibDataBroker-1.1 and LibDBIcon-1.0 for the minimap button.\nThe frame art, bar fills, masks, elite dragons and resting animation in `Media/` come from\n[DragonflightUI](https://github.com/Karl-HeinzSchneider/WoW-DragonflightUI) by Karl-Heinz Schneider\n(MIT, see Media/LICENSE-DragonflightUI.txt), as are the art positions.",
+  "releases": [
+    {
+      "tag": "v1.17.4",
+      "name": "WebbyFrames v1.17.4",
+      "published": "2026-11-26",
+      "notes": "- Health bars no longer have a colour to pick. Every player, Alliance or Horde, is their class colour. Every NPC is yellow while neutral or passive, and green otherwise, friendly and hostile alike. Fade to red, Enemy NPC colour, and the other health-colour choices are gone.\n- Buff and debuff tooltips stay with the icon under the cursor. Each icon is laid out at its real size, so a buff and a debuff, or one of your bigger debuffs, no longer covers the next icon. When an aura is applied or falls off, the tooltip follows the icon the mouse is actually on."
+    },
+    {
+      "tag": "v1.17.2",
+      "name": "WebbyFrames v1.17.2",
+      "published": "2026-11-16",
+      "notes": "- Battleground enemies show their class colour on the target frame. Their class is hidden from addons, so the bar uses the game's own class-colour lookup instead of dropping it and staying green."
+    },
+    {
+      "tag": "v1.17.1",
+      "name": "WebbyFrames v1.17.1",
+      "published": "2026-11-12",
+      "notes": "- Cast bars (target, focus): purple while your interrupt is recharging (Kick, Counterspell, Pummel and the rest), and grey when the cast can't be interrupted. Grey is the game's own interrupt flag. Purple is the game's cooldown on your kick, not a timer the addon keeps. New swatch: Kick on cooldown colour."
+    },
+    {
+      "tag": "v1.17.0",
+      "name": "WebbyFrames v1.17.0",
+      "published": "2026-11-04",
+      "notes": "- Launch build for WoW Forever. The version number goes above every earlier release, so everyone on 1.16.x is offered the update (1.2.0 counted as older than them).\n- Heal border glow and Shield border glow work on their own again, with Heal glow or Shield glow off.\n- The healer mana list keeps updating in combat, when the game hides the mana values.\n\n### 1.2.0\n- First release for the live WoW Forever client. The beta client is no longer targeted; install under `_forever_`.\n- The PvP flag shows again when you walk into contested territory, and becoming flagged plays the game's PvP update sound.\n- The player's PvP flag timer is a small white number just left of the shield (5m, 4m, 3m, 2m, 1m, then 59 down). It shows only while the five-minute countdown is actually running. The mouseover tooltip is gone.\n- Faster in combat without changing how the frames look: heal and shield overlays keep their style between health ticks, snow and blizzard flakes only move when they have shifted, and the party range and healer mana tickers stay off until they are needed.\n- Heal and shield glows (pulse, shimmer, snowglobe, blizzard) start again after a reload without toggling them in the options.\n\n### 1.16.51\n- The PvP flag on the player (and target / focus) shows again when you become flagged by walking\n  into contested territory. `UNIT_FACTION` had stopped refreshing the icon after the 1.16.50 event\n  split.\n- Becoming PvP flagged plays the game's PvP update sound. A reload while already flagged stays quiet.\n- The player's PvP flag timer is a small white number just left of the shield (5m, 4m, 3m, 2m, 1m, then 59 down). It shows only while the five-minute countdown is actually running, not while a PvP zone holds the timer at 5:00. The mouseover tooltip is gone.\n\n### 1.16.50\n- Faster in combat without changing how the frames look: heal and shield overlays keep their style\n  between health ticks, snow and blizzard glows only move a flake when it has shifted about a pixel,\n  name / portrait / level / faction events no longer repaint the whole frame, and the party range and\n  healer mana tickers stay off until they are needed.\n- Heal and shield glows (pulse, shimmer, snowglobe, blizzard) start again after a reload without\n  toggling them in the options. The style cache still skips texture work; it no longer skips ensuring\n  the glow is alive."
+    },
+    {
+      "tag": "v1.2.0",
+      "name": "WebbyFrames v1.2.0",
+      "published": "2026-10-24",
+      "notes": "- First release for the live WoW Forever client. The beta client is no longer targeted; install under `_forever_`.\n- The PvP flag shows again when you walk into contested territory, and becoming flagged plays the game's PvP update sound.\n- The player's PvP flag timer is a small white number just left of the shield (5m, 4m, 3m, 2m, 1m, then 59 down). It shows only while the five-minute countdown is actually running. The mouseover tooltip is gone.\n- Faster in combat without changing how the frames look: heal and shield overlays keep their style between health ticks, snow and blizzard flakes only move when they have shifted, and the party range and healer mana tickers stay off until they are needed.\n- Heal and shield glows (pulse, shimmer, snowglobe, blizzard) start again after a reload without toggling them in the options.\n\n### 1.16.51\n- The PvP flag on the player (and target / focus) shows again when you become flagged by walking\n  into contested territory. `UNIT_FACTION` had stopped refreshing the icon after the 1.16.50 event\n  split.\n- Becoming PvP flagged plays the game's PvP update sound. A reload while already flagged stays quiet.\n- The player's PvP flag timer is a small white number just left of the shield (5m, 4m, 3m, 2m, 1m, then 59 down). It shows only while the five-minute countdown is actually running, not while a PvP zone holds the timer at 5:00. The mouseover tooltip is gone.\n\n### 1.16.50\n- Faster in combat without changing how the frames look: heal and shield overlays keep their style\n  between health ticks, snow and blizzard glows only move a flake when it has shifted about a pixel,\n  name / portrait / level / faction events no longer repaint the whole frame, and the party range and\n  healer mana tickers stay off until they are needed.\n- Heal and shield glows (pulse, shimmer, snowglobe, blizzard) start again after a reload without\n  toggling them in the options. The style cache still skips texture work; it no longer skips ensuring\n  the glow is alive.\n\n### 1.16.49\n- Other players, friendly or hostile, keep their class colour. Health colour and Fade to red do not paint over it.\n- Fade to red is one switch. The custom stops, colours and blend are gone. Above 66% the bar keeps its colour, then it blends through yellow, orange at 33% and red at 1%.\n- The spell cost on the power bar tints its texture and colour the way heals and shields do, instead of washing out white. Glow: Soft pulse, Shimmer, Snowglobe or Blizzard, with a strength.\n\n### 1.16.48\n- The threat number is the game's own: the raw percent until you are tanking (about 110% pulls in melee, 130% at range), then the game's lead over the next person, which keeps climbing past 255%.\n- Solo, threat hides while you are the only one on the mob. A pet with threat shows it again. In a group it shows as usual.\n- The level number on the player and target frames is one point larger.\n- `/webby threat` is gone.\n\n### 1.16.47\n- Recent damage has its own look, under that switch on every frame, the portrait party and All frames: texture (the health bar's own, or any SharedMedia texture), colour (red until you pick one), delay (how long a hit stays, 0.4s) and opacity.\n\n### 1.16.46\n- Channelled spells preview one hit at a time (a missile, a wave, a tick) instead of the whole cast: it moves down the health as each one lands, with the recent damage trail showing the hit that just did. Channelled heals the same.\n\n### 1.16.45\n- The shield number follows each frame's Numbers setting, as the health number does: always shown, on mouseover, or never.\n\n### 1.16.44\n- Channelled spells get previews too: while you channel at an enemy (Arcane Missiles, Mind Flay, Penance), its whole damage is shaded off the end of the target's health (and focus, when that's the same mob). While you channel a heal (Penance), its whole healing shows after the incoming heals, on your target when it's friendly, else on you. The whole amount is read from the tooltip (each hit times the hits: waves, every second for so long). Gone when the channel ends.\n\n### 1.16.43\n- Shield number on mouseover: with the mouse on the health bar, the shield's amount shows at the bar's right end, in the shield's colour (nothing when there's no shield). Whatever the Numbers setting.\n\n### 1.16.42\n- Shields simplified: always in the missing health after the health, and when there's more shield than that, the rest grows back over the health from the bar's right end. The Placement and Overshield options are gone.\n- The shield Preview shows a shield that fits in the missing health, without the extra slice over the health.\n\n### 1.16.41\n- Shields stay inside the health bar, in two parts: in the missing health after the health, and what doesn't fit drawn back over the health, so the whole shield always shows, even at full health.\n- Shield placement (in the Shields section): Overlay (the above), Overlay reverse (all of it back over the health), Overlay reverse (full), Right edge or Left edge (all of it over the whole bar from that end). Overshield, for Overlay: Always, From left (the extra from the bar's start) or Never (missing health only).\n- The border glow no longer spills past the health bar's ends, and keeps its shape on long heals and shields (its ends at their true size, the middle stretched between them).\n- Tidier inside: the unused heal absorb and second heal bars are gone.\n\n### 1.16.40\n- Heal absorbs are off for now, until they're confirmed in the game: no longer drawn on the frames, and their settings (the Heal absorbs section, its colour and preview) are gone. The Shields section's switch is now Show shields.\n\n### 1.16.39\n- Tidier settings: the long Health and power list is split into small sections of their own, on every frame, the party and All frames. Health and power (textures, font, numbers, opacity, recent damage), Health colour (with Fade to red), Incoming heals, Shields and Heal absorbs, each with its switch and its looks. The player's spell costs, mana tick and druid mana have their own Mana and spell costs section.\n\n### 1.16.38\n- Incoming heals are one heal now, yours and everyone else's together, with one set of options: Heal texture, Heal colour, Heal opacity and the glows. Others' heal colour is gone, and a glow or border covers the whole heal in one piece.\n\n### 1.16.37\n- A new glow, Blizzard: a snowstorm, lots of small flakes driven down and across by the wind.\n- Heal border glow and Shield border glow: Blizzard's spell alert glow round incoming heals or shields, in their colour. With any glow, or on its own; Glow strength sets it too. On every frame, the portrait party and the raid-style tiles.\n- Snowglobe flakes can no longer grow huge.\n\n### 1.16.36\n- Shimmer: twice as fast, a sweep about every second.\n- Snowglobe: twice the flakes, and they float now (bobbing and drifting, sinking slowly) instead of falling.\n\n### 1.16.35\n- Glows look clearly different from each other on a narrow heal or shield. Shimmer: a band of light sweeps end to end across the heal or shield itself, at any width, then rests. Snowglobe: the flakes fall and sway visibly, at a steady brightness. Soft pulse: fades fully in and out, a little faster.\n\n### 1.16.34\n- Shield and heal glows: no longer turn the heal or shield pure white. The glow is now a brighter shade of the bar's own colour, with paler flakes and shimmer.\n- Turning a glow off and back on now starts its animation again, and it restarts when the heal or shield comes back after emptying.\n- Snowglobe: more, bigger flakes.\n- A glow that fails now says why in chat, once, instead of failing silently.\n\n### 1.16.33\n- Shield glow and Heal glow: Soft pulse (a soft glow breathing in and out), Shimmer (a band of light sweeping across) or Snowglobe (glowing flakes drifting down inside, swirling up whenever the shield changes or a heal comes in), each with a Glow strength. On every frame, the portrait party and the raid-style tiles; the Preview tickboxes show them too.",
+      "truncated": true
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-04",
+      "2026-10-24",
+      "2026-10-21",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WebbyFrames"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "EllesmereUI"
+    ],
+    "savedVariables": [
+      "WebbyFramesDB",
+      "DFFramesForeverDB"
+    ]
+  }
+}

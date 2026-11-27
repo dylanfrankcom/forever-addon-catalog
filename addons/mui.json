@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "mui",
+  "repo": "muleyo/muleyoUI",
+  "about": "![mUI Logo](https://i.imgur.com/yQZLC1Z.png)\n\n# mUI\n\n**A fresh dark theme and quality-of-life features for the default Blizzard UI.**\n\n[![Donate](https://img.shields.io/badge/Donate-Support%20mUI-ff5e5b?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://pay.muleyo.dev/?donation=true)\n[![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/gE5g43mZqy)\n[![Twitch](https://img.shields.io/badge/Twitch-muleyo-9146FF?style=for-the-badge&logo=twitch&logoColor=white)](https://twitch.tv/muleyo)\n\n---\n\n## ✨ Overview\n\nmUI enhances the default Blizzard UI instead of replacing it: a clean dark theme plus several small features that make everyday play nicer.\n\n## \uD83C\uDFAE Supported Versions\n\nRetail · Forever\n\nAvailable options vary slightly between versions.\n\n## \uD83D\uDE80 Features\n\n- \uD83C\uDFA8 **Dark theme** – a consistent dark look for the default UI, with custom colors or class colors if you prefer\n- \uD83E\uDDCD **Unit frames** – class colors, class icons, aura and debuff sizing, and more\n- \uD83C\uDFAF **Nameplates** – class/reaction colors, NPC type colors, combat indicator, adjustable debuff count and size\n- ⚡ **Cast bars** – icons, cast time, custom position and scale for target and focus\n- \uD83D\uDDE1️ **Action bars** – hotkey, macro and font size options, mouseover fading, range indication, cooldown text\n- \uD83D\uDCAC **Chat** – restyled chat frame, copy chat, clickable links, whisper alerts, adjustable font size and background\n- \uD83D\uDDFA️ **Map & minimap** – clock, coordinates, calendar and tracking options\n- \uD83D\uDCA1 **Tooltips** – extra information and aura tooltips\n- \uD83E\uDD16 **Automation** – auto sell junk, repair, accept quests, fast loot, skip cinematics, auto-decline duels and more\n- \uD83D\uDEE1️ **Raid frames** – custom raid auras and debuff colors (Retail)\n- \uD83D\uDC64 **Profiles** – create, copy, delete, import and export profiles\n- \uD83D\uDD27 **Config GUI** – a searchable settings window with Edit Mode support\n\n## ⚙️ Settings\n\nOpen the settings GUI in-game with:\n\n```\n/mUI\n```\n\n## \uD83D\uDC1B Issues\n\nFound a bug, an error, or have a suggestion? Don't hesitate to open an issue.\n\n## \uD83D\uDE4F Credits\n\n- **mMediaTag** textures by Blinkii\n\n## \uD83D\uDCAC Support\n\nQuestions, feedback or just want to hang out? Join the [Discord](https://discord.gg/gE5g43mZqy), catch a stream on [Twitch](https://twitch.tv/muleyo), or [donate](https://pay.muleyo.dev/?donation=true) to support development. Thank you! ❤️",
+  "releases": [
+    {
+      "tag": "4.2.15",
+      "published": "2026-11-22",
+      "notes": "# 4.2.15\n\n### Changes since 4.2.14\n\n- Fix: Unitframes \"Retail\" style misaligned health/powerbar, heal prediction, overshields etc. (8796d72)\n- Fix: Unitframes \"Retail\" style now also features player's pet. (a564eb9)\n- Fix: In-Game Navigation (f2a0f57)\n- Fix: Item Info Error (1fc04f6)"
+    },
+    {
+      "tag": "4.2.14",
+      "published": "2026-11-20",
+      "notes": "# 4.2.14\n\n### Changes since 4.2.13\n\n- Added: Retail Frames Style (3b30c37)\n- Removed: several features which wouldn't work on Forever. No working features have been removed. (0bfface)\n- Fix: Nameplate Threatcolors are now only being displayed once you are in combat (9cb7593)\n- Fix: Raidframe \"Incoming Heal\" color (96c2cfd)"
+    },
+    {
+      "tag": "4.2.13",
+      "published": "2026-11-17",
+      "notes": "# 4.2.13\n\n### Changes since 4.2.12\n\n- Fix: Druid Mana Bar (sits properly inside the player frame now) (9242afb)\n- Added: Target/Focus Castbar Y-Position option (66867b4)\n- Fix: Item Info (Forever) (16c4ab2)\n- Fix: Theme for certain frames (2d01b5e)\n- Added: Nameplates Rarity Icon (Elite/Rare etc.) (2a8de78)\n- Added: Nameplate Leveltext Customization (fdde8a8)\n- Added: Mana 5-second timer (e547eeb)\n- Added: Threat Colors (5728184)\n- Removed: Boss & Miniboss Colors since Blizzard doesn't use Boss/MiniBoss flags in Forever (aa83bf6)\n- Added: Quest Timer skinning (438a7d2)\n- Added: Combopoint Skinning (eebd14b)\n- Fix: Personal Resource Bar no longer shows on friendly nameplates (2d5ea50)\n- Fix: File formattings (1457e7d)\n- Added: CC Priority for Portrait Auras (enemy only) (fa0c845)"
+    },
+    {
+      "tag": "4.2.12",
+      "published": "2026-11-15",
+      "notes": "# 4.2.12\n\n### Changes since 4.2.11\n\n- Added: Unitframes Portrait Auras - shows CCs/Defensives/Offensive CDs in unitframe portraits (cd7f721)\n- Added: Druid Barkskin to Defensive Auras (Forever) (d2d849b)\n- Fix: Personal Resource Bar Config Error (151b845)"
+    },
+    {
+      "tag": "4.2.11",
+      "published": "2026-11-14",
+      "notes": "# 4.2.11\n\n### Changes since 4.2.10\n\n- Added: Druid Mana Bar (4a0b545)"
+    }
+  ],
+  "stats": {
+    "stars": 10,
+    "openIssues": 3,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-20",
+      "2026-11-17",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-10-14",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-09-03",
+      "2026-09-03",
+      "2026-08-30",
+      "2026-08-24",
+      "2026-08-24",
+      "2026-08-21",
+      "2026-08-21",
+      "2026-08-21",
+      "2026-08-18",
+      "2026-08-18",
+      "2026-08-18",
+      "2026-08-17",
+      "2026-08-17",
+      "2026-08-17",
+      "2026-08-16",
+      "2026-08-16",
+      "2026-08-14",
+      "2026-08-13",
+      "2026-08-13",
+      "2026-08-13",
+      "2026-08-13",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-08-12",
+      "2026-07-27",
+      "2026-07-27",
+      "2026-07-27",
+      "2026-07-27",
+      "2026-07-24",
+      "2026-07-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "mUI"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "mUIDB"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "betterbags-campingfixtures",
+  "repo": "AlexHaible/BetterBags-CampingFixtures",
+  "releases": [
+    {
+      "tag": "1.0.2",
+      "published": "2026-10-25",
+      "notes": "# BetterBags - Camping Fixtures\n\n## [1.0.2](https://github.com/AlexHaible/BetterBags-CampingFixtures/tree/1.0.2) (2026-10-25)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-CampingFixtures/compare/1.0.1...1.0.2) [Previous Releases](https://github.com/AlexHaible/BetterBags-CampingFixtures/releases)\n\n- Add Cozy Sleeping Bag to the camping category"
+    },
+    {
+      "tag": "1.0.1",
+      "published": "2026-09-19",
+      "notes": "# BetterBags - Camping Fixtures\n\n## [1.0.1](https://github.com/AlexHaible/BetterBags-CampingFixtures/tree/1.0.1) (2026-09-19)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-CampingFixtures/compare/1.0.0...1.0.1) [Previous Releases](https://github.com/AlexHaible/BetterBags-CampingFixtures/releases)\n\n- No need for multiple .toc as we've only got 1 version to support"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-25",
+    "releaseDates": [
+      "2026-10-25",
+      "2026-09-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BetterBags-CampingFixtures"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "BetterBags"
+    ],
+    "optional": [
+      "BugSack",
+      "BugGrabber"
+    ],
+    "savedVariables": [
+      "BetterBags_CampingFixturesDB"
+    ]
+  }
+}

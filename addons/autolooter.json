@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "autolooter",
+  "repo": "Eliote/AutoLooter",
+  "about": "Loot only what you want and keep your precious bag slots free of trash.\n\nYou can configure the addon with the config UI and/or the slash command (/al, /atl or /autolooter)\n\nSome Features:\n\n* White List\n* Ignore List\n* Alert List\n* Loot by Type/Subtype\n* Quest items (only work for item listed in the quest log, you can use 'loot by type' and this option for a more reliable approach)\n* Loot by Rarity\n* Loot by Price",
+  "releases": [
+    {
+      "tag": "v3.35",
+      "published": "2026-11-26",
+      "notes": "# AutoLooter\n\n## [v3.35](https://github.com/Eliote/AutoLooter/tree/v3.35) (2026-11-22)\n[Full Changelog](https://github.com/Eliote/AutoLooter/compare/v3.34...v3.35) [Previous Releases](https://github.com/Eliote/AutoLooter/releases)\n\n- Fix secret comparison in the skinning module"
+    },
+    {
+      "tag": "v3.34",
+      "published": "2026-11-22",
+      "notes": "# AutoLooter\n\n## [v3.34](https://github.com/Eliote/AutoLooter/tree/v3.34) (2026-11-22)\n[Full Changelog](https://github.com/Eliote/AutoLooter/compare/v3.33...v3.34) [Previous Releases](https://github.com/Eliote/AutoLooter/releases)\n\n- Add an option to loot everything from skinnable mobs  \n- Add a better locale independent implementation of quest loot"
+    },
+    {
+      "tag": "v3.33",
+      "published": "2026-11-16",
+      "notes": "# AutoLooter\n\n## [v3.33](https://github.com/Eliote/AutoLooter/tree/v3.33) (2026-11-16)\n[Full Changelog](https://github.com/Eliote/AutoLooter/compare/v3.32...v3.33) [Previous Releases](https://github.com/Eliote/AutoLooter/releases)\n\n- Fix: Some quest items not being picked up in WoW Forever"
+    },
+    {
+      "tag": "v3.32",
+      "published": "2026-09-26",
+      "notes": "# AutoLooter\n\n## [v3.32](https://github.com/Eliote/AutoLooter/tree/v3.32) (2026-09-26)\n[Full Changelog](https://github.com/Eliote/AutoLooter/compare/v3.31...v3.32) [Previous Releases](https://github.com/Eliote/AutoLooter/releases)\n\n- Add wow forever version"
+    },
+    {
+      "tag": "v3.31",
+      "published": "2026-08-29",
+      "notes": "# AutoLooter\n\n## [v3.31](https://github.com/Eliote/AutoLooter/tree/v3.31) (2026-08-29)\n[Full Changelog](https://github.com/Eliote/AutoLooter/compare/v3.30...v3.31) [Previous Releases](https://github.com/Eliote/AutoLooter/releases)\n\n- Update toc file  \n- Update libs"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 6,
+    "contributors": 2,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-22",
+      "2026-11-16",
+      "2026-09-26",
+      "2026-08-29",
+      "2026-07-22",
+      "2026-02-07",
+      "2026-01-14",
+      "2026-01-10",
+      "2025-11-01",
+      "2025-09-09",
+      "2025-04-27",
+      "2025-03-01",
+      "2025-01-07",
+      "2024-12-20",
+      "2024-10-23",
+      "2024-07-25",
+      "2024-07-15",
+      "2024-05-10",
+      "2023-11-11",
+      "2023-05-24",
+      "2023-01-29",
+      "2022-12-10",
+      "2022-12-03",
+      "2022-11-27",
+      "2022-11-16",
+      "2022-11-01",
+      "2022-10-25",
+      "2022-09-04",
+      "2021-07-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AutoLooter"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "AutoLooterDB"
+    ]
+  }
+}

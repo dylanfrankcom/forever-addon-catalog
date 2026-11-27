@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "farmbuddy",
+  "repo": "Thallanar/FarmBuddy",
+  "about": "# FarmBuddy\n\nWorld of Warcraft addon for tracking farming sessions, automatically capturing loot and estimating profit.\n\n## Features\n\n- **Farming sessions** — Start, pause and stop sessions with a live timer, item count, estimated value and gold per hour in one window\n- **Time limit or free mode** — Set a time limit (hours, minutes, seconds or quick presets) with an alarm and optional auto-stop, or farm in free mode with no limit; elapsed time is always recorded\n- **Automatic loot capture** — Items are automatically logged during the session, grouped by category\n- **Category filters** — Searchable filters by item type to choose what shows up in the loot list\n- **Profit estimation** — Integrates with TSM and Auctionator for market pricing\n- **Session history** — Sessions grouped by day, each with duration, items, estimated value and the mode used\n- **Themes and fonts** — Blizzard, Dark and Parchment themes, game fonts (plus LibSharedMedia fonts), font size, window scale and background opacity\n- **Alarm sounds** — Choose the alarm sound and channel, with a 5-minute warning, on-screen message and taskbar flash\n- **Per-character profiles** — Each character keeps its own settings and history; copy settings from another character or move them with an export string\n- **Localization** — Interface in English and Brazilian Portuguese (follows the game client language)\n- **Multi-version** — Runs on Retail, WoW: Forever, MoP Classic, TBC Anniversary and Classic Era from a single package\n- **Minimap button** — Quick access via LibDataBroker + LibDBIcon\n- **GatherMate2 import** — Import GatherMate2 data (from its database or an export string) in Settings > Profiles, with a map preview\n- **Data export** — Export gathering data in a compressed format\n- **Mob Map** — Visual map of farmable mobs per zone with filters by profession (Skinning/Tailoring)\n- **Mob portraits** — Real 3D mob portraits on the map via displayID tables, with icon fallback by type\n- **Real-time tracking** — Automatic mob logging via nameplate and mouseover events\n- **Zoom and Pan** — Mouse scroll zoom and right-click pan on the map\n- **Species grouping** — One pin per unique mob at the spawn centroid, with a sidebar listing all mobs in the zone\n- **Multi-select isolation** — Click sidebar rows to isolate one or more mobs and see all individual spawns\n- **Opens on player zone** — The map automatically selects the player's current zone when opened (if registered)\n- **Exploration overlay** — Maps rendered with explored textures for full visualization\n- **Route Maker (pulls)** — MDT-style route planning: group mobs into numbered pulls, optimize order, save and load routes per zone\n- **Extensions** — Version-specific mob data ships as separate addons (like **FarmBuddy: Forever**), so each client only loads the zones it needs\n\n## Slash Commands\n\n- `/farmbuddy` — Toggle the main window\n- `/farmbuddy changelog` — Show what's new in this version\n\n## Installation\n\nCopy the `FarmBuddy` folder to:\n\n```\nWorld of Warcraft/<game folder>/Interface/AddOns/FarmBuddy\n```\n\nWhere `<game folder>` is `_retail_`, `_classic_`, `_anniversary_`, `_classic_era_` or the WoW: Forever folder, depending on the version you play.\n\n> The base addon ships the Retail zone mob database. On **WoW: Forever**, install the **FarmBuddy: Forever** extension as well to get the classic zones on the Mob Map.\n\n## Credits\n\nFarmBuddy bundles the following libraries, each under its own license:\n\n- [LibStub](https://www.wowace.com/projects/libstub) — Public Domain\n- [CallbackHandler-1.0](https://www.wowace.com/projects/callbackhandler) — Ace3 BSD-style license\n- [AceSerializer-3.0](https://www.wowace.com/projects/ace3) — Ace3 BSD-style license\n- [LibDataBroker-1.1](https://github.com/tekkub/libdatabroker-1-1) — Public Domain\n- [LibDBIcon-1.0](https://www.curseforge.com/wow/addons/libdbicon-1-0) — by funkehdude\n- [LibDeflate](https://github.com/SafeteeWoW/LibDeflate) — zlib License\n- [LibBase64-1.0](https://www.wowace.com/projects/libbase64-1-0) — GPLv3, by Adirelle\n\nOptional integrations: TradeSkillMaster, Auctionator, GatherMate2.\n\n## License\n\nCopyright (C) 2026 Thallanar\n\nFarmBuddy is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. See [LICENSE](https://github.com/Thallanar/FarmBuddy/blob/master/LICENSE) for the full text.\n\n## Changelog\n\n### v1.11.0\n\n- **Accurate Skinning and Tailoring filters** — On the Mob Map, mobs can now be marked as skinnable or as dropping cloth, one by one, instead of by creature type; FarmBuddy: Forever 1.1.0 uses this for its zones\n- **Both professions in the tooltip** — Mobs that are skinnable and also drop cloth show both professions in the map tooltip\n\n### v1.10.2\n\n- **New logo** — FarmBuddy's own logo on the minimap button and in the addon list (FarmBuddy: Forever too)\n- **New Mob Map icon** — The Mob Map button uses a gold map icon that matches the other buttons\n- **Tabs polish** — The Timer and Time limit tabs line up with the window edge, sit right under the frame and share their border\n- **Fix: minimap icon position** — The minimap button now remembers where you dragged it\n\n### v1.10.1\n\n- **Fix: full gold values** — Estimated value, gold per hour, item prices and history totals now show gold, silver and copper instead of whole gold only\n- **Fix: GatherMate2 string import/export** — Pasting or exporting a GatherMate2 string no longer fails with a Base64 error\n- **Fix: main window closing by itself** — Pressing ESC or opening the world map no longer closes the main window; use its close button or `/farmbuddy`\n- **Simpler history** — The history detail no longer shows gold per hour",
+  "releases": [
+    {
+      "tag": "1.11.0",
+      "published": "2026-11-19",
+      "notes": "### v1.11.0\n\n- **Accurate Skinning and Tailoring filters** — On the Mob Map, mobs can now be marked as skinnable or as dropping cloth, one by one, instead of by creature type; FarmBuddy: Forever 1.1.0 uses this for its zones\n- **Both professions in the tooltip** — Mobs that are skinnable and also drop cloth show both professions in the map tooltip"
+    },
+    {
+      "tag": "v1.8.0",
+      "name": "1.8.0",
+      "published": "2026-11-02",
+      "notes": "FarmBuddy_release_1.8.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-02"
+    ]
+  },
+  "languages": [
+    "ptBR"
+  ],
+  "technical": {
+    "folders": [
+      "FarmBuddy"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "FarmBuddyDB"
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "chattery",
+  "repo": "Ghostopheles/Chattery",
+  "about": "# Chattery\n\nChattery is a World of Warcraft addon that removes the size limit on chat messages, similar to addons like [Emote Splitter](https://www.curseforge.com/wow/addons/emote-splitter) or [Unlimited Chat Message](https://www.curseforge.com/wow/addons/unlimitedchatmessage).\n\n![chattery-waiting](https://github.com/user-attachments/assets/e2a92013-e7bc-48fb-8734-7458fe6e1674)\n\n![image](https://github.com/user-attachments/assets/263c657c-507a-4962-8559-338833042dac)\n\n# Features\n\n*   Automatically splits long chat messages into chunks the game can support\n*   Preserves TRP chat highlighting across messages\n*   A character counter on the chat editbox\n*   Optional auto capitalization and punctuation\n*   Undo (ctrl-z) support if you accidentally delete your message\n*   100% human-written code\n\n# Compatibility\n\n## Friends\n\n*   Works great alongside [Eavesdropper](https://www.curseforge.com/wow/addons/eavesdropper), [Languages](https://www.curseforge.com/wow/addons/languages), and [Yapper EditBox](https://www.curseforge.com/wow/addons/yapper-editbox).\n\n## Conflicts\n\n*   Incompatible with other chat message splitters like [Emote Splitter](https://www.curseforge.com/wow/addons/emote-splitter) or [Unlimited Chat Message](https://www.curseforge.com/wow/addons/unlimitedchatmessage).\n*   Outdated RP addons often cause issues when sending chat messages while in instances, or in combat. Ensure your addons are up-to-date, and uninstall any that haven't been updated for Midnight.\n    *   The most common suspects are Listener and CrossRP. If you have those enabled, you will encounter issues sending messages until they're updated for Midnight.",
+  "releases": [
+    {
+      "tag": "v0.8.8",
+      "published": "2026-11-18",
+      "notes": "# 0.8.8\n\n**Reminder**: You can access the Chattery settings through the minimap button, the addon compartment, or by using the `/chattery` command.\n\n## Fixed\n- Fixed chat message sending not working on Forever for certain chat types\n\t- oopsies\n\n# 0.8.7\n\n## Fixed\n- Fixed emotes causing catastrophic failure\n\t- This means you'll have to press enter a bunch to send long emotes. Blame Blizzard :(.\n\n# 0.8.6c\n\n## Fixed\n- Fixed a catastrophic lib-related calamity that prevented the addon from loading properly (thanks Peterodox)\n\n# 0.8.6b\n\n## Changed\n- The `GUILD` and `GUILD_DISCORD` chat types are now hardware restricted\n\n## Fixed\n- Fixed an issue sending messages beginning with a hyperlink while the 'auto-capitalization' setting was enabled\n- Fixed missing edit box size limits for the `GUILD_DISCORD` chat type\n\n# 0.8.6\n\n## Changed\n- Doubled the rate at which chat messages are sent\n\t- Surely I won't regret doing this\n\n## Fixed\n- The 'waiting' frame now appears much quicker after you begin sending a message, and is less eager to spontaneously poof out of existence"
+    },
+    {
+      "tag": "v0.8.7",
+      "published": "2026-11-07",
+      "notes": "# 0.8.7\n\n**Reminder**: You can access the Chattery settings through the minimap button, the addon compartment, or by using the `/chattery` command.\n\n## Fixed\n- Fixed emotes causing catastrophic failure\n\t- This means you'll have to press enter a bunch to send long emotes. Blame Blizzard :(.\n\n# 0.8.6c\n\n**Reminder**: You can access the Chattery settings through the minimap button, the addon compartment, or by using the `/chattery` command.\n\n## Fixed\n- Fixed a catastrophic lib-related calamity that prevented the addon from loading properly (thanks Peterodox)\n\n# 0.8.6b\n\n## Changed\n- The `GUILD` and `GUILD_DISCORD` chat types are now hardware restricted\n\n## Fixed\n- Fixed an issue sending messages beginning with a hyperlink while the 'auto-capitalization' setting was enabled\n- Fixed missing edit box size limits for the `GUILD_DISCORD` chat type\n\n# 0.8.6\n\n## Changed\n- Doubled the rate at which chat messages are sent\n\t- Surely I won't regret doing this\n\n## Fixed\n- The 'waiting' frame now appears much quicker after you begin sending a message, and is less eager to spontaneously poof out of existence"
+    },
+    {
+      "tag": "v0.8.6d",
+      "published": "2026-09-21",
+      "notes": "# 0.8.6c\n\n**Reminder**: You can access the Chattery settings through the minimap button, the addon compartment, or by using the `/chattery` command.\n\n## Fixed\n- Fixed a catastrophic lib-related calamity that prevented the addon from loading properly (thanks Peterodox)\n\n# 0.8.6b\n\n## Changed\n- The `GUILD` and `GUILD_DISCORD` chat types are now hardware restricted\n\n## Fixed\n- Fixed an issue sending messages beginning with a hyperlink while the 'auto-capitalization' setting was enabled\n- Fixed missing edit box size limits for the `GUILD_DISCORD` chat type\n\n# 0.8.6\n\n## Changed\n- Doubled the rate at which chat messages are sent\n\t- Surely I won't regret doing this\n\n## Fixed\n- The 'waiting' frame now appears much quicker after you begin sending a message, and is less eager to spontaneously poof out of existence"
+    },
+    {
+      "tag": "v0.8.6c",
+      "published": "2026-08-18",
+      "notes": "# 0.8.6c\n\n**Reminder**: You can access the Chattery settings through the minimap button, the addon compartment, or by using the `/chattery` command.\n\n## Fixed\n- Fixed a catastrophic lib-related calamity that prevented the addon from loading properly (thanks Peterodox)\n\n# 0.8.6b\n\n## Changed\n- The `GUILD` and `GUILD_DISCORD` chat types are now hardware restricted\n\n## Fixed\n- Fixed an issue sending messages beginning with a hyperlink while the 'auto-capitalization' setting was enabled\n- Fixed missing edit box size limits for the `GUILD_DISCORD` chat type\n\n# 0.8.6\n\n## Changed\n- Doubled the rate at which chat messages are sent\n\t- Surely I won't regret doing this\n\n## Fixed\n- The 'waiting' frame now appears much quicker after you begin sending a message, and is less eager to spontaneously poof out of existence"
+    },
+    {
+      "tag": "v0.8.6b",
+      "published": "2026-08-12",
+      "notes": "# 0.8.6b\n\n**Reminder**: You can access the Chattery settings through the minimap button, the addon compartment, or by using the `/chattery` command.\n\n## Changed\n- The `GUILD` and `GUILD_DISCORD` chat types are now hardware restricted\n\n## Fixed\n- Fixed an issue sending messages beginning with a hyperlink while the 'auto-capitalization' setting was enabled\n- Fixed missing edit box size limits for the `GUILD_DISCORD` chat type\n\n# 0.8.6\n\n## Changed\n- Doubled the rate at which chat messages are sent\n\t- Surely I won't regret doing this\n\n## Fixed\n- The 'waiting' frame now appears much quicker after you begin sending a message, and is less eager to spontaneously poof out of existence"
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/e2a92013-e7bc-48fb-8734-7458fe6e1674",
+    "https://github.com/user-attachments/assets/263c657c-507a-4962-8559-338833042dac"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-07",
+      "2026-09-21",
+      "2026-08-18",
+      "2026-08-12",
+      "2026-08-11",
+      "2026-08-05",
+      "2026-07-10",
+      "2026-07-08",
+      "2026-07-07",
+      "2026-06-16",
+      "2026-04-22",
+      "2026-04-21",
+      "2026-03-19",
+      "2026-03-19",
+      "2026-03-15",
+      "2026-03-11",
+      "2026-02-24",
+      "2026-02-19",
+      "2026-02-17",
+      "2026-02-17",
+      "2026-02-16",
+      "2026-02-15",
+      "2026-02-15",
+      "2026-02-13",
+      "2026-02-13",
+      "2026-02-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Chattery"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ChatteryConfig"
+    ]
+  }
+}

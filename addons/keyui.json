@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "keyui",
+  "repo": "1onar/KeyUI",
+  "releases": [
+    {
+      "tag": "v4.4.0",
+      "published": "2026-11-15",
+      "notes": "# KeyUI\n\n## [v4.4.0](https://github.com/1onar/KeyUI/tree/v4.4.0) (2026-11-15)\n[Full Changelog](https://github.com/1onar/KeyUI/compare/v4.3.2...v4.4.0) [Previous Releases](https://github.com/1onar/KeyUI/releases)\n\n- fix: keep keys from swallowing keypresses while KeyUI is open  \n    Report on 4.4.0-beta4 (Forever 1.60.1): with KeyUI open, no keypress  \n    reached the game for the first ~30 seconds.  \n    Since 1b9e821 every key gets its OnKeyDown, OnMouseWheel and  \n    OnGamePadButtonDown handlers at creation. If setting such a handler  \n    leaves the frame taking that input, all keys swallowed keypresses (they  \n    do not propagate). In locked mode the handler switched off only the key  \n    that had just swallowed one, so input came back only after each key had  \n    taken a press, or after the pointer had crossed the keys (OnLeave).  \n    Nothing documents whether SetScript turns input on, so the fix does not  \n    depend on it:  \n    - InstallKeyEditHandlers switches input off right after setting them  \n    - addon:ReleaseKeyCapture() switches it off on every key except the one  \n      hovered in edit mode; called on open, at combat start and when a device  \n      leaves edit mode (Cancel or Save: the hovered key gets no OnLeave then)  \n    - /keyui report shows capture= keypress=<on|off>  \n    The harness now assumes setting an input handler turns that input on and  \n    checks that no locked key takes input after opening, during and after an  \n    edit session, in combat and in the report. Without the fix it reports 20  \n    problems, with it none on all five clients.  \n    Not tested in-game.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- docs: record the layout name checks for testers and the harness  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- fix: ask before a save replaces another custom layout  \n    Typing the name of an existing custom layout into the Save Layout dialog replaced that  \n    layout without a word. Now KEYUI\\_LAYOUT\\_OVERWRITE asks first (\"A Keyboard layout named  \n    '%s' already exists. Replace it?\", name passed as a format argument). Replace saves;  \n    Cancel or ESC goes back to the name dialog, so the edits can be saved under another name  \n    or cancelled.  \n    Saving the custom layout that is being edited under its own name still replaces it  \n    without asking, since that is the usual way to keep changes to it. \"Being edited\" means  \n    it is the active layout, compared by content because layout\\_current and layout\\_edited  \n    are separate tables after /reload.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- fix: reopen a custom layout that shares a built-in layout's name  \n    Players who saved a custom layout under a built-in layout's name before that was refused  \n    still lost it on every /reload: addon:load() opens the active layout by name before the  \n    layout menu exists, and generate\\_\\_layout took the built-in table first.  \n    layout\\_current\\_ keeps a copy of the layout that was active, so the lookup  \n    (addon:ResolveLayoutByName) now takes the custom layout when it matches that copy and the  \n    built-in one otherwise. No saved data is renamed or rewritten. The harness reopens KeyUI  \n    as after /reload with such a pair, once with the custom and once with the built-in layout  \n    active.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- fix: keep custom layouts off the built-in layout names  \n    A custom layout saved, renamed or copied under a built-in layout's internal name  \n    (\"QWERTZ\\_100%\", \"Layout\\_4x3\", \"xbox\") was replaced by the built-in layout the next time  \n    KeyUI opened: addon:load() looks the active layout up by name before the layout menu  \n    exists, and generate\\_\\_layout prefers the built-in table.  \n    Saving, renaming and copying now refuse those names with a chat line, and importing (and  \n    the copy suggestion) picks \" (2)\" instead. A refused name in the Save Layout dialog  \n    keeps the dialog open; it used to close it and leave the device edited with nothing on  \n    screen to save or discard the edits.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- fix: record a saved layout as the current board  \n    Saving a layout made it the current one in layout\\_current\\_ but left  \n    key\\_bind\\_settings\\_.currentboard on the layout picked before. Every other way to  \n    pick a layout sets both, and RenameLayout only renames currentboard when it names the  \n    renamed layout, so renaming a just-saved layout left currentboard pointing at a name  \n    that was no longer current. The harness now saves a layout on each device.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- chore: settle the remaining luacheck warnings  \n    No behaviour change. The only warnings that pointed at code were two fallbacks to globals  \n    no client has any more: IsAddOnLoaded behind C\\_AddOns.IsAddOnLoaded and  \n    ToggleAutoCastPetAction behind C\\_ActionBar.ToggleAutoCastPetAction. The namespaced  \n    functions exist in all five GlobalAPI dumps, so the fallbacks never ran; they are gone.  \n    The rest is tidying: the unused addon name from the file vararg (and the thirty  \n    shadowing warnings it caused), unused locals, repeated `local text`, an empty if branch,  \n    and handle\\_drag\\_or\\_size/handle\\_release, which declared a parameter named self next to  \n    the implicit one of the method.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- chore: lint with luacheck in CI  \n    .luacheckrc checks KeyUI's own Lua with luacheck 1.2.0; pr-check.yml runs it as a  \n    separate job. The part that matters is \"accessing undefined variable\": the WoW globals  \n    KeyUI may read come from tools/luacheck/wow\\_globals.lua, generated by  \n    tools/luacheck-globals.lua from the Blizzard resources of all five clients plus the  \n    top-level definitions in their UI source. A name no client defines stays an error, and  \n    the generator prints the names some client lacks so their guards can be checked.  \n    Names that only the Blizzard\\_Deprecated* forwarders define are allowed in Core.lua and  \n    Frames/ActionButton.lua, the two files that use them as fallbacks behind C\\_ActionBar.  \n    The harness stand-in may set the globals it emulates, but not through allow\\_defined:  \n    luacheck shares implicitly defined globals across the files of one run, which hid every  \n    undefined global in the addon in a first attempt.  \n    tools/update-api.sh fetches the extra resource files (FrameXML, Frames, Mixins,  \n    LuaEnum, Events, GlobalStrings/enUS) and gains \"resources\" to refresh only those.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- docs: record today's snapshots, combat-only controls, popups and Classic atlases  \n    Snapshot table at Retail 70783 and Forever 70938; both tab templates now  \n    exist on every client; the controller glyph atlases are missing on  \n    Anniversary and Classic Era; which controls refuse during combat; secret  \n    strings and popup rules; what the harness now covers; tester checks for  \n    the fixes since beta1; Forever in the supported versions and the TOC line.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- fix: let layouts with a % in their name be deleted  \n    The client formats every popup text with SetFormattedText (GameDialog.lua),  \n    and the delete confirmation built its text by concatenating the layout  \n    name. A name such as \"50% keys\" made the popup raise \"invalid option\"  \n    instead of asking. The name is now passed as the popup's text argument.  \n    Harness: popups format their text like the client; step 31c deletes a  \n    layout named \"50% keys\".  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- fix: record the selected custom layout as the current board  \n    Selecting a default layout set key\\_bind\\_settings\\_.currentboard,  \n    selecti",
+      "truncated": true
+    },
+    {
+      "tag": "v4.3.2",
+      "published": "2026-11-14",
+      "notes": "# KeyUI\n\n## [v4.3.2](https://github.com/1onar/KeyUI/tree/v4.3.2) (2026-11-14)\n[Full Changelog](https://github.com/1onar/KeyUI/compare/v4.3.1...v4.3.2) [Previous Releases](https://github.com/1onar/KeyUI/releases)\n\n- fix: keep the profile buttons out of the Options search  \n    Typing in the Options search box on WoW Forever raised  \n    ADDON\\_ACTION\\_FORBIDDEN for C\\_Discord.IsUserOAuthed, blamed on KeyUI.  \n    CreateSettingsButtonInitializer adds a button's search tags from the  \n    calling addon's code, so the three profile buttons (Export, Import, Full  \n    Reset) carried tainted tags. The search reads every initializer's tags,  \n    and its result list then shows Blizzard's Discord sign-in row from  \n    tainted code. The checkboxes, dropdown and slider are not affected: their  \n    tags are added inside SettingsInbound's secure attribute handler.  \n    Passing addSearchTags = false keeps the buttons out of the search. The  \n    argument must stay a boolean; the function asserts on nil. Same signature  \n    on all five clients. This is Blizzard bug WoWUIBugs#873; other addons  \n    confirmed the workaround in-game on Forever.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- ci: move actions/checkout to v7 (Node 24)  \n    Every run warned that actions/checkout@v4 targets the deprecated Node.js 20  \n    and is being forced onto Node.js 24. v7 runs on Node 24 natively. Nothing  \n    here depends on what changed in between: v6 moved persisted credentials to a  \n    separate file (the packager uses GITHUB\\_OAUTH, not git credentials) and v7  \n    only blocks fork checkouts under pull\\_request\\_target and workflow\\_run, which  \n    these workflows do not use.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v4.3.1",
+      "published": "2026-10-21",
+      "notes": "# KeyUI\n\n## [v4.3.1](https://github.com/1onar/KeyUI/tree/v4.3.1) (2026-10-21)\n[Full Changelog](https://github.com/1onar/KeyUI/compare/v4.3.0...v4.3.1) [Previous Releases](https://github.com/1onar/KeyUI/releases)\n\n- feat: support WoW Forever  \n    Forever (1.60.1, interface 16001) plays in classic Azeroth but runs the  \n    Mainline client: the 12.1.5 API with secret values, the Mainline templates  \n    and atlases, and none of the legacy spell globals. Its build number fell in  \n    the isVanilla range, so KeyUI would have taken the Classic Era paths there:  \n    bundled BLPs instead of atlases, no ActionButtonSpellFXTemplate, no combat  \n    lock on action changes and no BINDINGS\\_LOADED.  \n    VersionCompat gains isForever and isModern (Retail or Forever). Everything  \n    that follows the client rather than the game now checks isModern, and  \n    USE\\_ATLAS follows it. Retail and the Classic clients keep their flags. The  \n    combat-lock message no longer says \"on Retail\".  \n    Checked against the 1.60.1.70450 dump; no Forever client was available to  \n    test in-game. COMPATIBILITY.md documents the new snapshot layout and re-runs  \n    the API audit against all five clients.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>  \n- chore: pull API snapshots from wow-ui-source and watch for new builds  \n    API/ held hand-made client exports named after their build, so every bump  \n    meant re-exporting four clients and rewriting the paths in COMPATIBILITY.md.  \n    tools/update-api.sh now fetches the Interface/AddOns tree of the matching  \n    Gethe/wow-ui-source branch into API//, plus the atlas, global API  \n    and template lists from Ketho/BlizzardInterfaceResources, which stand in for  \n    the Helix folder wow-ui-source does not carry. Before it replaces a snapshot  \n    it lists which API documentation files changed.  \n    `check` compares each branch's version.txt with the Interface line of  \n    KeyUI.toc. The API Watch workflow runs it every Monday and opens one issue  \n    per interface version the TOC does not list yet.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 13,
+    "openIssues": 6,
+    "contributors": 10,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-14",
+      "2026-10-21",
+      "2026-10-10",
+      "2026-04-19",
+      "2026-02-19",
+      "2026-02-18",
+      "2026-02-13",
+      "2026-02-08",
+      "2026-02-03",
+      "2026-02-03",
+      "2026-02-03",
+      "2026-02-02",
+      "2026-02-02",
+      "2026-01-31",
+      "2026-01-30",
+      "2026-01-29",
+      "2026-01-29",
+      "2026-01-24",
+      "2025-11-09",
+      "2025-08-20",
+      "2025-07-24",
+      "2025-04-27",
+      "2025-04-27",
+      "2025-04-27",
+      "2025-03-08",
+      "2025-01-28",
+      "2025-01-28",
+      "2025-01-25",
+      "2025-01-24",
+      "2025-01-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "KeyUI"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "keyui_settings"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "charcontext",
+  "repo": "stianfro/CharContext",
+  "about": "# CharContext\n\n**CharContext** turns your **WoW Forever** character sheet into Markdown you can copy. Share your build with a guildmate, save your quest progress between sessions, or give an AI chat your current gear, talents, and inventory before asking for advice.\n\nType `/cc` to open the copy window. The text is already selected, so press **Ctrl+C** and paste it wherever you like. Use **Ctrl+A** to select the text again. Press **Esc** or click **Close** to close the window and clear the snapshot. Opening it again takes a fresh snapshot.\n\n## Commands and example output\n\nThe examples are excerpts from a level 57 warlock’s snapshot, with the character name changed.\n\n### `/cc` — Full character snapshot\n\nShows your level, race, class, faction, realm, XP, rested XP, location, hearthstone, and gold. It also includes combat stats, spell bonuses by school, talents, professions and skills, equipped gear, quest objectives, active buffs, bag space, and carried items. Typing `/cc` while the window is open closes it.\n\n```text\n# Mira Ashwick - 2026-11-27\nLevel 57 Gnome Warlock (Alliance) - Realm: n/a (realm name unavailable on Forever) - Region: US\nXP: 157811/195000 (80.93% toward next level, rested 0)\nLocation: Mount Hyjal / Summit of Eternity - Hearth: Summit of Eternity\nGold: 149g 41s 70c\n```\n\n### `/cc bags` — Bag space and carried items\n\nShows each bag’s name, used slots, and free slots. The total distinguishes space available for general loot from specialty space, such as a warlock’s soul bag. Free slots with an unknown bag type are labeled unclassified. Matching stacks are totaled, and gear variants are listed separately. If an item name is unavailable, the report shows the item ID when the client supplies one.\n\n```text\n## Carried inventory\n- Total space: 67/92 slots used, 25 free (13 general, 12 specialty)\n- Backpack — 20/20 slots used, 0 free\n- Bag 4: Red Mageweave Bag (general) — 1/14 slots used, 13 free\n- Bag 5: Box of Souls (specialty) — 4/16 slots used, 12 free\n\n### Items\n- Hearthstone\n- Major Mana Potion ×2\n- Runecloth ×39\n- Soul Shard ×4\n```\n\n### `/cc gear` — Equipped items\n\nLists equipment by slot, with item levels and enchant descriptions or IDs when available.\n\n```text\n## Equipped gear\n- Head: Felcloth Hood (ilvl 58)\n- Main hand: Soul Harvester (ilvl 52) (enchant: Intellect +5)\n- Off hand: empty\n```\n\n### `/cc talents` — Talent build\n\nShows points spent in each tree, followed by the name and rank of each purchased talent.\n\n```text\n## Talents\nPoints: 41/7/0\n- Demonology: Demonic Energies 2/2, Unholy Power 5/5\n- Destruction: none\n```\n\n### `/cc quests` — Quest log and objective progress\n\nShows your quest count and log limit, each quest’s level and zone header, objective progress, and complete or failed status. Reading the log preserves your selected quest and collapsed headers.\n\n```text\n## Quest log (38/40)\n- [58] Rubble Rummage (Mount Hyjal)\n  - 1/5 Frayed Wire\n  - 5/5 Calcified Excrement\n  - 4/5 Warped Metal Scrap\n- [58] Stolen Life (Mount Hyjal) (Complete)\n  - 1/1 Drop of Stolen Life\n```\n\n### `/cc help` — Command list\n\n```text\n# CharContext\n\n- /cc — open or close the full snapshot\n- /cc quests — quest log and objectives\n- /cc gear — equipped items\n- /cc bags — bag space, bag names, and carried items\n- /cc talents — talent points and ranks\n- /cc help — show these commands\n```\n\n## Privacy\n\nCharContext reads only your own character, on demand. The snapshot stays in the copy window until you close it. You choose what to copy and where to share it. Values the client cannot provide appear as `n/a`.\n\n## Installation\n\nInstall the **Forever** release through CurseForge when available, or extract the release ZIP into `_forever_/Interface/AddOns/`. Check that the manifest is at `Interface/AddOns/CharContext/CharContext.toc`. If installing from source, copy the `CharContext` directory from this repository. Restart WoW and enable **CharContext** in the character selection screen’s AddOns list.\n\n## Data and compatibility\n\nThe addon has no saved variables, automatic gameplay actions, background collection, chat output, or network integration.\n\nCharContext reads bag names, capacity, free space, and items through `C_Container.GetBagName`, `GetContainerNumSlots`, `GetContainerNumFreeSlots`, and `GetContainerItemInfo`, using the older global functions when needed. If the free-space API is unavailable, it counts empty slots during the item scan. Unreadable totals appear as `n/a`.\n\nThis release targets Forever 1.60.1 (interface `16001`). It uses the client’s talent trees, skill lines, quest log, item cache, and helpful auras. The snapshot shows current and maximum health and mana independently. Each value appears as `n/a` if the client cannot supply it as readable text. If Forever withholds the realm name, the snapshot includes the region when available. Other missing data appears as `n/a`. If a collapsed skill header hides entries, open it in the Skills panel and take another snapshot. Quest selection and header state are preserved.\n\n## Building the release ZIP\n\nRun `python tools/package.py` with Python 3 from the repository root. The archive in `dist/` contains the addon's Lua file and manifest inside one `CharContext/` directory.",
+  "releases": [
+    {
+      "tag": "v1.0.2",
+      "name": "CharContext 1.0.2",
+      "published": "2026-11-24",
+      "notes": "## Changes\n\n- Health and mana now use WoW’s per-value access check. `/cc` displays each readable number, including zero, and uses plain `n/a` for unavailable values.\n- Current and maximum values are handled independently, so the maximum still appears when the current value is unavailable.\n- Added a fallback to `UnitMana` and `UnitManaMax` for older clients that lack the corresponding `UnitPower` APIs."
+    },
+    {
+      "tag": "v1.0.1",
+      "name": "CharContext 1.0.1",
+      "published": "2026-11-24",
+      "notes": "CharContext is a read-only addon for WoW Forever 1.60.1. Type `/cc` to open a Markdown snapshot of your character, then press Ctrl+C to copy it. Use `/cc quests`, `/cc gear`, or `/cc talents` for a shorter report.\n\nChanges in 1.0.1:\n- Merges duplicate profession and secondary-skill entries.\n- Shows empty ammo slots correctly and displays enchant descriptions when available.\n- Omits blank or repeated subzones.\n- Explains when the client withholds the realm name or restricts health and mana values."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CharContext"
+    ],
+    "editions": [
+      "forever"
+    ]
+  }
+}

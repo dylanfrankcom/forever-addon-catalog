@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "rallypoint",
+  "repo": "abaschen/Rallypoint",
+  "about": "# Rallypoint\n\nA World of Warcraft addon for friendly guilds: propose a dungeon run with a day and a time, let\nguild members sign up, and pick who gets each spot.\n\nBuilt for **WoW Forever** (interface 16001).\n\n## What it does\n\n- **Propose a run** - pick a dungeon (Forever and Classic dungeons, or a custom title), a day, a\n  time, how many tanks / healers / damage dealers you want, and an optional note.\n- **Sign up** - members tick every role they are happy to play and can leave a short note.\n  Signups are listed in the order they arrived.\n- **Pick the group** - the organiser hands out the spots. The order is there to help, not to\n  decide: the organiser chooses. Spots can be taken back, and players without the addon can be\n  added by name.\n- **Stay informed** - a pop-up and a chat line when a run is proposed, when you get a spot, when\n  someone signs up for your run, when a run moves or is cancelled, and a reminder 15 minutes\n  before a run you are part of.\n- **Organiser shortcuts** - invite everyone with a spot to your party, or post the run in guild\n  chat with the open roles.\n- English and French.\n\nTimes are entered in your own local time and shown to everyone in theirs.\n\n## Using it\n\nType `/rally` or click the minimap button.\n\n| Command | What it does |\n|---|---|\n| `/rally` | Open or close the window |\n| `/rally sync` | Fetch the latest runs from the guild now |\n| `/rally minimap` | Show or hide the minimap button |\n| `/rally sound` | Turn sounds on or off |\n| `/rally toasts` | Turn pop-up notifications on or off |\n\n## Installing\n\nDownload the latest zip from [Releases](https://github.com/abaschen/Rallypoint/releases) and\nextract it so that you end up with:\n\n```\nWorld of Warcraft/_forever_/Interface/AddOns/Rallypoint/Rallypoint.toc\n```\n\nEveryone who wants to see runs and sign up needs the addon.\n\n## How runs are shared\n\nThere is no server. Runs travel between guild members as hidden addon messages on the guild\nchannel, and every member who is online passes on what they know. So:\n\n- A change reaches everyone who is online within a few seconds.\n- Someone who logs in later is caught up by whoever is online - the organiser does not need to be.\n- If nobody else with the addon is online when you make a change, it is shared the next time you\n  are online together with someone.\n- Runs are only visible to members of the same guild, and disappear six hours after their start\n  time.\n\nThis is a tool for friends: there is no protection against a guild member deliberately sending\nfalse data.\n\n## Developing\n\nNeeds [LuaJIT](https://luajit.org/) and [luacheck](https://github.com/lunarmodules/luacheck)\n(`scoop install luajit luacheck`), and [just](https://github.com/casey/just) for the shortcuts.\n\n```\njust test      # run the tests (a simulated guild, no game needed)\njust lint      # luacheck\njust install   # copy the addon into your WoW AddOns folder (Windows), then /reload in game\njust package   # build dist/Rallypoint-<version>.zip\n```\n\nThe tests load the real addon files into a fake guild of several players with a virtual clock\n(`tests/wowmock.lua`) and check that runs and signups converge, including across logouts and\nlost messages.\n\nLayout:\n\n| Path | |\n|---|---|\n| `Rallypoint/Core.lua` | Startup, saved data, guild detection, slash commands |\n| `Rallypoint/Model.lua` | Runs, signups and the merge rules |\n| `Rallypoint/Codec.lua` | Wire format |\n| `Rallypoint/Comm.lua` | Guild sync |\n| `Rallypoint/Notify.lua` | Pop-ups and reminders |\n| `Rallypoint/UI/` | Window, run detail, editor, minimap button |\n| `Rallypoint/Data/Activities.lua` | Dungeon list |\n| `Rallypoint/Locales/` | Translations |\n\nReleases: bump `## Version` in `Rallypoint/Rallypoint.toc`, then push a tag `vX.Y.Z` - the\nrelease workflow builds the zip and publishes it.\n\n## License\n\nMIT",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "name": "Rallypoint v0.1.0",
+      "published": "2026-11-14",
+      "notes": "**Full Changelog**: https://github.com/abaschen/Rallypoint/commits/v0.1.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14"
+    ]
+  },
+  "languages": [
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "Rallypoint"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "RallypointDB"
+    ]
+  }
+}

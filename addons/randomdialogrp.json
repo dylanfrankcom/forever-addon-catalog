@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "randomdialogrp",
+  "repo": "fasantos83/RandomDialogRP",
+  "about": "# RandomDialogRP\n\nRandomDialogRP is a World of Warcraft roleplay addon for sending race-themed or\ncustom dialogue with a chosen emote.\n\n## Features\n\n- Detects your character's race and includes themed phrases for supported races.\n- Lets you optionally choose a class for class-specific phrases, while keeping\n  race-wide phrases as a fallback.\n- Lets you send phrases through Say, Yell, or Whisper.\n- Replaces `%s` in a phrase with your target's first name, or `friend` if you\n  have no target.\n- Chooses a phrase at random and avoids immediate repeats when alternatives\n  exist.\n- Supports custom phrases, categories, category icons, and per-phrase emotes.\n- Includes searchable phrases and multi-line previews for longer text.\n- Organizes phrase, category, language, and profile controls in the phrase\n  manager's tabs.\n- Supports named profiles for saving different phrase collections and settings.\n- Includes English and Brazilian Portuguese localization.\n- Provides a movable main panel and draggable minimap button.\n\n## Opening the Addon\n\n- Click the RandomDialogRP button around the minimap.\n- Use `/rp` to show or hide the main panel.\n- Use `/rp config` or `/rp edit` to open the phrase manager.\n\nThe tutorial appears on first use and after a major or minor version update.\nIt can also appear after a feature update, and can always be reopened with\n**Settings > Tutorial**.\n\n## Sending Dialogue\n\n1. Select a race and optionally a class from the main panel. Choose **None** to\n   use race-wide phrases only.\n2. Choose Say, Yell, or Whisper as the chat channel.\n3. Click a category button to send a random phrase from that category.\n\nDialogue is only sent when you click a quick action; the addon does not respond\nautomatically. Hover over an action to see the total available phrases and the\nclass/race breakdown for the current selection.\n\nWhen both class-specific and race-wide phrases are available, the addon chooses\nfrom the class-specific phrases 80% of the time and from the race-wide phrases\n20% of the time. The phrase manager has its own race and class selectors, so\nyou can edit another combination without changing the main panel selection.\n\nWhisper sends the phrase to your current player target. If a phrase contains\n`%s`, the addon's target name is inserted; without a target, it uses `friend`.\nThe phrase's assigned emote is performed automatically.\n\n## Managing Phrases and Categories\n\nOpen the phrase manager with `/rp config`.\n\n- In **Phrases**, choose a category, search its phrases, and add, edit, or\n  remove phrases. Select a personality, category, race, and optional class to\n  manage that combination. Use **None** for race-wide phrases, and use the\n  emote picker beside a phrase to change its emote.\n- Longer phrases wrap in the list preview. When editing, use **Update** to save\n  or **Cancel** to discard the edit.\n\n## Profiles and Settings\n\nIn the **Settings** tab, choose English or Brazilian Portuguese, manage\nprofiles, and add, rename, delete, or choose an icon for categories.\nBuilt-in categories cannot be deleted. Deleting a custom category also deletes\nits phrases and requires confirmation. Profiles can be created, saved, loaded,\nrenamed, and deleted.\nDeleting a profile requires confirmation; the Default profile cannot be deleted.\nEach profile also has its own personalities, which are separate phrase\ncollections. Select a personality to switch collections, or enter a name and\nchoose **Create** to make a copy of the active personality. Personalities can\nbe renamed or deleted; the Default personality is protected.\n\n## Resetting Saved Data\n\nClick **Reset All Data** at the bottom of the phrase manager and confirm the\nprompt to restore default phrases and settings. You can also open the\nconfirmation with:\n\n```text\n/rp reset\n```\n\nUse **Save & Reload** to reload the interface after making changes.\n\n## Installation\n\nDownload or copy the `RandomDialogRP` folder into your World of Warcraft\ninstallation's `Interface\\AddOns\\` directory, then enable **RandomDialogRP**\nfrom the character selection AddOns menu. The exact game folder depends on\nyour installation.",
+  "releases": [
+    {
+      "tag": "4.1.1",
+      "published": "2026-11-26",
+      "notes": "## 4.1.1 - 2026-11-26\n\n### Changed\n\n- Internal development improvements.\n\n## 4.1.0 - 2026-11-26\n\n### Added\n\n- Added a profile-specific minimap button visibility setting and `/rp minimap`\n  command to show the button again.\n- Added quick-action tooltips with available phrase counts and a class/race\n  breakdown.\n- Added a No emote option for individual phrases and help for the `%s` target\n  name placeholder.\n\n### Changed\n\n- Redesigned the tutorial with scrollable sections and examples, and made it\n  reappear for major/minor releases and tutorial feature updates.\n- Improved settings window layering, Escape behavior, and emote picker\n  appearance and dismissal.\n- Positioned the minimap button along the minimap's outer rim.\n\n### Fixed\n\n- Prevented renaming a category to its existing name from reporting a change\n  or deleting a custom category.\n\n## 4.0.0 - 2026-11-13\n\n### Added\n\n- Added a first-use tutorial explaining the phrase hierarchy and addon workflow,\n  with a Tutorial button in Settings to reopen it.\n- Added personality, category, race, and class selectors to phrase management.\n\n### Changed\n\n- Reorganized the manager into Phrases and Settings tabs, moving personality\n  and category management into Settings alongside profiles and language.\n- Refreshed the main and manager panels with an opaque, Leatrix Plus-inspired\n  style and made Personality the first main-panel selector.\n- Expanded phrase selection to favor class-specific phrases while retaining\n  race-wide phrases for variety and when class phrases are unavailable."
+    },
+    {
+      "tag": "4.0.0",
+      "published": "2026-11-13",
+      "notes": "## 4.0.0 - 2026-11-13\n\n### Added\n\n- Added a first-use tutorial explaining the phrase hierarchy and addon workflow,\n  with a Tutorial button in Settings to reopen it.\n- Added personality, category, race, and class selectors to phrase management.\n\n### Changed\n\n- Reorganized the manager into Phrases and Settings tabs, moving personality\n  and category management into Settings alongside profiles and language.\n- Refreshed the main and manager panels with an opaque, Leatrix Plus-inspired\n  style and made Personality the first main-panel selector.\n- Expanded phrase selection to favor class-specific phrases while retaining\n  race-wide phrases for variety and when class phrases are unavailable."
+    },
+    {
+      "tag": "3.1.24",
+      "published": "2026-11-11",
+      "notes": "# RandomDialogRP\n\n## [3.1.24](https://github.com/fasantos83/RandomDialogRP/tree/3.1.24) (2026-11-11)\n[Full Changelog](https://github.com/fasantos83/RandomDialogRP/compare/3.1.23...3.1.24) [Previous Releases](https://github.com/fasantos83/RandomDialogRP/releases)\n\n- Prepare 3.1.24 release  \n    Fix responsive panel initialization, move profile controls into Settings, and add a reset command. Include the manual CurseForge package.\\n\\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+    },
+    {
+      "tag": "3.1.23",
+      "published": "2026-11-11",
+      "notes": "# RandomDialogRP\n\n## [3.1.23](https://github.com/fasantos83/RandomDialogRP/tree/3.1.23) (2026-11-11)\n[Full Changelog](https://github.com/fasantos83/RandomDialogRP/compare/3.1.22...3.1.23) [Previous Releases](https://github.com/fasantos83/RandomDialogRP/releases)\n\n- Prepare 3.1.23 release  \n    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>  \n- Improve addon UI and CurseForge publishing  \n    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+    },
+    {
+      "tag": "3.1.22",
+      "published": "2026-11-09",
+      "notes": "# RandomDialogRP\n\n## [3.1.22](https://github.com/fasantos83/RandomDialogRP/tree/3.1.22) (2026-11-09)\n[Full Changelog](https://github.com/fasantos83/RandomDialogRP/compare/3.1.21...3.1.22) [Previous Releases](https://github.com/fasantos83/RandomDialogRP/releases)\n\n- Correct Wago project ID  \n    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>  \n- Fix Wago release packaging  \n    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>  \n- Set up automated Wago releases"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-13",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RandomDialogRP"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "RandomDialogRPDB",
+      "RandomDialogRP_CustomDB"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "rxptargetping",
+  "repo": "andrewdens/RXPTargetPing",
+  "about": "# RestedXP Target Ping\n\nRestedXP Target Ping is a World of Warcraft add-on that adds an Assist ping to RestedXP guide target buttons. When you click a modified button and it finds a living target, the button selects that target and pings it.\n\n## Installation\n\nInstall RestedXP Guides (`RXPGuides`) for the same game client before using this add-on.\n\n### With WowUp\n\n1. Open WowUp and select your **WoW Forever** client.\n2. Open **Get Addons** → **Install from URL** and paste `https://github.com/andrewdens/RXPTargetPing`.\n3. Click **Import**, then **Install**. [WowUp's installation guide](https://wowup.io/guide/get-addons/overview)\n4. Restart WoW if it was running. In the game's **AddOns** list, enable **RestedXP Guides** and **RestedXP Target Ping**.\n\n### Manually\n\n1. Download the add-on ZIP from [GitHub Releases](https://github.com/andrewdens/RXPTargetPing/releases). If a release ZIP is unavailable, use **Code** → **Download ZIP** on the [repository page](https://github.com/andrewdens/RXPTargetPing) or clone it with `git clone https://github.com/andrewdens/RXPTargetPing.git`.\n2. Extract the ZIP if needed. Locate the folder containing `RXPTargetPing.toc` and `RXPTargetPing.lua`. If the folder has a branch or version suffix, rename it to `RXPTargetPing`.\n3. Copy that folder into your game client's `Interface/AddOns` directory. For WoW Forever, the resulting layout should be:\n\n   ```text\n   World of Warcraft/\n   └── _forever_/\n       └── Interface/\n           └── AddOns/\n               └── RXPTargetPing/\n                   ├── RXPTargetPing.toc\n                   └── RXPTargetPing.lua\n   ```\n\n4. Restart WoW if it was running. In the game's **AddOns** list, enable **RestedXP Guides** and **RestedXP Target Ping**.\n\n## Usage\n\nOpen a RestedXP guide step with a target button and click it as usual. The button looks for an exact name match, clears the target if it's dead, and ends the macro if no target remains. When a living target is selected, it runs `/ping [@target] assist` before any remaining commands in the button's macro.\n\nThe add-on has no settings or slash commands of its own.\n\n## Compatibility\n\n- The add-on declares WoW interface version `16001` and requires a client that supports `/ping`.\n- It requires RestedXP's `ConfigureTargetButton` targeting function and only modifies buttons whose macros begin with `/cleartarget` followed by `/targetexact` for the button's target name.\n- Button configuration during combat lockdown is skipped. If RestedXP's targeting function is unavailable at load time, the add-on reports the compatibility issue in chat.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-24",
+      "notes": "Initial release for WoW Forever. Adds an Assist ping to RestedXP guide target buttons."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RXPTargetPing"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "RXPGuides"
+    ]
+  }
+}

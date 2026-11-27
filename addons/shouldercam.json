@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "shouldercam",
+  "repo": "F0rty-Tw0/ShoulderCam",
+  "about": "![Shoulder Cam logo](https://raw.githubusercontent.com/F0rty-Tw0/ShoulderCam/master/.github/assets/shoulder-cam.png)\n\n# Shoulder Cam\n\n[![BuyMeACoffee](https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-donate-yellow.svg)](https://buymeacoffee.com/f0rty_tw0)\n\n**Over-the-shoulder action camera with separate on foot, combat and mounted setups, and nothing that slows your game down.**\n\n  ![Shoulder Cam camera on foot](https://raw.githubusercontent.com/F0rty-Tw0/ShoulderCam/master/.github/assets/camera-on-foot.jpg)\n  ![Shoulder Cam camera on foot, another angle](https://raw.githubusercontent.com/F0rty-Tw0/ShoulderCam/master/.github/assets/camera-on-foot-2.jpg)\n\n## Why players install it\n\n- **The game's own action camera, tamed.** Shoulder offset, enemy and interact focus, dynamic pitch, all from the normal options window.\n- **A camera for every situation.** On foot, Indoors, Combat and Mounted each get their own shoulder offset, focus, pitch and zoom distance. The camera switches by itself when you mount up, enter combat or step inside a building or cave.\n- **Smooth moves.** The camera glides to each mode's zoom distance and slides over to the shoulder instead of snapping.\n- **Remembers your zoom.** Scroll to a distance you like and that mode keeps it.\n- **No nag popup.** The \"experimental feature\" warning stays away.\n- **It stays out of the way.** No per-frame updates, no libraries. Timers run only while the camera is moving.\n\n## Settings\n\nOptions > AddOns > Shoulder Cam, or type `/shouldercam` (or `/shc`). `/shc toggle` and `/shc swap` turn the camera on or off and swap the shoulder, and work in macros. Each says in chat what it changed. Every change takes effect immediately. Hover any option to see what it does.\n\n- **General** tab: turn the addon on or off, zoom speeds, max camera distance and shoulder offset.\n- **Camera feel** tab: how strongly the camera turns toward your target and tilts.\n- **On foot**, **Indoors**, **Combat** and **Mounted** tabs: each situation's own camera. The Indoors camera (off by default) keeps the camera close inside buildings and caves. Druid travel forms can count as mounted.\n\n  ![Shoulder Cam General tab](https://raw.githubusercontent.com/F0rty-Tw0/ShoulderCam/master/.github/assets/settings-main.png)\n  ![Shoulder Cam Combat tab](https://raw.githubusercontent.com/F0rty-Tw0/ShoulderCam/master/.github/assets/settings-situations.png)\n\nThe **Defaults** button resets everything. Key bindings (Options > Keybindings > Shoulder Cam): **Toggle Shoulder Cam** and **Swap shoulder** (same as `/shc toggle` and `/shc swap`, without the chat line). The addon menu button on the minimap (Retail) opens the settings too.\n\nA Shoulder Cam button on the minimap edge opens the settings with a left-click and turns the camera on or off with a right-click. A middle-click swaps the shoulder. Drag it to move it around the minimap. Untick **Show minimap button** on the General tab to hide it.\n\nUsing ActionCamPlus? Turn it off first: both addons change the same camera settings.\n\n## Game versions\n\nRetail, Classic Era, TBC, Wrath, Cata, Mists Classic and WoW: Forever. If a game version has no action camera, Shoulder Cam does nothing and says so on its settings page.\n\n## Performance\n\n- No per-frame updates: zoom uses the game's own camera movement, and the shoulder slide runs on a short timer that stops when it arrives.\n- Mount and combat events are listened to only while that mode is turned on.\n- Switching modes changes only the camera settings that actually differ.\n- Each settings tab is built the first time you open it.\n\n## License\n\nMIT",
+  "releases": [
+    {
+      "tag": "v1.3.0",
+      "published": "2026-11-09",
+      "notes": "# Changelog\n\nPlayer-friendly release notes for ShoulderCam. This file covers the current 1.x series; older series live in [archive/changelog/](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog).\n\nAll releases: **1.3.x (current)** · [1.2.x](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog/1.2.md) · [1.1.x](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog/1.1.md) · [1.0.x](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog/1.0.md) · [0.1.x](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog/0.1.md)\n\n## [Unreleased]\n\n## [1.3.0] - 2026-11-09\n\n- Middle-click the minimap button to swap shoulders.\n- `/shc toggle` and `/shc swap` now say in chat what they changed."
+    },
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-06",
+      "notes": "# Changelog\n\nPlayer-friendly release notes for ShoulderCam. This file covers the current 1.x series; older series live in [archive/changelog/](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog).\n\nAll releases: **1.2.x (current)** · [1.1.x](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog/1.1.md) · [1.0.x](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog/1.0.md) · [0.1.x](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog/0.1.md)\n\n## [Unreleased]\n\n## [1.2.0] - 2026-11-07\n\n- Added an Indoors camera: its own zoom distance, shoulder and tilt settings while you are inside buildings and caves. Off by default; turn it on in the new Indoors tab."
+    },
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-04",
+      "notes": "# Changelog\n\nPlayer-friendly release notes for ShoulderCam. This file covers the current 1.x series; older series live in [archive/changelog/](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog).\n\nAll releases: **1.1.x (current)** · [1.0.x](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog/1.0.md) · [0.1.x](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog/0.1.md)\n\n## [Unreleased]\n\n## [1.1.0] - 2026-11-04\n\n- Added `/shc toggle` and `/shc swap` chat commands (usable in macros) that turn the camera on or off and swap the shoulder."
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-10-14",
+      "notes": "# Changelog\n\nPlayer-friendly release notes for ShoulderCam. This file covers the current 1.x series; older series live in [archive/changelog/](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog).\n\nAll releases: **1.0.x (current)** · [0.1.x](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog/0.1.md)\n\n## [Unreleased]\n\n## [1.0.0] - 2026-10-15\n\n- Options are now one page with tabs, plain-English names, a description when you hover any option, and units on sliders."
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-10-06",
+      "notes": "# Changelog\n\nPlayer-friendly release notes for ShoulderCam. This file covers the current 0.x series; older series live in [archive/changelog/](https://github.com/F0rty-Tw0/ShoulderCam/blob/master/archive/changelog).\n\nAll releases: **0.1.x (current)**\n\n## [Unreleased]\n\n## [0.1.0] - 2026-10-07\n\n- Over-the-shoulder action camera using the game's built-in action camera, with no \"experimental feature\" popup.\n- Separate On foot, Combat and Mounted camera modes that switch by themselves when you mount up or enter and leave combat. Druid travel forms can count as mounted.\n- Each mode has its own shoulder offset, enemy focus, interact focus, dynamic pitch and zoom distance.\n- The camera glides to each mode's zoom distance; scrolling the mouse wheel takes over at once.\n- Remember my zoom: scroll to a distance you like and the current mode keeps it.\n- The shoulder offset slides smoothly, optionally in step with the zoom.\n- Settings for zoom speed, transition speed, max camera distance, shoulder side, focus strength and pitch strength.\n- Two settings pages under Options > AddOns > ShoulderCam, open with `/shouldercam` or `/shc` or from the addon menu. Defaults resets everything.\n- Key bindings to toggle ShoulderCam and to swap shoulders.\n- Minimap button: left-click opens the settings, right-click turns the camera on or off, drag it to move it around the minimap. Hide it with \"Show minimap button\".\n- Loads on WoW: Forever without being flagged as out of date."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/F0rty-Tw0/ShoulderCam/master/.github/assets/shoulder-cam.png",
+    "https://raw.githubusercontent.com/F0rty-Tw0/ShoulderCam/master/.github/assets/camera-on-foot.jpg",
+    "https://raw.githubusercontent.com/F0rty-Tw0/ShoulderCam/master/.github/assets/camera-on-foot-2.jpg",
+    "https://raw.githubusercontent.com/F0rty-Tw0/ShoulderCam/master/.github/assets/settings-main.png",
+    "https://raw.githubusercontent.com/F0rty-Tw0/ShoulderCam/master/.github/assets/settings-situations.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-09",
+    "releaseDates": [
+      "2026-11-09",
+      "2026-11-06",
+      "2026-11-04",
+      "2026-10-14",
+      "2026-10-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ShoulderCam"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ShoulderCamDB"
+    ]
+  }
+}

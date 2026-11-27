@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "buttonbin",
+  "repo": "Addons-By-Neotron/ButtonBin",
+  "about": "# ButtonBin - LDB Container for World of Warcraft\n\nButtonBin is a display addon for LibDataBroker objects. The initial design goal was to make a very compact display for LDB launchers, ignoring the labels. It has since evolved to become more of a full featured display addon, allowing both the compact button-only view as well as displaying labels with icons.",
+  "releases": [
+    {
+      "tag": "20261108",
+      "published": "2026-11-08",
+      "notes": "# Button Bin\n\n## [20261108](https://github.com/Addons-By-Neotron/ButtonBin/tree/20261108) (2026-10-16)\n[Full Changelog](https://github.com/Addons-By-Neotron/ButtonBin/compare/20261003...20261108) [Previous Releases](https://github.com/Addons-By-Neotron/ButtonBin/releases)\n\n- Update Interface version"
+    },
+    {
+      "tag": "20261003",
+      "published": "2026-10-03",
+      "notes": "# Button Bin\n\n## [20261003](https://github.com/Addons-By-Neotron/ButtonBin/tree/20261003) (2026-10-03)\n[Full Changelog](https://github.com/Addons-By-Neotron/ButtonBin/compare/20260813...20261003) [Previous Releases](https://github.com/Addons-By-Neotron/ButtonBin/releases)\n\n- Update Interface version  \n- * Add WoW Forever support.  \n    * Add vpadding on top of top row as well for consistent layout."
+    },
+    {
+      "tag": "20260813",
+      "published": "2026-08-13",
+      "notes": "# Button Bin\n\n## [20260813](https://github.com/Addons-By-Neotron/ButtonBin/tree/20260813) (2026-08-13)\n[Full Changelog](https://github.com/Addons-By-Neotron/ButtonBin/compare/20260310...20260813) [Previous Releases](https://github.com/Addons-By-Neotron/ButtonBin/releases)\n\n- * Fixed but in LibJostle in latest patch.  \n- Update Interface version  \n- Update Interface version  \n- Update Interface version"
+    },
+    {
+      "tag": "20260310",
+      "published": "2026-03-10",
+      "notes": "# Button Bin\n\n## [20260310](https://github.com/Addons-By-Neotron/ButtonBin/tree/20260310) (2026-03-10)\n[Full Changelog](https://github.com/Addons-By-Neotron/ButtonBin/compare/20260307...20260310) [Previous Releases](https://github.com/Addons-By-Neotron/ButtonBin/releases)\n\n- whitespaces.. and repackage."
+    },
+    {
+      "tag": "20260307",
+      "published": "2026-03-07",
+      "notes": "# Button Bin\n\n## [20260307](https://github.com/Addons-By-Neotron/ButtonBin/tree/20260307) (2026-03-07)\n[Full Changelog](https://github.com/Addons-By-Neotron/ButtonBin/compare/20260304...20260307) [Previous Releases](https://github.com/Addons-By-Neotron/ButtonBin/releases)\n\n- Make sure it works without secret values."
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 2,
+    "contributors": 4,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-10-03",
+      "2026-08-13",
+      "2026-03-10",
+      "2026-03-07",
+      "2026-03-04",
+      "2026-03-03",
+      "2026-03-01",
+      "2026-02-26",
+      "2026-01-19",
+      "2026-01-18",
+      "2025-07-19",
+      "2025-07-19",
+      "2025-07-19",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-06-01",
+      "2024-01-23",
+      "2022-12-20",
+      "2022-12-20",
+      "2022-12-20",
+      "2022-12-19",
+      "2022-08-13",
+      "2022-08-06",
+      "2022-07-29",
+      "2022-01-20",
+      "2022-01-20",
+      "2021-11-18",
+      "2021-11-11",
+      "2021-08-16",
+      "2021-05-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ButtonBin"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibSharedMedia-3.0",
+      "AceGUI-3.0-SharedMediaWidgets",
+      "LibLogger-1.0",
+      "LibJostle-3.0",
+      "LibDataBroker-1.1"
+    ],
+    "savedVariables": [
+      "ButtonBinDB"
+    ]
+  }
+}

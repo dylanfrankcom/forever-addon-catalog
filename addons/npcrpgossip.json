@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "npcrpgossip",
+  "repo": "NinerBull/NPCRPGossip",
+  "about": "# Hidden NPC Gossip Enabler\nAn addon for World of Warcraft!\n\n## About\nThis addon will show some hidden dialog for NPCs, which by default is not shown to players if there is only a single dialog option to select e.g. Auctioneers.\nIdeal for roleplayers and Immersion!\n\n## Compatibility\n* **Midnight** - 12.1.5\n* **MoP Classic** - 5.5.4\n* **TBC Classic** - 2.5.6\n* **Forever** - 1.60.1\n* **Classic Era** - 1.15.9\n\n## Installation\nDownload the latest version from one of the places below, and unzip it in your `<warcraft>\\<_version_>\\Interface\\Addons` folder if installing manually.\n\n* [CurseForge](https://www.curseforge.com/wow/addons/npc-rp-gossip)\n* [WoWInterface](https://www.wowinterface.com/downloads/info25707-NPCRPGossipTextRe-enabler.html)\n* [Wago](https://addons.wago.io/addons/npc-rp-gossip)\n* [GitHub](https://github.com/NinerBull/NPCRPGossip/releases/latest)\n* Or put `https://github.com/NinerBull/NPCRPGossip` into your favourite Addon Manager\n\n## Configuration\nYou can toggle on-and-off by using the command `/hiddennpcgossip` in chat.\n\nHolding down the **SHIFT** key before interacting with an NPC will now temporarily disable/enable the RP Gossip, depending whether you have toggled gossip on or off using the command above.\n\n## :warning: Caveats\n**Gossip Windows will no longer work in combat**, due to a change made in 8.2, which means it will affect your ability to open quest dialogues while in combat with enemies.\n\nThis is because showing and hiding UI windows is protected during combat, which includes NPC Gossip windows, that this addon modifies.\n\nExamples: Chess Pieces in Karazhan Chess Event, and Torghast Anima Powers.\n\nSee: https://www.townlong-yak.com/framexml/30920/UIParent.lua#3185\n\n## Notes\nInspired by Humbugged's thread on MMO-Champ: http://www.mmo-champion.com/threads/1467297-NPC-RP-text!-How-to-enable - only this addon enables the Gossip text upon login.\n\nNote: Not all NPCs have gossip text, and will still go straight to the vendor tab anyway.\n\n## Translations\n* **Russian** by [ZamestoTV](https://github.com/Hubbotu)",
+  "releases": [
+    {
+      "tag": "v1.2.57",
+      "published": "2026-10-13",
+      "notes": "- Updated TOC for 12.1.5 and 1.60.1"
+    },
+    {
+      "tag": "v1.2.56",
+      "published": "2026-08-10",
+      "notes": "- Update TOC for 12.1.0"
+    },
+    {
+      "tag": "v1.2.55",
+      "published": "2026-07-22",
+      "notes": "- Update TOC for 1.15.9"
+    },
+    {
+      "tag": "v1.2.54",
+      "published": "2026-07-08",
+      "notes": "- Update TOC for 2.5.6"
+    },
+    {
+      "tag": "v1.2.53",
+      "published": "2026-06-03",
+      "notes": "- Update TOC for 12.0.7 and 5.5.4"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-08-10",
+      "2026-07-22",
+      "2026-07-08",
+      "2026-06-03",
+      "2026-04-21",
+      "2026-01-21",
+      "2025-10-30",
+      "2025-10-07",
+      "2025-07-22",
+      "2025-06-17",
+      "2025-04-21",
+      "2025-02-25",
+      "2025-02-17",
+      "2024-11-20",
+      "2024-09-25",
+      "2024-07-22",
+      "2024-05-07",
+      "2024-04-04",
+      "2024-03-19",
+      "2024-02-07",
+      "2024-01-15",
+      "2023-11-22",
+      "2023-11-07",
+      "2023-10-12",
+      "2023-09-05",
+      "2023-07-10",
+      "2023-05-02",
+      "2023-03-21",
+      "2023-01-24",
+      "2022-11-30",
+      "2022-11-15",
+      "2022-10-31",
+      "2022-10-25",
+      "2022-08-16",
+      "2022-05-31",
+      "2022-02-22",
+      "2021-11-03",
+      "2021-06-29",
+      "2021-03-09",
+      "2020-11-18",
+      "2020-10-29",
+      "2020-10-29",
+      "2020-10-12",
+      "2020-10-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NPCRPGossip"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "NPCRPGossip_AccountEnabled"
+    ]
+  }
+}

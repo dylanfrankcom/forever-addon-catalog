@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "litemount",
+  "repo": "xod-wow/LiteMount",
+  "about": "# LiteMount WoW Addon\n\nCustomizable random mount summoning, since 2011.\n\nLiteMount supports journal mounts, Travel Form, Ghost Wolf, Running\nWild, Moonfang, Flying Broom, and other item-summoned\nmounts. LiteMount excludes flying mounts in areas where you can't fly.\n\nWith LiteMount you can set rules to customize which mounts are summoned\nbased on location, class, spec, faction, modifier key and more.\n\n## Reporting Bugs\n\nPlease follow the Report Bug documentation:\n\n- https://github.com/xod-wow/LiteMount/wiki/Report-Bug\n\nIf you want to leave a comment you can do so at CurseForge:\n\n- https://www.curseforge.com/wow/addons/litemount\n\n## Documentation\n\nPlease see the documentation on github for how to use LiteMount:\n\n- https://github.com/xod-wow/LiteMount/wiki\n\nBasics:\n\n1. Open the WoW \"Key Bindings\" settings.\n1. Find the LiteMount key bindings under the \"AddOns\" category.\n1. Bind a key to \"LiteMount Key Binding 1\" (and the other 3 if you want to use Rules).\n1. Push the key to summon a random location-aware mount, or dismount you if you are mounted.",
+  "releases": [
+    {
+      "tag": "12.1.5-3",
+      "published": "2026-11-22",
+      "notes": "# LiteMount\n\n## [12.1.5-3](https://github.com/xod-wow/LiteMount/tree/12.1.5-3) (2026-11-22)\n[Full Changelog](https://github.com/xod-wow/LiteMount/compare/12.1.5-2...12.1.5-3) [Previous Releases](https://github.com/xod-wow/LiteMount/releases)\n\n- Forever rarity fixups  \n- Fix localization tool  \n- Also use rarity in Forever  \n- Fix macro top tabs on classic  \n- Default to no falling behaviour for forever  \n    Workaround AceDB deficiencies when saving falling actions.  \n- Initial 12.1.7 mount models"
+    },
+    {
+      "tag": "12.1.5-2",
+      "published": "2026-10-19",
+      "notes": "# LiteMount\n\n## [12.1.5-2](https://github.com/xod-wow/LiteMount/tree/12.1.5-2) (2026-10-19)\n[Full Changelog](https://github.com/xod-wow/LiteMount/compare/12.1.5-1...12.1.5-2) [Previous Releases](https://github.com/xod-wow/LiteMount/releases)\n\n- Add extra 12.1.5 mount models  \n- MoP classic fixes for Forever changes  \n- Minimal support for WoW Forever"
+    },
+    {
+      "tag": "12.1.5-1",
+      "published": "2026-10-13",
+      "notes": "# LiteMount\n\n## [12.1.5-1](https://github.com/xod-wow/LiteMount/tree/12.1.5-1) (2026-10-13)\n[Full Changelog](https://github.com/xod-wow/LiteMount/compare/12.1.0-2...12.1.5-1) [Previous Releases](https://github.com/xod-wow/LiteMount/releases)\n\n- Update ToC for 12.1.5"
+    },
+    {
+      "tag": "12.1.0-2",
+      "published": "2026-10-10",
+      "notes": "# LiteMount\n\n## [12.1.0-2](https://github.com/xod-wow/LiteMount/tree/12.1.0-2) (2026-10-10)\n[Full Changelog](https://github.com/xod-wow/LiteMount/compare/12.1.0-1...12.1.0-2) [Previous Releases](https://github.com/xod-wow/LiteMount/releases)\n\n- Fix \"Friend in group\" menu #467"
+    },
+    {
+      "tag": "12.1.0-1",
+      "published": "2026-09-17",
+      "notes": "# LiteMount\n\n## [12.1.0-1](https://github.com/xod-wow/LiteMount/tree/12.1.0-1) (2026-09-17)\n[Full Changelog](https://github.com/xod-wow/LiteMount/compare/12.0.7-4...12.1.0-1) [Previous Releases](https://github.com/xod-wow/LiteMount/releases)\n\n- Fix ForEachAura usage  \n- Remove use of CallbackHandler (except in AceDB)  \n- Use AuraUtil.ForEachAura, remove C\\_Spell compat remnants  \n- D.R.I.V.E. only ever on retail it seems  \n- Fix C\\_Spell broken reference  \n- Classic compat stuff no longer needed  \n- MoP classic has C\\_ClassColor now  \n- Add Zothwing  \n- Add prideclaw model  \n- First 12.1.5 mount models  \n- Minor model updates  \n- Add missing debugging to Falling action  \n- More 12.1 mounts and translations"
+    }
+  ],
+  "stats": {
+    "stars": 38,
+    "openIssues": 17,
+    "contributors": 8,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-10-19",
+      "2026-10-13",
+      "2026-10-10",
+      "2026-09-17",
+      "2026-07-23",
+      "2026-07-03",
+      "2026-07-03",
+      "2026-06-16",
+      "2026-06-09",
+      "2026-06-03",
+      "2026-05-30",
+      "2026-05-07",
+      "2026-04-27",
+      "2026-04-26",
+      "2026-04-25",
+      "2026-04-22",
+      "2026-04-22",
+      "2026-04-10",
+      "2026-04-07",
+      "2026-04-07",
+      "2026-03-09",
+      "2026-02-14",
+      "2026-02-13",
+      "2026-02-13",
+      "2026-02-12",
+      "2026-02-09",
+      "2026-02-08",
+      "2026-02-02",
+      "2026-01-26",
+      "2026-01-24",
+      "2026-01-24",
+      "2026-01-23",
+      "2026-01-22",
+      "2026-01-22",
+      "2026-01-19",
+      "2025-12-16",
+      "2025-12-06",
+      "2025-12-03",
+      "2025-11-25",
+      "2025-11-20",
+      "2025-11-17",
+      "2025-11-12",
+      "2025-11-08",
+      "2025-11-03",
+      "2025-11-02",
+      "2025-11-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LiteMount"
+    ],
+    "editions": [
+      "classic",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "AceDB-3.0",
+      "AceSerializer-3.0",
+      "CallbackHandler-1.0",
+      "LibDeflate",
+      "LibStub",
+      "MountsRarity-2.0"
+    ],
+    "savedVariables": [
+      "LiteMountDB",
+      "LiteMountBackupDB"
+    ]
+  }
+}

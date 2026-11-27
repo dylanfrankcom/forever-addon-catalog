@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "everlookdbcrafting",
+  "repo": "quikmn/EverlookDBCrafting",
+  "about": "# EverlookDB Crafting\n\nLevel your professions the cheap and reliable way on WoW Forever. Type `/ecraft` (or `/eprof`).\n\n- **Skill-up planner.** Say where you are and where you want to be (from your skill now, or any skill you set). You\n  get the cheapest route at today's prices: each step's recipe and roughly how many crafts it takes (\"~140, buy for\n  155 to be safe\"). A Map button shows the nearest trainer or vendor.\n- **One shopping list.** Every material and pattern the route needs: how many you have on your characters, how many\n  you need, what the rest costs and where to get it (auction house, the nearest vendor, or make it yourself). It\n  ticks off as things land in your bags. Send it to an EverlookDB Auctions or Auctionator shopping list in one click,\n  or buy the vendor part at an open merchant.\n- **Every step gives its skill-ups.** Only recipes you know or can learn now for your faction are used: no dungeon,\n  drop or quest recipes, and a reputation vendor's pattern only once you have the standing. Optionally add patterns\n  that are for sale on the auction house right now.\n- **Skill-up guide.** A small movable checklist: the current step with a live skill bar, the shopping list, what to\n  have in your bags, and every step with rank training, tools and recipes to learn. Right-click a step to mark it done.\n- **Skill-up cards.** \"Hurray! Tailoring 151\" at the top right whenever a profession rises: crafting, gathering,\n  Fishing, Cooking, First Aid and the rest. A bar shows how far you are toward the rank's cap, and a hint says what's\n  next: the rank to train when you hit the cap, or the next step of your route. Fireworks every 25 points. With\n  EverlookDB Auctions the cards sit right under its loot cards. Move them with `/ecraft skillcards move`.\n- **Crafting queue** (`/ecraft queue`). One list of everything you plan to craft, shared with EverlookDB Auctions'\n  Crafting profit. Queue from the recipe browser, by right-clicking a recipe in your profession window, with \"Queue\n  next steps\" in the skill-up guide, or with a click in Crafting profit. Each recipe shows its materials (have / need\n  on all your characters, mail too), its profit and whether it's ready, needs materials, needs skill or is on cooldown.\n  \"Keep 20 in stock\" refills the queue by itself when you have fewer, counting bags, bank, mail, alts and auctions.\n- **Craft next.** One button under your profession window, like \"Craft next: 5 Bolt of Silk Cloth\". Each click crafts\n  the next ready recipe of the queue, skips the ones without materials, and ticks them off as they're made.\n- **Skill-up plan.** A small button beside it opens the planner for the profession on screen, or your route's\n  guide when you have one.\n- **Recipe browser** (`/ecraft recipes`). Every recipe of a profession, learned or not. Search by name or reagent\n  (\"silk cloth\"), see where each reagent comes from, how to learn the recipe and which of your characters know it.\n- **Merchant's Favor** (`/ecraft favor`). Every Waylaid Crate ranked by gold per Favor at today's prices, with a Map\n  button to the turn-in NPC and a shopping list for EverlookDB Auctions.\n- **Item tooltips.** How many of your recipes use a material, who of your characters can make an item or knows a\n  recipe, and a Waylaid Crate's Favor. Each part can be turned off.\n- **Guild crafters.** See which recipes your guild mates know, if they run the addon too. Can be turned off.\n- **Buy what the route needs** from an open merchant in two clicks, never more than needed.\n- **Your materials on every character** of your realm count as owned (bags and bank). You can turn this off, or\n  plan as if you had nothing (\"Buy everything for the route\").\n- **Prices** from EverlookDB Auctions, or Auctionator if you use that. A material with no price shows \"?\" and is\n  never guessed.\n- **Profession window colours.** Each recipe name in its skill-up colour, with your chance of a skill-up (\"37%\") and\n  how many you can make (\"(4)\"). Replaces the CraftColors addon; your CraftColors settings carry over.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/ecraft` | the settings window; the search box finds any setting |\n| `/ecraft plan [profession]` | the planner, e.g. `/ecraft plan tailoring` |\n| `/ecraft guide` | open or close the guide |\n| `/ecraft queue` | the crafting queue; also `queue add`, `queue keep`, `queue next`, `queue clear` (see `/ecraft help`) |\n| `/ecraft recipes [words]` | the recipe browser |\n| `/ecraft favor` | Merchant's Favor |\n| `/ecraft colors [on \\| off]` | the profession window colours |\n| `/ecraft skillcards [on \\| off \\| move \\| reset]` | the skill-up cards: switch them, move them, put them back |\n| `/ecraft help` | all commands |\n\n## Privacy\n\nYour characters and what they carry stay on your PC. Nothing is uploaded.\n\n## Credits\n\nData: WoW Forever client data, classic-db (CMaNGOS, GPL-3.0), Efficient Games' EG Link (CC BY 4.0, changed by\nEverlookDB) and AllTheThings (MIT, changed by EverlookDB).\n\n## License\n\nGPL-3.0-or-later (see LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.11.0",
+      "published": "2026-11-26",
+      "notes": "- Skill-up planner: routes are more reliable. Orange recipes come first because they always give a point, then yellow ones. A green recipe is only used when nothing orange or yellow exists at that skill, and the step says so.\n- Skill-up planner: the cheapest route now counts what a craft gets back for sure: its vendor price, or its auction price for potions, bolts, bars and other goods that sell every day. When two recipes cost about the same, the one whose product is worth more wins. The planner shows what the crafts get back.\n- A recipe taught by a pattern is planned from the skill the pattern asks for, so no step sends you to a pattern you can't learn yet.\n- Recipe data refreshed."
+    },
+    {
+      "tag": "v0.10.0",
+      "published": "2026-11-26",
+      "notes": "- New: a \"Skill-up plan\" button under your profession window, beside Craft next. A click opens the skill-up planner for that profession, or your route's guide when you have one; right-click always opens the planner. Turn it off in /ecraft > Profession window.\n- The first time you open a profession window, a one-time tip in chat says how /ecraft plan finds the cheapest way to level it."
+    },
+    {
+      "tag": "v0.9.3",
+      "published": "2026-11-26",
+      "notes": "- Windows: whichever window you click comes to the front. Click the auction house (or bags, spellbook...) and it shows over this window; click this window to bring it back."
+    },
+    {
+      "tag": "v0.9.2",
+      "published": "2026-11-26",
+      "notes": "- A recipe whose learn skill is only an estimate now reads like \"learn at ~30 or 85\" when the data gives two figures.\n- Skill-up planner: shopping list rows without a Map, Buy or Make instead button use the whole row for their details, so fewer lines are cut off. Hover a row to read a cut-off line in full.\n- Settings search: the sidebar lights the page of the top result while you search."
+    },
+    {
+      "tag": "v0.9.1",
+      "published": "2026-11-26",
+      "notes": "- Crafting queue: the window opens wider, so each recipe's status, profit and stock line is no longer cut off. \"makes 5\" only shows when a craft makes more than one."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/quikmn/EverlookDBCrafting/master/screenshots/1-crafting-queue.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookDBCrafting/master/screenshots/2-skill-up-planner.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookDBCrafting/master/screenshots/3-guide-and-buy-at-merchant.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookDBCrafting/master/screenshots/4-craft-next-and-skill-up-cards.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookDBCrafting/master/screenshots/5-recipe-browser.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookDBCrafting/master/screenshots/6-merchants-favor.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookDBCrafting/master/screenshots/7-tooltips.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookDBCrafting/master/screenshots/8-your-characters.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EverlookDBCrafting"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "EverlookDBAuctions",
+      "Auctionator",
+      "TomTom"
+    ],
+    "savedVariables": [
+      "EverlookCraftDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "EverlookCraftChar"
+    ]
+  }
+}

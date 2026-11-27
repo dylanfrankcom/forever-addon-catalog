@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "livery",
+  "repo": "KonigTX/Livery",
+  "about": "# Livery\n\nA WoW: Forever addon that keeps a family of sister guilds (`<Name> 1`,\n`<Name> 2`, `<Name> II`, ...) wearing an identical guild tabard. Capture one\nreference design, target other players, and get an unmistakable MATCH / NO\nMATCH next to the target frame, plus a list of every sister guild you have\nseen and how it compared.\n\nLocal-only: no network calls, no chat, whisper, guild or addon messages,\nnothing posted anywhere on your behalf.\n\n## Download\n\nGrab `Livery-<version>.zip` from the [Releases page](https://github.com/KonigTX/Livery/releases) - one folder, nothing else to install.\n\n## Install\n\nUnzip, and drop the `Livery` folder into your WoW: Forever client's AddOns\nfolder. On the beta that is:\n\n```\nWorld of Warcraft/_classic_beta_/Interface/AddOns/Livery/\n```\n\nso that `Livery.toc` sits directly inside `Livery/`. Restart the client (or\n`/reload`). Type `/livery`.\n\n## Known issue on the beta client\n\nThe current Forever beta (1.60.1) writes addon saved variables but does not\nread them back at login (a Blizzard client bug, reported as\nClassicWoWCommunity/forever-bugs#34). Livery saves everything correctly, but\nafter a logout your reference and the guild list may come back empty. Until\nBlizzard fixes the client, either keep your share code (More > Export)\nhandy and paste it back in with More > Import after logging in, or install\n[!ForeverSVBridge](https://github.com/KonigTX/ForeverSVBridge), a small\ncompanion addon that restores every addon's saved variables at login.\nNothing in Livery needs changing when the fix lands.\n\n## Using it\n\n1. Target a player wearing the tabard everyone should match and click\n   **Use target** (or click **Use my guild** if it is your own guild's).\n2. Target anyone. The badge beside the target frame, and the Livery window,\n   say **MATCH** or **NO MATCH** and name what differs (Background, Border,\n   Emblem, Emblem colour). A guilded player not showing a tabard reads\n   **No tabard**; an NPC or unguilded player reads **No guild**.\n3. Every sister guild you target is listed in the window with its last result,\n   when it was seen and on whom. Sister guilds are recognised by name: the\n   family name is set automatically from the reference guild (\" II\" is\n   a sister of \"\"), and you can add exact names under **More**.\n\nThe **?** button in the window shows the same three steps as a tooltip.\nEvery button explains itself on hover.\n\n## More\n\nThe **More** button opens the rarely needed controls:\n\n- **Share code**: Export puts a `LIVERY1:` code for the current reference in\n  the box, selected for Ctrl+C. Paste a code and click Import to use someone\n  else's reference. A bad code changes nothing.\n- **Which guilds count as sisters**: \"Starts with\" (set automatically from the\n  reference guild's name; blank means only the list) and \"Also these\"\n  (comma-separated exact names). Other guilds still get a verdict but stay\n  out of the list unless **Show other guilds** is on.\n- **Show the MATCH / NO MATCH frame next to your target**: on by default.\n  Drag the frame where you like; it remembers. Its X closes it; this checkbox\n  brings it back. **Reset match frame position** puts it back beside the\n  target frame.\n\n## Commands\n\n| Command | Effect |\n|---|---|\n| `/livery` | Open or close the Livery window |\n| `/livery setmine` | Use your own guild's tabard as the reference |\n| `/livery settarget` | Use your target's guild tabard as the reference |\n| `/livery export` | Print a `LIVERY1:` share code for the current reference |\n| `/livery import <code>` | Use a share code as the reference |\n| `/livery probe` | Print the raw API diagnostic (for bug reports) |\n| `/livery reset` | Reset the badge position |\n| `/livery help` | Show this list |\n\n`/lv` is a shorter alias. The minimap addon button opens the same window.\n\n## How the comparison works\n\nThe client exposes every nearby player's guild tabard design (background\ncolour, border colour, emblem, emblem colour). Livery reads it for the\ntargeted player, no inspect required, and compares it field by field with the\nreference. Colours are compared after rounding to 8 bits per channel, so two\nguilds set up at the tabard vendor with the same choices always match.\n\nIf the design is not available for a target (typically because they are not\nshowing a guild tabard), the badge tries once more half a second later and\nthen reads **No tabard** rather than guessing.\n\n## Known provisional values (re-check before shipping wider)\n\n- **Guild tabard item id** (`Livery/Logic.lua`, `GUILD_TABARD_ITEM_ID`,\n  currently `5976`): `/livery probe` prints `GetInventoryItemID(\"player\", 19)`\n  while a guild tabard is worn so this can be corrected if Forever's id\n  differs. It is one named constant.\n- **`X-Curse-Project-ID`** in `Livery.toc` is a placeholder until the addon\n  is published.\n- **Packager TOC suffix**: the BigWigs packager's Forever support is days old\n  and its multi-TOC suffix (`_Camelot.toc`) is marked provisional by its\n  maintainer. This addon ships one TOC (`## Interface: 16001`); re-check the\n  packager notes before a multi-flavour release.\n\n## Credits\n\nBuilt by KonigTX (beta: Thunder Keg). Idea: Max Ran (beta).",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "Livery 1.0.0",
+      "published": "2026-09-23",
+      "notes": "Guild-tabard consistency for World of Warcraft: Forever.\n\n**Install:** unzip `Livery-1.0.0.zip` into `World of Warcraft/_classic_beta_/Interface/AddOns/` so that `Livery/Livery.toc` is inside `Livery/`, restart or `/reload`, then type `/livery`.\n\n- Two buttons: **Use my guild** / **Use target** set the reference tabard.\n- A MATCH / NO MATCH frame beside your target, naming what differs.\n- A list of every sister guild you have targeted, in hierarchy order (OLYMPUS, OLYMPUS II, III, IX...).\n- **More**: a share code so other officers check against the same reference, sister-guild name rules, frame options.\n- **?** in the window explains the three steps.\n\nKnown beta issue: the current client does not read saved variables back at login (Blizzard bug), so keep your share code handy and re-import it after logging in. `Livery-1.0.0.zip.sha256` is the checksum of the zip."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-09-23",
+    "releaseDates": [
+      "2026-09-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Livery"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "LiveryDB"
+    ]
+  }
+}

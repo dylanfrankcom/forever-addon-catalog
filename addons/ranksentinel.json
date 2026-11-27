@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "id": "ranksentinel",
+  "repo": "valkyrnstudios/RankSentinel",
+  "about": "# RankSentinel\n\nRankSentinel watches the combat log and detects when group members (and now their pets!) accidentally use a low-rank ability and sends them a private message so they can fix the issue. It's inspired by the legacy add-on [RankWatch](https://www.curseforge.com/wow/addons/rankwatch).\n\nWe built this tool to help your raid group make small improvements so they can avoid those 1%-wipe situations. In testing it detected so many guildies, friends, and PUGs who had just forgotten to update their action bars or macros after training. Everyone has at least one ability they forgot to update. Everyone.\n\n- Legitimate low-rank Abilities have been excluded\n- Battlegrounds are also excluded\n- Ability data originates from [Gogo's revised ability list](https://docs.google.com/spreadsheets/d/1jtx1WyfChzACzh0WBWANtrqkRtS3D-zPWqs3eOnyVvY/edit?usp=sharing), which is now included in this repository.\n- RankSentinel's [GitHub issues](https://github.com/valkyrnstudios/RankSentinel/issues) and [CurseForge comments](https://www.curseforge.com/wow/addons/ranksentinel) are great locations to report any issues you find.\n- RankSentinel is a [spiritual successor](https://github.com/valkyrnstudios/RankSentinel/issues/5) to the now-defunct GogoWatch and SpellSnob add-ons.\n\n## Commands\n\nUse `/ranksentinel` to get the latest commands.\n\n- `/ranksentinel enable`: toggles combat log parsing\n- `/ranksentinel whisper`: toggles whispers to players\n- `/ranksentinel report [channel]`: report session data [self, say, raid, guild]\n- `/ranksentinel count`: prints current statistics\n- `/ranksentinel lead`: sets yourself as lead\n- `/ranksentinel flavor`: list available notification flavors\n- `/ranksentinel flavor [option]`: set notification flavor to option\n- `/ranksentinel advanced`: Advanced command-line options\n\nUse `/ranksentinel advanced` to get additional commands.\n\n- `/ranksentinel debug`: toggles debug output for testing\n- `/ranksentinel clear`: clears local ability caches\n- `/ranksentinel ignore`: adds current target to addon ignore list, will not report rank errors\n- `/ranksentinel queue`: prints queued notifications\n- `/ranksentinel queue clear`: clears queued notifications\n- `/ranksentinel queue process`: processes queued notifications\n- `/ranksentinel reset`: resets profile to defaults\n- `/ranksentinel sync`: broadcast announcement cache\n\n## Contributors\n\n- Gogo - for continued addon collaboration and data curation\n- Aevala and Fathom - ability data feedback\n- Splendiferus - for continued testing and feedback",
+  "releases": [
+    {
+      "tag": "v3.1.0",
+      "published": "2026-11-24",
+      "notes": "# RankSentinel\n\n## [v3.1.0](https://github.com/valkyrnstudios/RankSentinel/tree/v3.1.0) (2026-11-24)\n[Full Changelog](https://github.com/valkyrnstudios/RankSentinel/compare/v3.0.0...v3.1.0) [Previous Releases](https://github.com/valkyrnstudios/RankSentinel/releases)\n\n- Add Action Bar support - Blizzard UI (#117)  \n- Disable whisper setting on Forever to match code"
+    },
+    {
+      "tag": "v3.0.0",
+      "published": "2026-11-24",
+      "notes": "# RankSentinel\n\n## [v3.0.0](https://github.com/valkyrnstudios/RankSentinel/tree/v3.0.0) (2026-11-24)\n[Full Changelog](https://github.com/valkyrnstudios/RankSentinel/commits/v3.0.0) [Previous Releases](https://github.com/valkyrnstudios/RankSentinel/releases)\n\n- Defer damage meter source lookups until totals change  \n- Reuse the cast source UID in notifications  \n- Check lead broadcast eligibility once  \n- Prevent duplicate sync batch entries  \n- Support whispering on realm locale  \n    Fixes #108  \n- Build Forever data  \n    Reference Classic logic and baseline  \n- Guard ignore target against secret values  \n- Reset damage meter baseline when joining a group  \n- Support DamageMeter parsing  \n    References PR #116  \n- Restructure files"
+    },
+    {
+      "tag": "v2.7.0",
+      "published": "2026-10-05",
+      "notes": "# RankSentinel\n\n## [v2.7.0](https://github.com/valkyrnstudios/RankSentinel/tree/v2.7.0) (2026-10-05)\n[Full Changelog](https://github.com/valkyrnstudios/RankSentinel/compare/v2.6.9...v2.7.0) [Previous Releases](https://github.com/valkyrnstudios/RankSentinel/releases)\n\n- Fix external lib download dir"
+    },
+    {
+      "tag": "v2.6.9",
+      "published": "2026-09-26",
+      "notes": "# RankSentinel\n\n## [v2.6.9](https://github.com/valkyrnstudios/RankSentinel/tree/v2.6.9) (2026-09-26)\n[Full Changelog](https://github.com/valkyrnstudios/RankSentinel/compare/v2.6.8...v2.6.9) [Previous Releases](https://github.com/valkyrnstudios/RankSentinel/releases)\n\n- Update packager secret  \n- Revise reload cluster behavior  \n    Preserve lead on reload  \n- Make settings combat aware"
+    },
+    {
+      "tag": "v2.6.8",
+      "published": "2026-09-26",
+      "notes": "# RankSentinel\n\n## [v2.6.8](https://github.com/valkyrnstudios/RankSentinel/tree/v2.6.8) (2026-09-26)\n[Full Changelog](https://github.com/valkyrnstudios/RankSentinel/compare/v2.6.7...v2.6.8) [Previous Releases](https://github.com/valkyrnstudios/RankSentinel/releases)\n\n- Re-add UnisIsEnemy check  \n    Fixes #113  \n- Exclude Serpent String r1  \n    Fixes #111  \n- Exclude Scorch for TBC  \n    Fixes #112"
+    }
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-24",
+      "2026-10-05",
+      "2026-09-26",
+      "2026-09-26",
+      "2026-08-06",
+      "2026-02-22",
+      "2026-02-20",
+      "2026-02-12",
+      "2026-02-11",
+      "2026-01-28",
+      "2026-01-23",
+      "2026-01-21",
+      "2025-02-23",
+      "2024-09-25",
+      "2023-12-14",
+      "2023-01-18",
+      "2022-12-21",
+      "2022-12-19",
+      "2022-11-29",
+      "2022-11-09",
+      "2022-10-27",
+      "2022-10-07",
+      "2022-10-04",
+      "2022-10-02",
+      "2022-10-01",
+      "2022-09-27",
+      "2022-09-14",
+      "2022-08-08",
+      "2022-07-21",
+      "2022-07-21",
+      "2022-07-21",
+      "2022-07-20",
+      "2022-02-20",
+      "2022-01-28",
+      "2022-01-26",
+      "2022-01-23",
+      "2022-01-09",
+      "2022-01-02",
+      "2022-01-01",
+      "2022-01-01",
+      "2021-12-30",
+      "2021-12-29",
+      "2021-12-29",
+      "2021-12-29",
+      "2021-12-29",
+      "2021-12-28",
+      "2021-12-28",
+      "2021-12-28",
+      "2021-12-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RankSentinel"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "RankSentinelDB"
+    ]
+  }
+}

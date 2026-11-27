@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "forevertracking",
+  "repo": "psykzz/wow-forever-tracking",
+  "about": "# Forever Tracking\n\n![Forever Tracking radar logo](https://raw.githubusercontent.com/psykzz/wow-forever-tracking/main/media/logo.png)\n\n**Track herbs or minerals - not the toggle.**\n\nForever Tracking remembers your active **Find Herbs** or **Find Minerals**\nchoice and brings it back after a login, UI reload, zone change, or resurrection.\nTurn tracking off whenever you like; it stays off until you select either one\nagain.\n\n## Features\n\n- **Remembers your pick:** Saves the last active tracking spell per character.\n- **Handles the interruptions:** Restores it after login, reloads, zoning,\n  death, and resurrection.\n- **Respects your choice:** Turning tracking off pauses automatic restores;\n  selecting Find Herbs or Find Minerals again resumes them.\n- **Works in any language:** Identifies spells by ID, not translated names.\n- **Stays lightweight:** No settings, slash commands, or dependencies. Does\n  nothing if neither tracking ability is available.\n\n## How to use it\n\nEnable the addon and play as usual. On first use, it selects Find Herbs when\navailable, otherwise Find Minerals. After that, it remembers whichever\nsupported tracking spell you use.\n\n## Installation\n\nDownload a release from\n[GitHub Releases](https://github.com/psykzz/wow-forever-tracking/releases) and\nextract the `ForeverTracking` folder into\n`World of Warcraft\\_classic_beta_\\Interface\\AddOns`. Enable **Forever\nTracking** in the AddOns list.\n\nFor development, copy the `ForeverTracking` folder from this repository into\nthe AddOns directory.\n\n## Development\n\nThe addon targets the WoW Forever beta client, interface `16001`. Validate\nLua 5.1 syntax and lint with:\n\n```powershell\nluac5.1 -p ForeverTracking.lua\nluacheck ForeverTracking.lua\n```\n\nGitHub Actions runs these checks on pushes to `main` and pull requests. To\npublish a release to CurseForge project `1738956`, configure the\n`CURSEFORGE_API_TOKEN` repository secret with an authorized CurseForge API\ntoken, then push a `v*` semantic-version tag. BigWigs Packager creates the\nGitHub release and uploads the addon to CurseForge. The workflow maps that\nsecret to the `CF_API_TOKEN` variable expected by the packager. GitHub\npublishing uses the workflow's `GITHUB_TOKEN`.\n\nIn game, test both professions: switch between Find Herbs and Find Minerals,\nturn either off, then test zoning, reload, death, and resurrection. Turning off\ntracking should remain off through those transitions.\n\nThe 512 × 512 `media/logo.png` is project artwork for CurseForge and is excluded\nfrom the in-game addon package.\n\n## License\n\nMIT. See [LICENSE](https://github.com/psykzz/wow-forever-tracking/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.2",
+      "published": "2026-11-09",
+      "notes": "# Forever Tracking\n\n## [v1.0.2](https://github.com/psykzz/wow-forever-tracking/tree/v1.0.2) (2026-11-09)\n[Full Changelog](https://github.com/psykzz/wow-forever-tracking/compare/v1.0.1...v1.0.2) [Previous Releases](https://github.com/psykzz/wow-forever-tracking/releases)\n\n- fix: restore gathering tracking after death  \n    Tracking clears before PLAYER\\_DEAD and the dead flag updates.  \n    Defer toggle-off detection and cancel it on lifecycle changes.  \n    Initialize SavedVariables after ADDON\\_LOADED and ignore POI filters."
+    },
+    {
+      "tag": "v1.0.1",
+      "published": "2026-10-12",
+      "notes": "# Forever Tracking\n\n## [v1.0.1](https://github.com/psykzz/wow-forever-tracking/tree/v1.0.1) (2026-10-11)\n[Full Changelog](https://github.com/psykzz/wow-forever-tracking/compare/v1.0.0...v1.0.1) [Previous Releases](https://github.com/psykzz/wow-forever-tracking/releases)\n\n- docs: sharpen README copy"
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-10-11",
+      "notes": "# Forever Tracking\n\n## [v1.0.0](https://github.com/psykzz/wow-forever-tracking/tree/v1.0.0) (2026-10-11)\n[Full Changelog](https://github.com/psykzz/wow-forever-tracking/commits/v1.0.0) [Previous Releases](https://github.com/psykzz/wow-forever-tracking/releases)\n\n- fix(ci): allow SavedVariables writes in lint  \n    Luacheck treated the SavedVariables table as read-only and failed on assignments.  \n    Map CURSEFORGE\\_API\\_TOKEN to the packager CF\\_API\\_TOKEN variable.  \n    Brighten the radar artwork for small-icon visibility.  \n- docs: add tracking logo artwork  \n- feat: add ForeverTracking addon"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-09",
+    "releaseDates": [
+      "2026-11-09",
+      "2026-10-12",
+      "2026-10-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverTracking"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "ForeverTrackingDB"
+    ]
+  }
+}

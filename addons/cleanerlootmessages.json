@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "cleanerlootmessages",
+  "repo": "luttman/CleanerLootMessages",
+  "about": "# Cleaner Loot Messages\nThe only purpose of this lightweight Addon is to reduce the loot messages to a minimum for a clearer information.\n \n\nFor example, your loot will be displayed as :\n\"+ [object_name]\"\n\nFor a party member :\n\"+ [player_name] : [object_name]\"\n\nFor a multiple craft of a party member :\n\"+ [player_name]: [object_name]x2 (craft)\"\n\n \n\nWork for group loot, craft, harvesting, reputation, XP ...\n\n \n\nThis addon is really light and has an extremely low impact on the game as it only redefine the way the message are formated.\n\n![alt text](https://i.imgur.com/CJa6xrD.png)\n\n## Current clients\n\n| Client | Interface | Manifest |\n| --- | --- | --- |\n| Retail 12.1.0 | 120100 | `_Mainline.toc` |\n| Fresh / TBC Anniversary 2.5.6 | 20506 | `_TBC.toc` |\n| MoP Classic 5.5.4 | 50504 | `_Mists.toc` |\n| Forever | 16001 | `_Camelot.toc` |\n| Classic Era / Hardcore / Season of Discovery 1.15.9 | 11509 | `_Vanilla.toc` |\n\nRetail, Anniversary, MoP and Era versions were checked against Blizzard's EU\nversion service on 2026-10-09. Forever uses the same Interface value as\n[ThreeCrownsGuild](https://github.com/luttman/ThreeCrownsGuild).\nLegacy Wrath, Cataclysm and 3.3.5 manifests remain for existing users; their\nclients have not been tested in this update.\n\nThe addon supports both `ChatFrameUtil.AddMessageEventFilter` and the older\n`ChatFrame_AddMessageEventFilter`. Missing strings and incompatible format\nplaceholders keep Blizzard's original text. Reordered localized placeholders\nalso keep the original text; shortened labels such as `craft` remain English.\nSilver and copper amounts use the standard yellow money color; gold keeps its\ngold color. Blizzard's coin icons are preserved. English coin names in money\nmessages are replaced with the matching icons.\nAll leading `+` markers produced by the addon use green, independent of the\nmessage's chat color. They inherit the chat frame's font; item and coin colors\nremain separate.\nOther localized text stays unchanged. Secret Retail messages are not\ninspected or modified.\n\nNew appearance unlocks are displayed as `+ [Item name]`, preserving\nthe item's text, color and clickable link supplied by the client. Like loot and\nskill messages, this replaces the client's message template directly, without\ndepending on a chat event. Missing or incompatible appearance formats stay unchanged.\n\nSkill increases are shortened to `Axes = 27` or `Skinning = 50`, using the\nclient's skill name. Missing or incompatible skill message formats stay unchanged.\n\nQuest-reward money and newly learned spells, abilities and passive effects use\n`+ [reward or spell]`, preserving coin icons and spell links supplied by the client.\nComma-separated quest rewards such as `+ 1 Silver, 75 Copper` also use colored\ncoin amounts and icons. Messages with no space after `+` are supported.\n\n## Custom chat renderers and EllesmereUIChat\n\nCustom chat renderers can call `CleanerLootMessages.ConvertMoney(message, event)`\nafter their secret-value and string checks. Omit the event for history replay.\nThe formatter is idempotent; repeated calls do not duplicate icons or color codes.\n\nEllesmereUIChat renders its own chat frames. In\n`EllesmereUIChat_Engine.lua`, include the formatter in the availability check at\nthe start of the shared `DisplayText(msg, event)` function:\n\n```lua\nif not _abbrevOn and not _ccnOn and not ChatLinkIcons\n    and not (CleanerLootMessages and CleanerLootMessages.ConvertMoney) then return msg end\n```\n\nAfter the existing secret-value and string checks, add this alongside the\nChatLinkIcons conversion, leaving channel abbreviation and name coloring intact:\n\n```lua\nif CleanerLootMessages and CleanerLootMessages.ConvertMoney and not _protActive then\n    msg = CleanerLootMessages.ConvertMoney(msg, event)\nend\n```\n\nThis covers live messages, history rebuilds and session replay while skipping\nprotected mode. The Ellesmere engine patch is a separate local change; it is\nnot included in this addon's ZIP. Updating EllesmereUIChat may overwrite it.\n\n## Testing\n\nAutomated tests use mocked WoW APIs. They do not replace testing in the game.\nBefore a release, enable `/console scriptErrors 1`, reload, and check self and\nparty loot, stack counts, crafting, money, currency, XP and reputation on each\nclient. On Retail, also test combat and `loadDeprecationFallbacks` disabled.\nCollect a new appearance and check the shortened notification and its link.\nIncrease a weapon or profession skill and check the skill name and new rank.\nCheck that item links still open and that there are no Lua or blocked-action\nerrors, including alongside other chat addons.\n\n## Releases\n\nGitHub Actions checks Lua 5.1 syntax, runs compatibility tests and builds and\nchecks the installable ZIP on pushes to `main`, pull requests and tag pushes.\nOnly a tag push publishes. Existing tags such as `1.0.26` and tags prefixed\nwith `v` are both supported.\n\nThe workflow uses the same [BigWigs packager](https://github.com/BigWigsMods/packager)\nas ThreeCrownsGuild. It creates a GitHub release with a universal ZIP containing\nthe `CleanerLootMessages` folder, sets the version from the tag and includes\nclient metadata in `release.json`. Tests and workflows are excluded.\n\nGitHub publication uses the automatically supplied `GITHUB_TOKEN`. To publish\nto the existing CurseForge project `677974`, set the repository Actions secret\n`CF_API_KEY`. To also publish to the existing Wago project `Xb6XOxNp`, set\n`WAGO_API_TOKEN`. Never put upload tokens in source files. Missing upload\ntokens skip the corresponding service; GitHub releases still work.\n\nAfter merging the changes, publish a new version from the repository:\n\n```sh\ngit pull --ff-only\ngit tag -a 1.0.29 -m \"Release 1.0.29\"\ngit push origin 1.0.29\n```\n\nDownload the attached `CleanerLootMessages-<version>.zip`, extract it into\n`Interface/AddOns`, and replace the old addon folder when upgrading. GitHub's\nautomatically generated source archives are not the installable release ZIP.\n\n## Addon policy review\n\nThe code was reviewed against [Blizzard's addon development policy](https://eu.forums.blizzard.com/en/wow/t/wow-user-interface-add-on-development-policy/1642)\nand [Midnight's addon restrictions](https://worldofwarcraft.blizzard.com/en-gb/news/24244638/how-midnights-upcoming-game-changes-will-impact-combat-addons).\nNo policy violations were found in the repository: the code is public and\nreadable, has no paid feature gate, ads, in-game donation requests or offensive\ncontent, sends no chat or addon network traffic, and does not automate gameplay\nor bypass protected APIs. It changes message presentation and leaves secret\nmessages untouched. Blizzard retains the right to disable addon functionality.\n\nThis is a source review, not Blizzard approval or proof of performance in a\nrunning client. Changes to Blizzard's global message strings can conflict with\nother chat addons that parse those strings. The [existing CurseForge project](https://www.curseforge.com/wow/addons/cleanerlootmessages)\nlists its license as All Rights Reserved; the repository has no separate\nlicense file. This update does not change the project's license.",
+  "releases": [
+    {
+      "tag": "1.0.30",
+      "published": "2026-10-11",
+      "notes": "Install **CleanerLootMessages-1.0.30.zip** from the assets below. Extract its CleanerLootMessages folder into Interface/AddOns and replace the previous version.\n\n- Use green for every leading `+` marker produced by the addon, keeping the chat frame's existing font.\n- Display silver and copper amounts in standard yellow, preserving coin icons. Gold retains its gold color.\n- Preserve item and spell link colors.\n- Update previously formatted silver/copper history to the new colors without duplicating icons or color codes.\n\nThe separate EllesmereUIChat engine integration remains documented in the README and is not bundled in this ZIP. Updating EllesmereUIChat may overwrite the local engine patch.\n\nLua 5.1 compatibility and mocked DisplayText checks passed, including repeated formatting, secret values and protected mode. Full in-game testing across all supported clients was not performed."
+    },
+    {
+      "tag": "1.0.29",
+      "published": "2026-10-11",
+      "notes": "Install **CleanerLootMessages-1.0.29.zip** from the assets below. Extract its CleanerLootMessages folder into Interface/AddOns and replace the previous version.\n\n- Show English gold, silver and copper amounts as colored numbers with coin icons in money messages.\n- Shorten quest-reward money and learned spells, abilities and passive effects to the existing `+` format, preserving spell links.\n- Handle comma-separated quest rewards such as `+ 1 Silver, 75 Copper`, with or without a space after `+`.\n- Expose `CleanerLootMessages.ConvertMoney(message, event)` for custom chat renderers. Repeated formatting does not duplicate icons or color codes.\n- Document the EllesmereUIChat DisplayText integration, including secret-value checks and protected-mode behavior.\n\n**EllesmereUIChat:** its separate engine patch is documented in the README and is not bundled in this ZIP. Updating EllesmereUIChat may overwrite the local engine patch.\n\nLua 5.1 compatibility checks and mocked tests of the actual local DisplayText function passed. The installable ZIP excludes tests and development files. These checks do not replace in-game testing on every supported client."
+    },
+    {
+      "tag": "1.0.28",
+      "published": "2026-10-11",
+      "notes": "Install **CleanerLootMessages-1.0.28.zip** from the assets below. Extract its CleanerLootMessages folder into Interface/AddOns.\n\n- Shorten weapon and profession skill gains, for example `Axes = 27` and `Skinning = 50`.\n- Shorten new appearance unlocks to `+ [Item name]`, matching loot messages and preserving item colors and links.\n- Use the native appearance message template for compatibility with Forever. Confirmed working in game by the user.\n\nAutomated Lua 5.1 compatibility and package checks passed. The installable ZIP excludes tests and development files."
+    },
+    {
+      "tag": "1.0.27",
+      "published": "2026-10-09",
+      "notes": "## Install\n\nDownload [CleanerLootMessages-1.0.27.zip](https://github.com/luttman/CleanerLootMessages/releases/download/1.0.27/CleanerLootMessages-1.0.27.zip) from the release assets and extract the CleanerLootMessages folder into your client's Interface/AddOns directory.\n\nThis installable ZIP excludes tests and development files. GitHub's automatic **Source code (zip)** and **Source code (tar.gz)** downloads contain the repository, including tests; use the named addon ZIP for installation.\n\n# Cleaner Loot Messages\n\n## [1.0.27](https://github.com/luttman/CleanerLootMessages/tree/1.0.27) (2026-10-09)\n[Full Changelog](https://github.com/luttman/CleanerLootMessages/compare/1.0.26...1.0.27) [Previous Releases](https://github.com/luttman/CleanerLootMessages/releases)\n\n- Merge pull request #5 from luttman/codex/release-client-compatibility  \n    Update release packaging and current WoW client support  \n- Document the existing CurseForge license  \n- Update release checks and current WoW client compatibility  \n- Merge pull request #3 from TyThompson/main  \n    Added colored money  \n- Added a colored money  \n    Added color to money drops  \n    Added interface toc info for 30300 servers"
+    },
+    {
+      "tag": "1.0.26",
+      "published": "2025-04-09",
+      "notes": "# Cleaner Loot Messages\n\n## [1.0.26](https://github.com/luttman/CleanerLootMessages/tree/1.0.26) (2025-04-09)\n[Full Changelog](https://github.com/luttman/CleanerLootMessages/compare/1.0.25...1.0.26) [Previous Releases](https://github.com/luttman/CleanerLootMessages/releases)\n\n- Update .pkgmeta"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-11",
+    "releaseDates": [
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-11",
+      "2026-10-09",
+      "2025-04-09",
+      "2025-04-09",
+      "2025-04-09",
+      "2025-04-09",
+      "2024-05-10",
+      "2023-10-11",
+      "2023-08-11",
+      "2023-08-11",
+      "2023-05-08",
+      "2023-05-08",
+      "2023-01-29",
+      "2022-11-28",
+      "2022-10-15",
+      "2022-10-15",
+      "2022-09-20",
+      "2022-09-20",
+      "2022-09-20",
+      "2022-09-20",
+      "2022-09-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CleanerLootMessages"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ]
+  }
+}

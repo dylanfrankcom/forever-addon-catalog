@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "dragonloot",
+  "repo": "Xerrion/DragonLoot",
+  "about": "![Dragon Loot logo](https://raw.githubusercontent.com/Xerrion/DragonLoot/master/assets/dragon-loot.png)\n\n# Dragon Loot\n\n**Roll on the drop. Remember who won.**\n\n[Get it on CurseForge](https://www.curseforge.com/wow/addons/dragon-loot) · [Get it on Wago](https://addons.wago.io/addons/dragon-loot) · [GitHub releases](https://github.com/Xerrion/DragonLoot/releases/latest)\n\nGorehowl drops. Hover over the axe to compare it with your weapon, hit Need, and follow the tank to the next pack.\nTwo pulls later, someone asks who got it. Open `/dl history` and there's the winner, right next to their roll.\n\nDragon Loot replaces WoW's loot window and group rolls and keeps a loot history for each character.\n\n![Dragon Loot showing Gorehowl in the loot window, on a timed roll, and in history with a winning Need roll of 87](https://raw.githubusercontent.com/Xerrion/DragonLoot/master/docs/images/loot-and-roll.png)\n\n*Offline render of the built-in samples. Follow Gorehowl from the loot window on the left to the roll and its history entry on the right.*\n\n## Before you press Need\n\nHover the item's icon to compare it with your equipped gear using WoW's comparison key. The timer stays visible while\nyou decide. You can ask Dragon Loot to confirm Greed and Pass, or have it dismiss each roll as soon as you vote.\nOn TBC Anniversary and Mists of Pandaria Classic, turn on **Show Roll Tally** to watch the votes come in.\nPair it with **Keep Frame After Voting** to see the winning roll alongside your own if you lose.\n\n## Who won Gorehowl?\n\nEach character’s history survives logout. Open `/dl history` after raid night to see the drops again,\nwith each winner’s name in their class color. Turn on roll details and click a rolled item to see who chose Need, Greed, or Pass and\nwhat they rolled. You can also record direct pickups and set a minimum quality so a night of farming\ndoesn't bury the gear you came for.\n\n## On a farming run\n\nHave the loot window open at your cursor. Item level and binding sit underneath the name, and stack counts tell you\nhow much cloth just dropped. To pick up cloth and rare drops automatically, turn off WoW's built-in Auto Loot, enable **Smart Auto-Loot**,\nset **Minimum Quality** to Rare, and add your cloth to the whitelist. The cloth comes with you, and you decide\nwhat to do with the other common drops.\n\n## Make it fit your UI\n\nNarrow the roll frame to fit beside your party frames, or switch on **Compact Text Layout** to put the item name\nand its bind type on one line. The sample above the controls updates as you drag the sliders.\n\n![Dragon Loot Roll Frame settings showing a pinned Gorehowl roll above the frame width, height, and spacing controls](https://raw.githubusercontent.com/Xerrion/DragonLoot/master/docs/images/roll-settings.png)\n\n*Offline preview of the Roll Frame page in `/dl config`.*\n\n## Get started\n\n1. Install Dragon Loot with your addon manager. For a manual install, put both `DragonLoot` and `DragonLoot_Options` in your client's `Interface/AddOns/` folder and reload the game UI.\n2. Type `/dl test` for a sample drop that includes Gorehowl, or `/dl testroll` to try three timed group rolls in town.\n3. Open `/dl config` to tune the windows. Save your favorite setup under **Profiles**.\n\n**Supported clients** include Retail, WoW Forever, TBC Anniversary, and Mists of Pandaria Classic.\n\nDragon Loot works alongside EllesmereUI. If ElvUI handles loot or rolls, Dragon Loot offers to switch off the overlapping modules.\n\n## Pair it with Dragon Toast\n\nWant the winner to pop up while you're moving to the next pull? Dragon Loot can send roll results to Dragon Toast.\n[Get Dragon Toast](https://github.com/Xerrion/DragonToast)\n\nMore commands and project links\n\nUse `/dl help` for the command list. `/dl reset` centers the loot window, and `/dl testroll loop` keeps sample rolls coming\nwhile you adjust your layout. End the loop with `/dl testroll stop`.\n\n[Settings preview guide](https://github.com/Xerrion/DragonLoot/blob/master/docs/settings-preview.md) · [Report an issue](https://github.com/Xerrion/DragonLoot/issues) · [Contribute code or translations](https://github.com/Xerrion/DragonLoot/blob/master/CONTRIBUTING.md)\n\nMade by [Xerrion](https://github.com/Xerrion). [MIT License](https://github.com/Xerrion/DragonLoot/blob/master/LICENSE). World of Warcraft artwork and icons © Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "0.21.3",
+      "published": "2026-11-18",
+      "notes": "# DragonLoot\n\n## [0.21.3](https://github.com/Xerrion/DragonLoot/tree/0.21.3) ()\n[Full Changelog](https://github.com/Xerrion/DragonLoot/compare/0.21.2...0.21.3) [Previous Releases](https://github.com/Xerrion/DragonLoot/releases)\n\n- chore(master): release 0.21.3 [#223](https://github.com/Xerrion/DragonLoot/pull/223)\n- ci: run the PR labeler on pull_request_target for fork PRs [#227](https://github.com/Xerrion/DragonLoot/pull/227)\n- ci: use pull_request triggers and update action versions [#226](https://github.com/Xerrion/DragonLoot/pull/226)\n- ci: add PR labeler and unify release note categories [#225](https://github.com/Xerrion/DragonLoot/pull/225)\n- docs: drop AI disclosure requirement [#1](https://github.com/Xerrion/DragonLoot/pull/1) [#224](https://github.com/Xerrion/DragonLoot/pull/224)\n- ci: run lint on pull_request instead of pull_request_target [#1](https://github.com/Xerrion/DragonLoot/pull/1) [#220](https://github.com/Xerrion/DragonLoot/pull/220)\n- chore: use GitHub-generated release notes to credit contributors [#1](https://github.com/Xerrion/DragonLoot/pull/1) [#221](https://github.com/Xerrion/DragonLoot/pull/221)\n- ci: validate PR titles as conventional commits [#1](https://github.com/Xerrion/DragonLoot/pull/1) [#222](https://github.com/Xerrion/DragonLoot/pull/222)\n- docs: showcase Dragon Loot with screenshots and matching artwork [#219](https://github.com/Xerrion/DragonLoot/pull/219)"
+    },
+    {
+      "tag": "0.21.2",
+      "published": "2026-11-17",
+      "notes": "# DragonLoot\n\n## [0.21.2](https://github.com/Xerrion/DragonLoot/tree/0.21.2) ()\n[Full Changelog](https://github.com/Xerrion/DragonLoot/compare/0.21.1...0.21.2) [Previous Releases](https://github.com/Xerrion/DragonLoot/releases)\n\n- chore(master): release 0.21.2 [#218](https://github.com/Xerrion/DragonLoot/pull/218)\n- chore: use DragonWidgets 0.4.0 release [#217](https://github.com/Xerrion/DragonLoot/pull/217)"
+    },
+    {
+      "tag": "0.21.1",
+      "published": "2026-11-17",
+      "notes": "# DragonLoot\n\n## [0.21.1](https://github.com/Xerrion/DragonLoot/tree/0.21.1) ()\n[Full Changelog](https://github.com/Xerrion/DragonLoot/compare/0.21.0...0.21.1) [Previous Releases](https://github.com/Xerrion/DragonLoot/releases)\n\n- chore(master): release 0.21.1 [#215](https://github.com/Xerrion/DragonLoot/pull/215)\n- fix: package multi-version clients with pinned DragonWidgets [#216](https://github.com/Xerrion/DragonLoot/pull/216)\n- refactor: use shared DragonWidgets options defaults [#214](https://github.com/Xerrion/DragonLoot/pull/214)"
+    },
+    {
+      "tag": "0.21.0",
+      "name": "v0.21.0",
+      "published": "2026-11-17",
+      "notes": "## [0.21.0](https://github.com/Xerrion/DragonLoot/compare/0.20.0...0.21.0) (2026-11-17)\n\n### \uD83D\uDE80 Features\n\n* modernize loot displays and organize customization ([#211](https://github.com/Xerrion/DragonLoot/issues/211)) ([25f8a06](https://github.com/Xerrion/DragonLoot/commit/25f8a062bf7c0020b4e17b706ee40c6ed38dc83f))\n* redesign options with compact layout and widget previews ([#208](https://github.com/Xerrion/DragonLoot/issues/208)) ([244bcbe](https://github.com/Xerrion/DragonLoot/commit/244bcbeca7028172035ca69db73f0983bce563c7))\n\n### \uD83D\uDC1B Bug Fixes\n\n* allow source manifests to load on Forever ([#210](https://github.com/Xerrion/DragonLoot/issues/210)) ([5a12b65](https://github.com/Xerrion/DragonLoot/commit/5a12b65815eb933bd33ea1a12813d8c8d73b6cb6))\n* initialize close button font before setting text ([#212](https://github.com/Xerrion/DragonLoot/issues/212)) ([bbf4bc1](https://github.com/Xerrion/DragonLoot/commit/bbf4bc1aa6dd73ba41731c2ab33126f059ad0f56))\n* unify loot and history window headers ([#213](https://github.com/Xerrion/DragonLoot/issues/213)) ([a33486b](https://github.com/Xerrion/DragonLoot/commit/a33486b4ed2f76d8bd12260a850f223c6cbea661))"
+    },
+    {
+      "tag": "0.20.0",
+      "published": "2026-11-17",
+      "notes": "# DragonLoot\n\n## [0.20.0](https://github.com/Xerrion/DragonLoot/tree/0.20.0) ()\n[Full Changelog](https://github.com/Xerrion/DragonLoot/compare/0.19.0...0.20.0) [Previous Releases](https://github.com/Xerrion/DragonLoot/releases)\n\n- chore(master): release 0.20.0 [#204](https://github.com/Xerrion/DragonLoot/pull/204)\n- feat: refresh options with modern DragonWidgets [#207](https://github.com/Xerrion/DragonLoot/pull/207)\n- fix: restore Forever loot and EllesmereUI compatibility [#205](https://github.com/Xerrion/DragonLoot/pull/205) [#206](https://github.com/Xerrion/DragonLoot/pull/206)\n- fix: include Forever in TOC updates [#203](https://github.com/Xerrion/DragonLoot/pull/203)"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Xerrion/DragonLoot/master/assets/dragon-loot.png",
+    "https://raw.githubusercontent.com/Xerrion/DragonLoot/master/docs/images/loot-and-roll.png",
+    "https://raw.githubusercontent.com/Xerrion/DragonLoot/master/docs/images/roll-settings.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-08",
+      "2026-10-25",
+      "2026-10-14",
+      "2026-09-09",
+      "2026-09-04",
+      "2026-08-26",
+      "2026-08-19",
+      "2026-07-09",
+      "2026-06-17",
+      "2026-06-09",
+      "2026-05-26",
+      "2026-05-25",
+      "2026-05-11",
+      "2026-04-22",
+      "2026-04-18",
+      "2026-04-15",
+      "2026-04-15",
+      "2026-04-07",
+      "2026-04-05",
+      "2026-03-28",
+      "2026-03-24",
+      "2026-03-24",
+      "2026-03-15",
+      "2026-03-15",
+      "2026-03-15",
+      "2026-03-13",
+      "2026-03-13",
+      "2026-03-13",
+      "2026-03-12",
+      "2026-03-07",
+      "2026-03-06",
+      "2026-03-06",
+      "2026-03-06",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-02-27",
+      "2026-02-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DragonLoot",
+      "DragonLoot_Options"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "DragonLootDB"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "wowefficiency",
+  "repo": "Sludging/wow-efficiency-addon",
+  "about": "# Wow Efficiency Addon\n\n## Overview\n\nThis addon collects character progress for [WoW Efficiency](https://www.wowefficiency.com/).\nIt records profession data and completed quests that the public Battle.net API does not provide.\nProfession data includes skill levels, knowledge points, specializations, concentration, and cooldowns.\n\nWoW saves the collected data locally in `WowEfficiency.lua`.\nThe website reads this file in your browser to show your character's progress.\n\n## Game support\n\nThe addon supports World of Warcraft Retail.\nForever support is under development and is not ready for use.\n\n## Contributing\n\nSee the [developer guide](https://github.com/Sludging/wow-efficiency-addon/blob/main/docs/DEVELOPMENT.md) for technical details and release instructions.\n\n## Acknowledgements\n\nThese community projects informed the addon's data collection, quest tracking, and profession knowledge features:\n\n- **[ChoreTracker](https://github.com/ThingEngineering/choretracker)** by Freddie — task and chore tracking addon\n- **[CraftSim](https://github.com/derfloh205/CraftSim)** by Genju — profession crafting simulation and profit calculation\n- **[Myu's Knowledge Points Tracker](https://www.curseforge.com/wow/addons/myus-knowledge-points-tracker)** by Myu — profession knowledge point tracking and visualization\n- **[WeeklyKnowledge](https://github.com/DennisRas/WeeklyKnowledge)** by Liquidor — profession knowledge tracking grid\n- **[wowthing-collector](https://github.com/ThingEngineering/wowthing-collector)** by Freddie — in-game data collector for wowthing.org",
+  "releases": [
+    {
+      "tag": "v2.3.0",
+      "published": "2026-11-18",
+      "notes": "You can now see your Forever characters and their profession skills on WoW Efficiency."
+    },
+    {
+      "tag": "v2.2.0",
+      "published": "2026-11-02",
+      "notes": "- Added tracking for new Midnight profession knowledge books.\n- Improved weekly profession quest tracking.\n- Updated compatibility with World of Warcraft 12.1.5."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 5,
+    "contributors": 2,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-11-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WowEfficiency"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "WowEfficiencyDB"
+    ]
+  }
+}

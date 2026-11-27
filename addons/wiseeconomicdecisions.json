@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "wiseeconomicdecisions",
+  "repo": "lucasreppewelander/wise-economical-decisions",
+  "about": "# Wise Economical Decisions\n\nA World of Warcraft Forever addon for looting with full bags. When an item in the loot window won't fit, it tells you which item in your bags to throw away and how much gold you gain by swapping.\n\nA small card appears to the right of the loot window. It shows the item to drop and the item to loot, each with its icon, name and value, and what the swap gains or loses. It's only a suggestion. The addon never deletes, moves or loots anything.\n\n![The swap card next to the loot window, suggesting to drop Malachite to loot a Buzzard Talon](https://raw.githubusercontent.com/lucasreppewelander/wise-economical-decisions/main/screenshots/wed-main.png)\n\n## The card\n\nThe card only appears when something in the loot window doesn't fit in your bags. It shows one of three things:\n\n- **Suggested swap:** the loot is worth more than the cheapest item you could drop. The gain is shown in green.\n- **Not worth it:** no swap makes money. The card still shows the closest one, with the loss in red, so you can decide for yourself.\n- **Make room for this:** the loot is a quest item, a key or a profession tool. These are always worth picking up, so the card suggests the cheapest item to drop.\n\nIf the loot stacks, the card also shows what a full stack would be worth, for example `full stack (20): 2s 60c`. This is only there to help you decide. It doesn't change which item is suggested.\n\nWhen more than one item won't fit, the card shows the best swap. After you drop and loot, it moves on to the next one.\n\nThe addon understands special bags. Herbs can go in an herb bag and arrows in a quiver, and loot that tops up a stack you already have doesn't need a free slot.\n\n## How items are valued\n\n- An item's value is its **vendor sell price** × the stack size.\n- If [Auctionator](https://www.curseforge.com/wow/addons/auctionator) has an auction house price that's **at least 5× the vendor price**, the addon uses the AH price minus the 5% auction house cut instead. You can change the 5× with `/wed threshold`.\n- Soulbound and bind-on-pickup items always use the vendor price, because they can't be sold on the auction house.\n- Each value on the card is labelled `vendor` or `AH`, so you can see which price was used.\n\n## Never suggested\n\nThe addon never tells you to drop these:\n\n- profession tools: fishing poles, enchanting rods, the mining pick, skinning knives, the blacksmith hammer, engineering tools and the Philosopher's Stone\n- quest items, and items that start a quest\n- your Hearthstone and other teleport items\n- keys\n- ammo and soul shards\n- anything with no vendor price and no auction house price\n- items you've protected yourself\n\nReagents can be suggested if dropping them makes you more money.\n\n## Slash commands\n\n- `/wed protect <shift-click item>`: never suggest dropping this item. The **Never suggest this** button on the card does the same.\n- `/wed unprotect <shift-click item>`: allow it to be suggested again.\n- `/wed list`: show your protected items. The list is shared by all your characters.\n- `/wed threshold <n>`: the auction house price counts when it's at least n × the vendor price. The default is 5.\n- `/wed demo`: preview the card. Run it again to see the next state.\n\n## Installation\n\n1. **[Download WiseEconomicDecisions.zip](https://github.com/lucasreppewelander/wise-economical-decisions/releases/latest/download/WiseEconomicDecisions.zip)**\n2. Extract it into `World of Warcraft/_forever_/Interface/AddOns/`. You should end up with `AddOns/WiseEconomicDecisions/WiseEconomicDecisions.toc`.\n3. Restart the game.\n\nDon't use GitHub's green **Code → Download ZIP** button. It names the folder `wise-economical-decisions-main`, and WoW won't load the addon from a folder with that name.\n\nFor auction house prices, install [Auctionator](https://www.curseforge.com/wow/addons/auctionator) and run a scan at the auction house. Without it, the addon uses vendor prices only.\n\nIf the addon shows as out of date, tick **Load out of date AddOns** on the character select screen. You can also update the `## Interface:` line in `WiseEconomicDecisions.toc` to your client's version. Run `/dump select(4, GetBuildInfo())` in game to find it.\n\n## Development\n\nThe pricing, fitting and swap logic has tests that run outside the game:\n\n```sh\nfor f in tests/*_test.lua; do luajit \"$f\" || exit 1; done\n```",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-11",
+      "notes": "First release.\n\n- When loot won't fit in your bags, a card next to the loot window suggests which bag item to drop and shows the gold you gain or lose.\n- Three card states: **Suggested swap**, **Not worth it** (the closest swap) and **Make room for this** (quest items, keys and profession tools).\n- Values use the vendor price, or the Auctionator price minus the 5% AH cut when it's at least 5× the vendor price. Bound items always use the vendor price.\n- Profession tools, quest items, Hearthstone and teleport items, keys, ammo, soul shards and items with no price are never suggested as drops.\n- Protect your own items with the **Never suggest this** button or `/wed protect`.\n\n**Install:** extract `WiseEconomicDecisions.zip` into `World of Warcraft/_forever_/Interface/AddOns/`, then restart the game."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/lucasreppewelander/wise-economical-decisions/main/screenshots/wed-main.png",
+    "https://raw.githubusercontent.com/lucasreppewelander/wise-economical-decisions/main/screenshots/wed1.png",
+    "https://raw.githubusercontent.com/lucasreppewelander/wise-economical-decisions/main/screenshots/wed2.png",
+    "https://raw.githubusercontent.com/lucasreppewelander/wise-economical-decisions/main/screenshots/wed3.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WiseEconomicDecisions"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "WiseEconomicDecisionsDB"
+    ]
+  }
+}

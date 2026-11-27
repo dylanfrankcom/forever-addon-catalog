@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "lsmshell",
+  "repo": "TheMouseNest/LSMShell",
+  "releases": [
+    {
+      "tag": "7",
+      "published": "2026-11-12",
+      "notes": "# LSM Shell\n\n## [7](https://github.com/TheMouseNest/LSMShell/tree/7) (2026-11-12)\n[Full Changelog](https://github.com/TheMouseNest/LSMShell/compare/6...7) [Previous Releases](https://github.com/TheMouseNest/LSMShell/releases)\n\n- Update toc for Forever"
+    },
+    {
+      "tag": "6",
+      "published": "2026-02-25",
+      "notes": "# LSM Shell\n\n## [6](https://github.com/TheMouseNest/LSMShell/tree/6) (2026-02-25)\n[Full Changelog](https://github.com/TheMouseNest/LSMShell/compare/4...6) [Previous Releases](https://github.com/TheMouseNest/LSMShell/releases)\n\n- Fix typo"
+    },
+    {
+      "tag": "5",
+      "published": "2026-02-25",
+      "notes": "# LSM Shell\n\n## [5](https://github.com/TheMouseNest/LSMShell/tree/5) (2026-02-22)\n[Full Changelog](https://github.com/TheMouseNest/LSMShell/compare/3...5) [Previous Releases](https://github.com/TheMouseNest/LSMShell/releases)\n\n- Force creation of Assets folder"
+    },
+    {
+      "tag": "4",
+      "published": "2026-02-22",
+      "notes": "# LSM Shell\n\n## [4](https://github.com/TheMouseNest/LSMShell/tree/4) (2026-02-22)\n[Full Changelog](https://github.com/TheMouseNest/LSMShell/compare/3...4) [Previous Releases](https://github.com/TheMouseNest/LSMShell/releases)\n\n- Force creation of Assets folder"
+    },
+    {
+      "tag": "3",
+      "published": "2026-02-22",
+      "notes": "# LSM Shell\n\n## [3](https://github.com/TheMouseNest/LSMShell/tree/3) (2026-02-22)\n[Full Changelog](https://github.com/TheMouseNest/LSMShell/compare/2...3) [Previous Releases](https://github.com/TheMouseNest/LSMShell/releases)\n\n- Fix missing comma in example"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-12",
+    "releaseDates": [
+      "2026-11-12",
+      "2026-02-25",
+      "2026-02-25",
+      "2026-02-22",
+      "2026-02-22",
+      "2026-02-22",
+      "2026-02-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LSMShell"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ]
+  }
+}

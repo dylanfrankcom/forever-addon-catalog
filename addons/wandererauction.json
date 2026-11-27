@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "wandererauction",
+  "repo": "Jaecko/wanderer-auction",
+  "about": "# Wanderer Auction\n\nThe auction house in one quiet Wanderer window, made for World of Warcraft Forever.\nAn extension of [Wanderer](https://github.com/Jaecko/wanderer): it needs Wanderer 1.4 or later.\n\n- Sell, Buy, My auctions and Shopping in one window that replaces the game's (one click brings the game's back).\n- Selling made plain: choose an item (a click, a right click in your bags, or drop it on the window), see what is for sale now, one line per price, and post it with one button or Space. Shift+Space passes to the next one.\n- One advised price, starred, never one that would bring less than a merchant once the auction house's cut is taken; prices kept to the copper. The starting bid, the deposit and what you receive are all shown.\n- A guard against a costly slip: a price far under an item's usual value, or under what a merchant gives, is asked before posting.\n- Take back your undercut auctions one click at a time, the deposit said first.\n- The game's categories in a tree, your last searches, usual prices in green or red; every purchase and bid confirmed.\n- A shopping list you can open anywhere (Wanderer's menu, a key or /wauction), filled from your bags, quests and profession windows (with what a recipe costs), bought at merchants with +N or on arrival if you wish.\n- What you set aside in [Wanderer Bags](https://github.com/Jaecko/wanderer-bags) comes first; what you keep is never offered.\n\nDownload: [CurseForge](https://www.curseforge.com/wow/addons/wanderer-auction). More on [wanderer-addon.com](https://wanderer-addon.com/).",
+  "releases": [
+    {
+      "tag": "v1.3.11",
+      "published": "2026-11-17",
+      "notes": "# Wanderer Auction 1.3.11\n\n### Changed\n- With a controller, the Sell page's price steps up and down as the bid does.\n- A bid you typed stays when the list refreshes, while it is still enough.\n- Buying \"all\" with nothing left on sale: the button rests, and says why.\n- With the game's look (a choice under Wanderer's Appearance): the categories and an item's auctions drawn with the game's own parts, its lit and chosen rows, its dividers and colors. Needs Wanderer 1.4.89.\n\n### Fixed\n- Posting under the market price: the wait for the house's answer starts from your yes, so a second post can no longer slip through; a no only cancels its own sale.\n- Post: its words on the left of the button, as on Next, so the key beside them no longer runs over them."
+    },
+    {
+      "tag": "v1.3.10",
+      "published": "2026-11-16",
+      "notes": "# Wanderer Auction 1.3.10\n\n### Changed\n- The most spent per visit to a merchant, for the shopping list, is also in the settings, under buying on arrival.\n- Prices are typed in three boxes, gold, silver and copper, digits only (no more letters to type).\n- The Sell page rebuilt, plainer: the item, one price, how many, how long, the total, one big button (Space) and Next (Shift+Space).\n- What is for sale now, one line per price with how many are sold at it: a click on a line puts yours at that price.\n- One place advised: at the price of the cheapest offer worth matching, or between a lone cheap offer and the next ones when the gap is wide, never selling it off.\n- Prices kept to the copper: a click on 1s 35c posts at 1s 35c (whole silver only if the auction house refuses copper, said once).\n- Lines a merchant beats are grey and still clickable: you are asked before posting at such a price.\n- More reliable: one price search at a time, sent only when the auction house is ready, asked again when it does not answer; the button waits while the auction house is busy and never posts twice.\n- The duration you choose is kept for the next sales (8 hours at first, the middle choice).\n- The Following tab is now My auctions.\n- Buy: a price well under or over its usual one says by how much in front of it, in green or red (-25 %, +40 %).\n- Sell: what you receive once the cut is taken is shown, the deposit clearer; an item that cannot be sold says why when clicked.\n- Buy: how many in each auction and the price each; the bid says whether it is the current one, the minimum, or yours.\n- My auctions: a sale someone bid on shows the bid; one without a buyout is said, never blank.\n- The starting bid is 95% of your buyout and shown in the money card.\n- Drop an item from your bags on the window to choose it for sale.\n- Next is greyed on the last item; rarities switched off and prices a merchant beats stay readable; the key word on the gold button is easier to read.\n- The shopping list window opens and closes with a sound; \"Add to the shopping list\" and \"Search an item...\".\n\n### Removed\n- The optimized price, Sell everything, Look up the prices, the History tab and the journal.\n\n### Fixed\n- Buy page: Shift and a click on an auction links the item, Ctrl and a click tries it on, as in the game's list.\n- Enter no longer posts an item: only Space or the button do, so pressing Enter to chat is safe.\n- Space right after a sale or a bag move never posts the wrong item; Post waits for the prices to be known unless you typed one.\n- Escape leaves every number box; Shift+click on the shopping list no longer opens the game's stack splitter too.\n- A new character no longer starts buying your shopping list at merchants on its own: switch it on for that character.\n- Taking back an auction cancels only the auction the card shows.\n- Shift and a click on an item of your bags puts its name in the Buy page's search and searches it, from any page of the window (unless you are writing in the chat).\n- The window you switch to by its link (Wanderer's or the game's) is the one that opens at your next visits, Auctionator there or not."
+    },
+    {
+      "tag": "v1.2.3",
+      "published": "2026-11-12",
+      "notes": "# Wanderer Auction 1.2.3\n\n### Changed\n- A finer look across the family: one palette for every color, clearer contrast on dark windows and on parchment, the same words in every language."
+    },
+    {
+      "tag": "v1.2.2",
+      "published": "2026-11-10",
+      "notes": "# Wanderer Auction 1.2.2\n\n### Changed\n- With the game's controller interface on, the Buy page leaves the search box alone, and the top button forgets a recent search. The controller navigation needs Wanderer 1.4.36 or later.\n\n### Fixed\n- The \"Look up\" button no longer stays greyed after switching pages."
+    },
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-08",
+      "notes": "# Wanderer Auction 1.2.0\n\nNeeds Wanderer 1.4 or later.\n\n### New\n- A price guard: a price under half of an item's usual value, or over three times, is said in red and asked before posting, Sell everything included.\n- Your price, kept per item: \"Keep as your price\" makes it the least ever offered for that item, on your whole account; \"Forget your price\" lets the market lead again.\n- Take back the undercut: on the Following tab, your auctions cheaper elsewhere and worth reposting, in one card, canceled one by one with a click each, the deposit lost said first.\n- In a profession's window, the \"To the shopping list\" button's tooltip says what the reagents cost and what the item sells for once the cut is taken, with the profit or the loss (from the prices you have seen).\n- Your last eight searches under the Buy page's search box: a click searches again, a right click forgets.\n- One price field: type a price as you like (1.5 is 1g 50s, 1g50s, 75s), match the lowest, step it 5 % down or up (Ctrl+Up, Ctrl+Down); a line says why that price.\n- The way a price is offered is a setting: optimized (the default), sell fast, or at the market's price.\n- Buy: the game's categories in a tree, your search within the one chosen, rarity chips, Usable only; a price in green or red against its usual price (14 days).\n- Following: \"Look up their prices\" judges your auctions against the lowest price of the hour, never an old one.\n- Sell everything in a card: Space or Enter posts the next item, S skips it; a key binding posts when the game wants a click.\n\n### Changed\n- Prices in whole silver: Forever's server refuses copper.\n- The shopping list opens on a card per line (how many, always on you, your highest price), keys 1 to 4.\n- At merchants, your shopping list is bought through Wanderer (whole lots, never more than the merchant has); Wanderer's provisions leave your list's items to it.\n- \"Better at a merchant: made junk\" (with Wanderer Bags): uncommon or better is sold only by your click on the junk button.\n- The search's filters and sort are each character's own; your last way and duration are kept.\n- The window is 1040 by 640 at least, so the price row and filters fit in every language.\n\n### Fixed\n- A search answered while you looked at another tab is read when you come back, no longer \"Searching...\" for ever.\n- Buying on arrival can no longer buy the list twice when a merchant is closed and opened again quickly.\n- Identical items are posted one after the other when selling everything.\n- A wide search no longer asks the server for hundreds of items at once.\n- A Shift+click meant for the chat no longer asks \"How many?\" for the shopping list."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-10-19",
+      "2026-10-18",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-11"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "WandererAuction"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Wanderer"
+    ],
+    "optional": [
+      "WandererBags",
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "WandererAuctionDB",
+      "WandererAuctionAccountDB"
+    ]
+  }
+}

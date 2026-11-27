@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "keel",
+  "repo": "terin678/wow-forever-addons",
+  "about": "# WoW Forever addons\n\nAddons for WoW Forever (client 1.60.1, interface 16001). Download the zips from\n[Releases](https://github.com/terin678/wow-forever-addons/releases).\n\n| Addon | What it does | Guide |\n| --- | --- | --- |\n| [Keel](https://github.com/terin678/wow-forever-addons/blob/main/AddonProjects/forever/Keel) | The shared kit the others build on: Forever theme, widgets, sliders, lists, gallery (`/keel`) | [Docs/Keel.md](https://github.com/terin678/wow-forever-addons/blob/main/Docs/Keel.md) |\n| [Stickies](https://github.com/terin678/wow-forever-addons/blob/main/AddonProjects/forever/Stickies) | Notes on the screen, with a minimap and Addon Compartment entry | [Docs/Stickies.md](https://github.com/terin678/wow-forever-addons/blob/main/Docs/Stickies.md) |\n| [RenderTuner](https://github.com/terin678/wow-forever-addons/blob/main/AddonProjects/forever/RenderTuner) | A live control for about 160 graphics settings, upscaling and quality presets, search, Auto-set and undo (`/tuner`) | [Docs/RenderTuner.md](https://github.com/terin678/wow-forever-addons/blob/main/Docs/RenderTuner.md) |\n\n## Install\n\nExtract the zips into `_forever_\\Interface\\AddOns` so you get\n`AddOns\\Keel\\Keel.toc` and so on, then restart the client. Keel is required by the others.\n\n## Working on it\n\n```powershell\npython scripts/lint.py\n.\\scripts\\run-tests.ps1 -Flavor forever -Addon RenderTuner   # needs LuaJIT\n.\\scripts\\deploy.ps1 -Flavor forever -Addon RenderTuner      # links it into the game folder\n```\n\n[CODING_STANDARDS.md](https://github.com/terin678/wow-forever-addons/blob/main/CODING_STANDARDS.md) and [CLAUDE.md](https://github.com/terin678/wow-forever-addons/blob/main/CLAUDE.md) cover conventions.\n\nLicensed under the GPL 3.0, see [LICENSE](https://github.com/terin678/wow-forever-addons/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "rendertuner-v0.7.1",
+      "name": "RenderTuner 0.7.1",
+      "published": "2026-11-19",
+      "notes": "RenderTuner 0.7.1\n\nNothing in RenderTuner's settings or panel changes; this release is about how it is delivered.\n\n- On CurseForge, Keel is no longer inside RenderTuner's download. Keel is a project of its own there, and the app installs it with RenderTuner.\n- On Wago and GitHub the download still carries Keel, as before.\n- RenderTuner says so at login if the Keel it finds is older than it needs.\n- If the game reports a missing dependency after updating, install or reinstall Keel from CurseForge."
+    },
+    {
+      "tag": "keel-v1.0.0",
+      "name": "Keel 1.0.0",
+      "published": "2026-11-19",
+      "notes": "Keel 1.0.0\n\nKeel's first release as a project of its own. Until now it came only inside RenderTuner's download.\n\n- The libraries are the same as in 0.14.0 and the 0.15.0 beta; only how Keel is delivered has changed.\n- If you already have Keel from RenderTuner, this replaces the same folder; your settings are kept.\n- If RenderTuner or Stickies reports a missing dependency, install or reinstall Keel."
+    },
+    {
+      "tag": "rendertuner-v0.7.0",
+      "name": "RenderTuner 0.7.0",
+      "published": "2026-11-16",
+      "notes": "RenderTuner 0.7.0\n\n- Goggles: a few settings changed together for a while and put back with one click. Snow goggles are the first pair, for a blizzard or a white-out. They lower Brightness and raise Contrast a little from where you have them, switch off Bloom and the Full-screen glow, and thin the snowfall. Taking them off puts each setting back as it was. A setting you move yourself while they are on is left where you put it.\n- An icon on the screen. Click it and the goggles spiral out around it. Click a pair to put it on or take it off, and click the icon again to put them away. Right-click it for a menu and drag it anywhere. /tuner hud hides it or brings it back.\n- The goggles are also in the Addon Compartment's right-click menu, and /tuner goggles lists them or puts a pair on.\n- The panel says which pair is on. Keep records your settings without the goggles."
+    },
+    {
+      "tag": "rendertuner-v0.6.1",
+      "name": "RenderTuner 0.6.1",
+      "published": "2026-11-16",
+      "notes": "RenderTuner 0.6.1\n\n- The shared library that ships inside RenderTuner is now called Keel. It was ICKit. Once you have updated, the old ICKit folder in AddOns can be deleted.\n- RenderTuner sits under Graphics in the AddOns list, and Keel under Libraries.\n- If you had picked a theme with /ickit theme, pick it again with /keel theme. The Impulse Control theme is now called Navy and no longer carries a logo.\n- No settings or saved values change."
+    },
+    {
+      "tag": "rendertuner-v0.6.0",
+      "name": "RenderTuner 0.6.0",
+      "published": "2026-11-13",
+      "notes": "RenderTuner 0.6.0\n\n- Twenty-four more settings, after the client's whole list of console variables was read again. Among them: ground clutter density and distance (well past the top of the game's own slider), the screenshot format (JPEG, PNG or TGA), a frame rate limit for loading screens, refraction, shading rates for the world and for particles, and character texture compression, highlights and glow.\n- Extreme now takes ground clutter to the client's ceiling. If you were already on Extreme, click it once more to take the new values; a lower level still puts back what you had before.\n- Lighting quality has a fourth level, which the game's own top quality level uses.\n- Fixed: Particle density offered a sixth level the client does not have.\n- Fixed: Light distance offered 4096, which the client never kept. It now stops at 2048."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 3,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-10",
+      "2026-11-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Keel",
+      "RenderTuner"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "KeelDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "KeelCharDB"
+    ]
+  }
+}

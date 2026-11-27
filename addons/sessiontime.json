@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "sessiontime",
+  "repo": "santipaprika/SessionTime",
+  "about": "# Session Time (WoW Addon)\nShows the current session's time played and provides stats regarding play time.\n\n## Features:\n- Current session's time.\n- Minimap button to show/hide the main addon's frame.\n- Sessions history (date and hour, time played, character).\n- Average daily playtime.\n- Last two points can display user data (default) or character-specific data.\n- For sessions time (current and history), color is interpolated using time:\n  - 0 seconds → Green \n  - 1 hour → Yellow\n  - 2 hours → Red\n- For stats time, color is interpolated using time:\n  - 0 seconds → Green\n  - 2 hours → Yellow\n  - 3 hours → Red\n- Being *Away*/*AFK* stops the session's time counter.\n- **[NEW]** All sessions' data can be obtained in CSV format.\n\n## Demo:\n![Time Display](https://media.giphy.com/media/eRNDMuoIO26G22Rtyy/giphy.gif)  \n  \n**NEW (Get CSV):**  \n![CSV_export](https://i.gyazo.com/030818b0ea6c757dc203b080d4e12773.png)\n\n## Future work:\n- More stats.\n- Fix for extreme cases.\n- Characters' names matching with their class.\n- Color interpolation modifiable by the user\n\n## External URLs\n[![CurseForge](https://upload.wikimedia.org/wikipedia/en/b/bd/Curse%2C_Inc_Logo.png)](https://www.curseforge.com/wow/addons/session-time)\n[![WoWInterface](https://s.wowinterface.com/images/wowinterface.gif)](https://www.wowinterface.com/downloads/info25814-SessionTime.html)",
+  "releases": [
+    {
+      "tag": "1.3.3",
+      "published": "2026-11-05",
+      "notes": "- Update toc interface versions (forever edition)"
+    },
+    {
+      "tag": "1.3.2",
+      "published": "2024-12-23",
+      "notes": "- Update toc interface versions to 110007, 40401 and 11505"
+    },
+    {
+      "tag": "1.3.1",
+      "published": "2024-09-28",
+      "notes": "- Update toc version\n- Display session and today time as tooltip when hovering on LDB icon (from issue #6 )"
+    },
+    {
+      "tag": "1.3",
+      "published": "2024-07-17",
+      "notes": "- Update TOC versions to 110000 (TWW), 11501 (Classic), 30403 (WOTLK) and 40400 (Cata).\n- Update addon description and TOC metadata.\n- Update license year."
+    },
+    {
+      "tag": "1.2.8",
+      "published": "2023-09-02",
+      "notes": "- Update to 10.1.7, 1.14.4 and 3.4.2."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2024-12-23",
+      "2024-09-28",
+      "2024-07-17",
+      "2023-09-02",
+      "2023-01-28",
+      "2023-01-07",
+      "2022-09-24",
+      "2021-06-28",
+      "2021-06-27",
+      "2021-06-25",
+      "2021-06-21",
+      "2021-06-21",
+      "2021-05-20",
+      "2021-05-17",
+      "2021-05-17",
+      "2021-05-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SessionTime"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "characters",
+      "sessionsTable",
+      "sessionsCounter",
+      "SessionTimeDB"
+    ]
+  }
+}

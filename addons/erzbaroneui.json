@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "erzbaroneui",
+  "repo": "spalter/ErzbaroneUI",
+  "about": "# ErzbaroneUI\n\nA reduced World of Warcraft Forever Interface\n\n## Usage\n\nExtract the `ErzbaroneUI` directory from the release zip into the `World of Warcraft\\_forever_\\Interface\\AddOns\\` directory.\nTo open the configuration, select ErzbaroneUI in the minimap's AddOns menu, go to Game Menu → Options → AddOns → ErzbaroneUI or type `/eui`.\nScroll the settings panel with the mouse wheel or scrollbar to reach all options.\n\n### Via CurseForge\n\nThe addon is available on CurseForge too, search for `ErzbaroneUI` or [on their website](https://www.curseforge.com/wow/addons/erzbaroneui).\n\n## Features\n\n- Auto sell grey items\n- Auto repair\n- Optional vignette effect\n- Optional neutral grey decorative frame artwork (disabled by default; requires a UI reload)\n- HDR options\n- Five second rule timer on the player mana bar\n- Optional swing timer spark on the player power bar for melee and ranged fighters\n- Textured health and power bars on the unit frames (classic, smooth, skills or a custom `textures\\statusbar` file), also selectable for the cast bars\n- Class colored health bars for players and grey health bars for creatures tapped by others\n- Optional compact remaining-health numbers on enemy nameplates (disabled by default)\n- Optionally hides the large threat glow around the player, target and focus frames\n- Cast count on action buttons (how often a mana spell can be cast with the current mana)\n- Red tint on action buttons while the target is out of range\n- Hides the button column left of the chat window\n- Hides the chat tabs until the mouse is over the chat window\n- Hides the vertical action bars on the right until hovered\n- Emote selection beside the mouse cursor, with 36 emotes\n- Improved Main Actionbar Layout\n- Micro menu position presets\n- Hides the bag names in the bag windows\n- Compact minimap until the minimap is hovered\n- Optional world map hover labels with zone and fishing levels (disabled by default)\n- Optional minimalist objective tracker with muted warm grey, outlined quest titles and darker warm grey objectives, retaining their existing shadows without levels, section banners, markers, dashes or action buttons (disabled by default)\n\n## Development\n\nFrom the addon directory, run all Lua tests with `lua tests\\run_test.lua`.\nThe runner discovers `*_test.lua` files (excluding itself) and runs each in a separate process; it requires PowerShell.\nVisual appearance and actual combat protection still need testing in the Forever client.\n\n## Screenshots\n\n![ErzbaroneUI (UI)](https://raw.githubusercontent.com/spalter/ErzbaroneUI/main/docs/full.jpg)\n![ErzbaroneUI (UI)](https://raw.githubusercontent.com/spalter/ErzbaroneUI/main/docs/settings.jpg)\n![ErzbaroneUI (UI)](https://raw.githubusercontent.com/spalter/ErzbaroneUI/main/docs/actionbars.jpg)\n\n## Credits\n\n- [FiveSecondRule](https://github.com/smp4903/FiveSecondRule) and [WeaponSwingTimer](https://github.com/LeftHandedGlove/WeaponSwingTimerAddon) for the idea of the timer sparks on the power bar\n- [wow-ui-source](https://github.com/Gethe/wow-ui-source) by Gethe, the Blizzard interface source used as reference\n- [wow-ui-source-forever](https://github.com/Ketho/wow-ui-source-forever/tree/forever) by Ketho, the matching Forever FrameXML reference (upstream live sources differ)\n- [Warcraft Wiki](https://warcraft.wiki.gg/wiki/World_of_Warcraft_API) for the API documentation\n- [World of Warcraft Programming](https://wowprogramming.com/index.html)",
+  "releases": [
+    {
+      "tag": "v0.0.6",
+      "published": "2026-11-13",
+      "notes": "**Full Changelog**: https://github.com/spalter/ErzbaroneUI/compare/v0.0.5...v0.0.6\n\n- More Emotes\n- Fixed micro action system button \n- Nameplate health numbers"
+    },
+    {
+      "tag": "v0.0.5",
+      "published": "2026-11-12",
+      "notes": "**Full Changelog**: https://github.com/spalter/ErzbaroneUI/compare/v0.0.4...v0.0.5\n\n- Micro menu position presets"
+    },
+    {
+      "tag": "v0.0.4",
+      "published": "2026-11-12",
+      "notes": "**Full Changelog**: https://github.com/spalter/ErzbaroneUI/compare/v0.0.3...v0.0.4\n\n- Easy emote access\n- Vertical bars with background texture\n\n### Via CurseForge\n\nThe addon is available on CurseForge too, search for `ErzbaroneUI` or [on their website](https://www.curseforge.com/wow/addons/erzbaroneui).\n\n## Features\n\n- Auto sell grey items\n- Auto repair\n- Optional vignette effect\n- HDR options\n- Five second rule timer on the player mana bar\n- Optional swing timer spark on the player power bar for melee and ranged fighters\n- Textured health and power bars on the unit frames (classic, smooth, skills or a custom `textures\\statusbar` file), also selectable for the cast bars\n- Class colored health bars for players and grey health bars for creatures tapped by others\n- Optionally hides the large threat glow around the player, target and focus frames\n- Cast count on action buttons (how often a mana spell can be cast with the current mana)\n- Red tint on action buttons while the target is out of range\n- Hides the button column left of the chat window\n- Hides the chat tabs until the mouse is over the chat window\n- Hides the vertical action bars on the right until hovered\n- Emote selection beside the mouse cursor, with 24 emotes\n- Improved Main Actionbar Layout\n- Hides the bag names in the bag windows\n- Compact minimap until the minimap is hovered"
+    },
+    {
+      "tag": "v0.0.3",
+      "published": "2026-11-11",
+      "notes": "Minor Update to the Addon.\n\n## Usage\n\nExtract the `ErzbaroneUI` directory from the release zip into the `World of Warcraft\\_forever_\\Interface\\AddOns\\` directory.\nTo open the configuration, select ErzbaroneUI in the minimap's AddOns menu, go to Game Menu → Options → AddOns → ErzbaroneUI or type `/eui`.\n\n### Via CurseForge\n\nThe addon is available on CurseForge too, search for `ErzbaroneUI` or [on their website](https://www.curseforge.com/wow/addons/erzbaroneui).\n\n## Features\n\n- Auto sell grey items\n- Auto repair\n- Optional vignette effect\n- Five second rule timer on the player mana bar\n- Optional swing timer spark on the player power bar for melee and ranged fighters\n- Textured health and power bars on the unit frames (classic, smooth, skills or a custom `textures\\statusbar` file), also selectable for the cast bars\n- Class colored health bars for players and grey health bars for creatures tapped by others\n- Optionally hides the large threat glow around the player, target and focus frames\n- Cast count on action buttons (how often a mana spell can be cast with the current mana)\n- Red tint on action buttons while the target is out of range\n- Hides the button column left of the chat window\n- Moves the chat window into the lower left corner\n- Hides the chat tabs until the mouse is over the chat window\n- Hides the vertical action bars on the right until hovered\n- Improved Main Actionbar Layout\n- Hides the bag names in the bag windows\n- Compact minimap: removes the header, places tracking, calendar, mail and addon buttons on the minimap border and shows the server time inside the minimap; the buttons can be hidden until the minimap is hovered"
+    },
+    {
+      "tag": "v0.0.2",
+      "published": "2026-11-11",
+      "notes": "**Full Changelog**: https://github.com/spalter/ErzbaroneUI/compare/v0.0.1...v0.0.2"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/spalter/ErzbaroneUI/main/docs/full.jpg",
+    "https://raw.githubusercontent.com/spalter/ErzbaroneUI/main/docs/settings.jpg",
+    "https://raw.githubusercontent.com/spalter/ErzbaroneUI/main/docs/actionbars.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-10-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ErzbaroneUI"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ErzbaroneUISettings"
+    ]
+  }
+}

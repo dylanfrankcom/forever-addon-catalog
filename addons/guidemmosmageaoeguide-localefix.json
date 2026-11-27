@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "guidemmosmageaoeguide-localefix",
+  "repo": "IvanKhramov/guidemmo-forever-mage-aoe-locale-fix",
+  "about": "# GuideMMO Forever Mage AOE - Locale Fix\n\nAdd-on for [GuideMMO Forever Mage AOE](https://www.curseforge.com/wow/addons/guidemmo-forever-mage-aoe)\nthat fixes the **Show on map** button on non-English WoW Forever clients.\n\nMade by a third party, not affiliated with the original author. Contains no code or data from the original addon.\n\n## The problem\n\nThe original addon finds a spot's map by comparing the English zone name from its data\nwith `C_Map.GetMapInfo(id).name`. On a non-English client the API returns localized names,\nso the lookup fails with an error like `could not find a map named: Westfall`.\n\n## How it works\n\nThe add-on knows the `UiMapID` of every zone used by the guide. It asks the game\nfor the zone name in the client's language and puts it first in the spot's list of zone names.\nEnglish names stay in the list, coordinates and saved waypoints are untouched.\nOn an English client nothing changes.\n\n## Install\n\n1. Install the original addon.\n2. Install this add-on from [CurseForge](https://www.curseforge.com/wow/addons/guidemmo-forever-mage-aoe-ru),\n   or download the zip from [Releases](https://github.com/IvanKhramov/guidemmo-forever-mage-aoe-locale-fix/releases)\n   and extract `GuidemmosMageAOEGuide_LocaleFix` into `Interface/AddOns`.\n3. `/reload`.\n\nUpgrading from 0.2.0 or older: delete the old `GuidemmosMageAOEGuide_RU` folder.\n\nOnly zone names are localized. Buttons, tabs and spot descriptions stay in English.\n\n## Tracking the original addon\n\nA daily GitHub Action ([check-upstream](https://github.com/IvanKhramov/guidemmo-forever-mage-aoe-locale-fix/blob/main/.github/workflows/check-upstream.yml)) looks for new\nfiles of the original on CurseForge. For each new file it opens an issue saying whether\nevery zone in its `Data.lua` is covered by `MapLocale.lua`.\n`upstream-file-id` holds the CurseForge file ID of the original release this add-on was last checked against.\n\nRun the check locally: `.github/scripts/check-upstream.sh`.\n\n## License\n\nMIT",
+  "releases": [
+    {
+      "tag": "v0.3.0",
+      "name": "0.3.0",
+      "published": "2026-11-26",
+      "notes": "Renamed to Locale Fix: the add-on works on every non-English client. The addon folder is now GuidemmosMageAOEGuide_LocaleFix; if you installed manually, delete the old GuidemmosMageAOEGuide_RU folder."
+    },
+    {
+      "tag": "v0.2.0",
+      "name": "0.2.0",
+      "published": "2026-11-25",
+      "notes": "Show on map now works on every non-English client, not only Russian. Zone names in the list are shown in the client's language."
+    },
+    {
+      "tag": "v0.1.1",
+      "name": "0.1.1",
+      "published": "2026-11-25",
+      "notes": "First public release. Fixes Show on map on the ruRU WoW Forever client. Requires GuideMMO Forever Mage AOE. Extract GuidemmosMageAOEGuide_RU into Interface/AddOns and /reload."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GuidemmosMageAOEGuide_LocaleFix"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "GuidemmosMageAOEGuide"
+    ]
+  }
+}

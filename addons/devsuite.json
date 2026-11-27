@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "devsuite",
+  "repo": "kapresoft/wow-addon-devsuite",
+  "about": "[![Release Build](https://github.com/kapresoft/wow-addon-devsuite/actions/workflows/release-build.yml/badge.svg)](https://github.com/kapresoft/wow-addon-devsuite/actions/workflows/release-build.yml)\n\n# DevSuite :: The developer tool your WoW addons deserve.\n> ▶ A [World of Warcraft](https://worldofwarcraft.com/) AddOn\n\n![download-count](https://cf.way2muchnoise.eu/full_818084_downloads.svg?badge_style=for_the_badge) ![supported-wow-versions](https://cf.way2muchnoise.eu/versions/World%20of%20Warcraft%20Versions_818084_all.svg?badge_style=for_the_badge)\n\n[Releases](https://github.com/kapresoft/wow-addon-devsuite/releases) | [Known Issues](https://github.com/kapresoft/wow-addon-devsuite/issues) | [CurseForge](https://curseforge.com/wow/addons/devsuite/files)\n\n### Description\n\nDevSuite is a toolkit for World of Warcraft addon developers, offering an intuitive debug dialog UI, event tracing, frame inspection, and other tools to streamline debugging and optimize your add-on development workflow.\n\n## Highlights\n\n-   In-game Lua eval dialog — test snippets and inspect return values without leaving WoW.\n-   Global `tr(...)` tracing function (via LibTraceKit) plus `/etrace` event tracing — see what's firing, when.\n-   \"Get Details on Mouse Over\" — inspect any UI frame/widget just by hovering.\n-   Toggle Blizzard's Frame Stack tool via keybind — no more typing `/fstack`.\n-   Ready-made preset filters for `/etrace` — cut through event noise fast.\n-   Save and switch between up to 15 debugging sessions effortlessly.\n-   Automated FPS display for performance monitoring.\n-   Dedicated Debug Chat Frame tab (via DebugChatFrame) for a clean, filterable log console.\n-   `/devsuite` slash commands for quick access to the debug dialog, config, and console.\n-   `Dump Cursor Info` keybind for inspecting spells, macros, and mounts under your cursor.\n-   Ace3 profile support for per-character/per-spec dev settings.\n-   Key actions (Debug Dialog, Get Details On Mouse Over, Toggle Frame Stack, and more) can be bound to keys via WoW's native Key Bindings UI.\n\n### Key Features\n\n#### Debug UI Evaluation Tool\n\nEvaluate Lua on the fly and save the snippets you use often. Switch between up to 15 saved debugging sessions, so you're not rewriting the same throwaway code every time you reload.\n\n#### Tracing with LibTraceKit\n\nCall the global `tr(...)` function anywhere in your code to emit tagged trace output to the trace UI — no need to wire up your own logging.\n\n```\nSyntax: tr('<tag-name>', ...)\n```\n\nExample:\n\n```\ntr('EventListener', 'var1=', var1, 'tableVal=', fmt({ 1, 2, 3 }))\n```\n\nOpen the trace UI (`/etrace`) and filter for `DEVSUITE` to see the trace line:\n\n```\nDEVSUITE_EVENTLISTENER \"var1=\" \"<value>\", etc...\n```\n\n![DevSuite LibTraceKit Event Logs](https://raw.githubusercontent.com/kapresoft/wow-addon-devsuite/main/doc/media/devsuite-event-log.png)\n\n#### Preset Filters for `/etrace`\n\nFilter WoW's event stream with ready-made presets instead of typing event names by hand. Jump straight to the events you care about and cut out the noise when watching `/etrace` output.\n\n![DevSuite Preset Filters](https://raw.githubusercontent.com/kapresoft/wow-addon-devsuite/main/doc/media/devsuite-preset-filters.png)\n\n#### Get Frame On Mouse Over\n\nHover over any UI element to identify the exact frame beneath the cursor, with its details surfaced instantly. No more guessing frame names or digging through `/fstack` output by hand.\n\n#### Toggle Frame Stack\n\nBind a key to instantly bring up Blizzard's Frame Stack tool — no more typing `/fstack` every time you need it. Frame Stack shows you the full frame hierarchy under your cursor, including frame names, sizes, and layers, which makes it invaluable for tracking down anchor issues, taint sources, and z-order/click-through problems while you iterate.\n\n#### Debug Chat Frame\n\nEnable a dedicated Debug Chat Frame tab (requires the optional [DebugChatFrame](https://www.curseforge.com/wow/addons/debugchatframe) addon) to keep debug/trace output separate from your regular chat log. Configurable font size, max line count, and can be set as your default chat frame.\n\n#### FPS Display\n\nAn always-available FPS readout for quick performance checks while you iterate.\n\n#### Slash Commands\n\n```\n/devsuite (or /ds) [option]\n  config    - Shows the config UI\n  dialog    - Toggles the debug dialog UI\n  clear     - Clears the debug console (aliases: cls, clr)\n  info      - Prints additional info about the addon\n  help      - Shows this help\n\n/devsuite-options (or /ds-options) - Opens the Ace3 config command line options\n```\n\n#### Dump Cursor Info\n\nBind a key to `Dump Cursor Info` to inspect whatever's currently on your cursor — spell, macro, mount, or companion — and dump its details straight to your chat log. Handy for grabbing spell IDs and macro indices while you work.\n\n#### Ace3 Profile Support\n\nYour DevSuite settings follow Ace3 profiles, so per-character or per-spec configurations switch automatically with your profile.\n\n### Donations\n\nIf DevSuite has made your addon development easier, consider supporting its development:\n\n- **[Paypal&trade; Donation](https://www.paypal.com/donate/?hosted_button_id=AX58YP3GSGXVU)**\n- **[Bitcoin Donation](https://www.blockchain.com/btc/address/3QQVAwJGkKHMM2oq6CLVWYgfx83TFVwp39)**\n\n## About\n\n- About the Author [(Tony Lagnada)](https://tony.resume.lagnada.com/)\n- My AddOn Portfolio Can Be Found Here [Curse Forge/Kapresoft](https://www.curseforge.com/members/kapresoft/projects)",
+  "releases": [
+    {
+      "tag": "2026.11.4",
+      "published": "2026-11-07",
+      "notes": "### DevSuite 2026.11.4\n[Release Notes](https://github.com/kapresoft/wow-addon-devsuite/releases/tag/2026.11.4) | [Full Changelog](https://github.com/kapresoft/wow-addon-devsuite/compare/2026.11.3...2026.11.4) | [Curse Forge](https://www.curseforge.com/wow/addons/devsuite/files)\n\n#### What’s Changed\n* Always include Ace3.xml, not only in release builds (#132) @nfet\n* Add one-time What's New dialog, first announcing Open Graphics Settings (#131) @nfet\n* Add /devsuite graphics command and keybind to open Graphics settings (#130) @nfet\n\n#### DevSuite-2026.11.4.zip\n```text\nsha256:1bc5ff56a74a9c61ea180f41fe52e339f50b1c359998d294d033bfdd99a7a161\n```"
+    },
+    {
+      "tag": "2026.11.3",
+      "published": "2026-11-06",
+      "notes": "### DevSuite 2026.11.3\n[Release Notes](https://github.com/kapresoft/wow-addon-devsuite/releases/tag/2026.11.3) | [Full Changelog](https://github.com/kapresoft/wow-addon-devsuite/compare/2026.11.2...2026.11.3) | [Curse Forge](https://www.curseforge.com/wow/addons/devsuite/files)\n\n#### What’s Changed\n* Upgrade Ace3 to r1424-alpha for WoW Forever (#122) @nfet\n\n#### DevSuite-2026.11.3.zip\n```text\nsha256:bedea6e38cb00a418ec82917fd3de3b9dece0b044bfead628bd9eb320e9039ac\n```"
+    },
+    {
+      "tag": "2026.11.2",
+      "published": "2026-11-04",
+      "notes": "### DevSuite 2026.11.2\n[Release Notes](https://github.com/kapresoft/wow-addon-devsuite/releases/tag/2026.11.2) | [Full Changelog](https://github.com/kapresoft/wow-addon-devsuite/compare/2026.11.1...2026.11.2) | [Curse Forge](https://www.curseforge.com/wow/addons/devsuite/files)\n\n#### What’s Changed\n* Harden GitHub Actions workflows (#120) @nfet\n* Migrate settings widgets to LibAceOptionsKit (#118) @nfet\n\n#### DevSuite-2026.11.2.zip\n```text\nsha256:9ff6c957c00c36efaf7eca035695f3838674fbb3f3120920af2b838db3470fa1\n```"
+    },
+    {
+      "tag": "2026.11.1",
+      "published": "2026-11-03",
+      "notes": "### DevSuite 2026.11.1\n[Release Notes](https://github.com/kapresoft/wow-addon-devsuite/releases/tag/2026.11.1) | [Full Changelog](https://github.com/kapresoft/wow-addon-devsuite/compare/2026.10.4...2026.11.1) | [Curse Forge](https://www.curseforge.com/wow/addons/devsuite/files)\n\n#### What’s Changed\n* Add WoW Forever (16001) interface version to DevSuite TOC (#115) @nfet\n\n#### DevSuite-2026.11.1.zip\n```text\nsha256:c9dc31539508c4ed2efa1dc2485a35533a166f8cf8c1ce266f3586f8dbbcb79f\n```"
+    },
+    {
+      "tag": "2026.10.4",
+      "published": "2026-10-27",
+      "notes": "### DevSuite 2026.10.4\n[Release Notes](https://github.com/kapresoft/wow-addon-devsuite/releases/tag/2026.10.4) | [Full Changelog](https://github.com/kapresoft/wow-addon-devsuite/compare/2026.10.3...2026.10.4) | [Curse Forge](https://www.curseforge.com/wow/addons/devsuite/files)\n\n#### What’s Changed\n* Release workflow: secrets, PR permission, inline sha256 (#114) @nfet\n\n#### DevSuite-2026.10.4.zip\n```text\nsha256:8d2fe69fa0df3bbdf3d8ec85983d35260cce5797ebfcbaa96041811cc23b20c3\n```"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/kapresoft/wow-addon-devsuite/main/doc/media/devsuite-event-log.png",
+    "https://raw.githubusercontent.com/kapresoft/wow-addon-devsuite/main/doc/media/devsuite-preset-filters.png"
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 20,
+    "contributors": 3,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-04",
+      "2026-11-03",
+      "2026-10-27",
+      "2026-10-23",
+      "2026-10-16",
+      "2026-10-01",
+      "2026-09-28",
+      "2026-09-05",
+      "2026-08-17",
+      "2026-08-16",
+      "2026-08-15",
+      "2026-08-06",
+      "2026-08-06",
+      "2026-07-29",
+      "2026-07-07",
+      "2026-06-07",
+      "2026-05-06",
+      "2026-05-01",
+      "2026-04-22",
+      "2026-04-21",
+      "2026-04-03",
+      "2026-02-16",
+      "2026-02-05",
+      "2026-02-03",
+      "2026-01-14",
+      "2025-12-27",
+      "2025-12-10",
+      "2025-12-10",
+      "2025-10-22",
+      "2025-08-20",
+      "2025-06-24",
+      "2025-05-15",
+      "2024-05-15",
+      "2024-05-15",
+      "2024-04-30",
+      "2024-04-04",
+      "2024-04-03",
+      "2024-03-28",
+      "2024-03-16",
+      "2024-03-15",
+      "2024-03-13",
+      "2024-03-12",
+      "2024-03-08",
+      "2024-03-01",
+      "2024-02-11",
+      "2024-01-18",
+      "2023-12-27",
+      "2023-12-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DevSuite"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "DebugChatFrame",
+      "LibAceOptionsKit",
+      "LibPrettyPrint",
+      "LibTraceKit",
+      "LibUtil",
+      "Blizzard_EventTrace",
+      "Blizzard_DebugTools"
+    ],
+    "savedVariables": [
+      "DEVS_DB",
+      "DEVS_DEBUG_MODE",
+      "DEVS_DEBUG_ENABLED_CATEGORIES"
+    ],
+    "savedVariablesPerCharacter": [
+      "DEVS_CHARACTER_DB"
+    ]
+  }
+}

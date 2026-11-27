@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "accountplayed",
+  "repo": "Jeremy-Gstein/AccountPlayed",
+  "about": "# AccountPlayed\nSimple WoW addon to track and display /played time. sorting by class across all realms.\n\n[![CurseForge Downloads](https://img.shields.io/curseforge/dt/1426046?style=for-the-badge&color=green)](https://www.curseforge.com/wow/addons/account-played)\n\n![image](https://github.com/user-attachments/assets/b2f04b66-0b31-4f1d-86ac-ad13143e7fde)\n![image](https://github.com/user-attachments/assets/6a516b04-c65a-4592-81b5-438e4cdd5819)\n![image](https://github.com/user-attachments/assets/09c7e94e-9795-4dcd-80cb-798366d94677)\n\n**Features:**\n- View your account's top played time by class\n- Sorted by (class / total account played) as a percentage\n- Small popup UI (resize, drag, move, and scroll as you please!)\n- Minimap button to toggle UI (fades when mouse is not over minimap)\n- Hover over classes to get a popup of all characters making up the playtime\n- Button to toggle between Years/Days or Hours/Min\n- Press Escape to close window\n- **(NEW)** Rework existing slash commands to use a more consistent name: `/aplayed`\n- **(NEW)** `/aplayed minimap` - remove the minimap icon (toggle on/off OR use `/aplayed reset` and run `/reload`)\n- **(NEW/Work-in-Progress)** Localized framework currently supporting enUS, zhCN, zhTW, frFR\n\n**Usage:**\n- `/aplayed`         - list available commands\n- `/aplayed show`    - toggle class time window\n- `/aplayed minimap` - toggle the AccountPlayed minimap icon on/off\n- `/aplayed reset`   - reset the position of the minimap button to the bottom left of the minimap\n- `/apdebug`         - prints a list of all stored characters to chat in the following format: `Realm-Name: TimePlayed (CLASS)`\n\n**Deprecated** (will be removed in a future update):\n- `/apclasswin` - toggle class time window (use new API: `/aplayed show`)\n- `/apresetmap` - reset the position of the minimap button to the bottom left of the minimap (use new API: `/aplayed reset`)\n\n### Quick-start:\n- Download the latest release here on github. extract the zip to your games addon folder.\n- (Recommended) Download with your favorite addon manager via [Curse](https://www.curseforge.com/wow/addons/account-played) OR [Wago.io](https://addons.wago.io/addons/accountplayed)\n\n### Honorable Mentions:\nHUGE Thank you to everyone in [Seems Good](https://seemsgood.org/) for testing and motivating to publish and share with others.\n- Pip: Original idea to share time played and compare with other guildies.\n- Whare: WoW api help and debugging\n- [Amadeus](https://github.com/Amadeus-): Minimap fix to support all ui layouts, padding with class names, and better fomatting\n- [SGSwdzgr](https://github.com/SGSwdzgr): Added Localizatin Support & framework for Simplified Chinese (zhCN) and Traditional Chinese (zhTW), English (enUS), and a way for others to help localize.\n- [ZelionGG](https://github.com/Jeremy-Gstein/AccountPlayed/commits?author=ZelionGG): Added Localization for French locale (frFr)\n- [Hubbotu](https://github.com/Hubbotu) - Added Localization for Russian (ruRU)\n- [Smooth](https://github.com/Smooth26) - Added Localization for Spanish (esES), (esMX), and (ptBR)\n- [DaBear78](https://github.com/DaBear78) - Added Localization for German (deDE)\n- [WOWHEAD](https://www.wowhead.com/news/find-your-favorite-class-with-account-played-380300) - Huge thanks for promoting the addon!! seeing all the screenshots shared online is surreal to say the least.\n- [r/wow](https://www.reddit.com/r/wow/comments/1quo3h0/account_played_track_and_display_your_characters/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) - All the great feedback like missing documentation on slashcommands, bugs with missing minimap, and screenshots shared (:\n\n--- \n\n### Contributing:\n- PRs/Issues welcome! or faster response/general feedback, free to reach out via email: jeremy51b5@pm.me\n- install `just` to run the repos `justfile` \n- set PATHs to match local at the top of `justfile`\n\n**Localizing**:\n(Huge thanks to [SGSwdzgr](https://github.com/SGSwdzgr) for implimenting a framework for adding locales!!)\n- if using AI for translations please markup with: `-- (AI-GENERATED TRANSLATION)` \n- if fixing a translation (or adding) markup with your github username: `-- (FIXED BY: Jeremy-Gstein)` (example)\n- supported languages/locales sourced from: [WoW's API](https://warcraft.wiki.gg/wiki/API_GetAvailableLocaleInfo)\n\n| Status        | Country                              | Language   | Code |\n|---------------|--------------------------------------|------------|------|\n| Completed     | Brazil                               | Portuguese | ptBR |\n| Completed     | China                                | Chinese    | zhCN |\n| Completed     | France                               | French     | frFR |\n| Completed     | Germany                              | German     | deDE |\n| Completed     | Russia                               | Russian    | ruRU |\n| Completed     | Spain                                | Spanish    | esES |\n| Completed     | Taiwan                               | Chinese    | zhTW |\n| Completed     | United States of America             | English    | enUS |\n| Not Completed | Italy                                | Italian    | itIT |\n| Not Completed | Mexico                               | Spanish    | esMX |\n| Not Completed | Portugal                             | Portuguese | ptPT |\n| Not Completed | Republic of Korea                    | Korean     | koKR |\n| Not Completed | Taiwan                               | English    | enTW |\n| Not Completed | Great Britain and Northern Ireland   | English    | enGB |\n\n---\n\n**Update and Version maintaining:**\n```txt\n*.0.0 - Breaking changes or New Features\n0.*.0 - New Supported Language/Locale\n0.0.* - Bug fixes, .toc updates, and small changes\n```\n\nExamples with justfile:\n- install `just` to run the repos `justfile` \n- set PATHs to match local at the top of `justfile`\n```bash\n# Requires `just`\njust --list # print all commands\njust ls retail # list all files in retail addon dir\njust sync retail # sync local repo changes to retail addon dir \njust rm retail # remove addon from retail dir. (keeps local repo unchanged)\njust debug # print os, set PATHs, shasum of all files.\n```\n\nGenerate a Tagged Release to trigger .github/workflows/build.yml (packager action)\n```bash\n# just build <tag> <commit>\njust build 1.0.0 \"Commit Message for Tagged release\"\n```",
+  "releases": [
+    {
+      "tag": "v1.6.4",
+      "published": "2026-11-04",
+      "notes": "# Account Played\n\n## [v1.6.4](https://github.com/Jeremy-Gstein/AccountPlayed/tree/v1.6.4) (2026-11-04)\n[Full Changelog](https://github.com/Jeremy-Gstein/AccountPlayed/compare/v1.6.3...v1.6.4) [Previous Releases](https://github.com/Jeremy-Gstein/AccountPlayed/releases)\n\n- Release: v1.6.4 - Patch: Update .toc for WoW Midnight 12.1.5 and add initial support for WoW Forever.  \n- Fix: keep minimap visibility between logins  \n    Centralize visibility changes across settings, slash commands, and the button.  \n    Keep the Addon Compartment entry registered while the minimap button is hidden,  \n    and remove the delayed login handler that could override the saved state.  \n- Refactor minimap button visibility handling and add settings panel  \n    - Minimap button refactor due to tooltip message \"This is a custom button. Please ask the addon author to use the standard LibDBIcon library instead.\"  \n    - Changed the minimap button visibility property from 'hidden' to 'hide' for clarity.  \n    - Updated the logic in AccountPlayed.lua, MinimapButton.lua, and Settings.lua to reflect the new property.  \n    - Introduced a settings panel for user preferences, allowing text scaling and minimap button visibility toggling.  \n    - Added localization strings for new tooltip instructions and settings options.  \n    - Integrated LibDBIcon-1.0 for improved minimap button management.  \n    - Created a new settings interface for adjusting display options and resetting to defaults.  \n- Update Classic Era interface to 1.15.9"
+    },
+    {
+      "tag": "v1.6.3",
+      "published": "2026-08-11",
+      "notes": "# Account Played\n\n## [v1.6.3](https://github.com/Jeremy-Gstein/AccountPlayed/tree/v1.6.3) (2026-08-11)\n[Full Changelog](https://github.com/Jeremy-Gstein/AccountPlayed/compare/v1.6.2...v1.6.3) [Previous Releases](https://github.com/Jeremy-Gstein/AccountPlayed/releases)\n\n- Release: v1.6.3 - Patch: Update .toc for WoW Midnight 12.1.0  \n- Release: vv1.6.3 - Patch: Update .toc for WoW Midnight 12.1.0"
+    },
+    {
+      "tag": "v1.6.2",
+      "published": "2026-06-18",
+      "notes": "# Account Played\n\n## [v1.6.2](https://github.com/Jeremy-Gstein/AccountPlayed/tree/v1.6.2) (2026-06-18)\n[Full Changelog](https://github.com/Jeremy-Gstein/AccountPlayed/compare/v1.6.1...v1.6.2) [Previous Releases](https://github.com/Jeremy-Gstein/AccountPlayed/releases)\n\n- Release: v1.6.2 - Patch: Update .toc for WoW Midnight 12.0.7  \n- Update TOC for WoW Midnight Patch 12.0.7"
+    },
+    {
+      "tag": "v1.6.1",
+      "published": "2026-05-20",
+      "notes": "# Account Played\n\n## [v1.6.1](https://github.com/Jeremy-Gstein/AccountPlayed/tree/v1.6.1) (2026-05-20)\n[Full Changelog](https://github.com/Jeremy-Gstein/AccountPlayed/compare/v1.6.0...v1.6.1) [Previous Releases](https://github.com/Jeremy-Gstein/AccountPlayed/releases)\n\n- Release: v1.6.1 -  \n    [Bug Fixes]  \n    [bugfix] Text scale now applies correctly on the very first open if the popup was already visible when the settings hook initialized.  \n- [bugfix] Text scale now applies correctly on the very first open if the popup was already visible when the settings hook initialized."
+    },
+    {
+      "tag": "v1.6.0",
+      "published": "2026-05-12",
+      "notes": "# Account Played\n\n## [v1.6.0](https://github.com/Jeremy-Gstein/AccountPlayed/tree/v1.6.0) (2026-05-12)\n[Full Changelog](https://github.com/Jeremy-Gstein/AccountPlayed/compare/v1.5.9...v1.6.0) [Previous Releases](https://github.com/Jeremy-Gstein/AccountPlayed/releases)\n\n- Release: v1.6.0 - _ New Features  \n    - **Settings panel** - text scale slider, Time Only / % Only display toggles, minimap button toggle, and a Reset button  \n    - **Custom addon icon** - added to the addon list  \n    - **Wider max window** - resizable up to 920px  \n-  Improvements  \n    - Class name column widened to prevent Death Knight / Demon Hunter truncation  \n    - Value text is now right-aligned with a fixed-width column  \n    - Settings panel no longer clips behind other windows  \n    - **Wider max window** — resizable up to 920px  \n-  Bug Fixes  \n    - Fixed Settings panel silently overwriting your saved text scale on open  \n    - 'Days Only' renamed to **'Time Only'**  \n-  Localization  \n    - New Settings strings added for all supported locales (zhCN, zhTW, frFR, ruRU, deDE, esMX, esES, ptBR)  \n-  Bugs/Issues  \n    - Report any bugs/issues via [GitHub](https://github.com/Jeremy-Gstein/AccountPlayed)  \n    - Alternativly email jeremy51b5@pm.me for feedback, feature requests, or issues.  \n    ---  \n-  NEW:  \n    - Want to see your account repaired data?? Check out **[Account Repaired](https://www.curseforge.com/wow/addons/account-repaired)** - a companion addon that hooks into Account Played for extended functionality.  \n- [feature] The addon now has a custom icon that appears in the addon list and settings panel. The Days Only display mode has also been renamed to Time Only for clarity.  \n    [bugfix] The Settings panel no longer appears behind other windows.  \n- [feature] The Settings panel now has two new display mode options: Days Only (shows only play time after each bar) and Percent Only (shows only the percentage). When neither is checked, both values are shown together as before. The Reset button also correctly resets these new options.  \n    [bugfix] Fixed an issue where opening the Settings panel could overwrite your saved text scale with the default value before you changed anything. The slider now correctly re-syncs to your saved settings each time the panel is opened.  \n    [UI] Class name labels are now wider to prevent long names like Death Knight and Demon Hunter from being cut off. The value text column is now right-aligned and properly sized, and the progress bar scales with the available space between them.  \n- [feature] A new Settings panel has been added with a text scale slider to adjust the size of text in the character list, and a reset button to restore all settings to their defaults. At larger text sizes, the percentage is automatically hidden from each row to keep things readable.  \n    [UI] The window can now be resized wider (up to 920px), the value text column is more flexible and no longer has a fixed width, and text wrapping has been disabled to keep rows clean."
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/b2f04b66-0b31-4f1d-86ac-ad13143e7fde",
+    "https://github.com/user-attachments/assets/6a516b04-c65a-4592-81b5-438e4cdd5819",
+    "https://github.com/user-attachments/assets/09c7e94e-9795-4dcd-80cb-798366d94677"
+  ],
+  "stats": {
+    "stars": 6,
+    "openIssues": 2,
+    "contributors": 9,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-08-11",
+      "2026-06-18",
+      "2026-05-20",
+      "2026-05-12",
+      "2026-04-07",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-02-23",
+      "2026-02-17",
+      "2026-02-08",
+      "2026-01-16",
+      "2026-01-12",
+      "2026-01-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AccountPlayed"
+    ],
+    "editions": [
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "AccountPlayedDB",
+      "AccountPlayedMinimapDB",
+      "AccountPlayedPopupDB"
+    ]
+  }
+}

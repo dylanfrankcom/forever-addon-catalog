@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "huntersuite",
+  "repo": "sniffingpickles/HunterSuite",
+  "about": "# HunterSuite\n\n**The complete Hunter toolkit for WoW Forever.** Also runs on Burning Crusade Anniversary.\n\nOne addon, one clean modern look: your pet, your Auto Shot, your range and every reminder a Hunter needs.\n\n[Download on CurseForge](https://www.curseforge.com/wow/addons/huntersuite) · [Changelog](https://github.com/sniffingpickles/HunterSuite/blob/main/CHANGELOG.md) · [Report a bug](https://github.com/sniffingpickles/HunterSuite/issues)\n\n## Features\n\n### Pet card\n- Portrait, health and mood (Happy / Content / Unhappy) on one card.\n- **Left-click feeds** the best food in your bags. **Right-click casts Mend Pet.**\n- The game tells HunterSuite what your pet will eat. On Burning Crusade Anniversary it uses a built-in list of every pet food in the game. **Smart** mode uses the cheapest food that still gives full happiness, skips food that's too low level, and finishes small stacks first.\n- If your pet refuses a food, the card moves on to the next one.\n- **Pick the food yourself** - Click the food icon for a list of every food your pet will eat in your bags. The card then feeds only that food for this pet family, and shows no food rather than switching when it runs out. Auto, at the top of the list, goes back to the setting.\n- **Never feed a food** - Right-click a food in that list and Auto skips it, for rare foods or quest items you want to keep. Right-click it again, or use Allow all again in the settings, to undo.\n- Glows when your pet is unhappy or below your Mend Pet threshold.\n- Shows up in combat whenever you need it, and stays out of the way when your pet is happy.\n\n### Pet missing or dead\n- A card appears the moment your pet is gone, even mid-fight.\n- Left-click casts **Call Pet**, right-click casts **Revive Pet**.\n- Hidden while mounted or on a flight path.\n\n### Auto Shot timer\n- Built on Forever's native swing timer, so it's accurate without the combat log.\n- Shows the **0.5s aim window**: amber when you must stand still, red if you're still moving.\n- Casts are drawn onto the bar and turn red when they'll clip your shot.\n- Also shows a global cooldown line, how late your last shot was, and a flash on every shot.\n\n### Range and dead zone\n- **Melee**, **Dead zone** (inside 8 yards), **In range** or **Too far**, with a yard estimate.\n- Docks beside the Auto Shot bar or stands on its own.\n\n### Reminders\nAll reminders share one tidy stack. Right-click one to dismiss it.\n- **No aspect**, and **Cheetah or Pack still on in combat**.\n- **Growl on** in dungeons and raids, and **Growl off** while solo.\n- **Track Humanoids** in battlegrounds, or whenever no tracking is active.\n\n### Ammo, traps and stings\n- **Ammo counter** with low and critical warnings and \"~N minutes of shooting left\". Hidden for thrown weapons and wands.\n- **Ammo restock:** at a vendor that sells your ammo, a panel beside the vendor window tops you up with the best you can use, to the amount you keep (1200 by default) or a full quiver. `/hs ammo`, or a click on the ammo counter, pins the nearest vendor that sells it.\n- **Trap timers:** arming, then the time left before each trap despawns.\n- **Sting timers:** Sting, Hunter's Mark, Concussive Shot and Wing Clip countdowns for your target, on a bar you can place anywhere or dock under the Auto Shot bar, on enemy nameplates, or both.\n- **Freezing Trap timer:** how long a frozen mob stays frozen, targeted or not, on a row of its own that you place in edit mode.\n- **Serpent Sting tick marks:** where each damage tick lands on the sting's bar, flashing as it goes off.\n\n### Burning Crusade clients\n- **Weaving Bar:** a Steady Shot rotation guide based on diziet559's rotation tools.\n- **Auto-mark** enemy pets in battlegrounds.\n\n## Settings and layout\n\n- `/hs` opens the settings window. Its overview page has a switch for every module, and every option is a click away.\n- `/hs edit` (or **Edit layout**) turns on edit mode:\n  - Drag any frame; it snaps to a grid (hold Shift to place freely).\n  - Arrow keys nudge the selected frame (Shift moves 10px).\n  - Right-click a frame to reset it.\n- **Grow up or down:** under **Appearance > Layout**, sting and trap timers and the alert stack add rows downward or upward from the spot you placed them. A docked sting bar sits above the Auto Shot bar when it grows up.\n- Choose an accent colour, font, bar texture, HUD scale and shadows under **Appearance**. On English and European clients, fonts from EllesmereUI or SharedMedia are picked up automatically. Chinese clients keep the game's font, which has the Chinese characters.\n\n## Localization\n\nHunterSuite follows the game client's language. English, Simplified Chinese (`zhCN`), and Traditional Chinese (`zhTW`) are included; other locales fall back to English. Skill names come from the game when available.\n\nTranslations live in `Locales/`: `enUS.lua` defines the default keys, while each language file overrides them. Add new player-facing text to the default table and the translation files, and preserve format specifiers such as `%s`, `%d`, and `%%`. Keep saved setting values, slash commands, and API identifiers language-independent. To add another language, load its file after `enUS.lua` in `HunterSuite.toc`.\n\nFrom the repository root, run the localization checks with Lua 5.1:\n\n```sh\nlua tests/localization.lua\nlua tests/weaving_locale.lua\nlua tests/addon_load.lua\n```\n\n## Commands\n\n| Command | |\n|---|---|\n| `/hs` | Settings window |\n| `/hs edit` | Edit mode |\n| `/hs feed` | Show which food the pet card will use |\n| `/hs ammo` | Pin the nearest ammo vendor on your map |\n| `/hs test` | Preview the alerts |\n| `/hs diag` | Copyable client report (please include it in bug reports) |\n| `/hs reset` | Reset all settings (asks first) |\n\n**Key bindings:** Esc → Options → Key Bindings → AddOns → HunterSuite has **Feed Pet** and **Mend Pet**.\n\n**Macro:**\n```\n#showtooltip Feed Pet\n/click HunterSuiteFeedButton\n```\nUse `/click HunterSuiteFeedButton RightButton` for Mend Pet.\n\n## Install\n\n- **CurseForge app:** search for *HunterSuite*.\n- **Manual:** download the zip from [CurseForge](https://www.curseforge.com/wow/addons/huntersuite-beta/files) or [GitHub releases](https://github.com/sniffingpickles/HunterSuite/releases). Extract the `HunterSuite` folder into your client's AddOns folder, for example `World of Warcraft\\_forever_\\Interface\\AddOns` for WoW Forever. Restart the game after adding a new addon.\n\n## WoW Forever notes\n\nForever runs the modern engine. Addons can't read the combat log, and in combat, encounters and PvP the game hides buff, cooldown and health details from addons. HunterSuite is built around that:\n- Swing timing comes from the native swing timer.\n- Aspect timers follow your own casts, and sting timers start when the shot lands.\n- The Freezing Trap row is drawn by the game itself, so it stays exact in combat.\n- The pet cards use secure buttons that keep working in combat.\n- Anything exact (food choice, aspect checks) is re-read the moment combat ends.\n\nAuto-marking enemy pets is off on Forever, because raid marks are hidden during PvP matches.\n\n## Upgrading from 3.x\n\n- Your module on/off choices and main options carry over.\n- Frame positions reset because every frame was redesigned. Use `/hs edit` to place them.\n\n## Releasing\n\nPush a version tag. The GitHub Action packages the addon, creates the GitHub release and uploads the file to CurseForge:\n\n```\ngit tag -a v4.0.1 -m \"HunterSuite 4.0.1\"\ngit push origin v4.0.1\n```\n\nWrite the release notes in `CHANGELOG.md` before tagging. The upload needs a `CF_API_TOKEN` repository secret (a token from [CurseForge](https://authors.curseforge.com/#/settings/api-tokens)).\n\n---\n\n**Author:** muggles · **Twitch:** [twitch.tv/muggles](https://twitch.tv/muggles)",
+  "releases": [
+    {
+      "tag": "v4.7.0",
+      "published": "2026-11-14",
+      "notes": "# HunterSuite 4.7.0\n\nChoose which way your timer bars and alerts grow.\n\n### New\n- **Grow up or down:** under Appearance > Layout, sting and trap timers and the alert stack add rows downward or upward from the spot you placed them. Growing up, a docked sting bar sits above the Auto Shot bar instead of under it.\n\n### Changed\n- The first sting or trap row now stays on its spot as more rows appear, instead of the whole stack shifting. In edit mode, the highlight covers that first row and the sample rows follow it.\n- The alert stack's own Grow setting is now this shared one. If you had alerts growing up, your timer bars grow up too."
+    },
+    {
+      "tag": "v4.6.0",
+      "published": "2026-11-13",
+      "notes": "# HunterSuite 4.6.0\n\nChoose what the pet card feeds, and keep the foods you want to hold on to.\n\n### New\n- **Pick the food yourself:** click the food icon on the pet card for a list of every food your pet will eat in your bags. The card then feeds only that food for this pet family, on this character, and shows no food rather than switching when it runs out. Auto, at the top of the list, goes back to your Food to use setting.\n- **Never feed a food:** right-click a food in that list and Auto skips it, for rare foods or quest items you want to keep. Right-click it again to allow it, or use Allow all again under Pet card in the settings.\n\n### Changed\n- The Feed Pet key binding is now called Feed Pet (card's food), since it feeds your pick when you have one.\n- `/hs reset` also clears your food picks and never-fed foods."
+    },
+    {
+      "tag": "v4.5.0",
+      "published": "2026-11-13",
+      "notes": "# HunterSuite 4.5.0\n\nAmmo restock: top up at any vendor that sells your ammo, and find the nearest one when you run low.\n\n### New\n- **Ammo restock:** at a vendor that sells ammo for your weapon, a panel beside the vendor window buys the best you can use, up to the amount you keep (1200 by default) or a full quiver. It buys whole stacks, stays within your bag space and money, and puts the new ammo on when it beats what you wear. Settings are under Ammo restock, including topping up without the click.\n- **Nearest ammo vendor:** `/hs ammo`, or a click on the ammo counter, pins the nearest vendor of your faction that sells the best ammo you can use, with the arrow to follow. It knows 125 vendors, including the new ones on Zephras Isle, in Riverglades and on Mount Hyjal, and remembers any ammo vendor you open."
+    },
+    {
+      "tag": "v4.4.0",
+      "published": "2026-11-10",
+      "notes": "# HunterSuite 4.4.0\n\nA Freezing Trap timer, Serpent Sting tick marks, sting timers that wait for the shot to land, and Chinese translations. Thanks to Imppen, kdmiller0220 and AreChen.\n\n### New\n- **Freezing Trap:** a row showing how long a frozen mob stays frozen, whether you target it or not. On Forever the game draws it straight from the debuff, so it stays exact in combat. Place it with `/hs edit`. On Burning Crusade Anniversary the freeze shows on the sting bar instead.\n- **Serpent Sting tick marks:** marks on the Serpent Sting bar where each damage tick lands. Each one flashes as its tick goes off.\n- **Chinese:** Simplified and Traditional Chinese translations, from AreChen.\n\nBoth timers have their own switch under Traps & Stings.\n\n### Fixed\n- **Sting timers:** stings and Concussive Shot take time to reach the target, so their timers now start when the shot lands instead of on the cast. A shot that misses, is resisted or hits an immune target leaves no timer, and your previous sting's timer stays."
+    },
+    {
+      "tag": "v4.3.0",
+      "published": "2026-11-07",
+      "notes": "# HunterSuite 4.3.0\n\nConcussive Shot and Wing Clip timers. Thanks again to Imppen for the idea.\n\n### New\n- **Concussive Shot and Wing Clip:** countdowns on the sting bar and on nameplates, next to your sting and Hunter's Mark. Each has its own switch under Traps & Stings.\n\n### Changed\n- **Sting bar:** short timers turn red in their last quarter instead of their last 3 seconds, so a 4-second daze isn't red the whole time."
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-10",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-02-02",
+      "2026-02-01",
+      "2026-02-01",
+      "2026-01-29",
+      "2026-01-28"
+    ]
+  },
+  "languages": [
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "HunterSuite"
+    ],
+    "editions": [
+      "anniversary",
+      "forever"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0",
+      "SharedMedia",
+      "EllesmereUI"
+    ],
+    "savedVariables": [
+      "HunterSuiteDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "HunterSuiteCharDB"
+    ]
+  }
+}

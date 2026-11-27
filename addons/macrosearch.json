@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "macrosearch",
+  "repo": "muhmiauwauWOW/MacroSearch",
+  "releases": [
+    {
+      "tag": "1.6.10",
+      "published": "2026-10-21",
+      "notes": "# MacroSearch\n\n## [1.6.10](https://github.com/muhmiauwauWOW/MacroSearch/tree/1.6.10) (2026-10-21)\n[Full Changelog](https://github.com/muhmiauwauWOW/MacroSearch/compare/1.6.9...1.6.10) [Previous Releases](https://github.com/muhmiauwauWOW/MacroSearch/releases)\n\n- Update MacroSearch.toc"
+    },
+    {
+      "tag": "1.6.9",
+      "published": "2026-10-15",
+      "notes": "# MacroSearch\n\n## [1.6.9](https://github.com/muhmiauwauWOW/MacroSearch/tree/1.6.9) (2026-10-15)\n[Full Changelog](https://github.com/muhmiauwauWOW/MacroSearch/compare/1.6.8...1.6.9) [Previous Releases](https://github.com/muhmiauwauWOW/MacroSearch/releases)\n\n- Update MacroSearch.toc"
+    },
+    {
+      "tag": "1.6.8",
+      "published": "2026-09-14",
+      "notes": "# MacroSearch\n\n## [1.6.8](https://github.com/muhmiauwauWOW/MacroSearch/tree/1.6.8) (2026-09-14)\n[Full Changelog](https://github.com/muhmiauwauWOW/MacroSearch/compare/1.6.7...1.6.8) [Previous Releases](https://github.com/muhmiauwauWOW/MacroSearch/releases)\n\n- Update MacroSearch.toc"
+    },
+    {
+      "tag": "1.6.7",
+      "published": "2026-08-07",
+      "notes": "# MacroSearch\n\n## [1.6.7](https://github.com/muhmiauwauWOW/MacroSearch/tree/1.6.7) (2026-08-07)\n[Full Changelog](https://github.com/muhmiauwauWOW/MacroSearch/compare/1.6.6...1.6.7) [Previous Releases](https://github.com/muhmiauwauWOW/MacroSearch/releases)\n\n- Update MacroSearch.toc  \n- Update MacroSearch.lua"
+    },
+    {
+      "tag": "1.6.6",
+      "published": "2026-06-06",
+      "notes": "# MacroSearch\n\n## [1.6.6](https://github.com/muhmiauwauWOW/MacroSearch/tree/1.6.6) (2026-06-06)\n[Full Changelog](https://github.com/muhmiauwauWOW/MacroSearch/compare/1.6.5...1.6.6) [Previous Releases](https://github.com/muhmiauwauWOW/MacroSearch/releases)\n\n- Update MacroSearch.toc"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-10-15",
+      "2026-09-14",
+      "2026-08-07",
+      "2026-06-06",
+      "2026-04-25",
+      "2026-02-26",
+      "2026-01-21",
+      "2025-12-03",
+      "2025-11-04",
+      "2025-07-28",
+      "2025-07-09",
+      "2025-06-02",
+      "2025-04-29",
+      "2025-02-22",
+      "2024-11-23",
+      "2024-10-03",
+      "2024-09-22",
+      "2024-09-03",
+      "2024-09-03",
+      "2024-09-03",
+      "2024-09-02",
+      "2024-09-01",
+      "2024-09-01",
+      "2024-08-31",
+      "2024-08-31",
+      "2024-08-31"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MacroSearch"
+    ],
+    "editions": [
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Blizzard_MacroUI"
+    ],
+    "savedVariables": [
+      "SearchMacroText"
+    ]
+  }
+}

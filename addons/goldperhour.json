@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "goldperhour",
+  "repo": "kejith/GoldPerHour",
+  "about": "# GoldPerHour\n\n[![CI](https://github.com/kejith/GoldPerHour/actions/workflows/ci.yml/badge.svg)](https://github.com/kejith/GoldPerHour/actions/workflows/ci.yml)\n\nAddon for World of Warcraft: Forever (interface 16001). A small meter window shows the gold per hour of the running session and splits the gold into herbs and loot.\n\n- **Herbs** is loot taken from a world object right after Herb Gathering. Everything else counts as **Loot**.\n- Items count at their Auctionator price, or at the vendor price without Auctionator. Poor-quality and bind-on-pickup items always count at the vendor price, coins from the loot window count directly.\n- Prices are taken when the item is picked up. A later auction house scan does not change old values.\n\nThe addon speaks English and German and follows the language of the game client.\n\n## Installation\n\nUnpack the zip of the [latest release](https://github.com/kejith/GoldPerHour/releases/latest) into `World of Warcraft\\_forever_\\Interface\\AddOns`, so that the folder `GoldPerHour` sits there. Then type `/reload` in the game.\n\nThe desktop app from [wow-tools-forever](https://github.com/kejith/wow-tools-forever) installs and updates the addon with one click and shows sessions, history and settings.\n\n## The window\n\nA compact meter in the style of Details!, with the tooltip border of the game:\n\n- **Title bar:** the addon icon (grey while the session is not running), \"Gold per hour\", then play/pause, reset and close. Every button explains itself on hover and names its slash command. Reset asks first and is greyed out while there is nothing to reset.\n- **The big number:** the gold per hour of herbs and loot together. During the first minute of a session it shows `--`, because a few early drops would make the rate jump.\n- **Below it:** the gold of the session on the left; on the right the clock, green while it runs, or \"Paused\" with the time so far. Before the first start it says what to do: \"Press start to count your gold\", or \"Loot something or press start\" with `autoStart`.\n- **Two bars:** herbs (green) and loot (amber), each with icon, name, gold and share. The fill of a bar is its share of the total.\n- **Tooltips:** hovering the window lists the most valuable items of both categories, hovering a bar only those of its category (as many per category as `tooltipItems` says).\n\nDrag the window (also by a bar) to move it; the position is saved. `scale` from the desktop app sets its size, `/gph` or the close button hide it.\n\n## Commands\n\n| Command | Effect |\n| --- | --- |\n| `/gph` | show or hide the window |\n| `/gph start`, `/gph stop` | start or pause the session |\n| `/gph reset` | move the session to the history and start over |\n| `/gph show`, `/gph hide` | show or hide the window |\n| `/gph herbid <spellID>` | count another spell as herb gathering |\n| `/gph debug` | switch diagnostic chat messages on or off |\n\nThe session pauses on logout. After `/reload` it keeps running, after a real login it does not.\n\n## Data for the desktop app\n\nThe addon writes to `GoldPerHourDB` (account SavedVariables `GoldPerHour.lua`). The game writes that file only on `/reload` or logout.\n\n- `gold`, `coin`, `items`, `elapsed`: the running session\n- `session`: `started`, `lastActive`, `zones`, `chars`, `samples` (gold curve, one point per 5 minutes of session time)\n- `history`: finished sessions, at most 100\n- `settings`: `scale`, `tooltipItems`, `priceSource` (`auctionator` or `vendor`), `resumeAfterReload`, `autoStart`\n- `lastRequest`: result of the last request\n\nRequests arrive through `AppRequest.lua` in the addon folder. The app overwrites the file, the game reads it on the next `/reload`:\n\n```lua\nGoldPerHour_AppRequest = { id = 1, action = \"reset\", settings = { scale = 1.2, autoStart = true } }\n```\n\n`action` is `start`, `stop` or `reset` and may be left out. Every `id` runs once. The addon validates the settings itself (scale 0.5 to 2, tooltip 1 to 30 items).\n\n## Development\n\n`tests/test_addon.py` runs the addon in Lua 5.4 against a stubbed WoW API (session, herbs against loot, `/reload`, requests, history, the states of the window, both languages, the `.toc`):\n\n```\nuv run tests/test_addon.py\n```\n\n`--dump <file>` writes the state at the end of the main scenario as a SavedVariables file. wow-tools-forever uses it as test data (`scripts/fixtures/goldperhour`).\n\nTexts live in `Locales.lua`. English is the default; a language only lists what it translates. To add a language, add a block for its `GetLocale()` code.\n\nStatus of 0.3: tested in the simulation, not yet played in the game.\n\n## Releases\n\nReleases are automatic. Raise `## Version:` in `GoldPerHour.toc` and push to `main`:\n\n1. The CI workflow runs the tests and builds the zip.\n2. If the version has no tag yet, CI creates the tag `v<version>` and starts the release workflow.\n3. The release workflow builds `GoldPerHour-v<version>.zip` with the [BigWigs packager](https://github.com/BigWigsMods/packager), checks it and publishes it as a GitHub release with the commits since the last release as notes.\n\nA tag pushed by hand (`git tag v<version> && git push origin v<version>`) starts the same release workflow. The tag must match the version in the `.toc`. `.pkgmeta` lists what stays out of the zip.\n\n### CurseForge and Wago\n\nThe release workflow also uploads to CurseForge and Wago Addons as soon as both the project id and the API token are present. Until then these uploads are skipped.\n\n| Site | One-time setup | Line in `GoldPerHour.toc` | Repository secret |\n| --- | --- | --- | --- |\n| [CurseForge](https://www.curseforge.com/project/create) | create the project for World of Warcraft, pick a license, wait for approval | `## X-Curse-Project-ID: <id>` (the \"Project ID\" on the project page) | `CF_API_TOKEN` from [https://authors.curseforge.com/#/settings/api-tokens](https://authors.curseforge.com/#/settings/api-tokens) |\n| [Wago Addons](https://addons.wago.io/developers) | create the project | `## X-Wago-ID: <id>` | `WAGO_API_TOKEN` from [https://addons.wago.io/account/apikeys](https://addons.wago.io/account/apikeys) |\n\nSet a secret with `gh secret set CF_API_TOKEN --repo kejith/GoldPerHour`. The packager marks the upload as compatible with WoW: Forever from the interface number in the `.toc`. WoWInterface has no category for WoW: Forever.\n\n## License\n\nLicensed under the [GNU General Public License v3.0](https://github.com/kejith/GoldPerHour/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.4.0",
+      "published": "2026-11-24",
+      "notes": "# GoldPerHour\n\n## [v0.4.0](https://github.com/kejith/GoldPerHour/tree/v0.4.0) (2026-11-24)\n[Full Changelog](https://github.com/kejith/GoldPerHour/compare/v0.3.1...v0.4.0) [Previous Releases](https://github.com/kejith/GoldPerHour/releases)\n\n- Modernize in-game UI and update wow-tools-forever links (0.4.0)"
+    },
+    {
+      "tag": "v0.3.1",
+      "published": "2026-11-17",
+      "notes": "# GoldPerHour\n\n## [v0.3.1](https://github.com/kejith/GoldPerHour/tree/v0.3.1) (2026-11-17)\n[Full Changelog](https://github.com/kejith/GoldPerHour/compare/v0.3.0...v0.3.1) [Previous Releases](https://github.com/kejith/GoldPerHour/releases)\n\n- CI: pin setup-uv to an existing version, upload the zip from the hidden folder  \n    Co-Authored-By: Claude <noreply@anthropic.com>  \n- English docs and tests, German and English client, automatic releases  \n    - Locales.lua holds all texts: English by default, German on a deDE client  \n    - tests and README in English; new tests for both languages and the .toc  \n    - CI runs the tests and builds the zip on every push and pull request  \n    - a new version in the .toc on main is tagged and released automatically  \n    - releases are built with the BigWigs packager, ready for CurseForge and Wago  \n    Co-Authored-By: Claude <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v0.3.0",
+      "name": "GoldPerHour 0.3.0",
+      "published": "2026-11-17",
+      "notes": "**Full Changelog**: https://github.com/kejith/GoldPerHour/commits/v0.3.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-17",
+      "2026-11-17"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "GoldPerHour"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "GoldPerHourDB"
+    ]
+  }
+}

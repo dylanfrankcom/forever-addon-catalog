@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "interaction",
+  "repo": "Adaptvx/Interaction",
+  "about": "# Interaction\n### World of Warcraft Add-on\nA new take on immersive questing.",
+  "releases": [
+    {
+      "tag": "0.4.2",
+      "published": "2026-11-05",
+      "notes": "- Added support for Midnight 12.1.7."
+    },
+    {
+      "tag": "0.4.1",
+      "published": "2026-10-20",
+      "notes": "- Fixed an issue that caused an error upon entering combat."
+    },
+    {
+      "tag": "0.4.0",
+      "published": "2026-10-09",
+      "notes": "### Bug Fixes\n- WoW Forever: Fixed an issue that prevented the addon from initializing.\n- TBC Anniversary: Fixed an error affecting certain quests."
+    },
+    {
+      "tag": "0.3.9",
+      "published": "2026-09-28",
+      "notes": "- Fixed compatibility issues with Classic."
+    },
+    {
+      "tag": "0.3.8",
+      "published": "2026-09-24",
+      "notes": "- Added compatibility with WoW: Forever (Courtesy of joaoc-pires!)."
+    }
+  ],
+  "stats": {
+    "stars": 10,
+    "openIssues": 6,
+    "contributors": 3,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-10-20",
+      "2026-10-09",
+      "2026-09-28",
+      "2026-09-24",
+      "2026-09-09",
+      "2026-08-30",
+      "2026-06-24"
+    ]
+  },
+  "languages": [
+    "ruRU",
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "Interaction"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "InteractionDB",
+      "InteractionLibraryDB_Global"
+    ],
+    "savedVariablesPerCharacter": [
+      "InteractionLibraryDB"
+    ]
+  }
+}

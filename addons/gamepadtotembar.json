@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "gamepadtotembar",
+  "repo": "Izimzizi/GamepadTotemBar",
+  "about": "# Gamepad Totem Bar\n\nA World of Warcraft addon for **Shamans** that brings back a visible totem bar when you play with the **gamepad UI**, and lets you change totems with the controller.\n\nThe selected slot gets the original up arrow and a border in its element's color:\n\n![Selected totem slot with the flyout arrow and tooltip](https://raw.githubusercontent.com/Izimzizi/GamepadTotemBar/main/docs/bar.png)\n\nOpening it shows the flyout picker, drawn in the original totem bar's style:\n\n![Totem flyout picker](https://raw.githubusercontent.com/Izimzizi/GamepadTotemBar/main/docs/flyout.png)\n\n## What it does\n\n- Keeps Blizzard's own totem bar (Call button, four totem slots, Recall) visible when the gamepad UI or Edit Mode would otherwise hide it.\n- Adds a **gamepad focus mode** for the bar. Move along it with the D-pad, open a flyout on any slot, and pick a totem, all without a mouse.\n- The flyout is drawn in the original totem bar's style: connected background, up and down arrows, and a per-element color and border for each slot.\n- Adds a **Scale** row and a **Tooltip** row to the totem bar's HUD Edit Mode settings. Position the bar with WoW's built-in HUD Edit Mode.\n\n## Install\n\n1. Download `GamepadTotemBar-<version>.zip` from the latest release.\n2. Unzip the `GamepadTotemBar` folder into `World of Warcraft/<client>/Interface/AddOns/`.\n3. Start the game. The addon only loads for Shamans.\n\n## Using it\n\nHold **Back / View** for half a second, or type `/gtb focus`, to enter focus mode. Leave it the same way.\n\n| Where | Button | Action |\n| --- | --- | --- |\n| Bar | D-pad Left / Right | Move between Call, the four slots and Recall |\n| Bar | D-pad Up / Down or A | Open the picker for the selected slot |\n| Bar | B or Back | Leave focus mode |\n| Picker | D-pad Up / Down | Move through the choices |\n| Picker | A | Choose |\n| Picker | B | Close the picker |\n| Picker | D-pad Left / Right | Move to the next slot; the picker follows |\n\nOnly the D-pad, A and B are taken while focused. Everything else, and the keyboard, passes through to the game. The picker opens on your current totem, and the bottom choice leaves the slot empty. The Call button's picker switches between Call of the Elements, Ancestors and Spirits.\n\nFocus mode is **out of combat only**: the game doesn't let addons change totems in combat.\n\n## Settings\n\nBoth are in WoW's HUD Edit Mode: click the totem bar and look at the end of its settings dialog.\n\n| Setting | Options |\n| --- | --- |\n| Scale | 50% to 200% of the bar's size |\n| Tooltip | **Totem**: the spell tooltip is shown next to the selected totem (default). **Default**: it is shown where the game puts its own tooltips. **Off**: no tooltip in focus mode. |\n\n## Commands\n\n| Command | |\n| --- | --- |\n| `/gtb focus` | Toggle focus mode |\n| `/gtb report` | Open a copyable window with errors and blocked actions, for bug reports |\n| `/gtb clearreport` | Clear that log |\n| `/gtb dump` | Write the textures of Blizzard's totem frames into the report window |\n\n## Notes\n\n- Built for the client version in the `.toc` (`## Interface: 16001`).\n- The addon never runs Blizzard's own code and never writes to Blizzard's tables, to avoid tainting the game's totem code. The picker is drawn by the addon instead of reusing Blizzard's flyout for the same reason.\n\n## Reporting a problem\n\nType `/gtb report`, copy the text (Ctrl+A, Ctrl+C) and open an issue with it.",
+  "releases": [
+    {
+      "tag": "v1.0.4",
+      "published": "2026-11-26",
+      "notes": "# Gamepad Totem Bar\n\n## [v1.0.4](https://github.com/Izimzizi/GamepadTotemBar/tree/v1.0.4) (2026-11-26)\n[Full Changelog](https://github.com/Izimzizi/GamepadTotemBar/compare/v1.0.3...v1.0.4) [Previous Releases](https://github.com/Izimzizi/GamepadTotemBar/releases)\n\n- 1.0.4: first release via packaging workflow  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n- Add CurseForge/GitHub packaging via BigWigs packager  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.3",
+      "name": "1.0.3",
+      "published": "2026-11-26",
+      "notes": "- Fix Lua errors when a fade-out-of-combat addon fades the totem bar (secret alpha value)\n- Flyout now opens on the empty choice when the slot is empty\n- Summon flyout now opens on the currently selected Call of the... spell"
+    },
+    {
+      "tag": "v1.0.2",
+      "name": "1.0.2",
+      "published": "2026-11-25",
+      "notes": "New Tooltip setting in the totem bar's HUD Edit Mode dialog (under Scale): show the spell tooltip next to the selected totem, at the game's default tooltip position, or turn it off. Unzip the GamepadTotemBar folder into Interface/AddOns."
+    },
+    {
+      "tag": "v1.0.1",
+      "name": "1.0.1",
+      "published": "2026-11-25",
+      "notes": "Flyout picker redrawn with the original totem bar art: connected background, up/down arrows, per-totem colors and borders. Adds an addon list icon and /gtb dump. Unzip the GamepadTotemBar folder into Interface/AddOns."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "1.0.0",
+      "published": "2026-11-25",
+      "notes": "Initial release. Unzip the GamepadTotemBar folder into Interface/AddOns."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Izimzizi/GamepadTotemBar/main/docs/bar.png",
+    "https://raw.githubusercontent.com/Izimzizi/GamepadTotemBar/main/docs/flyout.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GamepadTotemBar"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "GamepadTotemBarDB"
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "jadeui",
+  "repo": "Jademalo/JadeUI",
+  "about": "# JadeUI\nThis is a UI modification primarily designed around the key layout of the Logitech G13, with the goal of keeping as close to the feel and look of the vanilla UI as possible while implementing a few changes to suit more modern sensibilities.\n\nIt has support for both Classic Era and Forever, with the same general concepts but unique art for each. Forever also has support for the Razer Tartarus V2 Pro.\n\nThere are a variety of options, such as selecting the end cap artwork and moving things such as the Unitframes or the Map into more preferable places.\n\nThis AddOn is largely designed around edit mode, and as such it uses standard frames as much as possible. When the edit mode functionality isn't available, manual control of the frames has been taken instead.\n\nThe visual bar art has all been created by modifying the original assets. Details down to the levelup pips have been preserved and kept correct. The Keyring is automatically enabled regardless of level to keep the visual design consistent, and there's an option to enable the talent button at all times.\n\n![Classic Example](https://raw.githubusercontent.com/Jademalo/JadeUI/master/.previews/WoWScrnShot_010724_232929.jpg)\n![Forever Example](https://raw.githubusercontent.com/Jademalo/JadeUI/master/.previews/WoWScrnShot_101326_062429.jpg)",
+  "releases": [
+    {
+      "tag": "v3.2.1",
+      "published": "2026-11-18",
+      "notes": "# JadeUI\n\n## [v3.2.1](https://github.com/Jademalo/JadeUI/tree/v3.2.1) (2026-11-18)\n[Full Changelog](https://github.com/Jademalo/JadeUI/compare/v3.2.0...v3.2.1) [Previous Releases](https://github.com/Jademalo/JadeUI/releases)\n\n- Move screenshots to .previews for wowup  \n- Fix pet bar icon size  \n- Remove old funding"
+    },
+    {
+      "tag": "v3.2.0",
+      "published": "2026-10-16",
+      "notes": "# JadeUI\n\n## [v3.2.0](https://github.com/Jademalo/JadeUI/tree/v3.2.0) (2026-10-16)\n[Full Changelog](https://github.com/Jademalo/JadeUI/compare/v3.1.1...v3.2.0) [Previous Releases](https://github.com/Jademalo/JadeUI/releases)\n\n- Fix bar offset for hidden shop  \n- Add option to hide shop button  \n- Add option for classic style pet frame position in forever  \n- Re-anchor unit frames  \n- Change centreing to keep cast bar in the middle  \n- Fix divider showing on MultiBarBottomLeft  \n- Initial support for Razer Tartarus V2 Pro"
+    },
+    {
+      "tag": "v3.1.1",
+      "published": "2026-10-13",
+      "notes": "# JadeUI\n\n## [v3.1.1](https://github.com/Jademalo/JadeUI/tree/v3.1.1) (2026-10-13)\n[Full Changelog](https://github.com/Jademalo/JadeUI/compare/v3.1.0...v3.1.1) [Previous Releases](https://github.com/Jademalo/JadeUI/releases)\n\n- Update Forever screenshot  \n- Improve forever unitframe positioning slightly"
+    },
+    {
+      "tag": "v3.1.0",
+      "published": "2026-10-13",
+      "notes": "# JadeUI\n\n## [v3.1.0](https://github.com/Jademalo/JadeUI/tree/v3.1.0) (2026-10-13)\n[Full Changelog](https://github.com/Jademalo/JadeUI/compare/v3.0.0...v3.1.0) [Previous Releases](https://github.com/Jademalo/JadeUI/releases)\n\n- Prevent screenshots from being packaged  \n- Add Forever screenshot  \n- Rename to JadeUI  \n- Clean up orphaned code  \n- Clean up duplicated code  \n- Fix switching layout in Classic  \n- Fix Hide Keybinds default and inital run  \n- Clean up orphaned code  \n- Simplify bag and tooltip offset  \n- Re-order options menu  \n- Correctly position taint safe cast bar  \n- Clean up max level cover code  \n- Position the unitframes where they used to be  \n- Rewrite max level cover handling  \n- Offset the bags a little bit more  \n- Initial migration of Classic layout to edit mode  \n- Restructure functions into a shared file"
+    },
+    {
+      "tag": "v3.0.0",
+      "published": "2026-10-12",
+      "notes": "# JadeUI Classic\n\n## [v3.0.0](https://github.com/Jademalo/JadeUI-Classic/tree/v3.0.0) (2026-10-12)\n[Full Changelog](https://github.com/Jademalo/JadeUI-Classic/compare/v2.4.21...v3.0.0) [Previous Releases](https://github.com/Jademalo/JadeUI-Classic/releases)\n\n- Add debug option to configure taint safety  \n- Clean up interface versions  \n- Remove legacy options menu  \n- Add option to offset stance bar  \n- Clean up orphaned and duplicated code  \n- Fix issues with Lua taint and add fully safe mode with manual positions  \n- Properly position Pet Bar  \n- Fix issue with Lua taint from moving right managed container  \n- Offset combined bags  \n- Configure minimap movement option  \n- Improve options toggle to not reset unrelated frames  \n- Fix moving unitframes toggle  \n- Actually fix hiding the second level divider for Bottom Right Bar  \n- Switch default layout to Classic  \n- Add guard to AddBorderArt to prevent it running repeatedly  \n- Make options list a bit easier to read  \n- Fix issue with 1:1 scale button disabling to uiScale even if disabled  \n- Add options button to re-initialise and clean up logic  \n- Only change active layout on init and fix switching layout error  \n- Clean up leftover prints  \n- Add Stance, Pet, Posess, and Totem bar positioning  \n- Reposition frames for better art overlap  \n- Switch to Enum values for consistency  \n- Explicitly find each frame based on enum and index  \n- Update the setting config to properly manipulate tables  \n- Rewrite edit mode handler to allow preserving user changes  \n- Fix layout preset indentation  \n- Initial configuration of Layout based panel positioning  \n- Initial edit mode profile creation and modification  \n- Remove screenshot functionality  \n- Add icon  \n- Initial hacky attempt at minimap mover  \n- Fix Pet Bar and Focus Frame, with general cleanup  \n- Add an option to offset the stance bar position  \n- make positioning agnostic of art frame  \n- Initial support for Forever  \n- Move some core functions into core.lua  \n- Restructure files for additional compatibility"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Jademalo/JadeUI/master/.previews/WoWScrnShot_010724_232929.jpg",
+    "https://raw.githubusercontent.com/Jademalo/JadeUI/master/.previews/WoWScrnShot_101326_062429.jpg"
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-10-16",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-12",
+      "2026-10-03",
+      "2025-09-14",
+      "2025-08-11",
+      "2025-07-06",
+      "2025-06-22",
+      "2025-04-13",
+      "2025-03-02",
+      "2025-02-24",
+      "2025-02-02",
+      "2024-12-24",
+      "2024-11-25",
+      "2024-11-04",
+      "2024-10-27",
+      "2024-09-30",
+      "2024-08-18",
+      "2024-07-29",
+      "2024-07-14",
+      "2024-05-20",
+      "2024-05-12",
+      "2024-04-07",
+      "2024-02-11",
+      "2024-01-14",
+      "2024-01-08",
+      "2023-12-08",
+      "2023-12-04",
+      "2023-12-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "JadeUI"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "Bartender4"
+    ],
+    "savedVariables": [
+      "JadeUIDB",
+      "JadeUIEditDB"
+    ]
+  }
+}

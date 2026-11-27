@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "colorcraft",
+  "repo": "taubut/ColorCraft",
+  "about": "![ColorCraft logo](https://raw.githubusercontent.com/taubut/ColorCraft/main/art/colorcraft-logo.png)\n\n# ColorCraft\n\n[![Discord](https://img.shields.io/discord/1552365678751653928?label=Discord&logo=discord&logoColor=white&color=5865F2)](https://discord.gg/eCtNeBqE8U)\n\nClassic recipe colors for the **WoW: Forever** professions window. Every recipe name is colored by\nhow likely it is to raise your skill, the way the old trade skill window did, so you can see at a\nglance what to craft next.\n\n![The First Aid window with ColorCraft: orange, green and gray recipe names, the selected recipe highlighted in its green](https://raw.githubusercontent.com/taubut/ColorCraft/main/screenshot.png)\n\n| Color | Meaning |\n|---|---|\n| Orange | Always a skill-up |\n| Yellow | Usually a skill-up |\n| Green | Sometimes a skill-up |\n| Gray | No skill-up anymore |\n\nBlizzard's skill-up arrows stay where they are; the color is added to the name next to them.\nUnlearned and locked recipes keep Blizzard's own colors, the mouse-over highlight still turns a\nname white, and guild or NPC crafting lists (which have no skill-ups) are left alone.\n\nUnder the selected recipe's name, **Skill-Ups: 50  75  100** shows the skill levels where it turns\nyellow, green and gray, each number in its color (hover it for the same in words). The numbers come\nfrom the game's own data. Turn the line off in Options > AddOns > ColorCraft > Show Skill-Up Levels.\n\nNo slash commands. Install it and open a profession.\n\n## How it works\n\nEach recipe row in Blizzard's professions list sets its name color when the row is built and when\nthe mouse leaves it. ColorCraft repaints the name right after both, through secure hooks, so\nnothing of Blizzard's is replaced and the Craft button is never touched. The Skill-Ups line is\nColorCraft's own text under the recipe's name, added the same way.\n\nThe levels are in `ColorCraftLevels.lua`, made by `tools/make_levels.py` from WoW: Forever's\nSkillLineAbility table: yellow and gray are in the table, green is halfway between.\n\n## Help and feedback\n\nQuestions, bugs and ideas: the [ShamanPower Discord](https://discord.gg/eCtNeBqE8U) has a channel for every addon.\n\n## License\n\nMIT, see [LICENSE](https://github.com/taubut/ColorCraft/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.1.1",
+      "name": "ColorCraft 1.1.1",
+      "published": "2026-11-03",
+      "notes": "Skill-up levels for the newest recipe in WoW: Forever's latest patch: Enchant Boots - Speed now shows its Skill-Ups line too (yellow at 280, green at 290, gray at 300)."
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "ColorCraft 1.1.0",
+      "published": "2026-11-03",
+      "notes": "**Skill-up levels:** under the selected recipe's name, \"Skill-Ups: 50  75  100\" shows the skill levels where it turns yellow, green and gray, each number in its color. Hover it to see the same in words. The numbers come from the game's own data.\n\nYou can turn it off in Options > AddOns > ColorCraft > Show Skill-Up Levels. It starts on.\n\nAfter updating, fully close and restart the game once: 1.1.0 adds a new file, and a /reload alone does not load it.\n\nThanks to mrkhaglund for the idea."
+    },
+    {
+      "tag": "v1.0.2",
+      "name": "ColorCraft 1.0.2",
+      "published": "2026-09-24",
+      "notes": "The selected and mouse-over highlights on a recipe row now take the row's skill-up color (orange, yellow, green, gray) instead of Blizzard's gold. Rows without a color keep the gold."
+    },
+    {
+      "tag": "v1.0.1",
+      "name": "ColorCraft 1.0.1",
+      "published": "2026-09-23",
+      "notes": "US spelling in the addon list tooltip (colors, gray)."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "ColorCraft 1.0.0",
+      "published": "2026-09-23",
+      "notes": "First release. Recipe names in the WoW: Forever professions window are coloured by skill-up chance: orange, yellow, green, grey, as in the classic trade skill window."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/taubut/ColorCraft/main/art/colorcraft-logo.png",
+    "https://raw.githubusercontent.com/taubut/ColorCraft/main/screenshot.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-03",
+    "releaseDates": [
+      "2026-11-03",
+      "2026-11-03",
+      "2026-09-24",
+      "2026-09-23",
+      "2026-09-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ColorCraft"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ColorCraftDB"
+    ]
+  }
+}

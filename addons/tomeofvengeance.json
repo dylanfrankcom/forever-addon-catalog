@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "tomeofvengeance",
+  "repo": "lgulliver/tome-of-vengeance",
+  "about": "# Tome of Vengeance\n\nRemember every enemy player you've slain and every foe who slew you, in an open-book PvP journal.\n\n## Features\n\n- Account-wide enemy history with per-character, world, battleground and arena counts.\n- Race and class pages that unlock as you slay foes.\n- Milestone titles, unlock toasts and built-in WoW sounds.\n- Nemesis alerts and a recent encounters ledger.\n- Parchment pages, a movable book, minimap launcher and settings inside the Tome.\n\n## Screenshots\n\nScreenshots will be added after in-game verification on supported clients.\n\n## Install\n\nDownload the zip matching your client, extract it, then copy the `TomeOfVengeance/` folder into the directory below. The TOC must sit directly inside that folder. Restart the client or enable the addon at character selection.\n\n| Client | Release asset suffix | AddOns directory under World of Warcraft |\n|--------|----------------------|------------------------------------------|\n| Retail | `.zip` (no client suffix) | `_retail_/Interface/AddOns/` |\n| Forever | `-forever.zip` | `_forever_/Interface/AddOns/` |\n| Classic Era / Hardcore | `-classic.zip` | `_classic_era_/Interface/AddOns/` |\n| Burning Crusade Anniversary | `-bc.zip` | `_anniversary_/Interface/AddOns/` |\n| Mists of Pandaria Classic | `-mists.zip` | `_classic_/Interface/AddOns/` |\n\nIf your launcher uses a different installation location, open that client's installation folder and use its `Interface/AddOns/` directory.\n\n## Usage\n\n| Command | Action |\n|---------|--------|\n| `/tov` | Toggle the Tome |\n| `/tov settings` | Open settings |\n| `/tov reset` | Ask for confirmation before erasing the Tome |\n| `/tov debug` | Print client flavour, expansion, kill/death data source and record counts |\n\nThe `/tome` alias is dropped because [DungeonTome](https://www.curseforge.com/wow/addons/dungeontome-forever) and [Chronicle Tome](https://www.curseforge.com/wow/addons/chronicle-tome) already document it. CurseForge and Wago slash-clash searches on 2026-11-07 found no documented `/tov` conflict; search indexing is incomplete.\n\n## How kills and deaths are counted\n\nOnly your killing blow counts, including blows from your own pet or guardian. Group members' killing blows, NPCs, enemy pets and duels do not count.\n\nYour killer is the last hostile player to damage you within 12 seconds before death. Without a qualifying attacker, no PvP death is recorded.\n\nMidnight-engine clients (Retail 12.x and Forever) block addons from the combat log, so there kills and deaths come from other sources. A kill is any hostile player you targeted, moused over or saw on a nameplate in the last 15 seconds who then dies, so assists count too. Your killer is the last hostile player in Blizzard's death recap.\n\nEnemy records are keyed by GUID. Race and class totals receive credit only once that identity is known; later discovery does not retroactively credit earlier kills or deaths. Account history is shared across characters, with per-character breakdowns. The ledger keeps the latest 200 events.\n\nClassic and Forever show races from opposing factions the account has played, plus playable neutral races. Retail shows all playable races.\n\n## Limitations\n\n- Retail arena and rated-battleground tracking is best-effort. Restricted or secret combat-log events are skipped.\n- Titles are addon-only; they do not grant Blizzard character titles. Title text is English in v1.\n- Death attribution uses the last qualifying attacker, not a replay of the fight.\n- Classic release metadata still needs the checks listed in [CONTRIBUTING.md](https://github.com/lgulliver/tome-of-vengeance/blob/main/CONTRIBUTING.md).\n\n## Development\n\nSee [CONTRIBUTING.md](https://github.com/lgulliver/tome-of-vengeance/blob/main/CONTRIBUTING.md) for checks, packaging and release configuration. Released under the [MIT licence](https://github.com/lgulliver/tome-of-vengeance/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.1.2",
+      "published": "2026-11-16",
+      "notes": "**Full Changelog**: https://github.com/lgulliver/tome-of-vengeance/compare/v0.1.1...v0.1.2"
+    },
+    {
+      "tag": "v0.1.1",
+      "published": "2026-11-14",
+      "notes": "## What's Changed\n* Fix CurseForge uploads skipping every flavour (0.1.1) by @lgulliver in https://github.com/lgulliver/tome-of-vengeance/pull/2\n\n## New Contributors\n* @lgulliver made their first contribution in https://github.com/lgulliver/tome-of-vengeance/pull/2\n\n**Full Changelog**: https://github.com/lgulliver/tome-of-vengeance/compare/v0.1.0...v0.1.1"
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-13",
+      "notes": "First release, for Retail, Forever, Classic Era, Burning Crusade Anniversary and Mists of Pandaria Classic.\n\n- Record every enemy player you slay and every enemy player who slays you, account-wide, with per-character, world, battleground and arena counts.\n- Open-book Tome with race and class pages that unlock as you slay foes, class icons and a movable frame.\n- Milestone, overall and special titles, with an epithet you can display in the Tome.\n- Unlock toasts, nemesis alerts after repeated deaths to the same foe, and built-in WoW sounds.\n- Recent encounters ledger and per-nemesis history pages.\n- Settings inside the Tome and in the game's AddOns settings, plus a minimap launcher.\n- On Midnight-engine clients (Retail 12.x, Forever), where addons cannot read the combat log, kills come from engaged enemies dying and deaths from Blizzard's death recap.\n\n## Downloads\n\nPick the zip for your client: no suffix for Retail, `-forever`, `-classic` (Era/Hardcore), `-bc` (Anniversary) or `-mists`. Install steps are in the [README](https://github.com/lgulliver/tome-of-vengeance#install)."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-14",
+      "2026-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TomeOfVengeance"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "TomeOfVengeanceDB"
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "miniauras",
+  "repo": "Verubato/mini-auras",
+  "about": "# MiniAuras\n\nFeatures:\n\n- Create custom mini weak aura icon alerts with sound.\n- Displays enemy CC on party/raid frames.\n- Active cooldowns shown on party/raid frames.\n- Show important and defensives on nameplates.\n- Important/defensive spell icons on portraits.\n- Enemy and ally kick timers.\n- Party PvP trinkets.\n- Notification of when your healer is in CC.\n- Sound alerts of enemy spells.\n- Supports many frame addons such as ElvUI, Danders Frames, Ellesmere Frames, etc.\n- Available in 10 languages.\n\nAny feedback is more than welcome.\n\n[Discord](https://discord.gg/UruPTPHHxK)\n\n## Screenshots\n\n![MiniAuras screenshot](https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/TestFrames.png)\n\n![MiniAuras screenshot](https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/Alerts.png)\n\n![MiniAuras screenshot](https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/Portraits.png)\n\n![MiniAuras screenshot](https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/PersonalAuras.png)\n\n![MiniAuras screenshot](https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/AllyKicks.png)\n\n![MiniAuras screenshot](https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/Nameplates.png)\n\n![MiniAuras screenshot](https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/HealerInCC.png)\n\n## Download\n\nAvailable on [CurseForge](https://www.curseforge.com/wow/addons/minicc).",
+  "releases": [
+    {
+      "tag": "5.45.0",
+      "published": "2026-11-22",
+      "notes": "- Added an All ranks option to personal auras on WoW Forever, so one spell ID tracks every rank of that spell. It is on for new groups.\n- Fixed Druid missing from the personal auras spec dropdown on WoW Forever."
+    },
+    {
+      "tag": "5.44.0",
+      "published": "2026-10-21",
+      "notes": "- Added ability to add custom spells to the portraits module."
+    },
+    {
+      "tag": "5.43.8",
+      "published": "2026-10-14",
+      "notes": "- Fixed crowd control no longer showing on party and raid frames since patch 12.1.5.\n- Fixed enemy defensives and important buffs going missing from alerts since patch 12.1.5.\n- Fixed the Frame Auras buff row on the target and focus frames going blank on an enemy with the tracked buff list on since patch 12.1.5."
+    },
+    {
+      "tag": "5.43.7",
+      "published": "2026-10-13",
+      "notes": "- Fixed a Lua error in arena from patch 12.1.5, which now keeps enemy specs secret."
+    },
+    {
+      "tag": "5.43.6",
+      "published": "2026-10-13",
+      "notes": "- Fixed portrait aura icons not filling the whole portrait on EllesmereUI unit frames. The 5.43.3 fix was aimed at ElvUI by mistake and has been undone."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/TestFrames.png",
+    "https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/Alerts.png",
+    "https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/Portraits.png",
+    "https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/PersonalAuras.png",
+    "https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/AllyKicks.png",
+    "https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/Nameplates.png",
+    "https://raw.githubusercontent.com/Verubato/mini-auras/main/assets/Screenshots/HealerInCC.png"
+  ],
+  "stats": {
+    "stars": 8,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-10-21",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-12",
+      "2026-10-12",
+      "2026-10-08",
+      "2026-10-07",
+      "2026-10-04",
+      "2026-09-26",
+      "2026-09-21",
+      "2026-09-19",
+      "2026-09-14",
+      "2026-09-09",
+      "2026-09-08",
+      "2026-09-08",
+      "2026-09-07",
+      "2026-09-06",
+      "2026-09-03",
+      "2026-09-03",
+      "2026-09-02",
+      "2026-09-02",
+      "2026-09-01",
+      "2026-09-01",
+      "2026-09-01",
+      "2026-09-01",
+      "2026-08-31",
+      "2026-08-31",
+      "2026-08-31",
+      "2026-08-30",
+      "2026-08-30",
+      "2026-08-29",
+      "2026-08-28",
+      "2026-08-28",
+      "2026-08-27",
+      "2026-08-26",
+      "2026-08-26",
+      "2026-08-26",
+      "2026-08-20",
+      "2026-08-20",
+      "2026-08-20",
+      "2026-08-19",
+      "2026-08-19",
+      "2026-08-19",
+      "2026-08-18",
+      "2026-08-18",
+      "2026-08-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MiniAuras",
+      "MiniCC"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "MiniCC",
+      "ElvUI",
+      "Grid2",
+      "DandersFrames",
+      "FrameSort",
+      "Masque",
+      "TPerl",
+      "TidyPlates_ThreatPlates",
+      "VuhDo",
+      "BuzzardFrames",
+      "NDui",
+      "EllesmereUIUnitFrames"
+    ],
+    "savedVariables": [
+      "MiniAurasDB"
+    ]
+  }
+}

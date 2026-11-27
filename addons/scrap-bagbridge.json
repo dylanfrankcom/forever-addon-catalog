@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "scrap-bagbridge",
+  "repo": "neilsun1225/Scrap_BagBridge",
+  "about": "# Scrap - Bag Bridge\n\n[English](#english) · [简体中文](#简体中文)\n\n## English\n\n**Bring familiar speedrunning shortcuts to Scrap.**\n\nScrap - Bag Bridge adds a familiar modifier + right-click shortcut to Scrap, so you can mark and unmark junk directly while sorting your bags.\n\n- **Windows: Alt + right-click** to mark an item as junk.\n- **macOS: Cmd + right-click** to mark an item as junk.\n- Use the same shortcut again to **remove the junk mark**.\n\nWorks with **EUI Bags** and **Baganator**.\n\n## 简体中文\n\n**用竞速玩家熟悉的快捷操作，标记和取消标记垃圾物品。**\n\n为 Scrap 增加 Speedrunner（竞速玩家）更习惯的修饰键＋右键操作，让整理背包更顺手：\n\n- **Windows：Alt＋右键**，标记为垃圾物品。\n- **macOS：Cmd＋右键**，标记为垃圾物品。\n- 再次使用同一组合，**取消垃圾标记**。\n\n支持 **EUI 背包**与 **Baganator**。\n\n---\n\n**Author / 作者：Ballyh (B站八厉害)** · [MIT License / 开源许可](https://github.com/neilsun1225/Scrap_BagBridge/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v0.4.0",
+      "name": "0.4.0",
+      "published": "2026-10-25",
+      "notes": "## English\nStable release, tested in WoW Forever Beta (1.60.1).\n\nUse Alt + right-click on Windows or Cmd + right-click on macOS to toggle Scrap junk marks. Supports EUI Bags and Baganator.\n\n## 简体中文\n稳定版本，已在 WoW Forever Beta（1.60.1）中实测可用。\n\n为 Scrap 增加竞速玩家熟悉的 Windows Alt＋右键、macOS Cmd＋右键垃圾标记与取消标记操作，支持 EUI 背包与 Baganator。\n\nAuthor / 作者：Ballyh (B站八厉害)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-25",
+    "releaseDates": [
+      "2026-10-25"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "Scrap_BagBridge"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Scrap"
+    ],
+    "optional": [
+      "EllesmereUIBags",
+      "Baganator",
+      "Syndicator"
+    ]
+  }
+}

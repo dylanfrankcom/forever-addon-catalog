@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "ellesmereui",
+  "repo": "EllesmereGaming/EllesmereUI",
+  "about": "# EllesmereUI\n\n**Your entire interface in one addon.**\n\nEllesmereUI is a fully modular World of Warcraft UI suite built for players who want complete control without sacrificing performance or simplicity.\n\n**20 modules · One profile · 100% free**\n\n[Official Website](https://ellesmereui.com/) | [Download](https://ellesmereui.com/download) | [Community Presets](https://ellesmereui.com/presets) | [Video Guides](https://ellesmereui.com/guides) | [Patch Notes](https://ellesmereui.com/patch-notes)\n\n## Bug Reports & Feature Requests\n\nGitHub Issues has been retired in favor of our dedicated community hubs.\n\n- **[Bug Tracker](https://ellesmereui.com/bugs)** — Report bugs and follow their progress through development and release.\n- **[Feature Hub](https://ellesmereui.com/features)** — Submit, browse, and vote on feature requests.\n\n## Contributing\n\nCommunity contributions are welcome! If you're interested in contributing to EllesmereUI, please read the guides below before getting started.\n\n- [Contributor Guide](https://ellesmereui.com/spotlight-contributing)\n- [Code & Contribution Guidelines](https://github.com/EllesmereGaming/EllesmereUI/blob/main/.github/CONTRIBUTING.md)\n- [Translation Guidelines](https://github.com/EllesmereGaming/EllesmereUI/blob/main/CONTRIBUTING_TRANSLATIONS.md)",
+  "releases": [
+    {
+      "tag": "v9.9.5",
+      "published": "2026-11-26",
+      "notes": "Full patch notes can be found in game or on the official EUI website:\n\n[https://ellesmereui.com/patch-notes](https://ellesmereui.com/patch-notes)"
+    },
+    {
+      "tag": "v9.9.4",
+      "published": "2026-11-25",
+      "notes": "Full patch notes can be found in game or on the official EUI website:\n\n[https://ellesmereui.com/patch-notes](https://ellesmereui.com/patch-notes)"
+    },
+    {
+      "tag": "v9.9.3",
+      "published": "2026-11-25",
+      "notes": "Full patch notes can be found in game or on the official EUI website:\n\n[https://ellesmereui.com/patch-notes](https://ellesmereui.com/patch-notes)"
+    },
+    {
+      "tag": "v9.9.2",
+      "published": "2026-11-22",
+      "notes": "Full patch notes can be found in game or on the official EUI website:\n\n[https://ellesmereui.com/patch-notes](https://ellesmereui.com/patch-notes)"
+    },
+    {
+      "tag": "v9.9.1",
+      "published": "2026-11-20",
+      "notes": "Full patch notes can be found in game or on the official EUI website:\n\n[https://ellesmereui.com/patch-notes](https://ellesmereui.com/patch-notes)"
+    }
+  ],
+  "stats": {
+    "stars": 290,
+    "contributors": 245,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-22",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-11-02",
+      "2026-10-31",
+      "2026-10-30",
+      "2026-10-30",
+      "2026-10-27",
+      "2026-10-25",
+      "2026-10-24",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-19",
+      "2026-10-17",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-07",
+      "2026-10-05",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-09-30",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-09-27",
+      "2026-09-25",
+      "2026-09-24",
+      "2026-09-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EllesmereUI",
+      "EllesmereUIActionBars",
+      "EllesmereUIAuraBuffReminders",
+      "EllesmereUIBags",
+      "EllesmereUIBlizzardSkin",
+      "EllesmereUIChat",
+      "EllesmereUICooldownManager",
+      "EllesmereUIDamageMeters",
+      "EllesmereUIDataBars",
+      "EllesmereUIForeverEssentials",
+      "EllesmereUIFriends",
+      "EllesmereUIGroupFinder",
+      "EllesmereUILocales",
+      "EllesmereUIMinimap",
+      "EllesmereUIMythicTimer",
+      "EllesmereUINameplates",
+      "EllesmereUIOptions",
+      "EllesmereUIQoL",
+      "EllesmereUIQuestTracker",
+      "EllesmereUIQuickdraw",
+      "EllesmereUIRaidFrames",
+      "EllesmereUIResourceBars",
+      "EllesmereUIUnitFrames"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "EllesmereUIDB"
+    ]
+  }
+}

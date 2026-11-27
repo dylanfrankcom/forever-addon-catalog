@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "niccopytooltip",
+  "repo": "jpwalsh1/nic-copytooltip",
+  "about": "# NicCopyTooltip\n\nA World of Warcraft addon that captures a full item tooltip as plain text and presents it in a copyable popup — useful for sharing item details anywhere outside the game.\n\n---\n\n## What it does\n\nHover over any item (in your bags, equipment slots, loot windows, the auction house, etc.) and trigger the addon with your keybind or the slash command `/nct`. A popup appears with the complete tooltip text, pre-selected and ready to copy.\n\nThe output includes the item link, rarity, and all tooltip lines with color codes stripped, formatted as plain text.\n\n---\n\n## Installation\n\n1. Download `NicCopyTooltip.zip` from the latest release\n2. Unzip it — you will get a `NicCopyTooltip` folder\n3. Place the `NicCopyTooltip` folder in the `Interface/AddOns/` directory of your game client (for example `World of Warcraft/_retail_/Interface/AddOns/` or `World of Warcraft/_classic_era_/Interface/AddOns/`)\n4. Launch or reload WoW (`/reload`)\n\n---\n\n## Usage\n\n1. Hover your mouse over any item\n2. Press your configured keybind **or** type `/nct`\n3. The popup opens with the tooltip text already highlighted\n4. Press **Ctrl+C** (or **Cmd+C** on Mac) to copy, then paste wherever you like\n5. Click **Close** or press **Escape** to dismiss\n\n---\n\n## Setting your keybind\n\n1. Open **Game Menu → Key Bindings** (or press **Escape → Key Bindings**)\n2. Scroll to the **NicCopyTooltip** section near the bottom\n3. Click the binding slot and press your preferred key combination\n\n---\n\n## Requirements\n\nOne download works on all of these clients:\n\n| Client | Game version | Interface |\n|---|---|---|\n| Retail | 12.1 | 120100 |\n| Mists of Pandaria Classic | 5.5 | 50504 |\n| Burning Crusade Anniversary | 2.5 | 20506 |\n| Classic Era / Hardcore | 1.15 | 11509 |\n| WoW Forever | 1.60 | 16001 |\n\n---\n\n## Version\n\nSee Releases for the current version and changelog.",
+  "releases": [
+    {
+      "tag": "v1.0.26",
+      "published": "2026-10-06",
+      "notes": "# Nic Copy Tooltip\n\n## [v1.0.26](https://github.com/jpwalsh1/nic-copytooltip/tree/v1.0.26) (2026-10-06)\n[Full Changelog](https://github.com/jpwalsh1/nic-copytooltip/commits/v1.0.26) [Previous Releases](https://github.com/jpwalsh1/nic-copytooltip/releases)\n\n- v1.0.26 - Add CLIENT header with game version and interface number  \n    Pastes now include \"CLIENT:  ()\" after VERSION,  \n    e.g. \"CLIENT: 1.60.1 (16001)\". The Discord bot uses it to look items up  \n    in the matching Blizzard API namespace (retail, Classic Era, Mists  \n    Classic) instead of assuming retail.  \n    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.25",
+      "published": "2026-10-06",
+      "notes": "# Nic Copy Tooltip\n\n## [v1.0.25](https://github.com/jpwalsh1/nic-copytooltip/tree/v1.0.25) (2026-10-06)\n[Full Changelog](https://github.com/jpwalsh1/nic-copytooltip/commits/v1.0.25) [Previous Releases](https://github.com/jpwalsh1/nic-copytooltip/releases)\n\n- v1.0.25 - Support Classic Era, Mists Classic, TBC Anniversary and WoW Forever  \n    - List every current client in one TOC: 120100 (retail 12.1), 50504  \n      (Mists Classic), 20506 (TBC Anniversary), 11509 (Classic Era) and  \n      16001 (WoW Forever). Retail moves up from the outdated 120001.  \n    - Hook GameTooltip OnTooltipSetItem wherever it exists. Classic clients  \n      expose TooltipDataProcessor, but their item tooltips only fire the  \n      legacy script, so the addon never captured anything there.  \n    - Fall back to the global GetItemInfo when C\\_Item.GetItemInfo is missing.  \n    - Read ITEM\\_ID from the item link when the legacy hook passes no data.  \n    - README: list supported clients and generic install path.  \n    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.24",
+      "published": "2026-03-31",
+      "notes": "# Nic Copy Tooltip\n\n## [v1.0.24](https://github.com/jpwalsh1/nic-copytooltip/tree/v1.0.24) (2026-03-31)\n[Full Changelog](https://github.com/jpwalsh1/nic-copytooltip/commits/v1.0.24) [Previous Releases](https://github.com/jpwalsh1/nic-copytooltip/releases)\n\n- v1.0.24 - Fix WoW 12.x secret value LUA errors and API deprecations  \n    - Add type() guard before string.gsub on tooltip line text in both the  \n      TooltipDataProcessor path and the GetText() fallback path. In WoW 12.x  \n      the sell price line is a secret value object, not a string, causing  \n      1800+ repeated LUA errors on loot window and herb hover.  \n    - Replace GetItemInfo() with C\\_Item.GetItemInfo() (deprecated since 10.2.6)  \n    - Add WoW Token (quality 8) to QUALITY\\_NAMES table  \n    Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.23",
+      "published": "2026-03-30",
+      "notes": "# Nic Copy Tooltip\n\n## [v1.0.23](https://github.com/jpwalsh1/nic-copytooltip/tree/v1.0.23) (2026-03-30)\n[Full Changelog](https://github.com/jpwalsh1/nic-copytooltip/commits/v1.0.23) [Previous Releases](https://github.com/jpwalsh1/nic-copytooltip/releases)\n\n- v1.0.23 - Fix release workflow and add Wago ID  \n    Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.0.21",
+      "published": "2026-03-27",
+      "notes": "Embeds addon version in tooltip paste header. The Discord bot now detects outdated addon versions and notifies users to update."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-06",
+    "releaseDates": [
+      "2026-10-06",
+      "2026-10-06",
+      "2026-03-31",
+      "2026-03-30",
+      "2026-03-27",
+      "2026-03-26",
+      "2026-03-25",
+      "2026-03-24",
+      "2026-03-23",
+      "2026-03-23",
+      "2026-03-23",
+      "2026-03-23",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22",
+      "2026-03-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NicCopyTooltip"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ]
+  }
+}

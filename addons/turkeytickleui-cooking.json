@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "turkeytickleui-cooking",
+  "repo": "TurkeyTickle/TurkeyTickleUI",
+  "about": "# Turkey Tickle UI\n\nA suite of UI addons for **World of Warcraft: Forever**. Each module is its own addon, so you can\nenable only the ones you want.\n\n| Module | Folder | Description |\n| ------ | ------ | ----------- |\n| [Plates](https://github.com/TurkeyTickle/TurkeyTickleUI/blob/main/TurkeyTickleUI_Plates) | `TurkeyTickleUI_Plates` | Blizzard-style nameplates with threat warnings, cast bars and debuffs |\n| [Pets](https://github.com/TurkeyTickle/TurkeyTickleUI/blob/main/TurkeyTickleUI_Pets) | `TurkeyTickleUI_Pets` | Hunter pet guide: where to learn pet skills, what to tame, rare pets on the map |\n| [Puzzle](https://github.com/TurkeyTickle/TurkeyTickleUI/blob/main/TurkeyTickleUI_Puzzle) | `TurkeyTickleUI_Puzzle` | Multiplayer jigsaw puzzles: host a picture, solve it together with your guild or group |\n| [Cooking](https://github.com/TurkeyTickle/TurkeyTickleUI/blob/main/TurkeyTickleUI_Cooking) | `TurkeyTickleUI_Cooking` | Cooking coach: what in your bags levels Cooking, reminders to cook it, mobs nearby to hunt |\n| [XP](https://github.com/TurkeyTickle/TurkeyTickleUI/blob/main/TurkeyTickleUI_XP) | `TurkeyTickleUI_XP` | A tiny movable XP/hour window with session average, trend line and time to level |\n\n## Install\n\nDownload the zip from the latest [GitHub release](https://github.com/TurkeyTickle/TurkeyTickleUI/releases)\nand extract it into `World of Warcraft/_forever_/Interface/AddOns/`. `TurkeyTickleUI-<version>`\nhas every module; `TurkeyTickleUI_Puzzle-<version>` is the Puzzle module on its own.\n\nTo run straight from the repository instead, copy (or symlink) each module folder into:\n\n```\nWorld of Warcraft/_forever_/Interface/AddOns/\n```\n\nTo develop next to a release install, run `tools/dev_link.sh [AddOns folder]` instead. It links\n`TurkeyTickleUI_<Module>_Dev` copies of the repository that show up as a separate **[DEV]** group in\nthe in-game AddOns list; enable either the release or the dev copies, not both. Run it again after\nediting any `.toc`, then restart the game.\n\nAll modules share one **Turkey Tickle UI** page in the in-game AddOns options.\n\n## Development\n\n`tests/harness.lua` loads a module in a stubbed WoW environment to catch load and runtime errors\noutside the game:\n\n```\nluajit tests/harness.lua TurkeyTickleUI_Plates\nluajit tests/harness_pets.lua TurkeyTickleUI_Pets\nluajit tests/harness_puzzle.lua TurkeyTickleUI_Puzzle [image-code.txt]\nluajit tests/harness_cooking.lua TurkeyTickleUI_Cooking\nluajit tests/harness_xp.lua TurkeyTickleUI_XP\n```\n\n`tests/run_all.sh` runs all of them, then plays the Puzzle module against older releases\n(`tests/puzzle_compat.sh`). CI runs it on every push and pull request.\n\nThe Pets and Cooking data files are generated from addons in your Forever install:\n\n```\npython3 tools/build_pets_data.py\npython3 tools/build_cooking_data.py\n```\n\nThe Puzzle module's image tool is a Rust program in `tools/ttpz`:\n\n```\ncargo build --release --manifest-path tools/ttpz/Cargo.toml\ntools/ttpz/target/release/ttpz https://example.com/picture.jpg --out /tmp/code.txt\nluajit tests/harness_puzzle.lua TurkeyTickleUI_Puzzle /tmp/code.txt\n```\n\n## Releasing\n\nAll modules share one version, taken from the git tag: plain semver with no `v` (`0.2.0`, or\n`0.3.0-beta.1` / `0.3.0-alpha.1` for test builds). The TOCs say `## Version: @project-version@`, and\npackaging replaces that with the tag. A copy straight from the repository calls itself `dev`.\n\nWork happens on `main`. To release, push `main` to `prod` (`git push origin main:prod`; the\nrepository doesn't take pull requests). Every push to `prod` is a release, and the version is picked for you: the patch number\ngoes up (0.2.0 to 0.2.1), unless a commit title since the last release contains `[minor]`\n(0.2.0 to 0.3.0) or `[major]` (0.2.0 to 1.0.0). To release `prod` as it is, or as an exact version\nlike `0.3.0-beta.1`, run the **Release** workflow on `prod` from the Actions tab. The workflow:\n\n1. Picks the version (`tools/next_version.sh`) and runs `tests/run_all.sh`\n2. Tags the commit and writes a changelog from the commits since the last release\n3. Packages every module into one zip with the [BigWigs packager](https://github.com/BigWigsMods/packager)\n   (`.pkgmeta`) and publishes it as a GitHub release\n4. Packages each standalone module (listed in `STANDALONE_MODULES` in\n   `.github/workflows/release.yml`, currently just Puzzle) on its own with `tools/package_module.sh`,\n   attaches that zip to the release, and uploads it to the module's CurseForge project\n5. Attaches the `ttpz` image tool, built for Windows and Linux (`.github/workflows/ttpz.yml`, which\n   CI also runs on every push)\n\nCurseForge uploads need a repository secret `CF_API_KEY` (a CurseForge API token). Each standalone\nmodule has its own CurseForge project, set with a repository variable named after it:\n`CURSEFORGE_PROJECT_ID_PUZZLE` for Puzzle. A module without that variable only goes to GitHub. The\nsuite zip with every module goes to GitHub only, unless a `CURSEFORGE_PROJECT_ID` variable is set\nfor a suite project. Don't put `X-Curse-Project-ID` in the TOCs: the suite packaging would pick it\nup and upload everything to that project.\n\nIf a Puzzle change needs a new protocol, add the release it will ship in to `PROTOCOL_RELEASES` in\n`TurkeyTickleUI_Puzzle/Session.lua` (see the compatibility notes there). The automatic version is\nraised to at least that release, and an exact version older than it is refused.\n\n## License\n\nMIT",
+  "releases": [
+    {
+      "tag": "0.2.1",
+      "published": "2026-11-26",
+      "notes": "# Turkey Tickle UI 0.2.1\n\n- Add tools/dev_link.sh to run dev copies alongside a release install\n- Pets: add a pet guide and family stat modifiers, swing intervals in tooltips and the browser\n- Puzzle: open to a list of active puzzles with a host button; rename the rotation option to Piece rotation"
+    },
+    {
+      "tag": "0.2.0",
+      "published": "2026-11-23",
+      "notes": "# Turkey Tickle UI 0.2.0\n\n- README: release by pushing main to prod\n- Only commit titles pick a minor/major release\n- Puzzle: own icon on the minimap, windows and AddOns list; keep the icon art\n- Release Puzzle standalone for its own CurseForge listing; suite zip stays GitHub-only\n- Release from the prod branch with automatic versions\n- Puzzle: cut overlapping knobs around each other\n- Build ttpz for Windows and Linux in CI and attach it to releases\n- CI: use actions/checkout v5 (Node 24)\n- Version releases from git tags and package them with GitHub Actions\n- Puzzle: turned pieces, join puzzles in progress, puzzle alone, version checks\n- ttpz: check Windows certificates against the system store"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TurkeyTickleUI_Cooking",
+      "TurkeyTickleUI_Pets",
+      "TurkeyTickleUI_Plates",
+      "TurkeyTickleUI_Puzzle",
+      "TurkeyTickleUI_XP"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "TomTom"
+    ],
+    "savedVariables": [
+      "TurkeyTickleUI_CookingDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "TurkeyTickleUI_CookingCharDB"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "hackrlfg",
+  "repo": "Jaredn/hackrlfg",
+  "about": "# HackrLFG\n\nA compact, modern group browser for **WoW Forever**. Every listing is one clean row with the party laid out the same way every time: **Tank, Healer, DPS, DPS, DPS**, each with its class icon and level.\n\nPart of the Hackr family of add-ons, alongside HackrAH.\n\n## Features\n\n- **Fixed role layout.** Every group reads Tank / Healer / DPS / DPS / DPS. Filled slots show the class icon and level on a role colour (Tank blue, Healer green, DPS red). Open slots stay in place, so you can see at a glance what a group is missing.\n- **Multi-role players.** Solo players who signed up for more than one role get a split chip (e.g. half blue, half red for Tank or DPS). They always sit in the Tank or Healer slot when they offer one, because those are the hard roles to find.\n- **10-player groups.** UBRS and raids get two rows of slots, two full parties, plus a headcount line like `6/10 · 1 Tank · 2 Healers · 3 DPS`.\n- **Every listing, not just your level.** Blizzard's finder only searches dungeons in your level range. HackrLFG searches the whole category, or the one dungeon you pick.\n- **Dungeon picker.** All dungeons, \"Around my level\", or any single dungeon, sorted by level with its range shown.\n- **Filter box.** Narrow the list by player name, dungeon or zone. Several words must all match; `-word` excludes.\n- **Sort by age.** Click AGE for newest first or oldest first.\n- **List yourself in one click.** Pick your roles and a dungeon, hit List me. Update or remove your listing from the same panel.\n- **Quick actions.** Click a row to whisper the leader. Shift-click a solo player to invite them. Hover for full notes and the member list.\n\n## Usage\n\nOpens next to the Group Finder (`I`), or on its own with:\n\n| Command | What it does |\n|---|---|\n| `/hlfg` (or `/hackrlfg`, `/gl`) | Show or hide the window |\n| `/hlfg auto` | Turn opening with the Group Finder on or off |\n| `/hlfg reset` | Move the window back to its default spot |\n| `/hlfg help` | List these commands |\n\n## Known limits\n\n- **Notes and titles can't be searched or written by add-ons.** The game hands listing notes to add-ons only as protected tokens. HackrLFG shows them on each row and in the tooltip, but can't filter by them. Add notes to your own listing in Blizzard's Group Finder; HackrLFG's Update button keeps them.\n- **Inside dungeons and raids** the game hides some listing details from add-ons. HackrLFG falls back gracefully instead of erroring.\n\n## Install\n\nInstall from CurseForge, or copy the `HackrLFG` folder into `World of Warcraft\\_forever_\\Interface\\AddOns\\` and restart the game.\n\n## License\n\nMIT. See [LICENSE](https://github.com/Jaredn/hackrlfg/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-25",
+      "notes": "# Changelog\n\n## 1.0.0\n\nFirst release.\n\n- Compact group browser with a fixed Tank / Healer / DPS / DPS / DPS layout, class icons and levels.\n- Split-colour chips for solo players who signed up for several roles; they always take a Tank or Healer slot when they offer one.\n- Two rows of slots for 10-player groups (UBRS) and raids, with a role headcount.\n- Searches every dungeon in a category, not just the ones in your level range.\n- Dungeon picker: all, around my level, or one dungeon.\n- Filter by player, dungeon or zone; sort by age.\n- List yourself, update or remove your listing from a small panel.\n- Click to whisper, shift-click to invite solo players."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HackrLFG"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "HackrLFGDB"
+    ]
+  }
+}

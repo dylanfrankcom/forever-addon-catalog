@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "bulkmail2inbox",
+  "repo": "Addons-By-Neotron/BulkMail2Inbox",
+  "about": "# BulkMail-Inbox\nBulk mail reception made really easy\n\n# Addon Description\n\nBulk mail reception made really easy. This addon allows you to selectively pick mails to open from the inbox, open all mails with money or open all items.\n\n# Key Features\n\nThere are many bulk email openers available to choose from. However Bulk Mail Inbox has several unique features:\n\n*    Shows a dialog with all items and money in your mailbox.\n*    Allows you to take individual items even if they were all sent in one email.\n*    You can mark multiple items to take without taking all.\n*    Allows easy comparison of items in the mail list with items you're currently using (just hold shift down while hovering the items).\n*    Inbox pagination and filtering.\n*    Clicking on a column header now sorts that header. Before clicking on any header just rotated the sorting to a new column.\n*    Sorting is reversed if you click on the header which currently is sorted.\n*    Better placement of the tooltip (now sits next to the frame that opened it)\n*    Pressing and releasing the shift key while hovering an item will now properly show/hide the comparison window.\n*    Fixed opening of mails is now throttled to prevent errors and as a result opening a lot of mails is now much better.\n*    The list of items is updated during auto opening emails.",
+  "releases": [
+    {
+      "tag": "20261119",
+      "published": "2026-11-19",
+      "notes": "# Bulk Mail Inbox\n\n## [20261119](https://github.com/Addons-By-Neotron/BulkMail2Inbox/tree/20261119) (2026-11-19)\n[Full Changelog](https://github.com/Addons-By-Neotron/BulkMail2Inbox/compare/20261108...20261119) [Previous Releases](https://github.com/Addons-By-Neotron/BulkMail2Inbox/releases)\n\n- Use committed local translations instead of packager localization; add itIT, ptBR, esMX"
+    },
+    {
+      "tag": "20261108",
+      "published": "2026-11-08",
+      "notes": "# Bulk Mail Inbox\n\n## [20261108](https://github.com/Addons-By-Neotron/BulkMail2Inbox/tree/20261108) (2026-10-16)\n[Full Changelog](https://github.com/Addons-By-Neotron/BulkMail2Inbox/compare/20261014...20261108) [Previous Releases](https://github.com/Addons-By-Neotron/BulkMail2Inbox/releases)\n\n- Update Interface version"
+    },
+    {
+      "tag": "20261014",
+      "published": "2026-10-14",
+      "notes": "# Bulk Mail Inbox\n\n## [20261014](https://github.com/Addons-By-Neotron/BulkMail2Inbox/tree/20261014) (2026-10-13)\n[Full Changelog](https://github.com/Addons-By-Neotron/BulkMail2Inbox/compare/20260928.1...20261014) [Previous Releases](https://github.com/Addons-By-Neotron/BulkMail2Inbox/releases)\n\n- Update Interface version  \n- Use C\\_Item.GetItemInfo when available"
+    },
+    {
+      "tag": "20260928.1",
+      "published": "2026-09-28",
+      "notes": "# Bulk Mail Inbox\n\n## [20260928.1](https://github.com/Addons-By-Neotron/BulkMail2Inbox/tree/20260928.1) (2026-09-28)\n[Full Changelog](https://github.com/Addons-By-Neotron/BulkMail2Inbox/compare/20260928...20260928.1) [Previous Releases](https://github.com/Addons-By-Neotron/BulkMail2Inbox/releases)\n\n- Update Interface version  \n- Add forever to toc update."
+    },
+    {
+      "tag": "20260928",
+      "published": "2026-09-28",
+      "notes": "# Bulk Mail Inbox\n\n## [20260928](https://github.com/Addons-By-Neotron/BulkMail2Inbox/tree/20260928) (2026-09-28)\n[Full Changelog](https://github.com/Addons-By-Neotron/BulkMail2Inbox/compare/20260813...20260928) [Previous Releases](https://github.com/Addons-By-Neotron/BulkMail2Inbox/releases)\n\n- Fixed issue on WoW Forever."
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 1,
+    "contributors": 7,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-08",
+      "2026-10-14",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-08-13",
+      "2026-03-16",
+      "2026-03-10",
+      "2026-03-08",
+      "2026-03-08",
+      "2026-03-07",
+      "2026-03-06",
+      "2026-03-06",
+      "2026-03-02",
+      "2026-03-02",
+      "2026-02-26",
+      "2026-02-07",
+      "2026-02-07",
+      "2026-02-07",
+      "2026-01-20",
+      "2025-07-25",
+      "2025-07-19",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-06-01",
+      "2024-01-23",
+      "2023-01-18",
+      "2022-12-20",
+      "2022-08-30",
+      "2022-08-13",
+      "2022-08-06",
+      "2022-07-29",
+      "2022-01-20",
+      "2022-01-20",
+      "2021-11-18",
+      "2021-11-11",
+      "2021-08-16",
+      "2021-06-16",
+      "2021-06-09",
+      "2021-05-22",
+      "2019-09-17",
+      "2019-09-16"
+    ]
+  },
+  "languages": [
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "BulkMail2Inbox"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibSharedMedia-3.0",
+      "AceGUI-3.0-SharedMediaWidgets",
+      "LibQTip-1.0",
+      "LibAbacus-3.0",
+      "LibDataBroker-1.1",
+      "LibDropdown-1.0",
+      "LibMagicUtil-1.0",
+      "BulkMail2"
+    ],
+    "savedVariables": [
+      "BulkMail2InboxDB",
+      "BulkMail3InboxDB"
+    ]
+  }
+}

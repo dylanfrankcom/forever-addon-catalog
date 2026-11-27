@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "id": "wim-elvui-skin",
+  "repo": "fubaWoW/WIM_ElvUI_Skin",
+  "about": "# WIM - ElvUI Skin v3\nThis AddOn add a Skin to WIM what looks very good with ElvUI.  \nBut ElvUI is not needed, it is just a Skin for WIM!",
+  "releases": [
+    {
+      "tag": "20261123.01-Release",
+      "published": "2026-11-23",
+      "notes": "# WIM - ElvUI Skin\n\n## [20261123.01-Release](https://github.com/fubaWoW/WIM_ElvUI_Skin/tree/20261123.01-Release) (2026-11-23)\n[Full Changelog](https://github.com/fubaWoW/WIM_ElvUI_Skin/compare/20261014.01-Release...20261123.01-Release) [Previous Releases](https://github.com/fubaWoW/WIM_ElvUI_Skin/releases)\n\n- TOC Bump"
+    },
+    {
+      "tag": "20261014.01-Release",
+      "published": "2026-10-14",
+      "notes": "# WIM - ElvUI Skin\n\n## [20261014.01-Release](https://github.com/fubaWoW/WIM_ElvUI_Skin/tree/20261014.01-Release) (2026-10-14)\n[Full Changelog](https://github.com/fubaWoW/WIM_ElvUI_Skin/compare/20261010.01-Release...20261014.01-Release) [Previous Releases](https://github.com/fubaWoW/WIM_ElvUI_Skin/releases)\n\n- TOC Update"
+    },
+    {
+      "tag": "20261010.01-Release",
+      "published": "2026-10-10",
+      "notes": "# WIM - ElvUI Skin\n\n## [20261010.01-Release](https://github.com/fubaWoW/WIM_ElvUI_Skin/tree/20261010.01-Release) (2026-10-10)\n[Full Changelog](https://github.com/fubaWoW/WIM_ElvUI_Skin/compare/120007.01-Release...20261010.01-Release) [Previous Releases](https://github.com/fubaWoW/WIM_ElvUI_Skin/releases)\n\n- Updated TOC  \n    testing if it's working in Forver  \n    updated workflow"
+    },
+    {
+      "tag": "120007.01-Release",
+      "published": "2026-06-18",
+      "notes": "# WIM - ElvUI Skin\n\n## [120007.01-Release](https://github.com/fubaWoW/WIM_ElvUI_Skin/tree/120007.01-Release) (2026-06-18)\n[Full Changelog](https://github.com/fubaWoW/WIM_ElvUI_Skin/compare/120000.01-Release...120007.01-Release) [Previous Releases](https://github.com/fubaWoW/WIM_ElvUI_Skin/releases)\n\n- TOC Bump"
+    },
+    {
+      "tag": "120000.01-Release",
+      "published": "2026-01-24",
+      "notes": "# WIM - ElvUI Skin\n\n## [120000.01-Release](https://github.com/fubaWoW/WIM_ElvUI_Skin/tree/120000.01-Release) (2026-01-24)\n[Full Changelog](https://github.com/fubaWoW/WIM_ElvUI_Skin/compare/110207.01-Release...120000.01-Release) [Previous Releases](https://github.com/fubaWoW/WIM_ElvUI_Skin/releases)\n\n- - Updated TOC  \n    - changed Packager to no longer create separate TOC Files for each game Version, now use \"single\" toc for all Versions!  \n- Update release.yml"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-10-14",
+      "2026-10-10",
+      "2026-06-18",
+      "2026-01-24",
+      "2025-10-26",
+      "2025-08-10",
+      "2025-06-17",
+      "2025-05-03",
+      "2025-02-25",
+      "2024-12-17",
+      "2024-10-28",
+      "2024-07-23",
+      "2024-05-28",
+      "2024-03-27",
+      "2024-01-26",
+      "2024-01-26",
+      "2024-01-26",
+      "2023-11-05",
+      "2023-07-18",
+      "2023-07-10",
+      "2023-05-05",
+      "2023-04-29",
+      "2023-03-26",
+      "2023-01-25",
+      "2023-01-18",
+      "2023-01-02",
+      "2022-11-15",
+      "2022-11-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WIM_ElvUI_Skin"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "WIM"
+    ]
+  }
+}

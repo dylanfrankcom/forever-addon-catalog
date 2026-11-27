@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "id": "messageclassifier",
+  "repo": "SwimmingTiger/MessageClassifier",
+  "about": "Description\n-----------------\nSimply filter duplicate messages in public channels and world channels.\nAt the same time, classify and browse messages with complex and specific rules.\n\nDownload [![Build Status](https://travis-ci.com/SwimmingTiger/MessageClassifier.svg)](https://travis-ci.com/SwimmingTiger/MessageClassifier)\n-----------------\n* [CurseForge](https://www.curseforge.com/wow/addons/messageclassifier/files)\n* [WoW Interface](https://www.wowinterface.com/downloads/info25436-MessageClassifier.html)\n* [NGA](https://bbs.nga.cn/read.php?tid=18963415)\n\nFeatures\n-----------------\n* Filter duplicate messages in public/private/world channels. You will only see the same content from the same person once.\n* You can set to allow duplicate messages to reappear after a specified number of seconds.\n* Messages will be classified by custom rules and displayed in the message browser.\n* With a simple and clear classification rule editor, you can collect information according to your needs.\n* The message browser provides a keyword search function, and the content can be directly selected and copied (ctrl+c).\n\nMacro\n-----------------\n* Enable or disable the filter: `/msgdd`\n* Open the message browser: `/msgcf`\n\nScreenshots\n-----------------\n![Usage / Configure](https://raw.githubusercontent.com/SwimmingTiger/MessageClassifier/master/doc/img/usage.jpg)",
+  "releases": [
+    {
+      "tag": "v0.5.3",
+      "name": "[v0.5.3] Fix right-click menu showing underneath the message browser",
+      "published": "2026-11-07",
+      "notes": "#### 0.5.3\n\n* Compatible with WoW Forever.\n* Fix right-click menu showing underneath the message browser.\n\n-----------------------------\n\n### zh-CN (简体中文)\n\n#### 0.5.3\n\n* 与无限服兼容。\n* 修复右键点击玩家名字弹出的菜单被遮挡点不到的问题。"
+    },
+    {
+      "tag": "v0.5.2",
+      "name": "[v0.5.2] refactor the minimap button as a DataBroker button",
+      "published": "2026-04-11",
+      "notes": "#### 0.5.2\n* The minimap button has been refactored as a DataBroker button, allowing other addons to dock it. And the functionality to drag the button to any position while holding the Shift key has been retained.\n* Toggles have been added to the plugin settings to show/hide the minimap button and reset its position.\n\n#### 0.5.1\n* fix player name link on retail realms\n\n#### 0.5.0\n* fix setting button on message browser not works\n* fix click player name in message browser failed to initiate a chat (fixed classic-titan. still not working on retail)\n* add icon to wow addon list\n\n-----------------------------\n\n### zh-CN (简体中文)\n\n#### 0.5.2\n* 小地图按钮重构为DataBroker按钮，以便其他插件可以收纳它。按Shift把按钮拖动到任意位置的功能也保留了。\n* 插件设置里新增了显示/隐藏小地图按钮和重置按钮位置的开关。\n\n#### 0.5.1\n* 修复正式服点击玩家名称没反应的问题\n\n#### 0.5.0\n* 修复了消息浏览器中设置按钮点击没反应的问题\n* 修复了时光服点击玩家名称没反应的问题（正式服还没修复）\n* 在插件列表中添加该插件的图标"
+    },
+    {
+      "tag": "v0.5.1",
+      "name": "[v0.5.1] fix player name link on retail realms",
+      "published": "2026-04-11",
+      "notes": "#### 0.5.1\n* fix player name link on retail realms\n\n#### 0.5.0\n* fix setting button on message browser not works\n* fix click player name in message browser failed to initiate a chat (fixed classic-titan. still not working on retail)\n* add icon to wow addon list\n\n-----------------------------\n\n### zh-CN (简体中文)\n\n#### 0.5.1\n* 修复正式服点击玩家名称没反应的问题\n\n#### 0.5.0\n* 修复了消息浏览器中设置按钮点击没反应的问题\n* 修复了时光服点击玩家名称没反应的问题（正式服还没修复）\n* 在插件列表中添加该插件的图标"
+    },
+    {
+      "tag": "v0.5.0",
+      "name": "[v0.5.0] Fix player name link; fix setting button; add icon to wow addon list",
+      "published": "2026-04-11",
+      "notes": "* fix setting button on message browser not works\n* fix click player name in message browser failed to initiate a chat (fixed classic-titan. still not working on retail)\n* add icon to wow addon list\n\n-----------------------------\n\n[zh-CN]\n* 修复了消息浏览器中设置按钮点击没反应的问题\n* 修复了时光服点击玩家名称没反应的问题（正式服还没修复）\n* 在插件列表中添加该插件的图标"
+    },
+    {
+      "tag": "v0.4.7",
+      "name": "[v0.4.7] Fix the behavior of match, the content is not treated as a regular expression",
+      "published": "2021-06-26",
+      "notes": "* Fix the behavior of match, the content is not treated as a regular expression."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/SwimmingTiger/MessageClassifier/master/doc/img/usage.jpg"
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-04-11",
+      "2026-04-11",
+      "2026-04-11",
+      "2021-06-26",
+      "2021-06-07",
+      "2021-06-06",
+      "2021-05-29",
+      "2021-05-12",
+      "2021-05-10",
+      "2020-09-12",
+      "2020-06-27",
+      "2020-02-18",
+      "2020-02-16",
+      "2019-12-17",
+      "2019-11-16",
+      "2019-11-14",
+      "2019-11-10",
+      "2019-11-03",
+      "2019-10-26"
+    ]
+  },
+  "languages": [
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "MessageClassifier"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "MessageClassifierConfig"
+    ]
+  }
+}

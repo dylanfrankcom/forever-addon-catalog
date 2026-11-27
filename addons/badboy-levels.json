@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "id": "badboy-levels",
+  "repo": "funkydude/BadBoy_Levels",
+  "releases": [
+    {
+      "tag": "v12.1.2",
+      "published": "2026-10-23",
+      "notes": "# BadBoy_Levels\n\n## [v12.1.2](https://github.com/funkydude/BadBoy_Levels/tree/v12.1.2) (2026-10-23)\n[Full Changelog](https://github.com/funkydude/BadBoy_Levels/compare/v12.1.1...v12.1.2) [Previous Releases](https://github.com/funkydude/BadBoy_Levels/releases)\n\n- Cleanups"
+    },
+    {
+      "tag": "v12.1.1",
+      "published": "2026-10-23",
+      "notes": "# BadBoy_Levels\n\n## [v12.1.1](https://github.com/funkydude/BadBoy_Levels/tree/v12.1.1) (2026-10-23)\n[Full Changelog](https://github.com/funkydude/BadBoy_Levels/compare/v12.1.0...v12.1.1) [Previous Releases](https://github.com/funkydude/BadBoy_Levels/releases)\n\n- Add some translations  \n- Rewrite for modern API usage on Retail/Forever  \n- Add a separate file for classic"
+    },
+    {
+      "tag": "v12.1.0",
+      "published": "2026-10-23",
+      "notes": "# BadBoy_Levels\n\n## [v12.1.0](https://github.com/funkydude/BadBoy_Levels/tree/v12.1.0) (2026-10-23)\n[Full Changelog](https://github.com/funkydude/BadBoy_Levels/compare/v12.0.4...v12.1.0) [Previous Releases](https://github.com/funkydude/BadBoy_Levels/releases)\n\n- Cleanups  \n- Cleanups  \n- Bump toc  \n- Update workflow"
+    },
+    {
+      "tag": "v12.0.4",
+      "published": "2026-07-16",
+      "notes": "# BadBoy_Levels\n\n## [v12.0.4](https://github.com/funkydude/BadBoy_Levels/tree/v12.0.4) (2026-07-16)\n[Full Changelog](https://github.com/funkydude/BadBoy_Levels/compare/v12.0.3...v12.0.4) [Previous Releases](https://github.com/funkydude/BadBoy_Levels/releases)\n\n- Bump toc"
+    },
+    {
+      "tag": "v12.0.3",
+      "published": "2026-06-27",
+      "notes": "# BadBoy_Levels\n\n## [v12.0.3](https://github.com/funkydude/BadBoy_Levels/tree/v12.0.3) (2026-06-27)\n[Full Changelog](https://github.com/funkydude/BadBoy_Levels/compare/v12.0.2...v12.0.3) [Previous Releases](https://github.com/funkydude/BadBoy_Levels/releases)\n\n- Fix for WoW 12.1  \n- Bump toc  \n- Update workflow"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-10-23",
+    "releaseDates": [
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-07-16",
+      "2026-06-27",
+      "2026-06-16",
+      "2026-04-14",
+      "2026-01-23",
+      "2026-01-20",
+      "2026-01-19",
+      "2025-06-26",
+      "2025-06-17",
+      "2025-02-26",
+      "2024-11-21",
+      "2024-07-10",
+      "2024-07-09",
+      "2024-05-09",
+      "2024-04-30",
+      "2024-01-16",
+      "2023-11-30",
+      "2023-11-08",
+      "2023-10-11",
+      "2023-09-18",
+      "2023-08-18",
+      "2023-07-12",
+      "2023-06-21",
+      "2023-05-03",
+      "2022-11-15",
+      "2022-10-26",
+      "2022-08-30",
+      "2022-06-01",
+      "2022-04-26",
+      "2022-03-23",
+      "2022-03-15",
+      "2021-06-30",
+      "2021-05-25",
+      "2021-03-11",
+      "2020-12-13",
+      "2020-11-18",
+      "2020-10-18",
+      "2020-10-15",
+      "2020-10-14",
+      "2019-07-21",
+      "2019-06-26",
+      "2018-12-21",
+      "2018-07-17",
+      "2017-08-30",
+      "2017-06-29",
+      "2017-05-08",
+      "2017-04-28"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "BadBoy_Levels"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "BadBoy"
+    ],
+    "optional": [
+      "BadBoy_Guilded"
+    ],
+    "savedVariables": [
+      "BADBOY_LEVELS_DB"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "bars",
+  "repo": "Harmenszoon/wow-bars",
+  "about": "# Harmenszoon's Bars\n\nCustomize Blizzard's action bars, bag bar, micro menu, and HUD in WoW Forever. Open **Edit Mode**, select the element you want to change, then save your layout.\n\n- **Action bars and pet bar.** Reduce **Icon Padding** to 0 or 1, choose clipped or square icons, or add a thin outline.\n- **Idle Opacity.** Set how visible a bar is at rest. It returns to its normal opacity as soon as you hover over it.\n- **Bag bar and micro menu.** Adjust the size from 25% to 300% and hide the background independently.\n- **Hide in Gameplay.** Hide an element such as the Objective Tracker during play. Open Edit Mode to select it again.\n\n## Installation\n\nIn WowUp, select **Get Addons**, then **Install from URL**, and paste this repository's address. [Repository URL](https://github.com/Harmenszoon/wow-bars)\n\nFor manual installation, extract the `-forever.zip` release asset into `_forever_/Interface/AddOns/` so it contains `Bars/Bars.toc`. [Download the latest release](https://github.com/Harmenszoon/wow-bars/releases/latest)",
+  "releases": [
+    {
+      "tag": "v0.7.2",
+      "published": "2026-11-20",
+      "notes": "Adds zero and one icon padding, border styles, and hover opacity to Blizzard's action bars. Includes bag bar and micro menu scaling and backgrounds, plus per-layout HUD visibility."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Bars"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Blizzard_EditMode",
+      "Blizzard_ActionBar",
+      "Blizzard_MainMenuBarBagButtons",
+      "Blizzard_MicroMenu"
+    ],
+    "savedVariables": [
+      "BarsLayouts",
+      "BarsBorders",
+      "BarsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "BarsCharacterLayouts",
+      "BarsCharacterBorders"
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "bears-audio-switcher",
+  "repo": "N6REJ/Bears_Audio_Switcher",
+  "about": "# Bear's Audio Switcher\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\n![Size](https://img.shields.io/github/repo-size/N6REJ/Bears_Audio_Switcher)\n[![Build Curse Release](https://github.com/N6REJ/Bears_Audio_Switcher/actions/workflows/release.yml/badge.svg)](https://github.com/N6REJ/Bears_Audio_Switcher/actions/workflows/release.yml)\n[![GitHub release](https://img.shields.io/github/release/N6REJ/Bears_Audio_Switcher.svg)](https://github.com/N6REJ/Bears_Audio_Switcher/releases/)\n\n![Supports](https://img.shields.io/badge/Supports-Retaill%20%26%20Forever-0B68D7)\n![12.1.7](https://img.shields.io/badge/Ready_for-12.1.7-darkgreen)\n[![curse](https://img.shields.io/badge/Curseforge_Project_ID:-631148-purple)](https://www.curseforge.com/wow/addons/Bears_Audio_Switcher)\n\nSimple WoW ACE3 addon to help switch audio devices rapidly using keybind to toggle thru the selected audio output devices in config.\nAlso allows you to raise and lower the master volume via keybind.  This is useful, for example, when your watching youtube and the video has low volume.  When you turn your speakers up you then have the game blasting in your ears.  Hit a key and down the game goes while keeping youtube at a comfortable level.\n\n**Installation Instructions: **\n     \nAfter installing the addon you need to type \"/bs\" or \"/switch\" and configure your speakers and keybind.\n     This is a good time to set your volume step and enable or disable sound when changing the volume\n\n     \n #### Defaults:\n | Keybind             | Description                                                                                                         |\n|---------------------|---------------------------------------------------------------------------------------------------------------------|\n| Numpad *            | change speaker    ( will show in chatbox which speaker is now active )                                              |\n| Numpad /            | Toggle music on/off                                                                                                 |\n| Numpad +            | Volume up    ( will give audio announcement that volume went up or if at 100% )                                     |\n| Numpad -            | Volume down  ( will give audio announcement that volume went down )                                                 |\n| Volume step         | 10% per keypress                                                                                                    |\n| Notifications Sound | On                                                                                                                  |\n|                     | *Keybinds are passed thru to the UI so it CAN be a key you normally use for other things but this isn't recommended |\n     \n![numpad](https://user-images.githubusercontent.com/1850089/175800053-a533c60d-aa99-400d-bd78-610a1adceebe.jpg)     \n\n![config-change](https://user-images.githubusercontent.com/1850089/175459116-c95e84a8-fe0c-4f5b-a8e5-5b9691c0ca16.png)\n\n![image](https://github.com/N6REJ/Bears_Audio_Switcher/assets/1850089/a784f9c9-4258-474d-8bf5-e29ceb21e4b3)",
+  "releases": [
+    {
+      "tag": "2026.11.06",
+      "published": "2026-11-06",
+      "notes": "# Bears Switcher\n\n## [2026.11.06](https://github.com/N6REJ/Bears_Audio_Switcher/tree/2026.11.06) (2026-11-06)\n[Full Changelog](https://github.com/N6REJ/Bears_Audio_Switcher/compare/2026.10.15...2026.11.06) [Previous Releases](https://github.com/N6REJ/Bears_Audio_Switcher/releases)\n\n- Add Forever support and normalize defaults  \n- chore(pkgmeta): pin all externals to tag: latest  \n    Rewrite externals in the readable url/tag form so the packager fetches the latest tagged release of each library.  \n- Exclude stats commits and files from release changelogs and packages  \n- Add release changelog workflow  \n- Merge pull request #67 from N6REJ/dependabot/github\\_actions/actions/checkout-7.0.1  \n    Bump actions/checkout from 6.0.2 to 7.0.1  \n- Use only the black chart theme  \n- Bump actions/checkout from 6.0.2 to 7.0.1  \n    Bumps [actions/checkout](https://github.com/actions/checkout) from 6.0.2 to 7.0.1.  \n    - [Release notes](https://github.com/actions/checkout/releases)  \n    - [Commits](https://github.com/actions/checkout/compare/v6.0.2...v7.0.1)  \n    ---  \n    updated-dependencies:  \n    - dependency-name: actions/checkout  \n      dependency-version: 7.0.1  \n      dependency-type: direct:production  \n      update-type: version-update:semver-major  \n    ...  \n    Signed-off-by: dependabot[bot] <support@github.com>  \n- Publish stats to main under stats/ (match winkill layout)  \n- Rename cf\\_api\\_key input to cf\\_studio\\_api\\_key  \n- Add CurseForge download stats workflow  \n- Update version badge from 11.0.0 to 12.1.0"
+    },
+    {
+      "tag": "2026.10.15",
+      "published": "2026-10-15",
+      "notes": "# Bears Switcher\n\n## [2026.10.15](https://github.com/N6REJ/Bears_Audio_Switcher/tree/2026.10.15) (2026-10-15)\n[Full Changelog](https://github.com/N6REJ/Bears_Audio_Switcher/compare/2026.8.10...2026.10.15) [Previous Releases](https://github.com/N6REJ/Bears_Audio_Switcher/releases)\n\n- Merge remote-tracking branch 'origin/main'  \n- Update Interface version from 120100 to 120105  \n- Merge pull request #65 from N6REJ/dependabot/github\\_actions/actions/checkout-7.0.1  \n    Bump actions/checkout from 6.0.2 to 7.0.1  \n- Merge pull request #66 from N6REJ/dependabot/github\\_actions/crazy-max/ghaction-github-labeler-6.0.0  \n    Bump crazy-max/ghaction-github-labeler from 5.1.0 to 6.0.0  \n- Merge pull request #64 from N6REJ/dependabot/github\\_actions/BigWigsMods/packager-2.6.1  \n    Bump BigWigsMods/packager from 2.5.1 to 2.6.1  \n- \uD83D\uDD04 synced local '.github/workflows/create-labels.yml' with remote '.github/workflows/create-labels.yml'  \n- Bump crazy-max/ghaction-github-labeler from 5.1.0 to 6.0.0  \n    Bumps [crazy-max/ghaction-github-labeler](https://github.com/crazy-max/ghaction-github-labeler) from 5.1.0 to 6.0.0.  \n    - [Release notes](https://github.com/crazy-max/ghaction-github-labeler/releases)  \n    - [Commits](https://github.com/crazy-max/ghaction-github-labeler/compare/v5.1.0...v6.0.0)  \n    ---  \n    updated-dependencies:  \n    - dependency-name: crazy-max/ghaction-github-labeler  \n      dependency-version: 6.0.0  \n      dependency-type: direct:production  \n      update-type: version-update:semver-major  \n    ...  \n    Signed-off-by: dependabot[bot] <support@github.com>  \n- Bump actions/checkout from 6.0.2 to 7.0.1  \n    Bumps [actions/checkout](https://github.com/actions/checkout) from 6.0.2 to 7.0.1.  \n    - [Release notes](https://github.com/actions/checkout/releases)  \n    - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)  \n    - [Commits](https://github.com/actions/checkout/compare/v6.0.2...v7.0.1)  \n    ---  \n    updated-dependencies:  \n    - dependency-name: actions/checkout  \n      dependency-version: 7.0.1  \n      dependency-type: direct:production  \n      update-type: version-update:semver-major  \n    ...  \n    Signed-off-by: dependabot[bot] <support@github.com>  \n- Bump BigWigsMods/packager from 2.5.1 to 2.6.1  \n    Bumps [BigWigsMods/packager](https://github.com/bigwigsmods/packager) from 2.5.1 to 2.6.1.  \n    - [Release notes](https://github.com/bigwigsmods/packager/releases)  \n    - [Commits](https://github.com/bigwigsmods/packager/compare/v2.5.1...v2.6.1)  \n    ---  \n    updated-dependencies:  \n    - dependency-name: BigWigsMods/packager  \n      dependency-version: 2.6.1  \n      dependency-type: direct:production  \n      update-type: version-update:semver-minor  \n    ...  \n    Signed-off-by: dependabot[bot] <support@github.com>  \n- Merge pull request #60 from N6REJ/dependabot/github\\_actions/BigWigsMods/packager-2.5.1  \n    Bump BigWigsMods/packager from 2.4.2 to 2.5.1  \n- \uD83D\uDD04 synced local '.github/workflows/create-labels.yml' with remote '.github/workflows/create-labels.yml'  \n- Merge pull request #62 from N6REJ/dependabot/github\\_actions/actions/checkout-6.0.2  \n    Bump actions/checkout from 5.0.0 to 6.0.2  \n- Bump actions/checkout from 5.0.0 to 6.0.2  \n    Bumps [actions/checkout](https://github.com/actions/checkout) from 5.0.0 to 6.0.2.  \n    - [Release notes](https://github.com/actions/checkout/releases)  \n    - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)  \n    - [Commits](https://github.com/actions/checkout/compare/v5.0.0...v6.0.2)  \n    ---  \n    updated-dependencies:  \n    - dependency-name: actions/checkout  \n      dependency-version: 6.0.2  \n      dependency-type: direct:production  \n      update-type: version-update:semver-major  \n    ...  \n    Signed-off-by: dependabot[bot] <support@github.com>  \n- Bump BigWigsMods/packager from 2.4.2 to 2.5.1  \n    Bumps [BigWigsMods/packager](https://github.com/bigwigsmods/packager) from 2.4.2 to 2.5.1.  \n    - [Release notes](https://github.com/bigwigsmods/packager/releases)  \n    - [Commits](https://github.com/bigwigsmods/packager/compare/v2.4.2...v2.5.1)  \n    ---  \n    updated-dependencies:  \n    - dependency-name: BigWigsMods/packager  \n      dependency-version: 2.5.1  \n      dependency-type: direct:production  \n      update-type: version-update:semver-minor  \n    ...  \n    Signed-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+      "tag": "2026.8.10",
+      "published": "2026-08-11",
+      "notes": "# Bears Switcher\n\n## [2026.8.10](https://github.com/N6REJ/Bears_Audio_Switcher/tree/2026.8.10) (2026-08-11)\n[Full Changelog](https://github.com/N6REJ/Bears_Audio_Switcher/compare/2026.6.16...2026.8.10) [Previous Releases](https://github.com/N6REJ/Bears_Audio_Switcher/releases)\n\n- Update Interface version from 120007 to 120100"
+    },
+    {
+      "tag": "2026.6.16",
+      "published": "2026-06-17",
+      "notes": "# Bears Switcher\n\n## [2026.6.16](https://github.com/N6REJ/Bears_Audio_Switcher/tree/2026.6.16) (2026-06-17)\n[Full Changelog](https://github.com/N6REJ/Bears_Audio_Switcher/compare/2026.4.22.2...2026.6.16) [Previous Releases](https://github.com/N6REJ/Bears_Audio_Switcher/releases)\n\n- Update Interface version from 120005 to 120007"
+    },
+    {
+      "tag": "2026.4.22.2",
+      "published": "2026-04-22",
+      "notes": "# Bears Switcher\n\n## [2026.4.22.2](https://github.com/N6REJ/Bears_Audio_Switcher/tree/2026.4.22.2) (2026-04-22)\n[Full Changelog](https://github.com/N6REJ/Bears_Audio_Switcher/compare/2026.4.22...2026.4.22.2) [Previous Releases](https://github.com/N6REJ/Bears_Audio_Switcher/releases)\n\n- update toc"
+    }
+  ],
+  "screenshots": [
+    "https://user-images.githubusercontent.com/1850089/175800053-a533c60d-aa99-400d-bd78-610a1adceebe.jpg",
+    "https://user-images.githubusercontent.com/1850089/175459116-c95e84a8-fe0c-4f5b-a8e5-5b9691c0ca16.png"
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06",
+      "2026-10-15",
+      "2026-08-11",
+      "2026-06-17",
+      "2026-04-22",
+      "2026-02-12",
+      "2026-01-21",
+      "2025-08-14",
+      "2025-08-14",
+      "2025-08-14",
+      "2025-06-25",
+      "2025-06-21",
+      "2025-04-29",
+      "2024-10-23",
+      "2024-10-23",
+      "2024-10-23",
+      "2024-08-27",
+      "2024-08-26",
+      "2024-08-18",
+      "2024-08-05",
+      "2024-08-05",
+      "2024-08-05",
+      "2024-08-04",
+      "2024-06-22",
+      "2024-04-23",
+      "2024-03-20",
+      "2024-03-19",
+      "2024-01-21",
+      "2023-11-08",
+      "2023-10-09",
+      "2023-09-22",
+      "2023-09-22",
+      "2023-08-02",
+      "2023-07-22",
+      "2023-07-22",
+      "2023-07-22",
+      "2023-07-22",
+      "2023-07-22",
+      "2023-07-22",
+      "2023-07-22",
+      "2023-07-21",
+      "2023-07-21",
+      "2023-07-21",
+      "2023-07-13",
+      "2023-05-22",
+      "2023-05-22",
+      "2023-05-15",
+      "2023-05-15",
+      "2023-05-04",
+      "2023-05-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Bears_Audio_Switcher"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "BearsSwitcherDB"
+    ]
+  }
+}

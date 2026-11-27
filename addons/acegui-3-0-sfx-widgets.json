@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "acegui-3-0-sfx-widgets",
+  "repo": "SFX-WoW/AceGUI-3.0_SFX-Widgets",
+  "about": "[![Build][SVG-Build]][Build]\n[![Discord][SVG-Discord]][Discord]\n[![X][SVG-X]][X]\n[![Sponsor][SVG-Sponsor]][Sponsor]\n[![PayPal][SVG-PayPal]][PayPal]\n[![Ko-fi][SVG-Kofi]][Kofi]\n\n## [About][Top]\n\n**AceGUI-3.0: SFX Widgets** is a library add-on for [World of Warcraft] that adds custom UI elements (widgets) to [AceGUI-3.0][Ace3] and [AceConfigDialog-3.0][Ace3].\n\n## [Features][Top]\n\nThis library adds the following widgets:\n\n- [SFX-Header](https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets/wiki/SFX-Header) - A left-aligned header with a border that is centered vertically.\n- [SFX-Header-II](https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets/wiki/SFX-Header-II) - A left-aligned header with a border below the text.\n- [SFX-Info](https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets/wiki/SFX-Info) - A two-column row with a label on the left and text on the right.\n- [SFX-Info-URL](https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets/wiki/SFX-Info-URL) - A two-column row with a label on the left and selectable text on the right.\n\n## [Requirements][Top]\n\nThis add-on requires third-party libraries.\n\n- [LibStub](https://www.curseforge.com/wow/addons/libstub) (Included)\n- [Ace-3.0][Ace3]\n  - [AceConfigDialog-3.0][Ace3] (Optional)\n  - [AceGUI-3.0][Ace3]\n\n## [Installation][Top]\n\nDetailed instructions for installing and using this library can be found on the [project wiki][Wiki].\n\n## [Credits][Top]\n\nThe [Ace-3.0 Development Team][Ace3].\n\n## [Feedback][Top]\n\nFor bug reports and suggestions, use the [issue tracker]. Direct any questions or comments to [Discord].\n\n## [Localization][Top]\n\nTo help translate this add-on, use the [localization system]. Alternatively, you can use the [issue tracker].\n\n## [Links][Top]\n\n- **Resources**\n  - [Documentation][Wiki]\n  - [Screenshots]\n- **Mirrors**\n  - [GitHub]\n  - [CurseForge]\n  - [Wago.io]\n  - [WoW Interface]\n\n[//]: # (Links)\n\n[Build]: https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets/actions/workflows/build-release.yml (Build Status)\n[Discord]: https://discord.gg/7MTWRgDzz8 (Join the Discord)\n[X]: https://x.com/stormfxi (Follow on X)\n[Sponsor]: https://github.com/sponsors/StormFX (Sponsor on GitHub)\n[PayPal]: https://www.paypal.com/donate/?hosted_button_id=EELAK9TC4W4KQ (Donate via PayPal)\n[Kofi]: https://ko-fi.com/StormFX (Donate via Ko-fi)\n\n[Top]: #Top (Top of the Page)\n\n[Ace3]: https://www.curseforge.com/wow/addons/ace3 (Ace-3.0 @ CurseForge)\n[World of Warcraft]: https://worldofwarcraft.com/ (World of Warcraft)\n\n[Issue Tracker]: https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets/issues (Report an Issue)\n[Localization System]: https://www.curseforge.com/wow/addons/sfx-widgets/localization (Translate on CurseForge)\n[Wiki]: https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets/wiki (View the Wiki)\n[Screenshots]: https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets/wiki/Screenshots (View the Screenshots)\n\n[GitHub]: https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets (View on GitHub)\n[CurseForge]: https://www.curseforge.com/wow/addons/sfx-widgets (View on CurseForge)\n[Wago.io]: https://addons.wago.io/addons/acegui-30-sfx-widgets (View on Wago.io)\n[WoW Interface]: https://www.wowinterface.com/downloads/info25658 (View on WoW Interface)\n\n[//]: # (Images)\n\n[SVG-Build]: https://img.shields.io/github/actions/workflow/status/SFX-WoW/AceGUI-3.0_SFX-Widgets/build-release.yml?label=Build&logo=github&logoColor=fff&style=flat-square\n[SVG-Discord]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/discord.json\n[SVG-X]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/x.json\n[SVG-Sponsor]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/github-sponsor.json\n[SVG-PayPal]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/paypal.json\n[SVG-Kofi]: https://img.shields.io/endpoint?url=https://www.stormfx.com/img/svg/kofi.json",
+  "releases": [
+    {
+      "tag": "12.1.5",
+      "published": "2026-10-14",
+      "notes": "## 12.1.5\n\n### Release Notes\n\n- Move to client version matching.\n- Updated the `Interface` version:\n  - **Midnight**: `120105`\n\n[Release History](https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets/wiki/History)"
+    },
+    {
+      "tag": "1.3.26",
+      "published": "2026-10-05",
+      "notes": "## 1.3.26\n\n### Release Notes\n\n- Enabled automated localization.\n- Updated the `Interface` version:\n  - **Forever**: `16001`\n\n[Release History](https://github.com/SFX-WoW/AceGUI-3.0_SFX-Widgets/wiki/History)"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-14",
+    "releaseDates": [
+      "2026-10-14",
+      "2026-10-05"
+    ]
+  },
+  "languages": [
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "AceGUI-3.0_SFX-Widgets"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3"
+    ]
+  }
+}

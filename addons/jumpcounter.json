@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "jumpcounter",
+  "repo": "ajanke/JumpCounter",
+  "about": "# JumpCounter\nCounts the number of jumps each of your World of Warcraft: Forever characters make. Now with support for Data Broker visualizers (such as Chocolate Bar)\n\n# Install\n1. Download the latest `JumpCounter-x.x.zip` from https://github.com/ajanke/JumpCounter/releases/latest\n2. Find your WoW Forever AddOns folder. By default this is:\n\n   `C:\\Program Files (x86)\\World of Warcraft\\_forever_\\Interface\\AddOns`\n\n   If you installed WoW somewhere else, open the Battle.net launcher, select WoW Forever, click the gear icon next to Play and choose **Show in Explorer**. Then open `Interface\\AddOns` (create the `AddOns` folder if it doesn't exist).\n3. Unzip the file into that folder. You should end up with `Interface\\AddOns\\JumpCounter\\JumpCounter.toc`. If you get an extra folder level (for example `AddOns\\JumpCounter-2.0\\JumpCounter`), move the inner `JumpCounter` folder up into `AddOns`.\n4. Restart WoW (or type `/reload` if you are already logged in) and make sure JumpCounter is enabled in the **AddOns** list on the character select screen.\n\nTo upgrade, delete the old `JumpCounter` folder and repeat the steps above. Your jump counts are kept.\n\n# Usage\nFor the character you are logged into WoW with, type any of the following commands to display your jump count\n\n- `/jc`\n- `/jumpcount`\n- `/jumpcounter`\n\nTo reset your jump count to zero, type any of the following commands. You'll be asked to confirm before the count is cleared.\n\n- `/jc clear`\n- `/jumpcount clear`\n- `/jumpcounter clear`\n\n# Bugs\nIf you encounter any bugs feel free to create a new issue and I will try to address it as quickly as possible: https://github.com/ajanke/JumpCounter/issues",
+  "releases": [
+    {
+      "tag": "2.0",
+      "name": "WoW Forever Jump Counter 2.0",
+      "published": "2026-11-17",
+      "notes": "Updated for WoW Forever (interface 16001).\n\n- Jumps are now counted when you press jump, and your first jump is counted\n- `/jc clear` asks for confirmation before resetting your count\n- Data Broker tooltip shows your total jumps\n- Updated bundled CallbackHandler-1.0 and LibStub\n\nUnzip into the `Interface\\AddOns` folder of your WoW Forever installation."
+    },
+    {
+      "tag": "1.3",
+      "name": "Wow Classic Jump Counter 1.3",
+      "published": "2020-10-09",
+      "notes": "Fixed syntax error, thanks alabashtaur"
+    },
+    {
+      "tag": "1.2",
+      "name": "Wow Classic Jump Counter 1.2",
+      "published": "2019-09-13",
+      "notes": "Added support for Data Broker visualizers such as Chocolate Bar"
+    },
+    {
+      "tag": "1.1",
+      "name": "Wow Classic Jump Counter 1.1",
+      "published": "2019-08-11",
+      "notes": "Adds messages for jumping milestones at jump count 10, 100, 1000, 5000, and every 5000 after that"
+    },
+    {
+      "tag": "1.0",
+      "name": "Wow Classic Jump Counter 1.0",
+      "published": "2019-08-11",
+      "notes": "World of Warcraft Classic release jump counter"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2020-10-09",
+      "2019-09-13",
+      "2019-08-11",
+      "2019-08-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "JumpCounter"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "JumpCounter"
+    ]
+  }
+}

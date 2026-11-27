@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "immersion",
+  "repo": "seblindfors/Immersion",
+  "about": "# Immersion\n\nReplaces World of Warcraft's quest and gossip frames with a cinematic dialogue box\nthat paces the text to encourage reading the lore.\n\nInstead of dropping a wall of text into a static window, Immersion presents quest and\ngossip dialogue in a talking-head frame with the NPC's model, revealing the text at\nreading speed. The rest of the interface can fade away while you talk to someone, so\nthe conversation is the thing on screen rather than a panel competing with your bars.\n\n## Features\n\n- Talking-head dialogue frame with the NPC model, portrait and name\n- Text revealed progressively, with an optional progress bar; automatic progression\n  can be turned off if you would rather advance manually\n- Text-to-speech playback, with separate male and female voices, rate and volume\n- Immersive mode: hides the interface, and optionally the minimap and objective\n  tracker, while a conversation is open\n- Hooks the default talking head frame so it uses the same placement\n- Quest rewards and item choices inspected in place\n- Keyboard bindings for accept, next and goodbye, plus number keys for gossip options\n- Gamepad bindings for every action, reassignable by pressing the button you want\n- Placement, scale, frame strata and appearance options, including show-at-mouse\n\n## Configuration\n\n```\n/immersion\n```\n\nSettings are saved per account in `ImmersionSetup`.\n\n## Controller support\n\nImmersion handles gamepad input on its own — no other addon required. Every action is\nbound to a face button by default and can be reassigned on the Gamepad settings page.\n\n[ConsolePort](https://github.com/seblindfors/ConsolePort) is optional. When it is\ninstalled, Immersion adds its prompts to ConsolePort's hint bar, so the available\nactions are shown on screen with the right button icons.\n\n## Compatibility\n\nRetail and Classic. The supported interface versions are listed in `Immersion.toc`.\n\n## Download\n\n- [CurseForge](https://www.curseforge.com/wow/addons/immersion)\n- [WoWInterface](https://www.wowinterface.com/downloads/info24714)\n- [Wago](https://addons.wago.io/addons/immersion)",
+  "releases": [
+    {
+      "tag": "1.4.61",
+      "published": "2026-09-24",
+      "notes": "# Immersion\n\n## [1.4.61](https://github.com/seblindfors/Immersion/tree/1.4.61) (2026-09-24)\n[Full Changelog](https://github.com/seblindfors/Immersion/compare/1.4.60...1.4.61) [Previous Releases](https://github.com/seblindfors/Immersion/releases)\n\n- Update Immersion.toc  \n- Merge pull request #55 from seblindfors/native-settings  \n    Replace Ace config with native settings panel  \n- Fix boolean setting defaults  \n- Replace Ace config with native settings panel"
+    },
+    {
+      "tag": "1.4.60",
+      "published": "2026-09-21",
+      "notes": "# Immersion\n\n## [1.4.60](https://github.com/seblindfors/Immersion/tree/1.4.60) (2026-09-21)\n[Full Changelog](https://github.com/seblindfors/Immersion/compare/1.4.59...1.4.60) [Previous Releases](https://github.com/seblindfors/Immersion/releases)\n\n- Merge branch 'master' of https://github.com/seblindfors/Immersion  \n- Update Immersion.toc  \n- Rewrite the readme  \n- Move inspect to the context button and goodbye to cancel  \n- Decouple controller support from ConsolePort"
+    },
+    {
+      "tag": "1.4.59",
+      "published": "2026-08-24",
+      "notes": "# Immersion\n\n## [1.4.59](https://github.com/seblindfors/Immersion/tree/1.4.59) (2026-08-24)\n[Full Changelog](https://github.com/seblindfors/Immersion/compare/1.4.58...1.4.59) [Previous Releases](https://github.com/seblindfors/Immersion/releases)\n\n- Update Immersion.toc"
+    },
+    {
+      "tag": "1.4.58",
+      "published": "2026-07-22",
+      "notes": "# Immersion\n\n## [1.4.58](https://github.com/seblindfors/Immersion/tree/1.4.58) (2026-07-22)\n[Full Changelog](https://github.com/seblindfors/Immersion/compare/1.4.57...1.4.58) [Previous Releases](https://github.com/seblindfors/Immersion/releases)\n\n- Update Immersion.toc"
+    },
+    {
+      "tag": "1.4.57",
+      "published": "2026-07-11",
+      "notes": "# Immersion\n\n## [1.4.57](https://github.com/seblindfors/Immersion/tree/1.4.57) (2026-07-11)\n[Full Changelog](https://github.com/seblindfors/Immersion/compare/1.4.56...1.4.57) [Previous Releases](https://github.com/seblindfors/Immersion/releases)\n\n- Fix API"
+    }
+  ],
+  "stats": {
+    "stars": 35,
+    "openIssues": 23,
+    "contributors": 9,
+    "lastRelease": "2026-09-24",
+    "releaseDates": [
+      "2026-09-24",
+      "2026-09-21",
+      "2026-08-24",
+      "2026-07-22",
+      "2026-07-11",
+      "2026-06-22",
+      "2026-06-12",
+      "2026-05-25",
+      "2026-04-22",
+      "2026-02-03",
+      "2026-02-01",
+      "2026-01-15",
+      "2025-12-03",
+      "2025-10-08",
+      "2025-08-15",
+      "2025-08-05",
+      "2025-07-02",
+      "2025-06-21",
+      "2025-04-25",
+      "2024-12-10",
+      "2024-10-24",
+      "2024-10-23",
+      "2024-09-01",
+      "2024-08-17",
+      "2024-08-14",
+      "2024-07-26",
+      "2024-05-08",
+      "2024-05-01",
+      "2024-04-04",
+      "2024-02-18",
+      "2024-01-17",
+      "2023-11-09",
+      "2023-10-24",
+      "2023-09-26",
+      "2023-07-17",
+      "2023-06-30",
+      "2023-06-20",
+      "2023-06-01",
+      "2023-05-07",
+      "2023-03-21",
+      "2023-01-25",
+      "2023-01-20",
+      "2023-01-16",
+      "2022-12-04",
+      "2022-11-29",
+      "2022-11-28",
+      "2022-11-27",
+      "2022-11-16",
+      "2022-10-30",
+      "2022-10-30"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Immersion"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "ConsolePort"
+    ],
+    "savedVariables": [
+      "ImmersionSetup"
+    ]
+  }
+}

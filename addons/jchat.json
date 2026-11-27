@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "jchat",
+  "repo": "jlelz/jChat",
+  "about": "# jChat\n## Warcraft chat mod, since 2019\n\n## License\n[![License](https://img.shields.io/badge/license-GPL-blue)](https://github.com/jlelz/jChat/blob/main/LICENSE)\n\n## Why\n- Because relevant chat alerts bring chat to a whole new level \n- ...reading chat is time-consuming\n- ..there is a lot of spam\n\n## How\nInterface > Addons UI\n\n## Platforms\nCurrently only testing retail. It may work for classic or not\n\n## Issues\nhttps://github.com/jlelz/jChat/issues\n\n## Screenshots\n\n  ![](https://raw.githubusercontent.com/jlelz/screens/main/wow/jChat/1.png)\n\n  ![](https://raw.githubusercontent.com/jlelz/screens/main/wow/jChat/2.png)\n\n  ![](https://raw.githubusercontent.com/jlelz/screens/main/wow/jChat/3.png)\n\n  ![](https://raw.githubusercontent.com/jlelz/screens/main/wow/jChat/4.png)",
+  "releases": [
+    {
+      "tag": "2026.11.11.21.16.36",
+      "published": "2026-11-12",
+      "notes": "# jChat\n\n## [2026.11.11.21.16.36](https://github.com/jlelz/jChat/tree/2026.11.11.21.16.36) (2026-11-12)\n[Full Changelog](https://github.com/jlelz/jChat/compare/2026.11.10.22.27.50...2026.11.11.21.16.36) [Previous Releases](https://github.com/jlelz/jChat/releases)\n\n- fixes after refactor"
+    },
+    {
+      "tag": "2026.11.10.22.27.50",
+      "published": "2026-11-11",
+      "notes": "# jChat\n\n## [2026.11.10.22.27.50](https://github.com/jlelz/jChat/tree/2026.11.10.22.27.50) (2026-11-11)\n[Full Changelog](https://github.com/jlelz/jChat/compare/2026.11.07.21.37.29...2026.11.10.22.27.50) [Previous Releases](https://github.com/jlelz/jChat/releases)\n\n- fix for debug list  \n- images"
+    },
+    {
+      "tag": "2026.11.07.21.37.29",
+      "published": "2026-11-08",
+      "notes": "# jChat\n\n## [2026.11.07.21.37.29](https://github.com/jlelz/jChat/tree/2026.11.07.21.37.29) (2026-11-08)\n[Full Changelog](https://github.com/jlelz/jChat/compare/2026.11.07.20.43.28...2026.11.07.21.37.29) [Previous Releases](https://github.com/jlelz/jChat/releases)\n\n- expose db profile  \n- toc category  \n- default alert color"
+    },
+    {
+      "tag": "2026.11.07.20.43.28",
+      "published": "2026-11-08",
+      "notes": "# jChat\n\n## [2026.11.07.20.43.28](https://github.com/jlelz/jChat/tree/2026.11.07.20.43.28) (2026-11-08)\n[Full Changelog](https://github.com/jlelz/jChat/compare/2026.11.07.20.09.54...2026.11.07.20.43.28) [Previous Releases](https://github.com/jlelz/jChat/releases)\n\n- formatting and debug"
+    },
+    {
+      "tag": "2026.11.07.20.09.54",
+      "published": "2026-11-08",
+      "notes": "# jChat\n\n## [2026.11.07.20.09.54](https://github.com/jlelz/jChat/tree/2026.11.07.20.09.54) (2026-11-08)\n[Full Changelog](https://github.com/jlelz/jChat/compare/2026.11.07.19.32.47...2026.11.07.20.09.54) [Previous Releases](https://github.com/jlelz/jChat/releases)\n\n- bug fix"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/jlelz/screens/main/wow/jChat/1.png",
+    "https://raw.githubusercontent.com/jlelz/screens/main/wow/jChat/2.png",
+    "https://raw.githubusercontent.com/jlelz/screens/main/wow/jChat/3.png",
+    "https://raw.githubusercontent.com/jlelz/screens/main/wow/jChat/4.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-12",
+    "releaseDates": [
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-03",
+      "2026-11-03",
+      "2026-11-02",
+      "2026-11-01",
+      "2026-10-21",
+      "2026-10-21",
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-08-23",
+      "2026-08-22",
+      "2026-08-22",
+      "2026-08-14",
+      "2026-08-13",
+      "2026-06-17",
+      "2026-05-15",
+      "2026-05-01",
+      "2026-05-01",
+      "2026-05-01",
+      "2026-04-30",
+      "2026-04-19",
+      "2026-04-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "jChat"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "jChat"
+    ]
+  }
+}

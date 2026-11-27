@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "colortools",
+  "repo": "muhmiauwauWOW/ColorTools",
+  "about": "## ColorTools\n\nColorTools Color Picker is an enhancement for the built-in WoW Color Picker.\n\n### Features\n\n- History of recently used colors\n- Color palettes with Blizzard standard colors for quick access\n- Input fields for RGB and Alpha values\n- Save and manage favorite colors\n- Support for multiple languages\n- Advanced options for managing color history and duplicates\n\n### Notes\n- For feedback or bug reports, visit the project page on CurseForge or WoWI.",
+  "releases": [
+    {
+      "tag": "1.9.12",
+      "published": "2026-10-21",
+      "notes": "# ColorTools Color Picker\n\n## [1.9.12](https://github.com/muhmiauwauWOW/ColorTools/tree/1.9.12) (2026-10-21)\n[Full Changelog](https://github.com/muhmiauwauWOW/ColorTools/compare/1.9.11...1.9.12) [Previous Releases](https://github.com/muhmiauwauWOW/ColorTools/releases)\n\n- Update mixins.lua"
+    },
+    {
+      "tag": "1.9.11",
+      "published": "2026-10-15",
+      "notes": "# ColorTools Color Picker\n\n## [1.9.11](https://github.com/muhmiauwauWOW/ColorTools/tree/1.9.11) (2026-10-15)\n[Full Changelog](https://github.com/muhmiauwauWOW/ColorTools/compare/1.9.10...1.9.11) [Previous Releases](https://github.com/muhmiauwauWOW/ColorTools/releases)\n\n- Update ColorTools.toc"
+    },
+    {
+      "tag": "1.9.10",
+      "published": "2026-10-15",
+      "notes": "# ColorTools Color Picker\n\n## [1.9.10](https://github.com/muhmiauwauWOW/ColorTools/tree/1.9.10) (2026-10-15)\n[Full Changelog](https://github.com/muhmiauwauWOW/ColorTools/compare/1.9.9...1.9.10) [Previous Releases](https://github.com/muhmiauwauWOW/ColorTools/releases)\n\n- Update ColorTools.toc"
+    },
+    {
+      "tag": "1.9.9",
+      "published": "2026-09-14",
+      "notes": "# ColorTools Color Picker\n\n## [1.9.9](https://github.com/muhmiauwauWOW/ColorTools/tree/1.9.9) (2026-09-14)\n[Full Changelog](https://github.com/muhmiauwauWOW/ColorTools/compare/1.9.8...1.9.9) [Previous Releases](https://github.com/muhmiauwauWOW/ColorTools/releases)\n\n- Update ColorTools.toc"
+    },
+    {
+      "tag": "1.9.8",
+      "published": "2026-08-07",
+      "notes": "# ColorTools Color Picker\n\n## [1.9.8](https://github.com/muhmiauwauWOW/ColorTools/tree/1.9.8) (2026-08-07)\n[Full Changelog](https://github.com/muhmiauwauWOW/ColorTools/compare/1.9.7...1.9.8) [Previous Releases](https://github.com/muhmiauwauWOW/ColorTools/releases)\n\n- Update ColorTools.toc"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-09-14",
+      "2026-08-07",
+      "2026-06-06",
+      "2026-04-25",
+      "2026-02-26",
+      "2026-02-01",
+      "2026-01-21",
+      "2025-12-03",
+      "2025-11-04",
+      "2025-07-27",
+      "2025-07-09",
+      "2025-07-09",
+      "2025-06-02",
+      "2025-04-29",
+      "2025-04-07",
+      "2025-02-22",
+      "2024-12-16",
+      "2024-10-17",
+      "2024-10-16",
+      "2024-10-14",
+      "2024-10-03",
+      "2024-09-07",
+      "2024-09-03",
+      "2024-08-21",
+      "2024-08-21",
+      "2024-08-20",
+      "2024-08-20",
+      "2024-08-19",
+      "2024-08-18",
+      "2024-08-14",
+      "2024-08-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ColorTools"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ]
+  }
+}

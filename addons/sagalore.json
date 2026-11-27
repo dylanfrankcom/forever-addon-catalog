@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "sagalore",
+  "repo": "magnusnilsen/gutsaga",
+  "about": "# Sagalore\n\nSagalore is a saga log for a World of Warcraft group. One person plays. The desktop companion installs the addon, signs in with Battle.net, and syncs sagas. The addon has no HTTP of its own: it writes chat lines and SavedVariables, and the companion posts them.\n\n**Site:** [sagalore.app](https://sagalore.app/) · **API:** `api.sagalore.app` · **Product:** [github.com/sagalore/sagalore](https://github.com/sagalore/sagalore) · **Website:** [github.com/sagalore/website](https://github.com/sagalore/website)\n\n## Free and open source\n\nThree parts, on purpose:\n\n1. **The project.** Sagalore is free and open source (MIT). The addon, the companion, and the API are in this repository. Anyone can read the code, run it, and host their own server on any host that runs containers (or a Go binary) and Postgres.\n2. **The official server.** The easiest way to start is the official server at [sagalore.app](https://sagalore.app/) / `api.sagalore.app`, which is free to use. Your data is stored there, and you sign in with Battle.net.\n3. **The MCP.** There is an [official MCP](https://app.smia.io/m/sagalore) that lets your AI create sagas. It is built on the open Sagalore API and runs on [Smia](https://smia.io/), a platform we also make. The MCP is not in this repo: Sagalore stays independent of any one platform, and the listing is also a way to show people Smia. Want your own MCP? The API is documented — build away. See [docs/API.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/API.md) and [docs/oauth.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/oauth.md).\n\nThe marketing site is a **separate** repository ([sagalore/website](https://github.com/sagalore/website)). This product repo does not ship or serve the landing page.\n\n## Project status\n\nEarly public / alpha. One maintainer. Expect rough edges, unsigned binaries, and slow replies on issues.\n\n- Built with heavy **Cursor** (AI) assistance for a lot of the **code**. Architecture and merge decisions are human-owned; review PRs as carefully as you would any agent-assisted codebase.\n- **Assets** were AI-generated or AI-assisted too: logo / emblem / wordmark, landing copy, and UI frames / chrome. Treat the brand as provisional, not commissioned art.\n- Day-to-day development and playtesting: **macOS Apple silicon**, WoW Classic Era (and Forever). The Windows companion is **built in CI**; in-game Windows play is not systematically tested.\n- Not affiliated with or endorsed by Blizzard. Unofficial software; ToS risk is yours.\n- Release binaries are **not signed**. Gatekeeper and SmartScreen warnings are expected.\n- Leaderboard finish times are **client-reported** (honor-based), not anti-cheat.\n\n## Try it locally\n\nYou need Docker, Go, and a WoW client. Postgres and the API come from Compose. Login in development uses `SAGALORE_DEV_TOKEN` so you do not need a Battle.net app for the first run.\n\n```bash\nmake dev\n```\n\nThat starts Postgres and the API, waits for `/healthz`, and seeds the Elwynn tutorial sagas. In another terminal:\n\n```bash\nSAGALORE_DEV_TOKEN=dev-token SAGALORE_ADDON_SRC=addon/Sagalore \\\n  go run ./cmd/sagalore --api-url http://localhost:8080 --client classic_era\n```\n\nThe API container must have the same `SAGALORE_DEV_TOKEN`. `make dev` sets `dev-token` for local use only.\n\nThe companion installs `Interface/AddOns/Sagalore`. In game, `/reload`, then `/sagalore` or `/sl`.\n\nIf the database already has sagas and no group, set `SAGALORE_BOOTSTRAP_GROUP=slug:Name` before the API starts.\n\n## Self-host\n\nAnyone can run the API + Postgres and point a companion at it. Short checklist and env table: [docs/self-hosting.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/self-hosting.md). For a real (non-dev-token) login you need your own Battle.net app, `PUBLIC_BASE_URL`, and secrets as described there. Official release binaries bake `SAGALORE_API_URL`; self-hosted companions pass `--api-url`.\n\n## What you set before a real login\n\n- Register a Battle.net application for this host. The redirect URI is `{PUBLIC_BASE_URL}/v1/auth/bnet/callback`. Blizzard will not accept a random loopback port, so the secret stays on the API.\n- `BNET_CLIENT_ID` and `BNET_CLIENT_SECRET` on the API.\n- `PUBLIC_BASE_URL` for that redirect and for signed cover URLs.\n- Official release binaries get the public API URL from the GitHub Actions variable `SAGALORE_API_URL` (`-ldflags`). A self-hosted companion passes `--api-url`.\n\n## Groups\n\nA player is a Battle.net account (`bnet_account_id` and BattleTag). Characters come from the addon. A name and realm sticks to the first account that linked it. If the character line includes a BattleTag, it must match the logged-in account.\n\nMembership is the account. Any member may create sagas in the group. The owner invites, removes members, and sets the group webhook and locale. If you are in exactly one group, the saga body may omit `group`. Otherwise `group` is the group slug (a string). The party-size object is still `group` when it is an object; it may include `slug` when you need both.\n\nInvites are addressed to a character. Accept joins that Battle.net account and marks the character participating. Decline sticks. Not now is a 12-hour snooze in SavedVariables.\n\nAPI paths stay `/v1/sagas`. A saga is still a saga. The JSON field `group` on a kill step or a saga is the party-size rule. Who plays together is a row in `groups`.\n\n## Leaderboards\n\nA group leaderboard is how many sagas each character has completed. It is not points, and it only includes characters whose Battle.net account is in that group. `GET /v1/groups/{id}/leaderboard?period=all|month|week|today` ranks them. Periods use the Europe/Oslo calendar: today, the Monday-starting week, and the calendar month.\n\nThe addon records `started_at` in SavedVariables when the first goal of a saga gains progress (the first rabbit of \"drop 5 rabbits\", not the fifth). The companion sends that time with the completion. The server stores `duration_sec`. Saga activity can be sorted by that duration or by newest completion. The addon shows both the leaderboard and the activity sort from `SagaloreData.lua`, which the companion writes from `GET /v1/sync`.\n\nFinish times are whatever the addon reported. They are not verified. Repeatable sagas are not implemented. The progress table can already store more than one finish per character and saga, and the API still keeps the first one.\n\n## Personal tokens\n\nPlayers who only play never need a token. A long-lived `gst_` token is for external HTTP clients. `POST /v1/me/tokens` returns the raw token once. `DELETE /v1/me/tokens/{id}` revokes it.\n\nOther services can register as OAuth clients and send the player through Battle.net and a consent page. The access token is also a `gst_` token, so the same API checks accept it. See [docs/oauth.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/oauth.md).\n\n`ADMIN_TOKEN` is for operators: hard-delete a saga, or delete a group and its sagas. It cannot author sagas.\n\n## Docs\n\n- [docs/self-hosting.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/self-hosting.md) — Compose, env, Battle.net app, curl\n- [docs/webhooks.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/webhooks.md) — Group notification webhooks (JSON)\n- [docs/API.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/API.md) — HTTP\n- [docs/oauth.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/oauth.md) — OAuth 2.1 for external clients\n- [docs/sagas-api.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/sagas-api.md) — saga JSON\n- [docs/character-opt-in.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/character-opt-in.md) — participating characters\n- [docs/architecture.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/architecture.md) — how the pieces fit\n- [docs/opensource-checklist.md](https://github.com/magnusnilsen/gutsaga/blob/main/docs/opensource-checklist.md) — publish / org-move checklist\n- [docs/openapi.yaml](https://github.com/magnusnilsen/gutsaga/blob/main/docs/openapi.yaml)\n- [SECURITY.md](https://github.com/magnusnilsen/gutsaga/blob/main/SECURITY.md) and [CONTRIBUTING.md](https://github.com/magnusnilsen/gutsaga/blob/main/CONTRIBUTING.md)\n\n## Updates\n\nRelease assets are `sagalore-darwin-arm64`, `sagalore-darwin-amd64`, `sagalore-windows-amd64.exe`, and `Sagalore-addon.zip`. The default update repo is `sagalore/sagalore`. Self-hosters set `update.repo` or turn updates off. Binaries are not signed.",
+  "releases": [
+    {
+      "tag": "v0.1.23",
+      "name": "Sagalore v0.1.23",
+      "published": "2026-11-01",
+      "notes": "## What's Changed\n* Record v0.1.0 seed release smoke by @magnusnilsen in https://github.com/magnusnilsen/gutsaga/pull/62\n\n**Full Changelog**: https://github.com/magnusnilsen/gutsaga/compare/v0.1.22...v0.1.23\n\n## Downloads\n\n- `sagalore-darwin-arm64` and `sagalore-darwin-amd64` (macOS)\n- `sagalore-windows-amd64.exe`\n- `Sagalore-addon.zip`\n- `SHA256SUMS`\n\nThe binaries are not signed."
+    },
+    {
+      "tag": "v0.1.22",
+      "name": "Sagalore v0.1.22",
+      "published": "2026-11-01",
+      "notes": "## What's Changed\n* Mark open-source seed checklist progress by @magnusnilsen in https://github.com/magnusnilsen/gutsaga/pull/61\n\n**Full Changelog**: https://github.com/magnusnilsen/gutsaga/compare/v0.1.21...v0.1.22\n\n## Downloads\n\n- `sagalore-darwin-arm64` and `sagalore-darwin-amd64` (macOS)\n- `sagalore-windows-amd64.exe`\n- `Sagalore-addon.zip`\n- `SHA256SUMS`\n\nThe binaries are not signed."
+    },
+    {
+      "tag": "v0.1.21",
+      "name": "Sagalore v0.1.21",
+      "published": "2026-11-01",
+      "notes": "## What's Changed\n* Host-agnostic product URLs and self-host checklist by @magnusnilsen in https://github.com/magnusnilsen/gutsaga/pull/60\n\n**Full Changelog**: https://github.com/magnusnilsen/gutsaga/compare/v0.1.20...v0.1.21\n\n## Downloads\n\n- `sagalore-darwin-arm64` and `sagalore-darwin-amd64` (macOS)\n- `sagalore-windows-amd64.exe`\n- `Sagalore-addon.zip`\n- `SHA256SUMS`\n\nThe binaries are not signed."
+    },
+    {
+      "tag": "v0.1.20",
+      "name": "Sagalore v0.1.20",
+      "published": "2026-11-01",
+      "notes": "## What's Changed\n* Open-source cleanup: sagalore module, no legacy names by @magnusnilsen in https://github.com/magnusnilsen/gutsaga/pull/58\n\n**Full Changelog**: https://github.com/magnusnilsen/gutsaga/compare/v0.1.19...v0.1.20\n\n## Downloads\n\n- `sagalore-darwin-arm64` and `sagalore-darwin-amd64` (macOS)\n- `sagalore-windows-amd64.exe`\n- `Sagalore-addon.zip`\n- `SHA256SUMS`\n\nThe binaries are not signed."
+    },
+    {
+      "tag": "v0.1.19",
+      "name": "Sagalore v0.1.19",
+      "published": "2026-11-01",
+      "notes": "## What's Changed\n* Build and test on Go 1.25 (supersedes #21) by @smia-mia in https://github.com/magnusnilsen/gutsaga/pull/23\n\n**Full Changelog**: https://github.com/magnusnilsen/gutsaga/compare/v0.1.18...v0.1.19\n\n## Last ned\n\n- `sagalore-darwin-arm64` and `sagalore-darwin-amd64` (macOS)\n- `sagalore-windows-amd64.exe`\n- `Sagalore-addon.zip`\n- `SHA256SUMS`\n\nThe product was renamed from OurSagas to Sagalore. `oursagas-*` and `OurSagas-addon.zip` are the same files, so a companion that still looks up the old names can update once.\n\nThe binaries are not signed."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 16,
+    "contributors": 5,
+    "lastRelease": "2026-11-01",
+    "releaseDates": [
+      "2026-11-01",
+      "2026-11-01",
+      "2026-11-01",
+      "2026-11-01",
+      "2026-11-01",
+      "2026-10-31",
+      "2026-10-29",
+      "2026-10-29",
+      "2026-10-29",
+      "2026-10-29",
+      "2026-10-29",
+      "2026-10-28",
+      "2026-10-28",
+      "2026-10-28",
+      "2026-10-27",
+      "2026-10-26",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-25",
+      "2026-10-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Sagalore"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "SagaloreDB"
+    ]
+  }
+}

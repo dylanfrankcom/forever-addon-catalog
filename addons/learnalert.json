@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "learnalert",
+  "repo": "jbolduan/LearnAlert",
+  "about": "# LearnAlert\n\nA World of Warcraft addon that opens a clickable list when there are mounts, toys, transmog items, follower curios, profession knowledge items, battle pets, or housing decor items in your bags or bank that you can use or learn.\n\n## Features\n\n- **Clickable Learnable List**: Opens a clickable list of learnable items when items are found\n- **Ignore Items**: Right-click any row to suppress that item from the alert; restore it with `/la unignore <id>`\n- **Settings Panel**: Configure LearnAlert in the built-in WoW Settings UI, including general toggles (enable addon, show alert, verbose output) and per-item-type detection toggles\n- **Warning Auto-confirm Options**: Optional separate toggles to auto-confirm bind-to-you and non-refundable warnings only for items used from LearnAlert rows\n- **Ignored Items Manager**: In the Settings panel, view all ignored items, remove them with a button, or drag bag items into the drop box to add them to the ignore list\n- **Custom Items Manager**: In the Settings panel, manage custom follower-curio tracked items (seeded with Rattling Bag o' Gold), remove entries, or drag bag items into the drop box to add more\n\n## How It Works\n\n1. The addon automatically scans your bags every 2 seconds\n2. When you open your bank (character bank, reagent bank, or warbank), it automatically scans those containers too\n3. When it finds mounts, toys, transmog items, follower curios, profession knowledge items, battle pets, or housing decor items, it opens a clickable list\n4. Click an entry in the list to use and learn that item from its bag slot (equippable transmog gear uses a swap-back flow to restore your previously equipped item)\n5. Right-click an entry to ignore it; the item will no longer appear in the alert until you restore it with `/la unignore <id>`\n6. The list updates in real-time as items are learned or moved\n\n## Commands\n\n| Command | Description |\n| ------- | ----------- |\n| `/la` or `/learnalert` | Show help |\n| `/la show` | Show the learnable-items list |\n| `/la hide` | Hide the learnable-items list |\n| `/la toggle` | Toggle the learnable-items list |\n| `/la list` or `/la l` | List learnable items in chat |\n| `/la check` or `/la c` | Check for learnable items now |\n| `/la verbose` or `/la v` | Toggle verbose messages |\n| `/la settings` | Open the LearnAlert settings panel |\n| `/la debugmount` or `/la dm` | Show mount detection diagnostics for all items in bags |\n| `/la debugpet` or `/la dp` | Show pet detection diagnostics for all items in bags |\n| `/la debugtoy` or `/la dt` | Show toy detection diagnostics for all items in bags |\n| `/la debugtransmog` or `/la dtr` | Show transmog detection diagnostics for all items in bags |\n| `/la debugcurio` or `/la dcu` | Show follower curio detection diagnostics for all items in bags |\n| `/la debugknowledge` or `/la dk` | Show profession knowledge detection diagnostics for all items in bags |\n| `/la debugdecor` or `/la dd` | Show housing decor detection diagnostics for all items in bags |\n| `/la debugbank` or `/la db` | Show bank inventory and detection status (requires bank to be open) |\n| `/la debugclick` or `/la dc` | Toggle click payload debug logging for learnable-item rows (chat + copyable window) |\n| `/la ignorelist` or `/la il` | List all currently ignored items |\n| `/la unignore <id>` or `/la ui <id>` | Restore an ignored item by its item ID |\n| `/la clearignored` or `/la ci` | Clear all ignored items |\n\n## Installation\n\n1. Download the addon\n2. (Optional) Install the AbstractFramework addon for the enhanced UI skin\n3. Extract to: `World of Warcraft\\_retail_\\Interface\\AddOns\\LearnAlert`\n4. Restart WoW or type `/reload`\n\nIf AbstractFramework is not installed, LearnAlert now uses a built-in fallback UI so alerts and core features still work.\n\n## Usage\n\n1. The addon automatically runs in the background\n2. A clickable list opens when learnable items are found in your bags or bank\n3. Use `/la list` to see detailed information about learnable items\n4. Click items in your inventory to learn them\n5. The list hides automatically when no more learnable items are found\n\n## Configuration\n\n- **Settings panel**: Open the in-game Settings screen and find **LearnAlert** in the AddOns section, or type `/la settings`. In **General**, toggle addon enable state, alert visibility, verbose output, and warning auto-confirm options (bind warning and non-refundable warning). Warning auto-confirm only applies to items used from LearnAlert rows. In **Item Type Detection**, toggle each type (Mounts, Toys, Transmog, Follower Curios, Profession Knowledge, Battle Pets, Housing Decor).\n- **Ignored Items section**: In LearnAlert settings, open the **Ignored Items** sub-page to see every ignored item, click **Remove** to unignore, or drag bag items to the drop target to add them.\n- **Custom Items section**: In LearnAlert settings, open the **Custom Items** sub-page to see always-tracked custom follower-curio items, click **Remove** to stop tracking one, or drag bag items to add more.\n- **Drag the list window** to reposition it anywhere on your screen\n- **Toggle on/off** with `/la toggle`\n- **Adjust check frequency** by editing the addon settings\n- **Enable/disable verbose messages** with `/la verbose`\n\n## Supported Items\n\n- **Mounts**: Any mount item that can be learned by your character\n- **Toys**: Any toy item in the toy collection system\n- **Transmog**: Equippable armor/weapon items and Ensemble/Arsenal containers with uncollected appearances (based on tooltip transmog state). Clickable transmog gear uses a swap-back flow: LearnAlert equips the item to learn the appearance, then immediately re-equips your previously equipped item in that slot.\n- **Follower Curios**: Follower curio consumables and related items detected from tooltip/use text (includes explicit tracking for Rattling Bag o' Gold)\n- **Profession Knowledge**: Profession knowledge consumables and related items detected from tooltip/use text\n- **Battle Pets**: Caged battle pets and other pet-learning items recognized by Pet Journal APIs that you haven't collected yet\n- **Housing Decor**: Any housing decor item (always shown as repeatable)\n\nHousing decor is treated as repeatable content and always appears in LearnAlert when detected in bags/bank.\n\n## Note\n\n- Bank scanning automatically activates when you open the bank window\n- Scans character bank (bags 5-12), reagent bank, and warbank (account-wide bank)\n- The addon respects the \"do not disturb\" feature during combat\n- Item detection uses the game's own collection systems\n\n## License\n\nMIT License - Feel free to modify and distribute!",
+  "releases": [
+    {
+      "tag": "1.4.11",
+      "published": "2026-11-07",
+      "notes": "# LearnAlert\n\n## [1.4.11](https://github.com/jbolduan/LearnAlert/tree/1.4.11) (2026-11-07)\n[Full Changelog](https://github.com/jbolduan/LearnAlert/commits/1.4.11) [Previous Releases](https://github.com/jbolduan/LearnAlert/releases)\n\n- Add fallback UI without AbstractFramework  \n    This commit makes AbstractFramework optional by providing a built-in fallback UI for frames, buttons, scroll panes, and headered windows when the dependency is not installed. It keeps LearnAlert functional in vanilla WoW environments while preserving the enhanced AbstractFramework skin when available. The TOC metadata is updated to mark the dependency as optional, and the installation docs now explain the fallback behavior."
+    },
+    {
+      "tag": "1.4.10",
+      "published": "2026-10-26",
+      "notes": "# LearnAlert\n\n## [1.4.10](https://github.com/jbolduan/LearnAlert/tree/1.4.10) (2026-10-26)\n[Full Changelog](https://github.com/jbolduan/LearnAlert/commits/1.4.10) [Previous Releases](https://github.com/jbolduan/LearnAlert/releases)\n\n- Improve pet and knowledge item detection  \n    Expands battle pet species lookup to scan beyond the old fixed ID range in batches (up to a hard cap), so newer pet-learning items can be recognized reliably. Tightens profession knowledge tooltip heuristics to require usable/consumable instruction context, reducing false positives from non-consumable profession reagents. Also fixes pet journal return-value handling and prioritizes pet-specific textures when rendering alerts. Updates addon version to 1.4.10 and refreshes README battle pet wording."
+    },
+    {
+      "tag": "1.4.9",
+      "published": "2026-10-24",
+      "notes": "# LearnAlert\n\n## [1.4.9](https://github.com/jbolduan/LearnAlert/tree/1.4.9) (2026-10-24)\n[Full Changelog](https://github.com/jbolduan/LearnAlert/commits/1.4.9) [Previous Releases](https://github.com/jbolduan/LearnAlert/releases)\n\n- Harden curio and knowledge item detection  \n    Improve item classification heuristics to reduce false negatives when tooltip text or item metadata is inconsistent. The profession knowledge parser now recognizes more action/context phrases and profession names, and both curio/knowledge detectors now fall back to class/subclass IDs and `GetItemInfoInstant` type data (including reagent/finishing reagent cases). Also update mount learnable detection to rely on `GetMountFromItem` directly with a safe API guard instead of requiring the item subclass to be `Mount` first."
+    },
+    {
+      "tag": "1.4.8",
+      "published": "2026-10-15",
+      "notes": "# LearnAlert\n\n## [1.4.8](https://github.com/jbolduan/LearnAlert/tree/1.4.8) (2026-10-15)\n[Full Changelog](https://github.com/jbolduan/LearnAlert/commits/1.4.8) [Previous Releases](https://github.com/jbolduan/LearnAlert/releases)\n\n- Improve housing decor detection robustness  \n    Enhance IsDecorItem to use GetItemInfoInstant data (classID/subClassID and instant type strings) alongside the existing itemClass/itemSubClass params. Adds classID==20 check for retail housing, normalizes all string comparisons, and expands dye exclusion to cover instant subtypes. Also enriches DebugDecor output with instant type/subtype and class ID fields. Bump version to 1.4.8."
+    },
+    {
+      "tag": "1.4.7",
+      "published": "2026-10-13",
+      "notes": "# LearnAlert\n\n## [1.4.7](https://github.com/jbolduan/LearnAlert/tree/1.4.7) (2026-10-13)\n[Full Changelog](https://github.com/jbolduan/LearnAlert/commits/1.4.7) [Previous Releases](https://github.com/jbolduan/LearnAlert/releases)\n\n- Harden item API lookups and bump to 1.4.7  \n    Add safe wrappers around item/cooldown API calls so the addon can handle clients where certain globals are unavailable, while falling back to C\\_Item equivalents when possible. Improve bag item context and button rendering by resolving names/icons from container/link data and adding stable display-name fallbacks for uncached items. Also update the TOC version to 1.4.7."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-10-26",
+      "2026-10-24",
+      "2026-10-15",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-09-22",
+      "2026-09-11",
+      "2026-06-25",
+      "2026-05-18",
+      "2026-04-22",
+      "2026-04-12",
+      "2026-04-04",
+      "2026-03-22",
+      "2026-03-20",
+      "2026-03-20",
+      "2026-03-14",
+      "2026-03-10",
+      "2026-03-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LearnAlert"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "AbstractFramework"
+    ],
+    "savedVariables": [
+      "LearnAlertDB"
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "id": "extraquestbutton",
+  "repo": "p3lim-wow/ExtraQuestButton",
+  "about": "# ExtraQuestButton\n\nThis is an addon for the popular MMORPG \"World of Warcraft\".  \nIt can be downloaded at one of the following sites:\n\n- [CurseForge](https://www.curseforge.com/wow/addons/extraquestbutton)\n- [WoWInterface](https://wowinterface.com/downloads/info23464)\n- [Wago](https://addons.wago.io/addons/extraquestbutton)\n- [GitHub](https://github.com/p3lim-wow/ExtraQuestButton/releases)\n\n## Description\n\nExtra**Quest**Button adds a button that will show the quest item for the closest quest with an item, it is basically the Extra**Action**Button of quests!\n\nBy default it will share the key binding with the Extra**Action**Button, which can be disabled by binding a key to the Extra**Quest**Button.\n\nIf they share the key binding and both are to be shown, Extra**Action**Button will be shown instead of the Extra**Quest**Button.\n\nUse the Edit Mode to change settings.\n\n## Translations\n\nIf you want to help translate ExtraQuestButton, please go here:  \n[https://legacy.curseforge.com/wow/addons/extraquestbutton/localization](https://legacy.curseforge.com/wow/addons/extraquestbutton/localization)\n\n## Feedback & issues\n\nIf you would like to report a bug or contribute to the project, please visit GitHub:  \n[https://github.com/p3lim-wow/ExtraQuestButton/issues/new/choose](https://github.com/p3lim-wow/ExtraQuestButton/issues/new/choose)\n\n**If you find a quest item that doesn't show up properly, please report the quest.**\n\n## Legal\n\nPlease see the [LICENSE](https://github.com/p3lim-wow/ExtraQuestButton/blob/master/LICENSE.txt) file.",
+  "releases": [
+    {
+      "tag": "120100.73-Release",
+      "published": "2026-10-31",
+      "notes": "### Changes in 120100.73-Release:\n\n- Changed: Update Interface version"
+    },
+    {
+      "tag": "120100.72-Release",
+      "published": "2026-09-28",
+      "notes": "### Changes in 120100.72-Release:\n\n- Changed: Update embeds for gamepad editmode fixes in Forever"
+    },
+    {
+      "tag": "120100.71-Release",
+      "published": "2026-09-28",
+      "notes": "### Changes in 120100.71-Release:\n\n- Added: Support for Forever"
+    },
+    {
+      "tag": "120100.70-Release",
+      "published": "2026-09-01",
+      "notes": "### Changes in 120100.70-Release:\n\n- Changed: Improved item detection/range logic\n- Changed: Update Interface version\n- Changed: Update quest database"
+    },
+    {
+      "tag": "120000.69-Release",
+      "published": "2026-06-30",
+      "notes": "### Changes in 120000.69-Release:\n\n- Changed: Update Interface version\n- Fixed: Hotkey text escaping the button"
+    }
+  ],
+  "stats": {
+    "stars": 15,
+    "openIssues": 5,
+    "contributors": 4,
+    "lastRelease": "2026-10-31",
+    "releaseDates": [
+      "2026-10-31",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-01",
+      "2026-06-30",
+      "2026-04-09",
+      "2026-02-10",
+      "2026-01-28",
+      "2026-01-17",
+      "2026-01-17",
+      "2025-10-10",
+      "2025-08-31",
+      "2025-08-31",
+      "2025-08-11",
+      "2025-06-23",
+      "2025-02-26",
+      "2025-01-08",
+      "2024-12-20",
+      "2024-12-20",
+      "2024-11-29",
+      "2024-09-25",
+      "2024-09-08",
+      "2024-08-18",
+      "2024-07-24",
+      "2024-07-23",
+      "2024-03-25",
+      "2023-11-17",
+      "2023-11-09",
+      "2023-08-23",
+      "2023-08-22",
+      "2023-07-26",
+      "2023-07-24",
+      "2023-05-03",
+      "2023-05-02",
+      "2023-01-29",
+      "2022-11-27",
+      "2022-11-27",
+      "2022-11-16",
+      "2022-11-07",
+      "2022-11-06",
+      "2022-11-06",
+      "2022-11-06",
+      "2022-11-06",
+      "2022-10-28",
+      "2022-03-01",
+      "2022-02-22",
+      "2022-02-22",
+      "2021-11-03",
+      "2021-09-25",
+      "2021-07-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ExtraQuestButton"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "HereBeDragons",
+      "Masque"
+    ],
+    "savedVariables": [
+      "ExtraQuestButtonDB3"
+    ]
+  }
+}

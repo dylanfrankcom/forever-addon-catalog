@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "keybindprofiles",
+  "repo": "RodiScheele/KeyBindProfiles",
+  "about": "# Key Bind Profiles Addon\n\n**Key Bind Profiles** is a lightweight addon designed to improve the management of keybinds in World of Warcraft. Blizzard’s default system only allows for character-specific keybind settings. This addon extends functionality by allowing specialization-specific profiles that automatically load when you switch specializations.\n\n## Features\n\n- **Profile Management:** Create and save keybind settings into profiles that can be reloaded anytime.\n- **Specialization-Specific Profiles:** Assign profiles to specific specializations for automatic loading upon switching.\n- **Auto-Save Functionality:** Keybinds are automatically saved when changed, with the option to disable this feature for manual control.\n- **Persistent Settings:** The profiles retain settings even after quitting the game.\n\n## Usage\n\nTo manually manage profiles, through a macro for example, access the addon's interface menu or use the following chat commands:\n\n- `/kbp save`: Saves the current profile.\n- `/kbp save [profilename]`: Saves to a specified profile. Overwrites if it exists, or creates a new one.\n- `/kbp load [profilename]`: Loads an existing profile.\n- `/kbp delete [profilename]`: Deletes an existing profile.\n- `/kbp list`: Lists all existing profiles.\n\nManual keybinds saving is available through the 'Save Keybinds' button or by using the `/kbp` command.\n\n## Storage and Backup\n\nKeybind settings are stored in the following directory:  \n`/World of Warcraft/_<VERSION>/WTF/Account/<ACCOUNTNAME>/SavedVariables/KeyBindProfiles.lua`\n\n**Important:** Deleting your WTF folder will remove all stored keybinds. To prevent loss of data, keep a backup of the `KeyBindProfiles.lua` file. If you reinstall the game, restore this file to retain your settings. **It's not possible to recover keybinds if you lose this file.**\n\n## Compatibility\n\nThis addon has been tested and works with:\n- Default Action Bars\n- Bartender\n- Dominos\n\nIt should be compatible with other action bar addons as long as they do not completely rewrite the base action bar logic.\n\n## Development Background\n\nThe addon was created from a desire to port Silencer2K's action-bar-profiles addon for WotLK-classic. However, the original KeyBindProfiles contained a plethora of additional functionalities that ultimately caused the addon to break due to compatibility issues with WotLK's API.\n\nFaced with numerous unimplemented API calls in WotLK, it became clear that a complete overhaul was necessary. I decided to extract and refine only the essential keybind saving and loading logic, discarding the rest. This decision led to the development of a new, streamlined addon that focuses solely on providing reliable keybind profile management.\n\nThe current addon, therefore, is a significant simplification and rewrite, maintaining only the core functionality of keybind management from Silencer2K's original work.\n\n## Links\n\n- **Source Code:** [GitHub](https://github.com/rscheele/KeyBindProfiles)\n- **Download:**\n  - [CurseForge](https://www.curseforge.com/wow/addons/keybindprofiles)\n  - [WowInterface](https://www.wowinterface.com/downloads/info26417-KeyBindProfiles.html)\n  - [Wago](https://addons.wago.io/addons/key-bind-profiles-azaiko-classic-wotlk)\n\nFor those interested in the original addon by Silencer2K:\n- **Latest Release:** [CurseForge](https://www.curseforge.com/wow/addons/action-bar-profiles)\n- **Alpha Build:** [WoWAce](http://www.wowace.com/addons/action-bar-profiles/files)\n- **Source Code:** [GitHub](https://github.com/Silencer2K/wow-action-bar-profiles)\n\nExplore more of Silencer2K’s projects on [CurseForge](https://www.curseforge.com/members/silencer2k/projects).",
+  "releases": [
+    {
+      "tag": "1.4.5-release",
+      "published": "2026-10-21",
+      "notes": "1.4.5\n- Midnight update \n\n1.4.4\n- Release for wow forever beta\n\n1.4.2\n- Bump toc for classic\n\n1.4.1\n- Update libdualspec\n\n1.4.0\n- Restore libDualSpec-1.0 to the addon package\n\n1.3.1\n- Fix broken lib\n\n1.3.0\n- Updated libdualspec to allow for the addon to work with dual spec for classic\n- Libraries are now packed with the BigWigs packager action, not maintained manually anymore with the exception of libdualspec which is maintained manually (for the time being)\n\n1.2.4\n- Add support for patch 12.1\n\n1.2.3\n- Add manual changelog\n\n1.2.2\n- Midnight 12.0.5 release\n\n1.2.1\n- Removed default profile creation for class and realm. Only character specific profiles will be created.\n- Add TBC & Titan reforged release.\n\n1.2.0\n- Midnight release 12.0\n- Updated most of the libraries for midnight\n\n1.1.16\n- The War Within patch 11.2 release\n\n1.1.15\n- MoP classic release\n\n1.1.14\n- The War Within patch 11.1.5 release\n- Added category for new ingame addon frame\n\n1.1.13\n- The War Within patch 11.1.0 release\n\n1.1.12\n- The War Within patch 11.0.5 release\n\n1.1.11\n- Fix deprecated API call to open settings pane\n\n1.1.10\n- The War Within Release\n\n1.1.7\n- Cataclysm release\n\n1.1.6\n- Single toc file for all versions\n\n1.1.5\n- Suppress error loading libDualSpec-1.0 in classic\n\n1.1.4\n- Add project ID's to toc\n\n1.1.3\n- Use Github actions to build and release the addon automatically (Big thanks to the BigWigs team for their packager Action)\n\n1.1.2\n- ToC updated for Retail, Wrath. Added Classic\n- Updated libs\n\n1.1.1\n- Updated ToC\n\n1.1.0\n- Added chat commands \n\n1.0.4\n- Incremented version for Dragonflight prepatch 10.0.2\n- Updated readme\n\n1.0.3\n- DragonFlight release\n\n1.0.2\n- Fixed an issue where the the keybinds would not load properly with the Domino's addon\n\n1.0.1\n- Fixed bug where upon loading a different profile and logging out, the previous profile would overwrite the one logged out in.\n\n1.0.0\n- Initial creation"
+    },
+    {
+      "tag": "1.4.4-release",
+      "published": "2026-09-18",
+      "notes": "1.4.4\n- Release for wow forever beta\n\n1.4.2\n- Bump toc for classic\n\n1.4.1\n- Update libdualspec\n\n1.4.0\n- Restore libDualSpec-1.0 to the addon package\n\n1.3.1\n- Fix broken lib\n\n1.3.0\n- Updated libdualspec to allow for the addon to work with dual spec for classic\n- Libraries are now packed with the BigWigs packager action, not maintained manually anymore with the exception of libdualspec which is maintained manually (for the time being)\n\n1.2.4\n- Add support for patch 12.1\n\n1.2.3\n- Add manual changelog\n\n1.2.2\n- Midnight 12.0.5 release\n\n1.2.1\n- Removed default profile creation for class and realm. Only character specific profiles will be created.\n- Add TBC & Titan reforged release.\n\n1.2.0\n- Midnight release 12.0\n- Updated most of the libraries for midnight\n\n1.1.16\n- The War Within patch 11.2 release\n\n1.1.15\n- MoP classic release\n\n1.1.14\n- The War Within patch 11.1.5 release\n- Added category for new ingame addon frame\n\n1.1.13\n- The War Within patch 11.1.0 release\n\n1.1.12\n- The War Within patch 11.0.5 release\n\n1.1.11\n- Fix deprecated API call to open settings pane\n\n1.1.10\n- The War Within Release\n\n1.1.7\n- Cataclysm release\n\n1.1.6\n- Single toc file for all versions\n\n1.1.5\n- Suppress error loading libDualSpec-1.0 in classic\n\n1.1.4\n- Add project ID's to toc\n\n1.1.3\n- Use Github actions to build and release the addon automatically (Big thanks to the BigWigs team for their packager Action)\n\n1.1.2\n- ToC updated for Retail, Wrath. Added Classic\n- Updated libs\n\n1.1.1\n- Updated ToC\n\n1.1.0\n- Added chat commands \n\n1.0.4\n- Incremented version for Dragonflight prepatch 10.0.2\n- Updated readme\n\n1.0.3\n- DragonFlight release\n\n1.0.2\n- Fixed an issue where the the keybinds would not load properly with the Domino's addon\n\n1.0.1\n- Fixed bug where upon loading a different profile and logging out, the previous profile would overwrite the one logged out in.\n\n1.0.0\n- Initial creation"
+    },
+    {
+      "tag": "1.4.3-release",
+      "published": "2026-09-18",
+      "notes": "1.4.3\n- Release for wow forever beta\n\n1.4.2\n- Bump toc for classic\n\n1.4.1\n- Update libdualspec\n\n1.4.0\n- Restore libDualSpec-1.0 to the addon package\n\n1.3.1\n- Fix broken lib\n\n1.3.0\n- Updated libdualspec to allow for the addon to work with dual spec for classic\n- Libraries are now packed with the BigWigs packager action, not maintained manually anymore with the exception of libdualspec which is maintained manually (for the time being)\n\n1.2.4\n- Add support for patch 12.1\n\n1.2.3\n- Add manual changelog\n\n1.2.2\n- Midnight 12.0.5 release\n\n1.2.1\n- Removed default profile creation for class and realm. Only character specific profiles will be created.\n- Add TBC & Titan reforged release.\n\n1.2.0\n- Midnight release 12.0\n- Updated most of the libraries for midnight\n\n1.1.16\n- The War Within patch 11.2 release\n\n1.1.15\n- MoP classic release\n\n1.1.14\n- The War Within patch 11.1.5 release\n- Added category for new ingame addon frame\n\n1.1.13\n- The War Within patch 11.1.0 release\n\n1.1.12\n- The War Within patch 11.0.5 release\n\n1.1.11\n- Fix deprecated API call to open settings pane\n\n1.1.10\n- The War Within Release\n\n1.1.7\n- Cataclysm release\n\n1.1.6\n- Single toc file for all versions\n\n1.1.5\n- Suppress error loading libDualSpec-1.0 in classic\n\n1.1.4\n- Add project ID's to toc\n\n1.1.3\n- Use Github actions to build and release the addon automatically (Big thanks to the BigWigs team for their packager Action)\n\n1.1.2\n- ToC updated for Retail, Wrath. Added Classic\n- Updated libs\n\n1.1.1\n- Updated ToC\n\n1.1.0\n- Added chat commands \n\n1.0.4\n- Incremented version for Dragonflight prepatch 10.0.2\n- Updated readme\n\n1.0.3\n- DragonFlight release\n\n1.0.2\n- Fixed an issue where the the keybinds would not load properly with the Domino's addon\n\n1.0.1\n- Fixed bug where upon loading a different profile and logging out, the previous profile would overwrite the one logged out in.\n\n1.0.0\n- Initial creation"
+    },
+    {
+      "tag": "1.4.2-release",
+      "published": "2026-09-08",
+      "notes": "1.4.2\n- Bump toc for classic\n\n1.4.1\n- Update libdualspec\n\n1.4.0\n- Restore libDualSpec-1.0 to the addon package\n\n1.3.1\n- Fix broken lib\n\n1.3.0\n- Updated libdualspec to allow for the addon to work with dual spec for classic\n- Libraries are now packed with the BigWigs packager action, not maintained manually anymore with the exception of libdualspec which is maintained manually (for the time being)\n\n1.2.4\n- Add support for patch 12.1\n\n1.2.3\n- Add manual changelog\n\n1.2.2\n- Midnight 12.0.5 release\n\n1.2.1\n- Removed default profile creation for class and realm. Only character specific profiles will be created.\n- Add TBC & Titan reforged release.\n\n1.2.0\n- Midnight release 12.0\n- Updated most of the libraries for midnight\n\n1.1.16\n- The War Within patch 11.2 release\n\n1.1.15\n- MoP classic release\n\n1.1.14\n- The War Within patch 11.1.5 release\n- Added category for new ingame addon frame\n\n1.1.13\n- The War Within patch 11.1.0 release\n\n1.1.12\n- The War Within patch 11.0.5 release\n\n1.1.11\n- Fix deprecated API call to open settings pane\n\n1.1.10\n- The War Within Release\n\n1.1.7\n- Cataclysm release\n\n1.1.6\n- Single toc file for all versions\n\n1.1.5\n- Suppress error loading libDualSpec-1.0 in classic\n\n1.1.4\n- Add project ID's to toc\n\n1.1.3\n- Use Github actions to build and release the addon automatically (Big thanks to the BigWigs team for their packager Action)\n\n1.1.2\n- ToC updated for Retail, Wrath. Added Classic\n- Updated libs\n\n1.1.1\n- Updated ToC\n\n1.1.0\n- Added chat commands \n\n1.0.4\n- Incremented version for Dragonflight prepatch 10.0.2\n- Updated readme\n\n1.0.3\n- DragonFlight release\n\n1.0.2\n- Fixed an issue where the the keybinds would not load properly with the Domino's addon\n\n1.0.1\n- Fixed bug where upon loading a different profile and logging out, the previous profile would overwrite the one logged out in.\n\n1.0.0\n- Initial creation"
+    },
+    {
+      "tag": "1.4.1-release",
+      "published": "2026-08-14",
+      "notes": "1.4.1\n- Update libdualspec\n\n1.4.0\n- Restore libDualSpec-1.0 to the addon package\n\n1.3.1\n- Fix broken lib\n\n1.3.0\n- Updated libdualspec to allow for the addon to work with dual spec for classic\n- Libraries are now packed with the BigWigs packager action, not maintained manually anymore with the exception of libdualspec which is maintained manually (for the time being)\n\n1.2.4\n- Add support for patch 12.1\n\n1.2.3\n- Add manual changelog\n\n1.2.2\n- Midnight 12.0.5 release\n\n1.2.1\n- Removed default profile creation for class and realm. Only character specific profiles will be created.\n- Add TBC & Titan reforged release.\n\n1.2.0\n- Midnight release 12.0\n- Updated most of the libraries for midnight\n\n1.1.16\n- The War Within patch 11.2 release\n\n1.1.15\n- MoP classic release\n\n1.1.14\n- The War Within patch 11.1.5 release\n- Added category for new ingame addon frame\n\n1.1.13\n- The War Within patch 11.1.0 release\n\n1.1.12\n- The War Within patch 11.0.5 release\n\n1.1.11\n- Fix deprecated API call to open settings pane\n\n1.1.10\n- The War Within Release\n\n1.1.7\n- Cataclysm release\n\n1.1.6\n- Single toc file for all versions\n\n1.1.5\n- Suppress error loading libDualSpec-1.0 in classic\n\n1.1.4\n- Add project ID's to toc\n\n1.1.3\n- Use Github actions to build and release the addon automatically (Big thanks to the BigWigs team for their packager Action)\n\n1.1.2\n- ToC updated for Retail, Wrath. Added Classic\n- Updated libs\n\n1.1.1\n- Updated ToC\n\n1.1.0\n- Added chat commands \n\n1.0.4\n- Incremented version for Dragonflight prepatch 10.0.2\n- Updated readme\n\n1.0.3\n- DragonFlight release\n\n1.0.2\n- Fixed an issue where the the keybinds would not load properly with the Domino's addon\n\n1.0.1\n- Fixed bug where upon loading a different profile and logging out, the previous profile would overwrite the one logged out in.\n\n1.0.0\n- Initial creation"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-09-18",
+      "2026-09-18",
+      "2026-09-08",
+      "2026-08-14",
+      "2026-07-18",
+      "2026-07-17",
+      "2026-07-17",
+      "2026-07-16",
+      "2026-05-01",
+      "2026-04-19",
+      "2026-01-16",
+      "2026-01-15",
+      "2025-08-06",
+      "2025-07-02",
+      "2025-05-22",
+      "2025-02-26",
+      "2024-10-23",
+      "2024-08-18",
+      "2024-07-31",
+      "2024-05-02",
+      "2024-05-02",
+      "2023-12-11",
+      "2023-11-08",
+      "2023-11-08",
+      "2023-05-11",
+      "2022-11-21",
+      "2022-11-18",
+      "2022-10-26",
+      "2022-10-02",
+      "2022-09-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "KeyBindProfiles"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "LibStub",
+      "CallbackHandler"
+    ],
+    "savedVariables": [
+      "KeyBindProfilesDBv1"
+    ]
+  }
+}

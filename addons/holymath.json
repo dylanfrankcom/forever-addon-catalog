@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "holymath",
+  "repo": "casperstorm/holymath",
+  "about": "# Holy Math\n\nThe maths behind a healing **priest** or **Holy Paladin** in **World of Warcraft: Forever**, worked out on your own stats and the game's own spell data. Log in on either and Holy Math works out that class's spells, talents and gear. Get it on [CurseForge](https://www.curseforge.com/wow/addons/holy-math/).\n\n![The Stats tab](https://raw.githubusercontent.com/casperstorm/holymath/main/media/settings.webp)\n\n## What it does\n\n- **Item tooltips:** how much an item would raise or lower your healing per second, e.g. `Over what you wear  +16.2 HPS (+1.8%)`. For rings and trinkets you get a line for each of the two you wear.\n- **Spell tooltips:** heal per mana and per second for every rank you know, and which rank is the most efficient.\n- **Your HPS and stat values:** what you heal per second in a fight, and what intellect, MP5, spirit, crit and haste are worth to you right now.\n- **Consumables and enchants:** the best flask, elixir, weapon oil, food or drink, potion and rune for you, and the best enchant for each slot, ranked by what each adds to your healing.\n- **Math tab:** every number worked out step by step, with your own stats in it. Click a value to type your own.\n\nEverything updates by itself when your gear, buffs, talents or settings change. Holy Math counts you with the best way to use the spells you know, or a playstyle you pick on the Stats tab.\n\n![The Consumables tab](https://raw.githubusercontent.com/casperstorm/holymath/main/media/consumables.webp)\n\n![The Math tab](https://raw.githubusercontent.com/casperstorm/holymath/main/media/math.webp)\n\n## Install\n\nDownload it from [CurseForge](https://www.curseforge.com/wow/addons/holy-math/), or copy the `HolyMath` folder into `World of Warcraft/_forever_/Interface/AddOns/` and restart the game. It turns on for priests and paladins.\n\n## Use\n\nClick the minimap button (or type `/hm`) to open the window. Right-click the button for the Consumables tab.\n\n| Command | |\n|---|---|\n| `/hm` | open or close the window |\n| `/hm show` | a summary in chat |\n| `/hm check` | where every number comes from |\n| `/hm dump` | save what Holy Math reads, for bug reports (then `/reload`) |\n| `/hm set fight <seconds>` | the fight length; `/hm set` lists the other settings |\n| `/hm profile [name]` | list your profiles, or load one |\n| `/hm minimap` | hide or show the minimap button |\n| `/hm reset` | undo every value you typed on the Math tab |\n\n**Stats tab:** the playstyle Holy Math counts you as, your HPS, what each stat is worth, and your fight: its length, Mana Tide and the potions you drink. A priest also sets Prayer of Mending bounces and group size; a paladin, the share of heals on their Oath of Light target and how many people Light's Vigil reaches.\n\n**Paladins** are new. The numbers follow wowsims' paladin code and reproduce DoubleZug's paladin sheet, and a level 42 Holy Paladin's spells, talents and tooltips matched in game. Where the sheet and wowsims differ, Holy Math takes the sheet. Players checked two of those: Holy Power makes a crit heal 175% (wowsims: 225%), and Illumination gives mana back once per Light's Vigil. Oath of Light's bonus is scaled by each rank's coefficient, as DoubleZug's sheet has it (wowsims gives every rank the full bonus); that one isn't checked in game yet: Holy Light rank 1 on the Oath's target against someone else settles it.\n\n**Consumables tab:** one row for each thing you can have at once, best first. Your active buffs are already in your stats, so each item is counted in place of the one you have on. A gold tick marks what you have on (or the potion in your list), a white tick what's in your bags. Switch **Show** to **Enchants** for the best enchant per slot, counted over the enchant on your item. Right-click any icon for its Wowhead link.\n\n**Profiles** (top right): keep several sets of settings, such as a short and a long fight, and switch between them.\n\n## Where the numbers come from\n\n- **Your stats and spells** are read from the game, so a patch that changes a spell is picked up without an update.\n- **Spell, item, consumable and enchant data** is the game's own, as extracted by [wowsims/forever](https://github.com/wowsims/forever).\n- **The fight model** started as a port of [doublezug's healer-priest spreadsheet](https://docs.google.com/spreadsheets/d/19SaCaDQJzhMFL-nIW4ryzFwI53FmsnDvaxRfLbvM-CE/edit?gid=1807392634#gid=1807392634); the paladin model follows wowsims' paladin code and [doublezug's paladin spreadsheet](https://docs.google.com/spreadsheets/d/1T92Cz_SWl8l2vLxPktBGeNRRRQ5G-b-LfTVnzBEn0mA/edit?gid=1807392634#gid=1807392634). Where the game shows something different, the game wins.\n- **Checked in game:** for priests, spell costs, heals, coefficients, downranking, talents, intellect to crit and spirit regen; for paladins, spell costs, heals, talents and spirit regen.\n\n## Development\n\n```bash\nlua5.1 tests/run_tests.lua    # the model\nlua5.1 tests/smoke_wow.lua    # the whole addon against a fake game client\n```\n\nThe data files are generated from a wowsims checkout:\n\n```bash\ngit clone --depth 1 https://github.com/wowsims/forever /tmp/wowsims-forever\npython3 -I tools/gen_priest_data.py /tmp/wowsims-forever > Models/PriestData.lua\npython3 -I tools/gen_paladin_data.py /tmp/wowsims-forever > Models/PaladinData.lua\npython3 -I tools/gen_gear_data.py /tmp/wowsims-forever > Models/GearData.lua\npython3 -I tools/gen_consumable_data.py /tmp/wowsims-forever > Models/ConsumableData.lua\n```\n\n`AGENTS.md` has the details for maintainers.\n\n## Credits\n\n- Game data: [wowsims](https://github.com/wowsims/forever), MIT licence.\n- The original healing model: [the healer-priest spreadsheet](https://docs.google.com/spreadsheets/d/19SaCaDQJzhMFL-nIW4ryzFwI53FmsnDvaxRfLbvM-CE/edit?gid=1807392634#gid=1807392634) and [the paladin spreadsheet](https://docs.google.com/spreadsheets/d/1T92Cz_SWl8l2vLxPktBGeNRRRQ5G-b-LfTVnzBEn0mA/edit?gid=1807392634#gid=1807392634) by **doublezug**.\n- The Consumables tab's layout is inspired by [KeystoneLoot](https://www.curseforge.com/wow/addons/keystoneloot).\n\n## Licence\n\n[GNU General Public License v3.0](https://github.com/casperstorm/holymath/blob/main/LICENSE). The data in `Models/PriestData.lua`, `Models/PaladinData.lua`, `Models/GearData.lua` and `Models/ConsumableData.lua` comes from wowsims under the MIT licence; its notice is kept in those files.",
+  "releases": [
+    {
+      "tag": "2.1.0",
+      "published": "2026-11-25",
+      "notes": "# Holy Math\n\n## 2.1.0\n\n**Holy Paladins are here.** Log in on a Holy Paladin and Holy Math works the same way it does for priests: your HPS and stat values, item and spell tooltips, the Consumables tab and the Math tab, all with paladin spells and talents.\n\n- **Your fight** (Stats tab) has two paladin settings: the share of your heals on your Oath of Light target, and how many people Light's Vigil reaches. Also `/hm set oath <percent>` and `/hm set vigil <1-5>`.\n- **Best for you** tries Light's Vigil, Holy Shock, Holy Light on Infusion of Light procs, and Flash of Light or Holy Light as your main heal.\n- **Item tooltips** know paladin gear: mail, plate, shields, paladin weapons, and the Justice Armor set.\n- The numbers follow wowsims' paladin code and DoubleZug's paladin spreadsheet. Players checked crits with Holy Power (175%) and Illumination on Light's Vigil (mana back once per Vigil), and a level 42 Holy Paladin's spells, talents and tooltips matched in game. Still unchecked: how much of Oath of Light's bonus a low rank gets.\n\n**Also new**\n\n- The Settings tab is now called **Stats**.\n- A new icon: a page of figures, for both classes."
+    },
+    {
+      "tag": "2.0.0",
+      "published": "2026-11-24",
+      "notes": "# Holy Math\n\n## [2.0.0](https://github.com/casperstorm/holymath/tree/2.0.0) (2026-11-24)\n[Full Changelog](https://github.com/casperstorm/holymath/commits/2.0.0) [Previous Releases](https://github.com/casperstorm/holymath/releases)\n\n- Consumables tab in place of the Gear tab; slim README  \n    - Consumables tab: the best flask, elixir, weapon oil, food or drink, potion and rune for  \n      you, each row ranked by what it adds to your healing per second through the fight model,  \n      counted in place of what you have on. Show: Enchants gives the best enchant per slot,  \n      with Insight and Revelation valued by their procs. Data from wowsims' consumable and  \n      enchant rows (tools/gen\\_consumable\\_data.py); scrolls, Zanza buffs, stout, holiday food  \n      and zone-only bonuses are left out.  \n    - The Gear tab is gone; the item data stays for the item tooltips' effects and suffixes.  \n    - Royal Seal of Eldre'Thalas: its spirit only works in caves, so it isn't counted.  \n    - More of a stat never shows as less healing: the current spell ranks are tried too when  \n      the rank search settles on a worse mix (item tooltips and the Consumables tab).  \n    - README rewritten short; new screenshots."
+    },
+    {
+      "tag": "1.9.0",
+      "published": "2026-11-23",
+      "notes": "# Holy Math\n\n## [1.9.0](https://github.com/casperstorm/holymath/tree/1.9.0) (2026-11-23)\n[Full Changelog](https://github.com/casperstorm/holymath/commits/1.9.0) [Previous Releases](https://github.com/casperstorm/holymath/releases)\n\n- Item tooltips: equipped items show their worth; rings and trinkets against each worn one  \n    - Holy Math's line is now a header with the value indented and right-aligned  \n      under it, like the game's own lists (Disenchant results).  \n    - An item you wear shows \"Equipped\" and what it gives you over an empty slot,  \n      in white with no sign or percentage.  \n    - A ring or trinket you wear is no longer weighed against the other one you wear.  \n    - A ring or trinket you don't wear gets a line for each of the two you wear,  \n      the better swap first; two of the same worn give one line."
+    },
+    {
+      "tag": "1.8.0",
+      "published": "2026-11-23",
+      "notes": "# Holy Math\n\n## [1.8.0](https://github.com/casperstorm/holymath/tree/1.8.0) (2026-11-23)\n[Full Changelog](https://github.com/casperstorm/holymath/commits/1.8.0) [Previous Releases](https://github.com/casperstorm/holymath/releases)\n\n- Best playstyle by default; Settings tab built like the Gear and Math tabs  \n    Holy Math now counts your healing as the best way to use the spells you know  \n    (every mix of Prayer of Mending, Penance, PW:Shield, Renew, Flash Heal and Greater  \n    Heal around each filler), found again when talents, level, known spells or settings  \n    change. \"Counts you as\" on the Settings tab picks that, or one of the built-ins;  \n    playstyles can't be edited any more. The Playstyles tab, the block editor, custom  \n    playstyles, import/export, /hm playstyle and the item tooltips' playstyle option are  \n    gone; older custom playstyles fall back to the best for you.  \n    The Settings tab is as wide as Gear and Math, with the controls on top, an HPS line,  \n    and one inset table in two columns with the Math tab's gold bands and striped rows:  \n    what each stat is worth (with what it does, the best in green), where your healing  \n    comes from, and your fight (values in boxes with arrows). Potions and the tooltip  \n    options open in a panel beside the window. The Math tab's table sits in the same  \n    dark inset."
+    },
+    {
+      "tag": "1.7.0",
+      "published": "2026-11-23",
+      "notes": "# Holy Math\n\n## [1.7.0](https://github.com/casperstorm/holymath/tree/1.7.0) (2026-11-23)\n[Full Changelog](https://github.com/casperstorm/holymath/commits/1.7.0) [Previous Releases](https://github.com/casperstorm/holymath/releases)\n\n- Raw spell tooltips like other addons; Holy Binding's self-heal has its own overheal; no shield waste  \n    - Spell tooltips: heal per mana and per second, raw (before overheal, at the spell's  \n      full cost), Holy Binding's heal on you as its own row; most efficient rank by the same.  \n    - Holy Binding: the third of each Flash Heal that heals you gets overheal.SELF (85%,  \n      /hm set oh self), not Flash Heal's; shown on Flash Heal's worked-out cast.  \n    - Power Word: Shield waste 0 by default; saved settings with the old 5% move over once.  \n    - Gear solver: the swaps again after the weapons change, so wearing its pick finds the  \n      same pick.  \n    - Simulation: SELF in the overheal levels, shields 0."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/casperstorm/holymath/main/media/settings.webp",
+    "https://raw.githubusercontent.com/casperstorm/holymath/main/media/consumables.webp",
+    "https://raw.githubusercontent.com/casperstorm/holymath/main/media/math.webp"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HolyMath"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "HolyMathDB"
+    ]
+  }
+}

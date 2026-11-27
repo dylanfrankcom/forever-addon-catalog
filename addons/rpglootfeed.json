@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "rpglootfeed",
+  "repo": "McTalian-WoW-Addons/RPGLootFeed",
+  "about": "# RPGLootFeed\n\n[![GitHub Release](https://img.shields.io/github/v/release/McTalian-WoW-Addons/RPGLootFeed?style=for-the-badge)](https://github.com/McTalian-WoW-Addons/RPGLootFeed/releases/latest) ![CurseForge Game Versions](https://img.shields.io/curseforge/game-versions/1082791?style=for-the-badge&logo=battledotnet) [![CurseForge Downloads](https://img.shields.io/curseforge/dt/1082791?style=for-the-badge&logo=curseforge&label=Downloads)](https://www.curseforge.com/wow/addons/rpglootfeed)\n\n[![GitHub issue custom search in repo](https://img.shields.io/github/issues-search/McTalian-WoW-Addons/RPGLootFeed?query=is%3Aissue%20is%3Aopen%20-label%3Ai18n&style=for-the-badge&label=Open%20Tickets)](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues?q=is%3Aissue+is%3Aopen+-label%3Ai18n) [![GitHub issue custom search in repo](https://img.shields.io/github/issues-search/McTalian-WoW-Addons/RPGLootFeed?query=is%3Aissue%20is%3Aopen%20-label%3Ai18n%20label%3Abug&style=for-the-badge&label=Known%20Bugs&color=red)](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues?q=is%3Aissue+is%3Aopen+-label%3Ai18n+label%3Abug) [![GitHub issue custom search in repo](https://img.shields.io/github/issues-search/McTalian-WoW-Addons/RPGLootFeed?query=is%3Aissue%20is%3Aopen%20label%3Ai18n%20&style=for-the-badge&label=Locales%20Need%20Translation&color=orange)](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues?q=is%3Aissue+is%3Aopen+label%3Ai18n)\n\n[![Discord](https://img.shields.io/discord/1349872309665660928?style=for-the-badge&logo=discord&label=Join%20the%20Community)](https://discord.gg/czRYVWhe33)\n\nRPGLootFeed is a World of Warcraft addon designed to declutter your chat and enhance your looting experience by providing a dynamic and immersive loot feed. Keep your chat just for chat and let RPGLootFeed handle the rest.\n\nAs featured in SoulSoBreezy's _11 Useful Addons for Patch 11.0.7_\n\n[![Alt text](https://img.youtube.com/vi/GFr01R3TkmE/hqdefault.jpg)](https://youtu.be/GFr01R3TkmE?si=Wgw5F3AtenWdC08U&t=84)\n\n## Features\n\n- **Declutter Your Chat**: Keep your chat window free from loot spam. RPGLootFeed displays all your looted items, currencies, reputation gains, and even profession skill-ups in a sleek, scrolling feed.\n- **Contextual Information**: Get detailed information about looted items, currencies, and faction reputation gains. See the item count available to your character, currency cap information, reputation progress, and more at a glance.\n- **Integrations**: Seamlessly integrates with popular addons like ElvUI, Auctionator, TradeSkillMaster (TSM) to provide additional contextual information and enhance your looting experience. Or apply your favorite Masque themes to RPGLootFeed so it fits in nicely with your custom UI experience.\n- **Customizable**: Tailor the loot feed to your preferences. Choose what information to display and how it should be presented.\n\n## Recommended Addons\n\nPair RPGLootFeed with Speedy AutoLoot by Yuyuli for an even better looting experience. Speed up looting by not showing the loot frame.\n\n- [Speedy AutoLoot on CurseForge](https://www.curseforge.com/wow/addons/speedyautoloot)\n- [Speedy AutoLoot on Wago](https://addons.wago.io/addons/speedy-autoloot)\n\n## Installation\n\n1. Download the latest release from [GitHub](https://github.com/Mctalian-WoW-Addons/RPGLootFeed/releases/latest) or [CurseForge](https://www.curseforge.com/wow/addons/rpglootfeed).\n2. Extract the downloaded file into your World of Warcraft `Interface/AddOns` directory.\n3. Restart World of Warcraft and enable RPGLootFeed in the AddOns menu.\n\n## Contributing\n\nContributions are welcome from the community! If you encounter any issues or have suggestions for improvements, please open an issue on [GitHub](https://github.com/Mctalian-WoW-Addons/RPGLootFeed/issues). Or head over to [Discussions](https://github.com/Mctalian-WoW-Addons/RPGLootFeed/discussions) if you have any questions or want to show off your UI. For the fastest response, join the [Discord Community](https://discord.gg/czRYVWhe33).\n\nIf you're interested in contributing code, please see our [Contributing Guidelines](https://github.com/McTalian-WoW-Addons/RPGLootFeed/blob/main/CONTRIBUTING.md) for more information.\n\n## License\n\nRPGLootFeed is licensed under the MIT License. See the [LICENSE](https://github.com/McTalian-WoW-Addons/RPGLootFeed/blob/main/LICENSE) file for more information.\n\n## Screenshots\n\n![Example screenshot of RPGLootFeed with currency, XP, money, Party Loot, highlighted item loot, and reputation](https://raw.githubusercontent.com/McTalian-WoW-Addons/RPGLootFeed/main/example-feed.png)\n\n![Animation showing loot being added and removed from the feed](https://raw.githubusercontent.com/McTalian-WoW-Addons/RPGLootFeed/main/RLF_test_mode.gif)\n\n![Example screenshot of RPGLootFeed's loot history feature](https://raw.githubusercontent.com/McTalian-WoW-Addons/RPGLootFeed/main/example-loot-history.png)",
+  "releases": [
+    {
+      "tag": "v1.39.3",
+      "published": "2026-11-25",
+      "notes": "## [1.39.3](https://github.com/McTalian-WoW-Addons/RPGLootFeed/compare/v1.39.2...v1.39.3) (2026-11-25)\n\n### \uD83C\uDF0F i18n Translations\n\n* add zhCN translations ([#666](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/666)) ([fa9422d](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/fa9422d1a4dc78c31562ca9506faaa73b79e859f)), closes [#513](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/513)"
+    },
+    {
+      "tag": "v1.39.2",
+      "published": "2026-10-14",
+      "notes": "## [1.39.2](https://github.com/McTalian-WoW-Addons/RPGLootFeed/compare/v1.39.1...v1.39.2) (2026-10-14)\n\n### \uD83E\uDEB2 Bug Fixes\n\n* lua error at login with class colored row borders on 12.1.5 ([#654](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/654)) ([dd6fe2d](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/dd6fe2d4c498b303baa786ed3d63f766c6f0e5da)), closes [#653](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/653)"
+    },
+    {
+      "tag": "v1.39.1",
+      "published": "2026-10-09",
+      "notes": "## [1.39.1](https://github.com/McTalian-WoW-Addons/RPGLootFeed/compare/v1.39.0...v1.39.1) (2026-10-09)\n\n### \uD83E\uDEB2 Bug Fixes\n\n* call IsInteractionAllowed on the row, not the FindRollRows entry ([e45051a](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/e45051aa1c54a578fe7eae5cb17044ed080efa20))\n* match party loot senders by full name or GUID on first/last name flavors ([42ca579](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/42ca5794542bd6a5097f40b3ab5bb9a320d9dc24))\n* release shift counter when a mid-shift row is released without FLIP ([1c33122](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/1c33122f67ec66560d0258dda33fefa86bcca9b8))\n* show party loot for items that were not cached yet ([9523bfe](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/9523bfe711c22937d8076c9c01258915951bbda9))\n* treat first/last names as one name for own loot and party display on forever ([deb0c65](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/deb0c65750a29c84d0253b04d3285983f616a875))"
+    },
+    {
+      "tag": "v1.39.0",
+      "published": "2026-10-04",
+      "notes": "## [1.39.0](https://github.com/McTalian-WoW-Addons/RPGLootFeed/compare/v1.38.3...v1.39.0) (2026-10-04)\n\n### ✨ Features\n\n* add centered text alignment ([#636](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/636)) ([6fe7e4c](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/6fe7e4c9fe860a9a7ae0489caf76c47b3c913161)), closes [#418](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/418)\n* per-frame interaction options ([#633](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/633)) ([08a12de](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/08a12de35234e07e9fd21c5a649c90f5d3d3f4f0))\n\n### \uD83E\uDEB2 Bug Fixes\n\n* let camera drag pass through empty loot row space ([#632](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/632)) ([7d16937](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/7d169379a71679e8a9b8e3c8a6550f7112d6741b))\n* make the timer bar track visibly dimmer than its fill ([#638](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/638)) ([80fb83f](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/80fb83f70a0f9d1319f10315f36b14e4ffc93809)), closes [#606](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/606)\n* only let rows pass clicks through when right-click dismiss is off ([#640](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/640)) ([f464448](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/f4644483f7c22b71604c3a44a5428f115cb1994c))\n* pixel-snap row and timer bar sizes so 1px borders stay visible ([#639](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/639)) ([19fd82f](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/19fd82fc7d018646070e1ff8b9e9f2ef2d67959d))\n* stop the icon glow cascading when a row moves ([#637](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/637)) ([90a163a](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/90a163aff83f82f029d2adbb5edf04b12dcbb88b))\n* stop the options overlay leaving the feed capturing the mouse ([#635](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/635)) ([35a04b8](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/35a04b8d0499d7ea7f8106dc85969c9c362d4bf0))"
+    },
+    {
+      "tag": "v1.38.3",
+      "published": "2026-10-03",
+      "notes": "## [1.38.3](https://github.com/McTalian-WoW-Addons/RPGLootFeed/compare/v1.38.2...v1.38.3) (2026-10-03)\n\n### \uD83E\uDEB2 Bug Fixes\n\n* read the Forever loot history drop identifier (lootListKey) ([#631](https://github.com/McTalian-WoW-Addons/RPGLootFeed/issues/631)) ([1a70baf](https://github.com/McTalian-WoW-Addons/RPGLootFeed/commit/1a70bafd7f470d859aefab981df884df10224220))"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/McTalian-WoW-Addons/RPGLootFeed/main/example-feed.png",
+    "https://raw.githubusercontent.com/McTalian-WoW-Addons/RPGLootFeed/main/RLF_test_mode.gif",
+    "https://raw.githubusercontent.com/McTalian-WoW-Addons/RPGLootFeed/main/example-loot-history.png"
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 39,
+    "contributors": 7,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-10-14",
+      "2026-10-09",
+      "2026-10-04",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-01",
+      "2026-09-20",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-17",
+      "2026-09-05",
+      "2026-08-18",
+      "2026-08-17",
+      "2026-08-16",
+      "2026-08-12",
+      "2026-07-22",
+      "2026-06-26",
+      "2026-06-21",
+      "2026-06-20",
+      "2026-05-01",
+      "2026-04-28",
+      "2026-04-22",
+      "2026-04-12",
+      "2026-03-24",
+      "2026-03-24",
+      "2026-03-23",
+      "2026-03-17",
+      "2026-03-17",
+      "2026-03-15",
+      "2026-03-14",
+      "2026-03-14",
+      "2026-03-09",
+      "2026-02-06",
+      "2026-02-05",
+      "2026-02-05",
+      "2026-02-05",
+      "2026-02-02",
+      "2025-12-16",
+      "2025-12-13",
+      "2025-12-03",
+      "2025-11-23",
+      "2025-11-22",
+      "2025-10-29",
+      "2025-10-28",
+      "2025-10-07",
+      "2025-09-01",
+      "2025-09-01"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RPGLootFeed"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Masque",
+      "Auctionator",
+      "TradeSkillMaster",
+      "ElvUI",
+      "EllesmereUI"
+    ],
+    "savedVariables": [
+      "RPGLootFeedDB"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "scrollingquesttext",
+  "repo": "yak3d/wow4e-scrolling-quest-text",
+  "about": "# Scrolling Quest Text (Forever)\n\n![GitHub License](https://img.shields.io/github/license/yak3d/wow4e-scrolling-quest-text?style=for-the-badge)\n![CurseForge Game Versions](https://img.shields.io/curseforge/game-versions/1702027?style=for-the-badge)\n\nA re-implementation of the [scrolling quest text](https://www.youtube.com/watch?v=NoRDskcH2vM) from World of Warcraft 1.x.\n\nWhen you interact with a quest giver and pick up a quest, it will write out its text slowly, letting you read it as it writes for a more immersive experience.\n\n## Settings\n\nThis addon lets you tweak the writing speed and if the writing audio plays while the text writes.\n\nYou can find the settings and their descriptions in Settings --> AddOns --> Scrolling Quest Text.\n\nAddOn logo provided by [game-icons.net](https://game-icons.net/)!\n\n## Development\n\nIf you want to develop on this addon, you can use the `Makefile` to easily install it.\n\n### Installation\n\n#### Simple Install\n\nIf you're on Windows, Mac or Linux with Faugus this will likely \"just work\":\n\n```shell\nmake install\n```\n\n#### Complex Install\n\nIf the path can't be found, then you can specify it with the `WOW_DIR` variable:\n\n```shell\nmake install WOW_DIR=\"/path/to/World of Warcraft\"\n```\n\n### Uninstallation\n\nSame commands as above, just replace `install` with `uninstall`.",
+  "releases": [
+    {
+      "tag": "1.1",
+      "published": "2026-09-23",
+      "notes": "# Scrolling Quest Text\n\n## [1.1](https://github.com/yak3d/wow4e-scrolling-quest-text/tree/1.1) (2026-09-23)\n[Full Changelog](https://github.com/yak3d/wow4e-scrolling-quest-text/compare/1.0...1.1) [Previous Releases](https://github.com/yak3d/wow4e-scrolling-quest-text/releases)\n\n- set audio channel to dialog and disable the disabling of the accept button"
+    },
+    {
+      "tag": "1.0",
+      "published": "2026-09-19",
+      "notes": "# Scrolling Quest Text\n\n## [1.0](https://github.com/yak3d/wow4e-scrolling-quest-text/tree/1.0) (2026-09-19)\n[Full Changelog](https://github.com/yak3d/wow4e-scrolling-quest-text/commits/1.0) [Previous Releases](https://github.com/yak3d/wow4e-scrolling-quest-text/releases)\n\n- Initial release"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-09-23",
+    "releaseDates": [
+      "2026-09-23",
+      "2026-09-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ScrollingQuestText"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverSQTDB"
+    ]
+  }
+}

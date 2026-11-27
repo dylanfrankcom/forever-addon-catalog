@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "id": "cursormod",
+  "repo": "sfmict/CursorMod",
+  "about": "# CursorMod\n\nMakes mouse pointer remain on screen while mouselook/steering\n\n[![](https://github.com/sfmict/cursormod/workflows/Retail-Build/badge.svg)](https://github.com/sfmict/CursorMod/releases)\n[![](http://cf.way2muchnoise.eu/full_356016_downloads.svg)](https://www.curseforge.com/wow/addons/cursormod)\n\n### Features\n\n* Size change\n* Scale change\n* Opacity change\n* Color change\n\n### Command:\n\n`/cursormod` - for settings\n\n![](https://i.imgur.com/xRlo7rw.jpg)\n\nDownload [Curse page](https://www.curseforge.com/wow/addons/cursormod) or [Wago page](https://addons.wago.io/addons/cursormod)",
+  "releases": [
+    {
+      "tag": "v12.1.3",
+      "published": "2026-10-21",
+      "notes": "# CursorMod - Midnight\n[Full Changelog](https://github.com/sfmict/CursorMod/compare/v12.1.2...v12.1.3)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/CursorMod/releases)\n\n* Now one version for all clients\n* Added cursor fx for classic and forever"
+    },
+    {
+      "tag": "v12.1.2",
+      "published": "2026-10-14",
+      "notes": "# CursorMod - Midnight\n[Full Changelog](https://github.com/sfmict/CursorMod/compare/v12.1.1...v12.1.2)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/CursorMod/releases)\n\n* Fixed #10 class color"
+    },
+    {
+      "tag": "v12.1.1",
+      "published": "2026-10-14",
+      "notes": "# CursorMod - Midnight\n[Full Changelog](https://github.com/sfmict/CursorMod/compare/v12.1.0...v12.1.1)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/CursorMod/releases)\n\n* Bump toc"
+    },
+    {
+      "tag": "v1.15.20",
+      "published": "2026-09-21",
+      "notes": "# CursorMod - Mists of Pandaria\n[Full Changelog](https://github.com/sfmict/CursorMod/compare/v1.15.19...v1.15.20)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/CursorMod/releases)\n\n* Added support for Forever"
+    },
+    {
+      "tag": "v12.1.0",
+      "published": "2026-08-12",
+      "notes": "# CursorMod - Midnight\n[Full Changelog](https://github.com/sfmict/CursorMod/compare/v12.0.4...v12.1.0)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/CursorMod/releases)\n\n* Updated toc file"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-09-21",
+      "2026-08-12",
+      "2026-07-23",
+      "2026-07-10",
+      "2026-06-03",
+      "2026-06-03",
+      "2026-02-09",
+      "2026-02-09",
+      "2026-02-03",
+      "2026-01-23",
+      "2026-01-23",
+      "2026-01-23",
+      "2026-01-22",
+      "2026-01-20",
+      "2025-12-22",
+      "2025-12-21",
+      "2025-12-20",
+      "2025-12-19",
+      "2025-12-18",
+      "2025-11-11",
+      "2025-11-11",
+      "2025-11-11",
+      "2025-10-08",
+      "2025-10-08",
+      "2025-08-06",
+      "2025-07-02",
+      "2025-06-18",
+      "2025-04-23",
+      "2025-04-16",
+      "2025-02-26",
+      "2025-02-19",
+      "2025-01-28",
+      "2024-12-18",
+      "2024-11-24",
+      "2024-10-30",
+      "2024-10-30",
+      "2024-10-23",
+      "2024-10-13",
+      "2024-10-12",
+      "2024-09-26",
+      "2024-09-10",
+      "2024-09-10",
+      "2024-07-23",
+      "2024-07-23",
+      "2024-05-09",
+      "2024-05-01"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CursorMod"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "CursorModDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "CursorModDBChar"
+    ]
+  }
+}

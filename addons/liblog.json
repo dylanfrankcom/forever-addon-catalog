@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "liblog",
+  "repo": "Snakybo/LibLog",
+  "about": "# LibLog\n\nLibLog is a structured logging library for World of Warcraft addons.\n\n```lua\nMyAddon:LogInfo(\"My current health is {health}, and I have {mana} mana\", UnitHealth(\"player\"), UnitPower(\"player\"))\n-- MyAddon: My current health is 50, and I have 100 mana\n```\n\nOut of the box, LibLog prints readable messages to the chat window, and that's all most users will ever see. Behind the scenes, each log also records its\nvalues as named properties, which other addons (called _sinks_) can capture and inspect:\n\n* [LogSink: Table](https://github.com/Snakybo/LogSink-Table) shows logs in an in-game window.\n* [LogSink: SavedVariables](https://github.com/Snakybo/LogSink-SavedVariables) writes logs to your saved variables.\n\nSee [API.md](https://github.com/Snakybo/LibLog/blob/master/API.md) for the full API reference.\n\n## Features\n\n* Simple logging API with well-known levels: trace, debug, info, warning, error, and fatal.\n* Configurable minimum log level per addon.\n* Structured logging using [Message Templates](https://messagetemplates.org/).\n* Custom sinks to capture and process logs in real-time.\n* Works out of the box with AceAddon-3.0 addons and modules.\n\n## Why structured logging?\n\nTraditional logging writes plain text:\n\n```lua\nprint(UnitName(\"player\") .. \": UNIT_SPELLCAST_SUCCEEDED \" .. spellName)\n```\n\n```txt\nThrall: UNIT_SPELLCAST_SUCCEEDED Bloodlust\nKhadgar: UNIT_SPELLCAST_SUCCEEDED Blink\nThrall: UNIT_SPELLCAST_FAILED Lightning Bolt\nKhadgar: UNIT_SPELLCAST_SUCCEEDED Fire Blast\n```\n\nThis is easy to read, but hard to analyze. Who cast Bloodlust? Whose casts failed? Who cast the most spells? Answering that means parsing text, which only\ngets harder in a 20-player raid.\n\nStructured logging keeps the values separate from the text. LibLog uses [Message Templates](https://messagetemplates.org/), where each `{placeholder}`\nin the message becomes a named property:\n\n```lua\nMyAddon:LogInfo(\"{name}: {eventName} {spellName}\", UnitName(\"player\"), event, spellName)\n```\n\n```lua\n{\n  message = \"Thrall: UNIT_SPELLCAST_SUCCEEDED Bloodlust\",\n  properties = {\n    name = \"Thrall\",\n    eventName = \"UNIT_SPELLCAST_SUCCEEDED\",\n    spellName = \"Bloodlust\"\n  }\n  -- <other fields omitted>\n}\n```\n\nA sink can now filter, group, or count logs by any of these properties.\n\n## Getting started\n\n### Embedding\n\nLibLog must be embedded into your addon. With AceAddon-3.0, add it to the list of libraries:\n\n```lua\nMyAddon = LibStub(\"AceAddon-3.0\"):NewAddon(\"MyAddon\", \"LibLog\")\n```\n\nWithout AceAddon-3.0, embed it manually using LibStub. Make sure your addon has a `name` field, LibLog uses it to identify your addon:\n\n```lua\nMyAddon = { name = \"MyAddon\" }\nLibStub(\"LibLog\"):Embed(MyAddon)\n```\n\nThen start logging:\n\n```lua\nMyAddon:LogInfo(\"Hello {name}!\", MyAddon.name)\n-- MyAddon: Hello MyAddon!\n```\n\n### Log levels\n\n| Level     | Method       | When to use                                                                               |\n| --------- | ------------ | ----------------------------------------------------------------------------------------- |\n| `FATAL`   | `LogFatal`   | A critical or otherwise unrecoverable error that must halt execution.                     |\n| `ERROR`   | `LogError`   | A high-severity logic issue that leaves functionality unavailable or expectations broken. |\n| `WARNING` | `LogWarning` | User error, or other non-breaking issues.                                                 |\n| `INFO`    | `LogInfo`    | General status updates and runtime milestones.                                            |\n| `DEBUG`   | `LogDebug`   | Code paths and state changes that help determine how something happened.                  |\n| `TRACE`   | `LogTrace`   | High-frequency, noisy data that is rarely enabled outside of debugging.                   |\n\nLogs below your addon's minimum log level are ignored. The default minimum is `INFO`.\n\n### Formatting\n\nPlaceholders support `string.format` specifiers, without the leading `%`:\n\n```lua\nMyAddon:LogInfo(\"Current progress {progress:.2f}\", 0.124567890)\n-- MyAddon: Current progress 0.12\n```\n\nValues are matched to placeholders by position, not by name. Placeholder names may only contain letters and digits.\n\n### Configuring the log level\n\nChange the minimum log level of your addon with:\n\n```lua\nlocal LibLog = LibStub(\"LibLog\")\n\nMyAddon:SetLogLevel(LibLog.LogLevel.DEBUG)\nMyAddon:GetLogLevel()\n```\n\nLibLog doesn't save the log level between sessions, that's up to your addon. The easiest way is to pass your saved variables to\n`SetLogLevelFromConfigTable` on startup:\n\n```lua\nfunction MyAddon:OnInitialize()\n  self.db = LibStub(\"AceDB-3.0\"):New(\"MyAddonDB\")\n  self:SetLogLevelFromConfigTable(self.db.global)\nend\n```\n\nWith AceConfig-3.0, you can add a dropdown that changes and saves the log level:\n\n```lua\nlogLevel = MyAddon:GetLogLevelOptionObject(MyAddon.db.global)\n\n-- Or, to customize the option\nlogLevel = Mixin(MyAddon:GetLogLevelOptionObject(MyAddon.db.global), {\n  order = 10\n})\n```\n\nBuilding your own dropdown? Use `LibLog.LogLevel`, `LibLog.configKey`, `SetLogLevel`, and `GetLogLevel`.\n\n## Advanced usage\n\n### Expensive logs\n\nIf a log needs expensive work to gather its values, that work is wasted when the log is filtered out. Pass a function instead, and it will only run when the\nlog is actually processed:\n\n```lua\nMyAddon:LogTrace(\"Currently in a raid with {members}\", function()\n  local members = {}\n\n  for i = 1, GetNumGroupMembers() do\n    table.insert(members, UnitName(\"raid\" .. i))\n  end\n\n  return members\nend)\n```\n\nAlternatively, check the level yourself with `IsLogLevelEnabled`:\n\n```lua\nif MyAddon:IsLogLevelEnabled(LibLog.LogLevel.DEBUG) then\n  MyAddon:LogDebug(\"Currently in a raid with {members}\", GetRaidMembers())\nend\n```\n\n### Fatal logs\n\n`LogFatal` logs like any other level, but also raises a Lua error, which halts execution just like `error(...)` and shows up in BugSack or the default error\nframe.\n\nAll log functions return `nil`, so you can log and exit in one statement. This is especially useful for `LogFatal`, since language servers such as LuaLS\ndon't know it never returns:\n\n```lua\nif data == nil then\n  return MyAddon:LogFatal(\"Unable to load {key}\", key)\nend\n```\n\n### Additional properties\n\nYou can add properties to every log from your addon, without including them in the message. If the value is a function, it's called for every log, so the\nvalue is always up-to-date.\n\n```lua\nMyAddon:PushLogProperty(\"zone\", GetZoneText())\nMyAddon:PushLogProperty(\"health\", function()\n  return UnitHealth(\"player\")\nend)\n\nMyAddon:LogInfo(\"This log includes zone and health\")\n\nMyAddon:PopLogProperty(\"zone\", \"health\")\n```\n\nTo avoid having to pop properties manually, use `WithLogContext`, or create a separate logger with `ForLogContext`:\n\n```lua\nMyAddon:WithLogContext({ encounterId = encounterId }, function(logger)\n  logger:LogInfo(\"This log includes encounterId\")\nend)\n\nlocal logger = MyAddon:ForLogContext({ encounterId = encounterId })\nlogger:LogInfo(\"This log also includes encounterId\")\n```\n\n### Enums\n\nEnum values are often just numbers, which aren't very useful in a log:\n\n```lua\nlocal Scope = {\n  PROFILE = 1,\n  GLOBAL = 2\n}\n```\n\nRegister the enum with `AddLogEnum`, then add `#EnumName` to the placeholder to log the key instead of the value:\n\n```lua\nMyAddon:AddLogEnum(\"Scope\", Scope)\nMyAddon:LogInfo(\"Current scope is {scope#Scope}\", Scope.PROFILE)\n-- MyAddon: Current scope is PROFILE\n```\n\nIf the enum isn't registered, or the value isn't part of it, the raw value is logged.\n\n### Modules\n\nLibLog can be embedded into AceAddon-3.0 modules as well. Modules share the log level of their addon, and their name is captured in the `module` field\nof each log:\n\n```lua\nMyAddon:NewModule(\"MyModule\", \"LibLog\")\n```\n\nWithout AceAddon-3.0, set a `moduleName` field before embedding:\n\n```lua\nMyModule = {\n  name = \"MyAddon\",\n  moduleName = \"MyModule\"\n}\n\nLibStub(\"LibLog\"):Embed(MyModule)\n```\n\n## Custom sinks\n\nSinks receive every log, from every addon that uses LibLog. Register one with a function:\n\n```lua\nlocal LibLog = LibStub(\"LibLog\")\n\n--- @param message LibLog.LogMessage\nLibLog:RegisterSink(\"MyLogSink\", function(message)\n  print(message.message)\nend)\n```\n\nOr with a table that has an `OnLogMessageReceived` method:\n\n```lua\n--- @class MySink : LibLog.Sink\nlocal MySink = {}\n\n--- @param message LibLog.LogMessage\nfunction MySink:OnLogMessageReceived(message)\n  print(message.message)\nend\n\nLibLog:RegisterSink(\"MyLogSink\", MySink)\n```\n\nEach message contains everything about the log, including the value of each property:\n\n```lua\n{\n  message = \"My character name is Arthas on realm Frostmourne\",\n  template = \"My character name is {charName} on realm {realmName}\",\n  addon = \"MyAddon\",\n  level = 300, -- LibLog.LogLevel.INFO\n  time = 1771420921,\n  sequenceId = 1,\n  properties = {\n    charName = \"Arthas\",\n    realmName = \"Frostmourne\"\n  }\n}\n```\n\nSinks can be enabled and disabled at any time. The built-in sink that prints to the chat window is called `BuiltIn`:\n\n```lua\nLibLog:DisableSink(\"BuiltIn\")\nLibLog:EnableSink(\"BuiltIn\")\n```",
+  "releases": [
+    {
+      "tag": "r10",
+      "published": "2026-11-21",
+      "notes": "# Lib: Log\n\n## [r10](https://github.com/Snakybo/LibLog/tree/r10) (2026-11-21)\n[Full Changelog](https://github.com/Snakybo/LibLog/commits/r10) [Previous Releases](https://github.com/Snakybo/LibLog/releases)\n\n- Add @noreturn annotation"
+    },
+    {
+      "tag": "r9",
+      "published": "2026-11-06",
+      "notes": "# Lib: Log\n\n## [r9](https://github.com/Snakybo/LibLog/tree/r9) (2026-11-06)\n[Full Changelog](https://github.com/Snakybo/LibLog/commits/r9) [Previous Releases](https://github.com/Snakybo/LibLog/releases)\n\n- Remove unknown return value"
+    },
+    {
+      "tag": "r8",
+      "published": "2026-10-30",
+      "notes": "# Lib: Log\n\n## [r8](https://github.com/Snakybo/LibLog/tree/r8) (2026-10-26)\n[Full Changelog](https://github.com/Snakybo/LibLog/commits/r8) [Previous Releases](https://github.com/Snakybo/LibLog/releases)\n\n- Update README.md, add API.md"
+    },
+    {
+      "tag": "r7",
+      "published": "2026-09-28",
+      "notes": "# Lib: LibLog-1.0\n\n## [r7](https://github.com/Snakybo/LibLog-1.0/tree/r7) (2026-09-28)\n[Full Changelog](https://github.com/Snakybo/LibLog-1.0/commits/r7) [Previous Releases](https://github.com/Snakybo/LibLog-1.0/releases)\n\n- Update for 12.1.0, 5.5.4, 4.4.2, 3.4.5, 2.5.6, 1.60.1, and 1.15.9"
+    },
+    {
+      "tag": "r6",
+      "published": "2026-05-03",
+      "notes": "# Lib: LibLog-1.0\n\n## [r6](https://github.com/Snakybo/LibLog-1.0/tree/r6) (2026-05-03)\n[Full Changelog](https://github.com/Snakybo/LibLog-1.0/commits/r6) [Previous Releases](https://github.com/Snakybo/LibLog-1.0/releases)\n\n- Add public function to get sequence ID"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-06",
+      "2026-10-30",
+      "2026-09-28",
+      "2026-05-03",
+      "2026-02-25",
+      "2026-02-24",
+      "2026-02-20",
+      "2026-01-26",
+      "2026-01-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LibLog"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "pawn",
+  "repo": "VgerMods/Pawn",
+  "about": "# Pawn\n\n## Find upgrades, do more damage, win.\n\nPawn helps you find upgrades for your gear.\n\nYou can use it if you're just starting out. Pawn comes with advice from the experts (Ask Mr. Robot and others) who know that some stats are far more useful than others. Fire mages want a lot of crit, and shamans don't want strength at all, so just because that new ring has a higher item level, it might not actually be that good for your spec. Pawn will show you green arrows to help you spot the upgrades.\n\nYou can also use it if you run your character through simulations and build your own Excel spreadsheets: all of Pawn's stat weights are customizable so you can tailor it for your exact character and preferences. It's useful for all roles, not just DPS.\n\n## Installing\n\nPawn is installed like any other World of Warcraft addon. If you're not using a tool to manage your addons, extract the Pawn folder from the zip file to your addons folder, which will be in a location like one of these:\n\n```\nC:\\Users\\Public\\Games\\World of Warcraft\\_retail_\\Interface\\AddOns\nC:\\Program Files\\World of Warcraft\\_retail_\\Interface\\AddOns\nC:\\Program Files (x86)\\World of Warcraft\\_retail_\\Interface\\AddOns\n```\n\n## Comparing items\n\nPawn helps you compare two items. Open the Pawn UI by clicking the button on your character sheet, and then select the Compare tab. Put an equippable item into the slot in the upper-right corner, and Pawn will automatically put the item of the same type that you already have equipped on the left.\n\nYou'll get a full breakdown of the differences between the two items, and a total score for each one. Each stat has a \"weight\" associated with it that represents how important 1 of that stat is compared to 1 of each other stat. If Agility has a weight of 2, and you compare two items that are identical except one has 5 more Agility, then that item will have a score that is 10 points (5 × 2) higher. An upgrade!\n\n### Gems, socket bonuses, enchantments, and reforging\n\nPawn compares the base versions of items, ignoring your currently socketed gems and enchantments. But the value of a socket will still be taken into account, based on the gems that Pawn suggests that you use, including socket bonuses when relevant. Pawn will suggest which gems to use when you Shift+RightClick the item. On versions of the game where reforging exists, Pawn will also assume that you will reforge the item in the way it recommends, to maximizes its score.\n\n### Comparing an item you don't have yet\n\nYou can also compare items you don't have yet.\n\n1. To compare an item that someone links in chat, click the item to open its tooltip, and then right-click on the tooltip.\n2. To compare an item being rolled for, right-click on the item.\n3. To compare an item that you see in the Encounter Journal, inspecting another player, or elsewhere, you can bind a key to Pawn's Compare tab in the game's key bindings options. (I recommend the `]` right bracket key for \"Compare right item\".)\n\n### Set bonuses and special effects\n\nSet bonuses and other \"special effects\" of items that can't be directly converted into a number of stats are ignored by Pawn and won't be factored into upgrade decisions.\n\n## Advanced players\n\nPawn comes with default stat weights for each spec that are a good starting point for average players who don't care what a simulator is. If you're knowledgeable enough, I strongly recommend that you run your character through sims and get custom stat weights, and then import those into Pawn and use those instead of the defaults you get in Automatic mode. Stat weights are a simplified model for evaluating gear and will never be as good as the advice you can get from a simulator, but Pawn can still be helpful for finding upgrades quickly while you're playing.\n\nPawn has other options for players who want more math in their Warcraft: check out the Weights tab and the Options tab.\n\n## Contacting the author\n\n* [See all of my addons](https://www.vgermods.com/)\n* You can reach me on [Facebook](https://www.facebook.com/vgermods)\n* Leave a comment on [CurseForge](https://www.curseforge.com/wow/addons/pawn)\n* Email vger at vgermods.com\n\n### Reporting issues\n\nIf something doesn't seem to be working right, please send me a description of the problem, in addition to:\n\n1. The language that you play WoW in\n2. Which version of WoW it is (Midnight, Forever, Mists of Pandaria Classic, Classic Era, etc.)\n3. The specific items that don't work as expected\n4. Your class and spec if you're using the built-in (not custom) stat weights\n\nIf you Alt+LeftClick on an item popup (whisper the item to yourself), you'll get a little popup that lets you copy and paste text from the item. At the bottom of that text is a command like this:\n\n```\n/pawn tooltip 12345:67::::0::89...\n```\n\nIf you copy and paste that for me, I can see the same item on my computer, and that's the most helpful thing you can do to help me track down the problem you're seeing. Screenshots are always great too!\n\n## Updates\n\n### Version 2.14.9\n\n* Added a note to the Compare tab to mention that you can also bind keys.\n\n### Version 2.14.8\n\n* Removed the compatibility warning about RatingBuster—it appears that RatingBuster isn't causing problems for all players, so I'll explore other ways to get RatingBuster and Pawn working together reliably.\n\n### Version 2.14.7\n\n* Forever: Pawn will no longer show a compatibility warning for Class Codex when playing Forever, as the feature that breaks Pawn isn't actually present in the Forever version of Class Codex. (The warning is still present on Midnight.)\n\n### Version 2.14.6\n\n* Removed the compatibility warnings about TradeSkillMaster and TipTac—currently available versions of those addons seem to work fine with Pawn.\n\n### Version 2.14.5\n\n* Pawn will now try to detect other addons that it's not compatible with, and will warn you if it finds one.\n\t* If you upgrade to Pawn 2.14.5 and see this error for the first time, going back to a previous version of Pawn will not fix the problem. Pawn will still not function properly, but you won't get a warning telling you what's wrong.\n\t* These warnings will only appear in English for this version of Pawn.\n* Fixed a bug where \"Item ID\" would appear twice on tooltips if both the \"Show item IDs\" and \"Align values to right edge of tooltip\" options were enabled.\n\n### Version 2.14.4\n\n* Forever: Pawn will now properly recommend one-handed axes to rogues by default instead of marking them as unusable.\n\n### Version 2.14.3\n\n* Forever: Added support for new items with haste in all languages.\n* Forever: Added support for new items with bonus armor in French, Portuguese, Russian, European Spanish, Simplified Chinese, and Traditional Chinese.\n* Includes fixes for seven obscure bugs that, hopefully, no one ever actually hit. (Thanks Krytical!)\n* Items that can only be used by certain classes will no longer appear on the Compare tab as having \"special effects\" in French.\n* Added `/pawn compare both item:12345` as a shortcut for putting the same item into both slots on the Compare tab.\n\n### Version 2.14.2\n\n* Forever: Disabled some hacks that were needed for Classic versions of WoW that don't appear to be necessary for Forever, which should make Pawn work notably faster on Forever.\n* Forever: Includes updated default stat weights for most classes and specs, including increases to the weights of weapon DPS and enhancement shaman stats to account for hotfixes.\n* Forever: Fixed a typo that was causing fire spell damage to get valued 100× the intended amount for fire mages. (For fire mages, even typos crit.)\n* Forever: Added support for many new types of items with various types of spell damage, healing, spell penetration, block value, and all resistances, in all languages.\n* Midnight and Forever: Fixed a minor error that occurred when turning the \"Show icons next to tooltips\" option on or off. (Thanks Angelo!)\n* Midnight and Forever: Whenever the game occasionally doesn't let Pawn set up its default key bindings when first creating a new character, Pawn will now try again on your second login.\n* Midnight and Forever: Fixed a harmless error that could occur when creating a new character.\n* Burning Crusade: Fixed a typo that was causing Jagged Seaspray Emerald to not be recommended in cases where it would have been useful. (Thanks Krytical!)\n* Items with set bonuses will no longer appear on the Compare tab as having \"special effects\" in Traditional Chinese.\n* Adjusted the names of several stats on the Values and Compare tabs to match how they appear in game, so players who don't play in English should see more words in their native languages instead of English.\n\n### Version 2.14.1\n\n* Forever: Includes new default stat weights for all classes and specs, curated by HawsJon.\n\n### Version 2.14.0\n\n* Forever: Pawn now fully supports World of Warcraft Forever.\n* Forever: Added support for a wide variety of new and changed items in all languages.\n\t* MP5 and HP5 are not working in French due to a translation bug in the game.\n\t* If you notice Pawn missing any stats on items on Forever besides those, and they work in other versions of the game, please let me know! I'll need to know the language you're playing in and which item it is: item ID is most helpful, but I can look a name up on Wowhead.\n* Forever: Spell hit, spell crit, and spell haste are no longer included on the Weights tab as those stats were removed from items in Forever.\n\n### Older versions\n\nThe [version history](https://github.com/VgerMods/Pawn/blob/main/Version%20history.md) documents older Pawn updates.\n\n---\nby Vger-Azjol-Nerub—[vgermods.com](https://www.vgermods.com/)\n\n© 2006-2026 Travis Spomer. This mod is released under the Creative Commons [Attribution-NonCommercial-NoDerivs 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0) license. By using the mod you agree to the terms of the license.",
+  "releases": [
+    {
+      "tag": "Pawn-2.14.8",
+      "name": "Pawn 2.14.8",
+      "published": "2026-11-21",
+      "notes": "Pawn 2.14.8"
+    },
+    {
+      "tag": "Pawn-2.14.7",
+      "name": "Pawn 2.14.7",
+      "published": "2026-11-20",
+      "notes": "Pawn 2.14.7"
+    },
+    {
+      "tag": "Pawn-2.14.6",
+      "name": "Pawn 2.14.6",
+      "published": "2026-11-20",
+      "notes": "Pawn 2.14.6"
+    },
+    {
+      "tag": "Pawn-2.14.5",
+      "name": "Pawn 2.14.5",
+      "published": "2026-11-20",
+      "notes": "Pawn 2.14.5"
+    },
+    {
+      "tag": "Pawn-2.14.4",
+      "name": "Pawn 2.14.4",
+      "published": "2026-11-17",
+      "notes": "Pawn 2.14.4"
+    }
+  ],
+  "stats": {
+    "stars": 34,
+    "contributors": 14,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-17",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-02",
+      "2026-10-22",
+      "2026-10-13",
+      "2026-09-12",
+      "2026-08-17",
+      "2026-07-31",
+      "2026-07-12",
+      "2026-06-20",
+      "2026-06-16",
+      "2026-05-14",
+      "2026-04-21",
+      "2026-04-01",
+      "2026-03-13",
+      "2026-03-06",
+      "2026-02-26",
+      "2026-02-25",
+      "2026-01-27",
+      "2026-01-23",
+      "2026-01-21",
+      "2026-01-12",
+      "2026-01-09",
+      "2025-11-29",
+      "2025-11-19",
+      "2025-10-20",
+      "2025-10-08",
+      "2025-08-26",
+      "2025-08-20",
+      "2025-08-19",
+      "2025-08-10",
+      "2025-08-06",
+      "2025-08-02",
+      "2025-08-02",
+      "2025-07-03",
+      "2025-07-01",
+      "2025-06-02",
+      "2025-04-20",
+      "2025-04-08",
+      "2025-03-14",
+      "2025-03-03",
+      "2025-02-26",
+      "2025-01-11",
+      "2024-12-24",
+      "2024-12-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Pawn"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "PawnCommon"
+    ],
+    "savedVariablesPerCharacter": [
+      "PawnOptions",
+      "PawnMrRobotScaleProviderOptions",
+      "PawnClassicScaleProviderOptions"
+    ]
+  }
+}

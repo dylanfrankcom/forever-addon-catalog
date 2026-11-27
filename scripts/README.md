@@ -114,6 +114,20 @@ A release is checked once, and again only when the checks or the editions change
 
 `checks.json`: `checked` (when), `scope`, and `repos`, one per repo: `release`, `published`, `state` (`checked`, `held`, `pre-release`, `no-release` or `error`, with a `reason`), `checkedAt`, `rules`, `results` and `good` by edition (`file`, `url`, `size`, `sha256`, `interface`, `folders`, `main`, `needs`; `good` adds `release`, `published`, `upToDate` and `checkedAt`).
 
+## details.cs
+Writes `addons/<id>.json` for each listed add-on with a GitHub source, from `catalog.json` and `candidates.json`, after `generate.cs`. It reads each repo through GitHub's GraphQL API (ten repos a query) and the contributors count through the REST API, so it needs a token in `GITHUB_TOKEN`:
+
+```powershell
+$env:GITHUB_TOKEN = gh auth token
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/details.cs                       # every add-on
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/details.cs -- --only questie     # a few, removing nothing
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/details.cs -- --self-test
+```
+
+- **What's read:** the README (the repo's, else the main folder's), the five latest stable releases' notes (or `CHANGELOG.md` when none has notes), images on GitHub in the README and a `screenshots` folder, stars, open issues, contributors, the dates of the 50 latest stable releases, and the main folder's `.toc` (languages, dependencies, saved variables). Format: `schema/README.md`, "Add-on details".
+- **Safe text:** everything read is untrusted. HTML becomes Markdown where it has a Markdown form (images, links, headings, bold, italic, code) and is dropped otherwise; scripts, styles, frames and comments go entirely. Links keep http(s), mailto and `#` anchors; images keep https only. Relative links and images are made absolute on GitHub. Code blocks and inline code are left as they are. The README is capped at 50,000 characters, each release's notes at 8,000 and the changelog at 20,000, cut at a paragraph and marked as cut.
+- **Re-running:** a file is rewritten only when its content changed, so its ETag stays valid. A repo that can't be read keeps its last file. A file whose add-on is no longer listed is removed (not with `--only`).
+
 ## generate.cs
 Writes `catalog.json`, `versions.json` and `icons/` from `checks.json`, `candidates.json`, `overrides/` and `optout.json`. How each field is chosen is in `schema/README.md`, "Where the catalog comes from" and "An entry". Run it after `check.cs`, then validate:
 

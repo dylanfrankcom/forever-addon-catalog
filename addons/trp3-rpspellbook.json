@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "trp3-rpspellbook",
+  "repo": "Duschgell/TRP3-Spellbook",
+  "releases": [
+    {
+      "tag": "v1.2.2",
+      "name": "release/v1.2.2",
+      "published": "2026-11-15",
+      "notes": "Forever Support"
+    },
+    {
+      "tag": "release/v1.2.2",
+      "published": "2026-11-10",
+      "notes": "## Version 1.2.2\n- Hotfix: Fixed an issue where message IDs could cause an integer overflow"
+    },
+    {
+      "tag": "release/v1.2.1",
+      "published": "2026-11-08",
+      "notes": "# Version 1.2.1\n- Added the option to have multiple ressources for each spell (up to 3)"
+    },
+    {
+      "tag": "release/v1.2.0",
+      "published": "2026-10-31",
+      "notes": "## Version 1.2.0\n\n- (optional) seasonal decorations to give your spellbook a little more flair\n- You can now move and anchor your buffs and debuffs wherever you want\n- The settings menu was very cluttered, so there are now submenus to make it easier to find your way around\n- You can now adjust some text and all spellbook buttons a little with sliders\n- You can now choose Spellbook's language independently of your client language\n- When you share your spells/abilities, their preset fields are now translated automatically\n- You can now flip through your spellbook with the mouse wheel\n- Spell/ability icons are now displayed correctly when hovering over chat links\n- Future versions will now have changelogs you can read in game. You can view the current one at any time by clicking the version in the settings\n- Prat 3.0 is now supported, as there were some issues with it\n- There was a scrollbar bug with long spell/ability descriptions. It's now fixed"
+    },
+    {
+      "tag": "release/v1.1",
+      "published": "2026-10-23",
+      "notes": "# Version 1.1\n\n- Added Magic for dracthyr\n  - prismatic magic type\n  - alle colored essences as a ressource\n- added customizable dropdown menu points (you can now type your own dropdown menu point if you wish)\n- fixed a visual bug, where you had two cursors while editing a spell\n- changed the default book icon"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-15",
+    "releaseDates": [
+      "2026-11-15",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-10-31",
+      "2026-10-23"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "TRP3_RPSpellbook",
+      "TRP3_RPSpellbook_GameMaster",
+      "TRP3_RPSpellbook_NPC"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "totalRP3"
+    ],
+    "optional": [
+      "totalRP3_Extended",
+      "totalRP3_KuiNameplates"
+    ],
+    "savedVariables": [
+      "TRP3_RPSpellbookDB"
+    ]
+  }
+}

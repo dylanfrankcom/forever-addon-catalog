@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "shortwave",
+  "repo": "goobyspace/shortwave",
+  "about": "# Shortwave\n\nWoW Addon that lets you create playlists of music, ambience & sounds as well as play these playlists for your whole group.\n\n# Developing\n\nTo update the data to more recent versions of WoW, run the following command:\n\n```\nnpm start\n```\n\nThis will fill the ShortWave_Data folders with the most recent sound files taken from the latest listfile in the [wowdev listfile repo](https://github.com/wowdev/wow-listfile).\n\nAll settings rows (section headers, checkboxes, dropdowns, and buttons) use Shortwave-specific XML templates to avoid sharing pooled frames with Blizzard's protected settings controls. Keep every row type isolated when changing the settings UI.\n\nAfter updating, reload the UI and check that opening Shortwave settings, changing a setting, and switching to Blizzard's Social settings does not trigger `ADDON_ACTION_FORBIDDEN`.",
+  "releases": [
+    {
+      "tag": "1.6.5",
+      "published": "2026-11-09",
+      "notes": "# Shortwave\n\n## [1.6.5](https://github.com/goobyspace/shortwave/tree/1.6.5) (2026-11-09)\n[Full Changelog](https://github.com/goobyspace/shortwave/compare/1.6.4...1.6.5) [Previous Releases](https://github.com/goobyspace/shortwave/releases)\n\n- Forever fixes final final(final)"
+    },
+    {
+      "tag": "1.6.4",
+      "published": "2026-11-05",
+      "notes": "# Shortwave\n\n## [1.6.4](https://github.com/goobyspace/shortwave/tree/1.6.4) (2026-11-05)\n[Full Changelog](https://github.com/goobyspace/shortwave/compare/1.6.3...1.6.4) [Previous Releases](https://github.com/goobyspace/shortwave/releases)\n\n- fix wow forever latest version error"
+    },
+    {
+      "tag": "1.6.3",
+      "published": "2026-10-24",
+      "notes": "# Shortwave\n\n## [1.6.3](https://github.com/goobyspace/shortwave/tree/1.6.3) (2026-10-24)\n[Full Changelog](https://github.com/goobyspace/shortwave/compare/1.6.2...1.6.3) [Previous Releases](https://github.com/goobyspace/shortwave/releases)\n\n- Final Forever pre-release data"
+    },
+    {
+      "tag": "1.6.2",
+      "published": "2026-10-14",
+      "notes": "# Shortwave\n\n## [1.6.2](https://github.com/goobyspace/shortwave/tree/1.6.2) (2026-10-14)\n[Full Changelog](https://github.com/goobyspace/shortwave/compare/1.6.1...1.6.2) [Previous Releases](https://github.com/goobyspace/shortwave/releases)\n\n- 12.1.5 update"
+    },
+    {
+      "tag": "1.6.1",
+      "published": "2026-09-21",
+      "notes": "# Shortwave\n\n## [1.6.1](https://github.com/goobyspace/shortwave/tree/1.6.1) (2026-09-21)\n[Full Changelog](https://github.com/goobyspace/shortwave/compare/1.6.0...1.6.1) [Previous Releases](https://github.com/goobyspace/shortwave/releases)\n\n- Fix tocs  \n    I can't read and thought standard on warcraft wiki meant \\_standard was a suffix"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-09",
+    "releaseDates": [
+      "2026-11-09",
+      "2026-11-05",
+      "2026-10-24",
+      "2026-10-14",
+      "2026-09-21",
+      "2026-08-18",
+      "2026-06-17",
+      "2026-04-22",
+      "2026-02-25",
+      "2026-02-11",
+      "2026-01-20",
+      "2025-12-03",
+      "2025-10-08",
+      "2025-08-06",
+      "2025-07-18",
+      "2025-07-01",
+      "2025-06-30",
+      "2025-06-19",
+      "2025-06-19",
+      "2025-06-19",
+      "2025-06-18",
+      "2025-06-18",
+      "2025-06-15",
+      "2025-06-15",
+      "2025-06-14",
+      "2025-06-14",
+      "2025-06-14",
+      "2025-06-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ShortWave",
+      "ShortWave_AmbienceData",
+      "ShortWave_MusicData",
+      "ShortWave_SFXData"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ShortWaveVariables"
+    ]
+  }
+}

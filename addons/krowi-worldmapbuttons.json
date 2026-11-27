@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "krowi-worldmapbuttons",
+  "repo": "TheKrowi/Krowi_WorldMapButtons",
+  "about": "![Retail](https://img.shields.io/badge/Retail-12.1.5-008833?style=for-the-badge) ![Mists](https://img.shields.io/badge/Mists-5.5.4-28ae7e?style=for-the-badge) ![Titan](https://img.shields.io/badge/Titan-3.80.2-5d6d7e?style=for-the-badge) ![Forever](https://img.shields.io/badge/Forever-1.60.1-e6cc80?style=for-the-badge) ![Classic](https://img.shields.io/badge/Classic-1.15.9-c39361?style=for-the-badge)\n\n[![CurseForge](https://img.shields.io/badge/curseforge-download-F16436?style=for-the-badge&logo=curseforge&logoColor=white)](https://www.curseforge.com/wow/addons/krowi-world-map-buttons) [![Wago](https://img.shields.io/badge/Wago-Download-c1272d?style=for-the-badge)](https://addons.wago.io/addons/krowi-world-map-buttons)\n\n[![Discord](https://img.shields.io/badge/discord-join-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mdBFQJYeQZ) [![PayPal](https://img.shields.io/badge/paypal-donate-002991.svg?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=9QEDV37APQ6YJ)\n\nA library for World of Warcraft addon development that simplifies adding custom buttons to the world map interface with automatic positioning and dynamic layout management.\n\n## Features\n\n### World Map Button Library (`Krowi_WorldMapButtons-1.4`)\n- **Easy Button Integration**: Add custom buttons to the world map with a single function call\n- **Automatic Positioning**: Buttons line up in one row with Blizzard's own map buttons, in a top corner of the map\n- **Dynamic Layout**: Hidden buttons leave no gap in the row\n- **Multi-Version Support**: Works on Retail, Mists of Pandaria Classic, WoW Forever and the 1.x to 3.x Classic clients (Classic Era, Anniversary, Titan Reforged)\n- **Default Button Integration**: Blizzard's map buttons (on Retail the tracking options and map pin buttons) take the first places in the row\n- **Independent**: No dependency on other addons for world map modifications\n- **LibStub Support**: Standard LibStub library structure for dependency management\n\n## Usage Examples\n\n### Basic Button Setup\n```lua\nlocal WorldMapButtons = LibStub(\"Krowi_WorldMapButtons-1.4\")\n\n-- Your template's mixin must have a Refresh method, see below\nlocal button = WorldMapButtons:Add(\"YourAddon_WorldMapButton_Template\", \"BUTTON\")\n```\n\n### Button Mixin Example\nOnly `Refresh` is required by the library. The other methods are the scripts of the sample template.\n```lua\nYourAddon_WorldMapButtonMixin = {}\n\nfunction YourAddon_WorldMapButtonMixin:OnLoad()\n    -- Initialize your button\nend\n\nfunction YourAddon_WorldMapButtonMixin:OnMouseDown(button)\n    -- Handle mouse down event\nend\n\nfunction YourAddon_WorldMapButtonMixin:OnMouseUp()\n    -- Handle mouse up event\nend\n\nfunction YourAddon_WorldMapButtonMixin:OnClick()\n    -- Handle click event\nend\n\nfunction YourAddon_WorldMapButtonMixin:OnEnter()\n    -- Show tooltip or highlight\nend\n\nfunction YourAddon_WorldMapButtonMixin:OnHide()\n    -- Clean up when hidden\nend\n\nfunction YourAddon_WorldMapButtonMixin:Refresh()\n    -- Required: called after every map change, before the row is laid out again\n    -- Use this to update button state:\n    -- self:Enable(), self:Disable(), self:Show(), self:Hide()\nend\n```\n\n### Button Template Example (XML)\nSee [ButtonTemplate.xml](https://github.com/TheKrowi/Krowi_WorldMapButtons/blob/main/_Packaging/ButtonTemplate.xml) for a complete example template.\n\n### Button Without a Template\n```lua\nlocal button = WorldMapButtons:Add(nil, \"BUTTON\")\nbutton:SetSize(32, 32)\nfunction button:Refresh()\nend\n```\n\n### Showing or Hiding Your Button\n```lua\n-- Outside a map change, lay the row out again yourself so no gap is left\nbutton:SetShown(showButton)\nWorldMapButtons.SetPoints()\n```\n\n### Custom Offset Configuration\n```lua\nlocal WorldMapButtons = LibStub(\"Krowi_WorldMapButtons-1.4\")\n\n-- Moves the start of the whole row, so every addon's buttons move with it\nWorldMapButtons:SetOffsets(8, -4)  -- xOffset, yOffset\n```\nLoading a newer copy of the library resets the offsets, so set them once all addons have loaded (`PLAYER_LOGIN` or later). They apply from the next map change or `SetPoints()` call.\n\n## API Reference\n\n### Library Functions\n\n| Function | Parameters | Returns | Description |\n|----------|------------|---------|-------------|\n| `Add(templateName, templateType)` | `templateName` (string or nil), `templateType` (string) | frame | Creates a button from the template, places it at the end of the row and returns it |\n| `SetOffsets(xOffset, yOffset)` | `xOffset` (number, optional), `yOffset` (number, optional) | - | Moves the start of the row. Defaults: xOffset=4, yOffset=-2 (WoW Forever: 3, 0) |\n| `SetPoints()` | - | - | Lays the row out again. Call it as `WorldMapButtons.SetPoints()` after showing or hiding your button outside a map change |\n\n### Add() Parameters\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `templateName` | string | No | The name of your button template defined in XML. With nil the button is created bare and you build it in code |\n| `templateType` | string | Yes | The frame type, typically \"BUTTON\"; \"DropdownButton\" works on clients that have it |\n\n**Returns:** The created button, named `Krowi_WorldMapButtons<n>`. Its parent is `WorldMapFrame`, or on Classic Era, Anniversary and Titan Reforged `WorldMapFrame.ScrollContainer` with `TOOLTIP` strata.\n\n### Button Methods\nThe library calls one method on your button:\n\n| Method | Parameters | Description |\n|--------|------------|-------------|\n| `Refresh()` | - | Required. Called after every map change, before the row is laid out again. Update button state here |\n\n`Refresh` runs inside Blizzard's map update, so keep it free of errors.\n\n### Library Properties\n\n| Property | Type | Description |\n|----------|------|-------------|\n| `IsMainline` | boolean | True on Retail (11.x and later) and WoW Forever; buttons stack downwards |\n| `IsForever` | boolean | True on WoW Forever |\n| `HasNoOverlay` | boolean | True on Classic Era, Anniversary and Titan Reforged; buttons are parented to `WorldMapFrame.ScrollContainer` |\n| `AnchorPoint` | string | The corner the row starts in: \"TOPRIGHT\", or \"TOPLEFT\" on WoW Forever |\n| `XOffset` | number | Horizontal offset for the start of the row (default: 4; WoW Forever: 3) |\n| `YOffset` | number | Vertical offset for the start of the row (default: -2; WoW Forever: 0) |\n| `Buttons` | table | Array of all buttons in the row, in order, Blizzard's first |\n\n## Positioning Behavior\n\n### Retail\n- Buttons are stacked **vertically** from top to bottom\n- Position: Top-right corner of the map, below Blizzard's tracking options and map pin buttons\n- Each button is 32 pixels below the previous one\n\n### WoW Forever\n- Buttons are stacked **vertically** from top to bottom\n- Position: Top-left corner of the map, below Blizzard's map pin button\n- Each button is 32 pixels below the previous one\n- The tracking options button stays where Blizzard puts it, next to the nav bar\n\n### Mists of Pandaria Classic, Classic Era, Anniversary and Titan Reforged\n- Buttons are arranged **horizontally** from right to left\n- Position: Top-right corner of the map\n- Each button is 32 pixels to the left of the previous one\n\n### Dynamic Layout\n- After every map change, and whenever `SetPoints()` is called, the shown buttons close up so a hidden button leaves no gap\n- Buttons keep the order in which they were added, after Blizzard's buttons\n\n## Technical Details\n\n### Version Detection\nThe library reads the major version from `GetBuildInfo()`:\n- **11 and later**: Retail\n- **5**: Mists of Pandaria Classic\n- **1 to 3, with `WorldMapTrackingPinButtonMixin`**: WoW Forever, which runs Retail's world map\n- **1 to 3, without it**: Classic Era, Anniversary and Titan Reforged\n\n### Refresh Hook\nEach button hooks `WorldMapFrame.OnMapChanged` on every client. The hook calls the button's `Refresh()` and then `SetPoints()`.\n\nBlizzard calls `OnMapChanged` only when the map shows a different map than before:\n- Opening the world map for the first time, or on another map than it was closed on\n- Switching between different maps\n- Changing continents or zones\n\nZooming does not call it, and neither does reopening the map on the map it was closed on.\n\n## Use Cases\n- Quick access to addon features from the world map\n- Toggle visibility of custom map overlays or pins\n- Open addon configuration panels\n- Display addon-specific information\n- Navigate to addon-related content\n- Filter or search map data\n- Any functionality requiring map-context interaction\n\n## Requirements\n- LibStub\n\n## License\nBSD 3-clause, see [LICENSE](https://github.com/TheKrowi/Krowi_WorldMapButtons/blob/main/LICENSE). It covers every 1.4 release, including those before 1.4.12.",
+  "releases": [
+    {
+      "tag": "1.4.12",
+      "published": "2026-10-24",
+      "notes": "### Changed (1.4.12)\n- The library is now licensed under the BSD 3-clause license, which also covers every earlier 1.4 release: any version can be embedded in an addon without asking"
+    },
+    {
+      "tag": "1.4.11",
+      "published": "2026-10-03",
+      "notes": "### Added (1.4.11)\n- WoW Forever support: buttons stack downwards from the top-left corner of the map, below Blizzard's map pin button, and the tracking options button stays next to the nav bar\n\n### Fixed (1.4.11)\n- WoW Forever: the map pin button no longer stretches across the top of the map (hover glow and tooltip along the whole top edge), and the tracking options button is no longer pulled into the map\n- WoW Forever: buttons created by an older embedded copy of the library are moved onto the world map frame with `HIGH` strata instead of `TOOLTIP`\n- Buttons now clear their previous anchors before being positioned\n\n### Changed (1.4.11)\n- Removed the unused `KrowiWorldMapButtonsIndex` field that was written onto Blizzard's map buttons"
+    },
+    {
+      "tag": "1.4.10",
+      "published": "2026-06-06",
+      "notes": "### Fixed (1.4.10)\n- Taint fix: removed `PatchWrathClassic` patch, hook now always uses `OnMapChanged` (dev note: this is at least an attempt at fixing `Blizzard_SharedXML/LayoutFrame.lua:491: attempt to compare a secret number value`)\n\n### Changed (1.4.10)\n- Files renamed to be in line with my other libraries"
+    },
+    {
+      "tag": "1.4.9",
+      "published": "2025-12-08",
+      "notes": "### Added\n- Wrath Classic compatibility\n\n### Fixed (1.4.4)\n- Proper compatibility fix for Leatrix Maps with backwards compatibility\n\n### Added (1.4.5)\n- Classic era and TBC classic support\n\n### Changed (1.4.6)\n- The War Within compatibility\n- No longer compatible with Krowi_WorldMapButtons 1.3.1\n\n### Changed (1.4.8)\n- 11.1.0 map changes\n\n### Changed (1.4.9)\n- Codebase for upload"
+    },
+    {
+      "tag": "1.4.8",
+      "published": "2025-02-22",
+      "notes": "11.1.0 map changes"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 1,
+    "contributors": 3,
+    "lastRelease": "2026-10-24",
+    "releaseDates": [
+      "2026-10-24",
+      "2026-10-03",
+      "2026-06-06",
+      "2025-12-08",
+      "2025-02-22",
+      "2024-06-27",
+      "2023-03-29",
+      "2023-03-29",
+      "2023-03-29",
+      "2023-03-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Krowi_WorldMapButtons"
+    ],
+    "editions": [
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "mp5",
+  "repo": "Nigeltve/ManaPointFive",
+  "about": "# MP5\n\nA World of Warcraft **Forever** addon that puts a spark on your mana bars, on the **player unit frame** and the **personal resource display**.\n\n- After you spend mana, an **orange spark** sweeps across the mana bar over 5 seconds: the five-second rule, while Spirit regen is paused.\n- Casting another mana spell restarts it. Nothing shows outside the 5 seconds, and nothing ever shows on characters without mana.\n\n## Slash commands\n\n| Command | What it does |\n|---|---|\n| `/mp5 toggle` | Turn the addon on/off for this character |\n| `/mp5 test` | Sweep the spark once, to check it shows on your bars |\n| `/mp5 status` | Print the current state and which mana bars were found. Also saved (last 20 lines) to `WTF\\...\\SavedVariables\\MP5.lua` on `/reload` |\n\n## Notes\n\n- The game hides your exact mana from addons, so MP5 detects a spend from the spell's mana cost. If the cost can't be read, a cast that lands right next to a mana change counts as a spend.\n- Because of that, a free cast from a proc such as Clearcasting still shows the spark: the addon sees the spell's normal cost, not what you actually paid.\n- The personal resource display is the game's own (Options → Combat → Personal Resource Display).\n\n## Troubleshooting\n\nRun `/mp5 status`. Each bar shows the frame it was attached to, or `missing` if the addon couldn't find it.\n\n## Installation\n\n1. Download the latest `MP5-vX.Y.Z.zip` from the Releases page.\n2. Extract it into `World of Warcraft\\_forever_\\Interface\\AddOns\\`, so you end up with `AddOns\\MP5\\MP5.toc`.\n3. Restart the game or `/reload`.\n\n## Releasing (maintainers)\n\nRaise `## Version:` in `MP5.toc` (format `X.Y.Z`) and push to `main`. GitHub Actions then zips the addon and publishes release `vX.Y.Z` with generated notes. Pushes where the version isn't higher than the latest release are skipped. You can also run **Actions → Create Release → Run workflow** to release the current `.toc` version if it hasn't been released yet.\n\n## Author\n\nNuggyNige",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "name": "Release v1.0.1",
+      "published": "2026-11-08",
+      "notes": "**Full Changelog**: https://github.com/Nigeltve/ManaPointFive/compare/v1.0.0...v1.0.1"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Release v1.0.0",
+      "published": "2026-11-08",
+      "notes": "**Full Changelog**: https://github.com/Nigeltve/ManaPointFive/commits/v1.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-11-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MP5"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "MP5_DB_CHAR"
+    ]
+  }
+}

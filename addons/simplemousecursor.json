@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "simplemousecursor",
+  "repo": "Earthenmist/SimpleMouseCursor",
+  "about": "### **\uD83D\uDDB1️ Simple Mouse Cursor**\n\n**Simple Mouse Cursor** is a stand-alone addon based on a popular WeakAura concept, rebuilt for performance, reliability, and **zero external dependencies**.\n\nIt displays customizable rings, indicators, and effects around your cursor — helping you instantly locate it in combat while showing GCD, casting, and more.\n\nLightweight. No code warnings. No setup required.\n\n***\n\n## **Support & Community**\n\nFor bug reports, feature requests, release notes, and beta builds, join the official Discord:\n\n**Earthenmist • Addon Hub**  \n[https://discord.gg/U8mKfHpeeP](https://discord.gg/U8mKfHpeeP)\n\n***\n\n## ⭐ Main Features\n\n### ✔ Compatible with **The War Within (Retail)**, **Midnight**, and **WoW Forever**\n\nIncludes support for WoW Forever interface `16001`, alongside Retail interface `120100`.\n\n### ✔ Cursor Rings\n\n*   **Main (Middle) Ring:** A static highlight that helps you track your cursor during intense gameplay\n*   **Inner Ring:** Displays your **global cooldown**\n*   **Outer Ring:** Shows your **cast** or **channel** progress\n*   **Cursor Trail:** Optional animated trail that follows your cursor\n\n***\n\n## \uD83C\uDFA8 Color & Appearance Customization\n\n*   Use **class colours** for:\n    *   GCD ring\n    *   Main ring\n    *   Cast ring\n    *   Cursor trail\n*   NEW: Optional **Main Ring Pulse** effect with:\n    *   Dual pulse colours (**A / B**)\n    *   Adjustable **opacity**\n    *   Adjustable **pulse speed**\n    *   Credit aspiringnobody for the request, visuals and example code  \n*   NEW: Optional **Main Ring Rotation** effect with:\n    *   Dual rotation colours (**1 / 2**)\n    *   Adjustable **opacity**\n    *   Adjustable **rotation speed**\n    *   Credit aspiringnobody for the request, visuals and example code \n*   Use **power type colours** for the Power ring instead of the default blue\n*   Adjust cursor trail **density**, **duration**, and **scale**\n*   Adjustable **cursor ring scale**\n*   Adjustable **frame strata (layering)** so the cursor overlay can be forced above or below UI elements\n\n***\n\n## \uD83C\uDFAF Reticle Options\n\n*   Choose from multiple reticle styles (dot, chevron, crosshair, ring, etc.)\n*   Adjust **reticle size**\n*   Tint the reticle using **class colour**\n\n***\n\n## \uD83D\uDC41️ Visibility Controls\n\n*   Option to **show the cursor rings only while in combat**\n*   Individual visibility behaviour based on modifier keys (**Shift**, **Ctrl**, **Alt**)\n\n### Modifier Actions\n\nEach modifier can have its own action:\n\n1.  **Show Rings** — Temporarily show all rings while the key is held\n2.  **Ping with Ring** — Brief ring highlight at the cursor location\n3.  **Ping with Area** — Bright solid spotlight on your cursor\n4.  **Ping with Crosshair** — Large screen-wide crosshair pulses from your cursor\n5.  **Show Crosshair** — Display the crosshair for as long as the modifier is held\n\n***\n\n## \uD83D\uDCDC License\n\n**All Rights Reserved.**  \nPersonal use is allowed. Redistribution or modified uploads are not permitted.\n\n***\n\n## Documentation\n\nFull setup, configuration, feature and troubleshooting guides are available in the [Simple Mouse Cursor Wiki](https://github.com/Earthenmist/SimpleMouseCursor/wiki).",
+  "releases": [
+    {
+      "tag": "v1.1.8-Release",
+      "published": "2026-10-15",
+      "notes": "## \uD83E\uDDE9 Addon Updates (2026-10-15)\n\n**Simple Mouse Cursor** — v1.1.8-Release  \n\n**Changes:**  \n- Updated for Retail patch 12.1.5 (interface 120105); the superseded 12.1.0 interface is no longer listed. WoW Forever (16001) is still supported.  \n\n**Fixes:**  \n- None.  \n\n**Known issues:**  \n- WoW Forever Beta currently has a client issue with saved variables, so settings are not retained between logging out and logging back in. This is a WoW Forever Beta client issue, not an addon issue.  \n\n**Credits:**  \n- None."
+    },
+    {
+      "tag": "v1.1.7-Release",
+      "published": "2026-09-20",
+      "notes": "## \uD83E\uDDE9 Addon Updates (2026-09-20)\n\n**Simple Mouse Cursor** — v1.1.7  \n\n**Changes:**  \n- Added WoW Forever support for interface 16001 while retaining Retail interface 120100.  \n\n**Fixes:**  \n- None.  \n\n**Known issues:**  \n- WoW Forever Beta currently has a client issue with saved variables, so settings are not retained between logging out and logging back in. This is a WoW Forever Beta client issue, not an addon issue.  \n\n**Credits:**  \n- None."
+    },
+    {
+      "tag": "v1.1.6-Release",
+      "published": "2026-08-18",
+      "notes": "## \uD83E\uDDE9 Addon Updates (2026-08-18)\n\n**Simple Mouse Cursor** — v1.1.6  \n\n**Changes:**  \n- None.  \n\n**Fixes:**  \n- Fixed the Power ring colour option so power-type colours are only used when enabled.  \n\n**Known issues:**  \n- None currently known.  \n\n**Credits:**  \n- None."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-15",
+    "releaseDates": [
+      "2026-10-15",
+      "2026-09-20",
+      "2026-08-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SimpleMouseCursor"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "SMC_Settings"
+    ]
+  }
+}

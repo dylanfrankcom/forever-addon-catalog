@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "everlookpets",
+  "repo": "quikmn/EverlookPets",
+  "about": "# EverlookDB Pets\n\nHunter pets for WoW Forever: your pet's abilities, the best rank its level allows, how\nto get the next one, and a bestiary of every tameable beast: what it teaches, where it spawns, a wishlist and map pins. From the makers of [EverlookDB.com](https://everlookdb.com/); the addon's page is\n[everlookdb.com/everlook-pets.html](https://everlookdb.com/everlook-pets.html).\n\n## What it does\n\n**Your pet.** Name, family, level next to yours, loyalty, free training points, happiness and what it eats. When your\npet falls behind your level it says so (\"Your pet is 5 levels below you\"; from how many levels is a setting).\n\n**Abilities.** Every ability your pet's family can learn, as a row with its icon, the rank your pet has and what to\ndo next. Things to do come first:\n\n- **Train now: you know rank 7, your pet has 6.** Teach it with Beast Training.\n- **Buy rank 4 from a pet trainer.** Growl, Cower, Great Stamina, Natural Armor and the resistances.\n- **Fang knows rank 7: learn it from that pet.** Another of your pets (active or stabled) has it.\n- **Tame a beast that knows rank 7.** With a \"Where?\" button: the best beasts for that rank, ones you can tame at\n  your level first, confirmed before seen before classic data, in your zone and then your continent first, with\n  their levels and zones and a link to the first one's EverlookDB page. The site's pet page when no beast is known.\n- **Rank 3: new in WoW Forever.** Abilities Forever added (Dismember, Pinch, Swipe...) that nobody has reported a\n  beast for yet point to EverlookDB; once players have, they become a tame like any other.\n- **Trained: rank 6 · rank 7 at pet level 48**, or **Opens at pet level 30**.\n\nHover a row for the longer explanation and the links.\n\n**Still to learn.** Above the full list, what your pet can still learn, most worth it first: what you can do right\nnow (train, learn from another pet, buy), then the biggest jump in rank, then the fewest training points. Each row\nsays what the rank costs in training points (and what it costs your pet, which gets back what its lower rank cost),\nand the line on top says how many points are free and what the next rank costs. For a tame, the 3 nearest beasts you\ncan tame at your level are listed under it (your zone first, then your continent; confirmed first among equals);\nclick one for its page, or the row for every beast that teaches the rank.\n\n**Bestiary.** Every tameable beast in one list, as cards: family icon, name, levels, rare or elite, zones, attack\nspeed, and a chip for each rank it teaches. A chip's text is gold when your pet would gain that rank and grey when it\nhas it; its edge is green when the rank is confirmed, white when seen in WoW Forever, grey for classic data. The\nsearch box at the top finds \"bite 6\" (who teaches it), \"dash\" (any rank), \"cat\", \"stranglethorn\", \"rare\", \"fast\",\n\"elite\", a level (\"32\") or part of a name; every word must match. Chips under it filter by family, zone (this zone,\nthis continent, or one zone), near your level, rare, fast attack, untamed by you and your wishlist.\n\n**A beast's page.** Click a card: its 3D model (drag to turn it; models can be turned off), levels (too high for you\nyet?), attack speed, what it eats, where it lives, whether you tamed one, and each rank it teaches with how sure that\nis, what it means for your pet and its training-point cost. Where it spawns, with a Waypoint button per spot. **Set\nwaypoint** puts a waypoint on the nearest spot where WoW Forever players saw the beast (your map first, then your\ncontinent; a lone sighting gives way to a spot seen more often); older classic spawn data only when players haven't\nseen it there, and the line says so. It is TomTom's waypoint when TomTom is loaded,\nelse the game's own map pin and arrow. The beast's EverlookDB page is a click away.\n\n**Wishlist and near alerts.** The star on a card puts a beast on your wishlist (per character). When a rare\ntameable beast or a wishlisted one shows up on a nameplate (turn on enemy nameplates), as your target or under your\nmouse, you get one chat line with a sound, at most once in 5 minutes per beast: \"Broken Tooth (rare Cat, level 37) is\nnear. /tar Broken Tooth\". Both alerts and the sound are settings.\n\n**Tamed by you.** The addon remembers which beasts you tamed: Tame Beast on a beast followed by a new pet, and the\nbeast every pet you have came from. Cards, beast pages and tooltips say so, and the Bestiary can leave them out.\n\n**World map.** \"Tameable beasts\" pins on a zone's map where beasts spawn that teach a rank your pet lacks (one its\nlevel allows, not sold by trainers) and that you can tame at your level. The pin is the family icon with the same\ngreen, white or grey edge; hover it for what it teaches, click it for its page. A switch at the bottom left of the\nmap (and a setting) turns them off.\n\n**Alerts, once per change.** A chat line when a new rank opens as your pet levels, or when you learn a rank your pet\nlacks. A pet seen for the first time, or a level that opens many ranks at once, gets one summary line instead. The\nminimap button and the data-broker plugin (shown by EverlookDB Bar, Titan Panel, ChocolateBar...) carry a count of\nwhat's new until you open the window.\n\n**Level-up card.** When you level up, a card near the top of the screen says what's new at that level: the ranks your\npet's family can now learn that your pet lacks (\"New: Claw rank 6 for Shadowclaw. Tame a Silt Crawler (level 40-41,\nSwamp of Sorrows) to learn it\", or \"teach it now\" when you know it already), the hunter trainer's new spells and\nranks, and the ranks to buy from a pet trainer. A Pin button puts a waypoint on the beast's nearest spawn spot or the\nnearest trainer of your faction (TomTom's when TomTom is loaded). No sound, it waits for the end of a fight, it shows\nnothing when nothing is new, and you can drag it anywhere; Escape or its X closes it. `/epets levelup` shows it again;\na setting turns it off or gives one chat line instead.\n\n**Tameable beasts.** Hovering a wild beast shows \"Tameable\", its family and level, whether it's too high for you yet,\nand what its family learns.\n\n## Install\n\nWowUp: pick **World of Warcraft: Forever**, then Get Addons → Install from URL, and paste `https://github.com/quikmn/EverlookPets`.\n\nBy hand: download the latest zip from Releases (`EverlookPets.zip`) and unzip it into\n`World of Warcraft\\_forever_\\Interface\\AddOns`.\n\nBugs and ideas: [Issues](https://github.com/quikmn/EverlookPets/issues), or `/epets feedback` in game.\n\n## Using it\n\n- `/epets` opens the window (also under Settings > AddOns). `/everlookpets` works too.\n- `/epets check` lists what to do now in chat.\n- `/epets levelup` shows the level-up card for your level (what's new for you and your pet).\n- `/epets recent` opens the Recent page: everything the addon told you (level-up cards, beasts near you, your pet), newest first, with buttons to show the card or set the waypoint again. Right-click the minimap button or the bar plugin for the same.\n- `/epets levelcard off`, `/epets levelchat on`: no level-up card, or one chat line instead of it.\n- `/epets chat off`, `/epets lag 5`, `/epets minimap off`, `/epets tooltip off`, `/epets locked off`: settings from\n  chat (`/epets get` lists them all).\n- `/epets beasts <words>` opens the Bestiary with that search (`/epets beasts bite 6`); `/epets wishlist` lists your\n  starred beasts in chat.\n- `/epets rare off`, `/epets wish off`, `/epets sound off`, `/epets models off`, `/epets map off`: the new settings.\n- `/epets search <words>`, `/epets status`, `/epets version`, `/epets reset` (asks first), `/epets feedback`, `/epets help`.\n\n## Where the data comes from\n\nThe bestiary comes from EverlookDB: what hunters tamed in WoW Forever and where players saw each beast, with older\nclassic data where nobody has reported a beast yet. Every rank says how sure it is: **confirmed**, **seen** in WoW\nForever, or **classic data** (WoW Forever may differ). Spell, zone and family names are in your game's language;\nbeast names are English.\n\n## Credits and license\n\nGPL-3.0-or-later (see LICENSE). Data from classic-db (CMaNGOS, GPL-3.0), EG Link (Efficient Games, CC BY 4.0),\nForever Hunter Pets (MIT), BeastScout (GPL-3.0) and VMaNGOS (GPL-2.0-or-later); game data © Blizzard Entertainment.\nNot affiliated with Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v0.6.1",
+      "published": "2026-11-26",
+      "notes": "- The level-up card is a little wider, and rows without a Pin button use the whole width, so long lines (with \"All families\") are no longer cut off.\n- Settings search: the sidebar lights the page of the top result while you search."
+    },
+    {
+      "tag": "v0.6.0",
+      "published": "2026-11-21",
+      "notes": "- New: `/epets recent` (or Recent in the window) lists everything the addon told you, with buttons to show the card or set the waypoint again.\n- The level-up card shows new pet ranks only by default; trainer ranks and new spells can be switched on in the settings.\n- The level-up card can cover your current pet's family, families you pick, or all families. It keeps to four rows, then \"and N more\".\n- Tooltips get the EverlookDB look, with a new \"Solid tooltip background\" setting (on by default)."
+    },
+    {
+      "tag": "v0.5.1",
+      "published": "2026-11-21",
+      "notes": "- Bestiary waypoints now lead to where WoW Forever players actually see a beast; older classic spawn data is only used when there's nothing else, and says so."
+    },
+    {
+      "tag": "v0.5.0",
+      "published": "2026-11-21",
+      "notes": "- The addon is now called EverlookDB Pets (was Everlook Pets). Settings, commands and the folder stay the same.\n- New level-up card: when you level up, it shows the new ranks your pet can learn and where to tame them, the hunter trainer's new spells and the ranks to buy from a pet trainer, with Pin buttons for waypoints.\n- The card never plays a sound, waits until a fight ends, and stays quiet when nothing is new. Drag it anywhere; close it with X or Escape.\n- `/epets levelup` shows the card again. Settings turn it off or give one chat line instead."
+    },
+    {
+      "tag": "v0.4.2",
+      "published": "2026-11-21",
+      "notes": "- A tame nobody has reported a beast for now points to EverlookDB's pet page.\n- Bestiary: beasts with an unknown level come last; among equal levels, beasts known to teach something come first.\n- Bestiary data refreshed: more spawn spots, more levels, rare beasts marked rare, and no more whole continents listed as a zone.\n- Tooltips no longer say \"level 0\" for a beast whose level isn't known.\n- Fixed: a pet showing up as \"Unknown\" right after login, stabled pets being forgotten, and stabled pets losing their family on non-English clients.\n- Set waypoint says so when the game refuses the waypoint.\n- Layout and wording fixes on cards, the beast page and settings."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/quikmn/EverlookPets/main/screenshots/1-your-pet.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookPets/main/screenshots/2-level-up-card.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookPets/main/screenshots/3-bestiary.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookPets/main/screenshots/4-recent.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookPets/main/screenshots/5-where-to-tame.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookPets/main/screenshots/6-settings.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EverlookPets"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "EverlookPetsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "EverlookPetsCharDB"
+    ]
+  }
+}

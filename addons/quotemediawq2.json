@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "quotemediawq2",
+  "repo": "tehw0lf/WoWQuote2",
+  "about": "# WoWQuote2\n\nA World of Warcraft AddOn that plays and broadcasts sound clips (\"quotes\") through chat.\nWhen you send a quote, every other player in that channel who has the AddOn installed\nhears the same sound clip play automatically.\n\nSupported clients: **Vanilla (1.12)**, **TBC (2.4)**, **WotLK (3.3.5)**.\n\n**WoW: Forever** runs a different WoWQuote2 (it sends addon messages instead of chat text and\nloads sounds from separate QuoteMedia packs). For it, the `WQ2-Forever-<version>.zip` release\nis a sound pack for that AddOn, not a copy of this one. Install the Forever WoWQuote2 first,\nthen extract the pack into `Interface\\AddOns` so that `QuoteMediaWQ2\\` exists, and fill it\nwith the Manager's **Forever** export. Players on the Forever AddOn and players on the\nother clients cannot hear each other's quotes.\n\n---\n\n## Important: releases contain no sounds\n\n**The release archives ship the AddOn code only — no MP3s.** A freshly installed release\nhas an empty quote list, and `/wq` opens an empty dialog. This is intentional, not a\nbroken download: the sounds are user-supplied and are not distributed here.\n\nTo get a working setup you need two steps, in this order:\n\n1. **[Install the AddOn](#1-install-the-addon)** — from a release archive.\n2. **[Add sounds with WoWQuote2 Manager](#2-add-sounds)** — this is what fills the quote list.\n\nSkipping step 2 leaves you with an AddOn that loads correctly and does nothing.\n\n---\n\n## 1. Install the AddOn\n\n1. Download the archive for your client from the\n   [latest release](https://github.com/tehw0lf/WoWQuote2/releases/latest):\n\n   | Client | Archive |\n   |---|---|\n   | Vanilla (1.12) | `WQ2-Vanilla-<version>.zip` |\n   | TBC (2.4) | `WQ2-TBC-<version>.zip` |\n   | WotLK (3.3.5) | `WQ2-WOTLK-<version>.zip` |\n\n2. Extract it into your AddOns directory:\n\n   ```\n   <WoW installation directory>\\Interface\\AddOns\n   ```\n\n3. Afterwards a folder named **`WoWQuote2`** must exist there:\n\n   ```\n   <WoW installation directory>\\Interface\\AddOns\\WoWQuote2\n   ```\n\n   The folder name must stay exactly `WoWQuote2` — the `.toc` file inside is named\n   `WoWQuote2.toc`, and WoW only loads an AddOn whose folder and `.toc` names match.\n\n4. **Restart the game completely.** Relogging your character is not enough; a running\n   client does not pick up newly added AddOns.\n\nOn login you should see a chat message confirming the AddOn loaded. If you do not,\ncheck that the folder is named correctly and that WoWQuote2 is enabled in the\ncharacter-select AddOns list.\n\n## 2. Add sounds\n\nSounds are managed with **[WoWQuote2 Manager](https://github.com/tehw0lf/WoWQuote2-Manager)**,\na browser app that runs entirely client-side — nothing is uploaded anywhere.\n\n**→ [Open the Manager](https://tehw0lf.github.io/WoWQuote2-Manager/)**\n\nYou do not need to load anything first. Dropping MP3s into an empty Manager is enough to\nget a working set of sounds — it assigns ids, reads the durations, and creates categories\nfrom the filename prefixes on the fly.\n\n1. Open the Manager in your browser.\n2. Drop in your MP3 files. The Manager detects durations automatically and lets you set\n   the chat message and category for each entry.\n3. Export an update ZIP for your client version (TBC / Vanilla / WOTLK). You get a\n   `WQ2-<variant>-<date>.zip`.\n4. Extract that ZIP into your AddOns directory, over the existing `WoWQuote2` folder.\n5. Restart the game.\n\nIf you already have a setup, drop it in first and the Manager picks up where you left\noff. The sidebar takes a `.zip` as well as loose `.lua` files, so a previously exported\nupdate ZIP can be dragged straight back in — it reads the `media_data.lua` and\n`Localization.*.lua` out of it.\n\nThe export contains the regenerated `Media.lua`, the patched `Localization.*.lua` files,\nand the MP3s you added in this session — it layers over an installed AddOn rather than\nreplacing it, so adding sounds later does not mean rebuilding everything.\n\nNote that dropping a ZIP in reads only the Lua files out of it, not the MP3s. Sounds\nalready installed in your game folder stay where they are; the Manager only ever bundles\nthe ones you drop into it.\n\nKeep the `media_data.lua` the Manager saves. Loading it back on your next visit restores\nyour entries and categories, which is how you build a collection over time.\n\n## Using it in game\n\nOpen the UI with `/wq` (or `/wq2`), and list every command with `/wqh`.\n\nA keybinding to toggle the dialog can be set under **Key Bindings** in the game's main menu.\n\n### Sending quotes\n\n| Command | Sends to |\n|---|---|\n| `/wqs <id\\|alias>` | Say |\n| `/wqp <id\\|alias>` | Party |\n| `/wqr <id\\|alias>` | Raid |\n| `/wqg <id\\|alias>` | Guild |\n| `/wqo <id\\|alias>` | Officer |\n\n### Finding and managing quotes\n\n| Command | Does |\n|---|---|\n| `/wq`, `/wq2` | Open the graphical UI |\n| `/wqh` | Show help |\n| `/wqc` | List all categories with their IDs |\n| `/wql <category-id>` | List all quotes in a category |\n| `/wqf <string>` | Search quotes by text |\n| `/wqa <id> [alias]` | Set an alias for a quote; omit the alias to remove it |\n| `/wqb [channel] [on\\|off]` | Show or change which channels you receive on |\n\nEvery command also has a long form — `/wqhelp`, `/wqfind`, `/wqbroadcast`, `/wqsay` and\nso on — if you prefer the readable spelling.\n\nReceiving is configured per channel with `/wqb`. `/wqb` on its own prints your current\nsettings; `/wqb g off` stops the AddOn playing sounds broadcast to guild chat.\n\n### How broadcasting works\n\nA quote is an ordinary chat message with a marker appended, in the form `(~<id>~)`:\n\n```\n[ Some quote text ] (~murfy:028~)\n```\n\nPlayers with the AddOn see the text and hear the sound; the marker tells their client\nwhich clip to play. Players *without* the AddOn just see the line including the marker —\nnothing breaks for them, it merely looks like noise. Players who have the AddOn but lack\nthat particular MP3 hear nothing, since the sound is resolved from their own local files.\n\n## Languages\n\nThe AddOn follows your WoW client language. English is the fallback for any client whose\nlocale is not listed:\n\n| Language | Locale |\n|---|---|\n| English (fallback) | all others |\n| German | `deDE` |\n| French | `frFR` |\n| Dutch | `nlNL` |\n| Spanish | `esES`, `esMX` |\n| Portuguese | `ptBR` |\n\nCategory names are translated per locale too, via the Manager.\n\n## Troubleshooting\n\n**The AddOn does not appear in the AddOns list.** The folder is probably named something\nother than `WoWQuote2` — archive tools like to add a nesting level, leaving\n`AddOns\\WoWQuote2\\WoWQuote2\\`. `WoWQuote2.toc` must sit directly inside\n`AddOns\\WoWQuote2\\`.\n\n**It loaded, but the quote list is empty.** Expected on a fresh install — see\n[releases contain no sounds](#important-releases-contain-no-sounds) and add them with the\nManager.\n\n**I hear nothing when someone else quotes.** Either you do not have that MP3 locally\n(sounds are played from your own files, never streamed), or receiving is off for that\nchannel — check with `/wqb`. Also make sure sound is enabled in the game and that you\nrestarted the client after adding files.\n\n**Changes to my sounds are not showing up.** WoW reads AddOn files only at startup.\nRestart the client completely.\n\n## Building from source\n\nContributors and packagers only — as a player you want the\n[release archives](https://github.com/tehw0lf/WoWQuote2/releases/latest) instead.\n\n```bash\n./build.sh\n```\n\nThis produces the three client archives and the Forever sound pack in `Release/`. It\nrequires Python 3.9 or newer and uses the standard library only.\n\nNote that a local build picks up whatever MP3s are present in `WoWQuote2/media/` on your\nmachine, so your local archives are typically much larger than the published ones. That\ndifference is expected — the media files and `media_data.lua` are deliberately\ngitignored and never committed.\n\nTo cut a release, bump `## Version:` in all four TOC files (`TBC/`, `Vanilla/`,\n`WOTLK/`, `Forever/`), commit and push to `main`. CI derives the release tag from that field, so an\nun-bumped version means the tag already exists and nothing is published.\n\n## Credits and license\n\nOriginally by Lev@Die Ewige Wacht and Harag@Die Ewige Wacht, derived from Leotard's\nWoWQuote. Maintained by [tehw0lf](https://github.com/tehw0lf).\n\nLicensed under the terms in [LICENSE](https://github.com/tehw0lf/WoWQuote2/blob/main/LICENSE).\n\nThis AddOn is a third-party interface extension for World of Warcraft. Its use is\nvoluntary and not required for normal gameplay. Neither Blizzard Entertainment nor the\nauthors accept liability for damages arising from its use.",
+  "releases": [
+    {
+      "tag": "v1.0.3",
+      "name": "Release v1.0.3",
+      "published": "2026-11-17",
+      "notes": "## What's Changed\n* Add a QuoteMedia sound pack release for WoW: Forever by @tehw0lf in https://github.com/tehw0lf/WoWQuote2/pull/8\n\n**Full Changelog**: https://github.com/tehw0lf/WoWQuote2/compare/v1.0.2...v1.0.3"
+    },
+    {
+      "tag": "v1.0.2",
+      "name": "Release v1.0.2",
+      "published": "2026-09-15",
+      "notes": "## What's Changed\n* Document that release archives intentionally contain no MP3s by @tehw0lf in https://github.com/tehw0lf/WoWQuote2/pull/3\n* Add a root README and fix the install docs shipped in releases by @tehw0lf in https://github.com/tehw0lf/WoWQuote2/pull/4\n\n**Full Changelog**: https://github.com/tehw0lf/WoWQuote2/compare/v1.0.1...v1.0.2"
+    },
+    {
+      "tag": "v1.0.1",
+      "name": "Release v1.0.1",
+      "published": "2026-09-13",
+      "notes": "## What's Changed\n* Name release archives after the version, and use the reusable workflow by @tehw0lf in https://github.com/tehw0lf/WoWQuote2/pull/1\n* Bump to 1.0.1 to release the renamed archives by @tehw0lf in https://github.com/tehw0lf/WoWQuote2/pull/2\n\n## New Contributors\n* @tehw0lf made their first contribution in https://github.com/tehw0lf/WoWQuote2/pull/1\n\n**Full Changelog**: https://github.com/tehw0lf/WoWQuote2/compare/v1.0.0...v1.0.1"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Release v1.0.0",
+      "published": "2026-06-29",
+      "notes": "* Rebranded to WoWQuote2 (fork of WoWQuote2 v0.9c)\n* Added /wq2 as additional slash command alias for the UI\n* Added WOTLK support (Interface: 30300)\n* Added Vanilla (Interface: 11200) and TBC (Interface: 20400) as separate build targets\n* Added localization support for English (base/fallback), French, Dutch, Spanish (esES/esMX) and Portuguese (ptBR)\n* German localization now properly guarded by GetLocale() check\n* All locales define WQcategories with translated category names\n* Category definitions in media_data.lua support per-locale translations\n* Added GitHub Actions release pipeline (builds empty addon ZIPs on push to main)\n* Releases are now sound-free (bring your own sounds via WoWQuote-Manager)\n* Set Guild as default broadcast channel\n* Build script now generates release ZIPs without requiring new uploads"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-09-15",
+      "2026-09-13",
+      "2026-06-29"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "QuoteMediaWQ2"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "WoWQuote2"
+    ]
+  }
+}

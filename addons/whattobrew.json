@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "whattobrew",
+  "repo": "zakpruitt/what-to-brew",
+  "about": "# What To Brew\n\nWhat to brew today on the WoW Forever auction house. Two parts, one name:\n\n- **The site**, https://zakpruitt.github.io/what-to-brew/, ranks every Alchemy recipe by profit and\n  tells you what to craft, which recipes are worth buying, and how many crafts pay them off.\n- **The addon**, `addon/WhatToBrew`, is its in-game companion. It scans the auction house, reads\n  the recipes you know, and exports both as a line of text you paste into the site.\n\nWithout the addon the site uses hourly US PvP Horde prices from HordeLedger and you tick your\nrecipes by hand. With it, prices are the ones on your own auction house and your recipes tick\nthemselves. Everything you paste or tick stays in your browser's localStorage; there is no backend.\n\n## Use it\n\n1. Install the addon with WoWUp (**Get Addons -> Install from URL** ->\n   `https://github.com/zakpruitt/what-to-brew`), or unzip the\n   [latest release](https://github.com/zakpruitt/what-to-brew/releases/latest) into\n   `World of Warcraft/_forever_/Interface/AddOns/`.\n2. In game, open your Alchemy window once, then the auction house.\n3. Type `/brew`, press **Scan all** and wait for it to finish.\n4. Press **Export**, Ctrl+C, and paste into \"Use my own auction scan\" on the site.\n\n`/brew` on its own also works as a standalone profit window for the recipes you know.\n\nPress **My herbs** in that window to judge what is in your bags: it lists what to brew because it\nsells for more than the herbs it uses, and which herbs to just list raw. It needs a fresh **Scan**.\n\n## Develop\n\n```\npython scripts/update.py            # refresh data/data.json and print a summary\npython scripts/update.py --push     # also commit and push (or double-click update.cmd)\npython scripts/update.py --recipes  # force a re-fetch of the recipe list\npython scripts/update.py --addon    # rebuild the addon's item list from the recipe data\npython scripts/update.py --install  # copy the addon into the game's AddOns folder\n```\n\nThe `Refresh prices` GitHub Action runs the script hourly and can be triggered by hand from the\nActions tab. A push that touches `addon/` builds a new addon release; the version is the\n`.toc` major.minor plus the run number. The site is plain HTML served by GitHub Pages from the repository root.\n\n## Data\n\n- Prices: [HordeLedger](https://hordeledger.com/market/) market CSV, scanned hourly. Sales per day\n  always come from here, even with your own scan loaded.\n- Reagent lists: [wow-forever.gg](https://wow-forever.gg/auction-house/crafting/alchemy/), cached in\n  `data/recipes.json` and re-fetched at most once a day. Its prices are Alliance from another\n  realm and are not used.\n- Profit is price times yield, minus the 5% auction house cut and reagents at market price.\n\nFan-made; not affiliated with Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v1.3.5",
+      "published": "2026-11-22",
+      "notes": "Changes:\n\n- feat(addon): add a My herbs view that says what to brew or sell raw\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/what-to-brew`"
+    },
+    {
+      "tag": "v1.2.4",
+      "published": "2026-11-19",
+      "notes": "Changes:\n\n- perf: scan by category browse instead of one search per item\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/what-to-brew`"
+    },
+    {
+      "tag": "v1.2.3",
+      "published": "2026-11-19",
+      "notes": "Changes:\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/what-to-brew`"
+    },
+    {
+      "tag": "v1.2.2",
+      "published": "2026-11-19",
+      "notes": "Changes:\n\n- ci: publish releases to CurseForge project 1816969\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/what-to-brew`"
+    },
+    {
+      "tag": "v1.2.1",
+      "published": "2026-11-19",
+      "notes": "Changes:\n\n- refactor: rebrand as What To Brew and add the logo\n- refactor: split site into html, css and js and trim comments\n- refactor: rebrand site and addon as AlchProfit\n- feat: paste your own auction scan from the AlchProfit addon\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/what-to-brew`"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WhatToBrew"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "WhatToBrewDB"
+    ]
+  }
+}

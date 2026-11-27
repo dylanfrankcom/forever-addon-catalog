@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "buffreminders",
+  "repo": "zerbiniandrea/BuffReminders",
+  "about": "# BuffReminders\n\n  ![](https://raw.githubusercontent.com/zerbiniandrea/BuffReminders/main/images/logo.png)\n\n  [![](https://shields.io/badge/github-gray?logo=github&style=for-the-badge&logoColor=white)](https://github.com/zerbiniandrea/BuffReminders)\n  [![](https://shields.io/badge/discord-5865F2?logo=discord&style=for-the-badge&logoColor=white)](https://discord.gg/qezQ2hXJJ7)\n  [![](https://shields.io/badge/ko--fi-FF5E5B?logo=ko-fi&style=for-the-badge&logoColor=white)](https://ko-fi.com/zerbyy)\n\n### Track missing buffs at a glance\n\nWorks on Retail and WoW Forever.\n\nFrom the author of [Raid Buffs Tracker](https://wago.io/iWkZ4Eq-i), one of the most popular raid buffs tracking WeakAuras.\n\n  ![](https://raw.githubusercontent.com/zerbiniandrea/BuffReminders/main/images/buffs.png)\n\nCheck what buffs you or your party are missing, and easily click to cast them!\nSupports consumables, pets, and more. Add custom buffs to track whatever you want.\n\n  ![](https://raw.githubusercontent.com/zerbiniandrea/BuffReminders/main/images/buffs-split-groups.png)\n\n## Configuration\n\nType `/br` to open the options panel.\nChoose which buffs you want to track and how you want them to look. The panel matches the look of each client.\n\n  \n\n    \nRetail\n\n    \nWoW Forever\n\n  \n\n  \n\n    \n![](https://raw.githubusercontent.com/zerbiniandrea/BuffReminders/main/images/settings-buffs.png)\n\n    \n![](https://raw.githubusercontent.com/zerbiniandrea/BuffReminders/main/images/settings-forever.png)\n\n  \n\n## Highlights\n\n- **External buffs (Retail)** - see the Power Infusion, Innervate, Bloodlust, and defensives you receive, even in combat and Mythic+.\n- **Custom buffs** - track any spell or item you like.\n- **Smart counts** - only alive, connected group members who benefit from a buff are counted, filtered by spec where possible.\n\n## Playing WoW Forever?\n\nBuffReminders comes with extra reminders made just for it:\n\n- **Paladin blessings, sorted out** - pick a main and backup blessing per class, use Greater Blessings, and get warned when another paladin already covers your blessing or aura.\n- **Never run out** - low warnings for ammo matched to your bow or gun, and for reagents like Ankhs, Symbol of Kings, and Arcane Powder.\n- **Made for leveling** - tracks your buffs on group mates out in the world, reminds you to set up camp and use the Well-Rested sleeping bag, and turns tracking back on after you die.\n\n...and much more.\n\n## Support\n\nGot a bug to report, a feature idea, or just want to see what's coming next? Join the [Discord](https://discord.gg/qezQ2hXJJ7)!\n\nIf BuffReminders makes your raids a little smoother, consider [supporting development on Ko-fi](https://ko-fi.com/zerbyy) ❤️",
+  "releases": [
+    {
+      "tag": "v7.1.0",
+      "published": "2026-11-26",
+      "notes": "# BuffReminders\n\n## [v7.1.0](https://github.com/zerbiniandrea/BuffReminders/tree/v7.1.0) (2026-11-26)\n[Full Changelog](https://github.com/zerbiniandrea/BuffReminders/compare/v7.0.1...v7.1.0) [Previous Releases](https://github.com/zerbiniandrea/BuffReminders/releases)\n\n### New Features ✨\n\n- **Appearance:**\n  - Allow negative spacing so icons can overlap\n  - Size each text in pixels with its own control\n- **Custom-buffs:** pick spell IDs from your active buffs with /br auras\n- **WoW Forever:**\n  - **Racials:** remind Skyborne players to get Attuned or Charged\n  - **Warlock:**\n    - Remind Sacrifice, Pact and Soul Link in order\n    - Add a Spellstone and Firestone weapon reminder\n    - Choose the demon to sacrifice per content\n\n### Bug Fixes \uD83D\uDC1B\n\n- **Appearance:** render every icon gap at its exact pixel width\n- **Click-to-cast:**\n  - Move the click area with the icon after a set position\n  - Stop icon clicks and hover effects while frames are unlocked\n  - Cast a newly learned rank without waiting for combat\n- **Layout:** leave the coordinate field after Enter applies the position\n- Show long buff names in full in the buff list\n- **WoW Forever:**\n  - **Raid-buffs:** skip players whose scroll or camp buff blocks the cast\n\n### Localization \uD83C\uDF10\n\n- Updated translations: zhTW\n\n### Other Changes \uD83D\uDD27\n\n- 17 internal changes (code cleanup, build and docs). The full changelog lists each one."
+    },
+    {
+      "tag": "v7.0.1",
+      "published": "2026-11-25",
+      "notes": "# BuffReminders\n\n## [v7.0.1](https://github.com/zerbiniandrea/BuffReminders/tree/v7.0.1) (2026-11-25)\n[Full Changelog](https://github.com/zerbiniandrea/BuffReminders/compare/v7.0.0...v7.0.1) [Previous Releases](https://github.com/zerbiniandrea/BuffReminders/releases)\n\n### New Features ✨\n\n- **Appearance:**\n  - Set spacing in pixels and keep every gap even\n  - Make spacing the exact gap between icon borders\n- **WoW Forever:**\n  - **Appearance:** use a smaller default text size\n  - **Warlock:** add Soulstone and Demonic Sacrifice reminders\n\n### Bug Fixes \uD83D\uDC1B\n\n- **Appearance:** draw the Blizzard icon frame on alternatives and cooldowns\n\n### Localization \uD83C\uDF10\n\n- Updated translations: zhTW"
+    },
+    {
+      "tag": "v7.0.0",
+      "published": "2026-11-25",
+      "notes": "# BuffReminders\n\n## [v7.0.0](https://github.com/zerbiniandrea/BuffReminders/tree/v7.0.0) (2026-11-25)\n[Full Changelog](https://github.com/zerbiniandrea/BuffReminders/compare/v6.11.0...v7.0.0) [Previous Releases](https://github.com/zerbiniandrea/BuffReminders/releases)\n\n### New Features ✨\n\n- **Appearance:** add a Blizzard icon style that draws the action-button frame\n- **Chat-requests:** show default messages and a live preview\n- **Expiration:** scale expiration warnings to each buff's duration\n- **Snooze:** make /br snooze a toggle, end town snoozes on leaving\n- **Soulstone:** hide the Soulstone reminder while solo\n- **Tooltips:**\n  - Add a key to hold for tooltips and a snooze hint\n  - Show what a click uses, on every category's icons\n- Add reminder search by name, spell, or class; balance columns\n- Add a right-click snooze menu and show alternatives on hover\n- **WoW Forever:**\n  - **Mage armor:** choose which armor the reminder shows and casts\n  - **Sleeping bag:** count down to full Well-Rested stacks in the bag\n  - **Tracking:** add creature tracking spells to the tracking reminder\n  - Add WoW Forever raid, aura and class self-buff reminders\n  - Cast raid buffs on missing members or as the group version\n  - Give the options panel a bronze Forever look\n  - Add pet, imbue, stance, supply and blessing reminders\n  - Mark WoW Forever support as beta in the options and at login\n  - Add Drive-by Buffs to buff players you target outside your group\n  - Add aura choice, blessing priority, and tank-aware Thorns and Righteous Fury\n  - Choose a main and backup blessing per class\n  - Right-click blessings and Drive-by Buffs to pick another buff, with a \"Next\" tooltip\n  - Track poisons and stones apart on each weapon, with a rogue poison reminder per hand\n  - Request a paladin blessing in chat\n  - Cast group buffs on your party once enough members need them\n  - Right-click a raid buff to cast its group version\n  - Remind to turn gathering tracking back on, with a right-click switch\n  - Remind to sleep in the Cozy Sleeping Bag for Well-Rested while leveling\n  - Remind holy paladins to swear Oath of Light, solo or in a group\n  - Remind to camp: place a fire, sit, and drop features\n  - Track your buffs on group mates outside instances and while leveling\n\n### Bug Fixes \uD83D\uDC1B\n\n- **Beacons:** stop the Beacon reminder flashing in solo combat\n- **Click-to-cast:** cast self buffs on yourself when a friendly target is selected\n- **Consumables:** disable the food click while you eat\n- **Custom buffs:** respect the expiration glow setting on custom buffs\n- **Expiration:**\n  - Stop short buffs from showing as expiring right after the cast\n  - Stop short consumables from showing as expiring right after use\n- **Loadouts:** keep click-to-fix working after an appearance change\n- **Poisons:** keep the poison order arrows working after Reset to Default\n- **Tooltips:** show the spell tooltip on targeted buffs, with who the click casts on\n- Hide a raid buff reminder until its caster learns the spell\n\n### Localization \uD83C\uDF10\n\n- Updated translations: zhTW\n\n### Other Changes \uD83D\uDD27\n\n- 19 internal changes (code cleanup, build and docs). The full changelog lists each one."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/zerbiniandrea/BuffReminders/main/images/buffs.png",
+    "https://raw.githubusercontent.com/zerbiniandrea/BuffReminders/main/images/buffs-split-groups.png",
+    "https://raw.githubusercontent.com/zerbiniandrea/BuffReminders/main/images/settings-buffs.png",
+    "https://raw.githubusercontent.com/zerbiniandrea/BuffReminders/main/images/settings-forever.png"
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 0,
+    "contributors": 11,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-16",
+      "2026-10-31",
+      "2026-10-30",
+      "2026-10-25",
+      "2026-10-21",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-12",
+      "2026-09-17",
+      "2026-09-12",
+      "2026-09-11",
+      "2026-09-07",
+      "2026-09-04",
+      "2026-09-01",
+      "2026-09-01",
+      "2026-08-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BuffReminders"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Masque",
+      "LibCustomGlow-1.0"
+    ],
+    "savedVariables": [
+      "BuffRemindersDB"
+    ]
+  }
+}

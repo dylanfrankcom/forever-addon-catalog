@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "radialhub",
+  "repo": "Andressance/RadialHub",
+  "about": "# RadialHub\n\nMenú radial rápido para **WoW Forever** (probado) y, de forma experimental, Retail y Classic: abre Personaje, Talentos, Bolsas, Mapa... sin buscar botones ni memorizar atajos.\n\n1. **Mantén** la tecla: la rueda aparece centrada en el cursor.\n2. **Mueve el ratón** hacia una opción: crece, se ilumina con el color de acento y su nombre aparece en el centro. En el centro (zona muerta) no hay nada seleccionado (\"Cancelar\").\n3. **Suelta** la tecla (o haz clic): se abre esa ventana. Si tienes varias ruedas, aparecen dos flechas a los lados y el nombre de la rueda arriba: clic en una flecha o rueda del ratón para cambiar de rueda sin cerrar. Si sueltas en el centro, pulsas **Escape** o haces **clic derecho**, se cancela sin hacer nada. Entrar en combate con la rueda abierta también la cancela.\n\n## Instalación\n\nDescomprime el zip (o copia la carpeta) en `World of Warcraft/_forever_/Interface/AddOns/RadialHub` y reinicia el cliente. La carpeta debe llamarse `RadialHub`. En Retail o Classic, usa `_retail_`, `_classic_` o `_classic_era_` en lugar de `_forever_`.\n\nFunciona nada más instalarlo: en el primer inicio asigna **ALT-Q** a la rueda 1 si esa tecla está libre (si no, te avisa para que elijas otra con `/rh`).\n\nLas opciones que no existan en tu cliente (por ejemplo Logros en Forever o en Classic Era) se ocultan solas. Si ves un panel que no abre, escribe `/rh check`: lista la ruta que usa cada opción en tu cliente (o \"NO DISPONIBLE\").\n\n## Configuración\n\n`/rh` o `/radialhub` (también en *Opciones → AddOns → RadialHub*). La ventana se redimensiona desde la esquina inferior derecha.\n\n- **Ruedas:** hasta 4, cada una con su nombre, sus opciones y su propia tecla (pestañas arriba; *+ Nueva* copia la rueda actual). Así puedes tener, por ejemplo, una rueda de ventanas y otra de comandos, cada una en su tecla. La rueda 1 no se puede borrar.\n- **Atajo de teclado:** pulsa el botón y luego la tecla (admite ALT/CTRL/SHIFT y botones 3, 4 y 5 del ratón). *Quitar* lo desasigna. Escape cancela la captura. No se puede cambiar en combate.\n- **Opciones de la rueda:** activa o desactiva cada entrada y reordénala con *Subir* / *Bajar* (máximo 16 activas por rueda). La 1ª va arriba y el resto en sentido horario. La lista tiene scroll con la rueda del ratón.\n- **Categorías:** la lista se filtra por *Todo / Menú / Emotes / Comandos*. *Menú* son los paneles del juego; *+ Emote* añade emotes predefinidos y *+ Comando* crea una entrada con una línea de comando: comandos de otros addons (`/dbm pull 10`), emotes (`/dance`) y `/run` con tu propio código. Las entradas propias son comunes a todas las ruedas, se activan en cada una y se editan con *Editar* (nombre, icono: nombre dentro de `Interface\\Icons`, ruta o ID). Los comandos de Blizzard (`/cast`, `/use`, `/macro`, `/reload`...) se rechazan: lanzarlos desde un addon contamina su interfaz.\n- **Idioma:** Automático (según el idioma del juego), Español, English, Deutsch, Français, Italiano o Português. Русский, 한국어 y 中文 se usan en Automático si el juego está en ese idioma. Cambia la rueda, la configuración y los mensajes al momento. Las traducciones son automáticas; lo que falte sale en inglés.\n- **Aspecto** (común a todas las ruedas): radio, tamaño de iconos, zona muerta, opacidad del fondo, color de acento (4 presets o selector libre), sonidos y animación. *Restaurar valores por defecto* devuelve el aspecto y las opciones de la rueda actual a los valores de fábrica; tus ruedas, entradas propias y atajos se conservan.\n\nPaneles integrados: Personaje, Talentos, Libro de hechizos, Misiones, Mapa del mundo, Hermandad, Amigos, Bolsas (activos por defecto), Mascotas y monturas (desactivado), y Logros y Buscador de mazmorras (solo en clientes que los tienen; en WoW Forever se ocultan). Añadir otro es una entrada en el catálogo de `Core.lua`.\n\n## Combate y errores de Blizzard\n\nRadialHub sigue unas reglas para no contaminar (taint) la interfaz de Blizzard, que es lo que provoca errores de \"valores secretos\" o `ADDON_ACTION_BLOCKED` en combate:\n\n- Los paneles del juego se abren con un clic seguro sobre su botón de Blizzard (micro menú, mochila...), nunca desde código del addon. Si tu cliente no tiene el botón de un panel, el panel no aparece. `/rh check` muestra qué botón usa cada panel y qué botones tiene tu cliente.\n- En combate los paneles no se pueden elegir desde la rueda (Blizzard no deja cambiar el clic seguro en combate); emotes y comandos sí.\n- La configuración no se abre en combate. Tras cambiar un atajo, haz `/reload` antes de entrar en combate.\n\n## Notas técnicas\n\n- Círculos con máscara redonda (`CreateMaskTexture`), animación con `OnUpdate` (solo mientras algo se mueve), ajustes en `RadialHubDB` (SavedVariables). Código en un namespace privado.\n- Pruebas de la lógica con el API simulado: `lua tests/test.lua` (desde la raíz del repo). Incluyen una revisión del código que falla si se usa una API que ya contaminó la interfaz antes.\n\n## Licencia\n\nMIT, ver [LICENSE](https://github.com/Andressance/RadialHub/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.5.0",
+      "name": "RadialHub 0.5.0",
+      "published": "2026-11-16",
+      "notes": "- More languages: Deutsch, Français, Italiano and Português can be picked in /rh. Русский, 한국어 and 中文 are used in Auto mode when the game is in that language (their alphabet only exists in that client's font).\n- Translations are machine-made: if something reads oddly, let us know. Anything missing in a language is shown in English."
+    },
+    {
+      "tag": "v0.4.0",
+      "name": "RadialHub 0.4.0",
+      "published": "2026-11-16",
+      "notes": "- New: language selector in /rh (Auto, Spanish or English). It changes the wheel, the settings and chat messages instantly.\n- The World Map is available again on WoW Forever: it opens through a secure click on the minimap zone text.\n- Full taint review so RadialHub no longer causes Blizzard errors in combat:\n  - Game panels open only through a secure click on their Blizzard button (micro menu, backpack...), never from addon code. If your client has no button for a panel, that panel is hidden; /rh check lists the buttons available.\n  - In combat, panels can't be picked from the wheel (Blizzard doesn't allow changing the secure click in combat). Emotes and commands still work.\n  - Custom commands no longer go through the chat edit box. Other addons' commands, emotes and /run work; Blizzard commands (/cast, /use, /macro, /reload...) are refused with a message.\n  - Settings can't be opened in combat and close when combat starts.\n  - If the addon loads in combat, the secure setup waits until combat ends."
+    },
+    {
+      "tag": "v0.3.1",
+      "name": "RadialHub 0.3.1",
+      "published": "2026-11-16",
+      "notes": "- Fixed secret-value errors when entering Edit Mode (and other panels opened from the game menu). RadialHub added its windows to UISpecialFrames so Escape would close them, which tainted the game menu. Escape is now detected without touching that list.\n- The RadialHub button in Options no longer closes Blizzard panels (HideUIPanel), another source of taint; the config window now shows on top instead."
+    },
+    {
+      "tag": "v0.3.0",
+      "name": "RadialHub 0.3.0",
+      "published": "2026-11-16",
+      "notes": "Optimización de CPU. La detección de la tecla mantenida ya no crea tablas ni cadenas en cada fotograma: las teclas asignadas se analizan una vez (al entrar y cuando cambian los atajos) y, si no hay ninguna asignada, no se ejecuta nada. La rueda abierta solo redibuja mientras hay algo que animar; quieta, solo comprueba el cursor."
+    },
+    {
+      "tag": "v0.2.8",
+      "name": "RadialHub 0.2.8",
+      "published": "2026-11-16",
+      "notes": "Eliminado el RegisterStateDriver y la plantilla SecureHandlerStateTemplate del botón seguro: contaminaban el gestor de estados de Blizzard, que también cambia la barra de acción al transformarse. Era la causa probable de los errores de valores secretos en las barras tras un rato de sesión. Al salir de combate se limpia cualquier acción segura que quedara armada."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RadialHub"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "RadialHubDB"
+    ]
+  }
+}

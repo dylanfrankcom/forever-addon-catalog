@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "ls-monobrow",
+  "repo": "ls-/ls_Monobrow",
+  "about": "# LS: Monobrow\n\nA replacement for the default xp, reputation, etc. bars. And just like your eyebrows it's all in one!\n\n![Imgur](https://imgur.com/5Cnfw7a.gif)\n\n## Download\n\n- [Curse](https://www.curseforge.com/wow/addons/ls-monobrow)\n- [Wago](https://addons.wago.io/addons/ls-monobrow)\n\n## Options\n\nMost settings are available via the edit mode to support layouts, the rest can be accessed via the addon compartment.\n\n## Feedback and Feature Requests\n\nIf you found a bug or want to share an idea on how to improve my addon, either use the issue tracker on [GitHub](https://github.com/ls-/ls_Monobrow/issues) or join our [Discord](https://discord.gg/7QcJgQkDYD) server.\n\n## Localisation\n\nFeel free to add and/or review translations on [CurseForge](https://www.curseforge.com/wow/addons/ls-monobrow/localization), alternatively, you may create a PR on [project's GitHub page](https://github.com/ls-/ls_Monobrow/pulls).\n\n## FAQ\n\n**`Q:`** How does it even work?  \n**`A:`** The addon works in a semi-auto mode. By default, it only shows the xp bar unless you're max level. To track honour, reputation or house xp you need to click \"Show as Experience Bar\" checkboxes in corresponding UI panels like the reputation panel, the housing dashboard, the PvP panel.\n\n## License\n\nPlease see [LICENSE](https://github.com/ls-/ls_Monobrow/blob/master/LICENSE.txt) file.",
+  "releases": [
+    {
+      "tag": "120105.04",
+      "published": "2026-11-09",
+      "notes": "- Separate retail and forever code a bit better."
+    },
+    {
+      "tag": "120105.03",
+      "published": "2026-11-08",
+      "notes": "- Added WoW Forever support.\n- Added support for PvP Rank Points.\n- Added the layout info manager akin to the profile manager. Located in Options > AddOns > LS: Monobrow > Layouts."
+    },
+    {
+      "tag": "120105.02",
+      "published": "2026-11-02",
+      "notes": "- The bar should now be properly shown upon entering Edit Mode.\n- Added a dialog for more precise position controls while in Edit Mode. It's not pixel-perfect yet tho."
+    },
+    {
+      "tag": "120105.01",
+      "published": "2026-10-15",
+      "notes": "- Added 12.1.5 support."
+    },
+    {
+      "tag": "120100.02",
+      "published": "2026-08-22",
+      "notes": "- Made Travel Points tracking more reliable.\n- The \"Show as Experience Bar\" toggle for travel points should stay visible even when the bar is\n  hidden."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-09",
+    "releaseDates": [
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-02",
+      "2026-10-15",
+      "2026-08-22",
+      "2026-08-11",
+      "2026-06-16",
+      "2026-05-18",
+      "2026-05-16",
+      "2026-05-09",
+      "2026-05-05",
+      "2026-02-18",
+      "2026-02-05",
+      "2026-01-28",
+      "2026-01-21",
+      "2026-01-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ls_Monobrow"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "LS_MONOBROW_GLOBAL_CONFIG"
+    ]
+  }
+}

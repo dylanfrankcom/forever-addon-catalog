@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "rollhistory",
+  "repo": "Vladinator/wow-addon-rollhistory",
+  "about": "RollHistory\n==================\nUnsure what others have picked on the item roll? Wonder no more! This addon simply adds the amount of people that have picked Disenchant/Greed/Need on the button itself, and when you mouseover it shows a list of their names, and list over who has not yet decided what to roll. No configuration required; works out of the box!",
+  "releases": [
+    {
+      "tag": "v12.1.5.261105",
+      "published": "2026-11-05",
+      "notes": "# RollHistory\n\n## [v12.1.5.261105](https://github.com/Vladinator/wow-addon-rollhistory/tree/v12.1.5.261105) (2026-11-05)\n[Full Changelog](https://github.com/Vladinator/wow-addon-rollhistory/commits/v12.1.5.261105) [Previous Releases](https://github.com/Vladinator/wow-addon-rollhistory/releases)\n\n- TOC bump.  \n- TOC bump.  \n- Update release.yml  \n- Added TOC files for the other clients.  \n- Docs updated but the roll frame and history window are disjointed. The buttons we create also cover over the default buttons, need to be click-through but have Enter/Leave for tooltips.  \n- To avoid errors pushing an update for 10.1 but will need to re-implement support for the new rolling and history system.  \n- I knew its time to shine would come again. Updated TOC to 10.0.0, but need to test against proper rolling action to confirm it still works as it should.  \n- Correct TOC bump for SL pre-patch.  \n- Cleaned up deprecated file.  \n- Create release.yml  \n- 9.0 TOC bump.  \n- TOC bump  \n- Just to be super safe, ignore the travis file by name.  \n- TOC bump and WoWInterface automatic packaging.  \n- Added Classic support by avoiding certain events that are not available.  \n- Updated for BfA.  \n- Patch 7.2 update.  \n- - TOC bump.  \n- Updated the readme file.  \n- Cleaned up TOC  \n- Initial Legion commit. Recoded the entire addon. Has backwards compatibility for Warlords of Draenor, despite it appearing as \"Out of date\"  \n- Initial addon code.  \n- Initial commit."
+    },
+    {
+      "tag": "v11.0.2.240908",
+      "published": "2024-09-08",
+      "notes": "# RollHistory\n\n## [v11.0.2.240908](https://github.com/Vladinator/wow-addon-rollhistory/tree/v11.0.2.240908) (2024-09-08)\n[Full Changelog](https://github.com/Vladinator/wow-addon-rollhistory/commits/v11.0.2.240908) [Previous Releases](https://github.com/Vladinator/wow-addon-rollhistory/releases)\n\n- TOC bump.  \n- Update release.yml  \n- Added TOC files for the other clients.  \n- Docs updated but the roll frame and history window are disjointed. The buttons we create also cover over the default buttons, need to be click-through but have Enter/Leave for tooltips.  \n- To avoid errors pushing an update for 10.1 but will need to re-implement support for the new rolling and history system.  \n- I knew its time to shine would come again. Updated TOC to 10.0.0, but need to test against proper rolling action to confirm it still works as it should.  \n- Correct TOC bump for SL pre-patch.  \n- Cleaned up deprecated file.  \n- Create release.yml  \n- 9.0 TOC bump.  \n- TOC bump  \n- Just to be super safe, ignore the travis file by name.  \n- TOC bump and WoWInterface automatic packaging.  \n- Added Classic support by avoiding certain events that are not available.  \n- Updated for BfA.  \n- Patch 7.2 update.  \n- - TOC bump.  \n- Updated the readme file.  \n- Cleaned up TOC  \n- Initial Legion commit. Recoded the entire addon. Has backwards compatibility for Warlords of Draenor, despite it appearing as \"Out of date\"  \n- Initial addon code.  \n- Initial commit."
+    },
+    {
+      "tag": "v10.1.0.230503",
+      "published": "2023-05-04",
+      "notes": "# RollHistory\n\n## [v10.1.0.230503](https://github.com/Vladinator/wow-addon-rollhistory/tree/v10.1.0.230503) (2023-05-04)\n[Full Changelog](https://github.com/Vladinator/wow-addon-rollhistory/compare/v10.0.0.221026...v10.1.0.230503) [Previous Releases](https://github.com/Vladinator/wow-addon-rollhistory/releases)\n\n- To avoid errors pushing an update for 10.1 but will need to re-implement support for the new rolling and history system."
+    },
+    {
+      "tag": "v10.0.0.221026",
+      "published": "2022-10-26",
+      "notes": "# RollHistory\n\n## [v10.0.0.221026](https://github.com/Vladinator/wow-addon-rollhistory/tree/v10.0.0.221026) (2022-10-26)\n[Full Changelog](https://github.com/Vladinator/wow-addon-rollhistory/compare/v9.0.0.200731b...v10.0.0.221026) [Previous Releases](https://github.com/Vladinator/wow-addon-rollhistory/releases)\n\n- I knew its time to shine would come again. Updated TOC to 10.0.0, but need to test against proper rolling action to confirm it still works as it should.  \n- Correct TOC bump for SL pre-patch."
+    },
+    {
+      "tag": "v9.0.0.200731b",
+      "published": "2020-10-15",
+      "notes": "# RollHistory\n\n## [v9.0.0.200731b](https://github.com/Vladinator89/wow-addon-rollhistory/tree/v9.0.0.200731b) (2020-10-15)\n[Full Changelog](https://github.com/Vladinator89/wow-addon-rollhistory/compare/v9.0.0.200731...v9.0.0.200731b) [Previous Releases](https://github.com/Vladinator89/wow-addon-rollhistory/releases)\n\n- Cleaned up deprecated file.  \n- Create release.yml"
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2024-09-08",
+      "2023-05-04",
+      "2022-10-26",
+      "2020-10-15",
+      "2020-10-14",
+      "2020-02-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RollHistory"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

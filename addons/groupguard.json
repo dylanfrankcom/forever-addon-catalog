@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "groupguard",
+  "repo": "beegus/wow-group-guard",
+  "about": "# Group Guard\n\nA small World of Warcraft addon that shows a large green or red indicator for a selected raid subgroup. Green appears only when you are in a raid and your character plus the other four configured players are exactly the five people in that subgroup. Outside a raid, or when a member is missing, moved, extra, or ambiguous, the indicator stays red.\n\nThe addon only reads the local raid roster. It does not send chat messages or communicate with other addons.\n\n## Setup\n\n1. Copy the `GroupGuard` folder into the WoW edition's `Interface/AddOns` folder.\n2. Fully restart WoW after installing it.\n3. In game, enter `/gg set YourName, Friend1, Friend2, Friend3, Friend4` and replace the examples with the five actual character names, including your own.\n4. Include realms for cross-realm names when needed, for example `Friend-Realm Name`.\n5. Choose the target subgroup with `/gg group <1-8>` before raiding. No subgroup is assumed.\n\nThe roster, target group, indicator visibility, and position are saved per character. Hold Shift and drag the indicator to move it. The addon remains enabled in the AddOns manager, but the indicator can be hidden in-game.\n\n## Commands\n\n- `/gg set Name1, Name2, Name3, Name4, Name5` saves exactly five names.\n- `/gg group <1-8>` sets the target raid subgroup; `/gg group` shows the current setting.\n- `/gg on` or `/gg off` enables or hides the indicator without disabling the addon.\n- `/gg toggle` switches the indicator visibility.\n- `/gg status` prints the current safety result.\n- `/gg roster` prints the saved names.\n- `/gg clear` clears the saved roster.\n- `/gg help` lists setup guidance.\n\n## Releases\n\nDownload the latest version from [CurseForge](https://www.curseforge.com/wow/addons/groupguard).",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-10-07",
+      "notes": "# Changelog\n\n## 1.0.1\n- Added interface support for WoW Forever 1.60.1.\n\n## 1.0.0\n- Initial release."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-07",
+    "releaseDates": [
+      "2026-10-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GroupGuard"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariablesPerCharacter": [
+      "GroupGuardDB"
+    ]
+  }
+}

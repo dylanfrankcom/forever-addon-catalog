@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "questdeclutter",
+  "repo": "Nigeltve/QuestDeclutter",
+  "about": "# QuestDeclutter\n\nA World of Warcraft **Forever** addon that hides the quests you choose from the world map.\n\n- Every quest is **shown by default**. You pick which ones to hide.\n- Hidden quests are only hidden on the **world map**. They stay in your quest log and objective tracker.\n- Your choices are saved **per character**. A quest is un-hidden automatically when you turn it in or abandon it.\n- Hiding the quest you have **focused** (super-tracked) also unfocuses it.\n- **Tracking** a hidden quest from the world map (the Track button, Shift+click in the quest log, or the menu) un-hides it.\n- **Hovering** a hidden quest in the map's quest log shows its pin until you move the mouse away.\n\nThe addon only makes the quest's map pin invisible and click-through. It doesn't remove or replace any Blizzard map code.\n\n## Requirements\n\n- WoW Forever client (Interface `16001`)\n\n## Installation\n\n1. Download the latest `QuestDeclutter-vX.Y.Z.zip` from the Releases page.\n2. Extract it into `World of Warcraft\\_forever_\\Interface\\AddOns\\`, so you end up with `AddOns\\QuestDeclutter\\QuestDeclutter.toc`.\n3. Restart the game or `/reload`.\n\n## Hiding a quest\n\nOpen the world map (`M`) and use the quest log on its side:\n\n- Tick the **Hide on map** box on the quest's row (just left of the track tick box),\n- **Shift+click** the quest's pin on the map,\n- **right-click** a quest and tick **Hide on map**, or\n- **Alt+click** a quest.\n\nUntick it, or do the same again, to show it.\n\nYou can also select a quest and type `/qd hide` or `/qd show`.\n\n## Hiding many quests at once\n\n- **One zone:** right-click the zone's header in the map's quest log and pick **Hide all quests** or **Show all quests**.\n- **Every zone:** open the map's tracking options (the cog) and pick **Hide all quests** or **Show all quests** in the QuestDeclutter section.\n\n## Settings\n\nOpen **Settings → AddOns → QuestDeclutter**, or type `/qd`. The panel lists the quests you've hidden and has a **Show all quests** button.\n\n## Slash commands\n\n| Command | What it does |\n|---|---|\n| `/qd` | Show the addon version and open the options panel |\n| `/qd config` | Open the options panel |\n| `/qd help` | List the commands |\n| `/qd hide [questID]` | Hide a quest on the map (the selected quest if no ID is given) |\n| `/qd show [questID]` | Show a quest on the map again |\n| `/qd toggle [questID]` | Switch a quest between hidden and shown |\n| `/qd hideall` | Hide every quest in your quest log |\n| `/qd showall` | Show every quest again |\n| `/qd list` | Print the hidden quests |\n\n`/questdeclutter` works as well as `/qd`.\n\n## Troubleshooting\n\n- **No \"Hide on map\" in the right-click menu:** use Alt+click or `/qd hide` instead, and please open an issue.\n- **Lua errors:** enable them with `/console scriptErrors 1`, `/reload`, and include the error text in an issue.\n\n## Releasing (maintainers)\n\nRaise `## Version:` in `QuestDeclutter.toc` (format `X.Y.Z`) and push to `main`. GitHub Actions then zips the addon and publishes release `vX.Y.Z` with generated notes. Pushes where the version isn't higher than the latest release are skipped. You can also run **Actions → Create Release → Run workflow** to release the current `.toc` version if it hasn't been released yet.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "name": "Release v1.0.1",
+      "published": "2026-11-08",
+      "notes": "**Full Changelog**: https://github.com/Nigeltve/QuestDeclutter/compare/v1.0.0...v1.0.1"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Release v1.0.0",
+      "published": "2026-11-08",
+      "notes": "**Full Changelog**: https://github.com/Nigeltve/QuestDeclutter/commits/v1.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-11-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuestDeclutter"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "QD_DB_CHAR"
+    ]
+  }
+}

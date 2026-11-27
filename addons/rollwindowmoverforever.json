@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "rollwindowmoverforever",
+  "repo": "bssdmnc/roll-window-mover-forever",
+  "about": "# Roll Window Mover Forever\n\nA lightweight World of Warcraft addon that lets you move and resize up to 10 Need / Greed / Pass loot roll windows, group roll chat spam into a single expandable line, and inspect who rolled what in a Roll History ledger.\nMade for **WoW Forever** (`_forever_` / `_classic_beta_`, Interface 16001), also flagged for Classic Era (`11509`).\n\n## Features\n\n- **Move & Resize**: Drag the stack anchor anywhere and scroll to scale (`50%–200%`), with interactive preview for 1–10 rolls.\n- **Roll Queue**: Configure `1–10` simultaneous visible loot roll frames; extra items wait in queue.\n- **Chat Roll Anti-Spam**: Suppresses noisy intermediate roll lines and groups them into one clickable `[+ Rolls (N)]` line that expands inline (compatible with both Blizzard chat and **Chattynator**).\n- **Roll History Ledger**: Click `[Details]` / `[Rolls]` in chat (or use `/rollmove history`) to inspect every player's choice, roll number, class color, and winner. Hover links in chat for a quick tooltip preview.\n- **Hide in Combat & Minimap Button**: Optional combat hiding and quick-access minimap button (`enUS` / `ruRU`).\n\n## Usage\n\n| Command | What it does |\n| --- | --- |\n| `/rollmove` | Show or hide the loot roll anchor |\n| `/rollmove config` | Open the graphical settings window |\n| `/rollmove history` | Open the Roll History & details ledger |\n| `/rollmove chatgroup` | Toggle grouping roll spam into one expandable chat line |\n| `/rollmove chatbtn` | Toggle clickable `[Details]` / `[Rolls]` button on roll messages in chat |\n| `/rollmove scale <0.5-2>` | Set the roll window scale |\n| `/rollmove max <1-10>` | Set max simultaneous visible items (extra queue up) |\n| `/rollmove combat` | Toggle hide roll windows while in combat |\n| `/rollmove minimap` | Toggle minimap button |\n| `/rollmove test [1-10]` | Show test loot roll windows and simulate chat roll grouping |\n| `/rollmove reset` | Restore default position and settings |\n\nWhile the box is shown: drag it with the left mouse button, scroll to resize, right-click to lock.\nOn the minimap button: left-click to unlock/lock, right-click for settings, `Shift + Left-click` for test rolls, `Shift + Right-click` for Roll History.\n\n## Install\n\nCopy `addon/RollWindowMoverForever` into `World of Warcraft/_forever_/Interface/AddOns/` (or `_classic_beta_/Interface/AddOns/`),\nor install it from CurseForge.\n\n## Build\n\n```powershell\npowershell -File packaging/build.ps1\n```\n\nProduces `dist/RollWindowMoverForever-<version>.zip` for CurseForge.\n\n## License\n\nGPL-3.0",
+  "releases": [
+    {
+      "tag": "v1.2.1",
+      "name": "Roll Window Mover Forever 1.2.1",
+      "published": "2026-11-17",
+      "notes": "## What's New in 1.2.1\n\n- **Hide in Combat Disabled by Default**: The \"Hide loot roll windows while in combat\" option is now disabled by default for fresh installs and resets, ensuring roll windows remain visible during encounters unless explicitly toggled on via `/rollmove combat` or the settings window (`/rollmove config`)."
+    },
+    {
+      "tag": "v1.2.0",
+      "name": "Roll Window Mover Forever 1.2.0",
+      "published": "2026-11-15",
+      "notes": "## What's New in 1.2.0\n\n- **Graphical Settings Window (\\/rollmove config\\)**: Clean in-game settings panel to customize window scale, maximum visible items, combat toggles, and minimap settings.\n- **Minimap Button (\\/rollmove minimap\\)**:\n  - **Left-click**: Unlock / lock the anchor\n  - **Right-click**: Open settings window\n  - **Shift + Left-click**: Toggle test roll windows\n  - **Drag**: Position freely around the minimap border\n- **Combat Hide Toggle (\\/rollmove combat\\)**: Optionally suppress roll frames during active combat to avoid distraction and screen clutter.\n- **Simultaneous Item Limit & Queue (\\/rollmove max 1-10\\)**: Set how many roll frames can be shown simultaneously; extra items wait in an orderly queue and slide into view as rolls are resolved.\n- **Expanded Test Preview (\\/rollmove test 1-10\\)**: Preview up to 10 test frames on demand."
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "Roll Window Mover Forever 1.1.0",
+      "published": "2026-11-11",
+      "notes": "## What's New in 1.1.0\n\n- **4-Slot Stack Visualizer**: When typing \\/rollmove\\, the mover now visualizes the entire 4-item vertical stack (slots 1 to 4) with border outlines and growth direction indicator (\\▲ Grows upwards ▲\\).\n- **Interactive Drag & Scale**: Drag or scroll over any slot in the 4-item stack to move and resize the entire stack together.\n- **Screen Boundary Clamping**: Prevents the top of the 4-item stack from being dragged off the top edge of the screen.\n- **New Command \\/rollmove test [1-5]\\**: Preview mock loot roll windows directly on screen.\n- **Interactive Test Mode**: Test windows support clicking Need, Greed, and Pass or typing \\/rollmove test\\ / \\/rollmove stop\\ to dismiss them."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Roll Window Mover Forever 1.0.0",
+      "published": "2026-10-09",
+      "notes": "First release. Move and resize the Need / Greed / Pass loot roll window with /rollmove. Install: extract the zip into World of Warcraft/_classic_beta_/Interface/AddOns/."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-15",
+      "2026-11-11",
+      "2026-10-09"
+    ]
+  },
+  "languages": [
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "RollWindowMoverForever"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "RollWindowMoverForeverDB"
+    ]
+  }
+}

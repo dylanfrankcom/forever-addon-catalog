@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "elvui-enhanced",
+  "repo": "bloqaudio/ElvUI_Enhanced_Yet_Again",
+  "about": "[![Package and release](https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/actions/workflows/main.yml/badge.svg)](https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/actions/workflows/main.yml)\n\n# ElvUI Enhanced (Yet) Again\n\nA lightweight plugin for [ElvUI](http://www.tukui.org/) that adds essential quality-of-life features without duplicating what ElvUI already does well.\n\n**Requires ElvUI version 16.00 or higher. Using the latest ElvUI release is recommended.**\n\n**Supported WoW Versions:** Every edition current ElvUI supports: Retail (Midnight 12.x), WoW Forever, Mists of Pandaria Classic, Burning Crusade Classic Anniversary, Classic Era, and Titan Reforged - Chrono (feature sets vary, see [Version Support](#version-support))\n\n## Installation\n\nInstall via [CurseForge](https://www.curseforge.com/wow/addons/elvui-enhanced-yet-again) or [Wago](https://addons.wago.io/addons/elvui-enhanced-yet-again), or clone this repository into your `Interface/AddOns` directory.\n\n## Features\n\n### Minimap\n- **Location Panel** — Zone name and coordinates displayed above the minimap.\n- **Minimap Button Bar** — Collects and skins addon minimap buttons into a movable bar with mouseover fade support.\n- **Great Vault Launcher** — Optional minimap button that opens the Great Vault, plus a `/vault` slash command.\n\n### Raiding\n- **Raid Marker Bar** — Quick-access bar for placing target icons and world markers with modifier-key support.\n\n### Equipment Manager\n- **Spec-Based Gear Swap** — Automatically equips a configured equipment set when switching specializations.\n- **Battleground Gear Swap** — Automatically equips a configured equipment set when entering PvP instances.\n- **Equipment Set Overlay** — Displays equipment set names on bag and bank item slots.\n\n### Paperdoll\n- **Item Level Display** — Shows item levels on each slot in the character and inspect frames, color-coded relative to your average equipped item level.\n- **Durability Display** — Shows durability percentages on your own equipped items with a color gradient, optionally for damaged items only.\n\n### Tooltip\n- **Raid Progression** — Shows raid kill progression on player tooltips (hold Shift) for Mythic, Heroic, Normal, and LFR, with short or long raid names. Each raid can be toggled individually:\n  - **Battle for Azeroth** — Uldir, Battle of Dazar'alor, Crucible of Storms, The Eternal Palace, Ny'alotha\n  - **Shadowlands** — Castle Nathria, Sanctum of Domination, Sepulcher of the First Ones\n  - **Dragonflight** — Vault of the Incarnates, Aberrus the Shadowed Crucible, Amirdrassil the Dream's Hope\n  - **The War Within** — Nerub-ar Palace, Liberation of Undermine, Manaforge Omega\n  - **Midnight** — The Voidspire, The Dreamrift, March on Quel'Danas, Sporefall, The Venomous Abyss, The Unbinding of Kith'ix\n\n### Datatext\n- **Range** — Displays the distance to your current target.\n\n## Configuration\n\nAll settings are located under the **ElvUI Enhanced (Yet) Again** section in the ElvUI configuration panel (`/ec`). Features are disabled by default. The addon registers its own ElvUI mover group for positioning the Minimap Button Bar and Raid Marker Bar.\n\n## Version Support\n\n- **Retail (Midnight 12.x)** — Full feature set.\n- **WoW Forever (1.60.x)** — Location Panel, Minimap Button Bar, Raid Marker Bar, Range datatext, and Paperdoll item level/durability.\n- **Mists of Pandaria Classic (5.5.x), Burning Crusade Classic Anniversary (2.5.x), Classic Era (1.15.x), and Titan Reforged - Chrono (3.80.x, China only)** — Location Panel, Minimap Button Bar, Raid Marker Bar, and Range datatext.\n\nRetail and WoW Forever are actively maintained and tested in-game. The Classic editions are supported but not tested in-game. If something doesn't work on any edition, please [open an issue](https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/issues) and I'll work on a fix.\n\n## Contributing\n\n- Report bugs or request features: [GitHub Issues](https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/issues)\n- Source code: [GitHub Repository](https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again)\n\nIf you'd like an old v3 feature brought back, open an issue and it will be considered.\n\n## License\n\nMIT — see [LICENSE](https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v4.3.27",
+      "published": "2026-11-19",
+      "notes": "## What's Changed\n* ci: move workflow actions to Node 24 releases by @bloqaudio in https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/pull/46\n* chore(release): take the version from the tag by @bloqaudio in https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/pull/47\n* fix(minimap): leave hidden buttons out of the button bar by @bloqaudio in https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/pull/48\n\n**Full Changelog**: https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/compare/v4.3.26...v4.3.27"
+    },
+    {
+      "tag": "v4.3.26",
+      "published": "2026-11-09",
+      "notes": "## What's Changed\n* chore: require ElvUI 16.00 on Retail by @bloqaudio in https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/pull/44\n* feat: support every game edition ElvUI supports by @bloqaudio in https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/pull/45\n\n**Full Changelog**: https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/compare/v4.3.25...v4.3.26"
+    },
+    {
+      "tag": "v4.3.25",
+      "published": "2026-11-09",
+      "notes": "## What's Changed\n* feat: add WoW Forever support by @bloqaudio in https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/pull/43\n\n**Full Changelog**: https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/compare/v4.3.24...v4.3.25"
+    },
+    {
+      "tag": "v4.3.24",
+      "published": "2026-10-13",
+      "notes": "## What's Changed\n* feat(progression): add Venomous Abyss and Kith'ix raid tracking by @bloqaudio in https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/pull/40\n* docs(readme): match documented features to loaded modules by @bloqaudio in https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/pull/41\n* chore(modules): remove unloaded v3 modules by @bloqaudio in https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/pull/42\n\n**Full Changelog**: https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/compare/v4.3.23...v4.3.24"
+    },
+    {
+      "tag": "v4.3.23",
+      "published": "2026-10-13",
+      "notes": "## What's Changed\n* chore(toc): bump retail interface to 120105 by @github-actions[bot] in https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/pull/39\n\n**Full Changelog**: https://github.com/bloqaudio/ElvUI_Enhanced_Yet_Again/compare/v4.3.22...v4.3.23"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 16,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-08-15",
+      "2026-07-03",
+      "2026-06-20",
+      "2026-06-20",
+      "2026-04-21",
+      "2026-04-03",
+      "2026-04-01",
+      "2026-04-01",
+      "2026-03-31",
+      "2026-03-29",
+      "2026-03-28",
+      "2026-03-22",
+      "2026-03-21",
+      "2026-03-21",
+      "2026-03-20",
+      "2026-03-19",
+      "2026-03-19",
+      "2026-02-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ElvUI_Enhanced"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "ElvUI"
+    ]
+  }
+}

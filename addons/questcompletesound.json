@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "questcompletesound",
+  "repo": "SMoRG75/QuestCompleteSound",
+  "about": "# \uD83E\uDDED QuestCompleteSound (QCS)\n\n**QuestCompleteSound** lets you hear your quest progress: a worker voice line when you complete a quest objective, and another when the whole quest is done. That's all it does.\n\nWorks in **Retail** and **WoW Forever**.\n\n---\n\n## \uD83D\uDCE6 Moved to SMoRG's QoL\n\nAll the other settings have moved to my addon [**SMoRG's QoL**](https://www.curseforge.com/wow/addons/smorgsqol):\n\n- Quest progress colors\n- Automatic quest tracking\n- Hide completed achievements\n- Splash screen\n- Debug output\n- Chat messages when a quest is done\n\nSMoRG's QoL plays the same sounds, so you only need one of the addons. If both are loaded, QCS stays silent so you don't hear every sound twice.\n\n---\n\n## \uD83C\uDFB5 Sounds\n\n| Profile | Objective complete | Quest complete |\n|----------|--------------|--------------|\n| **Horde (Peon)** (default) | \"Work, work.\" | \"Work complete.\" |\n| **Alliance (Human worker)** | \"More work?\" | \"Job's done!\" |\n\nWhen the last objective of a quest is completed, you only hear the quest complete sound.\n\n---\n\n## \uD83E\uDE9F Options Window\n\nTurn the sounds on or off and choose the sound profile in the options window. Open it from the addon compartment menu at the minimap, the button under **Options → AddOns**, or with `/qcs config`.\n\n---\n\n## ⚙️ Chat Commands\n\n| Command | Description |\n|----------|--------------|\n| `/qcs questsound` | Toggle the quest completion sound |\n| `/qcs qs` | Shorthand for questsound |\n| `/qcs objectivesound` | Toggle the objective completion sound |\n| `/qcs os` | Shorthand for objectivesound |\n| `/qcs soundprofile` | Switch between the Horde and Alliance sounds |\n| `/qcs config` | Open the options window |\n| `/qcs reset` | Reset all settings to defaults |\n| `/qcs help` | Display command overview |\n\n---\n\n## \uD83D\uDCBE Saved Variables\n\nYour settings persist between sessions in `QCS_DB`:\n\n| Variable | Purpose |\n|-----------|----------|\n| `QuestCompleteSound` | Play a sound when a whole quest is done |\n| `QuestObjectiveSound` | Play a sound when a quest objective is completed |\n| `QuestSoundProfile` | `Horde` or `Alliance` |\n| `PopupPosition` | Where you moved the options window |",
+  "releases": [
+    {
+      "tag": "v2.0.0",
+      "published": "2026-11-07",
+      "notes": "\uD83E\uDDFE QuestCompleteSound\n\nNew Features & Improvements:\n\nv2.0.0 - \uD83D\uDD0A QuestCompleteSound now only plays sounds, the same ones as SMoRG's QoL\nAdded a sound when a quest objective is completed, toggle with /qcs objectivesound or /qcs os\nAdded Horde (Peon) and Alliance (Human worker) sounds, switch with /qcs soundprofile\nToggle the quest completion sound with /qcs questsound or /qcs qs\nAdded an options window, like the one in SMoRG's QoL. Open it from the addon compartment, the button under Options > AddOns, or with /qcs config\n\nNow also works in WoW Forever\n\nRemoved progress colors, auto-tracking, hiding completed achievements, the splash screen, debug output and the chat messages. All of these are available in SMoRG's QoL\nQCS stays silent when SMoRG's QoL is loaded, so you don't hear every sound twice\n\nFixed: quests that were already done played the sound after login or /reload\nFixed: a repeatable quest played no sound when you did it again in the same session\n\nv1.4.2 - \uD83E\uDDE9 I have made an Addon called SMoRGs QoL. This will be my new primary Addon.\n\nv1.4.1 - \uD83E\uDDE9 Addon now starts with only Quest Complete Sound turned on.\nNo QCS messages are show, they have to be turned on manually\n\nv1.4.0 - \uD83E\uDDE9 Achievement panel can now automatically hide or show completed achievements\nControlled via /qcs hideach or /qcs ha\nNew Features & Improvements:\n\n\uD83E\uDDE9 Achievement panel can now automatically hide or show completed achievements\nControlled via /qcs hideach or /qcs ha\n\nSetting is saved and correctly restored after reload\n\n⚙️ The reset command now also updates the achievement filter\n\n\uD83C\uDFA8 Code refactored and organized under the QCS namespace with persistent QCS_DB SavedVariables\n✨ Feature Highlights\nv1.3.1 - Made addon more stable\n\nv1.3.0 - Added colors to Quest objective progress\n\nv1.2.1 - Fixed handling of all quest types\n\nv1.2.0 — Auto-Tracking & UI Improvements\n\n\uD83D\uDD0A Quest Complete Sound\nPlays a satisfying sound when all quest objectives are done — you’ll know instantly when it’s time to turn in!\n\n\uD83E\uDDED Optional Auto-Tracking\nAutomatically track any quest you accept. Toggle with:\n/qcs autotrack, at\n\n\uD83C\uDFA8 Optional coloring of progress\nAutomatically show the progress in a color from red to green. Toggle with:\n/qcs color, col\n\n\uD83D\uDCAC Customizable Splash Screen\nChoose whether QCS greets you on login with a version summary.\n/qcs splash\n\n\uD83E\uDDF0 Easy Reset\nReset settings anytime:\n/qcs reset"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "QuestCompleteSound"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "QCS_DB"
+    ]
+  }
+}

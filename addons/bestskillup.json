@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "bestskillup",
+  "repo": "Aganmar/BestSkillUp",
+  "about": "![BestSkillUp icon](https://raw.githubusercontent.com/Aganmar/BestSkillUp/main/Media/BestSkillUp_400.png)\n\n# BestSkillUp\n\nFind the **cheapest way to level your professions** in **World of Warcraft: Forever**. BestSkillUp ranks every recipe you can make by its expected gold cost per skill point, using your [Auctionator](https://www.curseforge.com/wow/addons/auctionator) prices.\n\nOpen your profession window and the ranked list appears beside it, with the best recipe to craft right now at the top. Supports every crafting profession: **Alchemy**, **Blacksmithing**, **Enchanting**, **Engineering**, **Leatherworking**, **Tailoring**, **Mining** (smelting), **Cooking** and **First Aid**.\n\n## Features\n\n- **Cost per skill point** – every recipe is ranked by what a point really costs you, counting the chance that a yellow or green recipe gives no point at all.\n- **Cheapest reagents** – each reagent is priced the cheapest way you can get it: vendor, Auction House, or crafting or smelting it yourself (bars are priced from ore when your Mining skill can smelt them).\n- **Resale value** – optionally counts what you get back for the item you make (vendor price, or AH price after the cut and a sell-through rate).\n- **Disenchant value** – a green, blue or purple item you make is also valued by what it disenchants into at your Auctionator prices, whenever that beats selling it. On for characters with Enchanting; bind-on-pickup items only count it when the character itself has Enchanting, and items made by Enchanting can't be disenchanted.\n- **In the crafting window** – under each recipe: your skill-up chance, the orange/yellow/green/grey thresholds, and the cost per point with vendor and AH resale.\n- **Follows your profession** – the list switches to whichever profession window you open; click its title (or `/bsu prof`) to switch by hand.\n- **Live recipe colours** – at your current skill, the game's own recipe colour wins if it disagrees with the data.\n- **Working Overtime** – set your rank of the Legacy talent (Options, or `/bsu overtime 0-5`) and the chance of a yellow/green craft giving no point drops by 4% per rank (at 5/5, 80% becomes 84% and 10% becomes 28%).\n- **Master Chef** – set your rank of the Legacy talent (Options, or `/bsu chef 0-5`) and cooking counts 10% more food per craft per rank (each rank is a 10% chance of an extra result), so the food you make pays back more.\n- **Learns the real thresholds** – every time you open a profession window, the colours the game shows are remembered (for all your characters) and used to correct Wowhead's orange/yellow/green/grey levels where WoW: Forever differs. The tooltip says when a recipe has been corrected.\n- **Knows what you've learned** – recipes you know always appear; choose whether to also suggest unlearned recipes, and from which sources (trainer, vendor, drop, quest).\n- **Disenchanting** – below Enchanting 60, Disenchant sits at the top of the Enchanting list at no cost, with its skill-up chance (estimated from Classic: always up to 20, falling to nothing at 60).\n- **Your own prices** – set a manual price for any item with `/bsu price`.\n- **Scrollable list** – every option, not just the top 16: mouse wheel (Shift for a page) or drag the bar on the right.\n- **Tooltips** – hover a row for the item (with its Auctionator price) and the full cost breakdown; Shift-click for a Wowhead link you can copy.\n- **Arcane Salvager** – tick **Arcane Salvager** in Options when you'll disenchant near one: disenchant values then include its bonus (a 30% chance that dust or essence comes out at one more than the normal maximum, measured in game).\n- **Specializations** – once you've learned Armorsmith or Weaponsmith (and a master weaponsmith school), a Leatherworking school, or Gnomish or Goblin Engineering, plans for the rival specializations are no longer suggested. Before you specialise, everything is still shown, with a \"Needs ...\" note in the tooltip.\n- **Profit tab** – switch to **Profit** at the top of the window to see every recipe you can craft ranked by profit per craft (what you make, at your resale setting, minus the reagents), at any skill, for when you just want to make gold. At the cap of your profession (150/150, 300/300 ...) nothing gives a point, so the Skill-ups tab is hidden and Profit shows instead; tick **Skill-ups at max** in Options (or `/bsu max`) to keep it.\n- **Recipes tab** – switch from **Skill-ups** to **Recipes** at the top of the window to see every recipe of the profession by the skill it's learned at, with its source. Show **All**, **Owned** or **Missing** (missing ones are marked `*`); Shift-click any recipe for its Wowhead link.\n- **EllesmereUI styling** when installed.\n\n## Install\n\n**WowUp:** Get Addons → Install from URL → `https://github.com/Aganmar/BestSkillUp`. WowUp picks up new releases automatically.\n\n**Manually:** download `BestSkillUp-<version>-forever.zip` from [Releases](https://github.com/Aganmar/BestSkillUp/releases), copy the `BestSkillUp` folder into `World of Warcraft\\_forever_\\Interface\\AddOns\\` and restart the game.\n\nAuctionator is optional but recommended: without it, BestSkillUp falls back to vendor and Wowhead prices. To share prices between characters or players, use an add-on that writes into Auctionator, such as [ScanShare](https://github.com/Aganmar/ScanShare).\n\n## Commands\n\n| Command | |\n|---|---|\n| `/bsu` | Show or hide the list |\n| `/bsu prof` | Switch to the next profession |\n| `/bsu opt` | Options |\n| `/bsu resale none\\|vendor\\|ah` | How to value what you make |\n| `/bsu unlearned` | Also suggest recipes you haven't learned |\n| `/bsu source trainer\\|vendor\\|drop\\|quest\\|other` | Include or exclude recipes by where they're learned |\n| `/bsu de [auto]` | Count disenchant value of what you make on/off (auto: on for characters with Enchanting) |\n| `/bsu overtime <0-5>` | Your Working Overtime rank (Legacy talent), for this character |\n| `/bsu chef <0-5>` | Your Master Chef rank (Legacy talent), for this character |\n| `/bsu profit` / `skill` / `recipes` | Switch tab |\n| `/bsu max` | Keep the Skill-ups tab at max skill on/off |\n| `/bsu wh` | Use Wowhead average prices when Auctionator has none |\n| `/bsu price <itemID> [copper]` | Set your own price for an item (blank clears it) |\n| `/bsu debug` | Show what the crafting-window lines are doing |\n| `/bsu reset` | Reset the window position |\n\n## How it works\n\n```\ncost per point = (reagent cost − value of what you make) ÷ chance to skill up\n```\n\n| Recipe colour | Chance to skill up |\n|---|---|\n| Orange | 100% |\n| Yellow / green | Falls in a straight line from 100% at the yellow threshold to 0% at grey |\n| Grey | 0% (not listed) |\n\nWith Working Overtime, the chance of getting no point shrinks by 4% per rank: chance = 1 − (1 − chance) × (1 − 0.04 × rank). At 5/5, 80% becomes 84% and 10% becomes 28%. (Measured in game: Lesser Magic Wand from 100 to 115 at 5/5 took 52 crafts; this predicts about 44, a ×1.2 multiplier about 111.)\n\nEach reagent costs the cheapest of:\n\n| Source | |\n|---|---|\n| Manual | Your own price from `/bsu price` (always wins) |\n| Vendor | Auctionator's vendor price, else the built-in list |\n| Auction House | Your Auctionator price |\n| Craft / smelt | The cost of making it yourself, if you know the recipe (or could learn it from a trainer) |\n| Wowhead average | Last resort when nothing else has a price (`/bsu wh` turns it off) |\n\nRecipes with a reagent that has no price at all sort to the bottom.\n\n## License\n\nBestSkillUp is free software under the [GNU General Public License v3.0](https://github.com/Aganmar/BestSkillUp/blob/main/LICENSE).\n\n## Credits\n\n- Recipe data (skill thresholds, reagents, item prices) from [Wowhead's WoW: Forever database](https://www.wowhead.com/forever). It can be off for some recipes.\n- Prices from [Auctionator](https://www.curseforge.com/wow/addons/auctionator).\n- For developers: [HANDOFF.md](https://github.com/Aganmar/BestSkillUp/blob/main/HANDOFF.md) covers the code layout, data generation and releases.",
+  "releases": [
+    {
+      "tag": "v0.15.0",
+      "name": "BestSkillUp v0.15.0",
+      "published": "2026-11-25",
+      "notes": "**Full Changelog**: https://github.com/Aganmar/BestSkillUp/compare/v0.14.0...v0.15.0"
+    },
+    {
+      "tag": "v0.14.0",
+      "name": "BestSkillUp v0.14.0",
+      "published": "2026-11-22",
+      "notes": "**Full Changelog**: https://github.com/Aganmar/BestSkillUp/compare/v0.13.1...v0.14.0"
+    },
+    {
+      "tag": "v0.13.1",
+      "name": "BestSkillUp v0.13.1",
+      "published": "2026-11-17",
+      "notes": "**Full Changelog**: https://github.com/Aganmar/BestSkillUp/compare/v0.13.0...v0.13.1"
+    },
+    {
+      "tag": "v0.13.0",
+      "name": "BestSkillUp v0.13.0",
+      "published": "2026-11-17",
+      "notes": "**Full Changelog**: https://github.com/Aganmar/BestSkillUp/compare/v0.12.0...v0.13.0"
+    },
+    {
+      "tag": "v0.12.0",
+      "name": "BestSkillUp v0.12.0",
+      "published": "2026-11-16",
+      "notes": "**Full Changelog**: https://github.com/Aganmar/BestSkillUp/compare/v0.11.0...v0.12.0"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Aganmar/BestSkillUp/main/Media/BestSkillUp_400.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-22",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BestSkillUp"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator",
+      "EllesmereUI",
+      "EllesmereUIBlizzardSkin"
+    ],
+    "savedVariables": [
+      "BestSkillUpDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "BestSkillUpCharDB"
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "finalfantasyrepup",
+  "repo": "RGXMods/FinalFantasyRepUp",
+  "about": "#  RGX |  Final Fantasy Rep Up!\n\n![FFRU Logo](https://raw.githubusercontent.com/RGXMods/FinalFantasyRepUp/main/media/logo.png)\n\n## ![](https://raw.githubusercontent.com/RGXMods/FinalFantasyRepUp/main/media/kiwi.gif) RGX Mods - RealmGX Community Project\n\n***\n\n## Overview\n\n**Final Fantasy Rep Up! (FFRU)** brings a Final Fantasy-inspired victory fanfare to World of Warcraft reputation progression. It watches faction standing data and plays its replacement sound when a tracked faction advances to a higher standing.\n\nThe addon is intentionally focused: it has no options window and does not change reputation values, faction UI, or chat output. Sound playback and persisted settings are provided by RGX-Framework.\n\n![RealmGX Kiwi](https://raw.githubusercontent.com/RGXMods/FinalFantasyRepUp/main/media/kiwi.gif) **The Kiwi Says:** \"Victory! Bwwiiiee.\"\n\n***\n\n## Deprecation Notice\n\n**This addon is no longer receiving updates.** Its functionality and Final Fantasy sound are available in [BLU | Better Level Up!](https://www.curseforge.com/wow/addons/blu-better-level-up) and [BLU Classic | Better Level Up!](https://www.curseforge.com/wow/addons/blu-classic), which combine this sound with a larger sound collection.\n\nExisting standalone users may continue to use this repository as-is, but new installations should prefer the appropriate BLU addon.\n\n***\n\n## Behavior and Features\n\n- Detects faction standing increases after `UPDATE_FACTION` and `QUEST_LOG_UPDATE`.\n- Establishes the initial faction-standing snapshot at login, avoiding a sound merely for loading the character.\n- Provides high, medium, and low OGG variants; medium is selected by default.\n- Plays through the Master sound channel by default.\n- Requests that RGX-Framework mute the configured default reputation sound while FFRU is enabled.\n- Stores enablement and sound-variant choices in `FFRUSettings`.\n- Shows a welcome message on login while that saved preference remains enabled.\n- Includes a test command so playback can be checked without waiting for a standing increase.\n\nFFRU reacts to a higher faction standing value, not every individual reputation-point gain within the same standing.\n\n***\n\n## Requirements and Compatibility\n\n`RGX-Framework` is a required dependency and must be installed and enabled. The current TOCs declare these game interfaces:\n\n| WoW flavor | TOC | Interface |\n|---|---|---:|\n| Retail | `FinalFantasyRepUp.toc` | `120005` |\n| Wrath Classic | `FinalFantasyRepUp_Wrath.toc` | `30403` |\n| Burning Crusade Classic | `FinalFantasyRepUp_TBC.toc` | `20504` |\n| Classic Era | `FinalFantasyRepUp_Vanilla.toc` | `11500` |\n\nThese values describe the preserved release metadata. The addon is deprecated, so they are not a promise of compatibility with later game clients.\n\n***\n\n## Language Support\n\nFFRU ships with a complete set of translations for every WoW client language. Chat output, help text, status text, and messages are localized in:\n\nenUS (English, base), deDE (German), esES (Spanish, Europe), esMX (Spanish, Latin America), frFR (French), itIT (Italian), koKR (Korean), ptBR (Portuguese, Brazil), ptPT (Portuguese, Europe), ruRU (Russian), zhCN (Chinese, Simplified), zhTW (Chinese, Traditional).\n\nTranslations live in `data/locales.lua`. The English (enUS) table is the base: every key is defined there first, and each other language overrides the same keys in its own block. Any key without a translation in a language falls back to the English value automatically, and any client locale outside the twelve listed above falls back to full English output without errors.\n\n***\n\n## Installation\n\n1. Download a packaged release of FinalFantasyRepUp and install RGX-Framework.\n2. Extract both addon folders into the WoW client's `Interface/AddOns` directory.\n3. Confirm that the folder is named `FinalFantasyRepUp` rather than a source-archive name.\n4. Enable `RGX-Framework` and `Final Fantasy Rep Up!` at the character-selection AddOns screen.\n\nFor the consolidated replacement, install BLU or BLU Classic instead of the standalone addon.\n\n***\n\n## ⌨Usage and Configuration\n\nFFRU works automatically once enabled. It has no graphical configuration panel; use `/ffru` commands in chat:\n\n| Command | Result |\n|---|---|\n| `/ffru` or `/ffru help` | List available commands. |\n| `/ffru test` | Play the selected sound variant. |\n| `/ffru enable` | Enable replacement playback. |\n| `/ffru disable` | Disable replacement playback. |\n| `/ffru high` | Select the high-quality file. |\n| `/ffru med` or `/ffru medium` | Select the medium-quality file. |\n| `/ffru low` | Select the low-quality file. |\n\nThe initial defaults are enabled, medium quality, Master-channel playback, default-sound muting, and the welcome message. Settings persist between sessions in `FFRUSettings`.\n\n***\n\n## Files and Runtime\n\n- `data/locales.lua` defines chat and welcome text.\n- `data/core.lua` registers the sound set, events, saved settings, and `/ffru` command.\n- `sounds/final_fantasy_rep_{high,med,low}.ogg` are the active playback files.\n- `media/icon.tga`, `media/logo.png`, and `media/kiwi.gif` provide addon and project artwork.\n\nAt addon load, FFRU initializes its RGX-Framework sound handle. At login it snapshots faction standings and displays the optional welcome message. Later faction or quest-log updates rescan standings and play the selected sound only when a tracked standing increases. Logout allows the framework handle to finalize its state.\n\n***\n\n## Troubleshooting\n\n- If WoW marks FFRU as missing a dependency, install or enable `RGX-Framework`.\n- If no custom sound plays, run `/ffru test`, then `/ffru enable` and select a variant again.\n- If the default sound still plays, verify that FFRU and RGX-Framework both loaded without Lua errors.\n- If an ordinary reputation gain is silent, remember that FFRU triggers on a standing increase rather than every point gain.\n- If WoW cannot find the addon, verify the exact `Interface/AddOns/FinalFantasyRepUp` folder name.\n\nBecause the standalone project is retired, migrate to BLU or BLU Classic when you prefer the consolidated sound addon.\n\n***\n\n## Project Links\n\n- [Repository](https://github.com/RGXMods/FinalFantasyRepUp)\n- [Releases](https://github.com/RGXMods/FinalFantasyRepUp/releases)\n- [Issues](https://github.com/RGXMods/FinalFantasyRepUp/issues)\n- [Author: DonnieDice](https://github.com/donniedice)\n- [Support development](https://www.buymeacoffee.com/donniedice)\n\nThis repository is retained for existing users and historical context. Issue reports and contributions should account for the deprecation notice and the migration path above.\n\n***\n\n## Thank you for choosing  RGX Mods!",
+  "releases": [
+    {
+      "tag": "v2.0.4",
+      "name": "Final Fantasy Rep Up! v2.0.4",
+      "published": "2026-11-05",
+      "notes": "## v2.0.4 - 2026-11-05\n\n- Fixed WoW Forever: the base TOC now declares Interface 16001, which is what the Forever client reads, so the addon loads as compatible instead of out of date.\n- Removed the unused _Forever.toc file.\n\n# Non-beta Candidate: [v2.0.2](https://github.com/RGXMods/FinalFantasyRepUp/blob/main/changelogs/2.0.2.md)\n\nRetail 12.1.5 / Interface `120105`; client testing and publication pending.\n\n# v2.0.0 - 2026-04-30"
+    },
+    {
+      "tag": "v2.0.3",
+      "published": "2026-10-22",
+      "notes": "# Non-beta Candidate: [v2.0.2](https://github.com/RGXMods/FinalFantasyRepUp/blob/main/changelogs/2.0.2.md)\n\nRetail 12.1.5 / Interface `120105`; client testing and publication pending.\n\n# v2.0.0 - 2026-04-30\n\n## Changes\n\n- **Full architecture migration**: Restructured from legacy single-file to modern RGX-Framework architecture with `data/core.lua`, `data/locales.lua`, and `sounds/` directory.\n- **Migrated to RGX-Framework**: Added `RequiredDeps: RGX-Framework` to TOC. Core logic now uses `RGX:GetSound()`, `RGX:RegisterEvent()`, and `RGX:RegisterSlashCommand()`.\n- **Sound variants**: Added high/medium/low quality sound variants.\n- **Localization**: Added multi-language support (enUS, deDE, frFR, esES, ruRU).\n- **Settings**: Added persistent SavedVariables with slash commands for enable/disable, sound variant, and volume channel.\n- **RGXSound handle**: Sound playback, variant management, mute/unmute, settings, and welcome message are now handled by the RGXSound module in RGX-Framework.\n- **Reputation tracking**: Faction standing tracking preserved — plays sound when reputation rank increases."
+    },
+    {
+      "tag": "v2.0.2",
+      "published": "2026-10-14",
+      "notes": "# Non-beta Candidate: [v2.0.2](https://github.com/RGXMods/FinalFantasyRepUp/blob/main/changelogs/2.0.2.md)\n\nRetail 12.1.5 / Interface `120105`; client testing and publication pending.\n\n# v2.0.0 - 2026-04-30\n\n## Changes\n\n- **Full architecture migration**: Restructured from legacy single-file to modern RGX-Framework architecture with `data/core.lua`, `data/locales.lua`, and `sounds/` directory.\n- **Migrated to RGX-Framework**: Added `RequiredDeps: RGX-Framework` to TOC. Core logic now uses `RGX:GetSound()`, `RGX:RegisterEvent()`, and `RGX:RegisterSlashCommand()`.\n- **Sound variants**: Added high/medium/low quality sound variants.\n- **Localization**: Added multi-language support (enUS, deDE, frFR, esES, ruRU).\n- **Settings**: Added persistent SavedVariables with slash commands for enable/disable, sound variant, and volume channel.\n- **RGXSound handle**: Sound playback, variant management, mute/unmute, settings, and welcome message are now handled by the RGXSound module in RGX-Framework.\n- **Reputation tracking**: Faction standing tracking preserved — plays sound when reputation rank increases."
+    },
+    {
+      "tag": "v2.0.1",
+      "published": "2026-04-30",
+      "notes": "# v2.0.0 - 2026-04-30\n\n## Changes\n\n- **Full architecture migration**: Restructured from legacy single-file to modern RGX-Framework architecture with `data/core.lua`, `data/locales.lua`, and `sounds/` directory.\n- **Migrated to RGX-Framework**: Added `RequiredDeps: RGX-Framework` to TOC. Core logic now uses `RGX:GetSound()`, `RGX:RegisterEvent()`, and `RGX:RegisterSlashCommand()`.\n- **Sound variants**: Added high/medium/low quality sound variants.\n- **Localization**: Added multi-language support (enUS, deDE, frFR, esES, ruRU).\n- **Settings**: Added persistent SavedVariables with slash commands for enable/disable, sound variant, and volume channel.\n- **RGXSound handle**: Sound playback, variant management, mute/unmute, settings, and welcome message are now handled by the RGXSound module in RGX-Framework.\n- **Reputation tracking**: Faction standing tracking preserved — plays sound when reputation rank increases."
+    },
+    {
+      "tag": "v2.0.0",
+      "published": "2026-04-30",
+      "notes": "# v2.0.0 - 2026-04-30\n\n## Changes\n\n- **Full architecture migration**: Restructured from legacy single-file to modern RGX-Framework architecture with `data/core.lua`, `data/locales.lua`, and `sounds/` directory.\n- **Migrated to RGX-Framework**: Added `RequiredDeps: RGX-Framework` to TOC. Core logic now uses `RGX:GetSound()`, `RGX:RegisterEvent()`, and `RGX:RegisterSlashCommand()`.\n- **Sound variants**: Added high/medium/low quality sound variants.\n- **Localization**: Added multi-language support (enUS, deDE, frFR, esES, ruRU).\n- **Settings**: Added persistent SavedVariables with slash commands for enable/disable, sound variant, and volume channel.\n- **RGXSound handle**: Sound playback, variant management, mute/unmute, settings, and welcome message are now handled by the RGXSound module in RGX-Framework.\n- **Reputation tracking**: Faction standing tracking preserved — plays sound when reputation rank increases."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/RGXMods/FinalFantasyRepUp/main/media/kiwi.gif"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-10-22",
+      "2026-10-14",
+      "2026-04-30",
+      "2026-04-30",
+      "2026-04-23",
+      "2022-11-18",
+      "2022-11-02",
+      "2022-06-01",
+      "2022-05-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FinalFantasyRepUp"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "RGX-Framework"
+    ],
+    "savedVariables": [
+      "FFRUSettings"
+    ]
+  }
+}

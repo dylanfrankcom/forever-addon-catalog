@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "actionbarplus",
+  "repo": "kapresoft/wow-addon-actionbar-plus",
+  "about": "|  |\n|--------|\n|[![Release Build](https://github.com/kapresoft/wow-addon-actionbar-plus/actions/workflows/release-build.yml/badge.svg)](https://github.com/kapresoft/wow-addon-actionbar-plus/actions/workflows/release-build.yml)|\n\n# ActionbarPlus :: Actionbars Everywhere, Makes You Click-Happy\n> A [World of Warcraft](https://worldofwarcraft.com/) AddOn\n\n![download-count](https://cf.way2muchnoise.eu/full_566626_downloads.svg?badge_style=for_the_badge) ![supported-wow-versions](https://cf.way2muchnoise.eu/versions/World%20of%20Warcraft%20Versions_566626_all.svg?badge_style=for_the_badge)\n\n[//]: # (https://cf.way2muchnoise.eu/)\n[//]: # (See more on badges at: https://support.curseforge.com/en/support/solutions/articles/9000206928-curseforge-badges)\n\nReleases | Milestones | Known Issues | [Curse Forge](https://legacy.curseforge.com/wow/addons/actionbarplus/files)\n\n>Available for all of World of Warcraft Versions\n\n \n\n## Description\n\nActionbarPlus is a versatile floating action bar add-on that enables you to create and customize up to 10 supplementary action bars. With the flexibility to place them anywhere within the game, these floating action bars can enhance your gaming experience by providing additional functionality and convenience. Whether you need quick access to frequently used spells, items, or macros, or simply want to streamline your UI, ActionbarPlus offers a powerful solution that can help you achieve your goals.\n\n### Features\n\n- Action buttons triggers on KeyDown (not KeyUp)\n- Action bars can be dynamically positioned anywhere on the screen, offering unparalleled flexibility and customization to fit your unique gameplay style and UI preferences.\n- Customizable button size and number of buttons (rows and columns) with a maximum of 800 buttons arranged in a grid of 20 x 40. Loops that update buttons typically run only when bars are shown or settings change.\n- The ability to bind keys to action buttons using the World of Warcraft Keybinding options is supported.\n- [WowAce](https://www.wowace.com/projects/ace3) profile support includes the ability to switch between profiles, copy a profile, and reset a profile.\n- `ABP:SmarMount(..)` A dynamic function that can be utilized in macros for dynamic mounting based on the current area. (More details below)\n\n### Console Commands\n\nType `/abp` in chat to see the list of available commands:\n\n```\n/abp info                 - displays the addon info\n/abp profiles [filter]    - lists available profiles\n/abp profile <name>       - switches to the named profile\n```\n\n#### Additional Configuration Options\n\n- **Toggle Button Mouseover Glow Feature:** Activate a visual glow effect on action buttons upon mouseover, making it easier to identify active buttons during gameplay.\n- **Tooltip Visibility, Anchor, and Combat Override Key Options:** Gain full control over tooltips with customizable visibility, anchoring positions, and the ability to set keys for overriding tooltip behavior in combat, providing crucial information exactly when and where you need it.\n- **Equipment Set**: Supports integrating equipment sets directly into the action bars. Clicking an action button linked to an equipment set will not only activate that set but also visually indicate its active status. Any updates to your gear, like swapping a piece of equipment, automatically refresh the button's active state to accurately reflect your current equipment set. Furthermore, the tooltip for each action button is enhanced to show whether the represented equipment set is fully equipped, offering instant insight into your gear status.\n- **Actionbar Frame Specific Options:** Fine-tune individual actionbar frames with specific options, including but not limited to positioning, scaling, and more, for ultimate control over your interface layout.\n- **Profile Management:** Enhanced profile management features allow for more efficient setup and switching between different UI configurations, saving you time and effort in customizing your experience.\n\n## Docs\n- Wiki\n- Getting Started\n\n### Author Notes\n\n- Please submit bugs and feature requests at Github/ActionbarPlus/issues\n- Milestones\n- Releases\n- [About the Author (Tony Lagnada)](https://tony.resume.lagnada.com/)\n\n## AddOn Distribution\n\n**Curse Forge**\n- https://www.curseforge.com/wow/addons/actionbarplus\n\n**WoW Interface**\n- https://www.wowinterface.com/downloads/info26522-ActionbarPlus.html\n\n### Donations\n\nIf ActionbarPlus has made your gameplay easier, consider supporting its development:\n\n- **[Paypal&trade; Donation](https://www.paypal.com/donate/?hosted_button_id=AX58YP3GSGXVU)**\n- **[Bitcoin Donation](https://www.blockchain.com/btc/address/3QQVAwJGkKHMM2oq6CLVWYgfx83TFVwp39)**\n\n## About\n\n- About the Author [(Tony Lagnada)](https://tony.resume.lagnada.com/)\n- My AddOn Portfolio Can Be Found Here [Curse Forge/Kapresoft](https://www.curseforge.com/members/kapresoft/projects)",
+  "releases": [
+    {
+      "tag": "2026.11.10",
+      "published": "2026-11-17",
+      "notes": "### ActionbarPlus 2026.11.10\n[Release Notes](https://github.com/kapresoft/wow-addon-actionbar-plus/releases/tag/2026.11.10) | [Full Changelog](https://github.com/kapresoft/wow-addon-actionbar-plus/compare/2026.11.9...2026.11.10) | [Curse Forge](https://www.curseforge.com/wow/addons/actionbarplus/files)\n\n#### What’s Changed\n* Keep the icon's alpha plain on hunter aspect buttons (#714) @nfet\n\n#### ActionbarPlus-2026.11.10.zip\n```text\nsha256:11a360450258bee36a1351bddf15f705af1fd88fba4a62f6f4cbdf5faedff1a3\n```"
+    },
+    {
+      "tag": "2026.11.9",
+      "published": "2026-11-16",
+      "notes": "### ActionbarPlus 2026.11.9\n[Release Notes](https://github.com/kapresoft/wow-addon-actionbar-plus/releases/tag/2026.11.9) | [Full Changelog](https://github.com/kapresoft/wow-addon-actionbar-plus/compare/2026.11.8...2026.11.9) | [Curse Forge](https://www.curseforge.com/wow/addons/actionbarplus/files)\n\n#### What’s Changed\n* Refresh button icons when a spell's icon changes (#712) @nfet\n* Flash the Auto Shot button while Auto Shot is active (#711) @nfet\n* Show the active state on hunter aspect buttons (#708) @nfet\n\n#### ActionbarPlus-2026.11.9.zip\n```text\nsha256:e81fbbb0f0a375fdc4fb8008a56f65111955250e81fed03b85bf9ea21974768c\n```"
+    },
+    {
+      "tag": "2026.11.8",
+      "published": "2026-11-14",
+      "notes": "### ActionbarPlus 2026.11.8\n[Release Notes](https://github.com/kapresoft/wow-addon-actionbar-plus/releases/tag/2026.11.8) | [Full Changelog](https://github.com/kapresoft/wow-addon-actionbar-plus/compare/2026.11.7...2026.11.8) | [Curse Forge](https://www.curseforge.com/wow/addons/actionbarplus/files)\n\n#### What’s Changed\n* Add a help tour for the bars (#704) @nfet\n* Cap the extra Button Count at the grid's 2 rows (#702) @nfet\n\n#### ActionbarPlus-2026.11.8.zip\n```text\nsha256:47c042d0b3b820919619146429cb9442190d8f1bacd1ffa081371c6eccffe086\n```"
+    },
+    {
+      "tag": "2026.11.7",
+      "published": "2026-11-11",
+      "notes": "### ActionbarPlus 2026.11.7\n[Release Notes](https://github.com/kapresoft/wow-addon-actionbar-plus/releases/tag/2026.11.7) | [Full Changelog](https://github.com/kapresoft/wow-addon-actionbar-plus/compare/2026.11.6...2026.11.7) | [Curse Forge](https://www.curseforge.com/wow/addons/actionbarplus/files)\n\n#### What’s Changed\n* Remove the Retail & Forever compatibility notice (#698) @nfet\n\n#### ActionbarPlus-2026.11.7.zip\n```text\nsha256:911804155409fce1b17fa4965c763ffd9760c3b275c6a9c7c8bcbee5fabe9fe1\n```"
+    },
+    {
+      "tag": "2026.11.6",
+      "published": "2026-11-11",
+      "notes": "### ActionbarPlus 2026.11.6\n[Release Notes](https://github.com/kapresoft/wow-addon-actionbar-plus/releases/tag/2026.11.6) | [Full Changelog](https://github.com/kapresoft/wow-addon-actionbar-plus/compare/2026.11.5...2026.11.6) | [Curse Forge](https://www.curseforge.com/wow/addons/actionbarplus/files)\n\n#### What’s Changed\n* Always load the embedded Ace3, in dev builds too (#696) @nfet\n* Fit the bar options dialog's close button on Retail and Forever (#694) @nfet\n* Add a global flag for ArcLayout's default Masque skin (#693) @nfet\n* Hide empty buttons under Masque and keep their skin; fix category switch-off (#692) @nfet\n* Honor Show Empty Buttons for extra buttons under Masque; add skin sync (#689) @nfet\n* Show spell cooldowns in combat on Retail and Forever (#687) @nfet\n* Add dev cooldown probes for the secret-value spike (#685) @nfet\n\n#### ActionbarPlus-2026.11.6.zip\n```text\nsha256:e8d817a648fd627d7d0b4167d93e12d9c9628f0fc20c0a54ffc0cff9b2ae30c5\n```"
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 7,
+    "contributors": 6,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-14",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-06",
+      "2026-11-03",
+      "2026-10-26",
+      "2026-10-16",
+      "2026-10-03",
+      "2026-10-03",
+      "2026-09-02",
+      "2026-08-23",
+      "2026-08-18",
+      "2026-08-05",
+      "2026-08-05",
+      "2026-08-04",
+      "2026-07-29",
+      "2026-07-29",
+      "2026-07-25",
+      "2026-07-18",
+      "2026-07-15",
+      "2026-07-14",
+      "2026-07-11",
+      "2026-06-07",
+      "2026-04-22",
+      "2026-03-02",
+      "2026-02-18",
+      "2026-02-09",
+      "2026-02-05",
+      "2026-01-17",
+      "2026-01-15",
+      "2026-01-04",
+      "2025-12-27",
+      "2025-12-11",
+      "2025-11-11",
+      "2025-11-10",
+      "2025-11-03",
+      "2025-10-22",
+      "2025-08-30",
+      "2025-08-27",
+      "2025-08-27",
+      "2025-08-24",
+      "2025-08-07",
+      "2025-08-06",
+      "2025-08-03",
+      "2025-07-31"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ActionbarPlus",
+      "ActionbarPlus-BarsUI",
+      "ActionbarPlus-Core",
+      "ActionbarPlus-OptionsUI"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "arctrack",
+  "repo": "ArcSim/ArcTrack",
+  "about": "# Arc Track\n\n**Hunter tracking alert for WoW Forever.** When your tracking does not match what\nyou are fighting, Arc Track tells you, and one key switches it.\n\nImproved Tracking gives +1% damage per rank (up to 5%) against the creature type\nyou are tracking. Arc Track keeps that bonus pointed at the thing in front of you.\n\n- Alerts only when you need to switch; silent when your tracking is right.\n- One key, macro, or `/arctrack switch` to change tracking.\n- **Tracking wheel**: hold a key, point at a tracking, let go. Works in dungeons\n  too, and you choose where each tracking sits on the wheel.\n- Inside dungeons and raids, a readout of your target's type and the tracking\n  you are on, worded and laid out your way.\n- Only alerts for tracking you have actually learned, and (by default) only once\n  you have a point in Improved Tracking.\n- Alert or \"target vs tracking\" style, your colors, pulse, size, and drag-to-place.\n\n## Install\n\nDrop the `ArcTrack` folder into `World of Warcraft\\_classic_beta_\\Interface\\AddOns`.\nAvailable on [CurseForge](https://www.curseforge.com/wow/addons/arc-track).\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/arctrack` or `/atr` | Open the options |\n| `/arctrack switch` | Switch tracking to your target |\n\nMinimap button: left-click for options, right-click to toggle the alert.\n\nKey bindings (in the options, or Key Bindings > AddOns > Arc Track): the switch\nkey, and the tracking wheel key.\n\n## Notes\n\n- **Inside instances** the game hides creature types from addons, so Arc Track\n  shows the type but cannot pick for you there. The tracking wheel lets you pick\n  by hand.\n- **Switching is a real spell cast** on Forever, so the alert reads \"Switching...\"\n  until it lands.\n- **WoW Forever does not always load addon settings** after a restart. That is a\n  Blizzard client bug affecting all addons, not this one. Arc Track's defaults are\n  the recommended setup.\n\n## Releases\n\nTagging a version (for example `1.4.0`) runs the BigWigs packager, which builds\nthe zip per `.pkgmeta` and uploads it to CurseForge and Wago. The packager is\npinned to **v2.6.1**, the first line that maps toc interface 16xxx to the WoW\nForever flavor.\n\n## Help\n\nQuestions or ideas? [Arc UI Discord](https://discord.gg/yMZmnFjUTd)",
+  "releases": [
+    {
+      "tag": "1.4.0",
+      "published": "2026-10-01",
+      "notes": "# Arc Track changelog\n\n## 1.4.0\n\n### New Features\n- **Tracking wheel** - Hold a key, point the mouse at a tracking and let go to switch, like the ping wheel. It works in dungeons too, because you do the picking. A quick tap leaves the wheel open so you can click instead, and there is a wheel macro for your action bars.\n- **Your wheel, your layout** - In the options, pick how many spots the wheel has (3 to 10) and drag each tracking onto the spot you want, or off the wheel. Add all, Clear not learned and Reset get you started, and Find Herbs, Find Minerals and your other tracking can go on it too.\n- **Wheel look** - Set the wheel's size, turn the names on or off, and show the tracking you have not learned yet, dimmed, to see the wheel to come.\n- **Dungeon readout** - Inside dungeons and raids, where the game hides creature types from addons, Arc Track shows your target's type and the tracking you are on, so you can switch by hand.\n- **Readout options** - Change the words before the type (Target: by default) and before your tracking, put the tracking icon before or after the name or hide it, and show the tracking line under or above the type.\n\n### Improvements\n- **Options window fits your screen** - The window opens at the same share of your screen on any resolution, and a new Panel size slider makes it bigger or smaller. Long tabs scroll.\n- **Display options in tabs** - General, Dungeons, Colors and Size each get their own tab, and the Dungeons tab previews the dungeon readout wherever you are.\n\n### Bug Fixes\n- **Esc closes the window** - After you used the Discord button, Esc no longer closed the Arc Track window until a reload.\n\n## 1.3.0\n\nFirst public release, for WoW Forever.\n\n### New Features\n- **Tracking alert** - When your tracking does not match the creature you are fighting, a small alert tells you which tracking to use and shows your switch key. When your tracking is right, nothing is shown.\n- **One-key switching** - Bind a key in the options or under Key Bindings > AddOns > Arc Track, or drag the ready-made macro onto your bars. `/arctrack switch` does the same.\n- **Improved Tracking aware** - Alerts only once you have a point in the talent, so the addon stays quiet until the damage bonus is real. One click turns that off.\n- **Knows what you have learned** - Tracking types you do not know yet never raise an alert.\n- **Two display styles** - The default alert, or a \"target vs tracking\" readout that collapses to a single check mark when your tracking already matches.\n- **Your look, your place** - Icon and text, optional background, your own colors, pulse and size, and drag the preview anywhere on screen from the options panel.\n- **Minimap button** - Left-click opens the options, right-click turns the alert on and off.\n\n### Good to know\n- **Inside instances** - The game hides creature types from addons in dungeons and raids, so Arc Track shows the type but cannot pick for you there.\n- **Switching is a real cast** on Forever, so it can take a moment. The alert reads \"Switching...\" until it lands.\n- **Settings loading** - WoW Forever does not always load addon settings after a restart (a Blizzard bug affecting all addons). Arc Track's defaults are the recommended setup, so it works out of the box."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-01",
+    "releaseDates": [
+      "2026-10-01"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ArcTrack"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ArcTrackDB"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "eui-aurafonts",
+  "repo": "neilsun1225/EUI_AuraFonts",
+  "about": "# EUI Aura Fonts · EUI 光环字体\n\n[English](#english) · [简体中文](#简体中文)\n\n## English\n\n**Make EUI buff and debuff timers more compact and easier to read.**\n\nSome fonts, including Chinese Heiti, can make EUI's default buff and debuff duration text look too widely spaced. EUI Aura Fonts sets the timer text to size 11 for a more compact appearance, while keeping your chosen font and icon layout.\n\n**Install and enable it—no setup required.** There are no settings to configure, commands to enter, or font parameters to adjust.\n\n## 简体中文\n\n**让 EUI 的 Buff / Debuff 倒计时更紧凑、更易读。**\n\n使用中文黑体等特殊字体时，EUI 默认的增益与减益时长可能出现字符间距过宽、数字显得松散的问题。EUI Aura Fonts 将倒计时文字统一为 11 号，改善显示效果，同时保留你选择的字体和图标布局。\n\n**不需要任何设置，安装并启用后即自动生效。** 无需输入命令，也不用逐项调整字体参数。\n\n---\n\n**Author / 作者：Ballyh (B站八厉害)** · [MIT License / 开源许可](https://github.com/neilsun1225/EUI_AuraFonts/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "name": "0.2.0",
+      "published": "2026-10-25",
+      "notes": "## English\nStable release, tested in WoW Forever Beta (1.60.1).\n\nMake EUI buff and debuff timers more compact and readable with fonts such as Chinese Heiti. Install and enable the addon; no setup is required.\n\n## 简体中文\n稳定版本，已在 WoW Forever Beta（1.60.1）中实测可用。\n\n改善中文黑体等特殊字体下 EUI 增益与减益倒计时字符间距过宽的问题，安装并启用后自动生效，无需设置。\n\nAuthor / 作者：Ballyh (B站八厉害)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-25",
+    "releaseDates": [
+      "2026-10-25"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "EUI_AuraFonts"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Blizzard_BuffFrame"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "marketsyncdata",
+  "repo": "Bl4ut0/MarketSyncData",
+  "about": "# MarketSyncData — Multi-Flavor Auction House DataSync Pipeline\n\n**Automated hourly auction harvesting, permanent historical archival, and daily per-version addon compilation for [MarketSync](https://github.com/Bl4ut0/MarketSync) and [MarketSyncWeb](https://github.com/Bl4ut0/MarketSyncData).**\n\nThis repository automates ingestion, long-term archival, and compilation of Auction House and Commodity data across **all supported World of Warcraft flavors** via Blizzard's official Game Data API (`@pinta365/blizzard_api`). Full hourly snapshots remain archived permanently in `datasets/` as the web data store, while the daily compiler packages **strictly per-flavor 90-day addon bundles** so Forever data never mixes into Anniversary, Classic Era, Classic Progression, or Retail installs.\n\n---\n\n## Supported Game Flavors & Per-Version Releases\n\n| Flavor Key | Target Game Version | Interface TOC | Daily Release Archive |\n| :--- | :--- | :--- | :--- |\n| **`forever`** | WoW: Forever (`pvp`, `normal`, `roleplay`, `roleplaypvp`) | `16001` | `MSData-Forever-YYYY-MM-DD.zip` |\n| **`anniversary`** | Classic Anniversary (`dreamscythe`, `nightslayer`, `maladath`) | `20506`, `20505`, `11509`, `11508` | `MSData-Anniversary-YYYY-MM-DD.zip` |\n| **`classicEra`** | Classic Era / SoD / Hardcore (23 connected realms) | `11509`, `11508` | `MSData-ClassicEra-YYYY-MM-DD.zip` |\n| **`classic`** | Classic Progression (23 connected realms) | `50503`, `38000`, `20506`, `20505` | `MSData-Classic-YYYY-MM-DD.zip` |\n| **`retail`** | Modern Retail (region-wide commodities) | `120001`, `120000` | `MSData-Retail-YYYY-MM-DD.zip` |\n\n> **Per-Flavor Isolation**: Each compiled addon zip contains **only its own flavor's 90-day rolling dataset**, and `MarketSyncData/Core.lua` verifies `GetBuildInfo()` against `MarketSyncData.flavor` before injecting data into MarketSync so mismatched packs never cross-contaminate another game client.\n\n---\n\n## Features\n\n- **Hourly Multi-Flavor Harvesting**: [`hourly-harvest.yml`](https://github.com/Bl4ut0/MarketSyncData/blob/master/.github/workflows/hourly-harvest.yml) runs hourly at `:12` past the hour (with a `:42` automatic retry if GitHub queues/drops `:12`) to snapshot all 5 flavors across Alliance, Horde, Neutral/Blackwater, CrossFaction, and Commodities.\n- **Permanent GitHub Historical Archive**: All hourly blocks are retained indefinitely in `datasets/<flavor>/YYYY-MM-DD/HH-00.json` and indexed in `datasets/index.json` for `MarketSyncWeb` long-term price history without requiring an external database.\n- **90-Day Per-Flavor Daily Compiler**: [`daily-compile.yml`](https://github.com/Bl4ut0/MarketSyncData/blob/master/.github/workflows/daily-compile.yml) runs daily at `06:20 UTC`, filters each flavor strictly to the latest **90 days** of JSON blocks (`RETENTION_DAYS = 90`), generates flavor-scoped `MarketSyncData.lua` + `MarketSyncData.toc` builds under `dist/builds/<Flavor>/`, and publishes separate `MSData-<Flavor>-YYYY-MM-DD.zip` packages to GitHub Releases and CurseForge.\n- **Non-Destructive In-Game Sync**: On login, `MarketSyncData/Core.lua` seeds `MarketSync` with baseline observations without overwriting fresher in-game local or guild scans.\n\n---\n\n## Quick Start (Local Development)\n\n```bash\n# 1. Install dependencies\nnpm install\n\n# 2. Run multi-flavor pipeline & Lua compatibility tests\nnpm test\n\n# 3. Harvest current hour (simulated without credentials, or live with credentials)\nnpm run harvest\n\n# 4. Compile 90-day per-flavor builds into dist/builds/<Flavor>/MarketSyncData/\nnpm run compile\n\n# 5. Package dated per-flavor release zips into dist/MSData-<Flavor>-<Date>.zip\nnpm run package\n\n# 6. Deploy each flavor's matching build into local WoW installs (_forever_, _anniversary_, etc.)\npowershell -ExecutionPolicy Bypass -File scripts/deploy_local.ps1 -Product all\n```\n\n---\n\n## Repository Structure\n\n```text\nMarketSyncData/\n├── .github/workflows/\n│   ├── hourly-harvest.yml     # Cron (12,42 * * * *): harvests all 5 flavors & commits hourly block\n│   └── daily-compile.yml      # Cron (20 6 * * *): compiles 90-day per-flavor packs & publishes releases\n├── MarketSyncData/            # Core Lua addon loader + default manifest\n│   ├── MarketSyncData.toc     # Client interface manifest\n│   ├── MarketSyncData.lua     # Compiled Lua pricing table\n│   └── Core.lua               # Flavor-guarded ingestion into MarketSync\n├── scripts/\n│   ├── harvest.js             # Multi-flavor harvester using @pinta365/blizzard_api\n│   ├── compile.js             # 90-day per-flavor Lua dataset compiler (dist/builds/<Flavor>/)\n│   ├── package.js             # Builds MSData-<Flavor>-<Date>.zip release archives\n│   └── deploy_local.ps1       # Maps & deploys each flavor build to its local WoW client directory\n├── datasets/                  # Permanent historical dataset blocks partitioned by flavor & UTC date\n│   ├── forever/\n│   ├── anniversary/\n│   ├── classicEra/\n│   ├── classic/\n│   ├── retail/\n│   └── index.json             # Global manifest indexing every recorded snapshot block\n├── docs/\n│   ├── ARCHITECTURE.md        # Pipeline, flavor isolation, and Forever house mapping details\n│   ├── DATASET_SCHEMA.md      # Hourly block, index manifest, and compiled Lua schemas\n│   └── SETUP.md               # Guide to configuring Battle.net, CurseForge, & GitHub secrets\n└── tests/\n    ├── test_pipeline.js       # Multi-flavor harvest, 90-day compile, & MSData-*.zip tests\n    └── test_lua_core.js       # Fengari Lua 5.1 ingestion & realmless empty-string regression test\n```\n\n---\n\n## Documentation\n\n- **[Architecture & Multi-Flavor Pipeline](https://github.com/Bl4ut0/MarketSyncData/blob/master/docs/ARCHITECTURE.md)**\n- **[Dataset & Lua Table Schemas](https://github.com/Bl4ut0/MarketSyncData/blob/master/docs/DATASET_SCHEMA.md)**\n- **[Battle.net API & GitHub Setup Guide](https://github.com/Bl4ut0/MarketSyncData/blob/master/docs/SETUP.md)**\n\n---\n\n## License\n\nMarketSyncData is free and open-source software licensed under the **GNU General Public License v3.0** (GPL-3.0). See [LICENSE](https://github.com/Bl4ut0/MarketSyncData/blob/master/LICENSE) for details.",
+  "releases": [
+    {
+      "tag": "v2026.11.26",
+      "name": "MarketSyncData 2026.11.26",
+      "published": "2026-11-26",
+      "notes": "## MarketSyncData Daily Auction Packs (2026.11.26)\n\nCompiled 90-day rolling auction house & commodity pricing packs for all supported World of Warcraft versions.\nEach release archive contains **strictly its own flavor's dataset** trimmed to the latest 90 days (while full hourly snapshots remain archived in GitHub under `datasets/`):\n\n- `MSData-Forever-2026-11-26.zip` — **WoW: Forever** (Interface `16001` — PvP, Normal, RP, RP-PvP)\n- `MSData-Anniversary-2026-11-26.zip` — **Classic Anniversary** (`dreamscythe`, `nightslayer`, `maladath`)\n- `MSData-ClassicEra-2026-11-26.zip` — **Classic Era / SoD / Hardcore** (Interface `11509`, `11508`)\n- `MSData-Classic-2026-11-26.zip` — **Classic Progression** (Interface `50503`, `38000`, `20506`, `20505`)\n- `MSData-Retail-2026-11-26.zip` — **Retail** (Interface `120001`, `120000`)\n\n### Installation:\nDownload the archive matching your game version and extract the `MarketSyncData` folder into your client's `Interface/AddOns/` directory alongside `MarketSync`."
+    },
+    {
+      "tag": "v2026.11.25",
+      "name": "MarketSyncData 2026.11.25",
+      "published": "2026-11-25",
+      "notes": "## MarketSyncData Daily Auction Packs (2026.11.25)\n\nCompiled 90-day rolling auction house & commodity pricing packs for all supported World of Warcraft versions.\nEach release archive contains **strictly its own flavor's dataset** trimmed to the latest 90 days (while full hourly snapshots remain archived in GitHub under `datasets/`):\n\n- `MSData-Forever-2026-11-25.zip` — **WoW: Forever** (Interface `16001` — PvP, Normal, RP, RP-PvP)\n- `MSData-Anniversary-2026-11-25.zip` — **Classic Anniversary** (`dreamscythe`, `nightslayer`, `maladath`)\n- `MSData-ClassicEra-2026-11-25.zip` — **Classic Era / SoD / Hardcore** (Interface `11509`, `11508`)\n- `MSData-Classic-2026-11-25.zip` — **Classic Progression** (Interface `50503`, `38000`, `20506`, `20505`)\n- `MSData-Retail-2026-11-25.zip` — **Retail** (Interface `120001`, `120000`)\n\n### Installation:\nDownload the archive matching your game version and extract the `MarketSyncData` folder into your client's `Interface/AddOns/` directory alongside `MarketSync`."
+    },
+    {
+      "tag": "v2026.11.24",
+      "name": "MarketSyncData 2026.11.24",
+      "published": "2026-11-24",
+      "notes": "## MarketSyncData Daily Auction Packs (2026.11.24)\n\nCompiled 90-day rolling auction house & commodity pricing packs for all supported World of Warcraft versions.\nEach release archive contains **strictly its own flavor's dataset** trimmed to the latest 90 days (while full hourly snapshots remain archived in GitHub under `datasets/`):\n\n- `MSData-Forever-2026-11-24.zip` — **WoW: Forever** (Interface `16001` — PvP, Normal, RP, RP-PvP)\n- `MSData-Anniversary-2026-11-24.zip` — **Classic Anniversary** (`dreamscythe`, `nightslayer`, `maladath`)\n- `MSData-ClassicEra-2026-11-24.zip` — **Classic Era / SoD / Hardcore** (Interface `11509`, `11508`)\n- `MSData-Classic-2026-11-24.zip` — **Classic Progression** (Interface `50503`, `38000`, `20506`, `20505`)\n- `MSData-Retail-2026-11-24.zip` — **Retail** (Interface `120001`, `120000`)\n\n### Installation:\nDownload the archive matching your game version and extract the `MarketSyncData` folder into your client's `Interface/AddOns/` directory alongside `MarketSync`."
+    },
+    {
+      "tag": "v2026.11.23",
+      "name": "MarketSyncData 2026.11.23",
+      "published": "2026-11-23",
+      "notes": "## MarketSyncData Daily Auction Packs (2026.11.23)\n\nCompiled 90-day rolling auction house & commodity pricing packs for all supported World of Warcraft versions.\nEach release archive contains **strictly its own flavor's dataset** trimmed to the latest 90 days (while full hourly snapshots remain archived in GitHub under `datasets/`):\n\n- `MSData-Forever-2026-11-23.zip` — **WoW: Forever** (Interface `16001` — PvP, Normal, RP, RP-PvP)\n- `MSData-Anniversary-2026-11-23.zip` — **Classic Anniversary** (`dreamscythe`, `nightslayer`, `maladath`)\n- `MSData-ClassicEra-2026-11-23.zip` — **Classic Era / SoD / Hardcore** (Interface `11509`, `11508`)\n- `MSData-Classic-2026-11-23.zip` — **Classic Progression** (Interface `50503`, `38000`, `20506`, `20505`)\n- `MSData-Retail-2026-11-23.zip` — **Retail** (Interface `120001`, `120000`)\n\n### Installation:\nDownload the archive matching your game version and extract the `MarketSyncData` folder into your client's `Interface/AddOns/` directory alongside `MarketSync`."
+    },
+    {
+      "tag": "v2026.11.22",
+      "name": "MarketSyncData 2026.11.22",
+      "published": "2026-11-22",
+      "notes": "## MarketSyncData Daily Auction Packs (2026.11.22)\n\nCompiled 90-day rolling auction house & commodity pricing packs for all supported World of Warcraft versions.\nEach release archive contains **strictly its own flavor's dataset** trimmed to the latest 90 days (while full hourly snapshots remain archived in GitHub under `datasets/`):\n\n- `MSData-Forever-2026-11-22.zip` — **WoW: Forever** (Interface `16001` — PvP, Normal, RP, RP-PvP)\n- `MSData-Anniversary-2026-11-22.zip` — **Classic Anniversary** (`dreamscythe`, `nightslayer`, `maladath`)\n- `MSData-ClassicEra-2026-11-22.zip` — **Classic Era / SoD / Hardcore** (Interface `11509`, `11508`)\n- `MSData-Classic-2026-11-22.zip` — **Classic Progression** (Interface `50503`, `38000`, `20506`, `20505`)\n- `MSData-Retail-2026-11-22.zip` — **Retail** (Interface `120001`, `120000`)\n\n### Installation:\nDownload the archive matching your game version and extract the `MarketSyncData` folder into your client's `Interface/AddOns/` directory alongside `MarketSync`."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MarketSyncData"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "MarketSync"
+    ]
+  }
+}

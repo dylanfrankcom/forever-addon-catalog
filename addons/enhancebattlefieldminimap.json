@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "enhancebattlefieldminimap",
+  "repo": "kurapica/EnhanceBattlefieldMinimap",
+  "releases": [
+    {
+      "tag": "v186",
+      "published": "2026-11-17",
+      "notes": "# EnhanceBattlefieldMinimap\n\n## [v186](https://github.com/kurapica/EnhanceBattlefieldMinimap/tree/v186) (2026-11-17)\n[Full Changelog](https://github.com/kurapica/EnhanceBattlefieldMinimap/compare/v185...v186) [Previous Releases](https://github.com/kurapica/EnhanceBattlefieldMinimap/releases)\n\n- update forever"
+    },
+    {
+      "tag": "v185",
+      "published": "2026-10-07",
+      "notes": "# EnhanceBattlefieldMinimap\n\n## [v185](https://github.com/kurapica/EnhanceBattlefieldMinimap/tree/v185) (2026-10-07)\n[Full Changelog](https://github.com/kurapica/EnhanceBattlefieldMinimap/compare/v184...v185) [Previous Releases](https://github.com/kurapica/EnhanceBattlefieldMinimap/releases)\n\n- update for load on demand"
+    },
+    {
+      "tag": "v184",
+      "published": "2026-08-15",
+      "notes": "# EnhanceBattlefieldMinimap\n\n## [v184](https://github.com/kurapica/EnhanceBattlefieldMinimap/tree/v184) (2026-08-15)\n[Full Changelog](https://github.com/kurapica/EnhanceBattlefieldMinimap/compare/v183...v184) [Previous Releases](https://github.com/kurapica/EnhanceBattlefieldMinimap/releases)\n\n- fix hook faile"
+    },
+    {
+      "tag": "v183",
+      "published": "2026-06-28",
+      "notes": "# EnhanceBattlefieldMinimap\n\n## [v183](https://github.com/kurapica/EnhanceBattlefieldMinimap/tree/v183) (2026-06-28)\n[Full Changelog](https://github.com/kurapica/EnhanceBattlefieldMinimap/compare/v182...v183) [Previous Releases](https://github.com/kurapica/EnhanceBattlefieldMinimap/releases)\n\n- Update EnhanceBattlefieldMinimap.toc"
+    },
+    {
+      "tag": "v182",
+      "published": "2026-04-02",
+      "notes": "# EnhanceBattlefieldMinimap\n\n## [v182](https://github.com/kurapica/EnhanceBattlefieldMinimap/tree/v182) (2026-04-02)\n[Full Changelog](https://github.com/kurapica/EnhanceBattlefieldMinimap/compare/v181...v182) [Previous Releases](https://github.com/kurapica/EnhanceBattlefieldMinimap/releases)\n\n- Disable the RareScanner  \n    The RareScanner's data provider can't be used in other maps, just disable it for now."
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-10-07",
+      "2026-08-15",
+      "2026-06-28",
+      "2026-04-02",
+      "2026-04-02",
+      "2026-04-02",
+      "2026-03-16",
+      "2026-03-02",
+      "2026-03-01",
+      "2026-02-28",
+      "2026-02-24",
+      "2026-02-23",
+      "2026-01-22",
+      "2025-08-10",
+      "2025-07-15",
+      "2025-06-19",
+      "2025-06-05",
+      "2025-05-28",
+      "2025-03-14",
+      "2025-03-07",
+      "2024-12-28",
+      "2024-11-28",
+      "2024-10-24",
+      "2024-10-05",
+      "2024-09-03",
+      "2024-08-21",
+      "2024-08-19",
+      "2024-08-19",
+      "2024-08-15",
+      "2024-08-01",
+      "2024-08-01",
+      "2024-07-29",
+      "2024-07-29",
+      "2024-07-26",
+      "2024-07-26",
+      "2024-06-18",
+      "2024-05-10",
+      "2024-05-10",
+      "2024-01-20",
+      "2023-12-03",
+      "2023-11-11",
+      "2023-10-17",
+      "2023-07-30",
+      "2023-05-04",
+      "2023-03-24",
+      "2023-03-17",
+      "2023-01-19",
+      "2022-12-05",
+      "2022-12-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EnhanceBattlefieldMinimap"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Blizzard_BattlefieldMap",
+      "Scorpio"
+    ],
+    "optional": [
+      "Blizzard_ObjectiveTracker",
+      "HandyNotes",
+      "TomTom",
+      "Questie",
+      "ClassicCodex",
+      "RareScanner"
+    ],
+    "savedVariables": [
+      "EnhanceBattlefieldMinimap_GlobalDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "EnhanceBattlefieldMinimap_DB"
+    ]
+  }
+}

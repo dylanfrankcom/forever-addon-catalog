@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "hidingbar",
+  "repo": "sfmict/HidingBar",
+  "about": "# HidingBar\n\nAdds a custom panel for easy add-on management.\n\n(The addon is made based on Norganna's Slidebar, with advanced functionality.)\n\n[![Build](https://github.com/sfmict/HidingBar/workflows/Retail-Build/badge.svg)](https://github.com/sfmict/HidingBar/releases) [![](http://cf.way2muchnoise.eu/full_369265_downloads.svg)](https://www.curseforge.com/wow/addons/hidingbar)\n\n### Features:\n\n* Button support from DataBroker.\n* Grab minimap addon buttons.\n* Turn on / off buttons, change position.\n* Compatible with ELFUI / TUKUI.\n* Support skins from Masque.\n* Display mode in the form of a minimap button (Like MBB).\n\n![](https://i.imgur.com/eF6e7zi.png)\n\n### Commands:\n\n`/hidingbar` - open config\n\n![](https://i.imgur.com/cBf9ihd.png)\n\nDownload [Curse page](https://www.curseforge.com/wow/addons/hidingbar) or [Wago page](https://addons.wago.io/addons/hidingbar)",
+  "releases": [
+    {
+      "tag": "v12.1.9",
+      "published": "2026-10-24",
+      "notes": "# HidingBar - Midnight\n[Full Changelog](https://github.com/sfmict/HidingBar/compare/v12.1.8...v12.1.9)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/HidingBar/releases)"
+    },
+    {
+      "tag": "v12.1.7",
+      "published": "2026-10-16",
+      "notes": "# HidingBar - Midnight\n[Full Changelog](https://github.com/sfmict/HidingBar/compare/v12.1.6...v12.1.7)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/HidingBar/releases)\n\n* Fixed standard Blizzard buttons (for Forever) #57"
+    },
+    {
+      "tag": "v12.1.6",
+      "published": "2026-10-14",
+      "notes": "# HidingBar - Midnight\n[Full Changelog](https://github.com/sfmict/HidingBar/compare/v12.1.5...v12.1.6)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/HidingBar/releases)\n\n* Bump toc"
+    },
+    {
+      "tag": "v12.1.5",
+      "published": "2026-09-21",
+      "notes": "# HidingBar - Midnight\n[Full Changelog](https://github.com/sfmict/HidingBar/compare/v12.1.4...v12.1.5)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/HidingBar/releases)\n\n* Added support for Forever"
+    },
+    {
+      "tag": "v12.1.4",
+      "published": "2026-08-22",
+      "notes": "# HidingBar - Midnight\n[Full Changelog](https://github.com/sfmict/HidingBar/compare/v12.1.3...v12.1.4)&nbsp;&nbsp;[Previous Releases](https://github.com/sfmict/HidingBar/releases)\n\n* Fixed SexyMap grabbing in the classic"
+    }
+  ],
+  "stats": {
+    "stars": 8,
+    "openIssues": 1,
+    "contributors": 5,
+    "lastRelease": "2026-10-24",
+    "releaseDates": [
+      "2026-10-24",
+      "2026-10-16",
+      "2026-10-14",
+      "2026-09-21",
+      "2026-08-22",
+      "2026-08-21",
+      "2026-08-17",
+      "2026-08-13",
+      "2026-08-12",
+      "2026-07-24",
+      "2026-07-23",
+      "2026-07-10",
+      "2026-06-03",
+      "2026-05-27",
+      "2026-04-22",
+      "2026-04-22",
+      "2026-04-07",
+      "2026-04-04",
+      "2026-03-27",
+      "2026-03-09",
+      "2026-03-06",
+      "2026-02-15",
+      "2026-01-23",
+      "2026-01-10",
+      "2025-11-27",
+      "2025-11-20",
+      "2025-11-18",
+      "2025-11-13",
+      "2025-10-22",
+      "2025-10-08",
+      "2025-08-19",
+      "2025-08-05",
+      "2025-07-03",
+      "2025-07-02",
+      "2025-07-02",
+      "2025-07-02",
+      "2025-06-18",
+      "2025-04-23",
+      "2025-04-16",
+      "2025-04-16",
+      "2025-04-16",
+      "2025-02-26",
+      "2025-02-26",
+      "2025-02-26",
+      "2025-02-19",
+      "2025-02-19",
+      "2025-02-19",
+      "2025-02-19",
+      "2025-02-12",
+      "2025-02-12"
+    ]
+  },
+  "languages": [
+    "esES",
+    "esMX",
+    "frFR",
+    "ptBR",
+    "ruRU",
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "HidingBar",
+      "HidingBar_Options"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "LibSharedMedia-3.0",
+      "Masque"
+    ],
+    "savedVariables": [
+      "HidingBarDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "HidingBarDBChar"
+    ]
+  }
+}

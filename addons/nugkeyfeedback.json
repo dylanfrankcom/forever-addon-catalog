@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "nugkeyfeedback",
+  "repo": "rgd87/NugKeyFeedback",
+  "releases": [
+    {
+      "tag": "12.1.0",
+      "published": "2026-11-03",
+      "notes": "# NugKeyFeedback\n\n## [12.1.0](https://github.com/rgd87/NugKeyFeedback/tree/12.1.0) (2026-11-03)\n[Full Changelog](https://github.com/rgd87/NugKeyFeedback/compare/11.0.0...12.1.0) [Previous Releases](https://github.com/rgd87/NugKeyFeedback/releases)\n\n- Build Action fix  \n- Midngiht/Forever update  \n- Basic Midnight Update"
+    },
+    {
+      "tag": "11.0.0",
+      "published": "2024-07-23",
+      "notes": "# NugKeyFeedback\n\n## [11.0.0](https://github.com/rgd87/NugKeyFeedback/tree/11.0.0) (2024-07-23)\n[Full Changelog](https://github.com/rgd87/NugKeyFeedback/compare/10.0.2...11.0.0) [Previous Releases](https://github.com/rgd87/NugKeyFeedback/releases)\n\n- TWW API Update"
+    },
+    {
+      "tag": "10.0.2",
+      "published": "2023-01-20",
+      "notes": "# NugKeyFeedback\n\n## [10.0.2](https://github.com/rgd87/NugKeyFeedback/tree/10.0.2) (2023-01-20)\n[Full Changelog](https://github.com/rgd87/NugKeyFeedback/compare/10.0.1...10.0.2) [Previous Releases](https://github.com/rgd87/NugKeyFeedback/releases)\n\n- Update ToC  \n- Wrath toc"
+    },
+    {
+      "tag": "10.0.1",
+      "published": "2022-11-10",
+      "notes": "# NugKeyFeedback\n\n## [10.0.1](https://github.com/rgd87/NugKeyFeedback/tree/10.0.1) (2022-11-10)\n[Full Changelog](https://github.com/rgd87/NugKeyFeedback/compare/10.0.0...10.0.1) [Previous Releases](https://github.com/rgd87/NugKeyFeedback/releases)\n\n- Fixed classic version"
+    },
+    {
+      "tag": "10.0.0",
+      "published": "2022-10-25",
+      "notes": "# NugKeyFeedback\n\n## [10.0.0](https://github.com/rgd87/NugKeyFeedback/tree/10.0.0) (2022-10-25)\n[Full Changelog](https://github.com/rgd87/NugKeyFeedback/compare/9.2.0...10.0.0) [Previous Releases](https://github.com/rgd87/NugKeyFeedback/releases)\n\n- Updated TOC  \n- Dargonflight fix  \n- Changed github action build"
+    }
+  ],
+  "stats": {
+    "stars": 4,
+    "openIssues": 3,
+    "contributors": 1,
+    "lastRelease": "2026-11-03",
+    "releaseDates": [
+      "2026-11-03",
+      "2024-07-23",
+      "2023-01-20",
+      "2022-11-10",
+      "2022-10-25",
+      "2021-05-21",
+      "2021-01-26",
+      "2020-12-05",
+      "2020-10-13",
+      "2020-05-16",
+      "2020-02-03",
+      "2020-01-26",
+      "2020-01-24",
+      "2020-01-23",
+      "2020-01-22",
+      "2020-01-19",
+      "2020-01-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NugKeyFeedback"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Masque",
+      "Bartender4",
+      "Neuron",
+      "ElvUI"
+    ],
+    "savedVariables": [
+      "NugKeyFeedbackDB"
+    ]
+  }
+}

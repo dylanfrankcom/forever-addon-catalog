@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "fontbridge",
+  "repo": "tgyou/fontbridge",
+  "about": "# FontBridge\n\n[![Build and release](https://github.com/tgyou/fontbridge/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/tgyou/fontbridge/actions/workflows/release.yml)\n[![Latest release](https://img.shields.io/github/v/release/tgyou/fontbridge)](https://github.com/tgyou/fontbridge/releases/latest)\n\n**Register user-provided fonts with LibSharedMedia and manage fonts for Blizzard UI areas in WoW Forever.**\n\nFontBridge is a standalone addon for World of Warcraft Forever. It adds your own font files to [LibSharedMedia-3.0](https://www.curseforge.com/wow/addons/libsharedmedia-3-0), so any addon that uses LibSharedMedia can offer them in its font selector. It also provides per-area font and style settings for supported Blizzard UI elements.\n\nFontBridge does not modify other addons. Third-party addons keep their own font controls; select a registered font in each addon's settings.\n\n## Features\n\n- Register `.ttf` and `.otf` files with a display name.\n- Share registered fonts with LibSharedMedia-compatible addons.\n- Preview, refresh, and remove registered entries from the `/fb` window.\n- Choose fonts for supported Blizzard UI areas, with scale, outline, and shadow options where the client supports them.\n- Save font entries and area settings between sessions.\n- Korean and English UI, with additional translations for the main interface.\n\n## Screenshots\n\n![Font list](https://raw.githubusercontent.com/tgyou/fontbridge/main/assets/main.png)\n\n![Font preview](https://raw.githubusercontent.com/tgyou/fontbridge/main/assets/preview.png)\n\n![Area settings](https://raw.githubusercontent.com/tgyou/fontbridge/main/assets/setting.png)\n\n## Install\n\n1. Extract the `FontBridge` folder into `World of Warcraft/_forever_/Interface/AddOns/`.\n2. Enable FontBridge from the AddOns list at character selection.\n3. Log in and type `/fb` to open its window.\n\nThe included release archive contains **no font files**. You must supply fonts that you are licensed to use.\n\n## Build and release\n\nPull requests and pushes to `main` build a ZIP artifact. To publish a release, push a `v` tag that matches the version in `FontBridge.toc`. For version `2.2.3`, run `git tag v2.2.3` and `git push origin v2.2.3`. GitHub Actions builds the ZIP and attaches it to a GitHub Release.\n\n## Add your own fonts\n\n1. Copy `.ttf` or `.otf` files into `Interface/AddOns/FontBridge/Fonts/`, or keep them in another addon and use that addon's full `Interface\\\\AddOns\\\\...` path.\n2. Fully exit and restart the game after copying a new font file. WoW discovers addon files at startup.\n3. Open `/fb`, enter a display name and the font filename (or full Interface path), then choose **Add**.\n\nRemoving an entry from FontBridge does not delete its font file. LibSharedMedia has no unregister operation, so use `/reload` after removing an entry to clear it from other addons' lists for the current session.\n\n## Choose fonts\n\nOpen `/fb` or `/fontbridge` and use **Area Settings** to choose fonts for supported Blizzard UI areas. Each area's help text describes what it controls. Area-wide font replacement pauses while another addon is changing the same Blizzard UI fonts; LibSharedMedia font sharing remains available.\n\nFor SUF, Bartender, and other third-party addons, open that addon's own settings and select the font registered by FontBridge. FontBridge does not replace third-party addon-specific font settings.\n\n## Minimap button\n\nLeft-click the FontBridge minimap icon to open its window. Drag the icon to move it, or right-click it to hide it. Run `/fb minimap` to toggle the icon, or use `/fb minimap show` and `/fb minimap hide` to set its visibility.\n\n## Troubleshooting\n\n- **A font does not load:** Check its filename, extension, path, and game restart. The font must be readable by the WoW client.\n- **The font appears in FontBridge but not another addon:** Confirm that the addon uses LibSharedMedia-3.0 and reload the UI after registration.\n- **Some characters are missing:** The font file must contain the glyphs for those characters. FontBridge cannot add missing glyphs.\n- **A new file is not listed:** Fully exit and restart WoW; `/reload` alone does not make a newly copied addon file available.\n\n## Compatibility\n\nThis release targets WoW Forever interface `16001` (client build `1.60.1`, build `70862`). It bundles LibStub, CallbackHandler-1.0, and LibSharedMedia-3.0 so it can register fonts even when another addon does not load those libraries first.\n\n## Credits and license\n\nFontBridge author: **Arthen Menethil  KR PvP Horde**.\n\nFontBridge-authored source and project documentation are licensed under MIT; see [LICENSE](https://github.com/tgyou/fontbridge/blob/main/LICENSE). Bundled libraries retain their own terms, listed in [THIRD_PARTY_NOTICES.md](https://github.com/tgyou/fontbridge/blob/main/THIRD_PARTY_NOTICES.md). The CurseForge listing icon stays in `assets/FontBridge-icon.png`; the resized `assets/FontBridge-icon.tga` texture is included for the minimap button. Screenshots are in `assets/` and included in the ZIP so they appear in this README.",
+  "releases": [
+    {
+      "tag": "v2.2.3",
+      "name": "FontBridge v2.2.3",
+      "published": "2026-11-11",
+      "notes": "**Full Changelog**: https://github.com/tgyou/fontbridge/compare/v2.2.2...v2.2.3"
+    },
+    {
+      "tag": "v2.2.2",
+      "name": "FontBridge v2.2.2",
+      "published": "2026-11-10",
+      "notes": "**Full Changelog**: https://github.com/tgyou/fontbridge/commits/v2.2.2"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/tgyou/fontbridge/main/assets/main.png",
+    "https://raw.githubusercontent.com/tgyou/fontbridge/main/assets/preview.png",
+    "https://raw.githubusercontent.com/tgyou/fontbridge/main/assets/setting.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-11",
+    "releaseDates": [
+      "2026-11-11",
+      "2026-11-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FontBridge"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "FontBridgeDB"
+    ]
+  }
+}

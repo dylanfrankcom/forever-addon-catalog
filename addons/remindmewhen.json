@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "remindmewhen",
+  "repo": "ryanbowen/RemindMeWhen",
+  "about": "![RemindMeWhen logo](https://raw.githubusercontent.com/ryanbowen/RemindMeWhen/main/media/logo-400.png)\n\n# RemindMeWhen\n\nShows on-screen reminders when conditions you set are met, such as a missing buff, poison, pet or ammo.\n\n## Features\n\n- **Conditions:** choose when a reminder shows, based on things like buffs, weapon enchants, cooldowns, items, combat, talents, zone, your target, your group or your pet.\n- **Triggers:** show a reminder while its conditions are true, or for a few seconds after something happens, like a ready check.\n- **Display:** show reminders as icons or bars, with optional text, timers and glow.\n- **Groups:** groups hold reminders and other groups, and their settings apply to everything inside. Dynamic groups arrange their contents in a row or grid. Static groups let you place each one yourself.\n- **Click actions:** click a reminder to cast a spell, use an item, apply a weapon poison or stone, or summon a mount.\n- **Sounds and alerts:** play a sound or show a message when a reminder appears or a buff is about to run out.\n- **Load rules:** load a reminder only for certain classes, levels or characters.\n- **Snooze:** right-click a reminder to hide it for a while.\n- **Import and export:** share reminders and groups as text.\n- **Presets:** ready-made reminders for common needs like poisons, pets, food and repairs.\n\n## Install\n\nInstall from CurseForge, or extract the `RemindMeWhen` folder from a release zip into `World of Warcraft/<version>/Interface/AddOns/`.\n\n## Commands\n\n| Command | Action |\n|---|---|\n| `/rmw` | Open the editor |\n| `/rmw lock`, `/rmw unlock` | Lock the display, or start move mode to drag reminders and groups. You can also click Move in the editor. |\n| `/rmw test` | Show all enabled reminders for a few seconds |\n| `/rmw reset` | Move top-level reminders and groups back to the middle of the screen |\n| `/rmw unsnooze` | Show all snoozed reminders again |\n| `/rmw import`, `/rmw export` | Import or export reminders as text |\n| `/rmw debug` | Print map and instance IDs, talent points and weapon enchant IDs |\n| `/rmw spell <name or ID>` | Show which spell a name or ID matches |\n\n## Development\n\nThe tests run the addon outside the game with stubbed WoW APIs.\n\n```\npip install lupa\npython tests/run.py\n```\n\nPushing a tag that starts with `v` runs the tests and builds a release with the [BigWigs packager](https://github.com/BigWigsMods/packager). The release is uploaded to CurseForge when the `CF_API_KEY` secret is set.\n\n## License\n\n[GPL-3.0](https://github.com/ryanbowen/RemindMeWhen/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v2.1.0",
+      "published": "2026-11-23",
+      "notes": "# RemindMeWhen\n\n## [v2.1.0](https://github.com/ryanbowen/RemindMeWhen/tree/v2.1.0) (2026-11-23)\n[Full Changelog](https://github.com/ryanbowen/RemindMeWhen/compare/v2.0.0...v2.1.0) [Previous Releases](https://github.com/ryanbowen/RemindMeWhen/releases)\n\n- Add anchoring, snapping and move mode  \n    Anchor reminders and groups to the screen, a named frame, another reminder or group, or the mouse. Snap to the grid, screen, anchor and other frames while dragging. Add move mode with a Move button and right-click to configure. Bump version to 2.1.0."
+    },
+    {
+      "tag": "v2.0.0",
+      "published": "2026-11-23",
+      "notes": "# RemindMeWhen\n\n## [v2.0.0](https://github.com/ryanbowen/RemindMeWhen/tree/v2.0.0) (2026-11-23)\n[Full Changelog](https://github.com/ryanbowen/RemindMeWhen/commits/v2.0.0) [Previous Releases](https://github.com/ryanbowen/RemindMeWhen/releases)\n\n- Add CurseForge project ID  \n- RemindMeWhen 2.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RemindMeWhen"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "RemindMeWhenDB"
+    ]
+  }
+}

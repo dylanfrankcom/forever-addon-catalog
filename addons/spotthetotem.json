@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "spotthetotem",
+  "repo": "drengalis/spotTheTotem",
+  "about": "# Spot the Totem\n\nA World of Warcraft: Forever addon that puts each totem's spell icon on its nameplate, so totems are easy to see and pick out in a fight.\n\n## Features\n\n- Spell icon on every shaman totem's nameplate, with a red border for enemy totems and green for friendly ones\n- Countdown timer on each icon: white, then yellow under 10 seconds, red under 5\n  - Exact for your own totems; other players' totems use WoW Forever's standard durations\n- Separate settings for enemy and friendly totems:\n  - Turn spotting on or off\n  - Turn the game's minion nameplates on or off (totems need these)\n  - Icon size (16–128 px)\n  - Horizontal and vertical offset for the icon\n  - \"Only spot selected totems\", with a checkbox list of every totem grouped by element\n- Option to hide the totem's health bar so only the icon shows\n- Minimap button: left-click for settings, right-click to turn the addon on or off, drag to move\n\nOnly totems that exist in WoW Forever are listed. Fire Nova Totem (now the Fire Nova spell), Tranquil Air Totem and Burning Crusade totems are not included.\n\n## Requirements\n\nMinion nameplates must be on for totem icons to show. Use the minion nameplate checkboxes in the addon's settings, or the game's nameplate options.\n\nFriendly nameplates can't be changed by addons inside dungeons and raids, so friendly totem icons won't show there. Enemy totems work everywhere.\n\n## Installation\n\nCopy the `SpotTheTotem` folder to:\n\n```\nWorld of Warcraft\\_forever_\\Interface\\AddOns\\SpotTheTotem\n```\n\n## Slash commands\n\n| Command | Action |\n|---|---|\n| `/stt` | Open settings |\n| `/stt toggle` | Turn the addon on or off |\n| `/stt enemy` / `/stt friendly` | Turn enemy or friendly totem icons on or off |\n| `/stt timer` | Turn the countdown timer on or off |\n| `/stt size [enemy\\|friendly] <16-128>` | Set icon size (both sides if none given) |\n| `/stt hoffset [enemy\\|friendly] <-100 to 100>` | Set the horizontal offset (both sides if none given) |\n| `/stt voffset [enemy\\|friendly] <-50 to 100>` | Set the vertical offset (both sides if none given) |\n| `/stt durations` | Compare the addon's totem durations with the game's tooltips |\n| `/stt minimap` | Show or hide the minimap button |\n| `/stt reset` | Reset all settings |\n\n## Releasing\n\nReleases are published automatically. Bump `## Version:` in `SpotTheTotem.toc`, add `release-notes/vX.Y.Z.md`, and push to `main`. The Release workflow then creates the `vX.Y.Z` tag, builds `SpotTheTotem-vX.Y.Z.zip`, and publishes the release.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "name": "Spot the Totem v1.0.1",
+      "published": "2026-11-25",
+      "notes": "Bug fix release for **Spot the Totem**.\n\n### Fixed\n- **Error flood in instances.** During a boss encounter, in some combat, and on certain maps, WoW Forever hides some unit information from addons as \"secret values\". The addon tried to read those values on every nameplate, which caused a stream of Lua errors, most noticeably after dying mid-encounter. It now checks for secret values and skips those nameplates quietly.\n- **Icons catch up after restrictions end.** When an addon restriction lifts, every nameplate is checked again, so totems that appeared during it get their icons.\n- **Error guard.** If anything else unexpected goes wrong, the addon prints one message in chat instead of repeating the error.\n\n### Known limitations\n- While a restriction is active, newly placed totems can't be identified and get no icon until it ends. Icons already showing stay up.\n- Friendly totem icons don't show inside dungeons and raids, because addons can't change friendly nameplates there.\n\n### Install\nDownload **SpotTheTotem-v1.0.1.zip** and extract it into `World of Warcraft\\_forever_\\Interface\\AddOns`, replacing the existing `SpotTheTotem` folder."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "Spot the Totem v1.0.0",
+      "published": "2026-11-24",
+      "notes": "First release of **Spot the Totem**, a WoW Forever addon that puts each totem's spell icon on its nameplate so totems are easy to see and target.\n\n### Features\n- Spell icon on every shaman totem's nameplate (red border for enemy, green for friendly)\n- Countdown timer on each icon: white, then yellow under 10 seconds, red under 5\n- Separate enemy and friendly settings: spotting on/off, minion nameplates on/off, icon size, and \"Only spot selected totems\" with a per-totem checklist\n- Separate horizontal and vertical icon offsets for enemy and friendly totems\n- Option to hide the totem's health bar so only the icon shows\n- Minimap button and `/stt` slash commands\n- Only totems that exist in WoW Forever are listed, with Forever totem durations\n\n### Install\nDownload **SpotTheTotem-v1.0.0.zip** and extract it into `World of Warcraft\\_forever_\\Interface\\AddOns`, so you end up with `AddOns\\SpotTheTotem\\SpotTheTotem.toc`.\n\n### Notes\n- Minion nameplates must be on for icons to show. Use the checkboxes in the addon's settings or the game's nameplate options.\n- Friendly totem icons don't show inside dungeons and raids, because addons can't change friendly nameplates there.\n- Timers are exact for your own totems. Other players' totems use Forever's standard durations."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SpotTheTotem"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SpotTheTotemDB"
+    ]
+  }
+}

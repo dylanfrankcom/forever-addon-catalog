@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "easygroupbuilder",
+  "repo": "Ezeqielle/easyGroupBuilder",
+  "about": "# EasyGroupBuilder\n\nWorld of Warcraft Forever addon that helps you fill your group from the group finder.\n\n## Join requests\n\nWhile your group is listed in the group finder and you are its leader (or you listed alone),\nevery player who whispers you is added to the **Join requests** window, which opens by itself:\n\n- **Name** (in class color), **Class**, **Level** and **Zone**, one line per player.\n  Five lines are visible; scroll for the others. Hover a line to read their whisper.\n- **Level and zone fill in by themselves**: the game only allows a /who right after a key\n  press or a click, so the addon sends one on your next key press or click in the world\n  (one every 3 seconds, oldest request first, hidden from chat). **Who** does it by hand.\n  Class comes straight from the whisper. Turn the automatic lookup off with `/egb autowho off`.\n- **Invite** invites them; the line shows *Invited*, then leaves the list when they join.\n- **X** removes a line, **Clear** empties the list. Requests older than 30 minutes go away,\n  and the list is cleared when your listing ends.\n\nThe window can be moved (drag it) and closed with Escape.\n\n## Commands\n\n- `/egb` — show / hide the join requests window.\n- `/egb test` — fill the window with fake players, to try it out.\n- `/egb clear` — empty the list.\n- `/egb autowho on|off` — automatic level / zone lookup (on by default).\n- `/egb help` — list the commands.\n\n## Install\n\nDownload `EasyGroupBuilder-vX.Y.Z-forever.zip` from the latest GitHub release and unzip it into\n`World of Warcraft/_forever_/Interface/AddOns/` (or add the repo as a GitHub source in WowUp).\n\n## Release\n\nPush a `vX.Y.Z` tag: the Release workflow packages the addon (BigWigsMods/packager, version\nfrom the tag into the toc) and publishes the zip and release.json on GitHub.",
+  "releases": [
+    {
+      "tag": "v0.2.1",
+      "published": "2026-11-21",
+      "notes": "# EasyGroupBuilder\n\n## [v0.2.1](https://github.com/Ezeqielle/easyGroupBuilder/tree/v0.2.1) (2026-11-21)\n[Full Changelog](https://github.com/Ezeqielle/easyGroupBuilder/compare/v0.2.0...v0.2.1) [Previous Releases](https://github.com/Ezeqielle/easyGroupBuilder/releases)\n\n- Automatic /who: hook the movement / action bar / mouse binding functions (they run inside the key press or click) instead of a keyboard frame + WorldFrame hook; /egb debug"
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-21",
+      "notes": "# EasyGroupBuilder\n\n## [v0.2.0](https://github.com/Ezeqielle/easyGroupBuilder/tree/v0.2.0) (2026-11-21)\n[Full Changelog](https://github.com/Ezeqielle/easyGroupBuilder/compare/v0.1.0...v0.2.0) [Previous Releases](https://github.com/Ezeqielle/easyGroupBuilder/releases)\n\n- Level/zone: read the /who answer from the system chat line (hidden from chat), automatic lookup on key press / world click; window without the empty band, Clear in the button bar"
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-21",
+      "notes": "# EasyGroupBuilder\n\n## [v0.1.0](https://github.com/Ezeqielle/easyGroupBuilder/tree/v0.1.0) (2026-11-21)\n[Full Changelog](https://github.com/Ezeqielle/easyGroupBuilder/commits/v0.1.0) [Previous Releases](https://github.com/Ezeqielle/easyGroupBuilder/releases)\n\n- Release workflow (BigWigsMods packager, forever zip + release.json on v* tags), like UltimateTrader  \n- Join requests window: players who whisper you while your group is listed (leader or solo), with class, level, zone (/who on click), invite and scroll  \n- EasyGroupBuilder: addon skeleton (toc, saved variables, /egb, luacheck)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EasyGroupBuilder"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "EasyGroupBuilderDB"
+    ]
+  }
+}

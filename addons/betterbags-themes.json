@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "betterbags-themes",
+  "repo": "AlexHaible/BetterBags-Themes",
+  "releases": [
+    {
+      "tag": "1.5.0",
+      "published": "2026-11-07",
+      "notes": "# BetterBags - Themes\n\n## [1.5.0](https://github.com/AlexHaible/BetterBags-Themes/tree/1.5.0) (2026-11-07)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-Themes/compare/1.4.0...1.5.0) [Previous Releases](https://github.com/AlexHaible/BetterBags-Themes/releases)\n\n- Add High Order and Windshaper Skyborne themes for Forever  \n    Two themes for Forever's Skyborne, each with its own border and crest,  \n    drawn from the Skyborne banner's wind sigil: High Order in ivory marble,  \n    gold and arcane violet; Windshaper in cerulean enamel and silver.  \n    Listed in both TOCs.  \n    Races - Dynamic now picks them by race ID (95 and 96), since both  \n    report the race file name \"Skyborne\", and maps Haranir's older  \n    \"Harronir\" spelling.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "1.4.0",
+      "published": "2026-11-07",
+      "notes": "# BetterBags - Themes\n\n## [1.4.0](https://github.com/AlexHaible/BetterBags-Themes/tree/1.4.0) (2026-11-07)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-Themes/compare/1.3.0...1.4.0) [Previous Releases](https://github.com/AlexHaible/BetterBags-Themes/releases)\n\n- Finish every classic race theme, add Earthen and Haranir  \n    Replace the ten placeholder race themes with finished nine-slice themes,  \n    each with its own border art: Troll, Zandalari Troll, Goblin, Draenei,  \n    Lightforged Draenei, Worgen, Gnome, Mechagnome and Kul Tiran. Add Earthen  \n    and Haranir themes with their crests, listed in both TOCs.  \n    Races - Dynamic now inherits the player's own race theme (UnitRace at  \n    load), falling back to the faction's theme for races without one.  \n    Pad every crest to the 275x350 box BetterBags draws them in, so none is  \n    stretched or squeezed.  \n    Add tools/classic\\_borders.py, a nine-slice bag preview renderer and seam  \n    checker, with the border generators in tools/classic\\_races/.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "1.3.0",
+      "published": "2026-11-07",
+      "notes": "# BetterBags - Themes\n\n## [1.3.0](https://github.com/AlexHaible/BetterBags-Themes/tree/1.3.0) (2026-11-07)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-Themes/compare/1.2.1...1.3.0) [Previous Releases](https://github.com/AlexHaible/BetterBags-Themes/releases)\n\n- Add Forever support"
+    },
+    {
+      "tag": "1.2.1",
+      "published": "2026-10-25",
+      "notes": "# BetterBags - Themes\n\n## [1.2.1](https://github.com/AlexHaible/BetterBags-Themes/tree/1.2.1) (2026-10-25)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-Themes/compare/1.2.0...1.2.1) [Previous Releases](https://github.com/AlexHaible/BetterBags-Themes/releases)\n\n- Update BetterBags-Themes.toc  \n- Merge pull request #5 from Cidan/next-themes  \n    Races - Night Elf for BetterBags Next  \n- BetterBags Next: Races - Night Elf  \n    The first of the race themes carried over to BetterBags Next, in spirit  \n    rather than copied: a Next bag is a column at the edge of the screen,  \n    not a framed window, so instead of a border round it the art is  \n    ornaments BetterBags draws on the bag's body (Panel.Ornaments), smaller  \n    and moving.  \n    Races - Night Elf: Darnassus at dusk.  \n    - Great gnarled roots are the bag's inner border, from the top of the  \n      screen to the bottom on a full bag: one hugging the edge and dipping  \n      into the bag, one wandering out over the bag's feathered edge and  \n      back, a tendril looping far out, gaps between them. They fuse where  \n      they meet and are painted in dusky violet with lavender moonlight on  \n      their rims, over real bark (furrows, cracks, grain, lichen), with  \n      carved spirals, teal moss, two-toned leaves (teal-jade turning  \n      violet), magenta blossoms and Teldrassil's glowing mushrooms.  \n    - Embedded in the bag: where the front roots reach into it they sink  \n      into its backdrop; back roots, drawn under the bag's body and feather,  \n      reach out from beneath it and interlace like knotwork.  \n    - A leafy bough grows from behind the roots near the top, swaying  \n      slowly; fronds sway on the roots; soft cyan-blue wisps drift among  \n      them.  \n    - On a small bag the roots are two thirds of the size, gripping its top  \n      and bottom corners and hanging past them.  \n    - A twilight-violet bag, lavender lines, teal accents, the settings  \n      window's controls in violet, round switches.  \n    BetterBags mirrors the ornaments for the bank.  \n    themes/next/Shared.lua registers Next themes with a BetterBags that has  \n    them (Sonata:RegisterNextTheme) and does nothing on an older one. The  \n    ornaments and the round switches need a BetterBags with theme ornaments  \n    (BetterBags #1190); an older BetterBags Next draws the theme's colors  \n    without them.  \n    tools/next\\_ornaments.py (Python 3 with numpy) draws all of the art:  \n    signed-distance shapes shaded under a light from the top left, strips  \n    that repeat seamlessly, art at powers of two several times its drawn  \n    size; it refuses to write any piece whose art would be cut off at an  \n    edge, and --preview writes mockups of full and small bags drawn in the  \n    game's order. tools/ is left out of the package (.pkgmeta).  \n    Checked with BetterBags' tools/next\\_theme\\_check: resolves and checks  \n    clean on every client, every file a power-of-two RGBA PNG, applied to  \n    open bags at both sizes without an error, on whole pixels at rest. Seen  \n    in game."
+    },
+    {
+      "tag": "1.2.0",
+      "published": "2026-10-17",
+      "notes": "# BetterBags - Themes\n\n## [1.2.0](https://github.com/AlexHaible/BetterBags-Themes/tree/1.2.0) (2026-10-17)\n[Full Changelog](https://github.com/AlexHaible/BetterBags-Themes/compare/1.1.11...1.2.0) [Previous Releases](https://github.com/AlexHaible/BetterBags-Themes/releases)\n\n- Merge pull request #4 from Cidan/sonata  \n    Port every theme to BetterBags' Sonata theme engine, with tabs  \n- Tabs for every theme, styled from its art and hung below it  \n    Each theme now styles BetterBags' group tabs, and hangs them below its art (BetterBags' Bag  \n    layout Tabs.Offset): the tab bar is drawn below the bag, so art reaching under the window  \n    covered the tabs.  \n    Where the art ends was measured from each border file: with its slice margins drawn one texel  \n    per pixel, every border reaches its full outset under the window (Dark Iron Dwarf 56, Dwarf 48,  \n    eight themes 30 to 32, Undead 13) except Night Elf, whose bottom beam stops 5 short (19). The  \n    tabs start 2 under the lowest of the border and the fill. Nightborne's corner flower reaches 42  \n    under the window over the first tab, so its tab bar moves 14 right, past the flower, instead of  \n    dropping 42.  \n    ns.Tab (Shared.lua) builds a flat tab 26 high: a fill, a 2 pixel edge, the edge in an accent  \n    color and the fill lighter while selected, outlined white text (gray until hovered or selected),  \n    its art starting 2 into the tab. The race themes and Art Deco fill their tabs like their window  \n    (the same marble, grass, sand, rock or hide, tiled and tinted, or the solid tint) and take the  \n    edge and accent from their border's pixels:  \n      Orc          dark wood #26160B, light wood  \n      Blood Elf    gold trim #AD8E4C, the corner gems' green  \n      Dark Iron    dark iron #261913, the runes' orange glow  \n      Dracthyr     olive band #3F3015, its gold key pattern  \n      Dwarf        stone #605B5C, the bronze braids  \n      Highmountain red-brown braids #603A33, the tan corner blocks  \n      Human        stone #424038, the gold trim (#A68934, brighter)  \n      Mag'har      fur #655445, its pale tips  \n      Night Elf    bark #121010, the leaves' green  \n      Nightborne   silver filigree #928276, the teal gems  \n      Pandaren     bamboo #373C2D, its gold bands  \n      Tauren       green weave #475337, the red corner fans  \n      Undead       black smoke #242219, the gold trim #B98E0F  \n      Void Elf     void black #160D17, its purple sparks  \n      Vulpera      red-brown braids #522D1D, the wicker  \n      Art Deco     a 1 pixel line of the border's pale gold #D2BD9A, in Poiret One 14  \n    macOS Dark draws its tabs like its search field (#1E1C22 in a #413F44 edge), macOS Light like  \n    its title bar (#DDDDDD in the search field's #B2B2B2 edge, white with dark text while selected),  \n    both in Helvetica Neue; Aero Glass in the border's glass blue #7394BB, edged in its darker  \n    #4D6E94, its pale #B7CBE3 while selected, in outlined Segoe UI. They hang under their bottom  \n    edges (8, 5 and 8).  \n    Needs BetterBags' Bag layout Tabs.Offset (Sonata). Checked by loading this addon into  \n    BetterBags' real Sonata: every selectable theme styles a tab (fill, edge, accent on selection and  \n    back), and each theme's tab bar offset is the measured one.  \n- Port every theme to BetterBags' Sonata theme engine  \n    BetterBags replaced its old theme API (a themes:RegisterTheme table of Portrait, Simple, Flat,  \n    ... functions that built decoration frames) with Sonata, a declarative engine: a theme is data  \n    describing each kind of window and element, and BetterBags builds and re-applies everything  \n    itself. Every theme here was written against the old API, so none of them loaded. They are  \n    now Sonata themes that look as they did before, with the same keys, so a saved theme stays  \n    selected.  \n    - themes/Shared.lua (first in the TOC) holds the builders the theme files share:  \n      ns.Framed for the race themes and Art Deco (a fill reaching outside the window, a  \n      nine-sliced border around it, the title above it, Blizzard's close button, and the race's  \n      crest as the menu button), ns.MacOS for both macOS themes, and ns.Placeholder.  \n    - Each race file now holds only its values, taken from its old Portrait, Simple and Flat  \n      functions: the fill (file, tiling, how far it reaches outside the window, tint, and Blood  \n      Elf's darker panels and wider flat fills), the border (file, slice margins, how far it  \n      reaches outside), the title font (outlined where it was) and height above the window, the  \n      close button, search box and menu button offsets, and the crest drawn 275 by 350 at its  \n      scale. Nightborne keeps its corner flowers and rune circles, layered as they were drawn.  \n    - Art Deco keeps its Poiret One titles (24 on the bag) and Blizzard's bag portrait.  \n    - Aero Glass keeps its glass fill and sheen, its title-bar border, Segoe UI titles, and its  \n      50 by 21 close and 30 by 21 menu buttons with their hover and pressed art.  \n    - macOS Dark and Light keep their title bar, bottom edge and (Dark) side edges, Helvetica  \n      Neue titles, and their 12 pixel close and menu buttons.  \n    - The Show Bags and bank tab panels still sit on top of the bag.  \n    - Windows the old themes never styled (the debug window, the search panel the search  \n      keybinding opens) keep BetterBags' Default look, as before: every theme inherits Default.  \n    - The unfinished race themes (Draenei, Gnome, Goblin, Kul Tiran, Lightforged Draenei,  \n      Mechagnome, Troll, Worgen, Zandalari Troll) and Dynamic stay out of the theme picker, now as  \n      hidden Sonata themes drawn like BetterBags' Simple Dark.  \n    What no longer exists: the old OffsetSidebar (BetterBags has no sidebar), and fading the  \n    title, close button and menu button with the bag's opacity setting (the fill, border and  \n    corner art still fade).  \n    Needs a BetterBags with Sonata's flat menu buttons (BagButton Width/Height, Portrait = false,  \n    States) and slots panels placed by Layout.Points, for Aero Glass, macOS and the panels above  \n    the bag.  \n    Checked by loading this addon into BetterBags' real Sonata engine and window builder: all 29  \n    themes register (19 selectable), resolve, and apply to every window kind and element without  \n    an error; every texture and font they name exists; and the bag, panel, slots and menu button  \n    geometry of Orc, Blood Elf, Nightborne, Art Deco, Aero Glass and macOS matches the old code."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-10-25",
+      "2026-10-17",
+      "2026-09-21",
+      "2026-07-22",
+      "2026-06-16",
+      "2026-04-18",
+      "2026-02-16",
+      "2026-01-21",
+      "2025-10-08",
+      "2025-08-19",
+      "2025-06-26",
+      "2025-05-12",
+      "2025-04-08",
+      "2025-02-23",
+      "2025-01-30",
+      "2024-12-19",
+      "2024-11-18",
+      "2024-10-17",
+      "2024-07-31",
+      "2024-07-17",
+      "2024-07-04",
+      "2024-06-24",
+      "2024-06-24",
+      "2024-06-24",
+      "2024-06-23",
+      "2024-06-21",
+      "2024-06-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BetterBags-Themes"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "BetterBags"
+    ],
+    "optional": [
+      "BugSack",
+      "BugGrabber"
+    ]
+  }
+}

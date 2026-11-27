@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "slackerstweaksuite",
+  "repo": "Slackluster/SlackersTweakSuite",
+  "about": "# Slacker's Tweak Suite\nA World of Warcraft addon. Download locations: [CurseForge](https://www.curseforge.com/wow/addons/slackers-tweak-suite) | [Wago](https://addons.wago.io/addons/sts)\n\n[![](https://media.forgecdn.net/attachments/1439/398/buymeacoffee-png.png)](https://www.buymeacoffee.com/Slackluster)\n\n**Slacker's Tweak Suite (STS)** is a collection of QoL tweaks.\n\n**Features**\n\nFeatures marked with [F] are available on Forever; features marked with [R] are available on Retail.\n\n- General\n  - [R&F] Adds your current realm name to the character panel.\n  - [R&F] Cursor Guide: Show a guide around the cursor to help you keep track of it.\n  - [R&F] Skip Seen Cinematics: Automatically skip before-seen cinematics.\n- Inventory\n  - [R&F] Disable Always Compare: Disable the always compare items behavior.\n  - [R] Show WoW Token Price: Show the current WoW Token price on the WoW Token item tooltip.\n  - [R&F] Split Reagent Bag Count: Shows the free slots of your regular bags and your reagent bag separately on top of the backpack icon.\n- Loot\n  - [R] Instant Catalyst: Hold Shift to instantly catalyze an item, skipping the 5 second timer.\n  - [R] Instant Great Vault: Hold Shift to instantly receive your reward from the Great Vault and skip the 5 second timer.\n  - [R] Hide Loot Roll Window: Hide the window that shows loot rolls and their results. You can show the window again with /loot.\n  - [R&F] Loot Rolls in Edit Mode: Add the Need/Greed loot roll frame to Edit Mode.\n  - [R&F] Extended Merchant Frame: Allows configuring how many rows and columns of items are displayed on merchants, and adds a search filter.\n  - [R] Disable Merchant Filter: Automatically set all merchant filters to All to display items normally not shown to your class.\n  - [R&F] Disable Merchant Compare: Disable the automatic gear comparison on merchant items.\n- World\n  - [R] [Hallow's End] No Trick: Sit down before completing a Candy Bucket quest, preventing getting tricked and pacified.\n  - [F] Quest Sparkles: Show sparkles on quest objects and quest givers.\n  - [F] Minimap Target: Show your target and focus on the minimap.\n- Sound\n  - [R] Play Queue Sound: Play the queue sound on the Master channel when any queue pops, including battlegrounds and pet battles.\n  - [R] Play Ready Check Sound: Play the ready check sound on the Master channel when a ready check is initiated.\n  - [R] Play Countdown Sound: Play the countdown sound on the Master channel when any countdown / pull timer is initiated.\n- Addons\n  - [R] Disable HandyNotes Alt+RMB: Disable HandyNotes' keybind on the map, re-enabling it for TomTom waypoints instead.\n  - [R] AH Price Tooltip: Show the most recent pricing information from either Auctionator, Oribos Exchange, or TradeSkillMaster.\n\n![](https://media.forgecdn.net/attachments/2094/477/sts-01-gif.gif)\n\n## If you are experiencing issues\n- Check if the issue occurs with only this addon enabled, or if the issue is a feature you can disable from the addon's settings menu.\n- If you run into any issues or if you have other feedback, feel free to join the [Discord](https://discord.gg/FwWZZ39kPX) and ask in the `#slackers-tweak-suite` channel, or create a [ticket on GitHub](https://github.com/Slackluster/SlackersTweakSuite/issues). :)",
+  "releases": [
+    {
+      "tag": "v37",
+      "published": "2026-11-26",
+      "notes": "# Slacker's Tweak Suite\n\n## [v37](https://github.com/Slackluster/SlackersTweakSuite/tree/v37) (2026-11-26)\n[Full Changelog](https://github.com/Slackluster/SlackersTweakSuite/compare/v36...v37) [Previous Releases](https://github.com/Slackluster/SlackersTweakSuite/releases)\n\n- Forgot a nil guard  \n- Prevent agents.md and readme.md from being packaged"
+    },
+    {
+      "tag": "v36",
+      "published": "2026-11-23",
+      "notes": "# Slacker's Tweak Suite\n\n## [v36](https://github.com/Slackluster/SlackersTweakSuite/tree/v36) (2026-11-23)\n[Full Changelog](https://github.com/Slackluster/SlackersTweakSuite/compare/v35...v36) [Previous Releases](https://github.com/Slackluster/SlackersTweakSuite/releases)\n\n- Machine-translated all untranslated strings. I still prefer this be done by humans and existing translators' work is preserved and prioritised. This should make the addon more accessible until other volunteer translators show up! :)  \n- Grab translations from my other addons"
+    },
+    {
+      "tag": "v35",
+      "published": "2026-11-19",
+      "notes": "# Slacker's Tweak Suite\n\n## [v35](https://github.com/Slackluster/SlackersTweakSuite/tree/v35) (2026-11-19)\n[Full Changelog](https://github.com/Slackluster/SlackersTweakSuite/compare/v34...v35) [Previous Releases](https://github.com/Slackluster/SlackersTweakSuite/releases)\n\n- Fix TOC lua error  \n- Update ruRU.lua (#51)  \n- Update README.md  \n- Update README.md"
+    },
+    {
+      "tag": "v34",
+      "published": "2026-11-19",
+      "notes": "# Slacker's Tweak Suite\n\n## [v34](https://github.com/Slackluster/SlackersTweakSuite/tree/v34) (2026-11-19)\n[Full Changelog](https://github.com/Slackluster/SlackersTweakSuite/compare/v33...v34) [Previous Releases](https://github.com/Slackluster/SlackersTweakSuite/releases)\n\n- New feature: Loot Rolls in Edit Mode  \n- New feature: Minimap Target (fixes #49)  \n- Adjust files to also align with new World settings header  \n- New feature: Quest Sparkles (fixes #47)  \n- Don't round gold values as aggressively in Forever  \n- More returns, less indentation  \n- Delay our tooltip hook so our entry gets put at the bottom"
+    },
+    {
+      "tag": "v33",
+      "published": "2026-11-07",
+      "notes": "# Slacker's Tweak Suite\n\n## [v33](https://github.com/Slackluster/SlackersTweakSuite/tree/v33) (2026-11-07)\n[Full Changelog](https://github.com/Slackluster/SlackersTweakSuite/compare/v12.1.5-05...v33) [Previous Releases](https://github.com/Slackluster/SlackersTweakSuite/releases)\n\n- Update bug\\_report.yaml  \n- Addon comms now use cbor/base64 encoded tables, instead of precariously formatted strings (fixes #31)  \n- Update our version comms to support our new version numbering  \n- Update bug\\_report.yaml  \n- Fix an issue with cinematics skipped causing part of the screen to be unable to be interacted with"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 10,
+    "contributors": 2,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-23",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-23",
+      "2026-10-14",
+      "2026-09-18",
+      "2026-08-31",
+      "2026-08-12",
+      "2026-08-07",
+      "2026-06-25",
+      "2026-06-17",
+      "2026-04-24",
+      "2026-02-13",
+      "2026-01-28",
+      "2026-01-24",
+      "2026-01-22",
+      "2026-01-20",
+      "2026-01-19",
+      "2025-12-05",
+      "2025-11-14",
+      "2025-11-07",
+      "2025-10-22",
+      "2025-10-20",
+      "2025-10-15",
+      "2025-10-12",
+      "2025-10-12",
+      "2025-10-12",
+      "2025-10-11",
+      "2025-10-11",
+      "2025-10-11",
+      "2025-10-10",
+      "2025-10-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SlackersTweakSuite"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "SlackersTweakSuite_Settings",
+      "SlackersTweakSuite_Cache"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "broker-leveltime",
+  "repo": "laric/broker_leveltime",
+  "releases": [
+    {
+      "tag": "v3.0.1",
+      "published": "2026-10-17",
+      "notes": "# Broker Leveltime\n\n## [v3.0.1](https://github.com/laric/broker_leveltime/tree/v3.0.1) (2026-10-17)\n[Full Changelog](https://github.com/laric/broker_leveltime/compare/v3.0...v3.0.1) [Previous Releases](https://github.com/laric/broker_leveltime/releases)\n\n- Update Interface version (#9)  \n    Co-authored-by: laric <2378120+laric@users.noreply.github.com>  \n- Refactor TOC flavors to multi-line format  \n- Fix flavor string formatting in TOC update workflow  \n    Removed spaces in the flavor string for TOC update.  \n- Add workflow\\_dispatch to toc-update.yml  \n- Add workflow to update TOC Interface version"
+    },
+    {
+      "tag": "v3.0",
+      "published": "2026-10-14",
+      "notes": "# Broker Leveltime\n\n## [v3.0](https://github.com/laric/broker_leveltime/tree/v3.0) (2026-10-14)\n[Full Changelog](https://github.com/laric/broker_leveltime/compare/v2.91...v3.0) [Previous Releases](https://github.com/laric/broker_leveltime/releases)\n\n- Update GitHub Actions checkout action version  \n- Updated toc  \n- Update releases.yml to package and release for all game versions; update interface version in broker\\_leveltime.toc  \n- Forever base (#7)  \n    * Forever toc value  \n    * Refactor release workflow to streamline packaging for Forever version  \n    * Enhance documentation and improve tooltip formatting for time tracking  \n    * Clean up and document Leveltime, fix tooltip not showing  \n    - Extract FormatDuration and AddLevelHistory helpers, add doc comments  \n    - Store explicit level field on saved entries, migrate existing data  \n    - Drop custom OnEnter/OnLeave; let display addons anchor the tooltip  \n    - Resolve max level at call time (MAX\\_PLAYER\\_LEVEL was nil at load,  \n      which errored OnTooltipShow)"
+    },
+    {
+      "tag": "v2.91",
+      "published": "2024-11-02",
+      "notes": "# Broker Leveltime\n\n## [v2.91](https://github.com/laric/broker_leveltime/tree/v2.91) (2024-11-02)\n[Full Changelog](https://github.com/laric/broker_leveltime/compare/v2.90...v2.91) [Previous Releases](https://github.com/laric/broker_leveltime/releases)\n\n- Update toc"
+    },
+    {
+      "tag": "v2.90",
+      "published": "2024-07-09",
+      "notes": "# Broker Leveltime\n\n## [v2.90](https://github.com/laric/broker_leveltime/tree/v2.90) (2024-07-09)\n[Full Changelog](https://github.com/laric/broker_leveltime/compare/v2.80...v2.90) [Previous Releases](https://github.com/laric/broker_leveltime/releases)\n\n- Update broker\\_leveltime.toc  \n    Add support for war within"
+    },
+    {
+      "tag": "v2.80",
+      "published": "2024-05-14",
+      "notes": "# Broker Leveltime\n\n## [v2.80](https://github.com/laric/broker_leveltime/tree/v2.80) (2024-05-14)\n[Full Changelog](https://github.com/laric/broker_leveltime/compare/v2.75...v2.80) [Previous Releases](https://github.com/laric/broker_leveltime/releases)\n\n- Update releases.yml  \n    Change build to build for cata instead of wrath  \n- Update broker\\_leveltime.toc  \n    Update to latest version including cata classic"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-10-17",
+    "releaseDates": [
+      "2026-10-17",
+      "2026-10-14",
+      "2024-11-02",
+      "2024-07-09",
+      "2024-05-14",
+      "2023-11-19",
+      "2023-11-09",
+      "2023-05-25",
+      "2022-10-26",
+      "2022-08-26",
+      "2022-07-11",
+      "2022-03-01",
+      "2022-01-14",
+      "2021-06-01"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "broker_leveltime"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "LeveltimeDB"
+    ]
+  }
+}

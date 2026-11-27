@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "itemversion",
+  "repo": "t-mart/ItemVersion",
+  "about": "# ![Icon of a silver armored gauntlet with a blue glow](https://raw.githubusercontent.com/t-mart/ItemVersion/master/docs/images/icon.png) ItemVersion\n\n[![GitHub release (latest by date)](https://img.shields.io/github/v/release/t-mart/ItemVersion)](https://github.com/t-mart/ItemVersion/releases)\n[![GitHub issues](https://img.shields.io/github/issues/t-mart/ItemVersion)](https://github.com/t-mart/ItemVersion/issues)\n[![Hosted on Curseforge](https://img.shields.io/badge/hosted%20on-CurseForge-F16436)](https://www.curseforge.com/wow/addons/itemversion)\n\n![Hero](https://raw.githubusercontent.com/t-mart/ItemVersion/master/docs/images/hero.png)\n\n**ItemVersion adds information to your tooltip about when an item was added to\nWorld of Warcraft.**\n\n## Useful for\n\n- Clearing your bags and bank of old stuff\n- Identifying crafting reagents and loot from your transmog runs\n- Looking back on WoW history\n\n## Features\n\n- A complete database of the version/expansion in which every item was added.\n- Where-you-need-it accessibility in the item tooltip.\n- Weekly updates with the latest items. A refreshed release will automatically\n  occur (at least) every Tuesday at 16:00 UTC, just slightly after reset.\n- [API](https://github.com/t-mart/ItemVersion/blob/master/docs/API.md) exposed for use by other addons.\n- Slash commands: Run `/itemversion help` to get started.\n\n## Usage\n\nJust install the addon like normal and mouse over any item!\n\n![Demo of tooltip](https://raw.githubusercontent.com/t-mart/ItemVersion/master/docs/images/demo.png)\n\nAccess the options screen with `/itemversion`.\n\n![Options screen](https://raw.githubusercontent.com/t-mart/ItemVersion/master/docs/images/options.png)\n\n## API\n\nSee the\n[API page](https://github.com/t-mart/ItemVersion/blob/master/docs/API.md)\n\n## Contributing\n\n- Beginners are welcome. If you are new to programming, Git, Lua, or anything\n  related to the project, then I can help you. Just ask.\n- No contribution is too small! Please submit as many fixes for typos and\n  grammar bloopers as you can.\n- Don't be afraid to open half-finished PRs, and ask questions if something is\n  unclear!\n- Pull requests should be made on their own separate branches.\n- Try to limit each pull request to _one_ idea only.\n- Please document how you tested your changes in your pull request.\n- Make sure your changes pass the status checks.\n- If you would like, please add your name to the\n  [`AUTHORS.md`](https://github.com/t-mart/ItemVersion/blob/master/AUTHORS.md)\n  file. Pseudonyms are fine.\n\nSee the\n[Contributing document](https://github.com/t-mart/ItemVersion/blob/master/CONTRIBUTING.md)\nfor more information.\n\n## Translators Needed\n\nIf you know another language, you can help, and you don't need to know how to\nprogram.\n\nAll the translations live in one file,\n[`src/translations.yml`](https://github.com/t-mart/ItemVersion/blob/master/src/translations.yml).\nEach entry is one string: its English key, an optional description to give you\ncontext, and a translation for each language. To add yours, add a line under\n`translations`:\n\n```yaml\n- key: Apply version corrections\n  description: A checkbox label on the options screen.\n  translations:\n    deDE: Versionskorrekturen anwenden\n    ptBR: Aplicar correcao de versao\n```\n\nIf your language has no line for a string, players who use it see the English\nkey instead, so anything you add is pure improvement.\n\nThat's the whole job. You can do it in GitHub's web editor, using the pencil\nicon on the file, and \"Propose changes\" will open a pull request for you.\n\nTwo things worth knowing:\n\n- **Keep anything in `%` or `{}` exactly as it is.** `%s`, `%d` and\n  `{expacIcon}` get replaced with real values when the addon runs, so\n  `\"Added in {expacIcon}\"` can become `\"Added in Legion\"`. You can move them\n  around to suit your language, but don't rename or drop them.\n- **Skip a string by leaving it out, not by writing `\"\"`.** An empty string\n  shows the player nothing at all, which is worse than the English fallback.\n\nA missing language is fine too: just ask in an issue and one will be added.\nTranslations are living things, so if you spot one that reads badly, please say\nso.\n\n## Support\n\n- **An item has the wrong version.**\n\n  First, verify it on [wowhead.com](https://www.wowhead.com/).\n\n  Note that, in some cases, items are added towards the end of an expansion that\n  actually used in the _next_ expansion, making them appear to have too early of\n  a version. For example,\n  [Marrowroot](https://www.wowhead.com/item=168589/marrowroot), a herb used in\n  Shadowlands, was actually added to the game during the previous expansion,\n  Battle for Azeroth. And, ItemVersion will display Battle for Azeroth because\n  it is canonically correct.\n\n  However, to instead display the expansion that players probably expect in\n  these cases, turn on the \"Include community updates\" option on the options\n  screen. Then, the Marrowroot example would display Shadowlands.\n\n  (These community updates are an ongoing effort. If you have discovered an item\n  that feels like its in the wrong expansion, please lend a hand and create an\n  [issue on the GitHub project page](https://github.com/t-mart/ItemVersion/issues)).\n\n- **Anything else**\n\n  Create an\n  [issue on the GitHub project page](https://github.com/t-mart/ItemVersion/issues).\n\n  Pull requests are also warmly welcome!\n\n## License\n\nCopyright 2026 Tim Martin\n\nLicensed under the GPLv3:\n[https://www.gnu.org/licenses/gpl-3.0.en.html](https://www.gnu.org/licenses/gpl-3.0.en.html)",
+  "releases": [
+    {
+      "tag": "2026.48.0",
+      "published": "2026-11-24",
+      "notes": "[changelog](https://github.com/t-mart/ItemVersion/blob/master/CHANGELOG.md)"
+    },
+    {
+      "tag": "2026.47.0",
+      "published": "2026-11-17",
+      "notes": "[changelog](https://github.com/t-mart/ItemVersion/blob/master/CHANGELOG.md)"
+    },
+    {
+      "tag": "2026.46.0",
+      "published": "2026-11-10",
+      "notes": "[changelog](https://github.com/t-mart/ItemVersion/blob/master/CHANGELOG.md)"
+    },
+    {
+      "tag": "2026.45.3",
+      "published": "2026-11-08",
+      "notes": "[changelog](https://github.com/t-mart/ItemVersion/blob/master/CHANGELOG.md)"
+    },
+    {
+      "tag": "2026.45.2",
+      "published": "2026-11-08",
+      "notes": "[changelog](https://github.com/t-mart/ItemVersion/blob/master/CHANGELOG.md)"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/t-mart/ItemVersion/master/docs/images/hero.png",
+    "https://raw.githubusercontent.com/t-mart/ItemVersion/master/docs/images/demo.png",
+    "https://raw.githubusercontent.com/t-mart/ItemVersion/master/docs/images/options.png"
+  ],
+  "stats": {
+    "stars": 13,
+    "openIssues": 0,
+    "contributors": 8,
+    "lastRelease": "2026-11-24",
+    "releaseDates": [
+      "2026-11-24",
+      "2026-11-17",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-03",
+      "2026-10-27",
+      "2026-10-20",
+      "2026-10-06",
+      "2026-09-29",
+      "2026-09-22",
+      "2026-09-15",
+      "2026-09-08",
+      "2026-09-01",
+      "2026-08-27",
+      "2026-08-04",
+      "2026-07-28",
+      "2026-07-21",
+      "2026-07-19",
+      "2026-07-18",
+      "2026-07-14",
+      "2026-07-07",
+      "2026-06-30",
+      "2026-06-23",
+      "2026-06-16",
+      "2026-06-09",
+      "2026-06-02",
+      "2026-05-26",
+      "2026-05-19",
+      "2026-05-12",
+      "2026-05-05",
+      "2026-04-28",
+      "2026-04-21",
+      "2026-04-16",
+      "2026-04-07",
+      "2026-03-31",
+      "2026-03-24",
+      "2026-03-17",
+      "2026-03-10",
+      "2026-03-03",
+      "2026-02-24",
+      "2026-02-17",
+      "2026-02-16",
+      "2026-02-16",
+      "2026-02-16",
+      "2026-02-10",
+      "2026-02-03",
+      "2026-02-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ItemVersion"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ItemVersionDB"
+    ]
+  }
+}

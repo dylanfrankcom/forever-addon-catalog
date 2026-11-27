@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "textureatlasviewer",
+  "repo": "Meorawr/TextureAtlasViewer",
+  "releases": [
+    {
+      "tag": "12.1.03",
+      "published": "2026-10-16",
+      "notes": "# TextureAtlasViewer\n\n## [12.1.03](https://github.com/Meorawr/TextureAtlasViewer/tree/12.1.03) (2026-10-16)\n[Full Changelog](https://github.com/Meorawr/TextureAtlasViewer/compare/12.1.02...12.1.03) [Previous Releases](https://github.com/Meorawr/TextureAtlasViewer/releases)\n\n- Set addon list category  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases"
+    },
+    {
+      "tag": "12.1.02",
+      "published": "2026-09-20",
+      "notes": "# TextureAtlasViewer\n\n## [12.1.02](https://github.com/Meorawr/TextureAtlasViewer/tree/12.1.02) (2026-09-20)\n[Full Changelog](https://github.com/Meorawr/TextureAtlasViewer/compare/12.1.01...12.1.02) [Previous Releases](https://github.com/Meorawr/TextureAtlasViewer/releases)\n\n- ScrollBox conversion and UI updates  \n- Remove product-specific data splits  \n- Use in-game APIs as the sole atlas data source  \n- Just helps  \n- Require tags for regular commits  \n- Automated export fixes round 2  \n- Automated export fixes"
+    },
+    {
+      "tag": "12.1.01",
+      "published": "2026-09-20",
+      "notes": "# TextureAtlasViewer\n\n## [12.1.01](https://github.com/Meorawr/TextureAtlasViewer/tree/12.1.01) (2026-09-20)\n[Full Changelog](https://github.com/Meorawr/TextureAtlasViewer/compare/12.0.01...12.1.01) [Previous Releases](https://github.com/Meorawr/TextureAtlasViewer/releases)\n\n- Forever support  \n- Luacheck fixes  \n- Justfile conversion  \n- TOC bump  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases"
+    },
+    {
+      "tag": "12.0.01",
+      "published": "2026-01-20",
+      "notes": "# TextureAtlasViewer\n\n## [12.0.01](https://github.com/Meorawr/TextureAtlasViewer/tree/12.0.01) (2026-01-20)\n[Full Changelog](https://github.com/Meorawr/TextureAtlasViewer/compare/11.2.02...12.0.01) [Previous Releases](https://github.com/Meorawr/TextureAtlasViewer/releases)\n\n- Automated regeneration of atlas databases  \n- Midnight time  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Update atlas generation for TBC 2.5.5  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Automated regeneration of atlas databases  \n- Workflow updates  \n- Autocommit maybe  \n- Regenerate atlas databases  \n- Small cleanups  \n- Add TBC/Wrath support and only load files where needed  \n- Regenerate atlas databases  \n- Regenerate atlas databases  \n- Regenerate atlas databases  \n- Callback correction  \n    Corrected mistake in ResizeButton callback function.  \n- Autoscale using resized space  \n    Having the autoScale feature use the available space when the window is resized."
+    },
+    {
+      "tag": "11.2.02",
+      "published": "2025-10-18",
+      "notes": "# TextureAtlasViewer\n\n## [11.2.02](https://github.com/Meorawr/TextureAtlasViewer/tree/11.2.02) (2025-10-18)\n[Full Changelog](https://github.com/Meorawr/TextureAtlasViewer/compare/11.2.01...11.2.02) [Previous Releases](https://github.com/Meorawr/TextureAtlasViewer/releases)\n\n- Regenerate atlas databases  \n- Data generation tweaks  \n- Update data generation for Midnight  \n- Regenerate atlas databases  \n- Regenerate atlas databases"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "contributors": 4,
+    "lastRelease": "2026-10-16",
+    "releaseDates": [
+      "2026-10-16",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-01-20",
+      "2025-10-18",
+      "2025-08-06",
+      "2025-07-01",
+      "2025-04-22",
+      "2025-03-05",
+      "2024-08-13",
+      "2024-07-23",
+      "2024-05-07",
+      "2024-03-19",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-07-11",
+      "2023-04-30",
+      "2023-03-21",
+      "2022-11-15",
+      "2022-10-24",
+      "2022-09-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TextureAtlasViewer"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "ATVDB"
+    ]
+  }
+}

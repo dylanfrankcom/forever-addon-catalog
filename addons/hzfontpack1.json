@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "hzfontpack1",
+  "repo": "HizurosWoWAddOns/HzFontPack",
+  "about": "# HzFontPack (WoW AddOn)\n![Build](https://img.shields.io/github/actions/workflow/status/HizurosWoWAddOns/HzFontPack/packager.yml?style=flat-square)\n![Tag](https://img.shields.io/github/v/tag/HizurosWoWAddOns/HzFontPack?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/HzFontPack/total?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/HzFontPack/latest/total?style=flat-square)\n&nbsp; &nbsp; &nbsp; &nbsp;\n[![Patreon](https://img.shields.io/badge/&zwj;-Patreon-gray?logo=patreon&color=red&style=flat-square)](https://www.patreon.com/bePatron?u=12558524)\n[![Paypal](https://img.shields.io/badge/&zwj;-Paypal-gray?logo=paypal&color=blue&style=flat-square)](https://paypal.me/hizuro)\n![Sponsors](https://img.shields.io/github/sponsors/HizurosWoWAddOns?logo=github&style=flat-square)\n\n## Description\n\n![Screenshot1](https://raw.githubusercontent.com/HizurosWoWAddOns/HzFontPack/master/.github/media/farmhud1.jpg) ![Screenshot2](https://raw.githubusercontent.com/HizurosWoWAddOns/HzFontPack/master/.github/media/farmhud2.jpg)\n\n## Bug reports, feature requests and Support\n* [Bug reports & feature requests on Github](https://github.com/HizurosWoWAddOns/HzFontPack/issues)\n* [Comments & Criticism on Curseforge](https://www.curseforge.com/wow/addons/hzfontpack1)\n\n## Localization\nDo you want to help translate this addon?\nSee [Curseforge localization tool](https://www.curseforge.com/wow/addons/hzfontpack1/localization)\n\n## Hizuro's projects\n* On [Curseforge](https://www.curseforge.com/members/hizuro_de/projects)\n* On [Github](https://github.com/HizurosWoWAddOns)\n\n## Disclaimer\n> World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "1.1.32-release",
+      "published": "2026-11-05",
+      "notes": "# Hizuro's Font Pack\n\n## [1.1.32-release](https://github.com/HizurosWoWAddOns/HzFontPack/tree/1.1.32-release) (2026-11-04)\n[Full Changelog](https://github.com/HizurosWoWAddOns/HzFontPack/commits/1.1.32-release) [Previous Releases](https://github.com/HizurosWoWAddOns/HzFontPack/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "1.1.31-release",
+      "published": "2026-08-12",
+      "notes": "# Hizuro's Font Pack\n\n## [1.1.31-release](https://github.com/HizurosWoWAddOns/HzFontPack/tree/1.1.31-release) (2026-08-12)\n[Full Changelog](https://github.com/HizurosWoWAddOns/HzFontPack/commits/1.1.31-release) [Previous Releases](https://github.com/HizurosWoWAddOns/HzFontPack/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "1.1.30-release",
+      "published": "2026-06-21",
+      "notes": "# Hizuro's Font Pack\n\n## [1.1.30-release](https://github.com/HizurosWoWAddOns/HzFontPack/tree/1.1.30-release) (2026-06-21)\n[Full Changelog](https://github.com/HizurosWoWAddOns/HzFontPack/commits/1.1.30-release) [Previous Releases](https://github.com/HizurosWoWAddOns/HzFontPack/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "1.1.29",
+      "published": "2026-06-14",
+      "notes": "# Hizuro's Font Pack\n\n## [1.1.29](https://github.com/HizurosWoWAddOns/HzFontPack/tree/1.1.29) (2026-06-14)\n[Full Changelog](https://github.com/HizurosWoWAddOns/HzFontPack/commits/1.1.29) [Previous Releases](https://github.com/HizurosWoWAddOns/HzFontPack/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "1.1.28-release",
+      "published": "2026-03-01",
+      "notes": "# Hizuro's Font Pack\n\n## [1.1.28-release](https://github.com/HizurosWoWAddOns/HzFontPack/tree/1.1.28-release) (2026-03-01)\n[Full Changelog](https://github.com/HizurosWoWAddOns/HzFontPack/commits/1.1.28-release) [Previous Releases](https://github.com/HizurosWoWAddOns/HzFontPack/releases)\n\n- Update toc file"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/HizurosWoWAddOns/HzFontPack/master/.github/media/farmhud1.jpg",
+    "https://raw.githubusercontent.com/HizurosWoWAddOns/HzFontPack/master/.github/media/farmhud2.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-08-12",
+      "2026-06-21",
+      "2026-06-14",
+      "2026-03-01",
+      "2026-01-30",
+      "2025-08-10",
+      "2025-02-27",
+      "2024-12-20",
+      "2024-11-05",
+      "2024-08-16",
+      "2024-07-27",
+      "2024-05-10",
+      "2024-03-01",
+      "2024-01-28",
+      "2023-11-11",
+      "2023-11-10",
+      "2023-10-03",
+      "2023-08-02",
+      "2023-06-11",
+      "2023-04-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HzFontPack1"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "Ace3",
+      "LibSharedMedia-3.0"
+    ],
+    "savedVariables": [
+      "HzFontPack1DB"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "lootanchor",
+  "repo": "jordinbrouwer/LootAnchor",
+  "about": "# LootAnchor\n\nMove the default loot roll windows and the \"You received\" and achievement popups. No skins, no replacements.\n\n[![CurseForge](https://img.shields.io/curseforge/v/1790230?label=CurseForge)](https://www.curseforge.com/wow/addons/loot-anchor) [![Downloads](https://img.shields.io/curseforge/dt/1790230?label=downloads)](https://www.curseforge.com/wow/addons/loot-anchor) [![GitHub release](https://img.shields.io/github/v/release/jordinbrouwer/LootAnchor?label=GitHub)](https://github.com/jordinbrouwer/LootAnchor/releases/latest)\n\n## Usage\n\n### The LootAnchor window\n\n- `/la` or `/lootanchor`: open the LootAnchor window. Click **Save & exit**, the cross in the top right corner, or type `/la` again to close it and keep your positions. They are kept after `/reload`.\n- Drag the window by its header; its position is remembered.\n- **Edit** and **Test** switch between moving the boxes and trying them out.\n- **Reset**: undo your changes since you opened LootAnchor.\n- **Defaults**: reset to Blizzard's initial location and grow directions. The window position and test duration stay.\n\n### Positioning\n\n![Positioning: drag the Loot Rolls and You Received & Achievements boxes, or use the arrows, Grow up / Grow down and X / Y.](https://raw.githubusercontent.com/jordinbrouwer/LootAnchor/main/docs/images/1-positioning.png)\n\n- On the **Edit** tab, drag the **Loot Rolls** and **You Received & Achievements** boxes where you want them. Boxes snap to the screen edges, the screen centre and each other, otherwise to a 10 pixel grid.\n- Click a box to select it. Arrow buttons around it, and the arrow keys, move it. Hold a button to keep moving.\n- The small box next to the selected box has **Grow up** / **Grow down** (which way the windows stack) and its **X** / **Y** position. Loot rolls and \"You received\" popups each have their own grow direction.\n\n### Testing\n\n![Testing: the test windows next to the Try them out box with the Roll, Received and Achievement buttons.](https://raw.githubusercontent.com/jordinbrouwer/LootAnchor/main/docs/images/2-testing.png)\n\n- On the **Test** tab, **Roll**, **Received** and **Achievement** show a stand-in window so you can see where it lands and which way it grows. Click again for more.\n- How long they stay: 5 seconds, 10 seconds, 20 seconds or until clicked.\n- **Clear** removes every test window.\n\n### Settings panel\n\n- Settings > AddOns > LootAnchor has an **Open LootAnchor** button.\n\n### Other notes\n\n- `AlertFrame` also carries other alerts, so they move with the \"You received\" box.\n\n## Development\n\nPlease see [CONTRIBUTING](https://github.com/jordinbrouwer/LootAnchor/blob/main/CONTRIBUTING.md) for development checks and contribution guidance.\n\n## Feedback\n\nPlease remember that I'm always working to improve the addon, so I'm interested in hearing directly from you about anything you want to share or ask. You can report this using the issues on GitHub.\nWhen reporting bugs or unexpected behavior, include your addon version and an overview of your current options.\n\n## Changelog\n\nPlease see the [CHANGELOG](https://github.com/jordinbrouwer/LootAnchor/blob/main/CHANGELOG.md) for more information about recent changes.\n\n## License\n\nThis project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).\n\n## Support me\n\nIf you find my work valuable or just want to show your appreciation, you can buy me a coffee!\n\n[![\"Buy Me A Coffee\"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/jordinbrouwer)",
+  "releases": [
+    {
+      "tag": "1.3.0",
+      "published": "2026-11-25",
+      "notes": "### Added\n- Close button (the cross in the top right corner) and a reminder at the bottom of the window: \"Type /la in chat to open this again.\"\n- A tooltip on the **Grow up** / **Grow down** list: \"Which way the windows stack.\"\n\n### Changed\n- The toolbar is now a LootAnchor window: a header with the logo, the name and \"Move the loot and achievement popups.\", the **Edit** and **Test** tabs, a box for each tab (\"Move the boxes\" with a short hint, **Reset** and **Defaults**; \"Try them out\" with the test buttons, duration and **Clear**) and **Save & exit** at the bottom. Drag it by its header.\n- Tooltips are LootAnchor's own: a dark box with a teal edge, the button name as a teal title and the help text under it.\n- Borders are exactly one screen pixel at any UI scale, and texts have a thin outline, in the window, the boxes you drag and the settings page.\n- The settings page button is now a flat **Open LootAnchor** button (was **Edit anchors**), with \"or type /la\" under it.\n- The code is split into the `Core`, `UI`, `Locale` and `Media` folders."
+    },
+    {
+      "tag": "1.2.0",
+      "published": "2026-11-10",
+      "notes": "### Added\n- Test tab on the LootAnchor bar: show a test loot roll, \"You received\" popup or achievement to see where they land and which way they grow. Click again for more.\n- Test duration: 5 seconds, 10 seconds, 20 seconds or until clicked away. **Clear** removes all test windows.\n- Achievement popups move with the \"You received\" box.\n- Grow direction for the \"You received\" popups, separate from the loot rolls.\n- Settings window of the selected box with its grow direction and a typed X / Y position.\n- Arrow buttons around the selected box, and the arrow keys, move it. Hold a button to keep moving.\n\n### Changed\n- `/la` opens the anchor editor, which now also has the Test tab.\n- The settings panel has one **Edit anchors** button and mentions achievements.\n- Reset in the toolbar goes back to how things were when you opened LootAnchor.\n- Defaults keeps the bar position and the test duration.\n- Each box keeps its own colour and label, and its border lights up when it is selected or hovered.\n\n### Removed\n- `/la reset` and `/lootanchor reset`. Use **Defaults** in the toolbar instead."
+    },
+    {
+      "tag": "1.1.0",
+      "published": "2026-11-08",
+      "notes": "### Added\n- Grow direction arrow in the top right corner of the Loot Rolls box: stack the loot rolls downwards instead of upwards. Reset and Defaults restore the previous / default (up) direction.\n- The unlock toolbar can be dragged; its position is remembered.\n- Boxes get their own colour and label edge so overlapping boxes stay readable, and they light up on hover.\n- Snapping to the screen edges, the screen centre (with guide lines) and the other box.\n- Settings panel: one **Open LootAnchor** button in the middle of the panel.\n\n### Changed\n- The code is split into `LootAnchor.lua`, `LootAnchor_Unlock.lua`, `LootAnchor_Panel.lua` and `LootAnchor_Command.lua`.\n- Defaults is no longer in the settings panel, only on the unlock screen toolbar.\n- Defaults keeps the toolbar position."
+    },
+    {
+      "tag": "1.0.0",
+      "published": "2026-11-07",
+      "notes": "### Added\n- Move the default loot roll windows and the \"You received\" popups.\n- `/la` (or `/lootanchor`) opens an unlock screen with draggable boxes, snapping to a 10 pixel grid.\n- Toolbar with **Reset** (undo changes since unlocking), **Defaults** (Blizzard's own positions) and **Save & Exit**.\n- `/la reset` restores Blizzard's positions.\n- Settings panel under Options > AddOns with Unlock and Defaults buttons.\n- Addon icon.\n- Positions are saved and re-applied after login, `/reload` and Blizzard layout passes.\n- Resetting does not need a `/reload`.\n- CD workflow that packages tagged releases, creates a GitHub release and publishes to CurseForge (requires the `CF_API_TOKEN` and `CF_PROJECT_ID` secrets)."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/jordinbrouwer/LootAnchor/main/docs/images/1-positioning.png",
+    "https://raw.githubusercontent.com/jordinbrouwer/LootAnchor/main/docs/images/2-testing.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LootAnchor"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "LootAnchorDB"
+    ]
+  }
+}

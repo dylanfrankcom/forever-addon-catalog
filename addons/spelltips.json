@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "spelltips",
+  "repo": "blodeAC/spelltips",
+  "about": "# SpellTips\n\nSpell tooltips that show the math: where each number comes from and which talents change it. Hold a key while hovering a spell.\n\n> **This addon was written with AI assistance (Claude).** The code is generated and then tested in game by a human. Read it with that in mind, and expect some rough edges.\n\n## What it shows\n\nHover a spell and hold a key:\n\n| Held | You see |\n|------|---------|\n| nothing | the game's normal tooltip |\n| **Alt** | your numbers (damage with your spell power or attack power, crit and hit, auras) and the talents you have picked, each with its effect on that number |\n| **Alt + Shift** | also talents you could still take, and locked talents with the points still needed |\n\nWith the hold key down, the **mouse wheel** steps through the listed talents. Release the key to open the selected talent in the talent window.\n\nExample (Revenge, holding Alt+Shift):\n\n```\nDamage\n  • Improved Revenge [0/3]   +20%\n\nLOCKED  (points still needed)\n  ARMS\n  • Impale [0/2]             needs 15 more\n      Crit bonus +10%\n  PROTECTION\n  • Focused Rage [0/3]       needs 11 more\n      Cost -1\n```\n\nWeapon abilities show the weapon, attack power and ability parts. Wands show the wand's own damage range.\n\n## Settings\n\nIn the game's Options window under AddOns > SpellTips, or type `/spelltips` (or `/stips`), or click the minimap button. A live preview tooltip appears where your tooltips normally do.\n\n- **Hold key** and **more key**: Alt, Ctrl, Shift or None.\n- **Always shown level**: show numbers or talents without holding a key.\n- **Preview spell**: pick which spell the preview uses.\n- **Colors**: every color the tooltip uses, with a picker.\n- **Reset all**.\n\nSettings are saved in `SpellTipsDB`.\n\n### Slash commands\n\n| Command | What it does |\n|---------|--------------|\n| `/spelltips` | open the SpellTips settings (Options > AddOns > SpellTips) |\n| `/spelltips reset` | reset all settings |\n| `/spelltips minimap` | show or hide the minimap button |\n| `/spelltips report` | text of what the last tooltip showed, to copy |\n| `/spelltips enum [name]` | list the client's `Enum` tables (developer tool) |\n| `/spelltips desc [spellID]` | where a spell's description text is (developer tool) |\n| `/spelltips debug` | toggle debug output in chat (developer tool) |\n| `/spelltips probe <spell>` | every rank of a spell: learn level, predicted numbers and the game's own text (developer tool) |\n| `/spelltips verify [name]` | check every talent's numbers against the game's own text (developer tool) |\n| `/spelltips ranks <name>` | a talent's text at each rank and the data rows behind it (developer tool) |\n| `/spelltips talent <name or id>` | open the talent window on a talent (developer tool) |\n\n## Install\n\n1. Copy the `spelltips` folder into `Interface/AddOns/`.\n2. The `.toc` must load `Data.lua` before `Core.lua` and declare the saved variable:\n\n```\n## Interface: <your client's interface number>\n## Title: SpellTips\n## SavedVariables: SpellTipsDB\nData.lua\nCore.lua\n```\n\n## How the data is made\n\n`Data.lua` is generated from the game's own database tables, exported as CSV with [wow.export](https://github.com/Kruithne/wow.export). The generator is not part of this repository. Everything about the player (stats, talents, ranks) is read live in game, and spell numbers are not typed in by hand. The hand-made parts are small and named in the code: what each spell-modifier property id means (`MOD_PROPS` in `Core.lua`; it lives in the game's program code and is in no data table), which crowd-control aura types get a row, the order rows are drawn in, and the fixed weapon speeds the game uses for normalized attacks.\n\nThe data file defines one global table, `SpellTipsData`, and records the game build it came from. The addon warns in chat when the client's build differs, so you know the data is stale after a patch.\n\n## Known limits\n\n- **Beta data.** The game is in beta and some data rows disagree with the game's own text. When data is missing or unclear for a talent, the addon shows the game's own description for it instead of guessing.\n- **English only.** Row labels are English.\n- **Not every talent is covered.** A talent appears on a spell only when the data links it (a spell-class mask, a referenced spell, or a required equipped item type). Unlinked talents are listed in `Data_audit.txt`.\n- **Combat.** The game marks some tooltip text as secret during combat. The addon avoids reading it, but report any error you see.\n- Crowd-control rows (Stun, Root, Slow and so on) show only when a talent changes them.\n- Spells with no modifiers and no numbers of their own show nothing extra.\n\n## License\n\nnone",
+  "releases": [
+    {
+      "tag": "v0.0.34",
+      "published": "2026-11-25",
+      "notes": "# spell tooltips\n\n## [v0.0.34](https://github.com/blodeAC/spelltips/tree/v0.0.34) (2026-11-25)\n[Full Changelog](https://github.com/blodeAC/spelltips/compare/v0.0.33...v0.0.34) [Previous Releases](https://github.com/blodeAC/spelltips/releases)\n\n- data for build 71139 (v0.0.34)"
+    },
+    {
+      "tag": "v0.0.33",
+      "published": "2026-11-23",
+      "notes": "# spell tooltips\n\n## [v0.0.33](https://github.com/blodeAC/spelltips/tree/v0.0.33) (2026-11-23)\n[Full Changelog](https://github.com/blodeAC/spelltips/compare/v0.0.32...v0.0.33) [Previous Releases](https://github.com/blodeAC/spelltips/releases)\n\n- high end of a spell's range: the +1 comes after talents (fixes Chain Lightning and some Lightning Bolt ranks 1 over) (v0.0.33)"
+    },
+    {
+      "tag": "v0.0.32",
+      "published": "2026-11-23",
+      "notes": "# spell tooltips\n\n## [v0.0.32](https://github.com/blodeAC/spelltips/tree/v0.0.32) (2026-11-23)\n[Full Changelog](https://github.com/blodeAC/spelltips/compare/v0.0.31...v0.0.32) [Previous Releases](https://github.com/blodeAC/spelltips/releases)\n\n- data for build 71037 (v0.0.32)"
+    },
+    {
+      "tag": "v0.0.31",
+      "published": "2026-11-23",
+      "notes": "# spell tooltips\n\n## [v0.0.31](https://github.com/blodeAC/spelltips/tree/v0.0.31) (2026-11-23)\n[Full Changelog](https://github.com/blodeAC/spelltips/compare/v0.0.30...v0.0.31) [Previous Releases](https://github.com/blodeAC/spelltips/releases)\n\n- Holy Strike: its Holy amount is added after the 29% weapon percent and shown as its 6-9 range (v0.0.31)"
+    },
+    {
+      "tag": "v0.0.30",
+      "published": "2026-11-23",
+      "notes": "# spell tooltips\n\n## [v0.0.30](https://github.com/blodeAC/spelltips/tree/v0.0.30) (2026-11-23)\n[Full Changelog](https://github.com/blodeAC/spelltips/compare/v0.0.29...v0.0.30) [Previous Releases](https://github.com/blodeAC/spelltips/releases)\n\n- data for build 71037 (v0.0.30)"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-14",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-05",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-17",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-10",
+      "2026-10-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "spelltips"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "SpellTipsDB"
+    ]
+  }
+}

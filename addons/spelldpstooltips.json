@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "spelldpstooltips",
+  "repo": "malkamius/SpellDPSTooltips",
+  "about": "# Spell DPS Tooltips\n\nA lightweight World of Warcraft addon (supporting World of Warcraft: Forever, Classic Era, and Anniversary) that calculates and displays the Damage Per Second (DPS) for both Direct Damage and Damage over Time (DoT) spells entirely through their in-game tooltips.\n\n## Calculated Metrics\n\nDepending on the type of spell, the addon will calculate and inject the following metrics:\n\n- **Direct DPS:** Calculates the average DPS of a direct-damage spell. Uses the damage (or average of a damage range) divided by the cast time. For instant spells, it divides by the cooldown or a 1.5s GCD.\n- **DoT DPS:** Parses DoT or channeled effects (e.g., \"X damage over Y sec\" or \"X damage every 1 sec for 3 sec\") and calculates the DPS.\n- **Est. Total Damage:** For spells that have both an initial direct-damage hit *and* a DoT component, this line sums the maximum estimated damage for the entire cast.\n- **Est. Cycle DPS:** For hybrid spells (Direct + DoT), this line shows the DPS over the entire lifecycle of the spell. It calculates this by dividing the *Est. Total Damage* by the combined duration of the Cast Time + DoT Duration.\n\n## Installation\n\n1. Download the latest release from the repository.\n2. Extract the `SpellDPSTooltips` folder to your WoW directory:\n   - **Forever WoW:** `_classic_beta_\\Interface\\AddOns\\SpellDPSTooltips`\n   - **Anniversary / Classic Era:** `_anniversary_\\Interface\\AddOns\\SpellDPSTooltips` (or `_classic_era_\\Interface\\AddOns\\SpellDPSTooltips`)\n3. Launch the game and enable \"Spell DPS Tooltips\" in your addons list.\n\n## Usage\n\nSimply hover over any spell in your spellbook or on your action bars that deals direct damage, or applies a DoT effect. One or more new lines will be added to the bottom of the tooltip displaying the calculated DPS.\n\n## Contributing\n\nPull requests and issues are welcome! If you find any spells whose tooltips use phrasing that isn't parsed correctly by the addon, feel free to open an issue or submit a fix for the regex pattern!",
+  "releases": [
+    {
+      "tag": "v1.1.1",
+      "published": "2026-11-21",
+      "notes": "# Spell DPS Tooltips\n\n## [v1.1.1](https://github.com/malkamius/SpellDPSTooltips/tree/v1.1.1) (2026-11-21)\n[Full Changelog](https://github.com/malkamius/SpellDPSTooltips/commits/v1.1.1) [Previous Releases](https://github.com/malkamius/SpellDPSTooltips/releases)\n\n- fix(core): handle secret values on action bar tooltips  \n    - Add IsSecret, IsSafeValue, and IsSafeString guards using issecretvalue,  \n      issecrettable, and canaccessvalue APIs.  \n    - Prevent attempts to index or compare secret strings during tooltip  \n      scanning, resolving Lua errors on action bar buttons.  \n    - Wrap ProcessSpellTooltip in pcall to isolate tooltip post-calls.  \n    - Fix deploy.ps1 and package.ps1 to target the base addon folder rather  \n      than flavor TOC filenames.  \n- ci: add GitHub/CurseForge release workflow  \n- chore(deploy): add \\_forever\\_ client target  \n- feat: add World of Warcraft: Forever compatibility  \n    - Add support for World of Warcraft: Forever (Interface 16001 / Camelot)  \n    - Register modern TooltipDataProcessor.AddTooltipPostCall with fallback to OnTooltipSetSpell for legacy clients  \n    - Add text sanitization to strip WoW formatting and color codes (|c, |cn, |r, |T, |A) for accurate regex parsing  \n    - Add SpellDPSTooltips\\_Camelot.toc flavor TOC  \n    - Prevent duplicate tooltip lines on tooltip updates  \n    - Update deploy and package scripts to support multiple WoW addon paths  \n    - Bump addon version to 1.1.0  \n- chore: update interface versions to support Classic Era and TBC  \n    - Updated interface versions to 11508 (Classic Era) and 20505 (TBC)  \n    - Bumped addon version to 1.0.2  \n- chore: update interface version to 11508 for classic era  \n- removed placeholder image  \n- Fixed a few bugs in the readme  \n- feat: Introduce Spell DPS Tooltips addon to calculate and display DPS for direct damage and damage over time spells on their tooltips."
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "SpellDPSTooltips"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever"
+    ]
+  }
+}

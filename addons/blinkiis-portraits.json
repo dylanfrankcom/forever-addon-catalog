@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "blinkiis-portraits",
+  "repo": "mBlinkii/Blinkiis-Portraits",
+  "about": "# Blinkiis Portraits\n\n  ![Blinkiis Portraits icon](https://raw.githubusercontent.com/mBlinkii/Blinkiis-Portraits/main/icon.png)\n\n  Add stylized 2D portraits to supported World of Warcraft unit frames with flexible positioning,\n  class icons, overlay textures, and shareable profiles.\n\n  [CurseForge](https://www.curseforge.com/wow/addons/blinkiis-portraits)\n  |\n  [Bug Reports](https://github.com/mBlinkii/Blinkiis-Portraits/issues)\n  |\n  [Feature Requests](https://github.com/mBlinkii/Blinkiis-Portraits/issues)\n  |\n  [Discord](https://discord.gg/ZScRCUyqjY)\n\n![Blinkiis Portraits banner](https://raw.githubusercontent.com/mBlinkii/Blinkiis-Portraits/main/logo.png)\n\n## Overview\n\n**Blinkiis Portraits** is a lightweight customization addon that adds portrait elements to popular\nunit frame addons. It is built for players who want their UI to feel more\npersonal, more readable, and a lot less generic.\n\nThe addon can automatically detect compatible unit frames or let you choose the parent frame\nmanually per unit type. Once attached, each portrait can be customized independently.\n\n## Highlights\n\n- Supports portraits for `player`, `target`, `focus`, `target of target`, `pet`, `party`, `boss`, and `arena` where the selected frame addon provides those unit frames.\n- Works with multiple unit frame.\n- Includes a broad portrait style library with classic, geometric, mirrored, and decorative shapes.\n- Adds optional extra textures for rare, elite, boss, and player states.\n- Supports class icon display with multiple built-in styles and custom class icon packs.\n- Lets you use custom portrait textures, masks, and extra masks from your own files.\n- Offers per-unit settings for size, anchor point, layer, frame level, mirroring, cast icon display, and color behavior.\n- Includes profile export/import so setups can be backed up and shared.\n- Ships with localization files for multiple languages.\n\n## Supported Unit Frame Addons\n\nThe addon currently includes integrations for:\n\n- `ElvUI`\n- `Shadowed Unit Frames`\n- `PitBull 4`\n- `Cell`\n- `Cell Unit Frames`\n- `Unhalted Unit Frames`\n- `NDui`\n- `EnhanceQoL`\n- `BetterBlizzFrames`\n- `EllesmereUI`\n\nCoverage depends on what each frame addon exposes. For example, some integrations support party and\narena frames, while others only expose single-unit frames.\n\n## Supported Game Clients\n\nOne TOC file covers Retail, WoW Forever and the Classic clients (Mists, Wrath, Burning Crusade and Classic Era).\n\n## Customization Features\n\n- Portrait shapes such as Blizzard-style, circular, diagonal, leaf, moon, oval, rectangular, shield, trapezoid, and more\n- Decorative overlays for themes like dragon, snake, plants, stars, dogs, space, and Blizzard-style elite or boss borders\n- Reaction- and classification-based coloring or overlay handling\n- Optional desaturation and zoom controls\n- Manual parent frame selection when multiple unit frame addons are installed\n- Custom class icon registration\n- Per-unit option to ignore class icons and keep regular portraits instead\n\n## Localization\n\nLocalization files are currently included for:\n\n- `enUS`\n- `deDE`\n- `esMX`\n- `frFR`\n- `itIT`\n- `koKR`\n- `ptBR`\n- `ruRU`\n- `zhCN`\n- `zhTW`\n\n## Installation\n\n1. Download the addon from [CurseForge](https://www.curseforge.com/wow/addons/blinkiis-portraits).\n2. Extract the `Blinkiis_Portraits` folder into your WoW `Interface/AddOns` directory for the client you play.\n3. Start the game or reload your UI.\n4. Open the configuration with `/bp`.\n\n## Configuration\n\nYou can access the addon settings in two ways:\n\n- Type `/bp`\n- Open `Game Menu -> Options -> AddOns -> Blinkiis Portraits`\n\nIf you use more than one compatible unit frame addon at the same time, select the desired parent\nframe per unit inside the addon options.\n\nFor bug reports, `/bp status` shows a short status window ready to copy, and `/bp debugmode`\nturns off every addon except Blinkiis Portraits, its supported unit frame addons, BugSack and\nBugGrabber (`/bp debugmode off` restores them).\n\n## Profiles and Sharing\n\nBlinkiis Portraits includes built-in profile management features:\n\n- Export profiles as a shareable string\n- Import profiles from other users\n- Store optional profile metadata such as author, name, and version\n\nThis makes it easy to keep personal presets, share layouts with friends, or bundle recommended\nprofiles for specific UI setups.\n\n## Plugins\n\nOther addons can extend Blinkiis Portraits through its plugin API: bring their own unit frames,\nstyles and class icon sets, add their own parts to a portrait, or change how a portrait is drawn.\nPlugin settings get their own tab and travel with exported profiles.\n\nSee [docs/plugin-api.md](https://github.com/mBlinkii/Blinkiis-Portraits/blob/main/docs/plugin-api.md) for the reference and\n[examples/BP_ExamplePlugin](https://github.com/mBlinkii/Blinkiis-Portraits/blob/main/examples/BP_ExamplePlugin) for a working example.\n\n## Recent Changes\n\nFor the full history, see [CHANGELOG.md](https://github.com/mBlinkii/Blinkiis-Portraits/blob/main/CHANGELOG.md).\n\n## Contributing\n\nFeedback, bug reports, and feature ideas are welcome:\n\n- Open an issue on [GitHub](https://github.com/mBlinkii/Blinkiis-Portraits/issues)\n- Share feedback on [Discord](https://discord.gg/ZScRCUyqjY)\n\nIf you enjoy the addon, starring the repository helps a lot.\n\n## License\n\nThis project is **All rights reserved**. See [LICENSE.txt](https://github.com/mBlinkii/Blinkiis-Portraits/blob/main/LICENSE.txt) for details.",
+  "releases": [
+    {
+      "tag": "v1.63",
+      "name": "Ver. 1.63",
+      "published": "2026-11-18",
+      "notes": "### \uD83D\uDC1B FIX\n- FIX - [Textures]: The extra texture is masked correctly again on the Blizz Round, Blizz Round Up, Cookie, Leaf, Moon, Octagon, Pentagon, Shield and Trapezoid textures when it is not drawn on top.\n### ✨ NEW\n- NEW - [Textures]: Add the extra textures Forever HD and Forever Blizz, each in the variants Elite, Elite Neutral, Boss and Boss Neutral."
+    },
+    {
+      "tag": "v1.62",
+      "name": "Ver. 1.62",
+      "published": "2026-10-17",
+      "notes": "### \uD83D\uDD27 UPDATE\n- UPDATE - [System]: Updated the Retail and Wrath Classic interface versions."
+    },
+    {
+      "tag": "v1.61",
+      "name": "Ver. 1.61",
+      "published": "2026-10-11",
+      "notes": "### \uD83D\uDC1B FIX\n- FIX - [Class-Icons]: JiberishIcons class icons are available again after its rename to Jiberish Fabled Icons.\n- FIX - [EQOL]: Enhance QoL group frames on Burning Crusade Classic update their portraits again when the group changes.\n- FIX - [Boss]: Mobs far above your level are no longer remembered as bosses for good, they only show the boss texture while their level is hidden.\n- FIX - [Colors]: Portraits switch to the death color and back as soon as a unit dies or is revived, and released ghosts count as dead.\n- FIX - [Portraits]: Switching between two units whose identity is hidden updates the portrait again.\n- FIX - [Vehicle]: Entering, leaving and switching vehicles always repaints the portrait.\n### \uD83D\uDD27 UPDATE\n- UPDATE - [System]: Updated the Wrath Classic interface version.\n- UPDATE - [ElvUI]: The settings always show up in the ElvUI options when ElvUI is loaded, the option to hide them is gone.\n### ✨ NEW\n- NEW - [System]: Added support for WoW Forever.\n- NEW - [Class-Icons]: Added spec icons in four styles that show the specialization of players, with the class icon as fallback until it is known.\n- NEW - [Class-Icons]: The spec icon packs of JiberishIcons can be selected as spec icons.\n- NEW - [EllesmereUI]: All settings are also available in the EllesmereUI options panel with their own section in its sidebar, starting with EllesmereUI 9.3.5."
+    },
+    {
+      "tag": "v1.60",
+      "name": "Ver. 1.60",
+      "published": "2026-09-12",
+      "notes": "### \uD83D\uDC1B FIX\n- FIX - [Colors]: Enemy players in combat were colored with the enemy color instead of their class color.\n- FIX - [Cell]: Portraits never showed up on the Cell Unit Frames player, target, target of target, focus, pet and boss frames.\n- FIX - [Colors]: Friendly NPCs inside a dungeon were colored like an enemy, because the game hides their identity there.\n- FIX - [Portraits]: A unit whose identity is hidden was mirrored and given a class icon as if it were a player, even when it was an NPC.\n### \uD83D\uDD27 UPDATE\n- UPDATE - [System]: The diagnostic report lists the unit frame addon that is really loaded, so a fork shows its own name and version.\n### ✨ NEW\n- NEW - [Portraits]: The portrait border can fill like a ring, showing either the health or the cast of the unit, set up separately for player, target, target of target, focus, pet, party, boss and arena.\n- NEW - [Colors]: Added a color for the health ring and one for the cast ring.\n- NEW - [SUF]: Added support for Shadowed Unit Frames - Worgen Fix."
+    },
+    {
+      "tag": "v1.59",
+      "name": "Ver. 1.59",
+      "published": "2026-08-22",
+      "notes": "### \uD83D\uDC1B FIX\n- FIX - [Colors]: Hostile NPCs in dungeons showed a class color instead of the enemy color, because the game hides their identity just like that of an enemy player.\n- FIX - [Textures]: The rare, elite and boss texture stayed hidden on units whose identity is hidden."
+    }
+  ],
+  "stats": {
+    "stars": 8,
+    "openIssues": 0,
+    "contributors": 6,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18",
+      "2026-10-17",
+      "2026-10-11",
+      "2026-09-12",
+      "2026-08-22",
+      "2026-08-19",
+      "2026-08-12",
+      "2026-08-05",
+      "2026-07-25",
+      "2026-07-12",
+      "2026-04-21",
+      "2026-04-20",
+      "2026-04-12",
+      "2026-02-27",
+      "2026-02-21",
+      "2025-11-04",
+      "2025-08-26",
+      "2025-08-09",
+      "2025-08-06",
+      "2025-07-28",
+      "2025-07-18",
+      "2025-07-17",
+      "2025-07-03",
+      "2025-07-02",
+      "2025-06-27",
+      "2025-06-18",
+      "2025-05-10",
+      "2025-05-10",
+      "2025-05-02",
+      "2025-05-01",
+      "2025-04-25",
+      "2025-04-16",
+      "2025-03-23",
+      "2025-03-23",
+      "2025-02-21",
+      "2025-02-04",
+      "2025-01-25",
+      "2025-01-12",
+      "2025-01-03",
+      "2025-01-01",
+      "2024-12-29",
+      "2024-12-28",
+      "2024-12-27",
+      "2024-12-25",
+      "2024-12-23",
+      "2024-12-20"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "Blinkiis_Portraits"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Cell",
+      "Cell_UnitFrames",
+      "ElvUI",
+      "PitBull4",
+      "ShadowedUnitFrames",
+      "UnhaltedUnitFrames",
+      "NDui",
+      "EnhanceQoL",
+      "BetterBlizzFrames",
+      "EllesmereUI",
+      "Stuf",
+      "DandersFrames",
+      "JiberishIcons",
+      "ElvUI_JiberishIcons"
+    ],
+    "savedVariables": [
+      "BlinkiisPortraitsDB"
+    ]
+  }
+}

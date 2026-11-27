@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "thievery",
+  "repo": "LegolandoBloom/Thievery",
+  "releases": [
+    {
+      "tag": "1.2.3-Forever-Release1",
+      "published": "2026-11-22",
+      "notes": "# Thievery\n\n## [1.2.3-Forever-Release1](https://github.com/LegolandoBloom/Thievery/tree/1.2.3-Forever-Release1) (2026-11-21)\n[Full Changelog](https://github.com/LegolandoBloom/Thievery/compare/1.2.29...1.2.3-Forever-Release1) [Previous Releases](https://github.com/LegolandoBloom/Thievery/releases)\n\n- made new pocketTables\\_Forever file, updated up to Forever launch  \n    porting thievery to forever 1  \n- slight change to fix out of bounds translated fontstring"
+    },
+    {
+      "tag": "1.2.29",
+      "published": "2026-10-08",
+      "notes": "# Thievery\n\n## [1.2.29](https://github.com/LegolandoBloom/Thievery/tree/1.2.29) (2026-10-08)\n[Full Changelog](https://github.com/LegolandoBloom/Thievery/compare/1.2.28...1.2.29) [Previous Releases](https://github.com/LegolandoBloom/Thievery/releases)\n\n- Merge branch 'main' of https://github.com/LegolandoBloom/Thievery  \n- updated interface version number(for expected number for patch 12.1.5)  \n- Merge pull request #3 from Hubbotu/patch-3  \n    Update ruRU.lua  \n- Update ruRU.lua"
+    },
+    {
+      "tag": "1.2.28",
+      "published": "2026-08-12",
+      "notes": "# Thievery\n\n## [1.2.28](https://github.com/LegolandoBloom/Thievery/tree/1.2.28) (2026-08-12)\n[Full Changelog](https://github.com/LegolandoBloom/Thievery/compare/1.2.27...1.2.28) [Previous Releases](https://github.com/LegolandoBloom/Thievery/releases)\n\n- updated interface version number"
+    },
+    {
+      "tag": "1.2.27",
+      "published": "2026-07-22",
+      "notes": "# Thievery\n\n## [1.2.27](https://github.com/LegolandoBloom/Thievery/tree/1.2.27) (2026-07-22)\n[Full Changelog](https://github.com/LegolandoBloom/Thievery/compare/1.2.26...1.2.27) [Previous Releases](https://github.com/LegolandoBloom/Thievery/releases)\n\n- updated interface version number"
+    },
+    {
+      "tag": "1.2.26",
+      "published": "2026-07-11",
+      "notes": "# Thievery\n\n## [1.2.26](https://github.com/LegolandoBloom/Thievery/tree/1.2.26) (2026-07-11)\n[Full Changelog](https://github.com/LegolandoBloom/Thievery/compare/1.2.24...1.2.26) [Previous Releases](https://github.com/LegolandoBloom/Thievery/releases)\n\n- updated interface version number"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-10-08",
+      "2026-08-12",
+      "2026-07-22",
+      "2026-07-11",
+      "2026-06-17",
+      "2026-06-05",
+      "2026-05-07",
+      "2026-04-16",
+      "2026-03-16",
+      "2026-03-02",
+      "2026-02-17",
+      "2026-02-11",
+      "2026-02-11",
+      "2026-01-31",
+      "2026-01-23",
+      "2026-01-22",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-20",
+      "2026-01-15",
+      "2025-12-19",
+      "2025-12-15",
+      "2025-11-26",
+      "2025-11-14",
+      "2025-11-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Thievery"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "Thievery_UI",
+      "Thievery_Config",
+      "Thievery_SavedCVars"
+    ]
+  }
+}

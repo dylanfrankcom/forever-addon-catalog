@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "merchantplus",
+  "repo": "kstange/MerchantPlus",
+  "about": "# About Merchant Plus\n\nThis addon provides a modern update to merchant (vendor) interfaces in WoW.\n\nYou can install this addon from [CurseForge](https://www.curseforge.com/wow/addons/merchant-plus), [Wago](https://addons.wago.io/addons/merchant-plus), or [WoWInterface](https://www.wowinterface.com/downloads/info26570-MerchantPlus.html).\n\n## Features\n\nMerchant Plus adds an additional tab to all WoW merchants, which provides the following enhancements:\n\n- Wider vertical scrolling list to allow more information to be viewed at once\n- Sortable columns of item data\n- Optional columns containing additional item data\n\nAn options panel is included to configure basic settings.\n\n## Planned Features\n\nIn future updates, the following major improvements are planned:\n\n- Additional data columns and options to choose the visibility and order of them\n- Filtering based upon data in one or more columns\n- Searching based upon data in one or more columns\n\nThere is no specific timeline for these features to be completed.\n\n## Forever Support\n\nWorld of Warcraft: Forever has the same interface features as Retail, so it is _fully supported_.\n\n## Classic Support\n\nMerchant Plus requires interface features only available in Retail.  Blizzard periodically backports features to Classic versions, so the required functions may be available eventually.  Until that time, Classic support is not planned.\n\n## Compatibility\n\nThis addon does not replace the existing UI, but it makes many changes to the merchant window, so it may conflict with other addons that modify the contents or layout.  Addons that replace the window will prevent Merchant Plus from appearing entirely.  ElvUI is supported when the Blizzard Merchant Frame skin is enabled.  Other addons that re-skin the merchant window may cause layout problems.\n\nIdeally, Merchant Plus will not be the cause of any conflicts. If you discover any, please [report them](https://github.com/kstange/MerchantPlus/issues/), and I'll fix what I can from the Merchant Plus side.\n\n## Localization\n\nIf you'd like to help localize this addon, please submit translations [here](https://www.curseforge.com/wow/addons/merchant-plus/localization).\n\n## LLM Policy\n\nLLM (\"Generative AI\") agents are not used for development of this project and such contributions will not be accepted.",
+  "releases": [
+    {
+      "tag": "12.1.7.0",
+      "published": "2026-11-22",
+      "notes": "# Version 12.1.7.0\n\n- Updated TOC for Retail 12.1.7\n\n# Version 12.1.5.0\n\n- Fixed an issue causing all regular items to show as collectable or restricted on Forever\n\n# Version 12.1.0.2\n\n- Updated TOC for Retail 12.1.5 (PTR)\n\n# Version 12.1.0.1\n\n- Updated TOC for Forever 1.60.1 (beta)\n\n# Version 12.1.0.0\n\n- Fixed a bug that prevented MerchantPlus from loading correctly in 12.1.0\n- Updated TOC for Retail 12.1.0\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MerchantPlus/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.1.5.0",
+      "published": "2026-10-04",
+      "notes": "Note: Initial review and testing seems to indicate that Forever's UI is nearly\nidentical to Retail 12.1.0, and that Merchant Plus is fully compatible with\nbeta version 1.60.1. If you discover any issues please report them. Merchant\nPlus remains unsupported on other Classic versions due to UI limitations.\n\n# Version 12.1.5.0\n\n- Fixed an issue causing all regular items to show as collectable or restricted on Forever\n\n# Version 12.1.0.2\n\n- Updated TOC for Retail 12.1.5 (PTR)\n\n# Version 12.1.0.1\n\n- Updated TOC for Forever 1.60.1 (beta)\n\n# Version 12.1.0.0\n\n- Fixed a bug that prevented MerchantPlus from loading correctly in 12.1.0\n- Updated TOC for Retail 12.1.0\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MerchantPlus/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.1.0.2",
+      "published": "2026-09-21",
+      "notes": "Note: Initial review and testing seems to indicate that Forever's UI is nearly\nidentical to Retail 12.1.0, and that Merchant Plus is fully compatible with\nbeta version 1.60.1. If you discover any issues please report them. Merchant\nPlus remains unsupported on other Classic versions due to UI limitations.\n\n# Version 12.1.0.2\n\n- Updated TOC for Retail 12.1.5 (PTR)\n\n# Version 12.1.0.1\n\n- Updated TOC for Forever 1.60.1 (beta)\n\n# Version 12.1.0.0\n\n- Fixed a bug that prevented MerchantPlus from loading correctly in 12.1.0\n- Updated TOC for Retail 12.1.0\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MerchantPlus/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.1.0.1",
+      "published": "2026-09-18",
+      "notes": "Note: Initial review and testing seems to indicate that Forever's UI is nearly\nidentical to Retail 12.1.0, and that Merchant Plus is fully compatible with\nbeta version 1.60.1. If you discover any issues please report them. Merchant\nPlus remains unsupported on other Classic versions due to UI limitations.\n\n# Version 12.1.0.1\n\n- Updated TOC for Forever 1.60.1 (Beta)\n\n# Version 12.1.0.0\n\n- Fixed a bug that prevented MerchantPlus from loading correctly in 12.1.0\n- Updated TOC for Retail 12.1.0\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MerchantPlus/wiki/Release-Notes)."
+    },
+    {
+      "tag": "12.1.0.0",
+      "published": "2026-08-06",
+      "notes": "# Version 12.1.0.0\n\n- Fixed a bug that prevented MerchantPlus from loading correctly in 12.1.0\n- Updated TOC for Retail 12.1.0\n\n# Release History\n\nFull release history can be found [here](https://github.com/kstange/MerchantPlus/wiki/Release-Notes)."
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 7,
+    "contributors": 3,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-10-04",
+      "2026-09-21",
+      "2026-09-18",
+      "2026-08-06",
+      "2026-06-06",
+      "2026-04-25",
+      "2026-04-22",
+      "2026-04-18",
+      "2026-03-03",
+      "2026-02-28",
+      "2026-01-21",
+      "2026-01-21",
+      "2025-11-14",
+      "2025-09-22",
+      "2025-07-31",
+      "2025-06-14",
+      "2025-04-19",
+      "2025-01-29",
+      "2025-01-22",
+      "2025-01-19",
+      "2024-12-15",
+      "2024-10-31",
+      "2024-10-22",
+      "2024-08-24",
+      "2024-08-06",
+      "2024-07-31",
+      "2024-06-16",
+      "2024-05-07",
+      "2024-03-19",
+      "2024-01-16",
+      "2023-11-30",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-07-25",
+      "2023-07-21",
+      "2023-07-20",
+      "2023-07-11",
+      "2023-05-02"
+    ]
+  },
+  "languages": [
+    "frFR",
+    "koKR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "MerchantPlus"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "ElvUI"
+    ],
+    "savedVariables": [
+      "MerchantPlus"
+    ]
+  }
+}

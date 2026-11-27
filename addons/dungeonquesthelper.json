@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "dungeonquesthelper",
+  "repo": "ho0ber/DungeonQuestHelper",
+  "about": "# DungeonQuestHelper\nA simple addon to help prepare for dungeon quests in WoW: Forever\n\n## AI Usage Disclosure & Disclaimer\nBecause the nature of this addon is to save me, personally, time on manual research for dungeon prep, I have elected to use Claude Code heavily to collect quest information and requirements, and also to update and test the addon.\n\nWhile I normally put a lot of rigor into reviewing and testing code I publicly release, the low risk nature of simple WoW addons allows me to be a bit lax in this case. I have reviewed all addon code to determine performance impacts in game, but I have not reviewed all of the data the addon presents or confirmed its accuracy.",
+  "releases": [
+    {
+      "tag": "v0.8.1",
+      "published": "2026-11-21",
+      "notes": "Adds An Unholy Alliance to Razorfen Kraul: Charlga Razorflank's Small Scroll, taken to Varimathras in Undercity."
+    },
+    {
+      "tag": "v0.8.0",
+      "published": "2026-11-21",
+      "notes": "Adds Uldaman, Zul'Farrak, Maraudon, Alcaz Prison and Sunken Temple. The dungeon dropdown now shows a checkmark on dungeons where you've finished every quest."
+    },
+    {
+      "tag": "v0.7.0",
+      "published": "2026-11-21",
+      "notes": "Horde dungeon quest helper for WoW Forever. Covers Ragefire Chasm through Krol'dok Stronghold."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-21",
+    "releaseDates": [
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DungeonQuestHelper"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "DungeonQuestHelperDB"
+    ]
+  }
+}

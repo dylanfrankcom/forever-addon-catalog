@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "xpisland",
+  "repo": "elithrar/XPIsland",
+  "about": "# XPIsland\n\n\uD83D\uDCBE **[Download the latest version](https://www.curseforge.com/wow/addons/xpisland) on CurseForge**\n\nA compact XP bar for World of Warcraft: Forever, inspired by Dynamic Island.\n\n- Track rested XP, XP remaining and estimated time to level.\n- Expand for session XP sources, pet XP, PvP rank and estimated kills to level.\n- Track the faction marked **Show as Experience Bar** in your Reputation panel, including at max level. Select Reputation in Tracking settings or by right-clicking the island’s value label.\n- Track Honor and Rank Points in PvP mode, including at level cap. Enable it in Tracking settings or opt into switching at level cap.\n- Choose Modern or WoW Forever themes, shared or character profiles, fonts and scale. The island fits your UI and stays compact on ultrawide screens.\n- Hide Blizzard's XP, reputation and Honor bars. Other addons keep control of their bars.\n\n![xp-island-collapsed](https://github.com/user-attachments/assets/b241fb90-beaf-42a0-8e35-8fb6bc308707)\n\n## Installation\n\nCopy `XPIsland` into your Forever client's `Interface/AddOns` folder, then restart WoW. `XPIsland.toc` must be directly inside `XPIsland`.\n\nRight-click the value label to choose Experience, Honor & PvP or Reputation; each has a submenu of label formats.\n\nUse `/xpisland` for settings and `/xpisland reset` to reset session stats. Click the island to expand or collapse it, or bind “Expand / collapse XPIsland” in WoW's Keybindings.\n\n## Screenshots\n\nCollapsed:\n\n![xp-island-collapsed](https://github.com/user-attachments/assets/b241fb90-beaf-42a0-8e35-8fb6bc308707)\n\nExpanded:\n\n![xp-island-expanded](https://github.com/user-attachments/assets/7b4ae7d5-1826-436b-b0b1-20d55b7d9852)\n\nTooltip:\n\n![xp-island-tooltip](https://github.com/user-attachments/assets/dd3cd877-8c6c-43b9-b823-9b308926f2ac)\n\n## Contributing\n\nOpen an issue before submitting a PR. Unsolicited PRs may be closed.\n\n## Development\n\nRun the checks in [Check addon](https://github.com/elithrar/XPIsland/blob/main/.github/workflows/check.yml) from the repository root with LuaJIT and Python 3. Create `dist/` before running Lua tests. `python3 tests/package.py` builds a local ZIP in `dist/`.\n\nSee [behavior details](https://github.com/elithrar/XPIsland/blob/main/docs/BEHAVIOR.md) and [validation coverage](https://github.com/elithrar/XPIsland/blob/main/docs/VALIDATION.md), including API contract checks and historical client observations.\n\n## License\n\nBSD 3-Clause. See [LICENSE](https://github.com/elithrar/XPIsland/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.7.11",
+      "name": "XPIsland v0.7.11",
+      "published": "2026-11-22",
+      "notes": "XPIsland 0.7.11 for World of Warcraft: Forever (Interface 16001).\n\n- Fix startup stopping after the island appears when the client declines a duplicate event registration. XP updates, kill estimates and the /xpisland command can now initialize.\n- Report the name of any event the client refuses and continue registering the remaining events.\n- Retry a pending reward on the existing timer when the first XP read is stale."
+    },
+    {
+      "tag": "v0.7.10",
+      "name": "XPIsland v0.7.10",
+      "published": "2026-11-18",
+      "notes": "XPIsland 0.7.10 for World of Warcraft: Forever 1.60.1 (Interface 16001).\n\n- Bundle SomethingNeedDoing 0.5.3 with fixes for stale settings callbacks and screen containment recovery.\n- Cancel an active island drag when switching to or copying the same profile, even when its settings are unchanged. Delayed drag-stop callbacks cannot overwrite the replacement placement.\n- Discard old color edits, dropdown selections and replacement confirmations after profile changes, including an already-default reset.\n- Preserve existing profiles, character assignments, XP accounting and session data.\n\nValidation: full workflow Lua suite and pinned Forever API checks, release guards and addon-only package checks. Added equal-value profile gesture regressions fail with the previous bundled framework and pass with 0.5.3. Native rendering, physical input, combat/taint and coexistence remain unobserved in-game checks."
+    },
+    {
+      "tag": "v0.7.9",
+      "name": "XPIsland v0.7.9",
+      "published": "2026-11-13",
+      "notes": "XPIsland 0.7.9 for World of Warcraft: Forever 1.60.1 (Interface 16001).\n\n- Show the watched faction’s name in the reputation header, such as `Stormwind · 31.9%`, across percentage, current/total, remaining, maximum and reward-ready displays.\n- Shorten long faction names with an ellipsis while preserving the full progress value, chosen font size and usable bar width. The hover keeps the complete name.\n\nValidation: the full workflow Lua suite, pinned Forever API checks, release guards and addon package validation. Focused reputation checks cover watched-faction changes, UTF-8 names, both themes, label formats, font sizes, fractional scales and expansion. Native rendering of the corrected label remains an in-game check."
+    },
+    {
+      "tag": "v0.7.8",
+      "name": "XPIsland v0.7.8",
+      "published": "2026-11-12",
+      "notes": "XPIsland 0.7.8 for World of Warcraft: Forever 1.60.1 (Interface 16001).\n\n- Add Reputation mode in Tracking settings and the value label’s right-click menu. It follows the faction marked Show as Experience Bar in the native Reputation panel and stays visible at max player level.\n- Add label-format submenus for Experience, Honor & PvP and Reputation. Mode and format choices persist per profile without resetting XP sessions.\n- Show faction, standing, reputation progress and remaining reputation, with exact hovers and explicit no-selection, maximum and paragon-reward states. Support ordinary, renown, friendship and paragon reputations.\n\nValidation: full workflow Lua suite, including watched reputation and nested menu regressions against the pinned Forever API source, offline release guards and local package checks. Native submenu input/rendering, server event timing and combat/taint still require in-game verification."
+    },
+    {
+      "tag": "v0.7.7",
+      "name": "XPIsland v0.7.7",
+      "published": "2026-11-10",
+      "notes": "XPIsland 0.7.7 for World of Warcraft: Forever 1.60.1 (Interface 16001).\n\n- Fix slash-command taint that could block protected Blizzard commands such as `/pvp` with `ADDON_ACTION_FORBIDDEN` attributed to XPIsland.\n- Bundle SomethingNeedDoing 0.5.2, preserving Blizzard's existing slash-command registry and changing only XPIsland's own entries.\n- Add startup and logout regression coverage for native slash-command ownership.\n\nAutomated checks cover the unsafe global assignment, addon startup, slash-command handling, cleanup and package integrity. Native combat/taint behavior still requires in-game verification."
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/b241fb90-beaf-42a0-8e35-8fb6bc308707",
+    "https://github.com/user-attachments/assets/7b4ae7d5-1826-436b-b0b1-20d55b7d9852",
+    "https://github.com/user-attachments/assets/dd3cd877-8c6c-43b9-b823-9b308926f2ac"
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-18",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-10-26",
+      "2026-10-26",
+      "2026-10-26",
+      "2026-10-25",
+      "2026-10-17",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "XPIsland"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "LibSharedMedia-3.0"
+    ],
+    "savedVariables": [
+      "XPIslandDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "XPIslandSession",
+      "XPIslandPlayed"
+    ]
+  }
+}

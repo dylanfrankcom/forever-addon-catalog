@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "vanity",
+  "repo": "DrKlampz/Vanity",
+  "about": "# Vanity\n\nA character showcase for **WoW: Forever**. Your character on a full-screen stage, your gear around them, and a photo studio.\n\nOpen it with `/vanity`, the minimap button, the addon list, or a key (Options > Key Bindings > AddOns > Vanity). A button on the character window is available in Settings.\n\n## What it does\n- **Full-screen rotatable model.** Drag to turn, right-drag to move, mouse wheel to zoom, slow turntable (`/vanity spin`).\n- **Item cards.** Every equipped item shows its details beside its slot, no hovering needed: name in quality color, item level, main stats, enchant, equip/use effects and any problems. Hover for the full tooltip, shift-click to link in chat.\n- **Warnings that matter.** A red ! on any item that is missing an enchant (from level 40) or has an empty gem socket, with a summary list on screen.\n- **Average item level and durability** (average and lowest).\n- **Stats panel:** attributes, armor, attack power, crit, dodge, parry, block, haste, health, power.\n- **Pose picker.** The Pose button opens a menu of 22 poses and emotes (salute, wave, bow, cheer, applaud, laugh, cry, flex, point, dance, sit, sleep, kneel ...). One-shot emotes repeat until you pick another.\n- **Photo mode** (`/vanity photo`): hides the interface, then a studio bar with backgrounds, the same pose picker, turntable, and a screenshot button that hides the controls first.\n- **14 backgrounds:** Midnight, Class color, Faction, Ember, Frost, Forest, Void, Gilded, Sunset, Slate, Pure black, Studio white, Green screen and The world.\n- **AFK screen.** Go AFK (or `/vanity afk` to preview) and Vanity fills the screen with your character, a big timer, a clock and your gear and stats, cycling poses. Your active buffs show with tooltips. Move or press a key to return.\n- **View target:** look at another player's model.\n\n## Settings\n`/vanity settings`: background, brightness, camera framing (full body, waist up, bust, portrait), turntable, panels, item cards, game-interface hiding and AFK options.\n\n## Commands\n| | |\n|---|---|\n| `/vanity` | Open or close the showcase |\n| `/vanity photo` | Photo mode |\n| `/vanity afk` | Preview the AFK screen |\n| `/vanity bg` | Cycle the background |\n| `/vanity spin` | Turntable on/off |\n| `/vanity settings` | Settings |\n| `/vanity reset` | Reset the camera |\n| `/vanity minimap` | Show or hide the minimap button |\n\nVanity is built from scratch (it shares no code or art with any other addon). MIT licensed.",
+  "releases": [
+    {
+      "tag": "v0.5.12",
+      "published": "2026-11-23",
+      "notes": "# Vanity\n\n## [v0.5.12](https://github.com/DrKlampz/Vanity/tree/v0.5.12) (2026-11-23)\n[Full Changelog](https://github.com/DrKlampz/Vanity/compare/v0.5.11...v0.5.12) [Previous Releases](https://github.com/DrKlampz/Vanity/releases)\n\n- Changelog wording  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Changelog for the next release  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Zone box fixes; shared Look update  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v0.5.11",
+      "published": "2026-11-21",
+      "notes": "# Vanity\n\n## [v0.5.11](https://github.com/DrKlampz/Vanity/tree/v0.5.11) (2026-11-21)\n[Full Changelog](https://github.com/DrKlampz/Vanity/compare/v0.5.10...v0.5.11) [Previous Releases](https://github.com/DrKlampz/Vanity/releases)\n\n- toc: link CurseForge project ID 1792040 so releases upload to CurseForge  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Redraw the skull and crossbones from skull anatomy; calligraphic variants now ornament the symbol itself instead of framing it  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Add a calligraphic, ornately framed variant of every background symbol  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Redraw 14 watermark symbols with smoother curves and cleaner detail  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Redraw the anarchy symbol  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v0.5.10",
+      "published": "2026-11-20",
+      "notes": "# Vanity\n\n## [v0.5.10](https://github.com/DrKlampz/Vanity/tree/v0.5.10) (2026-11-20)\n[Full Changelog](https://github.com/DrKlampz/Vanity/compare/v0.5.9...v0.5.10) [Previous Releases](https://github.com/DrKlampz/Vanity/releases)\n\n- More background symbols, emblem rotation and mirror  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v0.5.9",
+      "published": "2026-11-20",
+      "notes": "# Vanity\n\n## [v0.5.9](https://github.com/DrKlampz/Vanity/tree/v0.5.9) (2026-11-20)\n[Full Changelog](https://github.com/DrKlampz/Vanity/compare/v0.5.8...v0.5.9) [Previous Releases](https://github.com/DrKlampz/Vanity/releases)\n\n- Background symbol position and size sliders  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Add Celtic cross and more background symbols; picking a color enables its own-color option  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v0.5.8",
+      "published": "2026-11-20",
+      "notes": "# Vanity\n\n## [v0.5.8](https://github.com/DrKlampz/Vanity/tree/v0.5.8) (2026-11-20)\n[Full Changelog](https://github.com/DrKlampz/Vanity/compare/v0.5.7...v0.5.8) [Previous Releases](https://github.com/DrKlampz/Vanity/releases)\n\n- Per-artwork colors and your-own-file emblem slots  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-10-19",
+      "2026-10-18",
+      "2026-10-13",
+      "2026-10-11",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-10-08",
+      "2026-10-08",
+      "2026-10-08",
+      "2026-10-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Vanity"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "VanityDB"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "ouf-mylayout",
+  "repo": "ktkr3d/oUF_MyLayout",
+  "about": "# [oUF_MyLayout](https://github.com/ktkr3d/oUF_MyLayout)\n\n## Introduction\n\noUF_MyLayout is a unit frame addon.\n\n## Install\n\nInstall oUF_MyLayout using the [WowUp](https://wowup.io/guide/get-addons/overview) app.\n\n`Get Addons` > `Install from URL`\n\n```text\nhttps://github.com/ktkr3d/oUF_MyLayout\n```\n\n## Configuration\n\n```text\n/mylayout config\n```",
+  "releases": [
+    {
+      "tag": "v0.3.12",
+      "published": "2026-11-08"
+    },
+    {
+      "tag": "v0.3.11",
+      "published": "2026-10-31"
+    },
+    {
+      "tag": "v0.3.10",
+      "published": "2026-09-09"
+    },
+    {
+      "tag": "v0.3.9",
+      "published": "2026-08-30"
+    },
+    {
+      "tag": "v0.3.8",
+      "published": "2026-08-28"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-10-31",
+      "2026-09-09",
+      "2026-08-30",
+      "2026-08-28",
+      "2026-08-26",
+      "2026-08-25",
+      "2026-08-22",
+      "2026-08-21",
+      "2026-08-20",
+      "2026-08-15",
+      "2026-08-14",
+      "2026-08-13",
+      "2026-05-02"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "oUF_MyLayout"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "oUF_MyLayoutDB"
+    ]
+  }
+}

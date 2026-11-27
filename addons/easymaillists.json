@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "easymaillists",
+  "repo": "luttman/EasyMailLists",
+  "about": "# EasyMail Lists\n\nEasyMail Lists mails items from your bags to your other characters. You keep a list of items for each recipient. At the mailbox, you see what the addon will send, and then you click **Send**.\n\nEasyMail Lists is a fork of [Plain AutoMail](https://www.curseforge.com/wow/addons/plain-auto-mail) by Pyralis.\n\n## Features\n\n- **Preview before sending.** The **Send** tab shows what goes to whom and which rule matched. Click an item to skip it this time.\n- **One list per recipient.** Pick recipients from the characters you have logged in with, or type another name.\n- **Rows, text, or bags.** Edit a list as rows with icons, as plain text, or pick items from your bags.\n- **Add items in three ways.** Shift-click an item, drag it onto the list, or use **Add from bags**.\n- **Rules for each item.** Keep stacks, keep a number of items, or send only above a minimum.\n- **Patterns menu.** Add a whole group of items with one line, such as `Flowers` or `Ore`.\n- **Unbound gear.** Send unbound weapons and armor to one character, with a minimum quality.\n- **Themes.** Use the default game look, EllesmereUI, or a flat modern look.\n- **Plain AutoMail import.** The addon imports your lists from Plain AutoMail the first time it runs next to it.\n\n## Install\n\n1. Copy the `EasyMailLists` folder to `World of Warcraft\\<version>\\Interface\\AddOns\\`.\n2. Start the game, or type `/reload`.\n\nIf Plain AutoMail is also enabled, EasyMail Lists pauses to avoid mailing everything twice. Disable Plain AutoMail and type `/reload`.\n\n## Use\n\n1. Type `/easymail` or `/eml` to open the window.\n2. On the **Lists** tab, click **New** and choose who gets your items.\n3. Add items to the list.\n4. Open a mailbox. The window docks next to it.\n5. On the **Send** tab, check the preview and click **Send**.\n\n**Auto-send** mails everything when you open the mailbox. By default, it needs Shift held down.\n\n## Rules\n\nEach row has a rule menu. In the text view, you write the rule in front of the item name.\n\n| Text | Rule |\n| --- | --- |\n| `Runecloth` | Send all. |\n| `-1 Silk Cloth` | Keep 1 stack and send the rest. |\n| `=20 Rockscale Cod` | Keep 20 items and send the rest. |\n| `+20 Runecloth` | Send only when you have 20 or more. |\n| `Raw *` | `*` matches any text. |\n\nA rule for one item always wins over a group, and a group wins over a `*` line. The order of the lines doesn't matter. For example, `Flowers` with `-1 Peacebloom` keeps one stack of `Peacebloom` and sends all other herbs.\n\n## Patterns\n\nThe **Patterns** menu adds one line that stands for a group of items. Plain lines for items that the group already covers are removed. Lines with a rule stay.\n\n| Group | Profession | Items |\n| --- | --- | --- |\n| `Flowers` | Herbalism | Every herb. |\n| `Herb Seeds` | Herbalism | Greenhouse seeds. |\n| `Ore` | Mining | Every ore. |\n| `Bars` | Mining | Every metal bar. |\n| `Scarce ores` | Mining | Pyrite, bauxite, and pitchblende. |\n| `Stone` | Mining | Rough to dense stone. |\n| `Gems` | Mining | Every gem. |\n| `Smelting` | Mining | Coal and flux. |\n| `Leather` | Skinning | Every leather. |\n| `Hides` | Skinning | Light to rugged hide. |\n| `Scales` | Skinning | Scales and dragonscales. |\n| `Cloth` | Tailoring | Linen to runecloth. |\n| `Dusts` | Enchanting | Every dust. |\n| `Essences` | Enchanting | Lesser and greater essences. |\n| `Shards` | Enchanting | Every shard. |\n| `Elementals` | Alchemy | Elemental reagents. |\n| `Dyes` | Alchemy, leatherworking | Dyes. |\n| `Pearls` | Fishing | Pearls. |\n| `Cooking` | Cooking | Meat, fish, eggs, and spices. |\n\nThe groups use English item names and Classic items plus the new WoW Forever materials. `Flowers` and `Cooking` also take any item of the matching Trade Goods type.\n\n## Test\n\nThe tests run with a plain Lua interpreter and a stubbed game API:\n\n```bash\nlua test_boe.lua\nlua test_ui_smoke.lua\n```\n\n## Credits\n\nPlain AutoMail by Pyralis is the base of this addon.",
+  "releases": [
+    {
+      "tag": "v2.0.2",
+      "published": "2026-11-17",
+      "notes": "# EasyMail Lists\n\n## [v2.0.2](https://github.com/luttman/EasyMailLists/tree/v2.0.2) (2026-11-17)\n[Full Changelog](https://github.com/luttman/EasyMailLists/compare/v2.0.1...v2.0.2) [Previous Releases](https://github.com/luttman/EasyMailLists/releases)\n\n- Fix release workflow and bump version to 2.0.2  \n    The packager needs the TOC at the top of its checkout, so the workflow  \n    stages the addon files before packaging.  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v2.0.0",
+      "name": "EasyMail Lists 2.0.0",
+      "published": "2026-11-17",
+      "notes": "First release of EasyMail Lists, a fork of Plain AutoMail by Pyralis.\n\n- Preview what will be mailed, and skip items with one click.\n- Per-recipient lists with rules: keep stacks, keep items, or send above a minimum.\n- Patterns menu with groups for every profession, such as Flowers, Ore, and Cooking.\n- Rows, text, and bags views, plus three themes.\n- Includes the new WoW Forever materials."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EasyMailLists"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "EasyMailListsSave"
+    ]
+  }
+}

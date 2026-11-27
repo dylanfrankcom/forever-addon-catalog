@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "id": "darkmodespellbook",
+  "repo": "keyboardturner/DarkModeSpellBook",
+  "about": "# DarkModeSpellBook\n\nThis addon alllows changing the colors of various background images and text, allowing you to not be blinded by the bright spellbook colors when opening the spellbook.\n\nThis includes options for:\n\n    Spell Text\n    Large Text (like the Specialization and Class)\n    Sub-Text (such as what indicates a spell being passive)\n    Separators (art pieces below each Large Text)\n    Bookmark\n    Page Number Text\n    Backplate / Backplate Highlight (the faint texture behind each spell text)\n    Background\n\nIn addition to these features, this addon also allows the ability to fade the spellbook frame (including the specialization and talents) when moving, similar to the default behavior of the map.\n\nAn option to show/hide the \"Spellbook Colors\" button can be found in the AddOn Compartment Frame, located by the Calendar Button on the Minimap. It is purposefully not clickable in the settings menu in case it's accidentally clicked.",
+  "releases": [
+    {
+      "tag": "0.1.9",
+      "published": "2026-10-13",
+      "notes": "# 0.1.9\n\n12.1.5 toc update\n\n# 0.1.8\n\nWoW Forever testing - This is an in-development testing version. Some things may throw errors or explode.\n\n# 0.1.7\n\n12.1.0 toc update\n\n# 0.1.6\n\n12.0.7 toc update\n\n# 0.1.5\n\n12.0.5 toc update\n\n# 0.1.4\n\n12.0.1 toc update\n\n# 0.1.3\n\n12.0.0 toc update\n\n# 0.1.2\n\n11.2.7 toc update\n\n# 0.1.1\n\nFix error in logic if the spellbook has not yet been opened prior to hovering over the addon compartment frame button.\n\n11.2.5 toc update\n\n# 0.1.0\n\n11.2.0 toc update\n\n# 0.0.9\n\n11.1.7 toc update\n\n# 0.0.8\n\n11.1.5 toc update & addon category\n\n# 0.0.7\n\n11.1.0 toc update\n\n# 0.0.6\n\n11.0.7 toc update\n\n# 0.0.5\n\n11.0.5 toc update\n\n# 0.0.4\n\nAdded option for Required Level text in the spellbook (normally at max level this is hidden)\n\n# 0.0.3\n\nAvoid map-related taint issue with frame fader (where it said something about \"protected function SetPassThroughButtons\" etc.)\n\n# 0.0.2\n\nUpdates to zhTW/zhCN\n\n# 0.0.1\n\nRelease"
+    },
+    {
+      "tag": "0.1.8",
+      "published": "2026-09-25",
+      "notes": "# 0.1.8\n\nWoW Forever testing - This is an in-development testing version. Some things may throw errors or explode.\n\n# 0.1.7\n\n12.1.0 toc update\n\n# 0.1.6\n\n12.0.7 toc update\n\n# 0.1.5\n\n12.0.5 toc update\n\n# 0.1.4\n\n12.0.1 toc update\n\n# 0.1.3\n\n12.0.0 toc update\n\n# 0.1.2\n\n11.2.7 toc update\n\n# 0.1.1\n\nFix error in logic if the spellbook has not yet been opened prior to hovering over the addon compartment frame button.\n\n11.2.5 toc update\n\n# 0.1.0\n\n11.2.0 toc update\n\n# 0.0.9\n\n11.1.7 toc update\n\n# 0.0.8\n\n11.1.5 toc update & addon category\n\n# 0.0.7\n\n11.1.0 toc update\n\n# 0.0.6\n\n11.0.7 toc update\n\n# 0.0.5\n\n11.0.5 toc update\n\n# 0.0.4\n\nAdded option for Required Level text in the spellbook (normally at max level this is hidden)\n\n# 0.0.3\n\nAvoid map-related taint issue with frame fader (where it said something about \"protected function SetPassThroughButtons\" etc.)\n\n# 0.0.2\n\nUpdates to zhTW/zhCN\n\n# 0.0.1\n\nRelease"
+    },
+    {
+      "tag": "0.1.7",
+      "published": "2026-08-11",
+      "notes": "# 0.1.7\n\n12.1.0 toc update\n\n# 0.1.6\n\n12.0.7 toc update\n\n# 0.1.5\n\n12.0.5 toc update\n\n# 0.1.4\n\n12.0.1 toc update\n\n# 0.1.3\n\n12.0.0 toc update\n\n# 0.1.2\n\n11.2.7 toc update\n\n# 0.1.1\n\nFix error in logic if the spellbook has not yet been opened prior to hovering over the addon compartment frame button.\n\n11.2.5 toc update\n\n# 0.1.0\n\n11.2.0 toc update\n\n# 0.0.9\n\n11.1.7 toc update\n\n# 0.0.8\n\n11.1.5 toc update & addon category\n\n# 0.0.7\n\n11.1.0 toc update\n\n# 0.0.6\n\n11.0.7 toc update\n\n# 0.0.5\n\n11.0.5 toc update\n\n# 0.0.4\n\nAdded option for Required Level text in the spellbook (normally at max level this is hidden)\n\n# 0.0.3\n\nAvoid map-related taint issue with frame fader (where it said something about \"protected function SetPassThroughButtons\" etc.)\n\n# 0.0.2\n\nUpdates to zhTW/zhCN\n\n# 0.0.1\n\nRelease"
+    },
+    {
+      "tag": "0.1.6",
+      "published": "2026-06-16",
+      "notes": "# 0.1.6\n\n12.0.7 toc update\n\n# 0.1.5\n\n12.0.5 toc update\n\n# 0.1.4\n\n12.0.1 toc update\n\n# 0.1.3\n\n12.0.0 toc update\n\n# 0.1.2\n\n11.2.7 toc update\n\n# 0.1.1\n\nFix error in logic if the spellbook has not yet been opened prior to hovering over the addon compartment frame button.\n\n11.2.5 toc update\n\n# 0.1.0\n\n11.2.0 toc update\n\n# 0.0.9\n\n11.1.7 toc update\n\n# 0.0.8\n\n11.1.5 toc update & addon category\n\n# 0.0.7\n\n11.1.0 toc update\n\n# 0.0.6\n\n11.0.7 toc update\n\n# 0.0.5\n\n11.0.5 toc update\n\n# 0.0.4\n\nAdded option for Required Level text in the spellbook (normally at max level this is hidden)\n\n# 0.0.3\n\nAvoid map-related taint issue with frame fader (where it said something about \"protected function SetPassThroughButtons\" etc.)\n\n# 0.0.2\n\nUpdates to zhTW/zhCN\n\n# 0.0.1\n\nRelease"
+    },
+    {
+      "tag": "0.1.5",
+      "published": "2026-04-21",
+      "notes": "# 0.1.5\n\n12.0.5 toc update\n\n# 0.1.4\n\n12.0.1 toc update\n\n# 0.1.3\n\n12.0.0 toc update\n\n# 0.1.2\n\n11.2.7 toc update\n\n# 0.1.1\n\nFix error in logic if the spellbook has not yet been opened prior to hovering over the addon compartment frame button.\n\n11.2.5 toc update\n\n# 0.1.0\n\n11.2.0 toc update\n\n# 0.0.9\n\n11.1.7 toc update\n\n# 0.0.8\n\n11.1.5 toc update & addon category\n\n# 0.0.7\n\n11.1.0 toc update\n\n# 0.0.6\n\n11.0.7 toc update\n\n# 0.0.5\n\n11.0.5 toc update\n\n# 0.0.4\n\nAdded option for Required Level text in the spellbook (normally at max level this is hidden)\n\n# 0.0.3\n\nAvoid map-related taint issue with frame fader (where it said something about \"protected function SetPassThroughButtons\" etc.)\n\n# 0.0.2\n\nUpdates to zhTW/zhCN\n\n# 0.0.1\n\nRelease"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-25",
+      "2026-08-11",
+      "2026-06-16",
+      "2026-04-21",
+      "2026-02-10",
+      "2026-01-20",
+      "2025-12-02",
+      "2025-10-07",
+      "2025-08-05",
+      "2025-06-17",
+      "2025-04-22",
+      "2025-02-25",
+      "2024-12-17",
+      "2024-10-22",
+      "2024-09-28",
+      "2024-09-08"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "enUS",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "DarkModeSpellBook"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "DMSB_DB"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "gemcutter",
+  "repo": "Medpus/gemcutter",
+  "about": "# Gemcutter\n\nA relaxed match-3 game for World of Warcraft: Forever. You open it from the minimap button, swap\ngems until you feel like stopping and close it again. It was made for long flight paths, but it\nworks anywhere outside combat.\n\n![The Gemcutter board](https://raw.githubusercontent.com/Medpus/gemcutter/master/assets/screenshots/board.png)\n\nThe board never ends and is saved between sessions, so you pick up where you left off. Everything\nyou clear earns XP toward an account-wide level.\n\n## Playing\n\n- Open and close the board with the minimap button, the addon menu next to the minimap, or\n  `/gemcutter` (short: `/gc`). Right-click the minimap button to see your progress and\n  achievements.\n- Drag a gem onto a neighbour, or click two neighbouring gems, to swap them.\n- Three or more of the same colour in a row or column are cleared. New gems fall in, and every\n  cascade raises the multiplier.\n- If you stop for eight seconds, two gems that make a match start to pulse and lean toward each\n  other. Swap them.\n- Escape closes the window. It also closes when you enter combat or get a ready check.\n\nSpecial gems:\n\n- Four in a row makes a line gem. When it clears, it takes the whole row or column with it.\n- An L, T or cross shape makes a volatile gem that clears the 3x3 square around it.\n- Five in a row makes a prism. Swap it with any gem to clear every gem of that colour. Two prisms\n  clear the board.\n\nWhen no moves are left, the board reshuffles. The New board button starts over and only resets the\nboard score.\n\n## Progression\n\nProgress belongs to your account, not to one character. Every move earns XP based on its score.\nThere are 60 levels with a new rank title every ten, from Novice Gemcutter to Grand Master\nGemcutter, plus 18 achievements with XP rewards. The Progress panel shows your stats: best move,\nlongest chain, gems cleared and how many flights you have played on. In a simulated casual pace of\nten moves a minute, level 10 took about half an hour and level 60 about 17 hours.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/gemcutter` | open or close the board |\n| `/gemcutter minimap` | hide or show the minimap button |\n| `/gemcutter scale 0.5-2` | change the window size |\n| `/gemcutter sound` | turn sound on or off |\n| `/gemcutter reset` | erase all progress (asks first) |\n\n## Installing\n\nInstall it with CurseForge or WowUp, or download the zip from the GitHub releases and unpack it into\n`World of Warcraft/_forever_/Interface/AddOns/`.\n\n## Development\n\nThe game rules (`Core.lua`) and progression (`Progression.lua`) are plain Lua 5.1 with no WoW API,\nso they run outside the game. `tests/ui_smoke.lua` loads the whole addon against a strict mock of\nthe WoW API and plays 400 moves with mouse input and animations.\n\n```sh\nscripts/fetch-libs.sh     # LibStub, CallbackHandler, LibDataBroker and LibDBIcon into Gemcutter/Libs\nscripts/check.sh          # tests, Lua 5.1 parse check, no goto\n```\n\nFor local play, symlink `Gemcutter/` into the Forever `Interface/AddOns` folder after fetching the\nlibraries.\n\nReleases are built by the BigWigs packager on GitHub Actions when a `v*` tag is pushed. That is the\nonly workflow; run `scripts/check.sh` locally and add a section for the version to `CHANGELOG.md`\nfirst.\n\nThe gems on the board are the game's own item icons and the sounds are the game's own. The addon\nicon is original art (`assets/icon.svg`). Licensed under MIT.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-10",
+      "notes": "## v1.0.1\n\n- Line gems are easier to spot. They glow in their own colour, carry a brighter beam that reaches\n  past the gem, and send sparks along the row or column they will clear.\n- The idle hint points at an ordinary match instead of the prism whenever one exists. The two\n  hinted gems lean toward each other, and the hint clears any gem you had selected, so clicking the\n  hinted pair makes that move.\n- A dragged gem no longer stays halfway out of its cell when the drag turns toward the board edge."
+    },
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-07",
+      "notes": "## v1.0.0\n\nFirst release for World of Warcraft: Forever.\n\n- Match-3 board that opens from the minimap button, the addon compartment or `/gemcutter`.\n- Endless play: the board reshuffles when no moves are left and is saved between sessions.\n- Special gems: line gems from four in a row, volatile gems from L and T shapes, prisms from five\n  in a row.\n- Account-wide progression: levels 1 to 60, a rank title every ten levels, 18 achievements and a\n  stats panel.\n- Drag gems or click two neighbours to swap. Gems follow the cursor while you drag.\n- Minimap button built on LibDBIcon, so minimap button collectors and broker bars can manage it.\n- Right-click the minimap button to open the progress panel.\n- The window closes on combat and ready checks."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Medpus/gemcutter/master/assets/screenshots/board.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Gemcutter"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "GemcutterDB"
+    ]
+  }
+}

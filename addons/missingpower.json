@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "missingpower",
+  "repo": "d4kir92/MissingPower",
+  "releases": [
+    {
+      "tag": "v1.3.6",
+      "published": "2026-10-14",
+      "notes": "# MissingPower by D4KiR\n\n## [v1.3.6](https://github.com/d4kir92/MissingPower/tree/v1.3.6) (2026-10-14)\n[Full Changelog](https://github.com/d4kir92/MissingPower/compare/v1.3.5...v1.3.6) [Previous Releases](https://github.com/d4kir92/MissingPower/releases)\n\n- v1.3.6"
+    },
+    {
+      "tag": "v1.3.5",
+      "published": "2026-10-11",
+      "notes": "# MissingPower by D4KiR\n\n## [v1.3.5](https://github.com/d4kir92/MissingPower/tree/v1.3.5) (2026-10-11)\n[Full Changelog](https://github.com/d4kir92/MissingPower/compare/v1.3.4...v1.3.5) [Previous Releases](https://github.com/d4kir92/MissingPower/releases)\n\n- v1.3.5  \n- ref  \n- ref  \n- ref  \n- ref"
+    },
+    {
+      "tag": "v1.3.4",
+      "published": "2026-09-25",
+      "notes": "# MissingPower by D4KiR\n\n## [v1.3.4](https://github.com/d4kir92/MissingPower/tree/v1.3.4) (2026-09-25)\n[Full Changelog](https://github.com/d4kir92/MissingPower/compare/v1.3.3...v1.3.4) [Previous Releases](https://github.com/d4kir92/MissingPower/releases)\n\n- v1.3.4  \n- ref"
+    },
+    {
+      "tag": "v1.3.3",
+      "published": "2026-09-20",
+      "notes": "# MissingPower by D4KiR\n\n## [v1.3.3](https://github.com/d4kir92/MissingPower/tree/v1.3.3) (2026-09-20)\n[Full Changelog](https://github.com/d4kir92/MissingPower/compare/v1.3.2...v1.3.3) [Previous Releases](https://github.com/d4kir92/MissingPower/releases)\n\n- v1.3.3"
+    },
+    {
+      "tag": "v1.3.2",
+      "published": "2026-09-19",
+      "notes": "# MissingPower by D4KiR\n\n## [v1.3.2](https://github.com/d4kir92/MissingPower/tree/v1.3.2) (2026-09-19)\n[Full Changelog](https://github.com/d4kir92/MissingPower/compare/v1.3.1...v1.3.2) [Previous Releases](https://github.com/d4kir92/MissingPower/releases)\n\n- v1.3.2"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 4,
+    "lastRelease": "2026-10-14",
+    "releaseDates": [
+      "2026-10-14",
+      "2026-10-11",
+      "2026-09-25",
+      "2026-09-20",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-01",
+      "2026-08-10",
+      "2026-08-10",
+      "2026-08-10",
+      "2026-08-10",
+      "2026-07-23",
+      "2026-07-08",
+      "2026-07-04",
+      "2026-07-04",
+      "2026-07-03",
+      "2026-06-29",
+      "2026-06-29",
+      "2026-06-28",
+      "2026-06-28",
+      "2026-06-06",
+      "2026-04-20",
+      "2026-04-08",
+      "2026-03-17",
+      "2026-02-11",
+      "2026-01-27",
+      "2026-01-25",
+      "2026-01-24",
+      "2026-01-24",
+      "2026-01-23",
+      "2026-01-13",
+      "2025-12-10",
+      "2025-12-03",
+      "2025-12-02",
+      "2025-11-01",
+      "2025-10-22",
+      "2025-10-08",
+      "2025-09-24",
+      "2025-09-20",
+      "2025-09-07",
+      "2025-09-06",
+      "2025-09-06",
+      "2025-07-18",
+      "2025-07-02",
+      "2025-06-18",
+      "2025-06-12",
+      "2025-04-19",
+      "2025-04-09",
+      "2025-04-09",
+      "2025-03-06"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "MissingPower"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "MIPO"
+    ],
+    "savedVariablesPerCharacter": [
+      "MIPOPC"
+    ]
+  }
+}

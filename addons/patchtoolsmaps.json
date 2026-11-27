@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "patchtoolsmaps",
+  "repo": "csBlackWolf/PatchToolsMaps",
+  "about": "# \uD83C\uDDEC\uD83C\uDDE7 PatchToolsMaps\n\n_Your world map, with more freedom. The map module for PatchTools, for Classic Era and Forever._\n\n## Features\n\n- Move and resize the world map\n- Zoom in further with the mouse wheel\n- Choose how unexplored areas appear\n- Remember your preferred position and size for each character\n- Adjust map transparency\n- A modern frame with player and cursor coordinates\n- Keep supported addon buttons and buff timers outside the map\n- Switch back to the classic frame whenever you prefer\n\nAdjust everything through the PatchTools settings. Right-click the zone name in the modern frame for quick access to map transparency.\n\nThe modern frame supports Classic Era and Forever.\n\n**[PatchTools](https://www.curseforge.com/wow/addons/patchtools) is required and must be enabled!**\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/ptmaps` | Open the Map settings in PatchTools. |\n| `/ptmaps reset` | Reset the map’s position, size and zoom. |\n| `/ptmaps status` | Open copyable map information for troubleshooting. |\n| `/ptmaps debug` | Open the shared diagnostic report with addon versions and load states. |\n\nYou can also use `/patchtoolsmaps` instead of `/ptmaps`.\n\n[Source code](https://github.com/csBlackWolf/PatchToolsMaps) · [Report bugs and suggest ideas](https://github.com/csBlackWolf/PatchTools/issues/new/choose)\n\n[User guide](https://github.com/csBlackWolf/PatchToolsMaps/blob/main/GUIDE.md) · [Developer guide](https://github.com/csBlackWolf/PatchToolsMaps/blob/main/DEVELOPMENT.md)\n\n---\n\n# \uD83C\uDDE9\uD83C\uDDEA PatchToolsMaps\n\n_Deine Weltkarte mit mehr Freiheiten. Das Kartenmodul für PatchTools, für Classic Era und Forever._\n\n## Funktionen\n\n- Die Weltkarte frei verschieben und ihre Größe ändern\n- Mit dem Mausrad weiter hineinzoomen\n- Die Darstellung unentdeckter Gebiete selbst wählen\n- Position und Größe für jeden Charakter merken\n- Die Kartentransparenz anpassen\n- Moderner Rahmen mit Spieler- und Mauskoordinaten\n- Unterstützte Addon-Buttons und Buff-Timer außerhalb der Karte platzieren\n- Bei Bedarf jederzeit zum klassischen Rahmen wechseln\n\nAlles bequem in den PatchTools-Einstellungen anpassen. Per Rechtsklick auf den Gebietsnamen im modernen Rahmen erreichst du die Kartentransparenz auch direkt.\n\nDer moderne Rahmen unterstützt Classic Era und Forever.\n\n**[PatchTools](https://www.curseforge.com/wow/addons/patchtools) wird benötigt und muss aktiviert sein!**\n\n## Befehle\n\n| Befehl | Funktion |\n| --- | --- |\n| `/ptmaps` | Die Karteneinstellungen in PatchTools öffnen. |\n| `/ptmaps reset` | Position, Größe und Zoom der Karte zurücksetzen. |\n| `/ptmaps status` | Kopierbare Karteninformationen zur Fehlersuche öffnen. |\n| `/ptmaps debug` | Den gemeinsamen Diagnosebericht mit Addon-Versionen und Ladestatus öffnen. |\n\nStatt `/ptmaps` funktioniert auch `/patchtoolsmaps`.\n\n[Quellcode](https://github.com/csBlackWolf/PatchToolsMaps) · [Fehler und Ideen melden](https://github.com/csBlackWolf/PatchTools/issues/new/choose)\n\n[Bedienungsanleitung](https://github.com/csBlackWolf/PatchToolsMaps/blob/main/GUIDE.md) · [Entwicklerinfos](https://github.com/csBlackWolf/PatchToolsMaps/blob/main/DEVELOPMENT.md)",
+  "releases": [
+    {
+      "tag": "v0.3.4",
+      "name": "PatchToolsMaps 0.3.4",
+      "published": "2026-11-13",
+      "notes": "# PatchToolsMaps 0.3.4 — 2026-11-13\n\n- Keep unexplored-area previews available after client patches using the last matching map data. Temporarily outdated previews no longer require a new release just to enable them again.\n- Restore reliable map transparency and a smooth slider preview without the setting being overwritten.\n- Improve Forever combat map interactions and quest-sidebar layout, including resizing and restoring the saved window size.\n- Restore the visible button for returning from fullscreen to the movable map.\n- Make map diagnostics copyable when supported by the installed PatchTools version.\n\nValidation: automated Classic Era/Forever integration checks in three locales, catalog checks and deferred marker-input tests pass. The maintainer tested the current Forever map in normal gameplay without further errors. Terrain/minimap detail views are not part of this release."
+    },
+    {
+      "tag": "v0.3.3",
+      "name": "PatchToolsMaps 0.3.3",
+      "published": "2026-11-06",
+      "notes": "# PatchToolsMaps 0.3.3 — 2026-11-06\n\n- Restore semi-transparent fog and full reveal on Forever build 70790, including Duskwood.\n- Add map data verified against the current Blizzard client while preserving support for the previously covered builds.\n- Keep actual exploration progress unchanged.\n\nValidation: all automated integration and catalog checks pass. Duskwood reveal modes were confirmed in the live Forever client. The previously reported combat-layout and quest-marker taint cases remain under investigation."
+    },
+    {
+      "tag": "v0.3.2",
+      "name": "PatchToolsMaps 0.3.2",
+      "published": "2026-11-06",
+      "notes": "# 0.3.2\n\n- Improved Forever map proportions with the quest sidebar expanded or collapsed.\n- Rebuilds the map viewport after opening and sidebar changes to reduce stale zoom and offset issues.\n- Keeps the full extended zoom range available on both supported clients.\n- Added optional scroll-state diagnostics: `/ptmaps taint` toggles tracing and `/ptmaps status` prints the result.\n\nThe reported Forever combat-layout and quest-marker taint issues remain under investigation. This release does not claim a confirmed fix for every combat case."
+    },
+    {
+      "tag": "v0.3.1",
+      "name": "PatchToolsMaps 0.3.1",
+      "published": "2026-11-05",
+      "notes": "# PatchToolsMaps 0.3.1 — 2026-11-05\n\n- Bring the modern map frame to Forever, including movement, resizing and the classic-frame option.\n- Integrate Forever's map navigation and quest panel into the compact layout.\n- Keep Blizzard's filter and quest-panel controls beside the map rather than among addon buttons.\n- Improve quest-text contrast, keep quest action buttons inside the window and match the quest-list border.\n- Avoid duplicate coordinate displays and restore the native layout when switching back.\n- Fix native map-control ownership so opening the map no longer interrupts its initialization.\n\nValidation: the Forever layout and quest details were checked in game. Automated Classic Era/Forever layout, restoration, interaction and map-catalog checks pass."
+    },
+    {
+      "tag": "v0.3.0",
+      "name": "PatchToolsMaps 0.3.0",
+      "published": "2026-10-27",
+      "notes": "# PatchToolsMaps 0.3.0 — 2026-10-27\n\nThe modern Classic Era map is now part of the regular release.\n\n- A compact modern frame with addon buttons, player/cursor coordinates and zone-specific Nova World Buffs timers outside the map.\n- A toolbar toggle for Deathlog's heatmap, keeping the map itself clear.\n- Keep the classic frame available as an option; Forever retains its native layout.\n- Share map transparency between frames, with quick access by right-clicking the zone name.\n- Save window position and size per character, and improve scaling, mouse hit areas and minimum-zoom stability.\n- Zoom, move and resize during combat on unprotected Classic Era maps. Protected operations and frame-style changes wait until combat ends.\n- Restore unexplored-area display choices for Classic Era build 70576.\n- `/ptmaps debug` opens the shared support report with the matching PatchTools update.\n\nRequires PatchTools. Recommended companion: PatchTools 0.9.0.\n\nValidation: Classic Era gameplay testing by the maintainer and testers, plus automated Era/Forever checks. Forever's separate native layout remains in use; live Forever testing remains pending."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-13",
+    "releaseDates": [
+      "2026-11-13",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-10-27",
+      "2026-10-24",
+      "2026-10-23",
+      "2026-10-23"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "PatchToolsMaps"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "requires": [
+      "PatchTools"
+    ],
+    "savedVariables": [
+      "PatchToolsMapsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "PatchToolsMapsCharacterDB"
+    ]
+  }
+}

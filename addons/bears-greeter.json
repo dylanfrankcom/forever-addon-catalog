@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "bears-greeter",
+  "repo": "N6REJ/Bears-Greeter",
+  "about": "# Bears Greeter\n\n[![WoW Version](https://img.shields.io/badge/WoW-12.1.5-darkgreen)](https://worldofwarcraft.blizzard.com/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub](https://img.shields.io/badge/GitHub-Source-blue?logo=github)](https://github.com/N6REJ/Bears-Greeter)\n\nGreets each guild member the first time they are seen in the cache window.\n\nBears Greeter is a small World of Warcraft addon for retail and Forever. It listens for guild\nchat, remembers who has already been greeted for the configured cache time, and\nsends one greeting per member per cache window. The list resets when the cache\nexpires (by default, when the calendar day changes).\n\n## Status\n\nThe default behavior is:\n\n- A guild member comes online (or speaks in guild chat, depending on the\n  trigger setting).\n- If the member has not been greeted within the cache window, wait the\n  configured delay, then send the greeting.\n- Remember the member for the configured cache time (24 hours means until the\n  calendar day changes).\n- Ignore the player themselves.\n\n## Requirements\n\n- Retail World of Warcraft: Midnight, patch **12.1.5** or newer (primary target).\n- Also supports World of Warcraft: Forever (1.60.1, interface 16001) as an\n  optional, additional client. Neither client is required to be installed.\n- Guild membership.\n\nThe TOC uses interface number `120105` (12.1.5). If your client reports a\ndifferent value, update the TOC:\n\n```text\n/dump select(4, GetBuildInfo())\n```\n\n## Installation\n\nThe repository root is the addon folder, but the folder must be named\n`Bears_Greeter` to match `Bears_Greeter.toc`. Junction or clone it into the\nretail AddOns directory:\n\n```powershell\nNew-Item -ItemType Junction `\n    -Path \"C:\\Gaming\\World of Warcraft\\_retail_\\Interface\\AddOns\\Bears_Greeter\" `\n    -Target \"E:\\wow\\Bears-Greeter\"\n```\n\nThen run `/reload` in game.\n\nFor World of Warcraft: Forever, use the same junction under the `_forever_` folder:\n\n```powershell\nNew-Item -ItemType Junction `\n    -Path \"C:\\Gaming\\World of Warcraft\\_forever_\\Interface\\AddOns\\Bears_Greeter\" `\n    -Target \"E:\\wow\\Bears-Greeter\"\n```\n\n## Usage\n\nGuild chat is monitored automatically. Open the options with `/greeter`, `/bg`,\nor the addon entry in **Options > AddOns > Bears Greeter**.\n\nThe first time a guild member is seen in the cache window:\n\n```text\n[Guild] Bearesquishy: Welcome back Thrall!\n```\n\nThe player is never greeted. Members are tracked by short name, so the same\ncharacter on the same realm is only greeted once per cache window.\n\n## Slash commands\n\n| Command | Description |\n| --- | --- |\n| `/greeter` (or `/bg`) | Open the options panel. |\n| `/greeter test` | Send a test greeting. |\n| `/greeter reset` | Clear today's greeted list. |\n| `/greeter toggle` | Turn greetings on or off. |\n| `/greeter debug` | Show or hide the debug log window. Click in the text box, press Ctrl+A then Ctrl+C to copy. Drag the title bar to move it. |\n| `/greeter debug clear` | Clear the debug log. |\n| `/greeter help` | Print command help. |\n\n`/bg` is an alias for `/greeter`.\n\n## Options\n\n| Option | Description |\n| --- | --- |\n| First name only | Greet with only the first word of the name, for example Newmo instead of Newmo Odell. Affects Forever, where names can include a space. Default off. |\n| Random greetings | Pick a random greeting from a built-in list instead of the fixed message. When combined with Time of day greeting, the time-of-day greeting is one of the random options. Default off. |\n| Random greeting list | The list of greetings used when Random greetings is on. Add or remove entries. Use `<name>` for the member's name. |\n| Reset greetings to default | Replace the random greeting list with the defaults from `greetings.lua`, after a confirmation prompt. |\n| Enable greetings | Turn automatic greetings on or off. |\n| Trigger | Greet on login (on join) or on first guild chat message. |\n| Delay (seconds) | Seconds to wait after a member is seen before sending. Default 20. |\n| Cache time (hours) | How long a member is remembered. Default 24 (until the calendar day changes). |\n| Time of day greeting | Use a Good Morning/Afternoon/Evening greeting based on server time (Morning 00:00-12:00, Afternoon 12:00-18:00, Evening 18:00-24:00). |\n| Greeting message | Template sent to chat. `<name>` is replaced with the member's name. |\n| Delivery | Send to guild chat or whisper the member. |\n| Debug messages | Log greeting activity (presence events, sends, send errors) to the debug window. Nothing is printed to chat. Open it with `/greeter debug`. |\n| Test | Send a test greeting using the current settings. |\n| Reset today | Clear the greeted list so members can be greeted again. |\n\nDefaults are saved per Blizzard account in `BearsGreeterDB`.\n\n## How it works\n\nIn login trigger mode the addon watches `GUILD_ROSTER_UPDATE` for guild members\ncoming online. The first roster loaded after login is only a baseline.\nMembers seen during the 30 seconds after login are recorded without greeting, so\nlogging in never greets everyone who is already online. In guild chat mode it\nlistens to `CHAT_MSG_GUILD`. Either way the member\nis normalized with `Ambiguate`, checked against the cache, marked as greeted\nbefore sending, and greeted after the configured delay. Greetings go out through\n`SendChatMessage` to guild chat or as a whisper.\n\nThe cache key is either the calendar day (when cache time is 24 hours) or a\nrolling time window of the configured number of hours. Expired entries are\npruned on load and on `PLAYER_ENTERING_WORLD`.\n\n## File layout\n\n```text\nBears_Greeter.toc          Addon manifest and load order\ngreetings.lua              Default random greeting list (seeded into the saved list on first load)\ncore.lua                   Addon lifecycle, guild chat handling, greeting logic, slash commands\noptions.lua                AceConfig options panel\nLocales/                   AceLocale-3.0 localization files\nLibs/                      Ace libraries; external dependencies fetched by the packager (local copies ignored by git)\n.github/                   Labels, dependabot, release, and changelog workflows\n.pkgmeta                   BigWigs packager configuration\nREADME.md                  This file\nCHANGELOG.md               Version history\nAGENTS.md                  Project guidance for contributors and agents\n```\n\n## Development\n\n- The addon name, TOC filename, folder name, and SavedVariables prefix\n  (`BearsGreeterDB`) must stay consistent.\n- Add any new runtime file to `Bears_Greeter.toc` before `options.lua`.\n- Add user-facing strings to `Locales/enUS.lua` first. Other locale files ship\n  English templates that can be replaced with real translations.\n- Keep the code Lua 5.1 compatible.\n\n## Release automation\n\n`.github/workflows/release.yml` runs BigWigsMods/packager when a tag is pushed.\nIt expects the repository secrets `CF_API_KEY`, `WAGO_API_TOKEN`, and the\nautomatic `GITHUB_TOKEN`. The TOC already includes\n`## X-Curse-Project-ID: 1783140`; add `## X-Wago-ID` if the addon is also\npublished through Wago.\n\n`.github/workflows/changelog.yml` appends generated notes to an existing\nrelease. `.github/workflows/create-labels.yml` syncs `.github/labels.yml`.\n`.github/workflows/auto-merge.yml` enables dependabot auto-merge for minor\nupdates. `.github/workflows/curseforge-stats.yml` refreshes download stats in\n`stats/` daily and needs the `CF_STUDIO_API_KEY` secret.\n\n## Limitations\n\n- The addon cannot know whether another addon already greeted someone.\n- Changing the system clock can reset the daily list early or late.\n- `CHAT_MSG_GUILD` only fires for messages the client can see.\n- Not affiliated with Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "2026.11.21.2",
+      "published": "2026-11-22",
+      "notes": "# Bears Greeter\n\n## [2026.11.21.2](https://github.com/N6REJ/Bears-Greeter/tree/2026.11.21.2) (2026-11-22)\n[Full Changelog](https://github.com/N6REJ/Bears-Greeter/compare/2026.11.21.1...2026.11.21.2) [Previous Releases](https://github.com/N6REJ/Bears-Greeter/releases)\n\n- log guild roster update state"
+    },
+    {
+      "tag": "2026.11.21.1",
+      "published": "2026-11-21",
+      "notes": "# Bears Greeter\n\n## [2026.11.21.1](https://github.com/N6REJ/Bears-Greeter/tree/2026.11.21.1) (2026-11-21)\n[Full Changelog](https://github.com/N6REJ/Bears-Greeter/compare/2026.11.21...2026.11.21.1) [Previous Releases](https://github.com/N6REJ/Bears-Greeter/releases)\n\n- persist debug logs and handle blocked sends  \n    save debug logs to the profile and add a clear button with locale strings  \n    stop retrying blocked sends and add a delayed guild send probe in debug mode  \n    update CHANGELOG"
+    },
+    {
+      "tag": "2026.11.21",
+      "published": "2026-11-21",
+      "notes": "# Bears Greeter\n\n## [2026.11.21](https://github.com/N6REJ/Bears-Greeter/tree/2026.11.21) (2026-11-21)\n[Full Changelog](https://github.com/N6REJ/Bears-Greeter/compare/2026.11.19...2026.11.21) [Previous Releases](https://github.com/N6REJ/Bears-Greeter/releases)\n\n- expand debug logging for client and greeting sends  \n    log client environment and greeting settings on startup  \n    record send attempts, results and addon action errors  \n    update CHANGELOG  \n- add debug log window and update greeting queue  \n    add movable, copyable debug log with clear command and locale strings  \n    send queued greetings on a 15 second timer and resume after combat  \n    adjust login roster settling and guild chat sender handling  \n    update default greetings, README and CHANGELOG"
+    },
+    {
+      "tag": "2026.11.19",
+      "published": "2026-11-18",
+      "notes": "# Bears Greeter\n\n## [2026.11.19](https://github.com/N6REJ/Bears-Greeter/tree/2026.11.19) (2026-11-18)\n[Full Changelog](https://github.com/N6REJ/Bears-Greeter/compare/2026.11.17...2026.11.19) [Previous Releases](https://github.com/N6REJ/Bears-Greeter/releases)\n\n- add reset greetings button and move default greetings to greetings.lua  \n    move default random greetings to greetings.lua and register in toc  \n    add reset greetings to default button with confirmation to options panel  \n    add reset strings to all locale files  \n    increase default greeting delay to 20 seconds  \n    remove chat edit box send logic from core.lua  \n    update README and CHANGELOG"
+    },
+    {
+      "tag": "2026.11.17",
+      "published": "2026-11-17",
+      "notes": "# Bears Greeter\n\n## [2026.11.17](https://github.com/N6REJ/Bears-Greeter/tree/2026.11.17) (2026-11-17)\n[Full Changelog](https://github.com/N6REJ/Bears-Greeter/compare/2026.11.16...2026.11.17) [Previous Releases](https://github.com/N6REJ/Bears-Greeter/releases)\n\n- reorganize options panel layout  \n    add timing and message section headers with adjusted control widths in options  \n    add timing string to all locale files  \n- deactivate chat edit box after sending on Forever"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-04"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Bears_Greeter"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "BearsGreeterDB"
+    ]
+  }
+}

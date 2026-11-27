@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "advancedinterfaceoptions",
+  "repo": "Stanzilla/AdvancedInterfaceOptions",
+  "about": "# Advanced Interface Options\n\nRestores access to removed interface options in Legion and ads a CVar browser for settings galore.\n\nWe are currently covering simple options for the following:\n\nGeneral:\n\n* Player Titles\n* Guild Names\n* Guild Titles\n* Stop Auto Attack\n* Attack on Assist\n* Cast action keybinds on key down\n* Fade Map when Moving\n* Secure Ability Toggle\n* Display Lua Errors\n* No Debuff Filter on Target\n* Reverse Cleanup Bags\n* Quest sorting mode (top vs proximity)\n* Select Action Cam mode\n\nChat:\n\n* Remove Chat Hover Delay\n* Enable Mouse Wheel Scrolling\n\nFloating Combat Text:\n\n* Float mode (up/down/arc)\n* Energy Gains\n* Auras\n* Honor Gains\n* Reputation\n* Combo Points\n* Combat State (Entering/Leaving Combat)\n* Spell Mechanics\n* Healing\n* Absorb (Self and Target)\n* Directional Scale (brings back the classic, only upwards moving text)\n* Low HP/Mana\n\nAnd many more via the built in CVar browser, including stuff that has never ever been exposed as an UI option by Blizzard like the violence level or the new setting that changes the distance nameplates are visible at!\n\nType /aio in chat or go to the Interface Options and look for AdvancedInterfaceOptions",
+  "releases": [
+    {
+      "tag": "2.1.14",
+      "published": "2026-09-27",
+      "notes": "# Advanced Interface Options\n\n## [2.1.14](https://github.com/Stanzilla/AdvancedInterfaceOptions/tree/2.1.14) (2026-09-27)\n[Full Changelog](https://github.com/Stanzilla/AdvancedInterfaceOptions/compare/2.1.13...2.1.14) [Previous Releases](https://github.com/Stanzilla/AdvancedInterfaceOptions/releases)\n\n- chode(toc): add forever version  \n- chore: update interface updater to v1.2.0  \n- chore: use standard WoW interface targets  \n- chore: update WoW interface versions  \n- Added all missing api functions to luacheck globals list"
+    },
+    {
+      "tag": "2.1.13",
+      "published": "2026-08-25",
+      "notes": "# Advanced Interface Options\n\n## [2.1.13](https://github.com/Stanzilla/AdvancedInterfaceOptions/tree/2.1.13) (2026-08-25)\n[Full Changelog](https://github.com/Stanzilla/AdvancedInterfaceOptions/compare/2.1.12...2.1.13) [Previous Releases](https://github.com/Stanzilla/AdvancedInterfaceOptions/releases)\n\n- Add `canaccessvalue` to luacheck  \n- Fix `debugstack` throwing an error if trace contains secret values  \n- chore: update WoW interface versions"
+    },
+    {
+      "tag": "2.1.12",
+      "published": "2026-08-07",
+      "notes": "# Advanced Interface Options\n\n## [2.1.12](https://github.com/Stanzilla/AdvancedInterfaceOptions/tree/2.1.12) (2026-08-07)\n[Full Changelog](https://github.com/Stanzilla/AdvancedInterfaceOptions/compare/2.1.11...2.1.12) [Previous Releases](https://github.com/Stanzilla/AdvancedInterfaceOptions/releases)\n\n- Fix game marking addon as incompatible with current game version  \n    - Putting a comment above the `## Interface` line invalidates the file  \n    - `# WOW_INTERFACE_TARGETS` cannot be on line 1  \n- Guard the status text repaint against secret values"
+    },
+    {
+      "tag": "2.1.11",
+      "published": "2026-08-07",
+      "notes": "# Advanced Interface Options\n\n## [2.1.11](https://github.com/Stanzilla/AdvancedInterfaceOptions/tree/2.1.11) (2026-08-07)\n[Full Changelog](https://github.com/Stanzilla/AdvancedInterfaceOptions/compare/2.1.10...2.1.11) [Previous Releases](https://github.com/Stanzilla/AdvancedInterfaceOptions/releases)\n\n- chore: ignore macOS metadata  \n- chore: automate WoW interface updates  \n    Keep supported client interface IDs current from Warcraft Wiki and open a pull request when the scheduled updater detects changes.  \n- Update interface IDs in AdvancedInterfaceOptions.toc  \n    Update ToC for TBC and Era updates.  \n- Fix wrong tooltip description for floating combat text self absorbs  \n- Bump actions/checkout from 4 to 7  \n    Bumps [actions/checkout](https://github.com/actions/checkout) from 4 to 7.  \n    - [Release notes](https://github.com/actions/checkout/releases)  \n    - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)  \n    - [Commits](https://github.com/actions/checkout/compare/v4...v7)  \n    ---  \n    updated-dependencies:  \n    - dependency-name: actions/checkout  \n      dependency-version: '7'  \n      dependency-type: direct:production  \n      update-type: version-update:semver-major  \n    ...  \n    Signed-off-by: dependabot[bot] <support@github.com>  \n- Bump actions/upload-artifact from 6 to 7  \n    Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 6 to 7.  \n    - [Release notes](https://github.com/actions/upload-artifact/releases)  \n    - [Commits](https://github.com/actions/upload-artifact/compare/v6...v7)  \n    ---  \n    updated-dependencies:  \n    - dependency-name: actions/upload-artifact  \n      dependency-version: '7'  \n      dependency-type: direct:production  \n      update-type: version-update:semver-major  \n    ...  \n    Signed-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+      "tag": "2.1.10",
+      "published": "2026-02-01",
+      "notes": "# Advanced Interface Options\n\n## [2.1.10](https://github.com/Stanzilla/AdvancedInterfaceOptions/tree/2.1.10) (2026-02-01)\n[Full Changelog](https://github.com/Stanzilla/AdvancedInterfaceOptions/compare/2.1.9...2.1.10) [Previous Releases](https://github.com/Stanzilla/AdvancedInterfaceOptions/releases)\n\n- Add TBC to list of supported clients in toc"
+    }
+  ],
+  "stats": {
+    "stars": 59,
+    "openIssues": 25,
+    "contributors": 17,
+    "lastRelease": "2026-09-27",
+    "releaseDates": [
+      "2026-09-27",
+      "2026-08-25",
+      "2026-08-07",
+      "2026-08-07",
+      "2026-02-01",
+      "2026-01-30",
+      "2026-01-30",
+      "2026-01-30",
+      "2026-01-23",
+      "2025-09-17",
+      "2025-07-03",
+      "2025-04-23",
+      "2025-02-25",
+      "2024-08-13",
+      "2024-07-28",
+      "2024-07-25",
+      "2024-05-08",
+      "2024-01-17",
+      "2024-01-17",
+      "2023-11-23",
+      "2023-11-23",
+      "2023-11-07",
+      "2023-10-14",
+      "2023-09-06",
+      "2023-05-02",
+      "2023-03-31",
+      "2022-11-17",
+      "2022-11-17",
+      "2022-11-16",
+      "2022-10-26",
+      "2022-10-26",
+      "2022-08-16",
+      "2022-04-03",
+      "2021-11-22",
+      "2021-06-29",
+      "2021-05-18",
+      "2021-03-29",
+      "2020-11-30",
+      "2020-11-28",
+      "2020-10-29",
+      "2020-10-13",
+      "2020-01-23",
+      "2019-09-24",
+      "2019-08-30",
+      "2019-08-27",
+      "2019-06-25",
+      "2019-06-13"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AdvancedInterfaceOptions"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "AdvancedInterfaceOptionsSaved"
+    ]
+  }
+}

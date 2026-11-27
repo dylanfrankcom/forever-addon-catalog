@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "incognitoresurrected",
+  "repo": "Starlynk1/IncognitoResurrected",
+  "about": "# Incognito Resurrected\n\nIncognito adds your specified name in front of your chat messages. Incognito Resurrected can be enabled for guild (and officer), party, raid, world, custom, and community chat.\n\nMidnight and Forever API changes limit prefixing while addon restrictions or secret-value chat lockdown is active (encounters, Mythic+, PvP matches, and some maps). Open-world combat still prefixes.\n\n## Example\n\n`[Guild] [Yourchar]: Some chat message `\n\nbecomes\n\n`[Guild] [Yourchar]: (Yourname): Some chat message`\n\n## Usage\n\nUse the GUI (`/inc` or `/incognito`) or slash commands:\n\n- `/inc` — Open the configuration dialog\n- `/inc name <name>` — Set the name shown in front of your messages\n- `/inc debug` — Toggle debug output\n- `/inc help` — Show slash-command help\n\n`/inc2` and `/incognito2` still open the same panel.\n\n## Options\n\n- **Use global profile** — Share settings across characters, or turn this off for a per-character\n  profile\n- **Enable** — Add your name to chat messages\n- **Name** — The name displayed in your chat messages\n- **Color Name by class** — Color the prefix with the sender's class color\n- **Hide name if it matches your character's name** — Skip the prefix when it would repeat your\n  character name\n- **Guild** — Guild and officer chat (`/g`, `/o`)\n- **Party / Dungeon / Raid / Battleground / Arena** — Instance toggles are skipped on Retail and\n  Forever while restrictions are active\n- **World Chat** — General, Trade, LocalDefense, and Services (all or none)\n- **Channel** — Custom channels, comma-separated\n- **Community** — Community channels (Retail)\n- **Debug** — Debug output\n\n## Known Issues\n\n## Features and Bugs\n\nIf you have a feature request or find a bug please report them through the Github repository:  \nhttps://github.com/Starlynk1/IncognitoResurrected/issues\n\n## Translations\n\nTranslations are initially done using a translation website.  \nPlease submit a ticket with updated translations if/when there is a better wording.  \nNew languages are always appreciated.\n\n## Credits\n\nResurrected Author: Starlynk\n\n### Version: 2.0.1",
+  "releases": [
+    {
+      "tag": "v2.0.1",
+      "published": "2026-09-26",
+      "notes": "## v2.0.1 (2026-09-25)\n\n- Updated the TOC to the clients that are still live.\n- Classic Era, Season of Discovery, and Hardcore are on 1.15.9 (`11509`). Hardcore received the same July 21, 2026 client update as Classic Era and Season of Discovery.\n- Burning Crusade Anniversary is on 2.5.6 (`20506`).\n- Mists of Pandaria Classic is on 5.5.4 (`50504`).\n- Retail is on 12.1.0 (`120100`).\n- Forever beta is on 1.60.1 (`16001`). It uses the Midnight API.\n- Removed interface numbers for The War Within and older Midnight builds. 12.1.5 is still on the PTR."
+    },
+    {
+      "tag": "v2.0.0",
+      "name": "IncognitoResurrected-v2.0.0",
+      "published": "2026-09-20",
+      "notes": "# Incognito Resurrected\n\n## [v2.0.0](https://github.com/Starlynk1/IncognitoResurrected/tree/v2.0.0) (2026-09-19)\n\nAuthors Note: Sorry for being AFK for a while, but life is always interesting and time was not\navailable. But in the meantime, I have made a new version. This is a full rewrite of the addon. Ace3\nis gone. Chat prefixing, options, and saved variables are all native now.\n\nI just saw today that there is another Incognito made called Incognito 2. Which this is what I was\ngoing to call this rewrite, but will stick with the original naming now. It's just V2 now :D\n\nThanks for the support and have fun!\n\n**Chat**\n\n- Retail and Forever prefix through the official edit-box send path. `C_ChatInfo.SendChatMessage` is\n  never replaced.\n- Secret chat text is prefixed by concatenation only. The addon does not compare, match, or measure\n  those strings.\n- Open-world combat still prefixes. Prefixing is skipped during encounter, Mythic+, PvP match,\n  restricted map, or chat messaging lockdown.\n- Classic Era still wraps `SendChatMessage`. MoP uses the edit-box path.\n\n**Settings**\n\n- New options panel in `/inc` or `/incognito`.\n- Global profile is the default. Turn it off for a per-character profile (different guilds or\n  mains).\n- Dungeon, raid, battleground, and arena toggles stay disabled on Retail and Forever while those\n  restrictions apply.\n\n**Saved variables**\n\n- First load rebuilds old AceDB settings and any Incognito beta profiles into the new 1/0 flag\n  schema.\n- Your existing name and channel options should carry over. Reload once after updating.\n\n**Support**\n\n- TOC covers Classic Era, Classic, MoP, Retail 12.0/12.1, and Forever."
+    },
+    {
+      "tag": "v1.5.1",
+      "published": "2026-02-28",
+      "notes": "# Incognito Resurrected\n\n## [v1.5.1](https://github.com/Starlynk1/IncognitoResurrected/tree/v1.5.1) (2026-02-28)\n[Full Changelog](https://github.com/Starlynk1/IncognitoResurrected/compare/v1.5.0...v1.5.1) [Previous Releases](https://github.com/Starlynk1/IncognitoResurrected/releases)\n\n- Merge pull request #65 from TheIceBadger/main  \n- Merge pull request #67 from milestorme/develop  \n- Update interface version in IncognitoResurrected.toc  \n- Restricted status helper function  \n- Fix formatting in credits section of README"
+    },
+    {
+      "tag": "v1.5.0",
+      "published": "2026-02-21",
+      "notes": "# Incognito Resurrected\n\n## [v1.5.0](https://github.com/Starlynk1/IncognitoResurrected/tree/v1.5.0) (2026-02-21)\n[Full Changelog](https://github.com/Starlynk1/IncognitoResurrected/compare/v1.4.6...v1.5.0) [Previous Releases](https://github.com/Starlynk1/IncognitoResurrected/releases)\n\n**Midnight Updates:**\n- Change on how the addon handles prefix injection.\nNo more use of rawhooks or securehooks\nReady for if/when Blizzard makes chat messages less restrictive for addons\n- Retail only, the prefix's are not added to the outgoing chat messages\nThis will now essentially disable Inc while in Combat Instances\nAfter outside of those instances, Inc will resume like normal\n- Specific special characters will auto ignore.\nNot ignoring Curly braces so you can still use raid target icons in chat\n\n**All Versions:**\n- Polish pass for config screen.\n- Update to slash commands"
+    },
+    {
+      "tag": "v1.4.6",
+      "published": "2026-01-25",
+      "notes": "# Incognito Resurrected\n\n## [v1.4.6](https://github.com/Starlynk1/IncognitoResurrected/tree/v1.4.6) (2026-01-25)\n[Full Changelog](https://github.com/Starlynk1/IncognitoResurrected/compare/v1.4.5...v1.4.6) [Previous Releases](https://github.com/Starlynk1/IncognitoResurrected/releases)\n\n- Merge pull request #50 from Starlynk1/bugfix/slash-command-errors  \n- Fix for slash commands, return before SendChatMessage"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-09-26",
+    "releaseDates": [
+      "2026-09-26",
+      "2026-09-20",
+      "2026-02-28",
+      "2026-02-21",
+      "2026-01-25",
+      "2026-01-25",
+      "2026-01-12",
+      "2025-09-21",
+      "2025-09-13",
+      "2025-08-08",
+      "2025-08-08",
+      "2025-08-08",
+      "2025-08-08",
+      "2025-07-29",
+      "2025-07-28",
+      "2025-06-25",
+      "2025-04-19",
+      "2025-04-11",
+      "2025-04-11",
+      "2025-02-28",
+      "2025-01-29",
+      "2024-12-18",
+      "2024-12-11",
+      "2024-11-23",
+      "2024-10-22",
+      "2024-08-01",
+      "2024-08-01",
+      "2024-08-01",
+      "2024-07-28",
+      "2024-07-28",
+      "2024-06-03",
+      "2024-06-03",
+      "2024-06-03",
+      "2024-04-03",
+      "2024-03-22",
+      "2024-02-12"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "IncognitoResurrected"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "IncognitoResurrectedDB",
+      "Incognito2DB"
+    ]
+  }
+}

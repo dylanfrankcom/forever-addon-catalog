@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "meeyraslockouttracker",
+  "repo": "Addons-By-Neotron/MeeyrasLockouts",
+  "about": "# Meeyra's Lockout Tracker\n\nA lightweight addon that tracks instance lockouts, and shows a view sorted by instance size. \n\n## Features:\n\n* Uses a data broker display of your choice (such as ButtonBin)\n* Optionally display a minimap button if you prefer, or don't use a data broker display addon.\n* Ability to list lockouts to raid or party chat.\n\n## Command line interface\n\n* **/lockouts announce**: Announce lockouts in raid or party chat.\n* **/lockouts list**: Show list of lockouts in chat (seen by you only).\n* **/lockouts icon**: Toggle visibility of minimap icon.\n\n[![Package and release](https://github.com/neotron/WoW-MeeyrasLockouts/actions/workflows/make-release.yml/badge.svg)](https://github.com/neotron/WoW-MeeyrasLockouts/actions/workflows/make-release.yml)",
+  "releases": [
+    {
+      "tag": "20261108",
+      "published": "2026-11-08",
+      "notes": "# Meeyra's Lockout Tracker\n\n## [20261108](https://github.com/Addons-By-Neotron/MeeyrasLockouts/tree/20261108) (2026-10-16)\n[Full Changelog](https://github.com/Addons-By-Neotron/MeeyrasLockouts/compare/20261008...20261108) [Previous Releases](https://github.com/Addons-By-Neotron/MeeyrasLockouts/releases)\n\n- Update Interface version"
+    },
+    {
+      "tag": "20261008",
+      "published": "2026-11-05",
+      "notes": "# Meeyra's Lockout Tracker\n\n## [20261008](https://github.com/Addons-By-Neotron/MeeyrasLockouts/tree/20261008) (2026-10-08)\n[Full Changelog](https://github.com/Addons-By-Neotron/MeeyrasLockouts/compare/20260813...20261008) [Previous Releases](https://github.com/Addons-By-Neotron/MeeyrasLockouts/releases)\n\n- Update Interface version  \n- Add WoW Forever (16001) support  \n- Fix table recycling type check and clear lockouts in place"
+    },
+    {
+      "tag": "20260813",
+      "published": "2026-08-13",
+      "notes": "# Meeyra's Lockout Tracker\n\n## [20260813](https://github.com/Addons-By-Neotron/MeeyrasLockouts/tree/20260813) (2026-08-12)\n[Full Changelog](https://github.com/Addons-By-Neotron/MeeyrasLockouts/compare/20260226...20260813) [Previous Releases](https://github.com/Addons-By-Neotron/MeeyrasLockouts/releases)\n\n- Update Interface version"
+    },
+    {
+      "tag": "20260226",
+      "published": "2026-02-26",
+      "notes": "# Meeyra's Lockout Tracker\n\n## [20260226](https://github.com/Addons-By-Neotron/MeeyrasLockouts/tree/20260226) (2026-02-11)\n[Full Changelog](https://github.com/Addons-By-Neotron/MeeyrasLockouts/compare/20260120...20260226) [Previous Releases](https://github.com/Addons-By-Neotron/MeeyrasLockouts/releases)\n\n- Update Interface version"
+    },
+    {
+      "tag": "20260120",
+      "published": "2026-01-20",
+      "notes": "# Meeyra's Lockout Tracker\n\n## [20260120](https://github.com/Addons-By-Neotron/MeeyrasLockouts/tree/20260120) (2026-01-20)\n[Full Changelog](https://github.com/Addons-By-Neotron/MeeyrasLockouts/compare/20250719...20260120) [Previous Releases](https://github.com/Addons-By-Neotron/MeeyrasLockouts/releases)\n\n- Update Interface version  \n- Fixed github workflows and update toc."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-11-05",
+      "2026-08-13",
+      "2026-02-26",
+      "2026-01-20",
+      "2025-07-19",
+      "2024-08-14",
+      "2024-07-24",
+      "2024-06-01",
+      "2024-01-23",
+      "2022-10-16",
+      "2022-10-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MeeyrasLockoutTracker"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibDatabroker-1.1",
+      "LibQTip-1.0",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "LibMagicUtil-1.0"
+    ],
+    "savedVariables": [
+      "MeeyrasLockouts"
+    ]
+  }
+}

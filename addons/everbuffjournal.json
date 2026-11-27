@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "everbuffjournal",
+  "repo": "everbuff/everbuff-wow-addon",
+  "about": "# everbuff.gg WoW addon\n\n**Gameplay recording for data nerds.**\n\nThe in-game half of **[everbuff.gg](https://everbuff.gg/)**. It records your WoW run the way a flight\nrecorder records a flight: every fight with a replay you can scrub, every pickup with where it came from,\nevery death with what killed you, every quest, standing and skill point, and where your gold went. Nothing\nto start or stop. Play, and it fills in.\n\n## What you get\n\nFive tabs, one question each. No tab is named after a data type.\n\n| Tab | The question | What is in it |\n| --- | --- | --- |\n| **Home** | How is my run going? | Level, XP per hour and time to level, gold per hour, time played, the story of this session, and one row per play session with XP and gold bars |\n| **Combat** | What happened when I fought? | Dungeon runs boss by boss, every fight with a scrubber that shows your buffs, your group's buffs, the monsters' buffs, gear and items used at any second, and every death with the corpse run and gear lost |\n| **Loot** | What did I get? | Every pickup with its source (the mob, the node, the object, the mail, the auction) and the map coordinates, a by-item view, every copper in and out by source with the rows behind each source (which quest, which item to which merchant, which player and who they are to you), and your auctions: what you posted at what price, what sold and for how much after the house cut, what you bought, what came back |\n| **Character** | How is my character growing? | Quests done and in progress with where you did them, standing with every faction, professions with skill bars and milestones, and crafting: every item you made with the profession and where you made it, every recipe learned |\n| **Settings** | | The on-screen flag, notifications, capture health, disconnect protection, stored data |\n\nThe **flag** in the corner is the part the everbuff desktop app reads: it marks the moments in your video\nrecording. Drag it anywhere, right-click to snap it to a corner, size and fade it in Settings.\n\n## Why an addon and not just a combat log\n\nThe combat log knows damage. It does not know your level, your gold, what you looted or from where, what\nyou were wearing, which potion you drank, what your party's buffs were at the second the tank died, or\nwhere on the map any of it happened. This addon records all of that, timestamped to the same clock as the\ncombat log and the video, so the desktop app can put the three together.\n\nIt also handles the awkward client. On the Midnight and \"WoW Forever\" builds most combat values are\nSecret Values that addons cannot read, and the client hides your own buffs a few seconds into every fight.\nThe recorder is built around that: identities that survive hiding, guards that never record a phantom buff\nloss, and a replay that bridges any gap. Verified against real fights.\n\n## Install\n\nThe **everbuff desktop app** installs and updates the addon for you. Manual install:\n\n1. Download `EverbuffJournal-<version>.zip` from Releases.\n2. Extract so that `Interface/AddOns/EverbuffJournal/EverbuffJournal.toc` exists in each WoW flavor you play.\n3. Start WoW. Upgrading from an earlier version needs a full client restart, not `/reload`.\n\nWorks on the Midnight beta, Anniversary and Classic Era clients. Open the panel with `/eb`, or click the flag. `/eb gold` prints the balance, today, this session and the rate per hour in chat, `/eb gold chars` every character, `/eb gold stats` today, this week and this month, and `/eb gold timer` starts a farm timer. The gold pill (one line of text on screen, off by default) is turned on in Settings, Gold.\n\n## Layout\n\n- `Everbuff/` is the addon source, packaged as `EverbuffJournal/` in a release.\n- Five host tabs, each built from panes: `Home` (Journey.lua: Overview and Sessions; the Timeline pane lives\n  in Emitter.lua), `Combat` (Dungeons.lua over the stored runs of Runs.lua, Recording.lua for Fights, Deaths.lua), `Loot` (Emitter.lua Items,\n  Economy.lua Gold), `Character` (Progress.lua), `Settings` (Emitter.lua; Capture pane from Sync.lua).\n  `Fights.lua` is the per-fight recorder, `UI.lua` the framework (`UI.registerHost`, `UI.registerPane`).\n- `tests/` is the headless LuaJIT harness. Run it before every install.\n- `docs/` holds the engineering notes: the data contract the desktop parses, the roadmap checklist, the\n  audit backlog, the ack channel design, and the Midnight client notes. **Read\n  [`docs/MIDNIGHT_ADDON.md`](https://github.com/everbuff/everbuff-wow-addon/blob/main/docs/MIDNIGHT_ADDON.md) before touching the TOC, SavedVariables, or any\n  Secret-Value read.**\n\nSavedVariables: `EverbuffDB` (schema 2, mirrors the five tabs: `settings`, `sessions`, `combat`, `loot`,\n`characters` (one block per character, keyed by GUID), `story`), `EverbuffAck` (written by the desktop app while WoW is closed to ack uploads),\n`EverbuffTest` (a load canary). The full shape is in [`docs/ADDON_DATA_CONTRACT.md`](https://github.com/everbuff/everbuff-wow-addon/blob/main/docs/ADDON_DATA_CONTRACT.md).\n\n## Client notes and gotchas\n\n- **Secret Values.** On Midnight, enemy names and GUIDs, aura fields and every combat stat can be secret.\n  They throw on arithmetic, comparison, concatenation, formatting and as table keys. Guard with the\n  `plain`, `safeStr` and `safeKey` helpers and sanitize before saving, or the whole SavedVariables file is\n  rejected on load.\n- **Your own buffs hide in combat** a few seconds after the pull. The recorder keys auras by instance id,\n  skips blind scans, never records a whole-set loss on a living unit, and backfills names after combat.\n- **A tainted addon cannot call `ReloadUI()`.** The disconnect-protection reminder uses a secure `/reload`\n  button, hides the instant combat starts, and returns once it is safe.\n- **TOC changes need a full client relaunch**, not `/reload`. New files too.\n- **A wedged addon folder identity** can write SavedVariables but never load them back. Rebuilding under a\n  fresh folder name fixed it; the shipped folder is `EverbuffJournal`.\n- **Emitter.lua's event handler sits at Lua's 60-upvalue limit.** New module state goes into tables, not\n  bare locals, or the file fails to parse.\n\n## Tests\n\n```\nluajit tests/run_tests.lua\n```\n\n`tests/wow_stub.lua` fakes enough of the WoW API for every file to load in TOC order under plain LuaJIT.\nFrames record their handlers and event registrations, so the suite fires real events into the addon's actual\ncode and asserts on the resulting state: the fight lifecycle, aura guards, loot attribution, mailbox capture,\nthe ack channel, the schema migration, every tab and pane building and refreshing, and the data contract.\nSecret Values cannot be simulated outside the client; their guards' type gates and positive paths are covered.\n\n```\nluajit tests/export_fixture.lua           # regenerate tests/export/EverbuffJournal.lua\nluajit tests/export_fixture.lua --check   # fail when the committed export is stale\n```\n\n`tests/export_fixture.lua` plays a scripted session through the real addon files (login, three fights with loot\nand coin, a quest, a level-up, a `/reload` in a fresh Lua state that loads the save file the logout wrote, a\nlogout) and writes the save file in the client's layout with sorted keys, a fixed clock and a fixed random seed.\nThe backend checks in a copy (`everbuff-backend` `tests/fixtures/addon_export/`) and ingests it with exact\ncounts, so a change to what the addon saves regenerates this file and then the backend's copy. The `test`\nworkflow runs the suite, `tools/deps.lua --check` and the export check on every pull request and push to main.\n\n## Roadmap\n\n[`docs/ADDON_ROADMAP.md`](https://github.com/everbuff/everbuff-wow-addon/blob/main/docs/ADDON_ROADMAP.md) is the checklist of everything planned, done and open, with\nper-area progress. [`docs/ADDON_BACKLOG.md`](https://github.com/everbuff/everbuff-wow-addon/blob/main/docs/ADDON_BACKLOG.md) holds the audit detail behind each item.\n\n## Typography and brand\n\nThe panel is set in **Chakra Petch** (bundled, SIL OFL), the same face the desktop app uses, so addon and\ndesktop read as one product. Page titles keep WoW's Morpheus as the single game-voice note. The palette and\ncomponent rules are the everbuff design system shared with the desktop and web apps.",
+  "releases": [
+    {
+      "tag": "v0.9.52",
+      "name": "EverbuffJournal 0.9.52",
+      "published": "2026-11-22",
+      "notes": "## What's Changed\n* Tests on every pull request and a SavedVariables contract export (P0-12) by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/27\n* 0.9.37: gold changed elsewhere and gold traded (#31); no text spills out of its box in the addon window by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/32\n* 0.9.38: fight history cap 5000, fewer and truer chat lines when a fight is dropped by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/33\n* 0.9.39: the addon window lays out to its size; Loot screen rebuilt on one table model by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/35\n* 0.9.40: gold journal (#36) by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/37\n* 0.9.41: dungeon runs captured on WoW Forever by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/39\n* 0.9.42: gold on one model, every surface (prototype for #38) by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/40\n* 0.9.43: one run per dungeon visit by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/41\n* 0.9.44: History, characters, first glance by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/44\n* 0.9.45: Rate and glance by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/45\n* 0.9.46: Honest sources by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/46\n* 0.9.47: Showcase: zones, runs, audit by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/47\n* Gold with real purses: Characters stays inside its list (#49), CI timeout 20 minutes by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/50\n* 0.9.49: Guards and #42 by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/53\n* 0.9.50: The durable dungeon run by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/54\n* 0.9.51: Bests, statistics, undo and the hour count by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/55\n* UX overhaul: one design system, one level of tabs, every screen says what it gives you by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/56\n* 0.9.52: Market snapshot from Auctionator, silent (#58) by @jsam in https://github.com/everbuff/everbuff-wow-addon/pull/60\n\n## New Contributors\n* @jsam made their first contribution in https://github.com/everbuff/everbuff-wow-addon/pull/27\n\n**Full Changelog**: https://github.com/everbuff/everbuff-wow-addon/compare/v0.9.36...v0.9.52"
+    },
+    {
+      "tag": "v0.9.36",
+      "name": "EverbuffJournal 0.9.36",
+      "published": "2026-11-06",
+      "notes": "**Full Changelog**: https://github.com/everbuff/everbuff-wow-addon/compare/v0.9.35...v0.9.36"
+    },
+    {
+      "tag": "v0.9.35",
+      "name": "EverbuffJournal 0.9.35",
+      "published": "2026-11-06",
+      "notes": "**Full Changelog**: https://github.com/everbuff/everbuff-wow-addon/compare/v0.9.34...v0.9.35"
+    },
+    {
+      "tag": "v0.9.33",
+      "name": "EverbuffJournal 0.9.33",
+      "published": "2026-10-05",
+      "notes": "**Full Changelog**: https://github.com/everbuff/everbuff-wow-addon/compare/v0.9.32...v0.9.33"
+    },
+    {
+      "tag": "v0.9.32",
+      "name": "EverbuffJournal 0.9.32",
+      "published": "2026-10-04",
+      "notes": "**Full Changelog**: https://github.com/everbuff/everbuff-wow-addon/compare/v0.9.31...v0.9.32"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 11,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-02",
+      "2026-10-01",
+      "2026-10-01",
+      "2026-10-01",
+      "2026-10-01",
+      "2026-10-01",
+      "2026-09-30",
+      "2026-09-30",
+      "2026-09-30",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-25",
+      "2026-09-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EverbuffJournal"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "EverbuffDB",
+      "EverbuffTest",
+      "EverbuffAck"
+    ]
+  }
+}

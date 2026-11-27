@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "midnightriders-dragons",
+  "repo": "realworldbuilder/midnight-riders-dragons",
+  "about": "# Midnight Riders Dragons\n\nA World of Warcraft: Forever addon for the **** guild.\n\n- **Guild master:** a gold dragon around their portrait.\n- **Officers:** a silver dragon.\n\nYou'll see the dragons on your own frame, your party frames, and whoever you target or focus.\n\n## Install\n\nCopy one line, paste it, press Enter.\n\n### Windows\n\nOpen **PowerShell** (press the Windows key, type `powershell`, press Enter) and paste:\n\n```powershell\nirm https://raw.githubusercontent.com/realworldbuilder/midnight-riders-dragons/main/install.ps1 | iex\n```\n\n### Mac\n\nOpen **Terminal** (press Cmd+Space, type `terminal`, press Enter) and paste:\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/realworldbuilder/midnight-riders-dragons/main/install.sh | bash\n```\n\nThen **restart the game**. On the character screen, click **AddOns** and make sure **Midnight Riders Dragons** is ticked. Type `/mrdragon` in game to check it's working.\n\n**To update,** paste the same line again. It replaces the old version.\n\nThe command finds your Forever folder on its own, downloads the latest version from this page, and puts it in `_forever_/Interface/AddOns`. It doesn't touch anything else. You can read exactly what it does in [install.ps1](https://github.com/realworldbuilder/midnight-riders-dragons/blob/main/install.ps1) and [install.sh](https://github.com/realworldbuilder/midnight-riders-dragons/blob/main/install.sh).\n\n**It says it can't find Forever, or isn't allowed to write there**\n\n- **Can't find Forever:** tell it where your `World of Warcraft` folder is (the one with `_forever_` inside).\n  - Windows: `$env:WOW_DIR = 'D:\\Games\\World of Warcraft'; irm https://raw.githubusercontent.com/realworldbuilder/midnight-riders-dragons/main/install.ps1 | iex`\n  - Mac: `curl -fsSL https://raw.githubusercontent.com/realworldbuilder/midnight-riders-dragons/main/install.sh | WOW_DIR=\"/path/to/World of Warcraft\" bash`\n- **Not allowed to write (Windows):** close the game, right-click PowerShell, choose **Run as administrator**, and paste the line again.\n\n**Install by hand instead**\n\n1. Download [MidnightRiders_Dragons.zip](https://github.com/realworldbuilder/midnight-riders-dragons/releases/latest/download/MidnightRiders_Dragons.zip).\n2. Unzip it, and put the `MidnightRiders_Dragons` folder inside `World of Warcraft/_forever_/Interface/AddOns/`. If there's no `AddOns` folder, make one.\n3. Check the folder: it should be `AddOns/MidnightRiders_Dragons/Dragons.lua`, not one folder deeper.\n\n## Commands\n\n| Command | Does |\n| --- | --- |\n| `/mrdragon` | Shows who has a dragon right now: you, your target, your focus, your party |\n| `/mrdragon ranks` | Lists every guild rank and which dragon it gets |\n| `/mrdragon on` / `off` | Turns all dragons on or off |\n| `/mrdragon player` / `target` / `focus` / `party` | Turns one kind of frame on or off |\n| `/mrdragon test gold` / `silver` / `off` | Previews a dragon on your own frame |\n| `/mrdragon nudge 2 -1` | Moves your own dragon a few pixels (`nudge reset` puts it back) |\n\n## How it knows who's who\n\n- **In the guild:** it reads the guild roster. Officers are the ranks with \"officer privileges\" ticked in the guild's rank settings, so promotions show up on their own.\n- **Not in the guild:** it goes by what the game shows about each player's guild and rank.\n\nNothing is sent between players, and it doesn't touch your other addons. It uses Forever's own dragon art, the same art the game uses for elite and rare monsters.\n\n## Problems?\n\nAsk in the guild Discord, or [open an issue](https://github.com/realworldbuilder/midnight-riders-dragons/issues). Paste what `/mrdragon` prints in chat.\n\nFor a deeper look: type `/mrdragon debug`, then `/reload`. The addon saves what the game reported into `WTF/Account/<your account>/SavedVariables/MidnightRiders_Dragons.lua`. Type `/mrdragon debug` again to turn it off.\n\n---\n\nPart of the Midnight Riders addons, alongside [Midnight Riders Meter](https://github.com/realworldbuilder/midnight-riders-addons). MIT licence. A fan project, not made by or affiliated with Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "Midnight Riders Dragons v1.0.0",
+      "published": "2026-11-14",
+      "notes": "Download **MidnightRiders_Dragons.zip** below and unzip it into `_forever_/Interface/AddOns/`. Full steps: https://github.com/realworldbuilder/midnight-riders-dragons#install"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MidnightRiders_Dragons"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "MidnightRidersDragonsDB"
+    ]
+  }
+}

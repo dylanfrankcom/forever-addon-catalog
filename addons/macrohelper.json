@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "macrohelper",
+  "repo": "blink1415/WoWMacroHelper",
+  "about": "# Macro Helper\n\nA World of Warcraft addon that builds macros for your abilities.\n\nWorks in **WoW Forever** and **Classic Era**.\n\n![Macro Helper panel](https://raw.githubusercontent.com/blink1415/WoWMacroHelper/main/docs/screenshot.png)\n\n## Install\n\n**From a release:** Download the latest release from the Releases page and extract it in your AddOns folder.\n\n**Building the zip yourself:** run `./build.sh`. It creates `dist/MacroHelper-x.y.z.zip`, which you can install to the AddOns folder as above.\n\n## Use\n\nOpen the macro window or type `/macrohelper`. Drag a spell or item onto the panel, pick the options you want, then click **New Macro** or **Save to Selected**.",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-05",
+      "notes": "**Full Changelog**: https://github.com/blink1415/WoWMacroHelper/commits/v0.2.0"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/blink1415/WoWMacroHelper/main/docs/screenshot.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MacroHelper"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "MacroHelperDB"
+    ]
+  }
+}

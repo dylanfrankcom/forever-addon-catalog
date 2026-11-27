@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "max-camera-distance",
+  "repo": "LihvoDruida/Max-Camera-Distance",
+  "about": "# Max Camera Distance v11.4.1\n\n## Встановлення\n\nСкопіюйте папку `Max_Camera_Distance` в `Interface/AddOns` вашого клієнта WoW.\nПапка повинна містити `Max_Camera_Distance.toc`, `manifest.xml`, Lua-файли та `libs`.\nЗамініть стару папку адона. Не видаляйте `WTF`: наявні профілі зберігаються.\nГотовий архів v11.4.1 містить усі потрібні бібліотеки. GitHub Source ZIP\nсам по собі може не містити п’яти зовнішніх бібліотек: для нього потрібне\nрелізне пакування. Команда `/mcd config` працює і без інтеграції в меню гри.\n\n## Налаштування\n\nНалаштування доступні в меню гри: **Налаштування → Аддони → Max Camera Distance**.\nТам відкривається повний власний інтерфейс у компактному компонуванні, з поясненнями\nпід списком параметрів. Категорія підтримує сучасний Settings API та InterfaceOptions.\n\nПочаткова вкладка **Огляд** показує лише найуживаніші параметри: ручну\nдистанцію, прискорення зуму, бойовий зум, маунтів, AFK та мову/кнопку мінікарти.\nОберіть іншу категорію для розширених параметрів. Над списком пошуку тепер є\nкількість знайдених пунктів; кнопка X очищає запит. Підсвічування вкладки й\nнаведеного елемента допомагає побачити, що зараз редагується.\n\nВідкрийте окреме вікно командою `/mcd config`, кнопкою мінікарти або призначеною клавішею.\nТемне вікно із золотими акцентами, бічні розділи, глобальний пошук, панель пояснень,\nпрокрутка, числове введення біля повзунків, індикатор клієнта та дистанції камери.\nEsc закриває вікно. Розмір автоматично пристосовується до доступного екрана.\nЗміни застосовуються одразу; вибір мови, як і раніше, перезавантажує UI.\n\nЗалишено ручну дистанцію, пресети, Smart Zoom для бою й різних активностей,\nналаштування маунтів і форм, Reactive Zoom, ActionCam і компенсацію плечового зсуву,\nAFK-режим, додаткові можливості, діагностику та налаштування Forever.\nНедоступні можливості приховуються відповідно до клієнта та його API/CVar.\nГеймпад, туман і додаткові ефекти оточення Forever зберігають свою окрему область застосування.\n\nУ розділі профілів можна вибрати, створити, скопіювати, видалити або скинути профіль.\nКопіювання, видалення і скидання вимагають підтвердження у вікні адона.\n\n## Поточні офіційні клієнти та регіони\n\nМатриця звірена 11 листопада 2026 року за офіційними даними продуктів Blizzard\nі регіональними оголошеннями. US охоплює Americas & Oceania; EU, KR, TW і CN\nобліковуються окремо. Мова інтерфейсу не використовується для визначення регіону.\n\n| Офіційна гілка | Версія | Interface | Регіони |\n| --- | --- | --- | --- |\n| Retail / Midnight | 12.1.5 | 120105 | US, EU, KR, TW, CN |\n| Mists of Pandaria Classic | 5.5.4 | 50504 | US, EU, KR, TW, CN |\n| Burning Crusade Classic Anniversary | 2.5.6 | 20506 | US, EU, KR, TW, CN |\n| Classic Era / Hardcore / Season of Discovery client | 1.15.9 | 11509 | US, EU, KR, TW, CN |\n| World of Warcraft: Forever | 1.60.1 | 16001 | US, EU, KR, TW, CN |\n| Titan Reforged - Chrono (CN) | 3.80.2 | 38002 | CN |\n\nEra, Hardcore і Season of Discovery використовують спільну гілку клієнта.\nДоступність конкретних ігрових режимів визначає офіційний сервіс регіону.\nОфіційний Retail PTR 12.1.7 / 120107 перевіряється додатково, окремо від live.\nАрхівні Retail, звичайні Wrath/Cata та оригінальні старі клієнти не входять\nдо цієї матриці. Резервні адаптери API залишаються регресійними перевірками.\n\nУ `/mcd status` виводяться регіон, мова клієнта, розпізнаний продукт і статус\nвідповідності поточному каталогу. Номер build використовується для діагностики:\nрегіональні хотфікси не блокують камеру. У Forever на дату перевірки US/EU\nмають build 70888, а CN/KR/TW — 70862 при спільному Interface 16001.\n\nАвтоматичні перевірки виконуються на Lua 5.1; запуск у реальних ігрових клієнтах\nне проводився. Матриця, джерела та обмеження — у `COMPATIBILITY_UA.md`.\n\n## Команди\n\n- `/mcd config` — власне вікно налаштувань.\n- `/mcd status` — діагностика стану камери та CVar.\n- `/mcd deps` — комплектність бібліотек і готовність налаштувань.\n- `/mcd shoulder toggle|swap|center|config` — керування плечовою камерою.\n- `/mcd autozoom`, `/mcd automount` — перемикання автоматичних режимів.\n- `/mcd gamepad` — діагностика геймпада Forever.\n- `/mcd help` — довідка.\n\n## Перевірки вихідного коду\n\nПотрібні Python 3 і Lua 5.1 (`lua5.1`, `luac5.1`). Запуск: `bash check_all.sh`.\nТести та інструменти не завантажуються грою і не додають навантаження під час гри.\n\nДля GitHub завантажуйте весь вихідний комплект, включно з `libs/`,\n`libs/_manifest.xml` і `.github/workflows/package.yml`. Приватна бібліотека `LibCamera` зберігається\nу репозиторії; п'ять залежностей завантажуються BigWigsMods Packager під час\nрелізного пакування, після чого перевіряються маніфест і ZIP.\nПеред публікацією окремо перевіряються зібрана папка й фактичний ZIP.\n\n## Авторство та бібліотеки\n\nАвтор оригіналу: melles1991. LibCamera: mpstark (MIT, `libs/LibCamera/LICENSE.md`).\nReactive Zoom адаптовано з DynamicCam mpstark / LudiusMaximus (MIT).\nLibStub, CallbackHandler і AceDB — WoWUIDev/Ace3 (`libs/AceDB-3.0/LICENSE.txt`).\nLibDataBroker — tekkub; включено README бібліотеки.\nLibDBIcon — WoWAce LibDBIcon-1.0. Посилання на вихідні коди й контрольні суми — у `DEPENDENCIES.json`.\n\n## Оновлення v11.3.0 (UI/UX)\n\n- Стартовий огляд із реально працюючими швидкими параметрами.\n- Глобальний пошук із лічильником результатів, очищенням, шляхом до вкладки.\n- Активна вкладка й керування підсвічуються; підказки для повзунків і текстових полів.\n- Під час прокручування незмінені рядки не читають повторно дані й не перезаписують поля.\n- Послідовні прокручування колеса на слайдері сумуються без очікування перемальовування.\n- Розміри підписів розраховуються відповідно до реальної ширини контролів.\n\n## Оновлення v11.2.0\n\n- Додано Retail PTR 12.1.7 (Interface 120107) із незмінною підтримкою вже заявлених сімейств.\n- Виправлено безкінечне покадрове опитування Reactive Zoom при заблокованому нативному кроці.\n- Відмовостійке читання дистанції камери у Reactive Zoom та приватному LibCamera.\n- Перевірки FPS більше не виконуються на кожен швидкий рух колеса (кеш 350 мс).\n- Скидання накопиченого зуму, коли сторонній аддон здійснив нативний крок.\n- Захищене читання CVar та метаданих аддона у сучасних і старих клієнтах.\n\n## Групування v11.1.0\n\nРозділи: Огляд; ручна камера; перехід і колесо зуму; бій та активності;\nмаунти/форми; ActionCam (або геймпад Forever); AFK; колізії/візуальні параметри;\nграфіка Forever; додаткові дії; діагностика; профілі. Недоступні спеціальні сторінки\nприховуються. Для кожної бойової активності пресет, ручна дистанція й затримка\nповернення стоять разом. Профілі використовують ті самі ключі збереження.\n\nНаявність налаштувань CVar та режиму літальних маунтів визначається за API клієнта.\nMythic+ залишається Retail-only; сценарії доступні в Retail і Mists; Arena та\nрежим літальних маунтів відсутні в Classic Era. Titan Reforged позначається окремо.\nПідтримка описує сучасні сімейства клієнтів; точний набір API приватних форків\nпотребує перевірки в грі.\n\n## CI / зовнішні бібліотеки\n\nП'ять сторонніх бібліотек (`LibStub`, `CallbackHandler-1.0`, `AceDB-3.0`,\n`LibDataBroker-1.1`, `LibDBIcon-1.0`) **не зберігаються у вихідному коді**:\nїх отримує BigWigs packager за `.pkgmeta` під час формування релізного ZIP.\nВласна `LibCamera` залишається в `libs/LibCamera/`.\n\n```bash\npython3 tools/verify_manifest.py --allow-missing-externals  # source checkout\nbash check_all.sh                                              # source checks\n# Після пакування -- жорстко перевіряється вся папка libs/:\npython3 tools/verify_manifest.py --root .release/Max_Camera_Distance\nMCD_PACKAGED_ROOT=\"$PWD/.release/Max_Camera_Distance\" bash check_all.sh\n```\n\n### AFK: відстань камери\n\nУ налаштуваннях AFK увімкніть «Змінювати зум в AFK» та виберіть\n«Відстань камери в AFK». Менші значення наближають камеру до персонажа.\nПісля виходу з AFK відновлюється фактичний зум, який був перед входом,\nзокрема в ручному режимі. Якщо AFK перервано переходом у бій чи новий\nрежим маунта, застосовується відповідний Smart Zoom. Наявні профілі\nзберігають попередню поведінку: стандартна AFK-відстань — максимальна.\n\nУ v11.3.2 повторні події не перезапускають затримку входу в AFK, а вихід\nвикористовує один перехід камери. Відновлення близького зуму не зменшує\nдозволений діапазон коліщатка. Зміна профілю, активності чи звичайної\nдистанції під час AFK має пріоритет над попереднім збереженим зумом.\nРежим показує після виходу лише інтерфейс, який він сам приховав;\nклавіші руху та чату проходять далі, Escape завершує режим.",
+  "releases": [
+    {
+      "tag": "v11.3",
+      "published": "2026-11-19",
+      "notes": "## [11.3] - 2026-11-19\n\n### ⚙️ Maintenance\n\n- Complete translations and gate locales and client versions in CI\n\n### \uD83D\uDC1B Bug Fixes\n\n- Keep open lists and typed numbers through event-driven refreshes\n\n- Store the addon language account-wide instead of per profile\n\n- Handle unreadable ally combat in protected instances\n\n- Give the adaptive return delay its own section on the combat page\n\n- Separate unknown roster data, boss encounters and aura cache scope\n\n- Follow party combat, keep return delays and fix shoulder rules\n\n- Stop overriding soft target icons and harden reactive zoom\n\n### \uD83D\uDE80 New Features\n\n- Add role quick starts and per-page reset\n\n- Reorganize settings by task and rename jargon options\n\n- Add /mcd perf counters for live performance reports\n\n- Add boss encounter option, threat events and zoning-safe group data\n\n- Explain camera decisions and refresh live status without rebuilds\n\n### \uD83E\uDDEA Testing\n\n- Cover soft target profile switching and run checks on pull requests"
+    },
+    {
+      "tag": "v11.2",
+      "published": "2026-11-11",
+      "notes": "## [11.2] - 2026-11-11\n\n### \uD83D\uDC1B Bug Fixes\n\n- Harden cross-client APIs and optimize reactive zoom\n\n### \uD83D\uDCE6 Other Changes\n\n- Create Max_Camera_Distance_Mainline.toc\n\n### \uD83D\uDE80 New Features\n\n- Improve AFK zoom, camera stability and cross-client compatibility\n\n- Streamline camera settings and optimize virtualized controls\n\n### \uD83D\uDEE0️ Refactor\n\n- Standardize styles, remove legacy code and fix UI inconsistencies"
+    },
+    {
+      "tag": "v11.1",
+      "published": "2026-10-29"
+    },
+    {
+      "tag": "v11.0",
+      "published": "2026-10-09"
+    },
+    {
+      "tag": "v10.3",
+      "published": "2026-09-20",
+      "notes": "## [10.3] - 2026-09-20\n\n### \uD83D\uDC1B Bug Fixes\n\n- Clamp camera and gamepad CVar ranges\n\n### \uD83D\uDE80 New Features\n\n- Add shoulder ownership, restore flow and gamepad bindings"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-11",
+      "2026-10-29",
+      "2026-10-09",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-01",
+      "2026-08-17",
+      "2026-08-07",
+      "2026-07-21",
+      "2026-07-08",
+      "2026-06-19",
+      "2026-05-18",
+      "2026-05-10",
+      "2026-04-19",
+      "2026-04-12",
+      "2026-04-12",
+      "2026-04-06",
+      "2026-04-05",
+      "2026-04-04",
+      "2026-04-03",
+      "2026-03-27",
+      "2026-03-26",
+      "2026-03-25",
+      "2026-03-17",
+      "2026-03-14",
+      "2026-03-01",
+      "2026-02-28",
+      "2026-02-28",
+      "2026-02-27",
+      "2026-02-24",
+      "2026-02-14",
+      "2026-02-09",
+      "2026-02-05",
+      "2026-02-04",
+      "2026-02-03",
+      "2026-02-03",
+      "2026-02-03",
+      "2026-02-01",
+      "2026-01-30",
+      "2026-01-30",
+      "2025-10-11",
+      "2025-10-04",
+      "2025-06-09",
+      "2025-04-27",
+      "2025-04-11",
+      "2025-02-27",
+      "2025-01-26"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "Max_Camera_Distance"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Ace3",
+      "LibMountInfo",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0"
+    ],
+    "savedVariables": [
+      "MaxCameraDistanceDB"
+    ]
+  }
+}

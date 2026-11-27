@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "everlookdbchat",
+  "repo": "quikmn/EverlookDBChat",
+  "about": "# EverlookDB Chat\n\nChat improvements for WoW Forever, from the makers of [EverlookDB.com](https://everlookdb.com/).\n\nIt is made of about 40 small modules. Each one adds one thing to your chat, and you can turn each one on or off.\n\n- **Timestamps** on every line, in the format and colour you like.\n- **Player names** coloured by class, with their level, and an alt's main name.\n- **Short channel names**, such as `[G]` for guild and `[1]` for General.\n- **Copy chat:** copy a whole chat window, or one line, as plain text.\n- **URL copy:** links in chat can be clicked and copied.\n- **Chat history:** more lines kept, and the lines you typed are remembered between sessions.\n- **Edit box:** move it and restyle it.\n- **Tabs, buttons, fading, fonts and scrolling** for the chat windows.\n- **Sounds** for incoming whispers and channels.\n- **Commands first:** a line that starts with `/` is a command in every chat mode, also while you whisper a Battle.net friend.\n- **Search** (`/find`), **highlight words**, **filters**, **aliases**, **tell target** (`/tt`) and more.\n\nSettings: type `/echat`, or open the game's Settings under AddOns.\n\n## Commands\n\n`/echat` (also `/edbchat`) follows the same pattern as every EverlookDB addon:\n\n- `/echat` opens the settings window; it's also under Settings > AddOns.\n- Every module switches from chat: `/echat timestamps off`, `/echat off timestamps`, `/echat calm on`. `/echat get` lists the modules and whether each is on.\n- `/echat find <words>` searches the current chat window; `/echat clear` (or `clear all`) clears it; `/echat copy` copies it; `/echat focus` hides the numbered channels (Calm). These work even when another chat addon owns `/find` or `/clear`.\n- `/echat blacklist <word>` and `/echat unblacklist <word>` stop or start treating a word as a player name (after a reload).\n- `/echat aliases` lists your `/alias` commands.\n- `/echat move` (or `unlock`, then `lock`) is placement mode: drag and resize the chat and see exactly where the chat box will open. Escape or right-click locks it.\n- `/echat reset` puts every setting in this profile back (type it twice within 10 seconds).\n- `/echat status`, `/echat version`; `/echat help` (or `?`) lists every command, and a mistyped one suggests the nearest.\n\nThe standalone commands stay as they were: `/find <text>`, `/copychat`, `/chatfocus` (or `/chat focus`), `/tt <message>` (whisper your target), `/edbchatblacklist` and `/edbchatunblacklist`, and, while their modules are on, `/clear`, `/cls`, `/clearall`, `/alias`, `/unalias`, `/listaliases` and `/smart`.\n\n## Install\n\nNot released yet.\n\nBy hand: copy the `EverlookDBChat` folder into `World of Warcraft\\_forever_\\Interface\\AddOns`.\n\nIf Prat-3.0 is also turned on, both change your chat, and the addon says so in chat when you log in. Turn one of them off.\n\n## Credits and licence\n\nBased on [Prat-3.0](https://github.com/Legacy-of-Sylvanaar/prat-3-0) by QartemisT, Sylvanaar and the Prat contributors. Licensed GPL-3.0 (see `LICENSE.txt`); credits, changes and bundled libraries are listed in `NOTICE.md`. Not affiliated with Blizzard Entertainment or the Prat project.",
+  "releases": [
+    {
+      "tag": "v0.3.1",
+      "published": "2026-11-22",
+      "notes": "- Clicking a character or the world while you're typing keeps the chat box and its keyboard, so you go on typing. With nothing typed it closes, and your keys work again. No more half-open box that ignores your typing."
+    },
+    {
+      "tag": "v0.3.0",
+      "published": "2026-11-22",
+      "notes": "- Alt names on unit tooltips use the shared EverlookDB tooltip look, including its solid background (set in any EverlookDB addon's settings)."
+    },
+    {
+      "tag": "v0.2.1",
+      "published": "2026-11-21",
+      "notes": "- Importing a profile string works for your character again after the latest WoW Forever update.\n- Importing alt names from LOKWhoIsWho or GuildGreet no longer errors or pulls in alts from other realms."
+    },
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-20",
+      "notes": "- Chat history takes much less disk space: only the newest lines of your open chat windows are saved.\n- Calm uses less CPU while you chat or scroll.\n- Softer colours and cleaner edges in the settings window."
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-18",
+      "notes": "- New: Chat placement. `/echat move` lets you drag and resize the chat, with a preview of where the chat box opens. Choose where the chat box sits.\n- New: Calm. Fewer lines on screen while you aren't using the chat, paced channel chat, focus mode in combat (`/chat focus`), and whispers that are never missed.\n- New: Idle fade. The chat fades out after a quiet minute and comes back when someone talks to you.\n- New: Flat tabs, a clean chat box, no chat background, and hidden scroll bars.\n- New: Tidy lines. Repeated system lines show once.\n- New: Commands first. A line starting with `/` runs as a command in every chat mode, also while whispering a Battle.net friend.\n- Search: Ctrl+F searches the chat, Enter and Shift+Enter jump between matches.\n- Chat history keeps 3000 lines per window, and the line between sessions is one quiet grey line.\n- Commands follow one pattern across all EverlookDB addons: `/echat help` lists them.\n- `/echat ai` copies a description of every setting for an AI assistant, and `/echat apply` runs what it gives back.\n- Alt names on tooltips share the EverlookDB tooltip layout."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EverlookDBChat"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibSink-2.0",
+      "LibSharedMedia-3.0",
+      "AceGUI-3.0-SharedMediaWidgets",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "LibAlts-1.0",
+      "LibChatAnims"
+    ],
+    "savedVariables": [
+      "EverlookDBChatDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "EverlookDBChatCharDB",
+      "EverlookDBChatHighCPUCharDB"
+    ]
+  }
+}

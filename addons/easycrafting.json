@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "easycrafting",
+  "repo": "luttman/EasyCrafting",
+  "about": "# Easy Crafting\n\nEasy Crafting replaces the profession window in WoW Classic with one that shows what each recipe costs and what it earns. It also builds a shopping list for the materials you need and buys them for you at merchants.\n\n## Features\n\n- **Profit per recipe.** See the Auction House profit for every recipe. Vendor profit is available as an option.\n- **Craft queue.** Queue recipes, reorder them, and click **Craft next** to open the right profession and craft the next item.\n- **Shopping list.** Add the materials for your queue to a list. At a merchant, buy everything the merchant sells from your list with one click.\n- **Break-even prices.** See the lowest price at which a recipe still pays for itself.\n- **Sell crafts.** Sell the items you crafted to a merchant with one click.\n- **Filters.** Show only the recipes you have the materials for, and show or hide unlearned recipes.\n- **Alt professions.** Look up the professions and recipes of your other characters.\n- **Bulk buying.** Shift-click an item at a merchant to choose how many to buy.\n\n## Requirements\n\n- WoW Classic, Interface version 16001.\n- [Auctionator](https://www.curseforge.com/wow/addons/auctionator), which supplies the Auction House prices.\n- Optional: QuestieDB, which adds location data for recipe sources.\n\n## Install\n\n1. Download the latest release.\n2. Extract the `EasyCrafting` folder into the `Interface\\AddOns` folder of your WoW installation.\n3. Restart the game or type `/reload`.\n\n## Usage\n\nOpen any profession. The Easy Crafting window opens in place of the standard one.\n\n| Command | Description |\n|---|---|\n| `/easycrafting` | Switch between the Easy Crafting window and the standard window. |\n| `/ecsettings` | Open the settings. |\n\n## Settings\n\nOpen the settings with `/ecsettings`. These options are available:\n\n| Option | Default |\n|---|---|\n| Use the Easy Crafting profession window | On |\n| Blizzard window style (needs `/reload`) | Off |\n| Show unlearned recipes | On |\n| Show craftable and merchant counts in the recipe list | On |\n| Remember your alts' professions | On |\n| Vendor profit in the recipe list | Off |\n| Auction House profit | On |\n| Shift-click merchant items to buy in bulk | On |\n\n## Data sources and license\n\nEasy Crafting is licensed under GPL-3.0-or-later. The profession data comes from several sources. See [DATA_SOURCES.md](https://github.com/luttman/EasyCrafting/blob/main/DATA_SOURCES.md) for the list.",
+  "releases": [
+    {
+      "tag": "v1.8.2",
+      "published": "2026-11-25",
+      "notes": "# Easy Crafting\n\n## [v1.8.2](https://github.com/luttman/EasyCrafting/tree/v1.8.2) (2026-11-25)\n[Full Changelog](https://github.com/luttman/EasyCrafting/compare/v1.8.1...v1.8.2) [Previous Releases](https://github.com/luttman/EasyCrafting/releases)\n\n- Release 1.8.2: choose the item an enchant goes on  \n    Enchanting recipes now show an item slot. Pick an item to cast the enchant  \n    on it, and it stays chosen for the next cast. Without one, Enchant opens the  \n    game's targeting cursor as before.  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.8.1",
+      "published": "2026-11-20",
+      "notes": "# Easy Crafting\n\n## [v1.8.1](https://github.com/luttman/EasyCrafting/tree/v1.8.1) (2026-11-20)\n[Full Changelog](https://github.com/luttman/EasyCrafting/compare/v1.8.0...v1.8.1) [Previous Releases](https://github.com/luttman/EasyCrafting/releases)\n\n- Add CurseForge project ID, bump to 1.8.1  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v1.8.0",
+      "published": "2026-11-17",
+      "notes": "# Easy Crafting\n\n## [v1.8.0](https://github.com/luttman/EasyCrafting/tree/v1.8.0) (2026-11-17)\n[Full Changelog](https://github.com/luttman/EasyCrafting/commits/v1.8.0) [Previous Releases](https://github.com/luttman/EasyCrafting/releases)\n\n- Add addon icon  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n- Rename to Easy Crafting, add README and release workflow  \n    Remove the item tooltip feature, turn vendor profit off by default, and  \n    show the estimated time of the crafting queue.  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n- Add Sell crafts, a Have Material filter, and a fixed icon column  \n    Selling  \n    - Remember each item crafted through Vendor Profit, per character, and  \n      list it in a Crafted section on the Queue tab.  \n    - Add a Sell crafts button that sells every stack of those items at a  \n      merchant, after a dialog that lists the items and the total.  \n    - Let an X button drop an item from the list without selling it.  \n    Recipe list  \n    - Add a Have Material filter that lists the recipes whose main  \n      materials are in your bags, ignoring reagents a merchant sells.  \n    - Keep the recipe icons in one column whether or not a craft count is  \n      visible, so the list no longer shifts sideways while scrolling.  \n    Tests cover the default and EllesmereUI themes. Nothing is verified in  \n    the game client.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Release 1.8.0: open the right profession from Craft next  \n    - When the next craft in the queue belongs to another profession, open  \n      that profession and keep the window on the Queue tab, so a second  \n      click on Craft next starts the craft.  \n    - Decide which profession a recipe belongs to from the bundled recipe  \n      data, and ask the game only for recipes the data does not cover.  \n    Bump the version to 1.8.0.  \n    Tests cover the default and EllesmereUI themes. Nothing is verified in  \n    the game client, including whether C\\_TradeSkillUI.OpenTradeSkill  \n    exists there; without it the old message is shown.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Release 1.7.0: buy full amounts, show products in the queue  \n    Purchases  \n    - Shift-click Review purchases to list and buy the full amount of each  \n      material, not only one stack.  \n    - Send all merchant purchases through one queue, one stack at a time  \n      and half a second apart. The bulk-buy dialog uses the same queue.  \n    Queue and shopping list  \n    - Show the crafted item's icon, tooltip, and chat link on craft rows,  \n      in place of the profession spell's.  \n    Bump the version to 1.7.0.  \n    Tests cover the default and EllesmereUI themes. Nothing is verified in  \n    the game client.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Release 1.6.0: break-even prices, queue controls, live accent  \n    Crafting  \n    - Add a Max button for the craft amount; shift-click counts by the  \n      most plentiful material.  \n    - Show the remaining batch time as minutes and seconds.  \n    Reagents  \n    - Show the highest unit price that still breaks even, for selling on  \n      the Auction House and to a vendor, with an explanation in the tooltip.  \n    - Always price merchant reagents from the merchant, never the Auction  \n      House, and show the merchant price on their rows.  \n    - Link a material in chat on shift-click.  \n    Queue and shopping  \n    - Add an X button that removes a saved craft.  \n    - Add a Search on AH button for the selected recipe's reagents.  \n    - Ask for confirmation before a bulk purchase.  \n    Window  \n    - Repaint when EllesmereUI's accent changes, without a reload.  \n    - Use the profession frame's layer and raise as one piece on click, so  \n      the window no longer shows through overlapping windows.  \n    Bump the version to 1.6.0.  \n    Tests cover the default and EllesmereUI themes. Nothing is verified in  \n    the game client.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Release 1.5.0: fix combat close and purchases, add queue order  \n    Fixes  \n    - Stop calling ProfessionsFrame:Hide() in combat, which the game  \n      blocks. Hide only the Vendor Profit window and close the profession  \n      frame when combat ends.  \n    - Replace the merchant purchase popup, which had no Buy button because  \n      the BUY constant is missing on this client. The new themed dialog  \n      lists each item, its cost, and the total, and reports why a purchase  \n      did not go through.  \n    Features  \n    - Show the crafted item's tooltip on the large recipe icon, and link  \n      the item in chat on shift-click.  \n    - Fill the crafting banner as a progress bar that advances during each  \n      cast.  \n    - Keep saved crafts in the order they were added, and add up and down  \n      arrows on the Queue tab to reorder them.  \n    - Select the bulk-buy amount so that typing replaces it.  \n    Bump the version to 1.5.0.  \n    Tests cover the default and EllesmereUI themes. Nothing is verified in  \n    the game client.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Clean up, add skins, and add bulk buying  \n    Cleanup  \n    - Remove dead existence guards, the duplicate `native` setting, and  \n      duplicated helpers (Money, ItemName, SpellName, DirectReagents).  \n    - Cut the settings to nine toggles; the rest are always on.  \n    - Remove the gathering reminder, disenchant tools, and whisper drafts.  \n    Profession window  \n    - Show Recipes, Shopping list, and Queue as tabs.  \n    - Put the vendor profit in the recipe header.  \n    - Draw the shopping list and queue as rows with +/- on saved crafts.  \n    - Show only the skill-up chance in the Skill column.  \n    - Close with a direct Hide in combat, where HideUIPanel is blocked.  \n    Skins  \n    - Follow EllesmereUI's accent and font when it is loaded, fall back to  \n      the built-in flat theme, or use Blizzard templates via a setting.  \n    - Theme the settings window and dialogs through one shared helper.  \n    Bulk buying  \n    - Add BulkBuy.lua: shift-click a merchant item to buy many at once.  \n    - Show a notice when Multi Buyer is also loaded.  \n    Tests cover the default and EllesmereUI themes. Nothing is verified in  \n    the game client.  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- Baseline: Vendor Profit 1.4.7  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-20",
+      "2026-11-17"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EasyCrafting"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Auctionator"
+    ],
+    "optional": [
+      "QuestieDB"
+    ],
+    "savedVariables": [
+      "EasyCraftingSettings"
+    ],
+    "savedVariablesPerCharacter": [
+      "EasyCraftingRecipes",
+      "EasyCraftingWork"
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "guildie",
+  "repo": "DrKlampz/Guildie",
+  "about": "# Guildie\n\n**Recruit on autopilot.** Players whisper you a phrase, Guildie sends the guild invite, and when they join it posts your custom welcome in guild chat.\n\nBuilt for **WoW: Forever**.\n\n## Features\n\n- **Whisper-to-invite:** set a phrase like `guild inv`. Anyone who whispers it gets an invite.\n- **Exact or loose matching:** require the exact phrase, or catch it anywhere in a whisper.\n- **Custom welcome message:** posted in guild chat when a new member joins. Use `{name}` and `{guild}`.\n- **No double welcomes:** by default Guildie only welcomes players it invited, so several officers can run it at once.\n- **Reply whisper:** optionally tell the player their invite is on the way.\n- **Spam protection:** per-player cooldown.\n- **Confirm mode:** the game blocks addons from sending guild invites on their own, so Guildie shows a popup; its Invite button puts `/ginvite Name` in your chat box and you press **Enter** to send it. Guildie only marks the player as invited once that command goes out.\n- **Activity log and stats** right in the settings window.\n- **Guild Armory** (`/guildie armory`): gear, talents, professions and gold of guildmates who run Guildie, with alts grouped under their main and their gold added up.\n- **Zone tab** (`/guildie zone`): who's in your zone and who else has quests from it.\n- **Dates tab:** join dates and birthdays, logged and shared automatically, with anniversary and birthday shout-outs.\n- Crafters, recruit tracking, loot help and a raid-time schedule.\n\n## How to use\n\nOpen settings with `/guildie`, the AddOns button next to the minimap, or **Options → AddOns → Guildie**.\n\n| Command | What it does |\n|---|---|\n| `/guildie` | Open settings |\n| `/guildie on` / `off` | Toggle auto-invite |\n| `/guildie phrase <text>` | Set the invite phrase |\n| `/guildie welcome <text>` | Set the welcome message |\n| `/guildie preview` | Preview the welcome in your chat |\n\nYour guild rank needs permission to invite.\n\n## Notes\n\n- Guild chat messages wait until chat is unlocked (for example, after a boss encounter) and then send.\n- Some Forever beta builds don't reload saved settings reliably. Guildie keeps a per-character copy as a backup.\n\nBug reports and ideas welcome!",
+  "releases": [
+    {
+      "tag": "v1.15.13",
+      "published": "2026-11-26",
+      "notes": "# Guildie\n\n## [v1.15.13](https://github.com/DrKlampz/Guildie/tree/v1.15.13) (2026-11-26)\n[Full Changelog](https://github.com/DrKlampz/Guildie/compare/v1.15.12...v1.15.13) [Previous Releases](https://github.com/DrKlampz/Guildie/releases)\n\n- Group alts: keep online alts visible (1.15.13)  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Auto-tag and release when the CHANGELOG version is new  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v1.15.12",
+      "published": "2026-11-23",
+      "notes": "# Guildie\n\n## [v1.15.12](https://github.com/DrKlampz/Guildie/tree/v1.15.12) (2026-11-23)\n[Full Changelog](https://github.com/DrKlampz/Guildie/compare/v1.15.11...v1.15.12) [Previous Releases](https://github.com/DrKlampz/Guildie/releases)\n\n- Changelog: v1.15.12  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Changelog for the next release  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Windows built on a plain frame (closable in combat); zone guides  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v1.15.11",
+      "published": "2026-11-22",
+      "notes": "# Guildie\n\n## [v1.15.11](https://github.com/DrKlampz/Guildie/tree/v1.15.11) (2026-11-22)\n[Full Changelog](https://github.com/DrKlampz/Guildie/compare/v1.15.10...v1.15.11) [Previous Releases](https://github.com/DrKlampz/Guildie/releases)\n\n- Release without the CurseForge step that was failing  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
+      "tag": "v1.15.10",
+      "published": "2026-11-21",
+      "notes": "Redrawn symbols, new calligraphic variants of every symbol, realm-name fix for blank data."
+    },
+    {
+      "tag": "v1.15.9",
+      "published": "2026-11-20",
+      "notes": "# Guildie\n\n## [v1.15.9](https://github.com/DrKlampz/Guildie/tree/v1.15.9) (2026-11-20)\n[Full Changelog](https://github.com/DrKlampz/Guildie/compare/v1.15.8...v1.15.9) [Previous Releases](https://github.com/DrKlampz/Guildie/releases)\n\n- More background symbols, emblem rotation and mirror  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-11",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-10-02",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27",
+      "2026-09-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Guildie"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "GuildieDB",
+      "GuildieArmoryDB",
+      "GuildieGuildDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "GuildieCharDB"
+    ]
+  }
+}

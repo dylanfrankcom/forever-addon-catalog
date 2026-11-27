@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "rightclickselfcast",
+  "repo": "Xruptor/RightClickSelfCast",
+  "releases": [
+    {
+      "tag": "v5.17",
+      "published": "2026-10-13",
+      "notes": "# RightClickSelfCast\n\n## [v5.17](https://github.com/Xruptor/RightClickSelfCast/tree/v5.17) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/RightClickSelfCast/compare/v5.16...v5.17) [Previous Releases](https://github.com/Xruptor/RightClickSelfCast/releases)\n\n- chore: update TOC interface numbers → v5.17"
+    },
+    {
+      "tag": "v5.16",
+      "published": "2026-09-19",
+      "notes": "# RightClickSelfCast\n\n## [v5.16](https://github.com/Xruptor/RightClickSelfCast/tree/v5.16) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/RightClickSelfCast/compare/v5.15...v5.16) [Previous Releases](https://github.com/Xruptor/RightClickSelfCast/releases)\n\n- chore: update TOC interface numbers → v5.16  \n- This should fix the TOC Issues."
+    },
+    {
+      "tag": "v5.15",
+      "published": "2026-09-19",
+      "notes": "# RightClickSelfCast\n\n## [v5.15](https://github.com/Xruptor/RightClickSelfCast/tree/v5.15) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/RightClickSelfCast/compare/v5.14...v5.15) [Previous Releases](https://github.com/Xruptor/RightClickSelfCast/releases)\n\n- chore: update TOC interface numbers → v5.15  \n- Updated the GitHub Actions to be better at automatic processing for TOC Updates.  \n    (attempt #5)  \n- Merge remote-tracking branch 'origin/master'  \n- Updated release github action  \n- chore: update TOC interface numbers  \n- Adding a automatic TOC Updater to GitHub Workflow"
+    },
+    {
+      "tag": "v5.14",
+      "published": "2026-04-11",
+      "notes": "# RightClickSelfCast\n\n## [v5.14](https://github.com/Xruptor/RightClickSelfCast/tree/v5.14) (2026-04-11)\n[Full Changelog](https://github.com/Xruptor/RightClickSelfCast/compare/v5.13...v5.14) [Previous Releases](https://github.com/Xruptor/RightClickSelfCast/releases)\n\n- TOC Update"
+    },
+    {
+      "tag": "v5.13",
+      "published": "2026-03-03",
+      "notes": "# RightClickSelfCast\n\n## [v5.13](https://github.com/Xruptor/RightClickSelfCast/tree/v5.13) (2026-03-03)\n[Full Changelog](https://github.com/Xruptor/RightClickSelfCast/compare/v5.12...v5.13) [Previous Releases](https://github.com/Xruptor/RightClickSelfCast/releases)\n\n- Fixed an Action Blocked Error  \n    * Fixed an action blocked error that would occur if the player was in combat and a button was having it's attribute() being set, which is not allowed by blizzard during combat.  It will now queue the button and apply it when NOT in combat and is completely safe.  (Fixed #9)"
+    }
+  ],
+  "stats": {
+    "stars": 5,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-04-11",
+      "2026-03-03",
+      "2026-02-10",
+      "2026-02-04",
+      "2026-01-31",
+      "2026-01-31",
+      "2026-01-02",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-10-05",
+      "2025-08-18",
+      "2024-07-30",
+      "2024-07-26",
+      "2024-04-08",
+      "2024-04-06",
+      "2023-09-18",
+      "2023-05-26",
+      "2023-01-25",
+      "2022-11-26",
+      "2022-11-15",
+      "2022-11-10",
+      "2022-10-31",
+      "2022-10-31",
+      "2021-09-19",
+      "2021-05-28",
+      "2021-04-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RightClickSelfCast"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tekDebug"
+    ]
+  }
+}

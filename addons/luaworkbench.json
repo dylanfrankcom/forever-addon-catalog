@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "luaworkbench",
+  "repo": "R41z0r/LuaWorkbench",
+  "about": "# LuaWorkbench\n\n![LuaWorkbench](https://raw.githubusercontent.com/R41z0r/LuaWorkbench/main/Artwork/Logo.png)\n\nLuaWorkbench is a Lua editor for World of Warcraft. Write and run code in-game, save snippets for later, and keep them organized in folders. It works on its own and does not require another addon.\n\nThe editor includes syntax highlighting, code search, and a separate output panel for printed messages, return values and errors. You can also search through all your saved snippets, including their code.\n\n- Run code with the Play button, **Ctrl+Enter**, or **F5**.\n- Save with **Ctrl+S**, recover drafts after a reload, or return to the last saved version.\n- Run saved scripts at startup, login or on a WoW event you choose.\n- Adjust fonts, indentation, bracket completion and the output limit in Options.\n- Resize the window, give the code editor more space, or minimize it while you play.\n\nOpen it with `/lua`, `/le`, `/luaeditor` or `/luaworkbench`. The **?** button lists the shortcuts and explains the available options.\n\nSupports Retail, Forever and TBC, with translations for all 11 WoW languages.\n\n**Please keep in mind:** This runs real Lua code in your game. Only run scripts you trust. A running script cannot be interrupted; an infinite loop can freeze the game. Automatic runs are off by default. Enable startup, login or a custom WoW event for each script; only its saved code will run.\n\nLuaWorkbench's own code is MIT-licensed. Bundled libraries keep their original licenses and notices. The repository is private during initial development; contributions and translations will be welcome when it opens.\n\n## Installation\n\nInstall the shared package for Retail, Forever and TBC into `Interface/AddOns/!!!LuaWorkbench`, then restart the game or reload. Snippets and settings are stored account-wide in `LuaWorkbenchDB`. Draft recovery is enabled by default and can be disabled in Options. Automatic runs are opt-in for each script and use the last saved code.\n\n## Development\n\n```sh\nluacheck --no-color -q .\npython3 scripts/check_lua_upvalues.py .\npython3 scripts/validate_project.py\n```\n\n`Localization.lua` contains eleven translations. When adding or changing text, update every locale in the same change. The checks verify matching keys and alphabetical ordering. See [CONTRIBUTING.md](https://github.com/R41z0r/LuaWorkbench/blob/main/CONTRIBUTING.md).\n\nStatic checks do not replace in-game testing on each supported client.\n\n## Local deployment\n\n```sh\npython3 scripts/deploy.py --flavor forever --target \"$WOW_ADDONS_DIR\"\n```\n\nSet `WOW_ADDONS_DIR` to your client’s existing `Interface/AddOns` directory. Supported flavors: `retail`, `forever`, `tbc`. Deployment copies runtime files, assets, bundled libraries and the shared TOC. It does not touch SavedVariables. The convenience `build.sh` used locally is intentionally ignored and is not part of this repository.\n\n## Releases and licenses\n\nSee [RELEASING.md](https://github.com/R41z0r/LuaWorkbench/blob/main/docs/RELEASING.md) for the shared changelog and tag-driven uploads to CurseForge and Wago. No release is published by a regular branch push.\n\nOriginal code and artwork use [MIT](https://github.com/R41z0r/LuaWorkbench/blob/main/LICENSE), attributed to LuaWorkbench contributors. [THIRD_PARTY.md](https://github.com/R41z0r/LuaWorkbench/blob/main/THIRD_PARTY.md) records the separate terms for bundled libraries.",
+  "releases": [
+    {
+      "tag": "1.2.4",
+      "published": "2026-11-17",
+      "notes": "## [1.2.4] - 2026-11-17\n\n### Fixed\n\n- Refresh typed and deleted code even during repeated native cursor/layout updates.\n- Keep the editor caret and current-line highlight aligned with visible code across window heights and wrapped lines.\n- Preserve literal pipes and color codes through code entry, paste, selection, saving and execution without rewriting Lua strings.\n- Keep syntax colors when resizing the editor reveals more text than fits in one syntax overlay.\n- Show relevant script stack frames in error output while retaining the complete captured stack in session diagnostics.\n- Include available global and C_ functions missing from Blizzard’s generated documentation in Knowledge Base searches, with a notice when argument and return documentation is unavailable."
+    },
+    {
+      "tag": "1.2.3",
+      "published": "2026-11-14",
+      "notes": "## [1.2.3] - 2026-11-14\n\n### Fixed\n\n- Keep detached output windows above editor text and controls.\n- Align syntax text and wrapped line numbers with the editor's line spacing at small font sizes."
+    },
+    {
+      "tag": "1.2.2",
+      "published": "2026-10-25",
+      "notes": "## [1.2.2] - 2026-10-25\n\n### Changed\n\n- Add WoW Retail 12.1.7 to the supported interface versions."
+    },
+    {
+      "tag": "1.2.1",
+      "published": "2026-10-13",
+      "notes": "## [1.2.1] - 2026-10-13\n\n### Fixed\n\n- Show all table entries in dumps instead of skipping entries after the first 30, and retain large dumps in Output."
+    },
+    {
+      "tag": "1.2.0",
+      "published": "2026-10-12",
+      "notes": "## [1.2.0] - 2026-10-12\n\n### Added\n\n- Optional IntelliSense with keyboard navigation, Enter/Tab acceptance and parameter hints that remain visible while entering arguments. Request suggestions with Ctrl+Space without interrupting normal cursor navigation.\n- Complete documented Blizzard APIs and enums, local variables, table members and functions, namespace aliases, and members and parameters from saved `requireHelper` modules.\n- Move lines or selected blocks with Alt+Up/Down and duplicate them with Alt+Shift+Up/Down.\n- Copy or cut the current line with native clipboard shortcuts when nothing is selected, and paste copied lines above the current line.\n- Native macOS shortcuts: Command for editor actions and line/document navigation, Option for word navigation and line actions, and Shift to extend selections. Modified Backspace supports character, word and line deletion.\n\n### Changed\n\n- Typing an automatically inserted closing quote or bracket advances past it instead of inserting a duplicate.\n- Use Shift+F12 to return from a definition jump, keeping Option+Arrow available for text navigation.\n\n### Fixed\n\n- Large scripts remain fully visible with consistent syntax colors and smoother typing and scrolling.\n- Greatly reduce freezes when pasting large scripts into the editor.\n- Keep the code editor focused when running a script with F5.\n- Keep breakpoints aligned when inserting or joining lines, including blank lines and automatic indentation.\n- Limit very large debug terminal outputs to prevent excessive processing and memory use."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-17",
+    "releaseDates": [
+      "2026-11-17",
+      "2026-11-14",
+      "2026-10-25",
+      "2026-10-13",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-11"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "!!!LuaWorkbench"
+    ],
+    "editions": [
+      "anniversary",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "LuaWorkbenchDB"
+    ]
+  }
+}

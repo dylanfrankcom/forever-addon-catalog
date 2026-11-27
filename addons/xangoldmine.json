@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "xangoldmine",
+  "repo": "Xruptor/xanGoldMine",
+  "releases": [
+    {
+      "tag": "v5.7",
+      "published": "2026-10-13",
+      "notes": "# xanGoldMine\n\n## [v5.7](https://github.com/Xruptor/xanGoldMine/tree/v5.7) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/xanGoldMine/compare/v5.6...v5.7) [Previous Releases](https://github.com/Xruptor/xanGoldMine/releases)\n\n- chore: update TOC interface numbers → v5.7"
+    },
+    {
+      "tag": "v5.6",
+      "published": "2026-09-19",
+      "notes": "# xanGoldMine\n\n## [v5.6](https://github.com/Xruptor/xanGoldMine/tree/v5.6) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/xanGoldMine/compare/v5.5...v5.6) [Previous Releases](https://github.com/Xruptor/xanGoldMine/releases)\n\n- chore: update TOC interface numbers → v5.6  \n- This should fix the TOC Issues."
+    },
+    {
+      "tag": "v5.5",
+      "published": "2026-09-19",
+      "notes": "# xanGoldMine\n\n## [v5.5](https://github.com/Xruptor/xanGoldMine/tree/v5.5) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/xanGoldMine/compare/v5.4...v5.5) [Previous Releases](https://github.com/Xruptor/xanGoldMine/releases)\n\n- chore: update TOC interface numbers → v5.5  \n- Updated the GitHub Actions to be better at automatic processing for TOC Updates.  \n    (attempt #5)  \n- Adding a automatic TOC Updater to GitHub Workflow"
+    },
+    {
+      "tag": "v5.4",
+      "published": "2026-04-26",
+      "notes": "# xanGoldMine\n\n## [v5.4](https://github.com/Xruptor/xanGoldMine/tree/v5.4) (2026-04-26)\n[Full Changelog](https://github.com/Xruptor/xanGoldMine/compare/v5.3...v5.4) [Previous Releases](https://github.com/Xruptor/xanGoldMine/releases)\n\n- Cleaned up the code and applied Fixes  \n    * Cleaned up a LOT of the code.  This addon was written a long time ago and it hasn't been polished in ages.  So I took some time to polish it up and remove a lot of redundant stuff.  \n    * Added several checks for Merchant purchases and Taxi that weren't done properly.  \n    * Updated the quest tracking to be a bit more efficient.  \n    * Removed a bunch of redundant code that is no longer needed.  \n    * Steamlined how the tooltip is generated, it was a giant mess."
+    },
+    {
+      "tag": "v5.3",
+      "published": "2026-04-11",
+      "notes": "# xanGoldMine\n\n## [v5.3](https://github.com/Xruptor/xanGoldMine/tree/v5.3) (2026-04-11)\n[Full Changelog](https://github.com/Xruptor/xanGoldMine/compare/v5.2...v5.3) [Previous Releases](https://github.com/Xruptor/xanGoldMine/releases)\n\n- TOC Update"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-04-26",
+      "2026-04-11",
+      "2026-02-10",
+      "2026-02-04",
+      "2026-02-01",
+      "2026-01-02",
+      "2025-12-21",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-08-26",
+      "2025-08-18",
+      "2024-07-30",
+      "2024-07-26",
+      "2024-04-08",
+      "2024-04-06",
+      "2023-09-18",
+      "2023-05-26",
+      "2023-01-25",
+      "2022-12-09",
+      "2022-11-15",
+      "2022-11-11",
+      "2022-11-03",
+      "2022-11-02",
+      "2021-09-19",
+      "2021-05-28",
+      "2021-04-06"
+    ]
+  },
+  "languages": [
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "xanGoldMine"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tekDebug"
+    ],
+    "savedVariablesPerCharacter": [
+      "XanGM_DB"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "pingleader",
+  "repo": "coylemichael/wow-pingleader",
+  "about": "# PingLeader\n\nA World of Warcraft Forever addon that adds a button to the Looking For Group\nbrowser: each click contacts the next listing, one person at a time.\n\nIt has two modes, picked at the top of its settings:\n\n- **Join a group** whispers and/or asks to join the leaders of groups that\n  still need one of your ticked roles. One per click.\n- **Form my group** works out which roles your 5-player group still needs\n  (1 tank, 1 healer, 3 DPS, counting your own role and unanswered invites) and\n  invites solo players of the ticked classes, and above your minimum level,\n  who list one of them. \"Invite next\" invites one per click; \"Auto-invite\",\n  off unless you tick it, invites them as they show up, one every 2 seconds,\n  until the group is full. If you're not the group leader, the game turns each\n  invite into a suggestion to your leader.\n\nIt never messages anyone it would not also invite to an open slot: automated\nwhisper spam gets reported and can get an account actioned. Each person is\ncontacted once per wait period (30 minutes by default).\n\n- **Plan popup** (`/ping plan` or \"Show plan\", and it opens when you tick\n  Auto-invite): who is next, who is skipped\n  and why (full, no room for your role, contacted 4 min ago, class not\n  ticked...), and how old the results are. Addons can't search by\n  themselves, so it tells you when to press Refresh.\n- **Message placeholders**: `{class}` `{role}` `{level}` `{dungeon}` `{name}`.\n  Hover the message box for a preview. A value the game doesn't give is left\n  out, with its dangling \"for\".\n- **Key bindings** (Key Bindings > AddOns > PingLeader): contact the next\n  listing, and refresh the Looking For Group search.\n- **Sound on new match**, off unless you tick it.\n- It never changes Blizzard's frames, so it can't taint them, and it skips\n  anyone the game hides during fights. While the game blocks addon whispers,\n  it says so instead of sending.\n\n| Command | Does |\n|---|---|\n| `/ping` | Contact the next listing |\n| `/ping join`, `/ping form` | Switch mode |\n| `/ping options` | Open the settings (or right-click the button) |\n| `/ping plan` | Show who is next, who is skipped, and why |\n| `/ping list` | Show who would be contacted, without sending |\n| `/ping msg <text>` | Change the current mode's message |\n| `/ping reset` | Forget who has been contacted |\n| `/ping wait <min>` | Minutes before the same person can be contacted again |\n| `/ping dump` | Save the raw LFG data (then `/reload`) for debugging |\n\n## Install\n\nDownload the ZIP from [Releases](https://github.com/coylemichael/wow-pingleader/releases)\nand extract it into `World of Warcraft/_forever_/Interface/AddOns`.\n\n## Releasing\n\nPublishing a GitHub Release publishes the addon:\n\n```sh\ngh release create v1.1 --generate-notes\n```\n\nThe [Release workflow](https://github.com/coylemichael/wow-pingleader/blob/main/.github/workflows/release.yml) checks the Lua syntax,\npackages the addon with the [BigWigsMods packager](https://github.com/BigWigsMods/packager),\nwhich writes the tag into the TOC's `## Version`, uploads it to CurseForge and\nattaches the ZIP to the release. Commits and tags alone publish nothing.\n`gh workflow run release.yml` builds the ZIP as a workflow artifact without\nuploading it anywhere.\n\nCurseForge setup, once:\n\n1. Create the project on [CurseForge](https://authors.curseforge.com/) and add\n   `## X-Curse-Project-ID: <id>` to `PingLeader.toc`. Until then, releases go to\n   GitHub only.\n2. Create an [API token](https://www.curseforge.com/account/api-tokens) and save\n   it as this repository's `CF_API_KEY` secret.",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "published": "2026-11-22",
+      "notes": "# PingLeader\n\n## [v1.0.0](https://github.com/coylemichael/wow-pingleader/tree/v1.0.0) (2026-11-22)\n[Full Changelog](https://github.com/coylemichael/wow-pingleader/commits/v1.0.0) [Previous Releases](https://github.com/coylemichael/wow-pingleader/releases)\n\n- Point releases at CurseForge project 1824876 (PingLeader)  \n- Logo: scale the artwork to 85% so it fits CurseForge's square crop  \n- Logo as editable SVG; logo.png is exported from it with magick  \n- Add the CurseForge logo (media/, kept out of the package)  \n- Release workflow: keep the manual build's ZIP as an artifact (.release is a hidden folder)  \n- Initial import from the live AddOns folder, with a CurseForge release workflow"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PingLeader"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "PingLeaderDB"
+    ]
+  }
+}

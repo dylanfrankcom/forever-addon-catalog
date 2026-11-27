@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "libs-timeplayed",
+  "repo": "spartanui-wow/Libs-TimePlayed",
+  "about": "# Lib's TimePlayed\n\n[![Discord](https://img.shields.io/discord/265564257347829771.svg?logo=discord)](https://discord.gg/Qc9TRBv)\n\nTrack `/played` time across all your characters with account-wide statistics, class/realm/faction grouping, and **instant data import** from AltVault or Altoholic.\n\n## \uD83D\uDE80 Quick Start: One-Click Import\n\n**New to Lib's TimePlayed?** If you have AltVault or Altoholic installed, you'll see this on first login:\n\n![image](https://github.com/user-attachments/assets/afef8399-6a63-483e-b59c-c3a7222f0f56)\n\n**Click \"Import Now\"** and instantly see all your characters' played time—no need to log into each one!\n\n## Features\n\n### Time Tracking\n\n- **Account-wide**: Automatically tracks played time for every character you log into\n- **Multiple formats**: View total played, session time, or current level time\n- **Auto-update**: Refreshes on login and level up\n\n![image](https://media.forgecdn.net/attachments/1525/681/screenshot-2026-02-09-220548-png.png)\n\n### Display Options\n\n- **Minimap button**: Quick access via left/right click\n- **Data Broker**: Works with any LDB display addon (like Libs-DataBar)\n- **Popup window**: Standalone window with collapsible groups, status bars, and scroll support\n- **Rich tooltip**: Detailed breakdown with class colors, group totals, and milestones\n\n### Grouping\n\nView your characters organized by:\n\n- **Class** - Color-coded by class\n- **Realm** - Grouped by server\n- **Faction** - Alliance vs Horde\n\n### Time Formats\n\n- **Smart**: Auto-scales (`2y 45d`, `5d 3h`, `45m`, `< 1m`)\n- **Full**: All units shown (`5d 3h 30m`)\n- **Hours**: Decimal hours (`123.5h`)\n\n### Milestones\n\nFun achievements based on your playtime: total hours played, number of characters tracked, most-played character, and more.\n\n### Instant Data Import ⚡\n\n**Never log into each alt again!** Import your entire character roster instantly:\n\n- **\uD83C\uDFAF Auto-Import**: First-time users are automatically offered import on login\n- **\uD83D\uDCCA Smart Detection**: Automatically selects the source with the most data\n- **\uD83D\uDD04 AltVault Support**: Direct import from AltVault database\n- **\uD83D\uDCDA Altoholic Support**: Parsed from DataStore with full metadata\n- **⚙️ Merge Strategies**:\n  - Newest Wins (default) - Use most recent data\n  - Prefer Imported - Always use import data\n  - Prefer Existing - Keep current data\n  - Max Values - Use highest time values\n\n**Manual Import**: Can also import anytime from `/libstp` → Import Data section\n\n## Commands\n\n| Command          | Action                       |\n| ---------------- | ---------------------------- |\n| `/libstp`        | Open options                 |\n| `/timeplayed`    | Open options                 |\n| `/libstp played` | Request fresh `/played` data |\n| `/libstp popup`  | Toggle popup window          |\n\n### Click Actions\n\n| Input              | Action                              |\n| ------------------ | ----------------------------------- |\n| Left Click         | Cycle display (total/session/level) |\n| Shift + Left Click | Toggle popup window                 |\n| Right Click        | Open options                        |\n| Middle Click       | Refresh `/played`                   |\n\n## Support\n\n- [Discord](https://discord.gg/Qc9TRBv)",
+  "releases": [
+    {
+      "tag": "1.4.3",
+      "published": "2026-11-10",
+      "notes": "# Libs TimePlayed Changelog\n\n## \uD83D\uDCC5 Last Month Summary\n\n## \uD83C\uDFAF This Release\n\n## Version 1.4.3 (2026-11-10)\n\n### \uD83D\uDCDD Changes\n- Minimap button updated for the latest game versions\n- The tooltip library used for list pop-ups\n- Settings and profiles work better on WoW Forever\n\n## Version 1.4.2 (2026-10-13)\n\n### \uD83D\uDCDD Changes\n- Ready for WoW patch 12.1.5\n\n---\n\n## Links\n\n- **Download**: [CurseForge](https://www.curseforge.com/wow/addons/libs-timeplayed)\n- **Support**: [Discord](https://discord.gg/Qc9TRBv) | [Report Issues](https://github.com/spartanui-wow/Libs-TimePlayed/issues)"
+    },
+    {
+      "tag": "1.4.2",
+      "published": "2026-10-14",
+      "notes": "# Libs TimePlayed Changelog\n\n## \uD83D\uDCC5 Last Month Summary\n\nYou can now see your total played time across all your characters right on the bar. This update also gets the addon ready for the latest WoW patches and fixes errors, like when you hovered over the bar. We've also made setup screens smarter so they show up less often.\n\n## \uD83C\uDFAF This Release\n\n## Version 1.4.2 (2026-10-13)\n\n### \uD83D\uDCDD Changes\n- Ready for WoW patch 12.1.5\n\n## Version 1.4.1 (2026-10-02)\n\n### \uD83D\uDC1B Fixes\n- Time Played no longer shows up in setup once it already has your characters\n\n### \uD83D\uDCDD Changes\n- Setup only asks to bring in your other characters when there are some\n- Time Played keeps its own look instead of following your SpartanUI theme\n\n## Version 1.4.0 (2026-10-01)\n\n### \uD83D\uDE80 Features\n- Show your total played time across all characters on the bar\n\n### \uD83D\uDC1B Fixes\n- Hovering the bar no longer shows errors when characters are grouped as \"All Characters\"\n\n### \uD83D\uDCDD Changes\n- First-time setup, including copying your characters' played time, now happens in the shared setup window\n- Supported game version for Titan\n- 1 Dependency\n\n### \uD83D\uDD27 Other\n- Ace 3 update\n\n## Version 1.3.5 (2026-09-18)\n\n### \uD83D\uDCDD Changes\n- Works on WoW Forever\n\n---\n\n## Links\n\n- **Download**: [CurseForge](https://www.curseforge.com/wow/addons/libs-timeplayed)\n- **Support**: [Discord](https://discord.gg/Qc9TRBv) | [Report Issues](https://github.com/spartanui-wow/Libs-TimePlayed/issues)"
+    },
+    {
+      "tag": "1.4.1",
+      "published": "2026-10-03",
+      "notes": "# Libs TimePlayed Changelog\n\n## \uD83D\uDCC5 Last Month Summary\n\nYou can now see your total played time across all your characters right on the bar. Setup is simpler and only shows up when you need it, and the window now always uses its own look. We also fixed errors when you hover over the bar and made it work with WoW Forever.\n\n## \uD83C\uDFAF This Release\n\n## Version 1.4.1 (2026-10-02)\n\n### \uD83D\uDC1B Fixes\n- Time Played no longer shows up in setup once it already has your characters\n\n### \uD83D\uDCDD Changes\n- Setup only asks to bring in your other characters when there are some\n- Time Played keeps its own look instead of following your SpartanUI theme\n\n## Version 1.4.0 (2026-10-01)\n\n### \uD83D\uDE80 Features\n- Show your total played time across all characters on the bar\n\n### \uD83D\uDC1B Fixes\n- Hovering the bar no longer shows errors when characters are grouped as \"All Characters\"\n\n### \uD83D\uDCDD Changes\n- First-time setup, including copying your characters' played time, now happens in the shared setup window\n- Supported game version for Titan\n- 1 Dependency\n\n### \uD83D\uDD27 Other\n- Ace 3 update\n\n## Version 1.3.5 (2026-09-18)\n\n### \uD83D\uDCDD Changes\n- Works on WoW Forever\n\n---\n\n## Links\n\n- **Download**: [CurseForge](https://www.curseforge.com/wow/addons/libs-timeplayed)\n- **Support**: [Discord](https://discord.gg/Qc9TRBv) | [Report Issues](https://github.com/spartanui-wow/Libs-TimePlayed/issues)"
+    },
+    {
+      "tag": "1.4.0",
+      "published": "2026-10-01",
+      "notes": "# Libs TimePlayed Changelog\n\n## \uD83D\uDCC5 Last Month Summary\n\nYou can now see your total played time across all your characters as a new option. We fixed a problem where the info box would show errors when you grouped characters as \"All Characters.\" The first-time setup process has also been improved, and the addon now works with the newest game version.\n\n## \uD83C\uDFAF This Release\n\n## Version 1.4.0 (2026-10-01)\n\n### \uD83D\uDE80 Features\n- Show your total played time across all characters on the bar\n\n### \uD83D\uDC1B Fixes\n- Hovering the bar no longer shows errors when characters are grouped as \"All Characters\"\n\n### \uD83D\uDCDD Changes\n- First-time setup, including copying your characters' played time, now happens in the shared setup window\n- Supported game version for Titan\n- 1 Dependency\n\n### \uD83D\uDD27 Other\n- Ace 3 update\n\n## Version 1.3.5 (2026-09-18)\n\n### \uD83D\uDCDD Changes\n- Works on WoW Forever\n\n---\n\n## Links\n\n- **Download**: [CurseForge](https://www.curseforge.com/wow/addons/libs-timeplayed)\n- **Support**: [Discord](https://discord.gg/Qc9TRBv) | [Report Issues](https://github.com/spartanui-wow/Libs-TimePlayed/issues)"
+    },
+    {
+      "tag": "1.3.5",
+      "published": "2026-09-18",
+      "notes": "# Libs TimePlayed Changelog\n\n## \uD83D\uDCC5 Last Month Summary\n\nLibs TimePlayed now works with the new WoW Forever 1.60.1 game version. This means the addon is compatible with the latest game updates.\n\n## \uD83C\uDFAF This Release\n\n## Version 1.3.5 (2026-09-18)\n\n### \uD83D\uDCDD Changes\n- Works on WoW Forever\n\n---\n\n## Links\n\n- **Download**: [CurseForge](https://www.curseforge.com/wow/addons/libs-timeplayed)\n- **Support**: [Discord](https://discord.gg/Qc9TRBv) | [Report Issues](https://github.com/spartanui-wow/Libs-TimePlayed/issues)"
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/afef8399-6a63-483e-b59c-c3a7222f0f56"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-10-14",
+      "2026-10-03",
+      "2026-10-01",
+      "2026-09-18",
+      "2026-08-11",
+      "2026-07-14",
+      "2026-06-03",
+      "2026-04-03",
+      "2026-03-02",
+      "2026-02-14",
+      "2026-02-14",
+      "2026-02-10",
+      "2026-02-10",
+      "2026-02-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Libs-TimePlayed"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Libs-DataBar",
+      "LibsAddonTools"
+    ],
+    "savedVariables": [
+      "LibsTimePlayedDB"
+    ]
+  }
+}

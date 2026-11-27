@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "colortoolsclasscolors",
+  "repo": "muhmiauwauWOW/ColorToolsClassColors",
+  "about": "## ColorTools Class Colors\nChange class colors without causing issues with the Blizzard UI.\nThis addon is a implementation of the outdated class colors addon. \n\nAddon devs can access the global variable \"CUSTOM_CLASS_COLORS\" in order to overwrite the default class colors in their addons.",
+  "releases": [
+    {
+      "tag": "1.2.22",
+      "published": "2026-10-21",
+      "notes": "# ColorTools Class Colors\n\n## [1.2.22](https://github.com/muhmiauwauWOW/ColorToolsClassColors/tree/1.2.22) (2026-10-21)\n[Full Changelog](https://github.com/muhmiauwauWOW/ColorToolsClassColors/compare/1.2.21...1.2.22) [Previous Releases](https://github.com/muhmiauwauWOW/ColorToolsClassColors/releases)\n\n- Update !ColorToolsClassColors.toc"
+    },
+    {
+      "tag": "1.2.21",
+      "published": "2026-10-15",
+      "notes": "# ColorTools Class Colors\n\n## [1.2.21](https://github.com/muhmiauwauWOW/ColorToolsClassColors/tree/1.2.21) (2026-10-15)\n[Full Changelog](https://github.com/muhmiauwauWOW/ColorToolsClassColors/compare/1.2.20...1.2.21) [Previous Releases](https://github.com/muhmiauwauWOW/ColorToolsClassColors/releases)\n\n- Update !ColorToolsClassColors.toc"
+    },
+    {
+      "tag": "1.2.20",
+      "published": "2026-09-14",
+      "notes": "# ColorTools Class Colors\n\n## [1.2.20](https://github.com/muhmiauwauWOW/ColorToolsClassColors/tree/1.2.20) (2026-09-14)\n[Full Changelog](https://github.com/muhmiauwauWOW/ColorToolsClassColors/compare/1.2.19...1.2.20) [Previous Releases](https://github.com/muhmiauwauWOW/ColorToolsClassColors/releases)\n\n- Update !ColorToolsClassColors.toc"
+    },
+    {
+      "tag": "1.2.19",
+      "published": "2026-08-07",
+      "notes": "# ColorTools Class Colors\n\n## [1.2.19](https://github.com/muhmiauwauWOW/ColorToolsClassColors/tree/1.2.19) (2026-08-07)\n[Full Changelog](https://github.com/muhmiauwauWOW/ColorToolsClassColors/compare/1.2.18...1.2.19) [Previous Releases](https://github.com/muhmiauwauWOW/ColorToolsClassColors/releases)\n\n- Update !ColorToolsClassColors.toc"
+    },
+    {
+      "tag": "1.2.18",
+      "published": "2026-06-06",
+      "notes": "# ColorTools Class Colors\n\n## [1.2.18](https://github.com/muhmiauwauWOW/ColorToolsClassColors/tree/1.2.18) (2026-06-06)\n[Full Changelog](https://github.com/muhmiauwauWOW/ColorToolsClassColors/compare/1.2.17...1.2.18) [Previous Releases](https://github.com/muhmiauwauWOW/ColorToolsClassColors/releases)\n\n- Update !ColorToolsClassColors.toc"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-10-15",
+      "2026-09-14",
+      "2026-08-07",
+      "2026-06-06",
+      "2026-04-25",
+      "2026-02-26",
+      "2026-01-21",
+      "2025-12-03",
+      "2025-11-04",
+      "2025-07-28",
+      "2025-07-09",
+      "2025-06-02",
+      "2025-04-29",
+      "2025-02-22",
+      "2024-12-16",
+      "2024-11-22",
+      "2024-10-30",
+      "2024-10-30",
+      "2024-10-14",
+      "2024-10-14",
+      "2024-10-13",
+      "2024-10-12",
+      "2024-10-10",
+      "2024-10-10",
+      "2024-10-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "!ColorToolsClassColors"
+    ],
+    "editions": [
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "ColorToolsClassColorsDB"
+    ]
+  }
+}

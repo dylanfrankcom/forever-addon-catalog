@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverguild",
+  "repo": "cameron3d/ForeverGuild",
+  "about": "# Forever Guild\n\nA Windows companion for a WoW: Forever guild. Search your guild's known crafting recipes, see the materials required, and find a crafter. Includes a small WoW addon, an Electron desktop app, and an optional private guild sync service.\n\n[Download the Windows installer](https://github.com/cameron3d/ForeverGuild/releases/latest) · [Release guide](https://github.com/cameron3d/ForeverGuild/blob/main/docs/releases.md) · [Guild server setup](https://github.com/cameron3d/ForeverGuild/blob/main/docs/server.md)\n\n## First run\n\n1. Install **ForeverGuild-Setup** from Releases and open **Forever Guild**.\n2. Open **Setup & sync**, choose the WoW client folder containing `Wow.exe`, and click **Install / update addon**.\n3. Restart WoW after first installation. Enable **Forever Guild** on the AddOns screen.\n4. On each character, open every crafting profession. Clear search filters and expand categories. Run `/fg scan` while the profession window is open.\n5. Run `/reload` or log out. Leave the desktop app running; it checks the addon's SavedVariables files every five seconds.\n6. Search recipes, materials, or character names. To share with the guild, enter your administrator's HTTPS server address and personal member key.\n\nThe app also accepts a manually selected `WTF/Account/<account>/SavedVariables/ForeverGuild.lua`. This is the **saved data file**, not the similarly named Lua source inside `Interface/AddOns`.\n\nThe app works locally before a server is configured. Preview mode contains clearly labeled sample data and never uploads it. Closing the window keeps the tray app running by default; use **Quit** in its tray menu to exit.\n\n## What syncs\n\n- Character name, realm, ruleset, faction, class, and level.\n- Profession names, skill ranks and caps, known recipes, output quantities, and required materials.\n- Scan timestamps. Inventory, chat, account identifiers, passwords, and game credentials are not included in the guild upload.\n\nWoW writes SavedVariables on reload/logout. This is snapshot syncing, not a live game feed. Members must open their own profession windows to scan their recipes. Gathering professions can appear with skill levels but have no craftable recipe list. Recipe knowledge does not establish material inventory, cooldown readiness, or current availability.\n\nFiltered scans merge with the addon's cache. Clear filters and expand categories to discover the whole list. After unlearning a profession, run `/fg reset` to reset **this character's** cached professions, rescan current professions, and reload. The reset marker prevents older exports from resurrecting the cleared data. The desktop cache survives malformed/truncated exports and retains newer scans.\n\n## Updates\n\nInstalled apps check the public GitHub Releases feed at startup and every six hours. Updates download automatically. A banner offers **Restart & update**; downloaded updates also install when the app quits. Closing to the tray does not quit. The app backs up and updates its installed companion addon on the next app launch after an app version change; restart/reload WoW to load that addon update.\n\nThe repository is public; the guild service and member data are private. No GitHub token is distributed in the desktop app. The initial Windows installer is unsigned, so Windows may show an unknown-publisher/SmartScreen prompt. Code signing is a separate release setup step.\n\n## Development\n\nRequires Node.js 24+, npm, and Lua 5.1+ for addon tests. Windows is required for the desktop smoke test's credential encryption check.\n\n```powershell\nnpm ci\nnpm test\nnpm run test:addon\nnpm run test:ui\nnpm start\nnpm run package\n```\n\n`npm run package` writes the NSIS installer, `.blockmap`, and `latest.yml` to `dist/`. `npm run test:ui` launches Electron against isolated, synthetic data under ignored `.local/`; it does not read your actual game files or upload to a real guild.\n\n## Structure\n\n- `src/main.cjs`: desktop windows, restricted IPC, file polling, encrypted settings, addon install, updates.\n- `src/core/`: strict saved-data parser, validation, cache merging, atomic storage, HTTP sync.\n- `src/ui/`: local-only crafting directory and setup UI.\n- `addon/ForeverGuild/`: guarded Classic/Forever Lua profession scanner, Interface 16001.\n- `server/`: one-guild HTTP service with per-member keys and persistent ownership.\n- `tests/`: data-validation, server integration and Lua API-stub tests.\n- `.github/workflows/`: checks and version-tag releases.\n\n## Verification limits\n\nAutomated checks cover imports, Unicode, partial/corrupt snapshots, reset markers, material requirements, Enchanting API handling, two-member sync, ownership, revocation, disk persistence, Electron UI, and member-key encryption. Real Forever client scanning must still be tested in game, particularly its SavedVariables behavior and available APIs. The service is included but is not hosted automatically. Raid features and Discord integration are outside version 0.1.\n\nSee [manual acceptance checks](https://github.com/cameron3d/ForeverGuild/blob/main/docs/acceptance.md). This project is not affiliated with Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "v0.1.2",
+      "name": "Forever Guild v0.1.2",
+      "published": "2026-11-08",
+      "notes": "Forever Guild is a Windows crafting companion for WoW: Forever.\n\n- Search your guild's known recipes, materials, and crafters.\n- Track profession skill levels and last-scan times.\n- Install the companion addon from the app and automatically import its data after `/reload` or logout.\n- Connect to the optional private guild sync service included in the repository.\n- Download future updates from GitHub automatically and install them silently when restarting or quitting.\n\n**Install ForeverGuild-Setup-0.1.2.exe**, then open **Setup & sync** to choose your WoW client folder and install the addon. Open each profession, clear filters, expand categories, run `/fg scan`, then `/reload`.\n\nVersion 0.1.2 fixes Restart & update opening the installer wizard. The silent-upgrade path was verified with an installed older-version test build downloading this public release and preserving its character data.\n\nData, addon API-stub, server integration, and Electron UI tests passed. Actual Forever-client scanning still needs in-game validation. Guild-wide sharing requires a hosted sync service; GitHub Releases distributes the app only. This initial installer is unsigned and may show a Windows unknown-publisher prompt.\n\n[Setup guide](https://github.com/cameron3d/ForeverGuild#first-run) · [Guild server setup](https://github.com/cameron3d/ForeverGuild/blob/main/docs/server.md) · [Publishing future updates](https://github.com/cameron3d/ForeverGuild/blob/main/docs/releases.md)"
+    },
+    {
+      "tag": "v0.1.1",
+      "name": "Forever Guild v0.1.1",
+      "published": "2026-11-08",
+      "notes": "The first guild crafting companion for WoW: Forever, with automatic Windows updates.\n\n- Search known recipes, materials, and guild crafters.\n- See profession skill levels, recipe requirements, and last-scan times.\n- Install the companion addon from the app and automatically import its saved data after `/reload` or logout.\n- Optionally connect to the private guild sync service included in the repository.\n- Receive later versions automatically through GitHub Releases.\n\nInstall **ForeverGuild-Setup-0.1.1.exe**, then open **Setup & sync** to select your WoW client folder and install the addon. Open each profession, clear filters, expand categories, run `/fg scan`, then `/reload`.\n\nThis version also prevents duplicate recipes when recipe IDs load late and protects guild connection changes from overlapping background sync.\n\nAutomated data, addon, server, and Electron UI tests passed. Real Forever-client scanning still requires in-game validation. Shared guild syncing requires a hosted guild service; public GitHub Releases only distribute the application. The initial installer is unsigned and may show a Windows unknown-publisher prompt.\n\n[Setup guide](https://github.com/cameron3d/ForeverGuild#first-run) · [Guild server setup](https://github.com/cameron3d/ForeverGuild/blob/main/docs/server.md) · [Publishing future updates](https://github.com/cameron3d/ForeverGuild/blob/main/docs/releases.md)"
+    },
+    {
+      "tag": "v0.1.0",
+      "name": "Forever Guild v0.1.0",
+      "published": "2026-11-08",
+      "notes": "**Full Changelog**: https://github.com/cameron3d/ForeverGuild/commits/v0.1.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverGuild"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverGuildDB"
+    ]
+  }
+}

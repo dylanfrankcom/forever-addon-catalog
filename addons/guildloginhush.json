@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "guildloginhush",
+  "repo": "TheMizeGuy/WowForeverGuildLoginHush",
+  "about": "# WoW Forever Guild Login Hush\n\nQuiets guild logins in the World of Warcraft: Forever client (build 1.60.x, interface 16001).\nThree settings, each on its own:\n\n- hide the \"`[Name] has come online.`\" chat line about guild members;\n- hide the \"`Name has gone offline.`\" chat line about guild members;\n- mute the sound the game plays when someone comes online.\n\nAll three are on by default. `/glh`, the addons button by the minimap, and Esc > Options >\nAddOns > Guild Login Hush open the settings page. Settings are saved per account.\n\nThe game's own Guild Member Alert setting (Esc > Options > Social) turns both lines off together;\nthis addon is for choosing one line, the other, or the sound separately.\n\n## Commands\n\n| Command | Effect |\n|---|---|\n| `/glh` | Open the settings |\n| `/glh online [on\\|off]` | Hide (or show) \"has come online\" lines about guild members |\n| `/glh offline [on\\|off]` | Hide (or show) \"has gone offline\" lines about guild members |\n| `/glh sound [on\\|off]` | Mute (or unmute) the login sound |\n| `/glh status` | Show the current settings |\n\nWithout `on` or `off`, the command flips the setting.\n\n## How it works\n\nThe client prints both lines as system messages built from the same two format strings for\ncharacter friends and guild members (`ERR_FRIEND_ONLINE_SS`, `ERR_FRIEND_OFFLINE_S`), so the\naddon reads the name out of the line, using the client's own format strings so other languages\nwork, and asks the guild roster whether it belongs to a guild member\n(`C_GuildInfo.MemberExistsByName`). Only friends and guild members produce these lines, so a name\nthe roster does not list is still a guild member's when it is not on the friends list; that\ncovers someone who joined the guild after the roster was read. After login, a name the roster\ndoes not know is left visible until the friends list has arrived, or for 15 seconds at most;\nthe list normally arrives within a second. Lines about friends who are not in your guild are left\nalone, and nothing is hidden while you are not in a guild.\n\nThe login sound is played by the game client itself, not by any interface code, so the addon\nmutes its sound file (`MuteSoundFile`): sound kit 3332 \"FriendJoinGame\", file 567518 on the\n1.60.1 client. It is one sound for guild members and character friends coming online, so with\nthe mute on, friends' logins are silent too; logging out plays none. Battle.net friends' online\nand offline toasts play their own sound, which this addon leaves alone (Esc > Options > Social >\nOnline Friends and Offline Friends turn those toasts off). A mute lasts until the client is\nclosed, so the addon mutes once at every login, unmutes when the interface unloads (logout,\nrelog and `/reload`) and only ever unmutes a sound it muted itself, so disabling the addon brings\nthe sound back.\n\n## Limits\n\n- The friend and guild lines are the same text, so a friend who is also in your guild is treated\n  as a guild member and hidden.\n- Muting the sound mutes it for character friends' logins too; there is no separate guild sound.\n- With text to speech on for system messages, the game reads these lines aloud before any addon\n  sees them, so hidden lines are still spoken unless System messages are turned off in the\n  text-to-speech options.\n- When the client is in its chat security lockdown, system lines do not reach addon filters at\n  all, so lines in that window cannot be hidden.\n\n## Install\n\nGet the zip from the [GitHub releases](https://github.com/TheMizeGuy/WowForeverGuildLoginHush/releases)\nor from [CurseForge](https://www.curseforge.com/wow/addons/wow-forever-guild-login-hush), and copy\nthe `GuildLoginHush` folder into the Forever client's AddOns directory:\n\n```\nC:\\Program Files (x86)\\World of Warcraft\\_forever_\\Interface\\AddOns\\GuildLoginHush\n```\n\nA brand-new addon is picked up at the character selection screen, not by `/reload`: log out to\ncharacter select and back in. After editing the `.toc` file, restart the client.\n\n`scripts/deploy.sh [ssh-host] [addons-dir]` streams the folder to a Windows machine over ssh and\nchecks the file count. `addons-dir` is the AddOns directory itself and defaults to\n`C:\\Program Files (x86)\\World of Warcraft\\_forever_\\Interface\\AddOns`; `ssh-host` defaults to the\nauthor's machine, so pass both when deploying to your own.\n\n## Checks\n\n`bash tests/run.sh` checks Lua syntax (`luajit -bl`, plus a grep for `goto` and labels, which\nLuaJIT accepts and the client's Lua 5.1 does not), that the TOC lists every Lua file, that every\nglobal, `C_` function, `Settings` and `ChatFrameUtil` field, event and frame method the addon\nuses exists in the Forever 1.60.1 (70790) client (`tests/audit_globals.py`, against the client's\nUI source, API documentation and global strings; `python3 tests/audit_globals.py --fetch`\ndownloads those into `.cache/` once, and until then the script ends with\n`ALL PASSED (API audit skipped)`), then runs `tests/test_addon.lua`, which loads the addon under\na fake client (`tests/wow.lua`) and drives system lines, the roster, the friends list, the sound\nmute across reloads and logouts, the settings page and the slash commands. The script must end\nwith `ALL PASSED`. Only the game itself can confirm that the sound file is the one the live\nclient plays and that the settings page lays out as expected.\n\n## Release\n\nBump `## Version` in the `.toc`, then build the zip with the addon folder at its root:\n\n```\nmkdir -p dist && zip -r -X dist/GuildLoginHush-<version>.zip GuildLoginHush -x '*.DS_Store' -x '*/._*'\n```",
+  "releases": [
+    {
+      "tag": "v1.0.0",
+      "name": "Guild Login Hush 1.0.0",
+      "published": "2026-11-06",
+      "notes": "First release, for World of Warcraft: Forever (1.60.x).\n\n- Hide the \"has come online\" chat line about guild members.\n- Hide the \"has gone offline\" chat line about guild members.\n- Mute the login sound, the chime the game plays when a guild member or character friend comes online.\n\nEach is its own setting, all three on by default: `/glh`, the addons button by the minimap, or Esc > Options > AddOns > Guild Login Hush. Lines about friends who are not in your guild are left alone, and nothing is hidden while you are not in a guild."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-06",
+    "releaseDates": [
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GuildLoginHush"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "GuildLoginHushDB"
+    ]
+  }
+}

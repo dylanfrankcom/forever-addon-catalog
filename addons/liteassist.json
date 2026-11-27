@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "liteassist",
+  "repo": "xod-wow/LiteAssist",
+  "about": "# LiteAssist\n\n- by Xodiv of Nagrand (formerly of Proudmoore)\n\nThis is an addon for the computer game World of Warcraft.\n\n## About LiteAssist\n\nLiteAssist is a very basic addon to replace the standard /assist macro.\n\nIt lets you set a unit (a player, pet or NPC) that the mod remembers.\n\nWhen you push the assist key, it causes you to attack the same thing as that\nunit.  It changes your target (what you are attacking) to be the same as their\ntarget.\n\nLiteAssist provides extra key bindings to learn who to assist and to assist\nthem.  You can (and must to use this addon) set them up via the WoW Keyboard\nOptions menu.\n\nLiteAssist really is light. There are no /commands and no fancy GUIs, just the\n3 key bindings.\n\n## Configuring LiteAssist\n\nAfter entering the World of Warcraft game, go to the Keyboard Settings menu,\nscroll down to the LiteAssist section and set the key bindings.  Then just use\nthe keys to activate the learn and assist functions.  See below for more\ndetails.\n\n## Key Bindings\n\nThe three key bindings are:\n\n1. Learn unit to assist from your current target.\n2. Learn unit to assist from whatever your mouse is hovering over.\n3. Assist the previously learned unit (i.e., target its target).\n\nYou can find these under the 'LiteAssist' heading in the Keyboard Options\nmenu.\n\nI use shift-F (learn target), ctrl-F (learn mouseover) and F (assist) for the\nthree functions.\n\n## Notification Messages\n\nWhen learning a new assist a message will pop up in the middle of the screen to\ninform you.\n\n## Clearing Assist\n\nLearn assist with no unit targeted/mouseovered to clear the assist. The assist\nalso starts out cleared before you first learn something.\n\nWhen the assist is cleared, the assist key will assist your current target,\nexactly like WoW's default assist function.  This makes it safe to override\nyour regular assist key ('F').\n\n## Advanced Macro Support\n\nWhen you assist the learned target, LiteAssist is really running a macro with\n'/assist PlayerName' in it.\n\nIf you create a macro of your own named LiteAssistMacro AND include in it the\ntext {LiteAssistUnit} (just like that, including the curly brackets),\nLiteAssist will use that macro instead with the text {LiteAssistUnit} replaced\nwith the name of the player you learned.\n\nYou can include {LiteAssistUnit} more than once and it will replace all the\noccurrences.\n\n## Non-Keyboard Use\n\nIf you want to set up buttons on your action bar to trigger LiteAssist,\nyou need to do so by creating macros like these and then dragging them\nonto your action bar.\n\nTo learn assist from target:\n  /click LiteAssistLearnTarget\n\nTo learn assist from mouseover:\n  /click LiteAssistLearnHover\n\nTo assist the learned unit:\n  /click LiteAssistDo\n\n## Limitations\n\nDue to intentional limitations by Blizzard you can't change assist in combat.\nIf you try to learn a new assist while in combat LiteAssist will remember what\nyou tried to do and apply it when combat ends.\n\nYou can (obviously) still assist the learned unit while in combat.",
+  "releases": [
+    {
+      "tag": "12.1.5-2",
+      "published": "2026-10-15",
+      "notes": "# LiteAssist\n\n## [12.1.5-2](https://github.com/xod-wow/LiteAssist/tree/12.1.5-2) (2026-10-15)\n[Full Changelog](https://github.com/xod-wow/LiteAssist/compare/12.1.5-1...12.1.5-2) [Previous Releases](https://github.com/xod-wow/LiteAssist/releases)\n\n- Updates for WoW Forever Beta changes"
+    },
+    {
+      "tag": "12.1.5-1",
+      "published": "2026-10-13",
+      "notes": "# LiteAssist\n\n## [12.1.5-1](https://github.com/xod-wow/LiteAssist/tree/12.1.5-1) (2026-10-13)\n[Full Changelog](https://github.com/xod-wow/LiteAssist/compare/12.1.0-1...12.1.5-1) [Previous Releases](https://github.com/xod-wow/LiteAssist/releases)\n\n- Update ToC for 12.1.5"
+    },
+    {
+      "tag": "12.1.0-1",
+      "published": "2026-09-28",
+      "notes": "# LiteAssist\n\n## [12.1.0-1](https://github.com/xod-wow/LiteAssist/tree/12.1.0-1) (2026-09-28)\n[Full Changelog](https://github.com/xod-wow/LiteAssist/compare/12.0.5-1...12.1.0-1) [Previous Releases](https://github.com/xod-wow/LiteAssist/releases)\n\n- Minimal updates for WoW Forever last names"
+    },
+    {
+      "tag": "12.0.5-1",
+      "published": "2026-04-22",
+      "notes": "# LiteAssist\n\n## [12.0.5-1](https://github.com/xod-wow/LiteAssist/tree/12.0.5-1) (2026-04-22)\n[Full Changelog](https://github.com/xod-wow/LiteAssist/compare/12.0.1-1...12.0.5-1) [Previous Releases](https://github.com/xod-wow/LiteAssist/releases)\n\n- Update ToC for 12.0.5"
+    },
+    {
+      "tag": "12.0.1-1",
+      "published": "2026-02-13",
+      "notes": "# LiteAssist\n\n## [12.0.1-1](https://github.com/xod-wow/LiteAssist/tree/12.0.1-1) (2026-02-13)\n[Full Changelog](https://github.com/xod-wow/LiteAssist/compare/12.0.0-1...12.0.1-1) [Previous Releases](https://github.com/xod-wow/LiteAssist/releases)\n\n- Update ToC for 12.0.1"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-10-15",
+    "releaseDates": [
+      "2026-10-15",
+      "2026-10-13",
+      "2026-09-28",
+      "2026-04-22",
+      "2026-02-13",
+      "2026-01-25",
+      "2025-03-17",
+      "2025-03-14",
+      "2025-02-25",
+      "2024-12-18",
+      "2024-12-18",
+      "2024-10-26",
+      "2024-10-26",
+      "2024-05-07",
+      "2024-03-20",
+      "2024-01-16",
+      "2023-11-07",
+      "2023-09-05",
+      "2023-07-12",
+      "2023-05-03",
+      "2023-03-23",
+      "2022-10-25",
+      "2022-09-11",
+      "2022-08-31",
+      "2022-06-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LiteAssist",
+      "LiteAssistBroker"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ]
+  }
+}

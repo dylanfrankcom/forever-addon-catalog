@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "thing",
+  "repo": "o/thing",
+  "about": "# Thing\n\n![shot](https://raw.githubusercontent.com/o/thing/main/a.png) [Guide](https://github.com/o/thing/blob/main/GUIDE.md) [top](#thing)\n\n```lua\nif a<b then print(\"<b>\") end\n```\n\nUse `<Shift>`.\n\n[logo]: https://raw.githubusercontent.com/o/thing/main/logo.png",
+  "releases": [
+    {
+      "tag": "v2",
+      "name": "Version 2",
+      "published": "2026-11-20",
+      "notes": "**Fixed** it"
+    },
+    {
+      "tag": "v1",
+      "published": "2026-10-01"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/o/thing/main/a.png",
+    "https://github.com/user-attachments/assets/1234"
+  ],
+  "stats": {
+    "stars": 12,
+    "openIssues": 3,
+    "contributors": 4,
+    "lastRelease": "2026-11-20",
+    "releaseDates": [
+      "2026-11-20",
+      "2026-10-01"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "Thing"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "Ace3"
+    ],
+    "savedVariables": [
+      "ThingDB"
+    ]
+  },
+  "script": "x"
+}

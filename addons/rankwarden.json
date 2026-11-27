@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "rankwarden",
+  "repo": "highnet/RankWarden",
+  "about": "# RankWarden\n\n![RankWarden](https://raw.githubusercontent.com/highnet/RankWarden/main/media/logo.png)\n\nA **RankSentinel-style rank checker for World of Warcraft: Forever.** RankWarden spots when you or your party and raid members cast an outdated spell rank, and lets them know.\n\n**[Download on CurseForge](https://www.curseforge.com/wow/addons/rankwarden)** · [Changelog](https://github.com/highnet/RankWarden/blob/main/CHANGELOG.md) · [Report an issue](https://github.com/highnet/RankWarden/issues)\n\n## Features\n\n- **Catches outdated ranks** for you and your group, using Forever's own trainer data, including Forever's new abilities and ranks.\n- **Lower-ranks HUD**: a small panel listing who used which outdated rank, with a **Whisper** button per player.\n- **Whispers players once** per spell per session, after combat ends. You can turn auto-whisper off with `/rw whisper`.\n- **Ignores spells people downrank on purpose** (heals, Frostbolt, Earth Shock, Moonfire, …). Right-click a spell in the HUD to ignore it for that player.\n- **Book and quest ranks**: tells max-level players when a stronger rank exists that trainers don't sell.\n- **Main window** (`/rw`) with history, ignore lists and settings, plus a minimap button.\n\n## Where it works\n\nWoW: Forever limits what addons can see and send:\n\n- **Your own casts** are checked everywhere.\n- **Group members' casts** are hidden from addons wherever Forever applies an addon restriction. That includes the **open world**, as well as dungeons, raids and PvP. RankWarden tells you when you're in such an area, both in chat and in the HUD.\n- **Whispers** only work on realms that allow addon chat. Elsewhere, notes stay in your own chat and the Whisper buttons are disabled.\n\n## Install\n\nInstall it with the CurseForge app, or copy the `RankWarden` folder into `World of Warcraft\\_forever_\\Interface\\AddOns\\`, then restart the game.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/rw` | Open the window |\n| `/rw hud` | Show or hide the HUD |\n| `/rw whisper` | Turn auto-whisper on or off |\n| `/rw watch` | Turn the cast monitor on or off |\n| `/rw diag` | Diagnostics report you can copy (useful for bug reports) |\n| `/rw help` | List every command |\n\n## Credits\n\nMade by **Sandy Klawz** (EU PvE). Inspired by and built on [RankSentinel](https://github.com/valkyrnstudios/RankSentinel) (Gogo1951, SabreValkyrn, and their contributors Gogo, Aevala, Fathom and Splendiferus). Forever trainer data comes from [What's Training?](https://www.curseforge.com/wow/addons/whats-training) by Sveng. Uses Ace3.\n\nMIT licensed. See [LICENSE](https://github.com/highnet/RankWarden/blob/main/LICENSE) and [THIRD_PARTY_NOTICES.md](https://github.com/highnet/RankWarden/blob/main/THIRD_PARTY_NOTICES.md). Developers: see [CONTRIBUTING.md](https://github.com/highnet/RankWarden/blob/main/CONTRIBUTING.md).",
+  "releases": [
+    {
+      "tag": "v1.3.0",
+      "name": "RankWarden 1.3.0",
+      "published": "2026-11-19",
+      "notes": "- **Everything on by default.** Auto-whisper and showing the HUD at login are now on out of the box (Max level only and Debug stay off, since they limit or clutter checking). If you changed a setting yourself, your choice is kept.\n- **Fix:** on realms that block addon chat, auto-whisper no longer marks players as \"already whispered\" when nothing could be sent.\n- **New dragon-eye icon** for the addon list, minimap button and HUD (shipped as `Textures/icon.tga`), and a matching CurseForge logo.\n- Described as a RankSentinel-style rank checker, so it's easier to find for RankSentinel users."
+    },
+    {
+      "tag": "v1.2.0",
+      "name": "RankWarden 1.2.0",
+      "published": "2026-11-18",
+      "notes": "- **Warnings where it can't work.** Forever hides other players' casts wherever the Map restriction is active, which includes the open world, as well as encounters, keystone dungeons and PvP. RankWarden now warns in chat once per area (\"Group casts are hidden here (Map restriction): only your own spells can be checked\") and shows an orange line at the top of the HUD while you're there.\n- **Whisper buttons respect realm rules.** On realms that block addon chat, the Whisper and Whisper all buttons read Blocked / Can't whisper, are disabled, and explain why. Turning on `/rw whisper` there warns you too.\n- **Diagnostics show where you are:** zone, sub-zone, map ID, and open world or instance, now and for each recorded group cast.\n- README: a new \"Where it works\" section with the measured limits."
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "RankWarden 1.1.0",
+      "published": "2026-11-18",
+      "notes": "- **Diagnostics report** (`/rw diag`, or the **Diagnostics** button in the main window): a plain-text report, pre-selected so **Ctrl+C** copies it. It shows when Forever hides other players' casts (counts of hidden and visible group casts by which addon restriction was active: Combat, Encounter, ChallengeMode, PvPMatch, Map, Chat), a secrecy census of tracked spells (never / always / contextually secret), client build, settings, addon chat state, recent detections and recent group casts. **Reset counters** starts a fresh measurement."
+    },
+    {
+      "tag": "v1.0.3",
+      "name": "RankWarden 1.0.3",
+      "published": "2026-11-18",
+      "notes": "- **Cast monitor is quiet.** It prints one `[watch] <name>: casts are reaching RankWarden` line per group member, the first time their casts get through, instead of a line for every cast. Casts the game hides from addons (in combat, encounters, some instances, PvP) print nothing, since they can't be checked anyway.\n- The monitor's checkbox, `/rw help` text and the empty Detections tab now describe it that way."
+    },
+    {
+      "tag": "v1.0.2",
+      "name": "RankWarden 1.0.2",
+      "published": "2026-11-18",
+      "notes": "- **Rank shown once.** Forever's spell links already include the rank (`[Lightning Shield (Rank 3)]`), so RankWarden no longer adds a second \"R3\" / \"(Rank 3)\" in the HUD, the window, the history, `/rw report` or the whisper text. Plain links still get the rank added, in any client language.\n- Empty Detections tab now points to the cast monitor's `[watch]` lines (the monitor is on by default).\n- Documentation: the README is reorganised (Detection, Whispers, Ignoring, HUD, Main window) and covers per-player whispers and ignores, the once-per-session whisper rule, the cast monitor default, and automatic releases.\n- Tests now cover 100% of the addon's code, including start-up and the options panel, and CI enforces it."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-19",
+    "releaseDates": [
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RankWarden"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "RankWardenDB"
+    ]
+  }
+}

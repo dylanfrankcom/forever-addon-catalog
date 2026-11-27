@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "luzennaforever",
+  "repo": "Luzenna/wowaddon-LuzennaForever",
+  "about": "# LuzennaForever\n\nA small personal quality-of-life addon for World of Warcraft.\n\n- **One-bag tweaks.** Drag the combined bag anywhere (position is saved), reverse the slot order (visual only, nothing moves), sort from a gear menu on the bag, and optionally fold the reagent bag into it with a faint pink tint on its slots.\n- **Alt inventory tracking.** Remembers what each character carries in bags, bank and worn gear, and adds your other characters' counts to item tooltips, e.g. `Name: 12 (bags 4, bank 8)`. A character's bank count is as of their last bank visit.\n- **Error log.** Keeps the last 20 Lua errors that come from this addon, shows a red dot on the minimap button, and lets you copy them from a window. Other addons' errors are not recorded.\n- **Minimap button.** The one entry point for every setting: click to open the settings page, drag to move it.\n\n## Install\n\nCopy this folder to `World of Warcraft\\<version>\\Interface\\AddOns\\LuzennaForever` and restart the game or `/reload`.\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/luz` | Open the settings page (Options > AddOns > LuzennaForever) |\n| `/luz sort` | Sort the bags |\n| `/luz errors` | Show the error log |\n| `/luz forget <name>` | Remove a character from the alt tracker |\n\n## License\n\nFree to use for yourself in the game. Copying, redistributing or including it in other projects needs a paid license; see [LICENSE](https://github.com/Luzenna/wowaddon-LuzennaForever/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.0.2",
+      "name": "LuzennaForever 1.0.2",
+      "published": "2026-11-08",
+      "notes": "## LuzennaForever 1.0.2\n\n### Install\nExtract `LuzennaForever-1.0.2.zip` into your `Interface\\AddOns` folder so you end up with `AddOns\\LuzennaForever`, then restart the game or `/reload`.\n\nFree for personal use; copying or redistributing needs a paid license (see LICENSE).\n\n**Full Changelog**: https://github.com/Luzenna/wowaddon-LuzennaForever/compare/v1.0.1...v1.0.2"
+    },
+    {
+      "tag": "v1.0.1",
+      "name": "LuzennaForever 1.0.1",
+      "published": "2026-11-05",
+      "notes": "## LuzennaForever 1.0.1\n\n### Install\nExtract `LuzennaForever-1.0.1.zip` into your `Interface\\AddOns` folder so you end up with `AddOns\\LuzennaForever`, then restart the game or `/reload`.\n\nFree for personal use; copying or redistributing needs a paid license (see LICENSE).\n\n**Full Changelog**: https://github.com/Luzenna/wowaddon-LuzennaForever/compare/v1.0.0...v1.0.1"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "LuzennaForever 1.0.0",
+      "published": "2026-10-24",
+      "notes": "## LuzennaForever 1.0.0\n\n### Install\nExtract `LuzennaForever-1.0.0.zip` into your `Interface\\AddOns` folder so you end up with `AddOns\\LuzennaForever`, then restart the game or `/reload`.\n\nFree for personal use; copying or redistributing needs a paid license (see LICENSE).\n\n**Full Changelog**: https://github.com/Luzenna/wowaddon-LuzennaForever/commits/v1.0.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-08",
+    "releaseDates": [
+      "2026-11-08",
+      "2026-11-05",
+      "2026-10-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LuzennaForever"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "LuzennaForeverDB"
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "bgnext",
+  "repo": "pitcn/bgnext",
+  "about": "# BGNext\n\n为金团记账、拍卖和结算准备的社区插件。团长管理起拍价与账单，团员整理心愿和个人心理价，自己的角色进度集中查看。BGNext 基于官方 **BGLite 纯净版 2.4.2** 独立维护，重视日常操作效率、性能和本地隐私。\n\n> [!IMPORTANT]\n> **安全、隐私和合规优先于功能完整度、开发速度、下载量、排名及任何经济激励。**\n> 任何功能只要存在无法合理排除的隐私、安全、平台规则或知识产权风险，就不会合并或发布。\n\n## 项目缘起\n\nBGNext 发起于对网易 DD 公开举办的「BGLite 增强版开发激励活动」的响应。我们以活动提供的 BGLite 上游为起点，通过公开审查和社区协作，逐步提供稳定、实用、易用的团队协作功能。\n\n本项目是独立、非官方的社区项目，不代表网易、暴雪或 BGLite 原作者的官方立场。活动名称只用于说明项目缘起，不构成合作、认证、推荐或商业背书。\n\n## 当前状态\n\n- 上游基线：官方 BGLite 纯净版 2.4.2\n- 基线提交：`5649f58ac2d7d57d3906c97f0aa679bbe5b3da44`\n- 原版文件：186 个\n- 基线完整性：由 [SHA-256 清单](https://github.com/pitcn/bgnext/blob/main/docs/baseline/BGLite-2.4.2.sha256)、[明确覆盖清单](https://github.com/pitcn/bgnext/blob/main/docs/baseline/BGNext-overrides.sha256)和自动检查共同保护\n- 当前版本：0.8.25；各客户端实机验证状态以测试文档和发布说明为准\n- 界面语言：简体中文、繁体中文；其他客户端语言统一显示英文\n\n角色总览已为永久 60、周年服 TBC、周年时光服、熊猫人和正式服建立独立实例目录与保守的本地摘要白名单，均等待对应客户端实机验证；探索赛季明确不加载该入口。任何客户端都不会显示未经核验的合并副本、版本货币、升级物品或特殊装备占位。各版本的实际状态见[兼容性矩阵](https://github.com/pitcn/bgnext/blob/main/docs/compatibility.md)。未完成对应客户端实机验收的功能不会标记为已支持。\n\n仓库记录了官方 BGLite 纯净版 2.4.2 分发快照的全部 186 个文件。来源哈希只证明文件身份，不代表所有上游行为已经通过 BGNext 安全审计；BGNext 对必要修改逐文件登记、测试和复核。详见[基线说明](https://github.com/pitcn/bgnext/blob/main/docs/baseline/README.md)。\n\n## 主要功能\n\n- 团队账单：保留原版 BGLite 的高密度金团表格，支持拍卖、记账、交易与邮件核对；交易记录同时区分“已交易”和“待核对”，尽量呈现实际交付数量与双方金币。\n- 价格预设与待拍队列：团长按团本保存多套起拍价方案，可把装备排入当前团待拍队列并逐件确认开拍；表格装备 Alt+右键按预设开拍，Ctrl+右键修改单件价。团员可保存个人心理价，旧价格字符串可预览导入。\n- 团队拍卖就绪检查：进团后查看成员拍卖端就绪状态，未响应不会被误标为未安装。\n- 可切换的 BGNext 预览外观：保持原版账单布局和半透明背景，经典外观仍为默认。\n- 心愿清单：按副本、难度和首领整理目标装备。新选装备默认“备选”，滚轮按“备选 < 次 BIS < BIS”切换，文字徽标显示优先级。已有优先级不重置，旧字符串仍能导入。\n- 结算前检查：集中提示欠款、账单缺项及待核对的交易；证据不足时保留待确认，辅助核对但不代替团长判断。\n- 可选团长工具：支出模板只填空行；拍卖中心集中查看当前拍品并复核明显异常出价；实收与分金预览严格区分账面金额和已证实交易。\n- 可选本地成交摘要：默认关闭，仅在手动确认后保存物品、金额、副本、时间和“是否本人”，可设置 30/90/180 天并一键清空。\n- 角色总览与装备过滤：只记录自己登录过的角色；正式服团本进度按 Boss 与难度分别统计，按变化范围刷新以减少不必要的重复工作。\n- 存储与隐私：可手动确认清理停用的旧历史数据；登录和升级不会自动删除。清理前请先备份 WTF。\n\n输入 `/bgn` 或 `/bgnext` 打开插件。个人工具数据仅保存在本地；当前团交易与邮件核对只保留最近一团，最长七天，不建立其他玩家历史档案。\n\n## 项目目的\n\n1. 在明确合规边界内维护 BGLite 的稳定性和游戏版本兼容性。\n2. 通过 Issue、Pull Request、代码审查和测试记录进行透明共创。\n3. 让玩家清楚知道插件读取、保存、导出或传输了什么数据。\n4. 为代码、测试、翻译、设计、文档和合规贡献建立公平的认可机制。\n5. 将全部项目收入用于慈善，并公开可核验的收支与捐赠记录。\n\n## 不可逾越的边界\n\n本项目不会接受：\n\n- 未经玩家许可收集、保存或传播账号、角色、设备、聊天、战斗、交易等信息；\n- 在插件加载、角色登录、进入副本或其他游戏行为发生时自动上传或同步数据；\n- 隐藏采集、隐藏通信、遥测、跟踪标识、后门或远程控制；\n- 博彩、现金交易导流、刷量、诱导重复下载、强制分享、强制关注或强制好评；\n- 未经授权的代码、UI、图片、字体、声音或文案；\n- 规避平台审核、误导审查人员或在后台代替玩家完成敏感行为的实现。\n\n详细规则见[合规边界](https://github.com/pitcn/bgnext/blob/main/docs/policies/COMPLIANCE.md)、[隐私政策](https://github.com/pitcn/bgnext/blob/main/docs/policies/PRIVACY.md)和[安全政策](https://github.com/pitcn/bgnext/blob/main/SECURITY.md)。有疑义的功能先暂停，完成评估或取得平台书面确认后再决定。\n\n## 安装\n\n普通玩家应优先使用 GitHub Release 或通过网易 DD 等适用平台审核的正式版本，不要直接下载仓库源码替代发布包。\n\n安装或更新：\n\n1. 下载发布页提供的 ZIP，并确认来源和版本号。\n2. 完全退出游戏并备份 WTF；解压后应得到包含 `BGNext.toc` 的 `BGNext` 文件夹。\n3. 将该文件夹复制到对应游戏客户端的 `Interface/AddOns/` 目录。\n4. 完全退出并重新启动游戏，在插件列表中确认 BGNext 已启用。\n\n更新时先移走旧 BGNext 插件目录，再放入新版，避免旧文件残留；不要删除 WTF 中的设置。BGNext 不需要 BGLite_KZ 等扩展，不要同时启用 BGLite、BiaoGe 或依赖它们的扩展。\n\n维护者使用 `tools/build-release.ps1` 从实际加载清单生成发布包。该流程会排除仓库中的测试、开发文档及已隔离的旧历史/整表接收源码；禁止直接压缩整个仓库作为 Release。\n\n## 欢迎共创\n\nBGNext 由社区共同维护。我们欢迎插件作者、玩家、测试者、翻译者、设计师、文档贡献者和合规审查者参与。\n\n- 发现问题：提交[错误报告](https://github.com/pitcn/bgnext/issues/new?template=bug-report.yml)\n- 提议功能：提交[功能建议](https://github.com/pitcn/bgnext/issues/new?template=feature-request.yml)\n- 贡献实现：阅读[贡献指南](https://github.com/pitcn/bgnext/blob/main/CONTRIBUTING.md)并提交 Pull Request\n- 获取帮助：阅读[支持说明](https://github.com/pitcn/bgnext/blob/main/.github/SUPPORT.md)\n- 报告安全问题：遵循[安全政策](https://github.com/pitcn/bgnext/blob/main/SECURITY.md)，不要公开利用细节或敏感数据\n\n代码、错误复现、兼容性测试、翻译、文字校对、设计和合规建议都属于有效贡献。贡献者会按贡献类型记录在[感谢名单](https://github.com/pitcn/bgnext/blob/main/docs/community/CONTRIBUTORS.md)及相关版本更新说明中；同类贡献不排名，也不会因赞助金额改变署名、权限或合并优先级。\n\n## 慈善承诺\n\n与 BGNext 相关的全部活动奖金、赞助及其他项目收入均用于慈善捐赠，不作为维护者或贡献者的个人收益。\n\n依法必须缴纳或代扣代缴的税费会单独记录；扣除依法必须承担的税费后，剩余资金全部捐赠给具备合法资质、信息可核验的慈善组织。项目将公开脱敏后的收入、税费、受赠机构和捐赠凭证。详见[慈善与财务透明政策](https://github.com/pitcn/bgnext/blob/main/docs/policies/CHARITY.md)。\n\n## 项目文档\n\n- [贡献指南](https://github.com/pitcn/bgnext/blob/main/CONTRIBUTING.md)\n- [贡献者与感谢名单](https://github.com/pitcn/bgnext/blob/main/docs/community/CONTRIBUTORS.md)\n- [安全政策](https://github.com/pitcn/bgnext/blob/main/SECURITY.md)\n- [隐私政策](https://github.com/pitcn/bgnext/blob/main/docs/policies/PRIVACY.md)\n- [合规边界](https://github.com/pitcn/bgnext/blob/main/docs/policies/COMPLIANCE.md)\n- [项目治理章程](https://github.com/pitcn/bgnext/blob/main/docs/policies/PROJECT_CHARTER.md)\n- [慈善与财务透明政策](https://github.com/pitcn/bgnext/blob/main/docs/policies/CHARITY.md)\n- [版权与权利说明](https://github.com/pitcn/bgnext/blob/main/COPYRIGHT.md)\n- [变更日志](https://github.com/pitcn/bgnext/blob/main/CHANGELOG.md)\n- [支持说明](https://github.com/pitcn/bgnext/blob/main/.github/SUPPORT.md)\n- [兼容性矩阵](https://github.com/pitcn/bgnext/blob/main/docs/compatibility.md)\n- [0.1.0 发布审计](https://github.com/pitcn/bgnext/blob/main/docs/release/0.1.0-audit.md)\n\n## 版权与免责声明\n\nBGLite、《魔兽世界》及仓库内既有代码、商标、图片、声音和第三方库的相关权利归各自权利人所有。本仓库不会把上游内容声明为 BGNext 原创，也不会在未取得充分权利的情况下擅自授予统一开源许可证。详情见[版权与权利说明](https://github.com/pitcn/bgnext/blob/main/COPYRIGHT.md)。\n\n使用插件前请自行备份必要数据。项目按现状提供，不对游戏更新、平台规则变化或第三方环境造成的兼容性问题作无条件保证。",
+  "releases": [
+    {
+      "tag": "v0.8.25",
+      "name": "BGNext 0.8.25",
+      "published": "2026-11-26",
+      "notes": "# BGNext 0.8.25\n\n- 无限服黑石塔只有团队状态才记账：五人小队打黑石塔下层不再误记、不再弹清空账单提示；其他团本和其他服不受影响。\n- “表格满了”语音提示 30 秒内只响一次（所有服生效），文字提示照常每次显示。\n- 修复批量邮寄工资页切回发件箱时附件格错位、标题重叠，旧客户端离开批量页会恢复原标题；适配 EllesmereUI 邮箱皮肤。感谢露露（@Rurutia-wow）。\n\n已通过自动测试验证（142 项）。尚待游戏内验证：无限服黑石塔上下层记账、表格满提示音、各服批量邮寄工资页标题与附件格、EllesmereUI 皮肤。"
+    },
+    {
+      "tag": "v0.8.24",
+      "name": "BGNext 0.8.24",
+      "published": "2026-11-23",
+      "notes": "# BGNext 0.8.24\n\n- 修复无限服 1.60.1 服务器 ID 为 0 时个人心理价无法保存的问题；其他服不受影响。\n\n已在无限服游戏内验证：保存心理价后，/reload 仍会保留。开拍后的心理价预填、导出和导入已通过自动测试验证；预填不会自动出价。"
+    },
+    {
+      "tag": "v0.8.23",
+      "name": "BGNext 0.8.23",
+      "published": "2026-11-21",
+      "notes": "# BGNext 0.8.23\n\n- 修复无限服团长无法发起拍卖、团员看不到拍卖的问题（团长和团员都需要更新到本版本）。\n- 没有权限时的提示改为“只有团长或物品分配者可以发起拍卖”；非团长在背包 Alt+点击物品时，不在团队中不提示，在团队中每次登录最多提示一次。\n- 无限服新用户普通拍卖窗口默认起拍价改为 10G，已保存的起拍价不变。\n\n团长发起拍卖已在游戏内验证；团员看到拍卖和出价目前通过双客户端模拟测试验证，尚待更多实机反馈。"
+    },
+    {
+      "tag": "v0.8.22",
+      "name": "BGNext 0.8.22",
+      "published": "2026-11-20",
+      "notes": "# BGNext 0.8.22\n\n- 新增（仅无限服）：进入新团队或副本进度重置后，弹窗询问是否清空之前的账单，可在设置里关闭；战斗中不会弹出。每个副本第一次重置只记录不询问。\n- 修复自动拍卖设置页打开时偶尔报错。\n\n进度重置触发尚待游戏内验收，不扩大现有客户端支持范围。"
+    },
+    {
+      "tag": "v0.8.21",
+      "name": "BGNext 0.8.21",
+      "published": "2026-11-20",
+      "notes": "# BGNext 0.8.21\n\n- 修复战斗中按 ESC 关不掉人物面板等窗口的问题。\n- 新增可选功能：进团本时自动改为队长分配（默认关闭，待游戏内验收）。\n\n自动队长分配尚待游戏内验收，不扩大现有客户端支持范围。"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 3,
+    "contributors": 3,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-23",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-03",
+      "2026-10-30",
+      "2026-10-28",
+      "2026-10-11",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-09-20",
+      "2026-09-17",
+      "2026-09-16",
+      "2026-09-16",
+      "2026-09-10",
+      "2026-09-07",
+      "2026-09-07",
+      "2026-09-06",
+      "2026-09-06",
+      "2026-09-06",
+      "2026-09-05",
+      "2026-09-04",
+      "2026-09-04",
+      "2026-09-03",
+      "2026-09-02",
+      "2026-09-01",
+      "2026-09-01",
+      "2026-08-31",
+      "2026-08-30",
+      "2026-08-30",
+      "2026-08-30",
+      "2026-08-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "BGNext"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "BiaoGe"
+    ]
+  }
+}

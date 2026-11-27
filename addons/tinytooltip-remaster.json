@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "tinytooltip-remaster",
+  "repo": "flowflowflow/TinyTooltip-Remaster",
+  "releases": [
+    {
+      "tag": "2.7.0",
+      "published": "2026-09-26",
+      "notes": "# TinyTooltip - Remaster\n\n## [2.7.0](https://github.com/flowflowflow/TinyTooltip-Remaster/tree/2.7.0) (2026-09-26)\n[Full Changelog](https://github.com/flowflowflow/TinyTooltip-Remaster/commits/2.7.0) [Previous Releases](https://github.com/flowflowflow/TinyTooltip-Remaster/releases)\n\n- fix: Add safety checks and bug fixes for secret values wherever lua errors have occured"
+    },
+    {
+      "tag": "2.6.7",
+      "published": "2026-09-25",
+      "notes": "# TinyTooltip - Remaster\n\n## [2.6.7](https://github.com/flowflowflow/TinyTooltip-Remaster/tree/2.6.7) (2026-09-25)\n[Full Changelog](https://github.com/flowflowflow/TinyTooltip-Remaster/commits/2.6.7) [Previous Releases](https://github.com/flowflowflow/TinyTooltip-Remaster/releases)\n\n- fix: Add more protections against secret values"
+    },
+    {
+      "tag": "2.6.6",
+      "published": "2026-09-25",
+      "notes": "# TinyTooltip - Remaster\n\n## [2.6.6](https://github.com/flowflowflow/TinyTooltip-Remaster/tree/2.6.6) (2026-09-25)\n[Full Changelog](https://github.com/flowflowflow/TinyTooltip-Remaster/commits/2.6.6) [Previous Releases](https://github.com/flowflowflow/TinyTooltip-Remaster/releases)\n\n- fix: Fix secretvalue handling in FindLine function"
+    },
+    {
+      "tag": "2.6.5",
+      "published": "2026-09-25",
+      "notes": "# TinyTooltip - Remaster\n\n## [2.6.5](https://github.com/flowflowflow/TinyTooltip-Remaster/tree/2.6.5) (2026-09-25)\n[Full Changelog](https://github.com/flowflowflow/TinyTooltip-Remaster/commits/2.6.5) [Previous Releases](https://github.com/flowflowflow/TinyTooltip-Remaster/releases)\n\n- fix/build: Add curseforge project id in release"
+    },
+    {
+      "tag": "2.6.4",
+      "published": "2026-09-25",
+      "notes": "# TinyTooltip - Remaster\n\n## [2.6.4](https://github.com/flowflowflow/TinyTooltip-Remaster/tree/2.6.4) (2026-09-25)\n[Full Changelog](https://github.com/flowflowflow/TinyTooltip-Remaster/commits/2.6.4) [Previous Releases](https://github.com/flowflowflow/TinyTooltip-Remaster/releases)\n\n- fix/build: Add github oauth in release.yml"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-09-26",
+    "releaseDates": [
+      "2026-09-26",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25",
+      "2026-09-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TinyTooltip - Remaster"
+    ],
+    "editions": [
+      "anniversary",
+      "forever"
+    ],
+    "savedVariables": [
+      "BigTipDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "TinyTooltipCharacterDB"
+    ]
+  }
+}

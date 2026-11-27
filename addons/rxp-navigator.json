@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "rxp-navigator",
+  "repo": "Retronimrod/RestedXP-Navigator",
+  "about": "# RestedXP-Navigator\n\n[![Version](https://img.shields.io/badge/version-1.7.27-blue)](https://github.com/Retronimrod/RestedXP-Navigator/releases)\n[![WoW Forever](https://img.shields.io/badge/WoW%20Forever-1.60.1-orange)](https://www.curseforge.com/wow/addons/restedxp-navigator)\n[![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-lightgrey)](https://github.com/Retronimrod/RestedXP-Navigator/blob/main/LICENSE)\n\n**RestedXP-Navigator** is a visual navigation companion for **RestedXP Guides / RXPGuides on WoW Forever**. It turns active guide targets into clear Minimap, World Map and HUD navigation without replacing or redistributing RestedXP guide content.\n\n[CurseForge](https://www.curseforge.com/wow/addons/restedxp-navigator) · [Changelog](https://github.com/Retronimrod/RestedXP-Navigator/blob/main/CHANGELOG.md) · Report a bug · Request a feature\n\n## Screenshots\n\n![RestedXP-Navigator overview](https://raw.githubusercontent.com/Retronimrod/RestedXP-Navigator/main/screenshots/overview.jpg)\n\n**Minimap navigation**\n![Minimap navigation](https://raw.githubusercontent.com/Retronimrod/RestedXP-Navigator/main/screenshots/minimap.jpg)\n\n**Navigation HUD**\n![Navigation HUD](https://raw.githubusercontent.com/Retronimrod/RestedXP-Navigator/main/screenshots/hud.jpg)\n\n## Highlights\n\n- Direct navigation to the active RestedXP destination\n- Minimap and World Map route rendering\n- Configurable on-screen navigation HUD\n- Future-goal preview from **+1 to +6 steps**\n- Smart travel routing for Hearthstone, flights, Zeppelins, ships and portals\n- Quest-object / collectible markers with nearest-object highlighting\n- Dedicated **Grind XP HUD** with live XP progress and percentage display\n- Corpse-run navigation\n- Farm, patrol and search-area overlays\n- Integrated diagnostics and bug-report export\n\n## What's new in 1.7.0\n\n- World Map routes, outlines, target rings and direction indicators adjust to map zoom.\n- Added a first-run setup wizard with shared and character-specific profiles.\n- HUD elements can be moved and scaled in Edit Mode.\n- Added optional quest progress and completion announcements in group chat.\n- Localized the interface for all supported client languages.\n- Added selectable built-in world marker styles and personal raid symbols.\n\n## Highlights from 1.4.0\n\n### Quest-object markers\nRestedXP object-location loops can now be shown as individual markers on the World Map and Minimap instead of misleading connected route lines. Object classification, tooltips and nearest-object highlighting are included.\n\n### Grind XP HUD\nActive RestedXP grind steps now get a dedicated XP progress presentation below the navigation HUD with current XP, target XP, percentage progress and grind instruction text. ETA is hidden during grind steps so the HUD stays focused on progress.\n\n## Requirements\n\n- **WoW Forever 1.60.1**\n- **RestedXP Guides / RXPGuides**\n- TomTom is **not required**\n\n## Installation\n\n1. Download the latest `RestedXP-Navigator-vX.Y.Z.zip` from [GitHub Releases](https://github.com/Retronimrod/RestedXP-Navigator/releases) or CurseForge.\n2. Extract the included `RXP_Navigator` folder into your WoW `Interface/AddOns` directory.\n3. Ensure RestedXP Guides is installed and enabled.\n4. Start the game and configure the addon with `/rxpnav options`.\n\n## Commands\n\n~~~text\n/rxpnav options\n/rxpnav toggle\n/rxpnav goals 0|1|2|3|4|5|6\n/rxpnav maptest\n/rxpnav bugreport\n/rxpnav status\n/rxpnav reset\n~~~\n\n## Project structure\n\n~~~text\nCore/       Core navigation, resolvers and planners\nDebug/      Diagnostics and inspector tools\nDocs/       Architecture and project documentation\nMap/        World Map and Minimap rendering\nMedia/      Addon textures and artwork\nUI/         HUD, settings and tooltip presentation\nRXP_Navigator.toc\n~~~\n\n## Development\n\nThe `main` branch contains the current development state. Stable versions are published as semantic version tags and GitHub Releases:\n\n~~~text\nv1.3.0\nv1.4.0\nv1.5.0\n...\n~~~\n\nRelease archives follow the naming convention:\n\n~~~text\nRestedXP-Navigator-v1.4.0.zip\n~~~\n\nBeta and hotfix identifiers may appear in development history and the changelog, but public release archives use the clean semantic version name.\n\n## Disclaimer\n\nRestedXP-Navigator is an **unofficial companion addon** for RestedXP Guides / RXPGuides.\n\nIt does not include, copy or redistribute RestedXP guide content. The addon provides visual navigation assistance only and does not automate character movement, combat, quest interaction, NPC interaction or gameplay input. All gameplay remains controlled by the player.\n\n## License\n\nAll Rights Reserved. See [LICENSE](https://github.com/Retronimrod/RestedXP-Navigator/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.7.27",
+      "name": "RestedXP-Navigator v1.7.27",
+      "published": "2026-11-22",
+      "notes": "# RestedXP-Navigator v1.7.27\n\n- Fix the Navigator transport selector suggesting Horde zeppelins to Alliance characters.\n- Detect the character faction automatically using the client's locale-independent faction token; no manual faction switch is needed.\n- Add Alliance ship connections in both directions: Menethil Harbor–Auberdine, Menethil Harbor–Theramore, Auberdine–Rut’theran Village and Feathermoon–Feralas.\n- Keep Ratchet–Booty Bay available to both factions. Unknown character factions receive only explicitly neutral connections until their faction is available.\n- Apply faction filtering to both the travel network and its fallback selector, including the known departure list.\n- Invalidate cached HUD/minimap travel planning when the character faction changes. Existing performance optimizations remain in place.\n- Update the in-game release notice in all 12 supported client-language variants.\n- SPF bridge remains 0.3.8. This fixes Navigator's own transport selection and does not change SPF's independent routing policy.\n\nBoarding-location references: Shortest Path Forever v1.43.5, Data/Routes.lua (dry boarding surfaces) and Data/Zones.lua (map bounds), generated from Forever build 1.60.1.70938 game data:\nhttps://github.com/cjber/shortest-path-forever/blob/v1.43.5/Data/Routes.lua\nhttps://github.com/cjber/shortest-path-forever/blob/v1.43.5/Data/Zones.lua\n\nValidation: Lua syntax and module initialization checks; Horde, Alliance and unknown-faction route filtering; neutral availability; route selection in both continent directions; fallback filtering and faction-change cache invalidation. In-game dock arrival positions have not been separately tested on an Alliance character."
+    },
+    {
+      "tag": "v1.7.26",
+      "name": "RestedXP-Navigator v1.7.26",
+      "published": "2026-11-18",
+      "notes": "# RestedXP-Navigator v1.7.26\n\nThis release reduces repeated navigation calculations and improves the built-in performance report.\n\n- The minimap now shows only the current step. Upcoming steps remain available on the world map.\n- Navigator route animation pauses while the SPF bridge is enabled; your animation preference is preserved.\n- HUD and minimap share travel information and selected routes for up to 0.25 seconds. Step, target and map changes invalidate cached results. Direction and distance continue updating at the existing rate.\n- Reuse successful player-map and world-position lookups within the same frame.\n- Avoid resetting unchanged travel HUD text and arrow rotation.\n- Expand `/rxpnav perf` with HUD phases, minimap policy and version/settings details. The report opens for copying after a 30-second recording.\n- Fix initialization errors in the core API and update notice encountered during testing.\n- Remove the unsupported `NEW_TAXI_PATH` event and protect optional travel-event registration across client variants.\n- Include SPF bridge 0.3.8 in the same package. Shortest Path Forever itself remains a separate installation.\n- Updated version notices in all 12 supported client-language variants.\n\nIn the supplied 30-second movement tests, measured minimap time per update fell from 0.561 ms in v1.7.19 to 0.184 ms in v1.7.26 (about 67%). HUD time per update fell from 0.280 to 0.188 ms (about 33%). These are individual instrumented test runs, not a guaranteed FPS improvement or a measurement of all addon CPU usage; combat and an open world map were not covered by these runs. Nested timings overlap their parent sections and must not be added to the subtotal.\n\nThanks to T3sco for the original caching suggestions and to everyone who provided performance reports and tested the builds."
+    },
+    {
+      "tag": "v1.7.18",
+      "name": "RestedXP-Navigator v1.7.18",
+      "published": "2026-11-18",
+      "notes": "# RestedXP-Navigator v1.7.18\n\n- Accept valid player-map coordinates before probing fallback map hierarchies.\n- Coalesce RestedXP refresh messages and avoid redundant theme, layout and settings refreshes.\n- Cache objective text and type for up to 0.1 seconds with quest and guide invalidation.\n- Cache grind goal parsing for up to 0.25 seconds, keeping XP and completion checks live.\n- Reuse world-marker target metadata for up to 0.1 seconds.\n- Avoid quest-log scans when group announcements cannot be sent.\n- Reuse visible future minimap regions instead of hiding all of them before every redraw.\n- Expand /rxpnav perf with map resolution, route planning, overlays, quest messages, SPF and event measurements.\n- Add a 30-second performance recording button under Advanced. The report opens for copying when recording finishes.\n- Retain the v1.7.17 target box toggle.\n\nPerformance work incorporates the caching approach suggested by T3sco, adapted to the current return values and lifecycle.\nhttps://gist.github.com/t3sco/c511c0fbea6666780dad0713a2bcb3e5\n\nRun one recording while moving with the world map closed, then a second with the world map open. Copy each report before the next recording. Nested measurements overlap parent sections and must not be added to the subtotal. The subtotal covers the instrumented sections, rather than all addon CPU or render/GPU work."
+    },
+    {
+      "tag": "v1.7.10",
+      "name": "RestedXP-Navigator v1.7.10",
+      "published": "2026-11-15",
+      "notes": "# RestedXP-Navigator v1.7.10\n\n- Replaced number-only navigation titles such as “1” with the guide instruction or a title derived from quest progress when available.\n- Added a dedicated ship icon and corrected Zeppelin icon selection.\n- Improved icon selection for collection and kill objectives, including Kurzen Fighter's Uniform."
+    },
+    {
+      "tag": "v1.7.5",
+      "name": "RestedXP-Navigator v1.7.5",
+      "published": "2026-11-13",
+      "notes": "# RestedXP-Navigator v1.7.5\n\n- The optional Shortest Path Forever bridge now supports SPF API v2 alongside v1. This restores bridge activation, route preview, and display controls with compatible SPF releases.\n- The bridge can still be switched off if the SPF API becomes unavailable.\n- The diagnostic export records SPF and bridge versions, load status, API compatibility, display settings, and route status. Opening it hides the settings panel until the export is closed.\n- The first login after updating shows a localized notice about the fix and how to include a bug report in a CurseForge comment."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Retronimrod/RestedXP-Navigator/main/screenshots/overview.jpg",
+    "https://raw.githubusercontent.com/Retronimrod/RestedXP-Navigator/main/screenshots/minimap.jpg",
+    "https://raw.githubusercontent.com/Retronimrod/RestedXP-Navigator/main/screenshots/hud.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-15",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-07",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-08"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "RXP_Navigator",
+      "RXP_Navigator_SPF"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "RXPGuides"
+    ],
+    "savedVariables": [
+      "RXPNavigatorDB",
+      "RXPNavigatorDebugDB"
+    ]
+  }
+}

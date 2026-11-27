@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "bagnon-cheapest",
+  "repo": "postazure/wow-addon-bagnon-cheapest",
+  "about": "# Bagnon Cheapest\n\nA [Bagnon](https://www.curseforge.com/wow/addons/bagnon) plugin for WoW Forever. It finds the lowest-value stack in your bags so you can free a slot in one click.\n\n## Features\n\n- Adds a button to Bagnon's bag window showing the item that would go next and its vendor price.\n- Grey items come first. After that, items are ranked by vendor price × stack size.\n- By default the button only offers grey items, so Shift-click is a quick way to clear junk. The list shows every quality.\n- Hovering shows the next four candidates and darkens every other slot, so the target stands out.\n- At a vendor it sells the stack instead of destroying it.\n- A list panel shows every candidate. Exclude anything you want to keep; exclusions are saved for all your characters.\n\n## Usage\n\n| Where | Action | Result |\n|---|---|---|\n| Bag button | Click | Open or close the list |\n| Bag button | Shift-click | Destroy (or sell) the cheapest stack |\n| Bag button | Shift-right-click | Skip that item until you close your bags |\n| List | Shift-click | Destroy (or sell) that stack |\n| List | Right-click | Exclude that item |\n| Excluded list | Right-click | Restore that item |\n\n`/bcheap` toggles the list, and `/bcheap scan` prints the ranking to chat.\n\n## Options\n\nUnder **Options → AddOns → Bagnon Cheapest**, or `/bcheap options`:\n\n- **Button picks from:** which items the bag button (and its Shift-click) may pick. The default, *Poor (junk only)*, means grey items only. Pick *Common and below*, *Uncommon and below* and so on to let it pick better items too. The list always shows every quality.\n- **Grey items first:** on by default, so grey junk always comes first and everything else follows by vendor value. Turn it off to rank everything by vendor value alone.\n\n## Safety\n\n- The slot is checked again before anything happens. If the item or stack size changed, nothing is done.\n- Uncommon and better items always go through Blizzard's \"type DELETE\" confirmation.\n- Works in combat (destroying only; selling waits until combat ends). Nothing happens while your cursor is holding an item.\n- Quest items and items with no sell price are never listed.\n- Selling skips items that can still be refunded. Anything sold can be bought back from the vendor.\n\n## Requirements\n\n- WoW Forever (interface 16001)\n- Bagnon\n\n## Development\n\nThe ranking logic and a stubbed-API smoke test run outside the game:\n\n```bash\npip install lupa\npython tests/run.py\n```\n\n## Releasing\n\nPushing an annotated `v<version>` tag on `main` runs the Release workflow. It checks the tag against the `.toc` version and `CHANGELOG.md`, then tests, zips, creates the GitHub release and uploads to CurseForge. The tag's message is the release notes. The release skill in `.claude/skills/release` walks through it.\n\nThe CurseForge upload is skipped until the repo has a `CURSEFORGE_TOKEN` secret and a `CURSEFORGE_PROJECT_ID` variable.\n\n## License\n\nMIT. See [LICENSE](https://github.com/postazure/wow-addon-bagnon-cheapest/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.3.0",
+      "name": "Bagnon Cheapest 1.3.0",
+      "published": "2026-11-14",
+      "notes": "### New\n\n- The button and list now work in combat. You can destroy items mid-fight;\n  selling at a vendor still waits until combat ends.\n\n### Changed\n\n- Clearer option names. \"Button shows up to\" is now **Button picks from**,\n  with choices like \"Poor (junk only)\" and \"Common and below\".\n  \"Cheapest first, any quality\" is now **Grey items first**, which works the\n  other way round: on by default, and off to rank by vendor value alone.\n  Your current choice carries over."
+    },
+    {
+      "tag": "v1.2.0",
+      "name": "Bagnon Cheapest 1.2.0",
+      "published": "2026-11-09",
+      "notes": "### New\n\n- An options page under Options → AddOns → Bagnon Cheapest, or `/bcheap options`.\n- **Button shows up to:** the highest quality the bag button offers. The\n  default is Poor, so Shift-click only clears grey items. The list still\n  shows every quality.\n- **Cheapest first, any quality:** rank purely by vendor value instead of\n  putting grey items first. Off by default.\n\n### Changed\n\n- The list now needs Shift-click to destroy or sell a stack, like the bag\n  button. A plain click does nothing."
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "Bagnon Cheapest 1.1.0",
+      "published": "2026-11-06",
+      "notes": "- Shift-right-click the bag button to skip the item it shows. It comes back\n  the next time you open your bags, and isn't added to your exclusions."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/postazure/wow-addon-bagnon-cheapest/main/screenshots/1-excluded-list.png",
+    "https://raw.githubusercontent.com/postazure/wow-addon-bagnon-cheapest/main/screenshots/2-button-tooltip.png",
+    "https://raw.githubusercontent.com/postazure/wow-addon-bagnon-cheapest/main/screenshots/3-panel.png",
+    "https://raw.githubusercontent.com/postazure/wow-addon-bagnon-cheapest/main/screenshots/4-tooltip.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-14",
+    "releaseDates": [
+      "2026-11-14",
+      "2026-11-09",
+      "2026-11-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Bagnon_Cheapest"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Bagnon"
+    ],
+    "savedVariables": [
+      "Bagnon_CheapestDB"
+    ]
+  }
+}

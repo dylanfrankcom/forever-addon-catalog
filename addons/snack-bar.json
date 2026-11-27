@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "snack-bar",
+  "repo": "NervzZ/Snack_Bar",
+  "about": "# Snack Bar\n\nClickable slots that always show the best food and water in your bags, and your best health and mana potions if you want them. Made for WoW Forever.\n\n## What it does\n\n- **Always the best item.** Each slot shows the item in your bags that restores the most and that you can use at your level. Between equal items the cheapest goes first, so conjured food and water are used before bought ones.\n- **Saves your special food.** Food that gives a buff, combined potions and potions with side effects are only used when nothing else is left.\n- **Optional potions.** The health and mana potion slots are off by default. When you carry fewer than five of your best potion, the same button also holds the next best ones, so it keeps working during a fight.\n- **Knows where items work.** Battleground food and potions only show up where they can be used.\n- **Stays out of the way.** Empty slots are hidden, and the bars can be set to show only on mouse hover.\n\nThe game does not allow addons to change buttons in combat. If you loot better food during a fight, the slot switches to it when the fight ends.\n\n## Options\n\nType `/snack` to choose:\n\n- which slots are shown\n- healthstones as health potions\n- potions on their own bar, or attached to the food and water bar in a line or a square\n- horizontal or vertical\n- size, gap and position, with numbers you can type\n- show only on mouse hover\n- lock the bars\n\nTo move a bar, bring the mouse close to it and drag the small tab that appears.\n\nSettings are saved per character. Items are recognized in every client language; the options window is in English.\n\nHealthstones can count as health potions (an option), ranked by how much they heal. They have their own cooldown, so a click never uses a healthstone and a potion together. Mana gems and bandages are not included.\n\n## Development\n\n`addon/Snack_Bar` is the addon folder. The item data in `Data.lua` is generated from the game client's tables, which the script downloads:\n\n    python tools/build_data.py 1.60.1.71037\n\nThe offline tests need `pip install lupa`:\n\n    python tools/test_snackbar.py\n\nChanges go to `main` by pull request. A pull request that changes the addon raises the version in `Snack_Bar.toc` and adds it to `CHANGELOG.md`. Merging it publishes that version.\n\n## License\n\nMIT, see [LICENSE](https://github.com/NervzZ/Snack_Bar/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "1.1.0",
+      "published": "2026-11-26",
+      "notes": "# Changelog\n\n## 1.1.0\n\n- Option to count healthstones as health potions, ranked with them by how much they heal\n- A click never uses a healthstone and a potion together, and a healthstone on cooldown waits until it is ready\n\n## 1.0.0\n\nFirst public version.\n\n- Food and water slots that always show the best usable item in your bags\n- Optional health and mana potion slots, with backup potions for combat\n- Potions on their own bar, or attached to the food and water bar in a line or a square\n- Size, gap and position with sliders and numbers you can type\n- Show only on mouse hover\n- Lock the bars"
+    },
+    {
+      "tag": "1.0.0",
+      "published": "2026-11-25",
+      "notes": "# Changelog\n\n## 1.0.0\n\nFirst public version.\n\n- Food and water slots that always show the best usable item in your bags\n- Optional health and mana potion slots, with backup potions for combat\n- Potions on their own bar, or attached to the food and water bar in a line or a square\n- Size, gap and position with sliders and numbers you can type\n- Show only on mouse hover\n- Lock the bars"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Snack_Bar"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "Snack_BarDB"
+    ]
+  }
+}

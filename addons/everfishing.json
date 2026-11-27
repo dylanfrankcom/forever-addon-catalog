@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "everfishing",
+  "repo": "kenny-gordon/WoW-EverFishing",
+  "about": "# EverFishing\n\n![WoW](https://img.shields.io/badge/WoW-Retail%20%7C%20Classic%20%7C%20Forever-orange.svg) ![Version](https://img.shields.io/badge/version-0.1.2-blue.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg)\n\n**EverFishing** is a lightweight, fully-featured fishing companion for World of Warcraft — Retail, Classic, and Forever. It removes the friction from fishing by handling casting, luring, and looting automatically, letting you focus on your chat or your favorite podcast.\n\n## Features\n\n* **Click-to-Cast:** Configure your mouse to cast the fishing line exactly how you want it.\n  * Choose between Left, Right, Middle, Mouse 4, or Mouse 5.\n  * Toggle between Single-Click or Double-Click casting.\n  * Adjustable double-click detection window (0.1s to 0.8s).\n* **Smart Auto-Lure:** Never waste gold on lures again.\n  * **Smart Strategy (Default):** If you are at max fishing skill, EverFishing will *not* apply a lure to save you money. If you aren't maxed, it will use your weakest eligible lures first.\n  * **Weakest First:** Always uses the lowest-tier lure available.\n  * **Strongest First:** Always uses the highest-tier lure available.\n* **Auto-Loot:** While a fishing rod is equipped in your main hand, automatically loots and closes the loot window instantly so you can cast again immediately. Stops when you unequip the rod or switch to another weapon.\n* **Questie-Style Interface:** A native-looking options panel integrated directly into the game's AddOns menu.\n* **Safety First:** Automatically pauses casting if you are in combat, moving, or if the loot window is open.\n\n## Screenshots\n\n![Options Panel](https://raw.githubusercontent.com/kenny-gordon/WoW-EverFishing/main/docs/assets/latest.png)\n\n## Installation\n\n1. Download the latest release from the [Releases](https://github.com/kenny-gordon/WoW-EverFishing/releases/latest) page.\n2. Extract the `EverFishing` folder into the `Interface/AddOns` directory of the client you play:\n\n   ```text\n   World of Warcraft\\_retail_\\Interface\\AddOns\\       (Retail)\n   World of Warcraft\\_classic_era_\\Interface\\AddOns\\  (Classic Era)\n   World of Warcraft\\<forever-folder>\\Interface\\AddOns\\ (Forever)\n   ```\n\nUse whichever folder your Forever installation uses.\n\n3. Restart the game or type `/reload` in chat.\n4. Ensure “EverFishing” is checked in your AddOn List on the character selection screen.\n\n## Building a release ZIP\n\nFrom a Git checkout, run this with Windows PowerShell 5.1 or PowerShell 7:\n\n```powershell\n.\\build.ps1\n```\n\nThe builder creates `dist\\EverFishing-<version>.zip`, ready to attach to a GitHub release. All client TOC files and their referenced files must be tracked, and their versions must agree. The ZIP contains the `EverFishing` folder, its tracked addon files, README, changelog, and license; Git metadata and untracked files are excluded.\n\nTracked files are packaged from the working tree, including uncommitted edits. Stage any new addon files with `git add` before building. Use `.\\build.ps1 -Force` to replace an existing ZIP.\n\nRun `.\\tests\\build-zip.ps1` to test the builder.\n\n## Configuration\n\nYou can access the settings in two ways:\n\n1. Retail & Forever: press `Esc` → **Options** → **AddOns** tab → click **EverFishing**.\n\n2. Classic Era: press `Esc` → **Interface** → **AddOns** tab → click **EverFishing**.\n\nAlternatively, type `/evf options` in chat on any client.\n\n## Slash Commands\n\nType `/evf` or `/everfishing` followed by any of the commands below.\n\n| Command | Description |\n| --- | --- |\n| `/evf status` | Shows your current settings, readiness state, and eligible lures. |\n| `/evf button <left\\|right\\|middle\\|4\\|5>` | Sets the mouse button used to cast. |\n| `/evf mode <single\\|double>` | Sets whether you need to single or double-click to cast. |\n| `/evf delay <0.1-0.8>` | Sets the double-click window timer in seconds. |\n| `/evf lure <on\\|off>` | Toggles automatic lure application on or off. |\n| `/evf strategy <smart\\|weakest\\|strongest>` | Changes the lure selection logic. |\n| `/evf loot <on\\|off>` | Toggles automatic looting on or off. |\n| `/evf pause` | Pauses casting (useful when interacting with a quest item). |\n| `/evf resume` | Resumes casting after a pause. |\n\n## License\n\nThis project is licensed under the **MIT License**.\n\nYou are free to use, copy, modify, merge, publish, and distribute this software. Please see the [LICENSE](https://github.com/kenny-gordon/WoW-EverFishing/blob/main/LICENSE.txt) file for more details.\n\n## Changelog\n\nSee [CHANGELOG.md](https://github.com/kenny-gordon/WoW-EverFishing/blob/main/CHANGELOG.md) for release notes.\n\n## Author\n\n**Ken Gordon**\n\n* Version: 0.1.2\n\n* Feel free to open an issue or submit a pull request if you have suggestions or find bugs.",
+  "releases": [
+    {
+      "tag": "0.1.2",
+      "name": "EverFishing 0.1.2 — Fishing-only Auto-Loot",
+      "published": "2026-11-22",
+      "notes": "This release fixes EverFishing's auto-loot continuing after you switch away from your fishing rod.\n\n### Features\n- Click-to-Cast with configurable mouse buttons and single- or double-click modes.\n- Smart Auto-Lure with Smart, Weakest First, and Strongest First strategies.\n- Auto-Loot while a fishing rod is equipped.\n- Safety pauses for combat, movement, casting, and open loot windows.\n\n### What's new\n- Fixed auto-loot continuing after unequipping a fishing rod or switching weapons.\n- Added a release ZIP builder that excludes Git metadata and untracked files.\n- Added regression tests for auto-loot and release packaging.\n\n### Installation\n1. Download `EverFishing-0.1.2.zip`.\n2. Extract the `EverFishing` folder into your client's `Interface\\AddOns` folder.\n3. Restart the game or type `/reload`.\n\n### Usage\n- Open settings from the game's AddOns menu.\n- Use `/evf status` to check your settings and `/evf help` for commands.\n\n**License:** MIT — see `LICENSE.txt`.\n\n**Full Changelog**: https://github.com/kenny-gordon/WoW-EverFishing/compare/0.1.1...0.1.2"
+    },
+    {
+      "tag": "0.1.1",
+      "name": "EverFishing 0.1.1 — Retail, Classic Era, and Forever support",
+      "published": "2026-11-15",
+      "notes": "First release of EverFishing to support Retail, Classic Era, and Forever from a single addon folder.\n\n### Features\n- Click-to-Cast on Left / Right / Middle / Mouse 4 / Mouse 5, with single- or double-click modes and an adjustable double-click window.\n- Smart Auto-Lure: skips lures at max skill, otherwise uses the weakest eligible lure first. Also supports Weakest First and Strongest First.\n- Auto-Loot: loots and closes the window instantly.\n- Safety pauses: casting is blocked while moving, in combat, mid-cast/channel, or with a unit under the cursor.\n\n### What's new\n- Split TOC files per client (Retail / Classic Era / Forever / fallback).\n- Forever detection and `C_Spell.GetSpellInfo` fallback.\n- Options panel works on Classic Era via `InterfaceOptions_AddCategory`.\n- Auto-loot wrapped in `pcall` so Forever's secured loot API can't break the addon.\n- Fixed `GetMouseFishingStatus` forward-declaration bug.\n- README: install paths, slash-command table, Classic Era menu path.\n\n### Installation\n1. Download the release zip.\n2. Extract `EverFishing` into `Interface/AddOns` of your client.\n3. `/reload` or restart the game.\n\n### Usage\n- `/evf options` for settings, `/evf` for the full command list.\n\n**License:** MIT — see `LICENSE.txt`."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/kenny-gordon/WoW-EverFishing/main/docs/assets/latest.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-22",
+    "releaseDates": [
+      "2026-11-22",
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EverFishing"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "EverFishingDB"
+    ]
+  }
+}
