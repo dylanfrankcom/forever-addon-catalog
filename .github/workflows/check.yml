@@ -67,7 +67,7 @@ jobs:
             echo "No changes (only the run time)."
           else
             git commit -q -m "Checks $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push origin checker
+            bash ../.github/push-checker.sh
           fi
       - name: Generate the catalog, versions.json and detail files
         if: steps.data.outputs.ready == 'true'

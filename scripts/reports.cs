@@ -68,7 +68,8 @@ try
             var catalog = Read(catalogPath)!.AsObject();
             var store = Store.From(File.Exists(storePath) ? Read(storePath) : null);
             using var relay = Relay.FromEnvironment();
-            await relay.SendAsync(HttpMethod.Put, "catalog-index", Relay.Index(catalog));
+            var indexStatus = Relay.IndexStatus(await relay.SendAsync(HttpMethod.Put, "catalog-index", Relay.Index(catalog)));
+            Console.WriteLine($"Index: {indexStatus}.");
             var answer = await relay.SendAsync(HttpMethod.Get, "collect", null) ?? throw new InvalidDataException("The relay sent nothing.");
             var collected = store.Merge(answer.AsObject(), catalog);
             File.WriteAllText(storePath, Json.Write(store.ToJson()));
@@ -181,6 +182,14 @@ sealed class Relay : IDisposable
             throw new HttpRequestException($"The relay answered {(int)response.StatusCode} to {method} /v1/{path}.");
         }
         return text.Length == 0 ? null : JsonNode.Parse(text);
+    }
+
+    /// <summary>The relay's answer to the index upload: "done" (stored) or "unchanged" (the same index, nothing written).
+    /// Anything else is an error.</summary>
+    public static string IndexStatus(JsonNode? answer)
+    {
+        var status = answer is JsonObject o && o["status"] is JsonValue v && v.TryGetValue<string>(out var s) ? s : null;
+        return status is "done" or "unchanged" ? status : throw new InvalidDataException("The relay didn't accept the catalog's index.");
     }
 
     /// <summary>What the relay checks reports against: the editions, and each add-on with a CurseForge or Wago source.</summary>
@@ -652,6 +661,10 @@ static class Tests
         var index = Relay.Index(catalog);
         Expect("index: editions, and only add-ons with CurseForge or Wago", index["editions"]!.AsArray().Count == 2
             && index["addons"]!.AsArray().Count == 1 && index["addons"]![0]!["sources"]!.AsArray().Select(s => (string)s!).SequenceEqual(["curseforge", "wago"]));
+        Expect("index: stored or unchanged are both accepted", Relay.IndexStatus(JsonNode.Parse("""{"status":"done"}""")) == "done"
+            && Relay.IndexStatus(JsonNode.Parse("""{"status":"unchanged"}""")) == "unchanged");
+        Expect("index: any other answer is an error", new[] { """{"status":"refused"}""", """{}""", """[]""", """{"status":1}""", null }
+            .All(a => { try { Relay.IndexStatus(a is null ? null : JsonNode.Parse(a)); return false; } catch (InvalidDataException) { return true; } }));
 
         // Checking reports again.
         Expect("report: a good one is kept, its hash lowercased", Check.Report(Report(1, "v1.2 (forever)", A.ToUpperInvariant(), 2, "2026-11-02T00:00:00Z"), catalog).Row?["sha256"]?.ToString() == A);
