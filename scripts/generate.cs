@@ -986,6 +986,17 @@ static class Generator
             }
         }
         entry["editions"] = editions;
+        // GitHub's public download counts for the release files, as discovery read them; left out when it has none.
+        if (l.Row["downloads"] is JsonObject counts && counts["total"] is not null && counts["read"] is not null)
+        {
+            var downloads = new JsonObject { ["total"] = counts["total"]!.DeepClone() };
+            if (counts["latest"] is { } latest)
+            {
+                downloads["latest"] = latest.DeepClone();
+            }
+            downloads["read"] = counts["read"]!.DeepClone();
+            entry["downloads"] = downloads;
+        }
         entry["from"] = from;
         return entry;
     }
@@ -1815,6 +1826,7 @@ static class SelfTest
             Row("j/Grabber", "Grabber", "Loads first."),
             Row("k/CfOnlyMirror", "CF Only", "A re-upload."),
         }.ToDictionary(r => r["repo"]!.GetValue<string>(), r => r, StringComparer.OrdinalIgnoreCase);
+        rows["Questie/QuestieRenamed"]["downloads"] = Obj("""{"total":1200,"latest":300,"read":"2026-11-26"}""");
         var checks = new List<JsonObject>
         {
             Check_("Questie/QuestieRenamed", ["Questie", "QuestieDB"], "forever", "classic_era"),
@@ -1888,6 +1900,8 @@ static class SelfTest
             && Str(q["links"]!["issues"]) == "https://github.com/Questie/Questie/issues" && Str(q["links"]!["repository"]) == "https://github.com/Questie/QuestieRenamed");
         Check("editions", q["editions"]!.AsObject().Select(e => e.Key).SequenceEqual(["classic_era", "forever"]) && Str(q["editions"]!["forever"]!["interface"]) == "16001");
         Check("editions: the release's day", Str(q["editions"]!["forever"]!["released"]) == "2026-11-20");
+        Check("downloads: GitHub's counts, as discovery read them; none when it read none", q["downloads"] is JsonObject dl && (long)dl["total"]! == 1200
+            && (long)dl["latest"]! == 300 && Str(dl["read"]) == "2026-11-26" && byId["thing"]["downloads"] is null);
         Check("released: UTC day, or none", Generator.Released("2026-11-20T23:30:00-02:00") == "2026-11-21" && Generator.Released(null) is null && Generator.Released("soon") is null);
         var t = byId["thing"];
         Check("name cleaned, from the .toc", Str(t["name"]) == "Thing" && Str(t["from"]!["name"]) == "toc-title" && Str(t["summary"]) == "Does the thing."

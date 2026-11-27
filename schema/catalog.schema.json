@@ -283,6 +283,17 @@
         },
         "added": { "description": "The day the entry joined the catalog (YYYY-MM-DD), for sorting by date added. Optional in the format, but the validator requires it on a new entry in a PR.", "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
         "links": { "$ref": "#/$defs/links" },
+        "downloads": {
+          "description": "How often it's downloaded: GitHub's own public download counts for its release files, summed over every release (total) and the latest (latest), and the day (UTC) they were read. Written by the catalog's generator.",
+          "type": "object",
+          "properties": {
+            "total": { "type": "integer", "minimum": 0 },
+            "latest": { "type": "integer", "minimum": 0 },
+            "read": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+          },
+          "required": ["total", "read"],
+          "additionalProperties": false
+        },
         "icon": { "description": "A small square PNG: the main .toc's IconTexture when it's one of the add-on's own files (never game art), converted and kept in this repo's icons/, or an override. Left out otherwise; the app shows its main tag's icon.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
         "sources": {
           "description": "In order of preference.",
