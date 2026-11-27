@@ -611,7 +611,7 @@ sealed class Result
 static class Generator
 {
     static readonly string[] OverrideOnly = ["repo", "tagPrefix", "partOf", "$schema", "$comment"];
-    static readonly string[] FieldOrder = ["id", "name", "summary", "summaries", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
+    static readonly string[] FieldOrder = ["id", "name", "otherNames", "summary", "summaries", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
         "editions", "requires", "requiresFolders", "optional", "conflicts", "notes", "ownApp", "linkOnly", "withdrawn", "overrides", "from"];
 
     public static List<string> Strings(JsonNode? node) => node?.AsArray().Select(s => s!.GetValue<string>()).ToList() ?? [];
@@ -807,6 +807,10 @@ static class Generator
             if (overrideFor.TryGetValue(l, out var o))
             {
                 Apply(entry, inputs.Overrides[o]);
+            }
+            if (entry["otherNames"] is null && OtherName(l.Repo, l.TagPrefix, Str(entry["name"])) is { } other)
+            {
+                entry["otherNames"] = Array([other]);
             }
             if (entry["summary"] is null)
             {
@@ -1065,6 +1069,30 @@ static class Generator
                 && !deps[f].Overlaps(folders.Where(o => !o.Equals(f, StringComparison.OrdinalIgnoreCase)))
                 && !folders.Any(o => !o.Equals(f, StringComparison.OrdinalIgnoreCase) && (deps[o].Contains(f) || Names(words[o], f) || Names(words[f], o))))
             .ToList();
+    }
+
+    /// <summary>
+    /// The repository's name as words, for search (Max-Camera-Distance or MaxCameraDistance gives Max Camera Distance),
+    /// unless it's the add-on's name again once case and symbols are ignored. None for a repo that releases several add-ons.
+    /// </summary>
+    public static string? OtherName(string repo, string? tagPrefix, string? name)
+    {
+        if (tagPrefix is not null)
+        {
+            return null;
+        }
+        // WoW stays one word, not "Wo W".
+        var words = repo[(repo.IndexOf('/') + 1)..].Replace('-', ' ').Replace('_', ' ').Replace("WoW", " wow ", StringComparison.Ordinal);
+        words = Regex.Replace(words, "(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])", " ");
+        var tokens = words.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList();
+        // "wow-addon-tradewinds" and "olympus-addon" say nothing the name doesn't.
+        string[] filler = ["wow", "addon", "addons", "wowaddon"];
+        while (tokens.Count > 0 && filler.Contains(tokens[0], StringComparer.OrdinalIgnoreCase)) tokens.RemoveAt(0);
+        while (tokens.Count > 0 && filler.Contains(tokens[^1], StringComparer.OrdinalIgnoreCase)) tokens.RemoveAt(tokens.Count - 1);
+        words = string.Join(' ', tokens);
+        static string Fold(string? s) => new((s ?? "").Where(char.IsLetterOrDigit).Select(char.ToLowerInvariant).ToArray());
+        // Nothing new for search when the name already holds it.
+        return words.Length is 0 or > 100 || Fold(name).Contains(Fold(words), StringComparison.Ordinal) ? null : words;
     }
 
     static JsonObject Entry(Listing l, string id, List<JsonObject> previous, List<string> editionIds, DateOnly today, Authors authors)
@@ -2160,6 +2188,13 @@ static class SelfTest
         Check("new entry dated today", Str(t["added"]) == "2026-11-26");
         Check("tags", List(t["tags"]).SequenceEqual(["combat"]) && Str(t["from"]!["tags"]) == "toc-category");
         Check("dependencies", List(t["requires"]).SequenceEqual(["libfoo"]) && List(t["optional"]).SequenceEqual(["questie"]));
+        Check("otherNames: the repository's name as words, unless it's the name again", Generator.OtherName("l/Max-Camera-Distance", null, "<Camera> Max Distance") == "Max Camera Distance"
+            && Generator.OtherName("l/MaxCameraDistance", null, "Zoom") == "Max Camera Distance" && Generator.OtherName("l/my_thing", null, "X") == "my thing"
+            && Generator.OtherName("l/SoapstoneWoW", null, "Soap") == "Soapstone"
+            && Generator.OtherName("l/LibSharedMedia-3.0", null, "LibSharedMedia-3.0") is null && Generator.OtherName("a/Thing", null, "Thing") is null
+            && Generator.OtherName("m/Many", "two/", "Two") is null && t["otherNames"] is null
+            && Generator.OtherName("t/wow-addon-tradewinds", null, "Tradewinds") is null && Generator.OtherName("t/ToxiUI", null, "ElvUI ToxiUI Forever") is null
+            && Generator.OtherName("t/Plater-Nameplates", null, "Plater") == "Plater Nameplates");
         Check("requiresFolders: required folders no entry ships, not Blizzard's", List(t["requiresFolders"]).SequenceEqual(["Missing"])
             && byId["libfoo"]["requiresFolders"] is null);
         Check("summary from the description and README", Str(byId["libfoo"]["from"]!["summary"]) == "repo-description" && Str(byId["readme"]["from"]!["summary"]) == "readme");

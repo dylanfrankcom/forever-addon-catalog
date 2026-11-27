@@ -273,6 +273,7 @@
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "name": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "otherNames": { "description": "Other names the add-on is known by, for search only: the repository's name as words, unless it's name again once case and symbols are ignored, or an override's.", "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 100 } },
         "author": { "description": "The ID of its author in \"authors\".", "$ref": "#/$defs/id" },
         "summary": { "description": "One line for lists and cards, from the author: the main .toc's Notes, else the repository's description, else its README's first sentence, else an override. Cleaned of colour codes and textures, and cut to about 120 characters.", "type": "string", "minLength": 1, "maxLength": 200 },
         "summaries": {
