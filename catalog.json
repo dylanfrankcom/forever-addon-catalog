@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.11.0",
+  "version": "4.12.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -91174,7 +91174,7 @@
       ],
       "ownApp": {
         "name": "Spoken Manager",
-        "url": "https://github.com/rusty-key/spoken-wow/blob/master/apps/manager/README.md",
+        "url": "https://spoken.quest/#install",
         "marker": ".spoken-manager"
       },
       "from": {
@@ -91241,6 +91241,11 @@
           "released": "2026-10-31"
         }
       },
+      "ownApp": {
+        "name": "Spoken Manager",
+        "url": "https://spoken.quest/#install",
+        "marker": ".spoken-manager"
+      },
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -91305,6 +91310,11 @@
           "released": "2026-10-31"
         }
       },
+      "ownApp": {
+        "name": "Spoken Manager",
+        "url": "https://spoken.quest/#install",
+        "marker": ".spoken-manager"
+      },
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -91368,6 +91378,11 @@
           "upToDate": true,
           "released": "2026-10-31"
         }
+      },
+      "ownApp": {
+        "name": "Spoken Manager",
+        "url": "https://spoken.quest/#install",
+        "marker": ".spoken-manager"
       },
       "from": {
         "name": "toc-title",

@@ -1,5 +1,10 @@
 {
   "$schema": "../schema/override.schema.json",
   "repo": "rusty-key/spoken-wow",
-  "tagPrefix": "readables-audio/"
+  "tagPrefix": "readables-audio/",
+  "ownApp": {
+    "name": "Spoken Manager",
+    "url": "https://spoken.quest/#install",
+    "marker": ".spoken-manager"
+  }
 }
