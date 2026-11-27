@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.9.0",
+  "version": "4.10.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -11889,6 +11889,7 @@
         "ownerSince": "2019-08-19",
         "releases": 12,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -13603,6 +13604,7 @@
         "ownerSince": "2017-02-13",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -13665,6 +13667,7 @@
         "ownerSince": "2024-03-19",
         "releases": 16,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -14424,6 +14427,7 @@
         "ownerSince": "2017-02-13",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -17862,6 +17866,7 @@
         "ownerSince": "2026-02-17",
         "releases": 38,
         "stars": 1,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -18398,6 +18403,7 @@
         "ownerSince": "2015-12-15",
         "releases": 2,
         "stars": 0,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 5
       }
@@ -18444,6 +18450,7 @@
         "ownerSince": "2015-12-15",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "warnings": [
           "single-release"
         ],
@@ -18497,6 +18504,7 @@
         "ownerSince": "2015-12-15",
         "releases": 2,
         "stars": 0,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 5
       }
@@ -18550,6 +18558,7 @@
         "ownerSince": "2015-12-15",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "warnings": [
           "single-release"
         ],
@@ -18604,6 +18613,7 @@
         "ownerSince": "2015-12-15",
         "releases": 3,
         "stars": 0,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 5
       }
@@ -18657,6 +18667,7 @@
         "ownerSince": "2015-12-15",
         "releases": 4,
         "stars": 0,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 5
       }
@@ -18964,6 +18975,7 @@
         "ownerSince": "2015-08-24",
         "releases": 172,
         "stars": 11,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 1
       }
@@ -20473,6 +20485,7 @@
         "ownerSince": "2022-08-29",
         "releases": 5,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -20529,6 +20542,7 @@
         "ownerSince": "2025-12-31",
         "releases": 48,
         "stars": 0,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 3
       }
@@ -20656,6 +20670,7 @@
         "ownerSince": "2017-02-13",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -20712,6 +20727,7 @@
         "ownerSince": "2026-05-11",
         "releases": 86,
         "stars": 0,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -21381,6 +21397,7 @@
         "ownerSince": "2017-05-11",
         "releases": 5,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -22438,6 +22455,7 @@
         "ownerSince": "2017-02-13",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -24054,6 +24072,7 @@
         "ownerSince": "2013-12-07",
         "releases": 9,
         "stars": 0,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -24408,6 +24427,7 @@
         "ownerSince": "2013-01-29",
         "releases": 5,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -26749,6 +26769,7 @@
         "ownerSince": "2011-01-29",
         "releases": 49,
         "stars": 0,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 2
       }
@@ -27482,6 +27503,7 @@
         "ownerSince": "2014-01-13",
         "releases": 5,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -30370,6 +30392,7 @@
         "ownerSince": "2015-01-14",
         "releases": 6,
         "stars": 2,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -31711,6 +31734,7 @@
         "ownerSince": "2025-12-31",
         "releases": 7,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -31931,6 +31955,7 @@
         "ownerSince": "2021-03-18",
         "releases": 37,
         "stars": 0,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -32068,6 +32093,7 @@
         "ownerSince": "2026-03-06",
         "releases": 38,
         "stars": 1,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 1
       }
@@ -33792,6 +33818,7 @@
         "ownerSince": "2021-10-04",
         "releases": 1,
         "stars": 3,
+        "marker": "yes",
         "warnings": [
           "single-release"
         ],
@@ -38364,6 +38391,7 @@
         "ownerSince": "2026-09-24",
         "releases": 2,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -40164,6 +40192,7 @@
         "ownerSince": "2018-06-29",
         "releases": 17,
         "stars": 3,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -40723,6 +40752,7 @@
         "ownerSince": "2017-01-06",
         "releases": 5,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -41180,6 +41210,7 @@
         "ownerSince": "2011-08-12",
         "releases": 31,
         "stars": 8,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -41235,6 +41266,7 @@
         "ownerSince": "2015-07-08",
         "releases": 14,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -41527,6 +41559,7 @@
         "ownerSince": "2024-07-15",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -41648,6 +41681,7 @@
         "ownerSince": "2013-09-12",
         "releases": 10,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -42349,6 +42383,7 @@
         "ownerSince": "2013-07-16",
         "releases": 112,
         "stars": 3,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -42870,6 +42905,7 @@
         "ownerSince": "2023-10-10",
         "releases": 14,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -44979,6 +45015,7 @@
         "ownerSince": "2024-01-12",
         "releases": 16,
         "stars": 0,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -45074,6 +45111,7 @@
         "ownerSince": "2015-11-28",
         "releases": 4,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -45245,6 +45283,7 @@
         "ownerSince": "2026-11-11",
         "releases": 9,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -45324,6 +45363,7 @@
         "ownerSince": "2026-11-09",
         "releases": 15,
         "stars": 2,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -46029,6 +46069,7 @@
         "ownerSince": "2017-05-20",
         "releases": 11,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -47269,6 +47310,7 @@
         "ownerSince": "2016-02-20",
         "releases": 52,
         "stars": 4,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -47997,6 +48039,7 @@
         "ownerSince": "2016-09-13",
         "releases": 51,
         "stars": 8,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -49793,6 +49836,7 @@
         "ownerSince": "2018-11-05",
         "releases": 9,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "built",
           "new"
@@ -51943,6 +51987,7 @@
         "ownerSince": "2014-12-18",
         "releases": 84,
         "stars": 6,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 2
       }
@@ -52680,6 +52725,7 @@
         "ownerSince": "2022-01-14",
         "releases": 77,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -53063,6 +53109,7 @@
         "ownerSince": "2021-03-26",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -54335,6 +54382,7 @@
         "ownerSince": "2013-04-16",
         "releases": 15,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -55613,6 +55661,7 @@
         "ownerSince": "2012-11-07",
         "releases": 15,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "built",
           "new"
@@ -55935,6 +55984,7 @@
         "ownerSince": "2012-06-05",
         "releases": 11,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -58760,6 +58810,7 @@
         "ownerSince": "2025-12-31",
         "releases": 28,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -59981,6 +60032,7 @@
         "ownerSince": "2023-08-20",
         "releases": 4,
         "stars": 1,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 1
       }
@@ -60031,6 +60083,7 @@
         "repoSince": "2026-09-28",
         "ownerSince": "2015-03-27",
         "stars": 6,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -61031,6 +61084,7 @@
         "ownerSince": "2026-10-22",
         "releases": 90,
         "stars": 3,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -65509,6 +65563,7 @@
         "ownerSince": "2025-01-24",
         "releases": 139,
         "stars": 5,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -65917,6 +65972,7 @@
         "ownerSince": "2017-02-13",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -66899,6 +66955,7 @@
         "ownerSince": "2014-02-28",
         "releases": 10,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -69742,6 +69799,7 @@
         "ownerSince": "2024-07-15",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -69995,6 +70053,7 @@
         "ownerSince": "2023-08-20",
         "releases": 57,
         "stars": 4,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 1
       }
@@ -71226,6 +71285,7 @@
         "ownerSince": "2013-05-30",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -73038,6 +73098,7 @@
         "ownerSince": "2021-05-16",
         "releases": 25,
         "stars": 4,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -74179,6 +74240,7 @@
         "ownerSince": "2015-05-08",
         "releases": 2,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -74948,6 +75010,7 @@
         "ownerSince": "2014-08-28",
         "releases": 2,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -75334,6 +75397,7 @@
         "ownerSince": "2015-08-24",
         "releases": 313,
         "stars": 7,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 1
       }
@@ -76101,6 +76165,7 @@
         "ownerSince": "2015-04-15",
         "releases": 5,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -77773,6 +77838,7 @@
         "ownerSince": "2026-11-03",
         "releases": 14,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -78203,6 +78269,7 @@
         "ownerSince": "2023-10-10",
         "releases": 9,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -78368,6 +78435,7 @@
         "ownerSince": "2014-12-22",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -78909,6 +78977,7 @@
         "ownerSince": "2014-07-23",
         "releases": 150,
         "stars": 0,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -79384,6 +79453,7 @@
         "ownerSince": "2014-03-07",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -82883,6 +82953,7 @@
         "ownerSince": "2022-08-29",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -83299,6 +83370,7 @@
         "ownerSince": "2026-11-06",
         "releases": 5,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -84355,6 +84427,7 @@
         "ownerSince": "2024-09-16",
         "releases": 2,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -86496,6 +86569,7 @@
         "ownerSince": "2022-01-06",
         "releases": 55,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -87058,6 +87132,7 @@
         "ownerSince": "2026-10-30",
         "releases": 34,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "built",
           "new"
@@ -88172,6 +88247,7 @@
         "ownerSince": "2014-08-28",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -90811,6 +90887,7 @@
         "ownerSince": "2013-01-29",
         "releases": 17,
         "stars": 3,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -90861,6 +90938,7 @@
         "ownerSince": "2008-07-27",
         "releases": 2,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -91026,6 +91104,7 @@
         "ownerSince": "2011-11-15",
         "releases": 164,
         "stars": 134,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -91076,6 +91155,7 @@
         "ownerSince": "2021-12-01",
         "releases": 2,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -92038,6 +92118,7 @@
         "ownerSince": "2012-04-13",
         "releases": 6,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -92205,6 +92286,7 @@
         "ownerSince": "2015-04-19",
         "releases": 25,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -92529,6 +92611,7 @@
         "ownerSince": "2014-07-08",
         "releases": 8,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -93606,6 +93689,7 @@
         "ownerSince": "2016-11-30",
         "releases": 4,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -94813,6 +94897,7 @@
         "ownerSince": "2020-04-14",
         "releases": 15,
         "stars": 0,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -96764,6 +96849,7 @@
         "ownerSince": "2013-07-31",
         "releases": 4,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -98222,6 +98308,7 @@
         "ownerSince": "2015-07-23",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -98278,6 +98365,7 @@
         "ownerSince": "2018-07-04",
         "releases": 28,
         "stars": 17,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -99115,6 +99203,7 @@
         "ownerSince": "2019-06-21",
         "releases": 24,
         "stars": 1,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -99694,6 +99783,7 @@
         "ownerSince": "2026-10-02",
         "releases": 9,
         "stars": 1,
+        "marker": "yes",
         "warnings": [
           "new-owner"
         ],
@@ -100983,6 +101073,7 @@
         "ownerSince": "2026-09-26",
         "releases": 110,
         "stars": 0,
+        "marker": "yes",
         "warnings": [
           "new-owner"
         ],
@@ -103491,6 +103582,7 @@
         "ownerSince": "2026-02-02",
         "releases": 7,
         "stars": 28,
+        "marker": "yes",
         "careful": false
       }
     },
@@ -103824,6 +103916,7 @@
         "ownerSince": "2016-05-20",
         "releases": 1,
         "stars": 0,
+        "marker": "yes",
         "badges": [
           "new"
         ],
@@ -104580,6 +104673,7 @@
         "ownerSince": "2026-03-06",
         "releases": 31,
         "stars": 2,
+        "marker": "yes",
         "careful": false,
         "ownerAddons": 1
       }
