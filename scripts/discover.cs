@@ -135,6 +135,7 @@ Console.Error.WriteLine($"Reading {found.Count} repos ...");
 var reads = await github.ReadReposAsync(found, log);
 var rows = Candidates.Build(found.Keys, reads, previous, editions, optout, log, forks);
 await github.ReadReadmesAsync(rows, previous);
+await github.CheckSponsorsAsync(rows, previous);
 File.WriteAllText(outArg, Candidates.Write(editions, rows));
 
 var report = log.Report(rows, editions, search);
@@ -515,6 +516,9 @@ static class Candidates
             ["defaultBranch"] = node["defaultBranchRef"]?["name"]?.GetValue<string>(),
             ["pushedAt"] = node["pushedAt"]?.GetValue<string>(),
             ["pkgmeta"] = node["pkgmeta"] is not null,
+            ["issues"] = node["hasIssuesEnabled"]?.GetValue<bool>() ?? false,
+            ["ownerType"] = node["owner"]?["__typename"]?.GetValue<string>(),
+            ["funding"] = Funding.FromNode(node),
             ["readme"] = null, // filled in afterwards, only for repos with no other summary
             ["toc"] = new JsonObject
             {
@@ -674,6 +678,74 @@ sealed class GitHub : IDisposable
         return reads;
     }
 
+    /// <summary>
+    /// Settles each GitHub Sponsors link in the rows' funding: whether the account has a Sponsors listing, and whether it
+    /// is the repo's owner or a public member of the organisation that owns it. A link that can't be checked this run
+    /// keeps the previous run's answer, else it counts as not checked.
+    /// </summary>
+    public async Task CheckSponsorsAsync(List<JsonObject> rows, IReadOnlyDictionary<string, JsonObject> previous)
+    {
+        var links = rows.SelectMany(r => (r["funding"]?.AsArray() ?? []).OfType<JsonObject>()
+            .Where(f => f["platform"]?.GetValue<string>() == "GITHUB").Select(f => (Row: r, Link: f))).ToList();
+        var logins = links.Select(l => Funding.Login(l.Link["url"]?.GetValue<string>())).OfType<string>().Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+        var listing = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
+        for (var start = 0; start < logins.Count; start += 50)
+        {
+            var chunk = logins.Skip(start).Take(50).ToList();
+            var q = new StringBuilder("query {\n");
+            for (var i = 0; i < chunk.Count; i++)
+            {
+                q.Append($"u{i}: repositoryOwner(login: {JsonSerializer.Serialize(chunk[i])}) {{ login ... on Sponsorable {{ hasSponsorsListing }} }}\n");
+            }
+            var json = await SendAsync(() => new HttpRequestMessage(HttpMethod.Post, "graphql")
+            {
+                Content = new StringContent(new JsonObject { ["query"] = q.Append('}').ToString() }.ToJsonString(), Encoding.UTF8, "application/json"),
+            }, $"sponsors {chunk[0]} ...");
+            for (var i = 0; i < chunk.Count; i++)
+            {
+                if (json?["data"] is { } data)
+                {
+                    listing[chunk[i]] = data[$"u{i}"]?["hasSponsorsListing"]?.GetValue<bool>() == true;
+                }
+            }
+        }
+        foreach (var (row, link) in links)
+        {
+            var repo = row["repo"]!.GetValue<string>();
+            var owner = repo[..repo.IndexOf('/')];
+            var login = Funding.Login(link["url"]?.GetValue<string>());
+            var before = previous.GetValueOrDefault(repo)?["funding"]?.AsArray().OfType<JsonObject>()
+                .FirstOrDefault(f => string.Equals(Funding.Login(f["url"]?.GetValue<string>()), login, StringComparison.OrdinalIgnoreCase));
+            link["sponsors"] = login is not null && listing.TryGetValue(login, out var has) ? has : before?["sponsors"]?.GetValue<bool>();
+            if (login is not null && login.Equals(owner, StringComparison.OrdinalIgnoreCase))
+            {
+                link["ownerOrMember"] = true;
+            }
+            else if (login is not null && row["ownerType"]?.GetValue<string>() == "Organization")
+            {
+                link["ownerOrMember"] = await IsPublicMemberAsync(owner, login) ?? before?["ownerOrMember"]?.GetValue<bool>();
+            }
+            else
+            {
+                link["ownerOrMember"] = false;
+            }
+        }
+    }
+
+    /// <summary>Whether <paramref name="login"/> is a public member of <paramref name="org"/>; null when GitHub didn't say.</summary>
+    async Task<bool?> IsPublicMemberAsync(string org, string login)
+    {
+        try
+        {
+            using var response = await http.GetAsync($"orgs/{Uri.EscapeDataString(org)}/public_members/{Uri.EscapeDataString(login)}");
+            return response.StatusCode switch { HttpStatusCode.NoContent => true, HttpStatusCode.NotFound => false, _ => null };
+        }
+        catch (Exception e) when (e is HttpRequestException or TaskCanceledException)
+        {
+            return null;
+        }
+    }
+
     /// <summary>The .toc files in each repo's root and one folder down, 10 repos a query. A repo that can't be read is left out.</summary>
     public async Task<Dictionary<string, List<string>>> ListTocsAsync(IReadOnlyList<string> repos)
     {
@@ -731,10 +803,31 @@ sealed class GitHub : IDisposable
     public void Dispose() => http.Dispose();
 }
 
+/// <summary>A repo's FUNDING.yml as GitHub reads it (fundingLinks): platform and URL, in the file's order.</summary>
+static class Funding
+{
+    public static JsonArray? FromNode(JsonNode node)
+    {
+        var links = node["fundingLinks"]?.AsArray().OfType<JsonObject>()
+            .Select(f => new JsonObject { ["platform"] = f["platform"]?.GetValue<string>(), ["url"] = f["url"]?.GetValue<string>() })
+            .Where(f => f["platform"] is not null && f["url"] is not null).ToArray() ?? [];
+        return links.Length > 0 ? new JsonArray(links) : null;
+    }
+
+    /// <summary>The account a GITHUB funding link names: https://github.com/&lt;login&gt; or .../sponsors/&lt;login&gt;.</summary>
+    public static string? Login(string? url)
+    {
+        var m = Regex.Match(url ?? "", @"^https://github\.com/(?:sponsors/)?([A-Za-z0-9](?:[A-Za-z0-9-]{0,38}))/?$");
+        return m.Success ? m.Groups[1].Value : null;
+    }
+}
+
 static class GraphQl
 {
     const string Fields = """
-        nameWithOwner description isArchived isFork pushedAt
+        nameWithOwner description isArchived isFork pushedAt hasIssuesEnabled
+        owner { __typename login }
+        fundingLinks { platform url }
         defaultBranchRef { name }
         repositoryTopics(first: 20) { nodes { topic { name } } }
         latestRelease { tagName name publishedAt isPrerelease releaseAssets(first: 20) { nodes { name size downloadUrl digest } } }
@@ -1007,6 +1100,10 @@ static class SelfTest
         Check("graphql: .toc texts gathered", results[0].Node!["tocFiles"]!.AsArray().Count == 2 && results[0].Node!["tocFiles"]![1]!["text"] is null);
         Check("graphql: NOT_FOUND is gone, other errors unread", results.Count == 2 && results[1] is ("gone/x", null));
         Check("graphql: no data, nothing read", !GraphQl.Results(["a/b"], [[]], null).Any());
+        Check("funding: GitHub's reading of FUNDING.yml", Funding.FromNode(JsonNode.Parse("""{ "fundingLinks": [ { "platform": "GITHUB", "url": "https://github.com/a" }, { "platform": "KO_FI", "url": "https://ko-fi.com/b" } ] }""")!)!.Count == 2
+            && Funding.FromNode(JsonNode.Parse("""{ "fundingLinks": [] }""")!) is null);
+        Check("funding: login", Funding.Login("https://github.com/a-b") == "a-b" && Funding.Login("https://github.com/sponsors/x") == "x"
+            && Funding.Login("https://github.com/a/b") is null && Funding.Login("https://example.com/a") is null);
         Check("graphql: tree query", GraphQl.TreeQuery(["a/b"]).Contains("r0: repository(owner: \"a\", name: \"b\") { root: object(expression: \"HEAD:\")"));
         var tree = JsonNode.Parse("""
             { "root": { "entries": [
