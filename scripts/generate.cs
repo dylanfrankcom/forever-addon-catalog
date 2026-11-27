@@ -612,7 +612,7 @@ static class Generator
 {
     static readonly string[] OverrideOnly = ["repo", "tagPrefix", "partOf", "$schema", "$comment"];
     static readonly string[] FieldOrder = ["id", "name", "summary", "summaries", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
-        "editions", "requires", "optional", "conflicts", "notes", "ownApp", "linkOnly", "withdrawn", "overrides", "from"];
+        "editions", "requires", "requiresFolders", "optional", "conflicts", "notes", "ownApp", "linkOnly", "withdrawn", "overrides", "from"];
 
     public static List<string> Strings(JsonNode? node) => node?.AsArray().Select(s => s!.GetValue<string>()).ToList() ?? [];
 
@@ -879,6 +879,12 @@ static class Generator
             {
                 entry["requires"] = Array(r);
             }
+            // Required add-ons no entry ships, by folder, so apps can say what's missing (DBM-Core for the DBM packs).
+            if (entry["requiresFolders"] is null && wanted.Where(f => !owners.ContainsKey(f) && PlainFolder().IsMatch(f))
+                .Distinct(StringComparer.OrdinalIgnoreCase).Order(StringComparer.OrdinalIgnoreCase).ToList() is { Count: > 0 } outside)
+            {
+                entry["requiresFolders"] = Array(outside);
+            }
             if (entry["optional"] is null && Resolve(optional).Except(Strings(entry["requires"])).ToList() is { Count: > 0 } opt)
             {
                 entry["optional"] = Array(opt);
@@ -886,7 +892,7 @@ static class Generator
         }
         if (unresolved > 0)
         {
-            result.Notices.Add($"Required add-ons that aren't in the catalog, left out of \"requires\": {unresolved}");
+            result.Notices.Add($"Required add-ons that aren't in the catalog, in \"requiresFolders\": {unresolved}");
         }
 
         // An override can name an add-on that isn't listed this run: that reference is left out, and reported.
@@ -2154,6 +2160,8 @@ static class SelfTest
         Check("new entry dated today", Str(t["added"]) == "2026-11-26");
         Check("tags", List(t["tags"]).SequenceEqual(["combat"]) && Str(t["from"]!["tags"]) == "toc-category");
         Check("dependencies", List(t["requires"]).SequenceEqual(["libfoo"]) && List(t["optional"]).SequenceEqual(["questie"]));
+        Check("requiresFolders: required folders no entry ships, not Blizzard's", List(t["requiresFolders"]).SequenceEqual(["Missing"])
+            && byId["libfoo"]["requiresFolders"] is null);
         Check("summary from the description and README", Str(byId["libfoo"]["from"]!["summary"]) == "repo-description" && Str(byId["readme"]["from"]!["summary"]) == "readme");
         Check("authors", Str(result.Authors["a"]!["name"]) == "Ann" && Str(result.Authors["a"]!["profiles"]![0]) == "https://github.com/a"
             && Str(result.Authors["breakbb"]!["name"]) == "BreakBB" && result.Authors["unused"] is null && result.Authors["questie"] is null);

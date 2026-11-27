@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.15.0",
+  "version": "4.16.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -7498,6 +7498,9 @@
           "released": "2026-10-17"
         }
       },
+      "requiresFolders": [
+        "!BugGrabber"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -8693,6 +8696,9 @@
           "released": "2026-11-06"
         }
       },
+      "requiresFolders": [
+        "ArkInventoryRules"
+      ],
       "optional": [
         "auctionator"
       ],
@@ -8757,6 +8763,9 @@
           "released": "2026-11-08"
         }
       },
+      "requiresFolders": [
+        "ArkInventoryRules"
+      ],
       "optional": [
         "rxpguides"
       ],
@@ -10278,6 +10287,9 @@
           "released": "2026-11-21"
         }
       },
+      "requiresFolders": [
+        "AHledger"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -13139,6 +13151,9 @@
           "released": "2026-11-17"
         }
       },
+      "requiresFolders": [
+        "BagBrother"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -13191,6 +13206,9 @@
           "released": "2026-11-14"
         }
       },
+      "requiresFolders": [
+        "Bagnon"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -13290,6 +13308,9 @@
           "released": "2026-11-17"
         }
       },
+      "requiresFolders": [
+        "BagBrother"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -13388,6 +13409,9 @@
           "released": "2026-11-17"
         }
       },
+      "requiresFolders": [
+        "BagBrother"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -13486,6 +13510,9 @@
           "released": "2026-11-17"
         }
       },
+      "requiresFolders": [
+        "BagBrother"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -17948,6 +17975,9 @@
           "released": "2026-11-04"
         }
       },
+      "requiresFolders": [
+        "BigWigs"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "repo-description",
@@ -18044,6 +18074,9 @@
           "released": "2026-11-04"
         }
       },
+      "requiresFolders": [
+        "BigWigs"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "repo-description",
@@ -25259,6 +25292,9 @@
           "released": "2026-11-09"
         }
       },
+      "requiresFolders": [
+        "Wayfinder"
+      ],
       "optional": [
         "openmap"
       ],
@@ -28786,6 +28822,9 @@
           "released": "2026-11-23"
         }
       },
+      "requiresFolders": [
+        "DBM-Core"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "repo-description",
@@ -28882,6 +28921,9 @@
           "released": "2026-10-14"
         }
       },
+      "requiresFolders": [
+        "DBM-Core"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "repo-description",
@@ -28980,6 +29022,9 @@
           "released": "2026-11-05"
         }
       },
+      "requiresFolders": [
+        "DBM-Core"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "repo-description",
@@ -29073,6 +29118,9 @@
           "released": "2026-11-26"
         }
       },
+      "requiresFolders": [
+        "DBM-Core"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "repo-description",
@@ -29175,6 +29223,9 @@
           "released": "2026-11-11"
         }
       },
+      "requiresFolders": [
+        "DBM-Core"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -29272,6 +29323,9 @@
           "released": "2026-10-14"
         }
       },
+      "requiresFolders": [
+        "DBM-Core"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "repo-description",
@@ -29370,6 +29424,9 @@
           "released": "2026-10-14"
         }
       },
+      "requiresFolders": [
+        "DBM-Core"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "repo-description",
@@ -32460,6 +32517,9 @@
           "released": "2026-11-26"
         }
       },
+      "requiresFolders": [
+        "DyresToolkit"
+      ],
       "optional": [
         "dyressounds"
       ],
@@ -32523,6 +32583,9 @@
           "released": "2026-11-23"
         }
       },
+      "requiresFolders": [
+        "DyresToolkit"
+      ],
       "optional": [
         "dyressounds"
       ],
@@ -33529,6 +33592,9 @@
           "released": "2026-11-10"
         }
       },
+      "requiresFolders": [
+        "ElitePlayerFrame_Enhanced"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -34937,6 +35003,9 @@
           "released": "2026-11-17"
         }
       },
+      "requiresFolders": [
+        "Scorpio"
+      ],
       "optional": [
         "questie"
       ],
@@ -35795,6 +35864,9 @@
           "released": "2026-11-21"
         }
       },
+      "requiresFolders": [
+        "EverlookDBAuctions"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -36166,6 +36238,9 @@
           "released": "2026-11-26"
         }
       },
+      "requiresFolders": [
+        "EQObjectiveTracker"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -36659,6 +36734,9 @@
           "released": "2026-11-16"
         }
       },
+      "requiresFolders": [
+        "Factoruide_Profile"
+      ],
       "optional": [
         "ellesmereui",
         "elvui",
@@ -41954,6 +42032,9 @@
           "released": "2026-11-25"
         }
       },
+      "requiresFolders": [
+        "ForeverData"
+      ],
       "optional": [
         "auctionator",
         "syndicator"
@@ -43477,6 +43558,9 @@
           "released": "2026-11-26"
         }
       },
+      "requiresFolders": [
+        "GaarForever"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -44133,6 +44217,9 @@
           "released": "2026-11-13"
         }
       },
+      "requiresFolders": [
+        "GatherMate2"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -46465,6 +46552,9 @@
           "released": "2026-11-26"
         }
       },
+      "requiresFolders": [
+        "GuidemmosMageAOEGuide"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -47991,6 +48081,9 @@
           "released": "2026-11-23"
         }
       },
+      "requiresFolders": [
+        "HandyNotes"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -56211,6 +56304,9 @@
           "released": "2026-11-21"
         }
       },
+      "requiresFolders": [
+        "LayerSwap"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -65683,6 +65779,9 @@
           "released": "2026-11-25"
         }
       },
+      "requiresFolders": [
+        "ArcaneWizardLibrary"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -68325,6 +68424,9 @@
           "released": "2026-10-18"
         }
       },
+      "requiresFolders": [
+        "Musician"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -68418,6 +68520,9 @@
           "released": "2026-10-18"
         }
       },
+      "requiresFolders": [
+        "Musician"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -68512,6 +68617,9 @@
           "released": "2026-10-18"
         }
       },
+      "requiresFolders": [
+        "Musician"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -68608,6 +68716,9 @@
           "released": "2026-10-18"
         }
       },
+      "requiresFolders": [
+        "Musician"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -69115,6 +69226,9 @@
           "released": "2026-11-10"
         }
       },
+      "requiresFolders": [
+        "MyXPBar"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -72336,6 +72450,9 @@
       "requires": [
         "elvui"
       ],
+      "requiresFolders": [
+        "OPie"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -73880,6 +73997,9 @@
           "released": "2026-11-06"
         }
       },
+      "requiresFolders": [
+        "PatchTools"
+      ],
       "optional": [
         "pawn"
       ],
@@ -73947,6 +74067,9 @@
           "released": "2026-11-13"
         }
       },
+      "requiresFolders": [
+        "PatchTools"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -74543,6 +74666,9 @@
       "requires": [
         "peaverscommons"
       ],
+      "requiresFolders": [
+        "PeaversConfig"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -74637,6 +74763,9 @@
       },
       "requires": [
         "peaverscommons"
+      ],
+      "requiresFolders": [
+        "PeaversConfig"
       ],
       "from": {
         "name": "toc-title",
@@ -76780,6 +76909,9 @@
           "released": "2026-11-26"
         }
       },
+      "requiresFolders": [
+        "Polestar"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -76847,6 +76979,9 @@
           "released": "2026-11-10"
         }
       },
+      "requiresFolders": [
+        "Polypode"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -76912,6 +77047,9 @@
           "released": "2026-11-08"
         }
       },
+      "requiresFolders": [
+        "Polypode"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -76976,6 +77114,9 @@
           "released": "2026-11-08"
         }
       },
+      "requiresFolders": [
+        "Polypode"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -77040,6 +77181,9 @@
           "released": "2026-11-10"
         }
       },
+      "requiresFolders": [
+        "Polypode"
+      ],
       "optional": [
         "polypode-data"
       ],
@@ -80861,6 +81005,9 @@
           "released": "2026-11-17"
         }
       },
+      "requiresFolders": [
+        "WoWQuote2"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -84888,6 +85035,9 @@
           "released": "2026-10-25"
         }
       },
+      "requiresFolders": [
+        "Scrap"
+      ],
       "optional": [
         "baganator",
         "ellesmereui",
@@ -85949,6 +86099,9 @@
           "released": "2026-10-29"
         }
       },
+      "requiresFolders": [
+        "LibSharedMedia-3.0"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -86986,6 +87139,9 @@
       },
       "requires": [
         "auctionator"
+      ],
+      "requiresFolders": [
+        "ForeverCore"
       ],
       "from": {
         "name": "toc-title",
@@ -88164,6 +88320,9 @@
           "released": "2026-11-18"
         }
       },
+      "requiresFolders": [
+        "Skillet"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -95499,6 +95658,9 @@
           "released": "2026-11-15"
         }
       },
+      "requiresFolders": [
+        "Titan"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -95605,6 +95767,9 @@
           "released": "2026-11-20"
         }
       },
+      "requiresFolders": [
+        "Titan"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -95708,6 +95873,9 @@
           "released": "2026-11-23"
         }
       },
+      "requiresFolders": [
+        "Titan"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -95790,6 +95958,9 @@
           "released": "2026-11-23"
         }
       },
+      "requiresFolders": [
+        "Titan"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -95891,6 +96062,9 @@
           "released": "2026-11-23"
         }
       },
+      "requiresFolders": [
+        "Titan"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -95986,6 +96160,9 @@
           "released": "2026-10-05"
         }
       },
+      "requiresFolders": [
+        "Titan"
+      ],
       "optional": [
         "elvui"
       ],
@@ -96083,6 +96260,9 @@
           "released": "2026-11-23"
         }
       },
+      "requiresFolders": [
+        "Titan"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -96315,6 +96495,16 @@
           "released": "2026-11-18"
         }
       },
+      "requiresFolders": [
+        "Ace3",
+        "AceCommQueue-1.0",
+        "DeltaSync",
+        "GuildRoster",
+        "ItemDB",
+        "LibAceGUIWidgets",
+        "ProfessionDB",
+        "VersionCheck-1.0"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -96411,6 +96601,16 @@
           "released": "2026-11-22"
         }
       },
+      "requiresFolders": [
+        "Ace3",
+        "AceCommQueue-1.0",
+        "DeltaSync",
+        "GuildRoster",
+        "ItemDB",
+        "LibAceGUIWidgets",
+        "ProfessionDB",
+        "VersionCheck-1.0"
+      ],
       "optional": [
         "auctionator",
         "togbankclassic"
@@ -103391,6 +103591,9 @@
           "released": "2026-11-23"
         }
       },
+      "requiresFolders": [
+        "WIM"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",

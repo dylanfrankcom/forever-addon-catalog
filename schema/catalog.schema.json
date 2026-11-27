@@ -336,6 +336,7 @@
           "minProperties": 1
         },
         "requires": { "description": "Catalog IDs that must be installed too.", "$ref": "#/$defs/idList" },
+        "requiresFolders": { "description": "Required add-ons that no catalog entry ships, by folder name, from the .toc's Dependencies or RequiredDeps (DBM-Core). Blizzard's own folders are left out.", "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/folder" } },
         "optional": { "description": "Catalog IDs it works with when they're installed.", "$ref": "#/$defs/idList" },
         "conflicts": { "description": "Catalog IDs it overlaps with. A warning, not a blocker.", "$ref": "#/$defs/idList" },
         "notes": { "description": "What a player should know before installing, from the add-on's override.", "type": "string", "maxLength": 1000 },

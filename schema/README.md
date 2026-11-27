@@ -170,6 +170,7 @@ Authors written by hand (`overrides/_authors.json`) keep their own list, which c
 | `downloads` | | How often it's downloaded, for lists, sorting and its page: `total` (every release's files), `latest` (GitHub's Latest release's files) and `read`, the day (UTC) the counts were read. Only GitHub's own public download counts for release files, read weekly by discovery; the app tracks nothing (its installs download from GitHub, so they're already counted). GitHub doesn't count its source-code archives. Left out for add-ons not released on GitHub. |
 | `trust` | | What players can go on to trust it, from public data only: see [Trust signals](#trust-signals). |
 | `requires` | | IDs that must be installed too. Browse offers them together. |
+| `requiresFolders` | | Required add-ons that no entry ships, by folder name, from the `.toc`'s `## Dependencies` or `## RequiredDeps` (`DBM-Core` for the DBM packs), so apps can say what's missing. Blizzard's own `Blizzard_` folders are left out. A folder an entry ships goes in `requires` instead. |
 | `optional` | | IDs it works with when they're there. Listed, not added. |
 | `conflicts` | | IDs it overlaps with. A warning, never a blocker. |
 | `notes` | | Anything worth knowing ("the author disabled CurseForge API downloads, so Wago comes first"). |
