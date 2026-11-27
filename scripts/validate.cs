@@ -428,6 +428,13 @@ static class CatalogValidator
         foreach (var addon in addons)
         {
             var id = (string)addon["id"]!;
+            foreach (var folder in Strings(addon["requiresFolders"]))
+            {
+                if (folderOwners.TryGetValue(folder, out var owner))
+                {
+                    problems.Add(new("requires-folder-listed", $"'{id}' requiresFolders '{folder}', which '{owner}' ships: it goes in requires."));
+                }
+            }
             foreach (var pattern in Strings(addon["ownApp"]?["folders"]))
             {
                 var prefix = pattern.EndsWith('*') ? pattern[..^1] : null;
@@ -710,7 +717,7 @@ static class SelfTest
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
     static readonly string[] Codes = ["schema", "json", "details-html", "details-link", "details-id", "details-unlisted", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date", "released-date",
         "unknown-author", "unused-author", "author-profile", "edition-interface", "unknown-edition", "edition-up-to-date",
-        "versions-same-file", "test-client-edition", "edition-facts", "override-name", "own-app-folder"];
+        "versions-same-file", "test-client-edition", "edition-facts", "override-name", "own-app-folder", "requires-folder-listed"];
 
     // bump/invalid-added-missing-*.head.json expects "added-missing"; any other invalid bump case "version-not-bumped".
     static string BumpCode(string rest) =>
