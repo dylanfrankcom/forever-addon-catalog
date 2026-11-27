@@ -294,6 +294,24 @@
           "required": ["total", "read"],
           "additionalProperties": false
         },
+        "trust": {
+          "description": "What players can go on to trust it, from public data only (schema/README.md, \"Trust signals\"). Written by the catalog's generator.",
+          "type": "object",
+          "properties": {
+            "built": { "description": "The workflow in the add-on's own repo that GitHub's build record (artifact attestation) names for every listed edition's file.", "type": "string", "pattern": "^\\.github/workflows/\\S+$" },
+            "repoSince": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+            "ownerSince": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+            "releases": { "type": "integer", "minimum": 0 },
+            "stars": { "type": "integer", "minimum": 0 },
+            "ownerAddons": { "description": "Other listed add-ons from the same GitHub owner.", "type": "integer", "minimum": 1 },
+            "marker": { "description": "The author's X-Forever-Catalog line in the .toc.", "enum": ["yes", "no"] },
+            "badges": { "type": "array", "items": { "enum": ["built", "new"] }, "uniqueItems": true, "minItems": 1 },
+            "warnings": { "type": "array", "items": { "enum": ["hidden-code", "unexpected-files", "new-owner", "single-release"] }, "uniqueItems": true, "minItems": 1 },
+            "careful": { "description": "True when it has a warning sign: the app holds its new releases longer and leaves it out of Update all.", "type": "boolean" }
+          },
+          "required": ["careful"],
+          "additionalProperties": false
+        },
         "icon": { "description": "A small square PNG: the main .toc's IconTexture when it's one of the add-on's own files (never game art), converted and kept in this repo's icons/, or an override. Left out otherwise; the app shows its main tag's icon.", "type": "string", "format": "uri", "pattern": "^https://[^/\\s]+(/\\S*)?$" },
         "sources": {
           "description": "In order of preference.",

@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/versions.schema.json",
   "schemaVersion": 1,
-  "checked": "2026-11-27T01:17:10Z",
+  "checked": "2026-11-27T04:41:42Z",
   "addons": {
     "aazerothauctionator": {
       "forever": {
@@ -861,6 +861,98 @@
         "published": "2026-11-22"
       }
     },
+    "addonprofiles": {
+      "retail": {
+        "release": "1.4.25",
+        "file": "AddonProfiles-1.4.25.zip",
+        "url": "https://github.com/syndenbock/AddonProfiles/releases/download/1.4.25/AddonProfiles-1.4.25.zip",
+        "size": 5024,
+        "sha256": "3434358f2fb49b76a4b44344af3b85aa4d06c2668607adadb185cc65686a4b01",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic": {
+        "release": "1.4.25",
+        "file": "AddonProfiles-1.4.25.zip",
+        "url": "https://github.com/syndenbock/AddonProfiles/releases/download/1.4.25/AddonProfiles-1.4.25.zip",
+        "size": 5024,
+        "sha256": "3434358f2fb49b76a4b44344af3b85aa4d06c2668607adadb185cc65686a4b01",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "anniversary": {
+        "release": "1.4.25",
+        "file": "AddonProfiles-1.4.25.zip",
+        "url": "https://github.com/syndenbock/AddonProfiles/releases/download/1.4.25/AddonProfiles-1.4.25.zip",
+        "size": 5024,
+        "sha256": "3434358f2fb49b76a4b44344af3b85aa4d06c2668607adadb185cc65686a4b01",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic_era": {
+        "release": "1.4.25",
+        "file": "AddonProfiles-1.4.25.zip",
+        "url": "https://github.com/syndenbock/AddonProfiles/releases/download/1.4.25/AddonProfiles-1.4.25.zip",
+        "size": 5024,
+        "sha256": "3434358f2fb49b76a4b44344af3b85aa4d06c2668607adadb185cc65686a4b01",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "forever": {
+        "release": "1.4.25",
+        "file": "AddonProfiles-1.4.25.zip",
+        "url": "https://github.com/syndenbock/AddonProfiles/releases/download/1.4.25/AddonProfiles-1.4.25.zip",
+        "size": 5024,
+        "sha256": "3434358f2fb49b76a4b44344af3b85aa4d06c2668607adadb185cc65686a4b01",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "retail_ptr": {
+        "release": "1.4.25",
+        "file": "AddonProfiles-1.4.25.zip",
+        "url": "https://github.com/syndenbock/AddonProfiles/releases/download/1.4.25/AddonProfiles-1.4.25.zip",
+        "size": 5024,
+        "sha256": "3434358f2fb49b76a4b44344af3b85aa4d06c2668607adadb185cc65686a4b01",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-10-14"
+      },
+      "retail_ptr2": {
+        "release": "1.4.25",
+        "file": "AddonProfiles-1.4.25.zip",
+        "url": "https://github.com/syndenbock/AddonProfiles/releases/download/1.4.25/AddonProfiles-1.4.25.zip",
+        "size": 5024,
+        "sha256": "3434358f2fb49b76a4b44344af3b85aa4d06c2668607adadb185cc65686a4b01",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic_ptr": {
+        "release": "1.4.25",
+        "file": "AddonProfiles-1.4.25.zip",
+        "url": "https://github.com/syndenbock/AddonProfiles/releases/download/1.4.25/AddonProfiles-1.4.25.zip",
+        "size": 5024,
+        "sha256": "3434358f2fb49b76a4b44344af3b85aa4d06c2668607adadb185cc65686a4b01",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic_era_ptr": {
+        "release": "1.4.25",
+        "file": "AddonProfiles-1.4.25.zip",
+        "url": "https://github.com/syndenbock/AddonProfiles/releases/download/1.4.25/AddonProfiles-1.4.25.zip",
+        "size": 5024,
+        "sha256": "3434358f2fb49b76a4b44344af3b85aa4d06c2668607adadb185cc65686a4b01",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-10-14"
+      }
+    },
     "addonweight": {
       "forever": {
         "release": "v1.1.2",
@@ -1347,6 +1439,78 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-03"
+      }
+    },
+    "alarartremover": {
+      "retail": {
+        "release": "3.29.0",
+        "file": "AlarArtRemover-3.29.0.zip",
+        "url": "https://github.com/alarofrunetotem/AlarArtRemover/releases/download/3.29.0/AlarArtRemover-3.29.0.zip",
+        "size": 5780,
+        "sha256": "fab801343f5ade52c320374af212830063fd47a2a61400362df26b8afcbf19e2",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic": {
+        "release": "3.29.0",
+        "file": "AlarArtRemover-3.29.0.zip",
+        "url": "https://github.com/alarofrunetotem/AlarArtRemover/releases/download/3.29.0/AlarArtRemover-3.29.0.zip",
+        "size": 5780,
+        "sha256": "fab801343f5ade52c320374af212830063fd47a2a61400362df26b8afcbf19e2",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic_era": {
+        "release": "3.29.0",
+        "file": "AlarArtRemover-3.29.0.zip",
+        "url": "https://github.com/alarofrunetotem/AlarArtRemover/releases/download/3.29.0/AlarArtRemover-3.29.0.zip",
+        "size": 5780,
+        "sha256": "fab801343f5ade52c320374af212830063fd47a2a61400362df26b8afcbf19e2",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "forever": {
+        "release": "3.29.0",
+        "file": "AlarArtRemover-3.29.0.zip",
+        "url": "https://github.com/alarofrunetotem/AlarArtRemover/releases/download/3.29.0/AlarArtRemover-3.29.0.zip",
+        "size": 5780,
+        "sha256": "fab801343f5ade52c320374af212830063fd47a2a61400362df26b8afcbf19e2",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "retail_ptr": {
+        "release": "3.29.0",
+        "file": "AlarArtRemover-3.29.0.zip",
+        "url": "https://github.com/alarofrunetotem/AlarArtRemover/releases/download/3.29.0/AlarArtRemover-3.29.0.zip",
+        "size": 5780,
+        "sha256": "fab801343f5ade52c320374af212830063fd47a2a61400362df26b8afcbf19e2",
+        "interface": "120107",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "retail_ptr2": {
+        "release": "3.29.0",
+        "file": "AlarArtRemover-3.29.0.zip",
+        "url": "https://github.com/alarofrunetotem/AlarArtRemover/releases/download/3.29.0/AlarArtRemover-3.29.0.zip",
+        "size": 5780,
+        "sha256": "fab801343f5ade52c320374af212830063fd47a2a61400362df26b8afcbf19e2",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic_ptr": {
+        "release": "3.29.0",
+        "file": "AlarArtRemover-3.29.0.zip",
+        "url": "https://github.com/alarofrunetotem/AlarArtRemover/releases/download/3.29.0/AlarArtRemover-3.29.0.zip",
+        "size": 5780,
+        "sha256": "fab801343f5ade52c320374af212830063fd47a2a61400362df26b8afcbf19e2",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-19"
       }
     },
     "allquest": {
@@ -3655,6 +3819,98 @@
         "published": "2026-11-06"
       }
     },
+    "autopotion": {
+      "retail": {
+        "release": "4.1.3",
+        "file": "AutoPotion-4.1.3.zip",
+        "url": "https://github.com/ollidiemaus/AutoPotion/releases/download/4.1.3/AutoPotion-4.1.3.zip",
+        "size": 308603,
+        "sha256": "c93404f9cdae95411d629df753baf280962fd857fbedf94eb7d16b4c2a620c55",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-25"
+      },
+      "classic": {
+        "release": "4.1.3",
+        "file": "AutoPotion-4.1.3.zip",
+        "url": "https://github.com/ollidiemaus/AutoPotion/releases/download/4.1.3/AutoPotion-4.1.3.zip",
+        "size": 308603,
+        "sha256": "c93404f9cdae95411d629df753baf280962fd857fbedf94eb7d16b4c2a620c55",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-25"
+      },
+      "anniversary": {
+        "release": "4.1.3",
+        "file": "AutoPotion-4.1.3.zip",
+        "url": "https://github.com/ollidiemaus/AutoPotion/releases/download/4.1.3/AutoPotion-4.1.3.zip",
+        "size": 308603,
+        "sha256": "c93404f9cdae95411d629df753baf280962fd857fbedf94eb7d16b4c2a620c55",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-25"
+      },
+      "classic_era": {
+        "release": "4.1.3",
+        "file": "AutoPotion-4.1.3.zip",
+        "url": "https://github.com/ollidiemaus/AutoPotion/releases/download/4.1.3/AutoPotion-4.1.3.zip",
+        "size": 308603,
+        "sha256": "c93404f9cdae95411d629df753baf280962fd857fbedf94eb7d16b4c2a620c55",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-25"
+      },
+      "forever": {
+        "release": "4.1.3",
+        "file": "AutoPotion-4.1.3.zip",
+        "url": "https://github.com/ollidiemaus/AutoPotion/releases/download/4.1.3/AutoPotion-4.1.3.zip",
+        "size": 308603,
+        "sha256": "c93404f9cdae95411d629df753baf280962fd857fbedf94eb7d16b4c2a620c55",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-25"
+      },
+      "retail_ptr": {
+        "release": "4.1.3",
+        "file": "AutoPotion-4.1.3.zip",
+        "url": "https://github.com/ollidiemaus/AutoPotion/releases/download/4.1.3/AutoPotion-4.1.3.zip",
+        "size": 308603,
+        "sha256": "c93404f9cdae95411d629df753baf280962fd857fbedf94eb7d16b4c2a620c55",
+        "interface": "120107",
+        "upToDate": true,
+        "published": "2026-11-25"
+      },
+      "retail_ptr2": {
+        "release": "4.1.3",
+        "file": "AutoPotion-4.1.3.zip",
+        "url": "https://github.com/ollidiemaus/AutoPotion/releases/download/4.1.3/AutoPotion-4.1.3.zip",
+        "size": 308603,
+        "sha256": "c93404f9cdae95411d629df753baf280962fd857fbedf94eb7d16b4c2a620c55",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-25"
+      },
+      "classic_ptr": {
+        "release": "4.1.3",
+        "file": "AutoPotion-4.1.3.zip",
+        "url": "https://github.com/ollidiemaus/AutoPotion/releases/download/4.1.3/AutoPotion-4.1.3.zip",
+        "size": 308603,
+        "sha256": "c93404f9cdae95411d629df753baf280962fd857fbedf94eb7d16b4c2a620c55",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-25"
+      },
+      "classic_era_ptr": {
+        "release": "4.1.3",
+        "file": "AutoPotion-4.1.3.zip",
+        "url": "https://github.com/ollidiemaus/AutoPotion/releases/download/4.1.3/AutoPotion-4.1.3.zip",
+        "size": 308603,
+        "sha256": "c93404f9cdae95411d629df753baf280962fd857fbedf94eb7d16b4c2a620c55",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-25"
+      }
+    },
     "autoquests": {
       "retail": {
         "release": "3.2.0",
@@ -3977,6 +4233,18 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-09"
+      }
+    },
+    "azerothsurvivors": {
+      "forever": {
+        "release": "v0.1.0",
+        "file": "AzerothSurvivors-0.1.0.zip",
+        "url": "https://github.com/petllama/azeroth-survivors/releases/download/v0.1.0/AzerothSurvivors-0.1.0.zip",
+        "size": 273175,
+        "sha256": "945647cb216d0dd2fcaf03e3dfa9ada8b5ea232d3f8b045d48c8153798914315",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "azerothunrolled": {
@@ -4703,6 +4971,98 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-26"
+      }
+    },
+    "baggins": {
+      "retail": {
+        "release": "v6.0.0",
+        "file": "Baggins-v6.0.0.zip",
+        "url": "https://github.com/doadin/Baggins/releases/download/v6.0.0/Baggins-v6.0.0.zip",
+        "size": 765793,
+        "sha256": "fe37f635111053d4086d48c3aefe738e9d7c1eacfeecc304ba4ea24e5f11b6fc",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic": {
+        "release": "v6.0.0",
+        "file": "Baggins-v6.0.0-mists.zip",
+        "url": "https://github.com/doadin/Baggins/releases/download/v6.0.0/Baggins-v6.0.0-mists.zip",
+        "size": 765756,
+        "sha256": "35215c34d599cab827a037dbc7340d436a2d9ebbf492358589ce920a25fc07f1",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "anniversary": {
+        "release": "v6.0.0",
+        "file": "Baggins-v6.0.0-bcc.zip",
+        "url": "https://github.com/doadin/Baggins/releases/download/v6.0.0/Baggins-v6.0.0-bcc.zip",
+        "size": 765754,
+        "sha256": "78924ad2dc8a12619bfd62c0818bbc1d6b2387f8627aba9e2cf0ab963e1f7a60",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic_era": {
+        "release": "v6.0.0",
+        "file": "Baggins-v6.0.0-classic.zip",
+        "url": "https://github.com/doadin/Baggins/releases/download/v6.0.0/Baggins-v6.0.0-classic.zip",
+        "size": 765753,
+        "sha256": "7652d2adf1ed0c22d39ccdde4db0e6157d65600a7d2d9f7d2e76250183ca38f9",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "forever": {
+        "release": "v6.0.0",
+        "file": "Baggins-v6.0.0-forever.zip",
+        "url": "https://github.com/doadin/Baggins/releases/download/v6.0.0/Baggins-v6.0.0-forever.zip",
+        "size": 765753,
+        "sha256": "4c0493edf1e932845a254b81799c3106356da99ec474617ebf22256fe9a9e545",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "retail_ptr": {
+        "release": "v6.0.0",
+        "file": "Baggins-v6.0.0.zip",
+        "url": "https://github.com/doadin/Baggins/releases/download/v6.0.0/Baggins-v6.0.0.zip",
+        "size": 765793,
+        "sha256": "fe37f635111053d4086d48c3aefe738e9d7c1eacfeecc304ba4ea24e5f11b6fc",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-20"
+      },
+      "retail_ptr2": {
+        "release": "v6.0.0",
+        "file": "Baggins-v6.0.0.zip",
+        "url": "https://github.com/doadin/Baggins/releases/download/v6.0.0/Baggins-v6.0.0.zip",
+        "size": 765793,
+        "sha256": "fe37f635111053d4086d48c3aefe738e9d7c1eacfeecc304ba4ea24e5f11b6fc",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic_ptr": {
+        "release": "v6.0.0",
+        "file": "Baggins-v6.0.0-mists.zip",
+        "url": "https://github.com/doadin/Baggins/releases/download/v6.0.0/Baggins-v6.0.0-mists.zip",
+        "size": 765756,
+        "sha256": "35215c34d599cab827a037dbc7340d436a2d9ebbf492358589ce920a25fc07f1",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic_era_ptr": {
+        "release": "v6.0.0",
+        "file": "Baggins-v6.0.0-bcc.zip",
+        "url": "https://github.com/doadin/Baggins/releases/download/v6.0.0/Baggins-v6.0.0-bcc.zip",
+        "size": 765754,
+        "sha256": "78924ad2dc8a12619bfd62c0818bbc1d6b2387f8627aba9e2cf0ab963e1f7a60",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-20"
       }
     },
     "bagnon-boe": {
@@ -6469,6 +6829,48 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-22"
+      }
+    },
+    "bears-mailbox": {
+      "retail": {
+        "release": "2026.11.24",
+        "file": "Bears-Mailbox-2026.11.24.zip",
+        "url": "https://github.com/N6REJ/Bears-Mailbox/releases/download/2026.11.24/Bears-Mailbox-2026.11.24.zip",
+        "size": 92291274,
+        "sha256": "a7a637bf498f80e20a6ba2ba9c6148bc4683d6edb7b898419515b432aaa93519",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-24"
+      },
+      "forever": {
+        "release": "2026.11.24",
+        "file": "Bears-Mailbox-2026.11.24.zip",
+        "url": "https://github.com/N6REJ/Bears-Mailbox/releases/download/2026.11.24/Bears-Mailbox-2026.11.24.zip",
+        "size": 92291274,
+        "sha256": "a7a637bf498f80e20a6ba2ba9c6148bc4683d6edb7b898419515b432aaa93519",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-24"
+      },
+      "retail_ptr": {
+        "release": "2026.11.24",
+        "file": "Bears-Mailbox-2026.11.24.zip",
+        "url": "https://github.com/N6REJ/Bears-Mailbox/releases/download/2026.11.24/Bears-Mailbox-2026.11.24.zip",
+        "size": 92291274,
+        "sha256": "a7a637bf498f80e20a6ba2ba9c6148bc4683d6edb7b898419515b432aaa93519",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-24"
+      },
+      "retail_ptr2": {
+        "release": "2026.11.24",
+        "file": "Bears-Mailbox-2026.11.24.zip",
+        "url": "https://github.com/N6REJ/Bears-Mailbox/releases/download/2026.11.24/Bears-Mailbox-2026.11.24.zip",
+        "size": 92291274,
+        "sha256": "a7a637bf498f80e20a6ba2ba9c6148bc4683d6edb7b898419515b432aaa93519",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-24"
       }
     },
     "beastloreplus": {
@@ -9769,6 +10171,18 @@
         "published": "2026-10-16"
       }
     },
+    "buffbarter": {
+      "forever": {
+        "release": "v1.1.3",
+        "file": "BuffBarter-v1.1.3-forever.zip",
+        "url": "https://github.com/DrBash/BuffBarter/releases/download/v1.1.3/BuffBarter-v1.1.3-forever.zip",
+        "size": 44604,
+        "sha256": "faa76e27fb8648e5aee03e9add97d32a2b11f8d875c320330ed216e5be67c5df",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "buffed": {
       "forever": {
         "release": "v5",
@@ -9869,6 +10283,18 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-20"
+      }
+    },
+    "bufftap": {
+      "forever": {
+        "release": "v1.29.4",
+        "file": "BuffTap-1.29.4.zip",
+        "url": "https://github.com/Hitshade/BuffTap/releases/download/v1.29.4/BuffTap-1.29.4.zip",
+        "size": 2819824,
+        "sha256": "be03d7988861391a9e5a794d4a5eaaea38379e4b5a470f6f85da2a118cc82aed",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "bufftimers": {
@@ -10501,6 +10927,48 @@
         "interface": "120105",
         "upToDate": true,
         "published": "2026-11-22"
+      }
+    },
+    "caerdonwardrobe": {
+      "retail": {
+        "release": "v6.0.1",
+        "file": "CaerdonWardrobe-v6.0.1.zip",
+        "url": "https://github.com/Caerdon/CaerdonWardrobe/releases/download/v6.0.1/CaerdonWardrobe-v6.0.1.zip",
+        "size": 552085,
+        "sha256": "b4fbe2fd5086390bea4cc9f0092f1bbdf27d85131baa9e1fcf42102cb540c27f",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v6.0.1",
+        "file": "CaerdonWardrobe-v6.0.1.zip",
+        "url": "https://github.com/Caerdon/CaerdonWardrobe/releases/download/v6.0.1/CaerdonWardrobe-v6.0.1.zip",
+        "size": 552085,
+        "sha256": "b4fbe2fd5086390bea4cc9f0092f1bbdf27d85131baa9e1fcf42102cb540c27f",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr": {
+        "release": "v6.0.1",
+        "file": "CaerdonWardrobe-v6.0.1.zip",
+        "url": "https://github.com/Caerdon/CaerdonWardrobe/releases/download/v6.0.1/CaerdonWardrobe-v6.0.1.zip",
+        "size": 552085,
+        "sha256": "b4fbe2fd5086390bea4cc9f0092f1bbdf27d85131baa9e1fcf42102cb540c27f",
+        "interface": "120107",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr2": {
+        "release": "v6.0.1",
+        "file": "CaerdonWardrobe-v6.0.1.zip",
+        "url": "https://github.com/Caerdon/CaerdonWardrobe/releases/download/v6.0.1/CaerdonWardrobe-v6.0.1.zip",
+        "size": 552085,
+        "sha256": "b4fbe2fd5086390bea4cc9f0092f1bbdf27d85131baa9e1fcf42102cb540c27f",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "campcheck": {
@@ -11921,6 +12389,38 @@
         "published": "2026-11-22"
       }
     },
+    "classicbestiary": {
+      "classic_era": {
+        "release": "v2.0.20261126",
+        "file": "ClassicBestiary-v2.0.20261126.zip",
+        "url": "https://github.com/Tibru-Tek-Addons/ClassicBestiary/releases/download/v2.0.20261126/ClassicBestiary-v2.0.20261126.zip",
+        "size": 953295,
+        "sha256": "60e9b9835b80be33d8cbba4c08f1e2b3a7aadd21b0148b9b204c040fffcc0aa9",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v2.0.20261126",
+        "file": "ClassicBestiary-v2.0.20261126.zip",
+        "url": "https://github.com/Tibru-Tek-Addons/ClassicBestiary/releases/download/v2.0.20261126/ClassicBestiary-v2.0.20261126.zip",
+        "size": 953295,
+        "sha256": "60e9b9835b80be33d8cbba4c08f1e2b3a7aadd21b0148b9b204c040fffcc0aa9",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v2.0.20261126",
+        "file": "ClassicBestiary-v2.0.20261126.zip",
+        "url": "https://github.com/Tibru-Tek-Addons/ClassicBestiary/releases/download/v2.0.20261126/ClassicBestiary-v2.0.20261126.zip",
+        "size": 953295,
+        "sha256": "60e9b9835b80be33d8cbba4c08f1e2b3a7aadd21b0148b9b204c040fffcc0aa9",
+        "interface": "11509",
+        "upToDate": false,
+        "published": "2026-11-26"
+      }
+    },
     "classicquestlog": {
       "forever": {
         "release": "v1.0.0",
@@ -12877,6 +13377,48 @@
         "published": "2026-11-25"
       }
     },
+    "completao": {
+      "anniversary": {
+        "release": "v2.3.0",
+        "file": "Completao-v2.3.0.zip",
+        "url": "https://github.com/LechuckThePirate/Completao/releases/download/v2.3.0/Completao-v2.3.0.zip",
+        "size": 4837304,
+        "sha256": "fd10b00598d14b21587134567916e1ec4d57d754a403ae2e0fe1596e057b30dc",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era": {
+        "release": "v2.3.0",
+        "file": "Completao-v2.3.0.zip",
+        "url": "https://github.com/LechuckThePirate/Completao/releases/download/v2.3.0/Completao-v2.3.0.zip",
+        "size": 4837304,
+        "sha256": "fd10b00598d14b21587134567916e1ec4d57d754a403ae2e0fe1596e057b30dc",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v2.3.0",
+        "file": "Completao-v2.3.0.zip",
+        "url": "https://github.com/LechuckThePirate/Completao/releases/download/v2.3.0/Completao-v2.3.0.zip",
+        "size": 4837304,
+        "sha256": "fd10b00598d14b21587134567916e1ec4d57d754a403ae2e0fe1596e057b30dc",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v2.3.0",
+        "file": "Completao-v2.3.0.zip",
+        "url": "https://github.com/LechuckThePirate/Completao/releases/download/v2.3.0/Completao-v2.3.0.zip",
+        "size": 4837304,
+        "sha256": "fd10b00598d14b21587134567916e1ec4d57d754a403ae2e0fe1596e057b30dc",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "comradecraft": {
       "forever": {
         "release": "v0.3.0",
@@ -13755,6 +14297,18 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-08"
+      }
+    },
+    "cozyfire": {
+      "forever": {
+        "release": "0.10.5",
+        "file": "CozyFire-0.10.5.zip",
+        "url": "https://github.com/Synse/CozyFire/releases/download/0.10.5/CozyFire-0.10.5.zip",
+        "size": 90037,
+        "sha256": "888aa64a4db986c6f68b2a63845445437da29fe0419f679bd67974678d7c1068",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "craftalert": {
@@ -15847,6 +16401,48 @@
         "published": "2026-10-11"
       }
     },
+    "decursive": {
+      "retail": {
+        "release": "2.9.0-RC5",
+        "file": "Decursive-2.9.0-RC5.zip",
+        "url": "https://github.com/2072/Decursive/releases/download/2.9.0-RC5/Decursive-2.9.0-RC5.zip",
+        "size": 588507,
+        "sha256": "e946ca05272b098776b381a1f4bf68b9b7c8bc7b6ee04340f3540a72267c2001",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-22"
+      },
+      "forever": {
+        "release": "2.9.0-RC5",
+        "file": "Decursive-2.9.0-RC5-forever.zip",
+        "url": "https://github.com/2072/Decursive/releases/download/2.9.0-RC5/Decursive-2.9.0-RC5-forever.zip",
+        "size": 588508,
+        "sha256": "25f8534c5c98033e5c4c8519fd471de8326bac7361906425dcfcd48f88bf55b5",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-22"
+      },
+      "retail_ptr": {
+        "release": "2.9.0-RC5",
+        "file": "Decursive-2.9.0-RC5.zip",
+        "url": "https://github.com/2072/Decursive/releases/download/2.9.0-RC5/Decursive-2.9.0-RC5.zip",
+        "size": 588507,
+        "sha256": "e946ca05272b098776b381a1f4bf68b9b7c8bc7b6ee04340f3540a72267c2001",
+        "interface": "120107",
+        "upToDate": true,
+        "published": "2026-11-22"
+      },
+      "retail_ptr2": {
+        "release": "2.9.0-RC5",
+        "file": "Decursive-2.9.0-RC5.zip",
+        "url": "https://github.com/2072/Decursive/releases/download/2.9.0-RC5/Decursive-2.9.0-RC5.zip",
+        "size": 588507,
+        "sha256": "e946ca05272b098776b381a1f4bf68b9b7c8bc7b6ee04340f3540a72267c2001",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-22"
+      }
+    },
     "dejunk": {
       "retail": {
         "release": "3.5.1",
@@ -17123,6 +17719,18 @@
         "published": "2026-11-24"
       }
     },
+    "dropoff": {
+      "forever": {
+        "release": "v0.9.0",
+        "file": "DropOff-v0.9.0-forever.zip",
+        "url": "https://github.com/hasuwini77/dropoff/releases/download/v0.9.0/DropOff-v0.9.0-forever.zip",
+        "size": 17328976,
+        "sha256": "79de543e10f39a7c758f4d3367ce8f0a13ce2f7b5c0b9c4f5b8287f76237cc50",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "dropthecheapestthing": {
       "retail": {
         "release": "v2026.5",
@@ -17495,6 +18103,38 @@
         "published": "2026-11-25"
       }
     },
+    "dyresbuffreminders": {
+      "classic_era": {
+        "release": "v1.13.4",
+        "file": "DyresBuffReminders-1.13.4-forever.zip",
+        "url": "https://github.com/jbedworth/DyresBuffReminders/releases/download/v1.13.4/DyresBuffReminders-1.13.4-forever.zip",
+        "size": 142665,
+        "sha256": "baef6e02270589fc50f34be53feb5d1e5b11753c76b197aae68969c43743fb1c",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v1.13.4",
+        "file": "DyresBuffReminders-1.13.4-forever.zip",
+        "url": "https://github.com/jbedworth/DyresBuffReminders/releases/download/v1.13.4/DyresBuffReminders-1.13.4-forever.zip",
+        "size": 142665,
+        "sha256": "baef6e02270589fc50f34be53feb5d1e5b11753c76b197aae68969c43743fb1c",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v1.13.4",
+        "file": "DyresBuffReminders-1.13.4-forever.zip",
+        "url": "https://github.com/jbedworth/DyresBuffReminders/releases/download/v1.13.4/DyresBuffReminders-1.13.4-forever.zip",
+        "size": 142665,
+        "sha256": "baef6e02270589fc50f34be53feb5d1e5b11753c76b197aae68969c43743fb1c",
+        "interface": "11509",
+        "upToDate": false,
+        "published": "2026-11-26"
+      }
+    },
     "dyrescritmayhem": {
       "classic_era": {
         "release": "v0.3.6",
@@ -17589,6 +18229,38 @@
         "interface": "11509",
         "upToDate": false,
         "published": "2026-11-24"
+      }
+    },
+    "dyresshieldsup": {
+      "classic_era": {
+        "release": "v1.5.3",
+        "file": "DyresShieldsUp-1.5.3-forever.zip",
+        "url": "https://github.com/jbedworth/DyresShieldsUp/releases/download/v1.5.3/DyresShieldsUp-1.5.3-forever.zip",
+        "size": 33216,
+        "sha256": "b31ffaba908f87b07cb3066b194b48cb6790d6df434535bb4508e9223d457340",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v1.5.3",
+        "file": "DyresShieldsUp-1.5.3-forever.zip",
+        "url": "https://github.com/jbedworth/DyresShieldsUp/releases/download/v1.5.3/DyresShieldsUp-1.5.3-forever.zip",
+        "size": 33216,
+        "sha256": "b31ffaba908f87b07cb3066b194b48cb6790d6df434535bb4508e9223d457340",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v1.5.3",
+        "file": "DyresShieldsUp-1.5.3-forever.zip",
+        "url": "https://github.com/jbedworth/DyresShieldsUp/releases/download/v1.5.3/DyresShieldsUp-1.5.3-forever.zip",
+        "size": 33216,
+        "sha256": "b31ffaba908f87b07cb3066b194b48cb6790d6df434535bb4508e9223d457340",
+        "interface": "11509",
+        "upToDate": false,
+        "published": "2026-11-26"
       }
     },
     "dyressounds": {
@@ -17899,6 +18571,88 @@
         "interface": "120105",
         "upToDate": true,
         "published": "2026-11-24"
+      }
+    },
+    "editmodeexpanded": {
+      "retail": {
+        "release": "12.1-028",
+        "file": "EditModeExpanded-12.1-028.zip",
+        "url": "https://github.com/teelolws/EditModeExpanded/releases/download/12.1-028/EditModeExpanded-12.1-028.zip",
+        "size": 340108,
+        "sha256": "7cb7c695f07889f46ab963f55e16a05c22ec2a5fc4a4622c5cfe68b9d448941a",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic": {
+        "release": "12.1-028",
+        "file": "EditModeExpanded-12.1-028.zip",
+        "url": "https://github.com/teelolws/EditModeExpanded/releases/download/12.1-028/EditModeExpanded-12.1-028.zip",
+        "size": 340108,
+        "sha256": "7cb7c695f07889f46ab963f55e16a05c22ec2a5fc4a4622c5cfe68b9d448941a",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "anniversary": {
+        "release": "12.1-028",
+        "file": "EditModeExpanded-12.1-028.zip",
+        "url": "https://github.com/teelolws/EditModeExpanded/releases/download/12.1-028/EditModeExpanded-12.1-028.zip",
+        "size": 340108,
+        "sha256": "7cb7c695f07889f46ab963f55e16a05c22ec2a5fc4a4622c5cfe68b9d448941a",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "12.1-028",
+        "file": "EditModeExpanded-12.1-028.zip",
+        "url": "https://github.com/teelolws/EditModeExpanded/releases/download/12.1-028/EditModeExpanded-12.1-028.zip",
+        "size": 340108,
+        "sha256": "7cb7c695f07889f46ab963f55e16a05c22ec2a5fc4a4622c5cfe68b9d448941a",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr": {
+        "release": "12.1-028",
+        "file": "EditModeExpanded-12.1-028.zip",
+        "url": "https://github.com/teelolws/EditModeExpanded/releases/download/12.1-028/EditModeExpanded-12.1-028.zip",
+        "size": 340108,
+        "sha256": "7cb7c695f07889f46ab963f55e16a05c22ec2a5fc4a4622c5cfe68b9d448941a",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-26"
+      },
+      "retail_ptr2": {
+        "release": "12.1-028",
+        "file": "EditModeExpanded-12.1-028.zip",
+        "url": "https://github.com/teelolws/EditModeExpanded/releases/download/12.1-028/EditModeExpanded-12.1-028.zip",
+        "size": 340108,
+        "sha256": "7cb7c695f07889f46ab963f55e16a05c22ec2a5fc4a4622c5cfe68b9d448941a",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_ptr": {
+        "release": "12.1-028",
+        "file": "EditModeExpanded-12.1-028.zip",
+        "url": "https://github.com/teelolws/EditModeExpanded/releases/download/12.1-028/EditModeExpanded-12.1-028.zip",
+        "size": 340108,
+        "sha256": "7cb7c695f07889f46ab963f55e16a05c22ec2a5fc4a4622c5cfe68b9d448941a",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "12.1-028",
+        "file": "EditModeExpanded-12.1-028.zip",
+        "url": "https://github.com/teelolws/EditModeExpanded/releases/download/12.1-028/EditModeExpanded-12.1-028.zip",
+        "size": 340108,
+        "sha256": "7cb7c695f07889f46ab963f55e16a05c22ec2a5fc4a4622c5cfe68b9d448941a",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "eliteplayerframe-enhanced-customskins": {
@@ -18771,6 +19525,18 @@
         "published": "2026-11-22"
       }
     },
+    "emergencyannounce": {
+      "forever": {
+        "release": "v1.3.5",
+        "file": "EmergencyAnnounce-1.3.5.zip",
+        "url": "https://github.com/illepic/EmergencyAnnounce/releases/download/v1.3.5/EmergencyAnnounce-1.3.5.zip",
+        "size": 150021,
+        "sha256": "628ec40b4dcde2ba0970ec143153f35cb7f47bd05c683e0bc68286b850762669",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "emotepanel": {
       "forever": {
         "release": "v0.26.0",
@@ -18873,6 +19639,48 @@
         "interface": "20504",
         "upToDate": false,
         "published": "2026-11-17"
+      }
+    },
+    "enhanceddamagemeter": {
+      "retail": {
+        "release": "13.24.4",
+        "file": "EnhancedDamageMeter-13.24.4.zip",
+        "url": "https://github.com/R41z0r/EnhancedDamageMeter/releases/download/13.24.4/EnhancedDamageMeter-13.24.4.zip",
+        "size": 1654619,
+        "sha256": "d03c4492d734793a1a23ddaf88052a974974853ffaac02eaecd6058a3fe546aa",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "13.24.4",
+        "file": "EnhancedDamageMeter-13.24.4.zip",
+        "url": "https://github.com/R41z0r/EnhancedDamageMeter/releases/download/13.24.4/EnhancedDamageMeter-13.24.4.zip",
+        "size": 1654619,
+        "sha256": "d03c4492d734793a1a23ddaf88052a974974853ffaac02eaecd6058a3fe546aa",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr": {
+        "release": "13.24.4",
+        "file": "EnhancedDamageMeter-13.24.4.zip",
+        "url": "https://github.com/R41z0r/EnhancedDamageMeter/releases/download/13.24.4/EnhancedDamageMeter-13.24.4.zip",
+        "size": 1654619,
+        "sha256": "d03c4492d734793a1a23ddaf88052a974974853ffaac02eaecd6058a3fe546aa",
+        "interface": "120107",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr2": {
+        "release": "13.24.4",
+        "file": "EnhancedDamageMeter-13.24.4.zip",
+        "url": "https://github.com/R41z0r/EnhancedDamageMeter/releases/download/13.24.4/EnhancedDamageMeter-13.24.4.zip",
+        "size": 1654619,
+        "sha256": "d03c4492d734793a1a23ddaf88052a974974853ffaac02eaecd6058a3fe546aa",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "eqmanager": {
@@ -19185,6 +19993,18 @@
         "published": "2026-11-25"
       }
     },
+    "everlookbar": {
+      "forever": {
+        "release": "v0.5.0",
+        "file": "EverlookBar-v0.5.0-forever.zip",
+        "url": "https://github.com/quikmn/EverlookBar/releases/download/v0.5.0/EverlookBar-v0.5.0-forever.zip",
+        "size": 322262,
+        "sha256": "ff1b098555471519bb46188a705863b7301b40495717a72f9c80d34c774a01c2",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "everlookdb": {
       "forever": {
         "release": "v0.10.1",
@@ -19297,6 +20117,78 @@
         "interface": "120105",
         "upToDate": true,
         "published": "2026-11-16"
+      }
+    },
+    "everythingquests": {
+      "retail": {
+        "release": "v2.21.0",
+        "file": "EverythingQuests-v2.21.0.zip",
+        "url": "https://github.com/wheelbarrel00/EverythingQuests/releases/download/v2.21.0/EverythingQuests-v2.21.0.zip",
+        "size": 10265624,
+        "sha256": "7e2c499701197f102f965d3bac6665504a785f74a0ba8efe15af1bba4f050284",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "anniversary": {
+        "release": "v2.21.0",
+        "file": "EverythingQuests-v2.21.0.zip",
+        "url": "https://github.com/wheelbarrel00/EverythingQuests/releases/download/v2.21.0/EverythingQuests-v2.21.0.zip",
+        "size": 10265624,
+        "sha256": "7e2c499701197f102f965d3bac6665504a785f74a0ba8efe15af1bba4f050284",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era": {
+        "release": "v2.21.0",
+        "file": "EverythingQuests-v2.21.0.zip",
+        "url": "https://github.com/wheelbarrel00/EverythingQuests/releases/download/v2.21.0/EverythingQuests-v2.21.0.zip",
+        "size": 10265624,
+        "sha256": "7e2c499701197f102f965d3bac6665504a785f74a0ba8efe15af1bba4f050284",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v2.21.0",
+        "file": "EverythingQuests-v2.21.0.zip",
+        "url": "https://github.com/wheelbarrel00/EverythingQuests/releases/download/v2.21.0/EverythingQuests-v2.21.0.zip",
+        "size": 10265624,
+        "sha256": "7e2c499701197f102f965d3bac6665504a785f74a0ba8efe15af1bba4f050284",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr": {
+        "release": "v2.21.0",
+        "file": "EverythingQuests-v2.21.0.zip",
+        "url": "https://github.com/wheelbarrel00/EverythingQuests/releases/download/v2.21.0/EverythingQuests-v2.21.0.zip",
+        "size": 10265624,
+        "sha256": "7e2c499701197f102f965d3bac6665504a785f74a0ba8efe15af1bba4f050284",
+        "interface": "120107",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr2": {
+        "release": "v2.21.0",
+        "file": "EverythingQuests-v2.21.0.zip",
+        "url": "https://github.com/wheelbarrel00/EverythingQuests/releases/download/v2.21.0/EverythingQuests-v2.21.0.zip",
+        "size": 10265624,
+        "sha256": "7e2c499701197f102f965d3bac6665504a785f74a0ba8efe15af1bba4f050284",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v2.21.0",
+        "file": "EverythingQuests-v2.21.0.zip",
+        "url": "https://github.com/wheelbarrel00/EverythingQuests/releases/download/v2.21.0/EverythingQuests-v2.21.0.zip",
+        "size": 10265624,
+        "sha256": "7e2c499701197f102f965d3bac6665504a785f74a0ba8efe15af1bba4f050284",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "expansionutils": {
@@ -19765,6 +20657,98 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-19"
+      }
+    },
+    "farmer": {
+      "retail": {
+        "release": "3.27.27",
+        "file": "Farmer-3.27.27.zip",
+        "url": "https://github.com/syndenbock/Farmer/releases/download/3.27.27/Farmer-3.27.27.zip",
+        "size": 116321,
+        "sha256": "d1d3f963ae37dfa448dc94d8f75c6b017caf152d102689d968dd879b9df82c2b",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-16"
+      },
+      "classic": {
+        "release": "3.27.27",
+        "file": "Farmer-3.27.27.zip",
+        "url": "https://github.com/syndenbock/Farmer/releases/download/3.27.27/Farmer-3.27.27.zip",
+        "size": 116321,
+        "sha256": "d1d3f963ae37dfa448dc94d8f75c6b017caf152d102689d968dd879b9df82c2b",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-16"
+      },
+      "anniversary": {
+        "release": "3.27.27",
+        "file": "Farmer-3.27.27.zip",
+        "url": "https://github.com/syndenbock/Farmer/releases/download/3.27.27/Farmer-3.27.27.zip",
+        "size": 116321,
+        "sha256": "d1d3f963ae37dfa448dc94d8f75c6b017caf152d102689d968dd879b9df82c2b",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-16"
+      },
+      "classic_era": {
+        "release": "3.27.27",
+        "file": "Farmer-3.27.27.zip",
+        "url": "https://github.com/syndenbock/Farmer/releases/download/3.27.27/Farmer-3.27.27.zip",
+        "size": 116321,
+        "sha256": "d1d3f963ae37dfa448dc94d8f75c6b017caf152d102689d968dd879b9df82c2b",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-16"
+      },
+      "forever": {
+        "release": "3.27.27",
+        "file": "Farmer-3.27.27.zip",
+        "url": "https://github.com/syndenbock/Farmer/releases/download/3.27.27/Farmer-3.27.27.zip",
+        "size": 116321,
+        "sha256": "d1d3f963ae37dfa448dc94d8f75c6b017caf152d102689d968dd879b9df82c2b",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-16"
+      },
+      "retail_ptr": {
+        "release": "3.27.27",
+        "file": "Farmer-3.27.27.zip",
+        "url": "https://github.com/syndenbock/Farmer/releases/download/3.27.27/Farmer-3.27.27.zip",
+        "size": 116321,
+        "sha256": "d1d3f963ae37dfa448dc94d8f75c6b017caf152d102689d968dd879b9df82c2b",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-16"
+      },
+      "retail_ptr2": {
+        "release": "3.27.27",
+        "file": "Farmer-3.27.27.zip",
+        "url": "https://github.com/syndenbock/Farmer/releases/download/3.27.27/Farmer-3.27.27.zip",
+        "size": 116321,
+        "sha256": "d1d3f963ae37dfa448dc94d8f75c6b017caf152d102689d968dd879b9df82c2b",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-16"
+      },
+      "classic_ptr": {
+        "release": "3.27.27",
+        "file": "Farmer-3.27.27.zip",
+        "url": "https://github.com/syndenbock/Farmer/releases/download/3.27.27/Farmer-3.27.27.zip",
+        "size": 116321,
+        "sha256": "d1d3f963ae37dfa448dc94d8f75c6b017caf152d102689d968dd879b9df82c2b",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-16"
+      },
+      "classic_era_ptr": {
+        "release": "3.27.27",
+        "file": "Farmer-3.27.27.zip",
+        "url": "https://github.com/syndenbock/Farmer/releases/download/3.27.27/Farmer-3.27.27.zip",
+        "size": 116321,
+        "sha256": "d1d3f963ae37dfa448dc94d8f75c6b017caf152d102689d968dd879b9df82c2b",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-16"
       }
     },
     "farmernodes": {
@@ -20357,6 +21341,68 @@
         "published": "2026-11-15"
       }
     },
+    "fieldguide": {
+      "classic": {
+        "release": "v1.0.0",
+        "file": "FieldGuide-1.0.0.zip",
+        "url": "https://github.com/Emzime/FieldGuide/releases/download/v1.0.0/FieldGuide-1.0.0.zip",
+        "size": 240026,
+        "sha256": "f2de3644f53c47ac25e9d5383c44d5cc4fb5341da69c40786340fef0571f811b",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "anniversary": {
+        "release": "v1.0.0",
+        "file": "FieldGuide-1.0.0.zip",
+        "url": "https://github.com/Emzime/FieldGuide/releases/download/v1.0.0/FieldGuide-1.0.0.zip",
+        "size": 240026,
+        "sha256": "f2de3644f53c47ac25e9d5383c44d5cc4fb5341da69c40786340fef0571f811b",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era": {
+        "release": "v1.0.0",
+        "file": "FieldGuide-1.0.0.zip",
+        "url": "https://github.com/Emzime/FieldGuide/releases/download/v1.0.0/FieldGuide-1.0.0.zip",
+        "size": 240026,
+        "sha256": "f2de3644f53c47ac25e9d5383c44d5cc4fb5341da69c40786340fef0571f811b",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v1.0.0",
+        "file": "FieldGuide-1.0.0.zip",
+        "url": "https://github.com/Emzime/FieldGuide/releases/download/v1.0.0/FieldGuide-1.0.0.zip",
+        "size": 240026,
+        "sha256": "f2de3644f53c47ac25e9d5383c44d5cc4fb5341da69c40786340fef0571f811b",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_ptr": {
+        "release": "v1.0.0",
+        "file": "FieldGuide-1.0.0.zip",
+        "url": "https://github.com/Emzime/FieldGuide/releases/download/v1.0.0/FieldGuide-1.0.0.zip",
+        "size": 240026,
+        "sha256": "f2de3644f53c47ac25e9d5383c44d5cc4fb5341da69c40786340fef0571f811b",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v1.0.0",
+        "file": "FieldGuide-1.0.0.zip",
+        "url": "https://github.com/Emzime/FieldGuide/releases/download/v1.0.0/FieldGuide-1.0.0.zip",
+        "size": 240026,
+        "sha256": "f2de3644f53c47ac25e9d5383c44d5cc4fb5341da69c40786340fef0571f811b",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "filger": {
       "retail": {
         "release": "v5.6.0",
@@ -20782,6 +21828,18 @@
         "url": "https://github.com/malkkav/FlareUI/releases/download/7.1/FlareUI-7.1-forever.zip",
         "size": 4914189,
         "sha256": "f58e5361604c6d2c79cc94382f9f90863775be84967604da21cf156599bcb661",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
+    "flareui-rp": {
+      "forever": {
+        "release": "v0.8.1",
+        "file": "FlareUI_RP-v0.8.1-forever.zip",
+        "url": "https://github.com/z0n/FlareUI_RP/releases/download/v0.8.1/FlareUI_RP-v0.8.1-forever.zip",
+        "size": 38906,
+        "sha256": "74444d29d2a15d2b998dc40b74fb459bfac3ca46dca69d4995fa6cb8a071674e",
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-26"
@@ -21799,6 +22857,18 @@
         "published": "2026-11-17"
       }
     },
+    "foreverquestpins": {
+      "forever": {
+        "release": "v1.1.11",
+        "file": "ForeverQuestPins-v1.1.11-forever.zip",
+        "url": "https://github.com/TylerAkins/forever-quest-pins/releases/download/v1.1.11/ForeverQuestPins-v1.1.11-forever.zip",
+        "size": 402411,
+        "sha256": "1f39c1f7d4c35d38748e8506b36649e9546323447ac887400ba9ab850d398b30",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "foreverquesttint": {
       "forever": {
         "release": "v0.7.6",
@@ -22545,6 +23615,110 @@
         "size": 61662,
         "sha256": "ac0e9b226eb2a7dc85f172ebeb4f11e455f7369351e5233b6c64aff0f73196ef",
         "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
+    "gamepadxiv": {
+      "forever": {
+        "release": "v0.1.30",
+        "file": "GamepadXIV-v0.1.30-forever.zip",
+        "url": "https://github.com/mihaiflorentin/gamepad-xiv/releases/download/v0.1.30/GamepadXIV-v0.1.30-forever.zip",
+        "size": 981690,
+        "sha256": "82ae9449b9f93b35ad9e8f0bb5cd76559c13eb5db14ea44995f8c66c9da4638d",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
+    "gargul": {
+      "retail": {
+        "release": "v8.1.2",
+        "file": "Gargul-v8.1.2.zip",
+        "url": "https://github.com/papa-smurf/Gargul/releases/download/v8.1.2/Gargul-v8.1.2.zip",
+        "size": 2457619,
+        "sha256": "013c4b760d4c06e81d1cea405581e7477715e8cda1569b8b23ff66188593fc3d",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic": {
+        "release": "v8.1.2",
+        "file": "Gargul-v8.1.2-mists.zip",
+        "url": "https://github.com/papa-smurf/Gargul/releases/download/v8.1.2/Gargul-v8.1.2-mists.zip",
+        "size": 2457618,
+        "sha256": "e269e768558e0c6161a9a2de0062bcd3f3c699143e4410281eb2865de6bfb123",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "anniversary": {
+        "release": "v8.1.2",
+        "file": "Gargul-v8.1.2-bcc.zip",
+        "url": "https://github.com/papa-smurf/Gargul/releases/download/v8.1.2/Gargul-v8.1.2-bcc.zip",
+        "size": 2457610,
+        "sha256": "e05f520955f891ee989f35d3a5a1e3fd7168d24719d3846fa27c3a5ff3836eb4",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era": {
+        "release": "v8.1.2",
+        "file": "Gargul-v8.1.2-classic.zip",
+        "url": "https://github.com/papa-smurf/Gargul/releases/download/v8.1.2/Gargul-v8.1.2-classic.zip",
+        "size": 2457610,
+        "sha256": "34630f38cf1af567e64bfafbd17a781d93304b539f00a7fc475d6a5f91ebfd47",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v8.1.2",
+        "file": "Gargul-v8.1.2-forever.zip",
+        "url": "https://github.com/papa-smurf/Gargul/releases/download/v8.1.2/Gargul-v8.1.2-forever.zip",
+        "size": 2457608,
+        "sha256": "0ebbbc2fffa1b237db02c83c2732e64ef195913692bbbf418b6e9d147bcb606c",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr": {
+        "release": "v8.1.2",
+        "file": "Gargul-v8.1.2.zip",
+        "url": "https://github.com/papa-smurf/Gargul/releases/download/v8.1.2/Gargul-v8.1.2.zip",
+        "size": 2457619,
+        "sha256": "013c4b760d4c06e81d1cea405581e7477715e8cda1569b8b23ff66188593fc3d",
+        "interface": "120107",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr2": {
+        "release": "v8.1.2",
+        "file": "Gargul-v8.1.2.zip",
+        "url": "https://github.com/papa-smurf/Gargul/releases/download/v8.1.2/Gargul-v8.1.2.zip",
+        "size": 2457619,
+        "sha256": "013c4b760d4c06e81d1cea405581e7477715e8cda1569b8b23ff66188593fc3d",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_ptr": {
+        "release": "v8.1.2",
+        "file": "Gargul-v8.1.2-mists.zip",
+        "url": "https://github.com/papa-smurf/Gargul/releases/download/v8.1.2/Gargul-v8.1.2-mists.zip",
+        "size": 2457618,
+        "sha256": "e269e768558e0c6161a9a2de0062bcd3f3c699143e4410281eb2865de6bfb123",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v8.1.2",
+        "file": "Gargul-v8.1.2-bcc.zip",
+        "url": "https://github.com/papa-smurf/Gargul/releases/download/v8.1.2/Gargul-v8.1.2-bcc.zip",
+        "size": 2457610,
+        "sha256": "e05f520955f891ee989f35d3a5a1e3fd7168d24719d3846fa27c3a5ff3836eb4",
+        "interface": "20506",
         "upToDate": true,
         "published": "2026-11-26"
       }
@@ -23841,6 +25015,68 @@
         "published": "2026-11-21"
       }
     },
+    "guidelime-catchup": {
+      "classic": {
+        "release": "v1.0.2",
+        "file": "Guidelime_CatchUp-v1.0.2.zip",
+        "url": "https://github.com/charlay/Guidelime_CatchUp/releases/download/v1.0.2/Guidelime_CatchUp-v1.0.2.zip",
+        "size": 40267,
+        "sha256": "b7e0894c6b6b5c5e96de960c102b99009c5f34ba346f13988875425c8a3a644c",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "anniversary": {
+        "release": "v1.0.2",
+        "file": "Guidelime_CatchUp-v1.0.2.zip",
+        "url": "https://github.com/charlay/Guidelime_CatchUp/releases/download/v1.0.2/Guidelime_CatchUp-v1.0.2.zip",
+        "size": 40267,
+        "sha256": "b7e0894c6b6b5c5e96de960c102b99009c5f34ba346f13988875425c8a3a644c",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era": {
+        "release": "v1.0.2",
+        "file": "Guidelime_CatchUp-v1.0.2.zip",
+        "url": "https://github.com/charlay/Guidelime_CatchUp/releases/download/v1.0.2/Guidelime_CatchUp-v1.0.2.zip",
+        "size": 40267,
+        "sha256": "b7e0894c6b6b5c5e96de960c102b99009c5f34ba346f13988875425c8a3a644c",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v1.0.2",
+        "file": "Guidelime_CatchUp-v1.0.2.zip",
+        "url": "https://github.com/charlay/Guidelime_CatchUp/releases/download/v1.0.2/Guidelime_CatchUp-v1.0.2.zip",
+        "size": 40267,
+        "sha256": "b7e0894c6b6b5c5e96de960c102b99009c5f34ba346f13988875425c8a3a644c",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_ptr": {
+        "release": "v1.0.2",
+        "file": "Guidelime_CatchUp-v1.0.2.zip",
+        "url": "https://github.com/charlay/Guidelime_CatchUp/releases/download/v1.0.2/Guidelime_CatchUp-v1.0.2.zip",
+        "size": 40267,
+        "sha256": "b7e0894c6b6b5c5e96de960c102b99009c5f34ba346f13988875425c8a3a644c",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v1.0.2",
+        "file": "Guidelime_CatchUp-v1.0.2.zip",
+        "url": "https://github.com/charlay/Guidelime_CatchUp/releases/download/v1.0.2/Guidelime_CatchUp-v1.0.2.zip",
+        "size": 40267,
+        "sha256": "b7e0894c6b6b5c5e96de960c102b99009c5f34ba346f13988875425c8a3a644c",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "guidelime-dungeonquests": {
       "forever": {
         "release": "v1.0.4",
@@ -24671,6 +25907,18 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-22"
+      }
+    },
+    "gulli-toolkit": {
+      "forever": {
+        "release": "Core-v1.54.2",
+        "file": "Gulli-Toolkit-1.54.2-forever.zip",
+        "url": "https://github.com/Gulliby-development/gulli-toolkit/releases/download/Core-v1.54.2/Gulli-Toolkit-1.54.2-forever.zip",
+        "size": 645747,
+        "sha256": "b779e0221a01e311188e0a220fc6db282a3dd405bedbb0d46343a5dda7bfd003",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "gw2-ui": {
@@ -25703,6 +26951,98 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-23"
+      }
+    },
+    "highlevelalert": {
+      "retail": {
+        "release": "v0.5.5",
+        "file": "HighLevelAlert-v0.5.5.zip",
+        "url": "https://github.com/d4kir92/HighLevelAlert/releases/download/v0.5.5/HighLevelAlert-v0.5.5.zip",
+        "size": 191469,
+        "sha256": "317399954a11cd9e896aff44e53c054e96b90308963089d1ebf13df37a9f384b",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "classic": {
+        "release": "v0.5.5",
+        "file": "HighLevelAlert-v0.5.5-mists.zip",
+        "url": "https://github.com/d4kir92/HighLevelAlert/releases/download/v0.5.5/HighLevelAlert-v0.5.5-mists.zip",
+        "size": 191468,
+        "sha256": "bc530acd3d8cdb93586619c5168ac0cb7d35ccccbc6a996a88e70f67acae1117",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "anniversary": {
+        "release": "v0.5.5",
+        "file": "HighLevelAlert-v0.5.5-bcc.zip",
+        "url": "https://github.com/d4kir92/HighLevelAlert/releases/download/v0.5.5/HighLevelAlert-v0.5.5-bcc.zip",
+        "size": 191468,
+        "sha256": "c2a03ecbdf91a477eba4b00f0beaca5544e90f4d204d00ab61742b0bc07a4274",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "classic_era": {
+        "release": "v0.5.5",
+        "file": "HighLevelAlert-v0.5.5-classic.zip",
+        "url": "https://github.com/d4kir92/HighLevelAlert/releases/download/v0.5.5/HighLevelAlert-v0.5.5-classic.zip",
+        "size": 191465,
+        "sha256": "3dde6f34f7fc6b4ae39a7207a8611a82c275b618d63ee3c6d019f986c4949a4c",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "forever": {
+        "release": "v0.5.5",
+        "file": "HighLevelAlert-v0.5.5-forever.zip",
+        "url": "https://github.com/d4kir92/HighLevelAlert/releases/download/v0.5.5/HighLevelAlert-v0.5.5-forever.zip",
+        "size": 191468,
+        "sha256": "e6c065d2399758237cb2c78e3db7e2488f2fbec95171ef31d6cc604ba2f50b90",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "retail_ptr": {
+        "release": "v0.5.5",
+        "file": "HighLevelAlert-v0.5.5.zip",
+        "url": "https://github.com/d4kir92/HighLevelAlert/releases/download/v0.5.5/HighLevelAlert-v0.5.5.zip",
+        "size": 191469,
+        "sha256": "317399954a11cd9e896aff44e53c054e96b90308963089d1ebf13df37a9f384b",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-10"
+      },
+      "retail_ptr2": {
+        "release": "v0.5.5",
+        "file": "HighLevelAlert-v0.5.5.zip",
+        "url": "https://github.com/d4kir92/HighLevelAlert/releases/download/v0.5.5/HighLevelAlert-v0.5.5.zip",
+        "size": 191469,
+        "sha256": "317399954a11cd9e896aff44e53c054e96b90308963089d1ebf13df37a9f384b",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "classic_ptr": {
+        "release": "v0.5.5",
+        "file": "HighLevelAlert-v0.5.5-mists.zip",
+        "url": "https://github.com/d4kir92/HighLevelAlert/releases/download/v0.5.5/HighLevelAlert-v0.5.5-mists.zip",
+        "size": 191468,
+        "sha256": "bc530acd3d8cdb93586619c5168ac0cb7d35ccccbc6a996a88e70f67acae1117",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "classic_era_ptr": {
+        "release": "v0.5.5",
+        "file": "HighLevelAlert-v0.5.5-bcc.zip",
+        "url": "https://github.com/d4kir92/HighLevelAlert/releases/download/v0.5.5/HighLevelAlert-v0.5.5-bcc.zip",
+        "size": 191468,
+        "sha256": "c2a03ecbdf91a477eba4b00f0beaca5544e90f4d204d00ab61742b0bc07a4274",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-10"
       }
     },
     "hitchprobe": {
@@ -26993,6 +28333,18 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-09-26"
+      }
+    },
+    "inlineprofessionguides": {
+      "forever": {
+        "release": "v0.1.1",
+        "file": "InlineProfessionGuides-v0.1.1.zip",
+        "url": "https://github.com/teeque87/InlineProfessionGuides/releases/download/v0.1.1/InlineProfessionGuides-v0.1.1.zip",
+        "size": 67374,
+        "sha256": "1e8da2dd97b54c43e70fc319168fafd023bb2b5619a8c8d831585d51c004072e",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "interaction": {
@@ -28955,6 +30307,98 @@
         "published": "2026-11-26"
       }
     },
+    "kiwifarm": {
+      "retail": {
+        "release": "2.27",
+        "file": "KiwiFarm-2.27.zip",
+        "url": "https://github.com/michaelnpsp/KiwiFarm/releases/download/2.27/KiwiFarm-2.27.zip",
+        "size": 72927,
+        "sha256": "fddc0c6645aff9458d6540cdcde326d97c132a2486baac7e1aaa87888d864ae6",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic": {
+        "release": "2.27",
+        "file": "KiwiFarm-2.27-mists.zip",
+        "url": "https://github.com/michaelnpsp/KiwiFarm/releases/download/2.27/KiwiFarm-2.27-mists.zip",
+        "size": 72925,
+        "sha256": "67325f6cece1c2d0e502df211cb80a41a98c5647e5e18f16462cba862418f57e",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "anniversary": {
+        "release": "2.27",
+        "file": "KiwiFarm-2.27-bcc.zip",
+        "url": "https://github.com/michaelnpsp/KiwiFarm/releases/download/2.27/KiwiFarm-2.27-bcc.zip",
+        "size": 72925,
+        "sha256": "88a8e8423dfca3c487fdfe2cece5eaada26733105de3047732a36ade18a0708a",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic_era": {
+        "release": "2.27",
+        "file": "KiwiFarm-2.27-classic.zip",
+        "url": "https://github.com/michaelnpsp/KiwiFarm/releases/download/2.27/KiwiFarm-2.27-classic.zip",
+        "size": 72926,
+        "sha256": "192954d83b5ec461df2175c11db5c9c740aaa9ee23b29508331b5fc6694c0587",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "forever": {
+        "release": "2.27",
+        "file": "KiwiFarm-2.27-forever.zip",
+        "url": "https://github.com/michaelnpsp/KiwiFarm/releases/download/2.27/KiwiFarm-2.27-forever.zip",
+        "size": 72927,
+        "sha256": "8c2819815045633b47a915c820b46be8b2eac8ac4953b9906b5d33c53a8fd0df",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "retail_ptr": {
+        "release": "2.27",
+        "file": "KiwiFarm-2.27.zip",
+        "url": "https://github.com/michaelnpsp/KiwiFarm/releases/download/2.27/KiwiFarm-2.27.zip",
+        "size": 72927,
+        "sha256": "fddc0c6645aff9458d6540cdcde326d97c132a2486baac7e1aaa87888d864ae6",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-10-14"
+      },
+      "retail_ptr2": {
+        "release": "2.27",
+        "file": "KiwiFarm-2.27.zip",
+        "url": "https://github.com/michaelnpsp/KiwiFarm/releases/download/2.27/KiwiFarm-2.27.zip",
+        "size": 72927,
+        "sha256": "fddc0c6645aff9458d6540cdcde326d97c132a2486baac7e1aaa87888d864ae6",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic_ptr": {
+        "release": "2.27",
+        "file": "KiwiFarm-2.27-mists.zip",
+        "url": "https://github.com/michaelnpsp/KiwiFarm/releases/download/2.27/KiwiFarm-2.27-mists.zip",
+        "size": 72925,
+        "sha256": "67325f6cece1c2d0e502df211cb80a41a98c5647e5e18f16462cba862418f57e",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic_era_ptr": {
+        "release": "2.27",
+        "file": "KiwiFarm-2.27-bcc.zip",
+        "url": "https://github.com/michaelnpsp/KiwiFarm/releases/download/2.27/KiwiFarm-2.27-bcc.zip",
+        "size": 72925,
+        "sha256": "88a8e8423dfca3c487fdfe2cece5eaada26733105de3047732a36ade18a0708a",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-10-14"
+      }
+    },
     "kiwimbc": {
       "retail": {
         "release": "1.65",
@@ -30223,6 +31667,88 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-10-31"
+      }
+    },
+    "libanimate": {
+      "retail": {
+        "release": "3.6.1",
+        "file": "LibAnimate-3.6.1.zip",
+        "url": "https://github.com/Xerrion/LibAnimate/releases/download/3.6.1/LibAnimate-3.6.1.zip",
+        "size": 1720737,
+        "sha256": "c91422a2621b03cdde756f8dbb95a20b146f34b5580495033f39b4a827a9d357",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-18"
+      },
+      "classic": {
+        "release": "3.6.1",
+        "file": "LibAnimate-3.6.1.zip",
+        "url": "https://github.com/Xerrion/LibAnimate/releases/download/3.6.1/LibAnimate-3.6.1.zip",
+        "size": 1720737,
+        "sha256": "c91422a2621b03cdde756f8dbb95a20b146f34b5580495033f39b4a827a9d357",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-18"
+      },
+      "anniversary": {
+        "release": "3.6.1",
+        "file": "LibAnimate-3.6.1.zip",
+        "url": "https://github.com/Xerrion/LibAnimate/releases/download/3.6.1/LibAnimate-3.6.1.zip",
+        "size": 1720737,
+        "sha256": "c91422a2621b03cdde756f8dbb95a20b146f34b5580495033f39b4a827a9d357",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-18"
+      },
+      "forever": {
+        "release": "3.6.1",
+        "file": "LibAnimate-3.6.1.zip",
+        "url": "https://github.com/Xerrion/LibAnimate/releases/download/3.6.1/LibAnimate-3.6.1.zip",
+        "size": 1720737,
+        "sha256": "c91422a2621b03cdde756f8dbb95a20b146f34b5580495033f39b4a827a9d357",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-18"
+      },
+      "retail_ptr": {
+        "release": "3.6.1",
+        "file": "LibAnimate-3.6.1.zip",
+        "url": "https://github.com/Xerrion/LibAnimate/releases/download/3.6.1/LibAnimate-3.6.1.zip",
+        "size": 1720737,
+        "sha256": "c91422a2621b03cdde756f8dbb95a20b146f34b5580495033f39b4a827a9d357",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-18"
+      },
+      "retail_ptr2": {
+        "release": "3.6.1",
+        "file": "LibAnimate-3.6.1.zip",
+        "url": "https://github.com/Xerrion/LibAnimate/releases/download/3.6.1/LibAnimate-3.6.1.zip",
+        "size": 1720737,
+        "sha256": "c91422a2621b03cdde756f8dbb95a20b146f34b5580495033f39b4a827a9d357",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-18"
+      },
+      "classic_ptr": {
+        "release": "3.6.1",
+        "file": "LibAnimate-3.6.1.zip",
+        "url": "https://github.com/Xerrion/LibAnimate/releases/download/3.6.1/LibAnimate-3.6.1.zip",
+        "size": 1720737,
+        "sha256": "c91422a2621b03cdde756f8dbb95a20b146f34b5580495033f39b4a827a9d357",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-18"
+      },
+      "classic_era_ptr": {
+        "release": "3.6.1",
+        "file": "LibAnimate-3.6.1.zip",
+        "url": "https://github.com/Xerrion/LibAnimate/releases/download/3.6.1/LibAnimate-3.6.1.zip",
+        "size": 1720737,
+        "sha256": "c91422a2621b03cdde756f8dbb95a20b146f34b5580495033f39b4a827a9d357",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-18"
       }
     },
     "libchromacro": {
@@ -35779,6 +37305,834 @@
         "published": "2026-11-19"
       }
     },
+    "maxdps": {
+      "retail": {
+        "release": "v11.3.99",
+        "file": "MaxDps-v11.3.99.zip",
+        "url": "https://github.com/kaminaris/MaxDps/releases/download/v11.3.99/MaxDps-v11.3.99.zip",
+        "size": 468796,
+        "sha256": "14b72f505bc0a2fc36988903c4a4dd8c98fea8c260df8a75557ced69b659f23a",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic": {
+        "release": "v11.3.99",
+        "file": "MaxDps-v11.3.99-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps/releases/download/v11.3.99/MaxDps-v11.3.99-mists.zip",
+        "size": 468797,
+        "sha256": "10687a408c4381664740e161acfa09e39d0d360161ae48600dfc3851c28080c1",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "anniversary": {
+        "release": "v11.3.99",
+        "file": "MaxDps-v11.3.99-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps/releases/download/v11.3.99/MaxDps-v11.3.99-bcc.zip",
+        "size": 471229,
+        "sha256": "7827e3822b32ae11c6c1cec802fc47ed5085aa42ca951719be446269c8532303",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic_era": {
+        "release": "v11.3.99",
+        "file": "MaxDps-v11.3.99-classic.zip",
+        "url": "https://github.com/kaminaris/MaxDps/releases/download/v11.3.99/MaxDps-v11.3.99-classic.zip",
+        "size": 471230,
+        "sha256": "99db5abcfd97ee9f5082f64b72157b7409947a2fce83d9509560c619ba2aa7d4",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "forever": {
+        "release": "v11.3.99",
+        "file": "MaxDps-v11.3.99-forever.zip",
+        "url": "https://github.com/kaminaris/MaxDps/releases/download/v11.3.99/MaxDps-v11.3.99-forever.zip",
+        "size": 477536,
+        "sha256": "893860a079066941229e974ad15a2d05f42b83c1120175422274781bb67e6d90",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "retail_ptr": {
+        "release": "v11.3.99",
+        "file": "MaxDps-v11.3.99.zip",
+        "url": "https://github.com/kaminaris/MaxDps/releases/download/v11.3.99/MaxDps-v11.3.99.zip",
+        "size": 468796,
+        "sha256": "14b72f505bc0a2fc36988903c4a4dd8c98fea8c260df8a75557ced69b659f23a",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-19"
+      },
+      "retail_ptr2": {
+        "release": "v11.3.99",
+        "file": "MaxDps-v11.3.99.zip",
+        "url": "https://github.com/kaminaris/MaxDps/releases/download/v11.3.99/MaxDps-v11.3.99.zip",
+        "size": 468796,
+        "sha256": "14b72f505bc0a2fc36988903c4a4dd8c98fea8c260df8a75557ced69b659f23a",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic_ptr": {
+        "release": "v11.3.99",
+        "file": "MaxDps-v11.3.99-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps/releases/download/v11.3.99/MaxDps-v11.3.99-mists.zip",
+        "size": 468797,
+        "sha256": "10687a408c4381664740e161acfa09e39d0d360161ae48600dfc3851c28080c1",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic_era_ptr": {
+        "release": "v11.3.99",
+        "file": "MaxDps-v11.3.99-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps/releases/download/v11.3.99/MaxDps-v11.3.99-bcc.zip",
+        "size": 471229,
+        "sha256": "7827e3822b32ae11c6c1cec802fc47ed5085aa42ca951719be446269c8532303",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-19"
+      }
+    },
+    "maxdps-druid": {
+      "retail": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Druid-v11.2.20.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Druid/releases/download/v11.2.20/MaxDps_Druid-v11.2.20.zip",
+        "size": 58787,
+        "sha256": "01f0c06c96fde50d9c83c68d588f6e8bc07ffb445b9226d87af28cb4b5e8af61",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-11"
+      },
+      "classic": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Druid-v11.2.20-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Druid/releases/download/v11.2.20/MaxDps_Druid-v11.2.20-mists.zip",
+        "size": 58786,
+        "sha256": "d70886b977eb3f05c25da16fde643002d28548814364b13db2316c0c32345315",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-11"
+      },
+      "anniversary": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Druid-v11.2.20-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Druid/releases/download/v11.2.20/MaxDps_Druid-v11.2.20-bcc.zip",
+        "size": 58787,
+        "sha256": "c971e7403f712b53867703bbd100a1151a59fe888e2af2812aea465541b31a3c",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-11"
+      },
+      "classic_era": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Druid-v11.2.20-classic.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Druid/releases/download/v11.2.20/MaxDps_Druid-v11.2.20-classic.zip",
+        "size": 58787,
+        "sha256": "324ffa05b059b65324cf01af9d30fd0fbb10fec4a1b5689ac171bd531f2e8e43",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-11"
+      },
+      "forever": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Druid-v11.2.20-forever.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Druid/releases/download/v11.2.20/MaxDps_Druid-v11.2.20-forever.zip",
+        "size": 58786,
+        "sha256": "10253940eceae1ec9e6fb265e77dc699f39161e4f36794106b9909cd6a5a0a65",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-11"
+      },
+      "retail_ptr": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Druid-v11.2.20.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Druid/releases/download/v11.2.20/MaxDps_Druid-v11.2.20.zip",
+        "size": 58787,
+        "sha256": "01f0c06c96fde50d9c83c68d588f6e8bc07ffb445b9226d87af28cb4b5e8af61",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-11"
+      },
+      "retail_ptr2": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Druid-v11.2.20.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Druid/releases/download/v11.2.20/MaxDps_Druid-v11.2.20.zip",
+        "size": 58787,
+        "sha256": "01f0c06c96fde50d9c83c68d588f6e8bc07ffb445b9226d87af28cb4b5e8af61",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-11"
+      },
+      "classic_ptr": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Druid-v11.2.20-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Druid/releases/download/v11.2.20/MaxDps_Druid-v11.2.20-mists.zip",
+        "size": 58786,
+        "sha256": "d70886b977eb3f05c25da16fde643002d28548814364b13db2316c0c32345315",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-11"
+      },
+      "classic_era_ptr": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Druid-v11.2.20-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Druid/releases/download/v11.2.20/MaxDps_Druid-v11.2.20-bcc.zip",
+        "size": 58787,
+        "sha256": "c971e7403f712b53867703bbd100a1151a59fe888e2af2812aea465541b31a3c",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-11"
+      }
+    },
+    "maxdps-hunter": {
+      "retail": {
+        "release": "v11.2.24",
+        "file": "MaxDps_Hunter-v11.2.24.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Hunter/releases/download/v11.2.24/MaxDps_Hunter-v11.2.24.zip",
+        "size": 46956,
+        "sha256": "9aa51e9f9c1432e413eef03daa87cd6a56f74dee26300ad3ef70c150fcddc6ca",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-13"
+      },
+      "classic": {
+        "release": "v11.2.24",
+        "file": "MaxDps_Hunter-v11.2.24-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Hunter/releases/download/v11.2.24/MaxDps_Hunter-v11.2.24-mists.zip",
+        "size": 46955,
+        "sha256": "c39fd86294ff008222255993893c8a53d6ab3a9cbd4ebd9ca83ff6893cdb6b2a",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-13"
+      },
+      "anniversary": {
+        "release": "v11.2.24",
+        "file": "MaxDps_Hunter-v11.2.24-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Hunter/releases/download/v11.2.24/MaxDps_Hunter-v11.2.24-bcc.zip",
+        "size": 46953,
+        "sha256": "7b87cee22ecdc40c96d7b082bbabfb0b14a57b09a4950d550b59723f163f8dc1",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-13"
+      },
+      "classic_era": {
+        "release": "v11.2.24",
+        "file": "MaxDps_Hunter-v11.2.24-classic.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Hunter/releases/download/v11.2.24/MaxDps_Hunter-v11.2.24-classic.zip",
+        "size": 46955,
+        "sha256": "cfe8887f7248193e0d9991d9cdb06c050fda2fc1e807f70a0640f1afdf2dfc9a",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-13"
+      },
+      "forever": {
+        "release": "v11.2.24",
+        "file": "MaxDps_Hunter-v11.2.24-forever.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Hunter/releases/download/v11.2.24/MaxDps_Hunter-v11.2.24-forever.zip",
+        "size": 46955,
+        "sha256": "656832a39d7b3f1b4fd2c27762606b0db02258d3481c2b71f4ef3c0b74a00059",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-13"
+      },
+      "retail_ptr": {
+        "release": "v11.2.24",
+        "file": "MaxDps_Hunter-v11.2.24.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Hunter/releases/download/v11.2.24/MaxDps_Hunter-v11.2.24.zip",
+        "size": 46956,
+        "sha256": "9aa51e9f9c1432e413eef03daa87cd6a56f74dee26300ad3ef70c150fcddc6ca",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-13"
+      },
+      "retail_ptr2": {
+        "release": "v11.2.24",
+        "file": "MaxDps_Hunter-v11.2.24.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Hunter/releases/download/v11.2.24/MaxDps_Hunter-v11.2.24.zip",
+        "size": 46956,
+        "sha256": "9aa51e9f9c1432e413eef03daa87cd6a56f74dee26300ad3ef70c150fcddc6ca",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-13"
+      },
+      "classic_ptr": {
+        "release": "v11.2.24",
+        "file": "MaxDps_Hunter-v11.2.24-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Hunter/releases/download/v11.2.24/MaxDps_Hunter-v11.2.24-mists.zip",
+        "size": 46955,
+        "sha256": "c39fd86294ff008222255993893c8a53d6ab3a9cbd4ebd9ca83ff6893cdb6b2a",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-13"
+      },
+      "classic_era_ptr": {
+        "release": "v11.2.24",
+        "file": "MaxDps_Hunter-v11.2.24-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Hunter/releases/download/v11.2.24/MaxDps_Hunter-v11.2.24-bcc.zip",
+        "size": 46953,
+        "sha256": "7b87cee22ecdc40c96d7b082bbabfb0b14a57b09a4950d550b59723f163f8dc1",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-13"
+      }
+    },
+    "maxdps-paladin": {
+      "retail": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Paladin-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Paladin/releases/download/v11.2.21/MaxDps_Paladin-v11.2.21.zip",
+        "size": 39115,
+        "sha256": "5c2febb5eda6d69a83212d1d9d746c05e6eafbd181c8736acf50e19e7877fdad",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-06"
+      },
+      "classic": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Paladin-v11.2.21-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Paladin/releases/download/v11.2.21/MaxDps_Paladin-v11.2.21-mists.zip",
+        "size": 39115,
+        "sha256": "d8b20d880275760ac998ee78b100d9e22206cca2f76d748a1e03fa8cf1195c30",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-06"
+      },
+      "anniversary": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Paladin-v11.2.21-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Paladin/releases/download/v11.2.21/MaxDps_Paladin-v11.2.21-bcc.zip",
+        "size": 39115,
+        "sha256": "8bdab2e8689d3a0c1d9f01f49b121cd3260b7999fc6252827b50992eb9408e21",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-06"
+      },
+      "classic_era": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Paladin-v11.2.21-classic.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Paladin/releases/download/v11.2.21/MaxDps_Paladin-v11.2.21-classic.zip",
+        "size": 39114,
+        "sha256": "36c4eda1b53bed212a77156a83b0fe81417e586bb9d29fab86483fcea919b8b9",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-06"
+      },
+      "forever": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Paladin-v11.2.21-forever.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Paladin/releases/download/v11.2.21/MaxDps_Paladin-v11.2.21-forever.zip",
+        "size": 39114,
+        "sha256": "4de7ae60f3a4b74874611a13a5587e60c54904a67fa87771df036f522203726a",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-06"
+      },
+      "retail_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Paladin-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Paladin/releases/download/v11.2.21/MaxDps_Paladin-v11.2.21.zip",
+        "size": 39115,
+        "sha256": "5c2febb5eda6d69a83212d1d9d746c05e6eafbd181c8736acf50e19e7877fdad",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-06"
+      },
+      "retail_ptr2": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Paladin-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Paladin/releases/download/v11.2.21/MaxDps_Paladin-v11.2.21.zip",
+        "size": 39115,
+        "sha256": "5c2febb5eda6d69a83212d1d9d746c05e6eafbd181c8736acf50e19e7877fdad",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-06"
+      },
+      "classic_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Paladin-v11.2.21-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Paladin/releases/download/v11.2.21/MaxDps_Paladin-v11.2.21-mists.zip",
+        "size": 39115,
+        "sha256": "d8b20d880275760ac998ee78b100d9e22206cca2f76d748a1e03fa8cf1195c30",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-06"
+      },
+      "classic_era_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Paladin-v11.2.21-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Paladin/releases/download/v11.2.21/MaxDps_Paladin-v11.2.21-bcc.zip",
+        "size": 39115,
+        "sha256": "8bdab2e8689d3a0c1d9f01f49b121cd3260b7999fc6252827b50992eb9408e21",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-06"
+      }
+    },
+    "maxdps-priest": {
+      "retail": {
+        "release": "v11.2.16",
+        "file": "MaxDps_Priest-v11.2.16.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Priest/releases/download/v11.2.16/MaxDps_Priest-v11.2.16.zip",
+        "size": 29931,
+        "sha256": "5dccb60843742051201f325e577e8b563cc7186059f27090f6e8ce5bce7b71c1",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-05"
+      },
+      "classic": {
+        "release": "v11.2.16",
+        "file": "MaxDps_Priest-v11.2.16-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Priest/releases/download/v11.2.16/MaxDps_Priest-v11.2.16-mists.zip",
+        "size": 29931,
+        "sha256": "76e15b455e3671aec8d17430c1b42aea4babf4f0f4a5590033834eb7537cb049",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-05"
+      },
+      "anniversary": {
+        "release": "v11.2.16",
+        "file": "MaxDps_Priest-v11.2.16-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Priest/releases/download/v11.2.16/MaxDps_Priest-v11.2.16-bcc.zip",
+        "size": 29931,
+        "sha256": "85f7a39ac60db578d95be9b8b6df41df0a7d41207e7862e32605e6136991d9e8",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-05"
+      },
+      "classic_era": {
+        "release": "v11.2.16",
+        "file": "MaxDps_Priest-v11.2.16-classic.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Priest/releases/download/v11.2.16/MaxDps_Priest-v11.2.16-classic.zip",
+        "size": 29930,
+        "sha256": "4e054e959ca887e84243fc0c54af02ea216f832a2a5ba1ab238eef9d8e99422e",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-05"
+      },
+      "forever": {
+        "release": "v11.2.16",
+        "file": "MaxDps_Priest-v11.2.16-forever.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Priest/releases/download/v11.2.16/MaxDps_Priest-v11.2.16-forever.zip",
+        "size": 29930,
+        "sha256": "e9a27e93674e27aabfd7b4702b59af3fed76b2eef11b1582e10a4b72b5cab029",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-05"
+      },
+      "retail_ptr": {
+        "release": "v11.2.16",
+        "file": "MaxDps_Priest-v11.2.16.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Priest/releases/download/v11.2.16/MaxDps_Priest-v11.2.16.zip",
+        "size": 29931,
+        "sha256": "5dccb60843742051201f325e577e8b563cc7186059f27090f6e8ce5bce7b71c1",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-05"
+      },
+      "retail_ptr2": {
+        "release": "v11.2.16",
+        "file": "MaxDps_Priest-v11.2.16.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Priest/releases/download/v11.2.16/MaxDps_Priest-v11.2.16.zip",
+        "size": 29931,
+        "sha256": "5dccb60843742051201f325e577e8b563cc7186059f27090f6e8ce5bce7b71c1",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-05"
+      },
+      "classic_ptr": {
+        "release": "v11.2.16",
+        "file": "MaxDps_Priest-v11.2.16-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Priest/releases/download/v11.2.16/MaxDps_Priest-v11.2.16-mists.zip",
+        "size": 29931,
+        "sha256": "76e15b455e3671aec8d17430c1b42aea4babf4f0f4a5590033834eb7537cb049",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-05"
+      },
+      "classic_era_ptr": {
+        "release": "v11.2.16",
+        "file": "MaxDps_Priest-v11.2.16-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Priest/releases/download/v11.2.16/MaxDps_Priest-v11.2.16-bcc.zip",
+        "size": 29931,
+        "sha256": "85f7a39ac60db578d95be9b8b6df41df0a7d41207e7862e32605e6136991d9e8",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-05"
+      }
+    },
+    "maxdps-rogue": {
+      "retail": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Rogue-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Rogue/releases/download/v11.2.21/MaxDps_Rogue-v11.2.21.zip",
+        "size": 49254,
+        "sha256": "f1cffb9278fc7a87801211b83f3cbd077719c67de9699566a8c91db2538950a9",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-07"
+      },
+      "classic": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Rogue-v11.2.21-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Rogue/releases/download/v11.2.21/MaxDps_Rogue-v11.2.21-mists.zip",
+        "size": 49253,
+        "sha256": "9af8e22c657dbebe2c9ed76404b829fb1300577064e21465a344d172c5e3f761",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-07"
+      },
+      "anniversary": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Rogue-v11.2.21-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Rogue/releases/download/v11.2.21/MaxDps_Rogue-v11.2.21-bcc.zip",
+        "size": 49253,
+        "sha256": "299288ad30f3ba940535f39d505d2d3a92062a228e165c971893a03b3f616b51",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-07"
+      },
+      "classic_era": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Rogue-v11.2.21-classic.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Rogue/releases/download/v11.2.21/MaxDps_Rogue-v11.2.21-classic.zip",
+        "size": 49253,
+        "sha256": "d5b7774c88e46516917d8b48921390f9b87a62ab08324905434601b332f4969d",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-07"
+      },
+      "forever": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Rogue-v11.2.21-forever.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Rogue/releases/download/v11.2.21/MaxDps_Rogue-v11.2.21-forever.zip",
+        "size": 49252,
+        "sha256": "a2b87ce9990b8615fb700dd415b7e3b5c96ee6ba0e5b41cdfa42b3bd4d215e24",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-07"
+      },
+      "retail_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Rogue-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Rogue/releases/download/v11.2.21/MaxDps_Rogue-v11.2.21.zip",
+        "size": 49254,
+        "sha256": "f1cffb9278fc7a87801211b83f3cbd077719c67de9699566a8c91db2538950a9",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-07"
+      },
+      "retail_ptr2": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Rogue-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Rogue/releases/download/v11.2.21/MaxDps_Rogue-v11.2.21.zip",
+        "size": 49254,
+        "sha256": "f1cffb9278fc7a87801211b83f3cbd077719c67de9699566a8c91db2538950a9",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-07"
+      },
+      "classic_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Rogue-v11.2.21-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Rogue/releases/download/v11.2.21/MaxDps_Rogue-v11.2.21-mists.zip",
+        "size": 49253,
+        "sha256": "9af8e22c657dbebe2c9ed76404b829fb1300577064e21465a344d172c5e3f761",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-07"
+      },
+      "classic_era_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Rogue-v11.2.21-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Rogue/releases/download/v11.2.21/MaxDps_Rogue-v11.2.21-bcc.zip",
+        "size": 49253,
+        "sha256": "299288ad30f3ba940535f39d505d2d3a92062a228e165c971893a03b3f616b51",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-07"
+      }
+    },
+    "maxdps-shaman": {
+      "retail": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Shaman-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Shaman/releases/download/v11.2.21/MaxDps_Shaman-v11.2.21.zip",
+        "size": 43432,
+        "sha256": "37e2c106e1a9840bd9439fbb9b598d04c5eafdc747554d86e7c84f93ccfbbe5c",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "classic": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Shaman-v11.2.21-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Shaman/releases/download/v11.2.21/MaxDps_Shaman-v11.2.21-mists.zip",
+        "size": 43434,
+        "sha256": "123d80335971a1238d24f9583818c6ef52fc8541839e15fd351c8006f8c66f39",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "anniversary": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Shaman-v11.2.21-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Shaman/releases/download/v11.2.21/MaxDps_Shaman-v11.2.21-bcc.zip",
+        "size": 43433,
+        "sha256": "f70728817c5c1d29060859b86b75167500b6e0d0266a803bef82552f8065fb02",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "classic_era": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Shaman-v11.2.21-classic.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Shaman/releases/download/v11.2.21/MaxDps_Shaman-v11.2.21-classic.zip",
+        "size": 43433,
+        "sha256": "d3aa403cc9656853fa29bf13b668c9f511e5b26bb9aed7c78f32ca39a80ee15d",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "forever": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Shaman-v11.2.21-forever.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Shaman/releases/download/v11.2.21/MaxDps_Shaman-v11.2.21-forever.zip",
+        "size": 43433,
+        "sha256": "b19b2c24eaa81d261f1f80d3344430f0d5249efe414717fb767ae19d9ea76639",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "retail_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Shaman-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Shaman/releases/download/v11.2.21/MaxDps_Shaman-v11.2.21.zip",
+        "size": 43432,
+        "sha256": "37e2c106e1a9840bd9439fbb9b598d04c5eafdc747554d86e7c84f93ccfbbe5c",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-10"
+      },
+      "retail_ptr2": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Shaman-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Shaman/releases/download/v11.2.21/MaxDps_Shaman-v11.2.21.zip",
+        "size": 43432,
+        "sha256": "37e2c106e1a9840bd9439fbb9b598d04c5eafdc747554d86e7c84f93ccfbbe5c",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "classic_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Shaman-v11.2.21-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Shaman/releases/download/v11.2.21/MaxDps_Shaman-v11.2.21-mists.zip",
+        "size": 43434,
+        "sha256": "123d80335971a1238d24f9583818c6ef52fc8541839e15fd351c8006f8c66f39",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-10"
+      },
+      "classic_era_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Shaman-v11.2.21-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Shaman/releases/download/v11.2.21/MaxDps_Shaman-v11.2.21-bcc.zip",
+        "size": 43433,
+        "sha256": "f70728817c5c1d29060859b86b75167500b6e0d0266a803bef82552f8065fb02",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-10"
+      }
+    },
+    "maxdps-warlock": {
+      "retail": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Warlock-v11.2.20.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warlock/releases/download/v11.2.20/MaxDps_Warlock-v11.2.20.zip",
+        "size": 50639,
+        "sha256": "680514eca85efd9532d335857f215f651d58d18ebb9ae2b52add5b50460cbaab",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-23"
+      },
+      "classic": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Warlock-v11.2.20-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warlock/releases/download/v11.2.20/MaxDps_Warlock-v11.2.20-mists.zip",
+        "size": 50639,
+        "sha256": "ba6c6088914b4511935ad1c99a252f7e21b89f50b5d8087332a7da2afe702eeb",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-23"
+      },
+      "anniversary": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Warlock-v11.2.20-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warlock/releases/download/v11.2.20/MaxDps_Warlock-v11.2.20-bcc.zip",
+        "size": 50639,
+        "sha256": "fd958e36d63176385849c3d5c4d9944bb5ba1d9d23c9048bb619ff29e1f4b17a",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-23"
+      },
+      "classic_era": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Warlock-v11.2.20-classic.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warlock/releases/download/v11.2.20/MaxDps_Warlock-v11.2.20-classic.zip",
+        "size": 50638,
+        "sha256": "742fb6b889d0be13a89bc50daaffe216d57f658d49844a65c40d75df979424e9",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-23"
+      },
+      "forever": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Warlock-v11.2.20-forever.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warlock/releases/download/v11.2.20/MaxDps_Warlock-v11.2.20-forever.zip",
+        "size": 50638,
+        "sha256": "9fea7c3f7445edc1287d6ef05a186d03f977de20132498f237f075f9dc1fc9eb",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-23"
+      },
+      "retail_ptr": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Warlock-v11.2.20.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warlock/releases/download/v11.2.20/MaxDps_Warlock-v11.2.20.zip",
+        "size": 50639,
+        "sha256": "680514eca85efd9532d335857f215f651d58d18ebb9ae2b52add5b50460cbaab",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-23"
+      },
+      "retail_ptr2": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Warlock-v11.2.20.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warlock/releases/download/v11.2.20/MaxDps_Warlock-v11.2.20.zip",
+        "size": 50639,
+        "sha256": "680514eca85efd9532d335857f215f651d58d18ebb9ae2b52add5b50460cbaab",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-23"
+      },
+      "classic_ptr": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Warlock-v11.2.20-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warlock/releases/download/v11.2.20/MaxDps_Warlock-v11.2.20-mists.zip",
+        "size": 50639,
+        "sha256": "ba6c6088914b4511935ad1c99a252f7e21b89f50b5d8087332a7da2afe702eeb",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-23"
+      },
+      "classic_era_ptr": {
+        "release": "v11.2.20",
+        "file": "MaxDps_Warlock-v11.2.20-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warlock/releases/download/v11.2.20/MaxDps_Warlock-v11.2.20-bcc.zip",
+        "size": 50639,
+        "sha256": "fd958e36d63176385849c3d5c4d9944bb5ba1d9d23c9048bb619ff29e1f4b17a",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-23"
+      }
+    },
+    "maxdps-warrior": {
+      "retail": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Warrior-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warrior/releases/download/v11.2.21/MaxDps_Warrior-v11.2.21.zip",
+        "size": 46710,
+        "sha256": "bd23219ce3cf01be3d01b6eb8515d757257aab3a9fd329c9e603e29b24738db7",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-17"
+      },
+      "classic": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Warrior-v11.2.21-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warrior/releases/download/v11.2.21/MaxDps_Warrior-v11.2.21-mists.zip",
+        "size": 46710,
+        "sha256": "28617b1f7fa21f6890a034e723968eeac8cafd97c1bc055361bb725967009258",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-17"
+      },
+      "anniversary": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Warrior-v11.2.21-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warrior/releases/download/v11.2.21/MaxDps_Warrior-v11.2.21-bcc.zip",
+        "size": 46710,
+        "sha256": "7ab38959fba87d824818dfddb160e3454272bb236f27073d390342a2eae30421",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-17"
+      },
+      "classic_era": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Warrior-v11.2.21-classic.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warrior/releases/download/v11.2.21/MaxDps_Warrior-v11.2.21-classic.zip",
+        "size": 46709,
+        "sha256": "9f35cf5f1cf82755368e4cbfcdf6033bea8fff8bcbc9a91b6a9cfa81e008f1db",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-17"
+      },
+      "forever": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Warrior-v11.2.21-forever.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warrior/releases/download/v11.2.21/MaxDps_Warrior-v11.2.21-forever.zip",
+        "size": 46709,
+        "sha256": "b3f9274360da3069581f1343bc9fe1b1daea4045c3d67f65993d8bb2f4facac1",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-17"
+      },
+      "retail_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Warrior-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warrior/releases/download/v11.2.21/MaxDps_Warrior-v11.2.21.zip",
+        "size": 46710,
+        "sha256": "bd23219ce3cf01be3d01b6eb8515d757257aab3a9fd329c9e603e29b24738db7",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-17"
+      },
+      "retail_ptr2": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Warrior-v11.2.21.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warrior/releases/download/v11.2.21/MaxDps_Warrior-v11.2.21.zip",
+        "size": 46710,
+        "sha256": "bd23219ce3cf01be3d01b6eb8515d757257aab3a9fd329c9e603e29b24738db7",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-17"
+      },
+      "classic_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Warrior-v11.2.21-mists.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warrior/releases/download/v11.2.21/MaxDps_Warrior-v11.2.21-mists.zip",
+        "size": 46710,
+        "sha256": "28617b1f7fa21f6890a034e723968eeac8cafd97c1bc055361bb725967009258",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-17"
+      },
+      "classic_era_ptr": {
+        "release": "v11.2.21",
+        "file": "MaxDps_Warrior-v11.2.21-bcc.zip",
+        "url": "https://github.com/kaminaris/MaxDps-Warrior/releases/download/v11.2.21/MaxDps_Warrior-v11.2.21-bcc.zip",
+        "size": 46710,
+        "sha256": "7ab38959fba87d824818dfddb160e3454272bb236f27073d390342a2eae30421",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-17"
+      }
+    },
     "mealbook": {
       "classic_era": {
         "release": "v0.3.0",
@@ -36309,6 +38663,48 @@
         "published": "2026-11-13"
       }
     },
+    "midnighthelper": {
+      "retail": {
+        "release": "v5.11.0",
+        "file": "MidnightHelper-v5.11.0.zip",
+        "url": "https://github.com/Huijting/MidnightHelper/releases/download/v5.11.0/MidnightHelper-v5.11.0.zip",
+        "size": 10140108,
+        "sha256": "c5718e83af792e0d9f14a0382238f6faf7a881e9b1f1c318b0e46eba0f79df3b",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v5.11.0",
+        "file": "MidnightHelper-v5.11.0-forever.zip",
+        "url": "https://github.com/Huijting/MidnightHelper/releases/download/v5.11.0/MidnightHelper-v5.11.0-forever.zip",
+        "size": 10140094,
+        "sha256": "e2beafd8bb531484b5bc9e5d9629aab019d19382dc8f9b6d5ceeb013df21846a",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr": {
+        "release": "v5.11.0",
+        "file": "MidnightHelper-v5.11.0.zip",
+        "url": "https://github.com/Huijting/MidnightHelper/releases/download/v5.11.0/MidnightHelper-v5.11.0.zip",
+        "size": 10140108,
+        "sha256": "c5718e83af792e0d9f14a0382238f6faf7a881e9b1f1c318b0e46eba0f79df3b",
+        "interface": "120107",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr2": {
+        "release": "v5.11.0",
+        "file": "MidnightHelper-v5.11.0.zip",
+        "url": "https://github.com/Huijting/MidnightHelper/releases/download/v5.11.0/MidnightHelper-v5.11.0.zip",
+        "size": 10140108,
+        "sha256": "c5718e83af792e0d9f14a0382238f6faf7a881e9b1f1c318b0e46eba0f79df3b",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "midnightriders-dragons": {
       "retail": {
         "release": "v1.0.0",
@@ -36483,6 +38879,98 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-21"
+      }
+    },
+    "minimapbuttonbutton": {
+      "retail": {
+        "release": "1.24.18",
+        "file": "MinimapButtonButton-1.24.18.zip",
+        "url": "https://github.com/syndenbock/MinimapButtonButton/releases/download/1.24.18/MinimapButtonButton-1.24.18.zip",
+        "size": 34132,
+        "sha256": "35834e0c11d1f9efac79923a59cdc84a1a56c5be19078e4aa20d56ae70723413",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-15"
+      },
+      "classic": {
+        "release": "1.24.18",
+        "file": "MinimapButtonButton-1.24.18.zip",
+        "url": "https://github.com/syndenbock/MinimapButtonButton/releases/download/1.24.18/MinimapButtonButton-1.24.18.zip",
+        "size": 34132,
+        "sha256": "35834e0c11d1f9efac79923a59cdc84a1a56c5be19078e4aa20d56ae70723413",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-15"
+      },
+      "anniversary": {
+        "release": "1.24.18",
+        "file": "MinimapButtonButton-1.24.18.zip",
+        "url": "https://github.com/syndenbock/MinimapButtonButton/releases/download/1.24.18/MinimapButtonButton-1.24.18.zip",
+        "size": 34132,
+        "sha256": "35834e0c11d1f9efac79923a59cdc84a1a56c5be19078e4aa20d56ae70723413",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-15"
+      },
+      "classic_era": {
+        "release": "1.24.18",
+        "file": "MinimapButtonButton-1.24.18.zip",
+        "url": "https://github.com/syndenbock/MinimapButtonButton/releases/download/1.24.18/MinimapButtonButton-1.24.18.zip",
+        "size": 34132,
+        "sha256": "35834e0c11d1f9efac79923a59cdc84a1a56c5be19078e4aa20d56ae70723413",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-15"
+      },
+      "forever": {
+        "release": "1.24.18",
+        "file": "MinimapButtonButton-1.24.18.zip",
+        "url": "https://github.com/syndenbock/MinimapButtonButton/releases/download/1.24.18/MinimapButtonButton-1.24.18.zip",
+        "size": 34132,
+        "sha256": "35834e0c11d1f9efac79923a59cdc84a1a56c5be19078e4aa20d56ae70723413",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-15"
+      },
+      "retail_ptr": {
+        "release": "1.24.18",
+        "file": "MinimapButtonButton-1.24.18.zip",
+        "url": "https://github.com/syndenbock/MinimapButtonButton/releases/download/1.24.18/MinimapButtonButton-1.24.18.zip",
+        "size": 34132,
+        "sha256": "35834e0c11d1f9efac79923a59cdc84a1a56c5be19078e4aa20d56ae70723413",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-15"
+      },
+      "retail_ptr2": {
+        "release": "1.24.18",
+        "file": "MinimapButtonButton-1.24.18.zip",
+        "url": "https://github.com/syndenbock/MinimapButtonButton/releases/download/1.24.18/MinimapButtonButton-1.24.18.zip",
+        "size": 34132,
+        "sha256": "35834e0c11d1f9efac79923a59cdc84a1a56c5be19078e4aa20d56ae70723413",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-15"
+      },
+      "classic_ptr": {
+        "release": "1.24.18",
+        "file": "MinimapButtonButton-1.24.18.zip",
+        "url": "https://github.com/syndenbock/MinimapButtonButton/releases/download/1.24.18/MinimapButtonButton-1.24.18.zip",
+        "size": 34132,
+        "sha256": "35834e0c11d1f9efac79923a59cdc84a1a56c5be19078e4aa20d56ae70723413",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-15"
+      },
+      "classic_era_ptr": {
+        "release": "1.24.18",
+        "file": "MinimapButtonButton-1.24.18.zip",
+        "url": "https://github.com/syndenbock/MinimapButtonButton/releases/download/1.24.18/MinimapButtonButton-1.24.18.zip",
+        "size": 34132,
+        "sha256": "35834e0c11d1f9efac79923a59cdc84a1a56c5be19078e4aa20d56ae70723413",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-15"
       }
     },
     "miniovershields": {
@@ -38525,6 +41013,18 @@
         "published": "2026-11-06"
       }
     },
+    "nameplatesct-reforged": {
+      "forever": {
+        "release": "16",
+        "file": "NameplateSCT_Reforged-16-forever.zip",
+        "url": "https://github.com/dbspringer/nameplatesct-reforged/releases/download/16/NameplateSCT_Reforged-16-forever.zip",
+        "size": 246280,
+        "sha256": "405509fd1dfa2f3b712a541c0fd39c2e38e60b0b99822017be7841bec949bb31",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "narcissus": {
       "retail": {
         "release": "v1.8.7-d",
@@ -39267,6 +41767,78 @@
         "published": "2026-10-13"
       }
     },
+    "nucleus": {
+      "retail": {
+        "release": "v1.1.9",
+        "file": "Nucleus.-.v1.1.9.zip",
+        "url": "https://github.com/NeeRgY/Nucleus/releases/download/v1.1.9/Nucleus.-.v1.1.9.zip",
+        "size": 3037533,
+        "sha256": "9b3acc32a14a827f5f0c20ce8020d6993be08b857cf5ce9e684ade77b17f30d0",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "anniversary": {
+        "release": "v1.1.9",
+        "file": "Nucleus.-.v1.1.9.zip",
+        "url": "https://github.com/NeeRgY/Nucleus/releases/download/v1.1.9/Nucleus.-.v1.1.9.zip",
+        "size": 3037533,
+        "sha256": "9b3acc32a14a827f5f0c20ce8020d6993be08b857cf5ce9e684ade77b17f30d0",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era": {
+        "release": "v1.1.9",
+        "file": "Nucleus.-.v1.1.9.zip",
+        "url": "https://github.com/NeeRgY/Nucleus/releases/download/v1.1.9/Nucleus.-.v1.1.9.zip",
+        "size": 3037533,
+        "sha256": "9b3acc32a14a827f5f0c20ce8020d6993be08b857cf5ce9e684ade77b17f30d0",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v1.1.9",
+        "file": "Nucleus.-.v1.1.9.zip",
+        "url": "https://github.com/NeeRgY/Nucleus/releases/download/v1.1.9/Nucleus.-.v1.1.9.zip",
+        "size": 3037533,
+        "sha256": "9b3acc32a14a827f5f0c20ce8020d6993be08b857cf5ce9e684ade77b17f30d0",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr": {
+        "release": "v1.1.9",
+        "file": "Nucleus.-.v1.1.9.zip",
+        "url": "https://github.com/NeeRgY/Nucleus/releases/download/v1.1.9/Nucleus.-.v1.1.9.zip",
+        "size": 3037533,
+        "sha256": "9b3acc32a14a827f5f0c20ce8020d6993be08b857cf5ce9e684ade77b17f30d0",
+        "interface": "120107",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr2": {
+        "release": "v1.1.9",
+        "file": "Nucleus.-.v1.1.9.zip",
+        "url": "https://github.com/NeeRgY/Nucleus/releases/download/v1.1.9/Nucleus.-.v1.1.9.zip",
+        "size": 3037533,
+        "sha256": "9b3acc32a14a827f5f0c20ce8020d6993be08b857cf5ce9e684ade77b17f30d0",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v1.1.9",
+        "file": "Nucleus.-.v1.1.9.zip",
+        "url": "https://github.com/NeeRgY/Nucleus/releases/download/v1.1.9/Nucleus.-.v1.1.9.zip",
+        "size": 3037533,
+        "sha256": "9b3acc32a14a827f5f0c20ce8020d6993be08b857cf5ce9e684ade77b17f30d0",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "nugcast": {
       "retail": {
         "release": "12.1.4",
@@ -39753,6 +42325,48 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-23"
+      }
+    },
+    "olympus": {
+      "anniversary": {
+        "release": "v1.6.4.1",
+        "file": "Olympus-1.6.4.1.zip",
+        "url": "https://github.com/dnl-gentile/olympus-addon/releases/download/v1.6.4.1/Olympus-1.6.4.1.zip",
+        "size": 13828142,
+        "sha256": "70b7b5abad196102dcf1cde69267cfc364e3a54018eaac833ebf2f9287c8b3d5",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era": {
+        "release": "v1.6.4.1",
+        "file": "Olympus-1.6.4.1.zip",
+        "url": "https://github.com/dnl-gentile/olympus-addon/releases/download/v1.6.4.1/Olympus-1.6.4.1.zip",
+        "size": 13828142,
+        "sha256": "70b7b5abad196102dcf1cde69267cfc364e3a54018eaac833ebf2f9287c8b3d5",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v1.6.4.1",
+        "file": "Olympus-1.6.4.1.zip",
+        "url": "https://github.com/dnl-gentile/olympus-addon/releases/download/v1.6.4.1/Olympus-1.6.4.1.zip",
+        "size": 13828142,
+        "sha256": "70b7b5abad196102dcf1cde69267cfc364e3a54018eaac833ebf2f9287c8b3d5",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v1.6.4.1",
+        "file": "Olympus-1.6.4.1.zip",
+        "url": "https://github.com/dnl-gentile/olympus-addon/releases/download/v1.6.4.1/Olympus-1.6.4.1.zip",
+        "size": 13828142,
+        "sha256": "70b7b5abad196102dcf1cde69267cfc364e3a54018eaac833ebf2f9287c8b3d5",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "onecast": {
@@ -40479,6 +43093,90 @@
         "published": "2026-11-24"
       }
     },
+    "overlord": {
+      "forever": {
+        "release": "2.8.0",
+        "file": "Overlord-2.8.0.zip",
+        "url": "https://github.com/leliondoc/overlord-forever-addon/releases/download/2.8.0/Overlord-2.8.0.zip",
+        "size": 1762804,
+        "sha256": "4d990428eedc01c7242fcc72ace9a572a3445fe9192c5404e8a90fac2ab93e56",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
+    "oxedhub": {
+      "retail": {
+        "release": "v2.4.82",
+        "file": "OxedHub-v2.4.82.zip",
+        "url": "https://github.com/oxedtv/OxedHub/releases/download/v2.4.82/OxedHub-v2.4.82.zip",
+        "size": 94829620,
+        "sha256": "ca4b4fafb9a26a5029be1da3b86f650b77b8b6a4ba04666b492442b15f25a3de",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "anniversary": {
+        "release": "v2.4.82",
+        "file": "OxedHub-v2.4.82.zip",
+        "url": "https://github.com/oxedtv/OxedHub/releases/download/v2.4.82/OxedHub-v2.4.82.zip",
+        "size": 94829620,
+        "sha256": "ca4b4fafb9a26a5029be1da3b86f650b77b8b6a4ba04666b492442b15f25a3de",
+        "interface": "20505",
+        "upToDate": false,
+        "published": "2026-11-26"
+      },
+      "classic_era": {
+        "release": "v2.4.82",
+        "file": "OxedHub-v2.4.82.zip",
+        "url": "https://github.com/oxedtv/OxedHub/releases/download/v2.4.82/OxedHub-v2.4.82.zip",
+        "size": 94829620,
+        "sha256": "ca4b4fafb9a26a5029be1da3b86f650b77b8b6a4ba04666b492442b15f25a3de",
+        "interface": "11508",
+        "upToDate": false,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v2.4.82",
+        "file": "OxedHub-v2.4.82.zip",
+        "url": "https://github.com/oxedtv/OxedHub/releases/download/v2.4.82/OxedHub-v2.4.82.zip",
+        "size": 94829620,
+        "sha256": "ca4b4fafb9a26a5029be1da3b86f650b77b8b6a4ba04666b492442b15f25a3de",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr": {
+        "release": "v2.4.82",
+        "file": "OxedHub-v2.4.82.zip",
+        "url": "https://github.com/oxedtv/OxedHub/releases/download/v2.4.82/OxedHub-v2.4.82.zip",
+        "size": 94829620,
+        "sha256": "ca4b4fafb9a26a5029be1da3b86f650b77b8b6a4ba04666b492442b15f25a3de",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-26"
+      },
+      "retail_ptr2": {
+        "release": "v2.4.82",
+        "file": "OxedHub-v2.4.82.zip",
+        "url": "https://github.com/oxedtv/OxedHub/releases/download/v2.4.82/OxedHub-v2.4.82.zip",
+        "size": 94829620,
+        "sha256": "ca4b4fafb9a26a5029be1da3b86f650b77b8b6a4ba04666b492442b15f25a3de",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v2.4.82",
+        "file": "OxedHub-v2.4.82.zip",
+        "url": "https://github.com/oxedtv/OxedHub/releases/download/v2.4.82/OxedHub-v2.4.82.zip",
+        "size": 94829620,
+        "sha256": "ca4b4fafb9a26a5029be1da3b86f650b77b8b6a4ba04666b492442b15f25a3de",
+        "interface": "20505",
+        "upToDate": false,
+        "published": "2026-11-26"
+      }
+    },
     "packrat": {
       "classic_era": {
         "release": "v1.0.2",
@@ -40647,6 +43345,18 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-25"
+      }
+    },
+    "panorama": {
+      "forever": {
+        "release": "1.9.1",
+        "file": "Panorama-1.9.1-forever.zip",
+        "url": "https://github.com/dldvlpr-addons-wow/Panorama/releases/download/1.9.1/Panorama-1.9.1-forever.zip",
+        "size": 586743,
+        "sha256": "c518cfbb6e645e5ca76b9378d4fddbc0ae530db82dcce4be354dca8ebe66b042",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "panzaui": {
@@ -41133,6 +43843,38 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-05"
+      }
+    },
+    "pathwise": {
+      "classic_era": {
+        "release": "v0.58.2",
+        "file": "Pathwise-0.58.2.zip",
+        "url": "https://github.com/lagnelius-debug/Pathwise/releases/download/v0.58.2/Pathwise-0.58.2.zip",
+        "size": 1379544,
+        "sha256": "60b13287fb57117ec7dad7053bf0012f1cf14ecf3a31df19526f9b9f20099cd3",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v0.58.2",
+        "file": "Pathwise-0.58.2.zip",
+        "url": "https://github.com/lagnelius-debug/Pathwise/releases/download/v0.58.2/Pathwise-0.58.2.zip",
+        "size": 1379544,
+        "sha256": "60b13287fb57117ec7dad7053bf0012f1cf14ecf3a31df19526f9b9f20099cd3",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "v0.58.2",
+        "file": "Pathwise-0.58.2.zip",
+        "url": "https://github.com/lagnelius-debug/Pathwise/releases/download/v0.58.2/Pathwise-0.58.2.zip",
+        "size": 1379544,
+        "sha256": "60b13287fb57117ec7dad7053bf0012f1cf14ecf3a31df19526f9b9f20099cd3",
+        "interface": "11509",
+        "upToDate": false,
+        "published": "2026-11-26"
       }
     },
     "pawn": {
@@ -42549,6 +45291,98 @@
         "published": "2026-11-20"
       }
     },
+    "plexus": {
+      "retail": {
+        "release": "v5.1.2",
+        "file": "Plexus-v5.1.2.zip",
+        "url": "https://github.com/doadin/Plexus/releases/download/v5.1.2/Plexus-v5.1.2.zip",
+        "size": 701805,
+        "sha256": "6adfe089b2d855ca5723dd10f0275f81f0892e6aa18f98d90c98f7fb65245b41",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic": {
+        "release": "v5.1.2",
+        "file": "Plexus-v5.1.2-mists.zip",
+        "url": "https://github.com/doadin/Plexus/releases/download/v5.1.2/Plexus-v5.1.2-mists.zip",
+        "size": 698227,
+        "sha256": "ab220d361f50b0d2570a30e403dacb0d3ddbc83ccede687bed57784e99979e2a",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "anniversary": {
+        "release": "v5.1.2",
+        "file": "Plexus-v5.1.2-bcc.zip",
+        "url": "https://github.com/doadin/Plexus/releases/download/v5.1.2/Plexus-v5.1.2-bcc.zip",
+        "size": 690166,
+        "sha256": "c0754a7f7619fbe08f6ee16326be1c8a202e9cd7e1f3b47fa4563b77c883ba84",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic_era": {
+        "release": "v5.1.2",
+        "file": "Plexus-v5.1.2-classic.zip",
+        "url": "https://github.com/doadin/Plexus/releases/download/v5.1.2/Plexus-v5.1.2-classic.zip",
+        "size": 690165,
+        "sha256": "220d8f431eff4de25336210f93978900ec94ba2b6986b89154184e81a6da7ec4",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "forever": {
+        "release": "v5.1.2",
+        "file": "Plexus-v5.1.2-forever.zip",
+        "url": "https://github.com/doadin/Plexus/releases/download/v5.1.2/Plexus-v5.1.2-forever.zip",
+        "size": 698227,
+        "sha256": "cfacf3a92b04d1dde16352fcdb56f874b960868fd6c003cb89bef2f6eeb0d56d",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "retail_ptr": {
+        "release": "v5.1.2",
+        "file": "Plexus-v5.1.2.zip",
+        "url": "https://github.com/doadin/Plexus/releases/download/v5.1.2/Plexus-v5.1.2.zip",
+        "size": 701805,
+        "sha256": "6adfe089b2d855ca5723dd10f0275f81f0892e6aa18f98d90c98f7fb65245b41",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-19"
+      },
+      "retail_ptr2": {
+        "release": "v5.1.2",
+        "file": "Plexus-v5.1.2.zip",
+        "url": "https://github.com/doadin/Plexus/releases/download/v5.1.2/Plexus-v5.1.2.zip",
+        "size": 701805,
+        "sha256": "6adfe089b2d855ca5723dd10f0275f81f0892e6aa18f98d90c98f7fb65245b41",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic_ptr": {
+        "release": "v5.1.2",
+        "file": "Plexus-v5.1.2-mists.zip",
+        "url": "https://github.com/doadin/Plexus/releases/download/v5.1.2/Plexus-v5.1.2-mists.zip",
+        "size": 698227,
+        "sha256": "ab220d361f50b0d2570a30e403dacb0d3ddbc83ccede687bed57784e99979e2a",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-19"
+      },
+      "classic_era_ptr": {
+        "release": "v5.1.2",
+        "file": "Plexus-v5.1.2-bcc.zip",
+        "url": "https://github.com/doadin/Plexus/releases/download/v5.1.2/Plexus-v5.1.2-bcc.zip",
+        "size": 690166,
+        "sha256": "c0754a7f7619fbe08f6ee16326be1c8a202e9cd7e1f3b47fa4563b77c883ba84",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-19"
+      }
+    },
     "plumber": {
       "retail": {
         "release": "v1.9.7-f",
@@ -42731,6 +45565,18 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-05"
+      }
+    },
+    "polesimgear": {
+      "forever": {
+        "release": "v0.7.14",
+        "file": "PoleSimGear-0.7.14.zip",
+        "url": "https://github.com/petllama/polesim-gear/releases/download/v0.7.14/PoleSimGear-0.7.14.zip",
+        "size": 488612,
+        "sha256": "c64cadd422a16df86d61b1aeffaca3ca23a2f1a2444c45b64f602b1c44b2ebaa",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "polypode-data": {
@@ -43379,6 +46225,18 @@
         "published": "2026-11-08"
       }
     },
+    "profguide": {
+      "forever": {
+        "release": "v3.11",
+        "file": "ProfGuide-v3.11-forever.zip",
+        "url": "https://github.com/coylemichael/wow-profguide/releases/download/v3.11/ProfGuide-v3.11-forever.zip",
+        "size": 94872,
+        "sha256": "fa2cd17301833915d7fc76ae8a518394f3f294eaa1b7e4e8ccd8f789f23c31d2",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "profit": {
       "forever": {
         "release": "v0.3.4",
@@ -43705,6 +46563,18 @@
         "interface": "120105",
         "upToDate": true,
         "published": "2026-11-24"
+      }
+    },
+    "qol": {
+      "forever": {
+        "release": "v0.27.0",
+        "file": "QoL-v0.27.0-forever.zip",
+        "url": "https://github.com/patrickpoulin/qol/releases/download/v0.27.0/QoL-v0.27.0-forever.zip",
+        "size": 82922,
+        "sha256": "59d086353b521c40a83427af320b40f34fa5128caadc1dcc5af93751e0275a24",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "quartz": {
@@ -44357,6 +47227,18 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-05"
+      }
+    },
+    "questwalker": {
+      "forever": {
+        "release": "v0.9.9",
+        "file": "Questwalker-0.9.9.zip",
+        "url": "https://github.com/masmithuk/Questwalker/releases/download/v0.9.9/Questwalker-0.9.9.zip",
+        "size": 184968,
+        "sha256": "0922862f041730e9c4725deaad2eacd65f76f891e3994bd61ad89a30a5e9c105",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "questweaver": {
@@ -48595,6 +51477,98 @@
         "published": "2026-11-22"
       }
     },
+    "simpleguildrosterexporter": {
+      "retail": {
+        "release": "gre-v1.1.0",
+        "file": "SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "url": "https://github.com/sahammer/SimpleWowExporters/releases/download/gre-v1.1.0/SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "size": 13767,
+        "sha256": "374ae0da607b7a14a35cd38c3f877a9a739ca6ac2916ad7f05c11f57bee4eda8",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-10-12"
+      },
+      "classic": {
+        "release": "gre-v1.1.0",
+        "file": "SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "url": "https://github.com/sahammer/SimpleWowExporters/releases/download/gre-v1.1.0/SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "size": 13767,
+        "sha256": "374ae0da607b7a14a35cd38c3f877a9a739ca6ac2916ad7f05c11f57bee4eda8",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-10-12"
+      },
+      "anniversary": {
+        "release": "gre-v1.1.0",
+        "file": "SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "url": "https://github.com/sahammer/SimpleWowExporters/releases/download/gre-v1.1.0/SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "size": 13767,
+        "sha256": "374ae0da607b7a14a35cd38c3f877a9a739ca6ac2916ad7f05c11f57bee4eda8",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-10-12"
+      },
+      "classic_era": {
+        "release": "gre-v1.1.0",
+        "file": "SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "url": "https://github.com/sahammer/SimpleWowExporters/releases/download/gre-v1.1.0/SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "size": 13767,
+        "sha256": "374ae0da607b7a14a35cd38c3f877a9a739ca6ac2916ad7f05c11f57bee4eda8",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-10-12"
+      },
+      "forever": {
+        "release": "gre-v1.1.0",
+        "file": "SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "url": "https://github.com/sahammer/SimpleWowExporters/releases/download/gre-v1.1.0/SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "size": 13767,
+        "sha256": "374ae0da607b7a14a35cd38c3f877a9a739ca6ac2916ad7f05c11f57bee4eda8",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-10-12"
+      },
+      "retail_ptr": {
+        "release": "gre-v1.1.0",
+        "file": "SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "url": "https://github.com/sahammer/SimpleWowExporters/releases/download/gre-v1.1.0/SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "size": 13767,
+        "sha256": "374ae0da607b7a14a35cd38c3f877a9a739ca6ac2916ad7f05c11f57bee4eda8",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-10-12"
+      },
+      "retail_ptr2": {
+        "release": "gre-v1.1.0",
+        "file": "SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "url": "https://github.com/sahammer/SimpleWowExporters/releases/download/gre-v1.1.0/SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "size": 13767,
+        "sha256": "374ae0da607b7a14a35cd38c3f877a9a739ca6ac2916ad7f05c11f57bee4eda8",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-10-12"
+      },
+      "classic_ptr": {
+        "release": "gre-v1.1.0",
+        "file": "SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "url": "https://github.com/sahammer/SimpleWowExporters/releases/download/gre-v1.1.0/SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "size": 13767,
+        "sha256": "374ae0da607b7a14a35cd38c3f877a9a739ca6ac2916ad7f05c11f57bee4eda8",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-10-12"
+      },
+      "classic_era_ptr": {
+        "release": "gre-v1.1.0",
+        "file": "SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "url": "https://github.com/sahammer/SimpleWowExporters/releases/download/gre-v1.1.0/SimpleGuildRosterExporter-gre-v1.1.0.zip",
+        "size": 13767,
+        "sha256": "374ae0da607b7a14a35cd38c3f877a9a739ca6ac2916ad7f05c11f57bee4eda8",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-10-12"
+      }
+    },
     "simpleitemlevel": {
       "retail": {
         "release": "v76",
@@ -51573,6 +54547,98 @@
         "published": "2026-11-23"
       }
     },
+    "tankhelper": {
+      "retail": {
+        "release": "v1.12.15",
+        "file": "TankHelper-v1.12.15.zip",
+        "url": "https://github.com/d4kir92/TankHelper/releases/download/v1.12.15/TankHelper-v1.12.15.zip",
+        "size": 225058,
+        "sha256": "7a677201e73268e77864dd7a47ed41edd7935dac7aa6267f20622973c3211705",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic": {
+        "release": "v1.12.15",
+        "file": "TankHelper-v1.12.15-mists.zip",
+        "url": "https://github.com/d4kir92/TankHelper/releases/download/v1.12.15/TankHelper-v1.12.15-mists.zip",
+        "size": 225058,
+        "sha256": "7b4cc50b4a32928a64e35edac836423c93b492706a165d89f38ef375a9fbc55b",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "anniversary": {
+        "release": "v1.12.15",
+        "file": "TankHelper-v1.12.15-bcc.zip",
+        "url": "https://github.com/d4kir92/TankHelper/releases/download/v1.12.15/TankHelper-v1.12.15-bcc.zip",
+        "size": 225059,
+        "sha256": "26bf6e57f0b2c750f79d30283cc2036ff30964e768a8aae59888c64a525875ef",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic_era": {
+        "release": "v1.12.15",
+        "file": "TankHelper-v1.12.15-classic.zip",
+        "url": "https://github.com/d4kir92/TankHelper/releases/download/v1.12.15/TankHelper-v1.12.15-classic.zip",
+        "size": 225058,
+        "sha256": "5fa3c2955cf1f0f035403ff44f807fb540b6a5503b06cbfad6968e7722dcd14b",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "forever": {
+        "release": "v1.12.15",
+        "file": "TankHelper-v1.12.15-forever.zip",
+        "url": "https://github.com/d4kir92/TankHelper/releases/download/v1.12.15/TankHelper-v1.12.15-forever.zip",
+        "size": 225058,
+        "sha256": "f2dc847fdf142a3dcdb8fc57adc0c7a83c7b21cc450c3f9b084ebeec6d0b77bf",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "retail_ptr": {
+        "release": "v1.12.15",
+        "file": "TankHelper-v1.12.15.zip",
+        "url": "https://github.com/d4kir92/TankHelper/releases/download/v1.12.15/TankHelper-v1.12.15.zip",
+        "size": 225058,
+        "sha256": "7a677201e73268e77864dd7a47ed41edd7935dac7aa6267f20622973c3211705",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-20"
+      },
+      "retail_ptr2": {
+        "release": "v1.12.15",
+        "file": "TankHelper-v1.12.15.zip",
+        "url": "https://github.com/d4kir92/TankHelper/releases/download/v1.12.15/TankHelper-v1.12.15.zip",
+        "size": 225058,
+        "sha256": "7a677201e73268e77864dd7a47ed41edd7935dac7aa6267f20622973c3211705",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic_ptr": {
+        "release": "v1.12.15",
+        "file": "TankHelper-v1.12.15-mists.zip",
+        "url": "https://github.com/d4kir92/TankHelper/releases/download/v1.12.15/TankHelper-v1.12.15-mists.zip",
+        "size": 225058,
+        "sha256": "7b4cc50b4a32928a64e35edac836423c93b492706a165d89f38ef375a9fbc55b",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic_era_ptr": {
+        "release": "v1.12.15",
+        "file": "TankHelper-v1.12.15-bcc.zip",
+        "url": "https://github.com/d4kir92/TankHelper/releases/download/v1.12.15/TankHelper-v1.12.15-bcc.zip",
+        "size": 225059,
+        "sha256": "26bf6e57f0b2c750f79d30283cc2036ff30964e768a8aae59888c64a525875ef",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-20"
+      }
+    },
     "tanksign": {
       "forever": {
         "release": "v1.0.0",
@@ -52073,6 +55139,60 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-25"
+      }
+    },
+    "terriblebufftracker": {
+      "retail": {
+        "release": "v0.5.8",
+        "file": "TerribleBuffTracker-v0.5.8.zip",
+        "url": "https://github.com/Jonathas-Conceicao/wowTerribleBuffTracker/releases/download/v0.5.8/TerribleBuffTracker-v0.5.8.zip",
+        "size": 262471,
+        "sha256": "fedb4f0eebbffc653afdcf79b1238da32984951d38c3b6372499078f43d2193b",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "v0.5.8",
+        "file": "TerribleBuffTracker-v0.5.8.zip",
+        "url": "https://github.com/Jonathas-Conceicao/wowTerribleBuffTracker/releases/download/v0.5.8/TerribleBuffTracker-v0.5.8.zip",
+        "size": 262471,
+        "sha256": "fedb4f0eebbffc653afdcf79b1238da32984951d38c3b6372499078f43d2193b",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr": {
+        "release": "v0.5.8",
+        "file": "TerribleBuffTracker-v0.5.8.zip",
+        "url": "https://github.com/Jonathas-Conceicao/wowTerribleBuffTracker/releases/download/v0.5.8/TerribleBuffTracker-v0.5.8.zip",
+        "size": 262471,
+        "sha256": "fedb4f0eebbffc653afdcf79b1238da32984951d38c3b6372499078f43d2193b",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-26"
+      },
+      "retail_ptr2": {
+        "release": "v0.5.8",
+        "file": "TerribleBuffTracker-v0.5.8.zip",
+        "url": "https://github.com/Jonathas-Conceicao/wowTerribleBuffTracker/releases/download/v0.5.8/TerribleBuffTracker-v0.5.8.zip",
+        "size": 262471,
+        "sha256": "fedb4f0eebbffc653afdcf79b1238da32984951d38c3b6372499078f43d2193b",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-26"
+      }
+    },
+    "terriblegroupfinder": {
+      "forever": {
+        "release": "v0.3.1",
+        "file": "TerribleGroupFinder-v0.3.1.zip",
+        "url": "https://github.com/Jonathas-Conceicao/wowTerribleGroupFinder/releases/download/v0.3.1/TerribleGroupFinder-v0.3.1.zip",
+        "size": 137625,
+        "sha256": "5e0aed4adb224f2577343c29b14b8d26d6d0beb59dd4f4b72edf24c34064d30d",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "textureatlasviewer": {
@@ -53887,6 +57007,18 @@
         "published": "2026-11-16"
       }
     },
+    "touchplay": {
+      "forever": {
+        "release": "v0.1.0",
+        "file": "Forever-iPad-7-TouchPlay.zip",
+        "url": "https://github.com/myi1/TouchPlay/releases/download/v0.1.0/Forever-iPad-7-TouchPlay.zip",
+        "size": 1659973,
+        "sha256": "7971941ca334038a458bd180c42c3348add72e5651357296082c99eed4d6802c",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      }
+    },
     "trackerplus": {
       "retail": {
         "release": "1.3.1",
@@ -54773,6 +57905,18 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-14"
+      }
+    },
+    "twinmapforever": {
+      "forever": {
+        "release": "v0.19.0",
+        "file": "TwinmapForever-0.19.0.zip",
+        "url": "https://github.com/catubba/twinmap-forever/releases/download/v0.19.0/TwinmapForever-0.19.0.zip",
+        "size": 116422,
+        "sha256": "c59d5a8b8ce2d6794e6bad57377fa930fdccbcbcc3cf19468661d14a82c378d6",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "twintopqol": {
@@ -57437,6 +60581,68 @@
         "published": "2026-11-20"
       }
     },
+    "worldmappin": {
+      "classic": {
+        "release": "v1.2.4",
+        "file": "WorldMapPin-v1.2.4-mists.zip",
+        "url": "https://github.com/d4kir92/WorldMapPin/releases/download/v1.2.4/WorldMapPin-v1.2.4-mists.zip",
+        "size": 196409,
+        "sha256": "cd04e9f71c88f928ce50b8e4c3b1104229120ef122e4b71d0da008f5d577f843",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "anniversary": {
+        "release": "v1.2.4",
+        "file": "WorldMapPin-v1.2.4-bcc.zip",
+        "url": "https://github.com/d4kir92/WorldMapPin/releases/download/v1.2.4/WorldMapPin-v1.2.4-bcc.zip",
+        "size": 196409,
+        "sha256": "d533833fe82621eeae0f2fad84e50064e3e9a8bdc9c6f563cb4e306046572c4e",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic_era": {
+        "release": "v1.2.4",
+        "file": "WorldMapPin-v1.2.4-classic.zip",
+        "url": "https://github.com/d4kir92/WorldMapPin/releases/download/v1.2.4/WorldMapPin-v1.2.4-classic.zip",
+        "size": 196407,
+        "sha256": "bf5478a8d11d3cc57e23f2834ff4fbd1a8ed8a4c34e74a47f5bcda7e0bcf63d2",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "forever": {
+        "release": "v1.2.4",
+        "file": "WorldMapPin-v1.2.4-forever.zip",
+        "url": "https://github.com/d4kir92/WorldMapPin/releases/download/v1.2.4/WorldMapPin-v1.2.4-forever.zip",
+        "size": 196407,
+        "sha256": "120cdb1b168a570a9b7b03df2e1dfb7ee44d2eddd2f88d47f3ba7d62b259801a",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic_ptr": {
+        "release": "v1.2.4",
+        "file": "WorldMapPin-v1.2.4-mists.zip",
+        "url": "https://github.com/d4kir92/WorldMapPin/releases/download/v1.2.4/WorldMapPin-v1.2.4-mists.zip",
+        "size": 196409,
+        "sha256": "cd04e9f71c88f928ce50b8e4c3b1104229120ef122e4b71d0da008f5d577f843",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-20"
+      },
+      "classic_era_ptr": {
+        "release": "v1.2.4",
+        "file": "WorldMapPin-v1.2.4-bcc.zip",
+        "url": "https://github.com/d4kir92/WorldMapPin/releases/download/v1.2.4/WorldMapPin-v1.2.4-bcc.zip",
+        "size": 196409,
+        "sha256": "d533833fe82621eeae0f2fad84e50064e3e9a8bdc9c6f563cb4e306046572c4e",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-20"
+      }
+    },
     "worldmaptrackingenhanced": {
       "retail": {
         "release": "v5.0.0",
@@ -57911,6 +61117,98 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-25"
+      }
+    },
+    "wowup": {
+      "retail": {
+        "release": "1.0.30",
+        "file": "WowUp-1.0.30.zip",
+        "url": "https://github.com/WowUp/WowUp.Addon/releases/download/1.0.30/WowUp-1.0.30.zip",
+        "size": 56376,
+        "sha256": "53c1af3f660d7e973d2a146268fb865f3b208c577d99b9642bd656859bb12865",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic": {
+        "release": "1.0.30",
+        "file": "WowUp-1.0.30.zip",
+        "url": "https://github.com/WowUp/WowUp.Addon/releases/download/1.0.30/WowUp-1.0.30.zip",
+        "size": 56376,
+        "sha256": "53c1af3f660d7e973d2a146268fb865f3b208c577d99b9642bd656859bb12865",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "anniversary": {
+        "release": "1.0.30",
+        "file": "WowUp-1.0.30.zip",
+        "url": "https://github.com/WowUp/WowUp.Addon/releases/download/1.0.30/WowUp-1.0.30.zip",
+        "size": 56376,
+        "sha256": "53c1af3f660d7e973d2a146268fb865f3b208c577d99b9642bd656859bb12865",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic_era": {
+        "release": "1.0.30",
+        "file": "WowUp-1.0.30.zip",
+        "url": "https://github.com/WowUp/WowUp.Addon/releases/download/1.0.30/WowUp-1.0.30.zip",
+        "size": 56376,
+        "sha256": "53c1af3f660d7e973d2a146268fb865f3b208c577d99b9642bd656859bb12865",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "forever": {
+        "release": "1.0.30",
+        "file": "WowUp-1.0.30.zip",
+        "url": "https://github.com/WowUp/WowUp.Addon/releases/download/1.0.30/WowUp-1.0.30.zip",
+        "size": 56376,
+        "sha256": "53c1af3f660d7e973d2a146268fb865f3b208c577d99b9642bd656859bb12865",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "retail_ptr": {
+        "release": "1.0.30",
+        "file": "WowUp-1.0.30.zip",
+        "url": "https://github.com/WowUp/WowUp.Addon/releases/download/1.0.30/WowUp-1.0.30.zip",
+        "size": 56376,
+        "sha256": "53c1af3f660d7e973d2a146268fb865f3b208c577d99b9642bd656859bb12865",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-10-14"
+      },
+      "retail_ptr2": {
+        "release": "1.0.30",
+        "file": "WowUp-1.0.30.zip",
+        "url": "https://github.com/WowUp/WowUp.Addon/releases/download/1.0.30/WowUp-1.0.30.zip",
+        "size": 56376,
+        "sha256": "53c1af3f660d7e973d2a146268fb865f3b208c577d99b9642bd656859bb12865",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic_ptr": {
+        "release": "1.0.30",
+        "file": "WowUp-1.0.30.zip",
+        "url": "https://github.com/WowUp/WowUp.Addon/releases/download/1.0.30/WowUp-1.0.30.zip",
+        "size": 56376,
+        "sha256": "53c1af3f660d7e973d2a146268fb865f3b208c577d99b9642bd656859bb12865",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-10-14"
+      },
+      "classic_era_ptr": {
+        "release": "1.0.30",
+        "file": "WowUp-1.0.30.zip",
+        "url": "https://github.com/WowUp/WowUp.Addon/releases/download/1.0.30/WowUp-1.0.30.zip",
+        "size": 56376,
+        "sha256": "53c1af3f660d7e973d2a146268fb865f3b208c577d99b9642bd656859bb12865",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-10-14"
       }
     },
     "wowwrapped": {
@@ -58763,6 +62061,98 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-10-15"
+      }
+    },
+    "xloot": {
+      "retail": {
+        "release": "12.25.0",
+        "file": "XLoot-12.25.0.zip",
+        "url": "https://github.com/Xuerian/XLoot/releases/download/12.25.0/XLoot-12.25.0.zip",
+        "size": 270495,
+        "sha256": "4bc9ced3d21e92ae3cebc7b0040fb3a6037221aa70b1584e7bbd4122870d7d48",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic": {
+        "release": "12.25.0",
+        "file": "XLoot-12.25.0.zip",
+        "url": "https://github.com/Xuerian/XLoot/releases/download/12.25.0/XLoot-12.25.0.zip",
+        "size": 270495,
+        "sha256": "4bc9ced3d21e92ae3cebc7b0040fb3a6037221aa70b1584e7bbd4122870d7d48",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "anniversary": {
+        "release": "12.25.0",
+        "file": "XLoot-12.25.0.zip",
+        "url": "https://github.com/Xuerian/XLoot/releases/download/12.25.0/XLoot-12.25.0.zip",
+        "size": 270495,
+        "sha256": "4bc9ced3d21e92ae3cebc7b0040fb3a6037221aa70b1584e7bbd4122870d7d48",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era": {
+        "release": "12.25.0",
+        "file": "XLoot-12.25.0.zip",
+        "url": "https://github.com/Xuerian/XLoot/releases/download/12.25.0/XLoot-12.25.0.zip",
+        "size": 270495,
+        "sha256": "4bc9ced3d21e92ae3cebc7b0040fb3a6037221aa70b1584e7bbd4122870d7d48",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "forever": {
+        "release": "12.25.0",
+        "file": "XLoot-12.25.0.zip",
+        "url": "https://github.com/Xuerian/XLoot/releases/download/12.25.0/XLoot-12.25.0.zip",
+        "size": 270495,
+        "sha256": "4bc9ced3d21e92ae3cebc7b0040fb3a6037221aa70b1584e7bbd4122870d7d48",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "retail_ptr": {
+        "release": "12.25.0",
+        "file": "XLoot-12.25.0.zip",
+        "url": "https://github.com/Xuerian/XLoot/releases/download/12.25.0/XLoot-12.25.0.zip",
+        "size": 270495,
+        "sha256": "4bc9ced3d21e92ae3cebc7b0040fb3a6037221aa70b1584e7bbd4122870d7d48",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-26"
+      },
+      "retail_ptr2": {
+        "release": "12.25.0",
+        "file": "XLoot-12.25.0.zip",
+        "url": "https://github.com/Xuerian/XLoot/releases/download/12.25.0/XLoot-12.25.0.zip",
+        "size": 270495,
+        "sha256": "4bc9ced3d21e92ae3cebc7b0040fb3a6037221aa70b1584e7bbd4122870d7d48",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_ptr": {
+        "release": "12.25.0",
+        "file": "XLoot-12.25.0.zip",
+        "url": "https://github.com/Xuerian/XLoot/releases/download/12.25.0/XLoot-12.25.0.zip",
+        "size": 270495,
+        "sha256": "4bc9ced3d21e92ae3cebc7b0040fb3a6037221aa70b1584e7bbd4122870d7d48",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-26"
+      },
+      "classic_era_ptr": {
+        "release": "12.25.0",
+        "file": "XLoot-12.25.0.zip",
+        "url": "https://github.com/Xuerian/XLoot/releases/download/12.25.0/XLoot-12.25.0.zip",
+        "size": 270495,
+        "sha256": "4bc9ced3d21e92ae3cebc7b0040fb3a6037221aa70b1584e7bbd4122870d7d48",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-26"
       }
     },
     "xpbarenhanced": {

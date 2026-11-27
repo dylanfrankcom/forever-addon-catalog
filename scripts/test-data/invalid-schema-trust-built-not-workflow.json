@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 4,
+  "version": "1.0.0",
+  "editions": {
+    "forever": {
+      "name": "WoW: Forever",
+      "shortName": "Forever",
+      "product": "wowf",
+      "folder": "_forever_",
+      "gameVersion": "1.60.1",
+      "interface": "16001",
+      "interfaceSince": "2026-10-13",
+      "tocSuffixes": [
+        "_Forever",
+        "-Forever",
+        "_Camelot",
+        "-Camelot"
+      ],
+      "gameTypes": [
+        "camelot"
+      ],
+      "packagerFlavors": [
+        "camelot",
+        "forever"
+      ],
+      "fileWords": [
+        "forever"
+      ]
+    }
+  },
+  "authors": {
+    "test": {
+      "name": "Test"
+    }
+  },
+  "addons": [
+    {
+      "id": "questie",
+      "name": "Questie",
+      "author": "test",
+      "summary": "Test entry.",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 1
+        }
+      ],
+      "folders": [
+        "Questie",
+        "QuestieDB"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true
+        }
+      },
+      "trust": {
+        "built": "scripts/build.sh",
+        "repoSince": "2020-01-02",
+        "ownerSince": "2018-01-01",
+        "releases": 40,
+        "stars": 12,
+        "ownerAddons": 2,
+        "marker": "yes",
+        "badges": [
+          "built"
+        ],
+        "warnings": [
+          "single-release"
+        ],
+        "careful": true
+      }
+    }
+  ]
+}

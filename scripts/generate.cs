@@ -104,6 +104,103 @@ if (summaryArg is not null)
 return 0;
 
 /// <summary>
+/// What a player can go on to trust an add-on, from public data only (schema/README.md, "Trust signals"): whether a workflow in
+/// its own repo built the file, its history, the author's catalog marker, badges, and warning signs.
+/// </summary>
+static class Trust
+{
+    /// <summary>"New" lasts this long from the first release; an owner account younger than this is a warning sign.</summary>
+    public const int NewDays = 30, NewOwnerDays = 90;
+    /// <summary>The release history covers this many releases: "new" needs all of them.</summary>
+    const int HistoryReleases = 100;
+
+    public static JsonObject Of(JsonObject row, IReadOnlyList<JsonNode> good, DateOnly today)
+    {
+        var trust = new JsonObject();
+        var built = good.Select(g => Generator.Str(g["built"])).ToList();
+        if (built.Count > 0 && built.All(b => b is not null))
+        {
+            trust["built"] = built[0]; // every listed edition's file was built by a workflow in the repo
+        }
+        var repoSince = Day(row["created"]);
+        var ownerSince = Day(row["ownerCreated"]);
+        if (repoSince is { } r)
+        {
+            trust["repoSince"] = Text(r);
+        }
+        if (ownerSince is { } o)
+        {
+            trust["ownerSince"] = Text(o);
+        }
+        var releases = row["releases"]?["count"]?.GetValue<int>();
+        if (releases is { } count)
+        {
+            trust["releases"] = count;
+        }
+        if (row["stars"]?.GetValue<int>() is { } stars)
+        {
+            trust["stars"] = stars;
+        }
+        if (Generator.Str(row["toc"]?["catalog"])?.Trim().ToLowerInvariant() is { } marker && marker is "yes" or "no")
+        {
+            trust["marker"] = marker;
+        }
+
+        var warnings = new SortedSet<string>(good.SelectMany(g => g["warnings"]?.AsArray() ?? []).Select(w => Generator.Str(w?["sign"])).OfType<string>(), StringComparer.Ordinal);
+        if (ownerSince is { } owner && today.DayNumber - owner.DayNumber < NewOwnerDays)
+        {
+            warnings.Add("new-owner");
+        }
+        if (releases == 1)
+        {
+            warnings.Add("single-release");
+        }
+        var badges = new List<string>();
+        if (trust["built"] is not null)
+        {
+            badges.Add("built");
+        }
+        var days = (row["releases"]?["days"]?.AsArray() ?? []).Select(Day).OfType<DateOnly>().ToList();
+        if (releases is > 0 and <= HistoryReleases && days.Count > 0 && today.DayNumber - days.Min().DayNumber < NewDays)
+        {
+            badges.Add("new");
+        }
+        if (badges.Count > 0)
+        {
+            trust["badges"] = Generator.Array(badges);
+        }
+        if (warnings.Count > 0)
+        {
+            trust["warnings"] = Generator.Array(warnings);
+        }
+        trust["careful"] = warnings.Count > 0;
+        return trust;
+    }
+
+    /// <summary>Each entry's count of other listed add-ons from the same GitHub owner, and the report's warning signs.</summary>
+    public static List<string> Settle(List<JsonObject> addons)
+    {
+        var owners = addons.Select(a => (Entry: a, Owner: a["sources"]?.AsArray().Select(s => Generator.Str(s?["repo"])).OfType<string>().FirstOrDefault()?.Split('/')[0]))
+            .Where(a => a.Owner is not null && a.Entry["trust"] is JsonObject).GroupBy(a => a.Owner!, StringComparer.OrdinalIgnoreCase);
+        foreach (var group in owners.Where(g => g.Count() > 1))
+        {
+            foreach (var (entry, _) in group)
+            {
+                entry["trust"]!["ownerAddons"] = group.Count() - 1;
+            }
+        }
+        return addons.Where(a => a["trust"]?["warnings"] is JsonArray)
+            .Select(a => $"{a["id"]}: warning signs: {string.Join(", ", Generator.Strings(a["trust"]!["warnings"]))}").ToList();
+    }
+
+    static DateOnly? Day(JsonNode? value) =>
+        Generator.Str(value) is { Length: >= 10 } s && DateOnly.TryParseExact(s[..10], "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture,
+            System.Globalization.DateTimeStyles.None, out var d) ? d : null;
+
+    static string Text(DateOnly d) => d.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+}
+
+/// <summary>
 /// Links to an add-on's CurseForge, Wago and WoWInterface pages, from the IDs in its main .toc
 /// (X-Curse-Project-ID, X-Wago-ID, X-WoWI-ID). Neither CurseForge nor Wago can be asked automatically, so an ID is
 /// taken as the author states it ("from": "toc"), never as verified, and checked for consistency instead: none from a
@@ -791,6 +888,7 @@ static class Generator
         }
         result.Notices.AddRange(Support.Changes(inputs.Catalog["authors"] as JsonObject, result.Authors));
         result.Notices.AddRange(SiteLinks.Settle(result.Addons, inputs.LinkChecks));
+        result.Notices.AddRange(Trust.Settle(result.Addons));
         result.Addons.Sort((a, b) => string.CompareOrdinal(a["id"]!.GetValue<string>(), b["id"]!.GetValue<string>()));
         return result;
     }
@@ -997,6 +1095,7 @@ static class Generator
             downloads["read"] = counts["read"]!.DeepClone();
             entry["downloads"] = downloads;
         }
+        entry["trust"] = Trust.Of(l.Row, editionIds.Where(l.Good.ContainsKey).Select(e => l.Good[e]!).ToList(), today);
         entry["from"] = from;
         return entry;
     }
@@ -1827,6 +1926,15 @@ static class SelfTest
             Row("k/CfOnlyMirror", "CF Only", "A re-upload."),
         }.ToDictionary(r => r["repo"]!.GetValue<string>(), r => r, StringComparer.OrdinalIgnoreCase);
         rows["Questie/QuestieRenamed"]["downloads"] = Obj("""{"total":1200,"latest":300,"read":"2026-11-26"}""");
+        foreach (var (key, value) in Obj("""{"created":"2019-01-02T00:00:00Z","ownerCreated":"2018-05-06T00:00:00Z","stars":900,"releases":{"count":250,"days":["2026-11-20","2026-11-01"]}}"""))
+        {
+            rows["Questie/QuestieRenamed"][key] = value?.DeepClone();
+        }
+        rows["Questie/QuestieRenamed"]["toc"]!["catalog"] = " Yes";
+        foreach (var (key, value) in Obj("""{"created":"2026-11-10T00:00:00Z","ownerCreated":"2026-10-01T00:00:00Z","stars":0,"releases":{"count":1,"days":["2026-11-12"]}}"""))
+        {
+            rows["a/Thing"][key] = value?.DeepClone();
+        }
         var checks = new List<JsonObject>
         {
             Check_("Questie/QuestieRenamed", ["Questie", "QuestieDB"], "forever", "classic_era"),
@@ -1842,6 +1950,12 @@ static class SelfTest
             Check_("k/CfOnlyMirror", ["CfOnly"], "forever"),
             Check_("h/RetailOnly", ["RetailOnly"], "retail"),
         };
+        foreach (var e in new[] { "forever", "classic_era" })
+        {
+            checks[0]["good"]![e]!["built"] = ".github/workflows/release.yml";
+        }
+        checks[1]["good"]!["forever"]!["built"] = ".github/workflows/release.yml"; // classic_era's file wasn't
+        checks[1]["good"]!["forever"]!["warnings"] = JsonNode.Parse("""[{"sign":"hidden-code","files":["Thing/x.lua"]}]""");
         var overrides = new Dictionary<string, JsonObject>(StringComparer.Ordinal)
         {
             ["questie"] = Obj("""{"repo":"Questie/QuestieRenamed","author":"breakbb","notes":"Three folders.","links":{"issues":"https://github.com/Questie/Questie/issues"},"tags":["quests"]}"""),
@@ -1852,6 +1966,15 @@ static class SelfTest
         var inputs = new Inputs(previous, rows, checks, overrides, curated, ["g/Gone"]);
         var result = Generator.Build(inputs, new DateOnly(2026, 11, 26));
         var byId = result.Addons.ToDictionary(a => a["id"]!.GetValue<string>());
+        var qt = byId["questie"]["trust"]!;
+        Check("trust: built by its own repo, its history and the author's marker", Generator.Str(qt["built"]) == ".github/workflows/release.yml"
+            && Generator.Str(qt["repoSince"]) == "2019-01-02" && Generator.Str(qt["ownerSince"]) == "2018-05-06" && (int)qt["releases"]! == 250 && (int)qt["stars"]! == 900
+            && Generator.Str(qt["marker"]) == "yes" && Generator.Strings(qt["badges"]).SequenceEqual(["built"]) && qt["warnings"] is null && !(bool)qt["careful"]!);
+        var tt = byId["thing"]["trust"]!;
+        Check("trust: a new add-on from a new account with hidden code is handled with care", tt["built"] is null
+            && Generator.Strings(tt["badges"]).SequenceEqual(["new"]) && Generator.Strings(tt["warnings"]).SequenceEqual(["hidden-code", "new-owner", "single-release"])
+            && (bool)tt["careful"]! && result.Notices.Contains("thing: warning signs: hidden-code, new-owner, single-release"));
+        Check("trust: no history read gives no badges or warnings", byId["readme"]["trust"]!.AsObject().Select(p => p.Key).SequenceEqual(["careful"]));
         Check("relations: a reference to an add-on that isn't listed is left out", Generator.Strings(byId["cfonly"]["conflicts"]).SequenceEqual(["thing"])
             && result.Notices.Any(n => n.Contains("names notlisted", StringComparison.Ordinal)));
         Check("mirror: a re-upload of a hand-written entry isn't listed", result.Dropped.TryGetValue("a re-upload of an add-on listed from its own site (same folder or CurseForge project as a hand-written entry)", out var mirrors)

@@ -159,6 +159,7 @@ One file per listed add-on released on GitHub, written by `scripts/details.cs`, 
 | `added` | for new entries | The day the entry joined the catalog, `YYYY-MM-DD` (`2026-11-20`). The app sorts by it. Optional in the format, but on a PR the validator requires it on every new entry. |
 | `links` | | The add-on's own pages: `homepage` (only when it isn't the default: the app's default is the `repository`, else the first source's page), `repository` (the public GitHub or GitLab repo with its code) and `issues` (where players report problems). All `https://`. The generator fills `repository` and `issues` from the GitHub repo. Also `curseforge`, `wago` and `wowinterface`: the add-on's pages on those sites, from its main `.toc`'s `X-Curse-Project-ID`, `X-Wago-ID` and `X-WoWI-ID`. Those IDs are taken as the author states them (`from` says `toc`), never confirmed with the sites, which can't be asked automatically. Instead: none is taken from a fork; an ID two listed add-ons both claim goes to neither (an override confirms the right one, `from` then says `override`); and one the link check (`scripts/linkcheck.cs`) found missing 3 times in a row is left out. An override sets a link, or removes one with `null` (a player's "Wrong link" report). |
 | `downloads` | | How often it's downloaded, for lists, sorting and its page: `total` (every release's files), `latest` (GitHub's Latest release's files) and `read`, the day (UTC) the counts were read. Only GitHub's own public download counts for release files, read weekly by discovery; the app tracks nothing (its installs download from GitHub, so they're already counted). GitHub doesn't count its source-code archives. Left out for add-ons not released on GitHub. |
+| `trust` | | What players can go on to trust it, from public data only: see [Trust signals](#trust-signals). |
 | `requires` | | IDs that must be installed too. Browse offers them together. |
 | `optional` | | IDs it works with when they're there. Listed, not added. |
 | `conflicts` | | IDs it overlaps with. A warning, never a blocker. |
@@ -166,6 +167,22 @@ One file per listed add-on released on GitHub, written by `scripts/details.cs`, 
 | `withdrawn` | | Releases the app never offers: `{ "release": "861", "reason": "…" }`. `release` is a GitHub tag, CurseForge file ID or Wago release, as the source names it. |
 | `overrides` | | Changes from a release on: `{ "releaseFrom": "900", "folders": [...] }` and/or `tocPath`. Rare. |
 | `from` | | Where the generator took each value from (`name`: `toc-title`, `folder` or `override`; `summary`: `toc-notes`, `repo-description`, `readme` or `override`; and so on), so a wrong one is easy to trace. `"entry": "override"` marks an add-on that isn't released on GitHub, whose whole entry is an override. |
+
+## Trust signals
+`trust` is written by the generator for add-ons released on GitHub, from public data only. Nothing here keeps an add-on out of the catalog: every add-on whose release passes the check is listed, and the signals decide how the app shows and handles it.
+
+| Field | What |
+|---|---|
+| `built` | The workflow in the add-on's own repo that built the file, from GitHub's build record for it (an [artifact attestation](https://docs.github.com/actions/security-for-github-actions/using-artifact-attestations), as `actions/attest-build-provenance` writes it), for every listed edition's file. A hand-uploaded zip has none. The catalog reads the workflow the record names; it doesn't verify the record's signature (`gh attestation verify` does). |
+| `repoSince`, `ownerSince` | The days (UTC) the repo and its owner's GitHub account were made. |
+| `releases`, `stars` | Its number of GitHub releases, and its stars. Download counts are in `downloads`. |
+| `ownerAddons` | How many other listed add-ons come from the same GitHub owner. |
+| `marker` | `yes` or `no`, from the author's `## X-Forever-Catalog:` line in the `.toc`. |
+| `badges` | `built`: `built` is set. `new`: its first release came out less than 30 days ago (known only when it has at most 100 releases). |
+| `warnings` | Warning signs, also listed in the generator's report for the maintainer: `hidden-code` (a `.lua` file that runs text as code with `loadstring` or `load` and also holds a long run of base64, `\ddd` escapes or a long `string.char` list), `unexpected-files` (archives or native code, which an add-on never needs; programs already fail the check), `new-owner` (the owner's account is less than 90 days old), `single-release` (it has one release). |
+| `careful` | True when it has any warning sign. The app holds its new releases longer before offering them and leaves it out of Update all until it has none. |
+
+Cross-references count too: the `.toc`'s CurseForge, Wago and WoWInterface pages are in `links`. A wrong signal is corrected the usual way: an issue, then an override or a fix to the rule.
 
 ## Tags
 `tags` come from this list, and the validator refuses any other. **The first tag is the add-on's main one:** the app shows its icon on the add-on's cards when the add-on has no `icon` of its own, and suggests add-ons that share it as related, so put first what the add-on is mainly for. Add more only when they help someone find it (Questie: `quests`, `map`).
