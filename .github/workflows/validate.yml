@@ -1,8 +1,7 @@
 name: validate
 
+# Pull requests only: every change reaches main through one, so main isn't checked again.
 on:
-  push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -21,7 +20,7 @@ jobs:
   validate:
     name: Validate the catalog
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,6 +36,12 @@ jobs:
         run: dotnet run scripts/discover.cs -- --self-test
       - name: Self-test check
         run: dotnet run scripts/check.cs -- --self-test
+      - name: Self-test generate
+        run: dotnet run scripts/generate.cs -- --self-test
+      - name: Self-test details
+        run: dotnet run scripts/details.cs -- --self-test
+      - name: Self-test linkcheck
+        run: dotnet run scripts/linkcheck.cs -- --self-test
       - name: Validate catalog.json
         env:
           BASE_REF: ${{ github.base_ref }}
