@@ -11,6 +11,7 @@ The add-on catalog for [Forever Add-on Manager](https://github.com/dylanfrankcom
 
 ## Rules for the catalog
 - **IDs are lowercase, stable, never changed and never reused.** The app's library refers to entries by ID.
+- **A hand-listed add-on's official source** (the generator's report lists it as "possibly the official source for a hand-listed add-on", or an author asks in an issue to be listed from their own repo): open an issue for it, naming the signals. Switch the override to the repo in a pull request (steps in `scripts/README.md`, the ID kept) only when it's tied both ways: the repo's claim (its `.toc` names the entry's CurseForge or Wago project) and at least one signal from the catalog's side (its owner is on the entry's author record, or the entry's own links point to it), and nothing against it (not a fork, its release passes the check, the folders match). Say in the PR which signals it relied on. Anything less (the repo's claim alone, an owner not on the record, different folders, a failed check) is labelled `needs-decision`, and the maintainer is asked in the issue.
 - **Prefer add-ons with several sources:** when two add-ons do the same job, list the one available from more of GitHub, CurseForge and Wago (Upgrade Scout over Cheap Upgrades). A single-source add-on with no such alternative can still be listed.
 - **Sources in order of preference:** GitHub (`repo`, `assetPattern`, `excludePattern`), CurseForge (`projectId`), Wago (`slug`).
   - Track GitHub's "Latest" release, by its flag, not its name.
