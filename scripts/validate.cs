@@ -328,6 +328,11 @@ static class CatalogValidator
                         problems.Add(new("released-date", $"'{id}' edition '{editionId}' released {released} is in the future."));
                     }
                 }
+                var entryFolders = Strings(addon["folders"]).ToHashSet(StringComparer.OrdinalIgnoreCase);
+                foreach (var folder in Strings(listed!["folders"]).Where(f => !entryFolders.Contains(f)))
+                {
+                    problems.Add(new("edition-folders", $"'{id}' edition '{editionId}' installs '{folder}', which isn't one of the entry's folders."));
+                }
                 var current = (string)listed!["interface"]! == (string)edition["interface"]!;
                 if ((bool)listed["upToDate"]! != current)
                 {
@@ -717,7 +722,7 @@ static class SelfTest
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
     static readonly string[] Codes = ["schema", "json", "details-html", "details-link", "details-id", "details-unlisted", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date", "released-date",
         "unknown-author", "unused-author", "author-profile", "edition-interface", "unknown-edition", "edition-up-to-date",
-        "versions-same-file", "test-client-edition", "edition-facts", "override-name", "own-app-folder", "requires-folder-listed"];
+        "versions-same-file", "test-client-edition", "edition-facts", "override-name", "own-app-folder", "requires-folder-listed", "edition-folders"];
 
     // bump/invalid-added-missing-*.head.json expects "added-missing"; any other invalid bump case "version-not-bumped".
     static string BumpCode(string rest) =>

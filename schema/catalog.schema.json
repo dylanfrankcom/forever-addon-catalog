@@ -105,6 +105,7 @@
       "properties": {
         "interface": { "description": "The Interface the release lists for this edition.", "$ref": "#/$defs/interface" },
         "upToDate": { "description": "Whether that is the edition's current Interface (checked by scripts/validate.cs).", "type": "boolean" },
+        "folders": { "description": "The folders this edition installs, when the release check left some of the entry's folders out: folders whose .toc lists only other editions' Interfaces (Deadly Boss Mods' Retail-only modules, in a zip made for every edition). Left out, it's all of them.", "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/folder" } },
         "released": { "description": "The day (UTC, YYYY-MM-DD) that release was published. Left out when it isn't known.", "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
       }
     },

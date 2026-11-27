@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 4,
+  "version": "1.0.0",
+  "editions": {
+    "retail": {
+      "name": "World of Warcraft (Retail)",
+      "shortName": "Retail",
+      "product": "wow",
+      "folder": "_retail_",
+      "gameVersion": "12.1.5",
+      "interface": "120105",
+      "interfaceSince": "2026-10-13",
+      "tocSuffixes": [
+        "_Mainline",
+        "-Mainline"
+      ],
+      "gameTypes": [
+        "mainline",
+        "standard"
+      ],
+      "packagerFlavors": [
+        "mainline",
+        "retail"
+      ],
+      "fileWords": [
+        "mainline",
+        "retail"
+      ]
+    },
+    "classic_era": {
+      "name": "World of Warcraft Classic",
+      "shortName": "Classic Era",
+      "product": "wow_classic_era",
+      "folder": "_classic_era_",
+      "gameVersion": "1.15.9",
+      "interface": "11509",
+      "interfaceSince": "2026-07-21",
+      "tocSuffixes": [
+        "_Vanilla",
+        "_Classic",
+        "-Vanilla",
+        "-Classic"
+      ],
+      "gameTypes": [
+        "vanilla",
+        "classic"
+      ],
+      "packagerFlavors": [
+        "classic",
+        "vanilla"
+      ],
+      "fileWords": [
+        "vanilla",
+        "era"
+      ]
+    },
+    "forever": {
+      "name": "WoW: Forever",
+      "shortName": "Forever",
+      "product": "wowf",
+      "folder": "_forever_",
+      "gameVersion": "1.60.1",
+      "interface": "16001",
+      "interfaceSince": "2026-10-13",
+      "tocSuffixes": [
+        "_Forever",
+        "-Forever",
+        "_Camelot",
+        "-Camelot"
+      ],
+      "gameTypes": [
+        "camelot"
+      ],
+      "packagerFlavors": [
+        "camelot",
+        "forever"
+      ],
+      "fileWords": [
+        "forever"
+      ]
+    }
+  },
+  "authors": {
+    "test": {
+      "name": "Test"
+    }
+  },
+  "addons": [
+    {
+      "id": "questie",
+      "name": "Questie",
+      "author": "test",
+      "summary": "Test entry.",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 1
+        }
+      ],
+      "folders": [
+        "Questie",
+        "QuestieDB"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic_era": {
+          "interface": "11508",
+          "upToDate": false
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "folders": ["Other"]
+        }
+      }
+    }
+  ]
+}

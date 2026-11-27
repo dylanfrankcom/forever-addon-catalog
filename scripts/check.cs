@@ -510,7 +510,7 @@ static class Attestation
 }
 
 sealed record EditionResult(string? Result, List<string> Reasons, string? Interface, List<string> Folders, string? Main, List<string> Needs,
-    Dictionary<string, string>? MainToc = null);
+    Dictionary<string, string>? MainToc = null, List<string>? LeftOut = null);
 
 static class Inspect
 {
@@ -524,7 +524,13 @@ static class Inspect
             || (int.TryParse(value, out var v) && int.TryParse(edition.Interface, out var current) && v < current
                 && v / 10000 == current / 10000 && current / 100 % 100 - v / 100 % 100 <= 1));
 
-    public static EditionResult For(Package package, Edition edition, Edition? of)
+    /// <summary>
+    /// What the release is for this edition. A folder whose .toc lists only Interfaces other editions accept (DBM-Midnight's
+    /// Retail ones, in a zip made for every edition) is left out for this one, since the game wouldn't load it, unless it's
+    /// the main folder or a folder that stays requires it. A folder listing an Interface no edition accepts (a stale one)
+    /// still fails the release.
+    /// </summary>
+    public static EditionResult For(Package package, Edition edition, Edition? of, IReadOnlyList<Edition>? all = null)
     {
         var folders = package.Folders.ToList();
         var reasons = new List<string>();
@@ -536,7 +542,8 @@ static class Inspect
         var optional = tocFor.Values.Where(t => t is not null).SelectMany(t => Toc.List(t!.Value.Fields, "OptionalDeps")).ToHashSet(StringComparer.OrdinalIgnoreCase);
         var loaded = new List<(string Folder, bool LoadOnDemand)>();
         var lists = false; // some folder lists the current Interface, or one it accepts
-        var needs = new SortedSet<string>(StringComparer.OrdinalIgnoreCase);
+        var notFor = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase); // folder: why it would fail
+        var required = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
         foreach (var folder in folders)
         {
             if (tocFor[folder] is not { } toc)
@@ -564,13 +571,19 @@ static class Inspect
             }
             else
             {
-                reasons.Add($"{folder}: {toc.Name} lists Interface '{string.Join(", ", interfaces)}', not {edition.Interface}");
+                var why = $"{folder}: {toc.Name} lists Interface '{string.Join(", ", interfaces)}', not {edition.Interface}";
+                var otherEditions = interfaces.Count > 0 && all is not null
+                    && interfaces.All(i => all.Any(o => o.Id != edition.Id && (i == o.Interface || Older(i, o, null))));
+                if (otherEditions)
+                {
+                    notFor[folder] = why;
+                }
+                else
+                {
+                    reasons.Add(why);
+                }
             }
-            foreach (var dep in Toc.List(toc.Fields, "Dependencies").Concat(Toc.List(toc.Fields, "RequiredDeps"))
-                .Where(d => !d.StartsWith("Blizzard_", StringComparison.OrdinalIgnoreCase) && !package.Folders.Contains(d)))
-            {
-                needs.Add(dep);
-            }
+            required[folder] = [.. Toc.List(toc.Fields, "Dependencies").Concat(Toc.List(toc.Fields, "RequiredDeps"))];
         }
         // The main folder: one others extend (Questie for QuestieDB), else the first that loads at start. A folder named
         // "!Something" is a helper the game loads first, so it's the main one only when there's nothing else.
@@ -578,9 +591,22 @@ static class Inspect
         var main = candidates.FirstOrDefault(f => candidates.Any(o => o.Folder != f.Folder && o.Folder.StartsWith(f.Folder, StringComparison.OrdinalIgnoreCase))).Folder
             ?? candidates.FirstOrDefault(f => !f.LoadOnDemand).Folder ?? candidates.FirstOrDefault().Folder;
 
+        // Left out only when the add-on itself is for this edition and nothing that stays needs the folder.
+        var needed = required.Where(r => !notFor.ContainsKey(r.Key))
+            .SelectMany(r => r.Value.Where(notFor.ContainsKey).Select(d => $"{r.Key} requires {d}, which isn't made for this edition")).ToList();
+        if (notFor.Count > 0 && ((main is not null && notFor.ContainsKey(main)) || needed.Count > 0))
+        {
+            reasons.AddRange(needed);
+            reasons.AddRange(notFor.Values);
+            notFor.Clear();
+        }
+        var needs = new SortedSet<string>(required.Where(r => !notFor.ContainsKey(r.Key)).SelectMany(r => r.Value)
+            .Where(d => !d.StartsWith("Blizzard_", StringComparison.OrdinalIgnoreCase) && !package.Folders.Contains(d)), StringComparer.OrdinalIgnoreCase);
+
         string? result = !lists ? null : reasons.Count > 0 ? "failed" : older.Count > 0 ? "not-updated" : "passed";
         var iface = result is null ? null : older.Count > 0 ? older.Max(StringComparer.Ordinal) : edition.Interface;
-        return new(result, reasons, iface, folders, main, [.. needs], main is not null && tocFor.GetValueOrDefault(main) is { } m ? m.Fields : null);
+        return new(result, reasons, iface, folders, main, [.. needs], main is not null && tocFor.GetValueOrDefault(main) is { } m ? m.Fields : null,
+            [.. notFor.Keys.Order(StringComparer.OrdinalIgnoreCase)]);
     }
 }
 
@@ -594,7 +620,7 @@ sealed record Download(byte[]? Bytes, string? Problem);
 static partial class Checker
 {
     /// <summary>Raised when the checks themselves change, so every release is checked again.</summary>
-    const string Version = "4"; // 4: warning signs and build records
+    const string Version = "5"; // 4: warning signs and build records; 5: folders left out for an edition
 
     /// <summary>The largest release file downloaded.</summary>
     public const long MaxFileBytes = 512L << 20;
@@ -738,13 +764,13 @@ static partial class Checker
             if (file.Problem is not null || file.Package!.Blockers.Count > 0)
             {
                 // A file that fails for every edition is recorded for each edition it was meant for.
-                if (supports.Contains(edition.Id) || (file.Package is { } pk && Inspect.For(pk, edition, of).Result is not null))
+                if (supports.Contains(edition.Id) || (file.Package is { } pk && Inspect.For(pk, edition, of, input.Editions).Result is not null))
                 {
                     results[edition.Id] = Described(Failed(file.Problem ?? string.Join("; ", file.Package!.Blockers)), file.Asset, file.Sha);
                 }
                 continue;
             }
-            var check = Inspect.For(file.Package, edition, of);
+            var check = Inspect.For(file.Package, edition, of, input.Editions);
             if (check.Result is null)
             {
                 if (supports.Contains(edition.Id))
@@ -761,6 +787,10 @@ static partial class Checker
             }
             row["interface"] = check.Interface;
             row["folders"] = Strings(check.Folders);
+            if (check.LeftOut is { Count: > 0 } leftOut)
+            {
+                row["leftOut"] = Strings(leftOut); // in the zip, but not installed for this edition
+            }
             row["main"] = check.Main;
             row["needs"] = Strings(check.Needs);
             if (check.MainToc is { } fields)
@@ -1433,6 +1463,22 @@ static class SelfTest
             ("Thing/Thing.toc", "## Interface: 16001\n## Title: Thing\n## Notes: Does it\n## Dependencies: Lib\n")))), Forever, null);
         Check("main: its .toc's fields are kept", titled.Main == "Thing" && titled.MainToc!["Title"] == "Thing" && titled.MainToc["Notes"] == "Does it");
         var alone = Inspect.For(Package.Read(new MemoryStream(Zip(("!Grabber/!Grabber.toc", "## Interface: 16001\n")))), Forever, null);
+        // One zip for every edition, with folders made for only some of them (DBM's Midnight modules).
+        var every = Package.Read(new MemoryStream(Zip(("Thing/Thing.toc", "## Interface: 16001, 120105\n"), ("Thing_Midnight/Thing_Midnight.toc", "## Interface: 120105\n"))));
+        var everyForever = Inspect.For(every, Forever, null, Editions);
+        var everyRetail = Inspect.For(every, Retail, null, Editions);
+        Check("left out: a folder only other editions load", everyForever.Result == "passed" && everyForever.LeftOut!.SequenceEqual(["Thing_Midnight"])
+            && everyForever.Folders.Count == 2 && everyRetail.Result == "passed" && everyRetail.LeftOut!.Count == 0);
+        Check("left out: not without the other editions", Inspect.For(every, Forever, null).Result == "failed");
+        var mainNotFor = Inspect.For(Package.Read(new MemoryStream(Zip(("Thing/Thing.toc", "## Interface: 120105\n"), ("Thing_Forever/Thing_Forever.toc", "## Interface: 16001\n")))), Forever, null, Editions);
+        Check("left out: never the main folder", mainNotFor.Result == "failed" && mainNotFor.LeftOut!.Count == 0 && mainNotFor.Reasons.Any(r => r.StartsWith("Thing:", StringComparison.Ordinal)));
+        var needsIt = Inspect.For(Package.Read(new MemoryStream(Zip(("Thing/Thing.toc", "## Interface: 16001\n"), ("Thing_Extra/Thing_Extra.toc", "## Interface: 16001\n## Dependencies: Thing_Midnight\n"),
+            ("Thing_Midnight/Thing_Midnight.toc", "## Interface: 120105\n")))), Forever, null, Editions);
+        Check("left out: never a folder one that stays requires", needsIt.Result == "failed" && needsIt.Reasons.Any(r => r.Contains("Thing_Extra requires Thing_Midnight", StringComparison.Ordinal)));
+        var stale = Inspect.For(Package.Read(new MemoryStream(Zip(("Thing/Thing.toc", "## Interface: 16001\n"), ("Thing_Old/Thing_Old.toc", "## Interface: 11000\n")))), Forever, null, Editions);
+        Check("left out: never a stale folder", stale.Result == "failed" && stale.LeftOut!.Count == 0);
+        var leftDeps = Inspect.For(Package.Read(new MemoryStream(Zip(("Thing/Thing.toc", "## Interface: 16001\n"), ("Thing_Midnight/Thing_Midnight.toc", "## Interface: 120105\n## Dependencies: Ace3\n")))), Forever, null, Editions);
+        Check("left out: its requirements aren't the add-on's", leftDeps.Result == "passed" && leftDeps.Needs.Count == 0);
         Check("main: a lone !folder is the main one", alone.Main == "!Grabber");
         await Blocked("folder without a .toc", Zip(("Thing/Thing.toc", "## Interface: 16001\n"), ("Extra/x.lua", "x")), "Extra: no .toc file");
         await Blocked("not a zip", Encoding.UTF8.GetBytes("not a zip"), "not a readable zip");
