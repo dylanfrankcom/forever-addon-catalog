@@ -80,6 +80,9 @@
     "otherNames": {
       "$ref": "catalog.schema.json#/$defs/addon/properties/otherNames"
     },
+    "languages": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/languages"
+    },
     "withdrawn": {
       "$ref": "catalog.schema.json#/$defs/addon/properties/withdrawn"
     },
