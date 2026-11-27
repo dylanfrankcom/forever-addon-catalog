@@ -136,6 +136,7 @@ var reads = await github.ReadReposAsync(found, log);
 var rows = Candidates.Build(found.Keys, reads, previous, editions, optout, log, forks);
 await github.ReadReadmesAsync(rows, previous);
 await github.CheckSponsorsAsync(rows, previous);
+await Funding.ResolveShortLinksAsync(rows, previous);
 File.WriteAllText(outArg, Candidates.Write(editions, rows));
 
 var report = log.Report(rows, editions, search);
@@ -814,6 +815,70 @@ static class Funding
         return links.Length > 0 ? new JsonArray(links) : null;
     }
 
+    /// <summary>Link shorteners: where they lead can't be seen from the link, so discovery asks them (scripts/generate.cs has the same list).</summary>
+    public static readonly HashSet<string> Shorteners = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "bit.ly", "tinyurl.com", "t.co", "goo.gl", "is.gd", "ow.ly", "buff.ly", "rebrand.ly", "cutt.ly", "shorturl.at", "rb.gy", "tiny.cc",
+    };
+
+    public static bool IsShortLink(string? url) =>
+        Uri.TryCreate(url, UriKind.Absolute, out var uri) && Shorteners.Contains(uri.Host.StartsWith("www.", StringComparison.OrdinalIgnoreCase) ? uri.Host[4..] : uri.Host);
+
+    /// <summary>
+    /// Where a shortened link leads, from the shortener's redirect alone (a HEAD request, at most 5 hops, never reading a
+    /// page). Null when it doesn't redirect to an https page outside the shorteners.
+    /// </summary>
+    public static async Task<string?> ResolveAsync(string url, Func<string, Task<string?>> location)
+    {
+        var current = url;
+        for (var hop = 0; hop < 5 && IsShortLink(current); hop++)
+        {
+            if (await location(current) is not { } next || !Uri.TryCreate(new Uri(current), next, out var target))
+            {
+                return null;
+            }
+            current = target.AbsoluteUri;
+        }
+        return !IsShortLink(current) && current.StartsWith("https://", StringComparison.OrdinalIgnoreCase) ? current : null;
+    }
+
+    /// <summary>Resolves each shortened CUSTOM funding link into "resolved"; one that can't be resolved this run keeps the previous answer.</summary>
+    public static async Task ResolveShortLinksAsync(List<JsonObject> rows, IReadOnlyDictionary<string, JsonObject> previous)
+    {
+        using var http = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false }) { Timeout = TimeSpan.FromSeconds(20) };
+        http.DefaultRequestHeaders.UserAgent.ParseAdd("forever-addon-catalog-discovery");
+        var cache = new Dictionary<string, string?>(StringComparer.Ordinal);
+        foreach (var row in rows)
+        {
+            foreach (var f in (row["funding"]?.AsArray() ?? []).OfType<JsonObject>().Where(f => f["platform"]?.GetValue<string>() == "CUSTOM"))
+            {
+                var url = f["url"]?.GetValue<string>() ?? "";
+                if (!IsShortLink(url))
+                {
+                    continue;
+                }
+                if (!cache.TryGetValue(url, out var resolved))
+                {
+                    cache[url] = resolved = await ResolveAsync(url, async u =>
+                    {
+                        try
+                        {
+                            using var response = await http.SendAsync(new HttpRequestMessage(HttpMethod.Head, u));
+                            return (int)response.StatusCode is >= 300 and < 400 ? response.Headers.Location?.OriginalString : null;
+                        }
+                        catch (Exception e) when (e is HttpRequestException or TaskCanceledException)
+                        {
+                            return null;
+                        }
+                    });
+                }
+                var before = previous.GetValueOrDefault(row["repo"]!.GetValue<string>())?["funding"]?.AsArray().OfType<JsonObject>()
+                    .FirstOrDefault(p => p["url"]?.GetValue<string>() == url)?["resolved"]?.GetValue<string>();
+                f["resolved"] = resolved ?? before;
+            }
+        }
+    }
+
     /// <summary>The account a GITHUB funding link names: https://github.com/&lt;login&gt; or .../sponsors/&lt;login&gt;.</summary>
     public static string? Login(string? url)
     {
@@ -1104,6 +1169,11 @@ static class SelfTest
             && Funding.FromNode(JsonNode.Parse("""{ "fundingLinks": [] }""")!) is null);
         Check("funding: login", Funding.Login("https://github.com/a-b") == "a-b" && Funding.Login("https://github.com/sponsors/x") == "x"
             && Funding.Login("https://github.com/a/b") is null && Funding.Login("https://example.com/a") is null);
+        var hops = new Dictionary<string, string?> { ["https://bit.ly/a"] = "https://tinyurl.com/b", ["https://tinyurl.com/b"] = "https://ko-fi.com/me", ["https://bit.ly/loop"] = "https://bit.ly/loop", ["https://bit.ly/http"] = "http://example.com/" };
+        Task<string?> Hop(string u) => Task.FromResult(hops.GetValueOrDefault(u));
+        Check("funding: a short link resolves through its redirects", Funding.ResolveAsync("https://bit.ly/a", Hop).Result == "https://ko-fi.com/me");
+        Check("funding: a short link that loops, goes nowhere or leaves https doesn't resolve", Funding.ResolveAsync("https://bit.ly/loop", Hop).Result is null
+            && Funding.ResolveAsync("https://bit.ly/none", Hop).Result is null && Funding.ResolveAsync("https://bit.ly/http", Hop).Result is null);
         Check("graphql: tree query", GraphQl.TreeQuery(["a/b"]).Contains("r0: repository(owner: \"a\", name: \"b\") { root: object(expression: \"HEAD:\")"));
         var tree = JsonNode.Parse("""
             { "root": { "entries": [

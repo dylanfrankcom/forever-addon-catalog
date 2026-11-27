@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.2.0",
+  "version": "4.3.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -3657,6 +3657,9 @@
       "name": "d87",
       "profiles": [
         "https://github.com/rgd87"
+      ],
+      "sponsor": [
+        "https://www.paypal.com/cgi-bin/webscr?&business=d87d87@gmail.com&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted&lc=US&item_name=NugAddons&cmd=_donations&rm=1&no_shipping=1&currency_code=USD"
       ]
     },
     "rgxmods": {

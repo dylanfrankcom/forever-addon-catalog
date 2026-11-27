@@ -305,9 +305,18 @@ static class Support
             {
                 refused.Add($"{repo}: {url} isn't an https link");
             }
-            else if (platform == "CUSTOM" && Shorteners.Contains(uri.Host.StartsWith("www.", StringComparison.OrdinalIgnoreCase) ? uri.Host[4..] : uri.Host))
+            else if (platform == "CUSTOM" && IsShortLink(uri))
             {
-                refused.Add($"{repo}: {url} is a link shortener");
+                // Discovery asked the shortener where it leads; the real page is listed, never the short link.
+                var resolved = f["resolved"]?.GetValue<string>();
+                if (resolved is not null && Https.IsMatch(resolved) && Uri.TryCreate(resolved, UriKind.Absolute, out var real) && !IsShortLink(real))
+                {
+                    links.Add(resolved);
+                }
+                else
+                {
+                    refused.Add($"{repo}: {url} is a link shortener that didn't resolve to an https page");
+                }
             }
             else
             {
@@ -316,6 +325,8 @@ static class Support
         }
         return (links, refused);
     }
+
+    static bool IsShortLink(Uri uri) => Shorteners.Contains(uri.Host.StartsWith("www.", StringComparison.OrdinalIgnoreCase) ? uri.Host[4..] : uri.Host);
 
     /// <summary>
     /// The same page over https: FUNDING.yml's custom links are often written as "paypal.me/name" or "http://...". Any
@@ -1473,6 +1484,8 @@ static class SelfTest
         Check("support: no Sponsors listing", Support.FromRow(Fund("a/x", "User", """[{"platform":"GITHUB","url":"https://github.com/a","sponsors":false,"ownerOrMember":true}]""")) is ({ Count: 0 }, [var noListing]) && noListing.Contains("no GitHub Sponsors listing"));
         Check("support: not checked counts as no", Support.FromRow(Fund("a/x", "User", """[{"platform":"GITHUB","url":"https://github.com/a"}]""")).Links.Count == 0);
         Check("support: custom links must be https and not a shortener", Support.FromRow(Fund("a/x", "User", """[{"platform":"CUSTOM","url":"ftp://example.com/give"},{"platform":"CUSTOM","url":"https://bit.ly/x"},{"platform":"CUSTOM","url":"https://example.com/give"}]""")) is (["https://example.com/give"], { Count: 2 }));
+        Check("support: a short link is listed as where it leads", Support.FromRow(Fund("a/x", "User", """[{"platform":"CUSTOM","url":"https://bit.ly/x","resolved":"https://ko-fi.com/a"}]""")).Links.SequenceEqual(["https://ko-fi.com/a"])
+            && Support.FromRow(Fund("a/x", "User", """[{"platform":"CUSTOM","url":"https://bit.ly/x","resolved":"https://tinyurl.com/y"}]""")).Links.Count == 0);
         Check("support: http and scheme-less links are read as https", Support.Upgrade("http://paypal.me/a") == "https://paypal.me/a"
             && Support.Upgrade("paypal.me/a") == "https://paypal.me/a" && Support.Upgrade("https://x.org") == "https://x.org" && Support.Upgrade("ftp://x") == "ftp://x");
         var (merged, _) = Support.ForAuthor([Fund("a/y", "User", """[{"platform":"KO_FI","url":"https://ko-fi.com/a/"}]"""), Fund("a/x", "User", """[{"platform":"KO_FI","url":"https://ko-fi.com/A"},{"platform":"PATREON","url":"https://patreon.com/a"}]""")]);
