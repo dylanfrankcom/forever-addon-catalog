@@ -38,7 +38,7 @@ Only your own repository is ever listed. Copies and mirrors of your add-on uploa
 - **Opt out:** add `## X-Forever-Catalog: no` to your `.toc`, or open a [Remove my add-on, or make it link only](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=author-choice.yml) issue from the account that owns the repository. Removed add-ons are never listed again.
 - **Link only:** the same form. Your add-on stays listed, but the app never downloads it: players get a link to the page you choose.
 - **Your own app:** if you make an app that installs your add-on, tell us with the **Task** form. The app recommends it, and leaves your add-on to it while it's in use.
-- **Opt in:** nothing is needed. `## X-Forever-Catalog: yes` in your `.toc`, or the `wow-forever` topic on your repository, says you're happy to be listed.
+- **Opt in:** nothing is needed. `## X-Forever-Catalog: yes` in your `.toc` says you're happy to be listed, and the app shows it as "Its author marked it for this catalog". A `wow-forever` topic on your repository helps the catalog find it, but isn't read as that.
 
 ### Tips
 - **Publish a GitHub release.** That's what gives players one-click installs and updates. The [BigWigs packager](https://github.com/BigWigsMods/packager) can create one in the same run as your CurseForge and Wago uploads.
