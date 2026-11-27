@@ -6,7 +6,7 @@
 //
 // Run it through the app repo's dev.ps1 (see scripts/README.md), with a GitHub token in GITHUB_TOKEN:
 //   ... dotnet run scripts/check.cs                                  # every candidate in scope
-//   ... dotnet run scripts/check.cs -- --repo owner/name             # one repo (repeatable)
+//   ... dotnet run scripts/check.cs -- --repo owner/name             # one repo (repeatable), checked again even if unchanged
 //   ... dotnet run scripts/check.cs -- --self-test                   # offline tests with made-up releases
 // Options: --catalog <file> (default ./catalog.json), --candidates <file> (default ./candidates.json), --out <file>
 // (default ./checks.json, also read as the previous run), --scope <edition id | all> (default forever: only candidates
@@ -109,7 +109,13 @@ for (var start = 0; start < inScope.Count; start += Releases.BatchSize)
     foreach (var (candidate, repo) in chunk.Zip(names))
     {
         var (release, problem) = releases[repo];
-        results[repo] = await Checker.CheckAsync(new(candidate, release, problem, previous.GetValueOrDefault(repo), editions, rules, now, hold), github.DownloadAsync);
+        // A repo named with --repo is checked again even when its release and the rules are unchanged.
+        var before = previous.GetValueOrDefault(repo)?.DeepClone().AsObject();
+        if (before is not null && onlyRepos.Count > 0)
+        {
+            before["rules"] = null;
+        }
+        results[repo] = await Checker.CheckAsync(new(candidate, release, problem, before, editions, rules, now, hold), github.DownloadAsync);
     }
     if ((start / Releases.BatchSize) % 10 == 0)
     {
@@ -298,7 +304,8 @@ sealed partial class Package
 
 /// <summary>What one release file is for one edition.</summary>
 /// <param name="Result">passed, not-updated (it lists an older Interface: the live one for a PTR, or an earlier patch), failed, or null when the file isn't for this edition at all.</param>
-sealed record EditionResult(string? Result, List<string> Reasons, string? Interface, List<string> Folders, string? Main, List<string> Needs);
+sealed record EditionResult(string? Result, List<string> Reasons, string? Interface, List<string> Folders, string? Main, List<string> Needs,
+    Dictionary<string, string>? MainToc = null);
 
 static class Inspect
 {
@@ -368,7 +375,7 @@ static class Inspect
 
         string? result = !lists ? null : reasons.Count > 0 ? "failed" : older.Count > 0 ? "not-updated" : "passed";
         var iface = result is null ? null : older.Count > 0 ? older.Max(StringComparer.Ordinal) : edition.Interface;
-        return new(result, reasons, iface, folders, main, [.. needs]);
+        return new(result, reasons, iface, folders, main, [.. needs], main is not null && tocFor.GetValueOrDefault(main) is { } m ? m.Fields : null);
     }
 }
 
@@ -549,6 +556,10 @@ static partial class Checker
             row["folders"] = Strings(check.Folders);
             row["main"] = check.Main;
             row["needs"] = Strings(check.Needs);
+            if (check.MainToc is { } fields)
+            {
+                row["toc"] = MainToc(fields);
+            }
             results[edition.Id] = row;
         }
 
@@ -576,6 +587,32 @@ static partial class Checker
         };
 
         static JsonObject Failed(string reason) => new() { ["result"] = "failed", ["reason"] = reason };
+
+        // The main folder's .toc as this edition reads it in the release itself: the generator names and describes the
+        // entry from it first. (Some repos have no such .toc: the packager writes it.) Notes are cut to 1,000 characters.
+        static JsonObject MainToc(Dictionary<string, string> fields)
+        {
+            string? Field(string key) => fields.TryGetValue(key, out var v) && v.Trim().Length > 0 ? Cut(v.Trim()) : null;
+            static string Cut(string s) => s.Length <= 1000 ? s : s[..1000].TrimEnd() + "…";
+            var toc = new JsonObject
+            {
+                ["title"] = Field("Title"), ["notes"] = Field("Notes"), ["author"] = Field("Author"), ["category"] = Field("Category"),
+                ["iconTexture"] = Field("IconTexture"),
+                ["dependencies"] = Strings(Toc.List(fields, "Dependencies").Concat(Toc.List(fields, "RequiredDeps")).Distinct(StringComparer.OrdinalIgnoreCase)),
+                ["optionalDependencies"] = Strings(Toc.List(fields, "OptionalDeps")),
+            };
+            var localized = fields.Where(f => f.Key.StartsWith("Notes-", StringComparison.OrdinalIgnoreCase) && f.Value.Trim().Length > 0)
+                .OrderBy(f => f.Key, StringComparer.Ordinal).ToList();
+            if (localized.Count > 0)
+            {
+                toc["localizedNotes"] = new JsonObject(localized.Select(f => KeyValuePair.Create(f.Key[6..], (JsonNode?)Cut(f.Value.Trim()))));
+            }
+            foreach (var key in toc.Where(p => p.Value is null).Select(p => p.Key).ToList())
+            {
+                toc.Remove(key);
+            }
+            return toc;
+        }
     }
 
     /// <summary>Downloads a file, records its SHA-256 and checks it against its size and GitHub's digest, then reads the zip.</summary>
@@ -979,6 +1016,9 @@ static class SelfTest
             == "## Interface: 16001\n## Title: Big\n");
         var helper = Inspect.For(Package.Read(new MemoryStream(Zip(("!Thing_Bridge/!Thing_Bridge.toc", "## Interface: 16001\n"), ("Thing/Thing.toc", "## Interface: 16001\n")))), Forever, null);
         Check("main: a !folder is a helper, not the main one", helper.Main == "Thing");
+        var titled = Inspect.For(Package.Read(new MemoryStream(Zip(("Thing_Extra/Thing_Extra.toc", "## Interface: 16001\n## Title: Extra\n"),
+            ("Thing/Thing.toc", "## Interface: 16001\n## Title: Thing\n## Notes: Does it\n## Dependencies: Lib\n")))), Forever, null);
+        Check("main: its .toc's fields are kept", titled.Main == "Thing" && titled.MainToc!["Title"] == "Thing" && titled.MainToc["Notes"] == "Does it");
         var alone = Inspect.For(Package.Read(new MemoryStream(Zip(("!Grabber/!Grabber.toc", "## Interface: 16001\n")))), Forever, null);
         Check("main: a lone !folder is the main one", alone.Main == "!Grabber");
         await Blocked("folder without a .toc", Zip(("Thing/Thing.toc", "## Interface: 16001\n"), ("Extra/x.lua", "x")), "Extra: no .toc file");

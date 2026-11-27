@@ -1,0 +1,6 @@
+{
+  "$comment": "BloodFeud sorts first, but it is only a stand-in that hands saved data to BusinessMeeting, the add-on itself.",
+  "repo": "alwaysfilip/business-meeting-pvp",
+  "name": "Business Meeting - PvP",
+  "summary": "Here on business. World PvP for your guild: a shared Kill on Sight hit list, radar, contracts paid in gold, ranks and medals."
+}

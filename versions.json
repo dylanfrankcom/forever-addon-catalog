@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/versions.schema.json",
   "schemaVersion": 1,
-  "checked": "2026-11-27T00:11:27Z",
+  "checked": "2026-11-27T01:17:10Z",
   "addons": {
     "aazerothauctionator": {
       "forever": {
@@ -21823,6 +21823,18 @@
         "published": "2026-11-07"
       }
     },
+    "foreverscout": {
+      "forever": {
+        "release": "v0.5.0",
+        "file": "ForeverScout-0.5.0.zip",
+        "url": "https://github.com/Jweyant/forever-xp/releases/download/v0.5.0/ForeverScout-0.5.0.zip",
+        "size": 313769,
+        "sha256": "3077aa271cd2212b20034b53a232b3d83847a0b81a2486dcc9e0d0ddc351f8b5",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-04"
+      }
+    },
     "foreversearch": {
       "forever": {
         "release": "ForeverSearch-v0.2",
@@ -40863,18 +40875,6 @@
         "published": "2026-11-17"
       }
     },
-    "partydiamond": {
-      "forever": {
-        "release": "v1.4.0",
-        "file": "wow-controller-addons-1.4.0.zip",
-        "url": "https://github.com/secondcircle/wow-controller-addons/releases/download/v1.4.0/wow-controller-addons-1.4.0.zip",
-        "size": 19558,
-        "sha256": "61bb158ae71c6a83df160dae5208ea47934900af37a65ea27fd426484d77d251",
-        "interface": "16001",
-        "upToDate": true,
-        "published": "2026-11-15"
-      }
-    },
     "partylens": {
       "forever": {
         "release": "v1.3.1",
@@ -49893,48 +49893,6 @@
         "interface": "20505",
         "upToDate": false,
         "published": "2026-11-19"
-      }
-    },
-    "soundboard-sanitycapped": {
-      "retail": {
-        "release": "v1.17",
-        "file": "TwitchEmotes_SanityCapped-1.17.zip",
-        "url": "https://github.com/zakpruitt/TwitchEmotes_SanityCapped/releases/download/v1.17/TwitchEmotes_SanityCapped-1.17.zip",
-        "size": 1008019,
-        "sha256": "754fcd4b98565aef59917e0e4d4b0ad0d57fb5c81554af598ce1a952cf35c54e",
-        "interface": "120105",
-        "upToDate": true,
-        "published": "2026-11-16"
-      },
-      "forever": {
-        "release": "v1.17",
-        "file": "TwitchEmotes_SanityCapped-1.17.zip",
-        "url": "https://github.com/zakpruitt/TwitchEmotes_SanityCapped/releases/download/v1.17/TwitchEmotes_SanityCapped-1.17.zip",
-        "size": 1008019,
-        "sha256": "754fcd4b98565aef59917e0e4d4b0ad0d57fb5c81554af598ce1a952cf35c54e",
-        "interface": "16001",
-        "upToDate": true,
-        "published": "2026-11-16"
-      },
-      "retail_ptr": {
-        "release": "v1.17",
-        "file": "TwitchEmotes_SanityCapped-1.17.zip",
-        "url": "https://github.com/zakpruitt/TwitchEmotes_SanityCapped/releases/download/v1.17/TwitchEmotes_SanityCapped-1.17.zip",
-        "size": 1008019,
-        "sha256": "754fcd4b98565aef59917e0e4d4b0ad0d57fb5c81554af598ce1a952cf35c54e",
-        "interface": "120105",
-        "upToDate": false,
-        "published": "2026-11-16"
-      },
-      "retail_ptr2": {
-        "release": "v1.17",
-        "file": "TwitchEmotes_SanityCapped-1.17.zip",
-        "url": "https://github.com/zakpruitt/TwitchEmotes_SanityCapped/releases/download/v1.17/TwitchEmotes_SanityCapped-1.17.zip",
-        "size": 1008019,
-        "sha256": "754fcd4b98565aef59917e0e4d4b0ad0d57fb5c81554af598ce1a952cf35c54e",
-        "interface": "120105",
-        "upToDate": true,
-        "published": "2026-11-16"
       }
     },
     "soundstone": {
