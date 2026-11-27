@@ -147,13 +147,10 @@ static class Trust
         {
             trust["stars"] = stars;
         }
+        // Only the author's own .toc line: a wow-forever topic says the add-on is for the game, not that it's for this catalog.
         if (Generator.Str(row["toc"]?["catalog"])?.Trim().ToLowerInvariant() is { } marker && marker is "yes" or "no")
         {
             trust["marker"] = marker;
-        }
-        else if (Generator.Strings(row["topics"]).Contains("wow-forever", StringComparer.OrdinalIgnoreCase))
-        {
-            trust["marker"] = "yes"; // the opt-in topic
         }
 
         var warnings = new SortedSet<string>(good.SelectMany(g => g["warnings"]?.AsArray() ?? []).Select(w => Generator.Str(w?["sign"])).OfType<string>(), StringComparer.Ordinal);
@@ -2247,7 +2244,7 @@ static class SelfTest
         var qt = byId["questie"]["trust"]!;
         Check("author: a .toc's no keeps it out", !byId.ContainsKey("nothanks")
             && result.Dropped.TryGetValue("the author asked not to be listed (X-Forever-Catalog: no)", out var said) && said.SequenceEqual(["l/NoThanks"]));
-        Check("author: the wow-forever topic is a yes", Generator.Str(byId["libfoo"]["trust"]!["marker"]) == "yes");
+        Check("author: the wow-forever topic alone is no marker", byId["libfoo"]["trust"]?["marker"] is null);
         Check("author: link only is listed, never in versions.json", Generator.Str(byId["grabber"]["linkOnly"]!["url"]) == "https://example.com/grabber"
             && byId["grabber"].Select(p => p.Key).SkipWhile(k => k != "notes" && k != "linkOnly").First() == "linkOnly");
         var several = new Inputs(Obj("""{"editions":{"forever":{}},"addons":[]}"""),
