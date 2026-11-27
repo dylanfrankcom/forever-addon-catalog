@@ -813,11 +813,22 @@ static class Generator
         {
             var good = l.Good[e]!;
             editions[e] = new JsonObject { ["interface"] = Str(good["interface"]), ["upToDate"] = good["upToDate"]?.GetValue<bool>() ?? false };
+            // The day (UTC) the checked release was published, for sorting by recently updated; left out, never guessed.
+            if (Released(Str(good["published"])) is { } released)
+            {
+                editions[e]!["released"] = released;
+            }
         }
         entry["editions"] = editions;
         entry["from"] = from;
         return entry;
     }
+
+    /// <summary>The UTC day of a release's published time ("2026-11-20T10:00:00Z" gives "2026-11-20"), or null when it has none.</summary>
+    public static string? Released(string? published) =>
+        DateTimeOffset.TryParse(published, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeUniversal, out var at)
+            ? at.UtcDateTime.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture)
+            : null;
 
     /// <summary>An override's fields replace the generated ones (links key by key); each such value's source is "override".</summary>
     public static void Apply(JsonObject entry, JsonObject o)
@@ -1644,6 +1655,8 @@ static class SelfTest
         Check("override merged", Str(q["notes"]) == "Three folders." && Str(q["author"]) == "breakbb" && Str(q["from"]!["author"]) == "override"
             && Str(q["links"]!["issues"]) == "https://github.com/Questie/Questie/issues" && Str(q["links"]!["repository"]) == "https://github.com/Questie/QuestieRenamed");
         Check("editions", q["editions"]!.AsObject().Select(e => e.Key).SequenceEqual(["classic_era", "forever"]) && Str(q["editions"]!["forever"]!["interface"]) == "16001");
+        Check("editions: the release's day", Str(q["editions"]!["forever"]!["released"]) == "2026-11-20");
+        Check("released: UTC day, or none", Generator.Released("2026-11-20T23:30:00-02:00") == "2026-11-21" && Generator.Released(null) is null && Generator.Released("soon") is null);
         var t = byId["thing"];
         Check("name cleaned, from the .toc", Str(t["name"]) == "Thing" && Str(t["from"]!["name"]) == "toc-title" && Str(t["summary"]) == "Does the thing."
             && Str(t["from"]!["summary"]) == "toc-notes" && Str(t["summaries"]!["deDE"]) == "Auf Deutsch" && t["summaries"]!["xx"] is null);

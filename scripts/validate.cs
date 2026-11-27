@@ -189,6 +189,18 @@ static class CatalogValidator
                     problems.Add(new("unknown-edition", $"'{id}' lists edition '{editionId}', which isn't in \"editions\"."));
                     continue;
                 }
+                if (listed!["released"] is JsonValue releasedValue)
+                {
+                    var released = (string)releasedValue!;
+                    if (!DateOnly.TryParseExact(released, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var releasedDay))
+                    {
+                        problems.Add(new("released-date", $"'{id}' edition '{editionId}' released '{released}' isn't a real date."));
+                    }
+                    else if (releasedDay > DateOnly.FromDateTime(DateTime.UtcNow).AddDays(1))
+                    {
+                        problems.Add(new("released-date", $"'{id}' edition '{editionId}' released {released} is in the future."));
+                    }
+                }
                 var current = (string)listed!["interface"]! == (string)edition["interface"]!;
                 if ((bool)listed["upToDate"]! != current)
                 {
@@ -552,7 +564,7 @@ static class SelfTest
     }
 
     // "duplicate-id" and "duplicate-id-in-overrides" both expect "duplicate-id": the longest known code that prefixes the name.
-    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date",
+    static readonly string[] Codes = ["schema", "json", "duplicate-id", "unknown-reference", "self-reference", "folder-claimed-twice", "author-not-one-name", "added-date", "released-date",
         "unknown-author", "unused-author", "author-profile", "edition-interface", "unknown-edition", "edition-up-to-date",
         "versions-same-file", "test-client-edition", "edition-facts", "override-name"];
 
