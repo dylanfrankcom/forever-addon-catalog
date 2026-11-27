@@ -129,7 +129,7 @@ One file per listed add-on released on GitHub, written by `scripts/details.cs`, 
 | `name` | yes | How the author is shown: one name, the add-on's main author or the owner of its listing on its first source (the Wago or CurseForge author, else the GitHub owner). Not a list of contributors or a group: the validator refuses a comma, a semicolon, "&", "and others" or "contributors". |
 | `homepage` | | The author's own site, `https://` only. Not an add-on's page. |
 | `profiles` | | Full links to the author's own pages on GitHub, Wago and CurseForge, as each site writes them, at most one per site. The app shows them on the author's page, named by site. |
-| `sponsor` | | Every page where the author asks for support, `https://` only, most preferred first. Where they come from: the [README](../README.md#where-entry-fields-come-from). |
+| `sponsor` | | Every page where the author asks for support, `https://` only, most preferred first. How they're chosen: [Support links](#support-links). |
 
 ```json
 "authors": {
@@ -141,6 +141,15 @@ One file per listed add-on released on GitHub, written by `scripts/details.cs`, 
   }
 }
 ```
+
+### Support links
+A wrong link would send a player's money to the wrong person, so `sponsor` lists only pages the author lists themselves, never guessed, and each is checked:
+- **From the author's own repositories only:** each listed repository's `FUNDING.yml` (or the owner's `.github` repository's), as GitHub reads it. Never from a fork or another account's repository.
+- **GitHub Sponsors:** only an account that has a Sponsors listing and owns the repository, or is a public member of the organisation that does. It comes first.
+- **Everything else:** in the file's order, `https` only (an `http://` link, or one written without a scheme like `paypal.me/name`, is read as the same page over `https`). A shortened link (bit.ly and the like) is listed as the page it leads to, found from the shortener's redirect, never as the short link. A page listed under two addresses is included once.
+- **Reported:** every refused link, and every link that appears, changes or goes away, is listed in the generator's report for the maintainer to look at.
+
+Authors written by hand (`overrides/_authors.json`) keep their own list, which can also include the Donate button on their CurseForge or Wago page.
 
 ## An entry
 | Field | Required | What |
