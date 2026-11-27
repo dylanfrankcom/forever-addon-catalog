@@ -78,7 +78,7 @@ Official APIs only, read-only:
 1. **Code search** for `.toc` files listing each edition's current Interface (from `catalog.json`'s `editions`; test clients come later). Code search returns at most 1,000 results a query, so each search is split by file size, halving the range until every part is under the cap; a single size still over it is reported as capped. Requests are spaced 7 seconds apart (the limit is 10 a minute) and rate-limit answers are waited out.
 2. **GraphQL**, 10 repos a query: description and topics, last push, archived or fork, the latest release (GitHub's Latest, never a pre-release) with its files, sizes and SHA-256 digests, the newest tags, whether there's a `.pkgmeta`, and up to 12 of the repo's `.toc` files, the shallowest first, read again at the default branch.
 
-A row has the repo, the editions whose current Interface one of its `.toc` files lists, the main `.toc`'s fields (the shallowest one listing a current Interface: Title, Author, Notes and their translations, Version, Category, IconTexture, `X-Curse-Project-ID`, `X-Wago-ID`, `X-WoWI-ID`, dependencies), every `.toc` read with its Interfaces, the latest release and the tags.
+A row has the repo, the editions whose current Interface one of its `.toc` files lists, the main `.toc`'s fields (the shallowest one listing a current Interface: Title, Author, Notes and their translations, Version, Category, IconTexture, `X-Curse-Project-ID`, `X-Wago-ID`, `X-WoWI-ID`, dependencies), every `.toc` read with its Interfaces and the same fields (Notes cut to 300 characters), the latest release and the tags. The generator takes an entry's fields from its main folder's `.toc`, which may not be the one discovery picked, and uses each `.toc`'s dependencies to tell a release's separate add-ons from one add-on's modules.
 
 Dropped: forks, archived repos, repos that are gone, repos where no `.toc` lists a current Interface, and repos on the never-add list, `optout.json` (`owner/name` for one repo, `owner` for a whole account). One repo is one row, whichever editions it ships for; a renamed repo found under both names is one row.
 
@@ -94,7 +94,7 @@ Checks the latest release of each add-on discovery found (`candidates.json`) and
 ```powershell
 $env:GITHUB_TOKEN = (gh auth token)
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/check.cs                          # every candidate in scope
-powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/check.cs -- --repo owner/name     # one repo
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/check.cs -- --repo owner/name     # one repo, checked again even if unchanged
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/check.cs -- --self-test           # made-up releases, offline
 ```
 
@@ -104,7 +104,7 @@ For each repo, read-only and with official APIs only:
 1. **GitHub's Latest release,** read with GraphQL, 25 repos a query (one REST request per repo would pass the Actions token's hourly limit). Pre-releases (GitHub's flag, or `alpha` / `beta` in the tag) are skipped. A release published less than `--hold-hours` ago (default 6) is held back, so a release pulled quickly (after an account compromise, say) never reaches players.
 2. **Each edition's file:** the only `.zip`, else the one the packager's `release.json` lists for the edition's `packagerFlavors` (never a no-lib build), else the only one whose name has one of its `fileWords`.
 3. **The download:** its size must be what GitHub lists, its SHA-256 is recorded, and where GitHub publishes a digest the two must match. Release files come from GitHub's download host without the token.
-4. **The inspection,** the same checks the app makes when it installs: no entry outside the add-on's folder, no programs (`.exe`, `.dll`, scripts and the like), at least one folder, and for each edition the `.toc` it reads (`tocSuffixes` in order, then the plain `.toc`, with load conditions for its `gameTypes`) in every folder (one only another folder lists as optional may lack it), listing its Interface. The rules are in `schema/README.md`, "How an edition reads an add-on".
+4. **The inspection,** the same checks the app makes when it installs: no entry outside the add-on's folder, no programs (`.exe`, `.dll`, scripts and the like), at least one folder, and for each edition the `.toc` it reads (`tocSuffixes` in order, then the plain `.toc`, with load conditions for its `gameTypes`) in every folder (one only another folder lists as optional may lack it), listing its Interface. The rules are in `schema/README.md`, "How an edition reads an add-on". Each passing edition also keeps the main folder's `.toc` fields as the release has them (`toc`: Title, Notes and translations, Author, Category, IconTexture, dependencies), which the generator prefers to discovery's: some repos have no such `.toc`, because the packager writes it.
 
 A `.toc` of any size is read (some add-ons keep their data in it); only its `##` lines count.
 

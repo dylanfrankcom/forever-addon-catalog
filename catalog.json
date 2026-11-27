@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.5.0",
+  "version": "4.6.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -1041,7 +1041,7 @@
       ]
     },
     "danderbot": {
-      "name": "DanderBot",
+      "name": "Danders",
       "profiles": [
         "https://github.com/DanderBot"
       ]
@@ -1841,7 +1841,7 @@
       ]
     },
     "ircdirk": {
-      "name": "IrcDirk",
+      "name": "No one",
       "profiles": [
         "https://github.com/IrcDirk"
       ],
@@ -1917,7 +1917,7 @@
       ]
     },
     "jademalo": {
-      "name": "@project-author@",
+      "name": "Jademalo",
       "profiles": [
         "https://github.com/Jademalo"
       ],
@@ -2205,6 +2205,12 @@
         "https://github.com/jwest33"
       ]
     },
+    "jweyant": {
+      "name": "Jweyant",
+      "profiles": [
+        "https://github.com/Jweyant"
+      ]
+    },
     "kaldown": {
       "name": "kaldown",
       "profiles": [
@@ -2406,7 +2412,7 @@
       ]
     },
     "lapassetalexis": {
-      "name": "LapassetAlexis",
+      "name": "Tristabeau",
       "profiles": [
         "https://github.com/LapassetAlexis"
       ]
@@ -2576,7 +2582,7 @@
       ]
     },
     "lurx": {
-      "name": "lurx",
+      "name": "Lurx",
       "profiles": [
         "https://github.com/lurx"
       ]
@@ -3128,7 +3134,7 @@
       ]
     },
     "noobygains": {
-      "name": "NoobyGains",
+      "name": "Norganna's AddOns",
       "profiles": [
         "https://github.com/NoobyGains"
       ]
@@ -3345,7 +3351,7 @@
       ]
     },
     "perweum": {
-      "name": "perweum",
+      "name": "Per",
       "profiles": [
         "https://github.com/perweum"
       ]
@@ -3375,7 +3381,7 @@
       ]
     },
     "phenomdevel": {
-      "name": "@project-author@",
+      "name": "PhenomDevel",
       "profiles": [
         "https://github.com/PhenomDevel"
       ]
@@ -3474,7 +3480,7 @@
       ]
     },
     "pranavius": {
-      "name": "@project-author@",
+      "name": "pranavius",
       "profiles": [
         "https://github.com/pranavius"
       ]
@@ -3841,12 +3847,6 @@
       "name": "sebmak",
       "profiles": [
         "https://github.com/sebmak"
-      ]
-    },
-    "secondcircle": {
-      "name": "secondcircle",
-      "profiles": [
-        "https://github.com/secondcircle"
       ]
     },
     "sectimus": {
@@ -8593,8 +8593,8 @@
     },
     {
       "id": "auctioneer",
-      "name": "Auctioneer",
-      "summary": "Auctioneer addon suite for the World of Warcraft: Forever beta client (12.1.5 API) - based on profdumbbelldore's 12.x…",
+      "name": "Auctioneer Core",
+      "summary": "Auctioneer assists players to track item values on the Auction House; whether buying or selling.",
       "author": "noobygains",
       "added": "2026-11-26",
       "sources": [
@@ -8642,8 +8642,8 @@
         }
       },
       "from": {
-        "name": "folder",
-        "summary": "repo-description",
+        "name": "toc-title",
+        "summary": "toc-notes",
         "author": "repo-owner"
       }
     },
@@ -15603,12 +15603,8 @@
     {
       "id": "bloodfeud",
       "name": "Business Meeting - PvP",
-      "summary": "Here on business. World PvP for your guild: a shared Kill on Sight hit list, radar, contracts paid in gold, ranks and…",
+      "summary": "Here on business. World PvP for your guild: a shared Kill on Sight hit list, radar, contracts paid in gold, ranks and medals.",
       "author": "alwaysfilip",
-      "tags": [
-        "combat"
-      ],
-      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/bloodfeud.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -15637,11 +15633,9 @@
         }
       },
       "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
-        "author": "repo-owner",
-        "tags": "toc-category",
-        "icon": "toc-icon"
+        "name": "override",
+        "summary": "override",
+        "author": "repo-owner"
       }
     },
     {
@@ -16724,7 +16718,7 @@
     {
       "id": "bufftimers",
       "name": "BuffTimers",
-      "summary": "@project-version@ -- Buff time options",
+      "summary": "Buff time options",
       "summaries": {
         "ruRU": "Отображает точную длительность действия баффов, с возможностью указания секунд и миллисекунд"
       },
@@ -17572,7 +17566,7 @@
     },
     {
       "id": "carbonite",
-      "name": "Carbonite All in One (Retail & Classic)",
+      "name": "Carbonite Maps - Camelot (Forever)",
       "summary": "Released Under GPL",
       "author": "ircdirk",
       "tags": [
@@ -19243,7 +19237,7 @@
     {
       "id": "cleanerlootmessages",
       "name": "Cleaner Loot Messages",
-      "summary": "Smaller, simpler and lighter loot messages v@project-version@",
+      "summary": "Smaller, simpler and lighter loot messages v",
       "author": "luttman",
       "added": "2026-11-26",
       "sources": [
@@ -22454,11 +22448,12 @@
     {
       "id": "dandersframes",
       "name": "DandersFrames",
-      "summary": "Customizable party and raid frame addon for World of Warcraft",
+      "summary": "Custom party/raid frames for WoW Midnight 12.0",
       "author": "danderbot",
       "tags": [
         "dungeons"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/dandersframes.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -22503,11 +22498,15 @@
           "released": "2026-11-25"
         }
       },
+      "optional": [
+        "framesort"
+      ],
       "from": {
-        "name": "folder",
-        "summary": "repo-description",
+        "name": "toc-title",
+        "summary": "toc-notes",
         "author": "repo-owner",
-        "tags": "topics"
+        "tags": "topics",
+        "icon": "toc-icon"
       }
     },
     {
@@ -23374,7 +23373,7 @@
     {
       "id": "deathrollenhancer",
       "name": "DeathRoll Enhancer",
-      "summary": "Version @project-version@ - 2SChoppy Edition. Highlights: - Host group DeathRolls with /dr group - Wrong-roll range…",
+      "summary": "Version - 2SChoppy Edition. Highlights: - Host group DeathRolls with /dr group - Wrong-roll range detection and…",
       "author": "trakelean",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/deathrollenhancer.png",
       "added": "2026-11-26",
@@ -25225,9 +25224,13 @@
     },
     {
       "id": "dungeoncrawlerforever",
-      "name": "DungeonCrawlerForever",
-      "summary": "Dungeon and raid maps, loot and boss abilities for WoW Forever, built into the default World Map (WoW addon, GPL-3.0).",
+      "name": "Dungeon Crawler Forever",
+      "summary": "Dungeon and raid maps with clickable bosses, loot and abilities for WoW Forever. Opens from the world map or with the…",
       "author": "perweum",
+      "tags": [
+        "map"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/dungeoncrawlerforever.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -25251,9 +25254,11 @@
         }
       },
       "from": {
-        "name": "folder",
-        "summary": "repo-description",
-        "author": "repo-owner"
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category",
+        "icon": "toc-icon"
       }
     },
     {
@@ -32170,6 +32175,45 @@
       }
     },
     {
+      "id": "foreverscout",
+      "name": "ForeverScout",
+      "summary": "Records your questing route (quests, XP, positions, timing) to help build free leveling guides and fix quest data for…",
+      "author": "jweyant",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/foreverscout.png",
+      "added": "2026-11-27",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Jweyant/forever-xp",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Jweyant/forever-xp",
+        "issues": "https://github.com/Jweyant/forever-xp/issues"
+      },
+      "folders": [
+        "ForeverScout",
+        "ForeverScout_Data"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-04"
+        }
+      },
+      "optional": [
+        "questie"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "icon": "toc-icon"
+      }
+    },
+    {
       "id": "foreversearch",
       "name": "ForeverSearch",
       "summary": "Addons I wrote for WoW Forever",
@@ -35129,11 +35173,18 @@
     {
       "id": "grupofacil",
       "name": "GrupoFacil",
-      "summary": "Filters the Looking For Group list by level, class and role, and asks group leaders to join with a ready-made message.",
+      "summary": "Find groups for your dungeons and quests in Looking For Group: filter by level, class and role, a magnifier next to…",
       "summaries": {
-        "ptBR": "Filtra a lista do Looking For Group por level, classe e role, e pede vaga ao líder com uma mensagem pronta."
+        "deDE": "Finde Gruppen für Dungeons und Quests im Dungeonbrowser: Filter nach Stufe, Klasse und Rolle, eine Lupe neben jeder…",
+        "esES": "Encuentra grupo para mazmorras y misiones en Buscar grupo: filtros por nivel, clase y rol, una lupa junto a cada misión…",
+        "esMX": "Encuentra grupo para calabozos y misiones en Buscar grupo: filtros por nivel, clase y rol, una lupa junto a cada misión…",
+        "frFR": "Trouvez un groupe pour vos donjons et vos quêtes dans la recherche de groupe : filtres par niveau, classe et rôle, une…",
+        "ptBR": "Ache grupo para masmorras e missões no Looking For Group: filtros por level, classe e role, uma lupa ao lado de cada…"
       },
       "author": "bsfraga",
+      "tags": [
+        "dungeons"
+      ],
       "added": "2026-11-26",
       "sources": [
         {
@@ -35163,7 +35214,8 @@
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
-        "author": "repo-owner"
+        "author": "repo-owner",
+        "tags": "toc-category"
       }
     },
     {
@@ -37871,7 +37923,7 @@
     {
       "id": "houseledger",
       "name": "HouseLedger",
-      "summary": "Free, plain-Lua addons for World of Warcraft Forever. Not affiliated with Blizzard.",
+      "summary": "Buy, sell and spot deals at the auction house with your own price history.",
       "author": "j1d2",
       "tags": [
         "auction-house"
@@ -37903,8 +37955,8 @@
         }
       },
       "from": {
-        "name": "folder",
-        "summary": "repo-description",
+        "name": "toc-title",
+        "summary": "toc-notes",
         "author": "repo-owner",
         "tags": "topics"
       }
@@ -41346,12 +41398,16 @@
     },
     {
       "id": "killedbysavages",
-      "name": "KilledBySavages",
-      "summary": "Guild kill board for World of Warcraft: Forever",
+      "name": "Killed by Savages",
+      "summary": "Guild kill board for World of Warcraft: Forever. Counts the enemies each member kills, by player (all characters…",
+      "summaries": {
+        "frFR": "Tableau de chasse de guilde pour World of Warcraft: Forever. Compte les ennemis tués par chaque membre, par joueur…"
+      },
       "author": "mouchoir",
       "tags": [
         "combat"
       ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/killedbysavages.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -41375,10 +41431,11 @@
         }
       },
       "from": {
-        "name": "folder",
-        "summary": "repo-description",
+        "name": "toc-title",
+        "summary": "toc-notes",
         "author": "repo-owner",
-        "tags": "topics"
+        "tags": "topics",
+        "icon": "toc-icon"
       }
     },
     {
@@ -53869,8 +53926,8 @@
     },
     {
       "id": "oneclickmount",
-      "name": "OneClickMount",
-      "summary": "World of warcraft addons",
+      "name": "One-Click Mount",
+      "summary": "One button for flying, ground, class speed spell and modifier mounts. /ocm to configure.",
       "author": "lurx",
       "added": "2026-11-26",
       "sources": [
@@ -53909,9 +53966,12 @@
           "released": "2026-11-05"
         }
       },
+      "optional": [
+        "ellesmereui"
+      ],
       "from": {
-        "name": "folder",
-        "summary": "repo-description",
+        "name": "toc-title",
+        "summary": "toc-notes",
         "author": "repo-owner"
       }
     },
@@ -55246,40 +55306,6 @@
       }
     },
     {
-      "id": "partydiamond",
-      "name": "PartyDiamond",
-      "summary": "Controller addons for WoW Forever: Party Diamond (party frames in a face-button diamond) and SoftTarget (FFXIV-style…",
-      "author": "secondcircle",
-      "added": "2026-11-26",
-      "sources": [
-        {
-          "type": "github",
-          "repo": "secondcircle/wow-controller-addons",
-          "assetPattern": "(?i)\\.zip$"
-        }
-      ],
-      "links": {
-        "repository": "https://github.com/secondcircle/wow-controller-addons",
-        "issues": "https://github.com/secondcircle/wow-controller-addons/issues"
-      },
-      "folders": [
-        "PartyDiamond",
-        "SoftTarget"
-      ],
-      "editions": {
-        "forever": {
-          "interface": "16001",
-          "upToDate": true,
-          "released": "2026-11-15"
-        }
-      },
-      "from": {
-        "name": "folder",
-        "summary": "repo-description",
-        "author": "repo-owner"
-      }
-    },
-    {
       "id": "partylens",
       "name": "PartyLens",
       "summary": "Group radar for WoW: Forever: the LookingForGroup channel and the PartyLens network in one window.",
@@ -55320,8 +55346,8 @@
     },
     {
       "id": "passthetime",
-      "name": "PassTheTime",
-      "summary": "Monorepository for all my World of Warcraft Addons.",
+      "name": "Pass the Time",
+      "summary": "Idle clicker and mini games for waiting times (boats, zeppelins, flights).",
       "author": "derpierre65",
       "added": "2026-11-26",
       "sources": [
@@ -55390,8 +55416,8 @@
         }
       },
       "from": {
-        "name": "folder",
-        "summary": "repo-description",
+        "name": "toc-title",
+        "summary": "toc-notes",
         "author": "repo-owner"
       }
     },
@@ -59152,8 +59178,14 @@
     {
       "id": "questcompanion",
       "name": "QuestCompanion",
-      "summary": "Two free WoW Forever addons (EN/FR): Quest Companion, a creature menagerie with shinies, zone seals and trainer cards…",
+      "summary": "Catch the monsters you defeat: stars, shinies, a hunting companion, zone seals, trainer titles and card, guild feats.…",
+      "summaries": {
+        "esES": "Captura los monstruos que derrotas: estrellas, brillantes, un compañero de caza, sellos de zona, títulos y ficha de…",
+        "esMX": "Captura los monstruos que derrotas: estrellas, brillantes, un compañero de caza, sellos de zona, títulos y ficha de…",
+        "frFR": "Capture les monstres que tu abats : étoiles, brillantes, compagnon de chasse, sceaux de zone, titres et fiche de…"
+      },
       "author": "lapassetalexis",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/questcompanion.png",
       "added": "2026-11-26",
       "sources": [
         {
@@ -59181,9 +59213,10 @@
         }
       },
       "from": {
-        "name": "folder",
-        "summary": "repo-description",
-        "author": "repo-owner"
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "icon": "toc-icon"
       }
     },
     {
@@ -62699,7 +62732,7 @@
     },
     {
       "id": "rotationmaster",
-      "name": "Rotation Master @project-version@",
+      "name": "Rotation Master",
       "summary": "I wanted to save the world, but God wouldn't give me the source code.",
       "author": "corporategoth",
       "tags": [
@@ -67294,62 +67327,6 @@
       }
     },
     {
-      "id": "soundboard-sanitycapped",
-      "name": "Twitch Emotes + Sanity Capped",
-      "summary": "Custom emote pack that plugs into TwitchEmotes. Drop GIFs into tools/source and run build_emotes.py.",
-      "author": "zakpruitt",
-      "added": "2026-11-26",
-      "sources": [
-        {
-          "type": "github",
-          "repo": "zakpruitt/TwitchEmotes_SanityCapped",
-          "assetPattern": "(?i)\\.zip$"
-        },
-        {
-          "type": "curseforge",
-          "projectId": 1809881
-        }
-      ],
-      "links": {
-        "repository": "https://github.com/zakpruitt/TwitchEmotes_SanityCapped",
-        "issues": "https://github.com/zakpruitt/TwitchEmotes_SanityCapped/issues"
-      },
-      "folders": [
-        "Soundboard_SanityCapped",
-        "TwitchEmotes_SanityCapped"
-      ],
-      "editions": {
-        "retail": {
-          "interface": "120105",
-          "upToDate": true,
-          "released": "2026-11-16"
-        },
-        "forever": {
-          "interface": "16001",
-          "upToDate": true,
-          "released": "2026-11-16"
-        },
-        "retail_ptr": {
-          "interface": "120105",
-          "upToDate": false,
-          "released": "2026-11-16"
-        },
-        "retail_ptr2": {
-          "interface": "120105",
-          "upToDate": true,
-          "released": "2026-11-16"
-        }
-      },
-      "optional": [
-        "twitchemotes"
-      ],
-      "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
-        "author": "repo-owner"
-      }
-    },
-    {
       "id": "soundstone",
       "name": "Soundstone - Azeroth Volume Mixer",
       "summary": "A compact Blizzard-inspired mixer for master, effects and music.",
@@ -71702,7 +71679,7 @@
     },
     {
       "id": "titanattributesmulti",
-      "name": "Titan Panel [Attributes] Multi! @project-version@ Forever",
+      "name": "Titan Panel [Attributes] Multi! Forever",
       "summary": "Track your attributes values! Right-click on Titan Panel, go to \"Combat\" tab and enjoy.",
       "summaries": {
         "ptBR": "Rastreie o valor de seus atributos! Clique com o botão direito no Painel Titan, vá na aba \"Combate\" e aproveite."
@@ -71782,7 +71759,7 @@
     },
     {
       "id": "titancurrenciesmulti",
-      "name": "Titan Panel [Currencies] Multi! @project-version@ Forever",
+      "name": "Titan Panel [Currencies] Multi! Forever",
       "summary": "Track Forever currencies and gold on Titan Panel.",
       "summaries": {
         "ptBR": "Rastreie moedas do Forever e ouro no Titan Panel."
@@ -71847,7 +71824,7 @@
     },
     {
       "id": "titanprofessionsmulti",
-      "name": "Titan Panel [Professions] Multi! @project-version@ Forever",
+      "name": "Titan Panel [Professions] Multi! Forever",
       "summary": "Track all professions! Right-click on Titan Panel, go to \"Profession\" tab and enjoy.",
       "summaries": {
         "deDE": "Verfolge alle Berufe! Rechtsklicke auf Titan Panel und gehe zum \"Berufe\" reiter, fertig.",
@@ -71931,7 +71908,7 @@
     },
     {
       "id": "titanreputation",
-      "name": "Titan [Reputation Continued] @project-version@",
+      "name": "Titan [Reputation Continued]",
       "summary": "Adds Reputation tracking and monitoring tools to Titan Panel.",
       "author": "paulbuechner",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/titanreputation.png",
@@ -72013,7 +71990,7 @@
     },
     {
       "id": "titanspacer",
-      "name": "Titan Panel [Spacer] @project-version@",
+      "name": "Titan Panel [Spacer]",
       "summary": "Add spacers on Titan Panel! Right-click on Titan Panel, go to \"Interface\" tab and enjoy.",
       "author": "canettieri",
       "added": "2026-11-26",
@@ -72532,7 +72509,7 @@
     {
       "id": "totalrp3",
       "name": "Total RP 3",
-      "summary": "The best roleplaying addon for World of Warcraft. Version: @project-version@",
+      "summary": "The best roleplaying addon for World of Warcraft. Version",
       "author": "total-rp",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/totalrp3.png",
       "added": "2026-11-26",
@@ -72590,7 +72567,7 @@
     {
       "id": "totalrp3-extended",
       "name": "Total RP 3: Extended features",
-      "summary": "Advanced features for Total RP 3 Version: @project-version@",
+      "summary": "Advanced features for Total RP 3 Version",
       "author": "total-rp",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/totalrp3-extended.png",
       "added": "2026-11-26",
@@ -73735,9 +73712,12 @@
     },
     {
       "id": "turkeytickleui-cooking",
-      "name": "TurkeyTickleUI_Cooking",
-      "summary": "Clean, readable nameplates for WoW Forever",
+      "name": "Turkey Tickle UI: Cooking",
+      "summary": "Cooking coach: what in your bags can level Cooking right now, reminders to actually cook it, and the best mobs nearby…",
       "author": "turkeytickle",
+      "tags": [
+        "ui"
+      ],
       "added": "2026-11-26",
       "sources": [
         {
@@ -73765,9 +73745,10 @@
         }
       },
       "from": {
-        "name": "folder",
-        "summary": "repo-description",
-        "author": "repo-owner"
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category"
       }
     },
     {

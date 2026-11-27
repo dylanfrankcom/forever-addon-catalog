@@ -447,6 +447,36 @@ static class Candidates
         return rows.Values.ToList();
     }
 
+    /// <summary>Notes (and each localized Notes) in "tocs" are cut to this many characters, to keep candidates.json small.</summary>
+    const int MaxNotesInTocs = 300;
+
+    /// <summary>A .toc's fields as candidates.json keeps them; with interfaces for "tocs", without for the main "toc".</summary>
+    static JsonObject TocFields(string path, Dictionary<string, string> fields, JsonArray? interfaces, int maxNotes = int.MaxValue)
+    {
+        string? Field(string key) => fields.TryGetValue(key, out var v) && v.Length > 0 ? v : null;
+        string? Cut(string? s) => s is null || s.Length <= maxNotes ? s : s[..maxNotes].TrimEnd() + "…";
+        var localized = new JsonObject(fields.Where(f => f.Key.StartsWith("Notes-", StringComparison.OrdinalIgnoreCase) && f.Value.Length > 0)
+            .OrderBy(f => f.Key, StringComparer.Ordinal).Select(f => KeyValuePair.Create(f.Key[6..], (JsonNode?)Cut(f.Value))));
+        var toc = new JsonObject { ["path"] = path };
+        if (interfaces is not null)
+        {
+            toc["interfaces"] = interfaces;
+        }
+        toc["title"] = Field("Title");
+        toc["author"] = Field("Author");
+        toc["notes"] = Cut(Field("Notes"));
+        toc["localizedNotes"] = localized.Count > 0 ? localized : null;
+        toc["version"] = Field("Version");
+        toc["category"] = Field("Category");
+        toc["iconTexture"] = Field("IconTexture");
+        toc["curseforge"] = Field("X-Curse-Project-ID");
+        toc["wago"] = Field("X-Wago-ID");
+        toc["wowi"] = Field("X-WoWI-ID");
+        toc["dependencies"] = Strings(Toc.Dependencies(fields));
+        toc["optionalDependencies"] = Strings(Toc.List(Field("OptionalDeps")));
+        return toc;
+    }
+
     static JsonObject Merge(JsonObject a, JsonObject b)
     {
         var tocs = a["tocs"]!.AsArray().Concat(b["tocs"]!.AsArray())
@@ -495,10 +525,6 @@ static class Candidates
             return (null, "no .toc lists a current Interface");
         }
 
-        var main = current[0].Fields;
-        string? Field(string key) => main.TryGetValue(key, out var v) && v.Length > 0 ? v : null;
-        var localized = new JsonObject(main.Where(f => f.Key.StartsWith("Notes-", StringComparison.OrdinalIgnoreCase) && f.Value.Length > 0)
-            .OrderBy(f => f.Key, StringComparer.Ordinal).Select(f => KeyValuePair.Create(f.Key[6..], (JsonNode?)f.Value)));
         var listed = editions.Where(e => current.Any(t => t.Interfaces.Contains(e.Value))).Select(e => e.Key).ToList();
 
         var release = node["latestRelease"];
@@ -521,24 +547,12 @@ static class Candidates
             ["ownerType"] = node["owner"]?["__typename"]?.GetValue<string>(),
             ["funding"] = Funding.FromNode(node),
             ["readme"] = null, // filled in afterwards, only for repos with no other summary
-            ["toc"] = new JsonObject
-            {
-                ["path"] = current[0].Path,
-                ["title"] = Field("Title"),
-                ["author"] = Field("Author"),
-                ["notes"] = Field("Notes"),
-                ["localizedNotes"] = localized.Count > 0 ? localized : null,
-                ["version"] = Field("Version"),
-                ["category"] = Field("Category"),
-                ["iconTexture"] = Field("IconTexture"),
-                ["curseforge"] = Field("X-Curse-Project-ID"),
-                ["wago"] = Field("X-Wago-ID"),
-                ["wowi"] = Field("X-WoWI-ID"),
-                ["dependencies"] = Strings(Toc.Dependencies(main)),
-                ["optionalDependencies"] = Strings(Toc.List(Field("OptionalDeps"))),
-            },
+            ["toc"] = TocFields(current[0].Path, current[0].Fields, null),
+            // Every .toc read, with the same fields (Notes cut short): the generator takes an entry's name, summary and
+            // icon from its main folder's .toc, which may not be the one picked above, and tells a release's separate
+            // add-ons from one add-on's modules by their dependencies.
             ["tocs"] = new JsonArray(tocs.OrderBy(t => t.Path, Comparer<string>.Create(Toc.Compare))
-                .Select(t => (JsonNode)new JsonObject { ["path"] = t.Path, ["interfaces"] = Strings(t.Interfaces) }).ToArray()),
+                .Select(t => (JsonNode)TocFields(t.Path, t.Fields, Strings(t.Interfaces), MaxNotesInTocs)).ToArray()),
             ["latestRelease"] = release is null ? null : new JsonObject
             {
                 ["tag"] = release["tagName"]?.GetValue<string>(),
@@ -1106,6 +1120,13 @@ static class SelfTest
             && row["toc"]!["optionalDependencies"]!.AsArray().Single()!.GetValue<string>() == "Masque");
         Check("row: every .toc read, deleted ones left out", row["tocs"]!.AsArray().Select(t => t!["path"]!.GetValue<string>())
             .SequenceEqual(["Old.toc", "Thing.toc", "Thing_Vanilla.toc", "Libs/LibStub/LibStub.toc"]));
+        var vanilla = row["tocs"]!.AsArray().Single(t => t!["path"]!.GetValue<string>() == "Thing_Vanilla.toc")!;
+        var thing = row["tocs"]!.AsArray().Single(t => t!["path"]!.GetValue<string>() == "Thing.toc")!;
+        Check("row: each .toc's fields", vanilla["title"]!.GetValue<string>() == "Thing Classic" && vanilla["interfaces"]![0]!.GetValue<string>() == "11509"
+            && thing["notes"]!.GetValue<string>() == "Does things" && thing["dependencies"]![0]!.GetValue<string>() == "Ace3" && thing["iconTexture"] is not null);
+        var (longRow, _) = Candidates.Row("a/b", Repo("A/B", ("Long.toc", "## Interface: 16001\n## Notes: " + new string('x', 500) + "\n## Notes-deDE: " + new string('y', 500))), Editions);
+        Check("row: Notes in tocs are cut, the main .toc's aren't", longRow!["toc"]!["notes"]!.GetValue<string>().Length == 500
+            && longRow["tocs"]![0]!["notes"]!.GetValue<string>().Length == 301 && longRow["tocs"]![0]!["localizedNotes"]!["deDE"]!.GetValue<string>().Length == 301);
         Check("row: release and digest", row["latestRelease"]!["tag"]!.GetValue<string>() == "v2"
             && row["latestRelease"]!["assets"]![0]!["digest"]!.GetValue<string>() == "sha256:00ff" && row["latestRelease"]!["assets"]![0]!["size"]!.GetValue<long>() == 1234);
         Check("row: tags, lightweight and annotated", row["tags"]![0]!["date"]!.GetValue<string>() == "2026-11-19T09:00:00Z" && row["tags"]![1]!["date"]!.GetValue<string>() == "2026-10-01T09:00:00Z");

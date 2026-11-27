@@ -160,7 +160,9 @@ static partial class Text
         {
             return "";
         }
-        var s = Colour().Replace(text, "");
+        // Packager placeholders (@project-version@) are never part of a name or summary.
+        var s = System.Text.RegularExpressions.Regex.Replace(text, "@[A-Za-z0-9_-]+@", "");
+        s = Colour().Replace(s, "");
         s = s.Replace("|r", "", StringComparison.OrdinalIgnoreCase).Replace("|n", " ", StringComparison.OrdinalIgnoreCase);
         s = Texture().Replace(s, "");
         s = Conditions().Replace(s, "");
@@ -425,12 +427,12 @@ static class Generator
 
     public static string? Str(JsonNode? node) => node is JsonValue v && v.TryGetValue<string>(out var s) && s.Length > 0 ? s : null;
 
-    /// <summary>Many folders that don't share a name with the main one: a bundle of unrelated add-ons, not one add-on.</summary>
     /// <summary>The catalog schema's folder pattern.</summary>
     static readonly System.Text.RegularExpressions.Regex PlainFolderPattern = new("^[A-Za-z0-9_!]([A-Za-z0-9_.! -]*[A-Za-z0-9_!-])?$");
 
     static System.Text.RegularExpressions.Regex PlainFolder() => PlainFolderPattern;
 
+    /// <summary>Many folders that don't share a name with the main one: a bundle of unrelated add-ons, not one add-on.</summary>
     public static bool IsCompilation(IReadOnlyList<string> folders, string main)
     {
         var stem = main.Length >= 3 ? main[..3] : main;
@@ -490,6 +492,12 @@ static class Generator
             if (IsCompilation(folders, mainFolder))
             {
                 result.Drop("a compilation of unrelated add-ons", repo);
+                continue;
+            }
+            if (SeparateAddons(row, folders, mainFolder) is { Count: > 0 } separate)
+            {
+                // An entry is one add-on: a release that also ships another, unrelated one is someone's collection.
+                result.Drop("a collection: the release also ships separate add-ons", $"{repo} ({mainFolder} with {string.Join(", ", separate)})");
                 continue;
             }
             if (folders.FirstOrDefault(f => !PlainFolder().IsMatch(f)) is { } odd)
@@ -584,7 +592,7 @@ static class Generator
                 result.Drop("no summary (no .toc Notes, repository description or README, and no override)", l.Repo);
                 continue;
             }
-            var own = OwnToc(l.Row, l.MainFolder);
+            var own = MainToc(l);
             deps[entry] = (Strings(own["dependencies"]), Strings(own["optionalDependencies"]));
             result.Addons.Add(entry);
             var authorId = entry["author"]!.GetValue<string>();
@@ -727,27 +735,94 @@ static class Generator
     /// library's or helper's (Stubby in Auctioneer), and its Title, Notes, icon and dependencies would describe the
     /// wrong add-on: none are used, and the entry falls back to the folder name and the repository.
     /// </summary>
+    /// <summary>
+    /// The main folder's .toc fields: as the release check read them in the release itself when it recorded them (the
+    /// source of truth, and the only one when the packager writes the .toc), over discovery's from the repo.
+    /// </summary>
+    static JsonObject MainToc(Listing l) => MainToc(l.Row, l.Main, l.MainFolder);
+
+    public static JsonObject MainToc(JsonObject row, JsonObject good, string mainFolder)
+    {
+        var toc = OwnToc(row, mainFolder).DeepClone().AsObject();
+        if (good["toc"] is JsonObject released)
+        {
+            foreach (var (key, value) in released)
+            {
+                toc[key] = value?.DeepClone();
+            }
+        }
+        return toc;
+    }
+
     public static JsonObject OwnToc(JsonObject row, string mainFolder)
     {
-        var toc = row["toc"]?.AsObject();
-        if (toc is null)
+        // Discovery's pick first; then any .toc it read that belongs to the main folder (ForeverScout: discovery picked
+        // its guide's .toc, the shallowest).
+        var toc = row["toc"] as JsonObject;
+        if (toc is not null && Belongs(Str(toc["path"]) ?? "", mainFolder, rootCounts: false))
         {
-            return new JsonObject();
+            return toc;
         }
-        // The repo's layout isn't the zip's (src/Thing.toc, addon/Thing/Thing.toc), so match the .toc's folder or its own
-        // name, with or without an edition suffix (Thing_Forever.toc).
-        var parts = (Str(toc["path"]) ?? "").Split('/');
+        if (TocFor(row, mainFolder) is { } named)
+        {
+            return named;
+        }
+        // A .toc at the repo's root, with no other named after the folder, is the add-on's own.
+        return toc is not null && Belongs(Str(toc["path"]) ?? "", mainFolder, rootCounts: true) ? toc : new JsonObject();
+    }
+
+    /// <summary>The .toc discovery read for a folder of the release, with its fields, or null.</summary>
+    public static JsonObject? TocFor(JsonObject row, string folder) =>
+        (row["tocs"]?.AsArray() ?? []).OfType<JsonObject>()
+            .Where(t => t.ContainsKey("title") && Belongs(Str(t["path"]) ?? "", folder, rootCounts: false))
+            .OrderBy(t => (Str(t["path"]) ?? "").Count(c => c == '/')).ThenBy(t => (Str(t["path"]) ?? "").Length).FirstOrDefault();
+
+    /// <summary>
+    /// Whether a .toc in the repo belongs to a folder of the release. The repo's layout isn't the zip's (src/Thing.toc,
+    /// addon/Thing/Thing.toc), so match the .toc's folder or its own name, with or without an edition suffix
+    /// (Thing_Forever.toc). A .toc at the root counts for the main folder when discovery picked it.
+    /// </summary>
+    static bool Belongs(string path, string folder, bool rootCounts)
+    {
+        var parts = path.Split('/');
         var stem = Path.GetFileNameWithoutExtension(parts[^1]);
-        var own = parts.Length == 1
-            || parts[^2].Equals(mainFolder, StringComparison.OrdinalIgnoreCase)
-            || stem.Equals(mainFolder, StringComparison.OrdinalIgnoreCase)
-            || (stem.StartsWith(mainFolder, StringComparison.OrdinalIgnoreCase) && stem.Length > mainFolder.Length && stem[mainFolder.Length] is '_' or '-');
-        return own ? toc : new JsonObject();
+        return (rootCounts && parts.Length == 1)
+            || (parts.Length > 1 && parts[^2].Equals(folder, StringComparison.OrdinalIgnoreCase))
+            || stem.Equals(folder, StringComparison.OrdinalIgnoreCase)
+            || (stem.StartsWith(folder, StringComparison.OrdinalIgnoreCase) && stem.Length > folder.Length && stem[folder.Length] is '_' or '-');
+    }
+
+    static readonly System.Text.RegularExpressions.Regex LibraryFolder = new(@"^(Lib|Ace|CallbackHandler|Taintless)|[-_ ]\d+\.\d+$", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+    /// <summary>
+    /// Folders of a release that are separate add-ons: their own .toc with a Title, a name not built on the main
+    /// folder's, not a library or a load-first helper, and no dependency either way with another folder of the release.
+    /// (Dominos with Masque_Dominos, RatingBuster with StatLogic, a suite's modules: each depends on another, so they're
+    /// one add-on. PartyDiamond with SoftTarget: two add-ons in one zip.) A folder discovery has no .toc for is assumed
+    /// to belong.
+    /// </summary>
+    public static List<string> SeparateAddons(JsonObject row, IReadOnlyList<string> folders, string main)
+    {
+        var stem = main.TrimStart('!');
+        stem = stem.Length >= 3 ? stem[..3] : stem;
+        var deps = folders.ToDictionary(f => f, f => TocFor(row, f) is { } t
+            ? Strings(t["dependencies"]).Concat(Strings(t["optionalDependencies"])).ToHashSet(StringComparer.OrdinalIgnoreCase)
+            : new HashSet<string>(StringComparer.OrdinalIgnoreCase), StringComparer.OrdinalIgnoreCase);
+        // A Title or Notes that names another folder ties them too (HUI "(ex-ActionBarsEnhanced)" with its
+        // ActionBarsEnhanced profile-migration folder).
+        var words = folders.ToDictionary(f => f, f => TocFor(row, f) is { } t ? $"{Str(t["title"])} {Str(t["notes"])}" : "", StringComparer.OrdinalIgnoreCase);
+        bool Names(string text, string folder) => folder.TrimStart('!').Length >= 4 && text.Contains(folder.TrimStart('!'), StringComparison.OrdinalIgnoreCase);
+        return folders.Where(f => !f.Equals(main, StringComparison.OrdinalIgnoreCase) && !f.StartsWith('!')
+                && !f.TrimStart('!').StartsWith(stem, StringComparison.OrdinalIgnoreCase) && !LibraryFolder.IsMatch(f)
+                && Str(TocFor(row, f)?["title"]) is not null
+                && !deps[f].Overlaps(folders.Where(o => !o.Equals(f, StringComparison.OrdinalIgnoreCase)))
+                && !folders.Any(o => !o.Equals(f, StringComparison.OrdinalIgnoreCase) && (deps[o].Contains(f) || Names(words[o], f) || Names(words[f], o))))
+            .ToList();
     }
 
     static JsonObject Entry(Listing l, string id, List<JsonObject> previous, List<string> editionIds, DateOnly today, Authors authors)
     {
-        var toc = OwnToc(l.Row, l.MainFolder);
+        var toc = MainToc(l);
         var from = new JsonObject();
         var entry = new JsonObject { ["id"] = id };
 
@@ -1551,6 +1626,29 @@ static class SelfTest
         Check("own toc: a library's isn't used", Generator.OwnToc(Obj("""{"toc":{"path":"Stubby/Stubby.toc","title":"Stubby"}}"""), "Auctioneer").Count == 0
             && Generator.OwnToc(Obj("""{"toc":{"path":"Thingamajig.toc","title":"T"}}"""), "Thing").Count > 0
             && Generator.OwnToc(Obj("""{"toc":{"path":"x/Thingamajig.toc","title":"T"}}"""), "Thing").Count == 0);
+        var scout = Obj("""{"toc":{"path":"Guide.toc","title":"Scout Guide"},"tocs":[{"path":"Guide.toc","title":"Scout Guide"},{"path":"ForeverScout/ForeverScout.toc","title":"Forever Scout","notes":"Scouts."}]}""");
+        Check("own toc: found among the other .toc files when discovery picked another folder's", Str(Generator.OwnToc(scout, "ForeverScout")["title"]) == "Forever Scout"
+            && Str(Generator.OwnToc(scout, "Guide")["title"]) == "Scout Guide");
+        JsonObject Repo(params (string Path, string Title, string[] Deps, string[] Optional)[] tocs) => new()
+        {
+            ["tocs"] = new JsonArray(tocs.Select(x => (JsonNode)new JsonObject { ["path"] = x.Path, ["title"] = x.Title, ["dependencies"] = Generator.Array(x.Deps), ["optionalDependencies"] = Generator.Array(x.Optional) }).ToArray()),
+        };
+        Check("separate: two unrelated add-ons in one release", Generator.SeparateAddons(Repo(("PartyDiamond/PartyDiamond.toc", "Party Diamond", [], []), ("SoftTarget/SoftTarget.toc", "SoftTarget", [], [])),
+            ["PartyDiamond", "SoftTarget"], "PartyDiamond").SequenceEqual(["SoftTarget"]));
+        Check("separate: a plugin depending on the main folder belongs", Generator.SeparateAddons(Repo(("Dominos/Dominos.toc", "Dominos", [], []), ("Masque_Dominos/Masque_Dominos.toc", "Masque Dominos", ["Dominos", "Masque"], [])),
+            ["Dominos", "Masque_Dominos"], "Dominos").Count == 0);
+        Check("separate: a library the main folder depends on belongs", Generator.SeparateAddons(Repo(("RatingBuster/RatingBuster.toc", "RatingBuster", ["StatLogic"], []), ("StatLogic/StatLogic.toc", "StatLogic", [], [])),
+            ["RatingBuster", "StatLogic"], "RatingBuster").Count == 0);
+        Check("separate: modules named after the main folder, Lib folders, ! helpers and folders with no .toc belong", Generator.SeparateAddons(Repo(("Thing/Thing.toc", "Thing", [], []), ("Thing_Config/Thing_Config.toc", "Thing Config", [], []),
+            ("LibFoo/LibFoo.toc", "LibFoo", [], []), ("!ThingLoad/!ThingLoad.toc", "Loader", [], [])), ["Thing", "Thing_Config", "LibFoo", "!ThingLoad", "Unknown"], "Thing").Count == 0);
+        Check("separate: an optional dependency counts as a tie", Generator.SeparateAddons(Repo(("Keel/Keel.toc", "Keel", [], ["RenderTuner"]), ("RenderTuner/RenderTuner.toc", "RenderTuner", [], [])),
+            ["Keel", "RenderTuner"], "Keel").Count == 0);
+        Check("separate: a Title naming another folder ties them", Generator.SeparateAddons(Repo(("HUI.toc", "HUI (ex-ActionBarsEnhanced)", [], []), ("ActionBarsEnhanced/ActionBarsEnhanced.toc", "Profiles migration", [], [])),
+            ["ActionBarsEnhanced", "HUI"], "ActionBarsEnhanced").Count == 0);
+        var released = Generator.MainToc(scout, Obj("""{"toc":{"title":"Forever Scout from the zip","author":"Zip"}}"""), "ForeverScout");
+        Check("main toc: the release's own .toc wins over the repo's", Str(released["title"]) == "Forever Scout from the zip" && Str(released["notes"]) == "Scouts."
+            && Str(Generator.MainToc(scout, Obj("{}"), "ForeverScout")["title"]) == "Forever Scout");
+        Check("clean: packager placeholders go", Text.Clean("Carbonite Maps @project-version@", dropVersions: true) == "Carbonite Maps");
         Check("clean: colours and version", Text.Clean("|cff00ff00Questie|r v12.1.1", dropVersions: true) == "Questie");
         Check("clean: textures and conditions", Text.Clean("|TInterface\\Icons\\X:16|t Foo [AllowLoadGameType classic]", dropVersions: true) == "Foo");
         Check("clean: version in brackets", Text.Clean("Bar (1.2.3)", dropVersions: true) == "Bar" && Text.Clean("Atlas 2 Loot", dropVersions: true) == "Atlas 2 Loot");
