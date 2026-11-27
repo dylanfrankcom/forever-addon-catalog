@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.13.0",
+  "version": "4.14.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -3907,7 +3907,7 @@
       ]
     },
     "rusty-key": {
-      "name": "rusty",
+      "name": "rusty-key",
       "profiles": [
         "https://github.com/rusty-key"
       ],
@@ -91143,7 +91143,10 @@
         "Spoken_Bosses",
         "Spoken_Places",
         "Spoken_Quests",
-        "Spoken_Readables"
+        "Spoken_Readables",
+        "SpokenBossesAudio",
+        "SpokenPlacesAudio",
+        "SpokenReadablesAudio"
       ],
       "editions": {
         "anniversary": {
@@ -91192,224 +91195,7 @@
         "releases": 164,
         "stars": 134,
         "marker": "yes",
-        "careful": false,
-        "ownerAddons": 3
-      }
-    },
-    {
-      "id": "spoken-bosses-audio",
-      "name": "Spoken Audio: Bosses",
-      "summary": "Narrated boss stories for Spoken Bosses. Keep it enabled: it loads with the game, and Spoken Bosses plays from it.",
-      "author": "rusty-key",
-      "tags": [
-        "class"
-      ],
-      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/spoken-bosses-audio.png",
-      "added": "2026-11-27",
-      "sources": [
-        {
-          "type": "github",
-          "repo": "rusty-key/spoken-wow",
-          "tagPrefix": "bosses-audio/",
-          "assetPattern": "(?i)\\.zip$"
-        }
-      ],
-      "links": {
-        "repository": "https://github.com/rusty-key/spoken-wow",
-        "issues": "https://github.com/rusty-key/spoken-wow/issues"
-      },
-      "folders": [
-        "SpokenBossesAudio"
-      ],
-      "editions": {
-        "anniversary": {
-          "interface": "20506",
-          "upToDate": true,
-          "released": "2026-10-31"
-        },
-        "classic_era": {
-          "interface": "11509",
-          "upToDate": true,
-          "released": "2026-10-31"
-        },
-        "forever": {
-          "interface": "16001",
-          "upToDate": true,
-          "released": "2026-10-31"
-        },
-        "classic_era_ptr": {
-          "interface": "20506",
-          "upToDate": true,
-          "released": "2026-10-31"
-        }
-      },
-      "ownApp": {
-        "name": "Spoken Manager",
-        "url": "https://spoken.quest/#install",
-        "marker": ".spoken-manager"
-      },
-      "linkOnly": {
-        "url": "https://spoken.quest/#install"
-      },
-      "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
-        "author": "repo-owner",
-        "tags": "topics",
-        "icon": "toc-icon"
-      },
-      "trust": {
-        "repoSince": "2026-09-07",
-        "ownerSince": "2011-11-15",
-        "releases": 164,
-        "stars": 134,
-        "marker": "yes",
-        "careful": false,
-        "ownerAddons": 3
-      }
-    },
-    {
-      "id": "spoken-places-audio",
-      "name": "Spoken Audio: Places",
-      "summary": "Narrated place lore for Spoken Places. Keep it enabled: it loads with the game, and Spoken Places plays from it. Beta…",
-      "author": "rusty-key",
-      "tags": [
-        "class"
-      ],
-      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/spoken-places-audio.png",
-      "added": "2026-11-27",
-      "sources": [
-        {
-          "type": "github",
-          "repo": "rusty-key/spoken-wow",
-          "tagPrefix": "places-audio/",
-          "assetPattern": "(?i)\\.zip$"
-        }
-      ],
-      "links": {
-        "repository": "https://github.com/rusty-key/spoken-wow",
-        "issues": "https://github.com/rusty-key/spoken-wow/issues"
-      },
-      "folders": [
-        "SpokenPlacesAudio"
-      ],
-      "editions": {
-        "anniversary": {
-          "interface": "20506",
-          "upToDate": true,
-          "released": "2026-10-31"
-        },
-        "classic_era": {
-          "interface": "11509",
-          "upToDate": true,
-          "released": "2026-10-31"
-        },
-        "forever": {
-          "interface": "16001",
-          "upToDate": true,
-          "released": "2026-10-31"
-        },
-        "classic_era_ptr": {
-          "interface": "20506",
-          "upToDate": true,
-          "released": "2026-10-31"
-        }
-      },
-      "ownApp": {
-        "name": "Spoken Manager",
-        "url": "https://spoken.quest/#install",
-        "marker": ".spoken-manager"
-      },
-      "linkOnly": {
-        "url": "https://spoken.quest/#install"
-      },
-      "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
-        "author": "repo-owner",
-        "tags": "topics",
-        "icon": "toc-icon"
-      },
-      "trust": {
-        "repoSince": "2026-09-07",
-        "ownerSince": "2011-11-15",
-        "releases": 164,
-        "stars": 134,
-        "marker": "yes",
-        "careful": false,
-        "ownerAddons": 3
-      }
-    },
-    {
-      "id": "spoken-readables-audio",
-      "name": "Spoken Audio: Readables",
-      "summary": "Narrated books, letters, notes and plaques for Spoken Readables. Keep it enabled: it loads with the game, and Spoken…",
-      "author": "rusty-key",
-      "tags": [
-        "class"
-      ],
-      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/spoken-readables-audio.png",
-      "added": "2026-11-27",
-      "sources": [
-        {
-          "type": "github",
-          "repo": "rusty-key/spoken-wow",
-          "tagPrefix": "readables-audio/",
-          "assetPattern": "(?i)\\.zip$"
-        }
-      ],
-      "links": {
-        "repository": "https://github.com/rusty-key/spoken-wow",
-        "issues": "https://github.com/rusty-key/spoken-wow/issues"
-      },
-      "folders": [
-        "SpokenReadablesAudio"
-      ],
-      "editions": {
-        "anniversary": {
-          "interface": "20506",
-          "upToDate": true,
-          "released": "2026-10-31"
-        },
-        "classic_era": {
-          "interface": "11509",
-          "upToDate": true,
-          "released": "2026-10-31"
-        },
-        "forever": {
-          "interface": "16001",
-          "upToDate": true,
-          "released": "2026-10-31"
-        },
-        "classic_era_ptr": {
-          "interface": "20506",
-          "upToDate": true,
-          "released": "2026-10-31"
-        }
-      },
-      "ownApp": {
-        "name": "Spoken Manager",
-        "url": "https://spoken.quest/#install",
-        "marker": ".spoken-manager"
-      },
-      "linkOnly": {
-        "url": "https://spoken.quest/#install"
-      },
-      "from": {
-        "name": "toc-title",
-        "summary": "toc-notes",
-        "author": "repo-owner",
-        "tags": "topics",
-        "icon": "toc-icon"
-      },
-      "trust": {
-        "repoSince": "2026-09-07",
-        "ownerSince": "2011-11-15",
-        "releases": 164,
-        "stars": 134,
-        "marker": "yes",
-        "careful": false,
-        "ownerAddons": 3
+        "careful": false
       }
     },
     {

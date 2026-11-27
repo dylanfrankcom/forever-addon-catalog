@@ -610,7 +610,7 @@ sealed class Result
 
 static class Generator
 {
-    static readonly string[] OverrideOnly = ["repo", "tagPrefix", "$schema", "$comment"];
+    static readonly string[] OverrideOnly = ["repo", "tagPrefix", "partOf", "$schema", "$comment"];
     static readonly string[] FieldOrder = ["id", "name", "summary", "summaries", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
         "editions", "requires", "optional", "conflicts", "notes", "ownApp", "linkOnly", "withdrawn", "overrides", "from"];
 
@@ -793,8 +793,15 @@ static class Generator
         var authors = new Authors();
         var deps = new Dictionary<JsonObject, (List<string> Required, List<string> Optional)>();
         var reposOf = new Dictionary<string, List<JsonObject>>(StringComparer.Ordinal);
+        // Parts of another entry (an override's "partOf"): checked like any release, but their folders join that entry.
+        var parts = new List<(string Id, string Into, List<string> Folders)>();
         foreach (var l in kept)
         {
+            if (overrideFor.TryGetValue(l, out var partOverride) && Str(inputs.Overrides[partOverride]["partOf"]) is { } into)
+            {
+                parts.Add((ids[l], into, l.Folders));
+                continue;
+            }
             var entry = Entry(l, ids[l], previous, editionIds, today, authors);
             result.Good[ids[l]] = (l.Repo, l.Good);
             if (overrideFor.TryGetValue(l, out var o))
@@ -814,6 +821,24 @@ static class Generator
             if (entry["icon"] is null && IconPath(Str(own["iconTexture"]), l.Folders) is { } icon)
             {
                 result.IconJobs.Add((entry, Str(l.Main["url"])!, icon));
+            }
+        }
+
+        // Only into a link-only entry: the app installs neither, so it only needs to know whose folders they are.
+        foreach (var (id, into, folders) in parts)
+        {
+            var whole = result.Addons.FirstOrDefault(a => Str(a["id"]) == into);
+            if (whole is null)
+            {
+                result.Drop("part of an add-on that isn't listed", $"{id} (part of {into})");
+            }
+            else if (whole["linkOnly"] is null)
+            {
+                result.Drop("part of an add-on that isn't link only", $"{id} (part of {into})");
+            }
+            else
+            {
+                whole["folders"] = Array(Strings(whole["folders"]).Concat(folders).Distinct(StringComparer.OrdinalIgnoreCase));
             }
         }
 
@@ -2043,6 +2068,25 @@ static class SelfTest
             manyResult.Dropped.TryGetValue("a repo that releases several add-ons: listed by tag prefix only", out var whole) && whole.SequenceEqual(["m/Many"])
             && manyResult.Dropped.TryGetValue("a tag prefix no override names", out var unnamed) && unnamed.SequenceEqual(["m/Many three/"]));
         Check("tag prefix: each in versions.json", Versions.Addons(manyResult, several.Catalog).Select(p => p.Key).SequenceEqual(["many-one", "many-two"]));
+        var withParts = several with
+        {
+            Checks = [Prefixed(Check_("m/Many", ["One"], "forever"), "one/"), Prefixed(Check_("m/Many", ["Two"], "forever"), "two/"),
+                Prefixed(Check_("m/Many", ["Pack"], "forever"), "pack/"), Prefixed(Check_("m/Many", ["Extra"], "forever"), "extra/")],
+            Overrides = new Dictionary<string, JsonObject>(StringComparer.Ordinal)
+            {
+                ["many-one"] = Obj("""{"repo":"m/Many","tagPrefix":"one/","name":"One","summary":"The first add-on.","linkOnly":{"url":"https://example.com/one"}}"""),
+                ["many-two"] = Obj("""{"repo":"m/Many","tagPrefix":"two/","name":"Two","summary":"The second add-on."}"""),
+                ["many-pack"] = Obj("""{"repo":"m/Many","tagPrefix":"pack/","partOf":"many-one"}"""),
+                ["many-extra"] = Obj("""{"repo":"m/Many","tagPrefix":"extra/","partOf":"many-two"}"""),
+            },
+        };
+        var partsResult = Generator.Build(withParts, new DateOnly(2026, 11, 26));
+        var joined = partsResult.Addons.FirstOrDefault(a => Str(a["id"]) == "many-one");
+        Check("part of: its folders join a link-only entry, with no entry of its own",
+            partsResult.Addons.Select(a => a["id"]!.GetValue<string>()).SequenceEqual(["many-one", "many-two"]) && List(joined?["folders"]).SequenceEqual(["One", "Pack"])
+            && joined?["partOf"] is null && !Versions.Addons(partsResult, withParts.Catalog).ContainsKey("many-pack"));
+        Check("part of: never into an entry the app installs", List(partsResult.Addons.First(a => Str(a["id"]) == "many-two")["folders"]).SequenceEqual(["Two"])
+            && partsResult.Dropped.TryGetValue("part of an add-on that isn't link only", out var notWhole) && notWhole.SequenceEqual(["many-extra (part of many-two)"]));
         Check("ownApp: from the override, after notes", Generator.Str(byId["questie"]["ownApp"]!["marker"]) == ".questie-manager"
             && byId["questie"].Select(p => p.Key).SkipWhile(k => k != "notes").Skip(1).First() == "ownApp");
         Check("trust: built by its own repo, its history and the author's marker", Generator.Str(qt["built"]) == ".github/workflows/release.yml"
