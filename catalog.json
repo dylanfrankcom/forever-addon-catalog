@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.16.0",
+  "version": "4.17.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -5644,6 +5644,9 @@
     {
       "id": "accwideuilayoutselection",
       "name": "Account Wide Interface Settings",
+      "otherNames": [
+        "Acc Wide UI Layout Selection"
+      ],
       "summary": "Synchronises various Character-Specific Interface Settings Account Wide. /awi",
       "summaries": {
         "frFR": "Synchronise divers paramètres d'interface spécifiques aux personnages pour l'ensemble du compte. /awi",
@@ -6492,6 +6495,9 @@
     {
       "id": "addonweight",
       "name": "Addon Weight",
+      "otherNames": [
+        "Forever Addon Weight"
+      ],
       "summary": "How heavy each of your other addons is: the frame time it takes, the stutters it causes, the memory it holds and how…",
       "author": "themizeguy",
       "added": "2026-11-26",
@@ -7756,6 +7762,9 @@
     {
       "id": "antifaaktionazeroth",
       "name": "Antifaschiste Aktion Azeroth",
+      "otherNames": [
+        "Shut Up"
+      ],
       "summary": "Setzt Mitglieder bestimmter Gilden automatisch auf Ignore und blendet ihren Chat aus. Befehl: /aaa",
       "author": "nevrion",
       "added": "2026-11-26",
@@ -7865,6 +7874,9 @@
     {
       "id": "apogeeessentials",
       "name": "Apogee Essentials",
+      "otherNames": [
+        "Apogee Forever"
+      ],
       "summary": "Forever combat fading, gameplay errors, name mentions and group sounds.",
       "author": "notify353",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/apogeeessentials.png",
@@ -8089,6 +8101,9 @@
     {
       "id": "aquaticambience",
       "name": "Aquatic Ambience",
+      "otherNames": [
+        "forever aquatic ambience"
+      ],
       "summary": "Plays your underwater music while your character is submerged.",
       "author": "rampagingrhinoceros",
       "added": "2026-11-26",
@@ -9174,6 +9189,9 @@
     {
       "id": "atlas-classicwow",
       "name": "Atlas Kalimdor & Eastern Kingdoms",
+      "otherNames": [
+        "Atlas Kalimdor and Eastern Kingdoms"
+      ],
       "summary": "Kalimdor and Eastern Kingdoms instance maps for Atlas",
       "summaries": {
         "deDE": "Instanzkarten für Kalimdor und die Östlichen Königreiche für Atlas",
@@ -9856,6 +9874,9 @@
     {
       "id": "auctiondb",
       "name": "Auction House DataBase (AHDB)",
+      "otherNames": [
+        "Auction DB"
+      ],
       "summary": "WoW Forever edition",
       "author": "mooreatv",
       "tags": [
@@ -9936,6 +9957,9 @@
     {
       "id": "auctioneer",
       "name": "Auctioneer Core",
+      "otherNames": [
+        "Auctioneer Forever"
+      ],
       "summary": "Auctioneer assists players to track item values on the Auction House; whether buying or selling.",
       "author": "noobygains",
       "added": "2026-11-26",
@@ -10508,6 +10532,9 @@
     {
       "id": "autogroupfinder",
       "name": "Auto Group Finder",
+      "otherNames": [
+        "forever group finder"
+      ],
       "summary": "Finds tanks, healers and damage for your group automatically – like the Retail dungeon finder.",
       "summaries": {
         "deDE": "Sucht automatisch Tanks, Heiler und Schaden für deine Gruppe – wie der Dungeon-Finder in Retail."
@@ -10637,6 +10664,9 @@
     {
       "id": "autojanitor",
       "name": "Auto Janitor",
+      "otherNames": [
+        "Forever Auto Janitor"
+      ],
       "summary": "Replaces your cheapest grey item with loot that does not fit in your bags.",
       "author": "calebmorris",
       "added": "2026-11-26",
@@ -11169,6 +11199,9 @@
     {
       "id": "autoshare",
       "name": "Auto Quest Sharing",
+      "otherNames": [
+        "autoshare"
+      ],
       "summary": "Shares all quests with party members.",
       "author": "psykzz",
       "tags": [
@@ -11445,6 +11478,9 @@
     {
       "id": "azeriteui5-junnez-edition",
       "name": "Azerite UI JuNNeZ Edition",
+      "otherNames": [
+        "Azerite UI5 Ju N Ne Z Edition"
+      ],
       "summary": "Custom user graphical interface. Design by Daniel Troko and Lars Norberg. Code by Lars Norberg. Updated and Maintained…",
       "author": "junnez",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/azeriteui5-junnez-edition.png",
@@ -11627,6 +11663,9 @@
     {
       "id": "azerothcardbinder",
       "name": "World of Warcards",
+      "otherNames": [
+        "azeroth card binder"
+      ],
       "summary": "Discover collectible cards in World of Warcraft: Forever. Open from the minimap or with /acb.",
       "author": "imokim2",
       "added": "2026-11-26",
@@ -13336,6 +13375,9 @@
     {
       "id": "bagnon-iteminfo",
       "name": "Bagnon: ItemLevel Plus",
+      "otherNames": [
+        "Bagnon Item Info"
+      ],
       "summary": "By Lars Norberg A simple Bagnon plugin that displays the itemlevel and bind status of your equipable gear and a purple…",
       "author": "goldpawsstuff",
       "tags": [
@@ -14242,6 +14284,9 @@
     {
       "id": "bantercombat",
       "name": "BanterCombat",
+      "otherNames": [
+        "rppvp interactions"
+      ],
       "summary": "PvP banter, Dota-style kill announcer, rivals, chronicle and feats (Classic Era / WoW Forever).",
       "summaries": {
         "ptBR": "Provocações PvP, anunciador estilo Dota, rivais, crônica e feitos (Classic Era / WoW Forever)."
@@ -15463,6 +15508,9 @@
     {
       "id": "bears-audio-switcher",
       "name": "Bears Switcher",
+      "otherNames": [
+        "Bears Audio Switcher"
+      ],
       "summary": "Allows you to quickly change the audio output driver used by the game.",
       "author": "n6rej",
       "added": "2026-11-26",
@@ -16603,6 +16651,9 @@
     {
       "id": "betterbags-openable",
       "name": "BetterBags - Openable Items",
+      "otherNames": [
+        "Libs Item Highlighter"
+      ],
       "summary": "Filters all items that have a <Right Click to Open> or Use option",
       "author": "spartanui-wow",
       "tags": [
@@ -18102,6 +18153,9 @@
     {
       "id": "bindcards",
       "name": "BindCards",
+      "otherNames": [
+        "forever Bind Cards"
+      ],
       "summary": "Visual conditional keymapping without action bars.",
       "author": "mimezu",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/bindcards.png",
@@ -18770,6 +18824,9 @@
     {
       "id": "blinkiis-portraits",
       "name": "Blinkii Portraits",
+      "otherNames": [
+        "Blinkiis Portraits"
+      ],
       "summary": "Portraits for ElvUI, Cell, PB4, UUF, NDui and SUF.",
       "summaries": {
         "deDE": "Portraits für ElvUI, Cell, PB4, UUF, NDui und SUF.",
@@ -19114,6 +19171,9 @@
     {
       "id": "blockblizzchatchannels",
       "name": "Block Blizzard Chat Channels",
+      "otherNames": [
+        "Block Blizz Chat Channels"
+      ],
       "summary": "Prevent all characters on your account from joining various default chat channels. /blockblizzchatchannels",
       "author": "ninerbull",
       "tags": [
@@ -19267,6 +19327,9 @@
     {
       "id": "bloodrunner",
       "name": "Bloodrunner",
+      "otherNames": [
+        "bloodrunner forever"
+      ],
       "summary": "Blood of Heroes farm routes for WoW: Forever.",
       "author": "saboya",
       "added": "2026-11-26",
@@ -19834,6 +19897,9 @@
     {
       "id": "broker-tinyfriends",
       "name": "TinyFriends",
+      "otherNames": [
+        "Broker Tiny Friends"
+      ],
       "summary": "View and interact with your Battle.net friends",
       "author": "pinta365",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/broker-tinyfriends.png",
@@ -19930,6 +19996,9 @@
     {
       "id": "broker-tinyguild",
       "name": "TinyGuild",
+      "otherNames": [
+        "Broker Tiny Guild"
+      ],
       "summary": "View and interact with your guild's online members",
       "author": "pinta365",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/broker-tinyguild.png",
@@ -21134,6 +21203,9 @@
     {
       "id": "bulkmail2inbox",
       "name": "Bulk Mail Inbox",
+      "otherNames": [
+        "Bulk Mail2Inbox"
+      ],
       "summary": "Bulk mail reception made really easy",
       "summaries": {
         "ruRU": "BulkMail - получение почты делает на много легче"
@@ -21446,6 +21518,9 @@
     {
       "id": "buttonstone",
       "name": "Buttonstone - Azeroth Minimap Buttons",
+      "otherNames": [
+        "buttonstone azeroth buttons"
+      ],
       "summary": "Gathers the minimap buttons of your other addons into one button and panel.",
       "summaries": {
         "deDE": "Sammelt die Minimap-Buttons deiner anderen Addons in einem Button und Panel."
@@ -21548,6 +21623,9 @@
     {
       "id": "byteterrace-core",
       "name": "ByteTerrace Core",
+      "otherNames": [
+        "World Of Warcraft.Addons"
+      ],
       "summary": "Shared framework for ByteTerrace addons: state, commands, input, events, modules, messages, sounds, facts.",
       "author": "byteterrace",
       "added": "2026-11-26",
@@ -21953,6 +22031,9 @@
     {
       "id": "carbonite",
       "name": "Carbonite Maps - Camelot (Forever)",
+      "otherNames": [
+        "Carbonite All in One Retail Classic"
+      ],
       "summary": "Released Under GPL",
       "author": "ircdirk",
       "tags": [
@@ -23766,6 +23847,9 @@
     {
       "id": "classicquestlog",
       "name": "Classic Quest Log",
+      "otherNames": [
+        "wow4e classic questlog"
+      ],
       "summary": "The classic quest log for WoW Forever: zone list, parchment details, Abandon/Share/Track. Opens with L.",
       "author": "yak3d",
       "tags": [
@@ -28769,6 +28853,9 @@
     {
       "id": "dbm-azeroth",
       "name": "<DBM> World Bosses (Vanilla)",
+      "otherNames": [
+        "DBM Vanilla"
+      ],
       "summary": "Deadly Boss Mods (DBM) - Vanilla and Season of Discovery mods (Classic and Retail)",
       "author": "deadlybossmods",
       "tags": [
@@ -28848,6 +28935,9 @@
     {
       "id": "dbm-countpack-hots",
       "name": "<DBM Media> Countpack HotS",
+      "otherNames": [
+        "DBM Count Pack Hot S"
+      ],
       "summary": "A collection of Heroes of the Storm countdown sound options for use with Deadly Boss Mods.",
       "author": "deadlybossmods",
       "tags": [
@@ -28949,6 +29039,9 @@
     {
       "id": "dbm-countpack-hots-ru",
       "name": "<DBM Media> Countpack HotS Ru",
+      "otherNames": [
+        "DBM Count Pack Hot S Build Scripts"
+      ],
       "summary": "Русские звуки отсчёта героев из Heroes of the Storm для DBM",
       "author": "vampire2008",
       "tags": [
@@ -29049,6 +29142,9 @@
     {
       "id": "dbm-flighttimers",
       "name": "<DBM Mod> Flight Timers",
+      "otherNames": [
+        "DBM Flight Timers"
+      ],
       "summary": "Flight timers for Deadly Boss Mods",
       "author": "deadlybossmods",
       "added": "2026-11-26",
@@ -29147,6 +29243,9 @@
     {
       "id": "dbm-hudmap",
       "name": "<DBM Extra> HudMap",
+      "otherNames": [
+        "DBM Hud Map"
+      ],
       "summary": "Optional on-screen HUD map for DBM and supported third-party addons",
       "summaries": {
         "deDE": "Optionale Bildschirm-HudMap für DBM und unterstützte Addons von Drittanbietern",
@@ -29250,6 +29349,9 @@
     {
       "id": "dbm-smgeventspack",
       "name": "<DBM Media> SMG Events Pack",
+      "otherNames": [
+        "DBM SMG Events Pack"
+      ],
       "summary": "Several media files for DBM encounter Event feature.",
       "author": "deadlybossmods",
       "tags": [
@@ -29351,6 +29453,9 @@
     {
       "id": "dbm-soundeventspack",
       "name": "<DBM Media> Sound Events Pack",
+      "otherNames": [
+        "DBM Sound Events Pack"
+      ],
       "summary": "Several media files for DBM encounter Event feature.",
       "author": "deadlybossmods",
       "tags": [
@@ -29977,6 +30082,9 @@
     {
       "id": "dem",
       "name": "DeM - Disenchant & More",
+      "otherNames": [
+        "Disenchant and More"
+      ],
       "summary": "Cast Disenchant / Scroll Comprehension on the hovered bag item with two key bindings",
       "summaries": {
         "frFR": "Désenchanter / Compréhension de parchemin sur l'objet survolé, avec deux raccourcis"
@@ -30129,6 +30237,9 @@
     {
       "id": "details-tww",
       "name": "Details! Skin TWW",
+      "otherNames": [
+        "Details Skin The War Within"
+      ],
       "summary": "Adds the 'The War Within' Skin to Blizzard's built-in damage meter and to Details!. By Karl-Heinz Schneider…",
       "author": "karl-heinzschneider",
       "tags": [
@@ -30321,6 +30432,9 @@
     {
       "id": "dialogueui",
       "name": "Dialogue UI",
+      "otherNames": [
+        "YUI Dialogue"
+      ],
       "summary": "Quest Dialogue UI",
       "summaries": {
         "zhTW": "沉浸式任務與 NPC 對話介面，支援快捷鍵、搖桿與自訂外觀"
@@ -30412,6 +30526,9 @@
     {
       "id": "ding",
       "name": "Ding!",
+      "otherNames": [
+        "Ding Guide wow Forever"
+      ],
       "summary": "Leveling guides with a waypoint arrow, optimized for XP per hour.",
       "summaries": {
         "frFR": "Guides de leveling avec flèche de direction, optimisés pour l'XP par heure."
@@ -31004,6 +31121,9 @@
     {
       "id": "doudprofessions",
       "name": "Doud's Professions",
+      "otherNames": [
+        "Doud Professions"
+      ],
       "summary": "Doud's UI Professions module on its own: recipe costs and margins, alts, gold, sales, disenchant, vendor, flip. /dprof",
       "author": "doudster",
       "added": "2026-11-26",
@@ -31896,6 +32016,9 @@
     {
       "id": "dumpster",
       "name": "Dumpster",
+      "otherNames": [
+        "Dumpster Reborn"
+      ],
       "summary": "Dump things in/out of your bank, guild bank, mail, trade, and vendors.",
       "author": "jabberie",
       "added": "2026-11-26",
@@ -32918,6 +33041,9 @@
     {
       "id": "easychatchannelbuttons",
       "name": "Chat Channel Buttons",
+      "otherNames": [
+        "Easy Chat Channel Buttons"
+      ],
       "summary": "Adds circular chat channel shortcut buttons next to the chat tab (ElvUI compatible)",
       "author": "ievgen-pavlenko",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/easychatchannelbuttons.png",
@@ -33618,6 +33744,9 @@
     {
       "id": "ellesmerepoisons",
       "name": "EllesmereUI Poisons",
+      "otherNames": [
+        "Ellesmere Poisons"
+      ],
       "summary": "A movable button that lists your poisons, stones and oils. Left-click an item for your main hand, right-click for your…",
       "author": "solessfir",
       "added": "2026-11-26",
@@ -33811,6 +33940,9 @@
     {
       "id": "elvui",
       "name": "ElvUI",
+      "otherNames": [
+        "Elv UI Forever"
+      ],
       "summary": "User Interface Replacement | Forever (1.60.x) port. Not official Tukui.",
       "author": "orbit0r",
       "tags": [
@@ -34119,6 +34251,9 @@
     {
       "id": "elvui-maui",
       "name": "MaUI Installer",
+      "otherNames": [
+        "Ma UI Elv UI Profile Strings"
+      ],
       "summary": "Installer for the MaUI ElvUI profile and its addon profiles.",
       "summaries": {
         "deDE": "Installer für das MaUI ElvUI-Profil und die passenden Addon-Profile.",
@@ -35241,6 +35376,9 @@
     {
       "id": "essences",
       "name": "Essences",
+      "otherNames": [
+        "Evoker Essences"
+      ],
       "summary": "Evoker essences as bars.",
       "author": "ljosberinn",
       "added": "2026-11-26",
@@ -35737,6 +35875,9 @@
     {
       "id": "everlookbar",
       "name": "EverlookDB Bar",
+      "otherNames": [
+        "Everlook Bar"
+      ],
       "summary": "Info bars for LibDataBroker plugins (XP, reputation, professions, performance, location, flight timer, durability…",
       "author": "quikmn",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/everlookbar.png",
@@ -35839,6 +35980,9 @@
     {
       "id": "everlookdbauctions-shared",
       "name": "EverlookDB Auctions: Price Feed",
+      "otherNames": [
+        "Everlook DB Auctions Shared"
+      ],
       "summary": "Other players' newest auction scans from everlookdb.com, for EverlookDB Auctions. The EverlookDB App fills it; it…",
       "author": "quikmn",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/everlookdbauctions-shared.png",
@@ -36052,6 +36196,9 @@
     {
       "id": "everlookpets",
       "name": "EverlookDB Pets",
+      "otherNames": [
+        "Everlook Pets"
+      ],
       "summary": "Hunter pets: your pet's abilities and how to get the next rank, a bestiary of tameable beasts with a wishlist, and map…",
       "author": "quikmn",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/everlookpets.png",
@@ -38875,6 +39022,9 @@
     {
       "id": "floaspectbar",
       "name": "FloAspectBar",
+      "otherNames": [
+        "Flo Aspect Bar Classic"
+      ],
       "summary": "Hunter aspect bar with keybindings. Originally by Floraline.",
       "author": "paradosi",
       "tags": [
@@ -39118,6 +39268,9 @@
     {
       "id": "flototembar",
       "name": "FloTotemBar",
+      "otherNames": [
+        "Flo Totem Bar Classic"
+      ],
       "summary": "Totem, trap, and seal bars with timers. Originally by Floraline.",
       "author": "paradosi",
       "tags": [
@@ -39511,6 +39664,9 @@
     {
       "id": "foresight",
       "name": "Foresight",
+      "otherNames": [
+        "foresight forever"
+      ],
       "summary": "The layman's oracle for WoW: Forever - know in plain terms what every talent point, stat, item, and buff actually does…",
       "author": "simulatecx",
       "added": "2026-11-26",
@@ -39898,6 +40054,9 @@
     {
       "id": "foreverdiceandale",
       "name": "Forever Dice & Ale",
+      "otherNames": [
+        "Forever Dice And Ale"
+      ],
       "summary": "A round of dice, a round of ale – the classic five-dice game, solo or with friends: in a group or with a lobby code.",
       "summaries": {
         "deDE": "Eine Runde Würfel, eine Runde Bier – das klassische Würfelspiel mit fünf Würfeln, solo oder mit Freunden: in der Gruppe…"
@@ -40133,6 +40292,9 @@
     {
       "id": "foreverelixirmanager",
       "name": "ForeverElixirManager",
+      "otherNames": [
+        "forever addon foreverelixirmanager"
+      ],
       "summary": "Manually use missing elixirs and scrolls from your bags",
       "author": "gammelgaard52",
       "added": "2026-11-26",
@@ -40307,6 +40469,9 @@
     {
       "id": "forevergather",
       "name": "Forever Harvest",
+      "otherNames": [
+        "forever gather"
+      ],
       "summary": "Remembers every herb, ore and treasure you gather and shows them on world map and minimap, with farm routes, sharing…",
       "summaries": {
         "deDE": "Merkt sich jedes Kraut, Erz und jeden Schatz, den du sammelst, und zeigt sie auf Welt- und Minikarte, mit Farmrouten…"
@@ -40818,6 +40983,9 @@
     {
       "id": "forevermailfix",
       "name": "Forever Mail Fix",
+      "otherNames": [
+        "Forever Goblin Mailer"
+      ],
       "summary": "Prefills an empty Send Mail subject with your configurable default. Options: /fmf",
       "author": "lml-studio",
       "added": "2026-11-26",
@@ -40917,6 +41085,9 @@
     {
       "id": "forevermeter",
       "name": "ForeverMeter",
+      "otherNames": [
+        "threat Meter"
+      ],
       "summary": "Damage, healing, absorbs, damage taken, interrupts, dispels, deaths and threat meter for WoW Forever. Up to 4 windows…",
       "summaries": {
         "deDE": "Schadens- und Bedrohungsmesser für WoW Forever: Schaden, Heilung, Absorptionen, erlittener Schaden, Unterbrechungen…",
@@ -41167,6 +41338,9 @@
     {
       "id": "forevernames",
       "name": "Forever Names",
+      "otherNames": [
+        "forever Forever Names"
+      ],
       "summary": "Custom friendly player names and NPC names with real subtitles and role colors.",
       "author": "mimezu",
       "added": "2026-11-26",
@@ -41264,6 +41438,9 @@
     {
       "id": "foreverplusplus",
       "name": "Forever++",
+      "otherNames": [
+        "Forever Plus Plus"
+      ],
       "summary": "Small additions and changes to the default UI for WoW Forever.",
       "author": "xigbclutchix",
       "tags": [
@@ -41322,6 +41499,9 @@
     {
       "id": "foreverprofessionplanner",
       "name": "Forever Profession Trainer",
+      "otherNames": [
+        "forever profession planner"
+      ],
       "summary": "Seven profession guides with skill targets, material estimates, and Auctionator shopping lists.",
       "author": "rozzip",
       "tags": [
@@ -41438,6 +41618,9 @@
     {
       "id": "foreverquestchain",
       "name": "QuestChain",
+      "otherNames": [
+        "forever questchain"
+      ],
       "summary": "Explore quest chains, objectives, and rewards in WoW Forever.",
       "author": "damoninc",
       "added": "2026-11-26",
@@ -41957,6 +42140,9 @@
     {
       "id": "foreverscout",
       "name": "ForeverScout",
+      "otherNames": [
+        "forever xp"
+      ],
       "summary": "Records your questing route (quests, XP, positions, timing) to help build free leveling guides and fix quest data for…",
       "author": "jweyant",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/foreverscout.png",
@@ -42554,6 +42740,9 @@
     {
       "id": "foreverwindows",
       "name": "Forever Windows",
+      "otherNames": [
+        "forever Forever Windows"
+      ],
       "summary": "Drag Blizzard window title bars; Ctrl + mouse wheel to scale. Remembers layouts. /fwm for options.",
       "author": "mimezu",
       "added": "2026-11-26",
@@ -42800,6 +42989,9 @@
     {
       "id": "framegambit",
       "name": "Frame Gambit",
+      "otherNames": [
+        "forever Frame Gambit"
+      ],
       "summary": "Friendly, priority-based visibility gambits for your UI.",
       "author": "mimezu",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/framegambit.png",
@@ -43094,6 +43286,9 @@
     {
       "id": "freresdepee",
       "name": "Frères d'Épée",
+      "otherNames": [
+        "freres depee"
+      ],
       "summary": "Noyau : fenêtre d'options /fdp et activation des modules (Auto, Quest Chain, Macros, Guides).",
       "author": "lewawan",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/freresdepee.png",
@@ -43534,6 +43729,9 @@
     {
       "id": "gaarprofessionsforever",
       "name": "GaarProfessionsForever",
+      "otherNames": [
+        "Gaar.Wow"
+      ],
       "summary": "Profession window helpers: a +/- button beside Filter that collapses or expands every recipe category at once, and a…",
       "author": "tgaarden",
       "added": "2026-11-26",
@@ -44292,6 +44490,9 @@
     {
       "id": "gearhawk",
       "name": "Gearhawk",
+      "otherNames": [
+        "Outfitter"
+      ],
       "summary": "Gear advisor for WoW Forever: pick your class and spec, see which items in your bags beat what you wear, where to get…",
       "author": "drklampz",
       "tags": [
@@ -44777,6 +44978,9 @@
     {
       "id": "glyphic",
       "name": "Glyphic: Immersive RP Languages",
+      "otherNames": [
+        "Tongues Of Azeroth"
+      ],
       "summary": "Speak Azeroth's languages in character -- 66 of them, plus accents, cast lines, and languages you invent yourself.",
       "author": "jessepretendstocode",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/glyphic.png",
@@ -46202,6 +46406,9 @@
     {
       "id": "gse",
       "name": "GSE",
+      "otherNames": [
+        "GSE Advanced Macro Compiler"
+      ],
       "summary": "Create Sequence buttons and Macros using powerful API functions.",
       "author": "timothyluke",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/gse.png",
@@ -47539,6 +47746,9 @@
     {
       "id": "guildtabardvote",
       "name": "GuildTabardVote",
+      "otherNames": [
+        "Forever Guild Tabard Vote"
+      ],
       "summary": "Persistent guild tabard design board, dedicated Guild Master anonymous results menu, live & timed multi-day voting…",
       "summaries": {
         "deDE": "Gildenweites Wappen-Board, eigenes Gildenmeister-Auswertungsmenü (anonym), Live- & mehrtägige Abstimmungen…"
@@ -47954,6 +48164,9 @@
     {
       "id": "halo",
       "name": "Halo",
+      "otherNames": [
+        "forever Halo"
+      ],
       "summary": "Small radial menus for potions, mounts, pets and other quick actions. Keyboard, mouse and gamepad.",
       "author": "mimezu",
       "added": "2026-11-26",
@@ -48511,6 +48724,9 @@
     {
       "id": "healerstatweights",
       "name": "Healer Stat Weights (Forever)",
+      "otherNames": [
+        "HSW Forever"
+      ],
       "summary": "Computes live healer stat weights (Healing, Crit, Haste, Intellect, Spirit, MP5) for World of Warcraft Forever.",
       "author": "rwisdom",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/healerstatweights.png",
@@ -49647,6 +49863,9 @@
     {
       "id": "honorbound",
       "name": "HonorBound",
+      "otherNames": [
+        "rppvp"
+      ],
       "summary": "A community crest for players sworn to RP-PvP. Keeps you flagged and shows the crest on sworn players.",
       "author": "kaselby",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/honorbound.png",
@@ -49826,6 +50045,9 @@
     {
       "id": "hourstone",
       "name": "Hourstone - Azeroth Playtime Tracker",
+      "otherNames": [
+        "hourstone azeroth hours"
+      ],
       "summary": "Your characters. Your time. Account-wide character playtime tracker.",
       "summaries": {
         "deDE": "Deine Charaktere. Deine Spielzeit. Spielzeit aller erfassten Charaktere."
@@ -50186,6 +50408,9 @@
     {
       "id": "hzfontpack1",
       "name": "Hizuro's Font Pack",
+      "otherNames": [
+        "Hz Font Pack"
+      ],
       "summary": "A little fontpack for use in other addons.",
       "author": "hizuroswowaddons",
       "added": "2026-11-26",
@@ -51210,6 +51435,9 @@
     {
       "id": "incharacter",
       "name": "In Character",
+      "otherNames": [
+        "forever mod in character"
+      ],
       "summary": "Emotes, reactions, and roleplay dialogue",
       "author": "stronk-dev",
       "added": "2026-11-26",
@@ -51914,6 +52142,9 @@
     {
       "id": "issuereporthide",
       "name": "WoW Forever Issue Reporter Hide",
+      "otherNames": [
+        "Forever Issue Report Hide"
+      ],
       "summary": "Hides the beta Issue Reporter box and its F6 tooltip hints in WoW Forever. F6 reporting still works; /irh show restores…",
       "author": "themizeguy",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/issuereporthide.png",
@@ -52486,6 +52717,9 @@
     {
       "id": "jiberishicons",
       "name": "Jiberish Fabled Icons",
+      "otherNames": [
+        "Elv UI Jiberish Icons"
+      ],
       "summary": "Fabled class, race, and specialization icons for your UI",
       "author": "repooc",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/jiberishicons.png",
@@ -53597,6 +53831,9 @@
     {
       "id": "keel",
       "name": "Keel",
+      "otherNames": [
+        "forever"
+      ],
       "summary": "The shared libraries under RenderTuner and Stickies for WoW Forever: small ones, added one layer at a time.",
       "author": "terin678",
       "added": "2026-11-26",
@@ -55205,6 +55442,9 @@
     {
       "id": "krowi-extendedvendorui",
       "name": "Krowi's Extended Vendor UI",
+      "otherNames": [
+        "Krowi Extended Vendor UI"
+      ],
       "summary": "Extends the size of your Merchant Frame.",
       "summaries": {
         "zhCN": "扩展商人商品界面，自定义筛选显示商品。"
@@ -55299,6 +55539,9 @@
     {
       "id": "krowi-menu",
       "name": "Krowi's Menu",
+      "otherNames": [
+        "Krowi Menu"
+      ],
       "summary": "A lightweight menu library for creating dropdown menus with support for titles, separators, and nested items",
       "author": "thekrowi",
       "added": "2026-11-26",
@@ -55387,6 +55630,9 @@
     {
       "id": "krowi-util",
       "name": "Krowi's Util",
+      "otherNames": [
+        "Krowi Util"
+      ],
       "summary": "A comprehensive utility library providing reusable functions for string manipulation, table operations, color…",
       "author": "thekrowi",
       "added": "2026-11-26",
@@ -55475,6 +55721,9 @@
     {
       "id": "krowi-worldmapbuttons",
       "name": "Krowi's World Map Buttons",
+      "otherNames": [
+        "Krowi World Map Buttons"
+      ],
       "summary": "A library for World of Warcraft addon development that simplifies adding custom buttons to the world map interface with…",
       "author": "thekrowi",
       "added": "2026-11-26",
@@ -55633,6 +55882,9 @@
     {
       "id": "ksui",
       "name": "Kumsung UI",
+      "otherNames": [
+        "ksui"
+      ],
       "summary": "Configurable dark reskin of the default unit frames and action bars for WoW Forever.",
       "summaries": {
         "koKR": "와우 포에버 기본 유닛 프레임과 행동 단축바를 어둡게 다듬는 설정형 UI입니다."
@@ -55752,6 +56004,9 @@
     {
       "id": "kutzinventory",
       "name": "cr0m Inventory",
+      "otherNames": [
+        "kutz inventory"
+      ],
       "summary": "Records every character's bags, bank, warband and guild bank, gear, character sheet, talents, skills, recipes…",
       "author": "ljk5000",
       "tags": [
@@ -56208,6 +56463,9 @@
     {
       "id": "latticepartyraidframes",
       "name": "Lattice",
+      "otherNames": [
+        "Lattice Party Raid Frames"
+      ],
       "summary": "Clean, easy-to-configure party & raid frames with click-casting, aura indicators and dispel highlights.",
       "author": "quikmn",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/latticepartyraidframes.png",
@@ -56768,6 +57026,9 @@
     {
       "id": "levelmates",
       "name": "Forever Guild",
+      "otherNames": [
+        "Level Mates"
+      ],
       "summary": "Your guild in one book: who is online and where, dungeon groups and meetups, guild chat with history, raid loot…",
       "summaries": {
         "esES": "Tu hermandad en un libro: quién está conectado y dónde, grupos y quedadas de mazmorra, chat de hermandad con historial…"
@@ -56955,6 +57216,9 @@
     {
       "id": "lfglanguagesforever",
       "name": "LFG Languages Forever",
+      "otherNames": [
+        "wow4e lfg language"
+      ],
       "summary": "Search for listings in multiple languages from the Group Finder Browse tab.",
       "author": "brndd",
       "tags": [
@@ -57299,6 +57563,9 @@
     {
       "id": "libclassicswingtimerapi",
       "name": "Swing Timer API",
+      "otherNames": [
+        "Lib Classic Swing Timer API"
+      ],
       "summary": "Swing Timer Library",
       "author": "ralgathor",
       "added": "2026-11-26",
@@ -58238,6 +58505,9 @@
     {
       "id": "librecipes-3-0",
       "name": "Lib: Recipes",
+      "otherNames": [
+        "librecipes 3 0"
+      ],
       "summary": "Library providing mappings between trade skill recipes, spells and created items",
       "author": "warmexx",
       "added": "2026-11-26",
@@ -59314,6 +59584,9 @@
     {
       "id": "loca",
       "name": "Loss of Control Alerter",
+      "otherNames": [
+        "Lo CA Anniversary"
+      ],
       "summary": "Shows alerts on loss of control debuffs",
       "author": "bl4ut0",
       "added": "2026-11-26",
@@ -62102,6 +62375,9 @@
     {
       "id": "mama",
       "name": "MAMA MooreaTv's/minimal yet Awesome Multiboxing Assistant (/mama)",
+      "otherNames": [
+        "MAMA multiboxing"
+      ],
       "summary": "Multiboxing assistant for WoW Forever and retail: team setup, follow/assist, quests, loot, trades, vendors",
       "author": "mooreatv",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/mama.png",
@@ -64207,6 +64483,9 @@
     {
       "id": "masqueblizzbars",
       "name": "Masque Blizzard Bars",
+      "otherNames": [
+        "Masque Blizz Bars"
+      ],
       "summary": "Enables Masque to skin the built-in action bars",
       "summaries": {
         "koKR": "기본 액션 바에 Masque로 스킨을 입힙니다",
@@ -64318,6 +64597,9 @@
     {
       "id": "masqueblizzinv",
       "name": "Masque Blizzard Inventory",
+      "otherNames": [
+        "Masque Blizz Inv"
+      ],
       "summary": "Enables Masque to skin the built-in inventory UI",
       "summaries": {
         "ruRU": "Позволяет Masque изменять внешний вид встроенного пользовательского интерфейса инвентаря.",
@@ -64427,6 +64709,9 @@
     {
       "id": "max-camera-distance",
       "name": "<Camera> Max Distance",
+      "otherNames": [
+        "Max Camera Distance"
+      ],
       "summary": "Smart camera controls with native settings and cross-client compatibility.",
       "summaries": {
         "zhCN": "智能镜头距离，具备更安全的跨版本兼容性保护措施。"
@@ -65481,6 +65766,9 @@
     {
       "id": "meeyraslockouttracker",
       "name": "Meeyra's Lockout Tracker",
+      "otherNames": [
+        "Meeyras Lockouts"
+      ],
       "summary": "A fancy LDB raid / dungeon lockout display",
       "author": "addons-by-neotron",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/meeyraslockouttracker.png",
@@ -66129,6 +66417,9 @@
     {
       "id": "mgssounds",
       "name": "MGSSounds",
+      "otherNames": [
+        "Metal Gear Solid Sounds"
+      ],
       "summary": "Makes things more interesting with Metal Gear Solid sounds",
       "author": "turleynerd",
       "added": "2026-11-26",
@@ -67729,6 +68020,9 @@
     {
       "id": "mouseovermacros",
       "name": "EverlookDB Macros",
+      "otherNames": [
+        "Mouseover Macros"
+      ],
       "summary": "/mom: your macros - a macro editor, mouseover macros for your spells in a few clicks, backups, export/import, and a…",
       "author": "quikmn",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/mouseovermacros.png",
@@ -68003,6 +68297,9 @@
     {
       "id": "movableobjectiveframe",
       "name": "Movable Objectives Frame",
+      "otherNames": [
+        "Movable Objective Frame"
+      ],
       "summary": "Allows the Objective Frame to be resized.",
       "author": "keyboardturner",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/movableobjectiveframe.png",
@@ -68076,6 +68373,9 @@
     {
       "id": "mp5",
       "name": "MP5",
+      "otherNames": [
+        "Mana Point Five"
+      ],
       "summary": "Shows a spark on your mana bars for the five-second rule and mana ticks.",
       "author": "nigeltve",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/mp5.png",
@@ -68285,6 +68585,9 @@
     {
       "id": "muscaui",
       "name": "MuscaUI",
+      "otherNames": [
+        "Aeon UI"
+      ],
       "summary": "Barre d'infos, confort automatique, rappels et habillage pour WoW Forever (addon non officiel). Modules activables un…",
       "author": "dldvlpr-addons-wow",
       "tags": [
@@ -68934,6 +69237,9 @@
     {
       "id": "mycradar",
       "name": "MYC Radar",
+      "otherNames": [
+        "MYC guild"
+      ],
       "summary": "Shared quests, guild crafters, PvP rankings and a guild bounty board.",
       "author": "numi2",
       "added": "2026-11-26",
@@ -70568,6 +70874,9 @@
     {
       "id": "npcrpgossip",
       "name": "Hidden NPC Gossip Enabler",
+      "otherNames": [
+        "NPCRP Gossip"
+      ],
       "summary": "This AddOn shows RP Text for those NPCs that have it. Toggle with the /hiddennpcgossip command.",
       "author": "ninerbull",
       "tags": [
@@ -71276,6 +71585,9 @@
     {
       "id": "oakui-installer",
       "name": "OakUI Standalone Installer",
+      "otherNames": [
+        "Oak UI Installer"
+      ],
       "summary": "One-click profile importer for the OakUI suite.",
       "author": "smokenoaken",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/oakui-installer.png",
@@ -72545,6 +72857,9 @@
     {
       "id": "orbsui",
       "name": "Orbs",
+      "otherNames": [
+        "Orbs Forever"
+      ],
       "summary": "Diablo-style health and power orbs with a live-preview designer and consumable slots. Type /orbs.",
       "author": "lachyjp",
       "added": "2026-11-26",
@@ -73420,6 +73735,9 @@
     {
       "id": "pandaquestdb",
       "name": "PandaQuest Database",
+      "otherNames": [
+        "pq DB"
+      ],
       "summary": "Quest, world and travel data for PandaQuest on WoW Forever",
       "author": "vem882",
       "tags": [
@@ -75592,6 +75910,9 @@
     {
       "id": "phyzleveling",
       "name": "Phyz Leveling Addon",
+      "otherNames": [
+        "Phyz s Leveling"
+      ],
       "summary": "RestedXP-based leveling with a classic WoW interface.",
       "author": "phyzikalgamer",
       "tags": [
@@ -75684,6 +76005,9 @@
     {
       "id": "phyzpersonalguides",
       "name": "Phyz Personal Guides",
+      "otherNames": [
+        "Phyz s Personal Guides companion"
+      ],
       "summary": "Guide setup and manual import companion for Phyz Leveling. No guides included.",
       "author": "phyzikalgamer",
       "added": "2026-11-26",
@@ -75739,6 +76063,9 @@
     {
       "id": "phyzquestbar",
       "name": "Phyz's Quest bar",
+      "otherNames": [
+        "Phyz s Quest Side bar"
+      ],
       "summary": "Your whole quest log down the side of the screen, grouped by zone. The zone you're in opens by itself.",
       "author": "phyzikalgamer",
       "added": "2026-11-26",
@@ -76152,6 +76479,9 @@
     {
       "id": "plater",
       "name": "Plater",
+      "otherNames": [
+        "Plater Nameplates"
+      ],
       "summary": "Nameplate addon designed for advanced users.",
       "summaries": {
         "esES": "Addon de placa de nombre diseñado para usuarios avanzados",
@@ -76306,6 +76636,9 @@
     {
       "id": "playertags",
       "name": "Player Tags",
+      "otherNames": [
+        "player tags wow forever"
+      ],
       "summary": "Tag the players you meet and see those tags on nameplates, tooltips, chat and group frames. Private: nothing leaves…",
       "author": "itsmattguenther",
       "tags": [
@@ -76363,6 +76696,9 @@
     {
       "id": "pleebperformancepanels",
       "name": "Pleeb Performance Panel",
+      "otherNames": [
+        "Pleeb Performance Panels"
+      ],
       "summary": "Lightweight FPS and addon CPU panel with tooltip (avg, 10% low, 1% low).",
       "author": "grimboso",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/pleebperformancepanels.png",
@@ -76435,6 +76771,9 @@
     {
       "id": "pleebpotreminder",
       "name": "PleebPot",
+      "otherNames": [
+        "Pleeb Pot Reminder"
+      ],
       "summary": "Healthstone, health potion, and mana potion reminders.",
       "author": "grimboso",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/pleebpotreminder.png",
@@ -78196,6 +78535,9 @@
     {
       "id": "profguide",
       "name": "Craftsman Codex",
+      "otherNames": [
+        "profguide"
+      ],
       "summary": "Profession levelling routes for WoW Forever in a journal window, with a step tracker. /pg",
       "author": "coylemichael",
       "added": "2026-11-27",
@@ -79030,6 +79372,9 @@
     {
       "id": "questannounce",
       "name": "Quest Announce 3",
+      "otherNames": [
+        "Quest Announcer 3"
+      ],
       "summary": "QuestAnnounce sends a message as you advance in a quest.",
       "author": "gyffes",
       "tags": [
@@ -79128,6 +79473,9 @@
     {
       "id": "questcompanion",
       "name": "QuestCompanion",
+      "otherNames": [
+        "Ready2Quest"
+      ],
       "summary": "Catch the monsters you defeat: stars, shinies, a hunting companion, zone seals, trainer titles and card, guild feats.…",
       "summaries": {
         "esES": "Captura los monstruos que derrotas: estrellas, brillantes, un compañero de caza, sellos de zona, títulos y ficha de…",
@@ -80968,6 +81316,9 @@
     {
       "id": "quotemediawq2",
       "name": "QuoteMediaWQ2",
+      "otherNames": [
+        "Quote2"
+      ],
       "summary": "WoWQuote2 sound pack for WoW: Forever. Needs the WoWQuote2 AddOn.",
       "summaries": {
         "deDE": "WoWQuote2-Soundpaket für WoW: Forever. Braucht das AddOn WoWQuote2."
@@ -81578,6 +81929,9 @@
     {
       "id": "rapitwist",
       "name": "RapiTwist",
+      "otherNames": [
+        "sealtwist"
+      ],
       "summary": "Track a chosen pair of paladin seals with side arcs and swap cues.",
       "author": "ivorapi",
       "added": "2026-11-26",
@@ -84299,6 +84653,9 @@
     {
       "id": "run",
       "name": "RUN",
+      "otherNames": [
+        "run immersive enemy builder"
+      ],
       "summary": "\"RUN\" Immersive Enemy Builder - enhancing the Azeroth we know and love. Enemies grow with every player they fell…",
       "author": "simulatecx",
       "added": "2026-11-26",
@@ -84645,6 +85002,9 @@
     {
       "id": "rxpguides",
       "name": "RestedXP Guides",
+      "otherNames": [
+        "RXP Guides"
+      ],
       "summary": "In-game leveling guides",
       "author": "restedxp",
       "tags": [
@@ -84745,6 +85105,9 @@
     {
       "id": "rxptargetping",
       "name": "RestedXP Target Ping",
+      "otherNames": [
+        "RXP Target Ping"
+      ],
       "summary": "Pings the target selected by a RestedXP guide button.",
       "author": "andrewdens",
       "added": "2026-11-26",
@@ -84799,6 +85162,9 @@
     {
       "id": "sagalore",
       "name": "Sagalore",
+      "otherNames": [
+        "gutsaga"
+      ],
       "summary": "A saga log for a World of Warcraft group",
       "author": "magnusnilsen",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/sagalore.png",
@@ -85127,6 +85493,9 @@
     {
       "id": "scrollingquesttext",
       "name": "Scrolling Quest Text",
+      "otherNames": [
+        "wow4e scrolling quest text"
+      ],
       "summary": "Restores the Classic scrolling quest text and pen writing audio.",
       "author": "yak3d",
       "added": "2026-11-26",
@@ -86612,6 +86981,9 @@
     {
       "id": "shestakui",
       "name": "ShestakUI",
+      "otherNames": [
+        "Shestak UI Forever"
+      ],
       "summary": "A total UI overhaul for World of Warcraft",
       "author": "wetxius",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/shestakui.png",
@@ -86732,6 +87104,9 @@
     {
       "id": "shortroyalty",
       "name": "Short Royalty",
+      "otherNames": [
+        "forever shortroyalty"
+      ],
       "summary": "Guild gear, talents, professions and recipes for the Short Royalty guild.",
       "author": "elliskosborn",
       "tags": [
@@ -87247,6 +87622,9 @@
     {
       "id": "shyway-ground-0",
       "name": "ShyWay Ground: Eastern Kingdoms",
+      "otherNames": [
+        "Shy Ground"
+      ],
       "summary": "Routes in Eastern Kingdoms that follow the terrain. Needs ShyUI; loads only while you're there.",
       "author": "shyce",
       "added": "2026-11-26",
@@ -87510,6 +87888,9 @@
     {
       "id": "simpleguildrosterexporter",
       "name": "SimpleGuildRosterExporter gre-v1.1.0",
+      "otherNames": [
+        "Simple Wow Exporters"
+      ],
       "summary": "A simple guild roster exporter",
       "author": "sahammer",
       "tags": [
@@ -87910,6 +88291,9 @@
     {
       "id": "simplerareelite",
       "name": "SimpleRareElite",
+      "otherNames": [
+        "Simple Rare Elite Suf"
+      ],
       "summary": "Display textures for Boss/Elite/Rare/RareElite on Shadowed Unit Frames",
       "summaries": {
         "deDE": "Zeigt Boss-, Elite-, Rare- und RareElite-Texturen auf Einheitenfenstern an. Unterstützt Shadowed Unit Frames, ElvUI und…",
@@ -88146,6 +88530,9 @@
     {
       "id": "simulationcraft",
       "name": "Simulationcraft",
+      "otherNames": [
+        "simc"
+      ],
       "summary": "Constructs SimC export strings",
       "author": "simulationcraft",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/simulationcraft.png",
@@ -89857,6 +90244,9 @@
     {
       "id": "soundstone",
       "name": "Soundstone - Azeroth Volume Mixer",
+      "otherNames": [
+        "soundstone azeroth audio"
+      ],
       "summary": "A compact Blizzard-inspired mixer for master, effects and music.",
       "summaries": {
         "deDE": "Kompakte Audiosteuerung fuer Gesamtlautstaerke, Soundeffekte und Musik."
@@ -90054,6 +90444,9 @@
     {
       "id": "speakstone-forever-audio-pack1",
       "name": "SpeakStone Narration - Forever Audio Pack 1 of 3",
+      "otherNames": [
+        "Speak Stone Forever Audio Pack1"
+      ],
       "summary": "WoW Forever quest audio, pack 1 of 3. Install all packs. Requires SpeakStone_Forever_Main.",
       "author": "dandwhelan",
       "added": "2026-11-26",
@@ -90109,6 +90502,9 @@
     {
       "id": "speakstone-forever-audio-pack2",
       "name": "SpeakStone Narration - Forever Audio Pack 2 of 3",
+      "otherNames": [
+        "Speak Stone Forever Audio Pack2"
+      ],
       "summary": "WoW Forever quest, gossip and book audio, pack 2 of 3. Install all packs. Requires SpeakStone_Forever_Main.",
       "author": "dandwhelan",
       "added": "2026-11-26",
@@ -90164,6 +90560,9 @@
     {
       "id": "speakstone-forever-audio-pack3",
       "name": "SpeakStone Narration - Forever Audio Pack 3 of 3",
+      "otherNames": [
+        "Speak Stone Forever Audio Pack3"
+      ],
       "summary": "WoW Forever quest, gossip and book audio, pack 3 of 3. Install all packs. Requires SpeakStone_Forever_Main. Unofficial…",
       "author": "dandwhelan",
       "added": "2026-11-26",
@@ -90222,6 +90621,9 @@
     {
       "id": "speakstone-forever-chatter",
       "name": "SpeakStone Narration - Forever Chatter",
+      "otherNames": [
+        "Speak Stone Forever Chatter"
+      ],
       "summary": "WoW Forever NPC greeting audio (books are in Audio Pack 3), with voices similar to the in-game characters. Install…",
       "author": "dandwhelan",
       "added": "2026-11-26",
@@ -91169,6 +91571,9 @@
     {
       "id": "spelltips",
       "name": "spell tooltips",
+      "otherNames": [
+        "spelltips"
+      ],
       "summary": "Shows spell power coefficients when holding the Alt key.",
       "author": "blodeac",
       "added": "2026-11-26",
@@ -91821,6 +92226,9 @@
     {
       "id": "staysheathed",
       "name": "StaySheathed",
+      "otherNames": [
+        "Stay Sheathed Lite"
+      ],
       "summary": "Sheath your weapons upon certain conditions.",
       "author": "keyboardturner",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/staysheathed.png",
@@ -93137,6 +93545,9 @@
     {
       "id": "talentshare",
       "name": "TalentShare",
+      "otherNames": [
+        "wowaddoncollection"
+      ],
       "summary": "Shares guild members' professions, recipes and reagents, plus a crafting order board.",
       "author": "rubertsmann",
       "added": "2026-11-26",
@@ -94047,6 +94458,9 @@
     {
       "id": "tbcbistracker",
       "name": "ZenaBis",
+      "otherNames": [
+        "tbc bis tracker"
+      ],
       "summary": "Track your Best-in-Slot gear progression for WoW TBC Anniversary (Pre-BIS, Phase 1-5) and WoW Forever (level 30)…",
       "author": "mazarelo",
       "added": "2026-11-26",
@@ -95526,6 +95940,9 @@
     {
       "id": "tiptac",
       "name": "TipTac",
+      "otherNames": [
+        "Tip Tac Forever"
+      ],
       "summary": "Highly Customizable Tooltip Enhancement Addon",
       "author": "srhinos",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/tiptac.png",
@@ -95628,6 +96045,9 @@
     {
       "id": "titanaddonmenu",
       "name": "Titan Panel [Addons]",
+      "otherNames": [
+        "Titan Addon Menu"
+      ],
       "summary": "One Titan button that gathers every addon's config entry point: LDB launchers, Addon Compartment entries, and slash…",
       "author": "ericeslinger",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/titanaddonmenu.png",
@@ -95687,6 +96107,9 @@
     {
       "id": "titanapproxdps",
       "name": "Titan Approx DPS",
+      "otherNames": [
+        "titan approx dps forever v1"
+      ],
       "summary": "Post-fight weapon, spell and method observations for Forever.",
       "author": "bajtlamer",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/titanapproxdps.png",
@@ -95737,6 +96160,9 @@
     {
       "id": "titanarranger",
       "name": "Titan Panel [Arranger]",
+      "otherNames": [
+        "titan arranger"
+      ],
       "summary": "Drag and drop arranging for Titan Panel, with a lock and Edit Mode support.",
       "author": "rambomst",
       "added": "2026-11-26",
@@ -96440,6 +96866,9 @@
     {
       "id": "togbankclassic",
       "name": "Ultimate Bank",
+      "otherNames": [
+        "TOG Bank Classic"
+      ],
       "summary": "A simple way to aggregate, view and request items from the inventories of multiple guild bank alts.",
       "author": "ey3g0r3",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/togbankclassic.png",
@@ -96528,6 +96957,9 @@
     {
       "id": "togprofessionmaster",
       "name": "Ultimate Profession Master Forever",
+      "otherNames": [
+        "TOG Profession Master"
+      ],
       "summary": "GitHub and by the CurseForge listing, both UTF-8, and read in an editor.",
       "author": "pimptasty",
       "tags": [
@@ -97526,6 +97958,9 @@
     {
       "id": "trailwarden",
       "name": "Trailwarden",
+      "otherNames": [
+        "trailwarden wow forever"
+      ],
       "summary": "Character-aware quest routing for World of Warcraft: Forever.",
       "author": "codebyniko",
       "added": "2026-11-26",
@@ -97580,6 +98015,9 @@
     {
       "id": "trainercompare",
       "name": "Trainer Compare",
+      "otherNames": [
+        "trainer gear compare"
+      ],
       "summary": "Shows how trainer recipe gear compares to what you wear, and whether you can use it.",
       "author": "postazure",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/trainercompare.png",
@@ -97942,6 +98380,9 @@
     {
       "id": "trp3-rpnameinquests",
       "name": "Total RP 3: RP Name in Quest Text",
+      "otherNames": [
+        "t RP3 RP Name In Quests"
+      ],
       "summary": "Enhances questing immersion by putting your TRP3 Character Name (and optionally Race and Class) into Quest Text!",
       "author": "ninerbull",
       "added": "2026-11-26",
@@ -98761,6 +99202,9 @@
     {
       "id": "twitchemotes",
       "name": "Twitch Emotes (WoW Forever)",
+      "otherNames": [
+        "Forever Twitch Emotes"
+      ],
       "summary": "Animated chat emotes, a visual channel browser, favorites, and name completion.",
       "author": "themizeguy",
       "tags": [
@@ -99220,6 +99664,9 @@
     {
       "id": "unhaltedunitframes",
       "name": "UnhaltedUnitFrames",
+      "otherNames": [
+        "Unhalted Unit Frames Forked"
+      ],
       "summary": "Replacement Unit Frames for Blizzard. Focused on performance, customization & a complete out of the box experience.",
       "author": "reloe",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/unhaltedunitframes.png",
@@ -100504,6 +100951,9 @@
     {
       "id": "wagoui",
       "name": "WagoUI",
+      "otherNames": [
+        "Wago Creator UI"
+      ],
       "summary": "WagoUI includes Install and Create workspaces.",
       "author": "methodgg",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/wagoui.png",
@@ -101925,6 +102375,9 @@
     {
       "id": "waylaidcratesmadeeasy",
       "name": "Waylaid Crates Made Easy",
+      "otherNames": [
+        "waylaid crate made easy"
+      ],
       "summary": "Shows the Auctionator cost and your bag count for each bundle a Waylaid Crate accepts.",
       "author": "lucasreppewelander",
       "added": "2026-11-26",
@@ -102048,6 +102501,9 @@
     {
       "id": "wcccaddon",
       "name": "WCCC Clubbing Companion",
+      "otherNames": [
+        "WCCC Add On"
+      ],
       "summary": "AddOn of the WCCC. Participate in Clubbing Competitions, view event/broadcast windows and more!",
       "author": "alpsquid",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/wcccaddon.png",
@@ -103619,6 +104075,9 @@
     {
       "id": "windrunner",
       "name": "Windrunner",
+      "otherNames": [
+        "windrunner walkingpad"
+      ],
       "summary": "Walk on your treadmill while you play. Tracks time and distance walked on any treadmill, compares it with your…",
       "author": "adunis",
       "added": "2026-11-26",
@@ -103783,6 +104242,9 @@
     {
       "id": "wiseeconomicdecisions",
       "name": "Wise Economic Decisions",
+      "otherNames": [
+        "wise economical decisions"
+      ],
       "summary": "When your bags are full, suggests which item to drop to make the most gold from your loot.",
       "author": "lucasreppewelander",
       "added": "2026-11-26",
@@ -104354,6 +104816,9 @@
     {
       "id": "wowforeverguilde",
       "name": "Manuel Feralas",
+      "otherNames": [
+        "forever"
+      ],
       "summary": "Addon de la guilde Manuel Feralas : progression, carte de guilde, annonces de mort, Wanted. /mf en jeu.",
       "author": "jordan-bds",
       "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/wowforeverguilde.png",
@@ -104401,6 +104866,9 @@
     {
       "id": "wowfpartyframes",
       "name": "WoW Forever Party Frames",
+      "otherNames": [
+        "Forever Healer Party Frame"
+      ],
       "summary": "Vanilla portraits, numerical resources, healing and buff presets.",
       "author": "xyrces",
       "added": "2026-11-26",
@@ -104981,6 +105449,9 @@
     {
       "id": "wowup",
       "name": "Addon Update Notifications",
+      "otherNames": [
+        "Up.Addon"
+      ],
       "summary": "Receive notifications from an addon manager after starting the game or reloading your interface",
       "author": "wowup",
       "added": "2026-11-27",
@@ -106688,6 +107159,9 @@
     {
       "id": "zhurastats",
       "name": "NE Stats",
+      "otherNames": [
+        "zhura stats"
+      ],
       "summary": "Shows configurable secondary stat priorities per character and talent setup.",
       "author": "zhuravlevkk",
       "added": "2026-11-26",

@@ -77,6 +77,9 @@
     "ownApp": {
       "$ref": "catalog.schema.json#/$defs/addon/properties/ownApp"
     },
+    "otherNames": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/otherNames"
+    },
     "withdrawn": {
       "$ref": "catalog.schema.json#/$defs/addon/properties/withdrawn"
     },
