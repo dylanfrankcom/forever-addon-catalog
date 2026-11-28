@@ -12,7 +12,9 @@ name: reports
 # Automatic merging happens only while the AUTO_MERGE repository variable is "on", never while an issue labelled
 # auto-merge-paused is open (an anomaly opens one: a confirmed version reported with another checksum, a version going
 # backwards, a burst), and at most the rules' daily cap a day. Without ANTHROPIC_API_KEY, what needs a review goes
-# to the maintainer. The rules (the thresholds) are the CATALOG_RULES secret, not a file or a variable, so that they
+# to the maintainer. It also links a hand-listed add-on to the GitHub repo its players' .toc names when there's proof only
+# the author could give (scripts/reports.cs links), and withdraws such a link automatically when it stops holding,
+# publishing the withdrawal on the entry. The rules (the thresholds) are the CATALOG_RULES secret, not a file or a variable, so that they
 # never show in the repository or in a public log (a variable's value is printed in each step's header); without it,
 # or with an invalid one, nothing is proposed and the run fails. Every 10 minutes, or by hand (Actions -> reports -> Run workflow). A run whose
 # proposal is the open pull request's already changes nothing there, and the relay stores the index only when it changed.
@@ -37,6 +39,7 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  actions: write
 
 concurrency:
   group: relay-reports
@@ -102,6 +105,31 @@ jobs:
           RELAY_URL: ${{ vars.RELAY_URL }}
           RELAY_KEY: ${{ secrets.RELAY_KEY }}
         run: dotnet run scripts/reports.cs -- done --collected "$RUNNER_TEMP/collected.json"
+      # The GitHub repos players' .toc files name for hand-listed add-ons, and the links made before, checked on GitHub
+      # (never CurseForge or Wago) and decided with everything else. A failed check links and withdraws nothing this run.
+      - name: Check GitHub links
+        if: steps.setup.outputs.ready == 'true'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CATALOG_RULES: ${{ secrets.CATALOG_RULES }}
+        run: |
+          if [ -z "$CATALOG_RULES" ]; then echo "No rules, so no links this run."; exit 0; fi
+          printf '%s' "$CATALOG_RULES" > "$RUNNER_TEMP/rules.json"
+          dotnet run scripts/reports.cs -- links --store data/relay.json --rules "$RUNNER_TEMP/rules.json" --out "$RUNNER_TEMP/links.json" | tee -a "$GITHUB_STEP_SUMMARY"
+      # A GitHub add-on players suggested that the catalog doesn't list: discover reads that repo now, by its usual rules,
+      # instead of waiting to find it. Each repo is asked about at most once a week (requested.json on checker).
+      - name: Ask discover about suggested GitHub repos
+        if: steps.setup.outputs.ready == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          repos=$(dotnet run scripts/reports.cs -- requests --store data/relay.json --requested data/requested.json | tr '\n' ' ')
+          if [ -n "${repos// }" ]; then
+            gh workflow run discover.yml -f part=repos -f repos="$repos"
+            (cd data && git add requested.json && { git diff --cached --quiet || { git commit -q -m "Asked discover $(date -u +%Y-%m-%dT%H:%MZ)" && bash ../.github/push-checker.sh; }; })
+          fi
       - name: Propose versions to confirm
         if: steps.setup.outputs.ready == 'true'
         id: propose
@@ -110,7 +138,8 @@ jobs:
         run: |
           if [ -z "$CATALOG_RULES" ]; then echo "::error::The CATALOG_RULES secret isn't set: nothing is proposed without the rules."; exit 1; fi
           printf '%s' "$CATALOG_RULES" > "$RUNNER_TEMP/rules.json"
-          dotnet run scripts/reports.cs -- propose --store data/relay.json --rules "$RUNNER_TEMP/rules.json" --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          links=(); if [ -s "$RUNNER_TEMP/links.json" ]; then links=(--links "$RUNNER_TEMP/links.json"); fi
+          dotnet run scripts/reports.cs -- propose --store data/relay.json --rules "$RUNNER_TEMP/rules.json" "${links[@]}" --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" | tee -a "$GITHUB_STEP_SUMMARY"
           if git diff --quiet -- confirmed.json overrides; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
@@ -178,7 +207,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          dotnet run scripts/reports.cs -- propose --store data/relay.json --rules "$RUNNER_TEMP/rules.json" --only "$RUNNER_TEMP/decision.json" --body "$RUNNER_TEMP/auto.md" --facts "$RUNNER_TEMP/auto-facts.json"
+          links=(); if [ -s "$RUNNER_TEMP/links.json" ]; then links=(--links "$RUNNER_TEMP/links.json"); fi
+          dotnet run scripts/reports.cs -- propose --store data/relay.json --rules "$RUNNER_TEMP/rules.json" "${links[@]}" --only "$RUNNER_TEMP/decision.json" --body "$RUNNER_TEMP/auto.md" --facts "$RUNNER_TEMP/auto-facts.json"
           dotnet run scripts/validate.cs -- confirmed.json
           for f in $(git diff --name-only -- overrides); do dotnet run scripts/validate.cs -- "$f"; done
           git switch -c reports/auto
@@ -216,7 +246,8 @@ jobs:
         run: |
           skip=()
           if [ -f "$RUNNER_TEMP/decision.json" ]; then skip=(--skip "$RUNNER_TEMP/decision.json"); fi
-          dotnet run scripts/reports.cs -- propose --store data/relay.json --rules "$RUNNER_TEMP/rules.json" "${skip[@]}" --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" > /dev/null
+          links=(); if [ -s "$RUNNER_TEMP/links.json" ]; then links=(--links "$RUNNER_TEMP/links.json"); fi
+          dotnet run scripts/reports.cs -- propose --store data/relay.json --rules "$RUNNER_TEMP/rules.json" "${links[@]}" "${skip[@]}" --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" > /dev/null
           dotnet run scripts/validate.cs -- confirmed.json
           for f in $(git diff --name-only -- overrides); do dotnet run scripts/validate.cs -- "$f"; done
           # changed: something to propose against main. same: the open pull request proposes exactly that already.

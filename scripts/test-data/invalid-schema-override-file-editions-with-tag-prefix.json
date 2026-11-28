@@ -1,5 +1,6 @@
 {
   "repo": "someone/thing",
+  "tagPrefix": "thing/",
   "notes": "Its editions come from its checked release.",
   "editions": {
     "forever": {

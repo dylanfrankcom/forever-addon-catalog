@@ -29,7 +29,8 @@ keeps them until the catalog collects them. The relay never writes to GitHub.
 ### Privacy
 - **What's sent:** for a version report, the add-on's catalog ID, the source (CurseForge or Wago), the game edition, the version
   from the add-on's `.toc` file and the SHA-256 of the downloaded zip, and optionally more of that `.toc`: its title, author,
-  interface numbers, notes, category, languages and optional add-ons. For a suggestion, the source and project ID, the edition, the
+  interface numbers, notes, category, languages, optional add-ons and the GitHub repo it links to. For a suggestion, the source
+  (CurseForge, Wago or GitHub) and project ID, the edition, the
   add-on's name and folder names, and its `.toc` title, version, interface numbers and author. The app asks before sending anything
   and shows exactly what it will send.
 - **Never sent or kept:** files (the zip never leaves the player's PC), file paths, account names, machine details or anything else
@@ -74,7 +75,21 @@ maintainer; it runs nothing and changes nothing. Anything unusual also pauses al
 has looked. Automatic merges are capped per day, can change only `confirmed.json` and add to existing files in
 `overrides/` (a guard refuses anything else), and each is a pull request that can be reverted. Everything else waits in
 the confirmation pull request, where the maintainer confirms it by merging, or for more reports. A weekly issue lists
-what was decided automatically. For an add-on listed by hand, the same pull request
+what was decided automatically.
+
+**Linking to GitHub.** When an add-on listed by hand has a `.toc` that names its GitHub repo, the catalog looks at the repo
+itself (never at CurseForge or Wago) and links the entry to it only on proof that someone else couldn't fake: the repo's own
+`.toc` names the add-on's CurseForge project or Wago ID, and either the catalog's own records already name the repo or its
+owner, or many players' copies of a version they confirmed name it, all alike, and the repo was there before that version and
+isn't a fork or new. A copy of the add-on's file in a repo isn't proof, since anyone could upload one. Then the add-on's versions and details come from its GitHub releases,
+and add-on managers can install it from there; its CurseForge and Wago links stay. Anything short of
+that goes to the maintainer. A link is withdrawn automatically when the repo is archived, moves to another owner (or its name is taken by another repo)
+or stops naming the add-on, and the
+withdrawal is published on the entry so add-on managers can warn players who installed it from GitHub; a repo under a new
+owner needs the same proof again. A suggested
+GitHub add-on the catalog doesn't list is looked at by the discovery workflow straight away, by its usual rules.
+
+For an add-on listed by hand, the same pull request
 adds what the `.toc` players' downloads carry says and its entry lacks (editions, languages, optional add-ons the catalog lists),
 never replacing what's there, and names what an entry can't hold, such as a second author. Suggestions are kept for the maintainer and aren't
 listed by this workflow.

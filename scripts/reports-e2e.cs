@@ -77,7 +77,7 @@ try
     File.Copy(P("confirmed.json"), P("confirmed.before.json"));
     File.Copy(P("overrides/madeup-addon.json"), P("madeup-addon.before.json"));
     // The real thresholds aren't in the repository; the test brings its own.
-    File.WriteAllText(P("rules.json"), """{"newVersion":{"players":3,"providers":2,"days":1},"tocDetails":{"players":3,"providers":2,"days":1},"newAddon":{"players":5,"providers":3,"days":3},"checksumShare":0.9,"dailyCap":20,"burst":{"reports":20,"players":2}}""");
+    File.WriteAllText(P("rules.json"), """{"newVersion":{"players":3,"providers":2,"days":1},"tocDetails":{"players":3,"providers":2,"days":1},"newAddon":{"players":5,"providers":3,"days":3},"checksumShare":0.9,"dailyCap":20,"burst":{"reports":20,"players":2},"linkAge":{"days":30}}""");
     string[] propose = ["propose", "--catalog", P("catalog.json"), "--confirmed", P("confirmed.json"), "--store", P("relay.json"),
         "--overrides", P("overrides"), "--rules", P("rules.json"), "--body", P("body.md"), "--facts", P("facts.json")];
     var output = Run("reports.cs", propose);

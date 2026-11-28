@@ -1,0 +1,20 @@
+{
+  "repoId": 123456,
+  "name": "Thing",
+  "summary": "Listed by hand, then linked to its repo.",
+  "author": "someone",
+  "sources": [
+    {
+      "type": "curseforge",
+      "projectId": 4242
+    }
+  ],
+  "folders": [
+    "Thing"
+  ],
+  "editions": {
+    "forever": {
+      "interface": "16001"
+    }
+  }
+}
