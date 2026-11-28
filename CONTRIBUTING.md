@@ -96,6 +96,10 @@ listed by this workflow.
 
 ## Other ways to help
 - **Something wrong in an entry** (a moved repo, a wrong folder): open an issue with the **Task** form.
+- **A support link for an author** whose add-ons have none in the catalog: open an issue with the **Suggest a support link**
+  form, with the page and where the author links to it. Nothing from it is added automatically: the maintainer opens the
+  author's own page (from the catalog's links for their add-on, not only the link in the issue) and adds the support page to
+  the author's record in `overrides/_authors.json` only when the author links to it themselves.
 - **A problem with an add-on itself** goes to its author.
 - **Questions:** open an issue with the **Question** form.
 

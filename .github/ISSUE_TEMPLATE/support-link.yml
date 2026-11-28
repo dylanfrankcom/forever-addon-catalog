@@ -1,0 +1,54 @@
+name: Suggest a support link
+description: An author whose add-ons have no support link in the catalog, and a page where they ask for support.
+labels: ["support-link", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! A wrong link would send players' money to the wrong person, so nothing from this form is added automatically. The maintainer opens the author's own page (from the catalog's links for their add-on, not only the link given here) and adds the support page to the author's record only when the author links to it themselves. A page the author doesn't link to isn't accepted, even if it's really theirs.
+  - type: input
+    id: author
+    attributes:
+      label: Author
+      description: Their name as the app shows it.
+    validations:
+      required: true
+  - type: input
+    id: addon
+    attributes:
+      label: One of their add-ons
+      description: Its name as the app shows it.
+    validations:
+      required: true
+  - type: input
+    id: support
+    attributes:
+      label: Support page
+      description: The page where they ask for support (Ko-fi, Patreon, PayPal, GitHub Sponsors …). https only.
+      placeholder: https://
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where the author links to it
+      options:
+        - Their repository's FUNDING.yml
+        - Their add-on's page (CurseForge, Wago, WoWInterface)
+        - Their profile
+        - Their own site
+    validations:
+      required: true
+  - type: input
+    id: proof
+    attributes:
+      label: Link to that page
+      description: The page where the author links to the support page, so the maintainer can see it there.
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Anything else that helps.
