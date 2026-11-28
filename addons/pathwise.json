@@ -6,6 +6,18 @@
   "aboutTruncated": true,
   "releases": [
     {
+      "tag": "v0.58.5",
+      "name": "Pathwise 0.58.5",
+      "published": "2026-11-28",
+      "notes": "- No change in the game: CLAUDE.md now points to the release skill\n  (0.58.4), for every release and for merging an approved pull request\n  from the nightly agent.\n\nDownload **Pathwise-0.58.5.zip** below (not \"Source code\"), unzip it into the Interface/AddOns folder of WoW Classic Era (_classic_era_) or WoW Forever, and check that the folder is named Pathwise."
+    },
+    {
+      "tag": "v0.58.4",
+      "name": "Pathwise 0.58.4",
+      "published": "2026-11-28",
+      "notes": "- No change in the game: a release skill for Claude Code in the repo\n  (.claude/skills/pathwise-release) that does every step of a release -\n  tests, simulations, the version in all four TOCs, the changelog, the push,\n  and checking the GitHub release and the CurseForge upload - and merges an\n  approved pull request from the nightly agent. The zip leaves the .claude\n  folder out.\n\nDownload **Pathwise-0.58.4.zip** below (not \"Source code\"), unzip it into the Interface/AddOns folder of WoW Classic Era (_classic_era_) or WoW Forever, and check that the folder is named Pathwise."
+    },
+    {
       "tag": "v0.58.3",
       "name": "Pathwise 0.58.3",
       "published": "2026-11-27",
@@ -22,26 +34,16 @@
       "name": "Pathwise 0.58.1",
       "published": "2026-11-26",
       "notes": "- The Shaper's Terrace (0.58.0), corrected from the Warcraft Wiki: the\n  entrance is by the northern pylon in Un'Goro Crater (56, 12), not above\n  Marshal's Refuge, so the arrow points the right way now; Vitrix was\n  missing among the required bosses (Cinder, Snowtalon, Bolt, Vitrix,\n  Nanaya), and the optional ones are known too (Titanosaur, Tor'Rel,\n  Venomridge, Thunderhoof, Direhorn Matriarch). The order isn't known yet.\n\nDownload **Pathwise-0.58.1.zip** below (not \"Source code\"), unzip it into the Interface/AddOns folder of WoW Classic Era (_classic_era_) or WoW Forever, and check that the folder is named Pathwise."
-    },
-    {
-      "tag": "v0.58.0",
-      "name": "Pathwise 0.58.0",
-      "published": "2026-11-25",
-      "notes": "- Dungeon mode on WoW Forever: The Shaper's Terrace (levels 58-60) in the\n  dungeon list for both factions, with its six quests, the entrance above\n  Marshal's Refuge in Un'Goro Crater and its bosses (Bolt, Cinder,\n  Snowtalon, Nanaya; the order isn't known yet). Its instance ID isn't\n  known yet either, so its boss steps don't show inside. From guides:\n  tell us if the entrance or the bosses are off. (Prepared by the nightly\n  agent, issue #3.)\n\nDownload **Pathwise-0.58.0.zip** below (not \"Source code\"), unzip it into the Interface/AddOns folder of WoW Classic Era (_classic_era_) or WoW Forever, and check that the folder is named Pathwise."
-    },
-    {
-      "tag": "v0.57.2",
-      "name": "Pathwise 0.57.2",
-      "published": "2026-11-25",
-      "notes": "- Development: pull requests run the offline tests and the real-data\n  simulations on GitHub, and a nightly agent can work on issues labelled\n  `agent`, proposing each change as a pull request for review. No change\n  in game.\n\nDownload **Pathwise-0.57.2.zip** below (not \"Source code\"), unzip it into the Interface/AddOns folder of WoW Classic Era (_classic_era_) or WoW Forever, and check that the folder is named Pathwise."
     }
   ],
   "stats": {
     "stars": 0,
     "openIssues": 3,
     "contributors": 3,
-    "lastRelease": "2026-11-27",
+    "lastRelease": "2026-11-28",
     "releaseDates": [
+      "2026-11-28",
+      "2026-11-28",
       "2026-11-27",
       "2026-11-26",
       "2026-11-26",
@@ -88,8 +90,6 @@
       "2026-11-06",
       "2026-11-06",
       "2026-11-06",
-      "2026-11-05",
-      "2026-11-05",
       "2026-11-05",
       "2026-11-05"
     ]

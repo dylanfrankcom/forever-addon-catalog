@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverinstallerprobe",
+  "repo": "Mimezu/forever-ForeverInstallerProbe",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "name": "ForeverInstallerProbe 1.0.1",
+      "published": "2026-11-28",
+      "notes": "**Download `ForeverInstallerProbe-1.0.1.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game, type `/fprobe`.\n\n## First release\n\n- Isolated persistence test: `/fprobe` shows the saved marker."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverInstallerProbe"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ForeverInstallerProbeDB"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "tenminutegoblin",
+  "repo": "Mimezu/forever-TenMinuteGoblin",
+  "about": "# Ten Minute Goblin\n\nGold for a player with little auction-house time. Claude makes the calls, you carry them out.\n\n`/goblin` or the **Goblin** button on the auction house. Needs Auctionator.\n\n## Pages\n\n- **Today**: the call sheet. \"Buy 20 · ≤ 9s\", \"Post 12 · 14s\", \"Visit Kazan\". Done, Later, Pass per row.\n  A post or hold shows only while you hold the item. Below it the live lists: Hold, Post, Vendor,\n  Deals, Vendor flips, Craft, Visit.\n- **Deals**: cheap now against usual, steady supply, sells. One click opens the Auctionator search.\n- **Vendor**: auctions below vendor price; vendors worth a trip.\n- **Ledger**: your recipes, every profession: Cost, Profit, Make / Wait / Skip.\n- **Money**: in, out, net by day; calls, flips, posts; All or one character.\n- **Today's calls** (on Today): open, done, later, passed, expired; Show again; the last 7 days.\n\nMode slider on Today: **Adventure** (on your path), **Detours**, **Goblin** (everything).\n\n## Everywhere\n\n- Item tooltip: Usual, Today, **Post / Hold / Vendor**, Cook / Smelt, Sells Fast / Slow / ?.\n- Merchants: a coin and the gain on items worth reselling.\n- Login briefing: \"6 calls · ~12 min · +3g\" and up to three notes.\n- Call tracker: the open calls on screen, quest-tracker style; drag to move, fold to one line,\n  click to open Today. Hidden in combat and when there is nothing to do.\n- `/goblin tracker`, `/goblin briefing`, `/goblin tooltip` turn each off and on.\n- Key bindings (AddOns): Goblin window, Mode up / down (bumpers), Call tracker.\n\n## Data\n\nPrices come from Auctionator (always), the hourly `TenMinuteGoblinData` addon when fresher,\nand TSM when present. The ages show as \"Calls 3h · Prices 1h\". No scan: \"Scan first\".\n\nThe addon records what you hold, sell, post and spend, for the analyser.\nFields: [docs/CONTRACT.md](https://github.com/Mimezu/forever-TenMinuteGoblin/blob/master/docs/CONTRACT.md). Reasoning: [docs/DESIGN.md](https://github.com/Mimezu/forever-TenMinuteGoblin/blob/master/docs/DESIGN.md).\n\nNever automates buying, posting or cancelling.\n\n## Tests\n\n```\nlua5.1 tests\\test_logic.lua .\nlua5.1 tests\\test_money.lua .\nlua5.1 tests\\test_prices.lua .\n```",
+  "releases": [
+    {
+      "tag": "v0.5.3",
+      "name": "TenMinuteGoblin 0.5.3",
+      "published": "2026-11-28",
+      "notes": "**Download `TenMinuteGoblin-0.5.3.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game, type `/goblin`.\n\n## First release\n\n- Gold for little auction-house time: a call sheet of what to buy, post, hold and where to sell.\n- Deals, vendor flips, crafts, visits. Needs Auctionator."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TenMinuteGoblin"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Auctionator"
+    ],
+    "optional": [
+      "TenMinuteGoblinData",
+      "TradeSkillMaster",
+      "ForeverNames"
+    ],
+    "savedVariables": [
+      "TenMinuteGoblinDB"
+    ]
+  }
+}

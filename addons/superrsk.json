@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "superrsk",
+  "repo": "GAMEBOOK/SuperRsk",
+  "about": "# SuperRsk: All in One QoL Addon (Auto Equip, Fast Loot, XP Bar) for WoW Forever\n\n**An all in one quality of life addon for World of Warcraft: Forever**, made by SuperRsk and friends.\nEvery module can be switched on or off on its own. Type `/sg` in game to open the menu.\n\n**[Download the latest version](https://github.com/GAMEBOOK/SuperRsk/releases/latest)**\n\n## Modules\n\n| Module | What it does |\n|---|---|\n| **Auto Equip** | Spots gear upgrades for your class and spec (armor type, weapon DPS, hit and crit ratings) and offers to equip them. Shows the upgrade % in item tooltips. Picks the best quest reward. |\n| **Auto Fishing** | One key casts and hooks. Takes your best pole and fishing gear out of your bags, applies lures, gives your weapons back when attacked. A card counts catches, value and time, with a Put my gear back on button. |\n| **Quest Item Cleanup** | `/sg menage` lists the quest items you no longer need (certain with Questie) and throws them away in one click. |\n| **XP Bar** | A clean, movable XP bar with the XP of your finished and ongoing quests, rested XP, XP per hour. |\n| **Auto Loot** | Instant fast loot, loot list, sound when bags are full. |\n| **Junk** | Bags full while looting: offers to throw away the grey item worth the least, with its vendor and auction house price. Never without your click. |\n| **Merchant** | Sells your grey items and repairs your gear at any merchant, no click needed (guild money optional). |\n| **Gear Durability** | A small widget warns you when your gear drops below 20 % (threshold, style and size to taste). |\n| **Auto Spell Ranks** | Replaces old spell ranks on your action bars with the new rank when you learn it. |\n| **Auto Shot / Wand** | Auto shot and wand timer: tells you when to stop moving so the shot is not lost. |\n| **Flight Points** | Every flight point of your faction on the world map, known ones marked. |\n| **Raid Markers** | Puts your raid marker and your friends' markers with one key. |\n| **Swap Layer in group** | Multiboxing with the LayerSwap addon. Left button: Leave group when grouped, otherwise Swap layer. Right button: Invite team members (list in the tooltip), they accept on their own. |\n| **Spy Ping** | With the Spy addon: click an enemy in the list to target and ping them for your group. Better enemy detection. |\n| **Honorable Kills** | Small movable widget with your honorable kills. Hover it for the guild top, click it for the full guild ranking. |\n| **Currencies** | Small movable widget with your gold and the currencies you tick (honor, reals...). Column or row, size and background to fit your UI. Off by default. |\n| **Crafting** | One bar for a whole batch of crafts (Create 10, Create All): total time left, how many are done, a mark per item. Off by default. |\n| **Quick Interact** | The game targets the nearest thing you can use, with an icon above it: ores, herbs, chests, quest objects, fishing bobbers, everything (up to 20 m). One press of your Interact key takes it. |\n| **Boost FPS** | One click graphics settings for more FPS and a sharper picture. Your previous settings come back when you turn it off. |\n| **Weather and Effects** | Removes rain, snow and sand, mutes the rain, reduces fog, and turns off other effects one by one. |\n| **Tsquid Area** | Lightsaber sound on critical hits (off by default). |\n\n## Install\n\n1. Download `SuperRsk-x.y.z.zip` from the [latest release](https://github.com/GAMEBOOK/SuperRsk/releases/latest).\n2. Unzip it into `World of Warcraft\\_forever_\\Interface\\AddOns\\` (you get a `SuperRsk` folder).\n3. Restart the game, then type `/sg`.\n\n## Optional addons\n\nTwo modules need another addon, SuperRsk tells you in game when one is missing:\n\n- **Spy Ping** needs **Spy**.\n- **Swap Layer in group** needs **LayerSwap**.\n\n## Commands\n\n- `/sg` or `/srsk`: menu\n- `/sg move`: move every element of every module (also the Move button at the top of the menu)\n- `/sg spe`: talent tree used by Auto Equip\n- `/sg tir`: measured auto shot / wand timings\n\n---\n\n# SuperRsk Toolbox (français)\n\n**La boîte à outils maison de SuperRsk et ses potes pour WoW Forever.** Chaque module s'allume ou se coupe à part. Tape `/sg` en jeu pour le menu.\n\nAuto Equip (meilleur équipement pour ta classe et ta spécialisation), ramassage instantané, barre d'XP avec l'XP des quêtes, minuteur de tir auto et de baguette, mise à jour des rangs de sorts, points de vol sur la carte, interaction rapide (filons, plantes, coffres, objets de quête, pêche, tout ce qui s'utilise), marqueurs de raid, swap de couche en multibox avec LayerSwap, ping des ennemis Spy, classement des victoires honorables de la guilde, boost FPS, sans météo ni brouillard.\n\n**Installation** : télécharge le zip de la [dernière version](https://github.com/GAMEBOOK/SuperRsk/releases/latest), dézippe-le dans `World of Warcraft\\_forever_\\Interface\\AddOns\\`, relance le jeu, tape `/sg`.\n\n## Credits\n\nIcons: Lucide (ISC license). Font: Archivo (SIL Open Font License 1.1). Libraries: LibStub, CallbackHandler-1.0.",
+  "releases": [
+    {
+      "tag": "v1.0.25",
+      "name": "SuperRsk 1.0.25",
+      "published": "2026-11-28",
+      "notes": "- **New: Crafting** (off by default): one bar for a whole batch of crafts (Create 10, Create All). Recipe name, \"4 / 10 crafted\", a mark for each item, the total time left and the recipe icon. The time follows the real cast and pause of each item, and the bar stops by itself if the batch stops. Size, background, bar texture, icon, keep the normal cast bar, optional sound at the end and time left in the profession window title. Turns off Naowh Forever's own craft timer while ours is on, and gives it back when you turn ours off.\n- **Looted items list**: the empty area of the list no longer blocks your clicks.\n\nInstall: unzip into `World of Warcraft/_forever_/Interface/AddOns/`, restart the game, type `/sg`."
+    },
+    {
+      "tag": "v1.0.24",
+      "name": "SuperRsk 1.0.24",
+      "published": "2026-11-26",
+      "notes": "- **Currencies**: click the widget to open its settings. The tooltip lists what you own first (largest amount on top), currencies at 0 in grey below, and the ones shown in your widget in blue. Renown currencies get an icon.\n- **Flight map**: PvP towers of the Eastern Plaguelands, boat docks and zeppelin towers now have their own icons instead of looking like flight masters. Generic points that no flight master teaches are hidden.\n\nInstall: unzip into `World of Warcraft/_forever_/Interface/AddOns/`, restart the game, type `/sg`."
+    },
+    {
+      "tag": "v1.0.23",
+      "name": "SuperRsk 1.0.23",
+      "published": "2026-11-26",
+      "notes": "- **Weather and Effects** (was Weather and Fog): raindrops, snow and sand are now really removed on WoW Forever, the rain sound can be muted only while it rains, and other effects can be turned off one by one: sun shafts, glow, grey death screen, invisibility haze, screen shake, edge flashes, footprints, footsteps, error speech, music, emotes. All off by default.\n- **Fog** settings are put back when the game changes them. The game still draws part of the fog.\n- **Anti-fog macro** (`/sg fog`, button in the module): removes all fog, but costs about half your FPS. Never turns on by itself, asks before creating the macro.\n- **Swap layer: swap counter**: the game limits layer changes to 10 per hour on Forever (measured by LayerSwap, not announced by Blizzard). Next to the swap buttons: your swaps this hour (3/10), orange when few are left, red with the wait when full. Read from LayerSwap's own count, per character.\n- **Live previews**: the preview at the top of each menu page is now a copy. Your real bars and widgets stay visible in place while you change settings.\n- **New: Currencies** (off by default): a small movable widget with your gold, honor and any other currency you tick. The list, names and icons come from the game, in your language. Column or row, size, background, icons, names, gold format.\n\nInstall: unzip into `World of Warcraft/_forever_/Interface/AddOns/`, restart the game, type `/sg`."
+    },
+    {
+      "tag": "v1.0.22",
+      "name": "SuperRsk 1.0.22",
+      "published": "2026-11-23",
+      "notes": "- **Auto Sets no longer takes off your gloves at login**: gear you always wear that is also part of a set (gloves with Mining, for example) could be removed when the game started, because a slot not loaded yet was read as empty. At login, Auto Sets now only swaps for a real item, it never empties a slot.\n\nInstall: unzip into `World of Warcraft/_forever_/Interface/AddOns/`, restart the game, type `/sg`."
+    },
+    {
+      "tag": "v1.0.21",
+      "name": "SuperRsk 1.0.21",
+      "published": "2026-11-23",
+      "notes": "- **Auto Sets, back to your gear after a logout**: logged out in the saddle (or the game closed by force) and your Carrot on a Stick stayed on? SuperRsk now waits until the game has loaded your gear and bags, then puts your normal gear back. A piece you equip yourself outside a set is left alone.\n- **Auto Sets in every language**: profession names and resistances now come from the game itself, in your client's language (German, Spanish, Russian, Portuguese, Italian, Korean, Chinese...). Carrot on a Stick, Riding Crop, Skybreaker Whip, Mithril Spurs and riding gloves are recognized by their ID, whatever the language.\n- **Junk keeps your crafting materials**: when your bags are full, white items offered are only weapons, armor and useless misc items. Leather, cloth, ore, herbs and other crafting materials are never offered anymore, nor food, potions, recipes or gems.\n\nInstall: unzip into `World of Warcraft/_forever_/Interface/AddOns/`, restart the game, type `/sg`."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18"
+    ]
+  },
+  "languages": [
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "SuperRsk"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Spy",
+      "TomTom",
+      "LayerSwap",
+      "Auctionator",
+      "Baganator",
+      "EllesmereUIBags"
+    ],
+    "savedVariables": [
+      "SuperGuideDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "SuperGuideCharDB"
+    ]
+  }
+}

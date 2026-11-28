@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "gearpath",
+  "repo": "hasuwini77/gearpath",
+  "about": "# GearPath\n\nA gear to-do list for **WoW Forever** (interface 16001). Pick a spec, follow the list from the easiest piece to the hardest. English and French.\n\nThe first version covers the **Horde Shaman**: Restoration, Enhancement and Elemental. Other classes are one data file each (see [Adding a class](#adding-a-class)).\n\n**Not tested in the game yet.** The logic runs against a mocked client in the tests; the first real session may show API differences. `/gearpath debug` writes what is needed to fix them.\n\n## What it does\n\n- Three lists per spec: **Pre-raid**, **PvP** and **Raid**.\n- One row per slot: the piece to aim for, and where it comes from.\n- Rows are grouped by source, easiest first: quests in the world, crafted or auction house, dungeons from the lowest to the highest, long quest lines, rare world drops, the dungeon currency vendor, reputations, PvP vendor, PvP ranks.\n- **Best** aims for the strongest piece of each slot. **Fast** aims for the easiest good one.\n- When the piece to aim for is a long haul (a reputation, Tier 0.5, a PvP rank), the list adds an easier piece to wear meanwhile.\n- Hover a row: the game's tooltip, the source, and the other pieces of that slot, best first.\n- Pieces you wear, carry or keep in the bank are ticked on their own. The bank is read when you open it.\n- Click a row to tick it yourself (a piece on an alt or in the mail). Shift-click links it in chat.\n- A piece that needs a profession to be worn is only shown to those who already wear it.\n\nThe Raid list holds one row for now: the access to Onyxia's Lair. No raid loot table is published before the raids open on 9 December 2026.\n\n## Commands\n\n- `/gearpath` (or `/gpath`), or a click on the minimap icon: open or close the list.\n- `/gearpath minimap`: hide the minimap icon or bring it back.\n- `/gearpath debug`: save a snapshot for bug reports.\n\n## Install\n\nCopy the `GearPath` folder into `World of Warcraft/_forever_/Interface/AddOns/`, then **quit and restart the game**: a new addon folder is not seen by `/reload`.\n\nFrom a clone of this repository:\n\n```sh\nWOW_DIR=\"/path/to/World of Warcraft\" tools/install.sh\n```\n\n## Where the lists come from\n\nEvery item id, name, required level and binding is checked against Wowhead's Forever tooltips (`tools/verify_items.py`). The picks themselves come from published guides, which disagree with each other and change often. [docs/sources.md](https://github.com/hasuwini77/gearpath/blob/main/docs/sources.md) says what was read, what was verified and what was not.\n\nThe date the lists were last checked shows at the bottom of the window.\n\n## Reporting a wrong list\n\n1. Type `/gearpath debug`, then `/reload`.\n2. Attach `WTF/Account/<account>/SavedVariables/GearPath.lua` to your issue.\n\nThe snapshot holds your class, level, the list pieces you own and where they were found, and which game functions exist. Nothing else.\n\n## Adding a class\n\n1. Copy `Data/Shaman.lua` to `Data/<Class>.lua` and call `ns.Data.Register(\"<CLASSTOKEN>\", { ... })`. The format is described at the top of `Data.lua`.\n2. Add the file to `GearPath.toc` after `Data\\Shaman.lua`, and to `FILES` in `tests/run.lua`.\n3. Add any new zone, faction or quest line name to `Locales.lua`, in English and in French, and any new dungeon to `Data.DUNGEONS` with the level it opens at.\n4. Run `luajit tests/run.lua` and `python3 tools/verify_items.py`.\n\nA quest that asks for a dungeon run or a long farm is a `chain`, never a `quest`: a `quest` in the open world is listed first, as the easiest thing to do.\n\n## Development\n\n```sh\nluajit tests/run.lua            # the addon against a mocked game\npython3 tools/verify_items.py   # every piece against Wowhead (network, cached in tools/.cache)\n```\n\n## License\n\nMIT. See [LICENSE](https://github.com/hasuwini77/gearpath/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-28",
+      "notes": "# GearPath\n\n## [v0.1.0](https://github.com/hasuwini77/gearpath/tree/v0.1.0) (2026-11-28)\n[Full Changelog](https://github.com/hasuwini77/gearpath/commits/v0.1.0) [Previous Releases](https://github.com/hasuwini77/gearpath/releases)\n\n- Merge pull request #2 from hasuwini77/feat/shaman-route  \n    Shaman gear route: pre-raid, PvP and raid lists for the three specs  \n- docs: importer limits, dungeon step for a new class, bank numbering not verified  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- test: bank announce, item request, window build, version  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- fix(data): Isalien marked as not rechecked, Driftwood Icon second, unknown dungeon does not crash  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- fix: the packaged version comes from the tag  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- fix: no chat line for what the bank already held, no redraw loop on an unknown item, a failed window build starts over  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- docs: what it does, where the lists come from, what is not verified  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- ci: run the tests, package a release on a tag  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- chore(tools): check the lists on Wowhead, install into the game  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- test: the addon against a mocked game  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- feat: the window, the minimap icon and the commands  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- feat: find the pieces already owned and build the route  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- feat(data): Horde Shaman lists for the three specs  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- feat: words in English and French, and the gear list format  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>  \n- chore: start the repository  \n    Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28"
+    ]
+  },
+  "languages": [
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "GearPath"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "GearPathDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "GearPathCharDB"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "foodguardian",
+  "repo": "PhatZero/Food-Guardian",
+  "about": "# Food Guardian\n\nA standalone World of Warcraft: Forever 1.60.1 addon for food, sleeping-bag and campfire buff tracking.\n\n**Version 1.0.2** · [Release notes](https://github.com/PhatZero/Food-Guardian/blob/main/CHANGELOG.md)\n\n## Features\n- Full Window, Compact Bar, and Icon Mode.\n- Well Fed, Well-Rested (Cozy Sleeping Bag), Camp Benefits countdowns.\n- Sleeping Bag stacks and cooldown, Camp Tent / Boosted Rest lockout.\n- Warnings with optional sound, minimap shield, movement/scale/lock controls and settings.\n\n## Commands\n- `/fg`: toggle window\n- `/fg settings`: options\n- `/fg mode full`, `/fg mode compact`, `/fg mode icons`\n- `/fg demo healthy`, `/fg demo warning`, `/fg demo off`\n- `/fg debug`: diagnostics\n- `/fg protected`: last protected-action diagnostic\n- `/fg combat on`, `/fg combat off`: automatically hide or show in combat\n\n## EllesmereUI minimap compatibility\nWhen EllesmereUI's minimap module is enabled, EllesmereUI positions Food Guardian's shield launcher in its addon-button row or group. Food Guardian will not move it back onto the minimap rim during timer updates or map resizing. Use **EllesmereUI > Minimap > Ungroup Minimap Buttons** to keep it visible on the row, and EllesmereUI's **Free Move Buttons** option to adjust that row's buttons. In this mode, EllesmereUI owns minimap-button dragging rather than Food Guardian's normal click-and-drag behavior.\n\nFood Guardian's **Show minimap shield launcher** and **Hide in combat** settings continue to control its button. Without EllesmereUI's enabled minimap module, the shield uses its native draggable minimap-rim position. The main tracker remains available with `/fg` if your UI hides addon buttons.\n\n## Installation\nExtract the official ZIP under WoW Forever's `Interface/AddOns/` directory so that `FoodGuardian/FoodGuardian.toc` exists, then restart.\n\n## Release pipeline\nSource is stored in `addon/` and GitHub Actions packages the same installable `FoodGuardian/` structure. CI runs Lua 5.1 syntax and mocked runtime tests. GitHub releases can optionally upload to CurseForge when Actions credentials are configured. See [publishing instructions](https://github.com/PhatZero/Food-Guardian/blob/main/docs/RELEASING.md).\n\n### Combat-safe countdowns (1.0.3)\nNew installations keep the tracker visible in combat. Existing users can run `/fg combat off` outside combat to enable it, or `/fg combat on` to hide it. Timers use the last readable aura snapshot and resynchronize when combat ends; changes during combat may not appear immediately. Configuration and minimap refreshes pause in combat.\n\n## Optional class buffs (1.1.0)\nOpen `/fg settings` → **Class Buffs**. Enable tracking and select individual presets or grouped alternatives for your character; external buffs and temporary weapon enhancements are also optional. Custom helpful auras can be entered by exact name or ID (up to eight), or via `/fg buffadd` and `/fg buffremove`. Preferences are per character. Class timers use the existing out-of-combat snapshot and refresh when combat ends. Weapon enhancements are per hand, not specific poison types. Preset aura names and legacy spellbook support require live Forever QA.\n\n### Combat visibility upgrade\nThe 1.1b2 build resets the old hide-in-combat preference once so cached timers remain visible by default. If you explicitly prefer hiding afterward, use Settings or `/fg combat on`; `/fg combat off` keeps the tracker visible. `/fg debug` reports the saved combat setting and window state.",
+  "releases": [
+    {
+      "tag": "forever-1.1.0",
+      "name": "Food Guardian 1.1.0 (Forever)",
+      "published": "2026-11-28",
+      "notes": "## Food Guardian 1.1.0 — Class Buff Tracking\n\nStable release of the in-game QA-approved build.\n\n### New features\n- Optional class-specific buff tracking for all nine classes, with per-character preferences.\n- Track selected external buffs, custom helpful auras by name or spell ID, and temporary weapon enhancements.\n- Group interchangeable buffs and configure expiration and missing-buff warnings.\n\n### Interface improvements\n- Matching icon-and-timer class buff tiles; full names on mouseover.\n- Centered rows, automatic wrapping and complete color-coded borders.\n- Full, compact and icon modes retained.\n\n### Combat and reliability\n- Cached countdowns remain visible during combat without restricted aura scans.\n- Refresh live buff information when combat ends.\n- Migrate legacy hide-in-combat preferences once.\n\nClass tracking is opt-in. WoW Forever 1.60.1. No gameplay changes from the QA-approved build."
+    },
+    {
+      "tag": "forever-1.0.3",
+      "name": "Food Guardian 1.0.3 (Forever)",
+      "published": "2026-11-28",
+      "notes": "## Food Guardian 1.0.3 – Combat-Safe Countdown\n\n### Improvements\n- Keep Food Guardian visible during combat with cached food, sleeping bag and camp buff countdowns.\n- Continue updating progress bars and low-duration warnings during combat.\n- Pause aura and inventory scans, minimap updates and configuration controls during combat.\n- Automatically refresh actual buff state after combat ends.\n- Preserve all three display modes and existing hide-in-combat preferences. Existing users can run `/fg combat off` outside combat to enable visible timers.\n\n### Notes\n- Buffs gained, removed or refreshed in combat may not be reflected until combat ends.\n- Lua syntax, runtime mock tests and packaging passed; in-game combat and EllesmereUI validation remain unconfirmed.\n- Targets WoW Forever 1.60.1."
+    },
+    {
+      "tag": "forever-1.0.2",
+      "name": "Food Guardian 1.0.2 (Forever)",
+      "published": "2026-11-24",
+      "notes": "# Food Guardian 1.0.2: EllesmereUI Compatibility\n\n**World of Warcraft: Forever (1.60.1)**\n\n## Fixes\n- Improved minimap shield compatibility with EllesmereUI's addon-button row and grouped flyout.\n- Prevented routine buff refreshes from overriding externally managed button placement or visibility.\n- Exposed the shield texture for correct sizing by compatible minimap managers.\n- Restored native minimap placement and dragging when EllesmereUI's minimap module is disabled.\n- Preserved combat-hide and minimap visibility preferences.\n\n## Testing\n- Added automated regression coverage for external minimap ownership, visibility, resizing, combat hiding, and native fallback.\n- Lua syntax, runtime mock tests, and package validation passed on the compatibility build.\n\nExisting settings and all three tracker modes are preserved."
+    },
+    {
+      "tag": "forever-1.0.1",
+      "name": "Food Guardian 1.0.1 (Forever)",
+      "published": "2026-11-17",
+      "notes": "# Food Guardian v1.0.1\n\nA combat-compatibility and UI stability update for **World of Warcraft: Forever 1.60.1**.\n\n## \uD83D\uDEE1️ Combat & Stability\n- **Hide during combat by default:** Automatically conceals the tracker, settings window, and minimap launcher when entering combat and restores the appropriate windows afterward.\n- **Reduce protected-UI interference:** Suspends periodic buff scanning while combat-hiding is active and prevents dragging/resizing during combat.\n- **Safer initialization:** Avoids replacing Blizzard's global slash-command table.\n- **Protected-action diagnostics:** Records Blizzard blocked/forbidden-action reports for troubleshooting with `/fg protected`.\n\n## \uD83E\uDDED Minimap Launcher\n- **Accurate edge docking:** Positions the Food Guardian shield on the minimap rim based on its actual dimensions.\n- **Resizing support:** Repositions correctly for resized and square minimaps.\n- **Drag positioning:** Retains movable minimap button behavior.\n\n## ⚙️ New Settings & Commands\n- **Hide Food Guardian during combat** is enabled by default and can be changed in Settings.\n- `/fg combat on` or `/fg combat off` for a quick override.\n- `/fg protected` to inspect the last reported blocked-action event.\n- Full Window, Compact Bar, and Icon Mode remain available.\n\n## ✅ QA\n- GitHub Actions Lua 5.1 syntax checks, runtime tests, and ZIP packaging.\n- User tested the diagnostic QA build in-game and reported **no further protected-action errors**.\n\n**Notes:** All existing Food Guardian settings are retained. This is a passive buff tracker; it does not automatically use consumables or cast spells."
+    },
+    {
+      "tag": "forever-1.0.0",
+      "name": "Food Guardian 1.0.0 (Forever)",
+      "published": "2026-11-16",
+      "notes": "# Food Guardian 1.0.0 — First Public Release\n\n**World of Warcraft: Forever (1.60.1)**\n\n## Features\n- **Full Window** with detailed countdowns, buff statuses, progress bars, and sleeping bag stack information.\n- **Compact Bar** for a streamlined row of three icons and buff timers.\n- **Icon Mode** with minimalist status outlines and hover details.\n- Tracks **Well Fed**, **Cozy Sleeping Bag / Well-Rested**, and **Camp Benefits**.\n- Shows **Camp Tent / Boosted Rest** status in the full tracker.\n- **Customizable low-duration warnings** with pulsing indicators and optional sounds.\n- Move, scale, or lock the tracker and access it from the minimap shield icon.\n- Built-in settings and **healthy/warning demo previews**.\n\n## Commands\n- `/fg` — Show or hide the tracker\n- `/fg settings` — Open settings\n- `/fg mode full` — Detailed view\n- `/fg mode compact` — Horizontal timer bar\n- `/fg mode icons` — Three-icon view\n- `/fg demo healthy` or `/fg demo warning` — Preview visual states\n- `/fg demo off` — Return to live tracking\n- `/fg debug` — Show diagnostic information\n\n## Installation\nUnzip so that `Interface/AddOns/FoodGuardian/FoodGuardian.toc` exists, then restart the game.\n\n## Notes\n- The first release targets WoW Forever 1.60.1 only.\n- Some aura APIs may report unavailable data while restricted; the addon shows `UNKNOWN` rather than assuming the buff is missing.\n- Food Guardian does not automatically use consumables or place camp objects."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-28",
+      "2026-11-24",
+      "2026-11-17",
+      "2026-11-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FoodGuardian"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "FoodGuardianDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "FoodGuardianCharDB"
+    ]
+  }
+}

@@ -106,9 +106,9 @@
       "Spoken_Places",
       "Spoken_Quests",
       "Spoken_Readables",
-      "SpokenBossesAudio",
+      "SpokenReadablesAudio",
       "SpokenPlacesAudio",
-      "SpokenReadablesAudio"
+      "SpokenBossesAudio"
     ],
     "editions": [
       "anniversary",

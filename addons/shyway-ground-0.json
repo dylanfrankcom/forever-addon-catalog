@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "shyway-ground-0",
+  "repo": "shyce/Shy-Ground",
+  "about": "# Shy Ground\n\n  ![version 5.2.19](https://img.shields.io/badge/version-5.2.19-29b3ff)\n  [![needs Shy](https://img.shields.io/badge/needs-Shy-3373ff)](https://github.com/shyce/Shy)\n  ![WoW Forever 1.60.1](https://img.shields.io/badge/WoW_Forever-1.60.1-f4a623)\n  [![CurseForge get it](https://img.shields.io/badge/CurseForge-get_it-f16436?logo=curseforge&logoColor=white)](https://www.curseforge.com/wow/addons/shy-ground)\n  [![license GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-3373ff)](https://github.com/shyce/Shy-Ground/blob/main/LICENSE.txt)\n\n**Needs [Shy](https://github.com/shyce/Shy).** This is only map data, with nothing to see or set up, and it does\nnothing on its own.\n\nIt holds the ground of each world in three dimensions, read from the game's own files, so your routes go around the\ncliff instead of into it. Each world is an addon of its own (`ShyWay_Ground_<world>`), loaded only while you're in\nthat world.\n\n![A route on the map that follows the road around the hills](https://raw.githubusercontent.com/shyce/Shy-Ground/main/media/route.jpg)\n\n## Install\n\nIt's optional: without it, the arrow points straight at where you're going. Get it from CurseForge, or by hand copy\nevery folder here into `World of Warcraft\\_forever_\\Interface\\AddOns`.\n\n## Community\n\nQuestions and bug reports: [join the Discord](https://discord.gg/tuJ8EbDdSU).\n\n## License\n\nFree software under the GNU General Public License, version 3 (`LICENSE.txt` in every folder). The ground is\ndrawn from the game's own files; World of Warcraft and its art belong to Blizzard Entertainment.\n\nA commit here is the release it came with, made only when the ground changed.",
+  "releases": [
+    {
+      "tag": "v5.2.19",
+      "name": "Shy Ground 5.2.19",
+      "published": "2026-11-28",
+      "notes": "Ground data as of Shy 5.2.19. It needs [Shy](https://github.com/shyce/Shy).\n\n---\n\nUpdate with the CurseForge app, or [get it on CurseForge](https://www.curseforge.com/wow/addons/shy-ground). To install by hand, download the zip below and copy every folder in it into `World of Warcraft\\_forever_\\Interface\\AddOns`."
+    },
+    {
+      "tag": "v5.2.17",
+      "name": "Shy Ground 5.2.17",
+      "published": "2026-11-27",
+      "notes": "Ground data as of Shy 5.2.17. It needs [Shy](https://github.com/shyce/Shy).\n\n---\n\nUpdate with the CurseForge app, or [get it on CurseForge](https://www.curseforge.com/wow/addons/shy-ground). To install by hand, download the zip below and copy every folder in it into `World of Warcraft\\_forever_\\Interface\\AddOns`."
+    },
+    {
+      "tag": "v5.2.16",
+      "name": "Shy Ground 5.2.16",
+      "published": "2026-11-27",
+      "notes": "Ground data as of Shy 5.2.16. It needs [Shy](https://github.com/shyce/Shy).\n\n---\n\nUpdate with the CurseForge app, or [get it on CurseForge](https://www.curseforge.com/wow/addons/shy-ground). To install by hand, download the zip below and copy every folder in it into `World of Warcraft\\_forever_\\Interface\\AddOns`."
+    },
+    {
+      "tag": "v5.2.14",
+      "name": "Shy Ground 5.2.14",
+      "published": "2026-11-26",
+      "notes": "Ground data as of Shy 5.2.14. It needs [Shy](https://github.com/shyce/Shy).\n\n---\n\nUpdate with the CurseForge app, or [get it on CurseForge](https://www.curseforge.com/wow/addons/shy-ground). To install by hand, download the zip below and copy every folder in it into `World of Warcraft\\_forever_\\Interface\\AddOns`."
+    },
+    {
+      "tag": "v5.2.11",
+      "name": "Shy Ground 5.2.11",
+      "published": "2026-11-25",
+      "notes": "Ground data as of Shy 5.2.11. It needs [Shy](https://github.com/shyce/Shy).\n\n---\n\nUpdate with the CurseForge app, or [get it on CurseForge](https://www.curseforge.com/wow/addons/shy-ground). To install by hand, download the zip below and copy every folder in it into `World of Warcraft\\_forever_\\Interface\\AddOns`."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/shyce/Shy-Ground/main/media/route.jpg"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-27",
+      "2026-11-27",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ShyWay_Ground_0",
+      "ShyWay_Ground_1",
+      "ShyWay_Ground_2991"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "ShyWay"
+    ]
+  }
+}

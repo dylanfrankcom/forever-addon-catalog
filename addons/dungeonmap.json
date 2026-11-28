@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "dungeonmap",
+  "repo": "Mimezu/forever-DungeonMap",
+  "about": "# DungeonMap\n\nInside dungeons and raids, the **M** map shows the minimap: live, big, square.\n\n- **Map** / **Minimap** button, bottom left: switch views. The last choice sticks.\n- Mouse wheel: zoom.\n- Click: ping, as on the minimap.\n- `/dungeonmap`: switch the default view.\n- `/dungeonmap test`, then **M**: try it anywhere (again to stop).\n\nThe minimap goes back to its corner when the map closes.\n\nWoW Forever (client 1.60.1, `## Interface: 16001`).",
+  "releases": [
+    {
+      "tag": "v0.3.3",
+      "name": "DungeonMap 0.3.3",
+      "published": "2026-11-28",
+      "notes": "**Download `DungeonMap-0.3.3.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game, press **M** in a dungeon.\n\n## First release\n\n- In dungeons and raids the **M** map shows the minimap: live, big, square.\n- **Map** / **Minimap** button to switch; wheel zooms; click pings.\n- `/dungeonmap test` tries it anywhere."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DungeonMap"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "DungeonMapDB"
+    ]
+  }
+}

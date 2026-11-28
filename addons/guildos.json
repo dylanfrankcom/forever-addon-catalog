@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "id": "guildos",
+  "repo": "danielcosta42/guildos",
+  "about": "# ![Guild OS](https://img.shields.io/badge/Guild%20OS-Guild%20Manager-blueviolet?style=for-the-badge) \n\n### Premium Guild Management Addon for WoW TBC Anniversary, WoW: Forever and Retail\n\n> Made with care by **Chehul** \uD83D\uDEE1️\n\nGuild OS replaces the default guild frame with a modern, feature-rich management hub that automatically collects and shares gear, professions, attunements, TMB wishlists, raid attendance, loot history and stats across your guild — no inspection required.\n\n> **Clients:** WoW TBC Anniversary (Interface 20506), WoW: Forever (16001) and Retail, Midnight (120105) — one build\n> serves all three. Retail has no Master Loot: the loot history records what each guildmate received from a boss, a\n> guildmate offers an item they can still trade to the raid's loot council (`/gos offer`) and the trade to the winner is\n> recorded as the award; DKP/EPGP and wishlists (Midnight's raid items from the Encounter Journal) work as on Forever.\n> Retail also checks Midnight's consumables and shows each member's Mythic+ rating, keystone and Great Vault.\n> guildos.me takes retail guilds too.\n\n[![Discord](https://img.shields.io/badge/Discord-GuildOS%20support-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/8XA6gmNjja)\n\n> **Help, bugs and ideas:** join the [GuildOS support server on Discord](https://discord.gg/8XA6gmNjja).\n\n---\n\n## Features\n\n### Guild Roster\n- **Full guild roster** with sortable columns: Name, Level, Class, Race, Item Level, Professions, Attunements, Attendance%, Last Seen\n- **Search** by name, class, zone or rank\n- **Online/Offline toggle** with offline members shown in grayscale\n- **Hover tooltips** with detailed character info\n- **Click any member** to open their full inspection panel\n- **Stats bar** showing total members, online count, and how many have Guild OS installed\n\n### Member Detail Panel\n- Full equipment inspection (17 gear slots) with quality-colored item names and tier-colored item levels\n- Profession list with progress bars and rank display\n- Character stats: HP, Mana, STR, AGI, STA, INT, SPI\n- Raid attunement progress with per-quest tracking and visual progress bars\n- **Account-wide attunements** — attunements completed on any linked alt are shown as complete with a `(conta: NomeDoChar)` indicator\n- **Linked Characters** section (officer only) — link/unlink alts to share attunement data across a player's entire account group\n\n### Attunement Tracker\nTracks quest-based attunement progress for all TBC raids:\n\n| Raid | Tier |\n|---|---|\n| Karazhan | T4 |\n| Gruul's Lair | T4 |\n| Magtheridon's Lair | T4 |\n| Serpentshrine Cavern | T5 |\n| Tempest Keep: The Eye | T5 |\n| Hyjal Summit | T6 |\n| Black Temple | T6 |\n| Sunwell Plateau | T6.5 |\n\nAlso tracks Heroic dungeon key reputation requirements (Honor Hold/Thrallmar, Cenarion Expedition, Lower City, Sha'tar, Keepers of Time).\n\n**Account-wide propagation:** Officers can link a player's alts so that attunements completed on any character in the group are reflected across all of them — matching how Blizzard handles account-wide attunements on TBC Anniversary.\n\n### TMB Integration (That's My BiS)\n- Import TMB CSV exports with wishlist, prio, and received loot data\n- Tooltip integration: hover any item to see who has it on their wishlist (Settings → Interface: always, only while holding Shift, or off)\n- Syncs imported TMB data between officers via addon comms\n- Dedicated TMB Loot tab for browsing all imported data\n\n### Guild Recipe Browser\n- Searchable browser for all recipes known across the guild\n- **Icon-only profession filter tabs** — compact tab bar with one icon per crafting profession; full name shown on hover tooltip\n- Gathering professions (Herbalism, Mining, Skinning, Fishing) are filtered out — only crafting professions shown\n- Item tooltips list at most three crafters (online first, else the offline ones seen most recently) and count the rest\n\n### Crafts (professions and craft orders in one tab)\n- The catalog of recipes and who makes them, beside the queue of craft orders, both in view at once\n- Click a recipe to open it in place: materials (what you carry against what the order needs), crafters, and the order\n- `/gos order <item>`, Alt-click on an item, or **Order** in Find a Crafter: ask the guild's crafters for an item\n- Open to every crafter who knows the recipe until one accepts, or sent to one crafter (a decline opens it to all)\n- Per order: bring the materials or let the crafter use their own, plus an optional tip (on trust)\n- Bars on the trade and mail windows put the materials, the item and the tip in with one click; a finished\n  trade or a sent mail moves the order on\n- The queue: For me · Mine · Open, one card per order with its four steps and the next thing to do; the tab and the minimap menu count what waits for you\n\n### Raid Tracker\n- Automatically detects when you enter a raid and tracks full sessions (start/end, boss encounters, player snapshots)\n- Attendance scoring with penalty system: 100% base, −10% arrived late, −10% left early, −10% missing consumables\n- View recent sessions and per-member attendance in the Raids tab\n\n### Consumable Checker\n- Scans all raid members for expected consumable buffs (TBC Anniversary and Retail; not on WoW: Forever)\n- TBC: Flask, Food, Weapon Buff, Battle Elixir, Guardian Elixir\n- Retail: Midnight's flask, food and augment rune, and your own weapon oil, read out of combat (on the ready check);\n  what the game keeps hidden is unknown, never missing\n- Reports which categories each player is missing\n- Integrates with attendance scoring\n\n### Mythic+ and the Great Vault (Retail)\n- Each member's own client sends their Mythic+ rating, their keystone and their Great Vault for the week (raid,\n  dungeons, delves and world)\n- Shown on the member sheet and in an optional M+ roster column\n\n### Guild Bank\n- **Seen from anywhere**: whoever opens the bank with Guild OS shares it; every member sees every tab summed, grouped by\n  category, searchable and sortable, with gold, free slots and who read it when\n- **Tabs as the game draws them**, with an **Organized** view that shows the tab in order without moving anything\n- **Organize for real** at the bank: merges stacks and sorts a tab (or every tab you may), one move at a time, with\n  pause and stop; only where your rank withdraws without limit, or as guild master\n- **Ledger** kept past the game's 25 lines, without double counting; the bank's gold over 30 days; top contributors\n- **Needs**: officers set how many of each item the bank should hold; everyone sees what is short, a shopping list\n- **Requests**: ask the officers for an item; they fill or decline it\n- Item tooltips show how many the bank holds; `/gos bank [sort [all] | stop | sync | need]`\n\n### Loot Tracker\n- Automatically records every Rare+ item looted in raids and dungeons\n- Stores item link, recipient, timestamp, raid name, and quantity\n- Browse full loot history in the Loot tab\n- Keeps up to 500 entries\n\n### Officer Notes\n- Write private notes and apply quick-tags (Role, Priority, Status) per guild member\n- Notes are synced between officers in real time via addon comms\n\n### Disciplinary Record (Officer Only)\n- Every warning a member received, on their sheet: why, by whom, when, and whether it still counts\n- A warning counts for the guild's term (1 to 365 days, 30 until an officer changes it) and each one moves the\n  member up the guild's ladder; nothing is ever punished on its own\n- Synced between officers only, revoked rather than deleted, and the warnings given on the guild's Discord show\n  up too (`/gos record <name>`, `/gos record term <days>`)\n\n### Trial Tracker (Officer Only)\n- Track trial/recruit members; the trial length is the guild's (1 to 90 days, 30 until an officer changes it in\n  Recruitment → Trials), and a new length applies to running trials too\n- Optionally, every new member starts as a trial on its own (off by default; nobody already in the guild is affected)\n- Records start date, sponsor, status (trial/ready to review/approved/denied), and evaluation notes\n- Trials whose time is up show as \"ready to review\" and officers are told at login\n\n### Officer Rank Configuration (Officer Only)\n- Configure which guild ranks are considered \"officers\" in Settings → Guild rules\n- Checkboxes for each guild rank — GM is always locked as officer\n- Changes take effect immediately; only current officers can modify this setting\n- Synced across all addon instances in the guild\n\n### Guild-Wide Data Sync\n- Automatically shares your gear, professions, attunements and stats with guildmates who have Guild OS installed\n- Compressed and chunked communication protocol (LibSerialize + LibDeflate)\n- Periodic sync every 5 minutes + manual sync button\n- No manual inspection needed — data flows automatically\n\n### Recruitment System (Officer Only)\n- **Auto-recruit popup** — a notification appears on a configurable interval; click it to send your recruitment message to chat channels (LookingForGroup, Trade, etc.)\n- **Send Now button** in the Recruitment tab for instant posting\n- **Welcome message** — automatically posts a greeting in guild chat when a new member joins, with customizable message and Discord link\n- **Guild invite** via `/guildos recruit invite <Player>`\n- Full configuration UI in the Recruitment tab: message, interval, channels, welcome text, Discord link\n\n### Groups (the guild's own group finder)\n- **Activities as tiles**: this client's dungeons and raids, plus quests, world bosses, PvP and farming, each with its level range and how many groups and players it has right now\n- **I am looking**: list yourself for one or several activities, with the roles you play (tank, healer, damage), a note and for how long\n- **Form a group**: publish a group with its open spots by role; guildmates ask for a spot with one click, and only the leader hears it\n- **The queue**: the leader invites or declines from the group's card; the spot closes when the player joins, and with no spot left the listing comes down by itself\n- **The party forms itself**: with \"Invite whoever asks\" on, each request is an invite at once, and a guildmate without the addon whispers the leader `inv` (or `+`) to get one; a raid-sized group turns the party into a raid as soon as somebody joins. With it off, the leader answers from a small notice, tab closed\n- **A discreet notice**: when a guildmate forms a group for your level, a small card at the top of the screen offers a spot in your role and goes away by itself (never in combat or while you are in a group; `/gos avail toast off` or Settings to turn it off)\n- **Said again in guild chat**: a group listed with \"Also post in guild chat\" repeats its line every 10 minutes with how full it is, until it fills or comes down\n- **The leader's panel**: your group as a card with its art, its seats, a bar of how full it is and the time it has left; from it you change the group, give it **+30 min**, **post it in chat now** (with the cooldown shown), run a **ready check** and take it down\n- **Fits your group**: players looking for your activity (or anything) in a role you still need, each with one click to invite them in that role, and the spot closes when they arrive\n- **A start time**: a group starts now or in 15, 30 or 60 minutes, shown on its card and in the guild line\n- **Active at a glance**: how many groups are forming, how many are looking and how many are for you, with filters by dungeon, raid or other and \"my level only\"; groups for your level with a spot in your role come first, marked \"for you\"\n- **Before it ends**: five minutes before your group or your listing expires, a notice offers +30 min or taking it down\n- No server: it all travels on the guild's addon channel, expires on its own and reaches whoever logs in later. `/gos avail` opens it\n\n### Tab System\n| Tab | Access |\n|---|---|\n| Roster | All members |\n| TMB Loot | All members |\n| Raids | All members |\n| Groups | All members |\n| Loot | All members |\n| Recruitment → Trials | Officers only |\n| Recruitment | Officers only |\n\n### Guild Frame Hook\nPressing **J** (or however you open the guild frame) opens Guild OS instead of the default Blizzard guild panel.\n\n---\n\n## Slash Commands\n\n| Command | Description |\n|---|---|\n| `/guildos` or `/gos` | Toggle the roster window |\n| `/guildos scan` | Re-collect your local character data |\n| `/guildos sync` | Broadcast your data to the guild |\n| `/guildos avail` | Open the Groups tab; `/guildos avail tank <text>` lists you, `/guildos avail off` delists you, `/guildos avail toast on\\|off` the notice for new groups |\n| `/guildos reset` | Wipe saved data and reload |\n\n### Recruitment Commands (Officer+)\n\n| Command | Description |\n|---|---|\n| `/guildos recruit on/off` | Start/stop auto-recruit popup |\n| `/guildos recruit status` | Show recruitment status |\n| `/guildos recruit msg <text>` | Set recruitment message |\n| `/guildos recruit interval <sec>` | Set popup interval (min 60s) |\n| `/guildos recruit channel add/remove/list <name>` | Manage channels |\n| `/guildos recruit welcome on/off` | Toggle welcome message |\n| `/guildos recruit welcome msg <text>` | Set welcome message |\n| `/guildos recruit discord <link>` | Set Discord link |\n| `/guildos recruit invite <Player>` | Send guild invite |\n\n---\n\n## Installation\n\n1. Download and extract into your `Interface/AddOns/` folder\n2. The folder must be named `GuildOS`\n3. Restart WoW or type `/reload`\n4. Press **J** to open Guild OS or type `/guildos`\n\n---\n\n## Testing on the Forever beta\n\nGuild OS ships **one build for both clients**: the release on CurseForge and Wago is marked for TBC\nAnniversary and for WoW: Forever, so an addon manager pointed at the beta installs it like any other addon.\nBuilds between releases are posted as a GitHub pre-release and announced on the\n[GuildOS Discord](https://discord.gg/8XA6gmNjja).\n\n1. **Point the Guild OS companion at Anniversary first.** If you use the desktop companion, make sure it reads your\n   `_anniversary_` folder before you install the beta, so it keeps syncing the right guild.\n2. **Get the build** from CurseForge or Wago — an addon manager that supports WoW: Forever installs it for you —\n   or the pre-release announced on Discord.\n3. **Install** it into the beta client's own `Interface/AddOns` folder, not into `_anniversary_`.\n4. **Load it.** If the beta's interface number is newer than the build lists, tick **Load out of date AddOns** on\n   the AddOns screen at character select.\n5. **Run the probe.** In game, type `/guildos probe`, then `/reload` so the result is written to disk. The probe\n   records which client this is and which of the APIs, events and templates Guild OS uses exist.\n6. **Send back** `WTF/Account/<account>/SavedVariables/GuildOS.lua` from the beta client's folder. It holds Guild\n   OS's saved data for your guilds, including guild members' character names, officer notes and chat messages:\n   share it only with the Guild OS maintainers.\n\n## Libraries\n\n- [LibStub](https://www.wowace.com/projects/libstub)\n- [CallbackHandler-1.0](https://www.wowace.com/projects/callbackhandler)\n- [LibSerialize](https://github.com/rossnichols/LibSerialize)\n- [LibDeflate](https://github.com/SafeteeWoW/LibDeflate)\n- [ChatThrottleLib](https://www.wowace.com/projects/chatthrottlelib)\n\n---\n\n## Notes\n\n- **SendChatMessage to channels** (LookingForGroup, Trade, etc.) requires a hardware click due to Blizzard restrictions. Guild OS handles this by showing a clickable popup notification instead of sending automatically.\n- Officer permission is determined by configurable guild rank threshold (default: rank ≤ 2). Adjustable in Settings → Guild rules by current officers.\n- Data is stored per-guild in `GuildOSDB` SavedVariables (isolated per guild name+realm).\n- Account-wide attunements require officers to manually link a player's alt characters via the Member Detail panel.\n\n---\n\n## License\n\nMIT License — see [LICENSE](https://github.com/danielcosta42/guildos/blob/main/LICENSE) for details.\n\nThird-party libraries are included under their own respective licenses (MIT, zlib, Public Domain).\n\n---\n\n## Contributing\n\nBug reports and feature requests are welcome! Please use the [GitHub Issues](https://github.com/danielcosta42/GuildOS/issues) page, or talk to us on the [GuildOS Discord](https://discord.gg/8XA6gmNjja).\n\n---\n\n## Support\n\nIf Guild OS has been useful to your guild and you'd like to help keep it maintained, consider buying me a coffee ☕\n\n[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/chehul)",
+  "releases": [
+    {
+      "tag": "v2.2.1",
+      "name": "GuildOS v2.2.1",
+      "published": "2026-11-28",
+      "notes": "Stable build, the same version as on CurseForge and Wago. The GuildOS companion installs and updates the addon from this release."
+    },
+    {
+      "tag": "v2.2.0",
+      "name": "GuildOS v2.2.0",
+      "published": "2026-11-27",
+      "notes": "Stable build, the same version as on CurseForge and Wago. The GuildOS companion installs and updates the addon from this release."
+    },
+    {
+      "tag": "v2.1.0",
+      "name": "GuildOS v2.1.0",
+      "published": "2026-11-27",
+      "notes": "Stable build, the same version as on CurseForge and Wago. The GuildOS companion installs and updates the addon from this release."
+    },
+    {
+      "tag": "v2.0.0",
+      "name": "GuildOS v2.0.0",
+      "published": "2026-11-27",
+      "notes": "Stable build, the same version as on CurseForge and Wago. The GuildOS companion installs and updates the addon from this release."
+    },
+    {
+      "tag": "v1.43.5",
+      "name": "GuildOS v1.43.5",
+      "published": "2026-11-25",
+      "notes": "Stable build, the same version as on CurseForge and Wago. The GuildOS companion installs and updates the addon from this release."
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 21,
+    "contributors": 3,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-27",
+      "2026-11-27",
+      "2026-11-27",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GuildOS"
+    ],
+    "editions": [
+      "anniversary",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "GuildOSDB"
+    ]
+  }
+}

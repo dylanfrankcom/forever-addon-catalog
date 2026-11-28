@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "auctionatoreffects",
+  "repo": "Mimezu/forever-AuctionatorEffects",
+  "about": "# Auctionator Effects\n\nSearch auctions by tooltip text, from the Buy or Shopping tab.\n\n```\nsword #magical spells\n#healing #spirit\n\"Sword of Decay\" #nature\n```\n\n- `#text` after the name keeps only items whose tooltip contains that text.\n- Several `#` = all must match.\n- Works with shopping lists and the advanced search fields (put `#` in the name).\n\nA `#` search on the Buy tab opens in Shopping (same category and levels), where the filter runs. Needs Auctionator.\n\nDebug: `/aeffects` (prints each checked item).\n\nTests: `lua5.1 tests/test_logic.lua`",
+  "releases": [
+    {
+      "tag": "v0.2.2",
+      "name": "AuctionatorEffects 0.2.2",
+      "published": "2026-11-28",
+      "notes": "**Download `AuctionatorEffects-0.2.2.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game, search on the Buy or Shopping tab.\n\n## First release\n\n- Search auctions by tooltip text: `sword #magical spells`, `#healing #spirit`.\n- Several `#` = all must match. Needs Auctionator."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AuctionatorEffects"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "Auctionator"
+    ]
+  }
+}

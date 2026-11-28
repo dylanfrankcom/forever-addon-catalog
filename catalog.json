@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "2026.11.28.1",
+  "version": "2026.11.28.2",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -381,6 +381,12 @@
         "https://github.com/alde"
       ]
     },
+    "alexadewit": {
+      "name": "Alexa DeWit",
+      "profiles": [
+        "https://github.com/AlexaDeWit"
+      ]
+    },
     "alexallocated": {
       "name": "Chev",
       "profiles": [
@@ -668,7 +674,7 @@
       ]
     },
     "bigwigsmods": {
-      "name": "Neb",
+      "name": "BigWigsMods",
       "profiles": [
         "https://github.com/BigWigsMods"
       ]
@@ -1316,6 +1322,12 @@
         "https://github.com/Earthenmist"
       ]
     },
+    "eavidaze": {
+      "name": "eavidaze",
+      "profiles": [
+        "https://github.com/eavidaze"
+      ]
+    },
     "ebonhold-labs": {
       "name": "EbonHold-Labs",
       "profiles": [
@@ -1547,6 +1559,12 @@
         "https://github.com/foxyybb"
       ]
     },
+    "fpsacha": {
+      "name": "Sacha",
+      "profiles": [
+        "https://github.com/fpsacha"
+      ]
+    },
     "fquirozjara91": {
       "name": "Felipe",
       "profiles": [
@@ -1590,6 +1608,12 @@
       "name": "Gabbajoe",
       "profiles": [
         "https://github.com/Gabbajoe"
+      ]
+    },
+    "gamebook": {
+      "name": "SuperRsk",
+      "profiles": [
+        "https://github.com/GAMEBOOK"
       ]
     },
     "gammelgaard52": {
@@ -1764,6 +1788,12 @@
         "https://github.com/hastecraft"
       ]
     },
+    "hasuwini77": {
+      "name": "hasuwini77",
+      "profiles": [
+        "https://github.com/hasuwini77"
+      ]
+    },
     "hayato2846": {
       "name": "Hayato2846",
       "profiles": [
@@ -1866,6 +1896,12 @@
       "name": "Imokim2",
       "profiles": [
         "https://github.com/Imokim2"
+      ]
+    },
+    "innocenzi": {
+      "name": "Hylmew",
+      "profiles": [
+        "https://github.com/innocenzi"
       ]
     },
     "invisib0b": {
@@ -1971,6 +2007,12 @@
         "https://github.com/jamartinji"
       ]
     },
+    "jamesk111": {
+      "name": "jamesk111",
+      "profiles": [
+        "https://github.com/jamesk111"
+      ]
+    },
     "janrk": {
       "name": "JanRK",
       "profiles": [
@@ -2041,6 +2083,12 @@
       "name": "Jeremy-Gstein",
       "profiles": [
         "https://github.com/Jeremy-Gstein"
+      ]
+    },
+    "jezzi23": {
+      "name": "jezzi23",
+      "profiles": [
+        "https://github.com/jezzi23"
       ]
     },
     "jf10r": {
@@ -2379,6 +2427,15 @@
         "https://github.com/kriffin"
       ]
     },
+    "krool": {
+      "name": "Krool",
+      "profiles": [
+        "https://github.com/Krool"
+      ],
+      "sponsor": [
+        "https://ko-fi.com/kroolworld"
+      ]
+    },
     "kstange": {
       "name": "SimGuy",
       "profiles": [
@@ -2627,6 +2684,12 @@
         "https://github.com/malkamius"
       ]
     },
+    "malkkav": {
+      "name": "Malkkav",
+      "profiles": [
+        "https://github.com/malkkav"
+      ]
+    },
     "mantaskazlauskas": {
       "name": "Tuubby",
       "profiles": [
@@ -2668,6 +2731,12 @@
       "name": "mpt",
       "profiles": [
         "https://github.com/MartinPTielemans"
+      ]
+    },
+    "martinwinther": {
+      "name": "martin",
+      "profiles": [
+        "https://github.com/martinwinther"
       ]
     },
     "martnat8": {
@@ -2975,6 +3044,12 @@
         "https://github.com/NansMM"
       ]
     },
+    "naowh-gaming": {
+      "name": "Naowh",
+      "profiles": [
+        "https://github.com/naowh-gaming"
+      ]
+    },
     "nathanb": {
       "name": "nathanb",
       "profiles": [
@@ -3009,6 +3084,12 @@
       "name": "Nemux",
       "profiles": [
         "https://github.com/Nemu-x"
+      ]
+    },
+    "neroxrw": {
+      "name": "neroxrw",
+      "profiles": [
+        "https://github.com/neroxrw"
       ]
     },
     "nervzz": {
@@ -3114,6 +3195,12 @@
       "name": "Norganna's AddOns",
       "profiles": [
         "https://github.com/NoobyGains"
+      ]
+    },
+    "noopz": {
+      "name": "noopz",
+      "profiles": [
+        "https://github.com/noopz"
       ]
     },
     "noshei": {
@@ -3249,6 +3336,12 @@
         "https://github.com/oxedtv"
       ]
     },
+    "oylex": {
+      "name": "Oylex",
+      "profiles": [
+        "https://github.com/Oylex"
+      ]
+    },
     "p3lim-wow": {
       "name": "p3lim",
       "profiles": [
@@ -3365,6 +3458,12 @@
       "name": "petllama",
       "profiles": [
         "https://github.com/petllama"
+      ]
+    },
+    "phatzero": {
+      "name": "PhatZero",
+      "profiles": [
+        "https://github.com/PhatZero"
       ]
     },
     "phenomdevel": {
@@ -3899,6 +3998,12 @@
         "https://github.com/shwill"
       ]
     },
+    "shyce": {
+      "name": "Shyce Cream",
+      "profiles": [
+        "https://github.com/shyce"
+      ]
+    },
     "sidequest-guild": {
       "name": "SideQuest",
       "profiles": [
@@ -3956,10 +4061,22 @@
         "https://buymeacoffee.com/Slackluster"
       ]
     },
+    "slackwise": {
+      "name": "Slack — Moon Guard",
+      "profiles": [
+        "https://github.com/Slackwise"
+      ]
+    },
     "slothpala": {
       "name": "Slothpala",
       "profiles": [
         "https://github.com/Slothpala"
+      ]
+    },
+    "sludging": {
+      "name": "Sludger",
+      "profiles": [
+        "https://github.com/Sludging"
       ]
     },
     "smobcraft": {
@@ -4594,6 +4711,12 @@
         "https://github.com/unverz06"
       ]
     },
+    "uposum": {
+      "name": "Laurids Kern",
+      "profiles": [
+        "https://github.com/uposum"
+      ]
+    },
     "v-gachkovsky": {
       "name": "Volodymyr Hachkovsky",
       "profiles": [
@@ -5161,6 +5284,7 @@
         }
       },
       "optional": [
+        "bigwigs",
         "customnames",
         "dbm-core",
         "ellesmereui",
@@ -6933,6 +7057,7 @@
       "optional": [
         "questie",
         "rxpguides",
+        "shortestpathforever",
         "skillupforever"
       ],
       "from": {
@@ -6953,7 +7078,7 @@
         "releases": 172,
         "stars": 2,
         "careful": false,
-        "ownerAddons": 2
+        "ownerAddons": 3
       }
     },
     {
@@ -8937,6 +9062,108 @@
       }
     },
     {
+      "id": "artificer",
+      "name": "Artificer",
+      "summary": "A personal workshop and collection of UI tweaks and adjustments",
+      "summaries": {
+        "deDE": "Eine persönliche Werkstatt und Sammlung von UI-Anpassungen",
+        "esES": "Un taller personal y colección de ajustes de la interfaz",
+        "esMX": "Un taller personal y colección de ajustes y mejoras de la interfaz",
+        "frFR": "Un atelier personnel et une collection d’ajustements de l’interface",
+        "itIT": "Un laboratorio personale e una raccolta di modifiche e miglioramenti dell'interfaccia",
+        "koKR": "개인 작업실과 UI 조정 모음",
+        "ptBR": "Uma oficina pessoal e coleção de ajustes e melhorias de interface",
+        "ruRU": "Личная мастерская и набор улучшений интерфейса",
+        "zhCN": "个人工作室以及一系列界面调整和优化",
+        "zhTW": "個人工作室以及一系列介面調整與優化"
+      },
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "esMX",
+        "frFR",
+        "itIT",
+        "koKR",
+        "ptBR",
+        "ruRU",
+        "zhCN",
+        "zhTW"
+      ],
+      "author": "keyboardturner",
+      "tags": [
+        "ui"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/artificer.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "keyboardturner/Artificer",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1449040
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/keyboardturner/Artificer",
+        "issues": "https://github.com/keyboardturner/Artificer/issues",
+        "curseforge": "https://www.curseforge.com/projects/1449040",
+        "wago": "https://addons.wago.io/addons/O67D8jK3",
+        "wowinterface": "https://www.wowinterface.com/downloads/info27048"
+      },
+      "folders": [
+        "Artificer"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120100",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc",
+        "wago": "toc",
+        "wowinterface": "toc",
+        "tags": "inferred",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 1064,
+        "latest": 13,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-02-08",
+        "ownerSince": "2016-06-20",
+        "releases": 75,
+        "stars": 0,
+        "careful": false,
+        "ownerAddons": 12
+      }
+    },
+    {
       "id": "artpad",
       "name": "ArtPad",
       "summary": "Shared canvas for your guild or group",
@@ -10295,6 +10522,64 @@
         "entry": "override",
         "curseforge": "source",
         "wago": "source"
+      }
+    },
+    {
+      "id": "auctionatoreffects",
+      "name": "Auctionator Effects",
+      "otherNames": [
+        "forever Auctionator Effects"
+      ],
+      "summary": "Search auctions by tooltip text: sword #magical spells",
+      "author": "mimezu",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Mimezu/forever-AuctionatorEffects",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Mimezu/forever-AuctionatorEffects",
+        "issues": "https://github.com/Mimezu/forever-AuctionatorEffects/issues"
+      },
+      "folders": [
+        "AuctionatorEffects"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "requires": [
+        "auctionator"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
+      },
+      "downloads": {
+        "total": 2,
+        "latest": 2,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-28",
+        "ownerSince": "2021-01-06",
+        "releases": 1,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "warnings": [
+          "single-release"
+        ],
+        "careful": true,
+        "ownerAddons": 17
       }
     },
     {
@@ -11691,7 +11976,7 @@
         "releases": 30,
         "stars": 3,
         "careful": false,
-        "ownerAddons": 1
+        "ownerAddons": 2
       }
     },
     {
@@ -16959,6 +17244,66 @@
       }
     },
     {
+      "id": "beeline",
+      "name": "Beeline",
+      "summary": "Your own leveling route, on rails: step card, waypoint arrow, map pins, live quest tracking.",
+      "author": "noopz",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/beeline.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "noopz/Beeline",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/noopz/Beeline",
+        "issues": "https://github.com/noopz/Beeline/issues"
+      },
+      "folders": [
+        "Beeline",
+        "Beeline_MeshEK",
+        "Beeline_MeshKalimdor",
+        "Beeline_NavEK",
+        "Beeline_NavKalimdor",
+        "Beeline_Plans_Alliance",
+        "Beeline_Plans_Horde",
+        "ForeverRoute"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "questie"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 256,
+        "latest": 2,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-10",
+        "ownerSince": "2015-09-21",
+        "releases": 57,
+        "stars": 2,
+        "badges": [
+          "new"
+        ],
+        "careful": false
+      }
+    },
+    {
       "id": "bejeweledredux",
       "name": "Bejeweled Redux",
       "summary": "The popular game Bejeweled, rebuilt for modern World of Warcraft!",
@@ -17637,7 +17982,7 @@
         "releases": 32,
         "stars": 1,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -18823,6 +19168,179 @@
       }
     },
     {
+      "id": "bigwigs",
+      "name": "BigWigs",
+      "summary": "Modular, lightweight, non-intrusive approach to boss encounter warnings.",
+      "summaries": {
+        "deDE": "Modulare und einfache Boss Encounter Warnungen.",
+        "esES": "Avisos y barras para encuentros con jefes. Modular, ligero y no intrusivo.",
+        "esMX": "Avisos y barras para encuentros con jefes. Modular, ligero y no intrusivo.",
+        "frFR": "Approche modulaire, légère et non-intrusive des alertes des rencontres de boss.",
+        "itIT": "Un approccio modulare, leggero e non intrusivo per gli avvisi ai combattimenti con i boss.",
+        "koKR": "각종 보스에 대하여 간략하고 시각적으로 경고합니다.",
+        "ptBR": "Abordagem modular, leve e não intrusiva para avisos em encontros com chefes.",
+        "ruRU": "Простой и удобный помощник в битвах с боссами.",
+        "zhCN": "团队首领战信息提示插件，带有计时条。",
+        "zhTW": "團隊首領戰訊息提示插件，帶有計時條。"
+      },
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "esMX",
+        "frFR",
+        "itIT",
+        "koKR",
+        "ptBR",
+        "ruRU",
+        "zhCN",
+        "zhTW"
+      ],
+      "author": "bigwigsmods",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/bigwigs.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "BigWigsMods/BigWigs",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 2382
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/BigWigsMods/BigWigs",
+        "issues": "https://github.com/BigWigsMods/BigWigs/issues",
+        "curseforge": "https://www.curseforge.com/projects/2382",
+        "wago": "https://addons.wago.io/addons/5NRegwG3",
+        "wowinterface": "https://www.wowinterface.com/downloads/info5086"
+      },
+      "folders": [
+        "BigWigs",
+        "BigWigs_Core",
+        "BigWigs_MarchOnQuelDanas",
+        "BigWigs_MidnightLairs",
+        "BigWigs_MidnightWorld",
+        "BigWigs_Options",
+        "BigWigs_Plugins",
+        "BigWigs_Sporefall",
+        "BigWigs_TheDreamrift",
+        "BigWigs_TheUnbindingOfKithix",
+        "BigWigs_TheVenomousAbyss",
+        "BigWigs_TheVoidspire"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic": {
+          "interface": "50504",
+          "upToDate": true,
+          "folders": [
+            "BigWigs",
+            "BigWigs_Core",
+            "BigWigs_Options",
+            "BigWigs_Plugins"
+          ],
+          "released": "2026-11-28"
+        },
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true,
+          "folders": [
+            "BigWigs",
+            "BigWigs_Core",
+            "BigWigs_Options",
+            "BigWigs_Plugins"
+          ],
+          "released": "2026-11-28"
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "folders": [
+            "BigWigs",
+            "BigWigs_Core",
+            "BigWigs_Options",
+            "BigWigs_Plugins"
+          ],
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "folders": [
+            "BigWigs",
+            "BigWigs_Core",
+            "BigWigs_Options",
+            "BigWigs_Plugins"
+          ],
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120107",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_ptr": {
+          "interface": "50504",
+          "upToDate": true,
+          "folders": [
+            "BigWigs",
+            "BigWigs_Core",
+            "BigWigs_Options",
+            "BigWigs_Plugins"
+          ],
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true,
+          "folders": [
+            "BigWigs",
+            "BigWigs_Core",
+            "BigWigs_Options",
+            "BigWigs_Plugins"
+          ],
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "libspecialization"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc",
+        "wago": "toc",
+        "wowinterface": "toc",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 2663499,
+        "latest": 142,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2016-08-01",
+        "ownerSince": "2016-02-02",
+        "releases": 1203,
+        "stars": 277,
+        "careful": false,
+        "ownerAddons": 6
+      }
+    },
+    {
       "id": "bigwigs-countdown-heroesofthestorm",
       "name": "BigWigs +Countdown: Heroes of the Storm",
       "summary": "Adds countdown voices from Heroes of the Storm to BigWigs.",
@@ -18899,8 +19417,8 @@
           "released": "2026-11-04"
         }
       },
-      "requiresFolders": [
-        "BigWigs"
+      "requires": [
+        "bigwigs"
       ],
       "from": {
         "name": "toc-title",
@@ -18922,7 +19440,7 @@
         "releases": 40,
         "stars": 1,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -19002,8 +19520,8 @@
           "released": "2026-11-04"
         }
       },
-      "requiresFolders": [
-        "BigWigs"
+      "requires": [
+        "bigwigs"
       ],
       "from": {
         "name": "toc-title",
@@ -19025,7 +19543,7 @@
         "releases": 45,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -19102,10 +19620,8 @@
         }
       },
       "requires": [
+        "bigwigs",
         "transcriptor"
-      ],
-      "requiresFolders": [
-        "BigWigs"
       ],
       "from": {
         "name": "toc-title",
@@ -19125,7 +19641,7 @@
         "releases": 67,
         "stars": 2,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -19183,7 +19699,7 @@
           "new"
         ],
         "careful": false,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -21153,6 +21669,106 @@
       }
     },
     {
+      "id": "brokeranything",
+      "name": "BrokerAnything",
+      "summary": "Create a data broker for any ID",
+      "author": "eliote",
+      "tags": [
+        "ui"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/brokeranything.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Eliote/BrokerAnything",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 332601
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Eliote/BrokerAnything",
+        "issues": "https://github.com/Eliote/BrokerAnything/issues",
+        "curseforge": "https://www.curseforge.com/projects/332601",
+        "wago": "https://addons.wago.io/addons/vEGPJ361"
+      },
+      "folders": [
+        "BrokerAnything"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120100",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "classic": {
+          "interface": "50504",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120100",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120100",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "classic_ptr": {
+          "interface": "50504",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc",
+        "wago": "toc",
+        "tags": "inferred",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 2948,
+        "latest": 9,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2019-07-28",
+        "ownerSince": "2013-01-23",
+        "releases": 40,
+        "stars": 0,
+        "careful": false,
+        "ownerAddons": 2
+      }
+    },
+    {
       "id": "bruhforever",
       "name": "Bruh Forever",
       "summary": "Bruh. Forever.",
@@ -23082,7 +23698,7 @@
         "releases": 178,
         "stars": 34,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -23342,7 +23958,7 @@
           "single-release"
         ],
         "careful": true,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -27963,7 +28579,8 @@
       },
       "optional": [
         "auctionator",
-        "questie"
+        "questie",
+        "shortestpathforever"
       ],
       "from": {
         "name": "toc-title",
@@ -29172,7 +29789,7 @@
           "single-release"
         ],
         "careful": true,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -29587,7 +30204,7 @@
         "releases": 17,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -33223,6 +33840,73 @@
       }
     },
     {
+      "id": "dropoff",
+      "name": "DropOff",
+      "summary": "Guides you to turn in finished quests, quickest first, with the whole trip: flights, zeppelins, boats.",
+      "summaries": {
+        "frFR": "Te guide pour rendre tes quêtes terminées, les plus rapides d'abord, avec tout le trajet : vols, zeppelins, bateaux."
+      },
+      "languages": [
+        "enUS",
+        "frFR"
+      ],
+      "author": "hasuwini77",
+      "tags": [
+        "quests"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "hasuwini77/dropoff",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/hasuwini77/dropoff",
+        "issues": "https://github.com/hasuwini77/dropoff/issues"
+      },
+      "folders": [
+        "DropOff",
+        "DropOff_Paths_EasternKingdoms",
+        "DropOff_Paths_Kalimdor",
+        "DropOff_Paths_Zephras"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "openmap",
+        "questie"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category"
+      },
+      "downloads": {
+        "total": 277,
+        "latest": 7,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-17",
+        "ownerSince": "2022-09-28",
+        "releases": 5,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false,
+        "ownerAddons": 1
+      }
+    },
+    {
       "id": "dropthecheapestthing",
       "name": "DropTheCheapestThing",
       "summary": "Drop the cheapest thing you're carrying",
@@ -33634,6 +34318,65 @@
       "from": {
         "entry": "override",
         "curseforge": "source"
+      }
+    },
+    {
+      "id": "dungeonmap",
+      "name": "DungeonMap",
+      "otherNames": [
+        "forever Dungeon Map"
+      ],
+      "summary": "Inside dungeons, the M map shows the minimap, big. A button switches back to the normal map.",
+      "author": "mimezu",
+      "tags": [
+        "map"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Mimezu/forever-DungeonMap",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Mimezu/forever-DungeonMap",
+        "issues": "https://github.com/Mimezu/forever-DungeonMap/issues"
+      },
+      "folders": [
+        "DungeonMap"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category"
+      },
+      "downloads": {
+        "total": 2,
+        "latest": 2,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-28",
+        "ownerSince": "2021-01-06",
+        "releases": 1,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "warnings": [
+          "single-release"
+        ],
+        "careful": true,
+        "ownerAddons": 17
       }
     },
     {
@@ -34160,6 +34903,66 @@
         "stars": 0,
         "careful": false,
         "ownerAddons": 5
+      }
+    },
+    {
+      "id": "earcollector",
+      "name": "Ear Collector",
+      "summary": "Collect an ear from every enemy player you kill in the open world.",
+      "author": "alexadewit",
+      "tags": [
+        "combat"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/earcollector.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "AlexaDeWit/Ear-Collector",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1822492
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/AlexaDeWit/Ear-Collector",
+        "issues": "https://github.com/AlexaDeWit/Ear-Collector/issues",
+        "curseforge": "https://www.curseforge.com/projects/1822492"
+      },
+      "folders": [
+        "EarCollector"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc",
+        "tags": "inferred",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 364,
+        "latest": 7,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-21",
+        "ownerSince": "2013-10-24",
+        "releases": 12,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
       }
     },
     {
@@ -35402,6 +36205,7 @@
         }
       },
       "optional": [
+        "bigwigs",
         "masque"
       ],
       "from": {
@@ -35852,6 +36656,7 @@
         "elvui-windtools"
       ],
       "optional": [
+        "bigwigs",
         "elvui-mmediatag"
       ],
       "from": {
@@ -36127,7 +36932,7 @@
         "releases": 62,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -36389,6 +37194,7 @@
         "elvui"
       ],
       "optional": [
+        "bigwigs",
         "weakauras"
       ],
       "from": {
@@ -38568,6 +39374,7 @@
       "optional": [
         "ellesmereui",
         "elvui",
+        "shortestpathforever",
         "spartanui"
       ],
       "from": {
@@ -39887,7 +40694,7 @@
         "releases": 92,
         "stars": 1,
         "careful": false,
-        "ownerAddons": 2
+        "ownerAddons": 3
       }
     },
     {
@@ -40369,6 +41176,78 @@
       }
     },
     {
+      "id": "flareui",
+      "name": "FlareUI",
+      "summary": "Your friendly UI overhowl",
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "esMX",
+        "frFR",
+        "itIT",
+        "koKR",
+        "ptBR",
+        "ruRU",
+        "zhCN",
+        "zhTW"
+      ],
+      "author": "malkkav",
+      "tags": [
+        "ui"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/flareui.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "malkkav/FlareUI",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1718307
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/malkkav/FlareUI",
+        "issues": "https://github.com/malkkav/FlareUI/issues",
+        "curseforge": "https://www.curseforge.com/projects/1718307",
+        "wago": "https://addons.wago.io/addons/O67bb0N3"
+      },
+      "folders": [
+        "FlareUI"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category",
+        "curseforge": "toc",
+        "wago": "toc",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 4683,
+        "latest": 11,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-09-29",
+        "ownerSince": "2022-10-02",
+        "releases": 135,
+        "stars": 36,
+        "careful": false
+      }
+    },
+    {
       "id": "flareui-rp",
       "name": "FlareUI RP",
       "summary": "Total RP 3 names and colours on FlareUI frames and nameplates, and FlareUI styling for the Total RP 3 window and bars.",
@@ -40404,10 +41283,8 @@
         }
       },
       "requires": [
+        "flareui",
         "totalrp3"
-      ],
-      "requiresFolders": [
-        "FlareUI"
       ],
       "from": {
         "name": "toc-title",
@@ -41028,6 +41905,60 @@
       }
     },
     {
+      "id": "foodguardian",
+      "name": "Food Guardian",
+      "summary": "Food, Cozy Sleeping Bag, Camp Benefits, and Camp Tent and optional class buff tracker for WoW Forever.",
+      "author": "phatzero",
+      "tags": [
+        "combat"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/foodguardian.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "PhatZero/Food-Guardian",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/PhatZero/Food-Guardian",
+        "issues": "https://github.com/PhatZero/Food-Guardian/issues"
+      },
+      "folders": [
+        "FoodGuardian"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "inferred",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 33,
+        "latest": 1,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-16",
+        "ownerSince": "2013-06-28",
+        "releases": 6,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
+      }
+    },
+    {
       "id": "foodoptimizer",
       "name": "Food Optimizer",
       "summary": "Eats the food you have the fewest of first (frees bag space), then the lowest-healing one.",
@@ -41080,6 +42011,70 @@
         "stars": 1,
         "careful": false,
         "ownerAddons": 2
+      }
+    },
+    {
+      "id": "forallthenerds",
+      "name": "ForAllTheNerds",
+      "summary": "Tells you the lore and history of wherever you are standing - zones, towns, ruins and dungeons. Vanilla-era lore only…",
+      "author": "martinwinther",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "martinwinther/ForAllTheNerds",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1786890
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/martinwinther/ForAllTheNerds",
+        "issues": "https://github.com/martinwinther/ForAllTheNerds/issues",
+        "curseforge": "https://www.curseforge.com/projects/1786890"
+      },
+      "folders": [
+        "ForAllTheNerds"
+      ],
+      "editions": {
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "11509",
+          "upToDate": false,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc"
+      },
+      "downloads": {
+        "total": 917,
+        "latest": 0,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-06",
+        "ownerSince": "2021-04-06",
+        "releases": 26,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
       }
     },
     {
@@ -41228,6 +42223,96 @@
         "releases": 8,
         "stars": 1,
         "careful": false
+      }
+    },
+    {
+      "id": "foreverauras",
+      "name": "ForeverAuras",
+      "summary": "A powerful, comprehensive utility for displaying graphics and information based on buffs, debuffs, and other triggers.",
+      "summaries": {
+        "deDE": "Ein leistungsfähiges, umfassendes Addon zur grafischen Darstellung von Informationen von Auren, Cooldowns, Timern und…",
+        "esES": "Potente y completa aplicación que te permitirá mostrar por pantalla múltiples diseños, basados en beneficios…",
+        "esMX": "Potente y completa aplicación que te permitirá mostrar por pantalla múltiples diseños, basados en beneficios…",
+        "ruRU": "Мощный, многосторонний инструмент для отображения графики и информации, основанной на баффах, дебаффах и других…",
+        "zhTW": "一個強大且全面實用的顯示圖形和訊息基於增益，減益和其它觸發。"
+      },
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "esMX",
+        "frFR",
+        "itIT",
+        "koKR",
+        "ptBR",
+        "ruRU",
+        "zhCN",
+        "zhTW"
+      ],
+      "author": "neroxrw",
+      "tags": [
+        "combat"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/foreverauras.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "neroxrw/foreverauras",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1703325
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/neroxrw/foreverauras",
+        "issues": "https://github.com/neroxrw/foreverauras/issues"
+      },
+      "folders": [
+        "ForeverAuras",
+        "ForeverAurasArchive",
+        "ForeverAurasModelPaths",
+        "ForeverAurasOptions",
+        "ForeverAurasTemplates"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "addonlocale",
+        "bigwigs",
+        "customnames",
+        "dbm-core",
+        "libspecialization",
+        "masque"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "inferred",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 2856,
+        "latest": 0,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-09-19",
+        "ownerSince": "2026-09-19",
+        "releases": 103,
+        "stars": 26,
+        "warnings": [
+          "new-owner"
+        ],
+        "careful": true
       }
     },
     {
@@ -41725,6 +42810,66 @@
       }
     },
     {
+      "id": "foreverenhanced",
+      "name": "Forever Enhanced",
+      "summary": "Lightweight improvements for a better experience while keeping the default UI familiar.",
+      "summaries": {
+        "frFR": "Améliorations légères de l’interface pour une meilleure expérience de jeu, tout en gardant l’interface par défaut."
+      },
+      "languages": [
+        "enUS",
+        "frFR"
+      ],
+      "author": "innocenzi",
+      "tags": [
+        "ui"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/foreverenhanced.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "innocenzi/forever-enhanced",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/innocenzi/forever-enhanced"
+      },
+      "folders": [
+        "ForeverEnhanced"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 847,
+        "latest": 5,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-10",
+        "ownerSince": "2015-11-28",
+        "releases": 19,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
+      }
+    },
+    {
       "id": "foreverflip",
       "name": "ForeverFlip",
       "summary": "Auction house trading assistant: finds lots below vendor price or far below the next seller, verifies them live and…",
@@ -42063,10 +43208,8 @@
         }
       },
       "requires": [
-        "rxpguides"
-      ],
-      "requiresFolders": [
-        "ShortestPathForever"
+        "rxpguides",
+        "shortestpathforever"
       ],
       "optional": [
         "ellesmereui"
@@ -42280,6 +43423,61 @@
           "new"
         ],
         "careful": false
+      }
+    },
+    {
+      "id": "foreverinstallerprobe",
+      "name": "Forever Installer Probe",
+      "otherNames": [
+        "forever Forever Installer Probe"
+      ],
+      "summary": "Isolated persistence test; /fprobe shows the saved marker.",
+      "author": "mimezu",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Mimezu/forever-ForeverInstallerProbe",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Mimezu/forever-ForeverInstallerProbe",
+        "issues": "https://github.com/Mimezu/forever-ForeverInstallerProbe/issues"
+      },
+      "folders": [
+        "ForeverInstallerProbe"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
+      },
+      "downloads": {
+        "total": 3,
+        "latest": 3,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-02",
+        "ownerSince": "2021-01-06",
+        "releases": 1,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "warnings": [
+          "single-release"
+        ],
+        "careful": true,
+        "ownerAddons": 17
       }
     },
     {
@@ -42933,6 +44131,9 @@
           "released": "2026-11-27"
         }
       },
+      "optional": [
+        "tenminutegoblin"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -42953,7 +44154,59 @@
           "new"
         ],
         "careful": false,
-        "ownerAddons": 12
+        "ownerAddons": 17
+      }
+    },
+    {
+      "id": "foreverpetmodes",
+      "name": "Forever Pet Modes",
+      "summary": "Pet stance and autocast profiles for WoW: Forever.",
+      "author": "jamesk111",
+      "tags": [
+        "class"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "jamesk111/ForeverPetModes",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/jamesk111/ForeverPetModes",
+        "issues": "https://github.com/jamesk111/ForeverPetModes/issues"
+      },
+      "folders": [
+        "ForeverPetModes"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "inferred"
+      },
+      "downloads": {
+        "total": 33,
+        "latest": 1,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-22",
+        "ownerSince": "2014-09-23",
+        "releases": 10,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
       }
     },
     {
@@ -44194,7 +45447,7 @@
           "new"
         ],
         "careful": false,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -44461,7 +45714,7 @@
           "new"
         ],
         "careful": false,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -46080,6 +47333,69 @@
       }
     },
     {
+      "id": "gearpath",
+      "name": "GearPath",
+      "summary": "A gear to-do list: pre-raid, PvP and raid pieces of your spec, easiest first.",
+      "summaries": {
+        "frFR": "Ta liste d'équipement à faire : pièces pré-raid, JcJ et raid de ta spé, les plus faciles d'abord."
+      },
+      "languages": [
+        "enUS",
+        "frFR"
+      ],
+      "author": "hasuwini77",
+      "tags": [
+        "bags"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "hasuwini77/gearpath",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/hasuwini77/gearpath",
+        "issues": "https://github.com/hasuwini77/gearpath/issues"
+      },
+      "folders": [
+        "GearPath"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category"
+      },
+      "downloads": {
+        "total": 5,
+        "latest": 3,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-28",
+        "ownerSince": "2022-09-28",
+        "releases": 1,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "warnings": [
+          "single-release"
+        ],
+        "careful": true,
+        "ownerAddons": 1
+      }
+    },
+    {
       "id": "gemcutter",
       "name": "Gemcutter",
       "summary": "A relaxed match-3 board behind a minimap button, made for long flight paths. Account-wide levels and achievements.",
@@ -47416,7 +48732,7 @@
           "single-release"
         ],
         "careful": true,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -48899,6 +50215,102 @@
       }
     },
     {
+      "id": "guildos",
+      "name": "Guild OS Guild Manager",
+      "summary": "Guild manager for WoW: Forever and Retail: roster, raid attendance, cores, recruitment and professions",
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "frFR",
+        "itIT",
+        "koKR",
+        "ptBR",
+        "ruRU",
+        "zhCN",
+        "zhTW"
+      ],
+      "author": "danielcosta42",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/guildos.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "danielcosta42/guildos",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1549177
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/danielcosta42/guildos",
+        "issues": "https://github.com/danielcosta42/guildos/issues",
+        "curseforge": "https://www.curseforge.com/projects/1549177",
+        "wago": "https://addons.wago.io/addons/rNkyABKa"
+      },
+      "folders": [
+        "GuildOS"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc",
+        "wago": "toc",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 1931,
+        "latest": 10,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-05-20",
+        "ownerSince": "2015-09-24",
+        "releases": 73,
+        "stars": 3,
+        "badges": [
+          "new"
+        ],
+        "careful": false,
+        "ownerAddons": 2
+      }
+    },
+    {
       "id": "guildpricecheck",
       "name": "GuildPriceCheck",
       "summary": "Whispers Auctionator prices in response to guild queries.",
@@ -49669,7 +51081,7 @@
           "new"
         ],
         "careful": false,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -50130,6 +51542,67 @@
         "releases": 53,
         "stars": 8,
         "careful": false
+      }
+    },
+    {
+      "id": "headwow",
+      "name": "HeadWow",
+      "summary": "Wowhead's WoW Forever database in game: items, NPCs, drop sources, where to farm, a wishlist and gold farming.",
+      "author": "uposum",
+      "tags": [
+        "loot",
+        "auction-house"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "uposum/headwow",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/uposum/headwow",
+        "issues": "https://github.com/uposum/headwow/issues"
+      },
+      "folders": [
+        "HeadWow",
+        "HeadWow_Drops"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "auctionator",
+        "openmap"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "inferred"
+      },
+      "downloads": {
+        "total": 146,
+        "latest": 1,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-16",
+        "ownerSince": "2026-11-17",
+        "releases": 14,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "warnings": [
+          "new-owner"
+        ],
+        "careful": true
       }
     },
     {
@@ -50599,7 +52072,7 @@
         "releases": 42,
         "stars": 1,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -52762,7 +54235,8 @@
         "ellesmereui"
       ],
       "optional": [
-        "baganator"
+        "baganator",
+        "bigwigs"
       ],
       "from": {
         "name": "toc-title",
@@ -57174,6 +58648,59 @@
       }
     },
     {
+      "id": "kroolworldforever",
+      "name": "Krool World Forever",
+      "summary": "Small quality-of-life features for WoW Forever, each with its own on/off switch: Quest Trash (which quest items you can…",
+      "author": "krool",
+      "tags": [
+        "ui"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Krool/KroolWorldForever",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Krool/KroolWorldForever",
+        "issues": "https://github.com/Krool/KroolWorldForever/issues"
+      },
+      "folders": [
+        "KroolWorldForever"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "auctionator",
+        "questie"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category"
+      },
+      "downloads": {
+        "total": 344,
+        "latest": 0,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-10-20",
+        "ownerSince": "2013-08-21",
+        "releases": 39,
+        "stars": 0,
+        "careful": false
+      }
+    },
+    {
       "id": "krowi-extendedvendorui",
       "name": "Krowi's Extended Vendor UI",
       "otherNames": [
@@ -57969,7 +59496,7 @@
         "releases": 29,
         "stars": 2,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -58035,6 +59562,77 @@
         "ownerSince": "2018-02-25",
         "releases": 44,
         "stars": 4,
+        "careful": false
+      }
+    },
+    {
+      "id": "lataverne",
+      "name": "La Taverne",
+      "summary": "The Nation du Québec's tavern: dungeon groups, availability and shared guild chat with allied guilds",
+      "summaries": {
+        "frFR": "La taverne de la Nation du Québec : groupes de donjon, disponibilités et chat de guilde partagé avec les guildes alliées"
+      },
+      "languages": [
+        "enUS",
+        "frFR"
+      ],
+      "author": "oylex",
+      "tags": [
+        "chat"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/lataverne.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Oylex/la-taverne",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1814877
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Oylex/la-taverne",
+        "issues": "https://github.com/Oylex/la-taverne/issues",
+        "curseforge": "https://www.curseforge.com/projects/1814877"
+      },
+      "folders": [
+        "LaTaverne"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "chattynator",
+        "openmap"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "topics",
+        "curseforge": "toc",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 580,
+        "latest": 10,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-18",
+        "ownerSince": "2012-06-05",
+        "releases": 12,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
         "careful": false
       }
     },
@@ -58186,6 +59784,63 @@
         ],
         "careful": false,
         "ownerAddons": 11
+      }
+    },
+    {
+      "id": "layeranarchy",
+      "name": "Layer Anarchy",
+      "summary": "Swap layers through every layer network on WoW Forever.",
+      "author": "srhinos",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "srhinos/LayerAnarchy",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1829966
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/srhinos/LayerAnarchy",
+        "issues": "https://github.com/srhinos/LayerAnarchy/issues",
+        "curseforge": "https://www.curseforge.com/projects/1829966",
+        "wago": "https://addons.wago.io/addons/bGoYxp60"
+      },
+      "folders": [
+        "LayerAnarchy"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc",
+        "wago": "toc"
+      },
+      "downloads": {
+        "total": 290,
+        "latest": 9,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-25",
+        "ownerSince": "2014-01-29",
+        "releases": 7,
+        "stars": 2,
+        "badges": [
+          "new"
+        ],
+        "careful": false,
+        "ownerAddons": 1
       }
     },
     {
@@ -59104,7 +60759,7 @@
         "releases": 78,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -60457,7 +62112,7 @@
         "releases": 7,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -60840,7 +62495,7 @@
         "releases": 24,
         "stars": 2,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -62707,7 +64362,7 @@
         "releases": 50,
         "stars": 4,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -64736,6 +66391,129 @@
       }
     },
     {
+      "id": "manners",
+      "name": "Manners",
+      "summary": "Somebody buffed you. One click buffs them back, and your target is handed straight back.",
+      "summaries": {
+        "deDE": "Jemand hat Euch gestärkt. Ein Klick erwidert den Gefallen, und Euer Ziel bekommt Ihr gleich zurück.",
+        "esES": "Alguien te ha dado un beneficio. Un clic se lo devuelve, y tu objetivo anterior vuelve enseguida.",
+        "esMX": "Alguien te ha dado un beneficio. Un clic se lo devuelve, y tu objetivo anterior vuelve enseguida.",
+        "frFR": "Quelqu'un vient de vous buffer. Un clic pour lui rendre la politesse, et votre cible vous est aussitôt rendue.",
+        "itIT": "Qualcuno ti ha appena dato un beneficio. Un clic per ricambiare, e il tuo bersaglio ti viene subito restituito.",
+        "koKR": "누군가 나에게 버프를 주면 클릭 한 번으로 보답하고, 내 대상도 곧바로 돌려받습니다.",
+        "ptBR": "Alguém acabou de dar um bônus a você. Um clique devolve o favor, e o seu alvo anterior volta na hora.",
+        "zhCN": "有人给你加了增益，一键回敬对方，你原来的目标也会马上恢复。",
+        "zhTW": "有人替你加了增益，一鍵回敬對方，你原本的目標也會馬上恢復。"
+      },
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "esMX",
+        "frFR",
+        "itIT",
+        "koKR",
+        "ptBR",
+        "zhCN",
+        "zhTW"
+      ],
+      "author": "fpsacha",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/manners.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "fpsacha/Manners",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1705364
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/fpsacha/Manners",
+        "issues": "https://github.com/fpsacha/Manners/issues",
+        "curseforge": "https://www.curseforge.com/projects/1705364",
+        "wago": "https://addons.wago.io/addons/rNkgzlNa"
+      },
+      "folders": [
+        "Manners",
+        "Manners_Achievements",
+        "Manners_Combat",
+        "Manners_MyBuffs",
+        "Manners_Pets",
+        "Manners_Services"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic": {
+          "interface": "50504",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_ptr": {
+          "interface": "50504",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc",
+        "wago": "toc",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 2977,
+        "latest": 0,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-09-21",
+        "ownerSince": "2018-07-31",
+        "releases": 110,
+        "stars": 4,
+        "careful": false
+      }
+    },
+    {
       "id": "mapcast",
       "name": "MapCast",
       "summary": "Streams your map, position and map pins to a phone or tablet through the MapCast companion app.",
@@ -64953,7 +66731,7 @@
           "single-release"
         ],
         "careful": true,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -69415,7 +71193,7 @@
         "releases": 28,
         "stars": 1,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -69496,7 +71274,7 @@
         "releases": 25,
         "stars": 1,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -70956,6 +72734,83 @@
       }
     },
     {
+      "id": "naowhforever",
+      "name": "Naowh Forever",
+      "summary": "Naowh's Forever companion: the window every module shares.",
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "esMX",
+        "frFR",
+        "itIT",
+        "koKR",
+        "ptBR",
+        "ruRU",
+        "zhCN",
+        "zhTW"
+      ],
+      "author": "naowh-gaming",
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/naowhforever.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "naowh-gaming/NaowhForever",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/naowh-gaming/NaowhForever",
+        "issues": "https://github.com/naowh-gaming/NaowhForever/issues"
+      },
+      "folders": [
+        "NaowhForever",
+        "NaowhForever_AuctionData",
+        "NaowhForever_BiS",
+        "NaowhForever_Combat",
+        "NaowhForever_Discovery",
+        "NaowhForever_DiscoveryData",
+        "NaowhForever_DungeonJournal",
+        "NaowhForever_JourneysData",
+        "NaowhForever_Locales",
+        "NaowhForever_Market",
+        "NaowhForever_Professions",
+        "NaowhForever_QoL",
+        "NaowhForever_SearchIndex",
+        "NaowhForever_Training",
+        "NaowhForever_Utilities"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 2125,
+        "latest": 10,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-20",
+        "ownerSince": "2026-02-20",
+        "releases": 13,
+        "stars": 6,
+        "badges": [
+          "new"
+        ],
+        "careful": false
+      }
+    },
+    {
       "id": "narcissus",
       "name": "Narcissus",
       "summary": "Immersive paperdoll frame and in-game studio. Slash command: /narci",
@@ -71860,6 +73715,9 @@
           "released": "2026-11-24"
         }
       },
+      "optional": [
+        "bigwigs"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -73118,6 +74976,7 @@
         }
       },
       "optional": [
+        "bigwigs",
         "dbm-core",
         "ellesmereui"
       ],
@@ -73178,7 +75037,8 @@
         }
       },
       "optional": [
-        "questie"
+        "questie",
+        "shortestpathforever"
       ],
       "from": {
         "name": "toc-title",
@@ -75722,7 +77582,7 @@
         "releases": 54,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 1
+        "ownerAddons": 2
       }
     },
     {
@@ -76946,6 +78806,60 @@
       }
     },
     {
+      "id": "per-hour",
+      "name": "Per Hour",
+      "summary": "Track experience, honor, reputation and estimated net gold per hour in WoW Forever.",
+      "author": "eavidaze",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "eavidaze/wow-addon-per-hour",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 486717
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/eavidaze/wow-addon-per-hour",
+        "issues": "https://github.com/eavidaze/wow-addon-per-hour/issues",
+        "curseforge": "https://www.curseforge.com/projects/486717"
+      },
+      "folders": [
+        "per-hour"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "auctionator"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc"
+      },
+      "downloads": {
+        "total": 833,
+        "latest": 8,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2021-05-25",
+        "ownerSince": "2014-03-22",
+        "releases": 21,
+        "stars": 5,
+        "careful": false
+      }
+    },
+    {
       "id": "perhour",
       "name": "PerHour",
       "summary": "Gold per hour and experience per hour, each with its own Pause and Reset.",
@@ -77214,7 +79128,7 @@
           "single-release"
         ],
         "careful": true,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -77722,6 +79636,7 @@
       "optional": [
         "phyzleveling",
         "questie",
+        "shortestpathforever",
         "spoken"
       ],
       "from": {
@@ -79608,6 +81523,135 @@
         "stars": 4,
         "careful": false,
         "ownerAddons": 1
+      }
+    },
+    {
+      "id": "priceanswer",
+      "name": "Price Answer",
+      "summary": "Responds to chat messages containing an item with the item's prices",
+      "summaries": {
+        "deDE": "Antwortet auf Chatnachrichten mit einem Gegenstand, indem die Preise des Gegenstands gesendet werden.",
+        "esES": "Responde a los mensajes de chat que contienen un objeto enviando los precios de dicho objeto.",
+        "esMX": "Responde a los mensajes de chat que contienen un objeto enviando los precios de dicho objeto.",
+        "frFR": "Répond aux messages de discussion contenant un objet en envoyant les prix de cet objet.",
+        "itIT": "Risponde ai messaggi di chat che contengono un oggetto inviando i prezzi di tale oggetto.",
+        "koKR": "아이템이 포함된 채팅 메시지에 응답하여 해당 아이템의 가격을 보냅니다.",
+        "ptBR": "Responde a mensagens de bate-papo que contêm um item enviando os preços desse item.",
+        "ruRU": "Отвечает на сообщения чата с предметом, отправляя цены этого предмета.",
+        "zhCN": "对包含物品的聊天消息进行回复，并发送该物品的价格。",
+        "zhTW": "對含有物品的聊天訊息進行回覆，並傳送該物品的價格。"
+      },
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "esMX",
+        "frFR",
+        "itIT",
+        "koKR",
+        "ptBR",
+        "ruRU",
+        "zhCN",
+        "zhTW"
+      ],
+      "author": "myrroddin",
+      "tags": [
+        "auction-house"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Myrroddin/price-answer",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 661710
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Myrroddin/price-answer",
+        "issues": "https://github.com/Myrroddin/price-answer/issues",
+        "curseforge": "https://www.curseforge.com/projects/661710",
+        "wago": "https://addons.wago.io/addons/lQNlxYNe",
+        "wowinterface": "https://www.wowinterface.com/downloads/info26382"
+      },
+      "folders": [
+        "PriceAnswer"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic": {
+          "interface": "50504",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_ptr": {
+          "interface": "50504",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "auctionator",
+        "libaboutpanel-2-0"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category",
+        "curseforge": "toc",
+        "wago": "toc",
+        "wowinterface": "toc"
+      },
+      "downloads": {
+        "total": 1806,
+        "latest": 13,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2022-08-17",
+        "ownerSince": "2014-01-21",
+        "releases": 65,
+        "stars": 1,
+        "careful": false,
+        "ownerAddons": 6
       }
     },
     {
@@ -82022,6 +84066,7 @@
       },
       "optional": [
         "ellesmereui",
+        "flareui",
         "questie",
         "rxpguides",
         "silverdragon"
@@ -82170,7 +84215,8 @@
         }
       },
       "optional": [
-        "questie"
+        "questie",
+        "shortestpathforever"
       ],
       "from": {
         "name": "toc-title",
@@ -82394,6 +84440,7 @@
         }
       },
       "optional": [
+        "bigwigs",
         "dandersframes"
       ],
       "from": {
@@ -86396,7 +88443,7 @@
           "single-release"
         ],
         "careful": true,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -86614,6 +88661,65 @@
         "stars": 0,
         "careful": false,
         "ownerAddons": 14
+      }
+    },
+    {
+      "id": "runlog",
+      "name": "RunLog",
+      "otherNames": [
+        "forever Run Log"
+      ],
+      "summary": "Combat log on in dungeons and raids, off outside.",
+      "author": "mimezu",
+      "tags": [
+        "combat"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Mimezu/forever-RunLog",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Mimezu/forever-RunLog",
+        "issues": "https://github.com/Mimezu/forever-RunLog/issues"
+      },
+      "folders": [
+        "RunLog"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category"
+      },
+      "downloads": {
+        "total": 2,
+        "latest": 2,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-28",
+        "ownerSince": "2021-01-06",
+        "releases": 1,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "warnings": [
+          "single-release"
+        ],
+        "careful": true,
+        "ownerAddons": 17
       }
     },
     {
@@ -88397,7 +90503,7 @@
         "releases": 59,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -89097,6 +91203,75 @@
       }
     },
     {
+      "id": "shortestpathforever",
+      "name": "Shortest Path Forever",
+      "summary": "The fastest way anywhere: walking paths, flight points, boats, zeppelins, lifts, the tram and portals, with live…",
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "esMX",
+        "frFR",
+        "koKR",
+        "ptBR",
+        "ruRU",
+        "zhCN",
+        "zhTW"
+      ],
+      "author": "cjber",
+      "tags": [
+        "map"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/shortestpathforever.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "cjber/shortest-path-forever",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/cjber/shortest-path-forever",
+        "issues": "https://github.com/cjber/shortest-path-forever/issues"
+      },
+      "folders": [
+        "ShortestPathForever"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "guidelime",
+        "questie",
+        "rxpguides"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 10930,
+        "latest": 20,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-09-21",
+        "ownerSince": "2018-10-12",
+        "releases": 187,
+        "stars": 12,
+        "careful": false,
+        "ownerAddons": 3
+      }
+    },
+    {
       "id": "shortestpathforever-ldb",
       "name": "Shortest Path Forever Broker",
       "summary": "Shows the active SPF destination and provides journey controls in a DataBroker display.",
@@ -89128,9 +91303,11 @@
           "released": "2026-11-27"
         }
       },
+      "requires": [
+        "shortestpathforever"
+      ],
       "requiresFolders": [
-        "ForeverCore",
-        "ShortestPathForever"
+        "ForeverCore"
       ],
       "from": {
         "name": "toc-title",
@@ -89611,6 +91788,158 @@
       }
     },
     {
+      "id": "shyauction",
+      "name": "ShyAuction",
+      "summary": "Buy, sell and see what anything is worth, and where to farm gold /shy auction",
+      "author": "shyce",
+      "tags": [
+        "quests",
+        "ui",
+        "map"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/shyauction.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "shyce/Shy",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/shyce/Shy",
+        "issues": "https://github.com/shyce/Shy/issues"
+      },
+      "folders": [
+        "ShyAuction",
+        "ShyBags",
+        "ShyBuffs",
+        "ShyChat",
+        "ShyCore",
+        "ShyCrates",
+        "ShyDock",
+        "ShyDots",
+        "ShyDruid",
+        "ShyFarm",
+        "ShyFrames",
+        "ShyGear",
+        "ShyGroup",
+        "ShyHits",
+        "ShyHots",
+        "ShyHunter",
+        "ShyKeys",
+        "ShyMage",
+        "ShyMaps",
+        "ShyMonitor",
+        "ShyPaladin",
+        "ShyPlates",
+        "ShyPriest",
+        "ShyQuest",
+        "ShyRecap",
+        "ShyRogue",
+        "ShyShaman",
+        "ShySkin",
+        "ShyThreat",
+        "ShyTip",
+        "ShyTweaks",
+        "ShyWarlock",
+        "ShyWarrior",
+        "ShyWay",
+        "ShyXP"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "inferred",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 78,
+        "latest": 3,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-15",
+        "ownerSince": "2017-08-01",
+        "releases": 21,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false,
+        "ownerAddons": 1
+      }
+    },
+    {
+      "id": "shyway-ground-0",
+      "name": "ShyWay Ground: Eastern Kingdoms",
+      "otherNames": [
+        "Shy Ground"
+      ],
+      "summary": "Routes in Eastern Kingdoms that follow the terrain. Needs ShyUI; loads only while you're there.",
+      "author": "shyce",
+      "tags": [
+        "map"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "shyce/Shy-Ground",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/shyce/Shy-Ground",
+        "issues": "https://github.com/shyce/Shy-Ground/issues"
+      },
+      "folders": [
+        "ShyWay_Ground_0",
+        "ShyWay_Ground_1",
+        "ShyWay_Ground_2991"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "requires": [
+        "shyauction"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "inferred"
+      },
+      "downloads": {
+        "total": 55,
+        "latest": 3,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-15",
+        "ownerSince": "2017-08-01",
+        "releases": 21,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false,
+        "ownerAddons": 1
+      }
+    },
+    {
       "id": "sidequest",
       "name": "SideQuest Guild",
       "summary": "EPGP loot, attendance and progression sync for the SideQuest guild.",
@@ -89969,7 +92298,7 @@
         "releases": 70,
         "stars": 8,
         "careful": false,
-        "ownerAddons": 1
+        "ownerAddons": 2
       }
     },
     {
@@ -90935,7 +93264,9 @@
       "optional": [
         "auctionator",
         "auctiondb",
+        "naowhforever",
         "questie",
+        "shortestpathforever",
         "syndicator"
       ],
       "from": {
@@ -90956,7 +93287,7 @@
         "releases": 186,
         "stars": 4,
         "careful": false,
-        "ownerAddons": 2
+        "ownerAddons": 3
       }
     },
     {
@@ -91288,6 +93619,75 @@
       }
     },
     {
+      "id": "slackhacks",
+      "name": "SlackHacks",
+      "summary": "A compilation of small feature hacks and minimalistic tweaks to the default UI.",
+      "author": "slackwise",
+      "tags": [
+        "ui"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/slackhacks.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Slackwise/SlackHacks",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Slackwise/SlackHacks",
+        "issues": "https://github.com/Slackwise/SlackHacks/issues"
+      },
+      "folders": [
+        "SlackHacks"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "auctionator"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "inferred",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 106,
+        "latest": 1,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2010-07-03",
+        "ownerSince": "2009-04-22",
+        "releases": 37,
+        "stars": 1,
+        "careful": false
+      }
+    },
+    {
       "id": "slowfaller",
       "name": "Slow Faller",
       "summary": "Temporarily rebinds the jump key to a slow fall spell when falling.",
@@ -91384,7 +93784,7 @@
         "releases": 37,
         "stars": 3,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -91688,7 +94088,7 @@
         "releases": 13,
         "stars": 1,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -93088,6 +95488,91 @@
       }
     },
     {
+      "id": "spellcoda",
+      "name": "SpellCoda",
+      "summary": "All things Spells!",
+      "summaries": {
+        "deDE": "Alles über Zauber!",
+        "esES": "¡Todo sobre hechizos!",
+        "esMX": "¡Todo sobre hechizos!",
+        "frFR": "Tout sur les sorts !",
+        "itIT": "Tutto sugli incantesimi!",
+        "koKR": "모든 주문 정보!",
+        "ptBR": "Tudo sobre feitiços!",
+        "ruRU": "Всё о заклинаниях!",
+        "zhCN": "全部法术一览！",
+        "zhTW": "法術大全！"
+      },
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "esMX",
+        "frFR",
+        "itIT",
+        "koKR",
+        "ptBR",
+        "ruRU",
+        "zhCN",
+        "zhTW"
+      ],
+      "author": "jezzi23",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "jezzi23/spellcoda",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/jezzi23/spellcoda",
+        "issues": "https://github.com/jezzi23/spellcoda/issues"
+      },
+      "folders": [
+        "SpellCoda"
+      ],
+      "editions": {
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
+      },
+      "downloads": {
+        "total": 927,
+        "latest": 4,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2020-03-13",
+        "ownerSince": "2015-05-11",
+        "releases": 104,
+        "stars": 6,
+        "careful": false
+      }
+    },
+    {
       "id": "spelldamageinfo",
       "name": "SpellDamageInfo",
       "summary": "Shows the damage and healing from each spell's own description on your action buttons and in the spell tooltip, with an…",
@@ -93784,9 +96269,9 @@
         "Spoken_Places",
         "Spoken_Quests",
         "Spoken_Readables",
-        "SpokenBossesAudio",
+        "SpokenReadablesAudio",
         "SpokenPlacesAudio",
-        "SpokenReadablesAudio"
+        "SpokenBossesAudio"
       ],
       "editions": {
         "anniversary": {
@@ -94466,7 +96951,7 @@
         "releases": 24,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -95027,6 +97512,72 @@
         "stars": 0,
         "careful": false,
         "ownerAddons": 14
+      }
+    },
+    {
+      "id": "superrsk",
+      "name": "SuperRsk Toolbox",
+      "summary": "WoW Forever quality of life toolbox: one-key Auto Fishing (gear, lure, combat swap), Auto Equip best gear upgrades…",
+      "summaries": {
+        "frFR": "Boîte à outils qualité de vie pour WoW Forever : pêche automatique en une touche (tenue, appât, armes en combat), Auto…"
+      },
+      "languages": [
+        "enUS",
+        "frFR"
+      ],
+      "author": "gamebook",
+      "tags": [
+        "combat"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/superrsk.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "GAMEBOOK/SuperRsk",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/GAMEBOOK/SuperRsk",
+        "issues": "https://github.com/GAMEBOOK/SuperRsk/issues"
+      },
+      "folders": [
+        "SuperRsk"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "auctionator",
+        "baganator",
+        "ellesmereui"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "topics",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 96,
+        "latest": 4,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-18",
+        "ownerSince": "2015-04-19",
+        "releases": 26,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
       }
     },
     {
@@ -95661,7 +98212,7 @@
         "releases": 27,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -96495,7 +99046,7 @@
         "releases": 27,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -96826,6 +99377,7 @@
         }
       },
       "optional": [
+        "bigwigs",
         "dbm-core",
         "elvui",
         "libdogtag-3-0",
@@ -96854,6 +99406,67 @@
         "releases": 107,
         "stars": 108,
         "careful": false
+      }
+    },
+    {
+      "id": "tenminutegoblin",
+      "name": "Ten Minute Goblin",
+      "otherNames": [
+        "forever Ten Minute Goblin"
+      ],
+      "summary": "Deals, vendor flips, the Smith Ledger and a sell word on every item",
+      "author": "mimezu",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Mimezu/forever-TenMinuteGoblin",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Mimezu/forever-TenMinuteGoblin",
+        "issues": "https://github.com/Mimezu/forever-TenMinuteGoblin/issues"
+      },
+      "folders": [
+        "TenMinuteGoblin"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "requires": [
+        "auctionator"
+      ],
+      "optional": [
+        "forevernames"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
+      },
+      "downloads": {
+        "total": 2,
+        "latest": 1,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-28",
+        "ownerSince": "2021-01-06",
+        "releases": 1,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "warnings": [
+          "single-release"
+        ],
+        "careful": true,
+        "ownerAddons": 17
       }
     },
     {
@@ -98265,7 +100878,8 @@
         "warnings": [
           "single-release"
         ],
-        "careful": true
+        "careful": true,
+        "ownerAddons": 1
       }
     },
     {
@@ -99433,7 +102047,7 @@
         "releases": 53,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -99998,7 +102612,7 @@
         "releases": 172,
         "stars": 11,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 6
       }
     },
     {
@@ -100878,7 +103492,8 @@
         }
       },
       "optional": [
-        "ellesmereui"
+        "ellesmereui",
+        "naowhforever"
       ],
       "from": {
         "name": "toc-title",
@@ -102756,7 +105371,7 @@
           "single-release"
         ],
         "careful": true,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -104009,7 +106624,7 @@
           "single-release"
         ],
         "careful": true,
-        "ownerAddons": 12
+        "ownerAddons": 17
       }
     },
     {
@@ -104142,7 +106757,7 @@
           "new"
         ],
         "careful": false,
-        "ownerAddons": 1
+        "ownerAddons": 2
       }
     },
     {
@@ -104789,6 +107404,7 @@
         }
       },
       "optional": [
+        "bigwigs",
         "customnames",
         "dbm-core",
         "masque"
@@ -106581,7 +109197,7 @@
         "releases": 27,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 11
+        "ownerAddons": 12
       }
     },
     {
@@ -106950,6 +109566,79 @@
         "repoSince": "2026-11-14",
         "ownerSince": "2014-06-04",
         "releases": 6,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
+      }
+    },
+    {
+      "id": "wowefficiency",
+      "name": "Wow Efficiency",
+      "summary": "A helper addon for the WoWEfficiency website.",
+      "author": "sludging",
+      "tags": [
+        "professions"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Sludging/wow-efficiency-addon",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1268061
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Sludging/wow-efficiency-addon",
+        "issues": "https://github.com/Sludging/wow-efficiency-addon/issues",
+        "curseforge": "https://www.curseforge.com/projects/1268061"
+      },
+      "folders": [
+        "WowEfficiency"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc",
+        "tags": "inferred"
+      },
+      "downloads": {
+        "total": 504,
+        "latest": 5,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2025-05-12",
+        "ownerSince": "2017-08-11",
+        "releases": 3,
         "stars": 0,
         "badges": [
           "new"

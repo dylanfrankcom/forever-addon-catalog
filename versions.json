@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/versions.schema.json",
   "schemaVersion": 1,
-  "checked": "2026-11-28T07:38:58Z",
+  "checked": "2026-11-28T12:24:54Z",
   "addons": {
     "aazerothauctionator": {
       "forever": {
@@ -2469,6 +2469,48 @@
         "published": "2026-11-08"
       }
     },
+    "artificer": {
+      "retail": {
+        "release": "0.3.6e",
+        "file": "Artificer-0.3.6e.zip",
+        "url": "https://github.com/keyboardturner/Artificer/releases/download/0.3.6e/Artificer-0.3.6e.zip",
+        "size": 1685513,
+        "sha256": "54d2983e56ef7b650ad5be3c4fbc996099c587bcebcf1b0eb9b37a63f0811bdb",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "0.3.6e",
+        "file": "Artificer-0.3.6e.zip",
+        "url": "https://github.com/keyboardturner/Artificer/releases/download/0.3.6e/Artificer-0.3.6e.zip",
+        "size": 1685513,
+        "sha256": "54d2983e56ef7b650ad5be3c4fbc996099c587bcebcf1b0eb9b37a63f0811bdb",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "0.3.6e",
+        "file": "Artificer-0.3.6e.zip",
+        "url": "https://github.com/keyboardturner/Artificer/releases/download/0.3.6e/Artificer-0.3.6e.zip",
+        "size": 1685513,
+        "sha256": "54d2983e56ef7b650ad5be3c4fbc996099c587bcebcf1b0eb9b37a63f0811bdb",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "0.3.6e",
+        "file": "Artificer-0.3.6e.zip",
+        "url": "https://github.com/keyboardturner/Artificer/releases/download/0.3.6e/Artificer-0.3.6e.zip",
+        "size": 1685513,
+        "sha256": "54d2983e56ef7b650ad5be3c4fbc996099c587bcebcf1b0eb9b37a63f0811bdb",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "artpad": {
       "retail": {
         "release": "v10.6.2_release",
@@ -3391,6 +3433,18 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-07"
+      }
+    },
+    "auctionatoreffects": {
+      "forever": {
+        "release": "v0.2.2",
+        "file": "AuctionatorEffects-0.2.2.zip",
+        "url": "https://github.com/Mimezu/forever-AuctionatorEffects/releases/download/v0.2.2/AuctionatorEffects-0.2.2.zip",
+        "size": 5269,
+        "sha256": "074268a92980609d06f3181707d8e397e182ea39974cf4be608ab3c49100b2e5",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "auctionatorrestedxp": {
@@ -7171,6 +7225,18 @@
         "published": "2026-11-28"
       }
     },
+    "beeline": {
+      "forever": {
+        "release": "v3.3.0",
+        "file": "Beeline-3.3.0.zip",
+        "url": "https://github.com/noopz/Beeline/releases/download/v3.3.0/Beeline-3.3.0.zip",
+        "size": 30138869,
+        "sha256": "c548be52b003efad2136e8dce25c69f7c3e78056fbaad5bf12494a5495877bab",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "bejeweledredux": {
       "retail": {
         "release": "v1.0.0",
@@ -8383,6 +8449,134 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-17"
+      }
+    },
+    "bigwigs": {
+      "retail": {
+        "release": "v429.1",
+        "file": "BigWigs-v429.1.zip",
+        "url": "https://github.com/BigWigsMods/BigWigs/releases/download/v429.1/BigWigs-v429.1.zip",
+        "size": 4656221,
+        "sha256": "d63d4d22d50fdfb8703dbdfa4bf5c82d5fc59630f622716a0df412eac0e6166f",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic": {
+        "release": "v429.1",
+        "file": "BigWigs-v429.1.zip",
+        "url": "https://github.com/BigWigsMods/BigWigs/releases/download/v429.1/BigWigs-v429.1.zip",
+        "size": 4656221,
+        "sha256": "d63d4d22d50fdfb8703dbdfa4bf5c82d5fc59630f622716a0df412eac0e6166f",
+        "interface": "50504",
+        "upToDate": true,
+        "folders": [
+          "BigWigs",
+          "BigWigs_Core",
+          "BigWigs_Options",
+          "BigWigs_Plugins"
+        ],
+        "published": "2026-11-28"
+      },
+      "anniversary": {
+        "release": "v429.1",
+        "file": "BigWigs-v429.1.zip",
+        "url": "https://github.com/BigWigsMods/BigWigs/releases/download/v429.1/BigWigs-v429.1.zip",
+        "size": 4656221,
+        "sha256": "d63d4d22d50fdfb8703dbdfa4bf5c82d5fc59630f622716a0df412eac0e6166f",
+        "interface": "20506",
+        "upToDate": true,
+        "folders": [
+          "BigWigs",
+          "BigWigs_Core",
+          "BigWigs_Options",
+          "BigWigs_Plugins"
+        ],
+        "published": "2026-11-28"
+      },
+      "classic_era": {
+        "release": "v429.1",
+        "file": "BigWigs-v429.1.zip",
+        "url": "https://github.com/BigWigsMods/BigWigs/releases/download/v429.1/BigWigs-v429.1.zip",
+        "size": 4656221,
+        "sha256": "d63d4d22d50fdfb8703dbdfa4bf5c82d5fc59630f622716a0df412eac0e6166f",
+        "interface": "11509",
+        "upToDate": true,
+        "folders": [
+          "BigWigs",
+          "BigWigs_Core",
+          "BigWigs_Options",
+          "BigWigs_Plugins"
+        ],
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v429.1",
+        "file": "BigWigs-v429.1.zip",
+        "url": "https://github.com/BigWigsMods/BigWigs/releases/download/v429.1/BigWigs-v429.1.zip",
+        "size": 4656221,
+        "sha256": "d63d4d22d50fdfb8703dbdfa4bf5c82d5fc59630f622716a0df412eac0e6166f",
+        "interface": "16001",
+        "upToDate": true,
+        "folders": [
+          "BigWigs",
+          "BigWigs_Core",
+          "BigWigs_Options",
+          "BigWigs_Plugins"
+        ],
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "v429.1",
+        "file": "BigWigs-v429.1.zip",
+        "url": "https://github.com/BigWigsMods/BigWigs/releases/download/v429.1/BigWigs-v429.1.zip",
+        "size": 4656221,
+        "sha256": "d63d4d22d50fdfb8703dbdfa4bf5c82d5fc59630f622716a0df412eac0e6166f",
+        "interface": "120107",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "v429.1",
+        "file": "BigWigs-v429.1.zip",
+        "url": "https://github.com/BigWigsMods/BigWigs/releases/download/v429.1/BigWigs-v429.1.zip",
+        "size": 4656221,
+        "sha256": "d63d4d22d50fdfb8703dbdfa4bf5c82d5fc59630f622716a0df412eac0e6166f",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_ptr": {
+        "release": "v429.1",
+        "file": "BigWigs-v429.1.zip",
+        "url": "https://github.com/BigWigsMods/BigWigs/releases/download/v429.1/BigWigs-v429.1.zip",
+        "size": 4656221,
+        "sha256": "d63d4d22d50fdfb8703dbdfa4bf5c82d5fc59630f622716a0df412eac0e6166f",
+        "interface": "50504",
+        "upToDate": true,
+        "folders": [
+          "BigWigs",
+          "BigWigs_Core",
+          "BigWigs_Options",
+          "BigWigs_Plugins"
+        ],
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "v429.1",
+        "file": "BigWigs-v429.1.zip",
+        "url": "https://github.com/BigWigsMods/BigWigs/releases/download/v429.1/BigWigs-v429.1.zip",
+        "size": 4656221,
+        "sha256": "d63d4d22d50fdfb8703dbdfa4bf5c82d5fc59630f622716a0df412eac0e6166f",
+        "interface": "20506",
+        "upToDate": true,
+        "folders": [
+          "BigWigs",
+          "BigWigs_Core",
+          "BigWigs_Options",
+          "BigWigs_Plugins"
+        ],
+        "published": "2026-11-28"
       }
     },
     "bigwigs-countdown-heroesofthestorm": {
@@ -9891,6 +10085,98 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-25"
+      }
+    },
+    "brokeranything": {
+      "retail": {
+        "release": "v2.44",
+        "file": "BrokerAnything-v2.44.zip",
+        "url": "https://github.com/Eliote/BrokerAnything/releases/download/v2.44/BrokerAnything-v2.44.zip",
+        "size": 311752,
+        "sha256": "790e711581d9da6973f06e69eafd6ebdc5dc298f18c5b01fb3cba3615af6941d",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "classic": {
+        "release": "v2.44",
+        "file": "BrokerAnything-v2.44.zip",
+        "url": "https://github.com/Eliote/BrokerAnything/releases/download/v2.44/BrokerAnything-v2.44.zip",
+        "size": 311752,
+        "sha256": "790e711581d9da6973f06e69eafd6ebdc5dc298f18c5b01fb3cba3615af6941d",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "anniversary": {
+        "release": "v2.44",
+        "file": "BrokerAnything-v2.44.zip",
+        "url": "https://github.com/Eliote/BrokerAnything/releases/download/v2.44/BrokerAnything-v2.44.zip",
+        "size": 311752,
+        "sha256": "790e711581d9da6973f06e69eafd6ebdc5dc298f18c5b01fb3cba3615af6941d",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era": {
+        "release": "v2.44",
+        "file": "BrokerAnything-v2.44.zip",
+        "url": "https://github.com/Eliote/BrokerAnything/releases/download/v2.44/BrokerAnything-v2.44.zip",
+        "size": 311752,
+        "sha256": "790e711581d9da6973f06e69eafd6ebdc5dc298f18c5b01fb3cba3615af6941d",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v2.44",
+        "file": "BrokerAnything-v2.44.zip",
+        "url": "https://github.com/Eliote/BrokerAnything/releases/download/v2.44/BrokerAnything-v2.44.zip",
+        "size": 311752,
+        "sha256": "790e711581d9da6973f06e69eafd6ebdc5dc298f18c5b01fb3cba3615af6941d",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "v2.44",
+        "file": "BrokerAnything-v2.44.zip",
+        "url": "https://github.com/Eliote/BrokerAnything/releases/download/v2.44/BrokerAnything-v2.44.zip",
+        "size": 311752,
+        "sha256": "790e711581d9da6973f06e69eafd6ebdc5dc298f18c5b01fb3cba3615af6941d",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "v2.44",
+        "file": "BrokerAnything-v2.44.zip",
+        "url": "https://github.com/Eliote/BrokerAnything/releases/download/v2.44/BrokerAnything-v2.44.zip",
+        "size": 311752,
+        "sha256": "790e711581d9da6973f06e69eafd6ebdc5dc298f18c5b01fb3cba3615af6941d",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "classic_ptr": {
+        "release": "v2.44",
+        "file": "BrokerAnything-v2.44.zip",
+        "url": "https://github.com/Eliote/BrokerAnything/releases/download/v2.44/BrokerAnything-v2.44.zip",
+        "size": 311752,
+        "sha256": "790e711581d9da6973f06e69eafd6ebdc5dc298f18c5b01fb3cba3615af6941d",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "v2.44",
+        "file": "BrokerAnything-v2.44.zip",
+        "url": "https://github.com/Eliote/BrokerAnything/releases/download/v2.44/BrokerAnything-v2.44.zip",
+        "size": 311752,
+        "sha256": "790e711581d9da6973f06e69eafd6ebdc5dc298f18c5b01fb3cba3615af6941d",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "bruhforever": {
@@ -17219,6 +17505,18 @@
         "published": "2026-11-24"
       }
     },
+    "dropoff": {
+      "forever": {
+        "release": "v0.9.1",
+        "file": "DropOff-v0.9.1-forever.zip",
+        "url": "https://github.com/hasuwini77/dropoff/releases/download/v0.9.1/DropOff-v0.9.1-forever.zip",
+        "size": 17330921,
+        "sha256": "1b1316935944e267f42c08fa1a965b534c404423f0ccd4346cfdbfedefd932b8",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "dropthecheapestthing": {
       "retail": {
         "release": "v2026.5",
@@ -17469,6 +17767,18 @@
         "published": "2026-11-27"
       }
     },
+    "dungeonmap": {
+      "forever": {
+        "release": "v0.3.3",
+        "file": "DungeonMap-0.3.3.zip",
+        "url": "https://github.com/Mimezu/forever-DungeonMap/releases/download/v0.3.3/DungeonMap-0.3.3.zip",
+        "size": 4772,
+        "sha256": "bac7bd72b8dff29f0748a1ca01b07559d0dbe5286e5f4322b1e29c133a26b09b",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "dungeonquestatlas": {
       "forever": {
         "release": "v3.16",
@@ -17623,6 +17933,18 @@
         "interface": "11509",
         "upToDate": false,
         "published": "2026-11-20"
+      }
+    },
+    "earcollector": {
+      "forever": {
+        "release": "v2.2.1",
+        "file": "EarCollector-v2.2.1-forever.zip",
+        "url": "https://github.com/AlexaDeWit/Ear-Collector/releases/download/v2.2.1/EarCollector-v2.2.1-forever.zip",
+        "size": 637070,
+        "sha256": "b2ac7b699a647b93bec847c1ad42617e19e58dc49eeb07f160217326f788ff39",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "easychatchannelbuttons": {
@@ -21001,6 +21323,18 @@
         "published": "2026-11-19"
       }
     },
+    "flareui": {
+      "forever": {
+        "release": "7.1.3",
+        "file": "FlareUI-7.1.3-forever.zip",
+        "url": "https://github.com/malkkav/FlareUI/releases/download/7.1.3/FlareUI-7.1.3-forever.zip",
+        "size": 5002327,
+        "sha256": "eaf8efdf49d06d70bd8b9506a28326c7d9485195ea0f39f013d8015abb51b863",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "flareui-rp": {
       "forever": {
         "release": "v0.8.1",
@@ -21269,6 +21603,18 @@
         "published": "2026-11-11"
       }
     },
+    "foodguardian": {
+      "forever": {
+        "release": "forever-1.1.0",
+        "file": "FoodGuardian-Forever-1.1.0.zip",
+        "url": "https://github.com/PhatZero/Food-Guardian/releases/download/forever-1.1.0/FoodGuardian-Forever-1.1.0.zip",
+        "size": 94737,
+        "sha256": "b9e800bafd746e1e266e7f1703a0af6bec8a4a73caa8e4b1c20242f5f262de44",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "foodoptimizer": {
       "classic_era": {
         "release": "v1.2.4",
@@ -21289,6 +21635,38 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-09-24"
+      }
+    },
+    "forallthenerds": {
+      "classic_era": {
+        "release": "1.2.25",
+        "file": "ForAllTheNerds-1.2.25.zip",
+        "url": "https://github.com/martinwinther/ForAllTheNerds/releases/download/1.2.25/ForAllTheNerds-1.2.25.zip",
+        "size": 325027,
+        "sha256": "fb18628097eab13fd2ce648e53af06860046ffdfe5cddc133a2747ff08693e85",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "1.2.25",
+        "file": "ForAllTheNerds-1.2.25.zip",
+        "url": "https://github.com/martinwinther/ForAllTheNerds/releases/download/1.2.25/ForAllTheNerds-1.2.25.zip",
+        "size": 325027,
+        "sha256": "fb18628097eab13fd2ce648e53af06860046ffdfe5cddc133a2747ff08693e85",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "1.2.25",
+        "file": "ForAllTheNerds-1.2.25.zip",
+        "url": "https://github.com/martinwinther/ForAllTheNerds/releases/download/1.2.25/ForAllTheNerds-1.2.25.zip",
+        "size": 325027,
+        "sha256": "fb18628097eab13fd2ce648e53af06860046ffdfe5cddc133a2747ff08693e85",
+        "interface": "11509",
+        "upToDate": false,
+        "published": "2026-11-28"
       }
     },
     "forever": {
@@ -21325,6 +21703,18 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-26"
+      }
+    },
+    "foreverauras": {
+      "forever": {
+        "release": "1.4.18",
+        "file": "ForeverAuras-1.4.18.zip",
+        "url": "https://github.com/neroxrw/foreverauras/releases/download/1.4.18/ForeverAuras-1.4.18.zip",
+        "size": 13070600,
+        "sha256": "4746b930a6150a43923908bf309e281bef3223e427cf3761592fb8c928239c6b",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "forevercourier": {
@@ -21441,6 +21831,18 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-06"
+      }
+    },
+    "foreverenhanced": {
+      "forever": {
+        "release": "v1.10.0",
+        "file": "ForeverEnhanced-v1.10.0-forever.zip",
+        "url": "https://github.com/innocenzi/forever-enhanced/releases/download/v1.10.0/ForeverEnhanced-v1.10.0-forever.zip",
+        "size": 1935486,
+        "sha256": "0e8a053fe42e1c1559d397fec3d705e21458323eb36fd9b6bc639ff38d3e83ac",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "foreverflip": {
@@ -21609,6 +22011,18 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-24"
+      }
+    },
+    "foreverinstallerprobe": {
+      "forever": {
+        "release": "v1.0.1",
+        "file": "ForeverInstallerProbe-1.0.1.zip",
+        "url": "https://github.com/Mimezu/forever-ForeverInstallerProbe/releases/download/v1.0.1/ForeverInstallerProbe-1.0.1.zip",
+        "size": 1582,
+        "sha256": "ce8e45549999a9058972787a1a16f38f3afa6ee15a8468392996dc814b80fbd0",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "foreveritemfinder": {
@@ -21801,6 +22215,18 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-27"
+      }
+    },
+    "foreverpetmodes": {
+      "forever": {
+        "release": "v0.4.1",
+        "file": "ForeverPetModes-v0.4.1.zip",
+        "url": "https://github.com/jamesk111/ForeverPetModes/releases/download/v0.4.1/ForeverPetModes-v0.4.1.zip",
+        "size": 38795,
+        "sha256": "da7fb4c2506be141684492638b3b430258dd8977008d3ec56b20637223579edd",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "foreverplusplus": {
@@ -22998,6 +23424,18 @@
         "url": "https://github.com/DrKlampz/Outfitter/releases/download/v0.11.15/Gearhawk-v0.11.15-forever.zip",
         "size": 15518983,
         "sha256": "a9b4286c9300d464b2e456a484632a68b8f1bc4777f91d01c42c903881572a50",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
+    "gearpath": {
+      "forever": {
+        "release": "v0.1.0",
+        "file": "GearPath-v0.1.0-forever.zip",
+        "url": "https://github.com/hasuwini77/gearpath/releases/download/v0.1.0/GearPath-v0.1.0-forever.zip",
+        "size": 30469,
+        "sha256": "76a33251c5a5f277c3ce6e3aa669b1624b8fa66bb06c5507d4502404804ab6ab",
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-28"
@@ -24351,6 +24789,68 @@
         "published": "2026-11-06"
       }
     },
+    "guildos": {
+      "retail": {
+        "release": "v2.2.1",
+        "file": "GuildOS-v2.2.1.zip",
+        "url": "https://github.com/danielcosta42/guildos/releases/download/v2.2.1/GuildOS-v2.2.1.zip",
+        "size": 10942198,
+        "sha256": "8d3758d0736b9f8ed90961117a873014279d57c06ac7af8a8f4df6ac2425d17f",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "anniversary": {
+        "release": "v2.2.1",
+        "file": "GuildOS-v2.2.1.zip",
+        "url": "https://github.com/danielcosta42/guildos/releases/download/v2.2.1/GuildOS-v2.2.1.zip",
+        "size": 10942198,
+        "sha256": "8d3758d0736b9f8ed90961117a873014279d57c06ac7af8a8f4df6ac2425d17f",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v2.2.1",
+        "file": "GuildOS-v2.2.1.zip",
+        "url": "https://github.com/danielcosta42/guildos/releases/download/v2.2.1/GuildOS-v2.2.1.zip",
+        "size": 10942198,
+        "sha256": "8d3758d0736b9f8ed90961117a873014279d57c06ac7af8a8f4df6ac2425d17f",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "v2.2.1",
+        "file": "GuildOS-v2.2.1.zip",
+        "url": "https://github.com/danielcosta42/guildos/releases/download/v2.2.1/GuildOS-v2.2.1.zip",
+        "size": 10942198,
+        "sha256": "8d3758d0736b9f8ed90961117a873014279d57c06ac7af8a8f4df6ac2425d17f",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "v2.2.1",
+        "file": "GuildOS-v2.2.1.zip",
+        "url": "https://github.com/danielcosta42/guildos/releases/download/v2.2.1/GuildOS-v2.2.1.zip",
+        "size": 10942198,
+        "sha256": "8d3758d0736b9f8ed90961117a873014279d57c06ac7af8a8f4df6ac2425d17f",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "v2.2.1",
+        "file": "GuildOS-v2.2.1.zip",
+        "url": "https://github.com/danielcosta42/guildos/releases/download/v2.2.1/GuildOS-v2.2.1.zip",
+        "size": 10942198,
+        "sha256": "8d3758d0736b9f8ed90961117a873014279d57c06ac7af8a8f4df6ac2425d17f",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "guildpricecheck": {
       "retail": {
         "release": "v0.0.27",
@@ -25187,6 +25687,18 @@
         "interface": "11509",
         "upToDate": false,
         "published": "2026-11-27"
+      }
+    },
+    "headwow": {
+      "forever": {
+        "release": "v1.2.0-20261128",
+        "file": "HeadWow-1.2.0-20261128.zip",
+        "url": "https://github.com/uposum/headwow/releases/download/v1.2.0-20261128/HeadWow-1.2.0-20261128.zip",
+        "size": 2814300,
+        "sha256": "51d481e63b542421a55dd7ea1e0aa01d639bff04ac269920feefa5a9754567ec",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "healbot": {
@@ -29203,6 +29715,18 @@
         "published": "2026-11-27"
       }
     },
+    "kroolworldforever": {
+      "forever": {
+        "release": "v0.27.0",
+        "file": "KroolWorldForever-0.27.0.zip",
+        "url": "https://github.com/Krool/KroolWorldForever/releases/download/v0.27.0/KroolWorldForever-0.27.0.zip",
+        "size": 838223,
+        "sha256": "e6341e4f1348ddb03ba990b19d0f372bdcc6baf32932fe2f82ff46df57de62c9",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "krowi-extendedvendorui": {
       "retail": {
         "release": "24.6",
@@ -29793,6 +30317,18 @@
         "published": "2026-09-24"
       }
     },
+    "lataverne": {
+      "forever": {
+        "release": "v1.4.0",
+        "file": "LaTaverne-v1.4.0-forever.zip",
+        "url": "https://github.com/Oylex/la-taverne/releases/download/v1.4.0/LaTaverne-v1.4.0-forever.zip",
+        "size": 553549,
+        "sha256": "34b6e531346722fc345b652896fce4046135e043a1ad98607e2e3a50ac5bea98",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "latencyguard": {
       "retail": {
         "release": "3.0.0",
@@ -29845,6 +30381,18 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-27"
+      }
+    },
+    "layeranarchy": {
+      "forever": {
+        "release": "v0.2.4",
+        "file": "LayerAnarchy-v0.2.4-forever.zip",
+        "url": "https://github.com/srhinos/LayerAnarchy/releases/download/v0.2.4/LayerAnarchy-v0.2.4-forever.zip",
+        "size": 86036,
+        "sha256": "91e2dfff96fedd3203a5753c4aaead08a1c8321287e7c4e5fe0f719abd5e9476",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "layerswapstealth": {
@@ -34427,6 +34975,98 @@
         "published": "2026-11-21"
       }
     },
+    "manners": {
+      "retail": {
+        "release": "v1.13.0",
+        "file": "Manners-v1.13.0.zip",
+        "url": "https://github.com/fpsacha/Manners/releases/download/v1.13.0/Manners-v1.13.0.zip",
+        "size": 17420409,
+        "sha256": "ee2c0006603003378157bbd15259776ebd933a917d3748b6de1a5fa80a5a6c02",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic": {
+        "release": "v1.13.0",
+        "file": "Manners-v1.13.0.zip",
+        "url": "https://github.com/fpsacha/Manners/releases/download/v1.13.0/Manners-v1.13.0.zip",
+        "size": 17420409,
+        "sha256": "ee2c0006603003378157bbd15259776ebd933a917d3748b6de1a5fa80a5a6c02",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "anniversary": {
+        "release": "v1.13.0",
+        "file": "Manners-v1.13.0.zip",
+        "url": "https://github.com/fpsacha/Manners/releases/download/v1.13.0/Manners-v1.13.0.zip",
+        "size": 17420409,
+        "sha256": "ee2c0006603003378157bbd15259776ebd933a917d3748b6de1a5fa80a5a6c02",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era": {
+        "release": "v1.13.0",
+        "file": "Manners-v1.13.0.zip",
+        "url": "https://github.com/fpsacha/Manners/releases/download/v1.13.0/Manners-v1.13.0.zip",
+        "size": 17420409,
+        "sha256": "ee2c0006603003378157bbd15259776ebd933a917d3748b6de1a5fa80a5a6c02",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v1.13.0",
+        "file": "Manners-v1.13.0.zip",
+        "url": "https://github.com/fpsacha/Manners/releases/download/v1.13.0/Manners-v1.13.0.zip",
+        "size": 17420409,
+        "sha256": "ee2c0006603003378157bbd15259776ebd933a917d3748b6de1a5fa80a5a6c02",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "v1.13.0",
+        "file": "Manners-v1.13.0.zip",
+        "url": "https://github.com/fpsacha/Manners/releases/download/v1.13.0/Manners-v1.13.0.zip",
+        "size": 17420409,
+        "sha256": "ee2c0006603003378157bbd15259776ebd933a917d3748b6de1a5fa80a5a6c02",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "v1.13.0",
+        "file": "Manners-v1.13.0.zip",
+        "url": "https://github.com/fpsacha/Manners/releases/download/v1.13.0/Manners-v1.13.0.zip",
+        "size": 17420409,
+        "sha256": "ee2c0006603003378157bbd15259776ebd933a917d3748b6de1a5fa80a5a6c02",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_ptr": {
+        "release": "v1.13.0",
+        "file": "Manners-v1.13.0.zip",
+        "url": "https://github.com/fpsacha/Manners/releases/download/v1.13.0/Manners-v1.13.0.zip",
+        "size": 17420409,
+        "sha256": "ee2c0006603003378157bbd15259776ebd933a917d3748b6de1a5fa80a5a6c02",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "v1.13.0",
+        "file": "Manners-v1.13.0.zip",
+        "url": "https://github.com/fpsacha/Manners/releases/download/v1.13.0/Manners-v1.13.0.zip",
+        "size": 17420409,
+        "sha256": "ee2c0006603003378157bbd15259776ebd933a917d3748b6de1a5fa80a5a6c02",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "mapcast": {
       "forever": {
         "release": "v0.6.2",
@@ -38601,6 +39241,18 @@
         "published": "2026-11-27"
       }
     },
+    "naowhforever": {
+      "forever": {
+        "release": "1.5.1",
+        "file": "NaowhForever-1.5.1.zip",
+        "url": "https://github.com/naowh-gaming/NaowhForever/releases/download/1.5.1/NaowhForever-1.5.1.zip",
+        "size": 54459343,
+        "sha256": "ed666a21639321307b0bd24cdc9f372e14e9e7337857e3501a8040e66d382573",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "narcissus": {
       "retail": {
         "release": "v1.8.7-d",
@@ -41847,6 +42499,18 @@
         "published": "2026-11-13"
       }
     },
+    "per-hour": {
+      "forever": {
+        "release": "v2.0.1",
+        "file": "per-hour-v2.0.1-forever.zip",
+        "url": "https://github.com/eavidaze/wow-addon-per-hour/releases/download/v2.0.1/per-hour-v2.0.1-forever.zip",
+        "size": 149770,
+        "sha256": "97ea210111ef30f075ecfb6df68945ab4e4e922206839a13c1ecbc35c0bd0907",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "perhour": {
       "forever": {
         "release": "v1.0.0",
@@ -43215,6 +43879,98 @@
         "interface": "120105",
         "upToDate": true,
         "published": "2026-11-27"
+      }
+    },
+    "priceanswer": {
+      "retail": {
+        "release": "1.49",
+        "file": "PriceAnswer-1.49.zip",
+        "url": "https://github.com/Myrroddin/price-answer/releases/download/1.49/PriceAnswer-1.49.zip",
+        "size": 183669,
+        "sha256": "dba875af77774a16e1accba8c7156c5c05ef219f68fcbca8680c060a46ddb0dc",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic": {
+        "release": "1.49",
+        "file": "PriceAnswer-1.49.zip",
+        "url": "https://github.com/Myrroddin/price-answer/releases/download/1.49/PriceAnswer-1.49.zip",
+        "size": 183669,
+        "sha256": "dba875af77774a16e1accba8c7156c5c05ef219f68fcbca8680c060a46ddb0dc",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "anniversary": {
+        "release": "1.49",
+        "file": "PriceAnswer-1.49.zip",
+        "url": "https://github.com/Myrroddin/price-answer/releases/download/1.49/PriceAnswer-1.49.zip",
+        "size": 183669,
+        "sha256": "dba875af77774a16e1accba8c7156c5c05ef219f68fcbca8680c060a46ddb0dc",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era": {
+        "release": "1.49",
+        "file": "PriceAnswer-1.49.zip",
+        "url": "https://github.com/Myrroddin/price-answer/releases/download/1.49/PriceAnswer-1.49.zip",
+        "size": 183669,
+        "sha256": "dba875af77774a16e1accba8c7156c5c05ef219f68fcbca8680c060a46ddb0dc",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "1.49",
+        "file": "PriceAnswer-1.49.zip",
+        "url": "https://github.com/Myrroddin/price-answer/releases/download/1.49/PriceAnswer-1.49.zip",
+        "size": 183669,
+        "sha256": "dba875af77774a16e1accba8c7156c5c05ef219f68fcbca8680c060a46ddb0dc",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "1.49",
+        "file": "PriceAnswer-1.49.zip",
+        "url": "https://github.com/Myrroddin/price-answer/releases/download/1.49/PriceAnswer-1.49.zip",
+        "size": 183669,
+        "sha256": "dba875af77774a16e1accba8c7156c5c05ef219f68fcbca8680c060a46ddb0dc",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "1.49",
+        "file": "PriceAnswer-1.49.zip",
+        "url": "https://github.com/Myrroddin/price-answer/releases/download/1.49/PriceAnswer-1.49.zip",
+        "size": 183669,
+        "sha256": "dba875af77774a16e1accba8c7156c5c05ef219f68fcbca8680c060a46ddb0dc",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_ptr": {
+        "release": "1.49",
+        "file": "PriceAnswer-1.49.zip",
+        "url": "https://github.com/Myrroddin/price-answer/releases/download/1.49/PriceAnswer-1.49.zip",
+        "size": 183669,
+        "sha256": "dba875af77774a16e1accba8c7156c5c05ef219f68fcbca8680c060a46ddb0dc",
+        "interface": "50504",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "1.49",
+        "file": "PriceAnswer-1.49.zip",
+        "url": "https://github.com/Myrroddin/price-answer/releases/download/1.49/PriceAnswer-1.49.zip",
+        "size": 183669,
+        "sha256": "dba875af77774a16e1accba8c7156c5c05ef219f68fcbca8680c060a46ddb0dc",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "priestly": {
@@ -46881,6 +47637,18 @@
         "published": "2026-11-05"
       }
     },
+    "runlog": {
+      "forever": {
+        "release": "v0.1.0",
+        "file": "RunLog-0.1.0.zip",
+        "url": "https://github.com/Mimezu/forever-RunLog/releases/download/v0.1.0/RunLog-0.1.0.zip",
+        "size": 1919,
+        "sha256": "4f529ed2ad44911d5c4b20ba97c1d9fe7777abd65a97835adcce8c71dd4f3ca8",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "rxp-navigator": {
       "forever": {
         "release": "v1.7.27",
@@ -48007,6 +48775,18 @@
         "published": "2026-11-18"
       }
     },
+    "shortestpathforever": {
+      "forever": {
+        "release": "v1.50.0",
+        "file": "ShortestPathForever-v1.50.0-forever.zip",
+        "url": "https://github.com/cjber/shortest-path-forever/releases/download/v1.50.0/ShortestPathForever-v1.50.0-forever.zip",
+        "size": 24261683,
+        "sha256": "e483d7c4a980b6aebbd2710283a78d71bffe60f6c3d5317cfa7352c7b58d6e12",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "shortestpathforever-ldb": {
       "forever": {
         "release": "v1.0.3",
@@ -48299,6 +49079,30 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-16"
+      }
+    },
+    "shyauction": {
+      "forever": {
+        "release": "v5.2.19",
+        "file": "Shy-5.2.19.zip",
+        "url": "https://github.com/shyce/Shy/releases/download/v5.2.19/Shy-5.2.19.zip",
+        "size": 73750021,
+        "sha256": "1c08419b5d2e82eded0846ee695b0aea35bb2de5efa5464b49aa87e09236e701",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
+    "shyway-ground-0": {
+      "forever": {
+        "release": "v5.2.19",
+        "file": "Shy-Ground-5.2.19.zip",
+        "url": "https://github.com/shyce/Shy-Ground/releases/download/v5.2.19/Shy-Ground-5.2.19.zip",
+        "size": 47526690,
+        "sha256": "4ae6c84358018a18f5f901cf1ff9b2d0082e91d77947a5a76864e66b30f1a8ca",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "sidequest": {
@@ -49181,6 +49985,48 @@
         "interface": "120105",
         "upToDate": true,
         "published": "2026-11-23"
+      }
+    },
+    "slackhacks": {
+      "retail": {
+        "release": "v37",
+        "file": "SlackHacks.zip",
+        "url": "https://github.com/Slackwise/SlackHacks/releases/download/v37/SlackHacks.zip",
+        "size": 942796,
+        "sha256": "caa2eb079d6a3230cc85078a03e40ae771916f059f9ed2cbc9f9eba2f75a5897",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v37",
+        "file": "SlackHacks.zip",
+        "url": "https://github.com/Slackwise/SlackHacks/releases/download/v37/SlackHacks.zip",
+        "size": 942796,
+        "sha256": "caa2eb079d6a3230cc85078a03e40ae771916f059f9ed2cbc9f9eba2f75a5897",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "v37",
+        "file": "SlackHacks.zip",
+        "url": "https://github.com/Slackwise/SlackHacks/releases/download/v37/SlackHacks.zip",
+        "size": 942796,
+        "sha256": "caa2eb079d6a3230cc85078a03e40ae771916f059f9ed2cbc9f9eba2f75a5897",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "v37",
+        "file": "SlackHacks.zip",
+        "url": "https://github.com/Slackwise/SlackHacks/releases/download/v37/SlackHacks.zip",
+        "size": 942796,
+        "sha256": "caa2eb079d6a3230cc85078a03e40ae771916f059f9ed2cbc9f9eba2f75a5897",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "slowfaller": {
@@ -50147,6 +50993,48 @@
         "published": "2026-10-24"
       }
     },
+    "spellcoda": {
+      "anniversary": {
+        "release": "v0.21.3045",
+        "file": "v0.21.3045.zip",
+        "url": "https://github.com/jezzi23/spellcoda/releases/download/v0.21.3045/v0.21.3045.zip",
+        "size": 2559135,
+        "sha256": "046739d2fa553694030e4784e3f124582a8bec30b4128fbc76dfebfcb360743f",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era": {
+        "release": "v0.21.3045",
+        "file": "v0.21.3045.zip",
+        "url": "https://github.com/jezzi23/spellcoda/releases/download/v0.21.3045/v0.21.3045.zip",
+        "size": 2559135,
+        "sha256": "046739d2fa553694030e4784e3f124582a8bec30b4128fbc76dfebfcb360743f",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v0.21.3045",
+        "file": "v0.21.3045.zip",
+        "url": "https://github.com/jezzi23/spellcoda/releases/download/v0.21.3045/v0.21.3045.zip",
+        "size": 2559135,
+        "sha256": "046739d2fa553694030e4784e3f124582a8bec30b4128fbc76dfebfcb360743f",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "v0.21.3045",
+        "file": "v0.21.3045.zip",
+        "url": "https://github.com/jezzi23/spellcoda/releases/download/v0.21.3045/v0.21.3045.zip",
+        "size": 2559135,
+        "sha256": "046739d2fa553694030e4784e3f124582a8bec30b4128fbc76dfebfcb360743f",
+        "interface": "20506",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "spelldamageinfo": {
       "retail": {
         "release": "v0.8.0",
@@ -50903,6 +51791,18 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-11-05"
+      }
+    },
+    "superrsk": {
+      "forever": {
+        "release": "v1.0.25",
+        "file": "SuperRsk-1.0.25.zip",
+        "url": "https://github.com/GAMEBOOK/SuperRsk/releases/download/v1.0.25/SuperRsk-1.0.25.zip",
+        "size": 416574,
+        "sha256": "1f078411d9551cfe080f0945fc117d015ea021d57af6a767d96df662d14e57df",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "surroundfix": {
@@ -51827,6 +52727,18 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-10-12"
+      }
+    },
+    "tenminutegoblin": {
+      "forever": {
+        "release": "v0.5.3",
+        "file": "TenMinuteGoblin-0.5.3.zip",
+        "url": "https://github.com/Mimezu/forever-TenMinuteGoblin/releases/download/v0.5.3/TenMinuteGoblin-0.5.3.zip",
+        "size": 119166,
+        "sha256": "0ac4f910efbfc03ae09d3c4af51ec5e5c68692d06a49dd9729949940de814948",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "terminal": {
@@ -56849,6 +57761,48 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-22"
+      }
+    },
+    "wowefficiency": {
+      "retail": {
+        "release": "v2.3.1",
+        "file": "WowEfficiency-v2.3.1.zip",
+        "url": "https://github.com/Sludging/wow-efficiency-addon/releases/download/v2.3.1/WowEfficiency-v2.3.1.zip",
+        "size": 83506,
+        "sha256": "6d3e56e4fb3d1ede5f66dc101551549a5b5d976a3012beda5458e4213774d5bf",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v2.3.1",
+        "file": "WowEfficiency-v2.3.1.zip",
+        "url": "https://github.com/Sludging/wow-efficiency-addon/releases/download/v2.3.1/WowEfficiency-v2.3.1.zip",
+        "size": 83506,
+        "sha256": "6d3e56e4fb3d1ede5f66dc101551549a5b5d976a3012beda5458e4213774d5bf",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "v2.3.1",
+        "file": "WowEfficiency-v2.3.1.zip",
+        "url": "https://github.com/Sludging/wow-efficiency-addon/releases/download/v2.3.1/WowEfficiency-v2.3.1.zip",
+        "size": 83506,
+        "sha256": "6d3e56e4fb3d1ede5f66dc101551549a5b5d976a3012beda5458e4213774d5bf",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "v2.3.1",
+        "file": "WowEfficiency-v2.3.1.zip",
+        "url": "https://github.com/Sludging/wow-efficiency-addon/releases/download/v2.3.1/WowEfficiency-v2.3.1.zip",
+        "size": 83506,
+        "sha256": "6d3e56e4fb3d1ede5f66dc101551549a5b5d976a3012beda5458e4213774d5bf",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
       }
     },
     "wowfpartyframes": {

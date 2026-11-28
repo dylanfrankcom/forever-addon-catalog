@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "id": "bigwigs",
+  "repo": "BigWigsMods/BigWigs",
+  "releases": [
+    {
+      "tag": "v429.1",
+      "published": "2026-11-28",
+      "notes": "# BigWigs\n\n## [v429.1](https://github.com/BigWigsMods/BigWigs/tree/v429.1) (2026-11-28)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v429...v429.1) [Previous Releases](https://github.com/BigWigsMods/BigWigs/releases)\n\n- Bump version  \n- TheUnbindingOfKithix/Kithix: Add emphasized message to Light's Embrace (Orbs)  \n- TVA: Misc tweaks  \n- TheVenomousAbyss/Sentinels: Fix some rename options  \n- TheVenomousAbyss/Ulatek: Fix Virulent Spit message  \n- Options: Remove custom code for profile import/export widgets"
+    },
+    {
+      "tag": "v429",
+      "published": "2026-11-26",
+      "notes": "# BigWigs\n\n## [v429](https://github.com/BigWigsMods/BigWigs/tree/v429) (2026-11-26)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v428.4...v429) [Previous Releases](https://github.com/BigWigsMods/BigWigs/releases)\n\n- Bump version  \n- Update ptBR  \n- Add more anchor validation to prevent some errors"
+    },
+    {
+      "tag": "v428.4",
+      "published": "2026-11-25",
+      "notes": "# BigWigs\n\n## [v428.4](https://github.com/BigWigsMods/BigWigs/tree/v428.4) (2026-11-25)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v428.3...v428.4) [Previous Releases](https://github.com/BigWigsMods/BigWigs/releases)\n\n- Tools/AutoRole: Enable on WoW Forever on players greater than level 30 (should allow enough talents to make a reasonable guess)  \n- Plugins/Countdown: Fix countdowns not clearing on disable  \n- Tools/Keystones: Cleanups  \n- Update zhCN (#2839)"
+    },
+    {
+      "tag": "v428.3",
+      "published": "2026-11-23",
+      "notes": "# BigWigs\n\n## [v428.3](https://github.com/BigWigsMods/BigWigs/tree/v428.3) (2026-11-23)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v428.2...v428.3) [Previous Releases](https://github.com/BigWigsMods/BigWigs/releases)\n\n- Bump version  \n- TheUnbindingOfKithix/Kithix: Filter Mindstinger Egg from wipe message  \n- Plugins/Auras: Fix bad anchor validation  \n- Tools: Cleanups"
+    },
+    {
+      "tag": "v428.2",
+      "published": "2026-11-22",
+      "notes": "# BigWigs\n\n## [v428.2](https://github.com/BigWigsMods/BigWigs/tree/v428.2) (2026-11-22)\n[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v428.1...v428.2) [Previous Releases](https://github.com/BigWigsMods/BigWigs/releases)\n\n- Cleanup luacheck file  \n- Remove transmitting player name from DBM comms (cleanup)  \n- Tools/AutoInvite: Rewrite to compensate for latest WoW Forever changes (no more realm name)  \n- Update ruRU  \n- Tools/LFGTimer: Cleanup  \n- Update zhCN (#2837)  \n- Options: Fix menu categories  \n- Update deDE (#2836)"
+    }
+  ],
+  "stats": {
+    "stars": 277,
+    "openIssues": 38,
+    "contributors": 260,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-08",
+      "2026-10-23",
+      "2026-10-21",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-11",
+      "2026-09-30",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-09-27",
+      "2026-09-24",
+      "2026-09-23",
+      "2026-09-22",
+      "2026-09-21",
+      "2026-09-21",
+      "2026-09-20",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-12",
+      "2026-09-07",
+      "2026-09-06",
+      "2026-09-03",
+      "2026-09-03",
+      "2026-09-01",
+      "2026-08-31",
+      "2026-08-30",
+      "2026-08-28",
+      "2026-08-27",
+      "2026-08-27",
+      "2026-08-27",
+      "2026-08-26",
+      "2026-08-26",
+      "2026-08-24",
+      "2026-08-23",
+      "2026-08-23",
+      "2026-08-23",
+      "2026-08-23",
+      "2026-08-22"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "BigWigs",
+      "BigWigs_Core",
+      "BigWigs_MarchOnQuelDanas",
+      "BigWigs_MidnightLairs",
+      "BigWigs_MidnightWorld",
+      "BigWigs_Options",
+      "BigWigs_Plugins",
+      "BigWigs_Sporefall",
+      "BigWigs_TheDreamrift",
+      "BigWigs_TheUnbindingOfKithix",
+      "BigWigs_TheVenomousAbyss",
+      "BigWigs_TheVoidspire"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibCandyBar-3.0",
+      "LibSharedMedia-3.0",
+      "LibSink-2.0",
+      "LibDBIcon-1.0",
+      "LibDDI-1.0",
+      "LibSpecialization",
+      "LibDualSpec-1.0",
+      "LibCustomGlow-1.0",
+      "LibKeystone",
+      "LibLatency",
+      "LibDurability"
+    ],
+    "savedVariables": [
+      "BigWigs3DB",
+      "BigWigsIconDB",
+      "BigWigsStatsDB"
+    ]
+  }
+}

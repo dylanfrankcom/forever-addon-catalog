@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "id": "spellcoda",
+  "repo": "jezzi23/spellcoda",
+  "about": "# SpellCoda\nSpellCoda is an AddOn for World of Warcraft Classic and features a dynamic, configurable ability calculator. It implements many combat mechanics and makes use of thousands of spells, items and effects obtained from a custom generator (not public at this time), always staying up to date with client builds.\n\nBefore raising issues regarding calculator correctness, please breeze through the Discord's #info page first to help distinguish between intended behaviour and bugs.\n\nIf you clone this repository, you will need to populate the git submodule `generated`.\n\nReleases are automatically built when there are changes in `generated` repository (from client data) or in `release-autotagged` branch.\n\nAny problems with the generated data, whether something is missing or needs modifying, can be handled in the client variation's respective `override.lua` file, e.g. `vanilla/override.lua`.\n\nSee the project page here: https://www.curseforge.com/wow/addons/spellcoda",
+  "releases": [
+    {
+      "tag": "v0.21.3045",
+      "name": "Release v0.21.3045",
+      "published": "2026-11-28",
+      "notes": "**Data changes:** [v0.20.3032...v0.21.3045](https://github.com/jezzi23/spellcoda-generated/compare/v0.20.3032...v0.21.3045)\n- Vanilla: 1.15.9.70576, data changed\n- TBC: 2.5.6.70577, data changed\n- Camelot: 1.60.1.71091 → 1.60.1.71139, data changed\n- Shared files: changed\n\n**Addon changes:** [v0.20.3032...v0.21.3045](https://github.com/jezzi23/spellcoda/compare/v0.20.3032...v0.21.3045)"
+    },
+    {
+      "tag": "v0.20.3032",
+      "name": "Release v0.20.3032",
+      "published": "2026-11-24",
+      "notes": "**Data changes:** [v0.20.3031...v0.20.3032](https://github.com/jezzi23/spellcoda-generated/compare/v0.20.3031...v0.20.3032)\n- Vanilla: 1.15.9.70576, no data changes\n- TBC: 2.5.6.70577, no data changes\n- Camelot: 1.60.1.71037 → 1.60.1.71091, data changed\n\n**Addon:** no changes since v0.20.3031"
+    },
+    {
+      "tag": "v0.20.3031",
+      "name": "Release v0.20.3031",
+      "published": "2026-11-24",
+      "notes": "**Data changes:** [v0.19.3030...v0.20.3031](https://github.com/jezzi23/spellcoda-generated/compare/v0.19.3030...v0.20.3031)\n- Vanilla: 1.15.9.70576, data changed\n- TBC: 2.5.6.70577, data changed\n- Camelot: 1.60.1.71037, data changed\n- Shared files: changed\n\n**Addon changes:** [v0.19.3030...v0.20.3031](https://github.com/jezzi23/spellcoda/compare/v0.19.3030...v0.20.3031)\n\n---\n\n### Changelog overview\n- Overlay labels are now grouped into categories, with more options to choose from.\n- The spell catalogue has new menus for the compared spells list and more ways to sort.\n- You can drag and drop items onto the calculator's item planner, and weapon skill follows the planned weapon.\n- Next melee abilities (Heroic Strike and the like) show their real rage cost, and auto attack rage is counted.\n- Groundwork for pet support is in, starting with Demonic Brand.\n- Forever's own mana cost modifier rules are now followed, including school wide cost changes like Shadowform's.\n- Forever spell resistance and penetration are reworked. The exact mechanics aren't confirmed, so a working placeholder based on community data is used for now.\n- Healing crit bonus modifiers are applied correctly.\n- Fixed dual wield calculations.\n- Spell IDs show in tooltips on Forever while spell data is hidden in combat.\n- Item tooltip icons now show for items the game hadn't loaded yet (#61).\n- Fixed the overlay with Dominos 12."
+    },
+    {
+      "tag": "v0.19.3030",
+      "name": "Release v0.19.3030",
+      "published": "2026-11-20",
+      "notes": "**Data changes:** [v0.19.3029...v0.19.3030](https://github.com/jezzi23/spellcoda-generated/compare/v0.19.3029...v0.19.3030)\n- Vanilla: 1.15.9.70576, no data changes\n- TBC: 2.5.6.70577, no data changes\n- Camelot: 1.60.1.70959 → 1.60.1.71037, data changed\n\n**Addon:** no changes since v0.19.3029"
+    },
+    {
+      "tag": "v0.19.3029",
+      "name": "Release v0.19.3029",
+      "published": "2026-11-20",
+      "notes": "**Data changes:** [v0.18.3028...v0.19.3029](https://github.com/jezzi23/spellcoda-generated/compare/v0.18.3028...v0.19.3029)\n- Vanilla: 1.15.9.70576, data changed\n- TBC: 2.5.6.70577, data changed\n- Camelot: 1.60.1.70959, data changed\n- Shared files: changed\n\n**Addon changes:** [v0.18.3028...v0.19.3029](https://github.com/jezzi23/spellcoda/compare/v0.18.3028...v0.19.3029)\n\n---\n\n### Changelog overview\n- The calculator is redesigned, with a before/after result row and an item planner that shows your plan on a character model. The compared spells list moved to Tooltip → Items (`/spellcoda tooltip items`).\n- Paladin seals are in, along with on hit procs in general (Windfury included).\n- Armor penetration and expertise are fixed, and expertise from talents and racials now counts.\n- The 1% base spell miss chance is removed on Forever.\n- Custom levels now use the correct base stats for that level.\n- Buffs can now be set to always be assumed, a flexible way to count raid or combat buffs you can't always see. Buffs that expire in combat are handled properly too. Set them up in Loadout → Buffs (`/spellcoda loadout buffs`).\n- Stacking casts are counted correctly.\n- Fixed a talent error after teleporting on Forever.\n- Item tooltips refresh when you press a modifier key.\n- Items with zone limited bonuses no longer count those bonuses everywhere."
+    }
+  ],
+  "stats": {
+    "stars": 6,
+    "openIssues": 1,
+    "contributors": 3,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-17",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-05",
+      "2026-11-03",
+      "2026-11-03",
+      "2026-10-31",
+      "2026-10-30",
+      "2026-10-29",
+      "2026-10-28",
+      "2026-10-28",
+      "2026-10-23",
+      "2026-10-21",
+      "2026-10-19",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-17",
+      "2026-10-16",
+      "2026-10-15",
+      "2026-10-12",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-10-07",
+      "2026-10-07",
+      "2026-09-30",
+      "2026-09-13",
+      "2026-08-29",
+      "2026-08-05",
+      "2026-07-28",
+      "2026-07-21",
+      "2026-07-18",
+      "2026-07-17",
+      "2026-07-10",
+      "2026-06-12",
+      "2026-06-02",
+      "2026-05-15",
+      "2026-05-08",
+      "2026-04-27",
+      "2026-04-22"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "enGB",
+    "enUS",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "SpellCoda"
+    ],
+    "editions": [
+      "anniversary",
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0",
+      "LibDataBroker-1.1",
+      "LibDBIcon-1.0",
+      "!LibUIDropDownMenu"
+    ],
+    "savedVariables": [
+      "__sc_p_acc"
+    ],
+    "savedVariablesPerCharacter": [
+      "__sc_p_char"
+    ]
+  }
+}
