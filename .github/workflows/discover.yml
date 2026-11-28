@@ -23,7 +23,7 @@ on:
       repos:
         description: "With repos: the GitHub repos to read now, owner/name, separated by spaces (the reports workflow asks for players' suggestions)"
         type: string
-        default: """
+        default: ""
 
 permissions:
   contents: write
