@@ -206,4 +206,4 @@ To switch an entry to its repo, keeping its ID:
 3. Keep everything else (name, summary, author, tags, links): it still corrects the generated entry.
 4. Run `generate.cs` and `validate.cs`: the entry keeps its ID, its source is now the repo, and the repo no longer appears in the report's re-uploads.
 
-**Re-running changes only what changed:** IDs and `added` dates come from the previous `catalog.json`, entries and fields are written in a fixed order, and the version is bumped only when something changed. The report lists what was dropped and why, entries with no summary, and icons that couldn't be read.
+**Re-running changes only what changed:** IDs and `added` dates come from the previous `catalog.json`, entries and fields are written in a fixed order, and the version (the day's date and build number, `2026.11.28.3`) changes only when something changed. The report lists what was dropped and why, entries with no summary, and icons that couldn't be read.

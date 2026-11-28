@@ -16,9 +16,9 @@
       "const": 4
     },
     "version": {
-      "description": "The catalog's own version, bumped whenever entries change, so the app can say what's new.",
+      "description": "The catalog's own version: the UTC date it was built and that day's build number (2026.11.28.3), changed whenever entries change, so the app can say what's new and how fresh the catalog is. Older catalogs used a semantic version (4.20.0).",
       "type": "string",
-      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+      "pattern": "^([0-9]{4}\\.(0[1-9]|1[0-2])\\.(0[1-9]|[12][0-9]|3[01])\\.[1-9][0-9]*|(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*))$"
     },
     "editions": {
       "description": "Every edition of the game the catalog covers, keyed by edition ID, in Battle.net's order: names, the live client each was checked against, and how it reads an add-on.",

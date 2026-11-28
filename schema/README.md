@@ -14,7 +14,7 @@
 | Field | What |
 |---|---|
 | `schemaVersion` | Always `4` for this format. The app refuses a catalog whose `schemaVersion` it doesn't know and keeps using the copy it has. Format 2 (catalog 2.0.0) made `sponsor` a list; format 1's was one link. Format 3 (catalog 3.0.0) gave authors a record of their own. Format 4 (catalog 4.0.0) is the generated catalog: the `forever` block is gone (`editions.forever` replaces it), `editions` is required, and an entry's `homepage`, `repository` and `issues` moved into `links` (see [Changing the format](#changing-the-format)). |
-| `version` | The catalog's own version (`1.4.0`). Bump it whenever entries change; the app uses it to say what's new. |
+| `version` | The catalog's own version: the UTC date it was built and that day's build number (`2026.11.28.3`). The generator changes it whenever entries change; the app uses it to say what's new and how fresh the catalog is. Catalogs before it used a semantic version (`4.20.0`), which counts as earlier. |
 | `editions` | Every edition of the game the catalog covers (see [Editions](#editions)). Added in catalog 3.1.0, required from format 4. |
 | `authors` | Every author an entry names, keyed by author ID (see below). |
 | `addons` | The entries. |
@@ -248,8 +248,8 @@ Regexes use .NET syntax, matched against the file name only.
 Never listed: repos on `optout.json` (format `optout.schema.json`: `{ "repo", "reason", "date", "issue" }` for each), add-ons whose `.toc` says `## X-Forever-Catalog: no` (the author's own opt-out), compilations of unrelated add-ons, collections (a release that also ships a separate add-on: a folder with its own `.toc` and Title, not named after the main folder, not a library or a `!` helper, and with no dependency either way with another folder of the release; a plugin, library or module that depends on, or is depended on by, another folder belongs), copies of an add-on already listed (same CurseForge project or folder; the one already in the catalog, else the one released for more editions, stays), and add-ons with a folder name the format doesn't allow. An entry keeps its ID and `added` date from run to run. The catalog `version` goes up a minor version when anything changes and a major version when the format does.
 
 ## Changing the format
-- **A new optional field** is a minor catalog `version` (`3.1.0`) in the same format: an app that doesn't know the field ignores it.
-- **Removing or changing a field**, or making one required, needs a new `schemaVersion` and a major catalog `version`. An app that doesn't know the new format keeps the last copy it has, so the app that reads it ships first.
+- **A new optional field** stays in the same format: an app that doesn't know the field ignores it.
+- **Removing or changing a field**, or making one required, needs a new `schemaVersion`. An app that doesn't know the new format keeps the last copy it has, so the app that reads it ships first.
 
 ## Example
 ```json
