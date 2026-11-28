@@ -65,7 +65,7 @@ For each add-on it gathers repositories: the entry's GitHub sources and `reposit
 CurseForge and Wago aren't contacted. `--self-test` checks the matching rules offline.
 
 ## discover.cs
-Finds add-ons for every edition on public GitHub repos and writes `candidates.json`, one row per repo, for the release check to work from. It lists nothing by itself and never edits `catalog.json`. The **discover** workflow runs it daily (or by hand) and keeps `candidates.json` on the `checker` branch, never on `main`.
+Finds add-ons for every edition on public GitHub repos and writes `candidates.json`, one row per repo, for the release check to work from. It lists nothing by itself and never edits `catalog.json`. The **discover** workflow runs it three times a day (or by hand) and keeps `candidates.json` on the `checker` branch, never on `main`.
 
 ```powershell
 $env:GITHUB_TOKEN = (gh auth token)

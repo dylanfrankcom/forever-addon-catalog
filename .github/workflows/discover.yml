@@ -2,14 +2,14 @@ name: discover
 
 # Finds add-ons for every edition on public GitHub repos (scripts/discover.cs) and keeps the result, candidates.json, on
 # the `checker` branch, where the release check reads it. It never touches main and lists nothing by itself.
-# Daily, or by hand (Actions -> discover -> Run workflow). Code search allows 10 requests a minute, so searching every
+# Three times a day, or by hand (Actions -> discover -> Run workflow). Code search allows 10 requests a minute, so searching every
 # edition takes longer than one run: each run searches for an hour, the Interface searched longest ago first, and the
 # next run carries on (candidates.json keeps when each was last searched in full). "no search" only reads the known
 # repos again.
 
 on:
   schedule:
-    - cron: "17 5 * * *"
+    - cron: "17 5,13,21 * * *"
   workflow_dispatch:
     inputs:
       search:
