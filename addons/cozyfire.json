@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "cozyfire",
+  "repo": "Synse/CozyFire",
+  "about": "CozyFire won't increase your Spirit, but it will improve your camping experience in WoW: Forever. It marks campfires on the world map and minimap and tooltips show the buffs each camp feature grants.\n\n### Features\n\n*   Automatically marks campfires when you place one, `/sit`, `/sleep`, `/lay`, or `/kneel` at a campfire\n*   \uD83C\uDD95**New in 0.8.0:** Campfire locations are shared with other CozyFire users in your guild/party\n*   Tooltips for camping objects show their buff and profession information\n*   \uD83C\uDD95**New in 0.6.2:** Hold **Shift** to view level ranges for buffs that scale based on your level\n*   Live countdown on each campfire pin showing the time left before it despawns\n*   One-click minimap button to `/sit` at a nearby campfire\n*   Pins persist between sessions and clear themselves once a fire is gone\n*   \uD83C\uDD95**New in 0.8.7:** Forever launch celebration campfires (Violet Flames) have a unique map icon\n*   \uD83C\uDD95**New in 0.9.0:** Option to hide the minimap button (`/cf options` or right-click the minimap button)",
+  "releases": [
+    {
+      "tag": "0.10.6",
+      "published": "2026-11-28",
+      "notes": "# CozyFire\n\n## [0.10.6](https://github.com/Synse/CozyFire/tree/0.10.6) (2026-11-28)\n[Full Changelog](https://github.com/Synse/CozyFire/compare/0.10.5...0.10.6) [Previous Releases](https://github.com/Synse/CozyFire/releases)\n\n- Bump version to 0.10.6  \n- Add required skill for tier 1 camp objects"
+    },
+    {
+      "tag": "0.10.5",
+      "published": "2026-11-26",
+      "notes": "# CozyFire\n\n## [0.10.5](https://github.com/Synse/CozyFire/tree/0.10.5) (2026-11-26)\n[Full Changelog](https://github.com/Synse/CozyFire/compare/0.10.4...0.10.5) [Previous Releases](https://github.com/Synse/CozyFire/releases)\n\n- Revert \"Use BigWigsMods/packager for WoWI uploads\"  \n- Bump version to 0.10.5  \n- Use BigWigsMods/packager for WoWI uploads  \n- Merge pull request #2 from Synse/dependabot/github\\_actions/BigWigsMods/packager-2.7.0  \n    Bump BigWigsMods/packager from 2.6.1 to 2.7.0  \n- Bump BigWigsMods/packager from 2.6.1 to 2.7.0  \n    Bumps [BigWigsMods/packager](https://github.com/bigwigsmods/packager) from 2.6.1 to 2.7.0.  \n    - [Release notes](https://github.com/bigwigsmods/packager/releases)  \n    - [Commits](https://github.com/bigwigsmods/packager/compare/e50a250f8705041e40f2fa1ddcb280a686d65aa0...01e8631a69c69d7654c788d152630d5fed9e3812)  \n    ---  \n    updated-dependencies:  \n    - dependency-name: BigWigsMods/packager  \n      dependency-version: 2.7.0  \n      dependency-type: direct:production  \n      update-type: version-update:semver-minor  \n    ...  \n    Signed-off-by: dependabot[bot] <support@github.com>  \n- Swap quotes  \n- Add .github/dependabot.yml"
+    },
+    {
+      "tag": "0.10.4",
+      "published": "2026-11-25",
+      "notes": "# CozyFire\n\n## [0.10.4](https://github.com/Synse/CozyFire/tree/0.10.4) (2026-11-25)\n[Full Changelog](https://github.com/Synse/CozyFire/compare/0.10.3...0.10.4) [Previous Releases](https://github.com/Synse/CozyFire/releases)\n\n- Bump version to 0.10.4  \n- Add Iron Oven icon  \n- Track Iron Oven  \n- Make icon optional  \n- Split camp tent  \n- Support buffDetail  \n- Add Iron Oven  \n- Only show profession on Shift"
+    },
+    {
+      "tag": "0.10.3",
+      "published": "2026-11-23",
+      "notes": "# CozyFire\n\n## [0.10.3](https://github.com/Synse/CozyFire/tree/0.10.3) (2026-11-23)\n[Full Changelog](https://github.com/Synse/CozyFire/compare/0.10.2...0.10.3) [Previous Releases](https://github.com/Synse/CozyFire/releases)\n\n- Bump version to 0.10.3  \n- No layer  \n- Fix kit layering  \n- Ad dnewline  \n- Add time to campfire tooltip  \n- Add FormatRemainingTime helper  \n- Improve pin restore debug  \n- Mark on violet pouch use  \n- Dont allow marking on flight path  \n- Skip early removal on flight paths"
+    },
+    {
+      "tag": "0.10.2",
+      "published": "2026-11-23",
+      "notes": "# CozyFire\n\n## [0.10.2](https://github.com/Synse/CozyFire/tree/0.10.2) (2026-11-23)\n[Full Changelog](https://github.com/Synse/CozyFire/compare/0.10.1...0.10.2) [Previous Releases](https://github.com/Synse/CozyFire/releases)\n\n- Bump version to 0.10.2  \n- Remove layer warning  \n- Disable layer handling  \n- Use canvas for settings"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-18",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-02",
+      "2026-10-23",
+      "2026-10-21",
+      "2026-10-20",
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-13",
+      "2026-10-12",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-10-07",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-09-30",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CozyFire"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "CozyFireDB"
+    ]
+  }
+}

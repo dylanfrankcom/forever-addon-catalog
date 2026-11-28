@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "openxp",
+  "repo": "mjared123/OpenXP",
+  "about": "# OpenXP\n\nFree leveling guides for World of Warcraft: Forever.\nDownload: https://www.curseforge.com/projects/1792509\n\n- `OpenXP/` is the addon, exactly what goes in `Interface/AddOns/OpenXP`.\n- `OpenXP_Nav/` is the optional walking-path data for the arrow\n  (`Interface/AddOns/OpenXP_Nav`).\n- Leveling route: PoleStar's 1-60 guides\n  (https://github.com/fitzforge/polestar, GPL-3.0), converted by\n  `tools/import_polestar_route.py`.\n- `tools/`: the data builders (route import, quest data, flights, terrain),\n  `package_2.py` for the release zip and `curseforge_upload.py` for releases.\n- `tests/`: run `python3 tests/run_tests.py` (needs `pip install lupa`).\n\nReleases: push a tag `vX.Y.Z` that matches `## Version` in `OpenXP/OpenXP.toc`\nand the newest entry in `OpenXP/UI/Welcome.lua`; `.github/workflows/release.yml`\nuploads it to CurseForge.\n\nOpenXP 1.x (the RestedXP-based addon, CC BY-NC-SA 4.0) ends at tag `v1.3.66`.\nLicence: GPL-3.0 (LICENSE); credits in `OpenXP/NOTICE.md`.",
+  "releases": [
+    {
+      "tag": "v2.0.9",
+      "name": "OpenXP 2.0.9",
+      "published": "2026-11-28",
+      "notes": "Also on CurseForge: https://www.curseforge.com/projects/1792509"
+    },
+    {
+      "tag": "v2.0.8",
+      "name": "OpenXP 2.0.8",
+      "published": "2026-11-28",
+      "notes": "Also on CurseForge: https://www.curseforge.com/projects/1792509"
+    },
+    {
+      "tag": "v2.0.7",
+      "name": "OpenXP 2.0.7",
+      "published": "2026-11-26",
+      "notes": "Also on CurseForge: https://www.curseforge.com/projects/1792509"
+    },
+    {
+      "tag": "v2.0.6",
+      "name": "OpenXP 2.0.6",
+      "published": "2026-11-25",
+      "notes": "Also on CurseForge: https://www.curseforge.com/projects/1792509"
+    },
+    {
+      "tag": "v2.0.5",
+      "name": "OpenXP 2.0.5",
+      "published": "2026-11-25",
+      "notes": "Also on CurseForge: https://www.curseforge.com/projects/1792509"
+    }
+  ],
+  "stats": {
+    "stars": 12,
+    "openIssues": 12,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-28",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "OpenXP",
+      "OpenXP_Nav"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "Questie"
+    ],
+    "savedVariables": [
+      "OpenXPDB",
+      "OXPData",
+      "OXPDB",
+      "OXPSettings",
+      "OXPString",
+      "OXPQuestieDump"
+    ],
+    "savedVariablesPerCharacter": [
+      "OpenXPCharDB",
+      "OXPCData",
+      "OXPCTrackingData",
+      "OXPCComms",
+      "OXPCSettings"
+    ]
+  }
+}

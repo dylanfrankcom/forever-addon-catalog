@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "mlgpowerinfusion",
+  "repo": "zakpruitt/MLGPowerInfusion",
+  "about": "# MLG Power Infusion\n\nMakes your Power Infusion windows dank.\n\nWhen you gain Power Infusion, a 15 second cut of SICKEST MLG 360 NOSCOPE 2016 plays (timed so the drop hits mid-window) and a banner pops up at the top of your screen with a random message.\n\nWorks on retail and WoW: Forever.\n\n## Commands\n\n| Command | Description |\n|---|---|\n| `/mlgpi test` | Play the sound and banner |\n| `/mlgpi status` | Show whether the sound and banner can fire in combat on your client |\n| `/mlgpi debug` | Print how Power Infusion is being detected |\n| `/mlgpi toggle` | Turn the addon on/off |\n| `/mlgpi alert` | Turn the banner on/off (sound still plays) |\n| `/mlgpi master` / `sfx` / `music` / `ambience` / `dialog` | Pick which volume slider controls the sound (default: Master) |\n\nYou can also click the addon in the addon compartment (the button by the minimap) to test it.\n\n## Custom messages\n\nEdit `Messages.lua`. `{player}` is replaced with your character name, and `batchest = true` shows the batchest emote next to that message.\n\n## How detection works\n\nBlizzard hides Power Infusion from addons in combat, so the addon registers the sound with Blizzard's aura sound system (`C_UnitAuras.AddAuraSound`). The game plays it when you gain PI, even in combat, M+ and raids.\n\n- **Sound:** works everywhere. It is registered out of combat (login, `/reload`, or leaving combat) because Blizzard blocks registering in combat.\n- **Full track:** Blizzard stops aura sounds after 5 seconds, so only the first 5 seconds are registered. The addon plays the rest itself, timed to pick up where the first part ends. Out of combat it sees PI land; in combat it goes off your own PI cast. If someone else gives you PI in combat, you only hear the first 5 seconds.\n- **Banner:** uses Blizzard's aura frame (`AuraContainer`), which the game shows by itself while PI is on you, so it also works in combat. Blizzard blocks addons from reacting when that frame appears, so the banner is drawn from the aura's own timer: the game swaps in the message and fades it out (background, logo and batchest included) 3.5 seconds after PI lands. A new random message is picked each time you leave combat.\n- **Fallback:** if a client can't register aura sounds, the addon watches for PI itself. That only works while the game lets addons read your buffs, so it may miss PI in combat. `/mlgpi status` shows which path your client uses.",
+  "releases": [
+    {
+      "tag": "v1.3.12",
+      "published": "2026-11-28",
+      "notes": "Changes:\n\n- fix: only play the end of the track for a PI cast on yourself\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/MLGPowerInfusion`"
+    },
+    {
+      "tag": "v1.3.11",
+      "published": "2026-11-20",
+      "notes": "Changes:\n\n- fix: stop the end of the track playing when PI is cast on an ally\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/MLGPowerInfusion`"
+    },
+    {
+      "tag": "v1.3.10",
+      "published": "2026-11-17",
+      "notes": "Changes:\n\n- fix: play the whole track again by chaining it past the aura sound cap\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/MLGPowerInfusion`"
+    },
+    {
+      "tag": "v1.3.9",
+      "published": "2026-11-16",
+      "notes": "Changes:\n\n- chore: drop the addon list category from the toc\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/MLGPowerInfusion`"
+    },
+    {
+      "tag": "v1.3.8",
+      "published": "2026-11-16",
+      "notes": "Changes:\n\n- docs: note the surname fix and Forever release tagging in the changelog\n- ci: tag releases for Forever and upload them to CurseForge\n- fix: stop the banner text erroring for Forever characters with a surname\n- docs: document Forever support and /mlgpi status\n- feat: support WoW: Forever\n\nInstall or update with WoWUp: **Get Addons -> Install from URL** -> `https://github.com/zakpruitt/MLGPowerInfusion`"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-20",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-16",
+      "2026-10-04",
+      "2026-09-16",
+      "2026-09-16",
+      "2026-09-16",
+      "2026-09-16",
+      "2026-09-16",
+      "2026-09-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MLGPowerInfusion"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "MLGPowerInfusionDB"
+    ]
+  }
+}

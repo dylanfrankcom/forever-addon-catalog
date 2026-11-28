@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "wowengine",
+  "repo": "illusorybias/WOWEngine",
+  "about": "# WOWEngine Suite (IllusoryBias) + Automated Error-Triage Agent\n\nMulti-version World of Warcraft addon suite (`WOWEngine`, `HordeEngine`, `AllianceEngine` — **v1.3.10**) supporting **WoW Forever (1.60.1 / Interface 16001)**, **Retail**, **Classic Era / SoD**, **TBC**, and **Mists of Pandaria**, with an automated GitHub Actions Error-Triage Agent.\n\n## Repository Contents\n- `WOWEngine/`, `HordeEngine/`, `AllianceEngine/` — Addon suite (`v1.3.10`) including `/he bugreport` in-game error log exporter.\n- `.github/ISSUE_TEMPLATE/bug_report.yml` — Structured bug report form for CurseForge/GitHub users.\n- `.github/workflows/wowengine-error-triage.yml` — Automated agent triggered on every new bug report; parses Lua traces, calls Gemini API, validates patches for syntax + Blizzard TOS compliance, and opens a Draft PR.\n- `.github/workflows/lua-ci.yml` — Automated syntax (`luac5.1 -p`) & Blizzard TOS validator on every push and PR.\n- `agent/triage_agent.py` & `agent/lua_validator.py` — Pure Python 3 standard-library agent & validator (zero pip installs required).\n\n## Quick GitHub Setup (3 Minutes)\n1. Upload all folders from this package (`WOWEngine`, `HordeEngine`, `AllianceEngine`, `agent`, `.github`, and `README.md`) to the root of your `WOWEngine` GitHub repository.\n2. Go to **Settings -> Secrets and variables -> Actions -> New repository secret**, add **`GEMINI_API_KEY`** with your key from Google AI Studio.\n3. Go to **Settings -> Actions -> General -> Workflow permissions**, enable **Read and write permissions** and check **Allow GitHub Actions to create and approve pull requests**, then click **Save**.\n4. On CurseForge, set your project's **Issues URL** to `https://github.com/<YourUsername>/WOWEngine/issues`.\n5. Test it: run `/he bugreport` in-game, copy the output, and open a test Issue on GitHub—the agent will respond automatically within ~30 seconds.",
+  "releases": [
+    {
+      "tag": "v1.6.2",
+      "published": "2026-11-28",
+      "notes": "# WOWEngine [Unified v1.6.0 - IllusoryBias]\n\n## [v1.6.2](https://github.com/illusorybias/WOWEngine/tree/v1.6.2) (2026-11-28)\n[Full Changelog](https://github.com/illusorybias/WOWEngine/compare/v1.6.1...v1.6.2) [Previous Releases](https://github.com/illusorybias/WOWEngine/releases)\n\n- talent tree updates  \n- talent tree corrections  \n- v1.6.2: Meta spec full-tree popout and secondary spec unlock wizard  \n- v1.6.2: Trainer city filter, onboarding plan builder, and wave phase progress  \n    v1.6.2: Add raid-style unspent points nag banner with 100 WoW roasts  \n- fixed training coordinates  \n    bug reporter fixed  \n    character selector corrected  \n    stat caps corrected  \n- updated retail version to 120105  \n- updated v4 to 6 and 7 to 8  \n- updated to check for wow forever  \n- added scheduler and updated asthetics  \n- Added character fron and back navigation - updated  \n    updated first aid priority linen  \n    improved trainer coordinates"
+    },
+    {
+      "tag": "v1.6.1",
+      "published": "2026-11-27",
+      "notes": "# WOWEngine [Unified v1.6.0 - IllusoryBias]\n\n## [v1.6.1](https://github.com/illusorybias/WOWEngine/tree/v1.6.1) (2026-11-27)\n[Full Changelog](https://github.com/illusorybias/WOWEngine/compare/v1.6.0...v1.6.1) [Previous Releases](https://github.com/illusorybias/WOWEngine/releases)\n\n- fixed spacing"
+    },
+    {
+      "tag": "v1.6.0",
+      "published": "2026-11-27",
+      "notes": "# WOWEngine [Unified v1.6.0 - IllusoryBias]\n\n## [v1.6.0](https://github.com/illusorybias/WOWEngine/tree/v1.6.0) (2026-11-27)\n[Full Changelog](https://github.com/illusorybias/WOWEngine/commits/v1.6.0) [Previous Releases](https://github.com/illusorybias/WOWEngine/releases)\n\n- fixed spacing  \n- update structure  \n- fixing structure  \n- updating correct structure  \n- remove and updated for sync issues  \n- Updated TOC  \n- added packaging info  \n- Added image  \n- Updated Curseforge info  \n- Updated License file  \n- updated issue with blue leather bag  \n- Updated talen tree issue and corrected layout  \n- Updating WOWEngine and removing faction-specific engines  \n- Update bug\\_report.yml  \n- Create bug\\_report.yml  \n- Add files via upload  \n- Create wowengine-error-triage.yml  \n- Add files via upload  \n- Initial commit"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-27",
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "WOWEngine"
+    ],
+    "editions": [
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Questie",
+      "Altoholic",
+      "DataStore",
+      "DataStore_Characters",
+      "DataStore_Crafts",
+      "Mastercraft",
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "WOWEngineDB"
+    ]
+  }
+}

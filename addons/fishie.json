@@ -5,6 +5,11 @@
   "about": "# Fishie\n\nA fishing helper for **WoW: Forever**, in the spirit of Fishing Buddy.\n\n- **Right-click to cast, right-click to catch.** With a pole in hand, a single right-click on the world\n  casts Fishing. When the bobber splashes, right-click again and the fish is looted without aiming at the\n  bobber. Both are plain right-clicks; the game needs a real click for each. Prefer a double-click to cast?\n  Switch \"Cast with\" to double-click in Setup. With no pole in hand, a double-click equips one.\n- **Automatic lures.** When your pole has no lure, the double-click applies the best one in your bags\n  (Aquadynamic Fish Attractor, Flesh Eating Worm, Bright Baubles, Nightcrawlers, Shiny Bauble ...).\n  Click again to cast.\n- **Fishing outfit.** Put on your fishing gear, type `/fishie save`, and from then on `/fishie switch` (or\n  right-click the minimap button) swaps between it and your normal gear.\n- **Catch log.** Everything you fish up is counted per zone and per session, with catches per hour.\n- **Sound boost.** Effects up, music and ambience down while your line is out, restored afterwards.\n- **Options like Fishing Buddy:** double-click speed, an optional Shift/Ctrl/Alt to hold, strongest or weakest lure first, replace a lure that is about to run out (with a chat warning), auto-loot while fishing, go back to your normal gear after a quiet spell, a minimap button you can hide, and a key binding (Options > Key Bindings > Fishie).\n- **On-screen box** (`/fishie hud`): time since your cast, lure time left and this session's catches.\n- **Skill display** and a small window (`/fishie`) with session stats, catches by zone and settings.\n\nThe game needs a real click for every cast, so casting is never fully automatic.\n\n## Commands\n\n| Command | What it does |\n|---|---|\n| `/fishie` | Open the window |\n| `/fishie switch` | Fishing outfit on or off |\n| `/fishie save` | Remember what you're wearing as your fishing outfit |\n| `/fishie stats` / `reset` | Print or reset this session |\n| `/fishie doubleclick`, `lure`, `pole`, `sound`, `announce`, `refreshlure`, `warnlure`, `autoloot`, `hud` | Toggle a feature (add `on` or `off`) |\n| `/fishie minimap` | Show or hide the minimap button |\n| `/fishie debug` | Explain every click, cast and catch in chat |\n| `/fishie probe` | Show what the game reports about your pole and lures |\n\n## Notes\n\nIf something doesn't work, run `/fishie probe` and `/fishie debug on`, and report what they say.\n\n## Credits\n\nFishing pool spawn points: Data from ForeverDB.net (https://foreverdb.net). See NOTICE.txt.",
   "releases": [
     {
+      "tag": "v0.4.33",
+      "published": "2026-11-28",
+      "notes": "# Fishie\n\n## [v0.4.33](https://github.com/DrKlampz/Fishie/tree/v0.4.33) (2026-11-28)\n[Full Changelog](https://github.com/DrKlampz/Fishie/compare/v0.4.32...v0.4.33) [Previous Releases](https://github.com/DrKlampz/Fishie/releases)\n\n- Refresh built-in pool and zone skill data to the 2026-11-27 build  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
       "tag": "v0.4.32",
       "published": "2026-11-27",
       "notes": "# Fishie\n\n## [v0.4.32](https://github.com/DrKlampz/Fishie/tree/v0.4.32) (2026-11-27)\n[Full Changelog](https://github.com/DrKlampz/Fishie/compare/v0.4.31...v0.4.32) [Previous Releases](https://github.com/DrKlampz/Fishie/releases)\n\n- Fishie v0.4.32: only count real fishing loot and the fishing line ending  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
@@ -23,19 +28,15 @@
       "tag": "v0.4.29",
       "published": "2026-11-26",
       "notes": "# Fishie\n\n## [v0.4.29](https://github.com/DrKlampz/Fishie/tree/v0.4.29) (2026-11-26)\n[Full Changelog](https://github.com/DrKlampz/Fishie/compare/v0.4.28...v0.4.29) [Previous Releases](https://github.com/DrKlampz/Fishie/releases)\n\n- Pool icons, no plain spots, no mob loot as catches (0.4.29)  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
-    },
-    {
-      "tag": "v0.4.28",
-      "published": "2026-11-26",
-      "notes": "# Fishie\n\n## [v0.4.28](https://github.com/DrKlampz/Fishie/tree/v0.4.28) (2026-11-26)\n[Full Changelog](https://github.com/DrKlampz/Fishie/compare/v0.4.27...v0.4.28) [Previous Releases](https://github.com/DrKlampz/Fishie/releases)\n\n- Auto-tag and release when the CHANGELOG version is new  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Update fishie: see CHANGELOG  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
     }
   ],
   "stats": {
     "stars": 0,
     "openIssues": 0,
     "contributors": 2,
-    "lastRelease": "2026-11-27",
+    "lastRelease": "2026-11-28",
     "releaseDates": [
+      "2026-11-28",
       "2026-11-27",
       "2026-11-27",
       "2026-11-26",

@@ -5,6 +5,11 @@
   "about": "# Gearhawk\n\nA gear advisor for **WoW: Forever**. Tell it your class and spec and it rates the gear in your bags against what you wear, tells you where to get better gear for your level, and shows the best buys in the Auction House.\n\nOpen it with `/hawk`, the minimap button, or the addon list.\n\n## What it does\n- **Inventory.** Every piece of gear in your bags is read from its real tooltip, scored for your spec, and compared with the item you would replace. Only the best upgrade per slot is listed (two for rings and trinkets). An empty slot always gets the best item you can use.\n- **Equipped.** Every equipped item with its score, and which slots are empty.\n- **What to get.** Known quest rewards, dungeon drops, vendor and crafted items for your level, scored the same way, with where to get each one. For **every class** it also lists gear your other characters carry in their bags or bank, and gear one of your characters can craft (this part uses saved data from another of the author's add-ons when it is installed). Built-in lists of quest, dungeon and vendor gear cover **Mage, Warlock and Priest** so far; the Auction tab works for every class. Tick boxes along the bottom pick which kinds (Quest, Dungeon, Battleground, Vendor) each character sees.\n- **Auction.** Reads your last Auction House scan and shows the best gear for sale per slot, with its price (red when you cannot afford it yet).\n- **Tooltips.** Hover any item for a line saying whether it is an upgrade, worse or about the same compared with what you wear.\n- **Minimap button** (left click opens, right click opens What to get, drag to move) and a chat alert when a new upgrade lands in your bags.\n\nEverything is limited to what you can use now: items above your level or that your class cannot wear are never suggested.\n\n## Spec and weights\nGearhawk guesses your spec from your talents. Pick a different one from the drop-down in the window, or `/hawk spec` to cycle. Each spec has its own stat weights (`/hawk weights` prints them).\n\n## Commands\n| | |\n|---|---|\n| `/hawk` | Open or close the window |\n| `/hawk spec` | Next spec |\n| `/hawk weights` | The numbers the current spec uses |\n| `/hawk tip` | Tooltip line on/off |\n| `/hawk minimap` | Minimap button show/hide |\n| `/hawk alert` | Chat alert for new bag upgrades on/off |\n| `/hawk gain N` | Only suggest items at least N% better |\n| `/hawk debug` | Print what the game reports about your bags |\n\nThe item text is read in English. MIT licensed.\n\nWhat to get uses the quest database from Questie (QuestieDB) when it is installed, so every class gets quest, vendor and dungeon suggestions.",
   "releases": [
     {
+      "tag": "v0.11.16",
+      "published": "2026-11-28",
+      "notes": "# Gearhawk\n\n## [v0.11.16](https://github.com/DrKlampz/Outfitter/tree/v0.11.16) (2026-11-28)\n[Full Changelog](https://github.com/DrKlampz/Outfitter/compare/v0.11.15...v0.11.16) [Previous Releases](https://github.com/DrKlampz/Outfitter/releases)\n\n- Read thousands-comma numbers in tooltips (armor 1,548 was scored as 0); v0.11.16  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
       "tag": "v0.11.15",
       "published": "2026-11-28",
       "notes": "# Gearhawk\n\n## [v0.11.15](https://github.com/DrKlampz/Outfitter/tree/v0.11.15) (2026-11-27)\n[Full Changelog](https://github.com/DrKlampz/Outfitter/compare/v0.11.14...v0.11.15) [Previous Releases](https://github.com/DrKlampz/Outfitter/releases)\n\n- Gearhawk v0.11.15: crafting materials are never profession gear  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Gearhawk v0.11.15: ignore 'learned at skill' tooltip lines in Professions tab  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
@@ -23,11 +28,6 @@
       "tag": "v0.11.12",
       "published": "2026-11-26",
       "notes": "# Gearhawk\n\n## [v0.11.12](https://github.com/DrKlampz/Outfitter/tree/v0.11.12) (2026-11-26)\n[Full Changelog](https://github.com/DrKlampz/Outfitter/compare/v0.11.11...v0.11.12) [Previous Releases](https://github.com/DrKlampz/Outfitter/releases)\n\n- Roll advice only for gear (0.11.12)  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
-    },
-    {
-      "tag": "v0.11.11",
-      "published": "2026-11-26",
-      "notes": "# Gearhawk\n\n## [v0.11.11](https://github.com/DrKlampz/Outfitter/tree/v0.11.11) (2026-11-26)\n[Full Changelog](https://github.com/DrKlampz/Outfitter/compare/v0.11.10...v0.11.11) [Previous Releases](https://github.com/DrKlampz/Outfitter/releases)\n\n- Roll advice panel: clearer layout (0.11.11)  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
     }
   ],
   "stats": {
@@ -36,6 +36,7 @@
     "contributors": 2,
     "lastRelease": "2026-11-28",
     "releaseDates": [
+      "2026-11-28",
       "2026-11-28",
       "2026-11-27",
       "2026-11-26",

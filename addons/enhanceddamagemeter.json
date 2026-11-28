@@ -4,6 +4,11 @@
   "repo": "R41z0r/EnhancedDamageMeter",
   "releases": [
     {
+      "tag": "13.25.0",
+      "published": "2026-11-28",
+      "notes": "# Enhanced Damage Meter\n\n## [13.25.0] - 2026-11-28\n\n### Changed\n\n- Updated the Damage Meter and shared helpers with changes from Enhance QoL 13.25.0."
+    },
+    {
       "tag": "13.24.5",
       "published": "2026-11-27",
       "notes": "# Enhanced Damage Meter\n\n## [13.24.5] - 2026-11-27\n\n### Changed\n\n- Updated the Damage Meter and shared helpers with changes from Enhance QoL 13.24.5."
@@ -22,19 +27,15 @@
       "tag": "13.24.1",
       "published": "2026-11-25",
       "notes": "# Enhanced Damage Meter\n\n## [13.24.1] - 2026-11-25\n\n### Changed\n\n- Updated the Damage Meter and shared helpers with changes from Enhance QoL 13.24.1."
-    },
-    {
-      "tag": "13.24.0",
-      "published": "2026-11-24",
-      "notes": "# Enhanced Damage Meter\n\n## [13.24.0] - 2026-11-24\n\n### Changed\n\n- Updated the Damage Meter and shared helpers with changes from Enhance QoL 13.24.0."
     }
   ],
   "stats": {
     "stars": 1,
     "openIssues": 0,
     "contributors": 2,
-    "lastRelease": "2026-11-27",
+    "lastRelease": "2026-11-28",
     "releaseDates": [
+      "2026-11-28",
       "2026-11-27",
       "2026-11-26",
       "2026-11-26",

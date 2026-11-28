@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/versions.schema.json",
   "schemaVersion": 1,
-  "checked": "2026-11-28T12:24:54Z",
+  "checked": "2026-11-28T14:01:29Z",
   "addons": {
     "aazerothauctionator": {
       "forever": {
@@ -13951,6 +13951,18 @@
         "published": "2026-11-08"
       }
     },
+    "cozyfire": {
+      "forever": {
+        "release": "0.10.6",
+        "file": "CozyFire-0.10.6.zip",
+        "url": "https://github.com/Synse/CozyFire/releases/download/0.10.6/CozyFire-0.10.6.zip",
+        "size": 89717,
+        "sha256": "f9db2045e9cfcdefef814638af4418d0d07ab6d347c7809c69437549bb83a273",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "craftalert": {
       "retail": {
         "release": "v1.0.5",
@@ -17837,6 +17849,70 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-25"
+      }
+    },
+    "dyresbuffreminders": {
+      "classic_era": {
+        "release": "v1.16.0",
+        "file": "DyresBuffReminders-1.16.0-forever.zip",
+        "url": "https://github.com/jbedworth/DyresBuffReminders/releases/download/v1.16.0/DyresBuffReminders-1.16.0-forever.zip",
+        "size": 147155,
+        "sha256": "906da7307c299cf0462ed58860b6c46acce7add01eb0ba666d0ee517db2a4809",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v1.16.0",
+        "file": "DyresBuffReminders-1.16.0-forever.zip",
+        "url": "https://github.com/jbedworth/DyresBuffReminders/releases/download/v1.16.0/DyresBuffReminders-1.16.0-forever.zip",
+        "size": 147155,
+        "sha256": "906da7307c299cf0462ed58860b6c46acce7add01eb0ba666d0ee517db2a4809",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "v1.16.0",
+        "file": "DyresBuffReminders-1.16.0-forever.zip",
+        "url": "https://github.com/jbedworth/DyresBuffReminders/releases/download/v1.16.0/DyresBuffReminders-1.16.0-forever.zip",
+        "size": 147155,
+        "sha256": "906da7307c299cf0462ed58860b6c46acce7add01eb0ba666d0ee517db2a4809",
+        "interface": "11509",
+        "upToDate": false,
+        "published": "2026-11-28"
+      }
+    },
+    "dyrescombattools": {
+      "classic_era": {
+        "release": "v1.2.0",
+        "file": "DyresCombatTools-1.2.0-forever.zip",
+        "url": "https://github.com/jbedworth/DyresCombatTools/releases/download/v1.2.0/DyresCombatTools-1.2.0-forever.zip",
+        "size": 78480,
+        "sha256": "b9318f18539bb80039c358f8bfec28d77ba83635a0ead38300c133a5a447114d",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v1.2.0",
+        "file": "DyresCombatTools-1.2.0-forever.zip",
+        "url": "https://github.com/jbedworth/DyresCombatTools/releases/download/v1.2.0/DyresCombatTools-1.2.0-forever.zip",
+        "size": 78480,
+        "sha256": "b9318f18539bb80039c358f8bfec28d77ba83635a0ead38300c133a5a447114d",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "v1.2.0",
+        "file": "DyresCombatTools-1.2.0-forever.zip",
+        "url": "https://github.com/jbedworth/DyresCombatTools/releases/download/v1.2.0/DyresCombatTools-1.2.0-forever.zip",
+        "size": 78480,
+        "sha256": "b9318f18539bb80039c358f8bfec28d77ba83635a0ead38300c133a5a447114d",
+        "interface": "11509",
+        "upToDate": false,
+        "published": "2026-11-28"
       }
     },
     "dyrescritmayhem": {
@@ -22241,6 +22317,18 @@
         "published": "2026-11-25"
       }
     },
+    "foreverprofessionplanner": {
+      "forever": {
+        "release": "v0.4.8",
+        "file": "ForeverProfessionTrainer-0.4.8-forever.zip",
+        "url": "https://github.com/RozziP/wow-forever-profession-planner/releases/download/v0.4.8/ForeverProfessionTrainer-0.4.8-forever.zip",
+        "size": 340563,
+        "sha256": "3773d175a095d2c041cd4d3248b3e012980fbeecea77a1d6a1c9f5c4f46984f4",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "foreverprofit": {
       "forever": {
         "release": "v1.8.0",
@@ -23041,14 +23129,14 @@
     },
     "gamepadmacros": {
       "forever": {
-        "release": "v0.4.0",
-        "file": "GamepadMacros-v0.4.0-forever.zip",
-        "url": "https://github.com/bizzal70/GamepadMacros/releases/download/v0.4.0/GamepadMacros-v0.4.0-forever.zip",
-        "size": 23645,
-        "sha256": "fa0477c2569fabb635fa86a15b98e3e59bb229b9f49b623a5a49bb3b6d3f128a",
+        "release": "v0.5.0",
+        "file": "GamepadMacros-v0.5.0-forever.zip",
+        "url": "https://github.com/bizzal70/GamepadMacros/releases/download/v0.5.0/GamepadMacros-v0.5.0-forever.zip",
+        "size": 27359,
+        "sha256": "637bd890c8945b593a882c633b98929b0f7229392979baa9b6caa869b1e2a6c0",
         "interface": "16001",
         "upToDate": true,
-        "published": "2026-11-27"
+        "published": "2026-11-28"
       }
     },
     "gamepadtotembar": {
@@ -30085,6 +30173,18 @@
         "published": "2026-10-24"
       }
     },
+    "kstyleui": {
+      "forever": {
+        "release": "v0.3.5.4",
+        "file": "KstyleUI-v0.3.5.4-forever.zip",
+        "url": "https://github.com/korallis/KstyleUI/releases/download/v0.3.5.4/KstyleUI-v0.3.5.4-forever.zip",
+        "size": 36837549,
+        "sha256": "388c93621bade028c8e740bfdb34fcdc64e3288dd6140b894f9b72fdf606e3a3",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "ksui": {
       "forever": {
         "release": "v0.13.9",
@@ -34389,14 +34489,14 @@
     },
     "macrokit": {
       "forever": {
-        "release": "v0.13.0",
-        "file": "MacroKit-v0.13.0-forever.zip",
-        "url": "https://github.com/bizzal70/MacroKit/releases/download/v0.13.0/MacroKit-v0.13.0-forever.zip",
-        "size": 49870,
-        "sha256": "ac7d3c07d4e7b37c194acee2dac7bde95bbebe86f8964637f9894783f5523502",
+        "release": "v0.14.0",
+        "file": "MacroKit-v0.14.0-forever.zip",
+        "url": "https://github.com/bizzal70/MacroKit/releases/download/v0.14.0/MacroKit-v0.14.0-forever.zip",
+        "size": 54677,
+        "sha256": "87dd2b2bc2b020c84d580d3d1d16c6dfb9808731f19aba74fab8b4489a2c13c8",
         "interface": "16001",
         "upToDate": true,
-        "published": "2026-11-23"
+        "published": "2026-11-28"
       }
     },
     "macromanager": {
@@ -37597,6 +37697,48 @@
         "interface": "20506",
         "upToDate": true,
         "published": "2026-10-03"
+      }
+    },
+    "mlgpowerinfusion": {
+      "retail": {
+        "release": "v1.3.12",
+        "file": "MLGPowerInfusion-1.3.12.zip",
+        "url": "https://github.com/zakpruitt/MLGPowerInfusion/releases/download/v1.3.12/MLGPowerInfusion-1.3.12.zip",
+        "size": 1043858,
+        "sha256": "ce962aabc2196ecbd280739845ab19ce1af7ae76fd3484f3fb0a702fdb9fb80d",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v1.3.12",
+        "file": "MLGPowerInfusion-1.3.12.zip",
+        "url": "https://github.com/zakpruitt/MLGPowerInfusion/releases/download/v1.3.12/MLGPowerInfusion-1.3.12.zip",
+        "size": 1043858,
+        "sha256": "ce962aabc2196ecbd280739845ab19ce1af7ae76fd3484f3fb0a702fdb9fb80d",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "v1.3.12",
+        "file": "MLGPowerInfusion-1.3.12.zip",
+        "url": "https://github.com/zakpruitt/MLGPowerInfusion/releases/download/v1.3.12/MLGPowerInfusion-1.3.12.zip",
+        "size": 1043858,
+        "sha256": "ce962aabc2196ecbd280739845ab19ce1af7ae76fd3484f3fb0a702fdb9fb80d",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "v1.3.12",
+        "file": "MLGPowerInfusion-1.3.12.zip",
+        "url": "https://github.com/zakpruitt/MLGPowerInfusion/releases/download/v1.3.12/MLGPowerInfusion-1.3.12.zip",
+        "size": 1043858,
+        "sha256": "ce962aabc2196ecbd280739845ab19ce1af7ae76fd3484f3fb0a702fdb9fb80d",
+        "interface": "120100",
+        "upToDate": false,
+        "published": "2026-11-28"
       }
     },
     "mnemosyne": {
@@ -40857,6 +40999,38 @@
         "interface": "16001",
         "upToDate": true,
         "published": "2026-11-15"
+      }
+    },
+    "openxp": {
+      "classic_era": {
+        "release": "v2.0.9",
+        "file": "OpenXP-2.0.9.zip",
+        "url": "https://github.com/mjared123/OpenXP/releases/download/v2.0.9/OpenXP-2.0.9.zip",
+        "size": 9060648,
+        "sha256": "354d8846dace163b8f2f41bc228e5a09764f394aafaf684513ca95c73a8fc718",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v2.0.9",
+        "file": "OpenXP-2.0.9.zip",
+        "url": "https://github.com/mjared123/OpenXP/releases/download/v2.0.9/OpenXP-2.0.9.zip",
+        "size": 9060648,
+        "sha256": "354d8846dace163b8f2f41bc228e5a09764f394aafaf684513ca95c73a8fc718",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "v2.0.9",
+        "file": "OpenXP-2.0.9.zip",
+        "url": "https://github.com/mjared123/OpenXP/releases/download/v2.0.9/OpenXP-2.0.9.zip",
+        "size": 9060648,
+        "sha256": "354d8846dace163b8f2f41bc228e5a09764f394aafaf684513ca95c73a8fc718",
+        "interface": "11509",
+        "upToDate": false,
+        "published": "2026-11-28"
       }
     },
     "opie-elvui": {
@@ -47509,6 +47683,48 @@
         "published": "2026-11-27"
       }
     },
+    "rpsheet": {
+      "retail": {
+        "release": "v0.18.0",
+        "file": "RPSheet-v0.18.0.zip",
+        "url": "https://github.com/PerfectionVR/RPSheet/releases/download/v0.18.0/RPSheet-v0.18.0.zip",
+        "size": 1177541,
+        "sha256": "c76c7afe339ef15e4df34a4da3e2d60575b1939de05966d12dd5944acdd59eb5",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v0.18.0",
+        "file": "RPSheet-v0.18.0.zip",
+        "url": "https://github.com/PerfectionVR/RPSheet/releases/download/v0.18.0/RPSheet-v0.18.0.zip",
+        "size": 1177541,
+        "sha256": "c76c7afe339ef15e4df34a4da3e2d60575b1939de05966d12dd5944acdd59eb5",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "v0.18.0",
+        "file": "RPSheet-v0.18.0.zip",
+        "url": "https://github.com/PerfectionVR/RPSheet/releases/download/v0.18.0/RPSheet-v0.18.0.zip",
+        "size": 1177541,
+        "sha256": "c76c7afe339ef15e4df34a4da3e2d60575b1939de05966d12dd5944acdd59eb5",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "v0.18.0",
+        "file": "RPSheet-v0.18.0.zip",
+        "url": "https://github.com/PerfectionVR/RPSheet/releases/download/v0.18.0/RPSheet-v0.18.0.zip",
+        "size": 1177541,
+        "sha256": "c76c7afe339ef15e4df34a4da3e2d60575b1939de05966d12dd5944acdd59eb5",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
     "rpvoice": {
       "forever": {
         "release": "v0.4.1",
@@ -47523,14 +47739,14 @@
     },
     "rubberducky": {
       "forever": {
-        "release": "v0.24.0",
-        "file": "RubberDucky-v0.24.0.zip",
-        "url": "https://github.com/KellyKP/WoW-Rubber-Ducky/releases/download/v0.24.0/RubberDucky-v0.24.0.zip",
-        "size": 13918307,
-        "sha256": "f12b7d8b5a49dd7199dfdfd61f4bb439eb693d7d6879a2893151225220da3df0",
+        "release": "v0.25.0",
+        "file": "RubberDucky-v0.25.0.zip",
+        "url": "https://github.com/KellyKP/WoW-Rubber-Ducky/releases/download/v0.25.0/RubberDucky-v0.25.0.zip",
+        "size": 15654464,
+        "sha256": "cc0764d6856209f2723d37a97054aefb043c0154dffc7a7d6fca558a6b709ba5",
         "interface": "16001",
         "upToDate": true,
-        "published": "2026-11-25"
+        "published": "2026-11-28"
       }
     },
     "rummage": {
@@ -53345,14 +53561,14 @@
     },
     "tinkerwise": {
       "forever": {
-        "release": "v1.17.1",
-        "file": "Tinkerwise-v1.17.1-forever.zip",
-        "url": "https://github.com/ygiraud/Tinkerwise/releases/download/v1.17.1/Tinkerwise-v1.17.1-forever.zip",
-        "size": 203166,
-        "sha256": "f31987af880019acf34745404edd3f1b7fb0475e8f351d3e3a1bb9c2c65e7165",
+        "release": "v2.0.0",
+        "file": "Tinkerwise-v2.0.0-forever.zip",
+        "url": "https://github.com/ygiraud/Tinkerwise/releases/download/v2.0.0/Tinkerwise-v2.0.0-forever.zip",
+        "size": 226221,
+        "sha256": "ab7c4320c225bdf8dfcbc180bcda4d487b8518719863cd0cff853ee14b737491",
         "interface": "16001",
         "upToDate": true,
-        "published": "2026-11-26"
+        "published": "2026-11-28"
       }
     },
     "tinytooltip-remaster": {
@@ -57802,6 +58018,98 @@
         "sha256": "6d3e56e4fb3d1ede5f66dc101551549a5b5d976a3012beda5458e4213774d5bf",
         "interface": "120105",
         "upToDate": true,
+        "published": "2026-11-28"
+      }
+    },
+    "wowengine": {
+      "retail": {
+        "release": "v1.6.2",
+        "file": "WOWEngine-v1.6.2.zip",
+        "url": "https://github.com/illusorybias/WOWEngine/releases/download/v1.6.2/WOWEngine-v1.6.2.zip",
+        "size": 148658,
+        "sha256": "c92616899a4e0cbae36399aca5960d3b49c7c051004589570e9ecd6c693ec2fc",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic": {
+        "release": "v1.6.2",
+        "file": "WOWEngine-v1.6.2.zip",
+        "url": "https://github.com/illusorybias/WOWEngine/releases/download/v1.6.2/WOWEngine-v1.6.2.zip",
+        "size": 148658,
+        "sha256": "c92616899a4e0cbae36399aca5960d3b49c7c051004589570e9ecd6c693ec2fc",
+        "interface": "50500",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "anniversary": {
+        "release": "v1.6.2",
+        "file": "WOWEngine-v1.6.2.zip",
+        "url": "https://github.com/illusorybias/WOWEngine/releases/download/v1.6.2/WOWEngine-v1.6.2.zip",
+        "size": 148658,
+        "sha256": "c92616899a4e0cbae36399aca5960d3b49c7c051004589570e9ecd6c693ec2fc",
+        "interface": "20504",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "classic_era": {
+        "release": "v1.6.2",
+        "file": "WOWEngine-v1.6.2.zip",
+        "url": "https://github.com/illusorybias/WOWEngine/releases/download/v1.6.2/WOWEngine-v1.6.2.zip",
+        "size": 148658,
+        "sha256": "c92616899a4e0cbae36399aca5960d3b49c7c051004589570e9ecd6c693ec2fc",
+        "interface": "11509",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "forever": {
+        "release": "v1.6.2",
+        "file": "WOWEngine-v1.6.2.zip",
+        "url": "https://github.com/illusorybias/WOWEngine/releases/download/v1.6.2/WOWEngine-v1.6.2.zip",
+        "size": 148658,
+        "sha256": "c92616899a4e0cbae36399aca5960d3b49c7c051004589570e9ecd6c693ec2fc",
+        "interface": "16001",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "retail_ptr": {
+        "release": "v1.6.2",
+        "file": "WOWEngine-v1.6.2.zip",
+        "url": "https://github.com/illusorybias/WOWEngine/releases/download/v1.6.2/WOWEngine-v1.6.2.zip",
+        "size": 148658,
+        "sha256": "c92616899a4e0cbae36399aca5960d3b49c7c051004589570e9ecd6c693ec2fc",
+        "interface": "120105",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "retail_ptr2": {
+        "release": "v1.6.2",
+        "file": "WOWEngine-v1.6.2.zip",
+        "url": "https://github.com/illusorybias/WOWEngine/releases/download/v1.6.2/WOWEngine-v1.6.2.zip",
+        "size": 148658,
+        "sha256": "c92616899a4e0cbae36399aca5960d3b49c7c051004589570e9ecd6c693ec2fc",
+        "interface": "120105",
+        "upToDate": true,
+        "published": "2026-11-28"
+      },
+      "classic_ptr": {
+        "release": "v1.6.2",
+        "file": "WOWEngine-v1.6.2.zip",
+        "url": "https://github.com/illusorybias/WOWEngine/releases/download/v1.6.2/WOWEngine-v1.6.2.zip",
+        "size": 148658,
+        "sha256": "c92616899a4e0cbae36399aca5960d3b49c7c051004589570e9ecd6c693ec2fc",
+        "interface": "50500",
+        "upToDate": false,
+        "published": "2026-11-28"
+      },
+      "classic_era_ptr": {
+        "release": "v1.6.2",
+        "file": "WOWEngine-v1.6.2.zip",
+        "url": "https://github.com/illusorybias/WOWEngine/releases/download/v1.6.2/WOWEngine-v1.6.2.zip",
+        "size": 148658,
+        "sha256": "c92616899a4e0cbae36399aca5960d3b49c7c051004589570e9ecd6c693ec2fc",
+        "interface": "20504",
+        "upToDate": false,
         "published": "2026-11-28"
       }
     },

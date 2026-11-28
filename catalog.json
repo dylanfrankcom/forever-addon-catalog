@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "2026.11.28.2",
+  "version": "2026.11.28.3",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -1892,6 +1892,12 @@
         "https://github.com/illepic"
       ]
     },
+    "illusorybias": {
+      "name": "IllusoryBias",
+      "profiles": [
+        "https://github.com/illusorybias"
+      ]
+    },
     "imokim2": {
       "name": "Imokim2",
       "profiles": [
@@ -2406,6 +2412,12 @@
         "https://github.com/KonigTX"
       ]
     },
+    "korallis": {
+      "name": "korallis",
+      "profiles": [
+        "https://github.com/korallis"
+      ]
+    },
     "krebs3r": {
       "name": "krebs3r",
       "profiles": [
@@ -2906,6 +2918,12 @@
       "name": "mixxorz",
       "profiles": [
         "https://github.com/mixxorz"
+      ]
+    },
+    "mjared123": {
+      "name": "mjared123",
+      "profiles": [
+        "https://github.com/mjared123"
       ]
     },
     "mliudev": {
@@ -3430,6 +3448,12 @@
         "https://github.com/PedAltuve"
       ]
     },
+    "perfectionvr": {
+      "name": "PerfectionVR",
+      "profiles": [
+        "https://github.com/PerfectionVR"
+      ]
+    },
     "perkiiii": {
       "name": "Perkiiii",
       "profiles": [
@@ -3794,6 +3818,12 @@
       "name": "BawrLabs",
       "profiles": [
         "https://github.com/Royaleint"
+      ]
+    },
+    "rozzip": {
+      "name": "RozziP",
+      "profiles": [
+        "https://github.com/RozziP"
       ]
     },
     "rtyer": {
@@ -5037,7 +5067,7 @@
       ]
     },
     "zakpruitt": {
-      "name": "Zak Pruitt",
+      "name": "spuggies",
       "profiles": [
         "https://github.com/zakpruitt"
       ]
@@ -28307,6 +28337,70 @@
       }
     },
     {
+      "id": "cozyfire",
+      "name": "CozyFire",
+      "summary": "Automatically marks campfires on the map and adds tooltips to camp objects with buff and profession information",
+      "author": "synse",
+      "tags": [
+        "combat",
+        "professions",
+        "quests"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/cozyfire.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Synse/CozyFire",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1711811
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/Synse/CozyFire",
+        "issues": "https://github.com/Synse/CozyFire/issues",
+        "curseforge": "https://www.curseforge.com/projects/1711811",
+        "wago": "https://addons.wago.io/addons/mKOaDgNx",
+        "wowinterface": "https://www.wowinterface.com/downloads/info27228"
+      },
+      "folders": [
+        "CozyFire"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "topics",
+        "curseforge": "toc",
+        "wago": "toc",
+        "wowinterface": "toc",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 36659,
+        "latest": 1899,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-09-25",
+        "ownerSince": "2011-01-29",
+        "releases": 49,
+        "stars": 0,
+        "careful": false,
+        "ownerAddons": 2
+      }
+    },
+    {
       "id": "craftalert",
       "name": "Craft Alert",
       "summary": "Alerts you when someone in trade chat asks for something you can craft.",
@@ -34721,6 +34815,137 @@
       }
     },
     {
+      "id": "dyresbuffreminders",
+      "name": "Dyre's Buff Reminders",
+      "summary": "Reminds you of your class buffs, chimes before your cooldowns are ready, and shows and sounds your procs, in WoW Forever",
+      "author": "jbedworth",
+      "tags": [
+        "combat"
+      ],
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "jbedworth/DyresBuffReminders",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/jbedworth/DyresBuffReminders",
+        "issues": "https://github.com/jbedworth/DyresBuffReminders/issues"
+      },
+      "folders": [
+        "DyresBuffReminders"
+      ],
+      "editions": {
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "11509",
+          "upToDate": false,
+          "released": "2026-11-28"
+        }
+      },
+      "requiresFolders": [
+        "DyresToolkit"
+      ],
+      "optional": [
+        "dyressounds"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category"
+      },
+      "downloads": {
+        "total": 1552,
+        "latest": 14,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-10-19",
+        "ownerSince": "2012-03-23",
+        "releases": 31,
+        "stars": 0,
+        "careful": false,
+        "ownerAddons": 7
+      }
+    },
+    {
+      "id": "dyrescombattools",
+      "name": "Dyre's Threat and Combat Tools",
+      "otherNames": [
+        "Dyres Combat Tools"
+      ],
+      "summary": "Threat warnings for every player, a swing timer with a range box, and tank tools: markers, pings, and pull countdowns",
+      "author": "jbedworth",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "jbedworth/DyresCombatTools",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/jbedworth/DyresCombatTools",
+        "issues": "https://github.com/jbedworth/DyresCombatTools/issues"
+      },
+      "folders": [
+        "DyresCombatTools"
+      ],
+      "editions": {
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "11509",
+          "upToDate": false,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "dyressounds"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
+      },
+      "downloads": {
+        "total": 55,
+        "latest": 37,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-27",
+        "ownerSince": "2012-03-23",
+        "releases": 3,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false,
+        "ownerAddons": 7
+      }
+    },
+    {
       "id": "dyrescritmayhem",
       "name": "Dyre's Crit Mayhem",
       "summary": "Dial up the mayhem on your crits: sounds, blood on the screen, themes, and your personal records",
@@ -34783,7 +35008,7 @@
         "releases": 11,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 7
       }
     },
     {
@@ -34846,7 +35071,7 @@
         "releases": 18,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 7
       }
     },
     {
@@ -34902,7 +35127,7 @@
         "releases": 13,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 7
       }
     },
     {
@@ -44270,6 +44495,67 @@
       }
     },
     {
+      "id": "foreverprofessionplanner",
+      "name": "Forever Profession Trainer",
+      "otherNames": [
+        "forever profession planner"
+      ],
+      "summary": "Eight profession guides with skill targets, material estimates, and Auctionator shopping lists.",
+      "author": "rozzip",
+      "tags": [
+        "auction-house",
+        "professions"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/foreverprofessionplanner.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "RozziP/wow-forever-profession-planner",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/RozziP/wow-forever-profession-planner",
+        "issues": "https://github.com/RozziP/wow-forever-profession-planner/issues"
+      },
+      "folders": [
+        "ForeverProfessionPlanner"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "requires": [
+        "auctionator"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "topics",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 735,
+        "latest": 296,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-13",
+        "ownerSince": "2015-07-08",
+        "releases": 16,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
+      }
+    },
+    {
       "id": "foreverprofit",
       "name": "ForeverProfit",
       "summary": "Shows which crafting recipes are profitable for your character (Auctionator prices).",
@@ -46526,7 +46812,7 @@
         "forever": {
           "interface": "16001",
           "upToDate": true,
-          "released": "2026-11-27"
+          "released": "2026-11-28"
         }
       },
       "from": {
@@ -59086,6 +59372,92 @@
       }
     },
     {
+      "id": "kstyleui",
+      "name": "KstyleUI",
+      "summary": "A complete UI for WoW Forever.",
+      "languages": [
+        "enUS",
+        "deDE",
+        "esES",
+        "frFR",
+        "zhCN"
+      ],
+      "author": "korallis",
+      "tags": [
+        "ui"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/kstyleui.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "korallis/KstyleUI",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1812141
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/korallis/KstyleUI",
+        "issues": "https://github.com/korallis/KstyleUI/issues",
+        "curseforge": "https://www.curseforge.com/projects/1812141",
+        "wago": "https://addons.wago.io/addons/EGPabeN1"
+      },
+      "folders": [
+        "KstyleUI",
+        "KstyleUI_ActionBars",
+        "KstyleUI_Auras",
+        "KstyleUI_Bags",
+        "KstyleUI_Chat",
+        "KstyleUI_CombatText",
+        "KstyleUI_Cooldowns",
+        "KstyleUI_DataBars",
+        "KstyleUI_GroupFrames",
+        "KstyleUI_Meters",
+        "KstyleUI_Minimap",
+        "KstyleUI_Nameplates",
+        "KstyleUI_Options",
+        "KstyleUI_QoL",
+        "KstyleUI_Routes",
+        "KstyleUI_Skins",
+        "KstyleUI_Tooltips",
+        "KstyleUI_UnitFrames"
+      ],
+      "editions": {
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc",
+        "wago": "toc",
+        "tags": "inferred",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 1098,
+        "latest": 38,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-07",
+        "ownerSince": "2014-06-19",
+        "releases": 48,
+        "stars": 1,
+        "badges": [
+          "new"
+        ],
+        "careful": false
+      }
+    },
+    {
       "id": "ksui",
       "name": "Kumsung UI",
       "otherNames": [
@@ -65377,7 +65749,7 @@
         "forever": {
           "interface": "16001",
           "upToDate": true,
-          "released": "2026-11-23"
+          "released": "2026-11-28"
         }
       },
       "from": {
@@ -66077,6 +66449,9 @@
           "released": "2026-11-27"
         }
       },
+      "optional": [
+        "dyresbuffreminders"
+      ],
       "from": {
         "name": "toc-title",
         "summary": "toc-notes",
@@ -66094,7 +66469,7 @@
         "releases": 27,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 7
       }
     },
     {
@@ -70122,6 +70497,79 @@
           "single-release"
         ],
         "careful": true
+      }
+    },
+    {
+      "id": "mlgpowerinfusion",
+      "name": "MLG Power Infusion",
+      "summary": "Makes your Power Infusion windows dank.",
+      "author": "zakpruitt",
+      "tags": [
+        "combat"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/mlgpowerinfusion.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "zakpruitt/MLGPowerInfusion",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1698864
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/zakpruitt/MLGPowerInfusion",
+        "issues": "https://github.com/zakpruitt/MLGPowerInfusion/issues",
+        "curseforge": "https://www.curseforge.com/projects/1698864"
+      },
+      "folders": [
+        "MLGPowerInfusion"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120100",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120100",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120100",
+          "upToDate": false,
+          "released": "2026-11-28"
+        }
+      },
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc",
+        "tags": "inferred",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 967,
+        "latest": 415,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-09-16",
+        "ownerSince": "2019-09-26",
+        "releases": 12,
+        "stars": 0,
+        "careful": false,
+        "ownerAddons": 2
       }
     },
     {
@@ -76038,6 +76486,74 @@
         "ownerSince": "2018-11-28",
         "releases": 2,
         "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
+      }
+    },
+    {
+      "id": "openxp",
+      "name": "OpenXP",
+      "summary": "Free, community-made leveling guides for WoW Forever",
+      "author": "mjared123",
+      "tags": [
+        "quests"
+      ],
+      "icon": "https://raw.githubusercontent.com/dylanfrankcom/forever-addon-catalog/main/icons/openxp.png",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "mjared123/OpenXP",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/mjared123/OpenXP",
+        "issues": "https://github.com/mjared123/OpenXP/issues"
+      },
+      "folders": [
+        "OpenXP",
+        "OpenXP_Nav"
+      ],
+      "editions": {
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "11509",
+          "upToDate": false,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "questie"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "tags": "toc-category",
+        "icon": "toc-icon"
+      },
+      "downloads": {
+        "total": 582,
+        "latest": 61,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-08",
+        "ownerSince": "2024-01-31",
+        "releases": 19,
+        "stars": 12,
         "badges": [
           "new"
         ],
@@ -86869,7 +87385,7 @@
         "releases": 2,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 1
+        "ownerAddons": 2
       }
     },
     {
@@ -88392,6 +88908,72 @@
       }
     },
     {
+      "id": "rpsheet",
+      "name": "RP Sheet",
+      "summary": "Small tabletop character sheet. Click a stat, skill or ability to roll a d20 and announce it. /sheet to toggle, /sheet…",
+      "author": "perfectionvr",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "PerfectionVR/RPSheet",
+          "assetPattern": "(?i)\\.zip$"
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/PerfectionVR/RPSheet",
+        "issues": "https://github.com/PerfectionVR/RPSheet/issues"
+      },
+      "folders": [
+        "RPSheet"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "totalrp3"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner"
+      },
+      "downloads": {
+        "total": 227,
+        "latest": 9,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-12",
+        "ownerSince": "2015-12-15",
+        "releases": 17,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
+      }
+    },
+    {
       "id": "rpvoice",
       "name": "RP Voice",
       "otherNames": [
@@ -88474,7 +89056,7 @@
         "forever": {
           "interface": "16001",
           "upToDate": true,
-          "released": "2026-11-25"
+          "released": "2026-11-28"
         }
       },
       "from": {
@@ -90317,7 +90899,7 @@
           "new"
         ],
         "careful": false,
-        "ownerAddons": 1
+        "ownerAddons": 2
       }
     },
     {
@@ -100679,7 +101261,7 @@
         "forever": {
           "interface": "16001",
           "upToDate": true,
-          "released": "2026-11-26"
+          "released": "2026-11-28"
         }
       },
       "optional": [
@@ -103144,7 +103726,7 @@
         "releases": 2,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 1
+        "ownerAddons": 2
       }
     },
     {
@@ -107560,7 +108142,7 @@
         "releases": 7,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 7
       }
     },
     {
@@ -107620,7 +108202,7 @@
         "releases": 10,
         "stars": 0,
         "careful": false,
-        "ownerAddons": 5
+        "ownerAddons": 7
       }
     },
     {
@@ -108293,7 +108875,7 @@
           "new"
         ],
         "careful": false,
-        "ownerAddons": 1
+        "ownerAddons": 2
       }
     },
     {
@@ -109639,6 +110221,104 @@
         "repoSince": "2025-05-12",
         "ownerSince": "2017-08-11",
         "releases": 3,
+        "stars": 0,
+        "badges": [
+          "new"
+        ],
+        "careful": false
+      }
+    },
+    {
+      "id": "wowengine",
+      "name": "WOWEngine [Unified - IllusoryBias]",
+      "summary": "Unified Horde & Alliance suite (TOS mail & bag upgrade routing, dynamic professions, wave sync). Requires Altoholic…",
+      "author": "illusorybias",
+      "added": "2026-11-28",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "illusorybias/WOWEngine",
+          "assetPattern": "(?i)\\.zip$"
+        },
+        {
+          "type": "curseforge",
+          "projectId": 1834847
+        }
+      ],
+      "links": {
+        "repository": "https://github.com/illusorybias/WOWEngine",
+        "issues": "https://github.com/illusorybias/WOWEngine/issues",
+        "curseforge": "https://www.curseforge.com/projects/1834847"
+      },
+      "folders": [
+        "WOWEngine"
+      ],
+      "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic": {
+          "interface": "50500",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "anniversary": {
+          "interface": "20504",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "forever": {
+          "interface": "16001",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "retail_ptr": {
+          "interface": "120105",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true,
+          "released": "2026-11-28"
+        },
+        "classic_ptr": {
+          "interface": "50500",
+          "upToDate": false,
+          "released": "2026-11-28"
+        },
+        "classic_era_ptr": {
+          "interface": "20504",
+          "upToDate": false,
+          "released": "2026-11-28"
+        }
+      },
+      "optional": [
+        "auctionator",
+        "questie"
+      ],
+      "from": {
+        "name": "toc-title",
+        "summary": "toc-notes",
+        "author": "repo-owner",
+        "curseforge": "toc"
+      },
+      "downloads": {
+        "total": 6,
+        "latest": 4,
+        "read": "2026-11-28"
+      },
+      "trust": {
+        "repoSince": "2026-11-27",
+        "ownerSince": "2020-07-14",
+        "releases": 2,
         "stars": 0,
         "badges": [
           "new"
