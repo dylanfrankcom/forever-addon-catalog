@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "addonpresets",
+  "repo": "Vladinator/wow-addon-addonpresets",
+  "about": "AddOnPresets\n======================\n\nAddOnPresets enables a simple way to create preset of addons that you can easily enable or disable, all at once!\n\nYou can organize all your PvP addons into one preset, and easily enable them when heading into a battleground or arena, and once you are done you can unload them all in a simple click.\n\nThe same can be done to your Gathering, Auction House, or Pet Battles activities, or whatever else you are into!",
+  "releases": [
+    {
+      "tag": "v12.1.5.261105",
+      "published": "2026-11-05",
+      "notes": "# AddOnPresets\n\n## [v12.1.5.261105](https://github.com/Vladinator/wow-addon-addonpresets/tree/v12.1.5.261105) (2026-11-05)\n[Full Changelog](https://github.com/Vladinator/wow-addon-addonpresets/commits/v12.1.5.261105) [Previous Releases](https://github.com/Vladinator/wow-addon-addonpresets/releases)\n\n- TOC bump.  \n- Doc updates and TOC bump.  \n- TOC bump  \n- Fixed an addition popup box bug.  \n- Fixed issue with static popup due to 11.2 changes.  \n    TOC update for Mists along with version bump.  \n- - Adjusted addon list to match the same naming as in the addon panel, and addon compartment. (Using title instead of the folder name.)  \n    - Improved grouping logic to strip out special escape sequences, and added more robust unicode support when extracting the first glyph from the title, as that can certainly be localized to non-ascii standard glyphs. (Anything not considered a letter is grouped under #.)  \n- Added the icon to the files so it also works on older client flavors.  \n- Added WoWI id in the TOC.  \n- Fixed a typo.  \n- Packager needs proper casing.  \n- Added release workflow TOC updates.  \n- Initial commit"
+    },
+    {
+      "tag": "v12.0.0.260119",
+      "published": "2026-01-19",
+      "notes": "# AddOnPresets\n\n## [v12.0.0.260119](https://github.com/Vladinator/wow-addon-addonpresets/tree/v12.0.0.260119) (2026-01-19)\n[Full Changelog](https://github.com/Vladinator/wow-addon-addonpresets/commits/v12.0.0.260119) [Previous Releases](https://github.com/Vladinator/wow-addon-addonpresets/releases)\n\n- TOC bump  \n- Fixed an addition popup box bug.  \n- Fixed issue with static popup due to 11.2 changes.  \n    TOC update for Mists along with version bump.  \n- - Adjusted addon list to match the same naming as in the addon panel, and addon compartment. (Using title instead of the folder name.)  \n    - Improved grouping logic to strip out special escape sequences, and added more robust unicode support when extracting the first glyph from the title, as that can certainly be localized to non-ascii standard glyphs. (Anything not considered a letter is grouped under #.)  \n- Added the icon to the files so it also works on older client flavors.  \n- Added WoWI id in the TOC.  \n- Fixed a typo.  \n- Packager needs proper casing.  \n- Added release workflow TOC updates.  \n- Initial commit"
+    },
+    {
+      "tag": "v11.2.0.250817",
+      "published": "2025-08-17",
+      "notes": "# AddOnPresets\n\n## [v11.2.0.250817](https://github.com/Vladinator/wow-addon-addonpresets/tree/v11.2.0.250817) (2025-08-17)\n[Full Changelog](https://github.com/Vladinator/wow-addon-addonpresets/commits/v11.2.0.250817) [Previous Releases](https://github.com/Vladinator/wow-addon-addonpresets/releases)\n\n- Fixed an addition popup box bug.  \n- Fixed issue with static popup due to 11.2 changes.  \n    TOC update for Mists along with version bump.  \n- - Adjusted addon list to match the same naming as in the addon panel, and addon compartment. (Using title instead of the folder name.)  \n    - Improved grouping logic to strip out special escape sequences, and added more robust unicode support when extracting the first glyph from the title, as that can certainly be localized to non-ascii standard glyphs. (Anything not considered a letter is grouped under #.)  \n- Added the icon to the files so it also works on older client flavors.  \n- Added WoWI id in the TOC.  \n- Fixed a typo.  \n- Packager needs proper casing.  \n- Added release workflow TOC updates.  \n- Initial commit"
+    },
+    {
+      "tag": "v11.2.0.250811",
+      "published": "2025-08-11",
+      "notes": "# AddOnPresets\n\n## [v11.2.0.250811](https://github.com/Vladinator/wow-addon-addonpresets/tree/v11.2.0.250811) (2025-08-11)\n[Full Changelog](https://github.com/Vladinator/wow-addon-addonpresets/commits/v11.2.0.250811) [Previous Releases](https://github.com/Vladinator/wow-addon-addonpresets/releases)\n\n- Fixed issue with static popup due to 11.2 changes.  \n    TOC update for Mists along with version bump.  \n- - Adjusted addon list to match the same naming as in the addon panel, and addon compartment. (Using title instead of the folder name.)  \n    - Improved grouping logic to strip out special escape sequences, and added more robust unicode support when extracting the first glyph from the title, as that can certainly be localized to non-ascii standard glyphs. (Anything not considered a letter is grouped under #.)  \n- Added the icon to the files so it also works on older client flavors.  \n- Added WoWI id in the TOC.  \n- Fixed a typo.  \n- Packager needs proper casing.  \n- Added release workflow TOC updates.  \n- Initial commit"
+    },
+    {
+      "tag": "v11.0.5.241116c",
+      "published": "2024-11-16",
+      "notes": "# AddOnPresets\n\n## [v11.0.5.241116c](https://github.com/Vladinator/wow-addon-addonpresets/tree/v11.0.5.241116c) (2024-11-16)\n[Full Changelog](https://github.com/Vladinator/wow-addon-addonpresets/commits/v11.0.5.241116c) [Previous Releases](https://github.com/Vladinator/wow-addon-addonpresets/releases)\n\n- Added WoWI id in the TOC.  \n- Fixed a typo.  \n- Packager needs proper casing.  \n- Added release workflow TOC updates.  \n- Initial commit"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-05",
+    "releaseDates": [
+      "2026-11-05",
+      "2026-01-19",
+      "2025-08-17",
+      "2025-08-11",
+      "2024-11-16",
+      "2024-11-16"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AddOnPresets"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "AddOnPresetsDB"
+    ]
+  }
+}

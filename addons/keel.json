@@ -59,11 +59,14 @@
     "editions": [
       "forever"
     ],
+    "requires": [
+      "Keel"
+    ],
     "savedVariables": [
-      "KeelDB"
+      "StickiesDB"
     ],
     "savedVariablesPerCharacter": [
-      "KeelCharDB"
+      "StickiesCharDB"
     ]
   }
 }

@@ -80,12 +80,6 @@
       "classic_era",
       "forever",
       "retail"
-    ],
-    "savedVariables": [
-      "EasyRemindersDB"
-    ],
-    "savedVariablesPerCharacter": [
-      "EasyRemindersCharDB"
     ]
   }
 }

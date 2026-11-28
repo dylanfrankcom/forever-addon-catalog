@@ -68,8 +68,9 @@
       "forever",
       "retail"
     ],
-    "savedVariables": [
-      "HSW_DB"
+    "optional": [
+      "Ace3",
+      "LibSharedMedia-3.0"
     ]
   }
 }

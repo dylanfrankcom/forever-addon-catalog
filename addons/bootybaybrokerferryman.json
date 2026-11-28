@@ -29,8 +29,8 @@
     "editions": [
       "forever"
     ],
-    "savedVariables": [
-      "FerrymanDB"
+    "requires": [
+      "BootyBayBrokerFerryman"
     ]
   }
 }

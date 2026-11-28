@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "handynotes-directions",
+  "repo": "kemayo/wow-handynotes-directions",
+  "releases": [
+    {
+      "tag": "v28",
+      "published": "2026-10-16",
+      "notes": "# HandyNotes: Directions\n\n## [v28](https://github.com/kemayo/wow-handynotes-directions/tree/v28) (2026-10-16)\n[Full Changelog](https://github.com/kemayo/wow-handynotes-directions/compare/v27...v28) [Previous Releases](https://github.com/kemayo/wow-handynotes-directions/releases)\n\n- Slight improvements for common icon detections  \n- TOC for 12.1.5  \n- Fix detection in Forever"
+    },
+    {
+      "tag": "v27",
+      "published": "2026-10-10",
+      "notes": "# HandyNotes: Directions\n\n## [v27](https://github.com/kemayo/wow-handynotes-directions/tree/v27) (2026-10-10)\n[Full Changelog](https://github.com/kemayo/wow-handynotes-directions/compare/v26...v27) [Previous Releases](https://github.com/kemayo/wow-handynotes-directions/releases)\n\n- TOC for 12.1.0, 2.5.6, 1.15.9, Forever  \n- Actions: drop the submodules flag from a repo with no submodules  \n    This repo has no submodules, so submodules: recursive was a no-op. Updates  \n    the checkout action from v2 to v7, which was still running a node version  \n    GitHub is retiring; nothing in that range affects a push-triggered  \n    workflow. Pins the packager to v2 rather than master, so an upstream change  \n    can no longer land in a release without warning; v2 is the maintained major  \n    tag, so fixes within the v2 line still arrive."
+    },
+    {
+      "tag": "v26",
+      "published": "2026-07-07",
+      "notes": "# HandyNotes: Directions\n\n## [v26](https://github.com/kemayo/wow-handynotes-directions/tree/v26) (2026-07-07)\n[Full Changelog](https://github.com/kemayo/wow-handynotes-directions/compare/v25...v26) [Previous Releases](https://github.com/kemayo/wow-handynotes-directions/releases)\n\n- TOC for 12.0.7, 5.5.4, 3.8.1, 2.5.5"
+    },
+    {
+      "tag": "v25",
+      "published": "2026-03-01",
+      "notes": "# HandyNotes: Directions\n\n## [v25](https://github.com/kemayo/wow-handynotes-directions/tree/v25) (2026-02-28)\n[Full Changelog](https://github.com/kemayo/wow-handynotes-directions/compare/v24...v25) [Previous Releases](https://github.com/kemayo/wow-handynotes-directions/releases)\n\n- Sort the icons in the right click menu  \n- Add a few icons"
+    },
+    {
+      "tag": "v24",
+      "published": "2026-01-31",
+      "notes": "# HandyNotes: Directions\n\n## [v24](https://github.com/kemayo/wow-handynotes-directions/tree/v24) (2025-12-20)\n[Full Changelog](https://github.com/kemayo/wow-handynotes-directions/compare/v23...v24) [Previous Releases](https://github.com/kemayo/wow-handynotes-directions/releases)\n\n- TOC for Midnight beta+PTR"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 7,
+    "lastRelease": "2026-10-16",
+    "releaseDates": [
+      "2026-10-16",
+      "2026-10-10",
+      "2026-07-07",
+      "2026-03-01",
+      "2026-01-31",
+      "2025-12-03",
+      "2025-07-02",
+      "2025-04-27",
+      "2025-03-01",
+      "2024-12-29",
+      "2024-08-30",
+      "2024-08-24"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HandyNotes_Directions"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "HandyNotes"
+    ],
+    "savedVariables": [
+      "HandyNotes_DirectionsDB"
+    ]
+  }
+}

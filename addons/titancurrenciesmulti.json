@@ -89,6 +89,7 @@
     ]
   },
   "languages": [
+    "esES",
     "ptBR"
   ],
   "technical": {
@@ -96,6 +97,7 @@
       "TitanCurrenciesMulti"
     ],
     "editions": [
+      "classic",
       "forever"
     ],
     "requires": [

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "glowingbars",
+  "repo": "vattiss/wowkit",
+  "about": "# wowkit\n\nTypeScript packages and addons for World of Warcraft: Forever (1.60.x, TOC `16001`), compiled to Lua with\n[TypeScriptToLua](https://github.com/TypeScriptToLua/TypeScriptToLua). The WoW API typings are generated from\nBlizzard's own API documentation in [Gethe/wow-ui-source](https://github.com/Gethe/wow-ui-source/tree/forever)\n(`forever` branch), so they match the client version exactly.\n\n**Documentation:** https://vattiss.github.io/wowkit/ - a getting started page, a learning guide that builds a first addon, the architecture and the API reference.\n\n## Design goal\n\nwowkit is a TypeScript layer written to be **read by people**. An AI writes most of the code; the design makes sure a\nperson can still read it, review it, trust it and change it. Names read like English, files and functions are small,\neach class has one job and is wired by hand, the game's quirks stay in one package, and the reasons for each choice are\nwritten down. Every rule is checked by `pnpm check`, so it holds for any change, whoever wrote it. More, and what it\ndoes not promise: [Design goal](https://github.com/vattiss/wowkit/blob/main/docs/design-goal.md).\n\n## The addons\n\nOne addon that lights up your action bars, so you look at the buttons you press anyway and not at an extra window. It has\na settings window of its own (`/gb settings`) and saves its settings per character.\n\n| | Addon | What it lights up |\n|---|---|---|\n| ![](https://raw.githubusercontent.com/vattiss/wowkit/main/addons/glowing-bars/assets/logo.png) | [Glowing Bars](https://github.com/vattiss/wowkit/blob/main/addons/glowing-bars/README.md) | Missing buffs and weapon buffs, buffs that are on no action bar, party members who miss your buff, spells at an old rank, low reagents, important cooldowns that are ready, and procs (Overpower, Revenge, Execute...). |\n\nIt replaces Buff Reminder, Rank Reminder and Reagent Reminder (and retires Know Your Rotation); their last releases\n(`1.0.2`) point here. Their code is in the history, at the tags `buff-reminder-v1.0.2` and so on.\n\nBlizzard's own action bars are supported, and Bartender4's, Dominos's and EllesmereUI's.\n\n## Development\n\nRequires Node.js 24+ (the build scripts are TypeScript run by Node directly), [pnpm](https://pnpm.io/) (`npm install -g pnpm`) and, for tests, LuaJIT or another Lua 5.1.\n\n```sh\npnpm install\npnpm build        # every addon -> addons/<name>/dist/<AddonName>/{<AddonName>.toc,<AddonName>.lua}\npnpm test         # checks, build, then the tests of every addon and of the core and wow packages (TypeScript, see addons/glowing-bars/test/README.md); CI runs the same\npnpm typecheck\npnpm format       # Prettier writes the code layout; pnpm test only checks it\npnpm --filter glowing-bars watch   # rebuild on change\n\n# copy one addon's build into the game (then /reload); the Forever beta installs into _classic_beta_\nWOW_ADDONS_DIR=\"C:/Program Files (x86)/World of Warcraft/_classic_beta_/Interface/AddOns\" pnpm --filter glowing-bars deploy:game\n```\n\n### Layout\n\nThe documentation site is at https://vattiss.github.io/wowkit/ (built from `docs/` and the TypeDoc API reference; `pnpm docs:dev` runs it locally).\nNew here: [docs/getting-started.md](https://github.com/vattiss/wowkit/blob/main/docs/getting-started.md), then the [learning guide](https://github.com/vattiss/wowkit/blob/main/docs/learning-guide.md) that builds a first addon.\n\nDiagrams of the build pipeline, the features and the events: [docs/architecture.md](https://github.com/vattiss/wowkit/blob/main/docs/architecture.md).\nThe words used in the code (buff, aura, buff category, group version...): [docs/glossary.md](https://github.com/vattiss/wowkit/blob/main/docs/glossary.md).\nWhy the code is so defensive (the game's quirks): [docs/forever-quirks.md](https://github.com/vattiss/wowkit/blob/main/docs/forever-quirks.md).\nWhy the project is built the way it is (the architecture decision records, ADR): [docs/architecture.md](https://github.com/vattiss/wowkit/blob/main/docs/architecture.md#architecture-decision-records-adr).\nHow the code is split into packages, and what a second addon would take: [docs/packages.md](https://github.com/vattiss/wowkit/blob/main/docs/packages.md).\nHow an addon is released to CurseForge: [docs/releasing.md](https://github.com/vattiss/wowkit/blob/main/docs/releasing.md).\nEach folder has a short README.\n\n```\npackages/       a folder per scope, then per package (packages/README.md); each imports only what it depends on\n  @wowkit/          the toolkit, for any Forever addon\n    core/             Addon (starts the services), lifecycle hooks, EventBus, @OnGameEvent,\n                      @OnUnitEvent, @OnEvent, @Interval, text helpers\n    wow/              the door to the game: spells, auras, action bars, player, party, bags,\n                      clock, glows and notices, saved variables, protected calls\n    ui/               settings, texts, chat lines and sounds, the settings window\n    wow-types/        the typings of Blizzard's API\n    wow-data/         the spell and item IDs the addons use, by category, and what the client said of them\n      generated/        generated from Blizzard's API docs - do not edit\n      wow-manual.d.ts   hand-written typings: script handlers, CreateFrame, string unions\n      wow-framexml.d.ts hand-written typings: Settings panel API, action buttons, FrameXML globals\n    test-kit/         describe / it / expect, a fake game and its fixtures\naddons/\n  glowing-bars/ the addon: reminders, old ranks, reagents, ready cooldowns and procs, all as glows on the bars\n    src/              the addon's sources; a folder per feature\n      main.ts           entry point: startAddon()\n      addon.ts          makes every service with `new`, dependencies first; that order is the order of the lifecycle hooks\n      settings/         the shape and defaults of the settings, the glow colors\n      locale/           the texts\n      knowledge/        what only this addon knows - buff categories\n      reminders/        missing buffs, weapon buffs, party buffs, old ranks, the reagents on arriving in a town; the buff lists\n      reagents/         the reagents of the group buffs, and whether the bags hold them\n      glows/            ready cooldowns and procs: the lists per class, the cooldown tracker\n      tick/             a tick every 0.2 s - find what is due, show it; when to look sooner\n      character/        what happens to the player (weapons, auras and casts, the party roster, blocked actions)\n      options/          the settings window's tabs and the table\n    addon/            static addon files (the TOC); its @version@ is filled from package.json\n    assets/           logo.png: the one source of the logo; the build makes the game's icon (images/logo.tga) from it\n    test/             the specs: describe / it in TypeScript against the fake game (test/README.md)\n  wowkit-check/      developer tool, not released: asks the client about the IDs in wow-data (/wowkit check)\nscripts/        build, deploy, zip, type-generation and check scripts\ndocs/           architecture (with the reasons), packages, releasing, glossary, the game's quirks\n```\n\n### Rules\n\n- **Only a few folders call the game:** `packages/@wowkit/wow/src/` (what the reminders ask the game),\n  `packages/@wowkit/core/src/` (events and timers), and `addons/glowing-bars/src/options/` (the settings window). Reminder\n  logic talks to `packages/@wowkit/wow/src/` in plain terms (`isInCombat()`, `isLearned(spell)`) and never sees secret values,\n  protected calls or remapped IDs.\n- **Everything is a service, made once, by hand:** plain classes that take what they need in the constructor,\n  made in `addons/glowing-bars/src/addon.ts`; no inheritance, no container; services are built from other services.\n- **The packages do not know the addon:** each package imports only itself and the packages it depends on\n  (`pnpm check` enforces it); `addon.ts` passes in what a package asks for (buff categories, spell names).\n- **Names read like English:** functions start with a verb, booleans read as questions (`isFound`).\n\n`pnpm check` enforces the folder and naming rules, the compiler checks the wiring in `addon.ts`;\n`pnpm test` runs both.\n\n### WoW API typings\n\n`packages/@wowkit/wow-types/generated/` is committed, so a normal build needs no network access. To move to a newer client build:\n\n```sh\npnpm fetch:wow-ui:latest   # sparse-clones the API docs into .cache/ and pins the new commit in package.json\npnpm gen:types             # regenerates packages/@wowkit/wow-types/generated/*.d.ts\npnpm typecheck\n```\n\n(`pnpm fetch:wow-ui` re-fetches the commit that is already pinned.)\n\nWhat gets generated from `Blizzard_APIDocumentationGenerated`:\n\n- `C_*` namespaces and global functions (`wow-api.d.ts`), including `Constants.*`\n- `Enum.*` (`wow-enums.d.ts`), structures and callback types (`wow-structures.d.ts`)\n- `WowEventPayloads` / `WowEvent`: every event with its payload types (`wow-events.d.ts`)\n- widget interfaces (`Frame`, `Button`, `Texture`, ...) with methods called as `obj:Method()` (`wow-widgets.d.ts`)\n- `wow-unresolved.d.ts`: names the docs use but never define, typed `any` - declare them in\n  `wow-manual.d.ts` or map them in `PRIMITIVES` in `scripts/generate-types/knowledge.ts` to tighten them up\n\nWhere the docs are wrong or incomplete (overloads such as `SetPoint(\"CENTER\")`, `C_Timer.NewTicker`'s return\ntype), fix it with `SIGNATURE_OVERRIDES` in the generator or extra overloads in `wow-manual.d.ts`.\n\n### TypeScriptToLua notes\n\n- `noImplicitSelf` is on: plain functions and namespace functions are called with `.`, interface methods with `:`.\n  Script handlers get the widget as an explicit first parameter: `frame.SetScript(\"OnEvent\", (self, event, ...args) => ...)`.\n- Use `@OnGameEvent(\"EVENT_NAME\")` on a method for typed event payloads (a handler with the wrong parameters does not compile).\n- No `RegExp`: use Lua patterns via `string.match` / `string.gsub` / `string.gmatch`.\n- A function-valued property called through `?.` (`setting?.set(x)`) is compiled as a method call and gets\n  an extra `self`. Declare it with `this: void` (`set: (this: void, x: unknown) => void`) or call it without `?.`.\n- A closure only sees variables declared before it; declare a variable before the function that uses it.\n- Arrays are Lua sequences (1-based in Lua, 0-based in TS - TSTL translates the indices).\n- Globals such as SavedVariables are declared with `declare global { var Name: Type }`.\n- Classes work (methods are called with `:`); pass methods as callbacks wrapped in an arrow function.\n- No import cycles: the bundle's `require` does not support them. Lower services notify upper ones\n  with events on the `EventBus` (`@OnEvent`); the packages import nothing from the addon.\n- Decorators (`@OnGameEvent`, `@Interval`...) need `experimentalDecorators`; a method is called as\n  `instance[name](instance, ...)`. See `packages/@wowkit/core/README.md`.\n\n## License\n\n[MIT](https://github.com/vattiss/wowkit/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "glowing-bars-v4.5.1",
+      "published": "2026-11-26",
+      "notes": "## Glowing Bars 4.5.1\n\n### Fixed\n\n- After a switch of specs or a reset of your talents, the spells of the other spec are no longer reminded (a priest's Shadowform in the Discipline spec) until a /reload.\n- A spell with ranks that also has a proc or cooldown row (a warlock's Shadow Bolt) is listed on the Old ranks tab, so its old rank reminder can be switched off.\n- A spell name your client writes two ways (with another apostrophe, as in some French names) counts as one spell: one row on the Old ranks tab, and its ranks and buffs are recognized."
+    },
+    {
+      "tag": "glowing-bars-v4.5.0",
+      "published": "2026-11-25",
+      "notes": "## Glowing Bars 4.5.0\n\n### New\n\n- Profiles: your settings now live in profiles, one for each character, kept for your whole account. Nothing to do: each character's profile is made of what it had. Profiles, at the top left of the settings (/gb settings), copies another character's settings into yours, resets yours to the defaults, or deletes the profile of a character you deleted.\n- Added spells, at the top left of the table (/gb): the spells added on all your characters. Add or remove one on this character, or see which characters have it and delete it from all of them.\n- ConsolePort: its gamepad bar and crossbar buttons are found by themselves after every login or reload, with no scan. A switch on the General tab gives its crossbar buttons a round glow, like ConsolePort's own.\n- When your buff's button glows because party or raid members miss it, a message now says who (Power Word: Fortitude missing on: Anna, Bob). It is on by default, whatever the table's Message column says; switch it off on the Reminders tab, for a party and for a raid.\n\n### Changed\n\n- A rogue's poison in the bags counts even when it is on no button: it is listed in the poison picks and told of in the message. The automatic pick still prefers a poison on a button, or the one you put on last.\n- Bar addons that make their buttons after the login are found as your key bindings change.\n- The slash commands are /gb (the table) and /gb settings; any other word opens the table.\n- Going back to an older version keeps your settings, apart from changes to added spells made meanwhile."
+    },
+    {
+      "tag": "glowing-bars-v4.4.0",
+      "published": "2026-11-22",
+      "notes": "## Glowing Bars 4.4.0\n\n### New\n\n- Shadowmeld glows as a utility cooldown when it's ready. If you added it yourself, it now uses the built-in row and keeps your settings.\n- A chat note when a buff the game hides in a dungeon or raid can't be followed to its end yet (a switch on the Reminders tab).\n\n### Fixed\n\n- In a dungeon or raid, a buff the game hides from addons (food buffs, elixirs, an Arcane Censer's) no longer glows while it is up. It glows once its time runs out, if Glowing Bars saw it before or knows how long it lasts, also after a /reload. Fights in the open world work as before.\n- After dying, a tracking (Find Minerals, Find Herbs) glows again right away, also when you wake into a fight."
+    },
+    {
+      "tag": "glowing-bars-v4.3.1",
+      "published": "2026-11-21",
+      "notes": "### Fixed\n\n- In a fight, a buff that falls off or runs out (Lightning Shield, a totem's buff, any of them) glows again right away, not only once the fight ends.\n\n### Changed\n\n- The 4.3.0 change for buffs in a dungeon or raid is taken back while it gets a better fix: a buff the game hides from addons there (food buffs, elixirs, an Arcane Censer's) may glow while it is up again, as before 4.3.0."
+    },
+    {
+      "tag": "glowing-bars-v4.3.0",
+      "published": "2026-11-19",
+      "notes": "## Glowing Bars 4.3.0\n\n### New\n\n- Common Questions on the Help tab of the settings (/gb): what to do when the Cooldown Manager changes after every login, an ID from Wowhead doesn't work, the Cooldown Manager's windows don't show, or a buff isn't reminded in a dungeon.\n\n### Fixed\n\n- In a dungeon or raid, a buff the game hides from addons (food buffs, elixirs, an Arcane Censer's) no longer glows while it is up. Your class buffs in the Cooldown Manager's Tracked Buffs are still reminded once they are gone."
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 14,
+    "contributors": 3,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-11-03",
+      "2026-11-01",
+      "2026-11-01",
+      "2026-11-01",
+      "2026-11-01",
+      "2026-10-29",
+      "2026-10-29",
+      "2026-10-26",
+      "2026-10-21",
+      "2026-10-21",
+      "2026-10-21",
+      "2026-10-19"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GlowingBars"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "GlowingBarsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "GlowingBarsCharDB"
+    ]
+  }
+}

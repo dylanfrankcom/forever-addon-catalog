@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "terriblebufftracker",
+  "repo": "Jonathas-Conceicao/wowTerribleBuffTracker",
+  "about": "# TerribleBuffTracker\n\nA WoW Cooldown Manager addon for filling the gaps of the Blizzard's\nCooldown Manager (CDM).\n\nTerribleBuffTracker is designed to be used alongside Blizzard's CDM\ninstead of just replacing it, it's configured through a tab inside the\ndefault CDM window. Positioning and style can be configured through\nedit-mode, making it familiar to new users. We also offer limited\n(where API restrictions allow us) support to create custom trackers to\nextend the CDM, like our built-in **Bloodlust** tracker or the\n**Buff Reminders**.\n\n## Showcase\n\n![Lust and trinket tracked](https://raw.githubusercontent.com/Jonathas-Conceicao/wowTerribleBuffTracker/main/Assets/lust_and_trinket_tracked.png)\n![Adding buffs](https://raw.githubusercontent.com/Jonathas-Conceicao/wowTerribleBuffTracker/main/Assets/adding_buffs.png)\n![Edit-Mode](https://raw.githubusercontent.com/Jonathas-Conceicao/wowTerribleBuffTracker/main/Assets/edit_mode.png)\n![Clickable Reminders](https://raw.githubusercontent.com/Jonathas-Conceicao/wowTerribleBuffTracker/main/Assets/clickable_buff_reminders.png)\n\n## Features\n\n- **Merge Mode** - Enable it on config via `/tbt`: Blizzard's Cooldown\n  Manager icons and bars are moved into TBT containers alongside your\n  own trackers. Have the CDM buffs be centred and have your custom\n  trackers side by side with your class base trackers if you want.\n- **Buff trackers** - track any spell by ID with a duration you input;\n  shown as a bar or an icon\n- **Cooldown trackers** - A custom cooldown tracker counts down the\n  duration you typed from the moment of the cast, so haste and\n  cooldown reduction are not reflected\n- **User-created containers** - made as a Buffs container or a\n  Cooldowns container with independent config on edit-mode.\n- **Edit-Mode integration** - every container drags, and clicking one\n  opens a settings popup (icon size, padding, bar width, opacity,\n  items per row, growth direction, visibility)\n- **Centered growth** on buff icon containers - the row recenters on\n  its anchor as buffs come and go\n- **Meta-trackers** - Ready-to-use common trackers like: Lust /\n  Heroism, Trinket and Damage Potion. These remain as their own\n  trackers, with their own durations and bar display\n- Mousing over a spell or aura shows its **spell ID** to help you\n  create your own custom trackers\n- **Reminders** - Clickable buffs you can be reminded to renew even\n  when they're dropping mid-combat\n- **Rank grouping** - On _Forever_, a \"cover all ranks\" checkbox makes\n  one tracker cover every rank of a spell\n\n## Usage\n\n- `/tbt` opens TBT's settings panel under **Options > AddOns**\n- I recommend enabling the **Merge Mode** and have custom buffs integrated to Blizzard's CDM\n- The Cooldown Manager settings window carries two TBT tabs, **TBT\n  Cooldowns** and **TBT Buffs**, sitting beside Blizzard's own tabs\n- **Add a tracker:** click the `+` square in the **Suggested**\n  section. Enter a spell ID and a duration written as `30s`, `2m`. A\n  new tracker lands in **Not Displayed**, and you drag it to the\n  container you want it in\n- **Containers:** create and delete your own from the settings panel\n- **Configure display:** enter edit-mode, click a TBT container, and\n  adjust settings in the popup - **Copy Blizzard CDM Config** imports\n  the Cooldown Manager's current settings into TBT in one click\n\n## Known Issues and Limitations\n\n- **In restricted content, a buff can keep showing until its input\n  duration runs out.** In Mythic+ and other restricted contexts the\n  client hides aura data, so TBT's cancellation scan is switched off\n  there. Timers still start correctly - a buff that falls off early\n  simply stays on screen until its own timer runs down. In **Merge\n  Mode** Blizzard's buffs are mirrored from the game's own CDM and\n  they bypass these restrictions just like the built-in CDM does\n\n- Custom trackers with **charge counts** will not show charges. The\n  client will not report the number, so the icon shows no count rather\n  than a wrong one\n\n- Reminders' click-to-cast is disable in combat due to addon restrictions\n\n## AI Usage\n\nThis addon was built with the help of [Claude AI](https://claude.ai/).\nI'm an experienced Software Developer, but AI allows me to develop\nstuff for myself and the community while I game :). Claude assisted\nwith writing the implementation, but all logic and testing is manually\ndone by me. The addon is maintained by me to the best of my abilities,\nuse at your own leisure.\n\nThe custom icons/art are not done by AI, I enjoy making barely\naccatable pixel art :)\n\n## License\n\n[WTFPL](https://github.com/Jonathas-Conceicao/wowTerribleBuffTracker/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v0.5.8",
+      "published": "2026-11-26",
+      "notes": "## v0.5.8 — Headmaster's Charge reminder\n\n### New Features\n- Headmaster's Charge reminder (Forever): suggested while the staff is\n  equipped; clicking it uses the staff if it's equipped"
+    },
+    {
+      "tag": "v0.5.7",
+      "published": "2026-11-10",
+      "notes": "## v0.5.7 — Sleeping bag and some more\n\n### New Features\n- Well-Rested reminder (Forever): suggested while the Cozy Sleeping\n  Bag is in your bags; clicking it uses the bag\n- Paladin: one reminder per aura on Forever and retail; any aura up\n  hides them all\n- Hunter: one reminder per aspect on Forever; any aspect up hides\n  them all"
+    },
+    {
+      "tag": "v0.5.6",
+      "published": "2026-11-09",
+      "notes": "## v0.5.6 — More Forever Reminders\n\nMore built-in reminders for WoW Forever, and group buffs or another\nplayer's rank of a buff now count as the buff being up.\n\n### New Features\n- Mage: Armor reminders; any one armor up hides all three armor\n  reminders\n- Mage: Familiar reminder; clicking it uses the best familiar scroll\n  in your bags for your level\n- Mage: Amplify Magic / Dampen Magic reminders\n- Warlock: Demon Armor / Demon Skin and Demonic Sacrifice reminders\n- Shaman: Lightning Shield / Water Shield reminders\n- Priest: Inner Fire, Shadowguard and Shadow Protection reminders\n- Paladin: one aura reminder, satisfied by any paladin aura\n- Hunter: one aspect reminder, satisfied by any aspect\n- Arcane Brilliance, Prayer of Fortitude, Prayer of Spirit, Gift of\n  the Wild and the Greater Blessings now satisfy their single-target\n  reminders, as do lower ranks cast on you by another player\n\n### Removed\n- Blessing of Salvation and Blessing of Light reminders on Forever,\n  as they no longer exist there"
+    },
+    {
+      "tag": "v0.5.5",
+      "published": "2026-10-27",
+      "notes": "## v0.5.5 — Buff countdown display fix (again)\n\n### Bug Fixes\n- Buff timers no longer shows wrong time when usage was too long and\n  has unexpected values"
+    },
+    {
+      "tag": "v0.5.4",
+      "published": "2026-10-24",
+      "notes": "## v0.5.4 — Buff countdown display fix\n\n### Bug Fixes\n- Buff timers no longer shows wrong time on re-logging and on some\n  cases when /reload"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Jonathas-Conceicao/wowTerribleBuffTracker/main/Assets/lust_and_trinket_tracked.png",
+    "https://raw.githubusercontent.com/Jonathas-Conceicao/wowTerribleBuffTracker/main/Assets/adding_buffs.png",
+    "https://raw.githubusercontent.com/Jonathas-Conceicao/wowTerribleBuffTracker/main/Assets/edit_mode.png",
+    "https://raw.githubusercontent.com/Jonathas-Conceicao/wowTerribleBuffTracker/main/Assets/clickable_buff_reminders.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-10-27",
+      "2026-10-24",
+      "2026-10-23",
+      "2026-10-10",
+      "2026-10-01",
+      "2026-09-29",
+      "2026-09-26",
+      "2026-09-23",
+      "2026-09-19",
+      "2026-08-13",
+      "2026-08-12",
+      "2026-04-22",
+      "2026-04-13",
+      "2026-04-06",
+      "2026-04-04",
+      "2026-03-30",
+      "2026-03-12",
+      "2026-03-10",
+      "2026-03-08"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "TerribleBuffTracker"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "TerribleBuffTrackerDB"
+    ]
+  }
+}

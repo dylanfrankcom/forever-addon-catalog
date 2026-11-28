@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "padvinder",
+  "repo": "Neil2222/padvinder",
+  "about": "![Padvinder](https://raw.githubusercontent.com/Neil2222/padvinder/master/media/banner.png)\n\n# Padvinder\n\nA World of Warcraft addon for **WoW Forever** that records the paths you walk, draws them as a\nheatmap on your map and minimap, and routes your TomTom arrow over them, plus flight paths,\nboats and zeppelins.\n\nThe more you play, the better it knows the roads: instead of pointing in a straight line through\na mountain, the arrow follows the paths you (and the game's NPCs) actually use.\n\n## Features\n\n- **Path recording**: every step you take is stored account-wide, per continent. Paths continue\n  across zone borders.\n- **Heatmap** on the world map and minimap. Show all paths, only travel, or only grinding\n  (walking done in or around combat).\n- **Route planner**: when TomTom has a waypoint (set by you, Questie, ...), Padvinder plans a\n  route over your recorded paths, the flight points you know, and boats, zeppelins and portals,\n  and points the TomTom arrow along it. The route is drawn on the map and minimap.\n- Knows about one-way drops, swimming and transports, so you don't get routed up a cliff you\n  only ever fell down.\n- Minimap button for quick access.\n\n## Requirements\n\n- WoW Forever (`_forever_` client).\n- Optional but recommended: [TomTom](https://www.curseforge.com/wow/addons/tomtom), needed for\n  the route arrow.\n- Optional: Questie (its database helps route through areas you haven't walked yet) and\n  ForeverDungeonJournal (for its flight point list).\n\n## Installation\n\n### With an addon manager (easiest)\n\nPadvinder is on [CurseForge](https://www.curseforge.com/wow/addons/padvinder). Search for\n**Padvinder** in the CurseForge app or WowUp (with *World of Warcraft: Forever* selected) and\nclick Install. Updates then come in by themselves.\n\n### By hand\n\n1. Download `Padvinder-<version>.zip` from the\n   [latest release](https://github.com/Neil2222/padvinder/releases/latest)\n   (the asset, **not** \"Source code\").\n2. Unzip it into your AddOns folder, so you end up with:\n   ```\n   World of Warcraft\\_forever_\\Interface\\AddOns\\Padvinder\\Padvinder.toc\n   ```\n3. Restart the game and make sure Padvinder is enabled in the AddOns list on the character\n   select screen. If it shows as \"out of date\", tick **Load out of date AddOns**.\n\nTo update by hand: delete the old `Padvinder` folder and unzip the new one.\n\nEither way your recorded paths are kept when you update: they are stored in\n`WTF\\Account\\...\\SavedVariables\\Padvinder.lua`, not in the addon folder.\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/pad` | list of commands |\n| `/pad info` | what has been recorded |\n| `/pad on`, `/pad off`, `/pad toggle` | recording on/off (toggle is handy in a macro) |\n| `/pad map` | show/hide paths on the world map |\n| `/pad minimap` | show/hide paths on the minimap |\n| `/pad show all` / `travel` / `grind` | which paths to show |\n| `/pad route` | route planner on/off |\n| `/pad button` | show/hide the minimap button |\n| `/pad wipe confirm` | erase **everything** that was recorded |\n\n`/padvinder` works too.\n\n## Credits\n\n- Boat, zeppelin, portal and flight data from ForeverDungeonJournal.\n- Bundled libraries: LibStub, CallbackHandler-1.0, HereBeDragons-2.0, LibDataBroker-1.1,\n  LibDBIcon-1.0 (each under its own license).\n\n## License\n\nMIT, see [LICENSE](https://github.com/Neil2222/padvinder/blob/master/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.8.2",
+      "name": "Padvinder v0.8.2",
+      "published": "2026-11-23",
+      "notes": "## Install\n\nEasiest: install **Padvinder** from [CurseForge](https://www.curseforge.com/wow/addons/padvinder) with the CurseForge app or WowUp, then updates come in by themselves.\n\nBy hand:\n\n1. Download **Padvinder-v0.8.2.zip** below (not \"Source code\").\n2. Unzip it into `World of Warcraft\\_forever_\\Interface\\AddOns\\` so you get `AddOns\\Padvinder\\Padvinder.toc`.\n3. Restart the game. For the route arrow you also need [TomTom](https://www.curseforge.com/wow/addons/tomtom).\n\nUpdating: delete the old `Padvinder` folder first. Your recorded paths are kept. Type `/pad` in game for the commands.\n\n## Changes\n\n- Padvinder has its own icon now, on the minimap button and in the AddOns list"
+    },
+    {
+      "tag": "v0.8.1",
+      "name": "Padvinder v0.8.1",
+      "published": "2026-11-23",
+      "notes": "## Install\n\n1. Download **Padvinder-v0.8.1.zip** below (not \"Source code\").\n2. Unzip it into `World of Warcraft\\_forever_\\Interface\\AddOns\\` so you get `AddOns\\Padvinder\\Padvinder.toc`.\n3. Restart the game. For the route arrow you also need [TomTom](https://www.curseforge.com/wow/addons/tomtom).\n\nUpdating: delete the old `Padvinder` folder first. Your recorded paths are kept. Type `/pad` in game for the commands.\n\n## Changes\n\nFirst public release.\n\n- Records the paths you walk and draws them as a heatmap on the world map and minimap\n- Route planner that steers the TomTom arrow over your paths, flight points, boats, zeppelins and portals\n- Don't lose stretches of path to false boat detection"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-23",
+    "releaseDates": [
+      "2026-11-23",
+      "2026-11-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Padvinder"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "TomTom",
+      "ForeverDungeonJournal",
+      "QuestieDB"
+    ],
+    "savedVariables": [
+      "PadvinderDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "PadvinderCharDB"
+    ]
+  }
+}

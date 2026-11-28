@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "everlookbar",
+  "repo": "quikmn/EverlookBar",
+  "about": "# EverlookDB Bar\n\nInfo bars and a clean minimap for WoW Forever (1.60.1, interface 16001).\n\n![EverlookDB Bar](https://raw.githubusercontent.com/quikmn/EverlookBar/master/screenshots/1-bar.png)\n*(screenshot to come)*\n\n## What it does\n\n**Bars.** As many as you like: along the top, bottom, left or right edge, or anywhere. One row or two (or more),\nthe whole edge or a set length, any background colour and opacity (black at 60% by default), font, size and\nspacing. Side bars stack their plugins. Plugins sit in left, centre and right groups.\n\n**Plugins.** Every LibDataBroker plugin from any addon can go on a bar. Built in (each one switchable, each one a normal LDB plugin):\n\n- **XP bar**: a thin bar with rested XP and the percentage. Hidden at max level.\n- **Reputation bar**: one faction as a thin bar like the XP bar, coloured by standing (red, orange, yellow, green).\n  Follows your watched faction, or pick one in the settings or with a right-click. Stays at max level.\n- **Professions**: your skill in each profession (Mining 187, Herb 150, Cook 225); click one to open it, right-click\n  for the list. A skill at its cap is coloured: time for the next rank at a trainer.\n- **Performance**: FPS and latency; memory, CPU per addon and bandwidth in the tooltip.\n- **Location**: zone, subzone (Tarren Mill, Southshore Inn) and coordinates. Click to open the map.\n- **Tracking**: what the minimap tracks (Herbs, Mailbox). Click for a menu of everything you can track, with tick\n  boxes: find spells (Find Herbs, Find Minerals, Track Beasts...) and townsfolk (Mailbox, trainers, Flight Master,\n  Innkeeper, Banker, Auctioneer, Repair, Stable Master...). Right-click: untrack all. In combat the menu only shows.\n  It does what the minimap's tracking button does, so that button can stay hidden. Settings: every tracked type, the\n  first only, or just the icon.\n- **Flight timer**: on a flight path, where you're going and the time left (» Ironforge 1:42). It learns each route\n  from your own flights; on a route you haven't flown yet it counts down from an estimate (~1:42). The tooltip has\n  the route, the time left, how often you've flown it and your recent routes. Hidden on the ground. Optional chat\n  line when you land (off by default).\n- **Durability**: your most worn item in percent; every slot in the tooltip.\n- **Mail**: new mail or not, with the senders.\n- **Bags**: free and total slots; profession bags apart.\n- **Quest log**: quests in your log out of the most you can have (38/45); yellow when nearly full, red when full.\n- **Gold**: with this session's change in the tooltip.\n- **Calendar**: the date or today's next event, pending invites, the coming week in the tooltip; answer invites with\n  a right-click.\n- **Clock**: off by default.\n\n**Clean minimap.** Square (the default) or round, a border of your thickness and colour, any size, anywhere on\nscreen, and an optional zone line showing where you stand.\n\n**The pieces around the minimap.** The zone name, tracking button, mail icon, calendar button, day and night dial,\nclock, coordinates, zoom buttons and addon menu button each have one switch on the Minimap page: on or off, at once.\nA piece that is on sits on the minimap's edge, above the map, and moves and grows with it. Each has its own place to\nstart with; to change it, press **Unlock to move** and drag it. It slides along the edge (the ring of a round\nminimap, the outline of a square one) and snaps to the corners and the middle of the sides; hold Shift to put it\nanywhere. Change the shape later and the pieces follow the new edge. \"Reset\" on a row, or a right-click on the piece\nwhile moving, puts one back.\n\n**Addon buttons.** Every addon's minimap button goes into one small drawer beside the minimap, with its own icon,\ntooltip and click, or is hidden.\n\nIf another addon already manages the minimap, EverlookDB Bar leaves the minimap alone, says\nso once in chat and at the top of the Minimap page, and greys out what doesn't apply.\n\n## Using it\n\n- `/ebar` opens the settings window. Everything in it also works from chat (see Commands below).\n- On the Plugins page of `/ebar`, drag a plugin's row to reorder it, move it to another group or bar, or drop it in\n  \"Not on a bar\" to take it off; drag from there onto a bar to add it. Right-click or Escape cancels a drag.\n- **Unlock to move** (the button on the Minimap page and at the bottom left of the window, or `/ebar unlock`): drag\n  bars to any edge or anywhere, the minimap where you like, the pieces around it, and plugins\n  between bars and groups. A grid helps you line things up. Escape locks again.\n- While moving, a small control in the middle of the minimap has **Done** and **Reset positions** (the minimap back in\n  the top-right corner at 100%, every piece back in its own place); the mouse wheel over the minimap changes its\n  size. Dots show the edge the pieces stick to. Escape ends it too, and so does combat.\n- `/ebar minimap.mail on` (or `off`) switches a piece from chat; `/ebar minimap reset` puts the minimap and its pieces\n  back.\n  `/ebar minimap scan` lists any other text shown around the minimap and the addon it comes from.\n- `/ebar perf` shows what EverlookDB Bar itself costs.\n\n## Commands\n\n`/ebar` (also `/everlookbar`) follows the same pattern as every EverlookDB addon:\n\n- `/ebar` opens the settings window; it's also under Settings > AddOns.\n- `/ebar bar.edge left` (or `/ebar set bar.edge left`): change a setting; `/ebar bar2.edge left` changes bar 2. `/ebar get` lists every setting, `/ebar get bar.edge` shows one.\n- `/ebar unlock`, `/ebar lock` (or `move`, which flips it): drag bars, plugins, the minimap and the pieces around it.\n- `/ebar bar`, `bar 2`, `bar add left`, `bar delete 2`; `/ebar plugins`, `place gold 1 right`, `remove gold`.\n- `/ebar minimap unlock`, `lock` (the same as `/ebar unlock` and `lock`), `reset`, `scan`, `grab <frame>`, `ignore <frame>`.\n- `/ebar minimap.<piece> on|off`: zone, tracking, mail, calendar, daynight, clock, coords, zoom, compartment, ringart.\n- `/ebar reset bars`, `/ebar reset all`, `/ebar minimap reset` ask first (type it again within 10 seconds); `/ebar reset all confirm` still works.\n- `/ebar search <words>` opens the window with its search box filled; `/ebar status` (bars, plugins, memory), `/ebar version`, `/ebar perf`.\n- `/ebar help` (or `?`) lists every command; a mistyped one suggests the nearest.\n\n## Built to stay out of the way\n\n- Light: plugins update only when something changes, so the bar costs next to nothing.\n- A broken plugin from another addon gets a small red marker; the bar keeps going.\n- Safe in combat: nothing the game protects is touched while you fight. Minimap changes wait until combat ends.\n- Works alongside NoAutoClose and BlizzMove.\n\n## For plugin authors\n\nAny LibDataBroker plugin works as is. To add your own widgets and settings, see [API.md](https://github.com/quikmn/EverlookBar/blob/master/API.md) or the guide at\nhttps://everlookdb.com/ebar/plugins (also on the \"Build your own\" page of `/ebar`).\n\n## Credits and license\n\nEverlookDB Bar is licensed under GPL-3.0 (see `LICENSE`). Bundled: LibStub (public domain), CallbackHandler-1.0\n(Ace3 Development Team, BSD-style licence in `Libs/CallbackHandler-1.0/LICENSE.txt`).",
+  "releases": [
+    {
+      "tag": "v0.5.0",
+      "published": "2026-11-26",
+      "notes": "- New plugin: **Flight timer**. On a flight path the bar shows where you're going and the time left (» Ironforge 1:42). It learns each route from your own flights; on a route you haven't flown yet it counts down from an estimate (~1:42). Hover it for the route, the time left, how often you've flown it and your recent routes. Hidden on the ground; switch it off on the Built-in page of `/ebar`. An optional chat line when you land (\"Landed in Ironforge after 2:31\") is off by default.\n- Minimap drawer: LFG Forever's minimap button is collected too."
+    },
+    {
+      "tag": "v0.4.3",
+      "published": "2026-11-26",
+      "notes": "- Minimap: when you switch on the zone name and your minimap is still in its starting corner, the minimap moves down a little so the zone name isn't hidden under the top bar.\n- Settings search: the sidebar lights the page of the top result while you search."
+    },
+    {
+      "tag": "v0.4.2",
+      "published": "2026-11-23",
+      "notes": "- New installs put the minimap in the top-right corner instead of where the game left it. A minimap you already moved stays put."
+    },
+    {
+      "tag": "v0.4.1",
+      "published": "2026-11-22",
+      "notes": "- The taskbar and Start menu are gone again for now; your bars work as before."
+    },
+    {
+      "tag": "v0.4.0",
+      "published": "2026-11-22",
+      "notes": "- New, and off until you switch it on: a **taskbar with a Start menu**, like on a PC. Turn it on on the new Taskbar page of `/ebar` (or `/ebar taskbar on`); put it at the bottom, top, left or right.\n- **Start** lists every window you can open: EverlookDB windows and their pages, the game's panels (character, spellbook, talents, quest log, map, friends, guild, bags, macros, key bindings, settings...), your professions and other addons' buttons. Type to search, Enter opens the first. Pin favourites; the ones you used lately are at the top. A key for it is under Key Bindings > AddOns.\n- Every open window gets a button: click to bring it to the front, click again to minimize it, click a minimized one to bring it back as it was.\n- Right-click a window's button to maximize it or snap it to a half, quarter or third of the screen, then restore its size. **Tile all** puts your open windows side by side.\n- Drag an EverlookDB window to the top edge of the screen to maximize it, to a side for half the screen, or into a corner for a quarter.\n- The game's own windows open and close from the taskbar and keep the place the game gives them. In combat, windows the game protects change when combat ends."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/quikmn/EverlookBar/master/screenshots/1-bar.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookBar/master/screenshots/2-plugins-and-tooltips.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookBar/master/screenshots/3-minimap-pieces.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookBar/master/screenshots/4-drag-plugins.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookBar/master/screenshots/5-minimap-settings.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookBar/master/screenshots/6-addon-drawer.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookBar/master/screenshots/7-built-in-plugins.png",
+    "https://raw.githubusercontent.com/quikmn/EverlookBar/master/screenshots/8-bars.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EverlookBar"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "EverlookBarDB"
+    ]
+  }
+}

@@ -96,9 +96,6 @@
       "2024-02-03"
     ]
   },
-  "languages": [
-    "koKR"
-  ],
   "technical": {
     "folders": [
       "Debind",
@@ -107,20 +104,10 @@
       "Debounce"
     ],
     "editions": [
-      "forever",
-      "retail"
-    ],
-    "optional": [
-      "DebindDev",
-      "Clique",
-      "Grid2",
-      "DevTool",
-      "ViragDevTool"
+      "forever"
     ],
     "savedVariables": [
-      "DebindVars",
-      "DebindUIVars",
-      "DebindMigrationVars"
+      "DebindCamelotProbeDB"
     ]
   }
 }

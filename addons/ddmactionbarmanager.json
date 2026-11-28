@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "ddmactionbarmanager",
+  "repo": "thechainercygnus/DDMActionBarManager",
+  "about": "# DDMActionBarManager\n\nPart of a set of [WoW: Forever tools](https://github.com/thechainercygnus).\n\nFind outdated spell ranks on your **World of Warcraft: Forever** action\nbars and upgrade them to the highest rank your character has learned.\nKeep intentional downranks on the buttons where you use them.\n\n## What it does\n\n- Scans all eight standard action bars, including hidden bars and alternate\n  pages. Each result shows the bar, button, current rank, and available rank.\n- Alerts you in chat when you learn a higher rank and still have an older\n  rank on a bar.\n- Replaces a spell in the same slot, so you can keep using the same button\n  or keybind.\n\nThe addon checks spells placed directly on action bars. Macros, items, and\npet actions are outside its scope.\n\n## In-game examples\n\n### New rank alert\n\nAfter you learn Healing Wave Rank 3, the chat alert points to the button\nthat still has Rank 2.\n\n![Chat alert for Healing Wave Rank 3 on Action Bar 3, Button 2](https://raw.githubusercontent.com/thechainercygnus/DDMActionBarManager/main/screenshots/new-rank-chat-alert.png)\n\n### Rank upgrade window\n\nLeft-click the **DDM Action Bar Manager** minimap icon to review your\nspell ranks. Look for the blue lightning bolt at the upper left of the\nminimap in this example.\n\n![Yellow arrow pointing to the blue lightning-bolt addon icon at the upper left of the minimap](https://raw.githubusercontent.com/thechainercygnus/DDMActionBarManager/main/screenshots/minimap-icon-annotated.png)\n\nChoose **Replace** to upgrade Healing Wave to Rank 3 or **Keep rank** to\nleave Rank 2 on that button.\n\n![Rank upgrade window showing Healing Wave Rank 2 with Replace and Keep rank buttons](https://raw.githubusercontent.com/thechainercygnus/DDMActionBarManager/main/screenshots/rank-upgrade-window.png)\n\n## Install on Windows\n\n1. **Close WoW: Forever.** Leave the Battle.net app open.\n2. **Unzip the addon.** Open your Downloads folder, right-click the addon\n   ZIP file, choose **Extract All**, then click **Extract**. In the extracted\n   files, find the folder named **DDMActionBarManager**. If you open it, you\n   should see **DDMActionBarManager.toc** and **DDMActionBarManager.lua**.\n   If you see another folder with the same name, use the inner folder.\n3. **Find the game's AddOns folder.** In Battle.net, select the\n   **WoW: Forever** game version you play. Click the gear next to **Play**\n   and select **Show in Explorer**. If it opens the main World of Warcraft\n   folder, open the folder for your Forever installation. Then open\n   **Interface**, followed by **AddOns**.\n4. **Copy the addon into the game.** Go back to the extracted\n   **DDMActionBarManager** folder, right-click it, and choose **Copy**.\n   Return to the game's **AddOns** folder, right-click an empty space, and\n   choose **Paste**. The folder you just pasted should contain the two\n   files from step 2 directly.\n\n   The finished location should look like this:\n\n       Interface\\AddOns\\DDMActionBarManager\\DDMActionBarManager.toc\n\n5. **Start the game and check it loaded.** On the character selection\n   screen, click **AddOns** and make sure **DDMActionBarManager** is checked.\n   Log in and left-click the addon's blue lightning bolt icon on the\n   minimap. If the rank window opens, the addon loaded successfully,\n   even if the list is empty.\n\n**If the addon is missing:** Check that you copied it into the **AddOns**\nfolder for the same game version you launched. Then open the pasted\n**DDMActionBarManager** folder and check that it contains the addon files\ndirectly, with no extra folder in between.\n\n## Quick start\n\n1. Left-click the minimap icon to see which spells can be upgraded.\n2. Choose **Replace** to upgrade a slot while out of combat with an empty\n   cursor. Choose **Keep rank** to retain an intentional downrank on that\n   slot. **Reset kept ranks** clears those choices for your character.\n3. Right-click the minimap icon and open **Settings**.\n\nLeft-drag the minimap icon to reposition it. Its position, your settings,\nand your kept ranks are saved per character.\n\n## Settings\n\n| Setting | Default | What it does |\n| --- | --- | --- |\n| **Auto-replace lower ranks** | Off | Upgrades existing and newly detected lower ranks in place. Respects **Keep rank** and waits until you are out of combat with an empty cursor. |\n| **Show minimap button** | On | Shows the minimap icon. If you hide it, type `/ddmabm settings` in chat and turn this setting back on. |\n| **Announce newly learned ranks in chat** | On | Reports lower ranks still on your bars after you learn a higher one. |\n\n## License\n\n[MIT](https://github.com/thechainercygnus/DDMActionBarManager/blob/main/LICENSE). World of Warcraft names and game data belong to Blizzard\nEntertainment. This project isn't affiliated with or endorsed by Blizzard.",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-18",
+      "notes": "**Full Changelog**: https://github.com/thechainercygnus/DDMActionBarManager/commits/v0.1.0"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/thechainercygnus/DDMActionBarManager/main/screenshots/new-rank-chat-alert.png",
+    "https://raw.githubusercontent.com/thechainercygnus/DDMActionBarManager/main/screenshots/rank-upgrade-window.png",
+    "https://raw.githubusercontent.com/thechainercygnus/DDMActionBarManager/main/screenshots/minimap-icon-annotated.png",
+    "https://raw.githubusercontent.com/thechainercygnus/DDMActionBarManager/main/screenshots/minimap-icon.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-18",
+    "releaseDates": [
+      "2026-11-18"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DDMActionBarManager"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariablesPerCharacter": [
+      "DDMActionBarManagerDB"
+    ]
+  }
+}

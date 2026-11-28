@@ -77,7 +77,10 @@
     ],
     "optional": [
       "BigWigs",
-      "GTFO"
+      "GTFO",
+      "EXBoss",
+      "NorthernSkyRaidTools",
+      "NaowhSmartReminders"
     ],
     "savedVariables": [
       "NiniToolsDB"

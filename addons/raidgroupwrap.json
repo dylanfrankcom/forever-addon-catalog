@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "raidgroupwrap",
+  "repo": "F0rty-Tw0/RaidGroupWrap",
+  "about": "![Raid Group Wrap logo](https://raw.githubusercontent.com/F0rty-Tw0/RaidGroupWrap/master/.github/assets/logo.png)\n\n[![BuyMeACoffee](https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-donate-yellow.svg)](https://buymeacoffee.com/f0rty_tw0)\n\n# Raid Group Wrap\n\n**Blizzard's raid frames, but eight groups no longer stretch across your whole screen.**\n\n## Why players install it\n\n- **Pick how many groups sit on one line.** Four groups per row turns one long strip into a tidy 4×2 block.\n- **It's Blizzard's raid frames.** Same frames, same order, same spacing. Only the line breaks change.\n- **Works both ways.** Groups side by side wrap into new rows; stacked groups wrap into new columns.\n- **Nothing to learn.** The slider sits right under the Raid Frames settings in Edit Mode.\n\n## Screenshots\n\n  ![Five raid groups wrapped at three groups per row](https://raw.githubusercontent.com/F0rty-Tw0/RaidGroupWrap/master/.github/assets/raid-three-per-row.png)\n  ![Groups Per Row slider under the Raid Frames settings in Edit Mode](https://raw.githubusercontent.com/F0rty-Tw0/RaidGroupWrap/master/.github/assets/edit-mode-slider.png)\n\n## Settings\n\n1. Open **Edit Mode** and click the **Raid Frames**.\n2. Pick one of the **Separate Groups** layouts.\n3. Use the **Groups Per Row** (or **Groups Per Column**) slider under the settings window.\n   Tick **Odds / Evens** to put odd groups first, then even groups, wrapped at your per-row setting (for example 1-3-5-7 over 2-4-6-8 at 4 per row, or 1-3-2-4 in a 20-player raid).\n\n8 is Blizzard's normal layout. Your choice is saved for all your characters.\n\nCombine Groups layouts already have Blizzard's own Row Size option, so the slider only shows for Separate Groups.\n\n## In combat\n\nWoW doesn't let addons move raid frames during combat. If your raid changes mid-fight, or you open Edit Mode in combat, Blizzard's layout shows until combat ends, then your layout comes back on its own. The slider is greyed out while you're in combat.\n\n## Game versions\n\nRetail and WoW: Forever.\n\n## Performance\n\n- No per-frame updates and no timers: it only runs when the game itself rearranges the raid frames.\n- At 8 groups per line it does nothing at all.\n- No libraries.\n\n## License\n\nMIT",
+  "releases": [
+    {
+      "tag": "v1.0.6",
+      "published": "2026-11-04",
+      "notes": "# Changelog\n\nPlayer-friendly release notes for RaidGroupWrap. This file covers the current 1.x series; older series live in [archive/changelog/](https://github.com/F0rty-Tw0/RaidGroupWrap/blob/master/archive/changelog).\n\nAll releases: **1.0.x (current)**\n\n## [Unreleased]\n\n## [1.0.6] - 2026-11-04\n\n- Clicking the \"Odds / Evens\" text now turns the box on or off, and the panel's labels grey out in combat while the settings are locked.\n\n## [1.0.5] - 2026-10-23\n\n- Raid pets now sit under their owner's group when groups wrap, instead of leaving a gap where the last group used to be.\n\n## [1.0.4] - 2026-10-14\n\n- Fixed: \"Odds / Evens\" now simply puts odd groups first, then even groups, and wraps as usual. A 20-player raid at 4 per row now shows one row: 1, 3, 2, 4.\n- \"Odds / Evens\" works the same with stacked groups, and the checkbox reads \"Odds / Evens\" in both layouts.\n\n## [1.0.3] - 2026-10-06\n\n- Fixed: the WoW: Forever beta no longer lists the addon as out of date.\n\n## [1.0.2] - 2026-09-28\n\n- New \"Odds / Evens\" checkbox under the slider: groups fill each column top to bottom, so 4 per row puts groups 1-3-5-7 on top and 2-4-6-8 below. With stacked groups it reads \"Fill Rows First\".\n\n## [1.0.1] - 2026-09-27\n\n- Now available on CurseForge.\n\n## [1.0.0] - 2026-09-28\n\n- First release: choose how many raid groups share one line, and the rest wrap onto a new line.\n- A \"Groups Per Row\" slider sits right under the Raid Frames settings in Edit Mode. With stacked groups it reads \"Groups Per Column\" and extra groups wrap into a new column on the right.\n- 8 keeps Blizzard's normal layout. Your choice is saved for all your characters.\n- Works with both Separate Groups layouts. Combine Groups keeps Blizzard's own Row Size option.\n- Groups keep Blizzard's order and spacing, and the Edit Mode box fits the new shape.\n- Raid pet frames stay where Blizzard puts them.\n- If your raid changes during combat, the groups snap into place as soon as combat ends.\n- The addon list shows the Raid Group Wrap logo.\n- The Groups Per Row slider is greyed out during combat, since raid frames can't be moved until combat ends.\n- Works on Retail and WoW: Forever."
+    },
+    {
+      "tag": "v1.0.5",
+      "published": "2026-10-23",
+      "notes": "# Changelog\n\nPlayer-friendly release notes for RaidGroupWrap. This file covers the current 1.x series; older series live in [archive/changelog/](https://github.com/F0rty-Tw0/RaidGroupWrap/blob/master/archive/changelog).\n\nAll releases: **1.0.x (current)**\n\n## [Unreleased]\n\n## [1.0.5] - 2026-10-23\n\n- Raid pets now sit under their owner's group when groups wrap, instead of leaving a gap where the last group used to be.\n\n## [1.0.4] - 2026-10-14\n\n- Fixed: \"Odds / Evens\" now simply puts odd groups first, then even groups, and wraps as usual. A 20-player raid at 4 per row now shows one row: 1, 3, 2, 4.\n- \"Odds / Evens\" works the same with stacked groups, and the checkbox reads \"Odds / Evens\" in both layouts.\n\n## [1.0.3] - 2026-10-06\n\n- Fixed: the WoW: Forever beta no longer lists the addon as out of date.\n\n## [1.0.2] - 2026-09-28\n\n- New \"Odds / Evens\" checkbox under the slider: groups fill each column top to bottom, so 4 per row puts groups 1-3-5-7 on top and 2-4-6-8 below. With stacked groups it reads \"Fill Rows First\".\n\n## [1.0.1] - 2026-09-27\n\n- Now available on CurseForge.\n\n## [1.0.0] - 2026-09-28\n\n- First release: choose how many raid groups share one line, and the rest wrap onto a new line.\n- A \"Groups Per Row\" slider sits right under the Raid Frames settings in Edit Mode. With stacked groups it reads \"Groups Per Column\" and extra groups wrap into a new column on the right.\n- 8 keeps Blizzard's normal layout. Your choice is saved for all your characters.\n- Works with both Separate Groups layouts. Combine Groups keeps Blizzard's own Row Size option.\n- Groups keep Blizzard's order and spacing, and the Edit Mode box fits the new shape.\n- Raid pet frames stay where Blizzard puts them.\n- If your raid changes during combat, the groups snap into place as soon as combat ends.\n- The addon list shows the Raid Group Wrap logo.\n- The Groups Per Row slider is greyed out during combat, since raid frames can't be moved until combat ends.\n- Works on Retail and WoW: Forever."
+    },
+    {
+      "tag": "v1.0.4",
+      "published": "2026-10-14",
+      "notes": "# Changelog\n\nPlayer-friendly release notes for RaidGroupWrap. This file covers the current 1.x series; older series live in [archive/changelog/](https://github.com/F0rty-Tw0/RaidGroupWrap/blob/master/archive/changelog).\n\nAll releases: **1.0.x (current)**\n\n## [Unreleased]\n\n## [1.0.4] - 2026-10-14\n\n- Fixed: \"Odds / Evens\" now simply puts odd groups first, then even groups, and wraps as usual. A 20-player raid at 4 per row now shows one row: 1, 3, 2, 4.\n- \"Odds / Evens\" works the same with stacked groups, and the checkbox reads \"Odds / Evens\" in both layouts.\n\n## [1.0.3] - 2026-10-06\n\n- Fixed: the WoW: Forever beta no longer lists the addon as out of date.\n\n## [1.0.2] - 2026-09-28\n\n- New \"Odds / Evens\" checkbox under the slider: groups fill each column top to bottom, so 4 per row puts groups 1-3-5-7 on top and 2-4-6-8 below. With stacked groups it reads \"Fill Rows First\".\n\n## [1.0.1] - 2026-09-27\n\n- Now available on CurseForge.\n\n## [1.0.0] - 2026-09-28\n\n- First release: choose how many raid groups share one line, and the rest wrap onto a new line.\n- A \"Groups Per Row\" slider sits right under the Raid Frames settings in Edit Mode. With stacked groups it reads \"Groups Per Column\" and extra groups wrap into a new column on the right.\n- 8 keeps Blizzard's normal layout. Your choice is saved for all your characters.\n- Works with both Separate Groups layouts. Combine Groups keeps Blizzard's own Row Size option.\n- Groups keep Blizzard's order and spacing, and the Edit Mode box fits the new shape.\n- Raid pet frames stay where Blizzard puts them.\n- If your raid changes during combat, the groups snap into place as soon as combat ends.\n- The addon list shows the Raid Group Wrap logo.\n- The Groups Per Row slider is greyed out during combat, since raid frames can't be moved until combat ends.\n- Works on Retail and WoW: Forever."
+    },
+    {
+      "tag": "v1.0.3",
+      "published": "2026-10-06",
+      "notes": "# Changelog\n\nPlayer-friendly release notes for RaidGroupWrap. This file covers the current 1.x series; older series live in [archive/changelog/](https://github.com/F0rty-Tw0/RaidGroupWrap/blob/master/archive/changelog).\n\nAll releases: **1.0.x (current)**\n\n## [Unreleased]\n\n## [1.0.3] - 2026-10-06\n\n- Fixed: the WoW: Forever beta no longer lists the addon as out of date.\n\n## [1.0.2] - 2026-09-28\n\n- New \"Odds / Evens\" checkbox under the slider: groups fill each column top to bottom, so 4 per row puts groups 1-3-5-7 on top and 2-4-6-8 below. With stacked groups it reads \"Fill Rows First\".\n\n## [1.0.1] - 2026-09-27\n\n- Now available on CurseForge.\n\n## [1.0.0] - 2026-09-28\n\n- First release: choose how many raid groups share one line, and the rest wrap onto a new line.\n- A \"Groups Per Row\" slider sits right under the Raid Frames settings in Edit Mode. With stacked groups it reads \"Groups Per Column\" and extra groups wrap into a new column on the right.\n- 8 keeps Blizzard's normal layout. Your choice is saved for all your characters.\n- Works with both Separate Groups layouts. Combine Groups keeps Blizzard's own Row Size option.\n- Groups keep Blizzard's order and spacing, and the Edit Mode box fits the new shape.\n- Raid pet frames stay where Blizzard puts them.\n- If your raid changes during combat, the groups snap into place as soon as combat ends.\n- The addon list shows the Raid Group Wrap logo.\n- The Groups Per Row slider is greyed out during combat, since raid frames can't be moved until combat ends.\n- Works on Retail and WoW: Forever."
+    },
+    {
+      "tag": "v1.0.2",
+      "published": "2026-09-28",
+      "notes": "# Changelog\n\nPlayer-friendly release notes for RaidGroupWrap. This file covers the current 1.x series; older series live in [archive/changelog/](https://github.com/F0rty-Tw0/RaidGroupWrap/blob/master/archive/changelog).\n\nAll releases: **1.0.x (current)**\n\n## [Unreleased]\n\n## [1.0.2] - 2026-09-28\n\n- New \"Odds / Evens\" checkbox under the slider: groups fill each column top to bottom, so 4 per row puts groups 1-3-5-7 on top and 2-4-6-8 below. With stacked groups it reads \"Fill Rows First\".\n\n## [1.0.1] - 2026-09-27\n\n- Now available on CurseForge.\n\n## [1.0.0] - 2026-09-28\n\n- First release: choose how many raid groups share one line, and the rest wrap onto a new line.\n- A \"Groups Per Row\" slider sits right under the Raid Frames settings in Edit Mode. With stacked groups it reads \"Groups Per Column\" and extra groups wrap into a new column on the right.\n- 8 keeps Blizzard's normal layout. Your choice is saved for all your characters.\n- Works with both Separate Groups layouts. Combine Groups keeps Blizzard's own Row Size option.\n- Groups keep Blizzard's order and spacing, and the Edit Mode box fits the new shape.\n- Raid pet frames stay where Blizzard puts them.\n- If your raid changes during combat, the groups snap into place as soon as combat ends.\n- The addon list shows the Raid Group Wrap logo.\n- The Groups Per Row slider is greyed out during combat, since raid frames can't be moved until combat ends.\n- Works on Retail and WoW: Forever."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/F0rty-Tw0/RaidGroupWrap/master/.github/assets/raid-three-per-row.png",
+    "https://raw.githubusercontent.com/F0rty-Tw0/RaidGroupWrap/master/.github/assets/edit-mode-slider.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-10-23",
+      "2026-10-14",
+      "2026-10-06",
+      "2026-09-28",
+      "2026-09-27",
+      "2026-09-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RaidGroupWrap"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "RaidGroupWrapDB"
+    ]
+  }
+}

@@ -5,6 +5,12 @@
   "about": "[![Discord](https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/A3g5qZqtdc) [![Patreon](https://img.shields.io/badge/patreon-red?style=for-the-badge&logo=patreon&logoColor=white)](http://patreon.com/rbgdev) [![Ko-fi](https://img.shields.io/badge/ko--fi-6E9FEB?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/rbgdev) [![PayPal](https://img.shields.io/badge/paypal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/ncp/payment/9TC7LNDM8EGJG) [![GitHub](https://img.shields.io/badge/github-gray?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sponsors/rbgdevx)\n\nNow supports WoW Forever!\n\n###### **HEALTH/POWER NOT AVAILABLE ALWAYS == ONLY FOR THE FOLLOWING**\n\n*   target\n*   focus\n*   nameplate\n*   flag/orb carrier\n\n###### **SPEC ICON == GONE**\n\n*   i can however display the spec name at least\n\n###### **ROLES ARE SECRET == NO ROLE SORTING**\n\n*   this also means no role icon\n*   i can no only sort by class and name",
   "releases": [
     {
+      "tag": "v12.1.5.9",
+      "name": "r12.1.5.9",
+      "published": "2026-11-27",
+      "notes": "- Added MoP Classic support for arenas and battlegrounds\n- Removing global enable arenas/battlegrounds in favor of letting each group size control enabling\n- Update roster building from the scoreboard to be more dynamic\n- Added cast bar icon visibility and size controls\n- Fixing bugs in arena\n- Fixed target and focus clicks on flag and orb carriers during combat when objectives changing carriers\n- Improved profile creation, reset, import, and export\n- Added `/bgef` as a shortcut to the settings"
+    },
+    {
       "tag": "v12.1.5.8",
       "name": "r12.1.5.8",
       "published": "2026-11-16",
@@ -21,8 +27,9 @@
     "stars": 1,
     "openIssues": 0,
     "contributors": 2,
-    "lastRelease": "2026-11-16",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-11-16",
       "2026-11-15"
     ]
@@ -32,6 +39,7 @@
       "BattleGroundEnemiesFixed"
     ],
     "editions": [
+      "classic",
       "forever",
       "retail"
     ],

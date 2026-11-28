@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "zsbt",
+  "repo": "Zorellion/ZSBT",
+  "about": "# Zore's Scrolling Battle Text (ZSBT)\n\nScrolling battle text for World of Warcraft Retail 12.x.\n\nZSBT is built to behave safely under modern Retail restrictions (\"secret values\" / protected actions) so it stays stable in open world, dungeons, and raids.\n\n## Why ZSBT\n- Built for Retail 12.x restrictions (avoids taint/blocked-action patterns)\n- Multiple independent scroll areas with a scrolling-text animation engine\n- Strong spam control (merge/throttle/thresholds) so big pulls stay readable\n- Custom alerts system (Notifications + Cooldowns + Triggers)\n\n## Features\n- Scroll areas & animations:\n  - Unlimited scroll areas (move/size/anchor)\n  - Parabola, Fireworks, Waterfall, Straight, Static\n  - Per-area font override (or use master font)\n- Core combat text:\n  - Incoming damage/healing (thresholds, misses, overheal options)\n  - Outgoing damage/healing (thresholds, misses, auto-attack options)\n  - Optional: use Blizzard Floating Combat Text for outgoing only (keep ZSBT incoming + alerts)\n  - Crit emphasis: separate crit configuration blocks + sticky crit styling\n- Alerts & notifications:\n  - Notifications system with per-category toggles\n  - Loot alerts (items/money/currency) with templates + filters\n  - Trade skill alerts (skill ups + learned recipes/spells)\n- Interrupt Alerts:\n  - Successful interrupts + cast-stopping stuns/CC (optional)\n  - Templates: `%t`=target, `%s`=your stopping ability\n  - One shared config block for routing/style/sound\n  - Optional local chat output for successful interrupts (prints to your chat frame)\n- Cooldowns:\n  - Cooldown-ready alerts for tracked spells (text + sound)\n- Custom Triggers:\n  - Build alerts for auras, cooldown ready, spell usable, spellcast succeeded, low health warning,\n    resource thresholds, combat state, target changes, spec changes, equipment changes, and killing blows\n  - Per-trigger styling (color/sound/sticky/font override)\n- UT Announcer:\n  - Unreal Tournament–style multi-kill announcer implemented as triggers (UT_KILL_1 .. UT_KILL_7)\n  - One-click install of shipped presets (merge-only)\n- Spam Control (readability tools):\n  - AoE hit condensing/merging\n  - Global min thresholds for damage/healing\n  - Per-spell outgoing rules (throttle/routing/style overrides)\n  - Buff rules for notifications (whitelist mode + per-buff throttles)\n- Pets:\n  - Pet/guardian damage display (aggregation + merge window + thresholds)\n  - Optional incoming pet damage + incoming pet healing streams\n- Media:\n  - LibSharedMedia font and sound support\n  - Custom media registration for your own fonts/sounds\n- Quality-of-life:\n  - Optional Quick Control Bar (toggle tuning + unlock/lock scroll areas)\n  - Preset profiles (Melee/Ranged/Tank/Healer/Pet Class)\n  - Diagnostics / debug logging tools\n\n## Quick start\n- `/zsbt` -> `General`: enable addon + choose master font\n- `/zsbt` -> `Display` -> `Scroll Areas`: place/size Incoming, Outgoing, Notifications\n- `/zsbt` -> `Alerts` -> `Notifications`: enable categories you want\n\n## Configuration layout\n- `General`: master options, Blizzard combat text controls, tuning, fonts, and number formatting\n- `Display`: scroll areas and media\n- `Alerts`: notifications, triggers, and cooldown alerts\n- `Combat Text`: incoming, outgoing, pets, and spam control\n- `Help and Support`: built-in help, troubleshooting, and debug tools\n\n## Commands\n- `/zsbt` — Open configuration\n- `/zsbt debug show` — Show current default + per-channel debug levels\n- `/zsbt debug <0-5>` — Set global default debug level\n- `/zsbt debug <channel> <0-5>` — Set a per-channel debug level\n- `/zsbt reset` — Reset to defaults\n- `/zsbt minimap` — Toggle minimap button\n- `/zsbt version` — Show version\n\n## Quick Control Bar\nAn optional on-screen bar that can be enabled in:\n- `/zsbt` -> `General` -> `Enable Quick Control Bar`\n\nIt provides:\n- Instance tuning dropdown\n- Open-world tuning dropdown\n- Unlock/Lock button for scroll area positioning\n\n## Documentation\n- [Getting Started](https://github.com/Zorellion/ZSBT/blob/main/Docs/01-Getting-Started.md)\n- [General](https://github.com/Zorellion/ZSBT/blob/main/Docs/00-General.md)\n- [Combat Log Settings](https://github.com/Zorellion/ZSBT/blob/main/Docs/13-Combat-Log-Settings.md)\n- [Scroll Areas](https://github.com/Zorellion/ZSBT/blob/main/Docs/02-Scroll-Areas.md)\n- [Incoming](https://github.com/Zorellion/ZSBT/blob/main/Docs/03-Incoming.md)\n- [Outgoing](https://github.com/Zorellion/ZSBT/blob/main/Docs/04-Outgoing.md)\n- [Notifications](https://github.com/Zorellion/ZSBT/blob/main/Docs/12-Notifications.md)\n- [Pets](https://github.com/Zorellion/ZSBT/blob/main/Docs/05-Pets.md)\n- [Spam Control](https://github.com/Zorellion/ZSBT/blob/main/Docs/06-Spam-Control.md)\n- [Triggers](https://github.com/Zorellion/ZSBT/blob/main/Docs/07-Triggers.md)\n- [Cooldowns](https://github.com/Zorellion/ZSBT/blob/main/Docs/08-Cooldowns.md)\n- [Media](https://github.com/Zorellion/ZSBT/blob/main/Docs/09-Media.md)\n- [UT Announcer](https://github.com/Zorellion/ZSBT/blob/main/Docs/10-UT-Announcer.md)\n- [Diagnostics](https://github.com/Zorellion/ZSBT/blob/main/Docs/11-Diagnostics.md)\n- [Class Modules](https://github.com/Zorellion/ZSBT/blob/main/Docs/15-Class-Modules.md)\n- [School Colors](https://github.com/Zorellion/ZSBT/blob/main/Docs/16-School-Colors.md)\n\n## Author\nZorellion",
+  "releases": [
+    {
+      "tag": "v4.0.10",
+      "published": "2026-11-27",
+      "notes": "# Zore's Scrolling Battle Text\n\n## [v4.0.10](https://github.com/Zorellion/ZSBT/tree/v4.0.10) (2026-11-27)\n[Full Changelog](https://github.com/Zorellion/ZSBT/compare/v4.0.9...v4.0.10) [Previous Releases](https://github.com/Zorellion/ZSBT/releases)\n\n- Release v4.0.10"
+    },
+    {
+      "tag": "v4.0.9",
+      "published": "2026-11-26",
+      "notes": "# Zore's Scrolling Battle Text\n\n## [v4.0.9](https://github.com/Zorellion/ZSBT/tree/v4.0.9) (2026-11-26)\n[Full Changelog](https://github.com/Zorellion/ZSBT/compare/v4.0.8...v4.0.9) [Previous Releases](https://github.com/Zorellion/ZSBT/releases)\n\n- Release v4.0.9  \n    Generated with [Devin](https://devin.ai/)  \n    Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>"
+    },
+    {
+      "tag": "v4.0.8",
+      "published": "2026-11-26",
+      "notes": "# Zore's Scrolling Battle Text\n\n## [v4.0.8](https://github.com/Zorellion/ZSBT/tree/v4.0.8) (2026-11-26)\n[Full Changelog](https://github.com/Zorellion/ZSBT/compare/v4.0.7...v4.0.8) [Previous Releases](https://github.com/Zorellion/ZSBT/releases)\n\n- Release v4.0.8  \n    Generated with [Devin](https://devin.ai/)  \n    Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>"
+    },
+    {
+      "tag": "v4.0.7",
+      "published": "2026-11-26",
+      "notes": "# Zore's Scrolling Battle Text\n\n## [v4.0.7](https://github.com/Zorellion/ZSBT/tree/v4.0.7) (2026-11-26)\n[Full Changelog](https://github.com/Zorellion/ZSBT/compare/v4.0.6...v4.0.7) [Previous Releases](https://github.com/Zorellion/ZSBT/releases)\n\n- Release v4.0.7  \n    Generated with [Devin](https://devin.ai/)  \n    Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>"
+    },
+    {
+      "tag": "v4.0.6",
+      "published": "2026-11-26",
+      "notes": "# Zore's Scrolling Battle Text\n\n## [v4.0.6](https://github.com/Zorellion/ZSBT/tree/v4.0.6) (2026-11-26)\n[Full Changelog](https://github.com/Zorellion/ZSBT/compare/v4.0.5...v4.0.6) [Previous Releases](https://github.com/Zorellion/ZSBT/releases)\n\n- Comment and doc cleanup  \n    Generated with [Devin](https://devin.ai/)  \n    Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>  \n- Release v4.0.6"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 3,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10",
+      "2026-11-10"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ZSBT"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibSharedMedia-3.0"
+    ],
+    "savedVariables": [
+      "ZSBTDB"
+    ]
+  }
+}

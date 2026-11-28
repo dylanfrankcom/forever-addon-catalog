@@ -91,16 +91,8 @@
       "FellowshipLedger"
     ],
     "editions": [
-      "forever"
-    ],
-    "optional": [
-      "Questie"
-    ],
-    "savedVariables": [
-      "FellowshipLedgerDB"
-    ],
-    "savedVariablesPerCharacter": [
-      "FellowshipLedgerBackupDB"
+      "forever",
+      "retail"
     ]
   }
 }

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "neutzecompanion",
+  "repo": "neutze/wow-neutze-companion",
+  "about": "![Neutze's Companion logo](https://raw.githubusercontent.com/neutze/wow-neutze-companion/main/art/logo-400.png)\n\n# Neutze's Companion\n\nOne companion pet per character for **World of Warcraft: Forever**, always out.\n\nType the pet you want on this character: `/nc Mechanical Squirrel`, or use Options > AddOns > Neutze's Pantry > Neutze's Companion. Whenever you have no pet out, it's summoned again: after login, loading screens, landing, dismounting, reviving and eating. A pet you call by hand is left alone.\n\n- Never summons in combat, while stealthed, invisible or feigning death, mounted, on a flight path, casting or eating.\n- Options: put the pet away in stealth (on by default), pause in dungeons, raids and battlegrounds.\n- Writes a character macro **Companion** with the pet's icon, so you can call it from your bar.\n- **Requires [Neutze's Pantry](https://github.com/neutze/wow-neutze-pantry)**: install it too. This add-on's options page sits under Neutze's Pantry. The field also shows at the bottom of `/np`.\n- Turn off AutoCompanion if you use it, so the two don't fight.\n\n![Companion field](https://raw.githubusercontent.com/neutze/wow-neutze-companion/main/screenshots/companion-field.png)\n\n## Install\nCurseForge app, or download `NeutzeCompanion-v0.0.1.zip` from [Releases](https://github.com/neutze/wow-neutze-companion/releases) into `World of Warcraft/_forever_/Interface/AddOns/`.\n\nPart of the **Neutze's** suite: [Pantry](https://github.com/neutze/wow-neutze-pantry) · [Stable](https://github.com/neutze/wow-neutze-stable) · [Macros](https://github.com/neutze/wow-neutze-macros)\n\n## License\nMIT",
+  "releases": [
+    {
+      "tag": "v0.0.1",
+      "published": "2026-11-27",
+      "notes": "# Changelog\n\n## v0.0.1 — 2026-11-27\n- First release: one companion pet per character, summoned again whenever no pet is out (never in combat, stealth, mounted, on a taxi, casting or eating).\n- Options panel and /nc; character macro \"Companion\" with the pet's icon.\n- Field at the bottom of /np when Neutze's Pantry is installed."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/neutze/wow-neutze-companion/main/screenshots/companion-field.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NeutzeCompanion"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "requires": [
+      "NeutzePantry"
+    ],
+    "savedVariablesPerCharacter": [
+      "NeutzeCompanionDB"
+    ]
+  }
+}

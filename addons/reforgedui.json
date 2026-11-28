@@ -107,12 +107,11 @@
     "editions": [
       "forever"
     ],
-    "optional": [
-      "BugSack",
-      "BugGrabber"
+    "requires": [
+      "ReforgedUI"
     ],
-    "savedVariables": [
-      "ReforgedUIDB"
+    "optional": [
+      "BetterBags"
     ]
   }
 }

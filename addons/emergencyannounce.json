@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "id": "emergencyannounce",
+  "repo": "illepic/EmergencyAnnounce",
+  "about": "# EmergencyAnnounce\n\nA small WoW: Forever addon that announces two kinds of cooldown the moment your cast succeeds:\n\n- **Protective cooldowns on others:** it whispers the person and tells your party or raid. Blessing of Protection, Blessing of Freedom, Divine Intervention, Innervate, Rebirth, Fear Ward, Soulstone.\n- **Your own defensive cooldowns:** it tells your party or raid. Last Stand, Shield Wall, Frenzied Regeneration, and more you can switch on.\n\n## Install\n\n1. Download `EmergencyAnnounce-<version>.zip` from the [Releases page](https://github.com/illepic/EmergencyAnnounce/releases/latest).\n2. Extract it into `World of Warcraft\\_forever_\\Interface\\AddOns`, so that you end up with `AddOns\\EmergencyAnnounce\\EmergencyAnnounce.toc`.\n3. Restart the game, then type `/ea` to open the options.\n\n## Protective cooldowns on others\n\nWhispered to the person and announced to your group.\n\n| Class | Spell | Option | Starts |\n| --- | --- | --- | --- |\n| Paladin | Blessing of Protection | `bop` | On |\n| Paladin | Blessing of Freedom | `freedom` | On |\n| Paladin | Divine Intervention | `di` | On |\n| Paladin | Lay on Hands | `loh` | Off |\n| Paladin | Blessing of Sacrifice | `sacrifice` | Off |\n| Druid | Innervate | `innervate` | On |\n| Druid | Rebirth | `rebirth` | On |\n| Priest | Fear Ward | `fearward` | On |\n| Priest | Power Infusion | `pi` | Off |\n| Warlock | Soulstone | `soulstone` | On |\n\n## Your own defensive cooldowns\n\nAnnounced to your group. Not in a group, nothing is sent, since there's no group to tell.\n\n| Class | Spell | Option | Starts |\n| --- | --- | --- | --- |\n| Warrior | Last Stand | `laststand` | On |\n| Warrior | Shield Wall | `shieldwall` | On |\n| Warrior | Retaliation | `retaliation` | Off |\n| Druid | Frenzied Regeneration | `frenziedregen` | On |\n| Druid | Barkskin | `barkskin` | Off |\n| Paladin | Divine Shield | `divineshield` | Off |\n| Paladin | Divine Protection | `divineprotection` | Off |\n| Paladin | Templar's Bulwark | `bulwark` | Off |\n| Mage | Ice Block | `iceblock` | Off |\n| Rogue | Evasion | `evasion` | Off |\n| Hunter | Deterrence | `deterrence` | Off |\n\nYou only see your own class's spells. Every rank of each spell counts.\n\n## Features\n\n- **Only successful casts are announced**, for both kinds. Pressing the key repeatedly, being out of range or on cooldown, or being interrupted sends nothing.\n- **Whispers go to real players only**, never to you and never to NPCs. Only protective cooldowns on others are whispered.\n- **Party, raid or instance chat** is picked for you, and in a raid you choose raid chat, raid warning, your own subgroup or nothing. Not in a group, a protective cooldown on someone is only whispered to them, and your own defensive cooldowns aren't announced.\n- **Separate wording** for protective cooldowns on others and for your own defensive cooldowns.\n- **Works in any client language.** Spells are matched by the game's own spell names.\n- **Options page and profiles.** Esc > Options > AddOns > EmergencyAnnounce. Spell icons, the game's own spell descriptions on hover, and live previews of your messages in chat colours. Share one setup across characters or keep one per character.\n\n## How a cast is confirmed\n\nEmergencyAnnounce announces a spell once the game confirms your cast succeeded:\n\n1. When you press the spell, the game reports the cast and who it's aimed at. EmergencyAnnounce notes it but sends nothing yet.\n2. When the game confirms that same cast succeeded, EmergencyAnnounce announces it. The confirmation is matched to the cast by the game's own ID for that one cast, and it has to arrive within 5 seconds.\n\nIf the cast fails (out of range, on cooldown, out of mana, interrupted), no confirmation comes and nothing is sent.\n\nWhat it doesn't check is what happens on the target afterwards. A successful cast means the spell went off, not that its effect stayed: a Rebirth still has to be accepted, and a blessing can be removed straight away. EmergencyAnnounce doesn't watch the target's buffs or read the combat log.\n\n## Party, raid and instance groups\n\nThe group message goes to whichever chat fits the group you're in at that moment:\n\n| You're in | Group message goes to |\n| --- | --- |\n| A party | Party chat |\n| A raid | Your choice (see below); raid chat by default |\n| A group the game made for you (dungeon finder, battleground) | Instance chat |\n| Not in a group | No group message. A protective cooldown on someone, such as a stranger you save while questing, is only whispered to them. Your own defensive cooldowns aren't announced, since there's no group to tell. |\n\n### In a raid\n\nChoose where the group message goes under **Announce > In a raid** in the options, or with `/ea raid <choice>`:\n\n| Choice | Command | Group message goes to |\n| --- | --- | --- |\n| Raid chat (default) | `/ea raid raid` | The whole raid |\n| Raid warning | `/ea raid warning` | The big warning text in the middle of everyone's screen. Only the raid leader and assistants can send it, so anyone else's message goes to raid chat instead. |\n| My subgroup only | `/ea raid subgroup` | Party chat, which in a raid reaches only your own five-person group |\n| Don't announce | `/ea raid off` | Nothing; whispers are still sent |\n\nIn a raid, the whisper still reaches anyone in the raid, not just your own subgroup.\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/ea` | Open the options page |\n| `/ea help` | List every option you can change from chat |\n| `/ea whisper [on\\|off]` | Whisper the person you cast your protective cooldown on |\n| `/ea group [on\\|off]` | Tell your party or raid (both kinds) |\n| `/ea raid <raid\\|warning\\|subgroup\\|off>` | Where the group message goes in a raid |\n| `/ea <spell option> [on\\|off]` | Turn a spell on or off, for example `/ea innervate on` or `/ea laststand off` |\n| `/ea whispertext <text>` | Whisper wording for protective cooldowns on others. `{spell}` and `{target}` are filled in |\n| `/ea grouptext <text>` | Group wording for protective cooldowns on others |\n| `/ea selftext <text>` | Group wording for your own defensive cooldowns |\n| `/ea test` | Preview the messages in your own chat |\n\nDefault wording:\n\n| Message | Default |\n| --- | --- |\n| Protective cooldown on others, whisper | `{spell} on you!` |\n| Protective cooldown on others, group | `{spell} on {target}` |\n| Your own defensive cooldown, group | `Used {spell}!` |\n\n`{spell}` becomes a link showing the spell's name, with no rank. Hover or click it in chat to see the game's own tooltip for the exact rank you cast. Each message must contain `{spell}` and can be up to 150 characters, which leaves room for the link and the name within the game's chat limit.\n\n## Limits\n\n- WoW: Forever only (interface 16001).\n- The game sometimes blocks addon chat messages. When that happens, EmergencyAnnounce prints a line in your own chat instead of sending.\n\n## Building and releasing\n\nCheck the code with [luacheck](https://github.com/lunarmodules/luacheck) (settings in `.luacheckrc`; the bundled Ace3 libraries are skipped):\n\n```powershell\nluacheck .\n```\n\nBuild a zip locally (for testing):\n\n```powershell\npowershell -ExecutionPolicy Bypass -File .\\build.ps1\n```\n\nThis writes `dist\\EmergencyAnnounce-<version>.zip`.\n\nTo release a new version:\n\n1. Add a `## X.Y.Z` section at the top of `CHANGELOG.md` and set `## Version: X.Y.Z` in `EmergencyAnnounce.toc`.\n2. Commit and push.\n3. Tag and push the tag:\n\n   ```powershell\n   git tag -a vX.Y.Z -m \"EmergencyAnnounce X.Y.Z\"\n   git push origin vX.Y.Z\n   ```\n\nThe [Release workflow](https://github.com/illepic/EmergencyAnnounce/blob/main/.github/workflows/release.yml) then builds the zip, publishes the GitHub release with that version's changelog section, and uploads the same zip and notes to CurseForge, marked with the newest WoW Forever game version. Tags ending in `-beta` or `-alpha` are published as beta or alpha. To publish an existing tag again, use **Actions > Release > Run workflow** and enter the tag.\n\n## Credits\n\n- Built on [Ace3](https://github.com/WoWUIDev/Ace3) (AceAddon, AceConsole, AceDB, AceDBOptions, AceLocale, AceGUI, AceConfig), included in `Libs` under its own licence (`Libs/Ace3-LICENSE.txt`).\n- Spell availability on WoW: Forever checked against [talentsforever.com](https://talentsforever.com/) data, licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).\n\n## Licence\n\nCopyright (C) 2026 Garreth Stonecrash. GPL-3.0-or-later. See [LICENSE](https://github.com/illepic/EmergencyAnnounce/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v1.3.5",
+      "name": "EmergencyAnnounce 1.3.5",
+      "published": "2026-11-26",
+      "notes": "- Fixed: a protective cooldown cast on yourself could whisper you and name you in the group message, instead of saying \"myself\". The addon now recognizes you by your character, not by how your name is written, so a surname no longer gets in the way.\n\n**Install:** download `EmergencyAnnounce-1.3.5.zip` and extract it into `World of Warcraft\\_forever_\\Interface\\AddOns`, then restart the game. Type `/ea` in game for the options."
+    },
+    {
+      "tag": "v1.3.4",
+      "name": "EmergencyAnnounce 1.3.4",
+      "published": "2026-11-25",
+      "notes": "- Each spell's name is looked up once at login and reused for chat links, the options page and the previews.\n\n**Install:** download `EmergencyAnnounce-1.3.4.zip` and extract it into `World of Warcraft\\_forever_\\Interface\\AddOns`, then restart the game. Type `/ea` in game for the options."
+    },
+    {
+      "tag": "v1.3.3",
+      "name": "EmergencyAnnounce 1.3.3",
+      "published": "2026-11-25",
+      "notes": "- Fixed: spells with several ranks, such as Blessing of Protection, came out garbled in chat. The spell link now shows just the spell's name, with no rank; its tooltip still shows the rank you cast.\n\n**Install:** download `EmergencyAnnounce-1.3.3.zip` and extract it into `World of Warcraft\\_forever_\\Interface\\AddOns`, then restart the game. Type `/ea` in game for the options."
+    },
+    {
+      "tag": "v1.3.2",
+      "name": "EmergencyAnnounce 1.3.2",
+      "published": "2026-11-25",
+      "notes": "- Only ever sees your own casts: the game now passes EmergencyAnnounce your casts alone, instead of every cast around you.\n- Lighter: looks up only your own class's spells, remembers each spell it has checked, and reads your name once at login.\n- No longer needs the AceEvent library.\n\n**Install:** download `EmergencyAnnounce-1.3.2.zip` and extract it into `World of Warcraft\\_forever_\\Interface\\AddOns`, then restart the game. Type `/ea` in game for the options."
+    },
+    {
+      "tag": "v1.3.1",
+      "name": "EmergencyAnnounce 1.3.1",
+      "published": "2026-11-25",
+      "notes": "- Clearer wording: spells are announced when your cast succeeds. The README explains how a cast is confirmed and what isn't checked.\n- If chat is blocked when you use one of your own defensive cooldowns, the note in your chat names just the spell.\n- The spell in each message is a chat link to the exact rank you cast. Hover or click it to see the spell's tooltip.\n- Message text can be up to 150 characters, so the filled-in message, link included, stays within the game's chat limit. Longer text is refused with a note instead of failing to send.\n- Smaller code: uses WoW: Forever's own spell, chat and addon functions directly.\n\n**Install:** download `EmergencyAnnounce-1.3.1.zip` and extract it into `World of Warcraft\\_forever_\\Interface\\AddOns`, then restart the game. Type `/ea` in game for the options."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EmergencyAnnounce"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "EmergencyAnnounceDB"
+    ]
+  }
+}

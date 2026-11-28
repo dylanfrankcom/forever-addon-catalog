@@ -72,7 +72,8 @@
       "BetterBags-Themes"
     ],
     "editions": [
-      "forever"
+      "forever",
+      "retail"
     ],
     "requires": [
       "BetterBags"

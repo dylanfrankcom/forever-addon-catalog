@@ -57,8 +57,11 @@
     "editions": [
       "forever"
     ],
+    "requires": [
+      "Pawn"
+    ],
     "savedVariables": [
-      "WowBridgeDB"
+      "Pawn_ForeverDB"
     ]
   }
 }

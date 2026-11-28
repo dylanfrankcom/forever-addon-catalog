@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "attsoundpackslacker",
+  "repo": "Slackluster/ATTSoundpackSlacker",
+  "about": "# ATT Soundpack: Slacker\nA World of Warcraft addon. Download locations: [CurseForge](https://www.curseforge.com/wow/addons/att-soundpack-slacker) | [Wago](https://addons.wago.io/addons/att-soundpack-slacker)\n\n[![](https://media.forgecdn.net/attachments/1439/398/buymeacoffee-png.png)](https://www.buymeacoffee.com/Slackluster)\n\n**ATT Soundpack: Slacker** provides multiple soundpacks for All The Things and changes:\n- Fanfare sound(s) when collecting new things\n- Complete sound(s) when finishing a category of things\n- Remove sound(s) when a thing is removed from the collection\n- RareFind sound(s) when a treasure or rare is detected\n- Death sound(s) when character death occurs\n- Reporting sound(s) when a report can be made\n\nSoundpacks included:\n- Pokémon\n- Kazoo\n- Crash Bandicoot\n- Zelda\n\nA proper example of how to create a soundpack now exists [here](https://github.com/DFortun81/ATT-SoundPack-Template).\n\n## If you are experiencing issues\n- Check if the issue occurs with only this addon enabled, or if the issue is a feature you can disable from the addon's settings menu.\n- If you run into any issues or if you have other feedback, feel free to join the [Discord](https://discord.gg/FwWZZ39kPX) and ask in the `#att-soundpack-slacker` channel, or create a [ticket on GitHub](https://github.com/Slackluster/ATTSoundpackSlacker/issues). :)",
+  "releases": [
+    {
+      "tag": "v29",
+      "published": "2026-11-07",
+      "notes": "# ATT Soundpack: Slacker\n\n## [v29](https://github.com/Slackluster/ATTSoundpackSlacker/tree/v29) (2026-10-14)\n[Full Changelog](https://github.com/Slackluster/ATTSoundpackSlacker/compare/v12.1.0-01...v29) [Previous Releases](https://github.com/Slackluster/ATTSoundpackSlacker/releases)\n\n- TOC bump  \n- TOC bump  \n- Flavour/version compatibility bump"
+    },
+    {
+      "tag": "v12.1.5-01",
+      "published": "2026-10-14",
+      "notes": "# ATT Soundpack: Slacker\n\n## [v12.1.5-01](https://github.com/Slackluster/ATTSoundpackSlacker/tree/v12.1.5-01) (2026-10-14)\n[Full Changelog](https://github.com/Slackluster/ATTSoundpackSlacker/compare/v12.1.0-01...v12.1.5-01) [Previous Releases](https://github.com/Slackluster/ATTSoundpackSlacker/releases)\n\n- TOC bump  \n- TOC bump  \n- Flavour/version compatibility bump"
+    },
+    {
+      "tag": "v12.1.0-01",
+      "published": "2026-08-07",
+      "notes": "# ATT Soundpack: Slacker\n\n## [v12.1.0-01](https://github.com/Slackluster/ATTSoundpackSlacker/tree/v12.1.0-01) (2026-08-04)\n[Full Changelog](https://github.com/Slackluster/ATTSoundpackSlacker/compare/v12.0.7-01...v12.1.0-01) [Previous Releases](https://github.com/Slackluster/ATTSoundpackSlacker/releases)\n\n- TOC bump  \n- Update packager to use actions/checkout@v7  \n- Add AGENTS.md  \n- Add LICENSE  \n- Add notes"
+    },
+    {
+      "tag": "v12.0.7-01",
+      "published": "2026-06-17",
+      "notes": "# ATT Soundpack: Slacker\n\n## [v12.0.7-01](https://github.com/Slackluster/ATTSoundpackSlacker/tree/v12.0.7-01) (2026-06-16)\n[Full Changelog](https://github.com/Slackluster/ATTSoundpackSlacker/compare/v12.0.5-01...v12.0.7-01) [Previous Releases](https://github.com/Slackluster/ATTSoundpackSlacker/releases)\n\n- TOC bump"
+    },
+    {
+      "tag": "v12.0.5-01",
+      "published": "2026-04-24",
+      "notes": "# ATT Soundpack: Slacker\n\n## [v12.0.5-01](https://github.com/Slackluster/ATTSoundpackSlacker/tree/v12.0.5-01) (2026-04-22)\n[Full Changelog](https://github.com/Slackluster/ATTSoundpackSlacker/compare/v12.0.0-01...v12.0.5-01) [Previous Releases](https://github.com/Slackluster/ATTSoundpackSlacker/releases)\n\n- TOC bump  \n- TOC bump"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-10-14",
+      "2026-08-07",
+      "2026-06-17",
+      "2026-04-24",
+      "2026-01-19",
+      "2025-10-08",
+      "2025-08-09",
+      "2025-08-06",
+      "2025-07-07",
+      "2025-05-02",
+      "2025-04-26",
+      "2025-03-24",
+      "2024-08-13",
+      "2024-08-09",
+      "2024-07-24",
+      "2024-05-17",
+      "2024-01-17",
+      "2023-11-12",
+      "2023-11-11",
+      "2023-10-11",
+      "2023-08-24",
+      "2023-07-12",
+      "2023-06-07",
+      "2023-06-02",
+      "2023-05-23",
+      "2023-05-23",
+      "2023-05-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ATTSoundpackSlacker"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "AllTheThings"
+    ]
+  }
+}

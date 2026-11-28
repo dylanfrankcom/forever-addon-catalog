@@ -70,19 +70,6 @@
       "2026-08-10"
     ]
   },
-  "languages": [
-    "deDE",
-    "enUS",
-    "esES",
-    "esMX",
-    "frFR",
-    "itIT",
-    "koKR",
-    "ptBR",
-    "ruRU",
-    "zhCN",
-    "zhTW"
-  ],
   "technical": {
     "folders": [
       "QFXSystemBar",
@@ -95,11 +82,12 @@
       "forever",
       "retail"
     ],
-    "optional": [
-      "QFXAddonManager"
+    "requires": [
+      "QFXSystemBar"
     ],
-    "savedVariables": [
-      "QFXSystemBarDB"
+    "optional": [
+      "QFXWidgets",
+      "QFXAddonManager"
     ]
   }
 }

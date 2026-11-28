@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "elvui-pdbc",
+  "repo": "Myrroddin/elvui_progressive_databars_colours",
+  "about": "# ElvUI Progressive DataBars\n\nThe default DataBars (XP, Honor, Azerite, Reputation) in [ElvUI](https://tukui.org/elvui) are visually simple –– this plugin enhances them with dynamic opacity based on progress. This plugin should work with all other ElvUI plugins, but if it doesn't, file a bug report via the link below.\n\n## Supported WoW Versions\n\n- Classic, which includes Classic Era, hardcore, fresh, and seasons\n- The Burning Crusade Classic\n- Titan Reforged, a Wrath of the Lich King Classic version exclusive to China\n- Mists of Pandaria Classic\n- Retail (currently Midnight)\n- Forever\n\n## The XP DataBar\n\n- Blend the alpha/opacity of the bar as you gain XP\n- Blend the alpha/opacity of quest XP based on pending quest rewards\n- Supported by all WoW versions\n\n## The Reputation DataBar and Tooltip\n\n- Blend the alpha/opacity of the bar as you gain reputation\n- Pre-defined colours which you can change in ElvUI's main settings > DataBars and main settings > Tooltip\n- Optionally fills capped Exalted, friendship, and Renown bars; Paragon continues to show progress toward its next reward\n- Fills the reputation bar at Hated until you start gaining reputation\n- Friendship factions (Mists & Retail) are adjusted based on the number of ranks the faction has, meaning some may display higher than Hated colour to start and cap at Exalted colour\n\n## The Game's Reputation Pane\n\n- Apply the reputation DataBar's colours, fill settings, progress blending, and smoothing to each faction's bar in the game's reputation pane\n- Uses the same friendship rank mapping and supports Paragon and Renown where available\n- Enable it during installation after the Tooltip step, or under Coloured DataBars > Miscellaneous > Reputation\n- Text and icons stay fully opaque for readability\n- Disabling the feature restores the pane's normal appearance\n\n## The Honor DataBar\n\n- Retail only\n- Blend the alpha/opacity of the bar as you gain Honor\n\n## The Azerite Power DataBar\n\n- Retail only\n- Blend the alpha/opacity of the bar as you gain Azerite Power\n- Hidden if you do not have an active Artifact or Azerite item\n\n## Localization\n\nYou can help [contribute translations](https://legacy.curseforge.com/wow/addons/elvui-progressive-databars-colors/localization) so other people around the world of Azeroth can have this glorious AddOn in their native tongues.\n\n## Bugs or Suggestions\n\nDid you find something that isn't working, or thought of an improvement? By all means please [let me know](https://github.com/Myrroddin/elvui_progressive_databars_colours/issues).\n\n## Credits\n\nCredit is due to Blazeflack on the TukUI forums who graciously helped me get going with writing a plugin for ElvUI, and to Torhal on Curseforge who helped me work through some tricky logic. Thank you guys!\n\n## Cookies & Treats\n\nI accept cookies, treats, donations, and game time. If you'd like to support me:\n\n- [PayPal](https://www.paypal.com/paypalme/PVandersypen)\n- [Patreon](https://www.patreon.com/Myrroddin)",
+  "releases": [
+    {
+      "tag": "2.61",
+      "published": "2026-11-04",
+      "notes": "# ElvUI Progressive Colored DataBars\n\n## [2.61](https://github.com/Myrroddin/elvui_progressive_databars_colours/tree/2.61) (2026-11-04)\n[Full Changelog](https://github.com/Myrroddin/elvui_progressive_databars_colours/compare/2.60...2.61) [Previous Releases](https://github.com/Myrroddin/elvui_progressive_databars_colours/releases)\n\n- [All] Update default colors. This will prompt users to run the installer again if they have existing installations  \n- [All] Add **NEW** feature: colorizes the game's reputation pane  \n- [Forever] Add support  \n- [Retail] Bump ToC for patch 12.1.5"
+    },
+    {
+      "tag": "2.60",
+      "published": "2026-08-12",
+      "notes": "# ElvUI Progressive Colored DataBars\n\n## [2.60](https://github.com/Myrroddin/elvui_progressive_databars_colours/tree/2.60) (2026-08-12)\n[Full Changelog](https://github.com/Myrroddin/elvui_progressive_databars_colours/compare/2.59...2.60) [Previous Releases](https://github.com/Myrroddin/elvui_progressive_databars_colours/releases)\n\n- [Retail] Bump ToC for patch 12.1"
+    },
+    {
+      "tag": "2.59",
+      "published": "2026-07-24",
+      "notes": "# ElvUI Progressive Colored DataBars\n\n## [2.59](https://github.com/Myrroddin/elvui_progressive_databars_colours/tree/2.59) (2026-07-24)\n[Full Changelog](https://github.com/Myrroddin/elvui_progressive_databars_colours/compare/2.58...2.59) [Previous Releases](https://github.com/Myrroddin/elvui_progressive_databars_colours/releases)\n\n- [All] Fix startup nil errors"
+    },
+    {
+      "tag": "2.58",
+      "published": "2026-07-22",
+      "notes": "# ElvUI Progressive Colored DataBars\n\n## [2.58](https://github.com/Myrroddin/elvui_progressive_databars_colours/tree/2.58) (2026-07-22)\n[Full Changelog](https://github.com/Myrroddin/elvui_progressive_databars_colours/compare/2.57...2.58) [Previous Releases](https://github.com/Myrroddin/elvui_progressive_databars_colours/releases)\n\n- [Classic] Bump ToC for patch 1.15.9"
+    },
+    {
+      "tag": "2.57",
+      "published": "2026-07-11",
+      "notes": "# ElvUI Progressive Colored DataBars\n\n## [2.57](https://github.com/Myrroddin/elvui_progressive_databars_colours/tree/2.57) (2026-07-11)\n[Full Changelog](https://github.com/Myrroddin/elvui_progressive_databars_colours/compare/2.56...2.57) [Previous Releases](https://github.com/Myrroddin/elvui_progressive_databars_colours/releases)\n\n- [All] Poke to update libraries, stopping an error on load"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-04",
+    "releaseDates": [
+      "2026-11-04",
+      "2026-08-12",
+      "2026-07-24",
+      "2026-07-22",
+      "2026-07-11",
+      "2026-07-10",
+      "2026-06-08",
+      "2026-06-08",
+      "2026-05-04",
+      "2025-08-13",
+      "2024-08-26",
+      "2024-07-24",
+      "2024-07-19",
+      "2024-06-09",
+      "2024-05-13",
+      "2024-05-08",
+      "2024-05-07",
+      "2024-04-06",
+      "2024-03-20",
+      "2024-02-07",
+      "2024-01-28",
+      "2024-01-17",
+      "2023-11-25",
+      "2023-11-16",
+      "2023-11-08",
+      "2023-10-16",
+      "2023-09-07",
+      "2023-09-07",
+      "2023-07-25",
+      "2023-07-11",
+      "2023-07-11",
+      "2023-05-06",
+      "2023-04-05",
+      "2023-03-21",
+      "2023-01-24",
+      "2023-01-12",
+      "2022-12-03",
+      "2022-11-29",
+      "2022-11-28",
+      "2022-11-27",
+      "2022-10-27",
+      "2022-10-27",
+      "2022-10-27",
+      "2022-09-05",
+      "2022-08-16",
+      "2022-05-31",
+      "2022-05-20",
+      "2022-05-15",
+      "2022-05-13",
+      "2022-05-13"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "ElvUI_PDBC"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "ElvUI"
+    ],
+    "optional": [
+      "LibAboutPanel-2.0"
+    ]
+  }
+}

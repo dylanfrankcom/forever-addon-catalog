@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "cvaratlas",
+  "repo": "Mimezu/forever-CVarAtlas",
+  "releases": [
+    {
+      "tag": "v0.3.0",
+      "name": "CVar Atlas 0.3.0",
+      "published": "2026-11-27",
+      "notes": "**Download `CVarAtlas-0.3.0.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game and type `/cvaratlas`.\n\nCaptures every console variable and command the client has registered (help, defaults, flags) into its SavedVariables file after `/reload` or logout.\n\nFirst release on GitHub."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "CVarAtlas"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "CVarAtlasDB"
+    ]
+  }
+}

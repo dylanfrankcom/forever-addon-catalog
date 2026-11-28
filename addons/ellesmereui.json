@@ -5,6 +5,11 @@
   "about": "# EllesmereUI\n\n**Your entire interface in one addon.**\n\nEllesmereUI is a fully modular World of Warcraft UI suite built for players who want complete control without sacrificing performance or simplicity.\n\n**20 modules · One profile · 100% free**\n\n[Official Website](https://ellesmereui.com/) | [Download](https://ellesmereui.com/download) | [Community Presets](https://ellesmereui.com/presets) | [Video Guides](https://ellesmereui.com/guides) | [Patch Notes](https://ellesmereui.com/patch-notes)\n\n## Bug Reports & Feature Requests\n\nGitHub Issues has been retired in favor of our dedicated community hubs.\n\n- **[Bug Tracker](https://ellesmereui.com/bugs)** — Report bugs and follow their progress through development and release.\n- **[Feature Hub](https://ellesmereui.com/features)** — Submit, browse, and vote on feature requests.\n\n## Contributing\n\nCommunity contributions are welcome! If you're interested in contributing to EllesmereUI, please read the guides below before getting started.\n\n- [Contributor Guide](https://ellesmereui.com/spotlight-contributing)\n- [Code & Contribution Guidelines](https://github.com/EllesmereGaming/EllesmereUI/blob/main/.github/CONTRIBUTING.md)\n- [Translation Guidelines](https://github.com/EllesmereGaming/EllesmereUI/blob/main/CONTRIBUTING_TRANSLATIONS.md)",
   "releases": [
     {
+      "tag": "v9.9.6",
+      "published": "2026-11-27",
+      "notes": "Full patch notes can be found in game or on the official EUI website:\n\n[https://ellesmereui.com/patch-notes](https://ellesmereui.com/patch-notes)"
+    },
+    {
       "tag": "v9.9.5",
       "published": "2026-11-26",
       "notes": "Full patch notes can be found in game or on the official EUI website:\n\n[https://ellesmereui.com/patch-notes](https://ellesmereui.com/patch-notes)"
@@ -23,18 +28,14 @@
       "tag": "v9.9.2",
       "published": "2026-11-22",
       "notes": "Full patch notes can be found in game or on the official EUI website:\n\n[https://ellesmereui.com/patch-notes](https://ellesmereui.com/patch-notes)"
-    },
-    {
-      "tag": "v9.9.1",
-      "published": "2026-11-20",
-      "notes": "Full patch notes can be found in game or on the official EUI website:\n\n[https://ellesmereui.com/patch-notes](https://ellesmereui.com/patch-notes)"
     }
   ],
   "stats": {
-    "stars": 290,
-    "contributors": 245,
-    "lastRelease": "2026-11-26",
+    "stars": 289,
+    "contributors": 246,
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-11-26",
       "2026-11-25",
       "2026-11-25",
@@ -83,7 +84,6 @@
       "2026-09-28",
       "2026-09-27",
       "2026-09-25",
-      "2026-09-24",
       "2026-09-24"
     ]
   },
@@ -117,8 +117,11 @@
       "forever",
       "retail"
     ],
+    "requires": [
+      "EllesmereUI"
+    ],
     "savedVariables": [
-      "EllesmereUIDB"
+      "EllesmereUIQoLDB"
     ]
   }
 }

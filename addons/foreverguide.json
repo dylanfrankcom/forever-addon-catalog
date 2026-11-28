@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverguide",
+  "repo": "bhuddleston42/ForeverGuide",
+  "about": "# Guide Steward\n\nIndependent navigation combining RestedXP and Shortest Path Forever.\n\nFor **World of Warcraft: Forever** (interface 16001).\n\n- Guide and travel information outside the Daylight interface.\n- RestedXP and SPF integration with optional Ellesmere styling.\n- Saved per-character navigation state and broker access.\n\n## Requirements\n\nRXPGuides, ShortestPathForever\n\nOptional integrations: EllesmereUI, EUI-RestedXP, BeautifulRestedXP_Skin.\n\nA LibDataBroker display such as Bazooka is needed to show broker controls.\n\n## Controls\n\nUse the Forever Guide broker and addon controls.\n\n## Installation\n\nInstall through CurseForge or extract the ZIP into your Forever Interface/AddOns folder. Keep the packaged folder name `ForeverGuide` unchanged; this also preserves existing saved settings. Enable the listed dependencies.\n\n## Publishing\n\nPush a stable annotated version tag matching the TOC, such as `v0.3.8`, to publish. GitHub Actions validates the source and packages a GitHub release; the connected CurseForge native packager handles the CurseForge Release file through its push webhook. No CurseForge publishing token belongs in this repository or its Actions secrets.\n\n## Feedback\n\n[Report an issue](https://github.com/bhuddleston42/ForeverGuide/issues) with the addon version, expected behavior and Lua error if available.\n\n## Testing\n\nRelease packaging and Lua syntax are checked automatically. Included regression tests use simulated game APIs. Real gameplay and combinations of third-party addons can expose additional issues; please report them.",
+  "releases": [
+    {
+      "tag": "v0.3.8",
+      "published": "2026-11-27",
+      "notes": "## 0.3.8\n\n- Published the standalone Guide Steward companion for WoW Forever.\n- Guide and travel information outside the Daylight interface.\n- RestedXP and SPF integration with optional Ellesmere styling.\n- Saved per-character navigation state and broker access.\n- Added stable GitHub-tag releases and automated package validation."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverGuide"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "RXPGuides",
+      "ShortestPathForever"
+    ],
+    "optional": [
+      "EllesmereUI",
+      "EUI-RestedXP",
+      "BeautifulRestedXP_Skin"
+    ],
+    "savedVariables": [
+      "ForeverGuideDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "ForeverGuideCharDB"
+    ]
+  }
+}

@@ -46,7 +46,7 @@
     "https://raw.githubusercontent.com/alexdia25/forever-quest-tint/main/screenshots/ellesmereui.png"
   ],
   "stats": {
-    "stars": 1,
+    "stars": 2,
     "openIssues": 1,
     "contributors": 1,
     "lastRelease": "2026-11-16",
@@ -69,6 +69,7 @@
       "ForeverQuestTint"
     ],
     "editions": [
+      "anniversary",
       "forever"
     ],
     "optional": [

@@ -97,12 +97,6 @@
       "classic_era",
       "forever",
       "retail"
-    ],
-    "requires": [
-      "Blizzard_Communities"
-    ],
-    "savedVariables": [
-      "WCCCDB"
     ]
   }
 }

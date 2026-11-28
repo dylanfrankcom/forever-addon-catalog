@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "dockeddamagemeter",
   "repo": "z0fa/DockedDamageMeter",
-  "about": "# Docked Damage Meter\n\nWorld of Warcraft addon that places your damage meter in a chat tab, replacing the combat log.\n\n- Project on Curse: https://www.curseforge.com/wow/addons/docked-damage-meter\n- Project on Wago: https://addons.wago.io/addons/dockeddamagemeter\n- Project on GitHub: https://github.com/z0fa/DockedDamageMeter\n- Donate:\u00A0https://paypal.me/z0fa",
+  "about": "# Docked Damage Meter\n\nWorld of Warcraft addon that places your damage meter in a chat tab, replacing the combat log.\n\n- Project on Curse: https://www.curseforge.com/wow/addons/docked-damage-meter\n- Project on GitHub: https://github.com/z0fa/DockedDamageMeter\n- Donate:\u00A0https://paypal.me/z0fa",
   "releases": [
     {
       "tag": "1.4",

@@ -4,6 +4,11 @@
   "repo": "Doudster/DoudProfessions",
   "releases": [
     {
+      "tag": "v1.2.0",
+      "published": "2026-11-28",
+      "notes": "# Doud's Professions\n\n## [v1.2.0](https://github.com/Doudster/DoudProfessions/tree/v1.2.0) (2026-11-28)\n[Full Changelog](https://github.com/Doudster/DoudProfessions/compare/v1.1.0...v1.2.0) [Previous Releases](https://github.com/Doudster/DoudProfessions/releases)\n\n- Recipe craft times.  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
       "tag": "v1.1.0",
       "published": "2026-11-21",
       "notes": "# Doud's Professions\n\n## [v1.1.0](https://github.com/Doudster/DoudProfessions/tree/v1.1.0) (2026-11-21)\n[Full Changelog](https://github.com/Doudster/DoudProfessions/compare/v1.0.0...v1.1.0) [Previous Releases](https://github.com/Doudster/DoudProfessions/releases)\n\n- Add cooldowns and writs tracking, merge same-name characters across realms  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
@@ -18,8 +23,9 @@
     "stars": 0,
     "openIssues": 0,
     "contributors": 1,
-    "lastRelease": "2026-11-21",
+    "lastRelease": "2026-11-28",
     "releaseDates": [
+      "2026-11-28",
       "2026-11-21",
       "2026-11-21"
     ]

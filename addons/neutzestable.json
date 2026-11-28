@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "neutzestable",
+  "repo": "neutze/wow-neutze-stable",
+  "about": "![Neutze's Stable logo](https://raw.githubusercontent.com/neutze/wow-neutze-stable/main/art/logo-400.png)\n\n# Neutze's Stable\n\nOne mount per character for **World of Warcraft: Forever**, on one button.\n\nType the mount for this character: `/stable Swift Palomino`, or use Options > AddOns > Neutze's Pantry > Neutze's Stable. It writes a character macro **NPstMount** that mounts that mount, or dismounts you if you're mounted. \"Use current mount\" takes the mount you're sitting on. Change the name and the macro updates.\n\n- Partial names work (`/stable palomino`).\n- Macro changes wait until combat ends.\n- **Requires [Neutze's Pantry](https://github.com/neutze/wow-neutze-pantry)**: install it too. This add-on's options page sits under Neutze's Pantry. The field also shows at the bottom of `/np`.\n\n![Mount field](https://raw.githubusercontent.com/neutze/wow-neutze-stable/main/screenshots/stable-field.png)\n\n## Install\nCurseForge app, or download `NeutzeStable-v0.0.1.zip` from [Releases](https://github.com/neutze/wow-neutze-stable/releases) into `World of Warcraft/_forever_/Interface/AddOns/`.\n\nPart of the **Neutze's** suite: [Pantry](https://github.com/neutze/wow-neutze-pantry) · [Companion](https://github.com/neutze/wow-neutze-companion) · [Macros](https://github.com/neutze/wow-neutze-macros)\n\n## License\nMIT",
+  "releases": [
+    {
+      "tag": "v0.0.1",
+      "published": "2026-11-27",
+      "notes": "# Changelog\n\n## v0.0.1 — 2026-11-27\n- First release: one mount per character, written into the character macro \"Mount\" (mount / dismount).\n- Options panel and /stable; \"Use current mount\".\n- Field at the bottom of /np when Neutze's Pantry is installed."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/neutze/wow-neutze-stable/main/screenshots/stable-field.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NeutzeStable"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "requires": [
+      "NeutzePantry"
+    ],
+    "savedVariablesPerCharacter": [
+      "NeutzeStableDB"
+    ]
+  }
+}

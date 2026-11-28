@@ -2,8 +2,13 @@
   "schemaVersion": 1,
   "id": "dbm-soundeventspack",
   "repo": "DeadlyBossMods/DBM-SoundEventsPack",
-  "about": "[https://www.patreon.com/deadlybossmods](https://www.patreon.com/deadlybossmods)\n\n# History:\nFor longest time, I did not add support or Victory sounds or encounter music because it was already nicely done by a 3rd party addon called DBM-Victory sounds. However, this project seems long abandoned. Additionally, it's high time DBM supported these features built in.\n\nNow that feature is built into DBM, I had to decide how to handle media. I liked how the overwatch and heroes  and voice pack media worked so I continue this trend with Event Sounds system. Basically, DBM supports event sounds but doesn't include media for it by default. No one wants to download tons sound files every DBM update when none of sound files actually changed.\n\nAdditionally, I hope many download this template and learn to make their own Event Sound packs to further expand options. Today, DBM has couple dozen voice packs out there. Lets see if we can do same for Event Sounds! Please do so properly though. Don't go downloading latest Taylor Swift or Kanye album, make a mod with it and upload a music pack. Find some free to use media or get permission from the artist.\n\n# Installation:\nJust install this with your addon client, or download and unzip and drop the DBM-EventSoundPack folder directly into addons folder and DBM-Core version 7.3.24 or higher will be able to detect and add media to Event Sound Options automatically. After that, just configure how you want.\n\n## Additional Note:\nSome of music is volume boosted heavily. The media from Victory Sounds was just recorded that way. I tried to normalize it with online tools but it's still too loud compared to other media. This will result in inconsistent volumes between some of music selections. Some of them will play at proper volume like some of the SMG audio that's coming soon, while some of these will be so blaring loud that you'll find yourself having to turn down audio. If anyone with better tools than free online ones wants to help fix this issue, please get in touch.",
+  "about": "[https://www.patreon.com/deadlybossmods](https://www.patreon.com/deadlybossmods)\n\n# History:\nFor longest time, I did not add support or Victory sounds or encounter music because it was already nicely done by a 3rd party addon called DBM-Victory sounds. However, this project seems long abandoned. Additionally, it's high time DBM supported these features built in.\n\nNow that feature is built into DBM, I had to decide how to handle media. I liked how the overwatch and heroes  and voice pack media worked so I continue this trend with Event Sounds system. Basically, DBM supports event sounds but doesn't include media for it by default. No one wants to download tons sound files every DBM update when none of sound files actually changed.\n\nAdditionally, I hope many download this template and learn to make their own Event Sound packs to further expand options. Today, DBM has couple dozen voice packs out there. Lets see if we can do same for Event Sounds! Please do so properly though. Don't go downloading latest Taylor Swift or Kanye album, make a mod with it and upload a music pack. Find some free to use media or get permission from the artist.\n\n# Installation:\nJust install this with your addon client, or download and unzip and drop the DBM-EventSoundPack folder directly into addons folder and DBM-Core version 7.3.24 or higher will be able to detect and add media to Event Sound Options automatically. After that, just configure how you want.\n\n## Music pack authors:\nSet `length` to the track duration in seconds on each entry in `DBM.Music`, `DBM.DungeonMusic`, and `DBM.BattleMusic`. For the `AddMusic`, `AddDungeonMusic`, and `AddBattleMusic` APIs, pass the duration as the third argument. Tracks without a positive length are excluded from Random when automatic song changes are enabled; they remain available otherwise.\n\nTo measure a bundled audio file, run `ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"path/to/song.ogg\"`.\n\n## Additional Note:\nSome of music is volume boosted heavily. The media from Victory Sounds was just recorded that way. I tried to normalize it with online tools but it's still too loud compared to other media. This will result in inconsistent volumes between some of music selections. Some of them will play at proper volume like some of the SMG audio that's coming soon, while some of these will be so blaring loud that you'll find yourself having to turn down audio. If anyone with better tools than free online ones wants to help fix this issue, please get in touch.",
   "releases": [
+    {
+      "tag": "1.6.48",
+      "published": "2026-11-27",
+      "notes": "#  Sound Events Pack\n\n## [1.6.48](https://github.com/DeadlyBossMods/DBM-SoundEventsPack/tree/1.6.48) (2026-11-27)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-SoundEventsPack/compare/1.6.46...1.6.48) [Previous Releases](https://github.com/DeadlyBossMods/DBM-SoundEventsPack/releases)\n\n- I messed up. length was field name not duration. fix this  \n- Music media now defines file duration length in seconds to allow addition features down the line  \n- update pkgmeta  \n- update CI  \n- 12.1.7 toc"
+    },
     {
       "tag": "1.6.46",
       "published": "2026-10-14",
@@ -23,19 +28,15 @@
       "tag": "1.6.43",
       "published": "2026-01-21",
       "notes": "#  Sound Events Pack\n\n## [1.6.43](https://github.com/DeadlyBossMods/DBM-SoundEventsPack/tree/1.6.43) (2025-12-15)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-SoundEventsPack/compare/1.6.42...1.6.43) [Previous Releases](https://github.com/DeadlyBossMods/DBM-SoundEventsPack/releases)\n\n- Fix some missed tocs  \n- add 12.0.1 toc  \n- Cleanup 11.2.5 tocs  \n- apparently vanilla also had a patch this week. bump toc  \n- toc updates  \n- Update TOCs  \n- Toc bumps for current PTRs  \n- Remove 11.1.7 toc"
-    },
-    {
-      "tag": "1.6.42",
-      "published": "2025-07-01",
-      "notes": "#  Sound Events Pack\n\n## [1.6.42](https://github.com/DeadlyBossMods/DBM-SoundEventsPack/tree/1.6.42) (2025-07-01)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-SoundEventsPack/compare/1.6.41...1.6.42) [Previous Releases](https://github.com/DeadlyBossMods/DBM-SoundEventsPack/releases)\n\n- Add mists support  \n- Add 11.2 TOC  \n- Fix outdated media pack tocs  \n- toc bumps for ptr"
     }
   ],
   "stats": {
     "stars": 4,
     "openIssues": 1,
     "contributors": 5,
-    "lastRelease": "2026-10-14",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-10-14",
       "2026-09-19",
       "2026-08-11",

@@ -74,24 +74,12 @@
       "2026-10-10"
     ]
   },
-  "languages": [
-    "esES"
-  ],
   "technical": {
     "folders": [
       "LevelMates"
     ],
     "editions": [
       "forever"
-    ],
-    "optional": [
-      "Questie",
-      "NeedRoll",
-      "LibProfessionDB",
-      "ProfessionDB"
-    ],
-    "savedVariables": [
-      "LevelMatesDB"
     ]
   }
 }

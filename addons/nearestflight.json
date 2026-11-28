@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "nearestflight",
+  "repo": "tehw0lf/NearestFlight",
+  "about": "# NearestFlight\n\nA small **World of Warcraft: Forever** addon that shows the flight masters\nnearest to you on the world map, with distance and compass direction.\n\n```\nNearest flight masters\nDarkshire, Duskwood        412 yd  S\nLakeshire, Redridge        655 yd  SW\nStormwind, Elwynn          980 yd  W\n```\n\nIt answers one question: *which flight master should I walk to from here?* It\nis not a route planner and has no dependencies.\n\n## Behaviour\n\n- The panel sits in the lower left corner of the world map and refreshes while\n  the map is open.\n- The gear button on the panel opens the settings: number of flight masters,\n  discovered points only, and yards or metres.\n- Distances are **straight lines** from your character. Mountains, rivers and\n  roads are not considered.\n- Only flight masters on your continent that your faction can use are listed.\n- Undiscovered flight points are shown in grey. The client reports this only\n  while a flight map is open, so open one once per continent and character.\n  Until then nothing is greyed out and the panel says so.\n- Nothing is shown where the client reports no position, such as in instances.\n- Flight master positions come from the client; the addon ships no data table.\n\n## Installation\n\nCopy the `NearestFlight` folder into the `Interface/AddOns/` folder of your\nWoW: Forever installation, so that it contains\n`NearestFlight/NearestFlight.toc`. If the game is running, log out to the\ncharacter selection (`/camp`) so the new addon is detected. After updating\nfiles of an installed addon, `/reload` is enough.\n\n## Commands\n\nEverything in the settings window is also available as a command.\n\n```\n/nf              print the list to chat\n/nf count <n>    number of flight masters listed, 1-10 (default 3)\n/nf known        toggle: discovered flight points only\n/nf unit yd|m    distance unit\n/nf status       diagnostic information\n```\n\n`/nearestflight` works as the long form. English and German clients are\nsupported; other locales get English.\n\n## Development\n\n```\n./test/run.sh    # syntax check and tests, Lua 5.1\n./build.sh       # installable ZIP in dist/\n```\n\n## Licence\n\nMIT, see [LICENSE](https://github.com/tehw0lf/NearestFlight/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "v0.1.0",
+      "name": "Release v0.1.0",
+      "published": "2026-11-28",
+      "notes": "## What's Changed\n* Add NearestFlight 0.1.0 by @tehw0lf in https://github.com/tehw0lf/NearestFlight/pull/1\n\n## New Contributors\n* @tehw0lf made their first contribution in https://github.com/tehw0lf/NearestFlight/pull/1\n\n**Full Changelog**: https://github.com/tehw0lf/NearestFlight/commits/v0.1.0"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "NearestFlight"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "NearestFlightDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "NearestFlightCharDB"
+    ]
+  }
+}

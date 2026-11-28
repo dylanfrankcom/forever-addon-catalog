@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "auctionhousecustomcategories",
+  "repo": "muhmiauwauWOW/AuctionHouseCustomCategories",
+  "about": "**Auction House - Custom Categories** is intended for those who cannot remember every enchant, gem or consumables name.\nFind your needed enchants, gems and consumables of the current expansion.\nPrevents you from buying overpriced items from previous expansions.\n\n**Category List:**\n\n- add categories for enchants, gems and consumables\n- displays custom categories on top\n- move the \"WOW Token\" category up\n\n**Search Results:**\n\n- Sort by name and quality\n- Gems:\n\t- columns for first and second on search results\n\t- color codes stats for easier find\n\t- sort by stats columns\n\n \nCompatible with [Auctionator](https://www.curseforge.com/wow/addons/auctionator)",
+  "releases": [
+    {
+      "tag": "2.5.10",
+      "published": "2026-10-21",
+      "notes": "# Auction House - Custom Categories\n\n## [2.5.10](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/tree/2.5.10) (2026-10-21)\n[Full Changelog](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/compare/2.5.9...2.5.10) [Previous Releases](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/releases)\n\n- update for Forever"
+    },
+    {
+      "tag": "2.5.9",
+      "published": "2026-10-15",
+      "notes": "# Auction House - Custom Categories\n\n## [2.5.9](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/tree/2.5.9) (2026-10-15)\n[Full Changelog](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/compare/2.5.8...2.5.9) [Previous Releases](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/releases)\n\n- update toc"
+    },
+    {
+      "tag": "2.5.8",
+      "published": "2026-09-16",
+      "notes": "# Auction House - Custom Categories\n\n## [2.5.8](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/tree/2.5.8) (2026-09-16)\n[Full Changelog](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/compare/2.5.6...2.5.8) [Previous Releases](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/releases)\n\n- Add files via upload (#9)"
+    },
+    {
+      "tag": "2.5.6",
+      "published": "2026-09-14",
+      "notes": "# Auction House - Custom Categories\n\n## [2.5.6](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/tree/2.5.6) (2026-09-14)\n[Full Changelog](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/compare/2.5.5...2.5.6) [Previous Releases](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/releases)\n\n- update toc"
+    },
+    {
+      "tag": "2.5.5",
+      "published": "2026-08-07",
+      "notes": "# Auction House - Custom Categories\n\n## [2.5.5](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/tree/2.5.5) (2026-08-07)\n[Full Changelog](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/compare/2.5.4...2.5.5) [Previous Releases](https://github.com/muhmiauwauWOW/AuctionHouseCustomCategories/releases)\n\n- update toc"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-10-21",
+    "releaseDates": [
+      "2026-10-21",
+      "2026-10-15",
+      "2026-09-16",
+      "2026-09-14",
+      "2026-08-07",
+      "2026-07-29",
+      "2026-06-16",
+      "2026-05-31",
+      "2026-05-25",
+      "2026-05-25",
+      "2026-05-25",
+      "2026-04-25",
+      "2026-03-24",
+      "2026-03-21",
+      "2026-03-21",
+      "2026-03-15",
+      "2026-03-04",
+      "2026-03-04",
+      "2026-03-04",
+      "2026-03-04",
+      "2026-02-25",
+      "2026-02-25",
+      "2026-02-25",
+      "2026-02-25",
+      "2026-01-21",
+      "2025-12-03",
+      "2025-11-04",
+      "2025-08-19",
+      "2025-08-19",
+      "2025-07-26",
+      "2025-07-26",
+      "2025-07-09",
+      "2025-06-04",
+      "2025-06-02",
+      "2025-04-19",
+      "2025-04-19",
+      "2025-03-22",
+      "2025-02-22",
+      "2024-12-16",
+      "2024-10-17",
+      "2024-10-15",
+      "2024-10-06",
+      "2024-10-05",
+      "2024-10-05",
+      "2024-10-03",
+      "2024-10-03",
+      "2024-09-27",
+      "2024-09-22",
+      "2024-09-21"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AuctionHouseCustomCategories",
+      "AuctionHouseCustomCategories_Data_FE",
+      "AuctionHouseCustomCategories_Data_MN"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "AuctionHouseCustomCategories"
+    ]
+  }
+}

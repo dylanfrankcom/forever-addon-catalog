@@ -73,7 +73,8 @@
       "DarkModeSpellBook"
     ],
     "editions": [
-      "forever"
+      "forever",
+      "retail"
     ],
     "savedVariables": [
       "DMSB_DB"

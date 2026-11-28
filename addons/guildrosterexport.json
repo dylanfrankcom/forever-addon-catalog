@@ -93,6 +93,9 @@
       "GuildRosterExport"
     ],
     "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
       "forever"
     ],
     "optional": [

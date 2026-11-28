@@ -43,8 +43,8 @@
   ],
   "stats": {
     "stars": 1173,
-    "openIssues": 266,
-    "contributors": 178,
+    "openIssues": 264,
+    "contributors": 179,
     "lastRelease": "2026-11-25",
     "releaseDates": [
       "2026-11-25",
@@ -116,6 +116,7 @@
       "QuestieTrace"
     ],
     "editions": [
+      "anniversary",
       "classic",
       "classic_era",
       "forever"

@@ -74,6 +74,8 @@
       "ElvUI_ToxiUI"
     ],
     "editions": [
+      "anniversary",
+      "classic",
       "forever"
     ],
     "requires": [

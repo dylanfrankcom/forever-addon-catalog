@@ -60,6 +60,8 @@
       "FarmMode"
     ],
     "editions": [
+      "anniversary",
+      "classic_era",
       "forever"
     ],
     "savedVariables": [

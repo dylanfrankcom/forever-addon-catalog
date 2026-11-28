@@ -5,6 +5,11 @@
   "about": "# Whatnot\n\n![Whatnot icon](https://raw.githubusercontent.com/DrKlampz/Whatnot/main/docs/logo.png)\n\n**A collector's guide for WoW Forever.** Whatnot keeps a list of everything worth collecting, works out what you have already done, and walks you to the next step.\n\nOpen it from the minimap button or `/ch`. Alt-click the minimap button for every option.\n\n## What it tracks\n- **Library books** (about 40 spots), with the librarian rewards and how many books you have turned in.\n- **The Cozy Sleeping Bag** quest chain, step by step, in the right order for your faction.\n- **Early big bags** and bag quests, and **perks** that help while you level.\n- **Companion pets** with a known source, hidden pets and secrets, plus a list of your own.\n\n## What it does\n- **Auto-detects progress.** Books and items in your bags, quest steps from your quest log, quests you finished before installing it, and pets from your companion list. Everything can also be ticked by hand.\n- **Guides you there.** Pin a collectible to track it: an on-screen tracker shows the step to do now, the distance, and travel hints (zeppelins, boats, flight masters). Pins appear on the world map and minimap.\n- **Shows your progress.** Progress bars per category, \"X of Y turned in\", filters (hide finished, this zone only) and bulk tick buttons.\n- **Look system.** Fonts, colours and textures to make it match the rest of your interface.\n\n## Notes\n- Coordinates come from community guides and are checked against the game's maps with `/ch verify`. A few may still be a little off. Tell me which ones.\n- Library book turn-ins before installing can only be read if the game recorded them as quests; otherwise tick them once by hand.\n\nMade by David for WoW Forever.",
   "releases": [
     {
+      "tag": "v0.4.2",
+      "published": "2026-11-27",
+      "notes": "# Whatnot\n\n## [v0.4.2](https://github.com/DrKlampz/Whatnot/tree/v0.4.2) (2026-11-27)\n[Full Changelog](https://github.com/DrKlampz/Whatnot/compare/v0.4.1...v0.4.2) [Previous Releases](https://github.com/DrKlampz/Whatnot/releases)\n\n- v0.4.2: secret NPC name fix, issue log notes  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Issue log: notes kept apart from issues (not counted, read under Notes); diagnostics logged as notes  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Fix secret-value NPC name error in Track.lua  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
+    },
+    {
       "tag": "v0.4.1",
       "published": "2026-11-26",
       "notes": "# Whatnot\n\n## [v0.4.1](https://github.com/DrKlampz/Whatnot/tree/v0.4.1) (2026-11-26)\n[Full Changelog](https://github.com/DrKlampz/Whatnot/compare/v0.4.0...v0.4.1) [Previous Releases](https://github.com/DrKlampz/Whatnot/releases)\n\n- Auto-tag and release when the CHANGELOG version is new  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Update curiohound: see CHANGELOG  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
@@ -23,19 +28,15 @@
       "tag": "v0.3.8",
       "published": "2026-11-21",
       "notes": "# Curiohound\n\n## [v0.3.8](https://github.com/DrKlampz/Curiohound/tree/v0.3.8) (2026-11-21)\n[Full Changelog](https://github.com/DrKlampz/Curiohound/compare/v0.3.7...v0.3.8) [Previous Releases](https://github.com/DrKlampz/Curiohound/releases)\n\n- Per-character progress: stop two-part names sharing one record; share only account-wide unlocks  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Window: view every character's collections separately  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
-    },
-    {
-      "tag": "v0.3.7",
-      "published": "2026-11-21",
-      "notes": "# Curiohound\n\n## [v0.3.7](https://github.com/DrKlampz/Curiohound/tree/v0.3.7) (2026-11-21)\n[Full Changelog](https://github.com/DrKlampz/Curiohound/compare/v0.3.6...v0.3.7) [Previous Releases](https://github.com/DrKlampz/Curiohound/releases)\n\n- Redraw the skull and crossbones from skull anatomy; calligraphic variants now ornament the symbol itself instead of framing it  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Add a calligraphic, ornately framed variant of every background symbol  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Redraw 14 watermark symbols with smoother curves and cleaner detail  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Fall back to remembered realm when the client reports an empty realm name, so saved data is found again  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK  \n- Redraw the anarchy symbol  \n    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>  \n    Claude-Session: https://claude.ai/code/session\\_016tjqgsa2XbatSMrUya2RRK"
     }
   ],
   "stats": {
     "stars": 0,
     "openIssues": 0,
     "contributors": 2,
-    "lastRelease": "2026-11-26",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-11-26",
       "2026-11-23",
       "2026-11-21",

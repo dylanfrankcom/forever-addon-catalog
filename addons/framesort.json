@@ -5,6 +5,11 @@
   "about": "# FrameSort #\n\nA simple WoW addon that sorts party/raid/arena frames and places you at the top/middle/bottom.\n\n## Features ##\n\n* Place your raid frame at the top, middle, or bottom.\n* Sort the remaining frames by group/role/alphabetical.\n* Works with Blizzard, Gladius, GladiusEx, sArena, ElvUI, and Cell.\n* Automatically promote healers to leader in solo shuffle.\n* Keybindings to target frames based on their visual position rather than their party number.\n* Macro variables for @Healer, @EnemyHealer (from patch 12.1.5 it uses the enemy roles you mark), @Frame, and more.\n* Add spacing between frames.\n\n## Sorting ##\n\nOrder raid frames the way you like with your frame on top:\n\n![Player at the top](https://raw.githubusercontent.com/Verubato/framesort/main/assets/Screenshots/3v3SortingTop.png)\n\nOr on bottom:\n\n![Player at the bottom](https://raw.githubusercontent.com/Verubato/framesort/main/assets/Screenshots/3v3SortingBottom.png)\n\nThe middle position is also supported.\n\n## Spacing ##\n\nAdd spacing between frames:\n\n![Party](https://raw.githubusercontent.com/Verubato/framesort/main/assets/Screenshots/PartySpacing.png)\n\n![Battlegrounds](https://raw.githubusercontent.com/Verubato/framesort/main/assets/Screenshots/RaidSpacing.png)\n\n## Targeting ##\n\nTarget frames based on their visual position:\n\n![Keybindings](https://raw.githubusercontent.com/Verubato/framesort/main/assets/Screenshots/F1F5Keybindings.png)\n\n## Example Macros ##\n\n### Are you a ret paladin and your healer is feared/stunned? ###\n\n```lua\n#showtooltip\n#FrameSort Healer\n/cast [@healer] Blessing of Sanctuary\n```\n\n### Cast power infusion on your other DPS ###\n\n```lua\n#showtooltip\n#FrameSort OtherDps\n/cast [@otherdps,exists][] Power Infusion\n```\n\n### Death grip the healer without having to set focus ###\n\n```lua\n#FrameSort EnemyHealer\n/cast [@enemyhealer] Death Grip\n```\n\nNote: from patch 12.1.5 onward Blizzard restricts GetArenaOpponentSpec, so FrameSort can't read enemy specs. Instead you mark each enemy as tank, healer, or dps in the enemy roles window. It opens at the start of each arena round when its popup option is on, and `/fs enemies` and its keybinding open it at any time. Outside an arena they open a preview with dummy enemies. Your marks restore EnemyHealer, EnemyDps, and the other enemy role variables, and they restore enemy frame sorting when the Enemy Arena toggle is on. The window hides its spec dropdown, because FrameSort only needs the role. It shows the dropdown when you tick \"Also pick enemy specs (used by other addons)\" or when another addon asks for it with `FrameSortApi.v3.Enemy:RequestSpecPicker(\"AddonName\")`, so that addon can read the specs through `FrameSortApi.v3.Enemy:GetAssignments()`. Marks reset every round, and a mark made in combat applies once combat ends. EnemyFrame1, EnemyFrame2, and the other EnemyFrame variables still work, and follow arena order until the first mark.\n\n### Target whatever the tank is targeting ###\n\n```lua\n#FrameSort Tank\n/assist [@tank]\n```\n\n### Reaching the 255 macro limit? Use abbreviations ###\n\n```lua\n#FS F1 F2 F3\n/cast [mod:ctrl,@a][mod:shift,@b][@c] Spell\n```\n\n### Variables ###\n\nRefer to the Macro page FrameSort's settings page for a full list of supported variables.\n\n## Xaryu Explains ##\n\n[![Xaryu's Explanation on YouTube](https://i.ytimg.com/vi/2PiKjvT30cM/hqdefault.jpg)](https://www.youtube.com/watch?v=2PiKjvT30cM&t=212s)\n\n## Install ##\n\nThe addon can be installed via:\n\n* [CurseForge](https://www.curseforge.com/wow/addons/framesort)\n* [Wago.io](https://addons.wago.io/addons/framesort)\n* [WowUp](https://wowup.io/)\n* [Manually](https://github.com/Verubato/framesort/releases/latest)\n\n## Support ##\n\n* [Discord](https://discord.gg/UruPTPHHxK)\n* [GitHub](https://github.com/Verubato/framesort/issues)",
   "releases": [
     {
+      "tag": "7.20.3",
+      "published": "2026-11-27",
+      "notes": "Added logging to help track down the Blizzard party frame border going missing. If it happens to you, turn on logging and send us the log."
+    },
+    {
       "tag": "7.20.2",
       "published": "2026-10-31",
       "notes": "Fixed enemy macros sometimes targeting the wrong enemy after the first round or match until a /reload."
@@ -23,11 +28,6 @@
       "tag": "7.19.1",
       "published": "2026-10-13",
       "notes": "From 12.1.5 onward, enemy arena spacing now only moves Blizzard arena frames. ElvUI arena frames keep their own layout."
-    },
-    {
-      "tag": "7.19.0",
-      "published": "2026-10-13",
-      "notes": "Patch 12.1.5 stops addons from reading enemy arena specs, so from 12.1.5 onward:\n\n* Enemy arena frame sorting is disabled, and your arena addon's own order is used.\n* Enemy arena spacing still works for Blizzard arena frames, which are laid out in arena order. It now applies even if enemy sorting was turned off.\n* EnemyHealer, EnemyTank, EnemyDPS, and their abbreviations no longer work in macros. EnemyFrame1, EnemyFrame2, and so on still work, in arena order.\n\nAdded the 12.1.5 client to the supported interface versions."
     }
   ],
   "screenshots": [
@@ -41,8 +41,9 @@
     "stars": 19,
     "openIssues": 0,
     "contributors": 3,
-    "lastRelease": "2026-10-31",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-10-31",
       "2026-10-14",
       "2026-10-14",
@@ -91,8 +92,7 @@
       "2026-01-18",
       "2026-01-16",
       "2026-01-12",
-      "2026-01-11",
-      "2026-01-09"
+      "2026-01-11"
     ]
   },
   "languages": [

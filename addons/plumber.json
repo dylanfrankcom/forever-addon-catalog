@@ -4,6 +4,11 @@
   "repo": "Peterodox/Plumber",
   "releases": [
     {
+      "tag": "v1.9.7-g",
+      "published": "2026-11-27",
+      "notes": "Mostly bug fixes.\n\n## Forever\n- **Loot Window:** To address a conflict with the game, Plumber Loot Window will now be automatically disabled if you are the Loot Master in a group.\n- **Handy Lockpick:** This module has been re-enabled on Forever, allowing you to right-click a lockbox in your bag or the Trade UI to unlock it.\n  - Note: We don't have any rogues to verify this feature on Forever, though the underlying system should be identical to modern WoW.\n\n## Nameplate: Soft Target\n- **Quest Objectives:** This should now only display your own quest (instead of your teammates') objective progress when you are in a group.\n- **Platynator:** Our radial cast bar should now correctly align to the center of [Platynator](https://www.curseforge.com/wow/addons/platynator)'s Soft Interact Icon and hide its icon when you start casting.\n\n## 12.1.7\n- **Expansion Summary, Powers** Fixed a visual issue where the 2 newly added Omnium Folio traits overlapped with the card's label."
+    },
+    {
       "tag": "v1.9.7-f",
       "published": "2026-11-18",
       "notes": "- **WoW Anniversary:** The quick slot for the Mount Maniac event can be enabled again.\n- **Forever:** Fixed the last issue (hopefully) with the Transmog UI module.\n\n---\nPrevious Changelog\n- **Transmog UI: Restore Pending Changes:** This module works again on Forever.\n  - You should no longer see \"Invalid Custom Set Link\" in chat upon entering the game.\n- **Drawer Macro:** It now respects spell ranks, and the rank will be shown on the drawer buttons.\n- **Tooltip: Reagents:** This module is now available on Forever. If an item can be used to combine into something new, display all \"reagents\" used in the process."
@@ -22,19 +27,15 @@
       "tag": "v1.9.7-c",
       "published": "2026-11-03",
       "notes": "- **Plumber Drawer Macro:** You can now drag other macros into the Drawer.\n- Fixed an issue where the **Nameplate Quest Indicator** appeared on the left and inside the health bar when you set its position to the right.\n- **Break Time Reminder:** It no longer treats house interiors and neighborhoods as \"instances\" and postpones the reminder.\n\n---\n\nPrevious Changelog\n- **Tooltip, Reputation Tokens:** This module now supports [Aqir Research Tokens](https://www.wowhead.com/item=286563/aqir-research-token), showing your renown progress on the vendor tooltip.\n- **Auctionator and Loot UI:** The price info should appear on the Loot UI's item tooltip.\n- **Loot UI on Classic:** Fixed an issue that caused the loot notification mode to stop working after a recent Plumber update.\n- **Auto Select Holiday Dungeon:** This module has been enabled on MoP Classic."
-    },
-    {
-      "tag": "v1.9.7-b",
-      "published": "2026-11-01",
-      "notes": "- **Tooltip, Reputation Tokens:** This module now supports [Aqir Research Tokens](https://www.wowhead.com/item=286563/aqir-research-token), showing your renown progress on the vendor tooltip.\n- **Auctionator and Loot UI:** The price info should appear on the Loot UI's item tooltip.\n- **Loot UI on Classic:** Fixed an issue that caused the loot notification mode to stop working after a recent Plumber update.\n- **Auto Select Holiday Dungeon:** This module has been enabled on MoP Classic."
     }
   ],
   "stats": {
     "stars": 53,
     "openIssues": 20,
     "contributors": 26,
-    "lastRelease": "2026-11-18",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-11-18",
       "2026-11-17",
       "2026-11-09",
@@ -83,8 +84,7 @@
       "2026-02-26",
       "2026-02-22",
       "2026-02-17",
-      "2026-02-16",
-      "2026-02-15"
+      "2026-02-16"
     ]
   },
   "languages": [

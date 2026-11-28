@@ -5,6 +5,16 @@
   "about": "# Readycheck\n\nThe complete character toolkit for WoW Classic: reminders, consumables, gear\nand trinket swaps, world buffs, raid setups, time-to-kill and more.\nRuns on Classic Era, TBC Anniversary and WoW Forever.\n\nType **/rc** in game to open it.\n\n## Install\n\nThe easy way is an addon app that keeps it up to date for you:\n**CurseForge**, **WowUp** or **Wago**.\n\nBy hand: download the zip from the newest release, and put\nevery `Readycheck*` folder inside it into\n`World of Warcraft\\_classic_era_\\Interface\\AddOns` (or the `_anniversary_`\nfolder for TBC). Restart the game.\n\n## Updates\n\nAddon apps update Readycheck for you. In game, Readycheck tells you once\nper session when someone in your guild or group has a newer version.\n\n## Problems or ideas\n\nOpen an issue and say what you did, what you expected, and\nany error text you saw.",
   "releases": [
     {
+      "tag": "5.0.15",
+      "published": "2026-11-27",
+      "notes": "## Readycheck 5.0.15 - The website's new address\n\n### Changed\n- The website has a new address: zacaddons.com. The report, suggest and website buttons, /rc report, /rc suggest and the route planner link now open it."
+    },
+    {
+      "tag": "5.0.14",
+      "published": "2026-11-27",
+      "notes": "## Readycheck 5.0.14 - A tidier settings window, and a website for reports and ideas\n\n### Added\n- Readycheck has a website: what changed in every version, bug reports and feature suggestions. /rc report and /rc suggest give you the link with your version filled in. So do the buttons under Need help? on the General page and the headset button beside Discord and Twitch.\n- Gold: pick whose gold counts, on the stats bar's Gold tab. Every account in your mesh is listed. An account on another Battle.net counts once each of the two accounts ticks the other, and a tick carries to your other accounts on the same Battle.net. An account on your Battle.net that is not yours can be unticked.\n\n### Changed\n- The group pages (Reminders, Consumables, Gear and the rest) have a new look: each feature is a raised tile with its state, its switch and an In menu tick that takes its page out of the menu on the left.\n- Dropdown lists are as wide as their longest choice, so nothing in an open list is cut short.\n- Appearance: the window preview shows the settings window as it looks today.\n\n### Fixed\n- Searching the settings made the game stutter. It no longer does.\n- Settings window: text that did not show or was cut short on many pages, among them the description lines on the Sound tab, the Icon look picker, the raid profile box and smart macro lines.\n- Raid pages and the Custom Reminders page were missing their title.\n- Dropdown lists opened bigger or smaller than their box when the settings window was not at 100%.\n- Thin lines in the settings window came and went as it scrolled on some screens.\n- Raid Buff Tracker and Boss Debuff Tracker: the time and the word MISSING were cut short. When a name and MISSING do not both fit, missing rows show an X.\n- Battle Shout tracker: long names were cut short.\n- Reminder icons and Raid Consume Reminders: a label wider than its icon was cut short.\n- World Buff Drops: your own character's row showed only \"(you)\", and a long name from another realm ran into the level column.\n- World buff board: the Stored and Ready captions were cut short.\n- Flask of the Titans, Spirit of Zanza and the Missing Buff Alert preset showed a blank icon."
+    },
+    {
       "tag": "5.0.13",
       "published": "2026-11-23",
       "notes": "## Readycheck 5.0.13 - Cooldowns after a PC restart\n\n### Fixed\n- A cooldown that began before your PC was restarted could show as a full cooldown on trinket, consumable and item timers. It shows the time really left."
@@ -18,24 +28,16 @@
       "tag": "5.0.11",
       "published": "2026-11-19",
       "notes": "## Readycheck 5.0.11 - Icon sizes for nameplate debuffs\n\n### Added\n- Nameplates: each debuff group has its own icon size, and icon rows have a setting for the space between icons. Until you set one, the icon follows the text size as before.\n\n### Fixed\n- An error at login when another addon's copy of a shared library was broken. The minimap button loads anyway."
-    },
-    {
-      "tag": "5.0.10",
-      "published": "2026-11-19",
-      "notes": "## Readycheck 5.0.10 - Smart keys for bosses, World Buff Drops, and a window look you can pick\n\n### Added\n- Smart keys: link a bar button to an ability on a boss's page. On a boss where that ability is switched off the button does nothing; everywhere else it works as you made it. Click a button on a preview of your bars to link it, or tick Automatic to have it found.\n- A linked button reads WAIT on your bars until that ability's reminder goes off on the boss.\n- A boss's new Macros page, and a route step, can switch a smart macro, a group of them or a bar slot to one item, such as the potion for that boss. Smart macros can be put in groups.\n- World Buff Drops page: which of your characters can still hand in a head or heart, and which already have. It lists level 60s to start with; pick a lower level to see more.\n- A raid config can hide your damage meter's windows while you are in that raid: Manage, \"Damage meter...\". The meter keeps counting, and the windows come back when you leave or pick another config.\n- Appearance: a \"Window look\" card. Pick a finish preset or set the depth, outlines and texture yourself, and choose button depth, the main button's look, wheel speed and smooth scrolling.\n- After the raid: buffs that are not on you keep their place, dimmed, so the icons do not move when you click one off. Settings pick which are shown and how dim.\n- After the raid: the window shows the Chronoboon's cooldown. A setting keeps the Boon button live during it.\n\n### Changed\n- Readycheck's windows have raised title bars, and every dialog's main button has the gold face.\n- The What's New window is smaller and scrolls.\n- Consumables bar: the Horde mode option is gone. \"Weapon stones on this bar\" turns its weapon buttons on or off. The main hand button starts hidden only for Horde on Classic Era.\n- Raid consume reminders start switched off on a new profile.\n- Smart Macros has its own icon.\n\n### Fixed\n- The mouse wheel moved the settings window only part of a notch. Popups and lists scroll smoothly as well.\n- On a raid's pages the content scrolled under the window's corner buttons."
-    },
-    {
-      "tag": "5.0.9",
-      "published": "2026-11-16",
-      "notes": "## Readycheck 5.0.9 - Windows and buttons with more depth\n\n### Added\n- A chat line when your Darkmoon Faire lockout is pushed off. It has its own row, \"Lockout pushed off\", with the other alerts.\n\n### Changed\n- Readycheck's windows have a little shading and a lit top edge instead of one flat colour.\n- Buttons and the sidebar's page rows stand out more: a brighter raised face, a clearer outline and a thin shadow underneath.\n- Popup buttons are raised like every other button. The main choice has a gold face, a destructive one a red face.\n\n### Fixed\n- The Darkmoon Faire lockout leaves the world buff board as soon as a full debuff bar pushes it off, and no longer comes back."
     }
   ],
   "stats": {
     "stars": 0,
     "openIssues": 0,
     "contributors": 1,
-    "lastRelease": "2026-11-23",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
+      "2026-11-27",
       "2026-11-23",
       "2026-11-21",
       "2026-11-19",

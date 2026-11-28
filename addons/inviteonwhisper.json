@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "inviteonwhisper",
+  "repo": "NumyAddon/InviteOnWhisper",
+  "releases": [
+    {
+      "tag": "v1.4.77",
+      "published": "2026-11-07",
+      "notes": "# InviteOnWhisper\n\n## [v1.4.77](https://github.com/NumyAddon/InviteOnWhisper/tree/v1.4.77) (2026-11-07)\n[Full Changelog](https://github.com/NumyAddon/InviteOnWhisper/compare/v1.4.76...v1.4.77) [Previous Releases](https://github.com/NumyAddon/InviteOnWhisper/releases)\n\n- Wow Forever now lets you copy/paste a /ginvite command rather than automatic invites, since blizzard decided to break automated guild invites -.- (closes #3)"
+    },
+    {
+      "tag": "v1.4.76",
+      "published": "2026-10-14",
+      "notes": "# InviteOnWhisper\n\n## [v1.4.76](https://github.com/NumyAddon/InviteOnWhisper/tree/v1.4.76) (2026-10-14)\n[Full Changelog](https://github.com/NumyAddon/InviteOnWhisper/compare/v1.4.75...v1.4.76) [Previous Releases](https://github.com/NumyAddon/InviteOnWhisper/releases)\n\n- TOC Bump  \n- Toc update  \n- Minor TOC metadata adjustment"
+    },
+    {
+      "tag": "v1.4.75",
+      "published": "2026-09-19",
+      "notes": "# InviteOnWhisper\n\n## [v1.4.75](https://github.com/NumyAddon/InviteOnWhisper/tree/v1.4.75) (2026-09-19)\n[Full Changelog](https://github.com/NumyAddon/InviteOnWhisper/compare/v1.4.74...v1.4.75) [Previous Releases](https://github.com/NumyAddon/InviteOnWhisper/releases)\n\n- Initial WoW Forever support"
+    },
+    {
+      "tag": "v1.4.74",
+      "published": "2026-08-12",
+      "notes": "# InviteOnWhisper\n\n## [v1.4.74](https://github.com/NumyAddon/InviteOnWhisper/tree/v1.4.74) (2026-08-12)\n[Full Changelog](https://github.com/NumyAddon/InviteOnWhisper/compare/v1.4.73...v1.4.74) [Previous Releases](https://github.com/NumyAddon/InviteOnWhisper/releases)\n\n- TOC Bump"
+    },
+    {
+      "tag": "v1.4.73",
+      "published": "2026-07-21",
+      "notes": "# InviteOnWhisper\n\n## [v1.4.73](https://github.com/NumyAddon/InviteOnWhisper/tree/v1.4.73) (2026-07-21)\n[Full Changelog](https://github.com/NumyAddon/InviteOnWhisper/compare/v1.4.72...v1.4.73) [Previous Releases](https://github.com/NumyAddon/InviteOnWhisper/releases)\n\n- Classic TOC Bump"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-07",
+    "releaseDates": [
+      "2026-11-07",
+      "2026-10-14",
+      "2026-09-19",
+      "2026-08-12",
+      "2026-07-21",
+      "2026-07-08",
+      "2026-06-21",
+      "2026-06-17",
+      "2026-06-05",
+      "2026-04-30",
+      "2026-04-23",
+      "2026-04-03",
+      "2026-02-11",
+      "2026-01-28",
+      "2026-01-20",
+      "2025-12-06",
+      "2025-12-03",
+      "2025-10-22",
+      "2025-10-08",
+      "2025-10-04",
+      "2025-09-24",
+      "2025-08-06",
+      "2025-06-18",
+      "2025-05-03",
+      "2025-05-03",
+      "2025-04-23",
+      "2025-04-09",
+      "2025-02-26",
+      "2025-02-18",
+      "2025-01-31",
+      "2025-01-28",
+      "2025-01-11",
+      "2025-01-10",
+      "2024-12-18",
+      "2024-12-04",
+      "2024-11-21",
+      "2024-10-30",
+      "2024-10-23",
+      "2024-09-28",
+      "2024-07-20",
+      "2024-07-14",
+      "2024-05-08",
+      "2024-04-30",
+      "2024-04-30",
+      "2024-04-03",
+      "2024-03-20",
+      "2024-02-06",
+      "2024-01-17",
+      "2023-11-15",
+      "2023-11-09"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "InviteOnWhisper"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "IOWDB"
+    ]
+  }
+}

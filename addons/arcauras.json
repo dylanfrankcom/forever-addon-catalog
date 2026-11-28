@@ -93,13 +93,6 @@
       "2026-10-14"
     ]
   },
-  "languages": [
-    "deDE",
-    "koKR",
-    "ruRU",
-    "zhCN",
-    "zhTW"
-  ],
   "technical": {
     "folders": [
       "ArcAuras",
@@ -108,15 +101,13 @@
       "ArcUI"
     ],
     "editions": [
-      "forever",
-      "retail"
+      "forever"
     ],
-    "optional": [
-      "ArcUI",
-      "Masque"
+    "requires": [
+      "ArcAuras"
     ],
     "savedVariables": [
-      "ArcAurasDB"
+      "ArcLFGFilterDB"
     ]
   }
 }

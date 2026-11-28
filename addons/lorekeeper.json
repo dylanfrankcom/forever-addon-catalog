@@ -114,7 +114,8 @@
       "Lorekeeper_Mail"
     ],
     "editions": [
-      "forever"
+      "forever",
+      "retail"
     ],
     "savedVariables": [
       "LoreK_DB"

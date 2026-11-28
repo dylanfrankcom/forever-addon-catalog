@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "libresinfo-2-0",
+  "repo": "Myrroddin/libresinfo-2.0",
+  "about": "# LibResInfo-2.0\n\nLibResInfo-2.0 is a CLEU-free resurrection tracking library for World of Warcraft addons.\n\nThe library tracks:\n\n- single-target resurrection casts\n- mass resurrection casts\n- resurrection targets becoming alive\n- self-resurrection availability\n- fastest resurrection resolution per target\n\nSupported clients:\n\n- Classic Era\n- TBC Classic\n- Wrath Classic\n- Mists Classic\n- Retail\n- WoW Forever\n\n---\n\n## Features\n\n- No COMBAT_LOG_EVENT_UNFILTERED dependency\n- GUID-first tracking\n- Fastest resurrection detection\n- Multiple simultaneous resurrection casters per target\n- Self-resurrection tracking\n- CallbackHandler-1.0 support\n- Ace3-style embedding\n\n---\n\n## Installation\n\n### .pkgmeta\n\nAddOns should embed the child folder:\n\n```yaml\nexternals:\n  Libs/LibResInfo-2.0:\n    url: https://github.com/Myrroddin/libresinfo-2.0.git/LibResInfo-2.0\n    curse-slug: libresinfo-2-0\n```\n\n### TOC\n\n```toc\n## OptionalDeps: LibStub, CallbackHandler-1.0, LibResInfo-2.0\n\nLibResInfo-2.0\\lib.xml\n```\n\n---\n\n## Basic Example\n\n```lua\nlocal MyAddon = LibStub(\"AceAddon-3.0\"):NewAddon(\"MyAddon\", \"LibResInfo-2.0\")\n\nfunction MyAddon:OnEnable()\n    self:RegisterCallback(\"ResCast_Started\")\n    self:RegisterCallback(\"ResTargetGUID_IsAlive\")\nend\n\nfunction MyAddon:ResCast_Started(_, casterGUID, targetGUID)\n    print(casterGUID, \"started resurrecting\", targetGUID)\nend\n\nfunction MyAddon:ResTargetGUID_IsAlive(_, targetGUID)\n    print(targetGUID, \"is now alive\")\nend\n```\n\n---\n\n## Public APIs\n\nLibResInfo-2.0 embeds the following APIs directly onto the addon object.\n\n### Unit-Specific APIs\n\n- `GetAllCastersForUnit`\n- `GetCasterInfo`\n- `GetResurrectionCastInfo`\n- `GetTargetInfo`\n- `IsUnitBeingResurrected`\n- `UnitCanSelfResurrect`\n- `UnitHasResWaiting`\n\n### Mass Resurrection APIs\n\n- `IsMassResBeingCast`\n\n---\n\n## Callbacks\n\nLibResInfo-2.0 embeds CallbackHandler-1.0 methods directly onto the addon object.\n\n```lua\nMyAddon:RegisterCallback(\"ResCast_Started\")\nMyAddon:UnregisterCallback(\"ResCast_Started\")\nMyAddon:UnregisterAllResInfoCallbacks()\n```\n\nAvailable callbacks:\n\n### Single-Target Resurrection\n\n- `ResCast_Finished`\n- `ResCast_Started`\n- `ResCast_Stopped`\n- `ResTargetGUID_HasResOffer`\n- `ResTargetGUID_IsAlive`\n- `ResTargetGUID_Resolved`\n- `ResTargetGUID_WaitingTimeExpired`\n\n### Mass Resurrection\n\n- `MassResCast_Finished`\n- `MassResCast_Started`\n- `MassResCast_Stopped`\n\n### Fastest Resurrection\n\n- `FastestRes_Changed`\n\n### Self-Resurrection\n\n- `UnitSelfRes_Available`\n- `UnitSelfRes_Consumed`\n\n---\n\n## Notes\n\n- Blizzard may withhold or restrict API and event values on any supported client. LibResInfo-2.0 ignores data it cannot inspect safely rather than guessing, so an affected cast or update may be unavailable to consumers.\n- `targetGUID` may temporarily be `\"UNKNOWN\"` if Blizzard does not expose enough information to resolve the target immediately. This is a per-caster staging marker, not a shared target identity.\n- Listen for `ResTargetGUID_Resolved` to replace an `\"UNKNOWN\"` target with its resolved GUID when Blizzard later exposes it.\n- Mass resurrection spells do not expose target GUIDs.\n- Callback info tables should be treated as read-only.\n- Reliable completed resurrection casts may create an expected waiting state. `ResTargetGUID_HasResOffer` is the direct confirmation that the local player received a resurrection offer.\n- Engineering resurrection devices can complete their activation without producing an offer. An activation which cannot be confirmed ends through `ResCast_Stopped` instead of creating a false waiting state.\n- `UnitHasResWaiting()` can be used to query this waiting state.\n\n---\n\n## Documentation\n\nSee [API.md](https://github.com/Myrroddin/libresinfo-2.0/blob/main/API.md) for complete API and callback documentation.\n\n## Bug Reports\n\nReport a bug: [GitHub Bug Report Form](https://github.com/Myrroddin/libresinfo-2.0/issues/new?template=bug_report.yml)",
+  "releases": [
+    {
+      "tag": "1.07",
+      "published": "2026-10-17",
+      "notes": "# Lib: ResInfo-2.0\n\n## [1.07](https://github.com/Myrroddin/libresinfo-2.0/tree/1.07) (2026-10-17)\n[Full Changelog](https://github.com/Myrroddin/libresinfo-2.0/compare/1.06...1.07) [Previous Releases](https://github.com/Myrroddin/libresinfo-2.0/releases)\n\n- [Retail] Bump ToC for patch 12.1.5  \n- [All] Bump MINOR to 8  \n- [Forever] Unit names have better support, especially for Given Surname checks  \n- [All] Harden unit identity and full name resolution"
+    },
+    {
+      "tag": "1.06",
+      "published": "2026-10-06",
+      "notes": "# Lib: ResInfo-2.0\n\n## [1.06](https://github.com/Myrroddin/libresinfo-2.0/tree/1.06) (2026-10-06)\n[Full Changelog](https://github.com/Myrroddin/libresinfo-2.0/compare/1.05...1.06) [Previous Releases](https://github.com/Myrroddin/libresinfo-2.0/releases)\n\n- [All] Bump MINOR to 7  \n- [All] Stop assuming engineering resurrection devices always succeed  \n- [Retail] Add missing engineering resurrection devices"
+    },
+    {
+      "tag": "1.05",
+      "published": "2026-09-29",
+      "notes": "# Lib: ResInfo-2.0\n\n## [1.05](https://github.com/Myrroddin/libresinfo-2.0/tree/1.05) (2026-09-29)\n[Full Changelog](https://github.com/Myrroddin/libresinfo-2.0/compare/1.04...1.05) [Previous Releases](https://github.com/Myrroddin/libresinfo-2.0/releases)\n\n- [All] Bump MINOR to 6  \n- [All] Fix pet resurrection targeting and cross-client event handling"
+    },
+    {
+      "tag": "1.04",
+      "published": "2026-09-26",
+      "notes": "# Lib: ResInfo-2.0\n\n## [1.04](https://github.com/Myrroddin/libresinfo-2.0/tree/1.04) (2026-09-26)\n[Full Changelog](https://github.com/Myrroddin/libresinfo-2.0/compare/1.03...1.04) [Previous Releases](https://github.com/Myrroddin/libresinfo-2.0/releases)\n\n- [All] Add WoW Forever support and harden cross-client resurrection tracking  \n- [Retail] Handle secret spellcast data and track casts by cast bar ID  \n- [All] Prevent self-res auras from triggering resurrection callbacks on living units"
+    },
+    {
+      "tag": "1.03",
+      "published": "2026-09-13",
+      "notes": "# Lib: ResInfo-2.0\n\n## [1.03](https://github.com/Myrroddin/libresinfo-2.0/tree/1.03) (2026-09-13)\n[Full Changelog](https://github.com/Myrroddin/libresinfo-2.0/compare/1.02...1.03) [Previous Releases](https://github.com/Myrroddin/libresinfo-2.0/releases)\n\n- [All] Fix duplicate resurrection lifecycle callbacks"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-10-17",
+    "releaseDates": [
+      "2026-10-17",
+      "2026-10-06",
+      "2026-09-29",
+      "2026-09-26",
+      "2026-09-13",
+      "2026-09-03",
+      "2026-08-13"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "LibResInfo-2.0"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0"
+    ]
+  }
+}

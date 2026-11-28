@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "libtalenttome",
+  "repo": "Snakybo/LibTalentTome",
+  "about": "# LibTalentTome\n\nLibTalentTome is a library for World of Warcraft that provides a simple interface to access information about races, classes, specializations, and talents.\n\nSome of the data provided is accessible using in-game APIs as well, but this provides a (imo) nicer API surface for it. Talent and PvP talent data is not always\navailable in-game, prior to the `C_Traits` API.\n\n## Supported versions\n\n* Retail (uses `C_Traits` for talents)\n* Mists of Pandaria Classic\n* The Burning Crusade Anniversary\n* Forever (uses `C_Traits` for talents)\n* Classic Era\n\n## Limitations\n\nCurrently only one limtation is known, the `GetTalentById` API does not work on game versions that use `C_Traits`, as the library doesn't bundle them.\n\n## Getting started\n\n### Dependencies\n\n* [LibStub](https://www.wowace.com/projects/libstub)\n* [CallbackHandler-1.0](https://www.wowace.com/projects/callbackhandler)\n\n### Embedding\n\n```yaml\nexternals:\n  Libs/LibStub: https://repos.curseforge.com/wow/libstub/trunk\n  Libs/CallbackHandler-1.0: https://repos.curseforge.com/wow/callbackhandler/trunk/CallbackHandler-1.0\n  Libs/LibTalentTome:\n    url: https://github.com/Snakybo/LibTalentTome\n\nmove-folders:\n  <ADDON>/Libs/LibTalentTome/LibTalentTome: <ADDON>/Libs/LibTalentTome\n```\n\nReplace `<ADDON>` for your addon name, and simply add the libraries to your TOC file.\n\n### Usage\n\nBelow is a simple example of what you can do with the library.\n\n```lua\nlocal LibTalentTome = LibStub(\"LibTalentTome\")\n\nfor _, class in ipairs(LibTalentTome:GetClasses()) do\n\tprint(class.id, class.fileName, class.name)\n\n\tfor _, spec in pairs(LibTalentTome:GetSpecializations(class.id)) do\n\t\tprint(spec.id, spec.name, spec.icon)\n\n\t\tfor _, talent in ipairs(LibTalentTome:GetTalents(spec.id)) do\n\t\t\tprint(talent.id, talent.spellId, talent.name, talent.icon)\n\t\tend\n\tend\nend\n```\n\nSee [API.md](https://github.com/Snakybo/LibTalentTome/blob/master/API.md) for additional documentation.\n\n## Active talents\n\nIn addition to static data about talent trees, the library also exposes currently active talents for the player, updated automatically.\n\nThere are a few API surfaces available to retrieve this information, or a callback function to receive when they change.\n\n```lua\nlocal LibTalentTome = LibStub(\"LibTalentTome\")\n\nLibTalentTome.RegisterCallback(MyAddon, \"ActiveTalentsChanged\", function(event, talents)\n\tfor _, talent in ipairs(talents) do\n\t\tprint(talent.id, talent.spellId, talent.name, talent.icon, talent.rank)\n\tend\nend)\n\nLibTalentTome.RegisterCallback(MyAddon, \"ActivePvpTalentsChanged\", function(event, talents)\n\tfor _, talent in ipairs(talents) do\n\t\tprint(talent.id, talent.spellId, talent.name, talent.icon, talent.rank)\n\tend\nend)\n```\n\nSee [API.md](https://github.com/Snakybo/LibTalentTome/blob/master/API.md) for additional documentation.",
+  "releases": [
+    {
+      "tag": "r30",
+      "published": "2026-10-26",
+      "notes": "# Lib: TalentTome\n\n## [r30](https://github.com/Snakybo/LibTalentTome/tree/r30) (2026-10-26)\n[Full Changelog](https://github.com/Snakybo/LibTalentTome/commits/r30) [Previous Releases](https://github.com/Snakybo/LibTalentTome/releases)\n\n- Add initialized checks"
+    },
+    {
+      "tag": "r29",
+      "published": "2026-10-22",
+      "notes": "# Lib: TalentTome\n\n## [r29](https://github.com/Snakybo/LibTalentTome/tree/r29) (2026-10-22)\n[Full Changelog](https://github.com/Snakybo/LibTalentTome/commits/r29) [Previous Releases](https://github.com/Snakybo/LibTalentTome/releases)\n\n- Add API for active talents"
+    },
+    {
+      "tag": "r28",
+      "published": "2026-10-22",
+      "notes": "# Lib: TalentTome\n\n## [r28](https://github.com/Snakybo/LibTalentTome/tree/r28) (2026-10-22)\n[Full Changelog](https://github.com/Snakybo/LibTalentTome/commits/r28) [Previous Releases](https://github.com/Snakybo/LibTalentTome/releases)\n\n- Rewrite library"
+    },
+    {
+      "tag": "r27",
+      "published": "2026-09-28",
+      "notes": "# Lib: TalentInfo-1.0\n\n## [r27](https://github.com/Snakybo/LibTalentInfo-1.0/tree/r27) (2026-09-28)\n[Full Changelog](https://github.com/Snakybo/LibTalentInfo-1.0/commits/r27) [Previous Releases](https://github.com/Snakybo/LibTalentInfo-1.0/releases)\n\n- Update for 12.1.0 and 1.60.1"
+    },
+    {
+      "tag": "r26",
+      "published": "2026-09-28",
+      "notes": "# Lib: TalentInfo-1.0\n\n## [r26](https://github.com/Snakybo/LibTalentInfo-1.0/tree/r26) (2026-09-28)\n[Full Changelog](https://github.com/Snakybo/LibTalentInfo-1.0/commits/r26) [Previous Releases](https://github.com/Snakybo/LibTalentInfo-1.0/releases)\n\n- Merge pull request #2 from yannlugrin/forever  \n    Update TalentDataForever.lua with extracted data"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-10-26",
+    "releaseDates": [
+      "2026-10-26",
+      "2026-10-22",
+      "2026-10-22",
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-25",
+      "2026-08-12",
+      "2026-07-22",
+      "2026-01-14",
+      "2026-01-12",
+      "2025-08-13",
+      "2025-06-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LibTalentTome"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ]
+  }
+}

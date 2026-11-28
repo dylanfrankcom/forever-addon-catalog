@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "editmodeexpanded",
+  "repo": "teelolws/EditModeExpanded",
+  "about": "Expands Blizzard's Edit Mode to allow other frames to be moved, too.\n\n\u00A0\n\nThere are two parts to this addon:\n\n1\\. EditModeExpanded: The addon itsself, which currently supports moving various parts of the base UI not already supported by Edit Mode, and adds resize and hide support to parts of the base UI that don't already have that option  \n2\\. EditModeExpanded-1.0: The library, which can be imported by other addons, to allow the other addon to make itsself movable in Edit Mode  \n\u00A0  \nCurrently supports:  \n1\\. Moving custom frames around during Edit Mode (Anything you'd like to move around that Blizzard didn't already highlight in Blue during Edit Mode!)  \n2\\. Saving the location of custom frames moved during Edit Mode, and restoring that location during login  \n3\\. Splits the Menu Bar from the Backpack Bar so they can be moved separately\n\n4\\. Resize custom frames, save and reload the custom size  \n5\\. Save settings per Edit Mode profile\n\n6\\. Option to change the menu buttons back to either the Shadowlands versions or the Black and White ones from early Dragonflight  \n7\\. Option to add back a recreation of the Dragonriding Vigor Bar, with the Algari Stormrider variant\n\u00A0\n\nDiscuss EditModeExpanded on Teelo's Discord: https://discord.gg/KBzF9CHuCy\n\n  \nFor other addon developers - Usage Information: https://github.com/teelolws/EditModeExpanded/wiki/Authors:-Library-Usage  \n\u00A0  \nLicense: The Library portion of this Project may be included, used, and distributed in your addon, provided you credit me as the author of the work.  \n\u00A0  \n![](https://media.forgecdn.net/attachments/468/833/pngkey.png)  \nhttps://www.patreon.com/tldrmissions",
+  "releases": [
+    {
+      "tag": "12.1-028",
+      "published": "2026-11-26",
+      "notes": "# Edit Mode Expanded\n\n## [12.1-028](https://github.com/teelolws/EditModeExpanded/tree/12.1-028) (2026-11-26)\n[Full Changelog](https://github.com/teelolws/EditModeExpanded/compare/12.1-027...12.1-028) [Previous Releases](https://github.com/teelolws/EditModeExpanded/releases)\n\n- Layout changes: add option to change profile based on screen resolution (and no other preferences)"
+    },
+    {
+      "tag": "12.1-027",
+      "published": "2026-11-22",
+      "notes": "# Edit Mode Expanded\n\n## [12.1-027](https://github.com/teelolws/EditModeExpanded/tree/12.1-027) (2026-11-22)\n[Full Changelog](https://github.com/teelolws/EditModeExpanded/compare/12.1-026...12.1-027) [Previous Releases](https://github.com/teelolws/EditModeExpanded/releases)\n\n- Layout Switching: screen resolution is now an extra option  \n    Closes: https://github.com/teelolws/EditModeExpanded/issues/239"
+    },
+    {
+      "tag": "12.1-026",
+      "published": "2026-11-14",
+      "notes": "# Edit Mode Expanded\n\n## [12.1-026](https://github.com/teelolws/EditModeExpanded/tree/12.1-026) (2026-11-14)\n[Full Changelog](https://github.com/teelolws/EditModeExpanded/compare/12.1-025...12.1-026) [Previous Releases](https://github.com/teelolws/EditModeExpanded/releases)\n\n- Fix issue with personal resource display frame"
+    },
+    {
+      "tag": "12.1-025",
+      "published": "2026-11-13",
+      "notes": "# Edit Mode Expanded\n\n## [12.1-025](https://github.com/teelolws/EditModeExpanded/tree/12.1-025) (2026-11-13)\n[Full Changelog](https://github.com/teelolws/EditModeExpanded/compare/12.1-024...12.1-025) [Previous Releases](https://github.com/teelolws/EditModeExpanded/releases)\n\n- Update PersonalResourceDisplay.lua"
+    },
+    {
+      "tag": "12.1-024",
+      "published": "2026-11-11",
+      "notes": "# Edit Mode Expanded\n\n## [12.1-024](https://github.com/teelolws/EditModeExpanded/tree/12.1-024) (2026-11-11)\n[Full Changelog](https://github.com/teelolws/EditModeExpanded/compare/12.1-023...12.1-024) [Previous Releases](https://github.com/teelolws/EditModeExpanded/releases)\n\n- Update EditModeExpanded-1.0.lua"
+    }
+  ],
+  "stats": {
+    "stars": 16,
+    "openIssues": 6,
+    "contributors": 5,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-22",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-11",
+      "2026-11-09",
+      "2026-11-07",
+      "2026-10-29",
+      "2026-10-14",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-08",
+      "2026-10-05",
+      "2026-10-03",
+      "2026-09-28",
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-19",
+      "2026-09-18",
+      "2026-09-09",
+      "2026-08-22",
+      "2026-08-18",
+      "2026-08-15",
+      "2026-08-15",
+      "2026-08-14",
+      "2026-08-12",
+      "2026-08-11",
+      "2026-08-11",
+      "2026-07-27",
+      "2026-07-25",
+      "2026-07-22",
+      "2026-06-16",
+      "2026-04-21",
+      "2026-04-06",
+      "2026-03-28",
+      "2026-03-26",
+      "2026-03-25",
+      "2026-03-25",
+      "2026-03-12",
+      "2026-03-10",
+      "2026-03-07",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-02-25",
+      "2026-02-24",
+      "2026-02-15",
+      "2026-02-13",
+      "2026-02-10",
+      "2026-02-09",
+      "2026-02-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EditModeExpanded"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "EditModeExpandedADB"
+    ]
+  }
+}

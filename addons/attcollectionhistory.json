@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "attcollectionhistory",
+  "repo": "Myrhial/ATTCollectionHistory",
+  "about": "# AllTheThings Collection History\n\n![AllTheThings Collection History logo](https://github.com/user-attachments/assets/f753b4f4-351a-4e03-81c5-6f88f4b293d0)\n\nA World of Warcraft addon that tracks your collection history in AllTheThings (ATT).\n\n* View the collection history in a window by click the addon compartment entry or with `/attch show`\n* View the recorded history as chat output with `/attch` (defaults to `session` filter)\n* Add the parameters `session`, `day`, `week`, or `month` to filter the results in chat. For the complete history, please use the window.\n* Use `/attch settings` to open the settings window.\n* There is also an entry in the addon compartment as well as a minimap button (which you can turn off in the settings) for easier access to the collection history window.\n\nLogo, icon and button art credit: Dead Serious\n\nPublished at https://www.curseforge.com/wow/addons/allthethings-collection-history and https://addons.wago.io/addons/allthethings-collection-history",
+  "releases": [
+    {
+      "tag": "v1.4.2",
+      "published": "2026-11-02",
+      "notes": "# AllTheThings Collection History\n\n## [v1.4.2](https://github.com/Myrhial/ATTCollectionHistory/tree/v1.4.2) (2026-11-02)\n[Full Changelog](https://github.com/Myrhial/ATTCollectionHistory/compare/v1.4.1...v1.4.2) [Previous Releases](https://github.com/Myrhial/ATTCollectionHistory/releases)\n\n- Adjust scroll bar layout for Retail and Classic-family versions"
+    },
+    {
+      "tag": "v1.4.1",
+      "published": "2026-10-29",
+      "notes": "# AllTheThings Collection History\n\n## [v1.4.1](https://github.com/Myrhial/ATTCollectionHistory/tree/v1.4.1) (2026-10-29)\n[Full Changelog](https://github.com/Myrhial/ATTCollectionHistory/compare/v1.4.0...v1.4.1) [Previous Releases](https://github.com/Myrhial/ATTCollectionHistory/releases)\n\n- Fix window position settings to use 'top' instead of 'bottom' for better layout management"
+    },
+    {
+      "tag": "v1.4.0",
+      "published": "2026-10-26",
+      "notes": "# AllTheThings Collection History\n\n## [v1.4.0](https://github.com/Myrhial/ATTCollectionHistory/tree/v1.4.0) (2026-10-26)\n[Full Changelog](https://github.com/Myrhial/ATTCollectionHistory/compare/v1.3.4...v1.4.0) [Previous Releases](https://github.com/Myrhial/ATTCollectionHistory/releases)\n\n- Use MaximizeMinimizeButtonFrameTemplate because it is prettier  \n- Add window collapse functionality  \n- Load only the newest 1k history lines in the visible history. This hopefully addresses the refresh lag upon collecting with a large history."
+    },
+    {
+      "tag": "v1.3.4",
+      "published": "2026-09-23",
+      "notes": "# AllTheThings Collection History\n\n## [v1.3.4](https://github.com/Myrhial/ATTCollectionHistory/tree/v1.3.4) (2026-09-23)\n[Full Changelog](https://github.com/Myrhial/ATTCollectionHistory/compare/v1.3.3...v1.3.4) [Previous Releases](https://github.com/Myrhial/ATTCollectionHistory/releases)\n\n- Update interface version in toc file to include new version numbers and add Forever support  \n- Refactor summary count logic to use a cache that gets +1 or -1 per event, to prevent performance issues on large history collections"
+    },
+    {
+      "tag": "v1.3.3",
+      "published": "2026-08-12",
+      "notes": "# AllTheThings Collection History\n\n## [v1.3.3](https://github.com/Myrhial/ATTCollectionHistory/tree/v1.3.3) (2026-08-12)\n[Full Changelog](https://github.com/Myrhial/ATTCollectionHistory/compare/v1.3.2...v1.3.3) [Previous Releases](https://github.com/Myrhial/ATTCollectionHistory/releases)\n\n- Update interface version in toc file"
+    }
+  ],
+  "screenshots": [
+    "https://github.com/user-attachments/assets/f753b4f4-351a-4e03-81c5-6f88f4b293d0"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-02",
+    "releaseDates": [
+      "2026-11-02",
+      "2026-10-29",
+      "2026-10-26",
+      "2026-09-23",
+      "2026-08-12",
+      "2026-07-31",
+      "2026-07-23",
+      "2026-07-22",
+      "2026-07-14",
+      "2026-03-10",
+      "2026-03-07",
+      "2026-03-07",
+      "2026-02-28",
+      "2026-02-24",
+      "2025-12-28",
+      "2025-12-28"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "enUS",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "ATTCollectionHistory"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "AllTheThings"
+    ],
+    "savedVariables": [
+      "ATTCollectionHistoryDB"
+    ]
+  }
+}

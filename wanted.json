@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "curseforge",
+      "edition": "anniversary",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "curseforge",
+      "edition": "classic",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "curseforge",
+      "edition": "classic_era",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "curseforge",
+      "edition": "classic_era_ptr",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "curseforge",
+      "edition": "classic_ptr",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "curseforge",
+      "edition": "forever",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "curseforge",
+      "edition": "retail",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "curseforge",
+      "edition": "retail_ptr2",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "wago",
+      "edition": "anniversary",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "wago",
+      "edition": "classic",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "wago",
+      "edition": "classic_era",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "wago",
+      "edition": "classic_era_ptr",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "wago",
+      "edition": "classic_ptr",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "wago",
+      "edition": "retail",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "auctionator",
+      "name": "Auctionator",
+      "source": "wago",
+      "edition": "retail_ptr2",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "details",
+      "id": "baganator",
+      "name": "Baganator",
+      "needs": [
+        "languages"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "baganator",
+      "name": "Baganator",
+      "source": "curseforge",
+      "edition": "forever",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "baganator",
+      "name": "Baganator",
+      "source": "wago",
+      "edition": "forever",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "details",
+      "id": "chattynator",
+      "name": "Chattynator",
+      "needs": [
+        "languages"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "chattynator",
+      "name": "Chattynator",
+      "source": "curseforge",
+      "edition": "forever",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "chattynator",
+      "name": "Chattynator",
+      "source": "wago",
+      "edition": "forever",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "details",
+      "id": "dungeonjournal",
+      "name": "DungeonJournal",
+      "needs": [
+        "languages"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "dungeonjournal",
+      "name": "DungeonJournal",
+      "source": "curseforge",
+      "edition": "forever",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "details",
+      "id": "gatherlite",
+      "name": "GatherLite",
+      "needs": [
+        "languages"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "gatherlite",
+      "name": "GatherLite",
+      "source": "curseforge",
+      "edition": "forever",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "details",
+      "id": "needroll",
+      "name": "NeedRoll",
+      "needs": [
+        "languages"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "needroll",
+      "name": "NeedRoll",
+      "source": "curseforge",
+      "edition": "forever",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "details",
+      "id": "syndicator",
+      "name": "Syndicator",
+      "needs": [
+        "languages"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "syndicator",
+      "name": "Syndicator",
+      "source": "curseforge",
+      "edition": "forever",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    },
+    {
+      "kind": "version",
+      "id": "syndicator",
+      "name": "Syndicator",
+      "source": "wago",
+      "edition": "forever",
+      "needs": [
+        "version"
+      ],
+      "progress": 0
+    }
+  ]
+}

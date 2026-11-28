@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "mapmementos",
+  "repo": "Mimezu/forever-MapMementos",
+  "about": "# Map Mementos\n\nA small field journal for places worth remembering. Eight symbols, a name, and\nup to 1,200 characters of notes. Saved spots appear on the zone/continent map\nand on the minimap when nearby. Hover to read your notes; click to edit.\n\n- `/memento` or `/mmemo`: open the journal and browse saved entries.\n- `/memento add`: capture your current location and open a new entry.\n- `/memento add Old oak ; A peaceful place to rest.`: save immediately.\n- Minimap book: left click opens the journal; right click remembers here.\n- Drag the minimap book around the rim; its position is saved.\n- Keys and the minimap icon: journal > Settings, or Esc > Options > AddOns > Map Mementos. `/memento button show|hide`.\n- Select an entry to change its name, symbol or notes, then Save entry.\n- Delete, then Confirm? removes the selected entry.\n\nThe location is captured when you start a new entry. Walking while writing,\nor editing an entry later, does not move it. Unsaved edits are discarded when\nyou select a different entry. Entries are account-wide. The game writes them\non logout/reload; an abrupt client crash can lose unsaved session changes.\n\nPins and the book button inherit their parent map's alpha. They therefore\nfade with Frame Gambit's map without separate rules or native icon scaling.\nThe journal opts into Frame Gambit's cinematic-window integration.\n\nWorld-map pins use saved normalized map coordinates directly, so custom maps\ndo not depend on HereBeDragons' map database. Parent maps use the client's map\nrectangles. New entries also capture world coordinates for the minimap;\nolder entries can fall back to the client's coordinate conversion API.\n\n## This installation\n\nBuilt for this Forever/Classic client (interface 16001). Restart the client\nif the newly installed addon is not discovered by `/reload`.\nSaved entries load through native SavedVariables (`MapMementosDB`); the former\n`_SavedVariables.local` bridge is retired.\n\n## Validation\n\n`lua Interface/AddOns/MapMementos/tests/regression.lua` from the game directory.\nThe offline harness tests entry creation, editing, original-location retention,\nicon changes, database reinitialization, unique IDs, failed location capture,\ndelete confirmation, pin cleanup, and parent-alpha inheritance. It mocks WoW;\nit does not verify rendering or the client's actual save loader.\n\nIn game: add a marker, walk away, inspect both maps, hover and edit the marker,\nreload to confirm persistence, exercise Frame Gambit's minimap fade, and delete\nthe entry. Also check rotating minimap and zoom levels.\n\n## Libraries\n\nBundled unchanged: HereBeDragons-2.0 (minor 33) and HereBeDragons-Pins-2.0\n(minor 17), by Nevcairiel: https://github.com/Nevcairiel/HereBeDragons\n(BSD license as declared by the upstream project).\nLibStub is public domain; CallbackHandler-1.0 uses the included Ace3 license.\nSources downloaded 2026-09-20. All required libraries are bundled.\n\n### 1.0.3 controller compatibility investigation\nWorld-map markers now use addon-owned canvas children instead of Blizzard data\nproviders or pin pools. The bundled Pins library uses a private\nMapMementos-MinimapPins-1.0 identity and does not register or refresh a world-map\nprovider. Other addons' copies of HereBeDragons-Pins are unaffected. The journal\nclose button hides only the journal, without calling HideUIPanel.\nSaved marker data is unchanged. Offline regression checks pass; the client's\ngamepad security behavior requires an in-game check after reloading.\n\n### 1.0.4 performance pass\nThe open world map no longer rebuilds every marker ten times a second: it\nredraws when the shown map or canvas size changes, and each marker's position\non a map is computed once. Pins and the minimap book run per-frame code only\nwhile hovered (tooltip fade) or dragged, and the book follows minimap resizes.\n`/memento button square` walks the book along a square minimap edge (for\nsquare skins such as EllesmereUI); `round` or `auto` restore the default.\nThe world map is installed on demand if it loads after login. The unused\n`Pins.xml` template was removed.\n\n### 1.0.5 gamepad world-map notes\nForever 1.60.1.70009 added a soft cursor to the gamepad world map. It only snaps\nto Blizzard's own pins. While the map is open in gamepad mode, resting that\ncursor on a memento now shows its note, using Blizzard's 12 px reach. The code\nonly reads the cursor position and changes nothing but this addon's own buttons;\nnothing is registered with the map or its navigation. Tested offline; confirm\nin game.\n\n### 1.0.6 no new map buttons while the gamepad map is open\nBlizzard's gamepad navigation hooks `CreateFrame`. When an addon creates a\nframe inside a window that the gamepad cursor is navigating, Blizzard re-reads\nthat window's buttons under the addon's taint. Later map opens and closes can\nthen fail inside Blizzard's navigation code: A stops jumping, B stops closing\nwindows, and windows lose the gamepad cursor until `/reload`. Map Mementos used\nto create a marker button the first time a map with more markers was shown,\nwhich could happen while browsing the open map. It now keeps one button per\nsaved marker, made while the map is closed. A marker added while the gamepad\nmap is open gets its button when the map closes. Keyboard/mouse mode is\nunchanged.\n\n### 1.0.7 one world-map overlay\nThe world-map overlay is installed once. If `Blizzard_WorldMap` loaded on\ndemand between this addon loading and login, both the load event and login\ninstalled an overlay, and every marker was drawn twice. No other change;\nreviewed against the live client (70707) with no Blizzard API breakage found.",
+  "releases": [
+    {
+      "tag": "v1.1.1",
+      "name": "Map Mementos 1.1.1",
+      "published": "2026-11-27",
+      "notes": "**Download `MapMementos-1.1.1.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game and type `/memento`.\n\nA small field journal for places worth remembering: a symbol, a name and notes, shown on the world map and on the minimap nearby. Hover to read, click to edit.\n\nFirst release on GitHub."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MapMementos"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "FrameGambit",
+      "Blizzard_WorldMap"
+    ],
+    "savedVariables": [
+      "MapMementosDB"
+    ]
+  }
+}

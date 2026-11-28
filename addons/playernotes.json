@@ -5,6 +5,11 @@
   "about": "# Player Notes\n\nPut a note on any player for WoW Forever: \"cool healer\", \"ninjalooted axe in ZF\", \"piece of shit\". Anything you like, no limits on what you write.\n\n## Set a note\n- Right-click a player: their portrait or target frame, a party or raid frame, focus, a name in chat, a friend, a guild or community member. Pick **Add note…** (or **Edit note…**).\n- Or type it:\n  - `/note <text>` notes your target.\n  - `/note Name <text>` or `/note Name-Realm <text>` notes anyone. With a player targeted, write `@Name <text>` or `Name-Realm <text>` to note someone else.\n  - `/note` opens the notes window: all your notes with search, edit and delete, a note by name, or on your target.\n  - `/note Name` shows a note, `/note del Name` deletes it, `/note list` shows them all in chat.\n  - `/note set chat off` (or `tooltip`, `chatlength 60`, `menu`, `groupjoin`, `hover`, `color ffb347`) changes where and how notes show; `/note get` lists them (`/note settings` too). The same options are in the window and under Settings > AddOns.\n  - `/note help` (or `?`), `/note status`, `/note version` and `/note search` (the window's search box) work too. Because `/note <text>` writes a note, these words count as commands only on their own, and settings always take `set` (or `get`). `/playernotes` works as well as `/note`.\n\nIn the note window, Enter saves and Escape closes. Saving an empty note deletes it.\n\n## Where notes show up\n- **Tooltips**: mouse over the player (in the world, on unit frames and portraits) and the note is the last line.\n- **Chat**: their messages get a short `[note]` in front (say, yell, whispers, party, raid, guild, channels, instance chat).\n- **Right-click menu**: the note sits under their name.\n- **Joining your group**: one chat line, \"Player Notes: Name — note\".\n- **Lists**: hover a player in the group finder (Looking for Group browse list: the leader and members), the who list, your friends list or a guild/community roster and a small note box appears beside it.\n\nNames are matched without regard to case; players on your own realm can be written without the realm.\n\n## Privacy\nYour notes stay on your computer, shared by all your characters. Player Notes never sends them anywhere: nobody else can see them.\n\n## License\n\nGPL-3.0-or-later (see LICENSE). Not affiliated with Blizzard Entertainment.",
   "releases": [
     {
+      "tag": "v0.3.1",
+      "published": "2026-11-27",
+      "notes": "- Small fixes to tooltips and the settings window: whichever window you click now comes to the front, and the settings list follows your search."
+    },
+    {
       "tag": "v0.3.0",
       "published": "2026-11-22",
       "notes": "- Notes now show when you hover a player on party and raid frames, also inside dungeons.\n- Tooltip: the note line matches the other EverlookDB addons. New setting \"Solid tooltip background\" (on by default)."
@@ -29,8 +34,9 @@
     "stars": 0,
     "openIssues": 0,
     "contributors": 1,
-    "lastRelease": "2026-11-22",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-11-22",
       "2026-11-21",
       "2026-11-20",

@@ -5,6 +5,11 @@
   "about": "[https://www.patreon.com/deadlybossmods](https://www.patreon.com/deadlybossmods)\n\n# History:\nFor longest time, I did not add support for Victory sounds or encounter music because it was already nicely done by a 3rd party addon called DBM-Victory sounds. However, this project seems long abandoned. Additionally, it's high time DBM supported these features built in.\n\nNow that feature is built into DBM, I had to decide how to handle media. I liked how the [Overwatch](https://www.curseforge.com/wow/addons/deadly-boss-mods-dbm-overwatch-countdown-pack), [Heroes](https://www.curseforge.com/wow/addons/deadly-boss-mods-dbm-heroes-of-the-storm-hots) and voice pack media worked so I continue this trend with Event Sounds feature. Basically, DBM supports event sounds but doesn't include media for it by default. No one wants to download tons of sound files every DBM update when none of sound files actually changed.\n\n**This Pack:**\n- Collection of music performed by [SmoothMcGroove](https://www.youtube.com/user/SmoothMcGroove) for use with DBM\n\n# Installation:\nJust install this with your addon client, or download and unzip and drop the DBM-SMGEventsPack folder directly into addons folder and DBM-Core version 7.3.24 or higher will be able to detect and add media to Event Sound Options automatically. After that, just configure how you want.\n\n## Additional Note:\nThis particular pack is made possible thanks to SmoothMcGroove, who has authorized use of his media specifically for this DBM feature. All audio is copyright media of SmoothMcGroove and any use or redistribution of this media requires authorization from SmoothMcGroove.",
   "releases": [
     {
+      "tag": "1.5.49",
+      "published": "2026-11-27",
+      "notes": "#  SMG Events Pack\n\n## [1.5.49](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/tree/1.5.49) (2026-11-27)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/compare/1.5.47...1.5.49) [Previous Releases](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/releases)\n\n- I messed up. length was field name not duration. fix this  \n- Music media now defines file duration length in seconds to allow addition features down the line  \n- update pkgmeta  \n- update CI  \n- 12.1.7 toc"
+    },
+    {
       "tag": "1.5.47",
       "published": "2026-10-14",
       "notes": "#  SMG Events Pack\n\n## [1.5.47](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/tree/1.5.47) (2026-10-14)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/compare/1.5.46...1.5.47) [Previous Releases](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/releases)\n\n- Toc Bumps  \n- tweaks"
@@ -23,19 +28,15 @@
       "tag": "1.5.44",
       "published": "2026-01-21",
       "notes": "#  SMG Events Pack\n\n## [1.5.44](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/tree/1.5.44) (2025-12-15)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/compare/1.5.43...1.5.44) [Previous Releases](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/releases)\n\n- Fix some missed tocs  \n- add 12.0.1 toc  \n- Cleanup 11.2.5 tocs  \n- apparently vanilla also had a patch this week. bump toc  \n- toc updates  \n- Update TOCs  \n- Toc bumps for current PTRs  \n- Remove 11.1.7 toc"
-    },
-    {
-      "tag": "1.5.43",
-      "published": "2025-07-01",
-      "notes": "#  SMG Events Pack\n\n## [1.5.43](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/tree/1.5.43) (2025-07-01)\n[Full Changelog](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/compare/1.5.42...1.5.43) [Previous Releases](https://github.com/DeadlyBossMods/DBM-SMGEventsPack/releases)\n\n- Add mists support  \n- Add 11.2 TOC  \n- Fix outdated media pack tocs  \n- toc bumps for ptr"
     }
   ],
   "stats": {
     "stars": 2,
     "openIssues": 0,
     "contributors": 6,
-    "lastRelease": "2026-10-14",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-10-14",
       "2026-09-19",
       "2026-08-11",

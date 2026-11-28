@@ -57,14 +57,7 @@
       "forever"
     ],
     "requires": [
-      "totalRP3"
-    ],
-    "optional": [
-      "totalRP3_Extended",
-      "totalRP3_KuiNameplates"
-    ],
-    "savedVariables": [
-      "TRP3_RPSpellbookDB"
+      "TRP3_RPSpellbook"
     ]
   }
 }

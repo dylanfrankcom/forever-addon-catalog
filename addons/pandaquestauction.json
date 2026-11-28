@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "pandaquestauction",
+  "repo": "vem882/pqAuction",
+  "about": "# PandaQuest Auction\n\n> Optional auction scanning, market observations and private listing history for PandaQuest.\n\n**Related projects:** [PandaQuest](https://github.com/vem882/pandaquest) · [PandaQuest DB](https://github.com/vem882/pqDB) · [PandaBase](https://pd.zroot.it/)\n\nPandaQuest Auction adds price scanning and private auction history to [PandaQuest](https://github.com/vem882/pandaquest). It supports Mists of Pandaria Classic, Classic Era, The Burning Crusade Classic Anniversary and WoW Forever. Available price, quantity and seller observations depend on the game client's auction APIs.\n\n## Install\n\nInstall **PandaQuest**, **PandaQuest DB** and **PandaQuest Auction** in the same WoW client. Use matching versions from the [PandaQuest releases](https://github.com/vem882/pandaquest/releases) or the CurseForge app. For manual installation, extract all three addons into the client's `Interface/AddOns` folder so the extension's TOC is at `AddOns/PandaQuestAuction/PandaQuestAuction.toc`. Restart WoW after installing or updating the addons.\n\nPandaQuest Auction requires PandaQuest and is optional for questing. Auctionator, TradeSkillMaster and the separate PandaQuest Sync app are optional.\n\n## In the game\n\n- Open the auction house and select its **PQ** tab. Run a full scan or choose **Find missing prices** to work through items lacking recent shared observations. The panel uses the auction house's own content area and tabs rather than opening a separate window.\n- Use `/pq price <item name, ID, or link>` to see quotes from Auctionator or TradeSkillMaster, if available. Shift-click an item into the command to resolve duplicate names. Add `--share` to queue a quote when quest telemetry is enabled.\n- In **PandaQuest → Options → Sync & Privacy**, turn on **Share completed Auctionator scans** to share supported full scans. This choice is separate from quest telemetry.\n- Enable **Record my auctions privately** to keep your listings and settled sale receipts. Visit the auction house's Auctions tab and open your mailbox to collect the information available in the client.\n\nA reload or logout saves the observations. [PandaQuest Sync](https://pd.zroot.it/setup) sends them to [PandaBase](https://pd.zroot.it/) if you have set it up. Public price observations and private listings use separate storage. The existing settings and pending data remain in PandaQuest's SavedVariables so upgrades keep them and Sync reads the same files.\n\n## Development\n\nPandaQuest Auction contains the auction UI, native scanner, Auctionator capture, private auction capture and local price commands. `Database/Overrides/AuctionMissing.lua` is generated from the verified PandaBase production mirror and automatically refreshed every 10 minutes. The [PandaQuest repository](https://github.com/vem882/pandaquest) builds and releases the compatible packages together.\n\n## Licence\n\nGPL-3.0. See [LICENSE](https://github.com/vem882/pqAuction/blob/main/LICENSE). World of Warcraft is a trademark of Blizzard Entertainment. PandaQuest Auction is an unofficial fan project.\n\nThe addon icon combines the PandaQuest logo with the WoW texture `INV_MISC_COIN_01`. The game artwork belongs to Blizzard Entertainment.\n\nEach release includes a generated `CHANGELOG.md` in the addon folder. The same added, changed and removed sections appear on GitHub and CurseForge.\n\n## Credits and data provenance\n\nQuest, item and category context comes from the versioned PandaQuest DB, which is built from\n[Questie](https://github.com/Questie/Questie), [QuestieDB](https://github.com/Questie/QuestieDB)\nand community-data practices documented by [QuestieTrace](https://github.com/Questie/QuestieTrace).\nThank you to the Questie community for the research that makes this ecosystem possible.\n\nAuction observations are opt-in and contain market aggregates rather than seller identities. The\nPandaBase community validates incoming observations before publishing shared price information.",
+  "releases": [
+    {
+      "tag": "v0.2.668",
+      "name": "PandaQuestAuction-0.2.668",
+      "published": "2026-11-27",
+      "notes": "# PandaQuestAuction 0.2.668\n\nChanges since v0.2.667.\n\n## Summary\n\n- Refresh PandaBase auction scan targets (#33)\n\n## Added\n\nNo entries.\n\n## Changed\n\n- Addon `Database/Overrides/AuctionMissing.lua`\n\n## Removed\n\nNo entries."
+    },
+    {
+      "tag": "v0.2.667",
+      "name": "PandaQuestAuction-0.2.667",
+      "published": "2026-11-26",
+      "notes": "# PandaQuestAuction 0.2.667\n\nChanges since v0.2.666.\n\n## Summary\n\n- Refresh PandaBase auction scan targets (#32)\n\n## Added\n\nNo entries.\n\n## Changed\n\n- Addon `Database/Overrides/AuctionMissing.lua`\n\n## Removed\n\nNo entries."
+    },
+    {
+      "tag": "v0.2.666",
+      "name": "PandaQuestAuction-0.2.666",
+      "published": "2026-11-26",
+      "notes": "# PandaQuestAuction 0.2.666\n\nChanges since v0.2.665.\n\n## Summary\n\n- Refresh PandaBase auction scan targets (#31)\n\n## Added\n\nNo entries.\n\n## Changed\n\n- Addon `Database/Overrides/AuctionMissing.lua`\n\n## Removed\n\nNo entries."
+    },
+    {
+      "tag": "v0.2.665",
+      "name": "PandaQuestAuction-0.2.665",
+      "published": "2026-11-26",
+      "notes": "# PandaQuestAuction 0.2.665\n\nChanges since v0.2.664.\n\n## Summary\n\n- Refresh PandaBase auction scan targets (#30)\n\n## Added\n\nNo entries.\n\n## Changed\n\n- Addon `Database/Overrides/AuctionMissing.lua`\n\n## Removed\n\nNo entries."
+    },
+    {
+      "tag": "v0.2.664",
+      "name": "PandaQuestAuction-0.2.664",
+      "published": "2026-11-26",
+      "notes": "# PandaQuestAuction 0.2.664\n\nChanges since v0.2.663.\n\n## Summary\n\n- Refresh PandaBase auction scan targets (#29)\n\n## Added\n\nNo entries.\n\n## Changed\n\n- Addon `Database/Overrides/AuctionMissing.lua`\n\n## Removed\n\nNo entries."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-20"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PandaQuestAuction"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "requires": [
+      "PandaQuest"
+    ],
+    "optional": [
+      "Auctionator",
+      "TradeSkillMaster"
+    ],
+    "savedVariables": [
+      "PandaQuestAuctionMarket",
+      "PandaQuestOwnAuctions"
+    ]
+  }
+}

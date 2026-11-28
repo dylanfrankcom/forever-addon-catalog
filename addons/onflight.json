@@ -2,8 +2,13 @@
   "schemaVersion": 1,
   "id": "onflight",
   "repo": "orionshock/OnFlight",
-  "about": "# OnFlight for WoW Forever\n\nOnFlight tracks taxi flights and learns their durations as you travel.\n\n## Features\n\n- Native Flight Destinations window with Favorites, zone browsing, live search.\n- Measured and estimated flight times in flight-map tooltips and destination rows.\n- Configurable flight timer bar.\n- Party and raid flight-status sharing.\n\n## Controls\n\n- `/onflight` opens Settings.\n- Control-drag the timer bar to move it; shift-click a timed bar to insert flight information into chat.\n- Shift-click a reachable destination or the current location to toggle its favorite status.\n- Left-click the taxi-map button to toggle Flight Destinations; right-click to toggle Settings.\n- Left-click the broker or minimap button to resend your flight announcement; right-click to open Settings.\n\n- Use **Gossip Configuration** to configure dialogue-triggered flights. **Show Diagnostic IDs** helps identify dialogue options and taxi nodes.\n\nSee [PROTOCOL.md](https://github.com/orionshock/OnFlight/blob/main/docs/PROTOCOL.md) for the public flight-status protocol.\n\n## Media control dependency\n\nThe native Settings media previews use LibSharedMediaControls-1.0. Its single\nruntime Lua file is tracked under `libs/LibSharedMediaControls-1.0` so source\ncheckouts can load it with OnFlight's existing libraries. `pkgmeta.yaml` pins the\nGit external to the same upstream revision for release packaging. When updating\nthis dependency, update the pin and tracked file together. The upstream Lua file\ncontains its MIT notice; the standalone demo and dependency copies are excluded.",
+  "about": "# OnFlight for WoW Forever\n\nOnFlight tracks taxi flights and learns their durations as you travel.\n\n## Features\n\n- Native Flight Destinations window with Favorites, zone browsing, live search.\n- Measured and estimated flight times in flight-map tooltips and destination rows.\n- Configurable flight timer bar.\n- Party and raid flight-status sharing.\n\n## Controls\n\n- `/onflight` opens Settings.\n- Control-drag the timer bar to move it; shift-click a timed bar to insert flight information into chat.\n- Shift-click a reachable destination or the current location to toggle its favorite status.\n- Left-click the taxi-map button to toggle Flight Destinations; right-click to toggle Settings.\n- Left-click the broker or minimap button to resend your flight announcement; right-click to open Settings.\n\n- Use **Gossip Configuration** to configure dialogue-triggered flights. **Show Diagnostic IDs** helps identify dialogue options and taxi nodes.\n\nSee [PROTOCOL.md](https://github.com/orionshock/OnFlight/blob/main/docs/PROTOCOL.md) for the public flight-status protocol.\n\n## Flight data transfer\n\n`/onflight export` and `/onflight import` transfer learned durations and gossip\nconfigurations. Imports add missing entries and report conflicts while preserving\nlocal values. Existing duration-only exports still import.\n\nDuration records use `A|source|destination|seconds` or\n`H|source|destination|seconds`. A gossip duration's source key is\n`<optionID>:<nodeID or title>`. Its destination is a numeric taxi node ID or an\noption-scoped title. Ordinary taxi durations use numeric IDs for both endpoints.\n\nConfiguration records use `G|optionID|source|destination`. Each endpoint uses\n`N:<nodeID>` for a numeric node or `T:<optionID>:<title>` for a custom title.\nFor example, `G|12345|N:10|T:12345:Harbor` configures node 10 to Harbor.\n\n## Media control dependency\n\nThe native Settings media previews use LibSharedMediaControls-1.0. The BigWigs\npackager copies the `LibSharedMediaControls-1.0` folder from the latest\nupstream Git tag. For a source checkout, place the runtime Lua file at\n`libs/LibSharedMediaControls-1.0/LibSharedMediaControls-1.0.lua`.",
   "releases": [
+    {
+      "tag": "v3.0.2",
+      "published": "2026-11-27",
+      "notes": "# OnFlight\n\n## [v3.0.2](https://github.com/orionshock/OnFlight/tree/v3.0.2) (2026-11-27)\n[Full Changelog](https://github.com/orionshock/OnFlight/compare/v3.0.1...v3.0.2) [Previous Releases](https://github.com/orionshock/OnFlight/releases)\n\n- Package the tagged media controls and generate release notes  \n- Defer group flight sharing during addon restrictions  \n- Add the flight icon and guard LDB Settings access  \n- Import and export learned taxi and gossip durations  \n- Add configurable flight notifications"
+    },
     {
       "tag": "v3.0.1",
       "published": "2026-11-17",
@@ -23,19 +28,15 @@
       "tag": "v0.2.6",
       "published": "2026-02-16",
       "notes": "# OnFlight\n\n## [v0.2.6](https://github.com/orionshock/OnFlight/tree/v0.2.6) (2026-02-16)\n[Full Changelog](https://github.com/orionshock/OnFlight/compare/v0.2.5...v0.2.6) [Previous Releases](https://github.com/orionshock/OnFlight/releases)\n\n- mop toc Update  \n- LFG\\_PROPOSAL\\_DONE is the proper event  \n- Fix node slot handling in OnFlight\\_GetEstimatedTime and improve gossip option handling  \n- LFG Queue Accept fix"
-    },
-    {
-      "tag": "v0.2.5",
-      "published": "2025-09-24",
-      "notes": "# OnFlight\n\n## [v0.2.5](https://github.com/orionshock/OnFlight/tree/v0.2.5) (2025-09-24)\n[Full Changelog](https://github.com/orionshock/OnFlight/compare/v0.2.4...v0.2.5) [Previous Releases](https://github.com/orionshock/OnFlight/releases)\n\n- Update OnFlight.toc  \n    update for MoP phase 2  \n- Fix Flight Windows order of operations.  \n- Add Shrine of Two Moons to Default Fav List"
     }
   ],
   "stats": {
     "stars": 10,
     "openIssues": 0,
     "contributors": 3,
-    "lastRelease": "2026-11-17",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-11-17",
       "2026-11-09",
       "2026-06-04",

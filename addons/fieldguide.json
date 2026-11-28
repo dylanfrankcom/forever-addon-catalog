@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "fieldguide",
+  "repo": "Emzime/FieldGuide",
+  "about": "# FieldGuide\n\n**Gathering field guide.** Skill requirements in tooltips, a searchable guide of every herb, ore, skin and fish with their zones, recipe vendors, progression and alerts for Herbalism, Mining, Skinning and Fishing.\n\n![FieldGuide](https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/fishing.png)\n\n[Français](#français) · [English](#english)\n\n---\n\n## Français\n\nAddon autonome (sans dépendance) pour les quatre métiers de récolte : **Herboristerie**, **Minage**, **Dépeçage** et **Pêche**.\n\n### Info-bulles\n\n- Sur les herbes, les gisements et les monstres, la ligne de métier du jeu est complétée par la compétence requise, en couleur selon la difficulté : « Herboristerie (Req : 235) ». Pas de ligne en double.\n- Votre niveau actuel, le gain de points ou les points manquants. Pour le dépeçage, le niveau maximum de bête que vous pouvez dépecer.\n- Les bonus d'équipement comptent (canne et leurre, couteau, gants enchantés…).\n- Mention « Composants nécessaires : » sur la ligne des composants dans les info-bulles de recettes.\n\n![Info-bulles](https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/tooltips.png)\n\n### Fenêtre du guide\n\n- Toutes les **herbes**, les **gisements**, les **tranches de bêtes** et les **poissons**, triés par niveau puis par ordre alphabétique, avec une recherche.\n- **Filtres** : métier, continent (Est, Kalimdor), « Récoltable », « Sans le gris », « Ma zone », faction (Alliance, Horde). Ils sont gardés d'une session à l'autre, par personnage.\n- **Fiche détaillée** : compétence requise, votre niveau, gain de points, ce que ça donne (herbes, minerais, pierres, gemmes, cuirs, plat cuisiné pour les poissons) et les zones où la trouver.\n- **Points sur la carte** : dans la fiche d'une herbe, d'un minerai, d'un poisson ou d'une tranche de bêtes, chaque zone indique son nombre de points ; un clic sur la zone affiche ces points sur la carte du monde, pour cette zone seulement. Pour une herbe ou un minerai, ce sont les points d'apparition ; pour un poisson, les lieux où il a été pêché ; pour le dépeçage, les endroits où vous avez dépecé. Un nouveau clic sur la zone, le bouton FieldGuide en haut à gauche de la carte (sous les boutons déjà présents), le bouton « Masquer les points » en bas de la fenêtre ou un clic milieu sur l'icône de la minicarte les retirent pour retrouver une carte vide. Les points viennent de la base fournie avec l'addon, de vos propres récoltes et, s'ils sont installés, de GatherLite et GatherMate2.\n- **Recettes et où les obtenir** : tous les vendeurs, classés selon votre faction, avec leur position ; un clic pose un repère sur la carte, avec son nom dans l'info-bulle du repère.\n- **Pêche** : moment de la journée, saison, leurre conseillé, et explication des zones à 330 (compétence 300 + bonus de canne et de leurre).\n- **Cuirs et écailles spéciaux** : cuir de diablosaure, de sabre-de-givre, de chimère, écailles de dragon, carapaces silithides… ainsi que les dépeçages de raid au-delà de 300 (cuir du Magma, écaille d'Onyxia, écaille de rêve…), avec les bonus disponibles sur Forever.\n- **Quête de Nat Pagle** : les quatre poissons de la quête Artisan avec leur point de pêche, le statut de la quête, les poissons déjà attrapés et une alerte en entrant dans la bonne zone.\n- Fenêtre redimensionnable par l'angle, colonne de liste réglable à la souris, mise en page qui s'adapte à la largeur.\n\n![Dépeçage : cuirs spéciaux et dépeçages de raid](https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/skinning.png)\n\n![Quête de Nat Pagle](https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/quest.png)\n\n### Progression et alertes\n\n- Pour chaque métier : **prochaine cible** conseillée et la zone où la trouver ; un clic ouvre sa fiche et affiche ses points dans cette zone.\n- **Rappel des paliers** : maître de votre capitale, livre de pêche Expert ou quête de Nat Pagle, cliquables pour poser un repère sur la carte.\n- **Alertes** : nouveau nœud récoltable, nœud passé en gris, outil manquant, palier suivant, poisson de quête dans la zone.\n- **Session** : récoltes, points gagnés et valeur estimée (prix d'Auctionator s'il est installé, sinon prix marchand).\n\n### Installation\n\n1. Téléchargez `FieldGuide-x.y.z.zip` dans Releases.\n2. Décompressez-le dans `Interface\\AddOns` (par exemple `_forever_\\Interface\\AddOns`) : vous devez obtenir le dossier `AddOns\\FieldGuide`.\n\n### Utilisation\n\n- `/fg` ou `/fieldguide` : ouvre ou ferme la fenêtre.\n- `/fg options` : ouvre les options (info-bulles, alertes, minicarte, fenêtre, réinitialisation).\n- `/fg reset` : remet les statistiques de session à zéro.\n- Icône de la minicarte : **clic gauche** = fenêtre, **clic droit** = options, **clic milieu** ou **Maj+clic** = masquer ou réafficher les points d'apparition, **glisser** = déplacer l'icône.\n\n### Compatibilité\n\nWoW Forever, Classic Era, TBC et Mists (Classic). Style inspiré d'ElvUI, et police d'ElvUI utilisée s'il est installé. Traduit dans les 11 langues officielles du jeu.\n\n---\n\n## English\n\nStandalone addon (no dependency) for the four gathering professions: **Herbalism**, **Mining**, **Skinning** and **Fishing**.\n\n### Tooltips\n\n- On herbs, ore veins and creatures, the game's profession line gets the required skill, coloured by difficulty: \"Herbalism (Req: 235)\". No duplicate line.\n- Your current skill, the skill gain or the missing points. For Skinning, the highest creature level you can skin.\n- Equipment bonuses count (fishing pole and lure, knife, enchanted gloves…).\n- \"Reagents needed:\" label on the reagent line of recipe tooltips.\n\n![Tooltips](https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/tooltips.png)\n\n### Guide window\n\n- Every **herb**, **ore vein**, **creature level range** and **fish**, sorted by level then alphabetically, with a search box.\n- **Filters**: profession, continent (East, Kalimdor), \"Harvestable\", \"No grey\", \"My zone\", faction (Alliance, Horde). They are kept between sessions, per character.\n- **Detail panel**: required skill, your skill, skill gain, what it gives (herbs, ores, stones, gems, leather, cooked dish for fish) and the zones where to find it.\n- **Points on the map**: in the sheet of a herb, an ore, a fish or a beast level range, each zone shows its number of points; clicking the zone shows these points on the world map, for that zone only. For a herb or an ore these are spawn points; for a fish, the places where it was caught; for Skinning, the places where you skinned. Clicking the zone again, the FieldGuide button in the top-left corner of the map (under the buttons already there), the \"Hide the spawn points\" button at the bottom of the window or a middle-click on the minimap icon removes them for an empty map. Points come from the bundled database, your own gathering and, when installed, GatherLite and GatherMate2.\n- **Recipes and where to get them**: every vendor, sorted by your faction, with their position; a click drops a pin on the map, with its name in the pin tooltip.\n- **Fishing**: time of day, season, recommended lure, and an explanation of the 330 zones (skill 300 + pole and lure bonuses).\n- **Special leathers and scales**: Devilsaur, Frostsaber and Chimera leather, dragonscales, silithid carapaces… plus the raid skins above 300 (Core Leather, Scale of Onyxia, Dreamscale…), with the bonuses available in Forever.\n- **Nat Pagle quest**: the four fish of the Artisan quest with their fishing spot, the quest status, the fish already caught and an alert when you enter the right zone.\n- Window resizable from its corner, list column width adjustable with the mouse, layout that adapts to the width.\n\n![Skinning: special leathers and raid skins](https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/skinning.png)\n\n![Nat Pagle quest](https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/quest.png)\n\n### Progression and alerts\n\n- For each profession: recommended **next target** and the zone where to find it; a click opens its sheet and shows its points in that zone.\n- **Skill tier reminder**: the trainer in your capital, the Expert Fishing book or Nat Pagle's quest, clickable to drop a pin on the map.\n- **Alerts**: new harvestable node, node turned grey, missing tool, next skill tier, quest fish in this zone.\n- **Session**: gathers, skill points and estimated value (Auctionator prices when installed, vendor price otherwise).\n\n### Installation\n\n1. Download `FieldGuide-x.y.z.zip` from Releases.\n2. Extract it into `Interface\\AddOns` (for example `_forever_\\Interface\\AddOns`): you should get the folder `AddOns\\FieldGuide`.\n\n### Usage\n\n- `/fg` or `/fieldguide`: open or close the window.\n- `/fg options`: open the options (tooltips, alerts, minimap, window, reset).\n- `/fg reset`: reset the session statistics.\n- Minimap icon: **left click** = window, **right click** = options, **middle click** or **Shift-click** = hide or show the spawn points, **drag** = move the icon.\n\n### Compatibility\n\nWoW Forever, Classic Era, TBC and Mists (Classic). ElvUI-inspired style, and ElvUI's font is used when ElvUI is installed. Translated into the 11 official game languages.\n\n---\n\n## Credits\n\nBuilt with the [Ace3](https://www.wowace.com/projects/ace3) libraries. Map pins use [HereBeDragons](https://github.com/Nevcairiel/HereBeDragons) (BSD). The spawn point database comes from [GatherLite](https://github.com/wuild/gatherlite) (MIT, see `FieldGuide/LICENSE-GatherLite.txt`).\n\n## License\n\n[MIT](https://github.com/Emzime/FieldGuide/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v1.0.2",
+      "name": "FieldGuide v1.0.2",
+      "published": "2026-11-28",
+      "notes": "## FieldGuide 1.0.2\n\n- Add instance entrances and fish spawn maps\n- Add map pins\n\nChanges since v1.0.1."
+    },
+    {
+      "tag": "v1.0.1",
+      "name": "FieldGuide v1.0.1",
+      "published": "2026-11-27",
+      "notes": "## FieldGuide 1.0.1\n\n- Place map pins without opening the map\n\nChanges since v1.0.0."
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "FieldGuide v1.0.0",
+      "published": "2026-11-27",
+      "notes": "## FieldGuide 1.0.0\n\n- Add version display and localized node fallbacks\n- Add WoW Forever gathering data\n- Add README screenshots\n- Add FieldGuide gathering addon"
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/fishing.png",
+    "https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/tooltips.png",
+    "https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/skinning.png",
+    "https://raw.githubusercontent.com/Emzime/FieldGuide/main/.github/images/quest.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-27",
+      "2026-11-27"
+    ]
+  },
+  "languages": [
+    "frFR"
+  ],
+  "technical": {
+    "folders": [
+      "FieldGuide"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "optional": [
+      "ElvUI",
+      "Auctionator"
+    ],
+    "savedVariables": [
+      "FieldGuideDB"
+    ]
+  }
+}

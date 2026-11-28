@@ -127,11 +127,8 @@
     "editions": [
       "forever"
     ],
-    "savedVariables": [
-      "TheGuildDB"
-    ],
-    "savedVariablesPerCharacter": [
-      "TheGuildCharDB"
+    "requires": [
+      "TheGuild"
     ]
   }
 }

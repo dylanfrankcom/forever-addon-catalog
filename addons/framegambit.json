@@ -5,6 +5,12 @@
   "about": "# Frame Gambit\n\nShows each part of your UI only when you need it, with rules you set per frame.\n\n## Install\n\nPut the `FrameGambit` folder in `World of Warcraft/_forever_/Interface/AddOns/`, then `/reload`.\n\n## Use\n\n- Open the editor with `/fg`.\n- Pick a frame on screen, or add one from the list.\n- Add rules: combat, mouseover, target, group, events, chat and more.\n- Rules are checked top to bottom. The first match sets the opacity.\n- **Otherwise** applies when no rule matches.\n- Drag rules to change their order.\n- Rules can also set a size and a position (experimental).\n- **Cinematic** is a second profile for questing with a minimal UI.\n- Profiles can be exported and imported.\n\n| Command or key | Does |\n| --- | --- |\n| `/fg` | Open the editor |\n| `/fg pick` | Pick a frame on screen |\n| `/fg cinematic` | Toggle Cinematic |\n| `/fg status` | Run a check |\n| Editor > Settings | Keys, minimap icon |\n| Options > AddOns > Frame Gambit | Open, keys, minimap icon |\n\n## Data\n\nSettings: `WTF/Account/<account>/SavedVariables/FrameGambit.lua`.\n\n## More\n\n- [Guide](https://github.com/Mimezu/forever-FrameGambit/blob/main/docs/GUIDE.md): conditions, gamepad, size and position, skins\n- [Integration](https://github.com/Mimezu/forever-FrameGambit/blob/main/INTEGRATION.md): for addon authors\n- [Changelog](https://github.com/Mimezu/forever-FrameGambit/blob/main/CHANGELOG.md)",
   "releases": [
     {
+      "tag": "v1.3.14",
+      "name": "Frame Gambit 1.3.14",
+      "published": "2026-11-27",
+      "notes": "**Download `FrameGambit-1.3.14.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game and type `/fg`.\n\nSettings are kept when you replace the folder.\n\n## New\n\n- Cinematic keeps Gamepad Companion's fishing float, and the cast bar stays dark while the float stands in for it (Fishing with Cast ring on)\n- New conditions: Eating or drinking, Fishing pole\n\n## Fixed\n\n- Minimap redraws when it comes back after being faded or hidden (no more black map); a zoom changed during the redraw is kept\n- Clean screenshot in combat (a level-up mid-fight) no longer trips a blocked-action error\n- Version shown in the editor and `/fg audit` reads the TOC (was stuck at 1.3.0)\n- Removing a frame whose window never appeared lets updates sleep again\n\n## Smoother\n\n- Cinematic: no stutter every 2.5 s and no periodic safety sweep hitch; new frames still caught within 2.5 s\n- Lighter chat, party, health/mana, minimap, layout and rule checks; gamepad rules read Gamepad Companion's state once per update\n\nFull list: CHANGELOG.md (1.3.5 to 1.3.14)."
+    },
+    {
       "tag": "v1.3.4",
       "name": "Frame Gambit 1.3.4",
       "published": "2026-11-18",
@@ -27,20 +33,15 @@
       "name": "Frame Gambit 1.2.8",
       "published": "2026-11-14",
       "notes": "**Download `FrameGambit-1.2.8.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game and type `/fg`.\n\nSettings are kept when you replace the folder.\n\n## New since 1.2.4\n\n- New frame: Loot Rolls\n- New frame: Durability\n- New ready-made profile: Showcase\n- Shorter labels, tooltips, messages, help and tutorial"
-    },
-    {
-      "tag": "v1.2.4",
-      "name": "Frame Gambit 1.2.4",
-      "published": "2026-11-09",
-      "notes": "**Download `FrameGambit-1.2.4.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip it into `World of Warcraft\\_forever_\\Interface\\AddOns\\`. You get the `FrameGambit` folder, ready to use.\n3. Start the game and type `/fg`.\n\nTo update later, download the newest release zip and replace the folder. Your settings live in your own WTF folder and are kept.\n\nNew in 1.2.4: a **Screenshot without interface** key (Key Bindings > Frame Gambit) hides the whole interface and nameplates, takes the screenshot, and brings everything back once it is saved. See CHANGELOG.md."
     }
   ],
   "stats": {
     "stars": 0,
     "openIssues": 0,
     "contributors": 1,
-    "lastRelease": "2026-11-18",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-11-18",
       "2026-11-16",
       "2026-11-16",

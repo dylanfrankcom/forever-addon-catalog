@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "nameplatesct-reforged",
+  "repo": "dbspringer/nameplatesct-reforged",
+  "about": "# NameplateSCT Reforged\n\nNameplateSCT's scrolling combat text, drawn above enemy nameplates, for WoW: Forever.\n\nForever closes the combat log to addons, so the original NameplateSCT can't tell which hits are yours. Most of what the game still sends is secret. A hit on an enemy doesn't say who made it, and its amount is secret, which means the addon can show the number but can't read or compare it. Your combat log lines reach addons with no words, so their colour is all the addon can read.\n\nThis version pairs those hits with your combat log lines to work out which ones are yours. Your damage, misses, and your pet's damage show above the enemy you hit, with the original's animations and options.\n\n## How it pairs your hits\n\nThe addon matches each hit on an enemy with one of your combat log lines, or with none, and then picks the spell that made it.\n\n- **Timing.** A spell's line and its hit come within a fraction of a second of each other. A melee swing's hit comes a short, steady delay after its line, and the addon learns that delay as you fight.\n- **Line colour.** The colour tells the kind of line: a spell hit, a DoT tick, a melee swing, a shot, a miss, or a heal.\n- **School.** When the game shows a hit's school, the addon prefers lines from spells of that school, so a Fire hit won't take your Corruption tick's line.\n- **Icons.** The icon comes from what you and your pet just cast, and from the steady rhythm of each DoT's ticks. When the addon isn't sure, it shows no icon (see [Icons](#icons)).\n\n## If something looks off\n\nSolo, the addon tells your hits apart well. In groups and busy fights, other players' hits can still pass for yours, so some of your numbers can be wrong or missing. Melee hits and misses get mixed up the most.\n\nI'm still tuning it, and most of the tuning so far comes from Warlock fights. If you play another class or run in busy groups, you're the likeliest to see something off, and your report helps the most.\n\nTo send one:\n\n1. Before the fight, type `/nsctr record` and `/combatlog`.\n2. After the fight, type both again to stop them, then `/reload`.\n3. Open an [issue](https://github.com/dbspringer/nameplatesct-reforged/issues) and attach two files from your Forever client folder: the recording, `WTF\\Account\\<account>\\SavedVariables\\NameplateSCT_Reforged.lua`, and the newest combat log, `Logs\\WoWCombatLog-<date>_<time>.txt`. Say your class, whether you were solo or in a group, and what looked wrong.\n4. Type `/nsctr record clear` once you've sent it. A long recording can slow down your login.\n\nThe recording holds your character name and zone, and the combat log holds the names of everyone in the fight. If you'd rather not use GitHub, a comment on [CurseForge](https://www.curseforge.com/wow/addons/nameplate-scrolling-combat-text-reforged) works too.\n\n## Install\n\nInstall it from [CurseForge](https://www.curseforge.com/wow/addons/nameplate-scrolling-combat-text-reforged), or download the latest release from [GitHub Releases](https://github.com/dbspringer/nameplatesct-reforged/releases) and unzip it into your Forever client's `Interface/AddOns` folder.\n\nEnemy nameplates need to be on (press V), since the numbers draw on them.\n\n## Use\n\n- `/nsctr` opens the options. The Filters page can hide some spells, or some kinds of enemies.\n- If your combat log filter isn't set up the way the addon needs, a window offers to fix it with one click and a reload. The colour of each combat log line is how the addon tells your hits from everything else.\n- `/nsctr record` starts or stops a recording for a bug report, and `/nsctr record clear` deletes it. See [If something looks off](#if-something-looks-off).\n- `/nsctr forget` clears what the addon learned about your wand.\n\n## Icons\n\nThe game doesn't tell addons which spell made a number, so the addon works it out from your casts, your pet's, and the timing of each hit. When two of your spells hit at the same moment, nothing tells which number is which. The game hides the amounts from addons, so those can't settle it either.\n\nThose numbers show no icon. With Display Possible Icons on, each one shows a small stack with the icons of the two or three spells that could have made it.\n\n## Develop\n\nRun `./fetch-libs.sh` to fetch the libraries into `Libs/`, then link the repo as `NameplateSCT_Reforged` into your Forever client's `Interface/AddOns` folder. Lint with `luacheck .` and run the specs with `busted` (on Lua 5.1, since that's what WoW runs).\n\nReleases are plain numbers that go up by one each time (`1`, `2`, `3`), and pushing that number as a tag cuts the release. If the CurseForge upload fails, `./export.sh <version> [destination]` builds the zip by hand, for example `./export.sh 1 ~/Desktop`. It ships exactly the files the game loads, plus the licenses. Run `./fetch-libs.sh` first, so the libraries match what the packager fetches.\n\n## Credits and license\n\nBased on [NameplateSCT](https://github.com/Justw8/NameplateSCT) by mpstark and Justwait, which did all the hard work on how the text looks and moves.\n\nMIT licensed. See [LICENSE](https://github.com/dbspringer/nameplatesct-reforged/blob/main/LICENSE).",
+  "releases": [
+    {
+      "tag": "17",
+      "published": "2026-11-27",
+      "notes": "- Slam now shows its icon with the Improved Slam talent.\n- Exorcism now shows its icon with Exorcist.\n- With an Imp out, more of your Hellfire, Rain of Fire, and Firebolt hits now show their icon.\n- The Imp's Demonic Brand hits now show their icon. A few can still show Firebolt's."
+    },
+    {
+      "tag": "16",
+      "published": "2026-11-26",
+      "notes": "- Your Auto Shot, bow, gun, crossbow, and Throw hits now look like your melee swings, in white with the Auto Attacks animations. \"Display Auto Attacks\" off now hides their icon too.\n- Spells that hit several enemies at once, like Whirlwind, Thunder Clap, Arcane Explosion, and Swipe, now show their icon on every hit. Before, only the first hit had it. Whirlwind's off-hand hits get it too.\n- Execute now shows its icon.\n- Deep Wounds now shows its icon on most ticks after its first. Some ticks still show none, like during Sweeping Strikes or Rend."
+    },
+    {
+      "tag": "15",
+      "published": "2026-11-26",
+      "notes": "- In groups, more of your numbers show, like your damage shield's hits (Fire Shield, Retribution Aura) and Demonic Brand. Before, another player's hit at the same moment could show in their place."
+    },
+    {
+      "tag": "14",
+      "published": "2026-11-24",
+      "notes": "- In groups, your spells and your pet's (like a Hunter pet's Bite) show their numbers more often. Before, another player's hit of a different school at the same moment could show in place of yours.\n- Demonic Brand's numbers show more often, with their icon, including the ones your pet's spells set off (like Lash of Pain). Before, those had no icon, and in groups another player's hit at the same moment could take a Brand number's place.\n- Hellfire's hits now show its icon. Before, they showed only the number, and a hit that missed showed nothing.\n- In groups, a Paladin's Seal numbers should show more often. Before, another player's hit at the same moment could take their place."
+    },
+    {
+      "tag": "13",
+      "published": "2026-11-23",
+      "notes": "- With Masque, icons keep their size in combat. Before, some showed much bigger or smaller than they should.\n- Line Gap for Prevent Overlap now goes down to -5, so numbers can sit closer together. Below 0, icons can overlap."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 18,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-10-22"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NameplateSCT_Reforged"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Ace3",
+      "LibEasing"
+    ],
+    "savedVariables": [
+      "NameplateSCTReforgedDB",
+      "NameplateSCTReforgedTraces"
+    ]
+  }
+}

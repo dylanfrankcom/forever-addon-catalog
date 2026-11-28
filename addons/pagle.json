@@ -95,9 +95,7 @@
       "forever"
     ],
     "savedVariables": [
-      "PagleLog",
-      "PagleDB",
-      "PagleRecovery"
+      "PagleQoLProbeDB"
     ]
   }
 }

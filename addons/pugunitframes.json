@@ -62,23 +62,12 @@
       "2026-11-23"
     ]
   },
-  "languages": [
-    "deDE",
-    "esES",
-    "frFR"
-  ],
   "technical": {
     "folders": [
       "PugUnitFrames"
     ],
     "editions": [
       "forever"
-    ],
-    "savedVariables": [
-      "PugUnitFramesDB"
-    ],
-    "savedVariablesPerCharacter": [
-      "PugUnitFramesCharDB"
     ]
   }
 }

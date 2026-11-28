@@ -45,9 +45,6 @@
       "2026-11-09"
     ]
   },
-  "languages": [
-    "frFR"
-  ],
   "technical": {
     "folders": [
       "KilledBySavages"
@@ -55,15 +52,11 @@
     "editions": [
       "forever"
     ],
-    "optional": [
-      "LibStub",
-      "CallbackHandler-1.0",
-      "LibDataBroker-1.1",
-      "LibDBIcon-1.0",
-      "LibDeflate"
+    "requires": [
+      "KilledBySavages"
     ],
     "savedVariables": [
-      "KilledBySavagesDB"
+      "KBSDemoDB"
     ]
   }
 }

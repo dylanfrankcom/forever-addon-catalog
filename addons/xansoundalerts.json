@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "xansoundalerts",
+  "repo": "Xruptor/xanSoundAlerts",
+  "releases": [
+    {
+      "tag": "v3.22",
+      "published": "2026-10-13",
+      "notes": "# xanSoundAlerts\n\n## [v3.22](https://github.com/Xruptor/xanSoundAlerts/tree/v3.22) (2026-10-13)\n[Full Changelog](https://github.com/Xruptor/xanSoundAlerts/compare/v3.21...v3.22) [Previous Releases](https://github.com/Xruptor/xanSoundAlerts/releases)\n\n- chore: update TOC interface numbers → v3.22"
+    },
+    {
+      "tag": "v3.21",
+      "published": "2026-09-19",
+      "notes": "# xanSoundAlerts\n\n## [v3.21](https://github.com/Xruptor/xanSoundAlerts/tree/v3.21) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/xanSoundAlerts/compare/v3.20...v3.21) [Previous Releases](https://github.com/Xruptor/xanSoundAlerts/releases)\n\n- chore: update TOC interface numbers → v3.21  \n- This should fix the TOC Issues."
+    },
+    {
+      "tag": "v3.20",
+      "published": "2026-09-19",
+      "notes": "# xanSoundAlerts\n\n## [v3.20](https://github.com/Xruptor/xanSoundAlerts/tree/v3.20) (2026-09-19)\n[Full Changelog](https://github.com/Xruptor/xanSoundAlerts/compare/v3.19...v3.20) [Previous Releases](https://github.com/Xruptor/xanSoundAlerts/releases)\n\n- chore: update TOC interface numbers → v3.20  \n- Updated the GitHub Actions to be better at automatic processing for TOC Updates.  \n    (attempt #5)  \n- Adding a automatic TOC Updater to GitHub Workflow"
+    },
+    {
+      "tag": "v3.19",
+      "published": "2026-04-11",
+      "notes": "# xanSoundAlerts\n\n## [v3.19](https://github.com/Xruptor/xanSoundAlerts/tree/v3.19) (2026-04-11)\n[Full Changelog](https://github.com/Xruptor/xanSoundAlerts/compare/v3.18...v3.19) [Previous Releases](https://github.com/Xruptor/xanSoundAlerts/releases)\n\n- TOC Update"
+    },
+    {
+      "tag": "v3.18",
+      "published": "2026-02-10",
+      "notes": "# xanSoundAlerts\n\n## [v3.18](https://github.com/Xruptor/xanSoundAlerts/tree/v3.18) (2026-02-10)\n[Full Changelog](https://github.com/Xruptor/xanSoundAlerts/compare/v3.17...v3.18) [Previous Releases](https://github.com/Xruptor/xanSoundAlerts/releases)\n\n- TOC Update  \n    * Updated TOC to latest patch 120001.  \n- GitHub Action Update"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 4,
+    "lastRelease": "2026-10-13",
+    "releaseDates": [
+      "2026-10-13",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-04-11",
+      "2026-02-10",
+      "2026-01-25",
+      "2026-01-24",
+      "2026-01-23",
+      "2026-01-02",
+      "2025-12-21",
+      "2025-12-15",
+      "2025-12-10",
+      "2025-08-18",
+      "2024-07-30",
+      "2024-07-26",
+      "2024-04-08",
+      "2024-04-08",
+      "2024-04-07",
+      "2024-04-06",
+      "2023-09-18",
+      "2023-05-26",
+      "2023-01-25",
+      "2022-11-15",
+      "2022-11-10",
+      "2022-10-31",
+      "2022-10-31",
+      "2021-09-19",
+      "2021-07-09",
+      "2021-05-28",
+      "2021-04-06"
+    ]
+  },
+  "languages": [
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "xanSoundAlerts"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "tekDebug"
+    ],
+    "savedVariablesPerCharacter": [
+      "XanSA_DB"
+    ]
+  }
+}

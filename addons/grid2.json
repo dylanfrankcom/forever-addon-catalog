@@ -61,10 +61,7 @@
     ]
   },
   "languages": [
-    "esES",
-    "ruRU",
-    "zhCN",
-    "zhTW"
+    "esES"
   ],
   "technical": {
     "folders": [
@@ -76,12 +73,11 @@
       "forever",
       "retail"
     ],
-    "optional": [
-      "Ace3",
-      "Clique"
+    "requires": [
+      "Grid2"
     ],
-    "savedVariables": [
-      "Grid2DB"
+    "optional": [
+      "LibDataBroker-1.1"
     ]
   }
 }

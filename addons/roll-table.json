@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "roll-table",
+  "repo": "ChristopherK95/roll-table",
+  "about": "# Roll Table\n\nA small World of Warcraft: Forever addon that shows who chose **Need**, **Greed** or **Pass** on group loot, and what they rolled.\n\nWhen an item is rolled on, a window opens listing every player who has chosen, sorted Need first, then Greed, then Pass, with the highest roll on top. When the roll ends, the winner is marked and the item folds into a one-line summary. The window closes itself a while after the last roll finishes.\n\n## Features\n\n- Every group loot roll you can see, not just the ones you were offered.\n- Player names in class colours, dice and coin icons for Need and Greed, and the roll number. Your own row is highlighted; hover a row for the details.\n- While a roll is open, shows who in your group hasn't chosen yet.\n- Several items at once, each in its own section. Click an item to fold or unfold it; shift-click to link it in chat; hover for its tooltip.\n- The last 10 finished items stay in the window until you log out.\n- Two looks: a minimal dark box, or a Blizzard-style window like the game's own Professions frame.\n- Drag the bottom-right corner to resize the window. Escape closes it.\n- A minimap button and an entry in the game's AddOns menu.\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/rolltable` | Show or hide the window |\n| `/rolltable config` | Open the settings |\n| `/rolltable style` | Switch between the minimal and Blizzard look |\n| `/rolltable minimap` | Show or hide the minimap button |\n| `/rolltable test` | Fill the window with made-up rolls, to check how it looks |\n\nMinimap button: **left-click** shows or hides the window, **right-click** opens the settings.\n\n## Settings\n\nFound under **Options → AddOns → Roll Table**:\n\n- **Style**: Minimal or Blizzard.\n- **Auto-open**: when a roll starts, open the window always, only in dungeons and raids, only for items you can roll on, or never.\n- **Wait until out of combat**: a roll that starts in combat opens the window once combat ends.\n- **Auto-close delay**: how long the window stays open after the last roll ends (0 keeps it open).\n- **Lock window**: stops the window from being moved or resized.\n- **Scale**: the size of the window and its text.\n- **Show minimap button**.\n\n## Installing\n\nInstall it from CurseForge, or copy the `roll-table` folder into\n`World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n\n## Releasing\n\nPushing a tag like `v1.1.0` makes GitHub build the zip (with the tag as its version) and upload it to CurseForge and a GitHub release. This needs a `CF_API_KEY` repository secret, and an `## X-Curse-Project-ID:` line in `roll-table.toc`.\n\n## Notes\n\n- The roll data comes from the game's loot history and its loot chat messages. A roll stays open until the game reports the winner, or that everyone passed.\n- Only English clients are tested. Other languages should work, since the addon reads the game's own text, but haven't been tried.\n- Players are told apart by first name, because Forever surnames only appear in some of the game's messages. Two players in the same group with the same first name show up as one.",
+  "releases": [
+    {
+      "tag": "v1.1.0",
+      "published": "2026-11-26",
+      "notes": "# Changelog\n\n## 1.1.0\n\n- While a roll is open, the window shows who in your group hasn't chosen yet.\n- Your own row is highlighted. Hover any row to see the player's full name, choice and roll.\n- New setting **Auto-open**: open the window when a roll starts always, only in dungeons and raids, only for items you can roll on, or never.\n- New setting **Wait until out of combat**: a roll that starts in combat opens the window once combat ends.\n- Drag the bottom-right corner to resize the window. Each look remembers its own size.\n- **Lock position** is now **Lock window**, and also stops resizing.\n- Escape closes the window.\n- Fixed: rolls that finished before you saw them (such as after a reload) no longer pop the window open.\n\n## 1.0.0\n\n- First release."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "roll-table"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "RollTableDB"
+    ]
+  }
+}

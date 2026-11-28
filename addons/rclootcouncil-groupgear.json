@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "rclootcouncil-groupgear",
+  "repo": "evil-morfar/RCLootCouncil_GroupGear",
+  "about": "![Build](https://github.com/evil-morfar/RCLootCouncil_GroupGear/workflows/CI/badge.svg?branch=master)\n[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/evil-morfar/RCLootCouncil_GroupGear?include_prereleases)](https://www.curseforge.com/wow/addons/rclootcouncil-groupgear)\n[![Discord](https://img.shields.io/discord/427445230870986752?color=%237289DA&label=Discord)](http://discord.rclootcouncil.com/)\n[![Patreon](https://img.shields.io/badge/patreon-donate-orange.svg)](https://patreon.com/rclootcouncil)\n\n# RCLootCouncil - Group Gear\n\nOfficial module for [RCLootCouncil](http://www.curse.com/addons/wow/rclootcouncil) adding an interface for viewing group and/or guilds gear and artifact traits. .\n\nThe latest release is available at [Curse](https://mods.curse.com/addons/wow/rclootcouncil-groupgear).",
+  "releases": [
+    {
+      "tag": "2.10.0",
+      "published": "2026-11-27",
+      "notes": "Added support for Forever."
+    },
+    {
+      "tag": "2.9.1",
+      "published": "2026-10-28",
+      "notes": "Updated for patch 12.1.5."
+    },
+    {
+      "tag": "2.9.0",
+      "published": "2026-08-16",
+      "notes": "Updated for patch 12.1.0, 1.15.9 and 2.5.6."
+    },
+    {
+      "tag": "2.8.2",
+      "published": "2026-06-16",
+      "notes": "Updated for patch 12.0.7."
+    },
+    {
+      "tag": "2.8.1",
+      "published": "2026-04-21",
+      "notes": "Updated for patch 12.0.5."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2026-10-28",
+      "2026-08-16",
+      "2026-06-16",
+      "2026-04-21",
+      "2026-02-17",
+      "2025-12-03",
+      "2025-10-20",
+      "2025-08-10",
+      "2025-07-08",
+      "2025-07-08",
+      "2025-07-03",
+      "2025-06-18",
+      "2025-04-28",
+      "2025-02-28",
+      "2024-12-18",
+      "2024-10-22",
+      "2024-08-14",
+      "2024-07-23",
+      "2024-05-08",
+      "2024-03-22",
+      "2024-01-07",
+      "2022-12-18",
+      "2021-11-11",
+      "2021-07-01",
+      "2021-03-12",
+      "2020-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RCLootCouncil_GroupGear"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "RCLootCouncil"
+    ],
+    "savedVariables": [
+      "RCGroupGearDB"
+    ]
+  }
+}

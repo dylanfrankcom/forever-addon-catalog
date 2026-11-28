@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "niceguild",
+  "repo": "beliskner/wow-forever-niceguild",
+  "releases": [
+    {
+      "tag": "v1.9.0",
+      "published": "2026-11-26",
+      "notes": "# Nice Guild\n\n## [v1.9.0](https://github.com/beliskner/wow-forever-niceguild/tree/v1.9.0) (2026-11-26)\n[Full Changelog](https://github.com/beliskner/wow-forever-niceguild/commits/v1.9.0) [Previous Releases](https://github.com/beliskner/wow-forever-niceguild/releases)\n\n- chore: prepare v1.9.0 release  \n- Merge pull request #1 from beliskner/feat/30-macro-slots  \n    Expand both macro sections to 30 slots in three rows  \n- feat: expand both macro pools to thirty slots  \n- ci: package and publish tagged releases to CurseForge  \n    Add a BigWigs packager workflow that publishes only for version tags whose  \n    commit is reachable from the release branch, and fails with an explicit  \n    error otherwise. Branch pushes, including main, never upload.  \n    The .pkgmeta maps the subdirectory addon layout into a flat package root so  \n    the produced zip contains the addon files at its top level.  \n    Ignore the packager's .release/ working directory.  \n- feat: drive level and welcome triggers from the guild roster  \n    Replace the hard-coded English CHAT\\_MSG\\_SYSTEM parsing with session-scoped  \n    roster monitoring driven by GUILD\\_ROSTER\\_UPDATE plus a 30 second  \n    C\\_GuildInfo.GuildRoster refresh.  \n    The first complete scan is a silent baseline keyed by GUID, including  \n    members who are offline, so joining while logged out never produces a  \n    delayed welcome. Later scans announce a level increase only when it beats  \n    the member's session high-water mark, and welcome a member once on the  \n    first appearance of a previously unseen GUID. GUIDs are never dropped from  \n    the session set, so incomplete refreshes and online churn cannot look like  \n    joins.  \n    Identity is resolved in two passes: explicit GUID/name pairs are refreshed  \n    first, so a temporarily missing GUID maps back to the same member and a  \n    rename removes the stale name alias instead of letting an old name  \n    impersonate the renamed member.  \n    Bumps the addon to 1.8.0. Renames requirements-dev.txt to requirements.txt  \n    and points the test workflow at the new name.  \n- fix: keep section toggles at normal checkbox size  \n- fix: read surname from unit name API and fold section toggles into titles  \n- fix: resolve full two-part self names and fix preview tokens  \n- feat: restore three-section UI and 10-tab message pools  \n- fix: repair addon logo BLP encoding  \n- fix: harden config UI and guild greetings  \n- fix escaping issues and string trimming  \n- add initial addon base  \n- Initial commit"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "niceguild"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "NiceGuildDB"
+    ]
+  }
+}

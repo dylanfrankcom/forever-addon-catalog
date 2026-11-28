@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "loremcooldowntracker",
+  "repo": "JulianNorton/LoremCooldownTracker",
+  "about": "# Lorem's Cooldown Tracker\nA World of Warcraft Classic addon that shows your ability and item cooldowns on one horizontal timeline.\n\n## What it does\n* Each cooldown is an icon that slides left along the bar as it runs down, with the time left under it\n* The scale is non-linear, so the last seconds get the most room\n* Tracks spells, equipped items and bag items; ignores anything of five seconds or less, including the global cooldown\n* When a cooldown finishes, its icon grows and fades; the size of that burst is adjustable\n\n## Settings\nOpen with `/lct` or the minimap button.\n\n* Bar width and height, icon size, finish burst size\n* Background opacity\n* Show or hide the bar, the icons and the time text\n* Lock the bar (click-through) or drag it to move\n\n## Commands\n\n| Command | Description |\n|---------|-------------|\n| `/lct` | Open settings panel |\n| `/lct toggle` | Show/hide the timeline frame |\n| `/lct lock` | Lock/unlock frame (locked = click-through) |\n| `/lct scan` | Rescan spellbook for abilities |\n| `/lct test` | Run a three-second sample cooldown |\n| `/lct debug` | Toggle debug mode |\n\n## Installation\n1. Download the latest release\n2. Extract the LoremCooldownTracker folder to the `Interface\\AddOns` directory of your game version, for example `World of Warcraft\\_classic_\\Interface\\AddOns`\n3. Restart World of Warcraft if it's running\n\n## Supported Versions\n- WoW Forever (1.60.x)\n- WoW Classic Era (1.15.x)\n- Burning Crusade Classic (2.5.x)\n- Wrath of the Lich King Classic (3.4.x)\n\n## Modifications\n* Feel free to modify and fork this project, checkout the license.txt for details",
+  "releases": [
+    {
+      "tag": "v2.6",
+      "published": "2026-11-27",
+      "notes": "- Works on WoW Forever (Interface 16001). Before, the addon only half-loaded there: items were not tracked, the bar forgot its size, and the markers did not follow a resize.\n- New: Finish Burst Size (100-400%) in settings, with a Test button and `/lct test`.\n- The bar now covers 10 minutes.\n- The finish pop is no longer cut short, and items pop when they come off cooldown.\n- A cooldown that is reset early leaves the bar straight away.\n- Using an item no longer adds a second icon.\n- \"Show Time Text\" now applies to both icons and markers.\n- Removed the `/lcttest` and `/lctperf` commands and unused libraries.\n- Tested on WoW Forever only.\n\n**Full Changelog**: https://github.com/JulianNorton/LoremCooldownTracker/compare/v2.5...v2.6"
+    },
+    {
+      "tag": "v2.5",
+      "published": "2025-12-31",
+      "notes": "## What's Changed\n* TBC fix by @JulianNorton in https://github.com/JulianNorton/LoremCooldownTracker/pull/2\n\n**Full Changelog**: https://github.com/JulianNorton/LoremCooldownTracker/compare/v2...v2.5"
+    },
+    {
+      "tag": "v2",
+      "name": "v1.5 old",
+      "published": "2025-12-06",
+      "notes": "TBC working\n\n**Full Changelog**: https://github.com/JulianNorton/LoremCooldownTracker/commits/v2"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2025-12-31",
+      "2025-12-06"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LoremCooldownTracker"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "LoremCTDB"
+    ]
+  }
+}

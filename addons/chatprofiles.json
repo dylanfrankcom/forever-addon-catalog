@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "chatprofiles",
+  "repo": "chuson/ChatProfiles",
+  "about": "# ChatProfiles\n\nA WoW Forever addon that saves your chat setup as a named profile and shares it between characters. Set up chat once, and every character using the profile gets the same tabs, channels and colors. Changes made on any of them are saved back to the profile when you log out.\n\nChatProfiles works on the standard chat window, using the same settings as the game's chat menus. Chat addons that restyle that window should keep working. Addons that replace it with their own window aren't supported.\n\n## Installing\n\n- **WowUp:** choose \"Install from URL\" and paste this repository's link. WowUp keeps it up to date.\n- **By hand:** download the zip from the latest release and extract it into `World of Warcraft\\_forever_\\Interface\\AddOns`.\n\nThen restart the game or return to character select.\n\n## Using it\n\nOpen the panel from Esc > Options > AddOns > ChatProfiles, or type `/chatprofiles` or `/chatp`.\n\n- **New** saves your current chat settings as a profile and switches this character to it.\n- **Choosing a profile** from the menu applies it to this character. If the character isn't using a profile and its settings don't match any of your profiles, you're asked first.\n- **Save now** saves without waiting for logout.\n- **Rename** and **Delete** do what they say. Characters using a deleted profile keep their chat settings.\n- **Export** gives you text to paste to another account or a friend, and **Import** adds a profile from that text.\n\nA profile is applied when you log in. Logging out or typing `/reload` always saves your chat settings to it, whether or not you clicked Save now. Switching to another profile is the only way to discard unsaved changes. The panel lists anything that differs from the profile.\n\nIf some settings can't be applied, ChatProfiles stops saving for that character until you reload or log in again, so a half-applied setup never overwrites a profile other characters share. The panel shows what didn't apply.\n\n## What a profile saves\n\nYou choose which parts each profile saves. At least one is required.\n\n- **Tabs:** which tabs you have, their order, the position of undocked tabs, and whether each tab is locked.\n- **Message filters:** which messages and channels each tab shows.\n- **Font and background:** text size, background color, and background opacity.\n- **Chat colors:** the color of each kind of message, and whether names use class colors.\n\nIt doesn't save:\n\n- **General's position.** Edit Mode controls it, and Edit Mode layouts can already differ per character.\n- **Combat log filters.** The game already shares them across your account.\n- **Channel membership.** ChatProfiles never joins or leaves channels.\n\n## Reporting a bug\n\nOpen an issue with:\n\n- What you did, what you expected, and what happened instead.\n- The client build, from `/run print(GetBuildInfo())`.\n- Any Lua error text. Turn error popups on with `/console scriptErrors 1` if you don't see any.\n- The status lines from the `/chatprofiles` panel, if they're relevant.\n\n## How this was made\n\nI wrote ChatProfiles with Claude as a coding assistant. I'm a software engineer and SRE by trade, and I treated it the way I'd treat any code I'm responsible for. I set the design and requirements, reviewed the code function by function, and tested every change in game. Several bugs were found only through in-game testing and fixed before release. The addon has automated tests that check its logic against data recorded from a real client, and the commit history shows which changes were AI-assisted.\n\n## Contributing\n\nSee [CONTRIBUTING.md](https://github.com/chuson/ChatProfiles/blob/main/CONTRIBUTING.md).\n\n## License\n\nCopyright (C) 2026 chuson\n\nChatProfiles is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See [LICENSE](https://github.com/chuson/ChatProfiles/blob/main/LICENSE) for the full text.",
+  "releases": [
+    {
+      "tag": "v0.1.1",
+      "name": "ChatProfiles v0.1.1",
+      "published": "2026-11-27",
+      "notes": "## What's Changed\n* Bump actions/checkout from 4.4.0 to 7.0.1 by @dependabot[bot] in https://github.com/chuson/ChatProfiles/pull/1\n* Bump the Lua and LuaRocks setup actions together by @chuson in https://github.com/chuson/ChatProfiles/pull/3\n\n## New Contributors\n* @dependabot[bot] made their first contribution in https://github.com/chuson/ChatProfiles/pull/1\n* @chuson made their first contribution in https://github.com/chuson/ChatProfiles/pull/3\n\n**Full Changelog**: https://github.com/chuson/ChatProfiles/commits/v0.1.1"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 2,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ChatProfiles"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "ChatProfilesDB"
+    ]
+  }
+}

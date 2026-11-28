@@ -99,10 +99,9 @@
       "forever",
       "retail"
     ],
-    "requires": [
-      "Questie"
-    ],
     "optional": [
+      "Questie",
+      "ClassicCodex",
       "HereBeDragons"
     ],
     "savedVariables": [

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "petal",
+  "repo": "Mimezu/forever-PETAL",
+  "about": "# Petal for WoW Forever\n\nSummons your pets automatically, with different pets for different places.\n\nPetal 2.0 is the Forever version of retail PETAL (a rewrite).\n\n## Open it\n\n`/petal`, the minimap icon, Esc > Options > AddOns > Petal, or the **Open Petal** key (set it in Options).\n\n## Pages (side tabs)\n\n- **Pets**: your collection. Tick the pets Petal can summon. Select a pet to see its model and description, choose the places it appears in, summon or dismiss it, favorite it, or unwrap a new pet.\n- **Places**: your current place and a grid of ticked pets by place (Cities, Inns & towns, Outdoors, Dungeons, Raids, Battlegrounds). A place with no pets uses all ticked pets.\n- **Options**: automatic summoning, keep pets you summon yourself, wait after you dismiss a pet, switch pets from time to time, an optional chat message, both keys (**Open Petal**, **Summon another**) and the minimap icon.\n- **Saved sets**: save, load, overwrite and delete sets, and share them as codes (`PETALF1`; retail `PETAL1` codes also import: open world becomes Outdoors, neighborhood is dropped).\n\n## When Petal waits\n\nPetal doesn't summon while you are in combat, mounted, on a flight path, eating or drinking, sitting at a campfire (\"Welcoming Campfire\" aura), stealthed, shapeshifted (travel/combat forms), or casting. After a mount, flight or loading screen, the same pet comes back.\n\n## How Forever's collection is read\n\nPets in Forever are account-wide, with no battles or levels, and the Classic-style journal lists only collected pets. Petal remembers pets by **species**, so arrangements and codes work across characters and accounts. It finds them in this order:\n\n1. `C_PetJournal.GetOwnedPetIDs()`\n2. A walk through the journal index. Your journal filters are widened for the walk and then restored exactly.\n3. `GetCompanionInfo(\"CRITTER\")`\n\nPets of the other faction are hidden, as they are in Blizzard's journal.\n\n`/petal probe` records what the client's pet API returns into `PETALDB.probe`. Use it if a pet is missing.\n\n## Commands\n\n`/petal`, `/petal next`, `/petal summon`, `/petal dismiss`, `/petal on`, `/petal off`, `/petal status`, `/petal probe`, `/petal debug`\n\n## Tests\n\nFrom this folder: `lua5.1 tests/Smoke.lua` and `lua5.1 tests/Discovery.lua`.",
+  "releases": [
+    {
+      "tag": "v2.1.1",
+      "name": "Petal 2.1.1",
+      "published": "2026-11-27",
+      "notes": "**Download `PETAL-2.1.1.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game and type `/petal`.\n\nSummons your pets automatically, with different pets for different places.\n\nFirst release on GitHub."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "PETAL"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "PETALDB"
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "silverdragon",
+  "repo": "kemayo/wow-silverdragon",
+  "about": "# SilverDragon\n\nSilverDragon tracks rares in World of Warcraft. It will try everything possible to notice them and tell you about them.\n\n## How does it search?\n\n### Vignettes\n\nThose little skull icons you see on the minimap. If one of them is a rare SilverDragon knows about, it'll yell at you.\n\n### Targets\n\nIf you mouse over or target a rare mob, SilverDragon will notice it.\n\n### Nameplates\n\nIf you have enemy nameplates turned on, SilverDragon will keep an eye on them to look for the names of known rares.\n\n### Macro\n\nSilverDragon can also create a macro to target any rares that are known in the current zone. You can stick this on your actionbars as a button to spam while chasing after a rare, or bind it to a key. This is sort of a last resort.\n\n### Chat\n\nSome rares yell in zone chat. If SilverDragon notices those yells, it'll alert you.\n\n### Dark Magic\n\nThis abuses detection of when Blizzard blocks attempts to call a protected function (`TargetUnit`) to work out when you're in targetting range of a unit with a given name\n\nThis *inherently* causes in-game errors, so it is disabled by default. Enable in the addon config under `Scanning > Dark Magic`.\n\nBy default it's less-aggressive, scanning through rares in the zone without known vignettes at a rate of 1/second. However, you can turn that rate way up if you'd like. You can also turn on an option to automatically hide the error messages it causes, but beware that this will potentially cause taint issues that'll leave you needing to `/reload` eventually.\n\n## How will I know when a rare is seen?\n\n### Frame\n\nWhen a rare appears, SilverDragon will pop up a frame that you can click on to target it.\n\nWarning: If you're in combat, secure action restrictions mean that it won't show up until combat finishes.\n\n### Sounds\n\nYou can choose from assorted sounds to play when a rare is seen. The sound can loop for a while, to make sure you don't miss it.\n\nThere's special settings for rares that drop mounts and world boss rares which you might want to call up a group for. If you're sitting mostly-AFK on a Time-Lost Proto Drake spawn, you probably want the sound that plays to be utterly ridiculous and go on for a good long while, to make *sure* you don't miss that sucker.\n\n### Messages\n\nA notice can be sent to a number of places:\n\n * your scrolling combat text\n * your chat frame\n * a channel in your chat frame (announcing it to your party, for instance)\n * a popup window\n * etc\n\n### History\n\nA log of seen rares will be shown in a window, so you can easily glance over spawn times.\n\n## Other useful things?\n\n### Custom mobs\n\nIn SilverDragon's options you'll find a \"Mobs\" section. In the \"Always\" section, you can add any mob you want to be scanned for. All you need to know is the mob id.\n\nSo, let's say you wanted to keep an eye out for Lil Timmy in Stormwind, to buy the kitten he sells. You would...\n\n 1. Go to his [wowhead page](http://www.wowhead.com/npc=8666/lil-timmy).\n 1. Grab his id from the URL. It's `8666`.\n 1. Enter `8666` into the \"add\" field, and click \"okay\".\n 1. Play with your new kitten.\n\nYes, this example dates me.\n\n### Ignoring mobs\n\nIf there's some mob you don't want to hear about for whatever reason, just go to the \"Ignore\" section of the options. Again, enter the mob's id into the \"add\" box, then click okay. Bam! You will never again be told that Vern is up.\n\n(Actually, Vern is ignored by default. But you get the idea.)\n\n### Syncs\n\nSilverDragon will talk to itself. It can communicate with other copies of itself run by people in your party / guild, and tell you when they see a rare mob. (If there's a group of you camping all the Time-Lost Proto Drake spawns, say...)\n\nYou can turn this off completely, if you want to be private about it.\n\n### Tooltips\n\nSome rares are part of an achievement. When you mouse over a rare mob, SilverDragon will add to the tooltip whether you've already killed it, so you know whether you need to rush for it.\n\n### Broker\n\nSilverDragon includes a Broker plugin. It'll attach itself to the addon compartment and also your minimap, or a Broker container you have installed, and show you a list of the mobs it knows about in the current zone.\n\n## Other addons you may find useful\n\n * [AppearanceTooltip](https://www.curseforge.com/wow/addons/appearancetooltip/): integrates with the SilverDragon loot popups and shows transmog-known status.\n * [ServerRestartSound](https://www.curseforge.com/wow/addons/serverrestartsound): plays a sound when the server's about to restart. If you're AFK-camping for a rare spawn, you probably want to know about this.\n * [ObjectScanner](https://www.wowace.com/projects/objectscanner): A few rares are hidden away behind interacting with world-objects like the Edge of Reality. These have to be localized individually, so you need to work out what they're called in your language and set up a watch for tooltips mentioning them. This addon does that bit.\n * [ButtonBin](https://www.curseforge.com/wow/addons/button-bin): a broker display. SilverDragon's minimap icon will show up on it (or any other addon like it) instead of cluttering up your minimap, if you have it installed.",
+  "releases": [
+    {
+      "tag": "v2026.42.1",
+      "published": "2026-11-16",
+      "notes": "## Changed in v2026.42\n\n* Forever: added new data for all the classic zones\n* Try to avoid an obscure error that seems to happen with the History tooltip"
+    },
+    {
+      "tag": "v2026.42",
+      "published": "2026-11-16",
+      "notes": "## Changed in v2026.42\n\n* Forever: added new data for all the classic zones\n* Try to avoid an obscure error that seems to happen with the History tooltip"
+    },
+    {
+      "tag": "v2026.41",
+      "published": "2026-10-24",
+      "notes": "## Changed in v2026.41\n\n* New scan method: minimap tracking, off by default. This only works in Forever currently, but the methods are *probably* coming to 12.1.7.\n* Forever: some actual data, minimal\n* Coiled Isle: only announce a Decrepit Cache if you have a key\n* BattleForAzeroth assaults: fix some loot in a few specific assaults\n* Overlay: option to stop world map icons overlapping, and requantize on zoom\n* Show slightly better information in the tooltip when achievement-progress is listed in the rewards from a rare"
+    },
+    {
+      "tag": "v2026.40",
+      "published": "2026-10-19",
+      "notes": "## Changed in v2026.40\n\n* Some data updates for 12.1.5 changes\n* Improvements to my formatting system in preparation for making the addon more translatable, which incidentally fixed a few edge-case bugs\n* Sometimes the loot window wouldn't stay open when you moused over the shared loot from the broker tooltip"
+    },
+    {
+      "tag": "v2026.39",
+      "published": "2026-10-14",
+      "notes": "## Changed in v2026.39\n\n* Update for 12.1.5"
+    }
+  ],
+  "stats": {
+    "stars": 28,
+    "openIssues": 111,
+    "contributors": 21,
+    "lastRelease": "2026-11-16",
+    "releaseDates": [
+      "2026-11-16",
+      "2026-11-16",
+      "2026-10-24",
+      "2026-10-19",
+      "2026-10-14",
+      "2026-10-11",
+      "2026-10-04",
+      "2026-09-29",
+      "2026-09-27",
+      "2026-09-22",
+      "2026-09-19",
+      "2026-09-05",
+      "2026-09-05",
+      "2026-08-22",
+      "2026-08-20",
+      "2026-08-17",
+      "2026-08-16",
+      "2026-08-15",
+      "2026-08-12",
+      "2026-08-10",
+      "2026-08-09",
+      "2026-08-09",
+      "2026-08-09",
+      "2026-07-15",
+      "2026-06-19",
+      "2026-04-24",
+      "2026-04-23",
+      "2026-04-11",
+      "2026-04-10",
+      "2026-04-04",
+      "2026-03-14",
+      "2026-03-12",
+      "2026-03-08",
+      "2026-03-06",
+      "2026-03-05",
+      "2026-02-28",
+      "2026-02-28",
+      "2026-02-28",
+      "2026-02-28",
+      "2026-02-16",
+      "2026-01-31",
+      "2026-01-29",
+      "2026-01-29",
+      "2026-01-28",
+      "2026-01-25",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-17"
+    ]
+  },
+  "languages": [
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "SilverDragon",
+      "SilverDragon_History",
+      "SilverDragon_Overlay",
+      "SilverDragon_RangeExtender"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "savedVariables": [
+      "SilverDragon3DB"
+    ]
+  }
+}

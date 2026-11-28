@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "capping",
+  "repo": "BigWigsMods/Capping",
+  "releases": [
+    {
+      "tag": "v12.1.18",
+      "published": "2026-11-27",
+      "notes": "# Capping\n\n## [v12.1.18](https://github.com/BigWigsMods/Capping/tree/v12.1.18) (2026-11-27)\n[Full Changelog](https://github.com/BigWigsMods/Capping/compare/v12.1.17...v12.1.18) [Previous Releases](https://github.com/BigWigsMods/Capping/releases)\n\n- Modules/AlteracValley: Add buff bar #191"
+    },
+    {
+      "tag": "v12.1.17",
+      "published": "2026-11-26",
+      "notes": "# Capping\n\n## [v12.1.17](https://github.com/BigWigsMods/Capping/tree/v12.1.17) (2026-11-26)\n[Full Changelog](https://github.com/BigWigsMods/Capping/compare/v12.1.16...v12.1.17) [Previous Releases](https://github.com/BigWigsMods/Capping/releases)\n\n- Copy over profile import/export code from BigWigs  \n- Add Discord link"
+    },
+    {
+      "tag": "v12.1.16",
+      "published": "2026-11-26",
+      "notes": "# Capping\n\n## [v12.1.16](https://github.com/BigWigsMods/Capping/tree/v12.1.16) (2026-11-26)\n[Full Changelog](https://github.com/BigWigsMods/Capping/compare/v12.1.15...v12.1.16) [Previous Releases](https://github.com/BigWigsMods/Capping/releases)\n\n- Core: English name for the score bar also  \n- Modules/DarkspearIslands: Add English names  \n- Modules/ArathiBasin: Add English names  \n- Cleanups  \n- Modules/DarkspearIslands: Import module for WoW Forever specific BG  \n- Modules/ArathiBasin: Support WoW Forever  \n- Modules/WarsongGulchTwinPeaks: Cleanups  \n- Modules/QueueTimers: Add a queue icon fallback  \n- Add missing reset button"
+    },
+    {
+      "tag": "v12.1.15",
+      "published": "2026-11-26",
+      "notes": "# Capping\n\n## [v12.1.15](https://github.com/BigWigsMods/Capping/tree/v12.1.15) (2026-11-26)\n[Full Changelog](https://github.com/BigWigsMods/Capping/compare/v12.1.14...v12.1.15) [Previous Releases](https://github.com/BigWigsMods/Capping/releases)\n\n- Modules/AlteracValley: Add more IDs, closes #191  \n- Cleanups. Copy over BigWigs code for bar decoration, closes #165"
+    },
+    {
+      "tag": "v12.1.14",
+      "published": "2026-11-25",
+      "notes": "# Capping\n\n## [v12.1.14](https://github.com/BigWigsMods/Capping/tree/v12.1.14) (2026-11-25)\n[Full Changelog](https://github.com/BigWigsMods/Capping/compare/v12.1.13...v12.1.14) [Previous Releases](https://github.com/BigWigsMods/Capping/releases)\n\n- Add support for English names, starting with AV. (Closes #117)"
+    }
+  ],
+  "stats": {
+    "stars": 34,
+    "openIssues": 7,
+    "contributors": 22,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-10-22",
+      "2026-10-11",
+      "2026-10-10",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-28",
+      "2026-08-25",
+      "2026-07-16",
+      "2026-06-26",
+      "2026-06-26",
+      "2026-06-09",
+      "2026-06-09",
+      "2026-04-13",
+      "2026-03-08",
+      "2026-03-08",
+      "2026-03-08",
+      "2026-02-04",
+      "2026-02-04",
+      "2026-02-02",
+      "2026-01-29",
+      "2026-01-21",
+      "2026-01-21",
+      "2026-01-20",
+      "2026-01-16",
+      "2025-07-13",
+      "2025-07-12",
+      "2025-05-14",
+      "2025-05-14",
+      "2025-05-13",
+      "2025-05-08",
+      "2025-05-03",
+      "2025-05-02",
+      "2025-04-18",
+      "2025-04-06",
+      "2025-04-01",
+      "2025-01-23",
+      "2025-01-23",
+      "2024-11-21"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ],
+  "technical": {
+    "folders": [
+      "Capping",
+      "Capping_Options"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibSharedMedia-3.0",
+      "LibCandyBar-3.0",
+      "LibDDI-1.0"
+    ],
+    "savedVariables": [
+      "CappingSettings"
+    ]
+  }
+}

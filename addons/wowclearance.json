@@ -52,14 +52,8 @@
     "editions": [
       "forever"
     ],
-    "optional": [
-      "DaylightUI",
-      "DaylightUI_Skins",
-      "DaylightUI_Bags"
-    ],
-    "savedVariables": [
-      "WoWClearanceDB",
-      "WoWClearanceAccountDB"
+    "requires": [
+      "WoWClearance"
     ]
   }
 }

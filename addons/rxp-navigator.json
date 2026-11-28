@@ -60,18 +60,6 @@
       "2026-10-08"
     ]
   },
-  "languages": [
-    "deDE",
-    "esES",
-    "esMX",
-    "frFR",
-    "itIT",
-    "koKR",
-    "ptBR",
-    "ruRU",
-    "zhCN",
-    "zhTW"
-  ],
   "technical": {
     "folders": [
       "RXP_Navigator",
@@ -81,11 +69,11 @@
       "forever"
     ],
     "requires": [
-      "RXPGuides"
+      "RXP_Navigator",
+      "ShortestPathForever"
     ],
     "savedVariables": [
-      "RXPNavigatorDB",
-      "RXPNavigatorDebugDB"
+      "RXPNavigatorSPFDB"
     ]
   }
 }

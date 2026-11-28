@@ -106,22 +106,8 @@
       "forever",
       "retail"
     ],
-    "optional": [
-      "MiniCC",
-      "ElvUI",
-      "Grid2",
-      "DandersFrames",
-      "FrameSort",
-      "Masque",
-      "TPerl",
-      "TidyPlates_ThreatPlates",
-      "VuhDo",
-      "BuzzardFrames",
-      "NDui",
-      "EllesmereUIUnitFrames"
-    ],
     "savedVariables": [
-      "MiniAurasDB"
+      "MiniCCDB"
     ]
   }
 }

@@ -5,6 +5,11 @@
   "about": "# Whack\n\nScrolling combat text for WoW Forever: your hits and the hits you take, where and how you want them.\n\n## Use\n- `/whack` opens the options (also under Settings > AddOns).\n- `/whack unlock` lets you drag the text areas; `/whack lock` fixes them again.\n- `/whack test` shows fake numbers so you can tune the look.\n- `/whack test proc` shows a fake weapon proc.\n- `/whack status` shows what it is doing.\n- `/whack outgoing.fontsize 20` or `/whack set outgoing.fontsize 20` changes a setting from chat (`/whack get` lists them; `/whack outgoing.enabled off` switches an area off).\n- `/whack reset outgoing` (or `incoming`) puts an area back to its defaults: type it twice within 10 seconds.\n- `/whack search <words>` opens the options with the search box filled; `/whack version`; `/whack help` (or `?`) lists every command, and a mistyped one suggests the nearest.\n- `/whack feedback` (or the Feedback button in the options) shows a link for reporting bugs and ideas.\n\n## Features\n- Two areas you can place anywhere: **Outgoing** (your auto attacks, wand shots and spells landing on your target) and **Incoming** (damage and heals you take).\n- Several animations per area (scroll, arc, cascade, burst), with direction, font, size and alignment.\n- Bigger critical hits (size multiplier), optional \"!\" on crits.\n- Heals you receive can be shown or hidden.\n- **Weapon procs**: when Fiery Weapon, Crusader, Lifestealing or another weapon enchant goes off, its name and icon pop up big in the middle of the screen, with a soft glow in its colour around the screen and a fitting sound (fiery for fire, icy for frost). Its hit shows bigger in your outgoing text, named (\"Fiery Weapon 40\") and blinking. `/whack status` counts your procs. Sound, glow, size and place are in the options (`/whack proc off` turns it off).\n- Optional **Notifications** area: loot (icon, quality colour, ×count), skill-ups, and if you like money, currencies, reputation, XP, honour, level up, quest progress and bags full. `/whack notify on`, then `/whack loot on`, `/whack rep on`, ... pick what it shows.\n\n## Install\nWowUp: pick **World of Warcraft: Forever**, then Get Addons → Install from URL, and paste `https://github.com/quikmn/Whack`.\n\nBy hand: download the latest zip from Releases and unzip it into `World of Warcraft\\_forever_\\Interface\\AddOns`.\n\n## License\n\nGPL-3.0-or-later (see LICENSE). Not affiliated with Blizzard Entertainment.",
   "releases": [
     {
+      "tag": "v0.5.4",
+      "published": "2026-11-27",
+      "notes": "- Whichever window you click now comes to the front."
+    },
+    {
       "tag": "v0.5.3",
       "published": "2026-11-26",
       "notes": "- Unlock areas: the Notifications box now starts under the weapon proc box instead of on top of it. If you never moved it, it moves there by itself.\n- Settings search: the sidebar lights the page of the top result while you search."
@@ -23,11 +28,6 @@
       "tag": "v0.5.0",
       "published": "2026-11-22",
       "notes": "- Weapon procs go boom: when Fiery Weapon, Crusader, Lifestealing, Demonslaying, Icy Weapon, Unholy Weapon or another weapon enchant goes off, its name and icon pop up big in the middle-top of the screen (\"FIERY WEAPON!\"), with a short glow in its colour around the edges of the screen and a fitting sound: fiery for fire, icy for frost, dark for shadow, a chime for holy. Both weapons at once make one boom (\"x2\").\n- The proc's own hit stands out in your outgoing text: bigger, in its colour, with its name (\"Fiery Weapon 40\"), and it blinks a few times as it scrolls.\n- `/whack status` tells you which proc your weapons have and how many you had this session (and per minute in combat).\n- A new Weapon procs page in the options: the splash, sound and glow on or off, the size, and where it shows (drag it with Unlock areas). From chat: `/whack proc off`, `/whack proc.sound off`, `/whack proc.size 40`; `/whack test proc` shows a fake one."
-    },
-    {
-      "tag": "v0.4.0",
-      "published": "2026-11-20",
-      "notes": "- Settings window: switches, buttons and sliders use a softer shade of the accent colour, an on switch has a dark knob so it stands out, and boxes have cleaner rounded edges.\n\n- Your hits no longer show twice: while Whack shows your outgoing hits, the game's own damage numbers over your target are switched off. A new setting on the General page (`/whack blizzarddamage off`) keeps them. Turning that setting or the outgoing area off, or logging out, gives you back the game's numbers as you had them.\n- Solo, other players' hits on your target no longer show as yours. When someone else is fighting your target (it is tapped by them, or it attacks another player), Whack only shows the hits it can match to your own swings and spells. Your damage over time still shows when the target is fighting you.\n- A hit that was fully absorbed (a shield, for one) now shows \"Absorbed\" instead of \"-0 (absorbed)\". A partly absorbed hit shows how much got through: \"Absorbed (-57)\"."
     }
   ],
   "screenshots": [
@@ -40,8 +40,9 @@
     "stars": 0,
     "openIssues": 0,
     "contributors": 1,
-    "lastRelease": "2026-11-26",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-11-26",
       "2026-11-26",
       "2026-11-23",

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "patchtools",
+  "repo": "csBlackWolf/PatchTools",
+  "about": "# \uD83C\uDDEC\uD83C\uDDE7 PatchTools\n\n_Small tools for a more relaxed adventure in Classic Era and Forever._\n\n## Features\n\n- Automatically sell junk and repair your equipment\n- Choose which items to sell and which to protect\n- Zoom the camera out further\n- Keep the world in color while you are a ghost\n- Show cooldown numbers, item IDs and vendor prices\n- Keep auto-loot enabled and collect loot faster\n- Automatically accept and turn in quests, with optional Pawn reward selection\n- Choose which loot and binding confirmations to skip\n- Customize your main action bar and its side decorations\n- Adjust the settings window’s size and background transparency\n- Make item deletion more convenient\n- Get warnings before announced world refreshes on Forever\n\nChoose the features you want. English and German are included.\n\n**[Pawn](https://www.curseforge.com/wow/addons/pawn) is optional** and enables equipment-based quest reward selection.\n\n**More room for your adventures:** add [PatchToolsMaps](https://www.curseforge.com/wow/addons/patchtoolsmaps) for your world map and [PatchToolsBags](https://www.curseforge.com/wow/addons/patchtoolsbags) for your bags and bank.\n\n## Commands\n\n| Command | What it does |\n| --- | --- |\n| `/patchtools` | Open the settings. |\n| `/patchtools reset` | Reset the settings window’s position and size. |\n| `/patchtools status` | Show current settings and game information. |\n| `/patchtools debug` | Open a copyable diagnostic report with addon versions and load states. |\n\nYou can also use `/ptools` instead of `/patchtools`.\n\n[Source code](https://github.com/csBlackWolf/PatchTools) · [Report bugs and suggest ideas](https://github.com/csBlackWolf/PatchTools/issues/new/choose)\n\n[User guide](https://github.com/csBlackWolf/PatchTools/blob/main/GUIDE.md) · [Developer guide](https://github.com/csBlackWolf/PatchTools/blob/main/DEVELOPMENT.md)\n\n---\n\n# \uD83C\uDDE9\uD83C\uDDEA PatchTools\n\n_Kleine Helfer für entspanntere Abenteuer in Classic Era und Forever._\n\n## Funktionen\n\n- Schrott automatisch verkaufen und die Ausrüstung reparieren\n- Selbst bestimmen, welche Items verkauft und welche geschützt werden\n- Die Kamera weiter herauszoomen\n- Die Welt auch als Geist in Farbe sehen\n- Abklingzeiten, Item-IDs und Händlerpreise anzeigen\n- Automatisches Plündern beibehalten und Beute schneller einsammeln\n- Quests automatisch annehmen und abgeben, mit optionaler Pawn-Belohnungsauswahl\n- Selbst wählen, welche Beute- und Bindungsbestätigungen entfallen\n- Die Hauptaktionsleiste und ihre Seitenverzierungen gestalten\n- Größe und Hintergrundtransparenz des Einstellungsfensters anpassen\n- Das Löschen von Items bequemer machen\n- Auf Forever vor angekündigten Welterneuerungen gewarnt werden\n\nAktiviere die Funktionen, die du möchtest. Deutsch und Englisch sind enthalten.\n\n**[Pawn](https://www.curseforge.com/wow/addons/pawn) ist optional** und ermöglicht die Auswahl von Questbelohnungen anhand deiner Ausrüstung.\n\n**Mehr Platz für deine Abenteuer:** ergänze [PatchToolsMaps](https://www.curseforge.com/wow/addons/patchtoolsmaps) für deine Weltkarte und [PatchToolsBags](https://www.curseforge.com/wow/addons/patchtoolsbags) für deine Taschen und Bank.\n\n## Befehle\n\n| Befehl | Funktion |\n| --- | --- |\n| `/patchtools` | Die Einstellungen öffnen. |\n| `/patchtools reset` | Position und Größe des Einstellungsfensters zurücksetzen. |\n| `/patchtools status` | Aktuelle Einstellungen und Spielinformationen anzeigen. |\n| `/patchtools debug` | Kopierbaren Diagnosebericht mit Addon-Versionen und Ladestatus öffnen. |\n\nStatt `/patchtools` funktioniert auch `/ptools`.\n\n[Quellcode](https://github.com/csBlackWolf/PatchTools) · [Fehler und Ideen melden](https://github.com/csBlackWolf/PatchTools/issues/new/choose)\n\n[Bedienungsanleitung](https://github.com/csBlackWolf/PatchTools/blob/main/GUIDE.md) · [Entwicklerinfos](https://github.com/csBlackWolf/PatchTools/blob/main/DEVELOPMENT.md)",
+  "releases": [
+    {
+      "tag": "v0.9.0",
+      "name": "PatchTools 0.9.0",
+      "published": "2026-10-27",
+      "notes": "# PatchTools 0.9.0 — 2026-10-27\n\nThe tested alpha features are now part of the regular release.\n\n- Optional quest acceptance and turn-in, with Pawn reward selection for your chosen specialization. Quest automation starts off; hold Shift for manual dialogue.\n- Choose the largest Pawn improvement when several quest rewards are upgrades. Ties and missing data remain manual.\n- A compact, scalable settings window with adjustable background transparency and position/size saved per character.\n- Main-bar styling, selectable side decorations and independent display layers.\n- Optional shortcuts for BoE roll, loot-binding and equip-binding confirmations, disabled by default.\n- `/patchtools debug` opens a copyable report with game information, addon versions and load states for support requests.\n\nMatching modules: PatchToolsMaps 0.3.0 and PatchToolsBags 0.1.2. Existing saved preferences are preserved.\n\nValidation: Classic Era gameplay testing by the maintainer and testers, plus automated Era/Forever checks. Live Forever testing remains pending."
+    },
+    {
+      "tag": "v0.8.0",
+      "name": "PatchTools 0.8.0",
+      "published": "2026-10-23",
+      "notes": "# PatchTools 0.8.0 — 2026-10-23\n\n- Support Classic Era 1.15.9 alongside Forever in one addon package.\n- Hide Forever world-refresh options and disable that module on Era. Hide the extra profession-bag option there and exclude Era bank bags from automatic selling.\n- Enable grey-junk selling, automatic repairs, extended camera zoom and whitelist selling by default for new settings. The whitelist starts empty; existing saved choices remain unchanged.\n- Keep the Map section ready for the companion addon on both game versions.\n\nValidation: automated Era/Forever checks in English, German and English fallback cover settings, selling protections, bank exclusion, tooltips, loot and client detection. Classic Era local gameplay testing confirmed vendor behaviour and companion integration. Earlier Forever behaviour was tested on Beta/stress-test clients; the latest changes cannot currently be retested in game because the Beta is closed. Forever release announcements remain unconfirmed."
+    },
+    {
+      "tag": "v0.7.1",
+      "name": "PatchTools 0.7.1",
+      "published": "2026-10-23",
+      "notes": "# PatchTools 0.7.1 — 2026-10-23\n\n- Add an optional Yes/No confirmation for destroying items that normally require typing DELETE. Enable it in General settings; it starts turned off.\n- Keep the game's localized item name, destruction prompt and quest warning, along with Blizzard's original accept and cancel actions.\n- During combat, keep Blizzard's original confirmation. Gamepad confirmations are unchanged.\n- Preserve existing settings and item selling lists.\n\nValidation: automated syntax, UTF-8 and regression checks passed. In-game testing on Forever Beta confirmed the simplified confirmation works. The original Blizzard popup layout is retained."
+    },
+    {
+      "tag": "v0.7.0",
+      "name": "PatchTools 0.7.0",
+      "published": "2026-10-23",
+      "notes": "# PatchTools 0.7.0 — 2026-10-23\n\n- Show world-refresh countdowns in minutes and seconds in screen messages, chat and previews.\n- Highlight advance warnings for possible announced phase changes: observed in Beta and the stress test; final-game availability is not yet confirmed. If the same announcements remain, the feature is ready to use.\n- Add support for the separate PatchToolsMaps addon.\n- Place Map above About PatchTools. Without the module, show its features and a link to install it.\n- Preserve existing settings and selling lists.\n\nValidation: syntax, UTF-8 and automated checks for vendor rules, tooltips, phasing, optional-addon loading and the Map placeholder. In-game checks on Forever Beta 1.60.1 build 70532 confirmed minute/second warnings and map movement, resizing and zoom with the companion module."
+    },
+    {
+      "tag": "v0.6.0",
+      "name": "PatchTools 0.6.0",
+      "published": "2026-10-22",
+      "notes": "# PatchTools 0.6.0 — 2026-10-22\n\nFirst regular release for World of Warcraft: Forever. No feature changes compared with 0.6.0-alpha.1.\n\n- Automatic junk selling and repairs, with blacklist and whitelist item rules.\n- Item-ID entry and drag-and-drop for selling lists; blacklist protection always wins.\n- Support for the extra profession bag, with an option to exclude it from automatic selling.\n- Optional item IDs and vendor prices per item in tooltips.\n- Settings grouped into General, Vendor, Tooltips, World Refresh and About PatchTools.\n- World refresh warnings, camera zoom, ghost colours, cooldown numbers, auto-loot and faster looting.\n- Built-in English and German, plus credits and a link for new feature ideas.\n\nExisting settings and item lists are preserved. Whitelist selling and tooltip additions start turned off for new installations.\n\nValidation: same runtime code as 0.6.0-alpha.1. The preceding alpha passed syntax, UTF-8 and simulated tests for English, German and English fallback. In-game checks on Forever Beta confirmed selling lists, tooltips, the revised interface, profession bag sales and its on/off option."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 5,
+    "contributors": 1,
+    "lastRelease": "2026-10-27",
+    "releaseDates": [
+      "2026-10-27",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-23",
+      "2026-10-22"
+    ]
+  },
+  "languages": [
+    "deDE"
+  ],
+  "technical": {
+    "folders": [
+      "PatchTools"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "PatchToolsDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "PatchToolsCharacterDB"
+    ]
+  }
+}

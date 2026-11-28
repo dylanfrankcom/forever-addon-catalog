@@ -67,21 +67,8 @@
       "forever",
       "retail"
     ],
-    "optional": [
-      "LibSharedMedia-3.0",
-      "SharedMedia",
-      "SharedMedia_MyMedia",
-      "SharedMediaAdditionalFonts",
-      "FrameSort",
-      "DandersMover"
-    ],
     "savedVariables": [
-      "DandersFramesDB_v2",
-      "DandersFramesClickCastingDB",
-      "DandersFramesDebugDB"
-    ],
-    "savedVariablesPerCharacter": [
-      "DandersFramesCharDB"
+      "DandersMoverDB"
     ]
   }
 }

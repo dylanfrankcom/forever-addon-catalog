@@ -106,7 +106,8 @@
       "totalRP3_UnitFrames"
     ],
     "editions": [
-      "forever"
+      "forever",
+      "retail"
     ],
     "requires": [
       "totalRP3"

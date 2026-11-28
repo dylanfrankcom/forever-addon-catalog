@@ -88,9 +88,11 @@
     "editions": [
       "forever"
     ],
+    "requires": [
+      "Terminal"
+    ],
     "savedVariables": [
-      "TerminalDB",
-      "TerminalCacheDB"
+      "TerminalShareDB"
     ]
   }
 }

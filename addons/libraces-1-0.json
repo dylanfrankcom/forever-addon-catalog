@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "libraces-1-0",
+  "repo": "HizurosWoWAddOns/LibRaces-1.0",
+  "about": "# LibRaces-1.0 (WoW AddOn Library)\n![Build](https://img.shields.io/github/actions/workflow/status/HizurosWoWAddOns/LibRaces-1.0/packager.yml?style=flat-square)\n![Tag](https://img.shields.io/github/v/tag/HizurosWoWAddOns/LibRaces-1.0?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/LibRaces-1.0/total?style=flat-square)\n![Downloads](https://img.shields.io/github/downloads/HizurosWoWAddOns/LibRaces-1.0/latest/total?style=flat-square)\n&nbsp; &nbsp; &nbsp; &nbsp;\n[![Patreon](https://img.shields.io/badge/&zwj;-Patreon-gray?logo=patreon&color=red&style=flat-square)](https://www.patreon.com/bePatron?u=12558524)\n[![Paypal](https://img.shields.io/badge/&zwj;-Paypal-gray?logo=paypal&color=blue&style=flat-square)](https://paypal.me/hizuro)\n![Sponsors](https://img.shields.io/github/sponsors/HizurosWoWAddOns?logo=github&style=flat-square)\n\n## Description\nThis is a little library to translate localized race names to english names like \"Mensch\" to \"Human\". (Female and male names)\n\n## To use in addons\n```lua\nlib = LibStub(\"LibRaces-1.0\")\n```\n\n## API\n\n### GetRaceToken\n```lua\nlib:GetRaceToken(<raceName>)\n```\n\n**Example:**\n```lua\n\"NightElf\", \"Night Elf\" = lib:GetRaceToken(\"Elfe de la nuit\")\n```\n\n**Arguments:**\n* raceName - race name (all client supported languages)\n\n**Return values:**\n* englishToken - english version without spacer like realm name behind character names\n\n### GetRaceName\n```lua\nlib:GetRaceName(<raceName>[,<languageCode>[,<gender>]])\n```\n\nExamples:\n```lua\n-- Orc [english to italian] \"Orco\", \"Orchessa\" = lib:GetRaceName(\"Orc\",\"itIT\")\n\n-- Blood Elf [Russian to female portuguese] \"Elfa Sangrenta\" = lib:GetRaceName(\"Эльф крови\",\"ptPT\",2)\n```\n\n**Arguments:**\n* raceName - race name (all client supported languages)\n* languageCode - deDE, enGB, enUS, esES, esMX, frFR, itIT, koKR, ptBR, ptPT, ruRU, zhCN, zhTW or de, en, es, mx, fr, it, ko, pt, br, ru, cn, tw\n* genderIndex - 0=Neutral, 1=Male, 2=Female\n\n**Return values without 3. argument:**\n* raceNameMale - male race name in choosen language\n* raceNameFemale - female race name in choosen language\n\n**Return values with 3. argument:**\n* raceName - neutral, male or female race name in choosen language\n\n### GetLanguageByRaceNamelib\n```lua\nlib:GetLanguageByRaceNamelib(<raceName>)\n```\n\n**Example:**\n```lua\n\"deDE\",\"enGB\",\"enUS\",\"frFR\",\"itIT\",\"ptBT\",\"ptPT\" = lib:GetLanguageByRaceName(\"Troll\")\n```\n\n**Arguments:**\n* raceName - race name (all client supported languages)\n\n**Return values:**\n* languageCodeN - a list of language code matching with given race name\n\n### GetGenderByRaceName\n```lua\nlib:GetGenderByRaceName(<raceName>)\n```\n\n**Example:**\n```lua\n2, \"FEMALE\" = lib:GetGenderByRaceName(\"Nachtelfe\") -- german female night elf\n```\n\n**Arguments:**\n* raceName - race name (all client supported languages)\n\n**Return values:**\n* genderIndex - 0=Neutral, 1=Male, 2=Female\n* genderName - english gender name (uppercase)\n\n## My other projects\n* [On Curseforge](https://www.curseforge.com/members/hizuro_de/projects)\n* [On Github](https://github.com/HizurosWoWAddOns?tab=repositories)\n\n## Disclaimer\n> World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.",
+  "releases": [
+    {
+      "tag": "r80",
+      "published": "2026-11-27",
+      "notes": "# Lib: LibRaces-1.0\n\n## [r80](https://github.com/HizurosWoWAddOns/LibRaces-1.0/tree/r80) (2026-11-27)\n[Full Changelog](https://github.com/HizurosWoWAddOns/LibRaces-1.0/commits/r80) [Previous Releases](https://github.com/HizurosWoWAddOns/LibRaces-1.0/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r79",
+      "published": "2026-11-04",
+      "notes": "# Lib: LibRaces-1.0\n\n## [r79](https://github.com/HizurosWoWAddOns/LibRaces-1.0/tree/r79) (2026-11-04)\n[Full Changelog](https://github.com/HizurosWoWAddOns/LibRaces-1.0/commits/r79) [Previous Releases](https://github.com/HizurosWoWAddOns/LibRaces-1.0/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r78",
+      "published": "2026-10-27",
+      "notes": "# Lib: LibRaces-1.0\n\n## [r78](https://github.com/HizurosWoWAddOns/LibRaces-1.0/tree/r78) (2026-10-27)\n[Full Changelog](https://github.com/HizurosWoWAddOns/LibRaces-1.0/commits/r78) [Previous Releases](https://github.com/HizurosWoWAddOns/LibRaces-1.0/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r77",
+      "published": "2026-08-12",
+      "notes": "# Lib: LibRaces-1.0\n\n## [r77](https://github.com/HizurosWoWAddOns/LibRaces-1.0/tree/r77) (2026-08-12)\n[Full Changelog](https://github.com/HizurosWoWAddOns/LibRaces-1.0/commits/r77) [Previous Releases](https://github.com/HizurosWoWAddOns/LibRaces-1.0/releases)\n\n- Update toc file"
+    },
+    {
+      "tag": "r76",
+      "published": "2026-06-21",
+      "notes": "# Lib: LibRaces-1.0\n\n## [r76](https://github.com/HizurosWoWAddOns/LibRaces-1.0/tree/r76) (2026-06-21)\n[Full Changelog](https://github.com/HizurosWoWAddOns/LibRaces-1.0/commits/r76) [Previous Releases](https://github.com/HizurosWoWAddOns/LibRaces-1.0/releases)\n\n- Update toc file"
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 1,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2026-11-04",
+      "2026-10-27",
+      "2026-08-12",
+      "2026-06-21",
+      "2026-06-14",
+      "2026-06-01",
+      "2026-03-01",
+      "2026-03-01",
+      "2026-01-30",
+      "2026-01-20",
+      "2025-12-28",
+      "2025-12-09",
+      "2025-08-09",
+      "2025-07-07",
+      "2025-06-18",
+      "2025-05-22",
+      "2025-04-24",
+      "2025-03-19",
+      "2025-02-27",
+      "2025-02-25",
+      "2024-12-20",
+      "2024-12-05",
+      "2024-10-23",
+      "2024-08-14",
+      "2024-08-13",
+      "2024-07-24",
+      "2024-05-07",
+      "2024-05-07",
+      "2024-03-01",
+      "2024-01-21",
+      "2023-12-07",
+      "2023-11-09",
+      "2023-10-03",
+      "2023-07-13",
+      "2023-06-26",
+      "2023-05-05",
+      "2023-03-22",
+      "2023-03-22",
+      "2023-01-26",
+      "2023-01-11",
+      "2022-10-25",
+      "2022-09-19",
+      "2022-06-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "LibRaces-1.0"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "LibStub",
+      "CallbackHandler-1.0"
+    ]
+  }
+}

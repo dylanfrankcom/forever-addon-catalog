@@ -35,8 +35,8 @@
   ],
   "stats": {
     "stars": 264,
-    "openIssues": 37,
-    "contributors": 23,
+    "openIssues": 38,
+    "contributors": 24,
     "lastRelease": "2026-11-23",
     "releaseDates": [
       "2026-11-23",
@@ -107,7 +107,8 @@
       "anniversary",
       "classic",
       "classic_era",
-      "forever"
+      "forever",
+      "retail"
     ],
     "optional": [
       "ConsolePort_Debug"

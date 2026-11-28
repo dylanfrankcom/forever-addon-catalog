@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "easymacros",
+  "repo": "Starlynk1/EasyMacros",
+  "about": "# Easy Macros\n\nDrop a spell from your spellbook to build a class-aware character macro.\n\nEasy Macros builds the right macro for the spell you drop: combat starters for harmful spells, mouseover help for spells you can cast on others, and a simple cast for self-only buffs. It works on Retail, WoW Forever, and Classic (Era, Anniversary, Cataclysm, and MoP).\n\n## Features\n\n* Drop a spell from your spellbook onto the window, then click **Create**\n* Harmful spells get a combat starter macro (clear / retarget / startattack / cast; `/petattack` for Hunter and Warlock)\n* Helpful spells for others use a mouseover conditional\n* Self-only helpful spells use a plain `/cast`\n* Character-specific macros only (no duplicates)\n* Drop a spell, click Create (macro attaches to your cursor), drop it on a bar\n* Or drag again later from the created-macro list\n* Same CreateMacro + PickupMacro path as Macro Spellbook / MacroActionBar (Forever)\n* Minimap button\n* Spellbook button that securely clicks Blizzard’s micro button (avoids Forever taint)\n\n## Commands\n\n| Command | Action |\n| --- | --- |\n| `/em` or `/easymacros` | Toggle the window |\n| `/em show` / `/em hide` | Show or hide |\n| `/em minimap` | Toggle the minimap button |\n\n## Install\n\n1. Download from CurseForge / WowUp, or clone this repository into `Interface/AddOns/EasyMacros`.\n2. Enable **Easy Macros** in the addons list.\n\n## Supported clients\n\n| Client | TOC |\n| --- | --- |\n| Retail | 120100 |\n| WoW Forever | 16001 |\n| Classic Era | 11508, 11509 |\n| Classic Anniversary | 20506 |\n| Cataclysm Classic | 40402 |\n| MoP Classic | 50504 |\n\n## License\n\nGPLv3. See [LICENSE](https://github.com/Starlynk1/EasyMacros/blob/main/LICENSE).\n\n***\n\n### **If you like this addon, please check out my other addons.**\n\n| Addon | Description |\n| --- | --- |\n| [Vital Frame](https://www.curseforge.com/wow/addons/vital-frame) | Compact HUD for name, level, XP, reputation, and skill bars |\n| [Incognito Resurrected](https://www.curseforge.com/wow/addons/incognito-resurrected) | Adds your chosen name to your chat messages. World, Guild, etc. |\n| [Nope Node](https://www.curseforge.com/wow/addons/nope-node) | Colors the Minimap harvesting nodes to your current skill color |",
+  "releases": [
+    {
+      "tag": "1.0.5",
+      "published": "2026-11-12",
+      "notes": "# Easy Macros 1.0.5\n\n- Fixed Forever `PetActionBar:SetShownBase` ADDON_ACTION_BLOCKED (including non-pet classes) caused by Spellbook post-click layout / UIPanel docking and micro-button tab writes.\n- Spellbook button is secure-click only again; Blizzard UIPanel pushable handles docking while auto-layout is on.\n- Macro list is sorted alphabetically (case-insensitive).\n- Right-click a listed macro to Delete (with confirm), in addition to Rename.\n\n# Easy Macros 1.0.4\n\n- Fixed Spellbook button opening talents / flashing closed on Forever — uses the live spells micro button and a single secure click.\n- Added header cog menu: Unlock Frame, Show Tooltip, and Reset Frame (Blizzard panel layout).\n- Unlock Frame detaches from UIPanel so the window can be dragged; Reset Frame restores docking.\n- Show Tooltip (off by default) shows the spell tooltip when hovering created macros.\n- Click a listed macro to load it into the preview; body text is editable; Create / Edit / Save flow for new and existing macros.\n- Right-click a listed macro to Rename (max 16 characters); list spacing reflows for longer or shorter names.\n- Macro list grows the frame downward by row (no scrollbar); cell width uses longest-word spacing and fills the list width.\n\n# Easy Macros 1.0.3\n\n- Fixed created-macro grid clipping the 8th icon off the frame; columns now fit inside the list viewport.\n- Shortened the preview box by 10px and gave that height to the macro list so two rows show without cutoff.\n- Fixed self buffs (e.g. Demon Armor / Demon Skin) incorrectly getting mouseover conditionals — uses Blizzard helpful/harmful/self and 0-range checks.\n- Fixed summon / call-pet style spells being built as combat macros; neutral 0-range spells use a plain `/cast` (Blizzard APIs only, no spell list)."
+    },
+    {
+      "tag": "1.0.4",
+      "published": "2026-11-11",
+      "notes": "# Easy Macros 1.0.4\n\n- Fixed Spellbook button opening talents / flashing closed on Forever — uses the live spells micro button, forces the Spellbook tab, and registers a single secure click.\n- Added header cog menu: Unlock Frame, Show Tooltip, and Reset Frame (Blizzard panel layout).\n- Unlock Frame detaches from UIPanel so the window can be dragged; Reset Frame restores docking.\n- Show Tooltip (off by default) shows the spell tooltip when hovering created macros.\n- Click a listed macro to load it into the preview; body text is editable; Create / Edit / Save flow for new and existing macros.\n- Right-click a listed macro to Rename (max 16 characters); list spacing reflows for longer or shorter names.\n- Macro list grows the frame downward by row (no scrollbar); cell width uses longest-word spacing and fills the list width.\n\n# Easy Macros 1.0.3\n\n- Fixed created-macro grid clipping the 8th icon off the frame; columns now fit inside the list viewport.\n- Shortened the preview box by 10px and gave that height to the macro list so two rows show without cutoff.\n- Fixed self buffs (e.g. Demon Armor / Demon Skin) incorrectly getting mouseover conditionals — uses Blizzard helpful/harmful/self and 0-range checks.\n- Fixed summon / call-pet style spells being built as combat macros; neutral 0-range spells use a plain `/cast` (Blizzard APIs only, no spell list).\n\n# Easy Macros 1.0.2\n\n- Fixed character macro slot limit on Forever/Retail (30 slots, Classic + 12) so free-slot checks no longer stop at 18.\n- Added combat lockdown: Easy Macros closes and refuses open/create/drop/drag while in combat to avoid interface errors."
+    },
+    {
+      "tag": "1.0.3",
+      "published": "2026-11-08",
+      "notes": "# Easy Macros 1.0.3\n\n- Fixed created-macro grid clipping the 8th icon off the frame; columns now fit inside the list viewport.\n- Shortened the preview box by 10px and gave that height to the macro list so two rows show without cutoff.\n- Fixed self buffs (e.g. Demon Armor / Demon Skin) incorrectly getting mouseover conditionals — uses Blizzard helpful/harmful/self and 0-range checks.\n- Fixed summon / call-pet style spells being built as combat macros; neutral 0-range spells use a plain `/cast` (Blizzard APIs only, no spell list).\n\n# Easy Macros 1.0.2\n\n- Fixed character macro slot limit on Forever/Retail (30 slots, Classic + 12) so free-slot checks no longer stop at 18.\n- Added combat lockdown: Easy Macros closes and refuses open/create/drop/drag while in combat to avoid interface errors.\n\n# Easy Macros 1.0.1\n\n- Fixed Forever BugSack / ADDON_ACTION_BLOCKED on PetActionBar and MultiBar after creating a macro (CreateMacro + PickupMacro on the Create click).\n- Fixed spellbook open from the addon retainting action bars — removed addon ShowUIPanel / ToggleSpellBook paths.\n- Added a secure **Spellbook** button that clicks Blizzard’s micro button without tainting.\n- Easy Macros now docks beside the spellbook like other Blizzard panels instead of closing when the book opens.\n- Create flow clarified: drop a spell for preview, click **Create**, then drop the macro on your bar (or drag again from the created list).\n- Restored `/petattack` on Hunter and Warlock combat macros."
+    },
+    {
+      "tag": "1.0.2",
+      "published": "2026-11-08",
+      "notes": "# Easy Macros 1.0.2\n\n- Fixed character macro slot limit on Forever/Retail (30 slots, Classic + 12) so free-slot checks no longer stop at 18.\n- Added combat lockdown: Easy Macros closes and refuses open/create/drop/drag while in combat to avoid interface errors.\n\n# Easy Macros 1.0.1\n\n- Fixed Forever BugSack / ADDON_ACTION_BLOCKED on PetActionBar and MultiBar after creating a macro (CreateMacro + PickupMacro on the Create click).\n- Fixed spellbook open from the addon retainting action bars — removed addon ShowUIPanel / ToggleSpellBook paths.\n- Added a secure **Spellbook** button that clicks Blizzard’s micro button without tainting.\n- Easy Macros now docks beside the spellbook like other Blizzard panels instead of closing when the book opens.\n- Create flow clarified: drop a spell for preview, click **Create**, then drop the macro on your bar (or drag again from the created list).\n- Restored `/petattack` on Hunter and Warlock combat macros.\n\n# Easy Macros 1.0.0\n\n- Initial release for Retail, WoW Forever, and Classic (Era, Anniversary, Cataclysm, and MoP).\n- Drop a spell from your spellbook to create a character-specific macro.\n- Harmful spells build a combat starter with clear/retarget, startattack, and optional /petattack for Hunter and Warlock.\n- Helpful spells that work on others use mouseover; self-only helpful spells use a plain cast.\n- Preview the macro text, drag the icon to your action bars, and browse macros created by Easy Macros.\n- Minimap button and slash commands."
+    },
+    {
+      "tag": "1.0.1",
+      "published": "2026-11-08",
+      "notes": "# Easy Macros 1.0.1\n\n- Fixed Forever BugSack / ADDON_ACTION_BLOCKED on PetActionBar and MultiBar after creating a macro (CreateMacro + PickupMacro on the Create click).\n- Fixed spellbook open from the addon retainting action bars — removed addon ShowUIPanel / ToggleSpellBook paths.\n- Added a secure **Spellbook** button that clicks Blizzard’s micro button without tainting.\n- Easy Macros now docks beside the spellbook like other Blizzard panels instead of closing when the book opens.\n- Create flow clarified: drop a spell for preview, click **Create**, then drop the macro on your bar (or drag again from the created list).\n- Restored `/petattack` on Hunter and Warlock combat macros.\n\n# Easy Macros 1.0.0\n\n- Initial release for Retail, WoW Forever, and Classic (Era, Anniversary, Cataclysm, and MoP).\n- Drop a spell from your spellbook to create a character-specific macro.\n- Harmful spells build a combat starter with clear/retarget, startattack, and optional /petattack for Hunter and Warlock.\n- Helpful spells that work on others use mouseover; self-only helpful spells use a plain cast.\n- Preview the macro text, drag the icon to your action bars, and browse macros created by Easy Macros.\n- Minimap button and slash commands."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-12",
+    "releaseDates": [
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-07"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EasyMacros"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "EasyMacrosDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "EasyMacrosCharacter"
+    ]
+  }
+}

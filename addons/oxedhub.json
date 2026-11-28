@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "oxedhub",
+  "repo": "oxedtv/OxedHub",
+  "about": "# Oxed Hub\n\nA World of Warcraft addon that reacts to what happens in game. You pick an\nevent — a spell landing, dying, losing control, finishing a Mythic+ — and Oxed\nHub answers with a sound, an animation, an emote, a chat line, or a toy.\n\nAround that sit a few tools that grew out of using it: radial and floating\naction bars, a toy organiser, and close to sixty optional modules, from boss\ntimers and a Mythic+ loot planner to auto-vendoring and a mail helper.\n\n## Install\n\nDrop the `OxedHub` folder into `World of Warcraft/_retail_/Interface/AddOns/`,\nor install from [CurseForge](https://www.curseforge.com/projects/1543764),\n[Wago](https://addons.wago.io/addons/BNBmAqGx) or\n[WoWInterface](https://www.wowinterface.com/downloads/info27142.html).\n\nType `/oxedhub` (or `/ohub`) to open it.\n\n## What's in it\n\n**Triggers** — the core. Pick an event, pick what happens. Sounds, animations,\nemotes, chat messages, toys, or several at once. Every trigger can be limited to\nspecific zones and given its own keybind.\n\nAround fifty events are covered, grouped into Basic, Combat, PvP and Advanced:\ndying, killing a boss, finishing a Mythic+, being interrupted, losing or\nregaining control, Bloodlust, a cooldown coming up, gaining or losing an aura, a\nspecific spell landing, mounting, levelling, earning an achievement, joining a\ngroup, getting mail, and so on. The PvP group covers enemy trinkets, crowd\ncontrol on you or your healer, and enemy burst buffs.\n\n**Reactions** — quick emote and sound responses you fire yourself rather than\nwaiting on an event.\n\n**Toys** — three parts. *Mixer* combines two toys into one button with its own\nsound and animation. *My Mixes* keeps what you built. *ToyBoxes* sorts your\ncollection into boxes with a floating on-screen dock, search, and a random-toy\nand random-hearthstone button.\n\n**OxedRing** — a radial menu on a keybind. Slices hold toys, mounts, emotes,\nmarkers, or your own triggers.\n\n**ActionHub** — floating quarter-ring bars for things that do not belong on the\ndefault action bars. Optional dual side, per-node sizing, an alignment grid\nwhile positioning, and cooldown sweeps with charge counts.\n\n## Modules\n\nThe Modules page holds self-contained features you switch on one by one. Every\nmodule ships **switched off**: nothing happens until you turn it on, and\nturning it off stops it at once, with no reload. Each card has an Options\nbutton, and the page can be searched and filtered by category.\n\n### Combat\n\n- **Buff Reminder** — icons for missing raid buffs, pets and consumables; click one to cast it. Keeps working in Mythic+.\n- **Buff Tracker** — any buff on you as a big icon with a timer, also in a fight.\n- **BRes & Lust Tracker** — battle resurrection charges and Sated on screen.\n- **Heartbeat** — a heartbeat in combat that speeds up at low health, and a flatline when you die.\n- **KickBar** — an interrupt alert on the enemy's nameplate or a floating icon, with a timer and an almost-ready preview.\n- **Markers** — raid marks, world flares, a ready check and a pull timer on screen (`/oxmark`).\n- **Target Marker** — a marker on your target's nameplate in thirteen styles, from arrows to a glow or a crosshair (`/oxtarget`).\n- **Smart Misdirect** — Misdirection and Tricks of the Trade on the right target with one button.\n- **Threat Bar** — a threat bar under every enemy nameplate, glowing as you close in (`/oxthreat`).\n- **Trinket Ready** — a sound and a movable alert the moment an on-use trinket is ready again.\n\n### Dungeons & PvP\n\n- **MythicLooter** — Mythic+ and raid loot browser with a Best-in-Slot planner, drop reminders, keystone tooltips, the party's keys, and a This Week tab with your key, affixes, rating and Great Vault progress. During a key, a forces tracker with boss targets (`/ml`).\n- **Boss Timers**, **Boss Alerts**, **Boss Track**, **Boss Health** — boss abilities as bars, centre-screen countdowns, icons sliding toward a line, and a health bar with phase marks. Each ability can have its own sound and text.\n- **Trash Timers** — cooldowns of dangerous dungeon trash after each pull.\n- **Enemy Casts** — every enemy cast in one list, with its target; greyed when it cannot be kicked.\n- **Party Interrupts** — your kick's cooldown, and who in the group just interrupted what.\n- **Auto Queue** — answers role checks, signs up in the Group Finder, and a movable queue eye.\n- **Inviter Info** — who is inviting you, and the group's details when the Group Finder puts you in one.\n- **Bonus Roll Guard** — asks before a bonus roll is spent, and names the spec the loot goes to.\n- **Loot Banner** — trims the boss loot banner: nothing when solo, only good items, or only yours.\n- **Instances** — instances per hour, and what each run was worth (`/oxinst`).\n- **PvP Progress** — honour, conquest, vault wins and every rating on one panel (`/oxpvp`).\n\n### Quests & Travel\n\n- **Teleports** — one button your teleports fly out of, each group its own way (`/tp`).\n- **Auto Quest** and **Auto Gossip** — accept and hand in quests, and pick the only option in an NPC's menu.\n- **Flight Timer** — a timer bar on flight paths, with a sound before you land (`/oxflight`).\n- **Gold World Quests** — gold world quests, special assignments and weekly caches in Midnight.\n- **WQ Achievements** — world quests up now that count toward achievements, mounts, pets or toys you still need.\n- **Game Events** — today's and upcoming game events from the calendar, with Wowhead links (`/oxevents`).\n- **Prey Hunt** — the hunt's stages as a bar, ambush and kill sounds, and achievement marks at Astalor.\n- **Quest Item Alert** — names the quest an item starts before you delete it, and whether you did it.\n\n### Bags & Mail\n\n- **Auto Vendor** — sells junk and your sell list, and repairs, at any vendor.\n- **Auto Banker** — deposits reagents and restocks what you keep in the bank.\n- **Auto Confirm** — types DELETE for you and skips the confirm popups you choose.\n- **Bulk Buy** — Shift-click a vendor item to buy any amount, with the total cost.\n- **Purchase Guard** — holds the Yes button a moment on purchases you cannot undo.\n- **Fast Loot** — takes all the loot the moment the window opens.\n- **Durability** — gear durability on screen, the worst slots, repair cost, and a reminder before a dungeon.\n- **Item Tooltips** — IDs, collection status and counts across your characters in tooltips.\n- **Mail** — Open All, return, forward, an address book and attaching from bags (`/oxmail`).\n- **Gold Stock** — gold on all your characters: bags, mail, guild banks and the warband bank, with totals and export (`/goldstock`).\n\n### Character & UI\n\n- **Attributes** — a character window tab with live movement speed and hidden stats such as leech and stagger.\n- **Currencies** and **Reputations** — every currency and renown for all your characters, with totals and paragon alerts (`/oxcurrency`, `/oxrep`).\n- **Currency Transfer** — quicker account-wide currency transfers.\n- **Experience Bar** — an experience bar with quest XP, rested bonus and levelling rate (`/oxexp`).\n- **AddOn Manager** — addons grouped and searchable, switched per character, with saved sets (`/oxaddons`).\n- **Frame Mover** — drag the game's windows anywhere, and they open there again (`/oxmove`).\n- **Keep Open** — opening a game window no longer closes the others (`/keepopen`).\n- **Minimap Buttons** — every addon's minimap button in one drawer.\n- **Missing Gems** — marks gear with empty sockets and reminds you before a dungeon.\n- **Camera** — ActionCam settings in a window: tilt, over the shoulder, target focus, field of view.\n- **Cursor** — fire, frost and other effects on your mouse pointer.\n- **Break Time** — a friendly reminder to stand up after a long session, never in a fight.\n\n### Chat\n\n- **Chat Filter** — an unlimited ignore list, Group Finder warnings and spam blocking (`/oxfilter`).\n- **Chat Buttons** — Say, Group and Guild buttons by the chat, with whisper history and quick lines.\n- **BubbleChat** — chat bubbles in your font, size and style (`/oxbubble`).\n- **Copy Chat** — opens the chat as text you can copy (bind it under Key Bindings, Oxed Hub).\n- **Chat Leave** — right-click a channel in chat to leave it.\n- **OxMemes** — keywords in chat, NPC lines and spells shake, tilt or blow up the screen with a sound.\n\n## Sharing\n\nAnything you build can be handed to another player through chat: a single\ntrigger, a ring, a toy mix, an action hub, or a whole profile.\n\nThe link carries only a short code. When someone clicks it, the two addons talk\ndirectly and transfer the data between them, so nothing is limited by chat's\n255-character cap. Both players have to stay online until it finishes; a large\nprofile takes around half a minute.\n\nBefore anything is applied you see exactly what is inside — including which\ntriggers would speak in chat or use emotes on your behalf, and which toys you\nalready own. Nothing is ever imported silently.\n\n## Profiles\n\nSeparate setups per character or per spec, with automatic switching by class.\nEverything can also be exported as a text string if you would rather move it by\nhand.\n\n## Slash commands\n\n| Command | Does |\n| --- | --- |\n| `/oxedhub`, `/ohub`, `/oxed` | Open the main window |\n| `/oxedring` | Toggle the radial menu |\n| `/oxprofile` | Record what OxedHub costs per frame, and what caused a hitch |\n\nModules add their own commands, shown next to each one above.\n\nKey bindings for the ToyBox panel, random toy and random hearthstone, Copy Chat\nand other modules live in the game's own Key Bindings panel, under **Oxed Hub**.\n\n## Languages\n\nEnglish, Spanish, Arabic and Russian (the Russian is still being tested). The\nlanguage is picked in OxedHub's settings, not taken from the game client.\nTranslations are welcome — the strings all live in `Locales/`, one file per\nlanguage.\n\n## Reporting a problem\n\nOpen an issue with your addon version (shown at the bottom-left of the main\nwindow), what you were doing, and the error text if there was one. Errors are\nmuch easier to act on with [BugSack](https://www.curseforge.com/wow/addons/bugsack)\ninstalled, since it keeps the full stack trace.\n\n## Building a release\n\nReleases are automated. `scripts/set-version.sh` writes a version into every\nfile that carries one, and the **Bump version and release** workflow on GitHub\ndoes the rest: tag, package, and upload to CurseForge, Wago and WoWInterface.\n\nEvery push is checked first — Lua syntax, that every file listed in the `.toc`\nexists, and that the version agrees across files.\n\n## Licence\n\nAll rights reserved. Please ask before redistributing or reusing the code.",
+  "releases": [
+    {
+      "tag": "v2.4.83",
+      "published": "2026-11-27",
+      "notes": "# Oxed Hub\n\n## [v2.4.83](https://github.com/oxedtv/OxedHub/tree/v2.4.83) (2026-11-27)\n[Full Changelog](https://github.com/oxedtv/OxedHub/compare/v2.4.82...v2.4.83) [Previous Releases](https://github.com/oxedtv/OxedHub/releases)\n\n- Release 2.4.83: Context Menu Links under an OxedHub heading, gold window signature"
+    },
+    {
+      "tag": "v2.4.82",
+      "published": "2026-11-26",
+      "notes": "# Oxed Hub\n\n## [v2.4.82](https://github.com/oxedtv/OxedHub/tree/v2.4.82) (2026-11-27)\n[Full Changelog](https://github.com/oxedtv/OxedHub/compare/v2.4.81...v2.4.82) [Previous Releases](https://github.com/oxedtv/OxedHub/releases)\n\n- Release 2.4.82: Cooldown Pulse, Sound Muter, Train All, Context Menu Links (Midnight), Flight Timer knows routes before flying, minimap button per module  \n    Midnight + Forever: Cooldown Pulse, Sound Muter and Train All modules; Flight Timer times and cost without learning; Item Tooltips spec, realm, mount and target; minimap button for every module, standalone or in the OxedHub button; Minimap Buttons only OxedHub icons; Teleports random hearthstone; Craft Profit choose professions; Auto Confirm warns on quest items and materials; Chat Filter delete confirmation and no ignore popup after login; modules for the other client hidden; OxedHub signature on windows.  \n    Midnight only: Context Menu Links module."
+    },
+    {
+      "tag": "v2.4.81",
+      "published": "2026-11-25",
+      "notes": "# Oxed Hub\n\n## [v2.4.81](https://github.com/oxedtv/OxedHub/tree/v2.4.81) (2026-11-26)\n[Full Changelog](https://github.com/oxedtv/OxedHub/compare/v2.4.80...v2.4.81) [Previous Releases](https://github.com/oxedtv/OxedHub/releases)\n\n- Release 2.4.81: Roll Advisor learns from Need - loot history, main/off spec and transmog, group upgrade %, saved run list, search, auction price, tell the group  \n    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+      "tag": "v2.4.80",
+      "published": "2026-11-24",
+      "notes": "# Oxed Hub\n\n## [v2.4.80](https://github.com/oxedtv/OxedHub/tree/v2.4.80) (2026-11-25)\n[Full Changelog](https://github.com/oxedtv/OxedHub/compare/v2.4.79...v2.4.80) [Previous Releases](https://github.com/oxedtv/OxedHub/releases)\n\n- Object Glow: tame the quest NPC's interact plate whoever turned interact plates on  \n- Release 2.4.80: Layer Swap removed (Blizzard is disabling layer-swapping APIs), Object Glow quest objects get their own switch"
+    },
+    {
+      "tag": "v2.4.79",
+      "published": "2026-11-23",
+      "notes": "# Oxed Hub\n\n## [v2.4.79](https://github.com/oxedtv/OxedHub/tree/v2.4.79) (2026-11-23)\n[Full Changelog](https://github.com/oxedtv/OxedHub/compare/v2.4.78...v2.4.79) [Previous Releases](https://github.com/oxedtv/OxedHub/releases)\n\n- Release 2.4.79: Disenchant Info and Craft Profit let you choose how long before the auction house is scanned again"
+    }
+  ],
+  "stats": {
+    "stars": 1,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-22",
+      "2026-11-21",
+      "2026-11-21",
+      "2026-11-20",
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-07",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-11-03",
+      "2026-11-03",
+      "2026-11-02",
+      "2026-11-01",
+      "2026-10-31",
+      "2026-10-30",
+      "2026-10-29",
+      "2026-10-28",
+      "2026-10-27",
+      "2026-10-26",
+      "2026-10-25",
+      "2026-10-24",
+      "2026-10-23",
+      "2026-10-21",
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-17",
+      "2026-10-16",
+      "2026-10-16",
+      "2026-10-15"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "OxedHub"
+    ],
+    "editions": [
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "OxedHub_MemePack",
+      "OxedHub_GamingPack",
+      "OxedHub_CustomMedia"
+    ],
+    "savedVariables": [
+      "OxedHubDB",
+      "OxMythicLooterDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "OxMythicLooterCharDB"
+    ]
+  }
+}

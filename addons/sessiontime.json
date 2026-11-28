@@ -60,6 +60,9 @@
       "SessionTime"
     ],
     "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
       "forever"
     ],
     "savedVariables": [

@@ -43,7 +43,7 @@
   ],
   "stats": {
     "stars": 0,
-    "openIssues": 3,
+    "openIssues": 5,
     "contributors": 1,
     "lastRelease": "2026-11-22",
     "releaseDates": [
@@ -61,12 +61,14 @@
     "editions": [
       "forever"
     ],
+    "requires": [
+      "ForeverProbe"
+    ],
     "optional": [
-      "GlassUI",
-      "GlassActionBars"
+      "PortalRoulette"
     ],
     "savedVariables": [
-      "PortalRouletteDB"
+      "PortalRouletteProbeDB"
     ]
   }
 }

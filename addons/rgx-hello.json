@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "id": "rgx-hello",
+  "repo": "RGXMods/RGX-Hello",
+  "about": "# RGX-Hello\n\nThe [RGX-Framework](https://github.com/RGXMods/RGX-Framework) reference addon **and** its in-game testing suite, in one install. It exists for two audiences at once:\n\n> The TOCs own RGX-Hello's version and minimum Framework version. The source reference tracks the Framework stable release for strict release conformance; source metadata is not a new release announcement.\n\n- **Addon developers** — `data/core.lua` is the canonical \"hello world\": the smallest complete RGX addon, written in the declarative `RGXAddon` style you should copy when starting your own.\n- **Framework development** — `data/visualtest.lua` is the visual QA harness used to test RGX-Framework's features in-game before releases. As the framework grows, this suite grows with it; the goal is coverage of **every** framework feature.\n\n## Source Contract Conformance\n\nRGX-Framework owns the runtime Lua API and the reusable declarative contract, generation, validation, audit, MCP, and editor/authoring infrastructure. Its `tools/rgx-mcp/` transport is a private source-tree contract-conformance fixture, not a separately published product or part of the player addon. Developer tooling is optional: RGX-Hello and the framework runtime do not depend on MCP, Node.js, or an editor. A future RGX Studio application is a downstream consumer of that foundation, not the owner of runtime semantics or a shipped prerequisite. RGX-Hello remains wired into the fixture in both directions:\n\n- `rgx_generate_addon` can reproduce `data/core.lua`'s structure from a short spec — the hand-written file and the generator's output are kept convergent.\n- The framework's end-to-end test (`tools/rgx-mcp/test/test-rgx-hello.mjs`) runs the real MCP server against **this repo**: it validates `core.lua`'s opts table against the schema and audits every Lua file here for unsafe patterns. If this repo drifts from the contract, the framework's own test fails.\n\nThat loop has already paid off: its first run caught a framework bug (the declarative slider's `suffix` was silently dropped — this addon's own Volume slider shipped without its \"%\" until RGX-Framework v2.4.1 fixed it).\n\n## The Hello World (`data/core.lua`)\n\n```lua\nlocal RGX = _G.RGXFramework\n\nRGXAddon \"RGX-Hello\" {\n    dbName  = \"RGXHelloDB\",\n    slash   = \"rgxhello\",\n    minimap = \"Interface\\\\AddOns\\\\RGX-Framework\\\\media\\\\logo.tga\",\n\n    db = {\n        enabled = true,\n        volume = 50,\n    },\n\n    every = {\n        heartbeat = { 1, function(self, timer)\n            self.heartbeatTicks = (self.heartbeatTicks or 0) + 1\n            if self.heartbeatTicks >= 3 then\n                self:CancelTimer(timer)\n            end\n        end },\n    },\n\n    options = {\n        General = {\n            { toggle = \"enabled\", label = \"Enable Addon\" },\n            { slider = \"volume\", label = \"Volume\", min = 0, max = 100, suffix = \"%\" },\n        },\n    },\n\n    onInit = function()\n        local version = RGX.API.GetAddOnMetadata(\"RGX-Hello\", \"Version\") or \"unknown\"\n        RGX:LoginMessage(string.format(\n            \"RGX-Hello v%s loaded with RGX-Framework v%s.\",\n            tostring(version),\n            tostring(RGX.version or \"unknown\")\n        ))\n    end,\n}\n```\n\nThat single call gives you saved settings with automatic persistence, a tabbed options panel with declarative pages/card grids and db-bound controls, a named repeating timer, a slash command, a minimap button, branded chat output, and framework-scoped startup logic. No event frames, no `C_Timer`, no `SLASH_X` globals, no SavedVariables boilerplate.\n\n## The Testing Suite (`data/visualtest.lua`)\n\nA hand-built options panel exercising the framework's manual API (`RGX:GetUI()`, `RGX:GetColorPicker()`, `RGX:GetDropdowns()`, `RGX:GetFonts()`, `RGX:GetTextures()`) — this is also the reference for going *beyond* the declarative surface.\n\n| Command | Opens |\n|---------|-------|\n| `/rgxhello` | RGX-Hello's own options panel (the hello-world addon) |\n| `/rgxvisual` or `/rgxviz` | The full test suite (tabs below) |\n| `/rgxcolor` or `/rgxcp` | The color picker directly |\n\nCurrent coverage:\n\n| Tab | Framework features exercised |\n|-----|------------------------------|\n| Colors | `RGXColorPicker` (SV box, hue bar, HEX/RGB inputs, presets, OK/Cancel), `UI:CreateColorPicker` swatches + Reset |\n| Controls | `UI:CreateToggle`, `UI:CreateSlider`, `UI:CreateVolumeSlider`, reset buttons, label word-wrap |\n| Dropdowns | `RGXDropdowns:CreateNestedDropdown` (groups, separators, checked state) |\n| Media | `RGXFonts` font dropdown, `RGXTextures` statusbar textures |\n| Tooltip | `RGXTooltip` — `Tip:Attach` builder, manual `Show`/`Hide`, `HookNative(\"item\")` injection |\n| Auras | `RGXAuras` — accessible-only player/target scans, `WatchUnit` + `OnApplied`/`OnUpdated`/`OnRemoved` live log, phase counter snapshots, restricted-target suppression, unsubscribe |\n| Minimap | `RGXMinimap` — `MM:Create` (icon, tooltip, drag, persistent angle), `Toggle`/`IsShown` |\n| Design | `RGX:Font` one-call styling, `RGXDesign` `CreateButton`/`CreateSectionHeader`/`CreateDivider`, theme tokens |\n| System | declarative `every.heartbeat` self-cancellation, `RGX:After`, `RGX:Every`, `RGX:CancelTimer` |\n\nSound is intentionally untested here — the sound module is a per-addon registry that [BLU](https://github.com/RGXMods/BLU) exercises in production, which is a more honest test than a synthetic registration. Standing pattern: when a framework module ships or changes, its test tab lands here in the same cycle.\n\n## Installation\n\n1. Install [RGX-Framework](https://github.com/RGXMods/RGX-Framework) for the same client flavor, at or above the `X-RGX-Framework-MinVersion` declared in the TOC.\n2. Copy the `RGX-Hello` addon folder to that client's `Interface\\AddOns\\` directory (for example, `World of Warcraft\\_retail_\\Interface\\AddOns\\` for Retail). The TOC and `data/` folder must be directly inside `AddOns\\RGX-Hello\\`, not nested inside an extra download folder.\n3. `/reload` or restart, and enable both addons. No developer tooling is required to run them.\n\nCurrent source TOC coverage (metadata targets, not a claim that every client was tested in-game):\n\n| Client target | TOC | Interface |\n|---------------|-----|-----------|\n| Retail / Forever beta / Classic Era | `RGX-Hello.toc` | `120100`, `16001`, `11509` |\n| Classic Era | `RGX-Hello_Vanilla.toc` | `11509` |\n| Burning Crusade Classic | `RGX-Hello_TBC.toc` | `20506` |\n| Wrath / Titan target | `RGX-Hello_Wrath.toc` | `38002` |\n| Cataclysm (historical) | `RGX-Hello_Cata.toc` | `40402` |\n| Mists Classic | `RGX-Hello_Mists.toc` | `50504` |\n\nKeep the supplied TOCs together; the game chooses the applicable TOC. All six directly load `data/core.lua`, then `data/visualtest.lua`, and declare `RGXHelloDB` and `RGXVisualTestDB` as SavedVariables. The XML file is not in their load lists.\n\n## Using This As a Template\n\n1. Copy the repo; rename the folder and each TOC you keep to your addon's name, preserving flavor suffixes. Keep only the client targets your addon actually supports.\n2. Edit the TOC header (`Title`, `Notes`, `Author`, `SavedVariables`), keeping `RequiredDeps: RGX-Framework` and an accurate `X-RGX-Framework-MinVersion`. Match `SavedVariables` to the declaration's `dbName`.\n3. Edit the `RGXAddon \"...\" { }` call in `data/core.lua` — `db` for settings, `options` for the panel, `every` for repeating work, and `onInit` for event/setup code while declarative `on` remains Tier 4.\n4. Delete `data/visualtest.lua`, its entry from every retained TOC, and `RGXVisualTestDB` from those TOCs — the harness tests the framework, not your addon. `RGX-Hello.xml` is an unused alternate loader; remove it, or rename/update it only if you deliberately switch your TOCs to XML loading. Do not load the Lua files twice.\n5. Set `minimap` to your own texture path, or drop the key. The reference declaration currently uses the framework's `media/logo.tga`; the local `media/icon.tga` is not its configured icon.\n\nFor the full declarative surface see the framework's [DECLARATIVE-API.md](https://github.com/RGXMods/RGX-Framework/blob/main/docs/DECLARATIVE-API.md), [SUPER-SIMPLE.md](https://github.com/RGXMods/RGX-Framework/blob/main/docs/SUPER-SIMPLE.md), and [API.md](https://github.com/RGXMods/RGX-Framework/blob/main/docs/API.md).\n\n## Project Structure\n\n```\nRGX-Hello/\n├── RGX-Hello.toc      # Base metadata; directly loads core.lua then visualtest.lua\n├── RGX-Hello_*.toc    # Five flavor TOCs; same direct Lua load order\n├── RGX-Hello.xml      # Alternate loader, not referenced by the current TOCs\n├── data/\n│   ├── core.lua       # The hello-world reference addon\n│   └── visualtest.lua # The framework testing suite (/rgxvisual)\n├── media/\n│   └── icon.tga        # Local icon asset; the declaration uses the framework logo\n└── docs/\n    └── CHANGES.md      # Curated changelog (packaged as CHANGELOG.md)\n```\n\n## License\n\nMIT License — see [LICENSE](https://github.com/RGXMods/RGX-Hello/blob/main/LICENSE) for details.\n\n## Contributing\n\nTemplate forks welcome. If you find issues with the RGX-Framework integration patterns, please open an issue.",
+  "releases": [
+    {
+      "tag": "v1.8.24",
+      "name": "RGX-Hello v1.8.24",
+      "published": "2026-11-28",
+      "notes": "# RGX-Hello v1.8.24\n\n- Track RGX-Framework v2.21.0 in every flavor TOC and the contract handshake."
+    },
+    {
+      "tag": "v1.8.23",
+      "name": "RGX-Hello v1.8.23",
+      "published": "2026-11-25",
+      "notes": "# RGX-Hello v1.8.23\n\n- Track RGX-Framework v2.20.0 in every flavor TOC and the contract handshake."
+    },
+    {
+      "tag": "v1.8.22",
+      "name": "RGX-Hello v1.8.22",
+      "published": "2026-11-24",
+      "notes": "# RGX-Hello v1.8.22\n\n- Track RGX-Framework v2.19.5 in every flavor TOC and the contract handshake."
+    },
+    {
+      "tag": "v1.8.21",
+      "name": "RGX-Hello v1.8.21",
+      "published": "2026-11-23",
+      "notes": "# RGX-Hello v1.8.21\n\n- Track RGX-Framework v2.19.4 in every flavor TOC and the contract handshake."
+    },
+    {
+      "tag": "v1.8.20",
+      "name": "RGX-Hello v1.8.20",
+      "published": "2026-11-23",
+      "notes": "# RGX-Hello v1.8.20\n\n- Track RGX-Framework v2.19.3 in every flavor TOC and the contract handshake."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-28",
+    "releaseDates": [
+      "2026-11-28",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-14",
+      "2026-11-14",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-06",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-24",
+      "2026-10-22",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-09-29",
+      "2026-08-24",
+      "2026-08-16",
+      "2026-08-14",
+      "2026-07-04",
+      "2026-07-04",
+      "2026-07-03",
+      "2026-07-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RGX-Hello"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "RGX-Framework"
+    ],
+    "savedVariables": [
+      "RGXHelloDB",
+      "RGXVisualTestDB"
+    ]
+  }
+}

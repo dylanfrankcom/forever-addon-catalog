@@ -93,9 +93,6 @@
       "2026-10-19"
     ]
   },
-  "languages": [
-    "frFR"
-  ],
   "technical": {
     "folders": [
       "WarLegendRaidTool",
@@ -106,13 +103,11 @@
     "editions": [
       "forever"
     ],
-    "optional": [
-      "EllesmereUI",
-      "Blizzard_MapCanvas",
-      "Blizzard_WorldMap"
+    "requires": [
+      "WarLegendRaidTool"
     ],
     "savedVariables": [
-      "WarLegendRaidToolDB"
+      "WarLegendRaidTool_DevDB"
     ]
   }
 }

@@ -45,10 +45,7 @@
       "forever"
     ],
     "savedVariables": [
-      "FishingMasteryDB"
-    ],
-    "savedVariablesPerCharacter": [
-      "FishingMasteryCharDB"
+      "FishingMasteryProbeDB"
     ]
   }
 }

@@ -54,13 +54,8 @@
       "forever",
       "retail"
     ],
-    "optional": [
-      "DandersFrames",
-      "BigWigs"
-    ],
-    "savedVariables": [
-      "QUIDB",
-      "QUI_StorageDB"
+    "requires": [
+      "QUI"
     ]
   }
 }

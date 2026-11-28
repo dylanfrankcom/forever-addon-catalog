@@ -106,19 +106,8 @@
       "forever",
       "retail"
     ],
-    "savedVariables": [
-      "NarcissusDB",
-      "NarciAchievementOptions",
-      "NarciStatisticsDB",
-      "NarciTurntableOptions",
-      "NarciCharacterProfiles",
-      "NarciPhotoModeDB",
-      "NarciDevToolOutput",
-      "NarciTransmogUIDB"
-    ],
-    "savedVariablesPerCharacter": [
-      "NarcissusDB_PC",
-      "NarciStatisticsDB_PC"
+    "requires": [
+      "Narcissus"
     ]
   }
 }

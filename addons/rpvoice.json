@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "rpvoice",
+  "repo": "Mimezu/forever-RPVoice",
+  "about": "# RP Voice\n\nRewrites your chat line, typed or spoken, in your character's roleplay voice, using BridgeControl.\n\n## Install\n\n1. Put the `RPVoice` folder in `_forever_\\Interface\\AddOns\\`.\n2. Install AutoHotkey v2.\n3. Run BridgeControl.\n\n## Use\n\n1. Double-click `helper\\RPVoice.ahk` (or let it start with Windows).\n2. In WoW Forever, type a line in chat and press Shift+Enter.\n3. Or hold Ctrl+Enter, talk, release.\n4. Check the new line, then press Enter.\n\n- Nothing is ever sent for you.\n- `{a joke about gnomes}` or `insert joke here` lets the character write that part.\n- Language: English translates any line first (/rpv, Voice).\n- Leave Ctrl+Shift+F10, F11 and F12 unbound in WoW.\n- Window key and minimap icon: /rpv, Keys.\n\n| Command | |\n|---|---|\n| `/rpv` | Settings |\n| `/rpv on`, `/rpv off` | On or off |\n| `/rpv test` | Show the tag |\n| `/rpv help` | Status |\n\n## Data\n\nSettings are saved per character, in `WTF\\Account\\<account>\\<realm>\\<character>\\SavedVariables\\RPVoice.lua`; the minimap icon account-wide.\n\n## Test\n\n```\nlua5.1 tests\\test_tag.lua\nAutoHotkey64.exe helper\\RPVoice.ahk --test \"[[RPV race=Dwarf; faction=Alliance; sex=male; chat=SAY]] good morning\"\n```\n\n## More\n\n[How it works](https://github.com/Mimezu/forever-RPVoice/blob/master/docs/how-it-works.md)",
+  "releases": [
+    {
+      "tag": "v0.4.1",
+      "name": "RP Voice 0.4.1",
+      "published": "2026-11-27",
+      "notes": "**Download `RPVoice-0.4.1.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game and type `/rpv`.\n\nRewrites your chat line, typed or spoken, in your character's roleplay voice.\n\nNeeds AutoHotkey v2 and BridgeControl; the helper script is in the `helper` folder. Setup steps are in README.md.\n\nFirst release on GitHub."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "RPVoice"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "RPVoiceDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "RPVoiceCharDB"
+    ]
+  }
+}

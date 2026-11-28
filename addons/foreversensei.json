@@ -74,11 +74,8 @@
     "editions": [
       "forever"
     ],
-    "optional": [
-      "WoWForeverJapanese"
-    ],
-    "savedVariables": [
-      "ForeverSenseiDB"
+    "requires": [
+      "ForeverSensei"
     ]
   }
 }

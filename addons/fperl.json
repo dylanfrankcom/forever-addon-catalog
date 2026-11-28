@@ -46,18 +46,14 @@
     "editions": [
       "forever"
     ],
-    "optional": [
-      "Clique"
-    ],
-    "savedVariables": [
-      "FPerlDB",
-      "ZPerlConfigNew"
+    "requires": [
+      "FPerl"
     ],
     "savedVariablesPerCharacter": [
-      "FPerlPerCharacter",
-      "FPerlRoster",
-      "ZPerlConfigSavePerCharacter",
-      "ZPerl_Roster"
+      "FPerlRaidAdminDB",
+      "FPerlRaidAdminItems",
+      "ZPerl_Admin",
+      "ZPerl_CheckItems"
     ]
   }
 }

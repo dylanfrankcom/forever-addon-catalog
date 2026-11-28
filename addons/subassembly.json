@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "subassembly",
+  "repo": "42ndDesign/Subassembly",
+  "about": "# Subassembly\n\nA crafting planner for **WoW: Forever**. Pick something to make and how many: Subassembly prices\nthe whole component tree at today's lowest AH listings, shows what making each part saves\ncompared with buying it, lets you switch any step between **Make** and **Buy**, builds the\nshopping list (to Auctionator) and queues the crafts across professions.\n\nSee [docs/CURSEFORGE_DESCRIPTION.md](https://github.com/42ndDesign/Subassembly/blob/main/docs/CURSEFORGE_DESCRIPTION.md) for the player-facing\ndescription, [docs/REQUIREMENTS.md](https://github.com/42ndDesign/Subassembly/blob/main/docs/REQUIREMENTS.md) for the requirements it was built\nfrom, and [docs/SPEC.md](https://github.com/42ndDesign/Subassembly/blob/main/docs/SPEC.md) for the design.\n\n## Layout\n\n| File | Role |\n|---|---|\n| `Core.lua` | Namespace, saved variables, events, slash commands, plans |\n| `Util.lua` | Money text, secret-value guards, item names, character keys |\n| `Planner.lua` | **Pure** planning engine: cost tree, choices, allocation, craft order, opportunities |\n| `Recipes.lua` | Reads profession windows into the recipe cache; optional SkillUpForever import |\n| `Prices.lua` | Price providers (Auctionator / TSM / Countinghouse), vendor prices, live AH quotes |\n| `Inventory.lua` | Bags, bank, alts (BagBrother / Syndicator) |\n| `Mail.lua` | Mailbox: what's waiting or on the way, Take from mail |\n| `Model.lua` | Builds the live model from all of the above |\n| `Queue.lua` | Craft Next secure button, profession opening, progress, diagnostics |\n| `Logistics.lua` | Auctionator shopping list, quotes, bank grab, vendor buying |\n| `UI*.lua`, `Options.lua` | Docked panel (plan picker, Next card, Tree/Shopping/Queue/Opportunities views), options panel |\n\n## Develop\n\n```\n./scripts/deploy.sh      # copy into WoW Forever's AddOns folder, then /reload\n```\n\n## Tests\n\n```\npip install lupa\npython3 tests/run.py     # planner engine against the real Gnomish Universal Remote tree\npython3 tests/smoke.py   # whole addon against a mock client: scan, plan, shop, craft\n```\n\nIn-game checklist: [docs/TESTING.md](https://github.com/42ndDesign/Subassembly/blob/main/docs/TESTING.md). Publishing: [docs/PUBLISHING.md](https://github.com/42ndDesign/Subassembly/blob/main/docs/PUBLISHING.md).\n\n## License\n\nMIT © 2026 42nd Design LLC",
+  "releases": [
+    {
+      "tag": "v0.2.0",
+      "published": "2026-11-27",
+      "notes": "# Changelog\n\n## v0.2.0\n\n- The panel is a little wider (420 px) so each part shows a Buy | Make toggle with the current choice lit, instead of one chip.\n- The footer hint is no longer cut off.\n- Options has a gear icon and a frame.\n- Removed the small Craft Next button from the footer. Craft Next is the big button in the Next card; while the card is about the AH, bank, mailbox or a vendor, use the key binding.\n- Mail counts as yours. At a mailbox Subassembly reads your inbox (as Bagnon does) and plans with what's there; AH purchases and mail you send your own characters count as \"on the way\" until a mailbox shows them, so the shopping list stops asking you to buy them again.\n- At a mailbox the Next card offers **Take from mail**: only what your plans need, one attachment at a time, never COD letters or gold. Opening a mailbox with planned materials in it opens the panel.\n- New options, off by default: take planned materials from the mail automatically, and take them from the bank automatically.\n- Tools and stations. Recipes that need a tool in your bags (Arclight Spanner, Blacksmith Hammer, Runed Copper Rod...) or a station (Anvil, Forge) say so. A missing tool blocks that step: the Next card says \"Get an Arclight Spanner\", and it's fetched from your mailbox or bank or added to the shopping list once (not per craft). Away from the station, the card says \"Go to an Anvil\" instead of trying to craft. Hover a part in the Tree for its station and tools. Read from the profession window, so open each profession once after updating.\n\n## v0.1.0\n\nFirst release.\n\n- Plan any craft you know: the full component tree across professions, priced at the lowest AH listing from your last scan.\n- Every part shows its buy price, its make cost and what making it saves. Switch any part between Make and Buy; choices last for that plan.\n- Spare output from multi-yield recipes (like Smelt Bronze) is credited at market value. Sale value is after the 5% AH cut.\n- A compact panel that docks beside the profession window, the Auction House or your bank. A **Next** card always says what to do and holds the one button for it: Craft Next, or Search in Auctionator, Grab from bank or Buy from vendor when that window is open. Tree, Shopping, Queue and Opportunities views below it.\n- Add plans from the profession window: **Add to Subassembly** on the recipe page uses the quantity in the Create box. A **Subassembly** button on the profession window opens the panel.\n- Live quotes at the Auction House price the exact quantity you need from the real listings.\n- Shopping list: send it to Auctionator (with the AH open, Auctionator searches it straight away), buy vendor reagents (optionally automatically), grab materials from your bank, and see what to mail from alts (optional). Opening the bank when a plan needs something from it opens the panel.\n- Craft queue: parts first, one profession at a time. Craft Next (button or key binding) crafts the next batch or opens the right profession. One press per batch: Forever only allows crafting from a key press or click.\n- Opportunities: every recipe you know, ranked by profit per craft.\n- Optional integrations: Auctionator, TSM, Countinghouse, SkillUpForever, BagBrother/Bagnon, Syndicator."
+    },
+    {
+      "tag": "v0.1.0",
+      "published": "2026-11-27",
+      "notes": "# Changelog\n\n## v0.1.0\n\nFirst release.\n\n- Plan any craft you know: the full component tree across professions, priced at the lowest AH listing from your last scan.\n- Every part shows its buy price, its make cost and what making it saves. Switch any part between Make and Buy; choices last for that plan.\n- Spare output from multi-yield recipes (like Smelt Bronze) is credited at market value. Sale value is after the 5% AH cut.\n- A compact panel that docks beside the profession window, the Auction House or your bank. A **Next** card always says what to do and holds the one button for it: Craft Next, or Search in Auctionator, Grab from bank or Buy from vendor when that window is open. Tree, Shopping, Queue and Opportunities views below it.\n- Add plans from the profession window: **Add to Subassembly** on the recipe page uses the quantity in the Create box. A **Subassembly** button on the profession window opens the panel.\n- Live quotes at the Auction House price the exact quantity you need from the real listings.\n- Shopping list: send it to Auctionator (with the AH open, Auctionator searches it straight away), buy vendor reagents (optionally automatically), grab materials from your bank, and see what to mail from alts (optional). Opening the bank when a plan needs something from it opens the panel.\n- Craft queue: parts first, one profession at a time. Craft Next (button or key binding) crafts the next batch or opens the right profession. One press per batch: Forever only allows crafting from a key press or click.\n- Opportunities: every recipe you know, ranked by profit per craft.\n- Optional integrations: Auctionator, TSM, Countinghouse, SkillUpForever, BagBrother/Bagnon, Syndicator."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27",
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "Subassembly"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "optional": [
+      "Auctionator",
+      "TradeSkillMaster",
+      "Countinghouse",
+      "SkillUpForever",
+      "ForeverCore",
+      "Bagnon",
+      "BagBrother",
+      "Syndicator"
+    ],
+    "savedVariables": [
+      "SubassemblyDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "SubassemblyCharDB"
+    ]
+  }
+}

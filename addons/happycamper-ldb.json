@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "happycamper-ldb",
+  "repo": "bhuddleston42/HappyCamperBroker",
+  "about": "# Happy Camper Broker\n\nCamp buff status and Happy Camper controls on your broker bar.\n\nFor **World of Warcraft: Forever** (interface 16001).\n\n- Camp-buff status, missing buffs and expiration information.\n- Convenient access to Happy Camper controls.\n- A lightweight companion to the original Happy Camper addon.\n\n## Requirements\n\nHappyCamper\n\nA LibDataBroker display such as Bazooka is needed to show broker controls.\n\n## Controls\n\nUse the Happy Camper broker object.\n\n## Installation\n\nInstall through CurseForge or extract the ZIP into your Forever Interface/AddOns folder. Keep the packaged folder name `HappyCamper_LDB` unchanged; this also preserves existing saved settings. Enable the listed dependencies.\n\n## Publishing\n\nPush a stable annotated version tag matching the TOC, such as `v1.0.1`, to publish. GitHub Actions validates the source and packages a GitHub release; the connected CurseForge native packager handles the CurseForge Release file through its push webhook. No CurseForge publishing token belongs in this repository or its Actions secrets.\n\n## Feedback\n\n[Report an issue](https://github.com/bhuddleston42/HappyCamperBroker/issues) with the addon version, expected behavior and Lua error if available.\n\n## Testing\n\nRelease packaging and Lua syntax are checked automatically. Included regression tests use simulated game APIs. Real gameplay and combinations of third-party addons can expose additional issues; please report them.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-27",
+      "notes": "## 1.0.1\n\n- Published the standalone Happy Camper Broker companion for WoW Forever.\n- Camp-buff status, missing buffs and expiration information.\n- Convenient access to Happy Camper controls.\n- A lightweight companion to the original Happy Camper addon.\n- Added stable GitHub-tag releases and automated package validation."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "HappyCamper_LDB"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "HappyCamper"
+    ],
+    "savedVariables": [
+      "HappyCamperLDBDB"
+    ]
+  }
+}

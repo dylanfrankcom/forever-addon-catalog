@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "classicbestiary",
+  "repo": "Tibru-Tek-Addons/ClassicBestiary",
+  "about": "# Classic Bestiary\n\nShows creature abilities in tooltips for WoW Forever and Classic. Hover over a\ncreature to see its abilities, then hold **Control** for descriptions, effects and\nrelated abilities.\n\n## Install\n\nClassic Bestiary can be downloaded and installed from:\n\n- [CurseForge](https://www.curseforge.com/wow/addons/classicbestiary)\n- [GitHub](https://github.com/Tibru-Tek-Addons/ClassicBestiary/releases/latest)\n\nMore locations coming soon.\n\n## Screenshots\n![Collapsed tooltip showing spells](https://raw.githubusercontent.com/Tibru-Tek-Addons/ClassicBestiary/trunk/screenshots/tooltip_spells.png)\n![Expanded tooltip](https://raw.githubusercontent.com/Tibru-Tek-Addons/ClassicBestiary/trunk/screenshots/tooltip_expanded.png)\n![Collapsed tooltip showing effects](https://raw.githubusercontent.com/Tibru-Tek-Addons/ClassicBestiary/trunk/screenshots/tooltip_effects.png)\n![Settings panel](https://raw.githubusercontent.com/Tibru-Tek-Addons/ClassicBestiary/trunk/screenshots/options.png)\n\n## Settings\n\nType **`/bestiary`** to open the Classic Bestiary settings panel.\n\nChoose one of four display modes:\n\n| Mode | Display |\n| --- | --- |\n| **Spells** | One spell name per row; the default. |\n| **Spells (compact)** | Spell icons and names grouped inline. |\n| **Effects** | Ability effects with spell icons. |\n| **Effects (compact)** | Effect summaries grouped inline. |\n\nExpanded details are the same in every mode. You can change the details modifier\nkey, show details always or never, hide friendly creatures, or turn tooltip\ninformation off.\n\nThe panel includes a preview with several example creatures. Change the example\nor hold your details key to see how the display will look. Your preview creature\nchoice resets when the UI reloads; your saved display settings do not.\n\n**`/bestiary reset`** restores the default addon settings.\n\n## Reading ability information\n\n- Effect summaries highlight capabilities such as stuns, interrupts, healing,\n  immunities and damage. Related effects may appear together, for example\n  **Snare + Attack slow 5s**.\n- Expanded details show spell descriptions and related abilities beneath their\n  parent. A triggered effect is not necessarily a separate attack the creature casts.\n- Durations apply to the effect beside them. Longer times use minutes and seconds,\n  such as **1m 40s** or **30m**.\n- A neutral stat label such as **Armor** or **Attack speed** does not necessarily\n  mean an increase or a beneficial effect.\n- A **?** beside an expanded description marks an unverified ability variant.\n  When several variants share a name, the displayed choice is a best-fit estimate,\n  not confirmation of the exact rank or spell used by that creature.\n\n## Coverage and limitations\n\nAbility information is static. The addon does **not** track casts, predict a\ncreature's next move, or guarantee every ability it can use. A missing ability\nlist does not mean the creature has no abilities.\n\nOn **WoW Forever**, creature ability tooltips are unavailable in most\ninstances due to Blizzard’s addon API restrictions.\n\nForever and Classic have separate ability information. The Classic dataset is\n**best-effort**: some associations may not match your Classic version or season.\nAn ability's presence, range, effect or duration is not a guarantee of its actual\nbehavior in an encounter.\n\n## Troubleshooting\n\nIn settings, **Debug** offers two optional displays:\n\n- **Show NPC and spell IDs** helps identify the creature and abilities shown.\n- **Show diagnostic details** reveals additional warnings about unavailable spell\n  descriptions, uncertain variants and incomplete information.\n\nThese displays are off by default. If a description is temporarily unavailable,\nallow the game time to load it. To restore the normal display, disable the Debug\noptions or use `/bestiary reset`.",
+  "releases": [
+    {
+      "tag": "v2.0.20261126",
+      "published": "2026-11-26",
+      "notes": "# Classic Bestiary\n\n## 2.0.20261126\n\n- Reduce excessive tooltip redraws.\n- Update creature ability data for the latest Forever snapshot.\n\n## 2.0.20261113\n\n- Exclude Net-o-Matic and Gnomish Mind Control Cap spells.\n- Update creature abilities from the latest Wowhead data.\n- Add font and size options for creature abilities and a blank line before them.\n- Fix Cyrillic text rendering as squares in later tooltips after viewing creature abilities."
+    },
+    {
+      "tag": "v2.0.20261113",
+      "published": "2026-11-18",
+      "notes": "# Classic Bestiary 2.0.20261113\n\n- Exclude Net-o-Matic and Gnomish Mind Control Cap spells.\n- Update creature abilities from the latest Wowhead data.\n- Add font and size options for creature abilities and a blank line before them.\n- Fix Cyrillic text rendering as squares in later tooltips after viewing creature abilities."
+    },
+    {
+      "tag": "v2.0.20261025",
+      "published": "2026-10-29",
+      "notes": "# Classic Bestiary 2.0.20261025\n\n- Fix errors on name-only tooltips, including player-created windwells.\n- Add screenshots and download links to the Classic Bestiary readme."
+    }
+  ],
+  "screenshots": [
+    "https://raw.githubusercontent.com/Tibru-Tek-Addons/ClassicBestiary/trunk/screenshots/tooltip_spells.png",
+    "https://raw.githubusercontent.com/Tibru-Tek-Addons/ClassicBestiary/trunk/screenshots/tooltip_expanded.png",
+    "https://raw.githubusercontent.com/Tibru-Tek-Addons/ClassicBestiary/trunk/screenshots/tooltip_effects.png",
+    "https://raw.githubusercontent.com/Tibru-Tek-Addons/ClassicBestiary/trunk/screenshots/options.png"
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-18",
+      "2026-10-29"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ClassicBestiary"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "savedVariables": [
+      "ClassicBestiaryCfg"
+    ]
+  }
+}

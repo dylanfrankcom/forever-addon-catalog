@@ -39,11 +39,11 @@
     "editions": [
       "forever"
     ],
-    "optional": [
-      "TomTom"
+    "requires": [
+      "BagQuests"
     ],
     "savedVariables": [
-      "BagQuestsDB"
+      "BagQuestsAltsDB"
     ]
   }
 }

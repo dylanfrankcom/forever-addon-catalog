@@ -5,6 +5,11 @@
   "about": "# VoidBox\n\nMinimalist solo/party/raid unit frames with click-casting — Cell/Healbot-Click/Grid/VuhDo style.\n\nCompatible with **Retail (Midnight 12.1.5)**, **WoW: Forever** (1.60.1), **Burning Crusade\nClassic Anniversary** (2.5.6) and **Classic Era / Hardcore** (1.15.9), from one download.\n\n### Notes for WoW: Forever\n\nForever runs the Midnight UI codebase on a level-60 Vanilla ruleset, so VoidBox\nadapts itself at login:\n\n- Dispel highlighting is derived from the spells in your spellbook (Vanilla has\n  no specializations)\n- **Downranking:** drag a lower rank from the spellbook onto a click-cast slot\n  to cast that exact rank; the list shows it as \"Rejuvenation (Rank 1)\". A\n  top-rank binding shows \"(Rank max)\" and follows you up as you learn new ranks.\n- Range checking and HoT/shield tracking use Vanilla spells and cover every rank\n- **Click-casting:** mouse bindings work normally. On builds where\n  `loadstring_untainted` is missing, the client cannot compile secure snippets,\n  so keyboard bindings switch to global override bindings on `@mouseover` proxy\n  buttons. VoidBox prints a notice at login when that happens. Scroll-wheel\n  click-casting is off on that path unless enabled in Options: it then casts\n  on the friendly unit under the cursor (including your own character and\n  players outside your group) and zooms the camera anywhere else.\n- **Aura rows use native AuraContainers.** Addon code cannot read auras in\n  combat any more (enumeration raises, per-spell lookups answer nil), so the\n  debuff, HoT and dispel rows are rendered by the client itself: VoidBox\n  declares a filter and styles the buttons it is handed, and never touches the\n  aura data. They keep working in combat as a result.\n- **Known beta client bug:** early Forever builds write `SavedVariables` on exit\n  but never read them back, so settings can reset between sessions. That is a\n  client issue, not an addon one.\n\n## Usage\n\n1. The small purple square to the left of the frames lets you **drag** to reposition\n2. **Right-click** the purple square to open **configuration**\n3. In config, **Click-Castings** tab: drag a spell from the spellbook onto a slot\n4. Bindings are saved **per class** (not per character)\n\n## Features\n\n- Compact raid frames with health and mana bars\n- Click-casting with drag & drop from spellbook or macro UI\n- Universal \"Press to Bind\" system: keyboard, mouse, scroll wheel, MMO mouse\n  - Capture any combo: Ctrl+F1, Shift+Numpad5, Alt+Right Click, etc.\n  - Keyboard bindings activate on hover (SecureHandlerWrapScript)\n  - Full modifier support (Shift, Ctrl, Alt) with any input\n- Health percentage display (secret-value safe)\n- Per-class bindings — all your priests share the same bindings\n- Mousewheel scroll bindings (with modifier support)\n- Profile system (layout/appearance profiles)\n- Minimap button (LibDBIcon): left-click toggle frames, right-click config\n- Separate tank frame (optional): dedicated movable panel for tanks only\n- Percentage-based scaling system (50%-150%, live preview, no reload)\n  - Base frame: 80×55px at 100% scale\n  - Independent width/height scale sliders (step 10%)\n- Aura indicators:\n  - Debuffs (HARMFUL): up to 4 icons with stack count badges, centered row\n  - HOTs/shields (player-cast only): up to 4 icons with stack badges, centered row\n  - Tracked buffs: add any spell (e.g. Thorns) from the Auras tab by dragging it\n    from your spellbook; it shows in the HoT row when you cast it\n  - \"+N\" indicator for other healers' HOTs/shields on the target\n  - Stack badges: dark background, gold text, red at 5+ stacks\n- Screen auras (Auras tab): icons, bars or drawings anywhere on screen while a\n  buff or debuff is up, missing or running out, or while a spell is usable\n  - Recommended auras per class and spec (all nine Classic classes, all thirteen\n    Retail classes), added in one click, in named groups that move as one block\n- Role icons (tank/heal/dps) — real atlas icons\n- Threat border (red/yellow)\n- Range check (reduced opacity when out of range)\n- Dead / Disconnected / Incoming resurrection / Ready check icons\n- Role sorting: Tank > DPS > Healer (6 presets)\n- Tooltip anchored to bottom-right of screen (non-intrusive)\n- Config UI: scaling, class colors, orientation, role order, lock/unlock\n- Theme color: purple (#9966FF)\n- Localized: French nearly complete; deDE, esES, esMX, ptBR, itIT, ruRU, koKR, zhCN, zhTW partial (English for the rest)\n\n## Commands\n\n| Command | Description |\n|---------|-------------|\n| `/vb config` | Open configuration |\n| `/vb lock` | Lock frames |\n| `/vb unlock` | Unlock frames |\n| `/vb reset` | Reset position |\n| `/vb minimap` | Toggle minimap button |\n| `/vb profile` | List profiles |\n| `/vb profile <name>` | Switch profile |\n| `/vb spec` | Show your talent points and the detected spec |\n| `/vb templatecheck` | List the recommended auras' spells this game version does not have |\n| `/vb cursor` | Type it while holding a spell: what VoidBox reads from the cursor |\n\n## License\n\nMIT License",
   "releases": [
     {
+      "tag": "v2.8.2",
+      "published": "2026-11-27",
+      "notes": "# VoidBox\n\n## [v2.8.2](https://github.com/VoiD911/VoidBox/tree/v2.8.2) (2026-11-27)\n[Full Changelog](https://github.com/VoiD911/VoidBox/commits/v2.8.2) [Previous Releases](https://github.com/VoiD911/VoidBox/releases)\n\n- v2.8.2 - Fix keybinds on the backslash key, hide Boosted Rest on WoW Forever"
+    },
+    {
       "tag": "v2.8.1",
       "published": "2026-11-07",
       "notes": "# VoidBox\n\n## [v2.8.1](https://github.com/VoiD911/VoidBox/tree/v2.8.1) (2026-11-07)\n[Full Changelog](https://github.com/VoiD911/VoidBox/commits/v2.8.1) [Previous Releases](https://github.com/VoiD911/VoidBox/releases)\n\n- v2.8.1 - Pick up a spell and click to bind it, hide exhaustion on Retail and Forever, Mexican Spanish fallback"
@@ -23,19 +28,15 @@
       "tag": "v2.7.0",
       "published": "2026-10-14",
       "notes": "# VoidBox\n\n## [v2.7.0](https://github.com/VoiD911/VoidBox/tree/v2.7.0) (2026-10-14)\n[Full Changelog](https://github.com/VoiD911/VoidBox/commits/v2.7.0) [Previous Releases](https://github.com/VoiD911/VoidBox/releases)\n\n- v2.7.0 - Screen auras: conditions, focus and pet, duplicate, share one aura"
-    },
-    {
-      "tag": "v2.6.0",
-      "published": "2026-10-05",
-      "notes": "# VoidBox\n\n## [v2.6.0](https://github.com/VoiD911/VoidBox/tree/v2.6.0) (2026-10-05)\n[Full Changelog](https://github.com/VoiD911/VoidBox/commits/v2.6.0) [Previous Releases](https://github.com/VoiD911/VoidBox/releases)\n\n- v2.6.0 - Screen auras: spell usable trigger, form condition"
     }
   ],
   "stats": {
     "stars": 1,
     "openIssues": 0,
     "contributors": 2,
-    "lastRelease": "2026-11-07",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-11-07",
       "2026-10-25",
       "2026-10-22",
@@ -84,8 +85,7 @@
       "2026-04-03",
       "2026-04-03",
       "2026-03-31",
-      "2026-03-31",
-      "2026-03-24"
+      "2026-03-31"
     ]
   },
   "languages": [

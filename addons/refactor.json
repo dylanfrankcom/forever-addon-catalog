@@ -27,11 +27,11 @@
     "editions": [
       "forever"
     ],
-    "savedVariables": [
-      "RefactorDB"
+    "optional": [
+      "Refactor"
     ],
-    "savedVariablesPerCharacter": [
-      "RefactorCharDB"
+    "savedVariables": [
+      "RefactorProbeDB"
     ]
   }
 }

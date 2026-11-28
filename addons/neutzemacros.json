@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "neutzemacros",
+  "repo": "neutze/wow-neutze-macros",
+  "about": "![Neutze's Macros logo](https://raw.githubusercontent.com/neutze/wow-neutze-macros/main/art/logo-400.png)\n\n# Neutze's Macros\n\nClass macros for **World of Warcraft: Forever**, one click each.\n\nOpen `/nm` (or Options > AddOns > Neutze's Pantry > Neutze's Macros) and pick your spec. You get a grid of spell buttons. Click one and its macro is created on this character, or updated if it already exists, and put on your cursor so you can drop it on a bar. **Create / update all** does the whole spec in one go.\n\n- **One ability per macro.** Where a stance or form is needed, the macro switches first, then uses the ability. In WoW Forever that takes two presses.\n- Melee abilities start auto-attack. Mage, priest and warlock damage spells start the wand too: the macro casts the spell, then `/cast !Shoot` at your target, which never toggles a running wand off. Crowd control, AoE, the non-damage curses and utility spells leave the wand alone, so they can't break a Polymorph or Fear.\n- Mouseover where it helps: `[@mouseover,harm,nodead][harm,nodead]` for attacks, `[@mouseover,help,nodead][help,nodead][@player]` for heals.\n- Presets for all 9 classes and their specs. Warrior includes the stance-dance set from Cynara's *UPDATED Warrior Macros (WoW Forever)*: focus Pummel, Death Wish and Recklessness with trinkets, Challenging Shout with Limited Invulnerability Potion, Intimidating Shout with stop-attack, auto Shoot/Throw, Stop Queue.\n- Macros are per character. Free character macro slots are checked first.\n\n**Requires [Neutze's Pantry](https://github.com/neutze/wow-neutze-pantry)**: install it too. This add-on's options page sits under Neutze's Pantry.\n\nPart of the **Neutze's** suite: [Pantry](https://github.com/neutze/wow-neutze-pantry) · [Companion](https://github.com/neutze/wow-neutze-companion) · [Stable](https://github.com/neutze/wow-neutze-stable)\n\n## Install\nCurseForge app, or download `NeutzeMacros-v0.0.1.zip` from [Releases](https://github.com/neutze/wow-neutze-macros/releases) into `World of Warcraft/_forever_/Interface/AddOns/`.\n\n## License\nMIT",
+  "releases": [
+    {
+      "tag": "v0.0.1",
+      "published": "2026-11-27",
+      "notes": "# Changelog\n\n## v0.0.1 — 2026-11-27\n- First release: spec picker plus a grid of spell buttons. A click creates or updates that macro on the character and picks it up; \"Create / update all\" does the whole spec.\n- Presets for all 9 classes. Warrior updated with the stance-dance set (focus Pummel, Death Wish/Recklessness with trinkets, Challenging Shout + LIP, Intimidating Shout + stop-attack, auto Shoot, Stop Queue)."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 3,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "NeutzeMacros"
+    ],
+    "editions": [
+      "classic_era",
+      "forever"
+    ],
+    "requires": [
+      "NeutzePantry"
+    ],
+    "savedVariablesPerCharacter": [
+      "NeutzeMacrosCharDB"
+    ]
+  }
+}

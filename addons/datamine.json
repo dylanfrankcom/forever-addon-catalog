@@ -86,14 +86,8 @@
       "forever",
       "retail"
     ],
-    "requires": [
-      "Datamine_Data"
-    ],
-    "optional": [
-      "DevTool"
-    ],
     "savedVariables": [
-      "DatamineConfig"
+      "DatamineData"
     ]
   }
 }

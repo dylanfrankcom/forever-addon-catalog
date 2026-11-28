@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "daylightstones",
+  "repo": "bhuddleston42/StoneReminders",
+  "about": "# Stone Reminders for Daylight\n\nClickable warlock stone reminders and a pet picker for Daylight UI.\n\nFor **World of Warcraft: Forever** (interface 16001).\n\n- Healthstone, soulstone and spellstone reminders.\n- Missing-pet summon picker using known spells.\n- Daylight-styled controls for warlock characters.\n\n## Requirements\n\nDaylightUI\n\n## Controls\n\nDaylight UI plugin settings.\n\n## Installation\n\nInstall through CurseForge or extract the ZIP into your Forever Interface/AddOns folder. Keep the packaged folder name `DaylightStones` unchanged; this also preserves existing saved settings. Enable the listed dependencies.\n\n## Publishing\n\nPush a stable annotated version tag matching the TOC, such as `v1.2.1`, to publish. GitHub Actions validates the source and packages a GitHub release; the connected CurseForge native packager handles the CurseForge Release file through its push webhook. No CurseForge publishing token belongs in this repository or its Actions secrets.\n\n## Feedback\n\n[Report an issue](https://github.com/bhuddleston42/StoneReminders/issues) with the addon version, expected behavior and Lua error if available.\n\n## Testing\n\nRelease packaging and Lua syntax are checked automatically. Included regression tests use simulated game APIs. Real gameplay and combinations of third-party addons can expose additional issues; please report them.",
+  "releases": [
+    {
+      "tag": "v1.2.1",
+      "published": "2026-11-27",
+      "notes": "## 1.2.1\n\n- Published the standalone Stone Reminders for Daylight companion for WoW Forever.\n- Healthstone, soulstone and spellstone reminders.\n- Missing-pet summon picker using known spells.\n- Daylight-styled controls for warlock characters.\n- Added stable GitHub-tag releases and automated package validation."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DaylightStones"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "DaylightUI"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "foreverforge-ldb",
+  "repo": "bhuddleston42/ForeverForgeBroker",
+  "about": "# ForeverForge Broker\n\nOpen ForeverForge settings and layout controls from a broker bar.\n\nFor **World of Warcraft: Forever** (interface 16001).\n\n- Convenient ForeverForge and ForgeUI controls.\n- Access to available frame-moving and configuration tools.\n- Standalone companion with no copied upstream UI suite.\n\n## Requirements\n\nForeverForge\n\nOptional integrations: ForeverForge_UI.\n\nA LibDataBroker display such as Bazooka is needed to show broker controls.\n\n## Controls\n\nUse the ForeverForge broker object.\n\n## Installation\n\nInstall through CurseForge or extract the ZIP into your Forever Interface/AddOns folder. Keep the packaged folder name `ForeverForge_LDB` unchanged; this also preserves existing saved settings. Enable the listed dependencies.\n\n## Publishing\n\nPush a stable annotated version tag matching the TOC, such as `v1.0.1`, to publish. GitHub Actions validates the source and packages a GitHub release; the connected CurseForge native packager handles the CurseForge Release file through its push webhook. No CurseForge publishing token belongs in this repository or its Actions secrets.\n\n## Feedback\n\n[Report an issue](https://github.com/bhuddleston42/ForeverForgeBroker/issues) with the addon version, expected behavior and Lua error if available.\n\n## Testing\n\nRelease packaging and Lua syntax are checked automatically. Included regression tests use simulated game APIs. Real gameplay and combinations of third-party addons can expose additional issues; please report them.",
+  "releases": [
+    {
+      "tag": "v1.0.1",
+      "published": "2026-11-27",
+      "notes": "## 1.0.1\n\n- Published the standalone ForeverForge Broker companion for WoW Forever.\n- Convenient ForeverForge and ForgeUI controls.\n- Access to available frame-moving and configuration tools.\n- Standalone companion with no copied upstream UI suite.\n- Added stable GitHub-tag releases and automated package validation."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "ForeverForge_LDB"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "ForeverForge"
+    ],
+    "optional": [
+      "ForeverForge_UI"
+    ]
+  }
+}

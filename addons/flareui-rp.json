@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "flareui-rp",
+  "repo": "z0n/FlareUI_RP",
+  "about": "# FlareUI RP\n\nFlareUI RP shows Total RP 3 names and colours on FlareUI unit frames and nameplates in **WoW: Forever**. It can also style the TRP3 interface.\n\n## Install and configure\n\n1. Install FlareUI RP alongside [FlareUI](https://www.curseforge.com/wow/addons/flareui) and [Total RP 3](https://www.curseforge.com/wow/addons/total-rp-3).\n2. Enable **Unit Frames**, **Nameplates**, or both in FlareUI.\n3. Open **Total RP 3 > Settings > FlareUI RP**. RP names and colours are on by default.\n\n**Manual install:** Extract the **addon ZIP** from [GitHub Releases](https://github.com/z0n/FlareUI_RP/releases) into `Interface/AddOns/`. Check that `Interface/AddOns/FlareUI_RP/FlareUI_RP.toc` exists.\n\n## RP names and colours\n\nPlayers and linked companions share the same settings. You can use RP names, RP colours or both. If a profile lacks a name or colour, FlareUI keeps its usual one.\n\nPlayer names follow each label’s first, last or full name setting. A missing surname falls back to the first name. **Names Above Plate** has its own name format.\n\n### Unit frames\n\nRP colours affect the **health bar**. Names inside and above the frame keep FlareUI’s text colour.\n\nFor the Pet frame, use **RP Health Bar Colours > Pet**. For other frames, also enable **Look > Class Colours** in FlareUI’s Edit Mode. Health warnings and gradients keep priority.\n\n### Nameplates\n\n- **Name Only:** The name uses the profile colour.\n- **Full plates:** Enable **Colour Names by Class** for the name. Choose **Class & Reaction** for the health bar.\n\nParty, raid and guild name colours keep priority.\n\n### Optional titles and guilds\n\nThese features are off by default and apply to **Name Only** plates. In FlareUI’s **Plate Setup**, select the plate type, then enable **Plate > Name Only Mode**.\n\n- **Titles:** Select **Under the Name > Title** for the plate type (usually **Minor** for pets). In FlareUI RP, choose **Short title** or **Full title**. Full titles can span multiple lines. A missing full player title falls back to the short title. Companions use their single title in either mode.\n- **Guild names:** Select **Under the Name > Guild** in FlareUI and enable **Use RP Guild Names** in FlareUI RP. Player plates then show the guild from TRP3 Characteristics, even without an in-game guild.\n- **Guildmate colours:** Enable **Colour Guild Members** and **Colour RP Guild Members** to highlight friendly players who share your TRP3 guild. This works even with guild names hidden.\n\n## TRP3 appearance\n\nToggle **Use FlareUI Styling** separately for the main window, toolbar or target bar.\n\n- **Main window:** Bronze and stone styling keeps the character-sheet parchment and custom artwork.\n- **Toolbar:** Defaults to **Quest Tracker** style.\n- **Target bar and At First Glance panel:** Default to **Frames** style.\n\nWith **Total RP 3: Extended**, main-window styling adds FlareUI bag slots to **Character > Inventory**. Set **Skin Item Slots** to **Off** for native borders, or choose **Thin** or **Thick** for bronze borders. Enable **Colour by Rarity** to use item quality colours instead.\n\n## Development\n\nWith LuaJIT installed, run `./tools/check`. See [AGENTS.md](https://github.com/z0n/FlareUI_RP/blob/main/AGENTS.md) for development and release instructions.\n\n## License\n\n[MIT](https://github.com/z0n/FlareUI_RP/blob/main/LICENSE)",
+  "releases": [
+    {
+      "tag": "v0.8.1",
+      "published": "2026-11-26",
+      "notes": "# FlareUI RP 0.8.1 — FlareUI 7.1 compatibility\n\n- Nameplate setup hints now use FlareUI 7.1’s settings paths. On Name Only plates, find **Title** and **Guild** under **Under the Name**. For full plates, find **Colour Names by Class** under **Plate > Text** and **Colour By** under **Plate > Look**."
+    },
+    {
+      "tag": "v0.8.0",
+      "published": "2026-11-26",
+      "notes": "# FlareUI RP 0.8.0 — RP colours for linked pets and minions\n\n- **Use RP Colours** now covers players and linked companions alike, replacing **Use Companion Name Colours**. Companion names can use their profile colour on **Name Only** plates. On full plates, enable **Colour Names by Class** for names or choose **Class & Reaction** for health bars in FlareUI’s Plate Setup.\n- Linked companions can now show their profile colour on unit-frame health bars. For your own pet, use **Total RP 3 > Settings > FlareUI RP > RP Health Bar Colours > Pet**. Health warnings and gradients keep priority.\n- Nameplate setup hints now show which plate types need a setting change, including **Minor** plates that switch to a full plate in combat."
+    },
+    {
+      "tag": "v0.7.4",
+      "published": "2026-11-26",
+      "notes": "# FlareUI RP 0.7.4 — FlareUI 7.0.17 compatibility\n\n- If you use **Name Only** with **Show Target’s Plate**, the setup hint now tells you when to choose **Class & Reaction** so the target’s health bar can use its RP colour."
+    },
+    {
+      "tag": "v0.7.3",
+      "published": "2026-11-25",
+      "notes": "# FlareUI RP 0.7.3 — Full RP Title Line Breaks\n\n- On **Name Only** nameplates, full RP titles now start a new line at a slash (`/`) or lowercase L (`l`) with a space on each side. A title like `Scout/Ranger / Locksmith` displays `Scout/Ranger` on the first line and `Locksmith` on the second."
+    },
+    {
+      "tag": "v0.7.2",
+      "published": "2026-11-25",
+      "notes": "# FlareUI RP 0.7.2 — FlareUI 7.0.16 Compatibility\n\n- Fixed a Lua error when colouring or refreshing nameplates in FlareUI 7.0.16. On **Name Only** plates, profile and guildmate colours apply to the character name. Titles and guild names keep FlareUI’s parchment colour, even when only the RP profile supplies them.\n\nUpdate FlareUI to **7.0.16**."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-24",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23",
+      "2026-11-23"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "FlareUI_RP"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "FlareUI",
+      "totalRP3"
+    ]
+  }
+}

@@ -37,15 +37,11 @@
     "editions": [
       "forever"
     ],
-    "optional": [
-      "LibSharedMedia-3.0"
-    ],
     "savedVariables": [
-      "PerlInfinityDB",
-      "PerlInfinityLog"
+      "FixtureDB"
     ],
     "savedVariablesPerCharacter": [
-      "PerlInfinityCharDB"
+      "FixtureCharDB"
     ]
   }
 }

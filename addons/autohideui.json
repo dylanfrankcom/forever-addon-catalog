@@ -5,6 +5,11 @@
   "about": "# Auto Hide UI\n\n## What this does:\n\nFades out UI Elements and brings them back when certain conditions (like mouseover or combat) are met.\n\nYou choose what, how and when to fade!\n\nAccess the options menu with:\n\n**Esc => \"Options\" => \"Addons\" => \"Auto Hide UI\"**\n\n**/ahui** or **/autohide** or **/autohideui**\n\n## Default behavior:\n\nFrames will fade out or remain hidden until any of these conditions are true:\n- you are **in combat**\n- you have a **target**\n- you are **in an instance**\n- you **mouseover** a hidden frame\n- you are **missing health**\n- you are **in a vehicle**\n\n## Features:\n\n- Quick and easy to use while still being customizable.\n- Supports most popular UI AddOns. Your Fade-Setup will continue to work when you switch between AddOns or the Default UI. \n- Fade-Settings and -Conditions are applied to groups of Frames instead of individual Frames.\n- Included Frame-Finder tool to add Frames that aren't listed in the options.\n- Create custom Mouseover areas.\n- Create Hotkeys and/or Macros to manually fade your Frames.\n\n## Customizability:\n\nYou decide which Frames are affected and under which conditions they should be visible/hidden.  \n- Choose which Frames are affected.\n- Customize fade conditions and behavior.\n- Create Groups to assign different settings to different Frames.\n- Add Custom Frames that aren't listed in the GUI.\n\nYou could have your UnitFrames and your CooldownManager fade in whenever you are in combat.\n\nAnd have that one ActionBar with toys and mounts only fade in when you mouse over it. \n\n## Supports other AddOns:\n\nSupports **ElvUI**, **EllesmereUI**, **Unhalted Unit Frames**, **Danders Frames**, **Ayije CDM**, **Details**, **Bartender** and **Dominos**.\n\nWill automatically detect and use their Frames over the default Blizzard ones.\n\nThere is a setting in the \"Fade Settings\" tab to override the Alpha of these AddOns. It's enabled by default.\n\nIf you want these AddOns to remain in control of their Alpha (for range checks or their own fade system), either remove their Frames from **Auto Hide UI** or disable this setting.\n\n## How to add Custom Frames:\n\nIf the provided Frame selection doesn't include the Frame you wish to hide, use the included **Frame Finder** tool to find and add it. Make sure your Frame is visible when launching the tool.\n\nAlternatively, you can add a Frame manually, but you will need to find out its name first.\n\nHere's how:\n- Type /fstack in your chat.\n- Hover your mouse over the Frame you want to hide.\n- The Tooltip is most likely highlighting some sub-element, like a button or a texture.  \nYour goal is to find the root of that Frame.\n- Press the left or right Alt key to cycle up and down the stack.  \nRight Alt will probably take you there faster.\n- Once your entire Frame (not just a part of it) is marked green, check the Tooltip for the entry marked with an arrow. This is probably the Frame you are looking for. \n- It may take a few guesses until you find the right Frame.\n- Type /fstack again when you're done.  \n\nOnce you know the name, open the Options, scroll down in the \"Frame Selection\" tab and enter it in the text box for \"Custom Frames\".\n\nSeparate multiple entries with a comma. The entries are case-sensitive!",
   "releases": [
     {
+      "tag": "v1.2.36",
+      "published": "2026-11-27",
+      "notes": "# Auto Hide UI\n\n## [v1.2.36](https://github.com/Thovald/AutoHideUI/tree/v1.2.36) (2026-11-27)\n[Full Changelog](https://github.com/Thovald/AutoHideUI/compare/v1.2.35...v1.2.36) [Previous Releases](https://github.com/Thovald/AutoHideUI/releases)\n\n- added a way to track and remove deprecated settings in the future.  \n- separated options for FadeIn and FadeOut duration and extended the slider range."
+    },
+    {
       "tag": "v1.2.35",
       "published": "2026-11-24",
       "notes": "# Auto Hide UI\n\n## [v1.2.35](https://github.com/Thovald/AutoHideUI/tree/v1.2.35) (2026-11-24)\n[Full Changelog](https://github.com/Thovald/AutoHideUI/compare/v1.2.34...v1.2.35) [Previous Releases](https://github.com/Thovald/AutoHideUI/releases)\n\n- changelog update  \n- improved way of handling missing frames on login"
@@ -23,19 +28,15 @@
       "tag": "v1.2.32",
       "published": "2026-11-20",
       "notes": "# Auto Hide UI\n\n## [v1.2.32](https://github.com/Thovald/AutoHideUI/tree/v1.2.32) (2026-11-20)\n[Full Changelog](https://github.com/Thovald/AutoHideUI/compare/v1.2.31...v1.2.32) [Previous Releases](https://github.com/Thovald/AutoHideUI/releases)\n\n- optimized chatframe collection. fixed bug around ellesmereui's actionbar endcaps. fixed ellesmereui minimap bug when switching profiles."
-    },
-    {
-      "tag": "v1.2.31",
-      "published": "2026-11-18",
-      "notes": "# Auto Hide UI\n\n## [v1.2.31](https://github.com/Thovald/AutoHideUI/tree/v1.2.31) (2026-11-18)\n[Full Changelog](https://github.com/Thovald/AutoHideUI/compare/v1.2.30...v1.2.31) [Previous Releases](https://github.com/Thovald/AutoHideUI/releases)\n\n- bunch of visibility fixes around PartyFrame"
     }
   ],
   "stats": {
     "stars": 0,
     "openIssues": 0,
     "contributors": 1,
-    "lastRelease": "2026-11-24",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
       "2026-11-24",
       "2026-11-24",
       "2026-11-24",
@@ -83,8 +84,7 @@
       "2026-03-22",
       "2026-03-21",
       "2026-03-19",
-      "2026-03-18",
-      "2026-03-11"
+      "2026-03-18"
     ]
   },
   "technical": {

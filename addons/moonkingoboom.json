@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "moonkingoboom",
+  "repo": "unhinged-gaming/wow-forever-addons",
+  "about": "# WoW Forever addons\n\nUnhinged Gaming's public addons for WoW Forever. Each one lives in its own folder and releases on\nits own schedule.\n\n| Addon | Folder | |\n| --- | --- | --- |\n| Moonkin go Boom | [addons/moonkin-go-boom](https://github.com/unhinged-gaming/wow-forever-addons/blob/main/addons/moonkin-go-boom) | Built for Boomkins, and ready when the raid needs a cat, a bear or a tree instead. |\n\n## Working on an addon\n\nYou need Lua 5.1 and luac 5.1 (`apt install lua5.1`) and Python 3.\n\n```sh\npython3 scripts/check.py moonkin-go-boom          # syntax, tests, globals, fonts, TOC\npython3 scripts/package.py moonkin-go-boom --test glow\npython3 scripts/validate_package.py moonkin-go-boom\n```\n\n- **`package.py`** writes `dist/<Folder>-<version>.zip` and copies it to `M:\\Surveilance Archive`. With `--test <topic>` the copy is named `<Folder>-<version>-TEST-<topic>.zip`, so a released zip is never overwritten.\n- **Previews:** `PLAYWRIGHT_MODULE=/path/to/node_modules/playwright python3 scripts/preview.py <addon>` draws an addon's preview scenes to `dist/preview/<addon>/`, to check a layout without the game.\n\n## Releasing\n\nReleases are per addon:\n\n1. `python3 scripts/set_version.py <addon> X.Y.Z` sets the version (the TOC is the only place it's written).\n2. Write `addons/<addon>/docs/RELEASE-X.Y.Z.md`. It becomes the CurseForge changelog.\n3. `python3 scripts/check.py <addon> --release`.\n4. Commit, then `git tag <addon>/vX.Y.Z` and `git push origin main <addon>/vX.Y.Z`.\n\nThe tag runs [.github/workflows/release.yml](https://github.com/unhinged-gaming/wow-forever-addons/blob/main/.github/workflows/release.yml). It checks and builds\nthat addon only, uploads it to the CurseForge project named in `addons/<addon>/addon.json`, and\npublishes a GitHub release. Running the workflow by hand is a dry run that uploads nothing.\n\nThe workflow needs:\n\n- the repository secret `CURSEFORGE_API_TOKEN`;\n- each addon's `curseforgeProjectId` in its `addon.json`.\n\nThe repository variable `CURSEFORGE_GAME_VERSION` is optional and pins a WoW Forever game version\nby name; without it, the newest one is used.\n\n## Adding an addon\n\nCreate `addons/<slug>/` with:\n\n- `addon.json`: name, shipped folder, CurseForge project ID;\n- the shipped folder, with its TOC (`## Interface: 16001`), Lua files and `LICENSE`;\n- `tests/run.lua`;\n- `docs/RELEASE-<version>.md`.\n\nMoonkin go Boom's `tests/wow.lua` is a stand-in Forever client worth copying. Read\n[docs/FOREVER-API.md](https://github.com/unhinged-gaming/wow-forever-addons/blob/main/docs/FOREVER-API.md) first: Forever hides most combat data from addons.",
+  "releases": [
+    {
+      "tag": "moonkin-go-boom/v1.0.1",
+      "name": "Moonkin go Boom 1.0.1",
+      "published": "2026-11-27",
+      "notes": "## Moonkin go Boom 1.0.1\n\n- **Clearcasting shows the moment it's up, in a fight too.** The game hides your buffs from addons during a fight, so the icon was worked out from your spells costing nothing, and could lag or miss. Now the game draws the icon itself, exactly, right of the bar, from the moment you log in.\n- **Timers drawn by the game.** Moonfire, Insect Swarm and every other DoT and HoT timer are drawn by the game itself now, the way the target's roots and Clearcasting are: exact in a fight, through target swaps, refreshes and dispels. Before, the bars ran from your casts, and swapping to another target and back left them empty while the DoTs were still ticking. The icon beside each bar is greyed while the addon knows of no such effect of yours on the target.\n- **Where the game can't draw them,** each target now keeps the timers from your casts while you look elsewhere, until they run out or none of your effects are left on it.\n- **Recasting Thorns or Mark of the Wild in a fight clears its reminder at once.** It used to stay until the fight ended: with an enemy targeted, the game's self-cast came through as on someone else (or nameless), so the addon didn't count it. Gift of the Wild now counts wherever you cast it, since it covers your party.\n- **The charge a fast Starfire spends flashes until the cast lands**, instead of leaving the bar as the cast starts. If the cast stops (moved, interrupted), it stops flashing and stays.\n- **Lighter in a fight.** It redraws less and makes far less garbage:\n  - Spell lookups are remembered until your spellbook or talents change. Before, every cooldown was looked up again many times a second, and each lookup left tables behind for the game to clean up.\n  - A change redraws only the part it affects. A cooldown changing redraws the cooldowns, a DoT changing redraws the timers and marks, and nothing at all is redrawn when nothing changed. Before, the whole bar redrew about ten times a second.\n  - The cooldown icons are laid out again only when they could have changed.\n  - In Cat and Bear Form it no longer times Wrath and Starfire, which only matter for Eclipse and Nature's Grace.\n  - A timer's numbers are made once and kept, and the ability marks read their costs every few seconds, or as soon as the game shows a cost has changed (Berserk).\n- **`/boom perf`** reports where the addon's time and memory go, so the heavy parts can be found and made lighter:\n  - how many milliseconds a second it takes in a fight and out of one;\n  - the heaviest things the game calls it for (each event, each per-frame update, the batched updates), with calls a second and the average and longest call;\n  - the main work inside them;\n  - its memory, how fast that grows, and how much new memory (garbage) each part makes;\n  - stalls (frames far longer than usual), with how much of each was this addon's own code, whether a garbage collection ran in it, and whether one of its sounds had just played;\n  - where the game has its own add-on profiler, its numbers for this addon and for all addons together.\n- Each report is saved, with the four before it, in the addon's SavedVariables, so it can be shared after a `/reload` or logging out. `/boom perf reset` starts counting again, say just before a pull."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "MoonkinGoBoom"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "MoonkinGoBoomDB"
+    ]
+  }
+}

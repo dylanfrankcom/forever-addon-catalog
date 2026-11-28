@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "id": "aurarium",
+  "repo": "arcane-wizard-dev/Aurarium",
+  "about": "# Aurarium\n\n[![GitHub Release](https://img.shields.io/github/v/release/arcane-wizard-dev/Aurarium?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Aurarium/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/arcane-wizard-dev/Aurarium?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Aurarium/releases)\n\n_Gold and currencies, always in view._\n\nAurarium is a World of Warcraft addon that tracks gold and currencies across characters. It brings recorded balances together in clear overviews and makes changes over time easy to follow.\n\n> ⚠️ **Important!** This addon requires **Arcane Wizard: Library**. See Installation & Quick Start for installation details.\n\n## Key Features\n\n**Gold Display** - Shows the current gold balance in a customizable display that fits into the game interface.\n\n**Gold and Currency Overview** - Browse recorded balances by character, faction, or account total.\n\n**Chart** - Explore your balance history in a chart and choose the period you want to examine.\n\n## Features\n\nIndividual features and display options can be configured in the addon settings. Aurarium supports an account profile and character profiles.\n\n### Gold Display\n\n* Shows or hides the compact gold display independently of balance tracking.\n* Lets you choose which coins appear in the gold display.\n\n### Gold and Currency Overview\n\n* Shows gold and currency balances by day and month.\\*\n* Saves and shows balances individually for each character.\n* Shows character and Warband currencies separately.\\*\\*\n* Shows totals for the selected currency across all recorded characters.\n* Can hide days without balance changes.\n* Tracks daily WoW Token prices for the current region.\\*\\*\n\n### Chart\n\n* Shows a line chart for a character, Alliance, Horde, the account total, the Warband\\*\\*, or WoW Token prices\\*\\*.\n* Offers preset periods or a custom date range.\n\n*\\* In Classic only gold is tracked.*\n\n*\\*\\* This feature is only available in Retail.*\n\n## Supported Languages & Flavors\n\n* Languages: English, German, Russian\n* Flavors: Classic, Burning Crusade - Classic Anniversary Edition, Mists of Pandaria - Classic, Forever, Retail\n\n## Installation & Quick Start\n\n> **Required Dependency:** This addon requires **Arcane Wizard: Library**. If you install Aurarium via the CurseForge client, the library will be downloaded automatically. If you install the addon manually, via Wago, or through another third-party updater that does not resolve dependencies, you must download and enable the library separately.\n\nTo manage the addon, type the following commands in chat and press Enter:\n\n* Type `/aur` or `/aurarium` to access the addon options menu.\n* Type `/aur help` or `/aurarium help` to see the available chat commands and answers to frequently asked questions.\n* Type `/aur changelog` or `/aurarium changelog` to open the changelog.\n* Type `/aur overview` or `/aurarium overview` to manually display the Gold and Currency Overview.\n* Type `/aur chart` or `/aurarium chart` to manually display the Chart.\n\n## Bugs & Feedback\n\nIf you find a bug or have a suggestion, please open a GitHub issue or leave a comment on CurseForge.\n\n## Translation Support\n\nIf you would like to localize this addon into other languages, your contribution would be very welcome. Please submit your translations directly via GitHub.",
+  "releases": [
+    {
+      "tag": "v2.51",
+      "published": "2026-11-25",
+      "notes": "## Aurarium\n### [v2.51](https://github.com/arcane-wizard-dev/Aurarium/tree/v2.51) (2026-11-25)\n[Full Changelog](https://github.com/arcane-wizard-dev/Aurarium/compare/v2.50...v2.51) - [Previous Releases](https://github.com/arcane-wizard-dev/Aurarium/releases)\n\n- Added: In-game help answers common questions and explains each chat command. Open it from the addon settings or type the addon's slash command followed by 'help'\n- Updated: deDE, enUS, ruRU localizations\n- Requires Arcane Wizard: Library revision 8 or later"
+    },
+    {
+      "tag": "v2.50",
+      "published": "2026-11-20",
+      "notes": "## Aurarium\n### [v2.50](https://github.com/arcane-wizard-dev/Aurarium/tree/v2.50) (2026-11-20)\n[Full Changelog](https://github.com/arcane-wizard-dev/Aurarium/compare/v2.49...v2.50) - [Previous Releases](https://github.com/arcane-wizard-dev/Aurarium/releases)\n\n- Changed: Each character appears under its ruleset after its next login [forever]\n- Removed: Automatic import of gold and currency history from the old data format\n- Fixed: A missing realm name no longer prevents startup when the character's ruleset is available [forever]\n- Requires Arcane Wizard: Library revision 7 or later"
+    },
+    {
+      "tag": "v2.49",
+      "published": "2026-11-17",
+      "notes": "## Aurarium\n### [v2.49](https://github.com/arcane-wizard-dev/Aurarium/tree/v2.49) (2026-11-17)\n[Full Changelog](https://github.com/arcane-wizard-dev/Aurarium/compare/v2.48...v2.49) - [Previous Releases](https://github.com/arcane-wizard-dev/Aurarium/releases)\n\n**Important note: Migration of older character data will be removed at the end of 2026. Log in once with each character using an up-to-date version of Aurarium before then to preserve their gold and currency history.**\n\n- Added: A help command lists available slash commands, and unknown commands show a hint in chat\n- Added: Alliance and Horde balance views in the overview and chart\n- Added: Optional markers for the highest and lowest chart values\n- Changed: The Gold & Currencies tab uses one menu to select a character, a faction, or the total\n- Changed: Character names now include first and last names [forever]\n- Changed: The chart's Category dropdown is disabled when Gold & Currencies is the only option [forever]\n- Requires Arcane Wizard: Library revision 6 or later"
+    },
+    {
+      "tag": "v2.48",
+      "published": "2026-11-14",
+      "notes": "## Aurarium\n### [v2.48](https://github.com/arcane-wizard-dev/Aurarium/tree/v2.48) (2026-11-14)\n[Full Changelog](https://github.com/arcane-wizard-dev/Aurarium/compare/v2.47...v2.48) - [Previous Releases](https://github.com/arcane-wizard-dev/Aurarium/releases)\n\n**Important note: Migration of older character data will be removed at the end of 2026. Log in once with each character using an up-to-date version of Aurarium before then to preserve their gold and currency history.**\n\n- Changed: Reduced repeated calculations when tracking gold and currencies and updating the gold display\n- Changed: Reduced repeated sorting, calculations, and layout queries in character lists, currency overviews, charts, and WoW Token price history, and reused table rows when refreshing the overview\n- Minor code adjustments"
+    },
+    {
+      "tag": "v2.47",
+      "published": "2026-11-10",
+      "notes": "## Aurarium\n### [v2.47](https://github.com/arcane-wizard-dev/Aurarium/tree/v2.47) (2026-11-10)\n[Full Changelog](https://github.com/arcane-wizard-dev/Aurarium/compare/v2.46...v2.47) - [Previous Releases](https://github.com/arcane-wizard-dev/Aurarium/releases)\n\n**Important note: Migration of older character data will be removed at the end of 2026. Log in once with each character using an up-to-date version of Aurarium before then to preserve their gold and currency history.**\n\n- Changed: Reworked the options menu to prevent errors in Blizzard's settings and added a button to restore default values\n- Removed: Addon options from Blizzard's settings search\n- Requires Arcane Wizard: Library revision 5 or later"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 0,
+    "contributors": 5,
+    "lastRelease": "2026-11-25",
+    "releaseDates": [
+      "2026-11-25",
+      "2026-11-20",
+      "2026-11-17",
+      "2026-11-14",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-03",
+      "2026-11-01",
+      "2026-11-01",
+      "2026-10-29",
+      "2026-10-28",
+      "2026-10-21",
+      "2026-10-16",
+      "2026-10-14",
+      "2026-10-12",
+      "2026-10-09",
+      "2026-10-05",
+      "2026-10-03",
+      "2026-09-27",
+      "2026-09-24",
+      "2026-09-22",
+      "2026-09-18",
+      "2026-09-13",
+      "2026-09-06",
+      "2026-08-30",
+      "2026-08-21",
+      "2026-08-18",
+      "2026-08-14",
+      "2026-08-04",
+      "2026-07-28",
+      "2026-07-18",
+      "2026-07-12",
+      "2026-07-09",
+      "2026-07-06",
+      "2026-07-04",
+      "2026-06-26",
+      "2026-06-19",
+      "2026-06-16",
+      "2026-06-14",
+      "2026-06-07",
+      "2026-06-01",
+      "2026-05-30",
+      "2026-05-26",
+      "2026-05-24",
+      "2026-05-10",
+      "2026-05-01",
+      "2026-04-28",
+      "2026-04-26"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "ruRU"
+  ],
+  "technical": {
+    "folders": [
+      "Aurarium"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "requires": [
+      "ArcaneWizardLibrary"
+    ],
+    "savedVariables": [
+      "Aurarium_Options_v5",
+      "Aurarium_DataCharacter",
+      "Aurarium_DataDates",
+      "Aurarium_DataBalance",
+      "Aurarium_DataCharacter_v2",
+      "Aurarium_DataBalance_v2",
+      "Aurarium_DataTokenPrices"
+    ]
+  }
+}

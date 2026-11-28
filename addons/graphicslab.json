@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "graphicslab",
+  "repo": "Mimezu/forever-GraphicsLab",
+  "releases": [
+    {
+      "tag": "v0.5.1",
+      "name": "GraphicsLab 0.5.1",
+      "published": "2026-11-27",
+      "notes": "**Download `GraphicsLab-0.5.1.zip` below** (not \"Source code\").\n\n1. Close the game.\n2. Unzip into `World of Warcraft\\_forever_\\Interface\\AddOns\\`.\n3. Start the game and type `/glab`.\n\nExtended graphics settings: live-tweak every visual setting (hidden ones too), keep values the game resets, restore your originals, save snapshots, and test which fog settings really work.\n\nFirst release on GitHub."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "GraphicsLab"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "GraphicsLabDB"
+    ]
+  }
+}

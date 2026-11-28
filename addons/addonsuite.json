@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "addonsuite",
+  "repo": "kapresoft/wow-addon-suite",
+  "about": "[![Release Build](https://github.com/kapresoft/wow-addon-suite/actions/workflows/release-build.yml/badge.svg)](https://github.com/kapresoft/wow-addon-suite/actions/workflows/release-build.yml)\n\n# AddonSuite\n> ▶ A [World of Warcraft](https://worldofwarcraft.com/) AddOn \n\n![download-count](https://cf.way2muchnoise.eu/full_785236_downloads.svg?badge_style=for_the_badge) ![supported-wow-versions](https://cf.way2muchnoise.eu/versions/World%20of%20Warcraft%20Versions_785236_all.svg?badge_style=for_the_badge)\n\n[Releases](https://github.com/kapresoft/wow-addon-suite/releases) | [Milestones](https://github.com/kapresoft/wow-addon-suite/milestones) | [Known Issues](https://github.com/kapresoft/wow-addon-suite/issues)\n\n## Description\n\nAddonSuite is a powerful and flexible World of Warcraft addon that enhances your gameplay experience by providing full control over the addons loaded for various gaming scenarios. Leveraging the robust Ace3 framework and its AceConfig profiles, AddonSuite allows players to easily toggle (enable or disable) groups of addons with just a few clicks, ensuring that only the most relevant addons are active at any given time. It also features a minimap icon to quickly switch between profiles, open settings, and access the profile dialog, offering convenient and rapid adjustments to your addon setup without navigating through complex menus.\n\nAddonSuite transforms your World of Warcraft interface management into a seamless and dynamic process, perfectly aligning with your in-game activities. A prime example of AddonSuite's versatility is its ability to cater to specific gaming scenarios through customized profiles. Here’s how you can leverage this powerful feature:\n\n### Features\n\n- **Addon Management via AceConfig Profiles:** Utilize AceConfig for intuitive management of addon settings, allowing users to easily create, switch, and manage different configuration profiles.\n- **Character-Level Profile Favorites:** Enable users to mark certain profiles as favorites at the character level, enhancing the profile switch menu's usability by filtering favorites for quick access via the minimap icon.\n- **Minimap Icon for Quick Profile Switching and Configuration Access:** A minimap icon is available for quick access, allowing users to effortlessly switch between their favorite profiles and open the addon's configuration settings directly from the minimap.\n\n### Example Use Cases:\n\n- **Leveling Profile**: Create a profile named \"Leveling\" tailored for your journey through Azeroth's vast landscapes and quests. This profile can include addons that enhance quest tracking, provide detailed maps, or offer valuable insights into NPC locations and objectives. By activating the \"Leveling\" profile, you ensure that only addons contributing to an efficient leveling experience are loaded, keeping your UI clean and focused.\n\n- **Gathering Profile**: Enables addons relevant to professions such as Mining, Herbalism, and Skinning, focusing your UI on gathering activities.\n\n- **Raiding Profile**: Set up a \"Raiding\" profile for those intense raid nights. This profile would focus on addons critical for raid encounters, such as boss mechanics alerts, raid cooldown tracking, and damage meters. Switching to the \"Raiding\" profile ensures that you're equipped with all the necessary tools to contribute effectively to your raid team, without distractions from less relevant addons.\n\n- **PVP Profile**: For players who thrive in the competitive arena of PVP, a \"PVP\" profile can be configured. This profile would include addons specialized in PVP scenarios, like enemy cooldown trackers, battleground tactics, and arena unit frames. By activating the \"PVP\" profile when entering battlegrounds or arenas, AddonSuite guarantees that your interface is optimized for victory against your adversaries.\n\nWith AddonSuite, the power of customization and efficiency of which addons to load is at your fingertips. By defining and switching between profiles like \"Leveling\", \"Gathering\", \"Raiding\", and \"PVP\", you ensure that your addon setup is always aligned with your current activity, enhancing both performance and enjoyment in World of Warcraft.\n\n## AddOn Distribution\n\n**Curse Forge**\n- https://www.curseforge.com/wow/addons/addon-suite\n\n## Donations\n\nIf AddonSuite has made your gameplay easier, consider supporting its development:\n\n- **[Paypal&trade; Donation](https://www.paypal.com/donate/?hosted_button_id=AX58YP3GSGXVU)**\n- **[Bitcoin Donation](https://www.blockchain.com/btc/address/3QQVAwJGkKHMM2oq6CLVWYgfx83TFVwp39)**\n\n## About\n\n- About the Author [(Tony Lagnada)](https://tony.resume.lagnada.com/)\n- My AddOn Portfolio Can Be Found Here [Curse Forge/Kapresoft](https://www.curseforge.com/members/kapresoft/projects)",
+  "releases": [
+    {
+      "tag": "2026.11.2",
+      "published": "2026-11-10",
+      "notes": "### AddonSuite 2026.11.2\n[Release Notes](https://github.com/kapresoft/wow-addon-suite/releases/tag/2026.11.2) | [Full Changelog](https://github.com/kapresoft/wow-addon-suite/compare/2026.11.1...2026.11.2) | [Curse Forge](https://www.curseforge.com/wow/addons/addon-suite/files)\n\n#### What’s Changed\n* Build the minimap profile menu with MenuUtil (#172) @nfet\n* Harden workflow token permissions and triggers (#171) @nfet\n* Enable and disable add-ons by character GUID, not name (#169) @nfet\n* Type GameVersionMixin module as the mixin class (#166) @nfet\n* Pin release Ace3 to r1424-alpha for WoW Forever (#161, #164) @nfet\n* Migrate settings widgets to LibAceOptionsKit (#162) @nfet\n* Fix Hide Minimap Icon When Added to TitanPanel (#160) @nfet\n\n#### AddonSuite-2026.11.2.zip\n```text\nsha256:76d35c2c8dcb544fe84e3e7f3919447d57c6acd7e0ef117a0bfd0c7ae081bb50\n```"
+    },
+    {
+      "tag": "2026.11.1",
+      "published": "2026-11-03",
+      "notes": "### AddonSuite 2026.11.1\n[Release Notes](https://github.com/kapresoft/wow-addon-suite/releases/tag/2026.11.1) | [Full Changelog](https://github.com/kapresoft/wow-addon-suite/compare/2026.10.8...2026.11.1) | [Curse Forge](https://www.curseforge.com/wow/addons/addon-suite/files)\n\n#### What’s Changed\n* Add WoW Forever (16001) interface version to AddonSuite TOC (#154) @nfet\n\n#### AddonSuite-2026.11.1.zip\n```text\nsha256:0ebbe888e9bd7a195b381d70a2210ad133a28265ad8a383adeb13fbd816575c7\n```"
+    },
+    {
+      "tag": "2026.10.8",
+      "published": "2026-10-28",
+      "notes": "### AddonSuite 2026.10.8\n[Release Notes](https://github.com/kapresoft/wow-addon-suite/releases/tag/2026.10.8) | [Full Changelog](https://github.com/kapresoft/wow-addon-suite/compare/2026.10.7...2026.10.8) | [Curse Forge](https://www.curseforge.com/wow/addons/addon-suite/files)\n\n#### What’s Changed\n* Updated settings dialog help tour to be skippable (#153) @nfet\n\n#### AddonSuite-2026.10.8.zip\n```text\nsha256:25917357c5ea2c17327f6a70bdcc9e51cde0480a1b330a1104aa0393c98873c6\n```"
+    },
+    {
+      "tag": "2026.10.7",
+      "published": "2026-10-27",
+      "notes": "### AddonSuite 2026.10.7\n[Release Notes](https://github.com/kapresoft/wow-addon-suite/releases/tag/2026.10.7) | [Full Changelog](https://github.com/kapresoft/wow-addon-suite/compare/2026.10.6...2026.10.7) | [Curse Forge](https://www.curseforge.com/wow/addons/addon-suite/files)\n\n#### What’s Changed\n* Harden release workflow: PR permission, inline sha256 (#150) @nfet\n\n#### AddonSuite-2026.10.7.zip\n```text\nsha256:93c0f72170b39aa1c4b9285fb8f37b9014045d40bd13008fb50094e9b17b417f\n```"
+    },
+    {
+      "tag": "2026.10.6",
+      "published": "2026-10-25",
+      "notes": "### AddonSuite 2026.10.6\n[Release Notes](https://github.com/kapresoft/wow-addon-suite/releases/tag/2026.10.6) | [Full Changelog](https://github.com/kapresoft/wow-addon-suite/compare/2026.10.5...2026.10.6) | [Curse Forge](https://www.curseforge.com/wow/addons/addon-suite/files)\n\n#### What’s Changed\n* Updated settings dialog help tour to use LibHelpTour (#148) @nfet\n\n#### AddonSuite-2026.10.6.zip\n```text\nsha256:61a59d549289af4f2e67aa8deb59db5c619479e691b135538fca916606139eef\n```"
+    }
+  ],
+  "stats": {
+    "stars": 2,
+    "openIssues": 20,
+    "contributors": 3,
+    "lastRelease": "2026-11-10",
+    "releaseDates": [
+      "2026-11-10",
+      "2026-11-03",
+      "2026-10-28",
+      "2026-10-27",
+      "2026-10-25",
+      "2026-10-22",
+      "2026-10-21",
+      "2026-10-18",
+      "2026-10-16",
+      "2026-10-02",
+      "2026-09-28",
+      "2026-09-04",
+      "2026-08-18",
+      "2026-08-17",
+      "2026-08-11",
+      "2026-08-04",
+      "2026-08-03",
+      "2026-07-30",
+      "2026-07-07",
+      "2026-06-07",
+      "2026-05-17",
+      "2026-02-02",
+      "2026-01-03",
+      "2025-12-31",
+      "2025-12-10",
+      "2025-11-11",
+      "2025-11-10",
+      "2025-10-22",
+      "2025-06-24",
+      "2025-04-24",
+      "2025-03-14",
+      "2025-02-07",
+      "2024-11-05",
+      "2024-10-28",
+      "2024-05-23",
+      "2024-05-17",
+      "2024-04-27",
+      "2024-04-24",
+      "2024-04-19",
+      "2024-04-19",
+      "2024-04-18",
+      "2024-04-14",
+      "2024-04-14",
+      "2024-04-12",
+      "2024-04-08",
+      "2024-04-05",
+      "2024-04-05",
+      "2024-04-05",
+      "2024-04-04",
+      "2024-04-03"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "AddonSuite"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibAceOptionsKit",
+      "LibHelpTour",
+      "LibPrettyPrint",
+      "LibTraceKit",
+      "LibUtil",
+      "DevSuite"
+    ],
+    "savedVariables": [
+      "ADDON_SUITE_DB",
+      "ADDON_SUITE_LOG_LEVEL",
+      "ADDON_SUITE_DEBUG_MODE",
+      "ADDON_SUITE_DEBUG_ENABLED_CATEGORIES"
+    ],
+    "savedVariablesPerCharacter": [
+      "ADDON_SUITE_CHARACTER_DB"
+    ]
+  }
+}

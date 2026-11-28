@@ -4,6 +4,18 @@
   "repo": "Krelock/NodeSight",
   "releases": [
     {
+      "tag": "sparkles-v1.5.5",
+      "name": "NodeSight Sparkles 1.5.5",
+      "published": "2026-11-27",
+      "notes": "## NodeSight Sparkles 1.5.5\n\n### New\n\n- **Skill colors** (off by default). Herb and ore sparkles in the color of your skill-up chance: orange, yellow, green or gray, and red when your skill is too low. Turn it on in the **General** tab. Forever only: Retail doesn't tell addons your skill.\n\n### Changes\n\n- **Keep the game's icons**. On a new install it's ticked for you if you already had the game's icons on objects (Enable Interact Key on, with Interact Key Icons on Show All).\n\n### Fixes\n\n- **Corpse sparkles and enemy nameplates**. Skinning and lootable corpse sparkles only show with the game's enemy nameplates on (Options > Nameplates > Enemy Unit Nameplate). The sparkle window and a popup now tell you when they're off.\n- **The game's icon with nameplate addons**. With Keep the game's icons off, the game's icon no longer stays over a sparkling node when a nameplate addon has moved it off the nameplate.\n- **Quest objects**. Fixed a lot of instances of quest sparkles appearing on unintended objects."
+    },
+    {
+      "tag": "v4.0.6",
+      "name": "NodeSight 4.0.6",
+      "published": "2026-11-27",
+      "notes": "## NodeSight 4.0.6\n\n### New\n\n- **Far away sparkles (Beta)** (off by default). A column of sparkles in the world where the next node arrow would point, so you see the next herb or ore from far away. It takes over your map pin and quest tracking while on. Turn it on under **Compass and arrow**.\n- **Skill colors** (off by default). Herb and ore sparkles in the color of your skill-up chance: orange, yellow, green or gray, and red when your skill is too low. Turn it on in the sparkle window's **General** tab.\n\n### Changes\n\n- **Keep the game's icons**. On a new install it's ticked for you if you already had the game's icons on objects (Enable Interact Key on, with Interact Key Icons on Show All).\n\n### Fixes\n\n- **Corpse sparkles and enemy nameplates**. Skinning and lootable corpse sparkles only show with the game's enemy nameplates on (Options > Nameplates > Enemy Unit Nameplate). The sparkle window and a popup now tell you when they're off.\n- **The game's icon with nameplate addons**. With Keep the game's icons off, the game's icon no longer stays over a sparkling node when a nameplate addon has moved it off the nameplate.\n- **Quest objects**. Fixed a lot of instances of quest sparkles appearing on unintended objects."
+    },
+    {
       "tag": "sparkles-v1.5.4",
       "name": "NodeSight Sparkles 1.5.4",
       "published": "2026-11-26",
@@ -20,26 +32,16 @@
       "name": "NodeSight Sparkles 1.5.3",
       "published": "2026-11-25",
       "notes": "## NodeSight Sparkles 1.5.3\n\n### New\n\n- **Glow around the node** (off by default). A soft glow around the node in the sparkles' first color, under any style. Turn it on for each kind in the sparkle window, under **Count**.\n\n### Fixes\n\n- **Sparkle Maker**. A new sparkle never gets the number of one you deleted, so another character that used the deleted one doesn't get the new one instead. Undo skips changes to a deleted sparkle, and a plain click on the ring no longer adds an Undo step."
-    },
-    {
-      "tag": "v4.0.4",
-      "name": "NodeSight 4.0.4",
-      "published": "2026-11-25",
-      "notes": "## NodeSight 4.0.4\n\n### New\n\n- **Glow around the node** (off by default). A soft glow around the node in the sparkles' first color, under any style. Turn it on for each kind in the sparkle window, under **Count**.\n- **Pause while falling** (on by default). The Herb/Ore Switch doesn't switch while you're jumping or falling. On **Herb/Ore Switch**, under **Pauses**.\n- **Thank you page**. A thanks to our supporter, with a Buy me a coffee link, at the bottom of the settings list."
-    },
-    {
-      "tag": "sparkles-v1.5.2",
-      "name": "NodeSight Sparkles 1.5.2",
-      "published": "2026-11-24",
-      "notes": "## NodeSight Sparkles 1.5.2\n\n### Changes\n\n- **Interact Key off in towns** is off by default again, and turned off once for everyone, so the Interact Key works in towns as before. You can turn it on in the sparkle window's **General** tab."
     }
   ],
   "stats": {
     "stars": 4,
     "openIssues": 3,
     "contributors": 4,
-    "lastRelease": "2026-11-26",
+    "lastRelease": "2026-11-27",
     "releaseDates": [
+      "2026-11-27",
+      "2026-11-27",
       "2026-11-26",
       "2026-11-26",
       "2026-11-25",
@@ -87,9 +89,7 @@
       "2026-11-24",
       "2026-11-05",
       "2026-11-05",
-      "2026-11-04",
-      "2026-11-03",
-      "2026-11-01"
+      "2026-11-04"
     ]
   },
   "technical": {

@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "xloot",
+  "repo": "Xuerian/XLoot",
+  "about": "# XLoot\n\n[![Version](https://img.shields.io/github/v/release/Xuerian/XLoot?color=FF2222&label=Version)](https://github.com/Xuerian/XLoot/releases) [![Downloads](https://img.shields.io/curseforge/dt/14906?color=F16436&label=Downloads&style=flat-square)](https://www.curseforge.com/wow/addons/xloot) [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/vm8K2WfQUE) ![WoW Midnight](https://img.shields.io/badge/WoW-Midnight_12.1.5-8B0000?style=flat-square) ![WoW BCC](https://img.shields.io/badge/WoW-BCC_2.5.6-8B0000?style=flat-square) ![WoW MoP Classic](https://img.shields.io/badge/WoW-MoP_Classic_5.5.4-8B0000?style=flat-square) ![WoW Classic Era](https://img.shields.io/badge/WoW-Classic_Era_1.15.9-8B0000?style=flat-square) ![WoW Forever](https://img.shields.io/badge/WoW-Forever_1.60.1-8B0000?style=flat-square) [![License](https://img.shields.io/badge/License-All_Rights_Reserved-333333?style=flat-square)](https://github.com/Xuerian/XLoot/blob/master/LICENSE.txt)\n\nXLoot improves looting in World of Warcraft by replacing the default loot frames with cleaner, more\ninformative, and highly configurable ones. It is supported on retail **Midnight (12.1.5)**, every\ncurrent Classic flavor, and **WoW Forever (1.60.1)**. Every module is optional and can be toggled like any\nother addon.\n\n> _Tested and in active use on Midnight (12.1.5), all current Classic flavors, and WoW Forever._\n\n## Modules\n\n- **XLoot Frame.** Replaces the loot window. Quality borders, item level, an optional per-item vendor\n  sell price (as text or gold/silver/copper coin icons, and in item tooltips on the Classic flavors),\n  **(new look)** and **(upgrade)** tags flagging uncollected appearances and item-level upgrades,\n  one-click \"link all\" to chat (or automatic announce when the window opens), extensive appearance/skin\n  options, and rule-based auto-looting: filter by category (currency, quest items, trade goods), by\n  rarity (everything at or above a quality you choose), by gear (minimum quality and item level), by\n  total vendor value, by a custom item list, or just grab everything, each rule applying solo, in\n  groups, always, or never. **Speedy auto-loot** can instead vacuum a corpse instantly with no loot\n  window (paced to avoid the fast-loot disconnect on big pulls), optionally limited to only your\n  filtered items. Quest items can also take **a color of their own** on the name and row border, either a\n  color you pick or your class color, covering both quest-type items and the ordinary drops your quest log\n  asks you to collect.\n- **XLoot Monitor.** A \"toaster\" loot feed for items you and others loot, so you can watch drops at a\n  glance or move loot spam out of your chat box entirely. Shows item level, stack counts, quality\n  coloring, and how many of an item you already own. It can surface gold the game only reports as a\n  system message (world-quest rewards, gold purses), match your class colors, hide Blizzard's own loot\n  pop-ups so they don't pile up, and let you right-click a row to dismiss it, with adjustable fade times.\n  Quest items can take **a color of their own** here too, and are shown even when they fall below your\n  quality thresholds.\n- **XLoot Toast.** A Blizzard-style pop-up toast for notable loot as you receive it: item icon,\n  quality-colored name, and a counting-up quantity, with same-item pickups coalescing onto one \"+N\"\n  toast. Configurable quality threshold, item level, max on screen, fade time, spawn animation, sound,\n  coloring, font, a movable anchor, and how toasts respond to the mouse (fully clickable, click-through,\n  or click-through until Shift is held). When enabled it also hides Blizzard's own duplicate loot toast\n  so you see only one. Off by default. **/xltd** previews it. Uses the Monitor's loot detection, so keep\n  Monitor enabled for toasts.\n- **XLoot Group.** Need / Greed / Transmog / Pass roll frames with a timer. On retail the window now\n  **shows who rolled and who won** again: roll counts build on the buttons, then it names the winner in\n  their class color (or \"Pass: All\"), waiting for the result rather than vanishing the moment you choose\n  (the Classic flavors always had this). Optional roll-frame **highlight** (green upgrade, blue\n  uncollected appearance), **per-item auto-roll** rules set by Shift-clicking a roll button, and an\n  **urgent timer** that reddens as the roll runs out.\n- **XLoot Master.** A configurable master-looter interface: assign loot from a right-click menu, with\n  class submenus, special recipients (banker, disenchanter, self), raid rolls, and award announcements.\n  Fully supported on the **Classic flavors**, where master loot has always existed. Blizzard brought\n  master loot back to **retail in 12.0.5, but only on Chinese (CN) realms**, so XLoot now includes a\n  retail path too. ⚠️ **The retail path is experimental and unverified.** None of us can log into a CN\n  realm to test the live loot-assignment flow, so on retail it is unconfirmed. CN-realm feedback (works\n  or doesn't) is very welcome. Open its options with **/xlml**.\n\n## Using XLoot\n\n- **/xloot** opens the options (also under Game Menu → Options → AddOns → XLoot).\n- **/xlm** toggles the Monitor anchor to drag the loot feed where you want it.\n- **/xlg** toggles the Group anchor to position the roll frames.\n- **/xltd** previews a few toasts to position the Toast anchor and try the settings.\n- **/xlgd** previews sample roll frames, including the roll-results display.\n- **/xlml** opens the Master Loot options (Classic flavors, experimental on retail CN).\n\nAn optional **minimap icon** puts a coin button on your minimap: left-click opens the options,\nright-click shows the What's New summary, and you can drag it anywhere around the minimap edge. Turn it\non under **/xloot → Minimap icon**. Off by default. XLoot is also offered to **broker displays** such as\nTitan Panel, ChocolateBar, and ElvUI's datatexts, so you can put it on a bar instead, whether or not the\nminimap button itself is shown.\n\nEvery option has a mouseover tooltip explaining what it does. Don't want a module?\nDisable XLoot Frame / Monitor / Toast / Group / Master individually in the AddOns list.\n\nAfter an update, XLoot can show a short **What's New** summary, as a popup, a quiet clickable chat link,\nor nothing at all (your choice under **/xloot → After an update**). New features ship **off by default**,\nso an update never changes how your looting behaves until you turn something on.\n\n## Installing\n\nXLoot lives on [CurseForge](https://www.curseforge.com/wow/addons/xloot). To run it from source instead\n(for testing or contributing), all required libraries are bundled, so the repo loads with no extra\ndownloads. Either copy this folder into `World of Warcraft/_retail_/Interface/AddOns/` named `XLoot`, or\npoint a directory junction there (no admin needed):\n\n```cmd\nmklink /J \"C:\\Program Files (x86)\\World of Warcraft\\_retail_\\Interface\\AddOns\\XLoot\" \"<path to this repo>\"\n```\n\n## Reporting issues\n\nPlease check the [issue tracker](https://github.com/Xuerian/XLoot/issues) and open a new issue if your\nproblem isn't already reported. You can also join the [community Discord](https://discord.gg/vm8K2WfQUE)\nfor help, feedback, and updates.\n\n## Credit & license\n\nXLoot was created and maintained for years by **Xuerian**, and all credit for the original work is his.\nIt is now maintained by [wheelbarrel00](https://github.com/wheelbarrel00) **with his blessing**. See\n[LICENSE.txt](https://github.com/Xuerian/XLoot/blob/master/LICENSE.txt).\n\nIf you'd like to support the project, there's a\n[Donate button on the WoWAce page](https://www.wowace.com/projects/xloot).",
+  "releases": [
+    {
+      "tag": "12.25.0",
+      "published": "2026-11-26",
+      "notes": "## [12.25.0] - 2026-11-26\n\n### Features\n- **A new skin, XLoot: Modern.** Pick it in Global options > Skin. It gives the loot window, group loot roll bars, the\n  Loot Monitor and loot toasts a flat look. Each row trades its bordered box for a thin bar in the item's quality\n  color down one edge, and icons fill their frame with a thin black edge. Loot window rows, Loot Monitor rows and\n  loot toasts show a thin outline while your mouse is over them, and Loot Monitor rows sit on a background that fades\n  out across the row. On roll bars the timer fills the full height of the row behind the buttons, and on retail and\n  WoW Forever the roll buttons use the game's current roll button art. On loot toasts a soft flash in the item's\n  quality color replaces the glow and shine. The other skins look the same as before.\n- **Accent color.** Global options has a new \"Accent color\" setting, plus \"Use my class color\" to use your class color\n  instead. It colors the mouseover highlight on loot window rows, Loot Monitor rows and loot toast icons. XLoot:\n  Modern, which shows an outline on mouseover instead, uses it for the loot toast title, for the hover outline when\n  \"Hover outline\" is set to Accent color, and for any edge bar that would otherwise be white or gray, such as on white\n  and gray items, money and currency. Until you change it, it follows the skin, so it is the same gray as before on\n  the other skins and gold on XLoot: Modern.\n- **Hover outline.** For XLoot: Modern, the new \"Hover outline\" setting in Global options sets the outline to the\n  item's quality color or the accent color, or turns it off. With Item quality, the outline matches the edge bar, so\n  it uses the accent color wherever that bar does, such as on white and gray items, money and currency.\n- **Loot row spacing.** Loot Frame > Loot slots has a new \"Loot row spacing\" setting for the gap between rows in the\n  loot window. Until you change it, it follows the skin.\n- **Roll background color.** Group Loot > Roll frames has a new \"Background color\" setting for the background behind\n  each roll bar. Until you change it, it follows the skin.\n\n### Bug Fixes\n- With Loot Toasts > Anchor > Alignment set to Right, the title and item name on loot toasts were pinned to the wrong\n  edge of the toast, leaving them no room to show. This started when loot toasts were added in 12.12.0.\n\n### Known Issues\n- On WoW Forever, a profile you pick for a character on XLoot's Profile page can go back to Default after a reload or\n  a restart. This is being looked into next."
+    },
+    {
+      "tag": "12.24.1",
+      "published": "2026-11-25",
+      "notes": "## [12.24.1] - 2026-11-24\n\n### Bug Fixes\n- On retail and WoW Forever, with some addons that rearrange XLoot's roll buttons, such as EUI-Xloot in its default\n  layout, a roll bar reused for a later roll raised an error, drew no roll buttons and still showed the earlier roll's\n  item. Changing XLoot's settings after a roll could raise the same error. This started in 12.24.0.\n\n### Known Issues\n- On WoW Forever with EUI-Xloot 1.4.0 in its default layout (\"Roll Buttons on Left\" off), turning on XLoot's \"Hide\n  Transmog button\", or turning off EUI-Xloot's \"Show Transmog Roll Button\" (the same setting), after any roll bar has\n  shown since you logged in or reloaded can leave a roll bar with no Need or Greed button, then or on a later roll.\n  Until that change is undone or the UI is reloaded, each new roll and each change to XLoot's settings raises an error\n  in EUI-Xloot's Skin.lua (\"Cannot anchor to a region dependent on it\"). To avoid it, change that setting right after\n  logging in or reloading, before any roll bar shows, even a test roll's."
+    },
+    {
+      "tag": "12.24.0",
+      "published": "2026-11-24",
+      "notes": "## [12.24.0] - 2026-11-23\n\n### Features\n- **Hide the Transmog roll button.** On retail and WoW Forever, the new \"Hide Transmog button\" option in Group Loot >\n  Roll frames removes the Transmog button from group loot roll bars, and the Pass button and item name move over to\n  fill the space. On items that offer Transmog, the Greed button rolls Transmog instead, so you roll the same as\n  before. With \"Show roll results\" on, the Greed button's count and hover list include Transmog rolls. Off by\n  default. Suggested by Blurplurp.\n\n### Improvements\n- The Russian translation now covers the Share settings buttons and windows, the auto-loot list's Add items box,\n  Remove an item dropdown and Remove button, the font outline choices, and the message shown when options will open\n  after combat. Hovering \"Show roll results\" now explains the hover list in Russian too. The Korean translation now\n  covers the auto-loot list's Add items box, Remove an item dropdown and Remove button. Both cover the new option.\n- The \"Show roll results\" tooltip said the option was for retail only, though it also appears on WoW Forever. It now\n  names both, in English, Russian and Korean."
+    },
+    {
+      "tag": "12.23.1",
+      "published": "2026-11-20",
+      "notes": "## [12.23.1] - 2026-11-19\n\n### Bug Fixes\n- With an addon that rolls on group loot for you, such as Auto Roll on WoW Forever, XLoot's roll bar stayed on\n  screen until its timer ran out, with nothing left to roll. On WoW Forever and retail, a roll such an addon has\n  already made no longer leaves a roll bar stuck on screen. With \"Show roll results\" on, such a roll may no longer\n  show who won, as with XLoot's own \"Roll automatically\". Reported by gotmilk0112."
+    },
+    {
+      "tag": "12.23.0",
+      "published": "2026-11-13",
+      "notes": "## [12.23.0] - 2026-11-13\n\n### Features\n- **See and manage your auto-loot list.** In Loot Frame > Auto-looting, the \"Items to loot\" box is now \"Add items\":\n  type a name or several names separated by commas, or click in the box and shift-click an item, then press Enter.\n  Every item on your list now shows under it, and the new \"Remove an item\" dropdown and \"Remove\" button take one off.\n  Names already on the list are skipped. Suggested by Carolina.\n- **Korean translation.** Almost all of XLoot is now in Korean, including the options panel. The new \"Add items\" box,\n  \"Remove an item\" dropdown and \"Remove\" button show in English for now. Contributed by HandongHCI.\n\n### Improvements\n- The auto-loot list ignores capital letters, so \"linen cloth\" matches Linen Cloth. This works for Russian and\n  accented letters too.\n\n### Bug Fixes\n- On retail and WoW Forever, the item name and the Transmog and Pass roll counts on group loot roll bars sat too low,\n  and the Transmog and Pass buttons hung below the bar. They now sit centered. Reported by Sythalin.\n- An item shift-clicked into the auto-loot list was saved as a full item link, which never matched, so that item\n  was never auto-looted. Items already saved that way now work without adding them again."
+    }
+  ],
+  "stats": {
+    "stars": 17,
+    "openIssues": 1,
+    "contributors": 5,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-25",
+      "2026-11-24",
+      "2026-11-20",
+      "2026-11-13",
+      "2026-11-10",
+      "2026-11-08",
+      "2026-10-31",
+      "2026-10-24",
+      "2026-10-21",
+      "2026-10-20",
+      "2026-10-17",
+      "2026-10-07",
+      "2026-10-06",
+      "2026-10-03",
+      "2026-09-30",
+      "2026-09-19",
+      "2026-09-19",
+      "2026-09-10",
+      "2026-09-07",
+      "2026-08-31",
+      "2026-08-21",
+      "2026-08-16",
+      "2026-08-16",
+      "2026-08-13",
+      "2026-08-12",
+      "2026-08-07",
+      "2026-08-03",
+      "2026-07-29",
+      "2026-07-23",
+      "2026-07-17",
+      "2026-07-12",
+      "2026-07-12",
+      "2026-07-12",
+      "2026-07-10",
+      "2026-07-09",
+      "2026-07-08",
+      "2026-07-06",
+      "2026-07-04",
+      "2026-07-04",
+      "2026-07-03",
+      "2026-07-03",
+      "2026-07-01",
+      "2026-07-01",
+      "2026-06-28",
+      "2026-06-28",
+      "2026-06-28"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "XLoot",
+      "XLoot_Frame",
+      "XLoot_Group",
+      "XLoot_Master",
+      "XLoot_Monitor",
+      "XLoot_Options",
+      "XLoot_Toast"
+    ],
+    "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
+      "forever",
+      "retail"
+    ],
+    "optional": [
+      "Ace3",
+      "LibStub",
+      "Masque",
+      "Pawn"
+    ],
+    "savedVariables": [
+      "XLootADB"
+    ]
+  }
+}

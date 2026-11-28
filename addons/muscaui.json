@@ -31,6 +31,9 @@
       "2026-10-04"
     ]
   },
+  "languages": [
+    "frFR"
+  ],
   "technical": {
     "folders": [
       "MuscaUI",
@@ -47,14 +50,7 @@
       "forever"
     ],
     "requires": [
-      "ForeverMeter"
-    ],
-    "optional": [
-      "LibSharedMedia-3.0",
-      "WeakAuras"
-    ],
-    "savedVariables": [
-      "MuscaUIDB"
+      "MuscaUI"
     ]
   }
 }

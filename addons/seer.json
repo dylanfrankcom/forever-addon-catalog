@@ -51,18 +51,6 @@
       "2026-11-16"
     ]
   },
-  "languages": [
-    "deDE",
-    "esES",
-    "esMX",
-    "frFR",
-    "itIT",
-    "koKR",
-    "ptBR",
-    "ruRU",
-    "zhCN",
-    "zhTW"
-  ],
   "technical": {
     "folders": [
       "Seer"
@@ -70,22 +58,8 @@
     "editions": [
       "forever"
     ],
-    "optional": [
-      "Auctionator",
-      "Questie",
-      "QuestieDB",
-      "Pawn",
-      "Polestar",
-      "WhatsTraining",
-      "SkillUpForever",
-      "ForeverLevelingBiS",
-      "NovaInstanceTracker",
-      "DataStore",
-      "DataStore_Characters",
-      "DataStore_Mails"
-    ],
     "savedVariables": [
-      "SeerDB"
+      "SeerSpikeResults"
     ]
   }
 }

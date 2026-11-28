@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "ellesmereui-ldb",
+  "repo": "bhuddleston42/EllesmereUIBroker",
+  "about": "# EllesmereUI Broker\n\nAn EllesmereUI settings launcher for your LibDataBroker display.\n\nFor **World of Warcraft: Forever** (interface 16001).\n\n- Open EllesmereUI options from a broker bar.\n- Lightweight dedicated launcher.\n- Preserves the upstream UI suite’s own configuration.\n\n## Requirements\n\nEllesmereUI\n\nA LibDataBroker display such as Bazooka is needed to show broker controls.\n\n## Controls\n\nLeft-click the EllesmereUI broker launcher.\n\n## Installation\n\nInstall through CurseForge or extract the ZIP into your Forever Interface/AddOns folder. Keep the packaged folder name `EllesmereUI_LDB` unchanged; this also preserves existing saved settings. Enable the listed dependencies.\n\n## Publishing\n\nPush a stable annotated version tag matching the TOC, such as `v1.2.0`, to publish. GitHub Actions validates the source and packages a GitHub release; the connected CurseForge native packager handles the CurseForge Release file through its push webhook. No CurseForge publishing token belongs in this repository or its Actions secrets.\n\n## Feedback\n\n[Report an issue](https://github.com/bhuddleston42/EllesmereUIBroker/issues) with the addon version, expected behavior and Lua error if available.\n\n## Testing\n\nRelease packaging and Lua syntax are checked automatically. Included regression tests use simulated game APIs. Real gameplay and combinations of third-party addons can expose additional issues; please report them.",
+  "releases": [
+    {
+      "tag": "v1.2.0",
+      "published": "2026-11-27",
+      "notes": "## 1.2.0\n\n- Published the standalone EllesmereUI Broker companion for WoW Forever.\n- Open EllesmereUI options from a broker bar.\n- Lightweight dedicated launcher.\n- Preserves the upstream UI suite’s own configuration.\n- Added stable GitHub-tag releases and automated package validation."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "EllesmereUI_LDB"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "EllesmereUI"
+    ]
+  }
+}

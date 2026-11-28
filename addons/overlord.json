@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "id": "overlord",
+  "repo": "leliondoc/overlord-forever-addon",
+  "about": "# Overlord Forever\n\nWorld PvP addon for **World of Warcraft Forever**. Capture territory, fight over guild keeps and outposts, and track your faction's weekly campaign with map objectives and player rankings.\n\nSelect **Forever** in WowUp and search for **Overlord Forever**. In game, use `/ov show` to open the panel or `/ov guide` for the guide.\n\n[WowUp](https://wowup.io/addons/2797957) · [CurseForge](https://www.curseforge.com/wow/addons/overlord-forever) · [Download](https://github.com/leliondoc/overlord-forever-addon/releases/latest)",
+  "releases": [
+    {
+      "tag": "2.8.0",
+      "published": "2026-11-26",
+      "notes": "2.8.0\n\n**Overlord Forever 2.8.0**\n\nGurubashi Arena (Stranglethorn Vale): a new free-for-all guild capture. Any guild takes it from any other, your own faction included: stay 5 minutes in the pit with nobody from outside your guild alive in it. Its board sits under the leaderboard's keeps and outposts (holder, captures per guild this week, latest captures) and its holder shows on the Stranglethorn map. It is not counted in the guild rating, and it never slows kills, captures or the ranking on the network.\n\nGuild horn: the Call to arms button now opens two horns. The faction horn works as before; the guild horn warns your guild mates running Overlord, with your zone and position, anywhere outside instances (once every 10 minutes for the whole guild).\n\nCorner widget (Options, On-screen panels, off by default): a small button you can drag anywhere. Hover it for the guild table and Recent activity; click it to open Overlord.\n\nLeaderboard: the keeps and outposts tables show one row per site with its holder; hover a row for each guild's captures of that site this week.\n\nKeeps and outposts taken by a player who captures without killing now reach every map, including players who log in later.\n\nMaps no longer show one allied guild taking a keep from another when the enemy held it in between.\n\nMap labels keep the holder's name during an assault; alerts and leaderboard wording are clearer in every language.\n\nRoleplay PvP: rows from a session that read its realm rules wrong are kept out of the other campaigns' rankings.\n\nPlayers on 2.7.0 must update: they do not see the arena, and their maps can stay wrong after a capture by a player without kills.\n\nNew files in this version: restart the game completely (a /reload is not enough).\n\nThe tutorial describes the arena, the guild horn and the corner widget in every language.\n\nNetwork and sync hardening."
+    },
+    {
+      "tag": "2.7.0",
+      "published": "2026-11-23",
+      "notes": "2.7.0\n\n**Overlord Forever 2.7.0**\n\nLayers OL: since game hotfix 1.60.1 the layer of a creature can no longer be read, and Overlord's layer numbers were gone. Overlord now names layers itself. Overlord players who see each other share a code such as #OL137, shown at the top left of the panel and in capture alerts (\"layer #OL137\", with \"(yours)\" when the capture happens on your layer). A code appears after a few seconds in sight of another Overlord player, or when you start a capture. The Layers OL button opens a window that explains how to read it. Overlord no longer offers any way to move to another player's layer.\n\nCapturer spotted: when an enemy who is capturing a point of the front you stand on shows up on your screen (nameplate or target), their faction banner appears next to their health bar and one chat line tells you they are on your layer.\n\nRoleplay PvP: a player whose realm rules were not yet known when Overlord loaded could be counted in the PvP campaign for the whole session, and their group's kills reached the PvP ranking with them. Overlord now reads the rules again after login; if they turn out different, it pauses for the session and asks for a /reload. Rows that already reached the PvP ranking leave it at the weekly reset.\n\nCapture alerts name the capturer by first and last name only.\n\nPlayers still on 2.6.0 show a long number instead of the #OL code in their alerts; captures, the map and the ranking pass between both versions as before.\n\nThe tutorial describes Layers OL and Capturer spotted in every language.\n\nNetwork and sync hardening."
+    },
+    {
+      "tag": "2.6.0",
+      "published": "2026-11-18",
+      "notes": "2.6.0\n\n**Overlord Forever 2.6.0**\n\nNew front: Tanaris, the eighth front of the campaign. Ten points on two roads across the desert, the Alliance capital at Lost Rigger Cove, the Horde capital in Thistleshrub Valley, and an outpost at the Broken Pillar. Gnome against Goblin. The tutorial describes it in every language.\n\nUpdate required: the map now holds one more front, so players on 2.5.5 or older no longer exchange the map, the capture history or the keep and outpost history with players on 2.6.0, and Tanaris is unknown to them. Live captures of the other fronts and the ranking still pass between versions meanwhile.\n\nSmoothness: a round of fixes against the small stutters some players felt, at the end of a fight, while scrolling the ranking, when an action bar changes, while reading the faction channel's member list, and in dungeons and battlegrounds, where more of Overlord now stops completely.\n\nChat: with a translation addon (Ukrainian for instance), the game's \"no player named ... is currently playing\" lines for Overlord's own whispers were no longer hidden and could repeat for minutes after a player logged off. They are hidden again whatever the language, and that player is no longer whispered.\n\nNetwork and sync hardening."
+    },
+    {
+      "tag": "2.5.5",
+      "published": "2026-11-18",
+      "notes": "2.5.5\n\n**Overlord Forever 2.5.5**\n\nRanking, captures: a player's capture count often stayed behind on the other players' screens, and the best capturers were the most affected. Past about a dozen different captured zones the count was no longer passed on, and captures made while nobody around was exchanging with you never left your client (a second computer then showed an older count). The count now travels whatever the number of zones, each player tells its own count to the players it exchanges with, and the captures are compared at the start of a ranking exchange. Update required for your own captures to be told this way.\n\nRanking, killing blows: the column filled very slowly. In a fight, the very moment killing blows are made, most of them were dropped on the way and never sent again. They now wait and leave once the fight calms down, a player's own killing blows are told like its captures, and they are compared between players even on a busy evening. They still come after the kills: expect them some minutes late after a big fight.\n\nRanking, big fights: with more than about a hundred players fighting, the latest totals of some players were dropped while waiting to be passed on. They now wait their turn instead.\n\nRecent activity and the relay: on a busy evening the messages that give the size of the fights could take half of what a client relays for the others and push other messages out of the queue. They now have a share of their own. On such an evening the Recent activity panel can be later for players behind a very busy client; captures, keeps, outposts and the ranking keep their room.\n\n/ov relay shows what was put aside, if anything, and the new counters of the ranking and of the fight messages.\n\nNetwork and sync hardening."
+    },
+    {
+      "tag": "2.5.4",
+      "published": "2026-11-16",
+      "notes": "2.5.4\n\n**Overlord Forever 2.5.4**\n\nBattlegrounds, dungeons and raids: Overlord now takes its chat filters out while you are in an instance and puts them back when you leave. An error raised there by another addon (\"attempted to iterate a table that cannot be accessed while tainted\", thousands of times in a battleground) should no longer name Overlord.\n\nRanking, race icons: while the game refuses the addon channel, a player's race often never reached the other players and the ranking showed no race icon for that player. Every kill total now carries it; the icons come back as players update and fight.\n\nLayers window: it stayed almost empty for most players while the addon channel is refused. It now reads the layers of the players your client exchanges with, keeps a layer for 10 minutes and shows its age (\"#6843 (4 min)\"), lists your own faction only, and drops a player who left the fronts or does not answer a request. The window no longer opens in an instance.\n\nChat channel number: at login Overlord now waits for the game's own channels while a lower channel number is still free, so that its channel stops taking /1 ahead of General. If one of your numbers is free on purpose, the first login waits about 10 seconds and the next ones do not.\n\nNetwork and sync hardening."
+    }
+  ],
+  "stats": {
+    "stars": 3,
+    "openIssues": 1,
+    "contributors": 2,
+    "lastRelease": "2026-11-26",
+    "releaseDates": [
+      "2026-11-26",
+      "2026-11-23",
+      "2026-11-18",
+      "2026-11-18",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-14",
+      "2026-11-12",
+      "2026-11-11",
+      "2026-11-10",
+      "2026-11-09",
+      "2026-11-09",
+      "2026-11-08",
+      "2026-11-08",
+      "2026-11-07",
+      "2026-11-06",
+      "2026-11-05",
+      "2026-11-04",
+      "2026-10-21",
+      "2026-10-18",
+      "2026-10-18",
+      "2026-10-17",
+      "2026-10-15",
+      "2026-10-15",
+      "2026-10-14",
+      "2026-10-13",
+      "2026-10-12",
+      "2026-10-11",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-10",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-08",
+      "2026-10-08",
+      "2026-10-07",
+      "2026-10-07",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-05",
+      "2026-10-05",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-04",
+      "2026-10-03",
+      "2026-10-03",
+      "2026-10-02",
+      "2026-10-02"
+    ]
+  },
+  "languages": [
+    "deDE",
+    "esES",
+    "esMX",
+    "frFR",
+    "ptBR",
+    "ruRU",
+    "zhCN"
+  ],
+  "technical": {
+    "folders": [
+      "Overlord"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "savedVariables": [
+      "OverlordDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "OverlordCharDB"
+    ]
+  }
+}

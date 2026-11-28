@@ -30,7 +30,13 @@
       "Bloodrunner"
     ],
     "editions": [
+      "classic_era",
       "forever"
+    ],
+    "optional": [
+      "HereBeDragons",
+      "RXPGuides",
+      "Questie"
     ],
     "savedVariables": [
       "BloodRouteDB"

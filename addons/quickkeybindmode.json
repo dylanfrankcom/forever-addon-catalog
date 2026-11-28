@@ -54,6 +54,9 @@
       "QuickKeybindMode"
     ],
     "editions": [
+      "anniversary",
+      "classic",
+      "classic_era",
       "forever"
     ]
   }

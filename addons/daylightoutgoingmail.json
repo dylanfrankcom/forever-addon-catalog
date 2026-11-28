@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "daylightoutgoingmail",
+  "repo": "bhuddleston42/MailSteward",
+  "about": "# Mail Steward\n\nReview and mail chosen stacks from Daylight with the shared Steward decision.\n\nFor **World of Warcraft: Forever** (interface 16001).\n\n- Daylight mailbox panel with whole-stack selection and visible recipients.\n- Shared K/V/A/B decisions and configurable auction threshold from Bag Steward.\n- Remembered bank recipient, blank-field defaults, and existing draft protection.\n\n## Requirements\n\nDaylightUI\n\nOptional integrations: BagSteward, ItemTree, Auctionator, TradeSkillMaster, DisenchantValue, Disenchantry.\n\n## Controls\n\n/outmail; /om\n\n## Installation\n\nInstall through CurseForge or extract the ZIP into your Forever Interface/AddOns folder. Keep the packaged folder name `DaylightOutgoingMail` unchanged; this also preserves existing saved settings. Enable the listed dependencies.\n\n## Publishing\n\nPush a stable annotated version tag matching the TOC, such as `v1.1.1`, to publish. GitHub Actions validates the source and packages a GitHub release; the connected CurseForge native packager handles the CurseForge Release file through its push webhook. No CurseForge publishing token belongs in this repository or its Actions secrets.\n\n## Feedback\n\n[Report an issue](https://github.com/bhuddleston42/MailSteward/issues) with the addon version, expected behavior and Lua error if available.\n\n## Testing\n\nRelease packaging and Lua syntax are checked automatically. Included regression tests use simulated game APIs. Real gameplay and combinations of third-party addons can expose additional issues; please report them.\n\n## Credits\n\nIncludes the [Mailworthy](https://github.com/sjdodge123/mailworthy) engine by Jake Dodge under the MIT license; see LICENSE and UPSTREAM.md.",
+  "releases": [
+    {
+      "tag": "v1.1.1",
+      "published": "2026-11-27",
+      "notes": "## 1.1.1\n\n- Restore the default subject after a batch finishes, after Clear, and when attaching items.\n- Preserve custom drafts, reply subjects and active batch protections.\n\n## 1.1.0\n\n- Published the standalone Mail Steward companion for WoW Forever.\n- Daylight mailbox panel with whole-stack selection and visible recipients.\n- Shared K/V/A/B decisions and configurable auction threshold from Bag Steward.\n- Remembered bank recipient, blank-field defaults, and existing draft protection.\n- Added stable GitHub-tag releases and automated package validation."
+    }
+  ],
+  "stats": {
+    "stars": 0,
+    "openIssues": 0,
+    "contributors": 1,
+    "lastRelease": "2026-11-27",
+    "releaseDates": [
+      "2026-11-27"
+    ]
+  },
+  "technical": {
+    "folders": [
+      "DaylightOutgoingMail"
+    ],
+    "editions": [
+      "forever"
+    ],
+    "requires": [
+      "DaylightUI"
+    ],
+    "optional": [
+      "BagSteward",
+      "ItemTree",
+      "Auctionator",
+      "TradeSkillMaster",
+      "DisenchantValue",
+      "Disenchantry"
+    ],
+    "savedVariables": [
+      "DaylightOutgoingMailDB"
+    ],
+    "savedVariablesPerCharacter": [
+      "DaylightOutgoingMailCharDB"
+    ]
+  }
+}
