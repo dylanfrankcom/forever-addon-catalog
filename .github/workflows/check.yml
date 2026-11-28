@@ -3,8 +3,10 @@ name: check
 # Checks the latest release of each add-on discovery found (scripts/check.cs) and keeps the result, checks.json, on the
 # `checker` branch beside candidates.json. Then it generates catalog.json, versions.json and icons/ (scripts/generate.cs),
 # validates them, and commits them to main only when they changed and passed: a failed or broken run changes nothing, so
-# the last good files stay published. It pushes to main with the deploy key in the CATALOG_DEPLOY_KEY secret: main
-# takes changes only by pull request, and that key is the rule's one exception (see the README's "For the maintainer").
+# the last good files stay published. main takes changes only by pull request, except from the catalog's GitHub App
+# (Contents only, no Workflows permission): "Publish them" pushes with a token the app mints just before it, since a
+# check can outlast the token's hour (vars.CATALOG_APP_ID, secrets.CATALOG_APP_KEY; see the README's "For the
+# maintainer"). Everything else, the pushes to `checker` included, uses the run's own token.
 # Every hour, so a release held back for its first 6 hours is checked soon after, or by hand
 # (Actions -> check -> Run workflow). It has its own concurrency group, so a long discovery run never holds it up: the
 # workflows write different files on `checker`, and a refused push is rebased and tried again (.github/push-checker.sh).
@@ -43,8 +45,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # The deploy key, so "Publish them" can push to main past its pull-request rule.
-          ssh-key: ${{ secrets.CATALOG_DEPLOY_KEY }}
           # The whole history, without file contents, so the last step can tell which inputs changed since the last build.
           fetch-depth: 0
           filter: blob:none
@@ -91,19 +91,33 @@ jobs:
           dotnet run scripts/validate.cs
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      - name: A token from the catalog's app
+        id: app
+        if: steps.data.outputs.ready == 'true'
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.CATALOG_APP_ID }}
+          private-key: ${{ secrets.CATALOG_APP_KEY }}
       - name: Publish them
         if: steps.data.outputs.ready == 'true'
+        env:
+          APP_TOKEN: ${{ steps.app.outputs.token }}
+          APP_SLUG: ${{ steps.app.outputs.app-slug }}
+          REPO: ${{ github.repository }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Committed as the app's bot user, whose noreply address needs its user ID.
+          bot_id=$(GH_TOKEN="$APP_TOKEN" gh api "/users/${APP_SLUG}%5Bbot%5D" --jq .id)
+          git config user.name "${APP_SLUG}[bot]"
+          git config user.email "${bot_id}+${APP_SLUG}[bot]@users.noreply.github.com"
           git add catalog.json versions.json icons addons
           if git diff --cached --quiet; then
             echo "The catalog and versions.json are unchanged." >> "$GITHUB_STEP_SUMMARY"
           else
             git commit -q -m "Catalog $(jq -r .version catalog.json), versions $(date -u +%Y-%m-%dT%H:%MZ)"
-            # A push made with the deploy key starts other workflows (the default token's doesn't), but no workflow
-            # runs on a push to main: validate runs on pull requests, the rest on a schedule or by hand.
-            git push origin HEAD:main
+            # With the app's token, not the run's (which the checkout put in an extra header, cleared here). A push made
+            # with it starts other workflows (the run's token's doesn't), but no workflow runs on a push to main:
+            # validate runs on pull requests, the rest on a schedule or by hand.
+            git -c http.https://github.com/.extraheader= push "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git" HEAD:main
           fi
       - name: Record the build
         if: steps.data.outputs.ready == 'true'
