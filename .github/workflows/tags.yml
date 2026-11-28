@@ -1,0 +1,91 @@
+name: tags
+
+# Chooses tags for entries whose author set none (scripts/tags.cs): new entries, and ones whose name, summary or folders
+# changed since their tags were chosen. Claude (Haiku 5.5) picks from the fixed list only, from each entry's name, summary,
+# folders and the start of its README; anything else in the answer is thrown away. The result goes into tags.json through
+# one pull request, from the `tags/infer` branch, for the maintainer to review; the generator uses the file once it's
+# merged. Daily, or by hand (Actions -> tags -> Run workflow).
+#
+# Needs the secret ANTHROPIC_API_KEY; without it, it does nothing. Actions must be allowed to create pull requests. A pull
+# request made with this workflow's token doesn't start other workflows, so this one validates tags.json itself.
+#
+# README text and summaries come from add-on authors: they reach Claude only inside the request file, never a command
+# line, and nothing from the answer but tags from the fixed list is kept.
+
+on:
+  schedule:
+    - cron: "23 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: infer-tags
+  cancel-in-progress: false
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+  DOTNET_NOLOGO: "1"
+
+jobs:
+  tags:
+    name: Choose tags
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Is there a key?
+        id: setup
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "$ANTHROPIC_API_KEY" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No ANTHROPIC_API_KEY: nothing to do." >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.setup.outputs.ready == 'true'
+      - uses: actions/setup-dotnet@v4
+        if: steps.setup.outputs.ready == 'true'
+        with:
+          global-json-file: global.json
+      - name: Choose tags
+        if: steps.setup.outputs.ready == 'true'
+        id: infer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          dotnet run scripts/tags.cs -- --summary "$GITHUB_STEP_SUMMARY" | tee "$RUNNER_TEMP/body.md"
+          dotnet run scripts/validate.cs -- tags.json
+          pr=$(gh pr list --head tags/infer --state open --json number --jq '.[0].number // empty')
+          echo "pr=$pr" >> "$GITHUB_OUTPUT"
+          if git diff --quiet -- tags.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Open or update the pull request
+        if: steps.infer.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          pr: ${{ steps.infer.outputs.pr }}
+        run: |
+          {
+            echo "Tags chosen by Claude for entries whose author set none (new, or changed since their tags were chosen), from the fixed list only. Merging puts them in tags.json; the next catalog build uses them, marked \`from.tags: \"inferred\"\`. Check the diff for tags that don't fit the add-on."
+            echo
+            cat "$RUNNER_TEMP/body.md"
+          } > "$RUNNER_TEMP/pr.md"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c tags/infer
+          git add tags.json
+          git commit -q -m "Tags for entries whose author set none"
+          git push -f origin tags/infer
+          if [ -n "$pr" ]; then
+            gh pr edit "$pr" --body-file "$RUNNER_TEMP/pr.md"
+          else
+            gh pr create --base main --head tags/infer --title "Tags for entries whose author set none" --body-file "$RUNNER_TEMP/pr.md"
+          fi

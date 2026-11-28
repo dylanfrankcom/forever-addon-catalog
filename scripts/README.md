@@ -165,6 +165,15 @@ powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/repor
 - **done** tells the relay what was collected. It runs only after the store is saved: the relay deletes what's marked.
 - **propose**, for each add-on, source and edition the entry lists: the version reported most recently and its most-reported hash, unless `confirmed.json` has them already or confirmed something after the last report. It writes them into `confirmed.json` with the day and the report count, the pull request's text (`--body`) with each version's reports and about how many players sent them ("10 reports from about 3 players": the networks the relay counted, added up; left out when any message wasn't counted), and a flag for anything to check first ("one player only (estimated)" for several reports from one network), and `--facts`: only checked fields, for the summary Claude writes when the workflow has an `ANTHROPIC_API_KEY`. It drops from the store what's confirmed, what's no longer listed, suggestions now listed, and anything not seen for 90 days. Reports for an edition the entry doesn't list are never proposed; it names them in its output (the run's summary), so they don't wait unseen.
 
+## tags.cs
+Chooses tags for entries whose author set none and keeps them in `tags.json`, which the generator uses for those entries only (`from.tags: "inferred"`; see `schema/README.md`, "Tags"). It asks about an entry with no tags from its `.toc`, its topics or an override when `tags.json` has no row for it or the row's `fingerprint` (name, summary and folders) no longer matches. Claude (Haiku 5.5) is asked in batches of 50, at most 10 a run, from each entry's name, summary, folders and the first 500 characters of its README (`addons/<id>.json`, without images or link targets). That text comes from authors, so only tags from the fixed list are kept from the answer, each once, at most 3; an entry the answer leaves out is asked again next run. Rows for entries no longer listed are removed. The **tags** workflow runs it daily and opens or updates one pull request from `tags/infer` with the changes; it needs the `ANTHROPIC_API_KEY` secret and does nothing without it.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/tags.cs -- --dry-run    # which entries it would ask about
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/tags.cs                # needs ANTHROPIC_API_KEY
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/tags.cs -- --self-test
+```
+
 ## generate.cs
 Writes `catalog.json`, `versions.json` and `icons/` from `checks.json`, `candidates.json`, `overrides/`, `optout.json`, `confirmed.json` (the confirmed CurseForge and Wago versions, copied onto their sources) and `tags.json` (tags chosen for entries whose author set none). How each field is chosen is in `schema/README.md`, "Where the catalog comes from" and "An entry". Run it after `check.cs`, then validate:
 
