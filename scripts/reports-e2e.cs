@@ -76,8 +76,10 @@ try
     // 3. Proposed.
     File.Copy(P("confirmed.json"), P("confirmed.before.json"));
     File.Copy(P("overrides/madeup-addon.json"), P("madeup-addon.before.json"));
+    // The real thresholds aren't in the repository; the test brings its own.
+    File.WriteAllText(P("rules.json"), """{"newVersion":{"players":3,"providers":2,"days":1},"tocDetails":{"players":3,"providers":2,"days":1},"newAddon":{"players":5,"providers":3,"days":3},"checksumShare":0.9,"dailyCap":20,"burst":{"reports":20,"players":2}}""");
     string[] propose = ["propose", "--catalog", P("catalog.json"), "--confirmed", P("confirmed.json"), "--store", P("relay.json"),
-        "--overrides", P("overrides"), "--rules", Path.Combine(root, "rules.json"), "--body", P("body.md"), "--facts", P("facts.json")];
+        "--overrides", P("overrides"), "--rules", P("rules.json"), "--body", P("body.md"), "--facts", P("facts.json")];
     var output = Run("reports.cs", propose);
     var confirmed = JsonNode.Parse(File.ReadAllText(P("confirmed.json")));
     var proposed = confirmed?["addons"]?["madeup-addon"]?["curseforge"]?["forever"];
@@ -101,7 +103,7 @@ try
     // 4. Decided: with Claude's recorded answer and automatic merging on, both merge; only they are written, and the
     // guard lets them through.
     Write("answers.json", new JsonObject { ["madeup-addon/toc"] = new JsonObject { ["answer"] = "merge", ["reason"] = "The .toc details fit the add-on." } });
-    Run("reports.cs", ["decide", "--facts", P("facts.json"), "--answers", P("answers.json"), "--rules", Path.Combine(root, "rules.json"),
+    Run("reports.cs", ["decide", "--facts", P("facts.json"), "--answers", P("answers.json"), "--rules", P("rules.json"),
         "--decision", P("decision.json"), "--body", P("decision.md"), "--auto", "on", "--merged-today", "0"]);
     var decision = JsonNode.Parse(File.ReadAllText(P("decision.json")));
     Expect("decide: the version and the reviewed .toc details merge automatically", decision?["merge"]?.AsArray().Select(k => k!.GetValue<string>())

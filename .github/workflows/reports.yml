@@ -2,7 +2,7 @@ name: reports
 
 # Collects players' version reports and add-on suggestions from the relay (scripts/reports.cs), keeps them on the
 # `checker` branch (relay.json), and proposes the reported versions for confirmed.json, and what players' .toc details
-# add to add-ons listed by hand (overrides/). Each proposal is decided against the thresholds in rules.json: what they
+# add to add-ons listed by hand (overrides/). Each proposal is decided against the catalog's rules: what they
 # settle is merged automatically, through a pull request from `reports/auto` that a guard limits to confirmed.json and
 # additions to overrides/; what they leave open is reviewed by Claude (Sonnet, from the checked facts only, answering
 # merge, wait or ask-human); the rest goes into one pull request from `reports/confirm` for the maintainer, who confirms
@@ -11,8 +11,10 @@ name: reports
 #
 # Automatic merging happens only while the AUTO_MERGE repository variable is "on", never while an issue labelled
 # auto-merge-paused is open (an anomaly opens one: a confirmed version reported with another checksum, a version going
-# backwards, a burst), and at most rules.json's dailyCap items a day. Without ANTHROPIC_API_KEY, what needs a review goes
-# to the maintainer. Every 10 minutes, or by hand (Actions -> reports -> Run workflow). A run whose
+# backwards, a burst), and at most the rules' daily cap a day. Without ANTHROPIC_API_KEY, what needs a review goes
+# to the maintainer. The rules (the thresholds) are the CATALOG_RULES secret, not a file or a variable, so that they
+# never show in the repository or in a public log (a variable's value is printed in each step's header); without it,
+# or with an invalid one, nothing is proposed and the run fails. Every 10 minutes, or by hand (Actions -> reports -> Run workflow). A run whose
 # proposal is the open pull request's already changes nothing there, and the relay stores the index only when it changed.
 #
 # It has its own concurrency group: in a shared one, a pending run every 10 minutes would cancel the check workflow's
@@ -103,8 +105,12 @@ jobs:
       - name: Propose versions to confirm
         if: steps.setup.outputs.ready == 'true'
         id: propose
+        env:
+          CATALOG_RULES: ${{ secrets.CATALOG_RULES }}
         run: |
-          dotnet run scripts/reports.cs -- propose --store data/relay.json --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          if [ -z "$CATALOG_RULES" ]; then echo "::error::The CATALOG_RULES secret isn't set: nothing is proposed without the rules."; exit 1; fi
+          printf '%s' "$CATALOG_RULES" > "$RUNNER_TEMP/rules.json"
+          dotnet run scripts/reports.cs -- propose --store data/relay.json --rules "$RUNNER_TEMP/rules.json" --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" | tee -a "$GITHUB_STEP_SUMMARY"
           if git diff --quiet -- confirmed.json overrides; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
@@ -143,7 +149,7 @@ jobs:
           if [ -n "$(gh issue list --label auto-merge-paused --state open --json number --jq '.[0].number // empty')" ]; then paused=(--paused); fi
           merged=$(gh pr list --state merged --search "head:reports/auto merged:>=$(date -u +%Y-%m-%d)" --json body \
             --jq '[.[].body | capture("<!-- auto-items: (?<n>[0-9]+) -->").n | tonumber] | add // 0')
-          dotnet run scripts/reports.cs -- decide --facts "$RUNNER_TEMP/facts.json" --answers "$RUNNER_TEMP/answers.json" \
+          dotnet run scripts/reports.cs -- decide --facts "$RUNNER_TEMP/facts.json" --answers "$RUNNER_TEMP/answers.json" --rules "$RUNNER_TEMP/rules.json" \
             --decision "$RUNNER_TEMP/decision.json" --body "$RUNNER_TEMP/decision.md" --auto "$auto" "${paused[@]}" --merged-today "$merged" | tee -a "$GITHUB_STEP_SUMMARY"
           echo "merge=$(jq '.merge | length' "$RUNNER_TEMP/decision.json")" >> "$GITHUB_OUTPUT"
           echo "human=$(jq '.human | length' "$RUNNER_TEMP/decision.json")" >> "$GITHUB_OUTPUT"
@@ -172,7 +178,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          dotnet run scripts/reports.cs -- propose --store data/relay.json --only "$RUNNER_TEMP/decision.json" --body "$RUNNER_TEMP/auto.md" --facts "$RUNNER_TEMP/auto-facts.json"
+          dotnet run scripts/reports.cs -- propose --store data/relay.json --rules "$RUNNER_TEMP/rules.json" --only "$RUNNER_TEMP/decision.json" --body "$RUNNER_TEMP/auto.md" --facts "$RUNNER_TEMP/auto-facts.json"
           dotnet run scripts/validate.cs -- confirmed.json
           for f in $(git diff --name-only -- overrides); do dotnet run scripts/validate.cs -- "$f"; done
           git switch -c reports/auto
@@ -186,7 +192,7 @@ jobs:
           done < "$RUNNER_TEMP/changed.txt"
           dotnet run scripts/reports.cs -- guard --changed "$RUNNER_TEMP/changed.txt" --base "$RUNNER_TEMP/base" --decision "$RUNNER_TEMP/decision.json" | tee -a "$GITHUB_STEP_SUMMARY"
           {
-            echo "Merged automatically: the thresholds in \`rules.json\` (and, where they left it open, Claude's review) decided these. Revert this pull request to undo them."
+            echo "Merged automatically: the catalog's rules (and, where they left it open, Claude's review) decided these. Revert this pull request to undo them."
             echo
             cat "$RUNNER_TEMP/decision.md"
             echo
@@ -210,7 +216,7 @@ jobs:
         run: |
           skip=()
           if [ -f "$RUNNER_TEMP/decision.json" ]; then skip=(--skip "$RUNNER_TEMP/decision.json"); fi
-          dotnet run scripts/reports.cs -- propose --store data/relay.json "${skip[@]}" --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" > /dev/null
+          dotnet run scripts/reports.cs -- propose --store data/relay.json --rules "$RUNNER_TEMP/rules.json" "${skip[@]}" --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" > /dev/null
           dotnet run scripts/validate.cs -- confirmed.json
           for f in $(git diff --name-only -- overrides); do dotnet run scripts/validate.cs -- "$f"; done
           # changed: something to propose against main. same: the open pull request proposes exactly that already.

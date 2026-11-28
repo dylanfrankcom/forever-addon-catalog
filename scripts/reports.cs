@@ -4,7 +4,7 @@
 // Version reports and suggestions from players, through the relay (a Cloudflare Worker the app sends them to; see
 // CONTRIBUTING.md). Players tell the catalog which version of a CurseForge or Wago add-on they downloaded, with the zip's
 // SHA-256, and can suggest add-ons the catalog doesn't list. Nothing a player sends changes the catalog by itself: this
-// script turns reports into proposals, judges each against the thresholds in rules.json, and the reports workflow merges
+// script turns reports into proposals, judges each against the thresholds (--rules), and the reports workflow merges
 // only what the rules (and, for what they leave open, Claude's review) decide, within a daily cap and only while
 // automatic merging is on and not paused. Everything else waits for more players or for the maintainer.
 //
@@ -33,7 +33,7 @@
 //   no longer listed and anything not seen for 90 days. For add-ons listed by hand (an override, no GitHub release), it
 //   also adds to overrides/<id>.json what players' .toc details add (editions, languages, optional add-ons, a missing
 //   summary), never replacing what's there, and names in the text what an entry can't hold (another author, an
-//   optional add-on the catalog doesn't list). Each item gets a verdict from the rules (rules.json, --rules): "merge"
+//   optional add-on the catalog doesn't list). Each item gets a verdict from the rules (--rules): "merge"
 //   (every threshold met, newer than what's confirmed), "review" (the thresholds met, but something only a reader can
 //   judge: .toc details, a version whose order can't be told), "wait" (not enough players, providers or days yet) or
 //   "human" (a confirmed version reported with another checksum, a version going backwards, a burst), with why. With
@@ -42,7 +42,7 @@
 //   merge, wait or ask-human and a short reason per item it was asked about. Nothing else in the answer is used.
 // - decide: the final outcome of each item from its verdict and the review answers: merged automatically ("auto"), left
 //   waiting, or for the maintainer ("human"). Nothing is merged automatically unless --auto on, and nothing while --paused
-//   (an open auto-merge-paused issue) or past the daily cap (rules.json, counting --merged-today). Writes the decision
+//   (an open auto-merge-paused issue) or past the daily cap (the rules', counting --merged-today). Writes the decision
 //   file and, with --body, its table for the pull requests. An anomaly is listed under "trip": it pauses automatic merging.
 // - guard: refuses an automatic pull request that changes anything but confirmed.json and existing files in overrides/,
 //   changes an item the decision didn't merge, or replaces anything an override already says (--changed: the changed
@@ -70,7 +70,7 @@ string command = args[0], catalogPath = "catalog.json", confirmedPath = "confirm
     collectedPath = "collected.json", bodyPath = "body.md", factsPath = "facts.json";
 string? answerPath = null, onlyPath = null, skipPath = null, changedPath = null, baseDir = null;
 var headDir = ".";
-string rulesPath = "rules.json", answersPath = "answers.json", decisionPath = "decision.json";
+string? rulesPath = null; string answersPath = "answers.json", decisionPath = "decision.json";
 var overridesDir = "overrides";
 var auto = false;
 var paused = false;
@@ -181,7 +181,7 @@ try
         }
         case "decide":
         {
-            var rules = Rules.Read(Read(rulesPath));
+            var rules = Rules.Read(Read(rulesPath ?? throw new ArgumentException("--rules is required: the thresholds aren't in the repository.")));
             var answers = File.Exists(answersPath) ? Read(answersPath) as JsonObject ?? [] : [];
             var decision = Decide.Final(Read(factsPath)!.AsObject(), answers, rules, auto, paused, mergedToday);
             File.WriteAllText(decisionPath, Json.Write(decision));
@@ -215,7 +215,7 @@ try
             var confirmed = Read(confirmedPath)!.AsObject();
             var store = Store.From(File.Exists(storePath) ? Read(storePath) : null);
             var today = DateOnly.FromDateTime(DateTime.UtcNow);
-            var rules = Rules.Read(Read(rulesPath));
+            var rules = Rules.Read(Read(rulesPath ?? throw new ArgumentException("--rules is required: the thresholds aren't in the repository.")));
             var proposals = Proposer.Propose(catalog, confirmed, store, today);
             var overrides = Directory.Exists(overridesDir)
                 ? Directory.GetFiles(overridesDir, "*.json").Where(f => !Path.GetFileName(f).StartsWith('_'))
@@ -841,7 +841,7 @@ static class Proposer
         var b = new StringBuilder();
         b.AppendLine("Players reported these versions of CurseForge and Wago add-ons through the app. Merging this pull request confirms them in `confirmed.json`, and the next catalog build copies them into `catalog.json`. Nothing is confirmed until it's merged.");
         b.AppendLine();
-        b.AppendLine("Before merging, open each add-on's page and check that the version is its current release for that edition. A report is a player's word, not proof. Progress is how far each item has come toward the thresholds in `rules.json` (players and internet providers, both estimated, and days), in steps of 25%; the counts themselves aren't published. The Rules column is what the thresholds decided.");
+        b.AppendLine("Before merging, open each add-on's page and check that the version is its current release for that edition. A report is a player's word, not proof. Progress is how far each item has come toward what it needs, in steps of 25%; the exact rules and counts aren't published. The Rules column is what the rules decided.");
         b.AppendLine();
         if (proposals.Count == 0)
         {
@@ -1051,27 +1051,30 @@ static class TocUpdates
     }
 }
 
-/// <summary>One row of rules.json: how many players and internet providers (both estimated) must agree, over how long.</summary>
+/// <summary>One row of the rules: how many players and internet providers (both estimated) must agree, over how long.</summary>
 sealed record Threshold(long Players, long Providers, double Days);
 
 /// <summary>
-/// The thresholds for deciding proposals by themselves (rules.json): a new version of a listed add-on, new .toc details,
+/// The thresholds for deciding proposals by themselves (--rules; the reports workflow writes them from the CATALOG_RULES
+/// secret, since they aren't published), one line of JSON:
+/// {"newVersion":{"players":…,"providers":…,"days":…},"tocDetails":{…},"newAddon":{…},"checksumShare":…,"dailyCap":…,
+///  "burst":{"reports":…,"players":…}}. The rest of this summary: a new version of a listed add-on, new .toc details,
 /// a brand-new add-on (published in the wanted list; suggestions don't become entries here yet), the share of reports
 /// that must agree on the checksum, the daily cap on automatic merges, and what counts as a burst.
 /// </summary>
 sealed record Rules(Threshold NewVersion, Threshold TocDetails, Threshold NewAddon, double ChecksumShare, int DailyCap,
     long BurstReports, long BurstPlayers)
 {
-    /// <summary>Reads rules.json strictly: a missing or odd value is an error, never a default.</summary>
+    /// <summary>Reads the rules strictly: a missing or odd value is an error, never a default. Errors name the field, never its value.</summary>
     public static Rules Read(JsonNode? node)
     {
-        static Threshold Row(JsonNode? node, string name) => node is not JsonObject row ? throw new InvalidDataException($"rules.json: {name} must be an object.") : new(
+        static Threshold Row(JsonNode? node, string name) => node is not JsonObject row ? throw new InvalidDataException($"rules: {name} must be an object.") : new(
             Whole(row["players"], $"{name}.players", 1, 1000), Whole(row["providers"], $"{name}.providers", 1, 1000),
             Number(row["days"], $"{name}.days", 0, 365));
         static long Whole(JsonNode? n, string name, long min, long max) =>
-            n is JsonValue v && v.TryGetValue<long>(out var x) && x >= min && x <= max ? x : throw new InvalidDataException($"rules.json: {name} must be a whole number from {min} to {max}.");
+            n is JsonValue v && v.TryGetValue<long>(out var x) && x >= min && x <= max ? x : throw new InvalidDataException($"rules: {name} must be a whole number in its range.");
         static double Number(JsonNode? n, string name, double min, double max) =>
-            n is JsonValue v && v.TryGetValue<double>(out var x) && x >= min && x <= max ? x : throw new InvalidDataException($"rules.json: {name} must be a number from {min} to {max}.");
+            n is JsonValue v && v.TryGetValue<double>(out var x) && x >= min && x <= max ? x : throw new InvalidDataException($"rules: {name} must be a number in its range.");
         return new(Row(node?["newVersion"], "newVersion"), Row(node?["tocDetails"], "tocDetails"), Row(node?["newAddon"], "newAddon"),
             Number(node?["checksumShare"], "checksumShare", 0.5, 1), (int)Whole(node?["dailyCap"], "dailyCap", 0, 1000),
             Whole((node?["burst"] as JsonObject)?["reports"], "burst.reports", 2, 100_000), Whole((node?["burst"] as JsonObject)?["players"], "burst.players", 1, 1000));
@@ -1151,25 +1154,21 @@ static class Decide
         Check.Time(JsonValue.Create(last)) is { } l && Check.Time(JsonValue.Create(first)) is { } f ? l - f : TimeSpan.Zero;
 
     /// <summary>
-    /// What's still missing for a threshold, or null when it's met. Unknown counts are never enough. Names only what's
-    /// missing, never the counts: the text is public.
+    /// What's still missing for a threshold, or null when it's met. Unknown counts are never enough. The text is public,
+    /// so it says only "players" or "time": never the counts, and too few providers is too few players.
     /// </summary>
     public static string? Missing(Threshold t, long? players, long? providers, TimeSpan span)
     {
         var missing = new List<string>();
-        if ((players ?? 0) < t.Players)
+        if ((players ?? 0) < t.Players || (providers ?? 0) < t.Providers)
         {
             missing.Add("players");
-        }
-        if ((providers ?? 0) < t.Providers)
-        {
-            missing.Add("internet providers");
         }
         if (span.TotalDays < t.Days)
         {
             missing.Add("time");
         }
-        return missing.Count == 0 ? null : $"needs more {string.Join(", ", missing)}";
+        return missing.Count == 0 ? null : $"needs more {string.Join(" and ", missing)}";
     }
 
     /// <summary>
@@ -1702,7 +1701,8 @@ static class Tests
         Expect("rules: every threshold met and newer merges", Decide.ForVersion(Version(), rules).Result == "merge"
             && Decide.ForVersion(Version(previous: null), rules).Result == "merge");
         Expect("rules: too few players, unknown or too few providers, or under a day waits", Decide.ForVersion(Version(players: 2), rules) is { Result: "wait" } few
-            && few.Why == "needs more players" && Decide.ForVersion(Version(providers: null), rules).Why == "needs more internet providers"
+            && few.Why == "needs more players" && Decide.ForVersion(Version(providers: null), rules).Why == "needs more players"
+            && Decide.ForVersion(Version(players: 2, first: "2026-11-21T12:00:00Z"), rules).Why == "needs more players and time"
             && Decide.ForVersion(Version(providers: 1), rules).Result == "wait" && Decide.ForVersion(Version(first: "2026-11-21T12:00:00Z"), rules).Result == "wait");
         Expect("rules: under 90% of reports on this checksum waits", Decide.ForVersion(Version(share: 0.85), rules).Result == "wait");
         Expect("rules: the same version with another checksum, or an older one, goes to the maintainer as an anomaly",

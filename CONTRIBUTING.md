@@ -44,8 +44,7 @@ keeps them until the catalog collects them. The relay never writes to GitHub.
 - **Internet provider:** Cloudflare tells the relay which provider's network a message came through (its autonomous system
   number, shared by all of that provider's customers). The relay keeps, in the same way and with the same limits, a one-way
   value made from that number, the message and the secret key, so it can count how many different providers sent the same
-  message. The number itself isn't kept, and the catalog gets only the count. It's what tells many players apart from one
-  crowd behind a single VPN service.
+  message. The number itself isn't kept, and the catalog gets only the count.
 
   Request logging and tracing are off.
 - **Limits:** past 20 new versions or checksums for one add-on in a day, or 200 new suggestions in a day, the relay refuses
@@ -60,26 +59,18 @@ A workflow that runs every 10 minutes ([`reports.yml`](.github/workflows/reports
 them, checks every field again and keeps the good ones. For each add-on, source and edition it proposes the version reported most
 recently, with its most-reported hash, in one pull request that changes only [`confirmed.json`](confirmed.json) and, for add-ons listed by hand, their files in
 [`overrides/`](overrides). The pull request
-shows how far each version has come toward the thresholds below (0, 25, 50, 75 or 100%, never the counts), and flags anything to
+shows how far each version has come toward what it needs (0, 25, 50, 75 or 100%, never the counts), and flags anything to
 look at first: hashes that disagree, several versions, a single report, several reports that seem to come from one player, or a
 version confirmed before with another hash. The next catalog build copies what's confirmed into the add-on's source in
 `catalog.json` (`confirmed`).
 
-**How a proposal is decided.** The catalog decides the clear cases by itself, with thresholds anyone can read in
-[`rules.json`](rules.json):
+**How a proposal is decided.** A new version is accepted when several players report the same file over at least a day.
+Details and new add-ons need more agreement over a longer time, and a Claude review. Anything unusual goes to the
+maintainer. The exact rules aren't published, and they can change.
 
-| What's proposed | Matching players | Different internet providers | Over at least | Then |
-|---|---|---|---|---|
-| A new version of a listed add-on | 3 | 2 | 1 day | merged by the rules |
-| New `.toc` details for an entry | 3 | 2 | 1 day | reviewed by Claude |
-| A brand-new add-on | 5 | 3 | 3 days | reviewed by Claude (not built yet) |
-
-In every case at least 90% of the reports for that version must share its checksum, and the version must be newer than
-the one confirmed. Players and providers are estimates, counted from one-way keyed values. Claude (Sonnet) reviews only
-what met the thresholds but needs a reader, from the checked facts alone, and can only answer merge, wait for more players,
-or ask the maintainer; it runs nothing and changes nothing. A confirmed version reported with another checksum, a version
-going backwards, or a burst of reports from few players always goes to the maintainer, and pauses all automatic merging
-until they've looked. Automatic merges are capped per day, can change only `confirmed.json` and add to existing files in
+Claude (Sonnet) reviews from the checked facts alone, and can only answer merge, wait for more players, or ask the
+maintainer; it runs nothing and changes nothing. Anything unusual also pauses all automatic merging until the maintainer
+has looked. Automatic merges are capped per day, can change only `confirmed.json` and add to existing files in
 `overrides/` (a guard refuses anything else), and each is a pull request that can be reverted. Everything else waits in
 the confirmation pull request, where the maintainer confirms it by merging, or for more reports. A weekly issue lists
 what was decided automatically. For an add-on listed by hand, the same pull request
