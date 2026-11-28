@@ -129,8 +129,9 @@ jobs:
             git commit -q -m "Catalog $(jq -r .version catalog.json), versions $(date -u +%Y-%m-%dT%H:%MZ)"
             # With the app's token, not the run's (which the checkout put in an extra header, cleared here). A push made
             # with it starts other workflows (the run's token's doesn't), but no workflow runs on a push to main:
-            # validate runs on pull requests, the rest on a schedule or by hand.
-            git -c http.https://github.com/.extraheader= push "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git" HEAD:main
+            # validate runs on pull requests, the rest on a schedule or by hand. If main moved during the run, it's rebased
+            # onto when the build's inputs didn't change, else left to the next run (.github/publish-main.sh).
+            PUSH_URL="https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git" bash .github/publish-main.sh
           fi
       - name: Record the build
         if: steps.data.outputs.ready == 'true'
