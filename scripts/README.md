@@ -105,7 +105,7 @@ Re-running changes only what changed: the rows are sorted and written the same w
 Both write `candidates.json`, so they share a concurrency group and never overlap. Without `--part`, a run does all of it and reads every repo.
 
 ## check.cs
-Checks the latest release of each add-on discovery found (`candidates.json`) and writes `checks.json`, which the generator lists add-ons from. It never edits `catalog.json`. The **check** workflow runs it every hour (or by hand) and keeps `checks.json` on the `checker` branch, beside `candidates.json`. While the catalog repo is private, the **discover** and **check** workflows are turned off, so they use no Actions minutes: run both scripts locally, and their files stay in your checkout.
+Checks the latest release of each add-on discovery found (`candidates.json`) and writes `checks.json`, which the generator lists add-ons from. It never edits `catalog.json`. The **check** workflow runs it every hour (or by hand) and keeps `checks.json` on the `checker` branch, beside `candidates.json`. After checking, the workflow generates and publishes the catalog, then records on `checker` (`built.json`) the `main` commit it built from. It fails instead of passing quietly when there's no discovery data to build from, and when the catalog is stale: a generator input (`scripts/generate.cs`, `scripts/details.cs`, `overrides/`, `optout.json`, `confirmed.json`, `tags.json`, `schema/`) changed on `main` more than 3 hours after the last build (`.github/catalog-current.sh`, which names the oldest waiting change; `--self-test` tests it).
 
 ```powershell
 $env:GITHUB_TOKEN = (gh auth token)

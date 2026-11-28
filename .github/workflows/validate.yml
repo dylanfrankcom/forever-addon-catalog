@@ -44,6 +44,8 @@ jobs:
         run: dotnet run scripts/reports.cs -- --self-test
       - name: Self-test tags
         run: dotnet run scripts/tags.cs -- --self-test
+      - name: Self-test the catalog freshness check
+        run: bash .github/catalog-current.sh --self-test
       - name: Validate catalog.json
         env:
           BASE_REF: ${{ github.base_ref }}

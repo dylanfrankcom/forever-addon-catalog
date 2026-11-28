@@ -7,6 +7,11 @@ name: check
 # Every hour, so a release held back for its first 6 hours is checked soon after, or by hand
 # (Actions -> check -> Run workflow). It has its own concurrency group, so a long discovery run never holds it up: the
 # workflows write different files on `checker`, and a refused push is rebased and tried again (.github/push-checker.sh).
+#
+# It fails loudly rather than passing without building: when there's no discovery data yet, and when the catalog is
+# stale, meaning a generator input (scripts, overrides/, optout.json, confirmed.json, tags.json, schema/) changed on main
+# more than 3 hours after the last successful build (.github/catalog-current.sh; each build records the main commit it
+# was made from in built.json on `checker`).
 
 on:
   schedule:
@@ -36,6 +41,10 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The whole history, without file contents, so the last step can tell which inputs changed since the last build.
+          fetch-depth: 0
+          filter: blob:none
       - name: Check out the checker branch
         id: data
         run: |
@@ -45,7 +54,8 @@ jobs:
           if [ -f data/candidates.json ]; then
             echo "ready=true" >> "$GITHUB_OUTPUT"
           else
-            echo "No candidates.json yet: the discover workflow writes it first." >> "$GITHUB_STEP_SUMMARY"
+            echo "No candidates.json on the checker branch yet: the discover workflow writes it first. Nothing was built." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 1
           fi
       - uses: actions/setup-dotnet@v4
         if: steps.data.outputs.ready == 'true'
@@ -90,3 +100,19 @@ jobs:
             git commit -q -m "Catalog $(jq -r .version catalog.json), versions $(date -u +%Y-%m-%dT%H:%MZ)"
             git push origin HEAD:main
           fi
+      - name: Record the build
+        if: steps.data.outputs.ready == 'true'
+        working-directory: data
+        env:
+          BUILT: ${{ github.sha }}
+        run: |
+          echo "{ \"commit\": \"$BUILT\" }" > built.json
+          git add built.json
+          # Only when main moved since the last build: an unchanged build adds no commit.
+          if ! git diff --cached --quiet; then
+            git commit -q -m "Built from $BUILT"
+            bash ../.github/push-checker.sh
+          fi
+      - name: Is the catalog current?
+        if: always()
+        run: bash .github/catalog-current.sh data/built.json | tee -a "$GITHUB_STEP_SUMMARY"
