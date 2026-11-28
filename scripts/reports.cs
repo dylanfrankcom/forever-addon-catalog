@@ -79,7 +79,6 @@ string? answerPath = null, onlyPath = null, skipPath = null, changedPath = null,
 var headDir = ".";
 string? rulesPath = null; string answersPath = "answers.json", decisionPath = "decision.json", outPath = "wanted.json";
 string? linksPath = null, requestedPath = null;
-var autoUnlink = true;
 var overridesDir = "overrides";
 var auto = false;
 var paused = false;
@@ -103,7 +102,6 @@ for (var i = 1; i < args.Length; i++)
         case "--out" when value is not null: outPath = value; i++; break;
         case "--links" when value is not null: linksPath = value; i++; break;
         case "--requested" when value is not null: requestedPath = value; i++; break;
-        case "--auto-unlink" when value is "on" or "off": autoUnlink = value == "on"; i++; break;
         case "--only" when value is not null && skipPath is null: onlyPath = value; i++; break;
         case "--skip" when value is not null && onlyPath is null: skipPath = value; i++; break;
         case "--changed" when value is not null: changedPath = value; i++; break;
@@ -210,7 +208,7 @@ try
         {
             var catalog = Read(catalogPath)!.AsObject();
             var store = Store.From(File.Exists(storePath) ? Read(storePath) : null);
-            var items = await Links.RunAsync(catalog, Read(confirmedPath)!.AsObject(), store, ReadOverrides(overridesDir), autoUnlink);
+            var items = await Links.RunAsync(catalog, Read(confirmedPath)!.AsObject(), store, ReadOverrides(overridesDir));
             File.WriteAllText(outPath, Json.Write(Links.ToJson(items)));
             Console.WriteLine($"Links: {items.Count(i => i.Action == "link")} to make, {items.Count(i => i.Action == "unlink")} to withdraw.");
             return 0;
@@ -294,7 +292,7 @@ try
             links = links.Where(l => overrides.TryGetValue(l.Id, out var o) && (l.Action == "link" ? o["repo"] is null : Links.LinkedHere(o))).ToList();
             foreach (var l in links)
             {
-                changed[l.Id] = Links.Apply(changed.GetValueOrDefault(l.Id) ?? overrides[l.Id], l);
+                changed[l.Id] = Links.Apply(changed.GetValueOrDefault(l.Id) ?? overrides[l.Id], l, today);
             }
             foreach (var (id, updated) in changed)
             {
@@ -960,7 +958,7 @@ static class Proposer
             b.AppendLine();
             b.AppendLine("### Links to GitHub");
             b.AppendLine();
-            b.AppendLine("From the GitHub repo an add-on's `.toc` names, checked by the catalog. Linked when there's proof only the author could give: the same file as a confirmed version, or both sides naming each other; the repo's word alone needs you. Merging adds the repo to the add-on's file in `overrides/`: its hand-written editions stay, unused while the repo's release passes the check. Withdrawing a link removes the repo again.");
+            b.AppendLine("From the GitHub repo an add-on's `.toc` names, checked by the catalog. Linked when there's proof only the author could give: the same file as a confirmed version, or both sides naming each other; the repo's word alone needs you. Merging adds the repo to the add-on's file in `overrides/`: its hand-written editions stay, unused while the repo's release passes the check. A link that stops holding (the repo archived or gone, under a new owner, or no longer naming the add-on) is withdrawn automatically: the repo is removed and the withdrawal published on the entry, so add-on managers can warn players who installed it from GitHub.");
             b.AppendLine();
             b.AppendLine("| Add-on | Repo | Change | Why | Rules |");
             b.AppendLine("|---|---|---|---|---|");
@@ -1617,14 +1615,17 @@ static class Review
 /// - anything else (no repo, archived, names nothing or another add-on): dropped quietly.
 /// A link adds "repo" to the override and nothing else: the hand-written editions stay, as the fallback while the
 /// release doesn't pass the check. A link made this way (an override with both "repo" and "editions") is looked at
-/// again each run and withdrawn, by removing "repo", when the repo is gone or archived, moved to another owner, or no
-/// longer names the add-on or has its file; automatically unless --auto-unlink off, then for the maintainer.
+/// again each run and withdrawn automatically when the repo is gone or archived ("archived"), moved to another owner or
+/// name ("new-owner"), or no longer names the add-on or has its file ("not-named"): "repo" is removed and
+/// "githubWithdrawn" records the repo, the reason and the day, so add-on managers can warn players who installed it from
+/// GitHub. A repo under a new owner is a new claim: it needs the same proof again before it's linked.
 /// </summary>
 static partial class Links
 {
     public sealed record Candidate(string Id, string Name, string Repo, bool FromConfirmed, bool Linked);
     public sealed record Probe(bool Exists, bool Archived, string? FullName, string? Sha256, List<string> CurseForge, List<string> Wago);
-    public sealed record Item(string Id, string Name, string Repo, string Action, string Verdict, string Why);
+    public sealed record Item(string Id, string Name, string Repo, string Action, string Verdict, string Why, string? Reason = null);
+    static readonly string[] Reasons = ["archived", "new-owner", "not-named"];
 
     const long MaxZip = 200L * 1024 * 1024;
     const int MaxProbes = 30;
@@ -1669,7 +1670,7 @@ static partial class Links
     }
 
     /// <summary>What to do with one candidate, given what the repo showed (null: it couldn't be read).</summary>
-    public static Item? Judge(Candidate c, Probe? p, JsonObject entry, JsonObject confirmed, bool autoUnlink)
+    public static Item? Judge(Candidate c, Probe? p, JsonObject entry, JsonObject confirmed)
     {
         var sites = Check.SiteSources(entry);
         bool Names(Probe q) => (sites.TryGetValue("curseforge", out var cf) && q.CurseForge.Contains(cf, StringComparer.Ordinal))
@@ -1678,13 +1679,13 @@ static partial class Links
             .Any(s => (s.Value as JsonObject ?? []).Any(e => Json.Str(e.Value?["sha256"]) == h));
         if (c.Linked)
         {
-            var why = p is null ? null
-                : !p.Exists ? "the repo is gone"
-                : p.Archived ? "the repo is archived"
-                : !string.Equals(p.FullName, c.Repo, StringComparison.OrdinalIgnoreCase) ? "the repo moved to another owner or name"
-                : !Names(p) && !SameFile(p) ? "the repo no longer names the add-on or has its file"
-                : null;
-            return why is null ? null : new(c.Id, c.Name, c.Repo, "unlink", autoUnlink ? "merge" : "human", why);
+            var (reason, why) = p is null ? (null, null)
+                : !p.Exists ? ("archived", "the repo is gone")
+                : p.Archived ? ("archived", "the repo is archived")
+                : !string.Equals(p.FullName, c.Repo, StringComparison.OrdinalIgnoreCase) ? ("new-owner", "the repo moved to another owner or name")
+                : !Names(p) && !SameFile(p) ? ("not-named", "the repo no longer names the add-on or has its file")
+                : ((string?)null, (string?)null);
+            return why is null ? null : new(c.Id, c.Name, c.Repo, "unlink", "merge", why, reason);
         }
         if (p is not { Exists: true, Archived: false, FullName: { } repo })
         {
@@ -1770,7 +1771,7 @@ static partial class Links
         return new(true, archived, full, Convert.ToHexStringLower(System.Security.Cryptography.SHA256.HashData(zip)), cf, wago);
     }
 
-    public static async Task<List<Item>> RunAsync(JsonObject catalog, JsonObject confirmed, Store store, IReadOnlyDictionary<string, JsonObject> overrides, bool autoUnlink)
+    public static async Task<List<Item>> RunAsync(JsonObject catalog, JsonObject confirmed, Store store, IReadOnlyDictionary<string, JsonObject> overrides)
     {
         var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
         using var http = new HttpClient { Timeout = TimeSpan.FromMinutes(5) };
@@ -1796,7 +1797,7 @@ static partial class Links
                 Console.WriteLine($"{c.Id}: {c.Repo} couldn't be read ({e.GetType().Name}); left for the next run.");
                 continue;
             }
-            if (Judge(c, probe, entry, confirmed, autoUnlink) is { } item)
+            if (Judge(c, probe, entry, confirmed) is { } item)
             {
                 items.Add(item);
             }
@@ -1809,22 +1810,32 @@ static partial class Links
         ["items"] = new JsonArray(items.Select(i => (JsonNode)new JsonObject
         {
             ["key"] = Key(i.Id), ["id"] = i.Id, ["name"] = i.Name, ["repo"] = i.Repo, ["action"] = i.Action, ["verdict"] = i.Verdict, ["why"] = i.Why,
+            ["reason"] = i.Reason,
         }).ToArray()),
     };
 
     /// <summary>Reads links.json strictly: an item with an unknown action or verdict, or a bad repo, is left out.</summary>
     public static List<Item> Read(JsonNode? node) => (node?["items"]?.AsArray() ?? []).OfType<JsonObject>()
-        .Select(i => (Id: Json.Str(i["id"]), Name: Json.Str(i["name"]), Repo: Json.Str(i["repo"]), Action: Json.Str(i["action"]), Verdict: Json.Str(i["verdict"]), Why: Json.Str(i["why"])))
-        .Where(i => i.Id is not null && i.Repo is not null && Check.GithubRepo().IsMatch(i.Repo.ToLowerInvariant()) && i.Action is "link" or "unlink" && i.Verdict is "merge" or "human")
-        .Select(i => new Item(i.Id!, i.Name ?? i.Id!, i.Repo!, i.Action!, i.Verdict!, i.Why ?? "")).ToList();
+        .Select(i => (Id: Json.Str(i["id"]), Name: Json.Str(i["name"]), Repo: Json.Str(i["repo"]), Action: Json.Str(i["action"]), Verdict: Json.Str(i["verdict"]),
+            Why: Json.Str(i["why"]), Reason: Json.Str(i["reason"])))
+        .Where(i => i.Id is not null && i.Repo is not null && Check.GithubRepo().IsMatch(i.Repo.ToLowerInvariant()) && i.Verdict is "merge" or "human"
+            && (i.Action == "link" || (i.Action == "unlink" && Reasons.Contains(i.Reason))))
+        .Select(i => new Item(i.Id!, i.Name ?? i.Id!, i.Repo!, i.Action!, i.Verdict!, i.Why ?? "", i.Reason)).ToList();
 
-    /// <summary>The override with the link made (repo first) or withdrawn (repo removed); nothing else changes.</summary>
-    public static JsonObject Apply(JsonObject o, Item item)
+    /// <summary>
+    /// The override with the link made (repo first, a past withdrawal cleared) or withdrawn (repo removed, and
+    /// githubWithdrawn naming it, why and when); nothing else changes.
+    /// </summary>
+    public static JsonObject Apply(JsonObject o, Item item, DateOnly today)
     {
         if (item.Action == "unlink")
         {
             var without = o.DeepClone().AsObject();
             without.Remove("repo");
+            without["githubWithdrawn"] = new JsonObject
+            {
+                ["repo"] = item.Repo, ["reason"] = item.Reason, ["date"] = today.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+            };
             return without;
         }
         var linked = new JsonObject();
@@ -1838,7 +1849,7 @@ static partial class Links
         linked["repo"] = item.Repo;
         foreach (var (k, v) in o)
         {
-            if (k is not ("$schema" or "$comment" or "repo"))
+            if (k is not ("$schema" or "$comment" or "repo" or "githubWithdrawn"))
             {
                 linked[k] = v?.DeepClone();
             }
@@ -1917,12 +1928,17 @@ static class Guard
                     {
                         problems.Add($"{path}: a link adds only the decided repo, and only to an add-on listed by hand");
                     }
-                    else if (oldRepo is not null && (newRepo is not null || old["editions"] is null || Json.Str(link?["action"]) != "unlink"))
+                    else if (oldRepo is not null && (newRepo is not null || old["editions"] is null || Json.Str(link?["action"]) != "unlink"
+                        || Json.Str(now?["githubWithdrawn"]?["repo"]) != oldRepo))
                     {
-                        problems.Add($"{path}: only a link the reports made can be withdrawn, and only by removing it");
+                        problems.Add($"{path}: only a link the reports made can be withdrawn, by removing it and recording that");
                     }
                 }
-                var (oldRest, nowRest) = (Without(old, "repo"), now is null ? null : Without(now, "repo"));
+                else if (!JsonNode.DeepEquals(old["githubWithdrawn"], now?["githubWithdrawn"]))
+                {
+                    problems.Add($"{path} changes a withdrawal record without a link or withdrawal");
+                }
+                var (oldRest, nowRest) = (Without(old, "repo", "githubWithdrawn"), now is null ? null : Without(now, "repo", "githubWithdrawn"));
                 if (!JsonNode.DeepEquals(oldRest, nowRest))
                 {
                     if (!merge.Contains(Decide.TocKey(id)))
@@ -1943,10 +1959,13 @@ static class Guard
         return problems;
     }
 
-    static JsonObject Without(JsonObject o, string key)
+    static JsonObject Without(JsonObject o, params string[] keys)
     {
         var copy = o.DeepClone().AsObject();
-        copy.Remove(key);
+        foreach (var key in keys)
+        {
+            copy.Remove(key);
+        }
         return copy;
     }
 
@@ -2236,22 +2255,22 @@ static class Tests
         Links.Probe Repo(string? sha = null, string[]? cf = null, string[]? wago = null, bool exists = true, bool archived = false, string full = "Author/Auctionator") =>
             new(exists, archived, full, sha, [.. cf ?? []], [.. wago ?? []]);
         Links.Candidate Cand(bool fromConfirmed = false, bool linked = false) => new("auctionator", "Auctionator", "author/auctionator", fromConfirmed, linked);
-        Expect("links: the same file as a confirmed version links, under the repo's own name", Links.Judge(Cand(), Repo(sha: A), linkEntry, linkConfirmed, true)
+        Expect("links: the same file as a confirmed version links, under the repo's own name", Links.Judge(Cand(), Repo(sha: A), linkEntry, linkConfirmed)
             is { Action: "link", Verdict: "merge", Repo: "Author/Auctionator" } same && same.Why.StartsWith("same file", StringComparison.Ordinal));
-        Expect("links: both sides naming each other links", Links.Judge(Cand(fromConfirmed: true), Repo(cf: ["12"]), linkEntry, linkConfirmed, true) is { Verdict: "merge" } both
-            && both.Why.StartsWith("both sides", StringComparison.Ordinal) && Links.Judge(Cand(fromConfirmed: true), Repo(wago: ["Auctionator"]), linkEntry, linkConfirmed, true)?.Verdict == "merge");
-        Expect("links: only the repo's word goes to the maintainer", Links.Judge(Cand(), Repo(cf: ["12"]), linkEntry, linkConfirmed, true) is { Action: "link", Verdict: "human" });
+        Expect("links: both sides naming each other links", Links.Judge(Cand(fromConfirmed: true), Repo(cf: ["12"]), linkEntry, linkConfirmed) is { Verdict: "merge" } both
+            && both.Why.StartsWith("both sides", StringComparison.Ordinal) && Links.Judge(Cand(fromConfirmed: true), Repo(wago: ["Auctionator"]), linkEntry, linkConfirmed)?.Verdict == "merge");
+        Expect("links: only the repo's word goes to the maintainer", Links.Judge(Cand(), Repo(cf: ["12"]), linkEntry, linkConfirmed) is { Action: "link", Verdict: "human" });
         Expect("links: another add-on, nothing named, another file, a missing or archived repo are dropped",
-            Links.Judge(Cand(true), Repo(cf: ["99"]), linkEntry, linkConfirmed, true) is null && Links.Judge(Cand(true), Repo(), linkEntry, linkConfirmed, true) is null
-            && Links.Judge(Cand(true), Repo(sha: B), linkEntry, linkConfirmed, true) is null && Links.Judge(Cand(true), Repo(exists: false), linkEntry, linkConfirmed, true) is null
-            && Links.Judge(Cand(true), Repo(cf: ["12"], archived: true), linkEntry, linkConfirmed, true) is null && Links.Judge(Cand(true), null, linkEntry, linkConfirmed, true) is null);
-        Expect("links: a link that holds stays; one that stops is withdrawn, automatically or for the maintainer, never on a failed read",
-            Links.Judge(Cand(linked: true), Repo(cf: ["12"], full: "author/auctionator"), linkEntry, linkConfirmed, true) is null
-            && Links.Judge(Cand(linked: true), Repo(full: "author/auctionator"), linkEntry, linkConfirmed, true) is { Action: "unlink", Verdict: "merge" }
-            && Links.Judge(Cand(linked: true), Repo(cf: ["12"], archived: true, full: "author/auctionator"), linkEntry, linkConfirmed, false) is { Action: "unlink", Verdict: "human" }
-            && Links.Judge(Cand(linked: true), Repo(cf: ["12"], full: "someone/auctionator"), linkEntry, linkConfirmed, true)?.Action == "unlink"
-            && Links.Judge(Cand(linked: true), Repo(exists: false), linkEntry, linkConfirmed, true)?.Action == "unlink"
-            && Links.Judge(Cand(linked: true), null, linkEntry, linkConfirmed, true) is null);
+            Links.Judge(Cand(true), Repo(cf: ["99"]), linkEntry, linkConfirmed) is null && Links.Judge(Cand(true), Repo(), linkEntry, linkConfirmed) is null
+            && Links.Judge(Cand(true), Repo(sha: B), linkEntry, linkConfirmed) is null && Links.Judge(Cand(true), Repo(exists: false), linkEntry, linkConfirmed) is null
+            && Links.Judge(Cand(true), Repo(cf: ["12"], archived: true), linkEntry, linkConfirmed) is null && Links.Judge(Cand(true), null, linkEntry, linkConfirmed) is null);
+        Expect("links: a link that holds stays; one that stops is withdrawn automatically, with its reason, never on a failed read",
+            Links.Judge(Cand(linked: true), Repo(cf: ["12"], full: "author/auctionator"), linkEntry, linkConfirmed) is null
+            && Links.Judge(Cand(linked: true), Repo(full: "author/auctionator"), linkEntry, linkConfirmed) is { Action: "unlink", Verdict: "merge", Reason: "not-named" }
+            && Links.Judge(Cand(linked: true), Repo(cf: ["12"], archived: true, full: "author/auctionator"), linkEntry, linkConfirmed) is { Action: "unlink", Verdict: "merge", Reason: "archived" }
+            && Links.Judge(Cand(linked: true), Repo(cf: ["12"], full: "someone/auctionator"), linkEntry, linkConfirmed)?.Reason == "new-owner"
+            && Links.Judge(Cand(linked: true), Repo(exists: false), linkEntry, linkConfirmed)?.Reason == "archived"
+            && Links.Judge(Cand(linked: true), null, linkEntry, linkConfirmed) is null);
         byte[] zipBytes;
         using (var zipStream = new MemoryStream())
         {
@@ -2274,18 +2293,25 @@ static class Tests
         var candidates = Links.Candidates(catalog, linkConfirmed, linkStore, new Dictionary<string, JsonObject>(StringComparer.Ordinal) { ["auctionator"] = handOverride });
         Expect("links: a hand-listed entry's reported repo, from a confirmed version; a repo another entry has is left out",
             candidates is [{ Repo: "author/auctionator", FromConfirmed: true, Linked: false }]);
-        var linkedOverride = Links.Apply(handOverride, new("auctionator", "Auctionator", "Author/Auctionator", "link", "merge", "x"));
-        var withdrawn = Links.Apply(linkedOverride, new("auctionator", "Auctionator", "Author/Auctionator", "unlink", "merge", "x"));
-        Expect("links: a link adds the repo first and nothing else; withdrawing removes just that", linkedOverride.First().Key == "repo" && Links.LinkedHere(linkedOverride)
-            && withdrawn.ToJsonString() == handOverride.ToJsonString()
+        var linkedOverride = Links.Apply(handOverride, new("auctionator", "Auctionator", "Author/Auctionator", "link", "merge", "x"), today);
+        var withdrawn = Links.Apply(linkedOverride, new("auctionator", "Auctionator", "Author/Auctionator", "unlink", "merge", "x", "new-owner"), today);
+        var relinked = Links.Apply(withdrawn, new("auctionator", "Auctionator", "New/Auctionator", "link", "merge", "x"), today);
+        Expect("links: a link adds the repo first and nothing else; withdrawing removes it and records the repo, the reason and the day; relinking clears that",
+            linkedOverride.First().Key == "repo" && Links.LinkedHere(linkedOverride) && withdrawn["repo"] is null && !Links.LinkedHere(withdrawn)
+            && withdrawn["githubWithdrawn"]?["repo"]?.GetValue<string>() == "Author/Auctionator" && withdrawn["githubWithdrawn"]?["reason"]?.GetValue<string>() == "new-owner"
+            && withdrawn["githubWithdrawn"]?["date"]?.GetValue<string>() == today.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
+            && relinked["githubWithdrawn"] is null && relinked["repo"]?.GetValue<string>() == "New/Auctionator"
             && Links.Candidates(catalog, linkConfirmed, linkStore, new Dictionary<string, JsonObject>(StringComparer.Ordinal) { ["auctionator"] = linkedOverride }) is [{ Linked: true }]);
         var linkDecision = Obj("{\"merge\":[\"auctionator/github\"],\"items\":{\"auctionator/github\":{\"repo\":\"Author/Auctionator\",\"action\":\"link\"}}}");
         var unlinkDecision = Obj("{\"merge\":[\"auctionator/github\"],\"items\":{\"auctionator/github\":{\"repo\":\"Author/Auctionator\",\"action\":\"unlink\"}}}");
         List<string> GuardLink(JsonObject before, JsonObject after, JsonObject decision) => Guard.Check(["overrides/auctionator.json"], _ => before, _ => after, decision);
-        Expect("guard: a decided link passes, and so does its withdrawal", GuardLink(handOverride, linkedOverride, linkDecision).Count == 0
-            && GuardLink(linkedOverride, handOverride, unlinkDecision).Count == 0);
+        Expect("guard: a decided link passes, and so does its withdrawal with its record", GuardLink(handOverride, linkedOverride, linkDecision).Count == 0
+            && GuardLink(linkedOverride, withdrawn, unlinkDecision).Count == 0);
+        Expect("guard: a withdrawal without its record, or a record changed alone, is refused", GuardLink(linkedOverride, handOverride, unlinkDecision).Count > 0
+            && GuardLink(handOverride, handOverride.DeepClone().AsObject().With("githubWithdrawn", Obj("{\"repo\":\"x/y\",\"reason\":\"archived\",\"date\":\"2026-11-28\"}")), linkDecision).Count > 0
+            && GuardLink(withdrawn, handOverride, linkDecision).Count > 0);
         Expect("guard: another repo, a link not decided, a link that changes more, or a .toc merge adding a repo is refused",
-            GuardLink(handOverride, Links.Apply(handOverride, new("auctionator", "Auctionator", "Someone/Else", "link", "merge", "x")), linkDecision).Count > 0
+            GuardLink(handOverride, Links.Apply(handOverride, new("auctionator", "Auctionator", "Someone/Else", "link", "merge", "x"), today), linkDecision).Count > 0
             && GuardLink(handOverride, linkedOverride, Obj("{\"merge\":[\"auctionator/toc\"],\"items\":{}}")).Count > 0
             && GuardLink(handOverride, linkedOverride.DeepClone().AsObject().With("name", "Other"), linkDecision).Count > 0
             && GuardLink(handOverride, linkedOverride, unlinkDecision).Count > 0);
@@ -2295,7 +2321,7 @@ static class Tests
             new JsonObject(), rules, auto: true, paused: false, mergedToday: 0);
         Expect("decide: a proven link merges automatically, with its repo", linkFinal["merge"]?[0]?.GetValue<string>() == "auctionator/github"
             && linkFinal["items"]?["auctionator/github"]?["repo"]?.GetValue<string>() == "Author/Auctionator");
-        Expect("links file: an unknown action or a bad repo is left out", Links.Read(Obj("{\"items\":[{\"id\":\"a\",\"repo\":\"o/a\",\"action\":\"delete\",\"verdict\":\"merge\"},{\"id\":\"b\",\"repo\":\"../x\",\"action\":\"link\",\"verdict\":\"merge\"},{\"id\":\"c\",\"repo\":\"O/c\",\"action\":\"link\",\"verdict\":\"human\"}]}")) is [{ Id: "c" }]);
+        Expect("links file: an unknown action or reason, or a bad repo, is left out", Links.Read(Obj("{\"items\":[{\"id\":\"a\",\"repo\":\"o/a\",\"action\":\"delete\",\"verdict\":\"merge\"},{\"id\":\"d\",\"repo\":\"o/d\",\"action\":\"unlink\",\"verdict\":\"merge\",\"reason\":\"bored\"},{\"id\":\"b\",\"repo\":\"../x\",\"action\":\"link\",\"verdict\":\"merge\"},{\"id\":\"c\",\"repo\":\"O/c\",\"action\":\"link\",\"verdict\":\"human\"}]}")) is [{ Id: "c" }]);
         var requestStore = Store.From(null);
         requestStore.Suggestions["g1"] = Check.Suggestion(Obj(SuggestionJson).With("source", "github").With("project", "someone/newaddon"), catalog).Row!;
         requestStore.Suggestions["g2"] = Check.Suggestion(Obj(SuggestionJson).With("source", "github").With("project", "o/g"), catalog).Row!;

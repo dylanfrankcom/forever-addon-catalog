@@ -13,8 +13,8 @@ name: reports
 # auto-merge-paused is open (an anomaly opens one: a confirmed version reported with another checksum, a version going
 # backwards, a burst), and at most the rules' daily cap a day. Without ANTHROPIC_API_KEY, what needs a review goes
 # to the maintainer. It also links a hand-listed add-on to the GitHub repo its players' .toc names when there's proof only
-# the author could give (scripts/reports.cs links), and withdraws such a link when it stops holding (automatically
-# unless the AUTO_UNLINK variable is "off"). The rules (the thresholds) are the CATALOG_RULES secret, not a file or a variable, so that they
+# the author could give (scripts/reports.cs links), and withdraws such a link automatically when it stops holding,
+# publishing the withdrawal on the entry. The rules (the thresholds) are the CATALOG_RULES secret, not a file or a variable, so that they
 # never show in the repository or in a public log (a variable's value is printed in each step's header); without it,
 # or with an invalid one, nothing is proposed and the run fails. Every 10 minutes, or by hand (Actions -> reports -> Run workflow). A run whose
 # proposal is the open pull request's already changes nothing there, and the relay stores the index only when it changed.
@@ -112,11 +112,8 @@ jobs:
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          AUTO_UNLINK: ${{ vars.AUTO_UNLINK }}
         run: |
-          unlink=on
-          if [ "$AUTO_UNLINK" = "off" ]; then unlink=off; fi
-          dotnet run scripts/reports.cs -- links --store data/relay.json --auto-unlink "$unlink" --out "$RUNNER_TEMP/links.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          dotnet run scripts/reports.cs -- links --store data/relay.json --out "$RUNNER_TEMP/links.json" | tee -a "$GITHUB_STEP_SUMMARY"
       # A GitHub add-on players suggested that the catalog doesn't list: discover reads that repo now, by its usual rules,
       # instead of waiting to find it. Each repo is asked about at most once a week (requested.json on checker).
       - name: Ask discover about suggested GitHub repos

@@ -96,6 +96,9 @@
     "notes": {
       "$ref": "catalog.schema.json#/$defs/addon/properties/notes"
     },
+    "githubWithdrawn": {
+      "$ref": "catalog.schema.json#/$defs/addon/properties/githubWithdrawn"
+    },
     "linkOnly": {
       "$ref": "catalog.schema.json#/$defs/addon/properties/linkOnly"
     },

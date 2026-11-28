@@ -657,7 +657,7 @@ static class Generator
 {
     static readonly string[] OverrideOnly = ["repo", "tagPrefix", "partOf", "$schema", "$comment"];
     static readonly string[] FieldOrder = ["id", "name", "otherNames", "summary", "summaries", "languages", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
-        "editions", "requires", "requiresFolders", "optional", "conflicts", "notes", "ownApp", "linkOnly", "withdrawn", "overrides", "from"];
+        "editions", "requires", "requiresFolders", "optional", "conflicts", "notes", "ownApp", "linkOnly", "withdrawn", "githubWithdrawn", "overrides", "from"];
 
     public static List<string> Strings(JsonNode? node) => node?.AsArray().Select(s => s!.GetValue<string>()).ToList() ?? [];
 

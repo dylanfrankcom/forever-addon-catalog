@@ -1,0 +1,24 @@
+{
+  "name": "Thing",
+  "summary": "Listed by hand; its GitHub link was withdrawn.",
+  "author": "someone",
+  "sources": [
+    {
+      "type": "curseforge",
+      "projectId": 4242
+    }
+  ],
+  "folders": [
+    "Thing"
+  ],
+  "githubWithdrawn": {
+    "repo": "Someone/Thing",
+    "reason": "bored",
+    "date": "2026-11-28"
+  },
+  "editions": {
+    "forever": {
+      "interface": "16001"
+    }
+  }
+}
