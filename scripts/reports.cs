@@ -251,6 +251,19 @@ static partial class Check
     public static long? Number(JsonNode? node, long max) =>
         node is JsonValue v && v.TryGetValue<long>(out var n) && n >= 1 && n <= max ? n : null;
 
+    /// <summary>
+    /// How many different networks sent a message, as the relay counted them (at most 50 per message): Ok with null when
+    /// the relay had no key to count with (or didn't say), false for anything else.
+    /// </summary>
+    public static (bool Ok, long? Networks) Networks(JsonNode? node)
+    {
+        if (node is null)
+        {
+            return (true, null);
+        }
+        return node is JsonValue v && v.TryGetValue<long>(out var n) && n is >= 0 and <= 50 ? (true, n) : (false, null);
+    }
+
     /// <summary>A report as the store keeps it, or why it's refused.</summary>
     public static (JsonObject? Row, string? Why) Report(JsonNode? node, JsonObject catalog)
     {
@@ -264,6 +277,7 @@ static partial class Check
         var version = Json.Str(r["version"]);
         var sha = Json.Str(r["sha256"])?.ToLowerInvariant();
         var (count, first, last) = (Number(r["count"], 1_000_000), Time(r["firstSeen"]), Time(r["lastSeen"]));
+        var networks = Networks(r["networks"]);
         if (addon is null || !Id().IsMatch(addon) || source is not ("curseforge" or "wago"))
         {
             return (null, "bad add-on or source");
@@ -281,14 +295,14 @@ static partial class Check
         {
             return (null, $"{addon}: bad version or hash");
         }
-        if (count is null || first is null || last is null || last < first)
+        if (count is null || first is null || last is null || last < first || !networks.Ok)
         {
-            return (null, $"{addon}: bad count or dates");
+            return (null, $"{addon}: bad count, networks or dates");
         }
         return (new JsonObject
         {
             ["addon"] = addon, ["source"] = source, ["edition"] = edition, ["version"] = version, ["sha256"] = sha,
-            ["count"] = count, ["firstSeen"] = Stamp(first.Value), ["lastSeen"] = Stamp(last.Value),
+            ["count"] = count, ["networks"] = networks.Networks, ["firstSeen"] = Stamp(first.Value), ["lastSeen"] = Stamp(last.Value),
         }, null);
     }
 
@@ -305,6 +319,7 @@ static partial class Check
         var name = Text(s["name"], 100);
         var folders = (s["folders"] as JsonArray ?? []).Select(f => Json.Str(f)).ToList();
         var (count, first, last) = (Number(s["count"], 1_000_000), Time(s["firstSeen"]), Time(s["lastSeen"]));
+        var networks = Networks(s["networks"]);
         var projectOk = source switch
         {
             "curseforge" => project is not null && CurseForgeProject().IsMatch(project),
@@ -324,9 +339,9 @@ static partial class Check
         {
             return (null, $"{source} {project}: bad folders");
         }
-        if (count is null || first is null || last is null || last < first)
+        if (count is null || first is null || last is null || last < first || !networks.Ok)
         {
-            return (null, $"{source} {project}: bad count or dates");
+            return (null, $"{source} {project}: bad count, networks or dates");
         }
         var toc = new JsonObject();
         if (s["toc"] is JsonObject t)
@@ -353,7 +368,7 @@ static partial class Check
         {
             ["source"] = source, ["project"] = project, ["edition"] = edition, ["name"] = name,
             ["folders"] = new JsonArray(folders.Select(f => (JsonNode)JsonValue.Create(f)!).ToArray()), ["toc"] = toc,
-            ["count"] = count, ["firstSeen"] = Stamp(first.Value), ["lastSeen"] = Stamp(last.Value),
+            ["count"] = count, ["networks"] = networks.Networks, ["firstSeen"] = Stamp(first.Value), ["lastSeen"] = Stamp(last.Value),
         }, null);
     }
 
@@ -478,7 +493,29 @@ sealed class Store
 static class Proposer
 {
     public sealed record Proposal(string Id, string Name, string Source, string Project, string Edition, string Version, string Sha256,
-        long Reports, string FirstSeen, string LastSeen, JsonObject? Previous, List<string> Flags);
+        long Reports, long? Networks, string FirstSeen, string LastSeen, JsonObject? Previous, List<string> Flags);
+
+    /// <summary>
+    /// The networks the rows came from, added up like their counts: rough, since one network sending several messages
+    /// counts once for each. Null when any row wasn't counted (the relay had no key then).
+    /// </summary>
+    public static long? Networks(IEnumerable<JsonObject> rows)
+    {
+        long total = 0;
+        foreach (var r in rows)
+        {
+            if (r["networks"] is not JsonValue v || !v.TryGetValue<long>(out var n))
+            {
+                return null;
+            }
+            total += n;
+        }
+        return total;
+    }
+
+    /// <summary>"10 from 3 networks", or just the count when the networks weren't counted.</summary>
+    public static string ReportsText(long reports, long? networks) =>
+        networks is null ? $"{reports}" : $"{reports} from {networks} network{(networks == 1 ? "" : "s")}";
 
     /// <summary>
     /// Reports kept for a listed add-on and source but an edition its entry doesn't list, which are never proposed: one
@@ -540,12 +577,17 @@ static class Proposer
             {
                 flags.Add("this version was confirmed before with another hash");
             }
+            var networks = Networks(rows);
             if (hash.Count == 1)
             {
                 flags.Add("one report only");
             }
+            else if (networks == 1)
+            {
+                flags.Add("one network only");
+            }
             proposals.Add(new(group.Key.Addon, Json.Str(entry["name"]) ?? group.Key.Addon, group.Key.Source, project, group.Key.Edition, pick.Version,
-                hash.Sha, hash.Count, rows.Select(r => Json.Str(r["firstSeen"])!).Min(StringComparer.Ordinal)!, hash.Last, previous, flags));
+                hash.Sha, hash.Count, networks, rows.Select(r => Json.Str(r["firstSeen"])!).Min(StringComparer.Ordinal)!, hash.Last, previous, flags));
         }
         return proposals;
     }
@@ -581,7 +623,7 @@ static class Proposer
         ["proposals"] = new JsonArray(proposals.Select(p => (JsonNode)new JsonObject
         {
             ["id"] = p.Id, ["name"] = p.Name, ["source"] = p.Source, ["page"] = Page(p.Source, p.Project), ["edition"] = p.Edition,
-            ["version"] = p.Version, ["sha256"] = p.Sha256, ["reports"] = p.Reports, ["firstSeen"] = p.FirstSeen, ["lastSeen"] = p.LastSeen,
+            ["version"] = p.Version, ["sha256"] = p.Sha256, ["reports"] = p.Reports, ["networks"] = p.Networks, ["firstSeen"] = p.FirstSeen, ["lastSeen"] = p.LastSeen,
             ["previous"] = p.Previous is null ? null : new JsonObject { ["version"] = p.Previous["version"]?.DeepClone(), ["date"] = p.Previous["date"]?.DeepClone() },
             ["flags"] = new JsonArray(p.Flags.Select(f => (JsonNode)JsonValue.Create(f)!).ToArray()),
         }).ToArray()),
@@ -593,7 +635,7 @@ static class Proposer
         var b = new StringBuilder();
         b.AppendLine("Players reported these versions of CurseForge and Wago add-ons through the app. Merging this pull request confirms them in `confirmed.json`, and the next catalog build copies them into `catalog.json`. Nothing is confirmed until it's merged.");
         b.AppendLine();
-        b.AppendLine("Before merging, open each add-on's page and check that the version is its current release for that edition. A report is a player's word, not proof: the count is messages, not people.");
+        b.AppendLine("Before merging, open each add-on's page and check that the version is its current release for that edition. A report is a player's word, not proof: the count is messages, not people, and the networks they came from are a rough count of people (a VPN counts as another network, a shared connection once).");
         b.AppendLine();
         if (proposals.Count == 0)
         {
@@ -606,7 +648,7 @@ static class Proposer
             foreach (var p in proposals)
             {
                 var before = p.Previous is null ? "new" : $"{Cell(Json.Str(p.Previous["version"]) ?? "")} ({Json.Str(p.Previous["date"])})";
-                b.AppendLine($"| {Cell(p.Name)} (`{p.Id}`) | [{p.Source}]({Page(p.Source, p.Project)}) | {p.Edition} | `{p.Version}` | `{p.Sha256[..12]}…` | {p.Reports} | {p.LastSeen[..10]} | {before} | {Cell(string.Join("; ", p.Flags))} |");
+                b.AppendLine($"| {Cell(p.Name)} (`{p.Id}`) | [{p.Source}]({Page(p.Source, p.Project)}) | {p.Edition} | `{p.Version}` | `{p.Sha256[..12]}…` | {ReportsText(p.Reports, p.Networks)} | {p.LastSeen[..10]} | {before} | {Cell(string.Join("; ", p.Flags))} |");
             }
         }
         if (store.Suggestions.Count > 0)
@@ -620,7 +662,7 @@ static class Proposer
             {
                 var (source, project) = (Json.Str(s["source"])!, Json.Str(s["project"])!);
                 var folders = string.Join(", ", (s["folders"]?.AsArray() ?? []).Select(f => Json.Str(f)));
-                b.AppendLine($"| {source} | [{project}]({Page(source, project)}) | {Json.Str(s["edition"])} | {Cell(Json.Str(s["name"])!)} | {Cell(folders)} | {s["count"]} | {Json.Str(s["lastSeen"])![..10]} |");
+                b.AppendLine($"| {source} | [{project}]({Page(source, project)}) | {Json.Str(s["edition"])} | {Cell(Json.Str(s["name"])!)} | {Cell(folders)} | {ReportsText((long)s["count"]!, Networks([s]))} | {Json.Str(s["lastSeen"])![..10]} |");
             }
             b.AppendLine();
             b.AppendLine("</details>");
@@ -667,6 +709,8 @@ static class Tests
 
     static readonly string A = new('a', 64), B = new('b', 64);
 
+    const string SuggestionJson = """{"id":5,"source":"curseforge","project":"1365171","edition":"forever","name":"Some Add-on","folders":["SomeAddon"],"toc":{"title":"Some Add-on","version":"v2.0","interface":["11507"],"author":"Someone","extra":"x"},"count":1,"firstSeen":"2026-11-01T00:00:00Z","lastSeen":"2026-11-01T00:00:00Z"}""";
+
     static JsonObject Report(long id, string version, string sha, long count, string last, string addon = "auctionator", string source = "curseforge",
         string edition = "forever", string first = "2026-11-01T00:00:00Z") => Obj($$"""
         {"id":{{id}},"addon":"{{addon}}","source":"{{source}}","edition":"{{edition}}","version":"{{version}}","sha256":"{{sha}}","count":{{count}},"firstSeen":"{{first}}","lastSeen":"{{last}}"}
@@ -696,10 +740,17 @@ static class Tests
         Expect("report: a hash that isn't one", Check.Report(Report(1, "1", "abc", 1, "2026-11-02T00:00:00Z"), catalog).Row is null);
         Expect("report: no count, or last seen before first", Check.Report(Report(1, "1", A, 0, "2026-11-02T00:00:00Z"), catalog).Row is null
             && Check.Report(Report(1, "1", A, 1, "2026-10-02T00:00:00Z"), catalog).Row is null);
+        Expect("report: networks kept as a number, null when not counted", Check.Report(Report(1, "1", A, 3, "2026-11-02T00:00:00Z").With("networks", 2L), catalog).Row?["networks"]?.GetValue<long>() == 2
+            && Check.Report(Report(1, "1", A, 3, "2026-11-02T00:00:00Z").With("networks", null), catalog).Row is { } nullRow && nullRow.ContainsKey("networks") && nullRow["networks"] is null
+            && Check.Report(Report(1, "1", A, 3, "2026-11-02T00:00:00Z"), catalog).Row?["networks"] is null);
+        Expect("report: networks that aren't a count are refused", new JsonNode?[] { -1L, 51L, 1.5, "2", new JsonArray(), new JsonObject() }
+            .All(n => Check.Report(Report(1, "1", A, 3, "2026-11-02T00:00:00Z").With("networks", n), catalog).Row is null));
+        Expect("suggestion: networks read the same way", Check.Suggestion(Obj(SuggestionJson).With("networks", 4L), catalog).Row?["networks"]?.GetValue<long>() == 4
+            && Check.Suggestion(Obj(SuggestionJson).With("networks", "x"), catalog).Row is null);
         Expect("report: extra fields aren't kept", Check.Report(Report(1, "1", A, 1, "2026-11-02T00:00:00Z").Also("note", "hi"), catalog).Row?["note"] is null);
 
         // Suggestions.
-        var suggestion = Obj("""{"id":5,"source":"curseforge","project":"1365171","edition":"forever","name":"Some Add-on","folders":["SomeAddon"],"toc":{"title":"Some Add-on","version":"v2.0","interface":["11507"],"author":"Someone","extra":"x"},"count":1,"firstSeen":"2026-11-01T00:00:00Z","lastSeen":"2026-11-01T00:00:00Z"}""");
+        var suggestion = Obj(SuggestionJson);
         var kept = Check.Suggestion(suggestion, catalog).Row;
         Expect("suggestion: a good one keeps only known .toc fields", kept is not null && kept["toc"]!.AsObject().Count == 4 && kept["toc"]!["extra"] is null);
         Expect("suggestion: a name with markup or a mention is refused", Check.Suggestion(suggestion.With("name", "<img src=x>"), catalog).Row is null
@@ -760,7 +811,26 @@ static class Tests
         Expect("cell: player text can't make links, markup or a new row", Proposer.Cell("[x](http://e) | <b>\nnext") == "\\[x\\]\\(http\\://e\\) \\| \\<b\\> next");
         var facts = Proposer.Facts(proposals);
         Expect("facts: only checked fields", facts["proposals"]!.AsArray().All(p => p!.AsObject().Select(k => k.Key)
-            .SequenceEqual(["id", "name", "source", "page", "edition", "version", "sha256", "reports", "firstSeen", "lastSeen", "previous", "flags"])));
+            .SequenceEqual(["id", "name", "source", "page", "edition", "version", "sha256", "reports", "networks", "firstSeen", "lastSeen", "previous", "flags"])));
+
+        // Networks, added up per version.
+        var counted = Store.From(null);
+        counted.Merge(new JsonObject { ["asOf"] = "2026-11-28T10:00:00.000Z", ["reports"] = new JsonArray(
+            Report(10, "2.0", A, 6, "2026-11-22T00:00:00Z").With("networks", 2L),
+            Report(11, "2.0", A, 4, "2026-11-23T00:00:00Z").With("networks", 1L),
+            Report(12, "2.0", A, 3, "2026-11-22T00:00:00Z", source: "wago").With("networks", 1L)) }, catalog);
+        var byNetworks = Proposer.Propose(catalog, Obj("""{"addons":{}}"""), counted, today);
+        var cfNet = byNetworks.First(p => p.Source == "curseforge");
+        var wagoNet = byNetworks.First(p => p.Source == "wago");
+        Expect("networks: added up per version, shown with the reports", cfNet.Reports == 10 && cfNet.Networks == 3
+            && Proposer.Body(byNetworks, counted).Contains("| 10 from 3 networks |", StringComparison.Ordinal)
+            && Proposer.Facts(byNetworks)["proposals"]![0]!["networks"]!.GetValue<long>() == 3);
+        Expect("networks: several reports from one network are flagged", wagoNet.Networks == 1 && wagoNet.Flags.Contains("one network only")
+            && !cfNet.Flags.Contains("one network only"));
+        Expect("networks: unknown when any message wasn't counted, and no flag", cf!.Networks is null && !cf.Flags.Contains("one network only")
+            && Proposer.Facts(proposals)["proposals"]!.AsArray().All(p => p!.AsObject().ContainsKey("networks") && p["networks"] is null));
+        Expect("networks: a single report keeps its own flag only", Proposer.Propose(catalog, Obj("""{"addons":{}}"""), Store.From(new JsonObject { ["reports"] = new JsonObject { ["k"] = Check.Report(Report(13, "3.0", A, 1, "2026-11-22T00:00:00Z").With("networks", 1L), catalog).Row } }), today)
+            is [var single] && single.Flags.Contains("one report only") && !single.Flags.Contains("one network only"));
 
         // Pruning.
         var pruning = Store.From(store.ToJson());

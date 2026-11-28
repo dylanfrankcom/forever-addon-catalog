@@ -32,17 +32,26 @@ keeps them until the catalog collects them. The relay never writes to GitHub.
   and shows exactly what it will send.
 - **Never sent or kept:** files (the zip never leaves the player's PC), file paths, account names, machine details or anything else
   about the player.
-- **Addresses:** the relay uses the sender's IP address, hashed, only to limit how often each address can send. It's never written
-  down, and request logging is off.
+- **Addresses:** the sender's IP address is never stored. The relay uses it in two ways only:
+  - hashed, as the key of an in-memory rate limiter that limits how often each address can send, never written down;
+  - to count how many different networks sent the same message. With that message only, the relay keeps a one-way value made
+    from the network part of the address (the first three numbers of an IPv4 address, the first half of an IPv6 one), the
+    message and a secret key only the relay holds. It can't be turned back into an address or matched with anything else, it's
+    different for every message, so one person's messages can't be linked, and it's deleted with the message. The catalog gets
+    only the number of networks, never the values.
+
+  Request logging is off.
 - **How long:** the relay deletes a message 7 days after the catalog collects it, and after 90 days if it's never collected. The
   catalog keeps only the checked fields above, without any address, until the version is confirmed, the add-on is listed, or 90 days
-  pass with no new report. Repeats of a message are counted, not stored again; the count is messages, not people.
+  pass with no new report. Repeats of a message are counted, not stored again; the count is messages, not people, and the number
+  of networks is a rough count of people: a VPN or a phone hotspot counts as another network, and people sharing one connection
+  count once.
 
-A daily workflow ([`reports.yml`](.github/workflows/reports.yml), [`scripts/reports.cs`](scripts/README.md#reportscs)) collects
+A workflow that runs every 10 minutes ([`reports.yml`](.github/workflows/reports.yml), [`scripts/reports.cs`](scripts/README.md#reportscs)) collects
 them, checks every field again and keeps the good ones. For each add-on, source and edition it proposes the version reported most
 recently, with its most-reported hash, in one pull request that changes only [`confirmed.json`](confirmed.json). The pull request
-flags anything to look at first: hashes that disagree, several versions, a single report, or a version confirmed before with another
-hash. **Nothing is confirmed until the maintainer has checked it on the add-on's page and merged the pull request.** The next catalog
+shows how many networks each version was reported from, and flags anything to look at first: hashes that disagree, several
+versions, a single report, several reports all from one network, or a version confirmed before with another hash. **Nothing is confirmed until the maintainer has checked it on the add-on's page and merged the pull request.** The next catalog
 build then copies it into the add-on's source in `catalog.json` (`confirmed`). Suggestions are kept for the maintainer and aren't
 listed by this workflow.
 
