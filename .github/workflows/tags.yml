@@ -6,12 +6,8 @@ name: tags
 # one pull request, from the `tags/infer` branch, for the maintainer to review; the generator uses the file once it's
 # merged. Daily, or by hand (Actions -> tags -> Run workflow).
 #
-# Claude API access comes from Workload Identity Federation, with no stored key: the job's GitHub OIDC token is exchanged
-# for a short-lived one (scripts/tags.cs, Access). It needs the repository variables ANTHROPIC_FEDERATION_RULE_ID and
-# ANTHROPIC_ORGANIZATION_ID (optionally ANTHROPIC_SERVICE_ACCOUNT_ID and ANTHROPIC_WORKSPACE_ID), and a federation rule in
-# the Claude Console that trusts only this repository's tags.yml on main; without the variables it does nothing. Actions
-# must be allowed to create pull requests. A pull request made with this workflow's token doesn't start other workflows,
-# so this one validates tags.json itself.
+# Needs the secret ANTHROPIC_API_KEY; without it, it does nothing. Actions must be allowed to create pull requests. A pull
+# request made with this workflow's token doesn't start other workflows, so this one validates tags.json itself.
 #
 # README text and summaries come from add-on authors: they reach Claude only inside the request file, never a command
 # line, and nothing from the answer but tags from the fixed list is kept.
@@ -38,21 +34,16 @@ jobs:
     name: Choose tags
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    permissions:
-      contents: write
-      pull-requests: write
-      id-token: write # GitHub's OIDC token, exchanged for a short-lived Claude API token
     steps:
-      - name: Is Claude API access set up?
+      - name: Is there a key?
         id: setup
         env:
-          ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
-          ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          if [ -n "$ANTHROPIC_FEDERATION_RULE_ID" ] && [ -n "$ANTHROPIC_ORGANIZATION_ID" ]; then
+          if [ -n "$ANTHROPIC_API_KEY" ]; then
             echo "ready=true" >> "$GITHUB_OUTPUT"
           else
-            echo "No ANTHROPIC_FEDERATION_RULE_ID and ANTHROPIC_ORGANIZATION_ID variables: nothing to do." >> "$GITHUB_STEP_SUMMARY"
+            echo "No ANTHROPIC_API_KEY: nothing to do." >> "$GITHUB_STEP_SUMMARY"
           fi
       - uses: actions/checkout@v4
         if: steps.setup.outputs.ready == 'true'
@@ -64,10 +55,7 @@ jobs:
         if: steps.setup.outputs.ready == 'true'
         id: infer
         env:
-          ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
-          ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
-          ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
-          ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GH_TOKEN: ${{ github.token }}
         run: |
           dotnet run scripts/tags.cs -- --summary "$GITHUB_STEP_SUMMARY" | tee "$RUNNER_TEMP/body.md"

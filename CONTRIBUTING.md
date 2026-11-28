@@ -25,11 +25,6 @@ on players. With the player's permission, Forever Add-on Manager can report the 
 suggest an add-on the catalog doesn't list, without a GitHub account. Reports go to a small relay, which checks and counts them and
 keeps them until the catalog collects them. The relay never writes to GitHub.
 
-The confirmation pull request can start with a short summary that Claude writes from the checked facts only, and Claude
-chooses tags for entries whose author set none, from the fixed list only. Neither workflow stores an API key: each run gets
-a token that lasts only for that run, from GitHub's own identity for it, and the Claude Console trusts only this
-repository's `reports.yml` and `tags.yml` on `main` (Workload Identity Federation).
-
 ### Privacy
 - **What's sent:** for a version report, the add-on's catalog ID, the source (CurseForge or Wago), the game edition, the version
   from the add-on's `.toc` file and the SHA-256 of the downloaded zip. For a suggestion, the source and project ID, the edition, the
