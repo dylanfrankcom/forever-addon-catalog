@@ -285,8 +285,8 @@
         "author": { "enum": ["repo-owner", "override"] },
         "tags": { "enum": ["toc-category", "topics", "override"] },
         "icon": { "enum": ["toc-icon", "override"] },
-        "curseforge": { "description": "toc: the ID in the add-on's .toc, as its author states it, never checked with the site; override: set by a person.", "enum": ["toc", "override"] },
-        "wago": { "description": "As curseforge.", "enum": ["toc", "override"] },
+        "curseforge": { "description": "toc: the ID in the add-on's .toc, as its author states it, never checked with the site; source: a CurseForge or Wago source its override lists; override: set by a person.", "enum": ["toc", "source", "override"] },
+        "wago": { "description": "As curseforge.", "enum": ["toc", "source", "override"] },
         "wowinterface": { "description": "As curseforge.", "enum": ["toc", "override"] }
       }
     },
