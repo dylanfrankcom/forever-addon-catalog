@@ -9,6 +9,17 @@
       "count": 1,
       "firstSeen": "2026-11-27T22:53:59Z",
       "lastSeen": "2026-11-27T22:53:59Z"
+    },
+    "2@2026-11-28T03:57:23Z": {
+      "addon": "auctionator",
+      "source": "wago",
+      "edition": "forever",
+      "version": "354",
+      "sha256": "67e3d471abc0fc725db5dfc4a72015c69f469e882717b1efe750a26670bbbb22",
+      "count": 1,
+      "networks": 1,
+      "firstSeen": "2026-11-28T03:57:23Z",
+      "lastSeen": "2026-11-28T03:57:23Z"
     }
   },
   "suggestions": {}
