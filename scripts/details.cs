@@ -76,7 +76,15 @@ foreach (var addon in catalog["addons"]!.AsArray().OfType<JsonObject>())
     var folders = addon["folders"]!.AsArray().Select(f => (string)f!).ToList();
     var row = rows.GetValueOrDefault(repo);
     var editions = row?["editions"]?.AsArray().Select(e => (string)e!).ToList() ?? addon["editions"]?.AsObject().Select(e => e.Key).ToList() ?? [];
-    targets.Add(new Target(id, repo, folders, editions, Toc.PathFor(row, folders)));
+    targets.Add(new Target(id, repo, folders, editions, Toc.PathFor(row, folders)) { AddonName = (string?)addon["name"] });
+}
+// A repo that holds several listed add-ons: its root README is about the repo, not each add-on.
+foreach (var group in targets.GroupBy(t => t.Repo, StringComparer.OrdinalIgnoreCase).Where(g => g.Count() > 1))
+{
+    foreach (var t in group)
+    {
+        t.Shared = true;
+    }
 }
 
 Directory.CreateDirectory(outDir);
@@ -137,6 +145,51 @@ sealed record Target(string Id, string Repo, List<string> Folders, List<string> 
     public string Owner => Repo.Split('/')[0];
     public string Name => Repo.Split('/')[1];
     public string TocDir => TocPath is { } p && p.LastIndexOf('/') is var s and > 0 ? p[..s] : "";
+
+    /// <summary>The add-on's name in the catalog.</summary>
+    public string? AddonName { get; init; }
+
+    /// <summary>Whether the repo holds other listed add-ons too (a mono-repo, or one released by tag prefix).</summary>
+    public bool Shared { get; set; }
+}
+
+/// <summary>Which README an add-on shows.</summary>
+static class Readmes
+{
+    /// <summary>
+    /// Whether a README is about this add-on: always for an add-on with its repo to itself; for one that shares its repo,
+    /// the README in its own folder, or a root README whose title (its first heading) is the add-on's name.
+    /// </summary>
+    public static bool Fits(Target t, string path, string text)
+    {
+        if (!t.Shared)
+        {
+            return true;
+        }
+        var dir = path.LastIndexOf('/') is var s and > 0 ? path[..s] : "";
+        if (dir.Length > 0)
+        {
+            return string.Equals(dir, t.TocDir, StringComparison.OrdinalIgnoreCase);
+        }
+        return Title(text) is { } title && t.AddonName is { } name && Plain(title).Length > 0 && Plain(title) == Plain(name);
+    }
+
+    /// <summary>The README's first heading (# Title, or a line underlined with = or -), when it starts with one.</summary>
+    public static string? Title(string text)
+    {
+        var lines = text.Replace("\r\n", "\n").Split('\n').Select(l => l.Trim()).Where(l => l.Length > 0).Take(2).ToList();
+        if (lines.Count == 0)
+        {
+            return null;
+        }
+        if (lines[0].StartsWith('#'))
+        {
+            return lines[0].TrimStart('#').Trim().TrimEnd('#').Trim();
+        }
+        return lines.Count == 2 && lines[1].Length > 1 && (lines[1].All(c => c == '=') || lines[1].All(c => c == '-')) ? lines[0] : null;
+    }
+
+    static string Plain(string text) => new string(text.Where(char.IsLetterOrDigit).Select(char.ToLowerInvariant).ToArray());
 }
 
 /// <summary>What the two GraphQL rounds read for one repo.</summary>
@@ -152,7 +205,7 @@ static class Details
         var branch = (string?)repo["defaultBranchRef"]?["name"] ?? "HEAD";
         var detail = new JsonObject { ["schemaVersion"] = 1, ["id"] = t.Id, ["repo"] = t.Repo };
 
-        if (second?.Readme is { } readme)
+        if (second?.Readme is { } readme && Readmes.Fits(t, second.ReadmePath!, readme))
         {
             var (about, cut) = Markdown.Clean(readme, t.Repo, branch, DirOf(second.ReadmePath!), AboutMax);
             if (about.Length > 0)
@@ -579,7 +632,9 @@ sealed class GitHub : IDisposable
             }
             string? Find(Regex pattern, string type)
             {
-                foreach (var (key, dir) in new[] { ("root", ""), ("dir", t.TocDir) })
+                // A shared repo's add-on looks in its own folder first: the root README is the repo's (Build checks it fits).
+            var places = t.Shared ? new[] { ("dir", t.TocDir), ("root", "") } : new[] { ("root", ""), ("dir", t.TocDir) };
+            foreach (var (key, dir) in places)
                 {
                     var names = (repo[key]?["entries"]?.AsArray() ?? []).OfType<JsonObject>().Where(e => (string?)e["type"] == type).Select(e => (string)e["name"]!).ToList();
                     var hit = names.Where(n => pattern.IsMatch(n)).OrderBy(n => n.EndsWith(".txt", StringComparison.OrdinalIgnoreCase) || !n.Contains('.')).ThenBy(n => n, StringComparer.Ordinal).FirstOrDefault();
@@ -769,6 +824,17 @@ static class Tests
         repo["recent"] = JsonNode.Parse("""{"nodes":[]}""");
         var noNotes = Details.Build(target, repo, new Second(null, null, "CHANGELOG.md", "## 2\nFixed", []), null);
         Check("detail: the changelog when no release has notes", (string?)noNotes["changelog"] == "## 2\nFixed" && noNotes["about"] is null && noNotes["stats"]!["contributors"] is null);
+        var shared = target with { AddonName = "Thing", Shared = true };
+        Check("readme: an add-on with its repo to itself shows the root README", Readmes.Fits(target, "README.md", "# Toolkit\nAll of it."));
+        Check("readme: a shared repo's add-on shows the README in its own folder", Readmes.Fits(shared, "Thing/README.md", "# Anything"));
+        Check("readme: a shared repo's add-on never shows the repo's root README", !Readmes.Fits(shared, "README.md", "# Toolkit\nAll of it.")
+            && !Readmes.Fits(shared, "README.md", "No title here.") && !Readmes.Fits(shared, "Other/README.md", "# Thing"));
+        Check("readme: unless its title is the add-on's name", Readmes.Fits(shared, "README.md", "\n# Thing #\nIt does things.")
+            && Readmes.Fits(shared, "README.md", "THING\n=====\n") && Readmes.Fits(shared, "readme.md", "## thing"));
+        var sharedNone = Details.Build(shared, repo, new Second("README.md", "# Toolkit\nEverything.", null, null, []), null);
+        Check("detail: a shared repo with no README of the add-on's own has no about", sharedNone["about"] is null);
+        var sharedOwn = Details.Build(shared, repo, new Second("Thing/README.md", "# Thing\nMine.", null, null, []), null);
+        Check("detail: a shared repo's add-on with its own README shows it", (string?)sharedOwn["about"] == "# Thing\nMine.");
         Check("serialized the same way each time", Details.Serialize(detail) == Details.Serialize(detail) && Details.Serialize(detail).EndsWith("}\n", StringComparison.Ordinal));
 
         Console.WriteLine(failures == 0 ? "details.cs self-test passed." : $"{failures} check(s) failed.");
