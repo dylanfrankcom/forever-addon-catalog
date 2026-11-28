@@ -167,6 +167,8 @@ A wrong link would send a player's money to the wrong person, so `sponsor` lists
 - **Everything else:** in the file's order, `https` only (an `http://` link, or one written without a scheme like `paypal.me/name`, is read as the same page over `https`). A shortened link (bit.ly and the like) is listed as the page it leads to, found from the shortener's redirect, never as the short link. A page listed under two addresses is included once.
 - **Reported:** every refused link, and every link that appears, changes or goes away, is listed in the generator's report for the maintainer to look at.
 
+An author's name never shows an email address: the generator drops one from a `.toc`'s Author (in brackets, angle brackets or on its own; a handle like `Name@GitHub` stays), and the schema refuses one in `overrides/_authors.json`.
+
 Authors written by hand (`overrides/_authors.json`) keep their own list, which can also include the Donate button on their CurseForge or Wago page. A player can suggest one with the [Suggest a support link](../.github/ISSUE_TEMPLATE/support-link.yml) form; the maintainer adds it by hand, only after seeing on the author's own page that the author links to it.
 
 ## An entry

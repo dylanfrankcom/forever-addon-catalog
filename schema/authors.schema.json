@@ -21,7 +21,17 @@
         "$ref": "catalog.schema.json#/$defs/id"
       },
       "additionalProperties": {
-        "$ref": "catalog.schema.json#/$defs/author"
+        "allOf": [
+          { "$ref": "catalog.schema.json#/$defs/author" },
+          {
+            "properties": {
+              "name": {
+                "description": "Never an email address: it isn't shown (the generator drops one from a .toc's Author).",
+                "not": { "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)+" }
+              }
+            }
+          }
+        ]
       }
     }
   }

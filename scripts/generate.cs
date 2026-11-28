@@ -389,6 +389,18 @@ static partial class Text
     [GeneratedRegex(@"^<([^<>]+)>\s*(.*)$")]
     private static partial Regex LeadingTag();
 
+    /// <summary>
+    /// An author's name from a .toc: its email address dropped, in round, angle or square brackets or on its own (an
+    /// address is never shown as a name), then cleaned like any name. A handle like "Name@GitHub" isn't an address.
+    /// </summary>
+    public static string Author(string? text) => Clean(text is null ? null : Email().Replace(text, " "), dropVersions: true);
+
+    [GeneratedRegex(@"[(<\[]\s*(?:mailto:)?[\w.+-]+@[\w-]+(?:\.[\w-]+)+\s*[)>\]]|(?:mailto:)?[\w.+-]+@[\w-]+(?:\.[\w-]+)+", RegexOptions.IgnoreCase)]
+    private static partial Regex Email();
+
+    /// <summary>Whether a name still holds an email address.</summary>
+    public static bool HasEmail(string? text) => text is not null && Email().IsMatch(text);
+
     public static string Clean(string? text, bool dropVersions)
     {
         if (string.IsNullOrWhiteSpace(text))
@@ -1078,7 +1090,7 @@ static class Generator
             }
             if (!byId.ContainsKey(id))
             {
-                var name = Text.Clean(tocAuthor, dropVersions: true);
+                var name = Text.Author(tocAuthor);
                 byId[id] = (owner, name.Length is > 0 and <= 60 && !NotOneName(name) ? name : owner);
             }
             return id;
@@ -2336,6 +2348,12 @@ static class SelfTest
         Check("main toc: the release's own .toc wins over the repo's", Str(released["title"]) == "Forever Scout from the zip" && Str(released["notes"]) == "Scouts."
             && Str(Generator.MainToc(scout, Obj("{}"), "ForeverScout")["title"]) == "Forever Scout");
         Check("clean: packager placeholders go", Text.Clean("Carbonite Maps @project-version@", dropVersions: true) == "Carbonite Maps");
+        Check("author: an email address goes, in brackets, angle brackets or on its own; a name without one stays",
+            Text.Author("Antonio W. Lagnada (someone@example.com)") == "Antonio W. Lagnada"
+            && Text.Author("Daniel \"Meorawr\" Yates <me@example.net>") == "Daniel \"Meorawr\" Yates"
+            && Text.Author("MooreaTV moorea@example.com") == "MooreaTV" && Text.Author("someone@example.com") == ""
+            && Text.Author("Name [mailto:a.b+c@mail.example.co.uk]") == "Name" && Text.Author("Kemayo") == "Kemayo"
+            && Text.Author("Pinta365@Github") == "Pinta365@Github" && !Text.HasEmail("Pinta365@Github") && Text.HasEmail("x (a@b.com)"));
         Check("clean: a library's version in its name stays", Text.Clean("AceGUI-3.0: SFX Widgets", dropVersions: true) == "AceGUI-3.0: SFX Widgets"
             && Text.Clean("Thing - 1.2.3", dropVersions: true) == "Thing");
         JsonObject Site(string id, string? cf, string? wago, string? wowi, bool fork = false)
