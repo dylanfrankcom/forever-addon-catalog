@@ -7,8 +7,11 @@
   "additionalProperties": false,
   "dependentRequired": { "tagPrefix": ["repo"], "partOf": ["repo"] },
   "dependentSchemas": {
-    "repo": {
-      "description": "A GitHub repo's editions come from its checked release, never from an override.",
+    "tagPrefix": {
+      "description": "A repo that releases several add-ons: each one's editions come from its checked release.",
+      "not": { "required": ["editions"] }
+    },
+    "partOf": {
       "not": { "required": ["editions"] }
     }
   },
@@ -20,7 +23,7 @@
       "type": "string"
     },
     "repo": {
-      "description": "owner/name of the GitHub repo whose generated entry this corrects.",
+      "description": "owner/name of the GitHub repo whose generated entry this corrects. On an add-on listed by hand (with editions), the reports workflow's link to its GitHub repo: the entry comes from the repo's checked release while it passes, and from the hand-written fields while it doesn't.",
       "type": "string",
       "pattern": "^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$"
     },
@@ -66,7 +69,7 @@
       "$ref": "catalog.schema.json#/$defs/addon/properties/tocPath"
     },
     "editions": {
-      "description": "Only without \"repo\": the editions the maintainer checked the add-on's release for by hand, keyed by edition ID, each with the Interface that release lists. Any of the catalog's editions can be listed; one the catalog doesn't cover is left out and reported. The generator adds upToDate, comparing the Interface with the edition's current one.",
+      "description": "Without \"repo\" (or beside a repo the reports linked, as the fallback): the editions the maintainer checked the add-on's release for by hand, keyed by edition ID, each with the Interface that release lists. Any of the catalog's editions can be listed; one the catalog doesn't cover is left out and reported. The generator adds upToDate, comparing the Interface with the edition's current one.",
       "type": "object",
       "propertyNames": { "$ref": "catalog.schema.json#/$defs/editionId" },
       "minProperties": 1,

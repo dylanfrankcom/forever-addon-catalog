@@ -16,10 +16,14 @@ on:
   workflow_dispatch:
     inputs:
       part:
-        description: "search, stats, all, or reread (all without the search)"
+        description: "search, stats, all, reread (all without the search), or repos (only the repos below)"
         type: choice
-        options: [search, stats, all, reread]
+        options: [search, stats, all, reread, repos]
         default: search
+      repos:
+        description: "With repos: the GitHub repos to read now, owner/name, separated by spaces (the reports workflow asks for players' suggestions)"
+        type: string
+        default: """
 
 permissions:
   contents: write
@@ -55,11 +59,18 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           # A scheduled run's part comes from the line that started it.
           PART: ${{ github.event_name == 'schedule' && (github.event.schedule == '47 6 * * *' && 'stats' || 'search') || inputs.part }}
+          REPOS: ${{ inputs.repos }}
         run: |
           set -- --out data/candidates.json --summary "$GITHUB_STEP_SUMMARY" --search-minutes 60
           case "$PART" in
             search|stats) set -- "$@" --part "$PART" ;;
             reread) set -- "$@" --no-search ;;
+            repos)
+              for r in $REPOS; do
+                if ! [[ "$r" =~ ^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$ ]]; then echo "Not a repo: $r"; exit 1; fi
+                set -- "$@" --repo "$r"
+              done
+              if [ "$#" -le 6 ]; then echo "No repos given."; exit 1; fi ;;
             all) ;;
             *) echo "Unknown part: $PART"; exit 1 ;;
           esac

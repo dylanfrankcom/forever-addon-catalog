@@ -46,12 +46,17 @@
 //   file and, with --body, its table for the pull requests. An anomaly is listed under "trip": it pauses automatic merging.
 // - wanted: writes the wanted list (--out, wanted.json): what the catalog is missing, each item with its progress
 //   (0, 25, 50, 75 or 100) toward a decision, never the counts or the rules. The check workflow publishes it.
+// - links: looks at the GitHub repos players' .toc files name for hand-listed add-ons, and at the links made before, and
+//   writes what to link or withdraw (--out, links.json), with GITHUB_TOKEN; propose --links takes it in.
+// - requests: prints the GitHub repos players suggested that discover should read now (--requested keeps what was
+//   asked, so each is asked at most once a week).
 // - guard: refuses an automatic pull request that changes anything but confirmed.json and existing files in overrides/,
 //   changes an item the decision didn't merge, or replaces anything an override already says (--changed: the changed
 //   paths, one per line; --base: the files as they are on main).
 // Exit code 0 on success, 1 when the relay or a file can't be read or guard refuses, 2 for bad arguments.
 
 using System.Globalization;
+using System.IO.Compression;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -64,7 +69,7 @@ if (args is ["--self-test"])
     return Tests.Run();
 }
 
-if (args.Length == 0 || args[0] is not ("collect" or "done" or "propose" or "review" or "decide" or "guard" or "wanted"))
+if (args.Length == 0 || args[0] is not ("collect" or "done" or "propose" or "review" or "decide" or "guard" or "wanted" or "links" or "requests"))
 {
     return Usage();
 }
@@ -73,6 +78,8 @@ string command = args[0], catalogPath = "catalog.json", confirmedPath = "confirm
 string? answerPath = null, onlyPath = null, skipPath = null, changedPath = null, baseDir = null;
 var headDir = ".";
 string? rulesPath = null; string answersPath = "answers.json", decisionPath = "decision.json", outPath = "wanted.json";
+string? linksPath = null, requestedPath = null;
+var autoUnlink = true;
 var overridesDir = "overrides";
 var auto = false;
 var paused = false;
@@ -94,6 +101,9 @@ for (var i = 1; i < args.Length; i++)
         case "--answers" when value is not null: answersPath = value; i++; break;
         case "--decision" when value is not null: decisionPath = value; i++; break;
         case "--out" when value is not null: outPath = value; i++; break;
+        case "--links" when value is not null: linksPath = value; i++; break;
+        case "--requested" when value is not null: requestedPath = value; i++; break;
+        case "--auto-unlink" when value is "on" or "off": autoUnlink = value == "on"; i++; break;
         case "--only" when value is not null && skipPath is null: onlyPath = value; i++; break;
         case "--skip" when value is not null && onlyPath is null: skipPath = value; i++; break;
         case "--changed" when value is not null: changedPath = value; i++; break;
@@ -196,6 +206,27 @@ try
             }
             return 0;
         }
+        case "links":
+        {
+            var catalog = Read(catalogPath)!.AsObject();
+            var store = Store.From(File.Exists(storePath) ? Read(storePath) : null);
+            var items = await Links.RunAsync(catalog, Read(confirmedPath)!.AsObject(), store, ReadOverrides(overridesDir), autoUnlink);
+            File.WriteAllText(outPath, Json.Write(Links.ToJson(items)));
+            Console.WriteLine($"Links: {items.Count(i => i.Action == "link")} to make, {items.Count(i => i.Action == "unlink")} to withdraw.");
+            return 0;
+        }
+        case "requests":
+        {
+            var path = requestedPath ?? throw new ArgumentException("--requested is required.");
+            var requested = File.Exists(path) ? Read(path)!.AsObject() : new JsonObject();
+            var store = Store.From(File.Exists(storePath) ? Read(storePath) : null);
+            foreach (var repo in Links.Requests(Read(catalogPath)!.AsObject(), store, requested, DateTimeOffset.UtcNow))
+            {
+                Console.WriteLine(repo);
+            }
+            File.WriteAllText(path, Json.Write(requested));
+            return 0;
+        }
         case "wanted":
         {
             var catalog = Read(catalogPath)!.AsObject();
@@ -240,6 +271,11 @@ try
                 : new Dictionary<string, JsonObject>(StringComparer.Ordinal);
             var (updates, notes, changed) = TocUpdates.Propose(catalog, overrides, store);
             var verdicts = Decide.Judge(proposals, updates, rules, DateTimeOffset.UtcNow);
+            var links = linksPath is not null && File.Exists(linksPath) ? Links.Read(Read(linksPath)) : [];
+            foreach (var l in links)
+            {
+                verdicts[Links.Key(l.Id)] = new(l.Verdict, l.Why);
+            }
             // --only: just what the decision merges (the automatic pull request); --skip: everything else.
             if ((onlyPath ?? skipPath) is { } filterPath)
             {
@@ -248,10 +284,17 @@ try
                 proposals = proposals.Where(p => Keep(Decide.Key(p))).ToList();
                 updates = updates.Where(u => Keep(Decide.TocKey(u.Id))).ToList();
                 changed = changed.Where(c => Keep(Decide.TocKey(c.Key))).ToDictionary(c => c.Key, c => c.Value, StringComparer.Ordinal);
+                links = links.Where(l => Keep(Links.Key(l.Id))).ToList();
                 if (onlyPath is not null)
                 {
                     notes = [];
                 }
+            }
+            // A link adds the repo to a hand-listed override; withdrawing one removes it from an override a link made.
+            links = links.Where(l => overrides.TryGetValue(l.Id, out var o) && (l.Action == "link" ? o["repo"] is null : Links.LinkedHere(o))).ToList();
+            foreach (var l in links)
+            {
+                changed[l.Id] = Links.Apply(changed.GetValueOrDefault(l.Id) ?? overrides[l.Id], l);
             }
             foreach (var (id, updated) in changed)
             {
@@ -263,9 +306,9 @@ try
             Proposer.Apply(confirmed, proposals, today);
             File.WriteAllText(confirmedPath, Json.Write(confirmed));
             File.WriteAllText(storePath, Json.Write(store.ToJson()));
-            File.WriteAllText(bodyPath, Proposer.Body(proposals, store, updates, notes, verdicts, rules));
-            File.WriteAllText(factsPath, Json.Write(Proposer.Facts(proposals, updates, notes, verdicts)));
-            Console.WriteLine($"{proposals.Count} versions to confirm; {updates.Count} updates to {changed.Count} hand-listed entries; {store.Suggestions.Count} suggestions waiting; dropped {pruned} old or settled messages.");
+            File.WriteAllText(bodyPath, Proposer.Body(proposals, store, updates, notes, verdicts, rules, links));
+            File.WriteAllText(factsPath, Json.Write(Proposer.Facts(proposals, updates, notes, verdicts, links)));
+            Console.WriteLine($"{proposals.Count} versions to confirm; {updates.Count} updates to {changed.Count} hand-listed entries; {links.Count} GitHub links; {store.Suggestions.Count} suggestions waiting; dropped {pruned} old or settled messages.");
             foreach (var line in Proposer.Unlisted(catalog, store))
             {
                 Console.WriteLine($"  not proposed: {line}");
@@ -287,6 +330,11 @@ static int Usage()
 }
 
 static JsonNode? Read(string path) => JsonNode.Parse(File.ReadAllText(path));
+
+static Dictionary<string, JsonObject> ReadOverrides(string dir) => Directory.Exists(dir)
+    ? Directory.GetFiles(dir, "*.json").Where(f => !Path.GetFileName(f).StartsWith('_'))
+        .ToDictionary(f => Path.GetFileNameWithoutExtension(f), f => JsonNode.Parse(File.ReadAllText(f))!.AsObject(), StringComparer.Ordinal)
+    : new Dictionary<string, JsonObject>(StringComparer.Ordinal);
 
 static class Json
 {
@@ -379,6 +427,9 @@ static partial class Check
     public static partial Regex CurseForgeProject();
     [GeneratedRegex("^[A-Za-z0-9_-]{1,64}$")]
     public static partial Regex WagoProject();
+    /// <summary>A GitHub repo as the relay sends it: owner/name, lower case.</summary>
+    [GeneratedRegex("^[a-z0-9](?:[a-z0-9-]{0,38})/[a-z0-9._-]{1,100}$")]
+    public static partial Regex GithubRepo();
     [GeneratedRegex("^[A-Za-z0-9_!]([A-Za-z0-9_.! -]*[A-Za-z0-9_!-])?$")]
     public static partial Regex Folder();
     [GeneratedRegex("^[0-9]{5,6}$")]
@@ -417,6 +468,10 @@ static partial class Check
             {
                 toc[key] = new JsonArray(items.Distinct(StringComparer.Ordinal).Select(i => (JsonNode)JsonValue.Create(i)!).ToArray());
             }
+        }
+        if (Json.Str(t["github"]) is { } github && GithubRepo().IsMatch(github) && !github.EndsWith('.'))
+        {
+            toc["github"] = github;
         }
         return toc.Count > 0 ? toc : null;
     }
@@ -527,6 +582,7 @@ static partial class Check
         {
             "curseforge" => project is not null && CurseForgeProject().IsMatch(project),
             "wago" => project is not null && WagoProject().IsMatch(project),
+            "github" => project is not null && GithubRepo().IsMatch(project) && !project.EndsWith('.'),
             _ => false,
         };
         if (!projectOk)
@@ -667,7 +723,9 @@ sealed class Store
     {
         var cutoff = new DateTimeOffset(today.AddDays(-MaxDays).ToDateTime(TimeOnly.MinValue), TimeSpan.Zero);
         var entries = (catalog["addons"]?.AsArray() ?? []).OfType<JsonObject>().ToDictionary(a => Json.Str(a["id"])!, StringComparer.Ordinal);
-        var listedProjects = entries.Values.SelectMany(e => Check.SiteSources(e)).Select(p => $"{p.Key}:{p.Value}".ToLowerInvariant()).ToHashSet();
+        var listedProjects = entries.Values.SelectMany(e => Check.SiteSources(e)).Select(p => $"{p.Key}:{p.Value}".ToLowerInvariant())
+            .Concat(entries.Values.SelectMany(e => (e["sources"]?.AsArray() ?? []).OfType<JsonObject>()).Where(s => Json.Str(s["type"]) == "github")
+                .Select(s => $"github:{Json.Str(s["repo"])}".ToLowerInvariant())).ToHashSet();
         var before = Reports.Count + Suggestions.Count;
         foreach (var (key, r) in Reports.ToList())
         {
@@ -817,14 +875,22 @@ static class Proposer
     static JsonObject Sort(JsonObject o) => new(o.OrderBy(p => p.Key, StringComparer.Ordinal)
         .Select(p => KeyValuePair.Create(p.Key, p.Value is JsonObject inner && inner["sha256"] is null ? (JsonNode?)Sort(inner) : p.Value?.DeepClone())));
 
-    public static string Page(string source, string project) => source == "curseforge"
-        ? $"https://www.curseforge.com/projects/{project}"
-        : $"https://addons.wago.io/addons/{project}";
+    public static string Page(string source, string project) => source switch
+    {
+        "curseforge" => $"https://www.curseforge.com/projects/{project}",
+        "github" => $"https://github.com/{project}",
+        _ => $"https://addons.wago.io/addons/{project}",
+    };
 
     /// <summary>Only checked fields: IDs and names from the catalog, versions and hashes that passed their patterns, counts and dates.</summary>
     public static JsonObject Facts(List<Proposal> proposals, List<TocUpdates.Update>? updates = null, List<TocUpdates.Note>? notes = null,
-        IReadOnlyDictionary<string, Decide.Verdict>? verdicts = null) => new()
+        IReadOnlyDictionary<string, Decide.Verdict>? verdicts = null, List<Links.Item>? links = null) => new()
     {
+        ["links"] = new JsonArray((links ?? []).Select(l => (JsonNode)new JsonObject
+        {
+            ["key"] = Links.Key(l.Id), ["id"] = l.Id, ["name"] = l.Name, ["repo"] = l.Repo, ["action"] = l.Action, ["verdict"] = l.Verdict, ["why"] = l.Why,
+            ["anomaly"] = false,
+        }).ToArray()),
         ["updates"] = new JsonArray((updates ?? []).Select(u => (JsonNode)new JsonObject
         {
             ["key"] = Decide.TocKey(u.Id), ["id"] = u.Id, ["name"] = u.Name, ["change"] = u.Change, ["reports"] = u.Reports, ["players"] = u.Players,
@@ -852,7 +918,7 @@ static class Proposer
     /// players or providers: those go to Claude's review only (Facts).
     /// </remarks>
     public static string Body(List<Proposal> proposals, Store store, List<TocUpdates.Update>? updates = null, List<TocUpdates.Note>? notes = null,
-        IReadOnlyDictionary<string, Decide.Verdict>? verdicts = null, Rules? rules = null)
+        IReadOnlyDictionary<string, Decide.Verdict>? verdicts = null, Rules? rules = null, List<Links.Item>? links = null)
     {
         string Verdict(string key) => verdicts?.GetValueOrDefault(key) is { } v ? Cell($"{v.Result}: {v.Why}") : "";
         string Progress(string key) => verdicts?.GetValueOrDefault(key) is { } v ? $"{v.Progress}%" : "";
@@ -887,6 +953,20 @@ static class Proposer
             foreach (var u in updates)
             {
                 b.AppendLine($"| {Cell(u.Name)} (`{u.Id}`) | {Cell(u.Change)} | {Progress(Decide.TocKey(u.Id))} | {Cell(string.Join("; ", u.Flags))} | {Verdict(Decide.TocKey(u.Id))} |");
+            }
+        }
+        if (links is { Count: > 0 })
+        {
+            b.AppendLine();
+            b.AppendLine("### Links to GitHub");
+            b.AppendLine();
+            b.AppendLine("From the GitHub repo an add-on's `.toc` names, checked by the catalog. Linked when there's proof only the author could give: the same file as a confirmed version, or both sides naming each other; the repo's word alone needs you. Merging adds the repo to the add-on's file in `overrides/`: its hand-written editions stay, unused while the repo's release passes the check. Withdrawing a link removes the repo again.");
+            b.AppendLine();
+            b.AppendLine("| Add-on | Repo | Change | Why | Rules |");
+            b.AppendLine("|---|---|---|---|---|");
+            foreach (var l in links)
+            {
+                b.AppendLine($"| {Cell(l.Name)} (`{l.Id}`) | [{l.Repo}](https://github.com/{l.Repo}) | {(l.Action == "link" ? "link" : "withdraw")} | {Cell(l.Why)} | {Verdict(Links.Key(l.Id))} |");
             }
         }
         if (notes is { Count: > 0 })
@@ -1258,7 +1338,7 @@ static class Decide
         var items = new JsonObject();
         JsonArray merge = [], wait = [], human = [], trip = [];
         var seen = new HashSet<string>(StringComparer.Ordinal);
-        foreach (var item in (facts["proposals"]?.AsArray() ?? []).Concat(facts["updates"]?.AsArray() ?? []).OfType<JsonObject>())
+        foreach (var item in (facts["proposals"]?.AsArray() ?? []).Concat(facts["updates"]?.AsArray() ?? []).Concat(facts["links"]?.AsArray() ?? []).OfType<JsonObject>())
         {
             var key = Json.Str(item["key"]);
             if (key is null || !seen.Add(key))
@@ -1302,6 +1382,11 @@ static class Decide
                 }
             }
             items[key] = new JsonObject { ["name"] = item["name"]?.DeepClone(), ["outcome"] = outcome, ["why"] = why };
+            if (Json.Str(item["repo"]) is { } repo)
+            {
+                items[key]!["repo"] = repo;
+                items[key]!["action"] = item["action"]?.DeepClone();
+            }
             (outcome switch { "auto" => merge, "wait" => wait, _ => human }).Add(key);
         }
         return new JsonObject { ["merge"] = merge, ["wait"] = wait, ["human"] = human, ["trip"] = trip, ["items"] = items };
@@ -1357,7 +1442,7 @@ static class Wanted
 
         // Not listed yet: suggestions, by source and project.
         foreach (var g in store.Suggestions.Values.GroupBy(s => (Source: Json.Str(s["source"])!, Project: Json.Str(s["project"])!))
-            .Where(g => !listed.Contains((g.Key.Source, g.Key.Project)))
+            .Where(g => g.Key.Source != "github" && !listed.Contains((g.Key.Source, g.Key.Project)))
             .OrderBy(g => g.Key.Source, StringComparer.Ordinal).ThenBy(g => g.Key.Project, StringComparer.Ordinal))
         {
             var rows = g.ToList();
@@ -1521,6 +1606,272 @@ static class Review
 /// What an automatic pull request may change: confirmed.json, only at the items the decision merged, and existing files in
 /// overrides/, only adding to them, for the add-ons whose .toc details the decision merged. Anything else is refused.
 /// </summary>
+/// <summary>
+/// Links a hand-listed add-on to the GitHub repo its players' .toc names (toc.github), when there's proof only the author
+/// could give, and withdraws a link that stops holding. The catalog checks the repo itself (it exists, isn't archived,
+/// its Latest release's zip and that zip's .toc), never CurseForge or Wago:
+/// - the same file: the release's zip has the checksum of a version players confirmed (confirmed.json): linked;
+/// - both sides: the repo came from reports of a confirmed version (the author's own upload), and the repo's .toc names
+///   the entry's CurseForge project or Wago ID: linked;
+/// - only the repo's word: for the maintainer;
+/// - anything else (no repo, archived, names nothing or another add-on): dropped quietly.
+/// A link adds "repo" to the override and nothing else: the hand-written editions stay, as the fallback while the
+/// release doesn't pass the check. A link made this way (an override with both "repo" and "editions") is looked at
+/// again each run and withdrawn, by removing "repo", when the repo is gone or archived, moved to another owner, or no
+/// longer names the add-on or has its file; automatically unless --auto-unlink off, then for the maintainer.
+/// </summary>
+static partial class Links
+{
+    public sealed record Candidate(string Id, string Name, string Repo, bool FromConfirmed, bool Linked);
+    public sealed record Probe(bool Exists, bool Archived, string? FullName, string? Sha256, List<string> CurseForge, List<string> Wago);
+    public sealed record Item(string Id, string Name, string Repo, string Action, string Verdict, string Why);
+
+    const long MaxZip = 200L * 1024 * 1024;
+    const int MaxProbes = 30;
+
+    public static string Key(string id) => $"{id}/github";
+
+    /// <summary>An override a link made: a repo, with the hand-written editions kept beside it.</summary>
+    public static bool LinkedHere(JsonObject? o) => o?["repo"] is not null && o["editions"] is not null;
+
+    /// <summary>The repos to look at: each hand-listed entry's reported ones it doesn't have yet, and every link made here.</summary>
+    public static List<Candidate> Candidates(JsonObject catalog, JsonObject confirmed, Store store, IReadOnlyDictionary<string, JsonObject> overrides)
+    {
+        var entries = (catalog["addons"]?.AsArray() ?? []).OfType<JsonObject>().ToDictionary(a => Json.Str(a["id"])!, StringComparer.Ordinal);
+        var taken = entries.Values.SelectMany(e => (e["sources"]?.AsArray() ?? []).OfType<JsonObject>())
+            .Where(s => Json.Str(s["type"]) == "github").Select(s => Json.Str(s["repo"])!.ToLowerInvariant()).ToHashSet(StringComparer.Ordinal);
+        var list = new List<Candidate>();
+        foreach (var (id, o) in overrides.OrderBy(o => o.Key, StringComparer.Ordinal))
+        {
+            if (!entries.TryGetValue(id, out var entry))
+            {
+                continue;
+            }
+            var name = Json.Str(entry["name"]) ?? id;
+            if (LinkedHere(o))
+            {
+                list.Add(new(id, name, Json.Str(o["repo"])!, false, true));
+                continue;
+            }
+            if (o["repo"] is not null || Check.SiteSources(entry).Count == 0)
+            {
+                continue;
+            }
+            foreach (var g in store.Reports.Values.Where(r => Json.Str(r["addon"]) == id && Json.Str(r["toc"]?["github"]) is { } gh && !taken.Contains(gh))
+                .GroupBy(r => Json.Str(r["toc"]!["github"])!, StringComparer.Ordinal).OrderBy(g => g.Key, StringComparer.Ordinal))
+            {
+                var fromConfirmed = g.Any(r => confirmed["addons"]?[id]?[Json.Str(r["source"])!]?[Json.Str(r["edition"])!] is JsonObject c
+                    && Json.Str(c["sha256"]) == Json.Str(r["sha256"]));
+                list.Add(new(id, name, g.Key, fromConfirmed, false));
+            }
+        }
+        return list;
+    }
+
+    /// <summary>What to do with one candidate, given what the repo showed (null: it couldn't be read).</summary>
+    public static Item? Judge(Candidate c, Probe? p, JsonObject entry, JsonObject confirmed, bool autoUnlink)
+    {
+        var sites = Check.SiteSources(entry);
+        bool Names(Probe q) => (sites.TryGetValue("curseforge", out var cf) && q.CurseForge.Contains(cf, StringComparer.Ordinal))
+            || (sites.TryGetValue("wago", out var w) && q.Wago.Contains(w, StringComparer.OrdinalIgnoreCase));
+        bool SameFile(Probe q) => q.Sha256 is { } h && (confirmed["addons"]?[c.Id] as JsonObject ?? [])
+            .Any(s => (s.Value as JsonObject ?? []).Any(e => Json.Str(e.Value?["sha256"]) == h));
+        if (c.Linked)
+        {
+            var why = p is null ? null
+                : !p.Exists ? "the repo is gone"
+                : p.Archived ? "the repo is archived"
+                : !string.Equals(p.FullName, c.Repo, StringComparison.OrdinalIgnoreCase) ? "the repo moved to another owner or name"
+                : !Names(p) && !SameFile(p) ? "the repo no longer names the add-on or has its file"
+                : null;
+            return why is null ? null : new(c.Id, c.Name, c.Repo, "unlink", autoUnlink ? "merge" : "human", why);
+        }
+        if (p is not { Exists: true, Archived: false, FullName: { } repo })
+        {
+            return null;
+        }
+        if (SameFile(p))
+        {
+            return new(c.Id, c.Name, repo, "link", "merge", "same file: the release is the confirmed version's zip");
+        }
+        if (Names(p))
+        {
+            return c.FromConfirmed
+                ? new(c.Id, c.Name, repo, "link", "merge", "both sides: the confirmed version's .toc names the repo, and the repo's .toc names the add-on")
+                : new(c.Id, c.Name, repo, "link", "human", "only the repo's word: neither the same file nor a confirmed version's .toc backs it up");
+        }
+        return null;
+    }
+
+    /// <summary>The CurseForge projects and Wago IDs the add-on's own .toc files in a release zip name.</summary>
+    public static (List<string> CurseForge, List<string> Wago) TocIds(byte[] zip, IReadOnlyList<string> folders)
+    {
+        var (cf, wago) = (new List<string>(), new List<string>());
+        using var archive = new ZipArchive(new MemoryStream(zip), ZipArchiveMode.Read);
+        foreach (var e in archive.Entries)
+        {
+            var parts = e.FullName.Replace('\\', '/').Split('/', StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length < 2 || !e.Name.EndsWith(".toc", StringComparison.OrdinalIgnoreCase) || e.Length > 1_000_000
+                || !folders.Contains(parts[^2], StringComparer.OrdinalIgnoreCase) || !e.Name.StartsWith(parts[^2], StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+            using var reader = new StreamReader(e.Open());
+            foreach (var line in reader.ReadToEnd().Split('\n'))
+            {
+                if (TocId().Match(line.Trim()) is not { Success: true } m)
+                {
+                    continue;
+                }
+                var value = m.Groups[2].Value.Trim();
+                if (m.Groups[1].Value.Equals("X-Curse-Project-ID", StringComparison.OrdinalIgnoreCase) && Check.CurseForgeProject().IsMatch(value))
+                {
+                    cf.Add(value);
+                }
+                else if (m.Groups[1].Value.Equals("X-Wago-ID", StringComparison.OrdinalIgnoreCase) && Check.WagoProject().IsMatch(value))
+                {
+                    wago.Add(value);
+                }
+            }
+        }
+        return (cf.Distinct(StringComparer.Ordinal).ToList(), wago.Distinct(StringComparer.Ordinal).ToList());
+    }
+
+    [GeneratedRegex(@"^##\s*(X-Curse-Project-ID|X-Wago-ID)\s*:\s*(.+)$", RegexOptions.IgnoreCase)]
+    private static partial Regex TocId();
+
+    /// <summary>Reads a repo from GitHub's API: whether it's there, archived, its current name, and its Latest release's zip.</summary>
+    static async Task<Probe> ProbeAsync(HttpClient http, string repo, IReadOnlyList<string> folders)
+    {
+        using var info = await http.GetAsync($"https://api.github.com/repos/{repo}");
+        if (info.StatusCode == System.Net.HttpStatusCode.NotFound)
+        {
+            return new(false, false, null, null, [], []);
+        }
+        info.EnsureSuccessStatusCode();
+        var meta = JsonNode.Parse(await info.Content.ReadAsStringAsync())!;
+        var full = Json.Str(meta["full_name"]);
+        var archived = meta["archived"] is JsonValue a && a.TryGetValue<bool>(out var isArchived) && isArchived;
+        using var latest = await http.GetAsync($"https://api.github.com/repos/{full}/releases/latest");
+        if (!latest.IsSuccessStatusCode)
+        {
+            return new(true, archived, full, null, [], []);
+        }
+        var release = JsonNode.Parse(await latest.Content.ReadAsStringAsync())!;
+        var asset = (release["assets"]?.AsArray() ?? []).OfType<JsonObject>().FirstOrDefault(x => Json.Str(x["name"])?.EndsWith(".zip", StringComparison.OrdinalIgnoreCase) == true
+            && x["size"] is JsonValue size && size.TryGetValue<long>(out var bytes) && bytes <= MaxZip
+            && Json.Str(x["browser_download_url"])?.StartsWith($"https://github.com/{full}/releases/download/", StringComparison.OrdinalIgnoreCase) == true);
+        if (asset is null)
+        {
+            return new(true, archived, full, null, [], []);
+        }
+        var zip = await http.GetByteArrayAsync(Json.Str(asset["browser_download_url"])!);
+        var (cf, wago) = TocIds(zip, folders);
+        return new(true, archived, full, Convert.ToHexStringLower(System.Security.Cryptography.SHA256.HashData(zip)), cf, wago);
+    }
+
+    public static async Task<List<Item>> RunAsync(JsonObject catalog, JsonObject confirmed, Store store, IReadOnlyDictionary<string, JsonObject> overrides, bool autoUnlink)
+    {
+        var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
+        using var http = new HttpClient { Timeout = TimeSpan.FromMinutes(5) };
+        http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("forever-addon-catalog", "1"));
+        if (!string.IsNullOrWhiteSpace(token))
+        {
+            http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        }
+        var entries = (catalog["addons"]?.AsArray() ?? []).OfType<JsonObject>().ToDictionary(a => Json.Str(a["id"])!, StringComparer.Ordinal);
+        var items = new List<Item>();
+        foreach (var c in Candidates(catalog, confirmed, store, overrides).Take(MaxProbes))
+        {
+            var entry = entries[c.Id];
+            var folders = (entry["folders"]?.AsArray() ?? []).Select(f => Json.Str(f)).OfType<string>().ToList();
+            Probe? probe;
+            try
+            {
+                probe = await ProbeAsync(http, c.Repo, folders);
+            }
+            catch (Exception e) when (e is HttpRequestException or InvalidDataException or TaskCanceledException or JsonException)
+            {
+                // Never withdraw or link on a failed read: try again next run.
+                Console.WriteLine($"{c.Id}: {c.Repo} couldn't be read ({e.GetType().Name}); left for the next run.");
+                continue;
+            }
+            if (Judge(c, probe, entry, confirmed, autoUnlink) is { } item)
+            {
+                items.Add(item);
+            }
+        }
+        return items;
+    }
+
+    public static JsonObject ToJson(IEnumerable<Item> items) => new()
+    {
+        ["items"] = new JsonArray(items.Select(i => (JsonNode)new JsonObject
+        {
+            ["key"] = Key(i.Id), ["id"] = i.Id, ["name"] = i.Name, ["repo"] = i.Repo, ["action"] = i.Action, ["verdict"] = i.Verdict, ["why"] = i.Why,
+        }).ToArray()),
+    };
+
+    /// <summary>Reads links.json strictly: an item with an unknown action or verdict, or a bad repo, is left out.</summary>
+    public static List<Item> Read(JsonNode? node) => (node?["items"]?.AsArray() ?? []).OfType<JsonObject>()
+        .Select(i => (Id: Json.Str(i["id"]), Name: Json.Str(i["name"]), Repo: Json.Str(i["repo"]), Action: Json.Str(i["action"]), Verdict: Json.Str(i["verdict"]), Why: Json.Str(i["why"])))
+        .Where(i => i.Id is not null && i.Repo is not null && Check.GithubRepo().IsMatch(i.Repo.ToLowerInvariant()) && i.Action is "link" or "unlink" && i.Verdict is "merge" or "human")
+        .Select(i => new Item(i.Id!, i.Name ?? i.Id!, i.Repo!, i.Action!, i.Verdict!, i.Why ?? "")).ToList();
+
+    /// <summary>The override with the link made (repo first) or withdrawn (repo removed); nothing else changes.</summary>
+    public static JsonObject Apply(JsonObject o, Item item)
+    {
+        if (item.Action == "unlink")
+        {
+            var without = o.DeepClone().AsObject();
+            without.Remove("repo");
+            return without;
+        }
+        var linked = new JsonObject();
+        foreach (var (k, v) in o)
+        {
+            if (k is "$schema" or "$comment")
+            {
+                linked[k] = v?.DeepClone();
+            }
+        }
+        linked["repo"] = item.Repo;
+        foreach (var (k, v) in o)
+        {
+            if (k is not ("$schema" or "$comment" or "repo"))
+            {
+                linked[k] = v?.DeepClone();
+            }
+        }
+        return linked;
+    }
+
+    /// <summary>
+    /// GitHub repos players suggested that the catalog doesn't list and that weren't asked about in the last 7 days: the
+    /// reports workflow asks discover to read them now. Updates the record of what was asked, keeping 90 days.
+    /// </summary>
+    public static List<string> Requests(JsonObject catalog, Store store, JsonObject requested, DateTimeOffset now)
+    {
+        var listed = (catalog["addons"]?.AsArray() ?? []).OfType<JsonObject>().SelectMany(e => (e["sources"]?.AsArray() ?? []).OfType<JsonObject>())
+            .Where(s => Json.Str(s["type"]) == "github").Select(s => Json.Str(s["repo"])!.ToLowerInvariant()).ToHashSet(StringComparer.Ordinal);
+        foreach (var (repo, when) in requested.ToList())
+        {
+            if (Check.Time(when) is not { } t || now - t > TimeSpan.FromDays(90))
+            {
+                requested.Remove(repo);
+            }
+        }
+        var ask = store.Suggestions.Values.Where(s => Json.Str(s["source"]) == "github").Select(s => Json.Str(s["project"])!)
+            .Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal)
+            .Where(r => !listed.Contains(r) && !(Check.Time(requested[r]) is { } t && now - t < TimeSpan.FromDays(7))).Take(10).ToList();
+        foreach (var r in ask)
+        {
+            requested[r] = now.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+        }
+        return ask;
+    }
+}
+
 static class Guard
 {
     static readonly Regex Override = new("^overrides/([a-z0-9][a-z0-9-]*)\\.json$");
@@ -1544,17 +1895,44 @@ static class Guard
             }
             else if (Override.Match(path) is { Success: true } m && m.Groups[1].Value != "_authors")
             {
-                if (!merge.Contains(Decide.TocKey(m.Groups[1].Value)))
-                {
-                    problems.Add($"{path} changes, but the decision didn't merge its .toc details");
-                }
-                else if (before(path) is not { } old)
+                var id = m.Groups[1].Value;
+                if (before(path) is not JsonObject old)
                 {
                     problems.Add($"{path} is a new file: an automatic pull request only adds to existing overrides");
+                    continue;
                 }
-                else if (!Keeps(old, after(path)))
+                var now = after(path) as JsonObject;
+                var (oldRepo, newRepo) = (Json.Str(old["repo"]), Json.Str(now?["repo"]));
+                if (oldRepo != newRepo)
                 {
-                    problems.Add($"{path} replaces or removes what was there: an automatic pull request only adds");
+                    // A link adds "repo" to a hand-listed override, and withdrawing it removes "repo" from one a link made:
+                    // only the repo the decision named, and only for an item it merged.
+                    var link = decision["items"]?[Links.Key(id)];
+                    if (!merge.Contains(Links.Key(id)))
+                    {
+                        problems.Add($"{path} changes its GitHub repo, which the decision didn't merge");
+                    }
+                    else if (oldRepo is null && (old["editions"] is null || newRepo is null || !string.Equals(newRepo, Json.Str(link?["repo"]), StringComparison.Ordinal)
+                        || Json.Str(link?["action"]) != "link"))
+                    {
+                        problems.Add($"{path}: a link adds only the decided repo, and only to an add-on listed by hand");
+                    }
+                    else if (oldRepo is not null && (newRepo is not null || old["editions"] is null || Json.Str(link?["action"]) != "unlink"))
+                    {
+                        problems.Add($"{path}: only a link the reports made can be withdrawn, and only by removing it");
+                    }
+                }
+                var (oldRest, nowRest) = (Without(old, "repo"), now is null ? null : Without(now, "repo"));
+                if (!JsonNode.DeepEquals(oldRest, nowRest))
+                {
+                    if (!merge.Contains(Decide.TocKey(id)))
+                    {
+                        problems.Add($"{path} changes, but the decision didn't merge its .toc details");
+                    }
+                    else if (!Keeps(oldRest, nowRest))
+                    {
+                        problems.Add($"{path} replaces or removes what was there: an automatic pull request only adds");
+                    }
                 }
             }
             else
@@ -1563,6 +1941,13 @@ static class Guard
             }
         }
         return problems;
+    }
+
+    static JsonObject Without(JsonObject o, string key)
+    {
+        var copy = o.DeepClone().AsObject();
+        copy.Remove(key);
+        return copy;
     }
 
     static IEnumerable<string> Leaves(JsonObject addons) =>
@@ -1840,6 +2225,86 @@ static class Tests
             && (string)wantVersion["source"]! == "curseforge" && (string)wantVersion["needs"]![0]! == "version" && wantVersion["progress"]!.GetValue<int>() == 50);
         Expect("wanted: a GitHub add-on isn't listed, and no counts are published", !wantItems.Any(i => (string?)i["id"] == "onlygit")
             && !wanted.ToJsonString().Contains("\"count\"", StringComparison.Ordinal) && !wanted.ToJsonString().Contains("players", StringComparison.Ordinal));
+
+        // Linking to GitHub.
+        Expect("report: a .toc's GitHub repo is kept, a bad one left out", Check.Report(Report(41, "1.2", A, 1, "2026-11-22T00:00:00Z").With("toc", Obj("{\"github\":\"author/auctionator\"}")), catalog).Row?["toc"]?["github"]?.GetValue<string>() == "author/auctionator"
+            && Check.Report(Report(41, "1.2", A, 1, "2026-11-22T00:00:00Z").With("toc", Obj("{\"github\":\"Author/x y\"}")), catalog).Row?["toc"] is null);
+        Expect("suggestion: a GitHub repo is a source", Check.Suggestion(Obj(SuggestionJson).With("source", "github").With("project", "someone/newaddon"), catalog).Row is not null
+            && Check.Suggestion(Obj(SuggestionJson).With("source", "github").With("project", "https://github.com/x/y"), catalog).Row is null);
+        var linkEntry = catalog["addons"]![0]!.AsObject();
+        var linkConfirmed = Obj("{'addons':{'auctionator':{'curseforge':{'forever':{'version':'1.2','sha256':'AA','date':'2026-11-10','reports':3}}}}}".Replace('\'', '"').Replace("AA", A));
+        Links.Probe Repo(string? sha = null, string[]? cf = null, string[]? wago = null, bool exists = true, bool archived = false, string full = "Author/Auctionator") =>
+            new(exists, archived, full, sha, [.. cf ?? []], [.. wago ?? []]);
+        Links.Candidate Cand(bool fromConfirmed = false, bool linked = false) => new("auctionator", "Auctionator", "author/auctionator", fromConfirmed, linked);
+        Expect("links: the same file as a confirmed version links, under the repo's own name", Links.Judge(Cand(), Repo(sha: A), linkEntry, linkConfirmed, true)
+            is { Action: "link", Verdict: "merge", Repo: "Author/Auctionator" } same && same.Why.StartsWith("same file", StringComparison.Ordinal));
+        Expect("links: both sides naming each other links", Links.Judge(Cand(fromConfirmed: true), Repo(cf: ["12"]), linkEntry, linkConfirmed, true) is { Verdict: "merge" } both
+            && both.Why.StartsWith("both sides", StringComparison.Ordinal) && Links.Judge(Cand(fromConfirmed: true), Repo(wago: ["Auctionator"]), linkEntry, linkConfirmed, true)?.Verdict == "merge");
+        Expect("links: only the repo's word goes to the maintainer", Links.Judge(Cand(), Repo(cf: ["12"]), linkEntry, linkConfirmed, true) is { Action: "link", Verdict: "human" });
+        Expect("links: another add-on, nothing named, another file, a missing or archived repo are dropped",
+            Links.Judge(Cand(true), Repo(cf: ["99"]), linkEntry, linkConfirmed, true) is null && Links.Judge(Cand(true), Repo(), linkEntry, linkConfirmed, true) is null
+            && Links.Judge(Cand(true), Repo(sha: B), linkEntry, linkConfirmed, true) is null && Links.Judge(Cand(true), Repo(exists: false), linkEntry, linkConfirmed, true) is null
+            && Links.Judge(Cand(true), Repo(cf: ["12"], archived: true), linkEntry, linkConfirmed, true) is null && Links.Judge(Cand(true), null, linkEntry, linkConfirmed, true) is null);
+        Expect("links: a link that holds stays; one that stops is withdrawn, automatically or for the maintainer, never on a failed read",
+            Links.Judge(Cand(linked: true), Repo(cf: ["12"], full: "author/auctionator"), linkEntry, linkConfirmed, true) is null
+            && Links.Judge(Cand(linked: true), Repo(full: "author/auctionator"), linkEntry, linkConfirmed, true) is { Action: "unlink", Verdict: "merge" }
+            && Links.Judge(Cand(linked: true), Repo(cf: ["12"], archived: true, full: "author/auctionator"), linkEntry, linkConfirmed, false) is { Action: "unlink", Verdict: "human" }
+            && Links.Judge(Cand(linked: true), Repo(cf: ["12"], full: "someone/auctionator"), linkEntry, linkConfirmed, true)?.Action == "unlink"
+            && Links.Judge(Cand(linked: true), Repo(exists: false), linkEntry, linkConfirmed, true)?.Action == "unlink"
+            && Links.Judge(Cand(linked: true), null, linkEntry, linkConfirmed, true) is null);
+        byte[] zipBytes;
+        using (var zipStream = new MemoryStream())
+        {
+            using (var zip = new ZipArchive(zipStream, ZipArchiveMode.Create, true))
+            {
+                foreach (var (path, text) in new[] { ("Auctionator/Auctionator.toc", "## Title: A\n## X-Curse-Project-ID: 12\n## X-Wago-ID: auctionator\n"),
+                    ("Auctionator/Auctionator_Forever.toc", "## X-Curse-Project-ID: 12\n"), ("Other/Other.toc", "## X-Curse-Project-ID: 99\n") })
+                {
+                    using var writer = new StreamWriter(zip.CreateEntry(path).Open());
+                    writer.Write(text);
+                }
+            }
+            zipBytes = zipStream.ToArray();
+        }
+        Expect("links: a release's .toc IDs come from the add-on's own folders only", Links.TocIds(zipBytes, ["Auctionator"]) is (["12"], ["auctionator"]));
+        var linkStore = Store.From(null);
+        linkStore.Reports["l1"] = Check.Report(Report(40, "1.2", A, 3, "2026-11-22T00:00:00Z").With("toc", Obj("{\"github\":\"author/auctionator\"}")), catalog).Row!;
+        linkStore.Reports["l2"] = Check.Report(Report(42, "1.3", B, 1, "2026-11-22T00:00:00Z").With("toc", Obj("{\"github\":\"o/g\"}")), catalog).Row!;
+        var handOverride = Obj("{\"name\":\"Auctionator\",\"sources\":[{\"type\":\"curseforge\",\"projectId\":12}],\"editions\":{\"forever\":{\"interface\":\"16001\"}}}");
+        var candidates = Links.Candidates(catalog, linkConfirmed, linkStore, new Dictionary<string, JsonObject>(StringComparer.Ordinal) { ["auctionator"] = handOverride });
+        Expect("links: a hand-listed entry's reported repo, from a confirmed version; a repo another entry has is left out",
+            candidates is [{ Repo: "author/auctionator", FromConfirmed: true, Linked: false }]);
+        var linkedOverride = Links.Apply(handOverride, new("auctionator", "Auctionator", "Author/Auctionator", "link", "merge", "x"));
+        var withdrawn = Links.Apply(linkedOverride, new("auctionator", "Auctionator", "Author/Auctionator", "unlink", "merge", "x"));
+        Expect("links: a link adds the repo first and nothing else; withdrawing removes just that", linkedOverride.First().Key == "repo" && Links.LinkedHere(linkedOverride)
+            && withdrawn.ToJsonString() == handOverride.ToJsonString()
+            && Links.Candidates(catalog, linkConfirmed, linkStore, new Dictionary<string, JsonObject>(StringComparer.Ordinal) { ["auctionator"] = linkedOverride }) is [{ Linked: true }]);
+        var linkDecision = Obj("{\"merge\":[\"auctionator/github\"],\"items\":{\"auctionator/github\":{\"repo\":\"Author/Auctionator\",\"action\":\"link\"}}}");
+        var unlinkDecision = Obj("{\"merge\":[\"auctionator/github\"],\"items\":{\"auctionator/github\":{\"repo\":\"Author/Auctionator\",\"action\":\"unlink\"}}}");
+        List<string> GuardLink(JsonObject before, JsonObject after, JsonObject decision) => Guard.Check(["overrides/auctionator.json"], _ => before, _ => after, decision);
+        Expect("guard: a decided link passes, and so does its withdrawal", GuardLink(handOverride, linkedOverride, linkDecision).Count == 0
+            && GuardLink(linkedOverride, handOverride, unlinkDecision).Count == 0);
+        Expect("guard: another repo, a link not decided, a link that changes more, or a .toc merge adding a repo is refused",
+            GuardLink(handOverride, Links.Apply(handOverride, new("auctionator", "Auctionator", "Someone/Else", "link", "merge", "x")), linkDecision).Count > 0
+            && GuardLink(handOverride, linkedOverride, Obj("{\"merge\":[\"auctionator/toc\"],\"items\":{}}")).Count > 0
+            && GuardLink(handOverride, linkedOverride.DeepClone().AsObject().With("name", "Other"), linkDecision).Count > 0
+            && GuardLink(handOverride, linkedOverride, unlinkDecision).Count > 0);
+        Expect("guard: removing a repo from an override written for GitHub is refused", Guard.Check(["overrides/x.json"], _ => Obj("{\"repo\":\"o/x\"}"), _ => Obj("{}"),
+            Obj("{\"merge\":[\"x/github\"],\"items\":{\"x/github\":{\"action\":\"unlink\"}}}")).Count > 0);
+        var linkFinal = Decide.Final(new JsonObject { ["links"] = Links.ToJson([new("auctionator", "Auctionator", "Author/Auctionator", "link", "merge", "same file")])["items"]!.DeepClone() },
+            new JsonObject(), rules, auto: true, paused: false, mergedToday: 0);
+        Expect("decide: a proven link merges automatically, with its repo", linkFinal["merge"]?[0]?.GetValue<string>() == "auctionator/github"
+            && linkFinal["items"]?["auctionator/github"]?["repo"]?.GetValue<string>() == "Author/Auctionator");
+        Expect("links file: an unknown action or a bad repo is left out", Links.Read(Obj("{\"items\":[{\"id\":\"a\",\"repo\":\"o/a\",\"action\":\"delete\",\"verdict\":\"merge\"},{\"id\":\"b\",\"repo\":\"../x\",\"action\":\"link\",\"verdict\":\"merge\"},{\"id\":\"c\",\"repo\":\"O/c\",\"action\":\"link\",\"verdict\":\"human\"}]}")) is [{ Id: "c" }]);
+        var requestStore = Store.From(null);
+        requestStore.Suggestions["g1"] = Check.Suggestion(Obj(SuggestionJson).With("source", "github").With("project", "someone/newaddon"), catalog).Row!;
+        requestStore.Suggestions["g2"] = Check.Suggestion(Obj(SuggestionJson).With("source", "github").With("project", "o/g"), catalog).Row!;
+        var requested = new JsonObject();
+        var askedAt = DateTimeOffset.Parse("2026-11-28T00:00:00Z", CultureInfo.InvariantCulture);
+        Expect("requests: an unlisted GitHub suggestion is asked about at most once a week", Links.Requests(catalog, requestStore, requested, askedAt) is ["someone/newaddon"]
+            && Links.Requests(catalog, requestStore, requested, askedAt.AddDays(1)).Count == 0 && Links.Requests(catalog, requestStore, requested, askedAt.AddDays(8)).Count == 1);
+        Expect("wanted: a GitHub suggestion goes to discover, not the list", !Wanted.Build(catalog, Obj("{\"addons\":{}}"), requestStore, new Dictionary<string, JsonObject>(StringComparer.Ordinal), rules, today)
+            .ToJsonString().Contains("newaddon", StringComparison.Ordinal));
 
         var slow = Version(players: 2);
         var slowBody = Proposer.Body([slow], Store.From(null), verdicts: Decide.Judge([slow], [], rules, DateTimeOffset.UtcNow), rules: rules);

@@ -940,10 +940,11 @@ static class Generator
         }
 
         // 5. Overrides with no listed add-on: complete entries for add-ons that aren't released on GitHub. An override
-        // tied to a GitHub repo ("repo") is never listed by itself: that repo's release has to pass the check.
+        // tied to a GitHub repo ("repo") is never listed by itself: that repo's release has to pass the check. One the
+        // reports linked to a repo keeps its hand-written editions, and falls back to them while the release doesn't pass.
         foreach (var (id, o) in inputs.Overrides.Where(o => !overrideFor.ContainsValue(o.Key)))
         {
-            if (o["repo"] is not null)
+            if (o["repo"] is not null && o["editions"] is null)
             {
                 result.Drop("override for a repo whose release isn't listable", $"{id} ({Str(o["repo"])})");
                 continue;
@@ -1426,6 +1427,13 @@ static class Generator
                         from[k] = "override";
                     }
                 }
+                continue;
+            }
+            // A link (an override naming a repo whose sources list CurseForge or Wago only) keeps the release's GitHub source.
+            if (key == "sources" && value is JsonArray over && entry["sources"] is JsonArray made
+                && !over.Any(s => Str(s?["type"]) == "github") && made.Any(s => Str(s?["type"]) == "github"))
+            {
+                entry["sources"] = new JsonArray(made.Where(s => Str(s?["type"]) == "github").Concat(over).Select(s => s?.DeepClone()).ToArray());
                 continue;
             }
             entry[key] = value?.DeepClone();
@@ -2471,6 +2479,7 @@ static class SelfTest
             ["cfonly"] = Obj("""{"name":"CF Only","summary":"Only on CurseForge.","author":"x","sources":[{"type":"curseforge","projectId":5}],"folders":["CfOnly"],"conflicts":["thing","notlisted"],"editions":{"forever":{"interface":"16001","released":"2026-11-20"},"mars":{"interface":"1"}}}"""),
             ["stale"] = Obj("""{"repo":"z/Stale","notes":"gone"}"""),
             ["grabber"] = Obj("""{"repo":"j/Grabber","linkOnly":{"url":"https://example.com/grabber"}}"""),
+            ["linkdown"] = Obj("""{"repo":"z/LinkDown","name":"Link Down","summary":"Linked, release not passing.","author":"x","sources":[{"type":"curseforge","projectId":6}],"folders":["LinkDown"],"editions":{"forever":{"interface":"16001"}}}"""),
         };
         var curated = Obj("""{"breakbb":{"name":"BreakBB"},"x":{"name":"X"},"unused":{"name":"Nobody"}}""");
         var inputs = new Inputs(previous, rows, checks, overrides, curated, ["g/Gone"]);
@@ -2534,6 +2543,12 @@ static class SelfTest
         Check("trust: no history read gives no badges or warnings", byId["readme"]["trust"]!.AsObject().Select(p => p.Key).SequenceEqual(["careful"]));
         Check("relations: a reference to an add-on that isn't listed is left out", Generator.Strings(byId["cfonly"]["conflicts"]).SequenceEqual(["thing"])
             && result.Notices.Any(n => n.Contains("names notlisted", StringComparison.Ordinal)));
+        Check("link: while the linked repo's release doesn't pass, the hand-written entry stays", byId.TryGetValue("linkdown", out var linkDown)
+            && linkDown["editions"]?["forever"] is not null && linkDown["sources"]!.AsArray().All(s => Str(s!["type"]) != "github"));
+        var linkedEntry = Obj("""{"id":"l","sources":[{"type":"github","repo":"o/l"},{"type":"curseforge","projectId":5}]}""");
+        Generator.Apply(linkedEntry, Obj("""{"repo":"o/l","sources":[{"type":"curseforge","projectId":5},{"type":"wago","slug":"l"}],"editions":{"forever":{"interface":"16001"}}}"""));
+        Check("link: the release's GitHub source stays beside the override's, and its editions aren't taken", linkedEntry["sources"]!.AsArray().Select(s => Str(s!["type"])).SequenceEqual(["github", "curseforge", "wago"])
+            && linkedEntry["editions"] is null);
         Check("override editions: listed with upToDate, the catalog's editions only, the rest reported", byId["cfonly"]["editions"]!.AsObject().Select(e => e.Key).SequenceEqual(["forever"])
             && Str(byId["cfonly"]["editions"]!["forever"]!["interface"]) == "16001" && Str(byId["cfonly"]["editions"]!["forever"]!["released"]) == "2026-11-20"
             && result.Dropped.TryGetValue("override edition the catalog doesn't cover", out var unknownEditions) && unknownEditions.SequenceEqual(["cfonly (mars)"]));
@@ -2579,7 +2594,7 @@ static class SelfTest
             Obj("""{"a":{"name":"A","sponsor":["https://ko-fi.com/a2"]},"b":{"name":"B"},"c":{"name":"C"},"d":{"name":"D","sponsor":["https://patreon.com/d"]}}"""));
         Check("support: changes are reported", changes.Count == 3 && changes.Any(c => c.StartsWith("a: support links changed", StringComparison.Ordinal))
             && changes.Any(c => c.StartsWith("b: support links removed", StringComparison.Ordinal)) && changes.Any(c => c.StartsWith("d: support links added", StringComparison.Ordinal)));
-        Check("ids", byId.Keys.Order(StringComparer.Ordinal).SequenceEqual(["cfonly", "grabber", "libfoo", "questie", "readme", "thing"]));
+        Check("ids", byId.Keys.Order(StringComparer.Ordinal).SequenceEqual(["cfonly", "grabber", "libfoo", "linkdown", "questie", "readme", "thing"]));
         Check("dropped", result.Dropped.Keys.Any(k => k.StartsWith("a copy", StringComparison.Ordinal)) && result.Dropped.Keys.Any(k => k.StartsWith("a compilation", StringComparison.Ordinal))
             && result.Dropped.Keys.Any(k => k.StartsWith("no summary", StringComparison.Ordinal)) && result.Dropped.ContainsKey("on the never-add list")
             && result.Dropped.Keys.Any(k => k.StartsWith("override for a repo", StringComparison.Ordinal))
