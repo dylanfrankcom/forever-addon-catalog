@@ -27,34 +27,53 @@ keeps them until the catalog collects them. The relay never writes to GitHub.
 
 ### Privacy
 - **What's sent:** for a version report, the add-on's catalog ID, the source (CurseForge or Wago), the game edition, the version
-  from the add-on's `.toc` file and the SHA-256 of the downloaded zip. For a suggestion, the source and project ID, the edition, the
+  from the add-on's `.toc` file and the SHA-256 of the downloaded zip, and optionally more of that `.toc`: its title, author,
+  interface numbers, notes, category, languages and optional add-ons. For a suggestion, the source and project ID, the edition, the
   add-on's name and folder names, and its `.toc` title, version, interface numbers and author. The app asks before sending anything
   and shows exactly what it will send.
 - **Never sent or kept:** files (the zip never leaves the player's PC), file paths, account names, machine details or anything else
   about the player.
 - **Addresses:** the sender's IP address is never stored. The relay uses it in two ways only:
-  - hashed, as the key of an in-memory rate limiter that limits how often each address can send, never written down;
+  - hashed, as the keys of Cloudflare's in-memory rate limiters (one for the address, a looser one for its network), never
+    written down;
   - to count how many different networks sent the same message. With that message only, the relay keeps a one-way value made
     from the network part of the address (the first three numbers of an IPv4 address, the first half of an IPv6 one), the
     message and a secret key only the relay holds. It can't be turned back into an address or matched with anything else, it's
     different for every message, so one person's messages can't be linked, and it's deleted with the message. The catalog gets
-    only the number of networks, never the values.
+    only the number of networks, never the values. At most 50 are kept per message.
+- **Internet provider:** Cloudflare tells the relay which provider's network a message came through (its autonomous system
+  number, shared by all of that provider's customers). The relay keeps, in the same way and with the same limits, a one-way
+  value made from that number, the message and the secret key, so it can count how many different providers sent the same
+  message. The number itself isn't kept, and the catalog gets only the count.
 
-  Request logging is off.
+  Request logging and tracing are off.
+- **Limits:** past 20 new versions or checksums for one add-on in a day, or 200 new suggestions in a day, the relay refuses
+  more until the next day.
 - **How long:** the relay deletes a message 7 days after the catalog collects it, and after 90 days if it's never collected. The
   catalog keeps only the checked fields above, without any address, until the version is confirmed, the add-on is listed, or 90 days
   pass with no new report. Repeats of a message are counted, not stored again; the count is messages, not people, and the number
   of networks is a rough count of people: a VPN or a phone hotspot counts as another network, and people sharing one connection
-  count once.
+  count once, and the number of providers is how many different internet providers those networks belong to.
 
 A workflow that runs every 10 minutes ([`reports.yml`](.github/workflows/reports.yml), [`scripts/reports.cs`](scripts/README.md#reportscs)) collects
 them, checks every field again and keeps the good ones. For each add-on, source and edition it proposes the version reported most
 recently, with its most-reported hash, in one pull request that changes only [`confirmed.json`](confirmed.json) and, for add-ons listed by hand, their files in
 [`overrides/`](overrides). The pull request
-shows about how many players reported each version (estimated from the networks the reports came from), and flags anything to
+shows how far each version has come toward what it needs (0, 25, 50, 75 or 100%, never the counts), and flags anything to
 look at first: hashes that disagree, several versions, a single report, several reports that seem to come from one player, or a
-version confirmed before with another hash. **Nothing is confirmed until the maintainer has checked it on the add-on's page and merged the pull request.** The next catalog
-build then copies it into the add-on's source in `catalog.json` (`confirmed`). For an add-on listed by hand, the same pull request
+version confirmed before with another hash. The next catalog build copies what's confirmed into the add-on's source in
+`catalog.json` (`confirmed`).
+
+**How a proposal is decided.** A new version is accepted when several players report the same file over at least a day.
+Details and new add-ons need more agreement over a longer time, and a Claude review. Anything unusual goes to the
+maintainer. The exact rules aren't published, and they can change.
+
+Claude (Sonnet) reviews from the checked facts alone, and can only answer merge, wait for more players, or ask the
+maintainer; it runs nothing and changes nothing. Anything unusual also pauses all automatic merging until the maintainer
+has looked. Automatic merges are capped per day, can change only `confirmed.json` and add to existing files in
+`overrides/` (a guard refuses anything else), and each is a pull request that can be reverted. Everything else waits in
+the confirmation pull request, where the maintainer confirms it by merging, or for more reports. A weekly issue lists
+what was decided automatically. For an add-on listed by hand, the same pull request
 adds what the `.toc` players' downloads carry says and its entry lacks (editions, languages, optional add-ons the catalog lists),
 never replacing what's there, and names what an entry can't hold, such as a second author. Suggestions are kept for the maintainer and aren't
 listed by this workflow.

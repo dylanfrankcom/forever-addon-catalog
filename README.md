@@ -67,7 +67,7 @@ Nobody writes entries by hand. Four scripts build the catalog, each with its own
 3. **The generator** lists every add-on whose release passed for WoW Forever, taking its details from what the author published. A value the author didn't publish is left out, never guessed. Hand corrections live in [`overrides/`](overrides), and the never-add list in [`optout.json`](optout.json).
 4. **Details** writes each add-on's details file.
 
-Every change is checked by the validator on its pull request. Versions players report for CurseForge and Wago add-ons are confirmed only through a reviewed pull request ([`confirmed.json`](confirmed.json), see [CONTRIBUTING.md](CONTRIBUTING.md#version-reports-from-the-app)).
+Every change is checked by the validator on its pull request. Versions players report for CurseForge and Wago add-ons are confirmed through pull requests: the clear cases by the catalog's rules and a review by Claude, the rest by the maintainer ([`confirmed.json`](confirmed.json), see [CONTRIBUTING.md](CONTRIBUTING.md#version-reports-from-the-app)).
 
 ## Contributing
 - **Ask for an add-on** with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. It's for add-ons that were missed, and for those only on CurseForge or Wago.
@@ -84,6 +84,12 @@ The catalog and the app are free and open source, developed by AI agents (Claude
   hour (`actions/create-github-app-token`), from the app's ID (the `CATALOG_APP_ID` variable) and its private key (the
   `CATALOG_APP_KEY` secret). To replace the key, generate a new private key in the app's settings, put it in
   `CATALOG_APP_KEY`, delete the old key there, and delete the downloaded file.
+
+- **Automatic decisions:** the thresholds are the `CATALOG_RULES` repository secret, one line of JSON (its shape is in
+  `Rules` in `scripts/reports.cs`); keep your own copy, since a secret can't be read back. Without it the reports workflow
+  proposes nothing and fails. It merges what they decide only while the `AUTO_MERGE` repository variable is `on`. An anomaly opens an issue labelled `auto-merge-paused`, and nothing merges automatically until it's
+  closed. Its confirmation pull request (`reports/confirm`, labelled `needs-maintainer` when something needs you) holds
+  everything else; merging it confirms what's in it. Each Monday an issue sums up the week's automatic decisions.
 
 ## Licence
 - **The catalog's data** (`catalog.json`) is licensed under [CC BY-SA 4.0](LICENSE-DATA). Anyone, including other add-on managers, may use and adapt it. Credit this catalog, and share adapted versions under the same licence.
