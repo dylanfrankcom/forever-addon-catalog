@@ -4,12 +4,13 @@ name: check
 # `checker` branch beside candidates.json. Then it generates catalog.json, versions.json and icons/ (scripts/generate.cs),
 # validates them, and commits them to main only when they changed and passed: a failed or broken run changes nothing, so
 # the last good files stay published. (main must accept pushes from this workflow.)
-# Every 6 hours, so a release held back for its first 6 hours is checked soon after, or by hand
-# (Actions -> check -> Run workflow).
+# Every hour, so a release held back for its first 6 hours is checked soon after, or by hand
+# (Actions -> check -> Run workflow). It has its own concurrency group, so a long discovery run never holds it up: the
+# workflows write different files on `checker`, and a refused push is rebased and tried again (.github/push-checker.sh).
 
 on:
   schedule:
-    - cron: "41 */6 * * *"
+    - cron: "41 * * * *"
   workflow_dispatch:
     inputs:
       scope:
@@ -21,7 +22,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: checker-data
+  group: release-check
   cancel-in-progress: false
 
 env:
