@@ -49,11 +49,14 @@ keeps them until the catalog collects them. The relay never writes to GitHub.
 
 A workflow that runs every 10 minutes ([`reports.yml`](.github/workflows/reports.yml), [`scripts/reports.cs`](scripts/README.md#reportscs)) collects
 them, checks every field again and keeps the good ones. For each add-on, source and edition it proposes the version reported most
-recently, with its most-reported hash, in one pull request that changes only [`confirmed.json`](confirmed.json). The pull request
+recently, with its most-reported hash, in one pull request that changes only [`confirmed.json`](confirmed.json) and, for add-ons listed by hand, their files in
+[`overrides/`](overrides). The pull request
 shows about how many players reported each version (estimated from the networks the reports came from), and flags anything to
 look at first: hashes that disagree, several versions, a single report, several reports that seem to come from one player, or a
 version confirmed before with another hash. **Nothing is confirmed until the maintainer has checked it on the add-on's page and merged the pull request.** The next catalog
-build then copies it into the add-on's source in `catalog.json` (`confirmed`). Suggestions are kept for the maintainer and aren't
+build then copies it into the add-on's source in `catalog.json` (`confirmed`). For an add-on listed by hand, the same pull request
+adds what the `.toc` players' downloads carry says and its entry lacks (editions, languages, optional add-ons the catalog lists),
+never replacing what's there, and names what an entry can't hold, such as a second author. Suggestions are kept for the maintainer and aren't
 listed by this workflow.
 
 ## Other ways to help

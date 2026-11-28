@@ -2,8 +2,8 @@ name: reports
 
 # Collects players' version reports and add-on suggestions from the relay (scripts/reports.cs), keeps them on the
 # `checker` branch (relay.json), and opens or updates one pull request, from the `reports/confirm` branch, that proposes
-# the reported versions in confirmed.json. Nothing is confirmed until the maintainer merges it; the next catalog build
-# then copies them into catalog.json. Every 10 minutes, or by hand (Actions -> reports -> Run workflow). A run whose
+# the reported versions in confirmed.json, and what players' .toc details add to add-ons listed by hand (overrides/).
+# Nothing is confirmed until the maintainer merges it; the next catalog build then copies them into catalog.json. Every 10 minutes, or by hand (Actions -> reports -> Run workflow). A run whose
 # proposal is the open pull request's already changes nothing there, and the relay stores the index only when it changed.
 #
 # It has its own concurrency group: in a shared one, a pending run every 10 minutes would cancel the check workflow's
@@ -98,15 +98,16 @@ jobs:
         run: |
           dotnet run scripts/reports.cs -- propose --store data/relay.json --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" | tee -a "$GITHUB_STEP_SUMMARY"
           dotnet run scripts/validate.cs -- confirmed.json
+          for f in $(git diff --name-only -- overrides); do dotnet run scripts/validate.cs -- "$f"; done
           # changed: something to propose against main. same: the open pull request proposes exactly that already.
           pr=$(gh pr list --head reports/confirm --state open --json number --jq '.[0].number // empty')
           echo "pr=$pr" >> "$GITHUB_OUTPUT"
-          if git diff --quiet -- confirmed.json; then
+          if git diff --quiet -- confirmed.json overrides; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
             if [ -n "$pr" ] && git fetch --no-tags --depth=1 -q origin reports/confirm:refs/remotes/origin/reports/confirm \
-              && git diff --quiet origin/reports/confirm -- confirmed.json; then
+              && git diff --quiet origin/reports/confirm -- confirmed.json overrides; then
               echo "same=true" >> "$GITHUB_OUTPUT"
               echo "The open pull request #$pr already proposes this: left as it is." | tee -a "$GITHUB_STEP_SUMMARY"
             fi
@@ -170,7 +171,7 @@ jobs:
             cat "$RUNNER_TEMP/body.md"
           } > "$RUNNER_TEMP/pr.md"
           git switch -c reports/confirm
-          git add confirmed.json
+          git add confirmed.json overrides
           git commit -q -m "Confirm versions players reported"
           git push -f origin reports/confirm
           if [ -n "$pr" ]; then

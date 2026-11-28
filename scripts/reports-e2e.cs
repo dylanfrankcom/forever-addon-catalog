@@ -6,7 +6,8 @@
 //   1. generate.cs builds a catalog from a made-up hand-listed add-on (an override with a CurseForge source and the
 //      Forever edition) and nothing else;
 //   2. reports.cs collect reads a recorded relay answer (--answer) with one report for it, and keeps it in the store;
-//   3. reports.cs propose proposes the version in confirmed.json and the pull request's text;
+//   3. reports.cs propose proposes the version in confirmed.json, the .toc details' additions to the override, and the
+//      pull request's text;
 //   4. generate.cs again copies the confirmed version onto the add-on's source.
 // The pieces have their own self-tests; this catches what sits between them, like an override's editions that never
 // reach catalog.json, so nothing is ever proposed.
@@ -35,6 +36,7 @@ try
         ["editions"] = real["editions"]!.DeepClone(), ["authors"] = new JsonObject(), ["addons"] = new JsonArray(),
     };
     var forever = real["editions"]!["forever"]!["interface"]!.GetValue<string>();
+    var retail = real["editions"]!["retail"]!["interface"]!.GetValue<string>();
     Write("catalog.json", previous);
     Write("candidates.json", new JsonObject { ["candidates"] = new JsonArray() });
     Write("checks.json", new JsonObject { ["repos"] = new JsonArray() });
@@ -46,10 +48,11 @@ try
          "sources":[{"type":"curseforge","projectId":999999901}],"folders":["MadeUpAddon"],"editions":{"forever":{"interface":"FOREVER"}}}
         """.Replace("FOREVER", forever))!);
     var sha = new string('c', 64);
-    Write("answer.json", JsonNode.Parse($$"""
+    Write("answer.json", JsonNode.Parse($$$"""
         {"asOf":"2026-11-28T10:00:00.000Z","reports":[
-          {"id":1,"addon":"madeup-addon","source":"curseforge","edition":"forever","version":"1.2.3","sha256":"{{sha}}","count":3,"networks":2,
-           "firstSeen":"2026-11-27T10:00:00Z","lastSeen":"2026-11-28T09:00:00Z"}],
+          {"id":1,"addon":"madeup-addon","source":"curseforge","edition":"forever","version":"1.2.3","sha256":"{{{sha}}}","count":3,"networks":2,
+           "firstSeen":"2026-11-27T10:00:00Z","lastSeen":"2026-11-28T09:00:00Z",
+           "toc":{"author":"Made-up Author, Second Person","interface":["{{{retail}}}","{{{forever}}}"],"localizations":["enUS","deDE"],"optionalDeps":["NotInCatalog"]}}],
          "suggestions":[]}
         """)!);
 
@@ -70,7 +73,7 @@ try
 
     // 3. Proposed.
     var output = Run("reports.cs", ["propose", "--catalog", P("catalog.json"), "--confirmed", P("confirmed.json"), "--store", P("relay.json"),
-        "--body", P("body.md"), "--facts", P("facts.json")]);
+        "--overrides", P("overrides"), "--body", P("body.md"), "--facts", P("facts.json")]);
     var confirmed = JsonNode.Parse(File.ReadAllText(P("confirmed.json")));
     var proposed = confirmed?["addons"]?["madeup-addon"]?["curseforge"]?["forever"];
     Expect("propose: the reported version and hash go into confirmed.json", proposed?["version"]?.GetValue<string>() == "1.2.3"
@@ -80,10 +83,18 @@ try
     Expect("propose: the pull request's text names it with its reports and players", body.Contains("Made-up Add-on", StringComparison.Ordinal)
         && body.Contains("`1.2.3`", StringComparison.Ordinal) && body.Contains("3 reports from about 2 players", StringComparison.Ordinal));
 
-    // 4. The next build copies it onto the source.
+    var updated = JsonNode.Parse(File.ReadAllText(P("overrides/madeup-addon.json")));
+    Expect("propose: the .toc details add retail and the languages to the override, keeping what was there",
+        updated?["editions"]?["retail"]?["interface"]?.GetValue<string>() == retail && updated["editions"]?["forever"] is not null
+        && updated["languages"]?.AsArray().Count == 2 && updated["summary"]?.GetValue<string>() == "An add-on that exists only in this test.");
+    Expect("propose: what an entry can't hold is named in the text", body.Contains("Second Person", StringComparison.Ordinal)
+        && body.Contains("NotInCatalog", StringComparison.Ordinal));
+
+    // 4. The next build copies it onto the source, and lists the new edition.
     Run("generate.cs", generate);
     var source = Entry()?["sources"]?.AsArray().OfType<JsonObject>().FirstOrDefault(s => s["type"]?.GetValue<string>() == "curseforge");
     Expect("generate: the confirmed version is on the add-on's source", source?["confirmed"]?["forever"]?["version"]?.GetValue<string>() == "1.2.3");
+    Expect("generate: the added edition is listed", Entry()?["editions"]?["retail"] is not null);
 }
 catch (Exception e) when (e is InvalidOperationException or IOException or System.Text.Json.JsonException)
 {
