@@ -9,7 +9,7 @@
 // Run it through the app repo's dev.ps1 (see scripts/README.md):
 //   ... dotnet run scripts/reports.cs -- collect [--catalog f] [--store f] [--collected f] [--answer f]
 //   ... dotnet run scripts/reports.cs -- done [--collected f]
-//   ... dotnet run scripts/reports.cs -- propose [--catalog f] [--confirmed f] [--store f] [--body f] [--facts f]
+//   ... dotnet run scripts/reports.cs -- propose [--catalog f] [--confirmed f] [--store f] [--overrides dir] [--body f] [--facts f]
 //   ... dotnet run scripts/reports.cs -- --self-test                 # offline tests
 // Defaults: --catalog catalog.json, --confirmed confirmed.json, --store relay.json (the waiting reports, kept on the
 // checker branch), --collected collected.json, --body body.md, --facts facts.json.
@@ -23,7 +23,10 @@
 // - propose: for each add-on, source and edition the catalog lists, the newest reported version and its most-reported
 //   hash, unless confirmed.json already has them. Writes them into confirmed.json, the pull request's text to --body, and
 //   the checked facts (and only those) to --facts for the summary. Drops from the store what's already confirmed, what's
-//   no longer listed and anything not seen for 90 days.
+//   no longer listed and anything not seen for 90 days. For add-ons listed by hand (an override, no GitHub release), it
+//   also adds to overrides/<id>.json what players' .toc details add (editions, languages, optional add-ons, a missing
+//   summary), never replacing what's there, and names in the text what an entry can't hold (another author, an
+//   optional add-on the catalog doesn't list).
 // Exit code 0 on success, 1 when the relay or a file can't be read, 2 for bad arguments.
 
 using System.Globalization;
@@ -46,6 +49,7 @@ if (args.Length == 0 || args[0] is not ("collect" or "done" or "propose"))
 string command = args[0], catalogPath = "catalog.json", confirmedPath = "confirmed.json", storePath = "relay.json",
     collectedPath = "collected.json", bodyPath = "body.md", factsPath = "facts.json";
 string? answerPath = null;
+var overridesDir = "overrides";
 for (var i = 1; i < args.Length; i++)
 {
     var value = i + 1 < args.Length ? args[i + 1] : null;
@@ -58,6 +62,7 @@ for (var i = 1; i < args.Length; i++)
         case "--body" when value is not null: bodyPath = value; i++; break;
         case "--facts" when value is not null: factsPath = value; i++; break;
         case "--answer" when value is not null && command == "collect": answerPath = value; i++; break;
+        case "--overrides" when value is not null: overridesDir = value; i++; break;
         default: return Usage();
     }
 }
@@ -112,13 +117,24 @@ try
             var store = Store.From(File.Exists(storePath) ? Read(storePath) : null);
             var today = DateOnly.FromDateTime(DateTime.UtcNow);
             var proposals = Proposer.Propose(catalog, confirmed, store, today);
+            var overrides = Directory.Exists(overridesDir)
+                ? Directory.GetFiles(overridesDir, "*.json").Where(f => !Path.GetFileName(f).StartsWith('_'))
+                    .ToDictionary(f => Path.GetFileNameWithoutExtension(f), f => Read(f)!.AsObject(), StringComparer.Ordinal)
+                : new Dictionary<string, JsonObject>(StringComparer.Ordinal);
+            var (updates, notes, changed) = TocUpdates.Propose(catalog, overrides, store);
+            foreach (var (id, updated) in changed)
+            {
+                var path = Path.Combine(overridesDir, $"{id}.json");
+                var text = Json.Write(updated);
+                File.WriteAllText(path, File.ReadAllText(path).Contains("\r\n", StringComparison.Ordinal) ? text.Replace("\n", "\r\n", StringComparison.Ordinal) : text);
+            }
             var pruned = store.Prune(catalog, confirmed, today);
             Proposer.Apply(confirmed, proposals, today);
             File.WriteAllText(confirmedPath, Json.Write(confirmed));
             File.WriteAllText(storePath, Json.Write(store.ToJson()));
-            File.WriteAllText(bodyPath, Proposer.Body(proposals, store));
-            File.WriteAllText(factsPath, Json.Write(Proposer.Facts(proposals)));
-            Console.WriteLine($"{proposals.Count} versions to confirm; {store.Suggestions.Count} suggestions waiting; dropped {pruned} old or settled messages.");
+            File.WriteAllText(bodyPath, Proposer.Body(proposals, store, updates, notes));
+            File.WriteAllText(factsPath, Json.Write(Proposer.Facts(proposals, updates, notes)));
+            Console.WriteLine($"{proposals.Count} versions to confirm; {updates.Count} updates to {changed.Count} hand-listed entries; {store.Suggestions.Count} suggestions waiting; dropped {pruned} old or settled messages.");
             foreach (var line in Proposer.Unlisted(catalog, store))
             {
                 Console.WriteLine($"  not proposed: {line}");
@@ -135,7 +151,7 @@ catch (Exception e) when (e is IOException or HttpRequestException or TaskCancel
 
 static int Usage()
 {
-    Console.Error.WriteLine("Usage: dotnet run scripts/reports.cs -- collect|done|propose [--catalog f] [--confirmed f] [--store f] [--collected f] [--answer f] [--body f] [--facts f] | --self-test");
+    Console.Error.WriteLine("Usage: dotnet run scripts/reports.cs -- collect|done|propose [--catalog f] [--confirmed f] [--store f] [--collected f] [--answer f] [--overrides dir] [--body f] [--facts f] | --self-test");
     return 2;
 }
 
@@ -236,6 +252,43 @@ static partial class Check
     public static partial Regex Folder();
     [GeneratedRegex("^[0-9]{5,6}$")]
     public static partial Regex Interface();
+    [GeneratedRegex("^[a-z]{2}[A-Z]{2}$")]
+    public static partial Regex Locale();
+
+    /// <summary>
+    /// The .toc details a report carries, each field checked as the relay's README defines it: title, author, notes and
+    /// category as plain text; 1 to 10 Interface numbers; 1 to 20 locales; 1 to 20 optional add-ons' folder names. A bad
+    /// field is left out; null when none is left.
+    /// </summary>
+    public static JsonObject? Toc(JsonNode? node)
+    {
+        if (node is not JsonObject t)
+        {
+            return null;
+        }
+        var toc = new JsonObject();
+        foreach (var (key, max) in new[] { ("title", 200), ("author", 100), ("notes", 1024), ("category", 64) })
+        {
+            if (Text(t[key], max) is { } text)
+            {
+                toc[key] = text;
+            }
+        }
+        foreach (var (key, max, ok) in new (string, int, Func<string, bool>)[]
+        {
+            ("interface", 10, s => Interface().IsMatch(s)),
+            ("localizations", 20, s => Locale().IsMatch(s)),
+            ("optionalDeps", 20, s => s.Length <= 100 && Folder().IsMatch(s)),
+        })
+        {
+            var items = (t[key] as JsonArray ?? []).Select(i => Json.Str(i)).ToList();
+            if (items.Count >= 1 && items.Count <= max && items.All(i => i is not null && ok(i)))
+            {
+                toc[key] = new JsonArray(items.Distinct(StringComparer.Ordinal).Select(i => (JsonNode)JsonValue.Create(i)!).ToArray());
+            }
+        }
+        return toc.Count > 0 ? toc : null;
+    }
 
     /// <summary>An entry's CurseForge and Wago sources: type to project (the project ID, or the slug).</summary>
     public static Dictionary<string, string> SiteSources(JsonObject entry)
@@ -310,11 +363,16 @@ static partial class Check
         {
             return (null, $"{addon}: bad count, networks or dates");
         }
-        return (new JsonObject
+        var row = new JsonObject
         {
             ["addon"] = addon, ["source"] = source, ["edition"] = edition, ["version"] = version, ["sha256"] = sha,
             ["count"] = count, ["networks"] = networks.Networks, ["firstSeen"] = Stamp(first.Value), ["lastSeen"] = Stamp(last.Value),
-        }, null);
+        };
+        if (Toc(r["toc"]) is { } toc)
+        {
+            row["toc"] = toc;
+        }
+        return (row, null);
     }
 
     /// <summary>A suggestion as the store keeps it, or why it's refused.</summary>
@@ -632,8 +690,14 @@ static class Proposer
         : $"https://addons.wago.io/addons/{project}";
 
     /// <summary>Only checked fields: IDs and names from the catalog, versions and hashes that passed their patterns, counts and dates.</summary>
-    public static JsonObject Facts(List<Proposal> proposals) => new()
+    public static JsonObject Facts(List<Proposal> proposals, List<TocUpdates.Update>? updates = null, List<TocUpdates.Note>? notes = null) => new()
     {
+        ["updates"] = new JsonArray((updates ?? []).Select(u => (JsonNode)new JsonObject
+        {
+            ["id"] = u.Id, ["name"] = u.Name, ["change"] = u.Change, ["reports"] = u.Reports, ["players"] = u.Players,
+            ["flags"] = new JsonArray(u.Flags.Select(f => (JsonNode)JsonValue.Create(f)!).ToArray()),
+        }).ToArray()),
+        ["notProposed"] = new JsonArray((notes ?? []).Select(n => (JsonNode)new JsonObject { ["id"] = n.Id, ["name"] = n.Name, ["note"] = n.Text }).ToArray()),
         ["proposals"] = new JsonArray(proposals.Select(p => (JsonNode)new JsonObject
         {
             ["id"] = p.Id, ["name"] = p.Name, ["source"] = p.Source, ["page"] = Page(p.Source, p.Project), ["edition"] = p.Edition,
@@ -644,7 +708,7 @@ static class Proposer
     };
 
     /// <summary>The pull request's text: what to check, the proposals, and the suggestions waiting.</summary>
-    public static string Body(List<Proposal> proposals, Store store)
+    public static string Body(List<Proposal> proposals, Store store, List<TocUpdates.Update>? updates = null, List<TocUpdates.Note>? notes = null)
     {
         var b = new StringBuilder();
         b.AppendLine("Players reported these versions of CurseForge and Wago add-ons through the app. Merging this pull request confirms them in `confirmed.json`, and the next catalog build copies them into `catalog.json`. Nothing is confirmed until it's merged.");
@@ -663,6 +727,29 @@ static class Proposer
             {
                 var before = p.Previous is null ? "new" : $"{Cell(Json.Str(p.Previous["version"]) ?? "")} ({Json.Str(p.Previous["date"])})";
                 b.AppendLine($"| {Cell(p.Name)} (`{p.Id}`) | [{p.Source}]({Page(p.Source, p.Project)}) | {p.Edition} | `{p.Version}` | `{p.Sha256[..12]}…` | {ReportsText(p.Reports, p.Networks)} | {p.LastSeen[..10]} | {before} | {Cell(string.Join("; ", p.Flags))} |");
+            }
+        }
+        if (updates is { Count: > 0 })
+        {
+            b.AppendLine();
+            b.AppendLine("### Updates to add-ons listed by hand");
+            b.AppendLine();
+            b.AppendLine("From the `.toc` files players' downloads carry. Merging adds them to the add-on's file in `overrides/`; nothing already there is replaced. Check each against the add-on's page.");
+            b.AppendLine();
+            b.AppendLine("| Add-on | Adds | Reports | Check |");
+            b.AppendLine("|---|---|---|---|");
+            foreach (var u in updates)
+            {
+                b.AppendLine($"| {Cell(u.Name)} (`{u.Id}`) | {Cell(u.Change)} | {ReportsText(u.Reports, u.Players)} | {Cell(string.Join("; ", u.Flags))} |");
+            }
+        }
+        if (notes is { Count: > 0 })
+        {
+            b.AppendLine();
+            b.AppendLine("Not proposed, since an entry can't hold it:");
+            foreach (var n in notes)
+            {
+                b.AppendLine($"- {Cell(n.Name)} (`{n.Id}`): {Cell(n.Text)}");
             }
         }
         if (store.Suggestions.Count > 0)
@@ -697,6 +784,140 @@ static class Proposer
             b.Append(c is '\r' or '\n' ? ' ' : c);
         }
         return b.ToString();
+    }
+}
+
+/// <summary>
+/// What players' .toc details add to an add-on listed by hand (an override with no repo): editions whose current
+/// Interface the .toc names, locales, optional add-ons the catalog lists, and the author's Notes as the summary when there
+/// is none. Only adds, never replaces. From the version the most players reported, newest .toc first.
+/// </summary>
+static class TocUpdates
+{
+    public sealed record Update(string Id, string Name, string Change, long Reports, long? Players, List<string> Flags);
+    public sealed record Note(string Id, string Name, string Text);
+
+    static readonly string[] Locales = ["enUS", "deDE", "esES", "esMX", "frFR", "itIT", "koKR", "ptBR", "ruRU", "zhCN", "zhTW"];
+
+    public static (List<Update> Updates, List<Note> Notes, Dictionary<string, JsonObject> Changed) Propose(
+        JsonObject catalog, IReadOnlyDictionary<string, JsonObject> overrides, Store store)
+    {
+        var updates = new List<Update>();
+        var notes = new List<Note>();
+        var changed = new Dictionary<string, JsonObject>(StringComparer.Ordinal);
+        var addons = (catalog["addons"]?.AsArray() ?? []).OfType<JsonObject>().ToList();
+        var editions = catalog["editions"]?.AsObject() ?? new JsonObject();
+        foreach (var group in store.Reports.Values.Where(r => r["toc"] is JsonObject).GroupBy(r => Json.Str(r["addon"])!, StringComparer.Ordinal)
+            .OrderBy(g => g.Key, StringComparer.Ordinal))
+        {
+            var id = group.Key;
+            var entry = addons.FirstOrDefault(a => Json.Str(a["id"]) == id);
+            if (entry is null || !overrides.TryGetValue(id, out var original) || original["repo"] is not null)
+            {
+                continue; // a GitHub add-on's .toc comes from its checked release
+            }
+            var name = Json.Str(entry["name"]) ?? id;
+            var versions = group.GroupBy(r => Json.Str(r["version"])!, StringComparer.Ordinal)
+                .Select(v => (Rows: v.ToList(), Players: Proposer.Networks(v), Reports: v.Sum(r => (long)r["count"]!), Last: v.Max(r => Json.Str(r["lastSeen"])!)!))
+                .OrderByDescending(v => v.Players ?? 0).ThenByDescending(v => v.Reports).ThenByDescending(v => v.Last, StringComparer.Ordinal).ToList();
+            var pick = versions[0];
+            var toc = pick.Rows.OrderByDescending(r => Json.Str(r["lastSeen"]), StringComparer.Ordinal).First()["toc"]!.AsObject();
+            var flags = new List<string>();
+            if (pick.Players == 1)
+            {
+                flags.Add("one player only (estimated)");
+            }
+            var tocs = group.Select(r => r["toc"]!.ToJsonString()).Distinct(StringComparer.Ordinal).Count();
+            if (tocs > 1)
+            {
+                flags.Add($"players' .toc files disagree ({tocs} different); the version most players reported is used");
+            }
+            var updated = original.DeepClone().AsObject();
+            void Add(string change) => updates.Add(new(id, name, change, pick.Reports, pick.Players, flags));
+
+            // Editions whose current Interface the .toc names.
+            var interfaces = (toc["interface"]?.AsArray() ?? []).Select(i => Json.Str(i)).ToHashSet(StringComparer.Ordinal);
+            var listed = updated["editions"] as JsonObject;
+            var newEditions = editions.Where(e => interfaces.Contains(Json.Str(e.Value?["interface"]) ?? "") && listed?[e.Key] is null)
+                .Select(e => (Id: e.Key, Interface: Json.Str(e.Value!["interface"])!)).ToList();
+            if (newEditions.Count > 0)
+            {
+                listed ??= (JsonObject)(updated["editions"] = new JsonObject());
+                foreach (var (edition, iface) in newEditions)
+                {
+                    listed[edition] = new JsonObject { ["interface"] = iface };
+                }
+                Add("editions: " + string.Join(", ", newEditions.Select(e => $"{e.Id} ({e.Interface})")));
+            }
+
+            // Locales the catalog knows (enGB is enUS), added to what's there.
+            var have = (updated["languages"]?.AsArray() ?? []).Select(l => Json.Str(l)).ToList();
+            var newLocales = (toc["localizations"]?.AsArray() ?? []).Select(l => Json.Str(l) == "enGB" ? "enUS" : Json.Str(l))
+                .Where(l => l is not null && Locales.Contains(l) && !have.Contains(l)).Distinct().Select(l => l!).ToList();
+            if (newLocales.Count > 0)
+            {
+                updated["languages"] = new JsonArray(have.Concat(newLocales).Select(l => (JsonNode)JsonValue.Create(l)!).ToArray());
+                Add("languages: " + string.Join(", ", newLocales));
+            }
+
+            // Optional add-ons: the catalog entry that installs that folder, else only named.
+            var optional = (updated["optional"]?.AsArray() ?? []).Select(o => Json.Str(o)).ToList();
+            var newOptional = new List<string>();
+            foreach (var folder in (toc["optionalDeps"]?.AsArray() ?? []).Select(d => Json.Str(d)!))
+            {
+                var other = addons.FirstOrDefault(a => Json.Str(a["id"]) != id
+                    && (a["folders"]?.AsArray() ?? []).Any(f => string.Equals(Json.Str(f), folder, StringComparison.OrdinalIgnoreCase)));
+                if (other is null)
+                {
+                    notes.Add(new(id, name, $"optional add-on {folder} isn't in the catalog"));
+                }
+                else if (Json.Str(other["id"]) is { } otherId && !optional.Contains(otherId) && !newOptional.Contains(otherId))
+                {
+                    newOptional.Add(otherId);
+                }
+            }
+            if (newOptional.Count > 0)
+            {
+                updated["optional"] = new JsonArray(optional.Concat(newOptional).Select(o => (JsonNode)JsonValue.Create(o)!).ToArray());
+                Add("optional: " + string.Join(", ", newOptional));
+            }
+
+            // The author's Notes, only when the entry has no summary.
+            if (updated["summary"] is null && Json.Str(toc["notes"]) is { } notesText)
+            {
+                updated["summary"] = Summary(notesText);
+                Add($"summary: {Json.Str(updated["summary"])}");
+            }
+
+            // Authors an entry can't hold: it has one author ID.
+            var authorId = Json.Str(updated["author"]) ?? Json.Str(entry["author"]);
+            var known = new[] { authorId, Json.Str(catalog["authors"]?[authorId ?? ""]?["name"]) }.Where(a => a is not null).ToList();
+            foreach (var author in Regex.Split(Json.Str(toc["author"]) ?? "", @"\s*(?:,|&|and)\s*").Select(a => a.Trim()).Where(a => a.Length > 0))
+            {
+                if (!known.Any(k => string.Equals(k, author, StringComparison.OrdinalIgnoreCase)))
+                {
+                    notes.Add(new(id, name, $"the .toc also names {author} as an author; an entry has one author"));
+                }
+            }
+
+            if (!JsonNode.DeepEquals(updated, original))
+            {
+                changed[id] = updated;
+            }
+        }
+        return (updates, notes, changed);
+    }
+
+    /// <summary>Cut at a word to about 120 characters, as the generator cuts a summary.</summary>
+    public static string Summary(string text)
+    {
+        text = Regex.Replace(text, @"\s+", " ").Trim();
+        if (text.Length <= 120)
+        {
+            return text;
+        }
+        var cut = text.LastIndexOf(' ', 120);
+        return (cut > 60 ? text[..cut] : text[..120]).TrimEnd(',', ';', ':', ' ') + "…";
     }
 }
 
@@ -826,6 +1047,58 @@ static class Tests
         var facts = Proposer.Facts(proposals);
         Expect("facts: only checked fields", facts["proposals"]!.AsArray().All(p => p!.AsObject().Select(k => k.Key)
             .SequenceEqual(["id", "name", "source", "page", "edition", "version", "sha256", "reports", "players", "firstSeen", "lastSeen", "previous", "flags"])));
+
+        // .toc details on reports, and what they add to add-ons listed by hand.
+        var tocReport = Report(20, "354", A, 2, "2026-11-22T00:00:00Z").With("networks", 2L).With("toc", Obj("""
+            {"title":"Auctionator","author":"plusmouse, Borjamacare","notes":"Buy and sell <fast>","category":"Auction/Economy",
+             "interface":["16001","120105","38000"],"localizations":["enUS","deDE","enGB","xxXX"],"optionalDeps":["LibAHTab","OnlyGitAddon"],"extra":"x"}
+            """));
+        var keptToc = Check.Report(tocReport, catalog).Row?["toc"]?.AsObject();
+        Expect("toc: good fields kept, a bad one and unknown ones left out", keptToc is not null && keptToc["notes"] is null && keptToc["extra"] is null
+            && keptToc["interface"]!.AsArray().Count == 3 && keptToc["localizations"]!.AsArray().Count == 4 && Json.Str(keptToc["author"]) == "plusmouse, Borjamacare");
+        Expect("toc: a bad list is left out whole", Check.Toc(Obj("""{"interface":["1601"],"title":"T"}"""))?["interface"] is null
+            && Check.Toc(Obj("""{"interface":"16001"}""")) is null && Check.Toc(null) is null);
+        var tocCatalog = Obj("""
+            {"editions":{"forever":{"interface":"16001"},"retail":{"interface":"120105"},"retail_ptr":{"interface":"120107"}},
+             "authors":{"plusmouse":{"name":"plusmouse"}},
+             "addons":[
+              {"id":"auctionator","name":"Auctionator","author":"plusmouse","editions":{"forever":{}},"sources":[{"type":"curseforge","projectId":12}]},
+              {"id":"onlygit","name":"Only Git","folders":["OnlyGitAddon"],"editions":{"forever":{}},"sources":[{"type":"github","repo":"o/g"}]}]}
+            """);
+        var tocOverrides = new Dictionary<string, JsonObject>(StringComparer.Ordinal)
+        {
+            ["auctionator"] = Obj("""{"name":"Auctionator","summary":"Kept as written.","author":"plusmouse","languages":["enUS"],"editions":{"forever":{"interface":"16001"}}}"""),
+            ["onlygit"] = Obj("""{"repo":"o/g"}"""),
+        };
+        var tocStore = Store.From(null);
+        tocStore.Merge(new JsonObject { ["asOf"] = "2026-11-28T10:00:00.000Z", ["reports"] = new JsonArray(tocReport.DeepClone(),
+            Report(21, "1", A, 1, "2026-11-22T00:00:00Z", addon: "onlygit").With("toc", Obj("""{"interface":["120105"]}"""))) }, tocCatalog);
+        var (tocUpdates, tocNotes, tocChanged) = TocUpdates.Propose(tocCatalog, tocOverrides, tocStore);
+        var newAuctionator = tocChanged.GetValueOrDefault("auctionator");
+        Expect("toc updates: a new edition, languages and an optional add-on the catalog lists", newAuctionator is not null
+            && newAuctionator["editions"]!["retail"]!["interface"]!.GetValue<string>() == "120105" && newAuctionator["editions"]!["retail_ptr"] is null
+            && newAuctionator["languages"]!.AsArray().Select(l => (string)l!).SequenceEqual(["enUS", "deDE"])
+            && newAuctionator["optional"]!.AsArray().Select(o => (string)o!).SequenceEqual(["onlygit"]));
+        Expect("toc updates: what's written is never replaced", Json.Str(newAuctionator?["summary"]) == "Kept as written."
+            && tocOverrides["auctionator"]["editions"]!.AsObject().Count == 1);
+        Expect("toc updates: what an entry can't hold is named, not proposed", tocNotes.Any(n => n.Text.Contains("Borjamacare", StringComparison.Ordinal))
+            && tocNotes.Any(n => n.Text.Contains("LibAHTab", StringComparison.Ordinal)) && !tocNotes.Any(n => n.Text.Contains("plusmouse as", StringComparison.Ordinal)));
+        Expect("toc updates: an add-on released on GitHub is left alone", !tocChanged.ContainsKey("onlygit") && tocUpdates.All(u => u.Id == "auctionator"));
+        Expect("toc updates: each shows its reports and players", tocUpdates.Count == 3 && tocUpdates.All(u => u.Reports == 2 && u.Players == 2 && u.Flags.Count == 0));
+        var tocBody = Proposer.Body([], tocStore, tocUpdates, tocNotes);
+        Expect("toc updates: their own table and the notes in the text", tocBody.Contains("### Updates to add-ons listed by hand", StringComparison.Ordinal)
+            && tocBody.Contains("2 reports from about 2 players", StringComparison.Ordinal) && tocBody.Contains("Borjamacare", StringComparison.Ordinal));
+        Expect("toc updates: in the facts", Proposer.Facts([], tocUpdates, tocNotes)["updates"]!.AsArray().Count == 3);
+        // Disagreeing .toc files: the version most players reported wins, and it's flagged.
+        tocStore.Merge(new JsonObject { ["asOf"] = "2026-11-28T11:00:00.000Z", ["reports"] = new JsonArray(
+            Report(22, "353", A, 5, "2026-11-23T00:00:00Z").With("networks", 1L).With("toc", Obj("""{"interface":["120107"]}"""))) }, tocCatalog);
+        var (disagreeing, _, disagreeChanged) = TocUpdates.Propose(tocCatalog, tocOverrides, tocStore);
+        Expect("toc updates: disagreeing reports use the version most players reported, flagged",
+            disagreeChanged["auctionator"]["editions"]!["retail_ptr"] is null && disagreeChanged["auctionator"]["editions"]!["retail"] is not null
+            && disagreeing.All(u => u.Flags.Any(f => f.Contains("disagree", StringComparison.Ordinal))));
+        Expect("toc updates: nothing when the override has it all", TocUpdates.Propose(tocCatalog,
+            new Dictionary<string, JsonObject>(StringComparer.Ordinal) { ["auctionator"] = disagreeChanged["auctionator"], ["onlygit"] = tocOverrides["onlygit"] }, tocStore).Changed.Count == 0);
+        Expect("summary: cut at a word", TocUpdates.Summary(string.Join(" ", Enumerable.Repeat("word", 40))).Length <= 121);
 
         // Networks, added up per version.
         var counted = Store.From(null);
