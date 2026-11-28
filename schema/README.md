@@ -129,7 +129,7 @@ One file per listed add-on released on GitHub, written by `scripts/details.cs`, 
 |---|---|
 | `schemaVersion` | Always `1`. |
 | `id`, `repo` | The catalog ID (the file's name) and the repo it was read from. |
-| `about` | The README, as Markdown. `aboutTruncated` is `true` when it was cut at the size cap. |
+| `about` | The README, as Markdown. An add-on that shares its repo with other listed add-ons gets the README in its own folder, or the root one only when its title is the add-on's name; otherwise there is no `about`. `aboutTruncated` is `true` when it was cut at the size cap. |
 | `releases` | The five latest stable releases, newest first: `tag`, `name` (when it isn't the tag), `published` (UTC day), `notes` (Markdown; `truncated` when cut). |
 | `changelog` | The repo's CHANGELOG, as Markdown, only when no release has notes (`changelogTruncated` when cut). |
 | `screenshots` | Up to 12 images on GitHub (`raw.githubusercontent.com`, `user-images.githubusercontent.com`, `github.com/user-attachments/assets`), from the README and a `screenshots` folder. Linked, never copied. |
