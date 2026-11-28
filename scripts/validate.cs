@@ -722,13 +722,7 @@ static class SelfTest
                 Console.WriteLine($"FAIL bump/{name}  got " + (problems.Count == 0 ? "no problems" : string.Join("; ", problems.Select(p => p.Code))));
             }
         }
-        var formProblem = IssueFormTags.Compare(Path.GetFullPath(Path.Combine(dir, "..", "..")));
-        if (formProblem is not null)
-        {
-            failures++;
-            Console.WriteLine($"FAIL issue-form-tags  {formProblem}");
-        }
-        var total = cases.Count + bumpCases.Count + 1;
+        var total = cases.Count + bumpCases.Count;
         Console.WriteLine($"{total - failures}/{total} cases passed.");
         return failures == 0 && cases.Count > 0 ? 0 : 1;
     }
@@ -756,62 +750,6 @@ static class SelfTest
             }
         }
         return null;
-    }
-}
-
-/// <summary>
-/// The "Add an add-on" form's Tags dropdown must offer exactly the schema's tags, in the same order. Each option reads
-/// "&lt;tag&gt;: &lt;what it's for&gt;".
-/// </summary>
-static class IssueFormTags
-{
-    /// <summary>Null when they match, else what's wrong.</summary>
-    public static string? Compare(string repoRoot)
-    {
-        var schemaPath = Path.Combine(repoRoot, "schema", "catalog.schema.json");
-        var formPath = Path.Combine(repoRoot, ".github", "ISSUE_TEMPLATE", "addon.yml");
-        if (!File.Exists(schemaPath) || !File.Exists(formPath))
-        {
-            return $"needs {schemaPath} and {formPath}";
-        }
-        var schemaTags = (JsonNode.Parse(File.ReadAllText(schemaPath))?["$defs"]?["tag"]?["enum"]?.AsArray() ?? [])
-            .Select(t => (string)t!).ToList();
-        var formTags = FormOptions(File.ReadAllLines(formPath)).Select(o => o.Split(':')[0].Trim()).ToList();
-        return schemaTags.Count > 0 && schemaTags.SequenceEqual(formTags)
-            ? null
-            : $"the schema has [{string.Join(", ", schemaTags)}] but the form offers [{string.Join(", ", formTags)}]";
-    }
-
-    /// <summary>The option lines of the dropdown whose id is "tags", without their quotes.</summary>
-    static IEnumerable<string> FormOptions(string[] lines)
-    {
-        var inTags = false;
-        var inOptions = false;
-        foreach (var line in lines)
-        {
-            var text = line.Trim();
-            if (text.StartsWith("- type:", StringComparison.Ordinal))
-            {
-                inTags = false;
-                inOptions = false;
-            }
-            else if (text == "id: tags")
-            {
-                inTags = true;
-            }
-            else if (inTags && text == "options:")
-            {
-                inOptions = true;
-            }
-            else if (inOptions && text.StartsWith("- ", StringComparison.Ordinal))
-            {
-                yield return text[2..].Trim().Trim('"');
-            }
-            else if (inOptions && text.Length > 0)
-            {
-                inOptions = false;
-            }
-        }
     }
 }
 

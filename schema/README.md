@@ -235,7 +235,7 @@ Cross-references count too: the `.toc`'s CurseForge, Wago and WoWInterface pages
 | `quests` | Quests, objectives and quest givers. |
 | `ui` | The game's own interface: moving, hiding and arranging its windows, bars and buttons. |
 
-Adding a tag is a schema change, made in a PR with the app's icon for it. The [Add an add-on](../.github/ISSUE_TEMPLATE/addon.yml) form offers the same list; the validator's self-test checks that the two match.
+Adding a tag is a schema change, made in a PR with the app's icon for it.
 
 ## Sources
 | `type` | Fields |

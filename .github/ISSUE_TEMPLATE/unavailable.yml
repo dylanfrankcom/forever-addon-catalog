@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks! This records an add-on that can't be listed yet, and what would make it possible. If you're not sure it can't be listed, use the "Add an add-on" form instead: it gets checked either way.
+        Thanks! This records an add-on that can't be listed yet, and what would make it possible. If you're not sure it can't be listed, ask for it from Forever Add-on Manager (Help the catalog) instead: it gets checked either way.
   - type: textarea
     id: addon
     attributes:

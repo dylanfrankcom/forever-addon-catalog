@@ -22,7 +22,7 @@ You don't need anything from this repository: [Forever Add-on Manager](https://g
 - **Signs you can trust an add-on.** Each entry notes whether the add-on's own repository built its release (GitHub's build record), how long the repository and its author's account have been around, and any warning signs. A warning sign doesn't keep an add-on out; the app takes more care with it instead.
 - **Ways to support the author.** Support links come only from the author's own repositories and are checked before they're listed. The catalog takes no money itself.
 
-**Missing an add-on?** Ask for it with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form.
+**Missing an add-on?** Ask for it from the app's **Help the catalog** page: see [Asking for an add-on](CONTRIBUTING.md#asking-for-an-add-on).
 
 **Version reports.** For add-ons from CurseForge or Wago, the app can, if you agree, report the version you downloaded so the catalog can confirm it. Nothing about you or your PC is sent: see [what's sent and how reports are confirmed](CONTRIBUTING.md#version-reports-from-the-app).
 
@@ -71,7 +71,7 @@ Nobody writes entries by hand. Four scripts build the catalog, each with its own
 Every change is checked by the validator on its pull request. Versions players report for CurseForge and Wago add-ons are confirmed through pull requests: the clear cases by the catalog's rules and a review by Claude, the rest by the maintainer ([`confirmed.json`](confirmed.json), see [CONTRIBUTING.md](CONTRIBUTING.md#version-reports-from-the-app)).
 
 ## Contributing
-- **Ask for an add-on** with the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. It's for add-ons that were missed, and for those only on CurseForge or Wago.
+- **Ask for an add-on** from the app's **Help the catalog** page, for add-ons that were missed and for those only on CurseForge or Wago. There's no issue form for it: see [CONTRIBUTING.md](CONTRIBUTING.md#asking-for-an-add-on).
 - **Questions** are welcome as issues, with the Question form.
 - **Add-ons that can't be listed**, for example because their only source turned off downloads by other apps, are recorded as [`unavailable`](https://github.com/dylanfrankcom/forever-addon-catalog/issues?q=label%3Aunavailable) issues, each saying what would make it possible.
 - **Pull requests from outside the project aren't accepted:** see [CONTRIBUTING.md](CONTRIBUTING.md).
