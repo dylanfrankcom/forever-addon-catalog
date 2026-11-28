@@ -3,7 +3,7 @@ name: discover
 # Finds add-ons for every edition on public GitHub repos (scripts/discover.cs) and keeps the result, candidates.json, on
 # the `checker` branch, where the release check reads it. It never touches main and lists nothing by itself.
 # Three times a day, or by hand (Actions -> discover -> Run workflow). Code search allows 10 requests a minute, so searching every
-# edition takes longer than one run: each run searches for an hour, the Interface searched longest ago first, and the
+# edition can take longer than one run: each run searches for up to three hours, the Interface searched longest ago first, and the
 # next run carries on (candidates.json keeps when each was last searched in full). "no search" only reads the known
 # repos again.
 
@@ -50,7 +50,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           SEARCH: ${{ github.event_name == 'schedule' || inputs.search }}
         run: |
-          set -- --out data/candidates.json --summary "$GITHUB_STEP_SUMMARY" --search-minutes 60
+          set -- --out data/candidates.json --summary "$GITHUB_STEP_SUMMARY" --search-minutes 180
           if [ "$SEARCH" != "true" ]; then set -- "$@" --no-search; fi
           dotnet run scripts/discover.cs -- "$@"
       - name: Check the site links
