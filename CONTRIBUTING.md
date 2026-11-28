@@ -25,7 +25,7 @@ on players. With the player's permission, Forever Add-on Manager can report the 
 suggest an add-on the catalog doesn't list, without a GitHub account. Reports go to a small relay, which checks and counts them and
 keeps them until the catalog collects them. The relay never writes to GitHub.
 
-**Privacy:**
+### Privacy
 - **What's sent:** for a version report, the add-on's catalog ID, the source (CurseForge or Wago), the game edition, the version
   from the add-on's `.toc` file and the SHA-256 of the downloaded zip. For a suggestion, the source and project ID, the edition, the
   add-on's name and folder names, and its `.toc` title, version, interface numbers and author. The app asks before sending anything
@@ -50,8 +50,9 @@ keeps them until the catalog collects them. The relay never writes to GitHub.
 A workflow that runs every 10 minutes ([`reports.yml`](.github/workflows/reports.yml), [`scripts/reports.cs`](scripts/README.md#reportscs)) collects
 them, checks every field again and keeps the good ones. For each add-on, source and edition it proposes the version reported most
 recently, with its most-reported hash, in one pull request that changes only [`confirmed.json`](confirmed.json). The pull request
-shows how many networks each version was reported from, and flags anything to look at first: hashes that disagree, several
-versions, a single report, several reports all from one network, or a version confirmed before with another hash. **Nothing is confirmed until the maintainer has checked it on the add-on's page and merged the pull request.** The next catalog
+shows about how many players reported each version (estimated from the networks the reports came from), and flags anything to
+look at first: hashes that disagree, several versions, a single report, several reports that seem to come from one player, or a
+version confirmed before with another hash. **Nothing is confirmed until the maintainer has checked it on the add-on's page and merged the pull request.** The next catalog
 build then copies it into the add-on's source in `catalog.json` (`confirmed`). Suggestions are kept for the maintainer and aren't
 listed by this workflow.
 
