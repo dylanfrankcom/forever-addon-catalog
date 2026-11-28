@@ -3,7 +3,8 @@ name: check
 # Checks the latest release of each add-on discovery found (scripts/check.cs) and keeps the result, checks.json, on the
 # `checker` branch beside candidates.json. Then it generates catalog.json, versions.json and icons/ (scripts/generate.cs),
 # validates them, and commits them to main only when they changed and passed: a failed or broken run changes nothing, so
-# the last good files stay published. (main must accept pushes from this workflow.)
+# the last good files stay published. It pushes to main with the deploy key in the CATALOG_DEPLOY_KEY secret: main
+# takes changes only by pull request, and that key is the rule's one exception (see the README's "For the maintainer").
 # Every hour, so a release held back for its first 6 hours is checked soon after, or by hand
 # (Actions -> check -> Run workflow). It has its own concurrency group, so a long discovery run never holds it up: the
 # workflows write different files on `checker`, and a refused push is rebased and tried again (.github/push-checker.sh).
@@ -42,6 +43,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # The deploy key, so "Publish them" can push to main past its pull-request rule.
+          ssh-key: ${{ secrets.CATALOG_DEPLOY_KEY }}
           # The whole history, without file contents, so the last step can tell which inputs changed since the last build.
           fetch-depth: 0
           filter: blob:none
@@ -98,6 +101,8 @@ jobs:
             echo "The catalog and versions.json are unchanged." >> "$GITHUB_STEP_SUMMARY"
           else
             git commit -q -m "Catalog $(jq -r .version catalog.json), versions $(date -u +%Y-%m-%dT%H:%MZ)"
+            # A push made with the deploy key starts other workflows (the default token's doesn't), but no workflow
+            # runs on a push to main: validate runs on pull requests, the rest on a schedule or by hand.
             git push origin HEAD:main
           fi
       - name: Record the build
