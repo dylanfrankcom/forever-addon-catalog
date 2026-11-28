@@ -1,0 +1,8 @@
+{
+  "newVersion": { "players": 3, "providers": 2, "days": 1 },
+  "tocDetails": { "players": 3, "providers": 2, "days": 1 },
+  "newAddon": { "players": 5, "providers": 3, "days": 3 },
+  "checksumShare": 0.9,
+  "dailyCap": 20,
+  "burst": { "reports": 20, "players": 2 }
+}

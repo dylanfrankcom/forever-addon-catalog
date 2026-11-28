@@ -1,9 +1,18 @@
 name: reports
 
 # Collects players' version reports and add-on suggestions from the relay (scripts/reports.cs), keeps them on the
-# `checker` branch (relay.json), and opens or updates one pull request, from the `reports/confirm` branch, that proposes
-# the reported versions in confirmed.json, and what players' .toc details add to add-ons listed by hand (overrides/).
-# Nothing is confirmed until the maintainer merges it; the next catalog build then copies them into catalog.json. Every 10 minutes, or by hand (Actions -> reports -> Run workflow). A run whose
+# `checker` branch (relay.json), and proposes the reported versions for confirmed.json, and what players' .toc details
+# add to add-ons listed by hand (overrides/). Each proposal is decided against the thresholds in rules.json: what they
+# settle is merged automatically, through a pull request from `reports/auto` that a guard limits to confirmed.json and
+# additions to overrides/; what they leave open is reviewed by Claude (Sonnet, from the checked facts only, answering
+# merge, wait or ask-human); the rest goes into one pull request from `reports/confirm` for the maintainer, who confirms
+# anything there by merging it (a brand-new add-on from one player, say). The next catalog build copies what's merged
+# into catalog.json.
+#
+# Automatic merging happens only while the AUTO_MERGE repository variable is "on", never while an issue labelled
+# auto-merge-paused is open (an anomaly opens one: a confirmed version reported with another checksum, a version going
+# backwards, a burst), and at most rules.json's dailyCap items a day. Without ANTHROPIC_API_KEY, what needs a review goes
+# to the maintainer. Every 10 minutes, or by hand (Actions -> reports -> Run workflow). A run whose
 # proposal is the open pull request's already changes nothing there, and the relay stores the index only when it changed.
 #
 # It has its own concurrency group: in a shared one, a pending run every 10 minutes would cancel the check workflow's
@@ -25,6 +34,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 
 concurrency:
   group: relay-reports
@@ -93,10 +103,114 @@ jobs:
       - name: Propose versions to confirm
         if: steps.setup.outputs.ready == 'true'
         id: propose
+        run: |
+          dotnet run scripts/reports.cs -- propose --store data/relay.json --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          if git diff --quiet -- confirmed.json overrides; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          git checkout -- confirmed.json overrides
+          cd data
+          git add relay.json
+          if ! git diff --cached --quiet; then
+            git commit -q -m "Relay reports pruned $(date -u +%Y-%m-%dT%H:%MZ)"
+            bash ../.github/push-checker.sh
+          fi
+      # The rules' verdicts are in facts.json. Claude reviews what they leave open, only when the facts changed since its
+      # last review (kept in review.json on checker), so an unchanged proposal isn't asked about every 10 minutes.
+      - name: Decide
+        if: steps.propose.outputs.changed == 'true'
+        id: decide
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AUTO_MERGE: ${{ vars.AUTO_MERGE }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          facts=$(sha256sum "$RUNNER_TEMP/facts.json" | cut -c1-64)
+          if [ -f data/review.json ] && [ "$(jq -r .facts data/review.json)" = "$facts" ]; then
+            jq .answers data/review.json > "$RUNNER_TEMP/answers.json"
+            echo "The facts are unchanged since Claude's last review: its answers are reused."
+          else
+            dotnet run scripts/reports.cs -- review --facts "$RUNNER_TEMP/facts.json" --answers "$RUNNER_TEMP/answers.json" | tee -a "$GITHUB_STEP_SUMMARY"
+            jq -n --arg facts "$facts" --slurpfile answers "$RUNNER_TEMP/answers.json" '{facts: $facts, answers: $answers[0]}' > data/review.json
+            (cd data && git add review.json && { git diff --cached --quiet || { git commit -q -m "Review $(date -u +%Y-%m-%dT%H:%MZ)" && bash ../.github/push-checker.sh; }; })
+          fi
+          # The switch (the AUTO_MERGE variable must be "on"), the pause (an open auto-merge-paused issue) and today's merges.
+          auto=off
+          if [ "$AUTO_MERGE" = "on" ]; then auto=on; fi
+          paused=()
+          if [ -n "$(gh issue list --label auto-merge-paused --state open --json number --jq '.[0].number // empty')" ]; then paused=(--paused); fi
+          merged=$(gh pr list --state merged --search "head:reports/auto merged:>=$(date -u +%Y-%m-%d)" --json body \
+            --jq '[.[].body | capture("<!-- auto-items: (?<n>[0-9]+) -->").n | tonumber] | add // 0')
+          dotnet run scripts/reports.cs -- decide --facts "$RUNNER_TEMP/facts.json" --answers "$RUNNER_TEMP/answers.json" \
+            --decision "$RUNNER_TEMP/decision.json" --body "$RUNNER_TEMP/decision.md" --auto "$auto" "${paused[@]}" --merged-today "$merged" | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "merge=$(jq '.merge | length' "$RUNNER_TEMP/decision.json")" >> "$GITHUB_OUTPUT"
+          echo "human=$(jq '.human | length' "$RUNNER_TEMP/decision.json")" >> "$GITHUB_OUTPUT"
+          echo "trip=$(jq '.trip | length' "$RUNNER_TEMP/decision.json")" >> "$GITHUB_OUTPUT"
+      # An anomaly pauses automatic merging until the maintainer closes the issue.
+      - name: Pause automatic merging
+        if: steps.decide.outputs.trip != '' && steps.decide.outputs.trip != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          if [ -z "$(gh issue list --label auto-merge-paused --state open --json number --jq '.[0].number // empty')" ]; then
+            gh label create auto-merge-paused --color B60205 --description "Automatic merging of reports is paused" --force
+            {
+              echo "@$OWNER: the reports workflow found something unusual, so automatic merging is paused until this issue is closed. Nothing was merged for these:"
+              echo
+              jq -r '.trip[] | "- " + .' "$RUNNER_TEMP/decision.json" | sed 's/[][<>`|@]/ /g'
+              echo
+              echo "The confirmation pull request lists them. Close this issue to let automatic merging go on."
+            } > "$RUNNER_TEMP/paused.md"
+            gh issue create --title "Automatic merging paused" --label auto-merge-paused --body-file "$RUNNER_TEMP/paused.md"
+          fi
+      # Only data, only what the decision merged: guard refuses anything else before the pull request is merged.
+      - name: Merge what's decided
+        if: steps.decide.outputs.merge != '' && steps.decide.outputs.merge != '0'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          dotnet run scripts/reports.cs -- propose --store data/relay.json --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          dotnet run scripts/reports.cs -- propose --store data/relay.json --only "$RUNNER_TEMP/decision.json" --body "$RUNNER_TEMP/auto.md" --facts "$RUNNER_TEMP/auto-facts.json"
+          dotnet run scripts/validate.cs -- confirmed.json
+          for f in $(git diff --name-only -- overrides); do dotnet run scripts/validate.cs -- "$f"; done
+          git switch -c reports/auto
+          git add confirmed.json overrides
+          git commit -q -m "Confirm versions players reported, decided automatically"
+          git diff --name-only origin/main HEAD > "$RUNNER_TEMP/changed.txt"
+          mkdir -p "$RUNNER_TEMP/base"
+          while read -r f; do
+            mkdir -p "$RUNNER_TEMP/base/$(dirname "$f")"
+            git show "origin/main:$f" > "$RUNNER_TEMP/base/$f" 2>/dev/null || rm -f "$RUNNER_TEMP/base/$f"
+          done < "$RUNNER_TEMP/changed.txt"
+          dotnet run scripts/reports.cs -- guard --changed "$RUNNER_TEMP/changed.txt" --base "$RUNNER_TEMP/base" --decision "$RUNNER_TEMP/decision.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          {
+            echo "Merged automatically: the thresholds in \`rules.json\` (and, where they left it open, Claude's review) decided these. Revert this pull request to undo them."
+            echo
+            cat "$RUNNER_TEMP/decision.md"
+            echo
+            echo "### Details"
+            echo
+            cat "$RUNNER_TEMP/auto.md"
+            echo
+            echo "<!-- auto-items: $(jq '.merge | length' "$RUNNER_TEMP/decision.json") -->"
+          } > "$RUNNER_TEMP/auto-pr.md"
+          git push -f origin reports/auto
+          gh pr create --base main --head reports/auto --title "Confirm versions players reported (decided automatically)" --body-file "$RUNNER_TEMP/auto-pr.md"
+          gh pr merge reports/auto --squash --delete-branch
+          git fetch --no-tags -q origin main
+          git switch -q -C main origin/main
+      # Everything not merged automatically goes to the maintainer's pull request, as before.
+      - name: Propose the rest
+        if: steps.setup.outputs.ready == 'true'
+        id: rest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          skip=()
+          if [ -f "$RUNNER_TEMP/decision.json" ]; then skip=(--skip "$RUNNER_TEMP/decision.json"); fi
+          dotnet run scripts/reports.cs -- propose --store data/relay.json "${skip[@]}" --body "$RUNNER_TEMP/body.md" --facts "$RUNNER_TEMP/facts.json" > /dev/null
           dotnet run scripts/validate.cs -- confirmed.json
           for f in $(git diff --name-only -- overrides); do dotnet run scripts/validate.cs -- "$f"; done
           # changed: something to propose against main. same: the open pull request proposes exactly that already.
@@ -112,14 +226,8 @@ jobs:
               echo "The open pull request #$pr already proposes this: left as it is." | tee -a "$GITHUB_STEP_SUMMARY"
             fi
           fi
-          cd data
-          git add relay.json
-          if ! git diff --cached --quiet; then
-            git commit -q -m "Relay reports pruned $(date -u +%Y-%m-%dT%H:%MZ)"
-            bash ../.github/push-checker.sh
-          fi
       - name: Summary by Claude
-        if: steps.propose.outputs.changed == 'true' && steps.propose.outputs.same != 'true'
+        if: steps.rest.outputs.changed == 'true' && steps.rest.outputs.same != 'true'
         continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -147,11 +255,13 @@ jobs:
             echo "Claude stopped with \"$stop\": the pull request has the table only."
           fi
       - name: Open or update the pull request
-        if: steps.setup.outputs.ready == 'true' && steps.propose.outputs.same != 'true'
+        if: steps.setup.outputs.ready == 'true' && steps.rest.outputs.same != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-          CHANGED: ${{ steps.propose.outputs.changed }}
-          pr: ${{ steps.propose.outputs.pr }}
+          CHANGED: ${{ steps.rest.outputs.changed }}
+          pr: ${{ steps.rest.outputs.pr }}
+          HUMAN: ${{ steps.decide.outputs.human }}
+          OWNER: ${{ github.repository_owner }}
         run: |
           if [ "$CHANGED" != "true" ]; then
             if [ -n "$pr" ]; then
@@ -168,7 +278,15 @@ jobs:
               echo "### Details"
               echo
             fi
+            if [ -n "$HUMAN" ] && [ "$HUMAN" != "0" ]; then
+              echo "@$OWNER: $HUMAN items need you (see Decisions). Merging this pull request confirms everything in it."
+              echo
+            fi
             cat "$RUNNER_TEMP/body.md"
+            if [ -s "$RUNNER_TEMP/decision.md" ]; then
+              echo
+              cat "$RUNNER_TEMP/decision.md"
+            fi
           } > "$RUNNER_TEMP/pr.md"
           git switch -c reports/confirm
           git add confirmed.json overrides
@@ -178,4 +296,10 @@ jobs:
             gh pr edit "$pr" --body-file "$RUNNER_TEMP/pr.md"
           else
             gh pr create --base main --head reports/confirm --title "Confirm versions players reported" --body-file "$RUNNER_TEMP/pr.md"
+          fi
+          if [ -n "$HUMAN" ] && [ "$HUMAN" != "0" ]; then
+            gh label create needs-maintainer --color D93F0B --description "The reports workflow needs the maintainer" --force
+            gh pr edit reports/confirm --add-label needs-maintainer
+          else
+            gh pr edit reports/confirm --remove-label needs-maintainer 2>/dev/null || true
           fi

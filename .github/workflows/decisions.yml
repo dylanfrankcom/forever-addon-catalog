@@ -1,0 +1,48 @@
+name: decisions
+
+# Once a week, an issue summing up what the reports workflow decided by itself, for the maintainer to spot-check: every
+# pull request merged automatically in the last 7 days (each one's text has its decisions and reasons; reverting it
+# undoes them), whether automatic merging is paused, and the confirmation pull request waiting for the maintainer.
+
+on:
+  schedule:
+    - cron: "17 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: write
+
+jobs:
+  summary:
+    name: Weekly summary
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Open the summary issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          since=$(date -u -d '7 days ago' +%Y-%m-%d)
+          {
+            echo "@$OWNER: what the reports workflow decided by itself since $since."
+            echo
+            echo "### Merged automatically"
+            gh pr list --state merged --search "head:reports/auto merged:>=$since" --limit 200 --json number,title,mergedAt \
+              --jq 'if length == 0 then "Nothing." else .[] | "- #\(.number) \(.mergedAt[:10])" end'
+            echo
+            echo "### Waiting for the maintainer"
+            gh pr list --state open --head reports/confirm --json number,labels \
+              --jq 'if length == 0 then "Nothing." else .[] | "- #\(.number)" + (if any(.labels[]; .name == "needs-maintainer") then " (needs you)" else "" end) end'
+            echo
+            echo "### Automatic merging"
+            if [ -n "$(gh issue list --label auto-merge-paused --state open --json number --jq '.[0].number // empty')" ]; then
+              gh issue list --label auto-merge-paused --state open --json number --jq '.[] | "Paused: #\(.number)"'
+            else
+              echo "Not paused."
+            fi
+          } > "$RUNNER_TEMP/summary.md"
+          gh issue create --title "Automatic decisions, week to $(date -u +%Y-%m-%d)" --body-file "$RUNNER_TEMP/summary.md"
