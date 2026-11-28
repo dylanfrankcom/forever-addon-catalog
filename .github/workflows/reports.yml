@@ -9,12 +9,9 @@ name: reports
 # It has its own concurrency group: in a shared one, a pending run every 10 minutes would cancel the check workflow's
 # pending run. The workflows write different files on `checker`, so each retries a refused push (.github/push-checker.sh).
 #
-# Needs the repository variable RELAY_URL and the secret RELAY_KEY; without them it does nothing. With the repository
-# variables ANTHROPIC_FEDERATION_RULE_ID and ANTHROPIC_ORGANIZATION_ID (optionally ANTHROPIC_SERVICE_ACCOUNT_ID and
-# ANTHROPIC_WORKSPACE_ID), Claude (Haiku 5.5) writes a short summary at the top of the pull request from the checked facts
-# only (facts.json); without them, or when the call fails, the script's table stands alone. No Claude API key is stored:
-# the run's GitHub OIDC token is exchanged for a short-lived one (Workload Identity Federation, .github/claude-token.sh),
-# through a federation rule in the Claude Console that trusts only this repository's reports.yml on main. Actions must be allowed to create pull requests (Settings -> Actions ->
+# Needs the repository variable RELAY_URL and the secret RELAY_KEY; without them it does nothing. With the secret
+# ANTHROPIC_API_KEY, Claude (Haiku 5.5) writes a short summary at the top of the pull request from the checked facts only (facts.json);
+# without it, the script's table stands alone. Actions must be allowed to create pull requests (Settings -> Actions ->
 # General). A pull request made with this workflow's token doesn't start other workflows, so this one validates it.
 #
 # Everything the relay returns came from players: it's checked again by the script, passed between steps only in files,
@@ -42,10 +39,6 @@ jobs:
     name: Collect reports
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    permissions:
-      contents: write
-      pull-requests: write
-      id-token: write # GitHub's OIDC token, exchanged for a short-lived Claude API token for the summary
     steps:
       - name: Is the relay set up?
         id: setup
@@ -129,17 +122,10 @@ jobs:
         if: steps.propose.outputs.changed == 'true' && steps.propose.outputs.same != 'true'
         continue-on-error: true
         env:
-          ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
-          ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
-          ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
-          ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          if [ -z "$ANTHROPIC_FEDERATION_RULE_ID" ] || [ -z "$ANTHROPIC_ORGANIZATION_ID" ]; then
-            echo "No Claude API access set up: the pull request has the table only."
-            exit 0
-          fi
-          if ! token=$(bash .github/claude-token.sh); then
-            echo "No Claude API token: the pull request has the table only."
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "No ANTHROPIC_API_KEY: the pull request has the table only."
             exit 0
           fi
           jq -n --rawfile facts "$RUNNER_TEMP/facts.json" '{
@@ -150,7 +136,7 @@ jobs:
           }' > "$RUNNER_TEMP/request.json"
           curl -sS --fail-with-body --max-time 300 https://api.anthropic.com/v1/messages \
             -H "content-type: application/json" \
-            -H "authorization: Bearer $token" \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
             -H "anthropic-version: 2026-10-21" \
             --data-binary "@$RUNNER_TEMP/request.json" > "$RUNNER_TEMP/response.json"
           # Only a finished answer is used: a refusal or a cut-off one leaves the table alone.

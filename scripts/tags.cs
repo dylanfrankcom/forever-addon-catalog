@@ -8,15 +8,12 @@
 // README (addons/<id>.json). All of that text is untrusted: only tags from the fixed list are kept from the answer, at
 // most 3, and nothing else from it is used.
 //
-//   ... dotnet run scripts/tags.cs                    # needs Claude API access (below); without it, changes nothing
+//   ... dotnet run scripts/tags.cs                    # needs ANTHROPIC_API_KEY; without it, changes nothing
 //   ... dotnet run scripts/tags.cs -- --dry-run       # lists the entries it would ask about
 //   ... dotnet run scripts/tags.cs -- --self-test     # offline tests
 // Options: --catalog f (catalog.json), --tags f (tags.json), --details dir (addons), --batch n (50),
 // --max-batches n (10), --summary f (appends what it did).
-// Claude API access: ANTHROPIC_API_KEY when set (a run by hand); otherwise, in a GitHub Actions job with id-token: write
-// and ANTHROPIC_FEDERATION_RULE_ID and ANTHROPIC_ORGANIZATION_ID, a short-lived token from Workload Identity Federation,
-// renewed before it expires (see Access).
-// Exit code 0 on success (also with no access), 1 when a file or the API can't be read, 2 for bad arguments.
+// Exit code 0 on success (also with no key), 1 when a file or the API can't be read, 2 for bad arguments.
 
 using System.Net;
 using System.Security.Cryptography;
@@ -77,15 +74,17 @@ if (dryRun || pending.Count == 0)
     Finish();
     return 0;
 }
-if (!Access.Available(Environment.GetEnvironmentVariable))
+var key = Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY");
+if (string.IsNullOrEmpty(key))
 {
-    report.AppendLine("No Claude API access (ANTHROPIC_API_KEY, or federation in a workflow): nothing asked, tags.json unchanged.");
+    report.AppendLine("No ANTHROPIC_API_KEY: nothing asked, tags.json unchanged.");
     Finish();
     return 0;
 }
 
 using var http = new HttpClient { Timeout = TimeSpan.FromMinutes(5) };
-var access = new Access(http, Environment.GetEnvironmentVariable);
+http.DefaultRequestHeaders.Add("x-api-key", key);
+http.DefaultRequestHeaders.Add("anthropic-version", "2026-10-21");
 int asked = 0, tagged = 0, none = 0, unanswered = 0;
 var rows = file["addons"] as JsonObject ?? (JsonObject)(file["addons"] = new JsonObject());
 foreach (var batch in pending.Chunk(batchSize).Take(maxBatches))
@@ -94,7 +93,7 @@ foreach (var batch in pending.Chunk(batchSize).Take(maxBatches))
     string? text;
     try
     {
-        text = await Infer.AskAsync(http, request, access.AuthorizeAsync);
+        text = await Infer.AskAsync(http, request);
     }
     catch (Exception e) when (e is HttpRequestException or TaskCanceledException or JsonException or InvalidOperationException)
     {
@@ -237,17 +236,12 @@ static class Infer
         return string.Concat((body?["content"]?.AsArray() ?? []).OfType<JsonObject>().Where(c => Str(c["type"]) == "text").Select(c => Str(c["text"])));
     }
 
-    public static async Task<string?> AskAsync(HttpClient http, JsonObject request, Func<HttpRequestMessage, Task> authorize)
+    public static async Task<string?> AskAsync(HttpClient http, JsonObject request)
     {
         for (var attempt = 1; ; attempt++)
         {
-            using var message = new HttpRequestMessage(HttpMethod.Post, "https://api.anthropic.com/v1/messages")
-            {
-                Content = new StringContent(request.ToJsonString(), Encoding.UTF8, "application/json"),
-            };
-            message.Headers.Add("anthropic-version", "2026-10-21");
-            await authorize(message);
-            using var response = await http.SendAsync(message);
+            using var content = new StringContent(request.ToJsonString(), Encoding.UTF8, "application/json");
+            using var response = await http.PostAsync("https://api.anthropic.com/v1/messages", content);
             if (response.IsSuccessStatusCode)
             {
                 return await AsyncText(response);
@@ -321,87 +315,6 @@ static class Infer
     }
 }
 
-/// <summary>
-/// Claude API access. ANTHROPIC_API_KEY when set (a run by hand). Otherwise Workload Identity Federation in a GitHub
-/// Actions job with id-token: write: GitHub's OIDC token for the run (audience https://api.anthropic.com) is exchanged at
-/// /v1/oauth/token for a short-lived access token, using the federation rule ANTHROPIC_FEDERATION_RULE_ID in the
-/// organization ANTHROPIC_ORGANIZATION_ID (optionally ANTHROPIC_SERVICE_ACCOUNT_ID and ANTHROPIC_WORKSPACE_ID). The token
-/// is exchanged again a minute before it expires, since a run can outlast it. Neither token is ever written out.
-/// </summary>
-sealed class Access(HttpClient http, Func<string, string?> env)
-{
-    public const string Audience = "https://api.anthropic.com";
-    static readonly string[] Federation = ["ACTIONS_ID_TOKEN_REQUEST_URL", "ACTIONS_ID_TOKEN_REQUEST_TOKEN", "ANTHROPIC_FEDERATION_RULE_ID", "ANTHROPIC_ORGANIZATION_ID"];
-
-    string? token;
-    DateTimeOffset renewAt;
-
-    public static bool Available(Func<string, string?> env) =>
-        !string.IsNullOrEmpty(env("ANTHROPIC_API_KEY")) || Federation.All(n => !string.IsNullOrEmpty(env(n)));
-
-    public async Task AuthorizeAsync(HttpRequestMessage message)
-    {
-        if (env("ANTHROPIC_API_KEY") is { Length: > 0 } key)
-        {
-            message.Headers.Add("x-api-key", key);
-            return;
-        }
-        if (token is null || DateTimeOffset.UtcNow >= renewAt)
-        {
-            var (value, seconds) = await ExchangeAsync();
-            token = value;
-            renewAt = DateTimeOffset.UtcNow + RenewAfter(seconds);
-        }
-        message.Headers.Authorization = new("Bearer", token);
-    }
-
-    /// <summary>When to exchange again: a minute before the token expires, at least 10 seconds on.</summary>
-    public static TimeSpan RenewAfter(long expiresIn) => TimeSpan.FromSeconds(Math.Max(10, expiresIn - 60));
-
-    /// <summary>The token exchange's body: the optional IDs only when set.</summary>
-    public static JsonObject ExchangeBody(string jwt, Func<string, string?> env)
-    {
-        var body = new JsonObject
-        {
-            ["grant_type"] = "urn:ietf:params:oauth:grant-type:jwt-bearer",
-            ["assertion"] = jwt,
-            ["federation_rule_id"] = env("ANTHROPIC_FEDERATION_RULE_ID"),
-            ["organization_id"] = env("ANTHROPIC_ORGANIZATION_ID"),
-        };
-        foreach (var (name, field) in new[] { ("ANTHROPIC_SERVICE_ACCOUNT_ID", "service_account_id"), ("ANTHROPIC_WORKSPACE_ID", "workspace_id") })
-        {
-            if (env(name) is { Length: > 0 } value)
-            {
-                body[field] = value;
-            }
-        }
-        return body;
-    }
-
-    async Task<(string Token, long ExpiresIn)> ExchangeAsync()
-    {
-        using var oidc = new HttpRequestMessage(HttpMethod.Get, env("ACTIONS_ID_TOKEN_REQUEST_URL") + "&audience=" + Audience);
-        oidc.Headers.Authorization = new("Bearer", env("ACTIONS_ID_TOKEN_REQUEST_TOKEN"));
-        using var oidcResponse = await http.SendAsync(oidc);
-        if (!oidcResponse.IsSuccessStatusCode)
-        {
-            throw new HttpRequestException($"{(int)oidcResponse.StatusCode} from GitHub's OIDC token request");
-        }
-        var jwt = Infer.Str(JsonNode.Parse(await oidcResponse.Content.ReadAsStringAsync())?["value"])
-            ?? throw new InvalidOperationException("GitHub gave no OIDC token.");
-        using var content = new StringContent(ExchangeBody(jwt, env).ToJsonString(), Encoding.UTF8, "application/json");
-        using var response = await http.PostAsync("https://api.anthropic.com/v1/oauth/token", content);
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new HttpRequestException($"{(int)response.StatusCode} from the token exchange (the Console's authentication history says why)");
-        }
-        var answer = JsonNode.Parse(await response.Content.ReadAsStringAsync());
-        var value = Infer.Str(answer?["access_token"]) ?? throw new InvalidOperationException("The token exchange gave no token.");
-        var expiresIn = answer?["expires_in"] is JsonValue e && e.TryGetValue<long>(out var s) ? s : 60;
-        return (value, expiresIn);
-    }
-}
-
 static class Tests
 {
     static int failures;
@@ -460,20 +373,6 @@ static class Tests
         Expect("prune: rows for unlisted entries go", Infer.Prune(file, catalog) == 1 && file["addons"]!["gone"] is null);
         var written = Infer.Write(new JsonObject { ["addons"] = new JsonObject { ["b"] = new JsonObject(), ["a"] = new JsonObject() } });
         Expect("write: rows sorted by ID", written.IndexOf("\"a\"", StringComparison.Ordinal) < written.IndexOf("\"b\"", StringComparison.Ordinal));
-
-        Dictionary<string, string> vars = new() { ["ACTIONS_ID_TOKEN_REQUEST_URL"] = "u", ["ACTIONS_ID_TOKEN_REQUEST_TOKEN"] = "t",
-            ["ANTHROPIC_FEDERATION_RULE_ID"] = "fdrl_x", ["ANTHROPIC_ORGANIZATION_ID"] = "org" };
-        string? Env(string name) => vars.GetValueOrDefault(name);
-        Expect("access: federation needs GitHub's token request and both IDs", Access.Available(Env)
-            && !Access.Available(n => n == "ANTHROPIC_ORGANIZATION_ID" ? null : Env(n)) && !Access.Available(_ => null)
-            && Access.Available(n => n == "ANTHROPIC_API_KEY" ? "k" : null));
-        var exchange = Access.ExchangeBody("jwt", Env);
-        Expect("access: the exchange's body, without unset optional IDs", (string?)exchange["grant_type"] == "urn:ietf:params:oauth:grant-type:jwt-bearer"
-            && (string?)exchange["assertion"] == "jwt" && (string?)exchange["federation_rule_id"] == "fdrl_x" && (string?)exchange["organization_id"] == "org"
-            && exchange.Count == 4);
-        vars["ANTHROPIC_WORKSPACE_ID"] = "wrkspc_x";
-        Expect("access: a workspace ID when set", (string?)Access.ExchangeBody("jwt", Env)["workspace_id"] == "wrkspc_x" && Access.ExchangeBody("jwt", Env).Count == 5);
-        Expect("access: renewed a minute early, never sooner than 10 s", Access.RenewAfter(3600) == TimeSpan.FromSeconds(3540) && Access.RenewAfter(30) == TimeSpan.FromSeconds(10));
 
         Console.WriteLine(failures == 0 ? "tags.cs self-test passed." : $"tags.cs self-test: {failures} failed.");
         return failures == 0 ? 0 : 1;
