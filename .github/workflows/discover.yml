@@ -32,7 +32,7 @@ jobs:
   discover:
     name: Find add-ons on GitHub
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 330
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
