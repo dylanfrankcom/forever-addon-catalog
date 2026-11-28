@@ -1,7 +1,7 @@
 {
   "$schema": "./schema/catalog.schema.json",
   "schemaVersion": 4,
-  "version": "4.19.0",
+  "version": "4.20.0",
   "editions": {
     "retail": {
       "name": "World of Warcraft (Retail)",
@@ -10044,7 +10044,20 @@
     {
       "id": "auctionator",
       "name": "Auctionator",
-      "summary": "Faster auction house searching, shopping lists and price history.",
+      "summary": "A lightweight addon that makes it easy and fast to buy, sell and manage auctions.",
+      "languages": [
+        "enUS",
+        "itIT",
+        "deDE",
+        "ruRU",
+        "koKR",
+        "frFR",
+        "esES",
+        "esMX",
+        "zhTW",
+        "ptBR",
+        "zhCN"
+      ],
       "author": "plusmouse",
       "tags": [
         "auction-house"
@@ -10069,8 +10082,36 @@
       ],
       "tocPath": "Auctionator/Auctionator.toc",
       "editions": {
+        "retail": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic": {
+          "interface": "50504",
+          "upToDate": true
+        },
+        "anniversary": {
+          "interface": "20506",
+          "upToDate": true
+        },
+        "classic_era": {
+          "interface": "11509",
+          "upToDate": true
+        },
         "forever": {
           "interface": "16001",
+          "upToDate": true
+        },
+        "retail_ptr2": {
+          "interface": "120105",
+          "upToDate": true
+        },
+        "classic_ptr": {
+          "interface": "50504",
+          "upToDate": true
+        },
+        "classic_era_ptr": {
+          "interface": "20506",
           "upToDate": true
         }
       },
