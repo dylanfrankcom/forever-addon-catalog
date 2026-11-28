@@ -76,6 +76,22 @@ The PTRs Battle.net offers are editions too, with one more field: `of`, the live
 
 Battle.net puts the expansion and version in a Retail PTR's name, so the name changes with each patch: it's updated here with its `gameVersion`.
 
+## The wanted list: wanted.json
+`wanted.schema.json` is the format of `wanted.json`, which `scripts/reports.cs` (`wanted`) writes with each catalog build: what the catalog is missing, for an add-on manager to show its players, so they know where a report helps. It's rewritten from the reports players sent (see [CONTRIBUTING.md](../CONTRIBUTING.md#version-reports-from-the-app)); an item leaves once its change has merged.
+
+| Field | What |
+|---|---|
+| `schemaVersion` | Always `1` for this format. |
+| `items` | The items, add-ons first, then by ID. |
+
+Every item has `kind`, `needs` and `progress`: how far it has come toward a decision under the rule for its kind, rounded down to `0`, `25`, `50`, `75` or `100`, where `100` means it's being checked. It combines how many players reported it and over how long; the counts and the rules aren't published.
+
+| `kind` | Fields | `needs` |
+|---|---|---|
+| `addon` | `source` (`curseforge` or `wago`), `project` (the CurseForge project ID or the Wago slug), `name`, `editions` | `listing`: players suggested it and it isn't listed. |
+| `details` | `id`, `name` | Any of `summary` and `languages` (the entry has none), and `toc` (players' `.toc` details are waiting). For entries listed by hand. |
+| `version` | `id`, `name`, `source`, `edition` | `version` (no confirmed version for that edition yet) or `newer-version` (players reported a newer one). For entries listed by hand. |
+
 ## Checked releases: versions.json
 `versions.schema.json` is the format of `versions.json`, which `scripts/generate.cs` writes from the release check, beside `catalog.json`: the latest checked release of each add-on for each edition, so the app finds updates without asking GitHub. `addons` is keyed by catalog ID, then by edition ID.
 

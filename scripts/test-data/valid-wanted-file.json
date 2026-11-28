@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    { "kind": "addon", "source": "curseforge", "project": "1365171", "name": "Some Add-on", "editions": ["forever"], "needs": ["listing"], "progress": 25 },
+    { "kind": "details", "id": "questie", "name": "Questie", "needs": ["languages", "toc"], "progress": 0 },
+    { "kind": "version", "id": "questie", "name": "Questie", "source": "wago", "edition": "forever", "needs": ["newer-version"], "progress": 100 }
+  ]
+}

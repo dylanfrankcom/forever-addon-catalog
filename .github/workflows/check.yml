@@ -2,6 +2,7 @@ name: check
 
 # Checks the latest release of each add-on discovery found (scripts/check.cs) and keeps the result, checks.json, on the
 # `checker` branch beside candidates.json. Then it generates catalog.json, versions.json and icons/ (scripts/generate.cs),
+# and the wanted list, wanted.json, from the reports players sent (scripts/reports.cs wanted),
 # validates them, and commits them to main only when they changed and passed: a failed or broken run changes nothing, so
 # the last good files stay published. main takes changes only by pull request, except from the catalog's GitHub App
 # (Contents only, no Workflows permission): "Publish them" pushes with a token the app mints just before it, since a
@@ -88,9 +89,20 @@ jobs:
         run: |
           dotnet run scripts/generate.cs -- --candidates data/candidates.json --checks data/checks.json --summary "$GITHUB_STEP_SUMMARY"
           dotnet run scripts/details.cs -- --candidates data/candidates.json
+          # The wanted list, from the reports kept on checker and the rules (a secret: the thresholds aren't published).
+          # Without the rules it isn't rewritten, and the last one stays published.
+          if [ -n "$CATALOG_RULES" ]; then
+            printf '%s' "$CATALOG_RULES" > "$RUNNER_TEMP/rules.json"
+            store=()
+            if [ -f data/relay.json ]; then store=(--store data/relay.json); else store=(--store "$RUNNER_TEMP/none.json"); fi
+            dotnet run scripts/reports.cs -- wanted "${store[@]}" --rules "$RUNNER_TEMP/rules.json" --out wanted.json | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::The CATALOG_RULES secret isn't set: wanted.json wasn't rewritten."
+          fi
           dotnet run scripts/validate.cs
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          CATALOG_RULES: ${{ secrets.CATALOG_RULES }}
       - name: A token from the catalog's app
         id: app
         if: steps.data.outputs.ready == 'true'
@@ -110,6 +122,7 @@ jobs:
           git config user.name "${APP_SLUG}[bot]"
           git config user.email "${bot_id}+${APP_SLUG}[bot]@users.noreply.github.com"
           git add catalog.json versions.json icons addons
+          if [ -f wanted.json ]; then git add wanted.json; fi
           if git diff --cached --quiet; then
             echo "The catalog and versions.json are unchanged." >> "$GITHUB_STEP_SUMMARY"
           else
