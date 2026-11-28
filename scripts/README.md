@@ -65,18 +65,23 @@ For each add-on it gathers repositories: the entry's GitHub sources and `reposit
 CurseForge and Wago aren't contacted. `--self-test` checks the matching rules offline.
 
 ## discover.cs
-Finds add-ons for every edition on public GitHub repos and writes `candidates.json`, one row per repo, for the release check to work from. It lists nothing by itself and never edits `catalog.json`. The **discover** workflow runs it weekly (or by hand) and keeps `candidates.json` on the `checker` branch, never on `main`.
+Finds add-ons for every edition on public GitHub repos and writes `candidates.json`, one row per repo, for the release check to work from. It lists nothing by itself and never edits `catalog.json`. The **discover** workflow runs it daily (or by hand) and keeps `candidates.json` on the `checker` branch, never on `main`.
 
 ```powershell
 $env:GITHUB_TOKEN = (gh auth token)
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs                        # every edition
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --edition forever   # one edition
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --no-search         # read the known repos again
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --search-minutes 60  # stop starting searches after an hour
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --self-test
 ```
 
 Official APIs only, read-only:
-1. **Code search** for `.toc` files listing each edition's current Interface (from `catalog.json`'s `editions`; test clients come later). Code search returns at most 1,000 results a query, so each search is split by file size, halving the range until every part is under the cap; a single size still over it is reported as capped. Requests are spaced 7 seconds apart (the limit is 10 a minute) and rate-limit answers are waited out.
+1. **Code search** for `.toc` files listing each edition's current Interface (from `catalog.json`'s `editions`; test clients come later). Code search returns at most 1,000 results a query, so each search walks up the file sizes in ranges under the cap: it starts at 0 to 255 bytes, halves a range that's over the cap and asks again, and doubles the next range after one well under it. A single size still over the cap is reported as capped.
+
+   **Pacing.** Code search allows 10 requests a minute, counted in a window that resets each minute, and GitHub's servers can disagree on the count. So searches go at most every 7.5 seconds, and when an answer says none are left (`x-ratelimit-remaining: 0`) the next waits for `x-ratelimit-reset`. A refused request (a 429, or a 403 that's a rate limit) waits as GitHub's REST docs say: `retry-after` when it's given; else, with none left, until the reset; else a minute, then 2, 4, 8 and 16, and after six tries it counts as failed.
+
+   **Spread over runs.** The Interfaces are searched oldest first: `candidates.json`'s `searched` keeps when each was last searched in full, and one never searched goes first. `--search-minutes` stops starting searches after that long; an Interface not searched in full (out of time, or a request that still failed) keeps its date, so the next run starts with it, and the report names what was missed. Repos found for it before are kept, as every previous run's are.
 2. **GraphQL**, 10 repos a query: description and topics, last push, archived or fork, the latest release (GitHub's Latest, never a pre-release) with its files, sizes and SHA-256 digests, the newest tags, whether there's a `.pkgmeta`, when the repo and its owner's account were made and its stars, how many releases it has and the days of its newest 100, the CurseForge and Wago links in the latest release's notes (a mirror's record of where its file came from), every release's download counts (GitHub's public `downloadCount` for each release file; a repo with more than 100 releases gets a query per further 100, and keeps the previous run's counts when one fails, never a short count), and up to 12 of the repo's `.toc` files, the shallowest first, read again at the default branch.
 
 A row has the repo, the editions whose current Interface one of its `.toc` files lists, the main `.toc`'s fields (the shallowest one listing a current Interface: Title, Author, Notes and their translations, Version, Category, IconTexture, `X-Curse-Project-ID`, `X-Wago-ID`, `X-WoWI-ID`, dependencies), every `.toc` read with its Interfaces and the same fields (Notes cut to 300 characters), the latest release and the tags. The generator takes an entry's fields from its main folder's `.toc`, which may not be the one discovery picked, and uses each `.toc`'s dependencies to tell a release's separate add-ons from one add-on's modules.
@@ -87,7 +92,7 @@ Code search misses some repos, so the repos the catalog already lists (its GitHu
 
 Each row also records whether the repo has issues turned on, and its `FUNDING.yml` as GitHub reads it (`fundingLinks`). For each GitHub Sponsors link, a separate pass asks GitHub whether the account has a Sponsors listing, and whether it is the repo's owner or a public member of the organisation that owns it. An answer that can't be read this run keeps the previous one.
 
-Re-running changes only what changed: the rows are sorted and written the same way each time, the previous run's repos are read again even if search misses them, and a repo that can't be read this time keeps its previous row. The report (also the job summary) counts the repos per edition and the drops, and names any capped or failed search.
+Re-running changes only what changed: the rows are sorted and written the same way each time, the previous run's repos are read again even if search misses them, and a repo that can't be read this time keeps its previous row. The report (also the job summary) counts the repos per edition with when its Interface was last searched in full, the drops, and names any capped, failed or unfinished search.
 
 ## check.cs
 Checks the latest release of each add-on discovery found (`candidates.json`) and writes `checks.json`, which the generator lists add-ons from. It never edits `catalog.json`. The **check** workflow runs it every 6 hours (or by hand) and keeps `checks.json` on the `checker` branch, beside `candidates.json`. While the catalog repo is private, the **discover** and **check** workflows are turned off, so they use no Actions minutes: run both scripts locally, and their files stay in your checkout.

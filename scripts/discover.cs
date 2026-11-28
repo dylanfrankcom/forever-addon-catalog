@@ -8,6 +8,7 @@
 //   ... dotnet run scripts/discover.cs                               # every edition in ./catalog.json
 //   ... dotnet run scripts/discover.cs -- --edition forever          # one edition (repeatable), for a quicker run
 //   ... dotnet run scripts/discover.cs -- --no-search                # only re-read the repos already in candidates.json
+//   ... dotnet run scripts/discover.cs -- --search-minutes 60        # stop starting searches after an hour (the workflow)
 //   ... dotnet run scripts/discover.cs -- --self-test                # offline tests
 // Options: --catalog <file> (default ./catalog.json), --optout <file> (default ./optout.json), --overrides <folder>
 // (default ./overrides), --out <file> (default
@@ -15,8 +16,10 @@
 // with $GITHUB_STEP_SUMMARY).
 //
 // Official APIs only, read-only:
-// 1. Code search for .toc files listing each edition's current Interface, split by file size until no query passes the
-//    1,000-result cap. Code search allows 10 requests a minute, so requests are spaced 7 seconds apart.
+// 1. Code search for .toc files listing each edition's current Interface, split by file size so no query passes the
+//    1,000-result cap. Code search allows 10 requests a minute, so searches are paced under it and refusals are waited
+//    out as GitHub says (Pacing). The Interface searched longest ago goes first; one whose search didn't finish (out of
+//    time, or a request that still failed) keeps its date, so the next run starts with it. Its repos found before are kept.
 // 2. GraphQL, 10 repos a query: last push, archived or fork, description and topics, the latest release and its files,
 //    the newest tags, .pkgmeta, and the .toc files themselves (read again at HEAD, so a stale search index doesn't count).
 // 3. README.md's first sentence, only for repos whose main .toc has no Notes and that have no description: the
@@ -44,6 +47,7 @@ if (args is ["--self-test"])
 string catalogArg = "catalog.json", optoutArg = "optout.json", outArg = "candidates.json", overridesArg = "overrides";
 string? summaryArg = null;
 var search = true;
+TimeSpan? searchTime = null;
 var onlyEditions = new List<string>();
 var onlyRepos = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 for (var i = 0; i < args.Length; i++)
@@ -58,10 +62,11 @@ for (var i = 0; i < args.Length; i++)
         case "--summary" when value is not null: summaryArg = value; i++; break;
         case "--edition" when value is not null: onlyEditions.Add(value.Trim()); i++; break;
         case "--no-search": search = false; break;
+        case "--search-minutes" when int.TryParse(value, out var minutes) && minutes > 0: searchTime = TimeSpan.FromMinutes(minutes); i++; break;
         // Reads only these repos again (no search) and keeps every other row as it is.
         case "--repo" when value is not null: onlyRepos.Add(value.Trim()); search = false; i++; break;
         default:
-            Console.Error.WriteLine("Usage: dotnet run scripts/discover.cs [--edition <id>]... [--no-search] [--repo <owner/name>]... [--catalog <file>] [--optout <file>] [--out <file>] [--summary <file>] | --self-test");
+            Console.Error.WriteLine("Usage: dotnet run scripts/discover.cs [--edition <id>]... [--no-search] [--search-minutes <n>] [--repo <owner/name>]... [--catalog <file>] [--optout <file>] [--out <file>] [--summary <file>] | --self-test");
             return 2;
     }
 }
@@ -76,6 +81,7 @@ if (string.IsNullOrWhiteSpace(token))
 SortedDictionary<string, string> editions;
 OptOut optout;
 Dictionary<string, JsonObject> previous;
+Dictionary<string, string> searched;
 List<string> seeds, forks;
 try
 {
@@ -86,7 +92,9 @@ try
     seeds = Inputs.Seeds(catalogNode, overrideNodes);
     forks = Inputs.Seeds(JsonNode.Parse("{}")!, overrideNodes);
     optout = File.Exists(optoutArg) ? OptOut.Parse(File.ReadAllText(optoutArg)) : new([]);
-    previous = File.Exists(outArg) ? Candidates.Read(File.ReadAllText(outArg)) : new(StringComparer.OrdinalIgnoreCase);
+    var previousText = File.Exists(outArg) ? File.ReadAllText(outArg) : null;
+    previous = previousText is null ? new(StringComparer.OrdinalIgnoreCase) : Candidates.Read(previousText);
+    searched = previousText is null ? [] : Candidates.Searched(previousText);
 }
 catch (Exception e) when (e is IOException or UnauthorizedAccessException or JsonException or InvalidOperationException or NullReferenceException or FormatException)
 {
@@ -104,13 +112,18 @@ using var github = new GitHub(token);
 var found = new Dictionary<string, SortedSet<string>>(StringComparer.OrdinalIgnoreCase);
 if (search)
 {
-    var interfaces = editions.Where(e => onlyEditions.Count == 0 || onlyEditions.Contains(e.Key)).Select(e => e.Value).Distinct().ToList();
+    var interfaces = Search.Order(editions.Where(e => onlyEditions.Count == 0 || onlyEditions.Contains(e.Key)).Select(e => e.Value), searched);
+    var deadline = DateTime.UtcNow + (searchTime ?? TimeSpan.MaxValue - TimeSpan.FromDays(1));
     foreach (var iface in interfaces)
     {
         Console.Error.WriteLine($"Searching for .toc files listing {iface} ...");
-        await Search.CollectAsync(github.SearchCodeAsync, $"Interface {iface} extension:toc", found, log);
+        if (await Search.CollectAsync(github.SearchCodeAsync, $"Interface {iface} extension:toc", found, log, () => DateTime.UtcNow > deadline))
+        {
+            searched[iface] = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
+        }
     }
 }
+log.Searched = searched;
 foreach (var (repo, row) in previous)
 {
     var paths = found.TryGetValue(repo, out var p) ? p : found[repo] = new(StringComparer.Ordinal);
@@ -154,7 +167,7 @@ if (onlyRepos.Count > 0)
     var read = rows.Select(r => r["repo"]!.GetValue<string>()).ToHashSet(StringComparer.OrdinalIgnoreCase);
     rows.AddRange(previous.Where(p => !onlyRepos.Contains(p.Key) && !read.Contains(p.Key)).Select(p => p.Value.DeepClone().AsObject()));
 }
-File.WriteAllText(outArg, Candidates.Write(editions, rows));
+File.WriteAllText(outArg, Candidates.Write(editions, rows, searched));
 
 var report = log.Report(rows, editions, search);
 Console.Write(report);
@@ -171,6 +184,8 @@ record SearchPage(int Total, List<(string Repo, string Path)> Items);
 sealed class RunLog
 {
     public List<string> Failed { get; } = [];
+    public List<string> Unfinished { get; } = [];
+    public IReadOnlyDictionary<string, string> Searched { get; set; } = new Dictionary<string, string>();
     public List<(string Query, int Total)> Capped { get; } = [];
     public SortedDictionary<string, List<string>> Dropped { get; } = new(StringComparer.Ordinal);
     public List<string> Kept { get; } = [];
@@ -189,10 +204,10 @@ sealed class RunLog
     {
         var md = new StringBuilder("## Discovery\n\n");
         md.AppendLine($"{rows.Count} candidate repos{(searched ? "" : " (no search: the previous run's repos read again)")}, from {Requests} code search requests.").AppendLine();
-        md.AppendLine("| Edition | Interface | Repos |").AppendLine("|---|---|---|");
+        md.AppendLine("| Edition | Interface | Repos | Last full search |").AppendLine("|---|---|---|---|");
         foreach (var (id, iface) in editions)
         {
-            md.AppendLine($"| {id} | {iface} | {rows.Count(r => r["editions"]!.AsArray().Any(e => e!.GetValue<string>() == id))} |");
+            md.AppendLine($"| {id} | {iface} | {rows.Count(r => r["editions"]!.AsArray().Any(e => e!.GetValue<string>() == id))} | {(Searched.TryGetValue(iface, out var at) ? at : "never")} |");
         }
         md.AppendLine();
         foreach (var (reason, repos) in Dropped)
@@ -209,7 +224,11 @@ sealed class RunLog
         }
         foreach (var query in Failed)
         {
-            md.AppendLine($"- **Failed:** `{query}`");
+            md.AppendLine($"- **Failed:** `{query}` (its Interface is searched again first next run)");
+        }
+        foreach (var query in Unfinished)
+        {
+            md.AppendLine($"- **Out of time:** `{query}` wasn't searched in full (its Interface goes first next run)");
         }
         return md.AppendLine().ToString();
     }
@@ -338,51 +357,93 @@ static class Search
     /// <summary>Code search indexes files up to 384 KB.</summary>
     public const long MaxSize = 384 * 1024;
     const int Cap = 1000;
+    /// <summary>The first size range: most .toc files are a few hundred bytes.</summary>
+    const long FirstWidth = 256;
 
-    /// <summary>Collects every file the query finds, halving the size range until each part is under the cap.</summary>
-    public static async Task CollectAsync(Func<string, int, Task<SearchPage?>> page, string query, Dictionary<string, SortedSet<string>> found, RunLog log,
-        long lo = 0, long hi = MaxSize)
+    /// <summary>The Interfaces to search, each once: never searched in full first, then the one searched longest ago.</summary>
+    public static List<string> Order(IEnumerable<string> interfaces, IReadOnlyDictionary<string, string> searched) =>
+        interfaces.Distinct().Select((iface, i) => (iface, i))
+            .OrderBy(x => searched.TryGetValue(x.iface, out var at) ? at : "", StringComparer.Ordinal).ThenBy(x => x.i)
+            .Select(x => x.iface).ToList();
+
+    /// <summary>
+    /// Collects every file the query finds, walking up the file sizes in ranges that stay under the cap: a range over it
+    /// is halved and asked again, and after one well under it the next is twice as wide. A request that still fails is
+    /// reported and the walk goes on; when <paramref name="outOfTime"/> says so, it stops. Returns whether the search
+    /// finished with nothing missed. What it found is kept either way.
+    /// </summary>
+    public static async Task<bool> CollectAsync(Func<string, int, Task<SearchPage?>> page, string query, Dictionary<string, SortedSet<string>> found, RunLog log,
+        Func<bool>? outOfTime = null)
     {
-        var q = $"{query} size:{lo}..{hi}";
-        var first = await page(q, 1);
-        if (first is null)
+        var complete = true;
+        long lo = 0, width = FirstWidth;
+        while (lo <= MaxSize)
         {
-            log.Failed.Add(q);
-            return;
-        }
-        if (first.Total > Cap && hi > lo)
-        {
-            var mid = lo + (hi - lo) / 2;
-            await CollectAsync(page, query, found, log, lo, mid);
-            await CollectAsync(page, query, found, log, mid + 1, hi);
-            return;
-        }
-        if (first.Total > Cap)
-        {
-            log.Capped.Add((q, first.Total));
-        }
-        var items = new List<(string Repo, string Path)>(first.Items);
-        for (var n = 2; items.Count < Math.Min(first.Total, Cap) && n <= Cap / 100; n++)
-        {
-            var more = await page(q, n);
-            if (more is null)
+            if (outOfTime?.Invoke() == true)
             {
-                log.Failed.Add($"{q} (page {n})");
-                break;
+                log.Unfinished.Add($"{query} size:{lo}..{MaxSize}");
+                return false;
             }
-            if (more.Items.Count == 0)
+            var hi = Math.Min(lo + width - 1, MaxSize);
+            var q = $"{query} size:{lo}..{hi}";
+            var first = await page(q, 1);
+            if (first is null)
             {
-                break;
+                log.Failed.Add(q);
+                complete = false;
+                lo = hi + 1;
+                continue;
             }
-            items.AddRange(more.Items);
+            if (first.Total > Cap && hi > lo)
+            {
+                width = Math.Max(1, (hi - lo + 1) / 2);
+                continue;
+            }
+            if (first.Total > Cap)
+            {
+                log.Capped.Add((q, first.Total));
+            }
+            var items = new List<(string Repo, string Path)>(first.Items);
+            for (var n = 2; items.Count < Math.Min(first.Total, Cap) && n <= Cap / 100; n++)
+            {
+                if (outOfTime?.Invoke() == true)
+                {
+                    log.Unfinished.Add($"{q} (page {n})");
+                    Add(items);
+                    return false;
+                }
+                var more = await page(q, n);
+                if (more is null)
+                {
+                    log.Failed.Add($"{q} (page {n})");
+                    complete = false;
+                    break;
+                }
+                if (more.Items.Count == 0)
+                {
+                    break;
+                }
+                items.AddRange(more.Items);
+            }
+            Add(items);
+            lo = hi + 1;
+            if (first.Total < Cap / 2)
+            {
+                width *= 2;
+            }
         }
-        foreach (var (repo, path) in items)
+        return complete;
+
+        void Add(List<(string Repo, string Path)> items)
         {
-            if (!found.TryGetValue(repo, out var paths))
+            foreach (var (repo, path) in items)
             {
-                found[repo] = paths = new(StringComparer.Ordinal);
+                if (!found.TryGetValue(repo, out var paths))
+                {
+                    found[repo] = paths = new(StringComparer.Ordinal);
+                }
+                paths.Add(path);
             }
-            paths.Add(path);
         }
     }
 }
@@ -410,12 +471,20 @@ static class Candidates
         return rows;
     }
 
-    public static string Write(IReadOnlyDictionary<string, string> editions, IEnumerable<JsonObject> rows)
+    /// <summary>When each Interface was last searched in full, from <c>searched</c>.</summary>
+    public static Dictionary<string, string> Searched(string json) =>
+        (JsonNode.Parse(json)!["searched"]?.AsObject() ?? []).ToDictionary(p => p.Key, p => p.Value!.GetValue<string>());
+
+    /// <summary>The file. <paramref name="searched"/> keeps only the editions' current Interfaces.</summary>
+    public static string Write(IReadOnlyDictionary<string, string> editions, IEnumerable<JsonObject> rows, IReadOnlyDictionary<string, string>? searched = null)
     {
         var root = new JsonObject
         {
             ["$comment"] = "Written by scripts/discover.cs. Never edit it by hand.",
             ["editions"] = new JsonObject(editions.Select(e => KeyValuePair.Create(e.Key, (JsonNode?)e.Value))),
+            ["searched"] = new JsonObject((searched ?? new Dictionary<string, string>())
+                .Where(p => editions.Values.Contains(p.Key)).OrderBy(p => p.Key, StringComparer.Ordinal)
+                .Select(p => KeyValuePair.Create(p.Key, (JsonNode?)p.Value))),
             ["candidates"] = new JsonArray(rows.OrderBy(r => r["repo"]!.GetValue<string>(), StringComparer.OrdinalIgnoreCase)
                 .Select(r => (JsonNode)r.DeepClone()).ToArray()),
         };
@@ -607,13 +676,63 @@ static class Candidates
     static JsonArray Strings(IEnumerable<string> values) => new(values.Select(v => (JsonNode)v).ToArray());
 }
 
+/// <summary>
+/// GitHub's rules for pacing requests and for a refused one ("Rate limits for the REST API" and "Search" in its REST
+/// docs). Code search allows 10 requests a minute, counted in a window that resets each minute; GitHub's servers can
+/// disagree on the count, so searches keep a margin under it and also wait for the reset when an answer says none are left.
+/// </summary>
+static class Pacing
+{
+    /// <summary>The least time between code searches: 8 a minute, under the limit of 10.</summary>
+    public static readonly TimeSpan SearchGap = TimeSpan.FromSeconds(7.5);
+    /// <summary>Tries per request. Refusals with no time given wait 1, 2, 4, 8 and 16 minutes, about half an hour in all.</summary>
+    public const int Attempts = 6;
+    static readonly TimeSpan Margin = TimeSpan.FromSeconds(3);
+
+    /// <summary>How long after a code search's answer the next one may go.</summary>
+    public static TimeSpan BeforeNextSearch(string? remaining, string? reset, DateTimeOffset now) =>
+        remaining == "0" && UntilReset(reset, now) is { } wait && wait > SearchGap ? wait : SearchGap;
+
+    /// <summary>A 429, or a 403 that says it's a rate limit (not a missing permission).</summary>
+    public static bool IsRateLimit(int status, string? remaining, bool retryAfter, string body) =>
+        status == 429 || status == 403 && (retryAfter || remaining == "0" || body.Contains("rate limit", StringComparison.OrdinalIgnoreCase));
+
+    /// <summary>
+    /// How long to wait after a rate-limit refusal, in GitHub's order: retry-after when it's given; else, when none are
+    /// left, until the reset; else at least a minute. Refusals that go on wait exponentially longer (from the third).
+    /// </summary>
+    public static TimeSpan AfterRefusal(TimeSpan? retryAfter, string? remaining, string? reset, DateTimeOffset now, int attempt)
+    {
+        if (retryAfter is { } after)
+        {
+            return after > TimeSpan.FromSeconds(1) ? after : TimeSpan.FromSeconds(1);
+        }
+        var backoff = TimeSpan.FromMinutes(Math.Pow(2, attempt));
+        if (remaining == "0" && UntilReset(reset, now) is { } wait)
+        {
+            var floor = attempt >= 2 ? TimeSpan.FromMinutes(Math.Pow(2, attempt - 2)) : TimeSpan.Zero;
+            return wait > floor ? wait : floor;
+        }
+        return backoff;
+    }
+
+    static TimeSpan? UntilReset(string? reset, DateTimeOffset now)
+    {
+        if (!long.TryParse(reset, out var at))
+        {
+            return null;
+        }
+        var wait = DateTimeOffset.FromUnixTimeSeconds(at) - now + Margin;
+        return wait > TimeSpan.FromSeconds(1) ? wait : TimeSpan.FromSeconds(1);
+    }
+}
+
 sealed class GitHub : IDisposable
 {
     const int BatchSize = 10;
-    static readonly TimeSpan CodeSearchGap = TimeSpan.FromSeconds(7); // code search allows 10 requests a minute
 
     readonly HttpClient http = new() { BaseAddress = new Uri("https://api.github.com/"), Timeout = TimeSpan.FromMinutes(2) };
-    DateTime lastCodeSearch = DateTime.MinValue;
+    DateTimeOffset nextSearch = DateTimeOffset.MinValue;
     int searchRequests;
 
     public GitHub(string token)
@@ -626,25 +745,41 @@ sealed class GitHub : IDisposable
 
     public int SearchRequests => searchRequests;
 
-    /// <summary>Sends a request, waiting out rate limits and retrying server errors; null when it still fails.</summary>
-    async Task<JsonNode?> SendAsync(Func<HttpRequestMessage> make, string what)
+    /// <summary>
+    /// Sends a request, waiting out rate limits as GitHub says (Pacing) and retrying server errors; null when it still
+    /// fails. A code search also sets when the next one may go.
+    /// </summary>
+    async Task<JsonNode?> SendAsync(Func<HttpRequestMessage> make, string what, bool search = false)
     {
-        for (var attempt = 0; attempt < 6; attempt++)
+        for (var attempt = 0; attempt < Pacing.Attempts; attempt++)
         {
             try
             {
                 using var response = await http.SendAsync(make());
                 var text = await response.Content.ReadAsStringAsync();
+                var remaining = Header(response, "x-ratelimit-remaining");
+                var reset = Header(response, "x-ratelimit-reset");
+                if (search)
+                {
+                    nextSearch = DateTimeOffset.UtcNow + Pacing.BeforeNextSearch(remaining, reset, DateTimeOffset.UtcNow);
+                }
                 if (response.IsSuccessStatusCode)
                 {
                     return JsonNode.Parse(text);
                 }
                 var status = (int)response.StatusCode;
-                if (status is 403 or 429 or 500 or 502 or 503 or 504)
+                var retryAfter = response.Headers.RetryAfter is { } ra ? ra.Delta ?? ra.Date - DateTimeOffset.UtcNow : null;
+                if (Pacing.IsRateLimit(status, remaining, retryAfter is not null, text))
                 {
-                    var wait = RetryWait(response, attempt);
+                    var wait = Pacing.AfterRefusal(retryAfter, remaining, reset, DateTimeOffset.UtcNow, attempt);
                     Console.Error.WriteLine($"  {what}: {status}, waiting {wait.TotalSeconds:0} s");
                     await Task.Delay(wait);
+                    continue;
+                }
+                if (status is 500 or 502 or 503 or 504)
+                {
+                    Console.Error.WriteLine($"  {what}: {status}, trying again");
+                    await Task.Delay(TimeSpan.FromSeconds(10 * (attempt + 1)));
                     continue;
                 }
                 Console.Error.WriteLine($"  {what}: {status}");
@@ -656,35 +791,22 @@ sealed class GitHub : IDisposable
                 await Task.Delay(TimeSpan.FromSeconds(10 * (attempt + 1)));
             }
         }
+        Console.Error.WriteLine($"  {what}: still refused after {Pacing.Attempts} tries");
         return null;
     }
 
-    static TimeSpan RetryWait(HttpResponseMessage response, int attempt)
-    {
-        if (response.Headers.RetryAfter?.Delta is { } delta)
-        {
-            return Clamp(delta);
-        }
-        if (response.Headers.TryGetValues("x-ratelimit-remaining", out var remaining) && remaining.FirstOrDefault() == "0"
-            && response.Headers.TryGetValues("x-ratelimit-reset", out var reset) && long.TryParse(reset.FirstOrDefault(), out var at))
-        {
-            return Clamp(DateTimeOffset.FromUnixTimeSeconds(at) - DateTimeOffset.UtcNow + TimeSpan.FromSeconds(2));
-        }
-        return TimeSpan.FromSeconds(30 * (attempt + 1));
-
-        static TimeSpan Clamp(TimeSpan t) => t < TimeSpan.FromSeconds(5) ? TimeSpan.FromSeconds(5) : t > TimeSpan.FromMinutes(10) ? TimeSpan.FromMinutes(10) : t;
-    }
+    static string? Header(HttpResponseMessage response, string name) =>
+        response.Headers.TryGetValues(name, out var values) ? values.FirstOrDefault() : null;
 
     public async Task<SearchPage?> SearchCodeAsync(string query, int page)
     {
-        var wait = lastCodeSearch + CodeSearchGap - DateTime.UtcNow;
+        var wait = nextSearch - DateTimeOffset.UtcNow;
         if (wait > TimeSpan.Zero)
         {
             await Task.Delay(wait);
         }
         var url = $"search/code?per_page=100&page={page}&q={Uri.EscapeDataString(query)}";
-        var json = await SendAsync(() => new HttpRequestMessage(HttpMethod.Get, url), $"search {query} (page {page})");
-        lastCodeSearch = DateTime.UtcNow;
+        var json = await SendAsync(() => new HttpRequestMessage(HttpMethod.Get, url), $"search {query} (page {page})", search: true);
         searchRequests++;
         if (json is null)
         {
@@ -1389,6 +1511,9 @@ static class SelfTest
         Check("write: same rows, same text", one == two && one.EndsWith("}\n") && !one.Contains('\r'));
         var back = Candidates.Read(one);
         Check("write: reads back", back.Count == rows.Count && Candidates.Write(Editions, back.Values) == one);
+        var dated = Candidates.Write(Editions, rows, new Dictionary<string, string> { [Editions.Values.First()] = "2026-11-28T02:00:00Z", ["99999"] = "2026-01-01T00:00:00Z" });
+        Check("write: search dates for the current Interfaces only, read back", Candidates.Searched(dated).Count == 1
+            && Candidates.Searched(dated)[Editions.Values.First()] == "2026-11-28T02:00:00Z" && Candidates.Searched(one).Count == 0);
 
         // GraphQL: the query and its results.
         var query = GraphQl.Query(["a/b", "c/d\"x"], [["Thing.toc", "Sub/A \"B\".toc"], []]);
@@ -1440,9 +1565,53 @@ static class SelfTest
         Check("search: every file under the cap found", files.Where(f => f.Size != 5000).All(f => found.TryGetValue(f.Repo, out var p) && p.Contains(f.Path)));
         Check("search: one size over the cap is reported", searchLog.Capped.Count == 1 && searchLog.Capped[0].Total == 1200 && found.Keys.Count(k => k.StartsWith("big/")) == 1000);
         Check("search: never past page 10", queries.All(q => !q.EndsWith(" p11")));
+        Check("search: whole", searchLog.Failed.Count == 0 && searchLog.Unfinished.Count == 0);
+        Check("search: few ranges over the cap asked", queries.Count(q => q.EndsWith(" p1") && Fake2Total(q) > 1000) - queries.Count(q => q.EndsWith(" p1") && Fake2Total(q) > 1000 && Covers5000(q)) <= 3);
+        int Fake2Total(string q)
+        {
+            var range = q[(q.LastIndexOf("size:") + 5)..^3].Split("..").Select(long.Parse).ToArray();
+            return files.Count(f => f.Size >= range[0] && f.Size <= range[1]);
+        }
+        bool Covers5000(string q)
+        {
+            var range = q[(q.LastIndexOf("size:") + 5)..^3].Split("..").Select(long.Parse).ToArray();
+            return range[0] <= 5000 && range[1] >= 5000;
+        }
         var failingLog = new RunLog();
-        await Search.CollectAsync((_, _) => Task.FromResult<SearchPage?>(null), "Interface 1 extension:toc", new(), failingLog);
-        Check("search: a failed request is reported", failingLog.Failed.Count == 1);
+        Check("search: a failed request makes it unfinished", !await Search.CollectAsync((_, _) => Task.FromResult<SearchPage?>(null), "Interface 1 extension:toc", new(), failingLog));
+        Check("search: each failed range reported, and the walk goes on", failingLog.Failed.Count > 1 && failingLog.Failed[0].EndsWith("size:0..255"));
+        var pageLog = new RunLog();
+        var pageFound = new Dictionary<string, SortedSet<string>>(StringComparer.OrdinalIgnoreCase);
+        var pageDone = await Search.CollectAsync((q, n) => n == 3 ? Task.FromResult<SearchPage?>(null) : Fake(q, n), "Interface 16001 extension:toc", pageFound, pageLog);
+        Check("search: a failed page is reported, the pages before it kept", !pageDone && pageLog.Failed.Any(f => f.EndsWith("(page 3)")) && pageFound.Count > 0);
+        var timeLog = new RunLog();
+        var asked = 0;
+        var timeFound = new Dictionary<string, SortedSet<string>>(StringComparer.OrdinalIgnoreCase);
+        var timeDone = await Search.CollectAsync((q, n) => { asked++; return Fake(q, n); }, "Interface 16001 extension:toc", timeFound, timeLog, () => asked >= 3);
+        Check("search: out of time, it stops and keeps what it found", !timeDone && asked == 3 && timeLog.Unfinished.Count == 1 && timeFound.Count > 0);
+        var under = new List<string>();
+        await Search.CollectAsync((q, n) => { if (n == 1) { under.Add(q); } return Task.FromResult<SearchPage?>(new(10, [])); }, "Interface 2 extension:toc", new(), new RunLog());
+        Check("search: under the cap, one request per range, each twice as wide", under.Count == 11 && under[0].EndsWith("size:0..255") && under[1].EndsWith("size:256..767")
+            && under[^1].EndsWith($"..{Search.MaxSize}"));
+        Check("search: never searched first, then the oldest", Search.Order(["16001", "120105", "11509", "16001", "50504"],
+            new Dictionary<string, string> { ["16001"] = "2026-11-20T00:00:00Z", ["11509"] = "2026-11-25T00:00:00Z", ["120105"] = "2026-11-01T00:00:00Z" })
+            .SequenceEqual(["50504", "120105", "16001", "11509"]));
+
+        // Pacing.
+        var now = DateTimeOffset.FromUnixTimeSeconds(1_800_000_000);
+        Check("pacing: searches keep a margin under 10 a minute", Pacing.BeforeNextSearch("4", "1800000030", now) == Pacing.SearchGap && Pacing.SearchGap > TimeSpan.FromSeconds(6));
+        Check("pacing: none left, wait for the reset", Pacing.BeforeNextSearch("0", "1800000030", now) == TimeSpan.FromSeconds(33));
+        Check("pacing: none left, the reset already past", Pacing.BeforeNextSearch("0", "1799999990", now) == Pacing.SearchGap);
+        Check("pacing: retry-after first", Pacing.AfterRefusal(TimeSpan.FromSeconds(90), "0", "1800000030", now, 0) == TimeSpan.FromSeconds(90));
+        Check("pacing: retry-after never cut short", Pacing.AfterRefusal(TimeSpan.FromMinutes(25), null, null, now, 0) == TimeSpan.FromMinutes(25));
+        Check("pacing: none left, until the reset", Pacing.AfterRefusal(null, "0", "1800000030", now, 0) == TimeSpan.FromSeconds(33));
+        Check("pacing: none left again and again, exponentially longer", Pacing.AfterRefusal(null, "0", "1800000030", now, 3) == TimeSpan.FromMinutes(2));
+        Check("pacing: neither, at least a minute", Pacing.AfterRefusal(null, "3", "1800000030", now, 0) == TimeSpan.FromMinutes(1));
+        Check("pacing: neither, doubling", Pacing.AfterRefusal(null, null, null, now, 1) == TimeSpan.FromMinutes(2)
+            && Pacing.AfterRefusal(null, null, null, now, Pacing.Attempts - 1) == TimeSpan.FromMinutes(32));
+        Check("pacing: 429 is a rate limit", Pacing.IsRateLimit(429, "5", false, ""));
+        Check("pacing: a 403 is one only when it says so", Pacing.IsRateLimit(403, "0", false, "") && Pacing.IsRateLimit(403, "5", true, "")
+            && Pacing.IsRateLimit(403, "5", false, "You have exceeded a secondary rate limit") && !Pacing.IsRateLimit(403, "5", false, "Resource not accessible"));
 
         // Inputs.
         var editions = Inputs.Editions(JsonNode.Parse("""{ "editions": { "retail": { "interface": "120105" }, "forever": { "interface": "16001" }, "retail_ptr": { "of": "retail", "interface": "120107" } } }""")!);
