@@ -67,7 +67,7 @@ CurseForge and Wago aren't contacted. `--self-test` checks the matching rules of
 Code search goes at most every 7.5 seconds (the limit is 10 a minute) and waits for `x-ratelimit-reset` when an answer says none are left. A refused request waits as GitHub's REST docs say, as discovery's do (see discover.cs, "Pacing"): `retry-after`, else the reset, else a minute doubling; a 403 that isn't a rate limit isn't retried.
 
 ## discover.cs
-Finds add-ons for every edition on public GitHub repos and writes `candidates.json`, one row per repo, for the release check to work from. It lists nothing by itself and never edits `catalog.json`. The **discover** workflow runs it daily (or by hand) and keeps `candidates.json` on the `checker` branch, never on `main`.
+Finds add-ons for every edition on public GitHub repos and writes `candidates.json`, one row per repo, for the release check to work from. It lists nothing by itself and never edits `catalog.json`. The **discover** workflow runs it in parts (below) and keeps `candidates.json` on the `checker` branch, never on `main`.
 
 ```powershell
 $env:GITHUB_TOKEN = (gh auth token)
@@ -75,6 +75,8 @@ powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/disco
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --edition forever   # one edition
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --no-search         # read the known repos again
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --search-minutes 60  # stop starting searches after an hour
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --part search       # search, re-read only changed repos
+powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --part stats        # download counts and funding links only
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/discover.cs -- --self-test
 ```
 
@@ -96,8 +98,14 @@ Each row also records whether the repo has issues turned on, and its `FUNDING.ym
 
 Re-running changes only what changed: the rows are sorted and written the same way each time, the previous run's repos are read again even if search misses them, and a repo that can't be read this time keeps its previous row. The report (also the job summary) counts the repos per edition with when its Interface was last searched in full, the drops, and names any capped, failed or unfinished search.
 
+**Parts.** The workflow runs discovery in two parts, each on its own schedule, and a run by hand picks one (`search`, `stats`, `all`, or `reread`, which is `all` without the search):
+- **search** (`--part search`, every 4 hours): code search for up to an hour, then reads the new repos and asks, 100 repos a query, which known repos changed (last push, Latest release, name). Only those are read again; the rest keep their rows. When the editions' Interfaces changed, every repo is read again, since a row's editions depend on them. A repo read again keeps the stats part's fields.
+- **stats** (`--part stats`, daily): every repo's download counts and release history, its GitHub Sponsors links' answers and its short links' destinations. Nothing else is read or changed. `downloadHistory` keeps each day's total, the newest 30 days, so a later version can tell which add-ons are being picked up.
+
+Both write `candidates.json`, so they share a concurrency group and never overlap. Without `--part`, a run does all of it and reads every repo.
+
 ## check.cs
-Checks the latest release of each add-on discovery found (`candidates.json`) and writes `checks.json`, which the generator lists add-ons from. It never edits `catalog.json`. The **check** workflow runs it every 6 hours (or by hand) and keeps `checks.json` on the `checker` branch, beside `candidates.json`. While the catalog repo is private, the **discover** and **check** workflows are turned off, so they use no Actions minutes: run both scripts locally, and their files stay in your checkout.
+Checks the latest release of each add-on discovery found (`candidates.json`) and writes `checks.json`, which the generator lists add-ons from. It never edits `catalog.json`. The **check** workflow runs it every hour (or by hand) and keeps `checks.json` on the `checker` branch, beside `candidates.json`. While the catalog repo is private, the **discover** and **check** workflows are turned off, so they use no Actions minutes: run both scripts locally, and their files stay in your checkout.
 
 ```powershell
 $env:GITHUB_TOKEN = (gh auth token)

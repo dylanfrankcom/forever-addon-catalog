@@ -8,7 +8,9 @@
 //   ... dotnet run scripts/discover.cs                               # every edition in ./catalog.json
 //   ... dotnet run scripts/discover.cs -- --edition forever          # one edition (repeatable), for a quicker run
 //   ... dotnet run scripts/discover.cs -- --no-search                # only re-read the repos already in candidates.json
-//   ... dotnet run scripts/discover.cs -- --search-minutes 60        # stop starting searches after an hour (the workflow)
+//   ... dotnet run scripts/discover.cs -- --search-minutes 60        # stop starting searches after an hour
+//   ... dotnet run scripts/discover.cs -- --part search              # search, then re-read only the repos that changed
+//   ... dotnet run scripts/discover.cs -- --part stats               # only download counts and funding links
 //   ... dotnet run scripts/discover.cs -- --self-test                # offline tests
 // Options: --catalog <file> (default ./catalog.json), --optout <file> (default ./optout.json), --overrides <folder>
 // (default ./overrides), --out <file> (default
@@ -24,6 +26,10 @@
 //    the newest tags, .pkgmeta, and the .toc files themselves (read again at HEAD, so a stale search index doesn't count).
 // 3. README.md's first sentence, only for repos whose main .toc has no Notes and that have no description: the
 //    generator's last fallback for a summary. (Reading every README makes the queries heavy enough to time out.)
+// Parts (--part): "search" searches, then reads new repos and re-reads only those whose last push or Latest release
+// changed (one small query for 100 repos tells), keeping every other row and the stats as they were; "stats" reads
+// nothing but each repo's download counts (with a 30-day history of daily totals) and its funding links' answers,
+// keeping everything else. With no part, a run does all of it and re-reads every repo.
 // Repos the catalog already lists (its GitHub sources, and the "repo" of each file in overrides/) are read every run too:
 // code search misses some repos. Their .toc files are found from the repo's tree (the root and one folder down). Forks
 // are dropped, except one an override names: a person checked it's the maintained continuation of an add-on.
@@ -48,6 +54,7 @@ string catalogArg = "catalog.json", optoutArg = "optout.json", outArg = "candida
 string? summaryArg = null;
 var search = true;
 TimeSpan? searchTime = null;
+string? part = null;
 var onlyEditions = new List<string>();
 var onlyRepos = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 for (var i = 0; i < args.Length; i++)
@@ -62,11 +69,12 @@ for (var i = 0; i < args.Length; i++)
         case "--summary" when value is not null: summaryArg = value; i++; break;
         case "--edition" when value is not null: onlyEditions.Add(value.Trim()); i++; break;
         case "--no-search": search = false; break;
+        case "--part" when value is "search" or "stats": part = value; i++; break;
         case "--search-minutes" when int.TryParse(value, out var minutes) && minutes > 0: searchTime = TimeSpan.FromMinutes(minutes); i++; break;
         // Reads only these repos again (no search) and keeps every other row as it is.
         case "--repo" when value is not null: onlyRepos.Add(value.Trim()); search = false; i++; break;
         default:
-            Console.Error.WriteLine("Usage: dotnet run scripts/discover.cs [--edition <id>]... [--no-search] [--search-minutes <n>] [--repo <owner/name>]... [--catalog <file>] [--optout <file>] [--out <file>] [--summary <file>] | --self-test");
+            Console.Error.WriteLine("Usage: dotnet run scripts/discover.cs [--edition <id>]... [--no-search] [--search-minutes <n>] [--part search|stats] [--repo <owner/name>]... [--catalog <file>] [--optout <file>] [--out <file>] [--summary <file>] | --self-test");
             return 2;
     }
 }
@@ -82,6 +90,7 @@ SortedDictionary<string, string> editions;
 OptOut optout;
 Dictionary<string, JsonObject> previous;
 Dictionary<string, string> searched;
+JsonObject? previousEditions;
 List<string> seeds, forks;
 try
 {
@@ -95,6 +104,7 @@ try
     var previousText = File.Exists(outArg) ? File.ReadAllText(outArg) : null;
     previous = previousText is null ? new(StringComparer.OrdinalIgnoreCase) : Candidates.Read(previousText);
     searched = previousText is null ? [] : Candidates.Searched(previousText);
+    previousEditions = previousText is null ? null : JsonNode.Parse(previousText)!["editions"] as JsonObject;
 }
 catch (Exception e) when (e is IOException or UnauthorizedAccessException or JsonException or InvalidOperationException or NullReferenceException or FormatException)
 {
@@ -109,6 +119,22 @@ foreach (var id in onlyEditions.Where(id => !editions.ContainsKey(id)))
 
 var log = new RunLog();
 using var github = new GitHub(token);
+if (part == "stats")
+{
+    var statRows = previous.Values.Select(r => r.DeepClone().AsObject()).ToList();
+    await github.ReadDownloadsAsync(statRows, previous);
+    await github.CheckSponsorsAsync(statRows, previous);
+    await Funding.ResolveShortLinksAsync(statRows, previous);
+    File.WriteAllText(outArg, Candidates.Write(editions, statRows, searched));
+    log.Searched = searched;
+    var statReport = log.Report(statRows, editions, false, "stats");
+    Console.Write(statReport);
+    if (summaryArg is not null)
+    {
+        File.AppendAllText(summaryArg, statReport);
+    }
+    return 0;
+}
 var found = new Dictionary<string, SortedSet<string>>(StringComparer.OrdinalIgnoreCase);
 if (search)
 {
@@ -155,13 +181,50 @@ foreach (var repo in found.Keys.Where(optout.Covers).ToList())
     log.Drop(repo, "on the never-add list");
 }
 
+// The search part re-reads only repos that changed, unless the editions' Interfaces did (every row's editions then can).
+var unchanged = new List<JsonObject>();
+if (part == "search" && Refresh.SameEditions(previousEditions, editions))
+{
+    var known = found.Keys.Where(previous.ContainsKey).ToList();
+    Console.Error.WriteLine($"Asking which of {known.Count} known repos changed ...");
+    var now = await github.ReadChangesAsync(known);
+    foreach (var repo in known.Where(r => Refresh.Unchanged(previous[r], now.GetValueOrDefault(r))))
+    {
+        found.Remove(repo);
+        unchanged.Add(previous[repo].DeepClone().AsObject());
+    }
+    log.Unchanged = unchanged.Count;
+}
+
 Console.Error.WriteLine($"Reading {found.Count} repos ...");
 var reads = await github.ReadReposAsync(found, log);
 var rows = Candidates.Build(found.Keys, reads, previous, editions, optout, log, forks);
 await github.ReadReadmesAsync(rows, previous);
-await github.ReadDownloadsAsync(rows, previous);
-await github.CheckSponsorsAsync(rows, previous);
-await Funding.ResolveShortLinksAsync(rows, previous);
+if (part == "search")
+{
+    // A repo moved to another owner or name is read under its old name: its stats are under that name.
+    var oldNames = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+    foreach (var (key, node) in reads)
+    {
+        if (node?["nameWithOwner"]?.GetValue<string>() is { } name && !name.Equals(key, StringComparison.OrdinalIgnoreCase))
+        {
+            oldNames.TryAdd(name, key);
+        }
+    }
+    foreach (var row in rows)
+    {
+        var name = row["repo"]!.GetValue<string>();
+        Stats.Carry(row, previous.GetValueOrDefault(name) ?? (oldNames.TryGetValue(name, out var old) ? previous.GetValueOrDefault(old) : null));
+    }
+    var read = rows.Select(r => r["repo"]!.GetValue<string>()).ToHashSet(StringComparer.OrdinalIgnoreCase);
+    rows.AddRange(unchanged.Where(r => !read.Contains(r["repo"]!.GetValue<string>())));
+}
+else
+{
+    await github.ReadDownloadsAsync(rows, previous);
+    await github.CheckSponsorsAsync(rows, previous);
+    await Funding.ResolveShortLinksAsync(rows, previous);
+}
 if (onlyRepos.Count > 0)
 {
     var read = rows.Select(r => r["repo"]!.GetValue<string>()).ToHashSet(StringComparer.OrdinalIgnoreCase);
@@ -169,7 +232,7 @@ if (onlyRepos.Count > 0)
 }
 File.WriteAllText(outArg, Candidates.Write(editions, rows, searched));
 
-var report = log.Report(rows, editions, search);
+var report = log.Report(rows, editions, search, part);
 Console.Write(report);
 if (summaryArg is not null)
 {
@@ -185,6 +248,7 @@ sealed class RunLog
 {
     public List<string> Failed { get; } = [];
     public List<string> Unfinished { get; } = [];
+    public int Unchanged { get; set; }
     public IReadOnlyDictionary<string, string> Searched { get; set; } = new Dictionary<string, string>();
     public List<(string Query, int Total)> Capped { get; } = [];
     public SortedDictionary<string, List<string>> Dropped { get; } = new(StringComparer.Ordinal);
@@ -200,10 +264,21 @@ sealed class RunLog
         list.Add(repo);
     }
 
-    public string Report(IReadOnlyCollection<JsonObject> rows, IReadOnlyDictionary<string, string> editions, bool searched)
+    public string Report(IReadOnlyCollection<JsonObject> rows, IReadOnlyDictionary<string, string> editions, bool searched, string? part = null)
     {
-        var md = new StringBuilder("## Discovery\n\n");
-        md.AppendLine($"{rows.Count} candidate repos{(searched ? "" : " (no search: the previous run's repos read again)")}, from {Requests} code search requests.").AppendLine();
+        var md = new StringBuilder(part is null ? "## Discovery\n\n" : $"## Discovery: {part}\n\n");
+        if (part == "stats")
+        {
+            md.AppendLine($"{rows.Count} candidate repos: download counts and funding links read again; everything else kept.").AppendLine();
+        }
+        else
+        {
+            md.AppendLine($"{rows.Count} candidate repos{(searched ? "" : " (no search: the previous run's repos read again)")}, from {Requests} code search requests.").AppendLine();
+        }
+        if (Unchanged > 0)
+        {
+            md.AppendLine($"- Unchanged since the last read (kept, not read again): {Unchanged}");
+        }
         md.AppendLine("| Edition | Interface | Repos | Last full search |").AppendLine("|---|---|---|---|");
         foreach (var (id, iface) in editions)
         {
@@ -979,6 +1054,28 @@ sealed class GitHub : IDisposable
     /// files of 10 repos at once makes GitHub time out. A repo GitHub doesn't answer 3 times in a row keeps the previous run's counts
     /// and history, or has none: a count is never written short.
     /// </summary>
+    /// <summary>Each repo's last push and Latest release tag, 100 repos a query; a repo missing from the result couldn't be read.</summary>
+    public async Task<Dictionary<string, JsonNode?>> ReadChangesAsync(IReadOnlyList<string> repos)
+    {
+        var result = new Dictionary<string, JsonNode?>(StringComparer.OrdinalIgnoreCase);
+        for (var start = 0; start < repos.Count; start += Refresh.ReposAQuery)
+        {
+            var chunk = repos.Skip(start).Take(Refresh.ReposAQuery).ToList();
+            var json = await SendAsync(() => new HttpRequestMessage(HttpMethod.Post, "graphql")
+            {
+                Content = new StringContent(new JsonObject { ["query"] = Refresh.Query(chunk) }.ToJsonString(), Encoding.UTF8, "application/json"),
+            }, $"changes {chunk[0]} ...");
+            for (var i = 0; i < chunk.Count; i++)
+            {
+                if (json?["data"] is JsonObject data && data.ContainsKey($"r{i}"))
+                {
+                    result[chunk[i]] = data[$"r{i}"]?.DeepClone();
+                }
+            }
+        }
+        return result;
+    }
+
     public async Task ReadDownloadsAsync(List<JsonObject> rows, IReadOnlyDictionary<string, JsonObject> previous)
     {
         var tallies = rows.Select(r => new Downloads.Tally(r["repo"]!.GetValue<string>())).ToList();
@@ -1018,6 +1115,10 @@ sealed class GitHub : IDisposable
             var before = tally.Done ? null : previous.GetValueOrDefault(tally.Repo);
             row["releases"] = tally.Done ? tally.Releases() : before?["releases"]?.DeepClone();
             row["downloads"] = tally.Done ? tally.Counts(row, now) : before?["downloads"]?.DeepClone();
+            var history = previous.GetValueOrDefault(tally.Repo)?["downloadHistory"] as JsonArray;
+            row["downloadHistory"] = tally.Done && row["downloads"]?["total"] is { } total
+                ? Stats.History(history, now.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture), total.GetValue<long>())
+                : history?.DeepClone();
         }
     }
 
@@ -1048,6 +1149,84 @@ static partial class History
 /// its installs download from GitHub, so they're already in these counts. GitHub doesn't count its source-code archives,
 /// and each release's first 30 files are counted.
 /// </summary>
+/// <summary>Which known repos the search part can keep as they were.</summary>
+static class Refresh
+{
+    public const int ReposAQuery = 100;
+
+    public static string Query(IReadOnlyList<string> repos)
+    {
+        var q = new StringBuilder("query {\n");
+        for (var i = 0; i < repos.Count; i++)
+        {
+            var slash = repos[i].IndexOf('/');
+            q.Append($"r{i}: repository(owner: {JsonSerializer.Serialize(repos[i][..slash])}, name: {JsonSerializer.Serialize(repos[i][(slash + 1)..])}) {{ nameWithOwner pushedAt latestRelease {{ tagName }} }}\n");
+        }
+        return q.Append('}').ToString();
+    }
+
+    /// <summary>
+    /// Whether a repo is as it was when its row was written: the same name, last push and Latest release. One that couldn't
+    /// be asked, or is gone, counts as changed, so it's read in full.
+    /// </summary>
+    public static bool Unchanged(JsonObject before, JsonNode? now) =>
+        now is JsonObject n
+        && string.Equals(n["nameWithOwner"]?.GetValue<string>(), before["repo"]?.GetValue<string>(), StringComparison.Ordinal)
+        && n["pushedAt"]?.GetValue<string>() is { } pushed && pushed == before["pushedAt"]?.GetValue<string>()
+        && n["latestRelease"]?["tagName"]?.GetValue<string>() == before["latestRelease"]?["tag"]?.GetValue<string>();
+
+    /// <summary>Whether the previous run's editions had the same Interfaces: a row's editions depend on them.</summary>
+    public static bool SameEditions(JsonObject? before, IReadOnlyDictionary<string, string> editions) =>
+        before is not null && before.Count == editions.Count
+        && editions.All(e => before[e.Key]?.GetValue<string>() == e.Value);
+}
+
+/// <summary>What only the stats part writes, and the history of daily download totals.</summary>
+static class Stats
+{
+    public const int HistoryDays = 30;
+
+    /// <summary>A freshly read row keeps the previous row's download counts, history and funding links' answers.</summary>
+    public static void Carry(JsonObject row, JsonObject? before)
+    {
+        if (before is null)
+        {
+            return;
+        }
+        foreach (var key in new[] { "releases", "downloads", "downloadHistory" })
+        {
+            row[key] = before[key]?.DeepClone();
+        }
+        var old = (before["funding"]?.AsArray() ?? []).OfType<JsonObject>().ToList();
+        foreach (var link in (row["funding"]?.AsArray() ?? []).OfType<JsonObject>())
+        {
+            var url = link["url"]?.GetValue<string>();
+            if (old.FirstOrDefault(o => o["url"]?.GetValue<string>() == url) is not { } match)
+            {
+                continue;
+            }
+            foreach (var key in new[] { "sponsors", "ownerOrMember", "resolved" })
+            {
+                if (match.ContainsKey(key))
+                {
+                    link[key] = match[key]?.DeepClone();
+                }
+            }
+        }
+    }
+
+    /// <summary>The daily totals with today's: one per day, the newest <see cref="HistoryDays"/>, oldest first.</summary>
+    public static JsonArray History(JsonArray? before, string day, long total)
+    {
+        var days = (before ?? []).OfType<JsonObject>()
+            .Where(d => d["day"]?.GetValue<string>() is { } at && at != day)
+            .Select(d => (Day: d["day"]!.GetValue<string>(), Total: d["total"]!.GetValue<long>()))
+            .Append((Day: day, Total: total))
+            .OrderBy(d => d.Day, StringComparer.Ordinal).TakeLast(HistoryDays);
+        return new JsonArray(days.Select(d => (JsonNode)new JsonObject { ["day"] = d.Day, ["total"] = d.Total }).ToArray());
+    }
+}
+
 static class Downloads
 {
     public const int ReposAQuery = 5, ReleasesAQuery = 50, FilesARelease = 30, Days = 100;
@@ -1596,6 +1775,27 @@ static class SelfTest
         Check("search: never searched first, then the oldest", Search.Order(["16001", "120105", "11509", "16001", "50504"],
             new Dictionary<string, string> { ["16001"] = "2026-11-20T00:00:00Z", ["11509"] = "2026-11-25T00:00:00Z", ["120105"] = "2026-11-01T00:00:00Z" })
             .SequenceEqual(["50504", "120105", "16001", "11509"]));
+
+        // Parts.
+        var beforeRow = JsonNode.Parse("""{"repo":"a/b","pushedAt":"2026-11-20T00:00:00Z","latestRelease":{"tag":"v2"},"releases":{"count":3},"downloads":{"total":10},"downloadHistory":[{"day":"2026-11-27","total":9}],"funding":[{"platform":"GITHUB","url":"https://github.com/sponsors/x","sponsors":true,"ownerOrMember":true},{"platform":"CUSTOM","url":"https://bit.ly/x","resolved":"https://ko-fi.com/x"}]}""")!.AsObject();
+        Check("parts: an unchanged repo is kept", Refresh.Unchanged(beforeRow, JsonNode.Parse("""{"nameWithOwner":"a/b","pushedAt":"2026-11-20T00:00:00Z","latestRelease":{"tagName":"v2"}}""")));
+        Check("parts: a push, a new release, a rename or no answer is read again", !Refresh.Unchanged(beforeRow, JsonNode.Parse("""{"nameWithOwner":"a/b","pushedAt":"2026-11-21T00:00:00Z","latestRelease":{"tagName":"v2"}}"""))
+            && !Refresh.Unchanged(beforeRow, JsonNode.Parse("""{"nameWithOwner":"a/b","pushedAt":"2026-11-20T00:00:00Z","latestRelease":{"tagName":"v3"}}"""))
+            && !Refresh.Unchanged(beforeRow, JsonNode.Parse("""{"nameWithOwner":"a/c","pushedAt":"2026-11-20T00:00:00Z","latestRelease":{"tagName":"v2"}}"""))
+            && !Refresh.Unchanged(beforeRow, null));
+        Check("parts: new Interfaces read every repo again", Refresh.SameEditions(JsonNode.Parse("""{"forever":"16001"}""")!.AsObject(), new Dictionary<string, string> { ["forever"] = "16001" })
+            && !Refresh.SameEditions(JsonNode.Parse("""{"forever":"16001"}""")!.AsObject(), new Dictionary<string, string> { ["forever"] = "16002" })
+            && !Refresh.SameEditions(null, new Dictionary<string, string> { ["forever"] = "16001" }));
+        Check("parts: the change query names each repo", Refresh.Query(["a/b", "c/d"]).Contains("r1: repository(owner: \"c\", name: \"d\") { nameWithOwner pushedAt latestRelease { tagName } }", StringComparison.Ordinal));
+        var fresh = JsonNode.Parse("""{"repo":"a/b","releases":null,"downloads":null,"funding":[{"platform":"GITHUB","url":"https://github.com/sponsors/x"},{"platform":"CUSTOM","url":"https://bit.ly/x"},{"platform":"CUSTOM","url":"https://new.example"}]}""")!.AsObject();
+        Stats.Carry(fresh, beforeRow);
+        Check("parts: a re-read row keeps the stats part's fields", fresh["downloads"]!["total"]!.GetValue<int>() == 10 && fresh["releases"]!["count"]!.GetValue<int>() == 3
+            && fresh["downloadHistory"]!.AsArray().Count == 1 && fresh["funding"]![0]!["sponsors"]!.GetValue<bool>() && fresh["funding"]![1]!["resolved"]!.GetValue<string>() == "https://ko-fi.com/x"
+            && fresh["funding"]![2]!.AsObject().Count == 2);
+        var history = Stats.History(JsonNode.Parse("""[{"day":"2026-11-27","total":9},{"day":"2026-11-28","total":10}]""")!.AsArray(), "2026-11-28", 12);
+        Check("parts: one total a day, today's replacing an earlier one", history.Count == 2 && history[1]!["total"]!.GetValue<long>() == 12);
+        var month = Stats.History(new JsonArray(Enumerable.Range(1, 30).Select(i => (JsonNode)new JsonObject { ["day"] = $"2026-10-{i:00}", ["total"] = (long)i }).ToArray()), "2026-11-01", 31);
+        Check("parts: the newest 30 days, oldest first", month.Count == Stats.HistoryDays && month[0]!["day"]!.GetValue<string>() == "2026-10-02" && month[^1]!["day"]!.GetValue<string>() == "2026-11-01");
 
         // Pacing.
         var now = DateTimeOffset.FromUnixTimeSeconds(1_800_000_000);
