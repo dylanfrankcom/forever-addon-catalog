@@ -78,11 +78,12 @@ Every change is checked by the validator on its pull request. Versions players r
 The catalog and the app are free and open source, developed by AI agents (Claude Code) under the maintainer's direction.
 
 ## For the maintainer
-- **The check workflow's deploy key:** `main` takes changes only by pull request, except from the deploy key that the
-  check workflow (`check.yml`) pushes the rebuilt catalog with. Its private half is the `CATALOG_DEPLOY_KEY` secret. To
-  replace it, make a new key pair (`ssh-keygen -t ed25519 -N "" -f catalog-deploy`), add the public half as a deploy key
-  with write access, put the private half in `CATALOG_DEPLOY_KEY`, point the ruleset's exception at the new key, delete
-  the old deploy key, and delete both local files.
+- **The catalog's GitHub App:** `main` takes changes only by pull request, except from the app that the check workflow
+  (`check.yml`) pushes the rebuilt catalog with. The app is installed on this repository only, with Contents (read and
+  write) and no other permission, Workflows included, so it can't change a workflow. Each run mints a token that lasts an
+  hour (`actions/create-github-app-token`), from the app's ID (the `CATALOG_APP_ID` variable) and its private key (the
+  `CATALOG_APP_KEY` secret). To replace the key, generate a new private key in the app's settings, put it in
+  `CATALOG_APP_KEY`, delete the old key there, and delete the downloaded file.
 
 ## Licence
 - **The catalog's data** (`catalog.json`) is licensed under [CC BY-SA 4.0](LICENSE-DATA). Anyone, including other add-on managers, may use and adapt it. Credit this catalog, and share adapted versions under the same licence.
