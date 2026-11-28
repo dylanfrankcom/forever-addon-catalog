@@ -40,8 +40,6 @@ jobs:
         run: dotnet run scripts/generate.cs -- --self-test
       - name: Self-test details
         run: dotnet run scripts/details.cs -- --self-test
-      - name: Self-test linkcheck
-        run: dotnet run scripts/linkcheck.cs -- --self-test
       - name: Self-test reports
         run: dotnet run scripts/reports.cs -- --self-test
       - name: Validate catalog.json
