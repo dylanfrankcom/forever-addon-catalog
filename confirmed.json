@@ -1,5 +1,26 @@
 {
   "$schema": "./schema/confirmed.schema.json",
   "$comment": "Versions of CurseForge and Wago add-ons that players reported and the maintainer confirmed, by catalog ID, source and edition. Changed only by merging the reports workflow's pull request; the generator copies them into catalog.json.",
-  "addons": {}
+  "addons": {
+    "auctionator": {
+      "wago": {
+        "forever": {
+          "version": "354",
+          "sha256": "67e3d471abc0fc725db5dfc4a72015c69f469e882717b1efe750a26670bbbb22",
+          "date": "2026-11-28",
+          "reports": 1
+        }
+      }
+    },
+    "needroll": {
+      "wago": {
+        "forever": {
+          "version": "v2.0.2",
+          "sha256": "16a468e077e3083b68add4b36e84cb0b2744f852f991e284fa426a4361bde32c",
+          "date": "2026-11-28",
+          "reports": 1
+        }
+      }
+    }
+  }
 }
