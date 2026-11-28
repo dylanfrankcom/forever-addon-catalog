@@ -44,6 +44,8 @@
 //   waiting, or for the maintainer ("human"). Nothing is merged automatically unless --auto on, and nothing while --paused
 //   (an open auto-merge-paused issue) or past the daily cap (the rules', counting --merged-today). Writes the decision
 //   file and, with --body, its table for the pull requests. An anomaly is listed under "trip": it pauses automatic merging.
+// - wanted: writes the wanted list (--out, wanted.json): what the catalog is missing, each item with its progress
+//   (0, 25, 50, 75 or 100) toward a decision, never the counts or the rules. The check workflow publishes it.
 // - guard: refuses an automatic pull request that changes anything but confirmed.json and existing files in overrides/,
 //   changes an item the decision didn't merge, or replaces anything an override already says (--changed: the changed
 //   paths, one per line; --base: the files as they are on main).
@@ -62,7 +64,7 @@ if (args is ["--self-test"])
     return Tests.Run();
 }
 
-if (args.Length == 0 || args[0] is not ("collect" or "done" or "propose" or "review" or "decide" or "guard"))
+if (args.Length == 0 || args[0] is not ("collect" or "done" or "propose" or "review" or "decide" or "guard" or "wanted"))
 {
     return Usage();
 }
@@ -70,7 +72,7 @@ string command = args[0], catalogPath = "catalog.json", confirmedPath = "confirm
     collectedPath = "collected.json", bodyPath = "body.md", factsPath = "facts.json";
 string? answerPath = null, onlyPath = null, skipPath = null, changedPath = null, baseDir = null;
 var headDir = ".";
-string? rulesPath = null; string answersPath = "answers.json", decisionPath = "decision.json";
+string? rulesPath = null; string answersPath = "answers.json", decisionPath = "decision.json", outPath = "wanted.json";
 var overridesDir = "overrides";
 var auto = false;
 var paused = false;
@@ -91,6 +93,7 @@ for (var i = 1; i < args.Length; i++)
         case "--rules" when value is not null: rulesPath = value; i++; break;
         case "--answers" when value is not null: answersPath = value; i++; break;
         case "--decision" when value is not null: decisionPath = value; i++; break;
+        case "--out" when value is not null: outPath = value; i++; break;
         case "--only" when value is not null && skipPath is null: onlyPath = value; i++; break;
         case "--skip" when value is not null && onlyPath is null: skipPath = value; i++; break;
         case "--changed" when value is not null: changedPath = value; i++; break;
@@ -193,6 +196,20 @@ try
             }
             return 0;
         }
+        case "wanted":
+        {
+            var catalog = Read(catalogPath)!.AsObject();
+            var store = Store.From(File.Exists(storePath) ? Read(storePath) : null);
+            var rules = Rules.Read(Read(rulesPath ?? throw new ArgumentException("--rules is required: the thresholds aren't in the repository.")));
+            var overrides = Directory.Exists(overridesDir)
+                ? Directory.GetFiles(overridesDir, "*.json").Where(f => !Path.GetFileName(f).StartsWith('_'))
+                    .ToDictionary(f => Path.GetFileNameWithoutExtension(f), f => Read(f)!.AsObject(), StringComparer.Ordinal)
+                : new Dictionary<string, JsonObject>(StringComparer.Ordinal);
+            var wanted = Wanted.Build(catalog, Read(confirmedPath)!.AsObject(), store, overrides, rules, DateOnly.FromDateTime(DateTime.UtcNow));
+            File.WriteAllText(outPath, Json.Write(wanted));
+            Console.WriteLine($"Wanted: {wanted["items"]!.AsArray().Count} items.");
+            return 0;
+        }
         case "guard":
         {
             if (changedPath is null || baseDir is null)
@@ -265,7 +282,7 @@ catch (Exception e) when (e is IOException or HttpRequestException or TaskCancel
 
 static int Usage()
 {
-    Console.Error.WriteLine("Usage: dotnet run scripts/reports.cs -- collect|done|propose|review|decide|guard [--catalog f] [--confirmed f] [--store f] [--collected f] [--answer f] [--overrides dir] [--body f] [--facts f] [--rules f] [--only f | --skip f] [--answers f] [--decision f] [--auto on|off] [--paused] [--merged-today n] [--changed f --base dir [--head dir]] | --self-test");
+    Console.Error.WriteLine("Usage: dotnet run scripts/reports.cs -- collect|done|propose|review|decide|guard|wanted [--catalog f] [--confirmed f] [--store f] [--collected f] [--answer f] [--overrides dir] [--body f] [--facts f] [--rules f] [--only f | --skip f] [--answers f] [--decision f] [--auto on|off] [--paused] [--merged-today n] [--out f] [--changed f --base dir [--head dir]] | --self-test");
     return 2;
 }
 
@@ -505,6 +522,7 @@ static partial class Check
         var folders = (s["folders"] as JsonArray ?? []).Select(f => Json.Str(f)).ToList();
         var (count, first, last) = (Number(s["count"], 1_000_000), Time(s["firstSeen"]), Time(s["lastSeen"]));
         var networks = Networks(s["networks"]);
+        var providers = Networks(s["providers"]);
         var projectOk = source switch
         {
             "curseforge" => project is not null && CurseForgeProject().IsMatch(project),
@@ -524,9 +542,9 @@ static partial class Check
         {
             return (null, $"{source} {project}: bad folders");
         }
-        if (count is null || first is null || last is null || last < first || !networks.Ok)
+        if (count is null || first is null || last is null || last < first || !networks.Ok || !providers.Ok)
         {
-            return (null, $"{source} {project}: bad count, networks or dates");
+            return (null, $"{source} {project}: bad count, networks, providers or dates");
         }
         var toc = new JsonObject();
         if (s["toc"] is JsonObject t)
@@ -553,7 +571,7 @@ static partial class Check
         {
             ["source"] = source, ["project"] = project, ["edition"] = edition, ["name"] = name,
             ["folders"] = new JsonArray(folders.Select(f => (JsonNode)JsonValue.Create(f)!).ToArray()), ["toc"] = toc,
-            ["count"] = count, ["networks"] = networks.Networks, ["firstSeen"] = Stamp(first.Value), ["lastSeen"] = Stamp(last.Value),
+            ["count"] = count, ["networks"] = networks.Networks, ["providers"] = providers.Networks, ["firstSeen"] = Stamp(first.Value), ["lastSeen"] = Stamp(last.Value),
         }, null);
     }
 
@@ -1321,6 +1339,95 @@ static class Decide
 }
 
 /// <summary>
+/// wanted.json: what the catalog is missing, for the app's Help the catalog page and any other add-on manager. Add-ons
+/// players suggested that aren't listed; hand-listed entries missing a summary or languages, or with players' .toc details
+/// waiting; and hand-listed sources with no confirmed version for an edition, or a newer one reported. Each item has its
+/// progress toward a decision under the rule for its kind: 0, 25, 50, 75 or 100, rounded down, where 100 means it's
+/// being checked. Never the counts or the rules, so nothing tells how many more reports would tip it. An item leaves
+/// once its change has merged (the suggestion's add-on listed, the details or version confirmed).
+/// </summary>
+static class Wanted
+{
+    public static JsonObject Build(JsonObject catalog, JsonObject confirmed, Store store, IReadOnlyDictionary<string, JsonObject> overrides,
+        Rules rules, DateOnly today)
+    {
+        var items = new JsonArray();
+        var addons = (catalog["addons"]?.AsArray() ?? []).OfType<JsonObject>().OrderBy(a => Json.Str(a["id"]), StringComparer.Ordinal).ToList();
+        var listed = addons.SelectMany(a => Check.SiteSources(a)).Select(s => (s.Key, s.Value)).ToHashSet();
+
+        // Not listed yet: suggestions, by source and project.
+        foreach (var g in store.Suggestions.Values.GroupBy(s => (Source: Json.Str(s["source"])!, Project: Json.Str(s["project"])!))
+            .Where(g => !listed.Contains((g.Key.Source, g.Key.Project)))
+            .OrderBy(g => g.Key.Source, StringComparer.Ordinal).ThenBy(g => g.Key.Project, StringComparer.Ordinal))
+        {
+            var rows = g.ToList();
+            items.Add(new JsonObject
+            {
+                ["kind"] = "addon", ["source"] = g.Key.Source, ["project"] = g.Key.Project,
+                ["name"] = rows.GroupBy(r => Json.Str(r["name"])!, StringComparer.Ordinal).OrderByDescending(n => n.Count()).ThenBy(n => n.Key, StringComparer.Ordinal).First().Key,
+                ["editions"] = Strings(rows.Select(r => Json.Str(r["edition"])!)),
+                ["needs"] = Strings(["listing"]),
+                ["progress"] = Decide.Progress(rules.NewAddon, Proposer.Networks(rows), Proposer.Counted(rows, "providers"),
+                    Decide.Span(rows.Select(r => Json.Str(r["firstSeen"])!).Min(StringComparer.Ordinal)!, rows.Select(r => Json.Str(r["lastSeen"])!).Max(StringComparer.Ordinal)!)),
+            });
+        }
+
+        // Hand-listed entries (CurseForge or Wago only): details, then a version per source and edition.
+        var proposals = Proposer.Propose(catalog, confirmed, store, today).ToDictionary(p => (p.Id, p.Source, p.Edition));
+        var (updates, _, _) = TocUpdates.Propose(catalog, overrides, store);
+        foreach (var entry in addons.Where(a => Check.SiteSources(a).Count > 0
+            && !(a["sources"]?.AsArray() ?? []).Any(s => Json.Str(s?["type"]) == "github")))
+        {
+            var (id, name) = (Json.Str(entry["id"])!, Json.Str(entry["name"]) ?? Json.Str(entry["id"])!);
+            var needs = new List<string>();
+            if (entry["summary"] is null)
+            {
+                needs.Add("summary");
+            }
+            if (entry["languages"] is null)
+            {
+                needs.Add("languages");
+            }
+            var toc = updates.Where(u => u.Id == id).ToList();
+            if (toc.Count > 0)
+            {
+                needs.Add("toc");
+            }
+            if (needs.Count > 0)
+            {
+                items.Add(new JsonObject
+                {
+                    ["kind"] = "details", ["id"] = id, ["name"] = name, ["needs"] = Strings(needs),
+                    ["progress"] = toc.Count == 0 ? 0 : toc.Max(u => Decide.Progress(rules.TocDetails, u.Players, u.Providers, Decide.Span(u.FirstSeen, u.LastSeen))),
+                });
+            }
+            foreach (var source in Check.SiteSources(entry).Keys.Order(StringComparer.Ordinal))
+            {
+                foreach (var edition in (entry["editions"]?.AsObject() ?? []).Select(e => e.Key).Order(StringComparer.Ordinal))
+                {
+                    var has = confirmed["addons"]?[id]?[source]?[edition] is not null;
+                    var proposal = proposals.GetValueOrDefault((id, source, edition));
+                    if (has && proposal is null)
+                    {
+                        continue;
+                    }
+                    items.Add(new JsonObject
+                    {
+                        ["kind"] = "version", ["id"] = id, ["name"] = name, ["source"] = source, ["edition"] = edition,
+                        ["needs"] = Strings([has ? "newer-version" : "version"]),
+                        ["progress"] = proposal is null ? 0 : Decide.Progress(rules.NewVersion, proposal.Networks, proposal.Providers, Decide.Span(proposal.FirstSeen, proposal.LastSeen)),
+                    });
+                }
+            }
+        }
+        return new JsonObject { ["schemaVersion"] = 1, ["items"] = items };
+    }
+
+    static JsonArray Strings(IEnumerable<string> values) =>
+        new(values.Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal).Select(v => (JsonNode)JsonValue.Create(v)!).ToArray());
+}
+
+/// <summary>
 /// Claude's review of what the rules leave open. It gets only the checked facts of those items and answers one fixed JSON
 /// object; from it only merge, wait or ask-human and a short plain reason are kept, for the items it was asked about. It
 /// runs nothing and changes nothing: the decide step acts on the answers.
@@ -1713,6 +1820,27 @@ static class Tests
         Expect("progress: the least of players, providers and days, rounded down to a quarter", Decide.Progress(rules.NewVersion, 3, 2, TimeSpan.FromDays(2)) == 100
             && Decide.Progress(rules.NewVersion, 2, 2, TimeSpan.FromDays(2)) == 50 && Decide.Progress(rules.NewVersion, 3, 2, TimeSpan.FromHours(20)) == 75
             && Decide.Progress(rules.NewVersion, null, 2, TimeSpan.FromDays(2)) == 0 && Decide.Progress(rules.NewVersion, 9, 1, TimeSpan.FromDays(9)) == 50);
+        Expect("suggestion: providers kept like networks", Check.Suggestion(Obj(SuggestionJson).With("providers", 2L), catalog).Row?["providers"]?.GetValue<long>() == 2
+            && Check.Suggestion(Obj(SuggestionJson).With("providers", "x"), catalog).Row is null);
+
+        // The wanted list.
+        var wantStore = Store.From(null);
+        wantStore.Suggestions["s1"] = Check.Suggestion(Obj(SuggestionJson).With("networks", 5L).With("providers", 3L).With("lastSeen", "2026-11-05T00:00:00Z").With("count", 9L), catalog).Row!;
+        wantStore.Suggestions["s2"] = Check.Suggestion(Obj(SuggestionJson).With("project", "12"), catalog).Row!;
+        wantStore.Reports["r1"] = Check.Report(Report(30, "1.3", A, 4, "2026-11-22T00:00:00Z", first: "2026-11-20T00:00:00Z").With("networks", 2L).With("providers", 2L), catalog).Row!;
+        var wanted = Wanted.Build(catalog, Obj("{'addons':{'auctionator':{'wago':{'forever':{'version':'1.2','sha256':'BB','date':'2026-11-10','reports':3}}}}}".Replace('\'', '"').Replace("BB", B)),
+            wantStore, new Dictionary<string, JsonObject>(StringComparer.Ordinal), rules, today);
+        var wantItems = wanted["items"]!.AsArray().Select(i => i!.AsObject()).ToList();
+        Expect("wanted: a suggestion not listed, with its progress; one for a listed project is left out", wantItems.Where(i => (string)i["kind"]! == "addon").ToList() is [var want]
+            && (string)want["project"]! == "1365171" && want["progress"]!.GetValue<int>() == 100 && (string)want["needs"]![0]! == "listing");
+        Expect("wanted: a hand-listed entry missing its summary and languages", wantItems.Any(i => (string)i["kind"]! == "details" && (string)i["id"]! == "auctionator"
+            && i["needs"]!.AsArray().Select(n => (string)n!).SequenceEqual(["languages", "summary"]) && i["progress"]!.GetValue<int>() == 0));
+        Expect("wanted: a version reported but short of players shows its progress; a confirmed one with nothing newer is left out",
+            wantItems.Where(i => (string)i["kind"]! == "version").ToList() is [var wantVersion]
+            && (string)wantVersion["source"]! == "curseforge" && (string)wantVersion["needs"]![0]! == "version" && wantVersion["progress"]!.GetValue<int>() == 50);
+        Expect("wanted: a GitHub add-on isn't listed, and no counts are published", !wantItems.Any(i => (string?)i["id"] == "onlygit")
+            && !wanted.ToJsonString().Contains("\"count\"", StringComparison.Ordinal) && !wanted.ToJsonString().Contains("players", StringComparison.Ordinal));
+
         var slow = Version(players: 2);
         var slowBody = Proposer.Body([slow], Store.From(null), verdicts: Decide.Judge([slow], [], rules, DateTimeOffset.UtcNow), rules: rules);
         Expect("progress: the public text shows it and the Rules column, never the counts", slowBody.Contains("| 50% |", StringComparison.Ordinal)

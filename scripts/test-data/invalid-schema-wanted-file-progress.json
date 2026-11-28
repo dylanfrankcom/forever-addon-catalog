@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    { "kind": "addon", "source": "curseforge", "project": "1365171", "name": "Some Add-on", "editions": ["forever"], "needs": ["listing"], "progress": 30 }
+  ]
+}
