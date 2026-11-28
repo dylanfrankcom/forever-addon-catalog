@@ -1,0 +1,8 @@
+# Update PRs for the GitHub Actions the workflows use. They're pinned to commit SHAs (with the version in a comment),
+# so a moved tag can't change what runs; Dependabot proposes each new version as a pull request.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
