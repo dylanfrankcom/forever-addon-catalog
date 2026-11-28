@@ -64,6 +64,8 @@ For each add-on it gathers repositories: the entry's GitHub sources and `reposit
 
 CurseForge and Wago aren't contacted. `--self-test` checks the matching rules offline.
 
+Code search goes at most every 7.5 seconds (the limit is 10 a minute) and waits for `x-ratelimit-reset` when an answer says none are left. A refused request waits as GitHub's REST docs say, as discovery's do (see discover.cs, "Pacing"): `retry-after`, else the reset, else a minute doubling; a 403 that isn't a rate limit isn't retried.
+
 ## discover.cs
 Finds add-ons for every edition on public GitHub repos and writes `candidates.json`, one row per repo, for the release check to work from. It lists nothing by itself and never edits `catalog.json`. The **discover** workflow runs it daily (or by hand) and keeps `candidates.json` on the `checker` branch, never on `main`.
 
@@ -124,6 +126,8 @@ Each edition gets a result: **passed**; **not-updated** (it lists an older Inter
 A release is checked once, and again only when the checks or the editions change (`rules`). Each edition keeps its last good release (`good`) until a newer one passes or isn't updated yet, so a failing release is never listed and the one before it stays. A release or file that can't be read this run (network, API) keeps the last result and is tried again next run.
 
 `checks.json`: `checked` (when), `scope`, and `repos`, one per repo: `release`, `published`, `state` (`checked`, `held`, `pre-release`, `no-release` or `error`, with a `reason`), `checkedAt`, `rules`, `results` and `good` by edition (`file`, `url`, `size`, `sha256`, `interface`, `folders`, `main`, `needs`; `good` adds `release`, `published`, `upToDate` and `checkedAt`).
+
+**Refusals:** a request GitHub turns away as a rate limit (a 429, or a 403 that says so) waits as its REST docs say, as discovery's do (see discover.cs, "Pacing"): `retry-after` when given, else the reset when none are left, else a minute, doubling, six tries. Server errors are tried again after 10, 20, 30 seconds; another 403 (a missing permission) isn't retried.
 
 ## details.cs
 Writes `addons/<id>.json` for each listed add-on with a GitHub source, from `catalog.json` and `candidates.json`, after `generate.cs`. It reads each repo through GitHub's GraphQL API (ten repos a query) and the contributors count through the REST API, so it needs a token in `GITHUB_TOKEN`:
