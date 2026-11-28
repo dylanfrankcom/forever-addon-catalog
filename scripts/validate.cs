@@ -45,7 +45,7 @@ for (var i = 0; i < args.Length; i++)
 // With no file named: catalog.json, and versions.json too once the release check writes one.
 var paths = catalogArg is not null
     ? new List<string> { Path.GetFullPath(catalogArg) }
-    : new[] { "catalog.json", "versions.json", "optout.json", "confirmed.json", "tags.json" }.Select(Path.GetFullPath).Where((p, i) => i == 0 || File.Exists(p))
+    : new[] { "catalog.json", "versions.json", "optout.json", "confirmed.json", "tags.json", "wanted.json" }.Select(Path.GetFullPath).Where((p, i) => i == 0 || File.Exists(p))
         .Concat(Directory.Exists("overrides") ? Directory.GetFiles("overrides", "*.json").Order(StringComparer.Ordinal).Select(Path.GetFullPath) : []).ToList();
 var exit = 0;
 if (catalogArg is null && Directory.Exists("addons"))
@@ -489,6 +489,7 @@ static class CatalogValidator
             : name.Contains("optout", StringComparison.OrdinalIgnoreCase) ? "optout"
             : name == "confirmed.json" || name.Contains("confirmed-file", StringComparison.OrdinalIgnoreCase) ? "confirmed"
             : name == "tags.json" || name.Contains("tags-file", StringComparison.OrdinalIgnoreCase) ? "tags"
+            : name == "wanted.json" || name.Contains("wanted-file", StringComparison.OrdinalIgnoreCase) ? "wanted"
             : name.Contains("_authors", StringComparison.OrdinalIgnoreCase) || name.Contains("curated-authors", StringComparison.OrdinalIgnoreCase) ? "authors"
             : inOverrides || name.Contains("override-file", StringComparison.OrdinalIgnoreCase) ? "override"
             : "catalog";

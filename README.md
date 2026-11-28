@@ -56,6 +56,7 @@ The catalog is plain JSON, and you're welcome to build on it.
 | [`versions.json`](versions.json) | Each add-on's latest checked release for each edition, with its file, size and SHA-256. |
 | [`addons/`](addons) | A details file per add-on: its README, recent release notes, screenshots and stats. |
 | [`icons/`](icons) | Each add-on's own icon, as PNG. |
+| [`wanted.json`](wanted.json) | What the catalog is missing (add-ons players suggested, entries missing details or a confirmed version), each with its progress toward a decision. |
 
 Every field is described in [`schema/README.md`](schema/README.md), and the JSON Schemas are in [`schema/`](schema). IDs are stable: they never change and are never reused. Under CC BY-SA 4.0, credit this catalog and share adapted versions under the same licence.
 

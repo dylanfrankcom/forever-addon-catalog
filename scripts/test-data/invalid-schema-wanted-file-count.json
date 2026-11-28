@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    { "kind": "version", "id": "questie", "name": "Questie", "source": "wago", "edition": "forever", "needs": ["version"], "progress": 50, "players": 3 }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dylanfrankcom/forever-addon-catalog/schema/wanted.schema.json",
+  "title": "Forever Add-on Catalog: wanted list",
+  "description": "wanted.json: what the catalog is missing, written by scripts/reports.cs (wanted) with each catalog build. Each item has its progress toward a decision, never the counts or the rules.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "items"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "description": "Always 1 for this format.", "const": 1 },
+    "items": { "type": "array", "items": { "oneOf": [{ "$ref": "#/$defs/addon" }, { "$ref": "#/$defs/details" }, { "$ref": "#/$defs/version" }] } }
+  },
+  "$defs": {
+    "progress": { "description": "How far it has come toward a decision, rounded down; 100 means it's being checked.", "enum": [0, 25, 50, 75, 100] },
+    "source": { "enum": ["curseforge", "wago"] },
+    "name": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "addon": {
+      "description": "An add-on players suggested that isn't listed.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "source", "project", "name", "editions", "needs", "progress"],
+      "properties": {
+        "kind": { "const": "addon" },
+        "source": { "$ref": "#/$defs/source" },
+        "project": { "description": "The CurseForge project ID or the Wago slug.", "type": "string", "pattern": "^[0-9]{1,10}$|^[A-Za-z0-9][A-Za-z0-9_-]{0,99}$" },
+        "name": { "$ref": "#/$defs/name" },
+        "editions": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "catalog.schema.json#/$defs/editionId" } },
+        "needs": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "const": "listing" } },
+        "progress": { "$ref": "#/$defs/progress" }
+      }
+    },
+    "details": {
+      "description": "A hand-listed entry missing details: its summary, its languages, or players' .toc details waiting (toc).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id", "name", "needs", "progress"],
+      "properties": {
+        "kind": { "const": "details" },
+        "id": { "$ref": "catalog.schema.json#/$defs/id" },
+        "name": { "$ref": "#/$defs/name" },
+        "needs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["languages", "summary", "toc"] } },
+        "progress": { "$ref": "#/$defs/progress" }
+      }
+    },
+    "version": {
+      "description": "A hand-listed source with no confirmed version for an edition (version), or a newer one reported (newer-version).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id", "name", "source", "edition", "needs", "progress"],
+      "properties": {
+        "kind": { "const": "version" },
+        "id": { "$ref": "catalog.schema.json#/$defs/id" },
+        "name": { "$ref": "#/$defs/name" },
+        "source": { "$ref": "#/$defs/source" },
+        "edition": { "$ref": "catalog.schema.json#/$defs/editionId" },
+        "needs": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "enum": ["version", "newer-version"] } },
+        "progress": { "$ref": "#/$defs/progress" }
+      }
+    }
+  }
+}
