@@ -53,14 +53,12 @@ jobs:
           set -- --out data/candidates.json --summary "$GITHUB_STEP_SUMMARY" --search-minutes 180
           if [ "$SEARCH" != "true" ]; then set -- "$@" --no-search; fi
           dotnet run scripts/discover.cs -- "$@"
-      - name: Check the site links
-        run: dotnet run scripts/linkcheck.cs -- --out data/linkchecks.json --summary "$GITHUB_STEP_SUMMARY"
       - name: Save candidates.json
         working-directory: data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add candidates.json linkchecks.json
+          git add candidates.json
           if git diff --cached --quiet; then
             echo "No changes."
           else

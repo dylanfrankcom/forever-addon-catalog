@@ -140,7 +140,7 @@ powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/detai
 - **Re-running:** a file is rewritten only when its content changed, so its ETag stays valid. A repo that can't be read keeps its last file. A file whose add-on is no longer listed is removed (not with `--only`).
 
 ## linkcheck.cs
-Checks, now and then, that each add-on's CurseForge, Wago and WoWInterface links and homepage in `catalog.json` still lead somewhere, and writes `linkchecks.json`. The **discover** workflow runs it weekly, after discovery, and keeps the file on the `checker` branch; the generator reads it (`--linkchecks`).
+Checks, now and then, that each add-on's Wago and WoWInterface links and homepage in `catalog.json` still lead somewhere (CurseForge links are recorded as unchecked, never requested: its site refuses automated requests), and writes `linkchecks.json`. Its own **linkcheck** workflow runs it weekly (or by hand) and keeps the file on the `checker` branch; the generator reads it (`--linkchecks`).
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File ..\app\dev.ps1 dotnet run scripts/linkcheck.cs
