@@ -302,10 +302,12 @@ try
                 File.WriteAllText(path, File.ReadAllText(path).Contains("\r\n", StringComparison.Ordinal) ? text.Replace("\n", "\r\n", StringComparison.Ordinal) : text);
             }
             var pruned = store.Prune(catalog, confirmed, today);
+            // Confirmed versions of add-ons the catalog no longer lists go, only in the maintainer's pull request (never --only).
+            var unlisted = onlyPath is null ? Proposer.DropUnlisted(catalog, confirmed) : [];
             Proposer.Apply(confirmed, proposals, today);
             File.WriteAllText(confirmedPath, Json.Write(confirmed));
             File.WriteAllText(storePath, Json.Write(store.ToJson()));
-            File.WriteAllText(bodyPath, Proposer.Body(proposals, store, updates, notes, verdicts, rules, links));
+            File.WriteAllText(bodyPath, Proposer.Body(proposals, store, updates, notes, verdicts, rules, links, unlisted));
             File.WriteAllText(factsPath, Json.Write(Proposer.Facts(proposals, updates, notes, verdicts, links)));
             Console.WriteLine($"{proposals.Count} versions to confirm; {updates.Count} updates to {changed.Count} hand-listed entries; {links.Count} GitHub links; {store.Suggestions.Count} suggestions waiting; dropped {pruned} old or settled messages.");
             foreach (var line in Proposer.Unlisted(catalog, store))
@@ -853,6 +855,25 @@ static class Proposer
         return proposals;
     }
 
+    /// <summary>
+    /// Removes from confirmed.json the add-ons the catalog no longer lists, and returns their IDs: an add-on listed again later
+    /// starts afresh, with no versions left over from before.
+    /// </summary>
+    public static List<string> DropUnlisted(JsonObject catalog, JsonObject confirmed)
+    {
+        var listed = (catalog["addons"]?.AsArray() ?? []).OfType<JsonObject>().Select(a => Json.Str(a["id"])).OfType<string>().ToHashSet(StringComparer.Ordinal);
+        if (confirmed["addons"] is not JsonObject addons)
+        {
+            return [];
+        }
+        var gone = addons.Select(a => a.Key).Where(id => !listed.Contains(id)).OrderBy(id => id, StringComparer.Ordinal).ToList();
+        foreach (var id in gone)
+        {
+            addons.Remove(id);
+        }
+        return gone;
+    }
+
     public static void Apply(JsonObject confirmed, List<Proposal> proposals, DateOnly today)
     {
         var addons = confirmed["addons"] as JsonObject ?? (JsonObject)(confirmed["addons"] = new JsonObject());
@@ -917,7 +938,7 @@ static class Proposer
     /// players or providers: those go to Claude's review only (Facts).
     /// </remarks>
     public static string Body(List<Proposal> proposals, Store store, List<TocUpdates.Update>? updates = null, List<TocUpdates.Note>? notes = null,
-        IReadOnlyDictionary<string, Decide.Verdict>? verdicts = null, Rules? rules = null, List<Links.Item>? links = null)
+        IReadOnlyDictionary<string, Decide.Verdict>? verdicts = null, Rules? rules = null, List<Links.Item>? links = null, List<string>? unlisted = null)
     {
         string Verdict(string key) => verdicts?.GetValueOrDefault(key) is { } v ? Cell($"{v.Result}: {v.Why}") : "";
         string Progress(string key) => verdicts?.GetValueOrDefault(key) is { } v ? $"{v.Progress}%" : "";
@@ -992,6 +1013,18 @@ static class Proposer
             }
             b.AppendLine();
             b.AppendLine("</details>");
+        }
+        if (unlisted is { Count: > 0 })
+        {
+            b.AppendLine();
+            b.AppendLine("### No longer listed");
+            b.AppendLine();
+            b.AppendLine("The catalog doesn't list these add-ons any more, so merging removes their confirmed versions from `confirmed.json`. If one is listed again, its versions are confirmed afresh. If one is missing only for a while (a failed check), close this pull request instead: the next run proposes again.");
+            b.AppendLine();
+            foreach (var id in unlisted)
+            {
+                b.AppendLine($"- `{Cell(id)}`");
+            }
         }
         return b.ToString();
     }
@@ -2324,6 +2357,16 @@ static class Tests
         var dropped = pruning.Prune(catalog, confirmed, today);
         Expect("prune: confirmed, old and now-listed go; the rest stay", dropped == 4 && pruning.Reports.Count == 3 && pruning.Suggestions.Count == 1
             && pruning.Reports.Values.All(r => (string)r["version"]! != "1.2" || (string)r["sha256"]! != A || (string)r["edition"]! != "forever" || (string)r["source"]! != "curseforge"));
+
+        // Confirmed versions of add-ons no longer listed.
+        var leftover = Obj("""{"addons":{"gone":{"curseforge":{"forever":{"version":"1"}}},"zz-also-gone":{"wago":{"forever":{"version":"2"}}}}}""");
+        (leftover["addons"]!.AsObject())[(string)catalog["addons"]![0]!["id"]!] = Obj("""{"curseforge":{"forever":{"version":"1"}}}""");
+        var gone = Proposer.DropUnlisted(catalog, leftover);
+        Expect("unlisted: confirmed versions of add-ons the catalog doesn't list go; listed ones stay", gone.SequenceEqual(["gone", "zz-also-gone"])
+            && leftover["addons"]!.AsObject().Count == 1 && leftover["addons"]![(string)catalog["addons"]![0]!["id"]!] is not null);
+        Expect("unlisted: named in the maintainer's pull request", Proposer.Body([], store, unlisted: gone).Contains("### No longer listed", StringComparison.Ordinal)
+            && Proposer.Body([], store, unlisted: gone).Contains("`gone`", StringComparison.Ordinal) && !Proposer.Body([], store).Contains("No longer listed", StringComparison.Ordinal));
+        Expect("unlisted: nothing to drop leaves the file alone", Proposer.DropUnlisted(catalog, leftover).Count == 0 && Proposer.DropUnlisted(catalog, Obj("{}")).Count == 0);
 
         // Deciding: the rules, Claude's answers, the switch, the pause, the cap, and the guard.
         var rules = Rules.Read(Obj(RulesJson));
