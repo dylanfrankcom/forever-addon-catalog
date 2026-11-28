@@ -513,9 +513,12 @@ static class Proposer
         return total;
     }
 
-    /// <summary>"10 from 3 networks", or just the count when the networks weren't counted.</summary>
+    /// <summary>
+    /// "10 reports from about 3 players", or just the count when the networks weren't counted: the networks the reports
+    /// came from are how the number of players is estimated.
+    /// </summary>
     public static string ReportsText(long reports, long? networks) =>
-        networks is null ? $"{reports}" : $"{reports} from {networks} network{(networks == 1 ? "" : "s")}";
+        $"{reports} report{(reports == 1 ? "" : "s")}" + (networks is null ? "" : $" from about {networks} player{(networks == 1 ? "" : "s")}");
 
     /// <summary>
     /// Reports kept for a listed add-on and source but an edition its entry doesn't list, which are never proposed: one
@@ -584,7 +587,7 @@ static class Proposer
             }
             else if (networks == 1)
             {
-                flags.Add("one network only");
+                flags.Add("one player only (estimated)");
             }
             proposals.Add(new(group.Key.Addon, Json.Str(entry["name"]) ?? group.Key.Addon, group.Key.Source, project, group.Key.Edition, pick.Version,
                 hash.Sha, hash.Count, networks, rows.Select(r => Json.Str(r["firstSeen"])!).Min(StringComparer.Ordinal)!, hash.Last, previous, flags));
@@ -623,7 +626,7 @@ static class Proposer
         ["proposals"] = new JsonArray(proposals.Select(p => (JsonNode)new JsonObject
         {
             ["id"] = p.Id, ["name"] = p.Name, ["source"] = p.Source, ["page"] = Page(p.Source, p.Project), ["edition"] = p.Edition,
-            ["version"] = p.Version, ["sha256"] = p.Sha256, ["reports"] = p.Reports, ["networks"] = p.Networks, ["firstSeen"] = p.FirstSeen, ["lastSeen"] = p.LastSeen,
+            ["version"] = p.Version, ["sha256"] = p.Sha256, ["reports"] = p.Reports, ["players"] = p.Networks, ["firstSeen"] = p.FirstSeen, ["lastSeen"] = p.LastSeen,
             ["previous"] = p.Previous is null ? null : new JsonObject { ["version"] = p.Previous["version"]?.DeepClone(), ["date"] = p.Previous["date"]?.DeepClone() },
             ["flags"] = new JsonArray(p.Flags.Select(f => (JsonNode)JsonValue.Create(f)!).ToArray()),
         }).ToArray()),
@@ -635,7 +638,7 @@ static class Proposer
         var b = new StringBuilder();
         b.AppendLine("Players reported these versions of CurseForge and Wago add-ons through the app. Merging this pull request confirms them in `confirmed.json`, and the next catalog build copies them into `catalog.json`. Nothing is confirmed until it's merged.");
         b.AppendLine();
-        b.AppendLine("Before merging, open each add-on's page and check that the version is its current release for that edition. A report is a player's word, not proof: the count is messages, not people, and the networks they came from are a rough count of people (a VPN counts as another network, a shared connection once).");
+        b.AppendLine("Before merging, open each add-on's page and check that the version is its current release for that edition. A report is a player's word, not proof: the count is messages, and the number of players is estimated from the networks they came from (a VPN counts as another player, people sharing a connection as one).");
         b.AppendLine();
         if (proposals.Count == 0)
         {
@@ -811,7 +814,7 @@ static class Tests
         Expect("cell: player text can't make links, markup or a new row", Proposer.Cell("[x](http://e) | <b>\nnext") == "\\[x\\]\\(http\\://e\\) \\| \\<b\\> next");
         var facts = Proposer.Facts(proposals);
         Expect("facts: only checked fields", facts["proposals"]!.AsArray().All(p => p!.AsObject().Select(k => k.Key)
-            .SequenceEqual(["id", "name", "source", "page", "edition", "version", "sha256", "reports", "networks", "firstSeen", "lastSeen", "previous", "flags"])));
+            .SequenceEqual(["id", "name", "source", "page", "edition", "version", "sha256", "reports", "players", "firstSeen", "lastSeen", "previous", "flags"])));
 
         // Networks, added up per version.
         var counted = Store.From(null);
@@ -823,14 +826,14 @@ static class Tests
         var cfNet = byNetworks.First(p => p.Source == "curseforge");
         var wagoNet = byNetworks.First(p => p.Source == "wago");
         Expect("networks: added up per version, shown with the reports", cfNet.Reports == 10 && cfNet.Networks == 3
-            && Proposer.Body(byNetworks, counted).Contains("| 10 from 3 networks |", StringComparison.Ordinal)
-            && Proposer.Facts(byNetworks)["proposals"]![0]!["networks"]!.GetValue<long>() == 3);
-        Expect("networks: several reports from one network are flagged", wagoNet.Networks == 1 && wagoNet.Flags.Contains("one network only")
-            && !cfNet.Flags.Contains("one network only"));
-        Expect("networks: unknown when any message wasn't counted, and no flag", cf!.Networks is null && !cf.Flags.Contains("one network only")
-            && Proposer.Facts(proposals)["proposals"]!.AsArray().All(p => p!.AsObject().ContainsKey("networks") && p["networks"] is null));
+            && Proposer.Body(byNetworks, counted).Contains("| 10 reports from about 3 players |", StringComparison.Ordinal)
+            && Proposer.Facts(byNetworks)["proposals"]![0]!["players"]!.GetValue<long>() == 3);
+        Expect("networks: several reports from one network are flagged", wagoNet.Networks == 1 && wagoNet.Flags.Contains("one player only (estimated)")
+            && !cfNet.Flags.Contains("one player only (estimated)"));
+        Expect("networks: unknown when any message wasn't counted, and no flag", cf!.Networks is null && !cf.Flags.Contains("one player only (estimated)")
+            && Proposer.Facts(proposals)["proposals"]!.AsArray().All(p => p!.AsObject().ContainsKey("players") && p["players"] is null));
         Expect("networks: a single report keeps its own flag only", Proposer.Propose(catalog, Obj("""{"addons":{}}"""), Store.From(new JsonObject { ["reports"] = new JsonObject { ["k"] = Check.Report(Report(13, "3.0", A, 1, "2026-11-22T00:00:00Z").With("networks", 1L), catalog).Row } }), today)
-            is [var single] && single.Flags.Contains("one report only") && !single.Flags.Contains("one network only"));
+            is [var single] && single.Flags.Contains("one report only") && !single.Flags.Contains("one player only (estimated)"));
 
         // Pruning.
         var pruning = Store.From(store.ToJson());
