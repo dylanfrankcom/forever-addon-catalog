@@ -7,7 +7,7 @@
 // reports into a proposed confirmed.json, and only the maintainer's merge of the reports workflow's pull request confirms it.
 //
 // Run it through the app repo's dev.ps1 (see scripts/README.md):
-//   ... dotnet run scripts/reports.cs -- collect [--catalog f] [--store f] [--collected f]
+//   ... dotnet run scripts/reports.cs -- collect [--catalog f] [--store f] [--collected f] [--answer f]
 //   ... dotnet run scripts/reports.cs -- done [--collected f]
 //   ... dotnet run scripts/reports.cs -- propose [--catalog f] [--confirmed f] [--store f] [--body f] [--facts f]
 //   ... dotnet run scripts/reports.cs -- --self-test                 # offline tests
@@ -18,6 +18,7 @@
 //   the waiting reports and suggestions, checks every field again (the relay's data came from players), keeps the good
 //   ones in the store and writes what was collected to --collected. The relay's address and key come from the RELAY_URL
 //   and RELAY_KEY environment variables, never from arguments.
+//   --answer f reads a recorded collect answer from a file instead of the relay (sending nothing), for tests.
 // - done: tells the relay the collected messages were handled. Run it only after the store is saved, or they're lost.
 // - propose: for each add-on, source and edition the catalog lists, the newest reported version and its most-reported
 //   hash, unless confirmed.json already has them. Writes them into confirmed.json, the pull request's text to --body, and
@@ -44,6 +45,7 @@ if (args.Length == 0 || args[0] is not ("collect" or "done" or "propose"))
 }
 string command = args[0], catalogPath = "catalog.json", confirmedPath = "confirmed.json", storePath = "relay.json",
     collectedPath = "collected.json", bodyPath = "body.md", factsPath = "facts.json";
+string? answerPath = null;
 for (var i = 1; i < args.Length; i++)
 {
     var value = i + 1 < args.Length ? args[i + 1] : null;
@@ -55,6 +57,7 @@ for (var i = 1; i < args.Length; i++)
         case "--collected" when value is not null: collectedPath = value; i++; break;
         case "--body" when value is not null: bodyPath = value; i++; break;
         case "--facts" when value is not null: factsPath = value; i++; break;
+        case "--answer" when value is not null && command == "collect": answerPath = value; i++; break;
         default: return Usage();
     }
 }
@@ -67,10 +70,18 @@ try
         {
             var catalog = Read(catalogPath)!.AsObject();
             var store = Store.From(File.Exists(storePath) ? Read(storePath) : null);
-            using var relay = Relay.FromEnvironment();
-            var indexStatus = Relay.IndexStatus(await relay.SendAsync(HttpMethod.Put, "catalog-index", Relay.Index(catalog)));
-            Console.WriteLine($"Index: {indexStatus}.");
-            var answer = await relay.SendAsync(HttpMethod.Get, "collect", null) ?? throw new InvalidDataException("The relay sent nothing.");
+            JsonNode answer;
+            if (answerPath is not null)
+            {
+                answer = Read(answerPath) ?? throw new InvalidDataException("The recorded answer is empty.");
+            }
+            else
+            {
+                using var relay = Relay.FromEnvironment();
+                var indexStatus = Relay.IndexStatus(await relay.SendAsync(HttpMethod.Put, "catalog-index", Relay.Index(catalog)));
+                Console.WriteLine($"Index: {indexStatus}.");
+                answer = await relay.SendAsync(HttpMethod.Get, "collect", null) ?? throw new InvalidDataException("The relay sent nothing.");
+            }
             var collected = store.Merge(answer.AsObject(), catalog);
             File.WriteAllText(storePath, Json.Write(store.ToJson()));
             File.WriteAllText(collectedPath, Json.Write(collected.Ids));
@@ -124,7 +135,7 @@ catch (Exception e) when (e is IOException or HttpRequestException or TaskCancel
 
 static int Usage()
 {
-    Console.Error.WriteLine("Usage: dotnet run scripts/reports.cs -- collect|done|propose [--catalog f] [--confirmed f] [--store f] [--collected f] [--body f] [--facts f] | --self-test");
+    Console.Error.WriteLine("Usage: dotnet run scripts/reports.cs -- collect|done|propose [--catalog f] [--confirmed f] [--store f] [--collected f] [--answer f] [--body f] [--facts f] | --self-test");
     return 2;
 }
 
