@@ -452,14 +452,73 @@ static class Report
     }
 }
 
+/// <summary>
+/// GitHub's rules for a refused request ("Rate limits for the REST API" in its REST docs), as in discover.cs: a 429, or
+/// a 403 that says it's a rate limit, waits for retry-after when it's given; else, when none are left, until the reset;
+/// else at least a minute, doubling with each refusal. Another 403 (a missing permission) isn't retried.
+/// </summary>
+static class Pacing
+{
+    /// <summary>Tries per request. Refusals with no time given wait 1, 2, 4, 8 and 16 minutes.</summary>
+    public const int Attempts = 6;
+    static readonly TimeSpan Margin = TimeSpan.FromSeconds(3);
+    /// <summary>The least time between code searches: 8 a minute, under the limit of 10.</summary>
+    public static readonly TimeSpan SearchGap = TimeSpan.FromSeconds(7.5);
+
+    /// <summary>How long after a code search's answer the next one may go.</summary>
+    public static TimeSpan BeforeNextSearch(string? remaining, string? reset, DateTimeOffset now) =>
+        remaining == "0" && UntilReset(reset, now) is { } wait && wait > SearchGap ? wait : SearchGap;
+
+    /// <summary>A 429, or a 403 that says it's a rate limit (not a missing permission).</summary>
+    public static bool IsRateLimit(int status, string? remaining, bool retryAfter, string body) =>
+        status == 429 || status == 403 && (retryAfter || remaining == "0" || body.Contains("rate limit", StringComparison.OrdinalIgnoreCase));
+
+    /// <summary>How long to wait after a rate-limit refusal; refusals that go on wait exponentially longer (from the third).</summary>
+    public static TimeSpan AfterRefusal(TimeSpan? retryAfter, string? remaining, string? reset, DateTimeOffset now, int attempt)
+    {
+        if (retryAfter is { } after)
+        {
+            return after > TimeSpan.FromSeconds(1) ? after : TimeSpan.FromSeconds(1);
+        }
+        if (remaining == "0" && UntilReset(reset, now) is { } wait)
+        {
+            var floor = attempt >= 2 ? TimeSpan.FromMinutes(Math.Pow(2, attempt - 2)) : TimeSpan.Zero;
+            return wait > floor ? wait : floor;
+        }
+        return TimeSpan.FromMinutes(Math.Pow(2, attempt));
+    }
+
+    /// <summary>The wait for a refused response when it's a rate limit, else null; reads its body.</summary>
+    public static async Task<TimeSpan?> RateLimitWait(HttpResponseMessage response, int attempt)
+    {
+        var body = await response.Content.ReadAsStringAsync();
+        var remaining = Header(response, "x-ratelimit-remaining");
+        var retryAfter = response.Headers.RetryAfter is { } ra ? ra.Delta ?? ra.Date - DateTimeOffset.UtcNow : null;
+        return IsRateLimit((int)response.StatusCode, remaining, retryAfter is not null, body)
+            ? AfterRefusal(retryAfter, remaining, Header(response, "x-ratelimit-reset"), DateTimeOffset.UtcNow, attempt) : null;
+    }
+
+    public static string? Header(HttpResponseMessage response, string name) =>
+        response.Headers.TryGetValues(name, out var values) ? values.FirstOrDefault() : null;
+
+    static TimeSpan? UntilReset(string? reset, DateTimeOffset now)
+    {
+        if (!long.TryParse(reset, out var at))
+        {
+            return null;
+        }
+        var wait = DateTimeOffset.FromUnixTimeSeconds(at) - now + Margin;
+        return wait > TimeSpan.FromSeconds(1) ? wait : TimeSpan.FromSeconds(1);
+    }
+}
+
 sealed class GitHub : IDisposable
 {
     const long MaxZipBytes = 200 * 1024 * 1024;
     const int MaxTocBytes = 64 * 1024;
-    static readonly TimeSpan CodeSearchGap = TimeSpan.FromSeconds(7); // code search allows 10 requests a minute
 
     readonly HttpClient http = new() { BaseAddress = new Uri("https://api.github.com/"), Timeout = TimeSpan.FromMinutes(2) };
-    DateTime lastCodeSearch = DateTime.MinValue;
+    DateTimeOffset nextSearch = DateTimeOffset.MinValue;
 
     public bool HasToken { get; }
 
@@ -475,19 +534,42 @@ sealed class GitHub : IDisposable
         }
     }
 
-    async Task<(HttpStatusCode Status, JsonNode? Json)> GetAsync(string path)
+    /// <summary>A GET, waiting out rate limits as GitHub says (Pacing) and retrying server errors. A code search also sets when the next may go.</summary>
+    async Task<(HttpStatusCode Status, JsonNode? Json)> GetAsync(string path, bool search = false)
     {
-        try
+        var status = (HttpStatusCode)0;
+        for (var attempt = 0; attempt < Pacing.Attempts; attempt++)
         {
-            using var response = await http.GetAsync(path);
-            var text = await response.Content.ReadAsStringAsync();
-            return (response.StatusCode, response.IsSuccessStatusCode ? JsonNode.Parse(text) : null);
+            try
+            {
+                using var response = await http.GetAsync(path);
+                status = response.StatusCode;
+                if (search)
+                {
+                    nextSearch = DateTimeOffset.UtcNow + Pacing.BeforeNextSearch(Pacing.Header(response, "x-ratelimit-remaining"), Pacing.Header(response, "x-ratelimit-reset"), DateTimeOffset.UtcNow);
+                }
+                if (response.IsSuccessStatusCode)
+                {
+                    return (status, JsonNode.Parse(await response.Content.ReadAsStringAsync()));
+                }
+                if (await Pacing.RateLimitWait(response, attempt) is { } wait)
+                {
+                    Console.Error.WriteLine($"  {path}: {(int)status}, waiting {wait.TotalSeconds:0} s");
+                    await Task.Delay(wait);
+                    continue;
+                }
+                if ((int)status is not (500 or 502 or 503 or 504))
+                {
+                    return (status, null);
+                }
+            }
+            catch (Exception e) when (e is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException)
+            {
+                Console.Error.WriteLine($"  {path}: {e.Message}");
+            }
+            await Task.Delay(TimeSpan.FromSeconds(10 * (attempt + 1)));
         }
-        catch (Exception e) when (e is HttpRequestException or TaskCanceledException or System.Text.Json.JsonException)
-        {
-            Console.Error.WriteLine($"  {path}: {e.Message}");
-            return (0, null);
-        }
+        return (status, null);
     }
 
     /// <summary>Repositories (not forks) that hold a file named <c>Folder.toc</c>.</summary>
@@ -497,13 +579,12 @@ sealed class GitHub : IDisposable
         {
             return [];
         }
-        var wait = lastCodeSearch + CodeSearchGap - DateTime.UtcNow;
+        var wait = nextSearch - DateTimeOffset.UtcNow;
         if (wait > TimeSpan.Zero)
         {
             await Task.Delay(wait);
         }
-        lastCodeSearch = DateTime.UtcNow;
-        var (status, json) = await GetAsync($"search/code?per_page=30&q={Uri.EscapeDataString($"filename:{folder}.toc")}");
+        var (status, json) = await GetAsync($"search/code?per_page=30&q={Uri.EscapeDataString($"filename:{folder}.toc")}", search: true);
         if (json is null)
         {
             Console.Error.WriteLine($"  Code search for {folder}.toc failed ({(int)status}).");
@@ -694,6 +775,19 @@ static class SelfTest
 
         Check("md: code span", Md.Code("a`b](http://x)\n") == "`a'b](http://x)`" && Md.Code("") == "`(empty)`" && Md.Code(new string('x', 150)).Length == 103);
 
+        // Pacing.
+        var now = DateTimeOffset.FromUnixTimeSeconds(1_800_000_000);
+        Check("pacing: retry-after first, never cut short", Pacing.AfterRefusal(TimeSpan.FromSeconds(90), "0", "1800000030", now, 0) == TimeSpan.FromSeconds(90)
+            && Pacing.AfterRefusal(TimeSpan.FromMinutes(25), null, null, now, 0) == TimeSpan.FromMinutes(25));
+        Check("pacing: none left, until the reset", Pacing.AfterRefusal(null, "0", "1800000030", now, 0) == TimeSpan.FromSeconds(33));
+        Check("pacing: none left again and again, exponentially longer", Pacing.AfterRefusal(null, "0", "1800000030", now, 3) == TimeSpan.FromMinutes(2));
+        Check("pacing: neither, a minute doubling", Pacing.AfterRefusal(null, "3", null, now, 0) == TimeSpan.FromMinutes(1)
+            && Pacing.AfterRefusal(null, null, null, now, Pacing.Attempts - 1) == TimeSpan.FromMinutes(32));
+        Check("pacing: a 429 is a rate limit; a 403 only when it says so", Pacing.IsRateLimit(429, "5", false, "") && Pacing.IsRateLimit(403, "0", false, "")
+            && Pacing.IsRateLimit(403, "5", true, "") && Pacing.IsRateLimit(403, "5", false, "You have exceeded a secondary rate limit")
+            && !Pacing.IsRateLimit(403, "5", false, "Resource not accessible by integration") && !Pacing.IsRateLimit(500, "0", true, "rate limit"));
+        Check("pacing: searches keep a margin under 10 a minute, and wait for the reset when none are left", Pacing.BeforeNextSearch("4", "1800000030", now) == Pacing.SearchGap
+            && Pacing.SearchGap > TimeSpan.FromSeconds(6) && Pacing.BeforeNextSearch("0", "1800000030", now) == TimeSpan.FromSeconds(33));
         Console.WriteLine(failures == 0 ? "Self-test passed." : $"{failures} self-test check(s) failed.");
         return failures == 0 ? 0 : 1;
     }

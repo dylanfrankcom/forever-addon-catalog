@@ -1148,6 +1148,59 @@ static class Releases
     }
 }
 
+/// <summary>
+/// GitHub's rules for a refused request ("Rate limits for the REST API" in its REST docs), as in discover.cs: a 429, or
+/// a 403 that says it's a rate limit, waits for retry-after when it's given; else, when none are left, until the reset;
+/// else at least a minute, doubling with each refusal. Another 403 (a missing permission) isn't retried.
+/// </summary>
+static class Pacing
+{
+    /// <summary>Tries per request. Refusals with no time given wait 1, 2, 4, 8 and 16 minutes.</summary>
+    public const int Attempts = 6;
+    static readonly TimeSpan Margin = TimeSpan.FromSeconds(3);
+    /// <summary>A 429, or a 403 that says it's a rate limit (not a missing permission).</summary>
+    public static bool IsRateLimit(int status, string? remaining, bool retryAfter, string body) =>
+        status == 429 || status == 403 && (retryAfter || remaining == "0" || body.Contains("rate limit", StringComparison.OrdinalIgnoreCase));
+
+    /// <summary>How long to wait after a rate-limit refusal; refusals that go on wait exponentially longer (from the third).</summary>
+    public static TimeSpan AfterRefusal(TimeSpan? retryAfter, string? remaining, string? reset, DateTimeOffset now, int attempt)
+    {
+        if (retryAfter is { } after)
+        {
+            return after > TimeSpan.FromSeconds(1) ? after : TimeSpan.FromSeconds(1);
+        }
+        if (remaining == "0" && UntilReset(reset, now) is { } wait)
+        {
+            var floor = attempt >= 2 ? TimeSpan.FromMinutes(Math.Pow(2, attempt - 2)) : TimeSpan.Zero;
+            return wait > floor ? wait : floor;
+        }
+        return TimeSpan.FromMinutes(Math.Pow(2, attempt));
+    }
+
+    /// <summary>The wait for a refused response when it's a rate limit, else null; reads its body.</summary>
+    public static async Task<TimeSpan?> RateLimitWait(HttpResponseMessage response, int attempt)
+    {
+        var body = await response.Content.ReadAsStringAsync();
+        var remaining = Header(response, "x-ratelimit-remaining");
+        var retryAfter = response.Headers.RetryAfter is { } ra ? ra.Delta ?? ra.Date - DateTimeOffset.UtcNow : null;
+        return IsRateLimit((int)response.StatusCode, remaining, retryAfter is not null, body)
+            ? AfterRefusal(retryAfter, remaining, Header(response, "x-ratelimit-reset"), DateTimeOffset.UtcNow, attempt) : null;
+    }
+
+    public static string? Header(HttpResponseMessage response, string name) =>
+        response.Headers.TryGetValues(name, out var values) ? values.FirstOrDefault() : null;
+
+    static TimeSpan? UntilReset(string? reset, DateTimeOffset now)
+    {
+        if (!long.TryParse(reset, out var at))
+        {
+            return null;
+        }
+        var wait = DateTimeOffset.FromUnixTimeSeconds(at) - now + Margin;
+        return wait > TimeSpan.FromSeconds(1) ? wait : TimeSpan.FromSeconds(1);
+    }
+}
+
 sealed class GitHub : IDisposable
 {
     readonly HttpClient api = new() { BaseAddress = new Uri("https://api.github.com/"), Timeout = TimeSpan.FromMinutes(2) };
@@ -1173,7 +1226,7 @@ sealed class GitHub : IDisposable
     {
         var body = new JsonObject { ["query"] = Releases.Query(repos) }.ToJsonString();
         string? last = null;
-        for (var attempt = 0; attempt < 5; attempt++)
+        for (var attempt = 0; attempt < Pacing.Attempts; attempt++)
         {
             try
             {
@@ -1184,13 +1237,17 @@ sealed class GitHub : IDisposable
                 }
                 var status = (int)response.StatusCode;
                 last = $"GitHub answered {status} for its Latest release";
-                if (status is not (403 or 429 or 500 or 502 or 503 or 504))
+                if (await Pacing.RateLimitWait(response, attempt) is { } wait)
+                {
+                    Console.Error.WriteLine($"  graphql {repos[0]} ...: {status}, waiting {wait.TotalSeconds:0} s");
+                    await Task.Delay(wait);
+                    continue;
+                }
+                if (status is not (500 or 502 or 503 or 504))
                 {
                     break;
                 }
-                var wait = RetryWait(response, attempt);
-                Console.Error.WriteLine($"  graphql {repos[0]} ...: {status}, waiting {wait.TotalSeconds:0} s");
-                await Task.Delay(wait);
+                await Task.Delay(TimeSpan.FromSeconds(10 * (attempt + 1)));
             }
             catch (Exception e) when (e is HttpRequestException or TaskCanceledException or JsonException)
             {
@@ -1205,7 +1262,7 @@ sealed class GitHub : IDisposable
     public async Task<(JsonArray? Releases, string? Problem)> ReleasesAsync(string repo)
     {
         string? last = null;
-        for (var attempt = 0; attempt < 5; attempt++)
+        for (var attempt = 0; attempt < Pacing.Attempts; attempt++)
         {
             try
             {
@@ -1220,11 +1277,17 @@ sealed class GitHub : IDisposable
                     return (null, "the repo is gone or private");
                 }
                 last = $"GitHub answered {status} for its releases";
-                if (status is not (403 or 429 or 500 or 502 or 503 or 504))
+                if (await Pacing.RateLimitWait(response, attempt) is { } wait)
+                {
+                    Console.Error.WriteLine($"  releases {repo}: {status}, waiting {wait.TotalSeconds:0} s");
+                    await Task.Delay(wait);
+                    continue;
+                }
+                if (status is not (500 or 502 or 503 or 504))
                 {
                     break;
                 }
-                await Task.Delay(RetryWait(response, attempt));
+                await Task.Delay(TimeSpan.FromSeconds(10 * (attempt + 1)));
             }
             catch (Exception e) when (e is HttpRequestException or TaskCanceledException or JsonException or InvalidOperationException)
             {
@@ -1256,6 +1319,11 @@ sealed class GitHub : IDisposable
                     return new(await response.Content.ReadAsByteArrayAsync(), null);
                 }
                 last = $"the download answered {(int)response.StatusCode}";
+                if (await Pacing.RateLimitWait(response, attempt) is { } wait)
+                {
+                    await Task.Delay(wait);
+                    continue;
+                }
             }
             catch (Exception e) when (e is HttpRequestException or TaskCanceledException)
             {
@@ -1278,9 +1346,14 @@ sealed class GitHub : IDisposable
             {
                 using var response = await api.GetAsync($"repos/{repo}/attestations/sha256:{sha}");
                 var status = (int)response.StatusCode;
-                if (status is 403 or 429 or 500 or 502 or 503 or 504)
+                if (!response.IsSuccessStatusCode && await Pacing.RateLimitWait(response, attempt) is { } wait)
                 {
-                    await Task.Delay(RetryWait(response, attempt));
+                    await Task.Delay(wait);
+                    continue;
+                }
+                if (status is 500 or 502 or 503 or 504)
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(10 * (attempt + 1)));
                     continue;
                 }
                 if (!response.IsSuccessStatusCode)
@@ -1311,22 +1384,6 @@ sealed class GitHub : IDisposable
             }
         }
         return null;
-    }
-
-    static TimeSpan RetryWait(HttpResponseMessage response, int attempt)
-    {
-        if (response.Headers.RetryAfter?.Delta is { } delta)
-        {
-            return Clamp(delta);
-        }
-        if (response.Headers.TryGetValues("x-ratelimit-remaining", out var remaining) && remaining.FirstOrDefault() == "0"
-            && response.Headers.TryGetValues("x-ratelimit-reset", out var reset) && long.TryParse(reset.FirstOrDefault(), out var at))
-        {
-            return Clamp(DateTimeOffset.FromUnixTimeSeconds(at) - DateTimeOffset.UtcNow + TimeSpan.FromSeconds(2));
-        }
-        return TimeSpan.FromSeconds(30 * (attempt + 1));
-
-        static TimeSpan Clamp(TimeSpan t) => t < TimeSpan.FromSeconds(5) ? TimeSpan.FromSeconds(5) : t > TimeSpan.FromMinutes(15) ? TimeSpan.FromMinutes(15) : t;
     }
 
     public void Dispose()
@@ -1637,6 +1694,17 @@ static class SelfTest
         var rowsOf = Checks.Read(Checks.Write(Now, "forever", [unreleased, Checks.Prefixed(unreleased.DeepClone().AsObject(), "two/"), passed]));
         Check("prefix: rows kept apart", rowsOf.Count == 3 && rowsOf.ContainsKey("a/thing one/") && rowsOf.ContainsKey("a/thing two/") && rowsOf.ContainsKey("a/thing"));
 
+        // Pacing.
+        var now = DateTimeOffset.FromUnixTimeSeconds(1_800_000_000);
+        Check("pacing: retry-after first, never cut short", Pacing.AfterRefusal(TimeSpan.FromSeconds(90), "0", "1800000030", now, 0) == TimeSpan.FromSeconds(90)
+            && Pacing.AfterRefusal(TimeSpan.FromMinutes(25), null, null, now, 0) == TimeSpan.FromMinutes(25));
+        Check("pacing: none left, until the reset", Pacing.AfterRefusal(null, "0", "1800000030", now, 0) == TimeSpan.FromSeconds(33));
+        Check("pacing: none left again and again, exponentially longer", Pacing.AfterRefusal(null, "0", "1800000030", now, 3) == TimeSpan.FromMinutes(2));
+        Check("pacing: neither, a minute doubling", Pacing.AfterRefusal(null, "3", null, now, 0) == TimeSpan.FromMinutes(1)
+            && Pacing.AfterRefusal(null, null, null, now, Pacing.Attempts - 1) == TimeSpan.FromMinutes(32));
+        Check("pacing: a 429 is a rate limit; a 403 only when it says so", Pacing.IsRateLimit(429, "5", false, "") && Pacing.IsRateLimit(403, "0", false, "")
+            && Pacing.IsRateLimit(403, "5", true, "") && Pacing.IsRateLimit(403, "5", false, "You have exceeded a secondary rate limit")
+            && !Pacing.IsRateLimit(403, "5", false, "Resource not accessible by integration") && !Pacing.IsRateLimit(500, "0", true, "rate limit"));
         Console.WriteLine(failures == 0 ? "check.cs self-test passed." : $"{failures} check(s) failed.");
         return failures == 0 ? 0 : 1;
     }
