@@ -655,7 +655,7 @@ sealed class Result
 
 static class Generator
 {
-    static readonly string[] OverrideOnly = ["repo", "tagPrefix", "partOf", "$schema", "$comment"];
+    static readonly string[] OverrideOnly = ["repo", "repoId", "tagPrefix", "partOf", "$schema", "$comment"];
     static readonly string[] FieldOrder = ["id", "name", "otherNames", "summary", "summaries", "languages", "author", "tags", "icon", "added", "sources", "links", "folders", "tocPath",
         "editions", "requires", "requiresFolders", "optional", "conflicts", "notes", "ownApp", "linkOnly", "withdrawn", "githubWithdrawn", "overrides", "from"];
 

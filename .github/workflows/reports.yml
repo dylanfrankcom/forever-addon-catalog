@@ -112,8 +112,11 @@ jobs:
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          CATALOG_RULES: ${{ secrets.CATALOG_RULES }}
         run: |
-          dotnet run scripts/reports.cs -- links --store data/relay.json --out "$RUNNER_TEMP/links.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          if [ -z "$CATALOG_RULES" ]; then echo "No rules, so no links this run."; exit 0; fi
+          printf '%s' "$CATALOG_RULES" > "$RUNNER_TEMP/rules.json"
+          dotnet run scripts/reports.cs -- links --store data/relay.json --rules "$RUNNER_TEMP/rules.json" --out "$RUNNER_TEMP/links.json" | tee -a "$GITHUB_STEP_SUMMARY"
       # A GitHub add-on players suggested that the catalog doesn't list: discover reads that repo now, by its usual rules,
       # instead of waiting to find it. Each repo is asked about at most once a week (requested.json on checker).
       - name: Ask discover about suggested GitHub repos

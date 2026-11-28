@@ -77,11 +77,13 @@ the confirmation pull request, where the maintainer confirms it by merging, or f
 what was decided automatically.
 
 **Linking to GitHub.** When an add-on listed by hand has a `.toc` that names its GitHub repo, the catalog looks at the repo
-itself (never at CurseForge or Wago) and links the entry to it when there's proof only the author could give: the repo's
-release is the same file as a version players confirmed, or a confirmed version's `.toc` names the repo and the repo's own
-`.toc` names the add-on's CurseForge project or Wago ID. Then the add-on's versions and details come from its GitHub releases,
-and add-on managers can install it from there; its CurseForge and Wago links stay. A repo that only claims the add-on goes to
-the maintainer. A link is withdrawn automatically when the repo is archived, moves to another owner or stops naming the add-on, and the
+itself (never at CurseForge or Wago) and links the entry to it only on proof that someone else couldn't fake: the repo's own
+`.toc` names the add-on's CurseForge project or Wago ID, and either the catalog's own records already name the repo or its
+owner, or many players' copies of a version they confirmed name it, all alike, and the repo was there before that version and
+isn't a fork or new. A copy of the add-on's file in a repo isn't proof, since anyone could upload one. Then the add-on's versions and details come from its GitHub releases,
+and add-on managers can install it from there; its CurseForge and Wago links stay. Anything short of
+that goes to the maintainer. A link is withdrawn automatically when the repo is archived, moves to another owner (or its name is taken by another repo)
+or stops naming the add-on, and the
 withdrawal is published on the entry so add-on managers can warn players who installed it from GitHub; a repo under a new
 owner needs the same proof again. A suggested
 GitHub add-on the catalog doesn't list is looked at by the discovery workflow straight away, by its usual rules.

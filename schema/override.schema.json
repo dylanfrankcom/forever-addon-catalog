@@ -5,7 +5,7 @@
   "description": "overrides/<id>.json: hand corrections the generator applies to the entry with this ID. With \"repo\", they apply to that GitHub repo's generated entry and are used only while its release passes the release check. Without it, the file is a complete entry for an add-on that isn't released on GitHub (name, author, summary, sources and folders are then needed). Never read by the app.",
   "type": "object",
   "additionalProperties": false,
-  "dependentRequired": { "tagPrefix": ["repo"], "partOf": ["repo"] },
+  "dependentRequired": { "tagPrefix": ["repo"], "partOf": ["repo"], "repoId": ["repo", "editions"] },
   "dependentSchemas": {
     "tagPrefix": {
       "description": "A repo that releases several add-ons: each one's editions come from its checked release.",
@@ -26,6 +26,11 @@
       "description": "owner/name of the GitHub repo whose generated entry this corrects. On an add-on listed by hand (with editions), the reports workflow's link to its GitHub repo: the entry comes from the repo's checked release while it passes, and from the hand-written fields while it doesn't.",
       "type": "string",
       "pattern": "^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$"
+    },
+    "repoId": {
+      "description": "GitHub's permanent ID for the repo, written by the reports workflow when it links an add-on listed by hand: if the name ever points to another repo (an account or repo deleted and its name taken), the link is withdrawn.",
+      "type": "integer",
+      "minimum": 1
     },
     "partOf": {
       "description": "With repo: this add-on is part of the link-only entry with this ID (a voice pack of an add-on that has its own app). Its release is checked as usual, but it gets no entry of its own: its folders are added to that entry, so the app recognises them.",
