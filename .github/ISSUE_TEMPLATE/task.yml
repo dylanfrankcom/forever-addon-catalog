@@ -1,5 +1,5 @@
 name: Task
-description: Planned work for the maintainer. To ask for an add-on, use the "Add an add-on" form.
+description: Planned work for the maintainer. To ask for an add-on, use Forever Add-on Manager (Help the catalog).
 labels: ["triage"]
 body:
   - type: textarea

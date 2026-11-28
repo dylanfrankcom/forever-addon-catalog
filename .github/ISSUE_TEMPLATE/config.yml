@@ -1,1 +1,5 @@
 blank_issues_enabled: false
+contact_links:
+  - name: Ask for an add-on
+    url: https://github.com/dylanfrankcom/forever-addon-manager
+    about: Ask from Forever Add-on Manager (Help the catalog). It sends the add-on's details from your own install, without a GitHub account, so it can be checked and listed.

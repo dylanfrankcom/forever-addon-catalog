@@ -9,10 +9,11 @@ issue, a branch, validation, and a pull request that CI checks before it's merge
 requests**.
 
 ## Asking for an add-on
-Use the [Add an add-on](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=addon.yml) form. Fill in what you
-know: where it's published, which release lists WoW Forever's Interface in its `.toc`, its folders, licence, issue tracker and support
-page. Before an entry is added, the release is downloaded and its `.toc` read, and every source and link is checked. Only add-ons whose
-current release lists the Forever Interface are listed.
+Ask from [Forever Add-on Manager](https://github.com/dylanfrankcom/forever-addon-manager): its **Help the catalog** page suggests the add-ons you
+have installed that the catalog doesn't list, with what their own `.toc` files say, and sends them only when you agree (see
+[what's sent](#privacy)). No GitHub account is needed, and there's no issue form for it. Suggestions from several players are counted.
+Before an entry is added, the release is downloaded and its `.toc` read, and every
+source and link is checked. Only add-ons whose current release lists the Forever Interface are listed.
 
 Some add-ons can't be listed, for example when their only source has turned off downloads by other apps. They get an issue labelled
 `unavailable` that says what would make it possible (the [Add-on that can't be listed](https://github.com/dylanfrankcom/forever-addon-catalog/issues/new?template=unavailable.yml) form). Comments there are welcome when something changes.
