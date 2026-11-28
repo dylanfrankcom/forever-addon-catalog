@@ -1,0 +1,5591 @@
+{
+  "$schema": "./schema/tags.schema.json",
+  "$comment": "Tags chosen for entries whose author set none (no .toc Category, topics or override tags), from the name, summary, folders and README, by catalog ID. The generator uses them only for such entries (from.tags: inferred). fingerprint: what they were chosen from; an empty list means none fit.",
+  "addons": {
+    "aazerothauctionator": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "568e7e57f82c2df6"
+    },
+    "abilitytimeline": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "3922ff5a6f3d024b"
+    },
+    "absorbwatch": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "445ee1c990879d11"
+    },
+    "accountant-classic": {
+      "tags": [],
+      "fingerprint": "5b3fbab918499bb2"
+    },
+    "accountplayed": {
+      "tags": [],
+      "fingerprint": "e000b69fb550580f"
+    },
+    "acquainted": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a85f74a6cd3cf5a7"
+    },
+    "actionbarplus": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "939825d82e852a94"
+    },
+    "actionbarsaverreloaded": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "5e43a1201dcf81d6"
+    },
+    "actionwheels": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "e1cfd272fd8674b0"
+    },
+    "activegearhighlight": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "7ee063d036a4573c"
+    },
+    "addonlocale": {
+      "tags": [],
+      "fingerprint": "a159a83bae27fb10"
+    },
+    "addonmrgl": {
+      "tags": [],
+      "fingerprint": "b58981302ec1a517"
+    },
+    "addonprofiles": {
+      "tags": [],
+      "fingerprint": "93f2add9c6c63442"
+    },
+    "addonweight": {
+      "tags": [],
+      "fingerprint": "47aa7d3224039a14"
+    },
+    "advancedhotkeyoverlaysystem": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8c113b4174cce496"
+    },
+    "advancedinterfaceoptions": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f81eac90a017328b"
+    },
+    "advancedxpbar": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "3af85be6196979c3"
+    },
+    "advanceraidtools": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "201c27e63f3ed3e0"
+    },
+    "afk-fullscreen": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "1780ac2f5bbdbac7"
+    },
+    "agentboard": {
+      "tags": [],
+      "fingerprint": "9c1cafb11e2b70c1"
+    },
+    "allquest": {
+      "tags": [
+        "quests",
+        "map"
+      ],
+      "fingerprint": "4f45951d6f282e51"
+    },
+    "allthethings": {
+      "tags": [],
+      "fingerprint": "c336c1727675d20d"
+    },
+    "alluneve-debug": {
+      "tags": [],
+      "fingerprint": "78766291580893df"
+    },
+    "alreadyknown": {
+      "tags": [
+        "ui",
+        "auction-house"
+      ],
+      "fingerprint": "d30deec75500b67a"
+    },
+    "altglance": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "0171e601fd88163c"
+    },
+    "animalfacts": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "6f43f575943cbbe7"
+    },
+    "antifaaktionazeroth": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "8a1da7d4f20333b8"
+    },
+    "antitradescam": {
+      "tags": [],
+      "fingerprint": "9d8f11e1479ffba9"
+    },
+    "apogeeessentials": {
+      "tags": [
+        "ui",
+        "combat"
+      ],
+      "fingerprint": "2adc5f9c260d984a"
+    },
+    "appearancetooltip": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8193504ade941e1a"
+    },
+    "aptechka": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "550d2c2df36b3e74"
+    },
+    "aquaticambience": {
+      "tags": [],
+      "fingerprint": "73ecede32e3bafd1"
+    },
+    "ara-broker-xp": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "e62f05af35136b23"
+    },
+    "arachnophobiashield": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f72ce40b1996a72b"
+    },
+    "arcauras": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "45ff3288a5c701dc"
+    },
+    "archud3": {
+      "tags": [
+        "ui",
+        "combat"
+      ],
+      "fingerprint": "71ea59088cd1da0f"
+    },
+    "arclfgfilter": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "86d2ddca78682b81"
+    },
+    "arctrack": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "2609259881139243"
+    },
+    "arcweave": {
+      "tags": [
+        "class",
+        "combat"
+      ],
+      "fingerprint": "ecdeb875f097333c"
+    },
+    "arkinventoryrules-auctionator": {
+      "tags": [
+        "bags",
+        "auction-house"
+      ],
+      "fingerprint": "460cc742edc3a1c4"
+    },
+    "arkinventoryrules-restedxp": {
+      "tags": [
+        "bags",
+        "quests"
+      ],
+      "fingerprint": "6beab2f20bb78352"
+    },
+    "artificer": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "37746dfe79dc1a91"
+    },
+    "artpad": {
+      "tags": [],
+      "fingerprint": "2e561156c68d2153"
+    },
+    "asgardsguildfellowship": {
+      "tags": [],
+      "fingerprint": "bb1f8d876501a0e6"
+    },
+    "atlasquest": {
+      "tags": [
+        "quests",
+        "dungeons"
+      ],
+      "fingerprint": "d8d9c57f84a71c6f"
+    },
+    "att-window-battle-pets": {
+      "tags": [],
+      "fingerprint": "856914e8c98680ae"
+    },
+    "att-window-soft-reserves": {
+      "tags": [
+        "dungeons",
+        "loot"
+      ],
+      "fingerprint": "ffdadc4c4cd953dc"
+    },
+    "auctionatorrestedxp": {
+      "tags": [
+        "auction-house",
+        "quests"
+      ],
+      "fingerprint": "0106bc3269e56e99"
+    },
+    "auctionatortools": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "7c8644af159aa0d8"
+    },
+    "auctioneer": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "db70705189820783"
+    },
+    "auctionsellers": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "5374c9f40cd5d4b5"
+    },
+    "auctionsuite": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "29735659a4190198"
+    },
+    "autocombatlogger": {
+      "tags": [
+        "dungeons",
+        "combat"
+      ],
+      "fingerprint": "a4fe85c656a989c3"
+    },
+    "autogear": {
+      "tags": [
+        "loot",
+        "quests"
+      ],
+      "fingerprint": "ee57f1dd868dd557"
+    },
+    "autogroupfinder": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "a7d360753cc91293"
+    },
+    "autohideui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a0ef26deadde5fc4"
+    },
+    "autojanitor": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "33874389e4b2b135"
+    },
+    "autolooter": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "6d487beb5cb2da42"
+    },
+    "automaticrolecheck": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "305fac13da040b75"
+    },
+    "autopayout": {
+      "tags": [],
+      "fingerprint": "66169d028d5eccb1"
+    },
+    "autopotion": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "4f9c2fc6550a7f2f"
+    },
+    "autorole": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "790a6b9f560a661e"
+    },
+    "autospellranks": {
+      "tags": [
+        "class",
+        "ui"
+      ],
+      "fingerprint": "64d640acf4eb81ac"
+    },
+    "azeriteui5-junnez-edition": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "df5093535fc15f4f"
+    },
+    "azerobics": {
+      "tags": [],
+      "fingerprint": "4227453467ed141c"
+    },
+    "azerothante": {
+      "tags": [],
+      "fingerprint": "1977e70051bae1b9"
+    },
+    "azerothcardbinder": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "e92b95d09c3fb666"
+    },
+    "azerothcreaturecompendium": {
+      "tags": [
+        "combat",
+        "loot"
+      ],
+      "fingerprint": "148c5fbece7d00b0"
+    },
+    "azerothgraphics": {
+      "tags": [],
+      "fingerprint": "fb8184edde24fa13"
+    },
+    "azerothsurvivors": {
+      "tags": [],
+      "fingerprint": "8ceb4381dfb2d726"
+    },
+    "azerothweather": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "cab7a524c89b0bd8"
+    },
+    "azui-color-picker": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "90214d644c4c6e1c"
+    },
+    "backhand": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "17d020c608599bd1"
+    },
+    "badboy": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "ca3430c5b7d95acf"
+    },
+    "badboy-ccleaner": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "ee47696028938b43"
+    },
+    "badboy-guilded": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "1cabbc15d3afffb8"
+    },
+    "badboy-history": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "85818d96da840bf3"
+    },
+    "badboy-ignore": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "ee1c5c8ea20993fd"
+    },
+    "badboy-levels": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "b160c93f9b8e13cb"
+    },
+    "baganator-reagentbagcategory": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "a788f44613c7c5e9"
+    },
+    "bagbloat": {
+      "tags": [
+        "bags",
+        "quests"
+      ],
+      "fingerprint": "968da7e2a136fe12"
+    },
+    "baggins": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "3d1ef40154e3445b"
+    },
+    "bagquests": {
+      "tags": [
+        "quests",
+        "bags"
+      ],
+      "fingerprint": "aca0e6a51800de64"
+    },
+    "bags": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "e3221621f7d27585"
+    },
+    "bagsteward": {
+      "tags": [
+        "bags",
+        "auction-house"
+      ],
+      "fingerprint": "27a9599733584ba4"
+    },
+    "bagvaluetracker": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "c64afdc9ec3761cb"
+    },
+    "ballydruidshift": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "e19feefbe7491b19"
+    },
+    "bankstack": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "529e2818afdee394"
+    },
+    "bantercombat": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "938c353a11361c98"
+    },
+    "barclone": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "c7edda945d245a53"
+    },
+    "barplan": {
+      "tags": [
+        "class",
+        "ui"
+      ],
+      "fingerprint": "177fadf325d7e862"
+    },
+    "basicbuffhide": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "1708e9d73c7a165e"
+    },
+    "basicchatmods": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "9901f9189d3b5cc6"
+    },
+    "basiccombopoints": {
+      "tags": [
+        "class",
+        "ui"
+      ],
+      "fingerprint": "082b188346c74a66"
+    },
+    "basicminimap": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "22609d079968b74d"
+    },
+    "battlegroundspiritreleaser": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "7c48fa373f0359d2"
+    },
+    "battlepettabs": {
+      "tags": [],
+      "fingerprint": "d86ea9ade5af2581"
+    },
+    "battletextforever": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "4a7ed1dba03c7a2e"
+    },
+    "bazui": {
+      "tags": [
+        "ui",
+        "bags",
+        "chat"
+      ],
+      "fingerprint": "041a1df6a3d2fc0e"
+    },
+    "bears-audio-switcher": {
+      "tags": [],
+      "fingerprint": "ac51a1b1f2660d4a"
+    },
+    "bears-greeter": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "10dc07efbb45cb84"
+    },
+    "bears-hot-swap": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "b0136ac07c9d021d"
+    },
+    "bears-mailbox": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "a319cf8d7e0c3734"
+    },
+    "beastloreplus": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "d1ad5cc43aeb3175"
+    },
+    "beastscout": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "1bdb00061aaed0de"
+    },
+    "bejeweledredux": {
+      "tags": [],
+      "fingerprint": "8e5a98b92a7c516e"
+    },
+    "beltoolbox": {
+      "tags": [
+        "ui",
+        "class"
+      ],
+      "fingerprint": "93c7c55b8bae7de6"
+    },
+    "bestaroundrevisited": {
+      "tags": [],
+      "fingerprint": "afee58da434a8ff7"
+    },
+    "bestsellbutton": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "f695b10004263c32"
+    },
+    "bestskillup": {
+      "tags": [
+        "professions",
+        "auction-house"
+      ],
+      "fingerprint": "1ea9fba4b366477e"
+    },
+    "betterbags-campingfixtures": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "91f2482ea4873d0b"
+    },
+    "betterbags-teleports": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "1639a47c454b780c"
+    },
+    "betterbags-themes": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "06271aa2878ee8a3"
+    },
+    "betterblizzaddons": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "0819c3ac41803d77"
+    },
+    "betterblizzcc": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "9611b0d265aba248"
+    },
+    "betterblizzframes": {
+      "tags": [
+        "ui",
+        "combat"
+      ],
+      "fingerprint": "948f6d6f87c4d859"
+    },
+    "betterblizzplates": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "2f87c08e95e307fc"
+    },
+    "betterforeverxp": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "2f1749ea24caef8e"
+    },
+    "betterlfg": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "061b18cb3e41fa79"
+    },
+    "betterlfgfilters": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "9645ffe761aa355b"
+    },
+    "betterraidframes": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "d2e4385015bbe294"
+    },
+    "bettervendorprice": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "220ee384c2b68511"
+    },
+    "bgnext": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "024105d29511eca7"
+    },
+    "bigwigs-countdown-heroesofthestorm": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "4d5cc338d3160f48"
+    },
+    "bigwigs-countdown-overwatch": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "d169d3d7e1a536d4"
+    },
+    "bindcards": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "73315ea234d37ac5"
+    },
+    "bindpanel": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "889eaafb3fac8caf"
+    },
+    "birdfacts": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "8fba323983b870c5"
+    },
+    "bleakfibersaddonconfig-forever": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "4574e30b8679b6d3"
+    },
+    "blinkiis-portraits": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "97a03912dc82fbbd"
+    },
+    "blizzardbars-mouseover": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "2a4591cf0cd80571"
+    },
+    "blizzmove": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "5e5e61772d94cb7c"
+    },
+    "bloodfeud": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "e64f3eea920d46be"
+    },
+    "bloodrunner": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "2bf39cde549bade7"
+    },
+    "boarbequiet": {
+      "tags": [],
+      "fingerprint": "6356b9f7bc1ff1c4"
+    },
+    "bolt": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "691a94b0ab6931ce"
+    },
+    "bootybaybrokerferryman": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "026a5f09669d5fc8"
+    },
+    "breakables": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "abb8501e60a9c390"
+    },
+    "broker-everything": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8e5ebd9a5919b0b7"
+    },
+    "broker-leveltime": {
+      "tags": [],
+      "fingerprint": "c3ec0b539ef04a1e"
+    },
+    "broker-playermenu": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "dd01b97dc6ceccd6"
+    },
+    "broker-tinyfriends": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "2d1623b4d2b3c969"
+    },
+    "broker-tinyguild": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "562920b7040fcde9"
+    },
+    "brokeranything": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "0c674cc434a6d6ee"
+    },
+    "bruhforever": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "c67e06a53d0d6409"
+    },
+    "btex": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "55f3a3a6b4ee4ea8"
+    },
+    "buffbarter": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "34cf9d297f46499e"
+    },
+    "buffed": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "6c17b4ef8ab4d094"
+    },
+    "buffeteria": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "d4993d6982b8a333"
+    },
+    "bufftimers": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "98f4fffa434668af"
+    },
+    "bugsack": {
+      "tags": [],
+      "fingerprint": "11155ec0b1f072b0"
+    },
+    "bulkgoods": {
+      "tags": [],
+      "fingerprint": "3e560f65d84f4ae0"
+    },
+    "bulkmail2": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "1e6d43eb1f4f9d24"
+    },
+    "bulkmail2inbox": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "d35672d73a922a0f"
+    },
+    "bunnybar": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "2a38817c43ea3647"
+    },
+    "buttonbin": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a58a4fa04b0ba3dc"
+    },
+    "buttonstone": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "5312f20d0b506f34"
+    },
+    "byteterrace-core": {
+      "tags": [],
+      "fingerprint": "8c33446ad2ab8a42"
+    },
+    "caerdonwardrobe": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "a9aea914cb27b305"
+    },
+    "campcheck": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "bea334e477e0ab31"
+    },
+    "campxp": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "b0a74214716d45af"
+    },
+    "candybuckets": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "38da85eae0fcfb20"
+    },
+    "castcursor": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "3cd31d283542bf70"
+    },
+    "ceelo": {
+      "tags": [],
+      "fingerprint": "722337180e58ac23"
+    },
+    "characternotes": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "8986e0830a4caaf1"
+    },
+    "charcontext": {
+      "tags": [],
+      "fingerprint": "b1193908789772d9"
+    },
+    "chatemotes": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "50f60b8847106905"
+    },
+    "chatemotestwitch": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "e1bf453e4285943e"
+    },
+    "chatify": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "111cd9ac619c1c5d"
+    },
+    "chatinputtop": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "42d1e6f4af7bfd13"
+    },
+    "chattylittlenpc": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "6db8fa2435e0d369"
+    },
+    "chords": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "e548bc0d324ae40d"
+    },
+    "chronicleweaver": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "4cb5690ce591ecb7"
+    },
+    "chronolog-forever": {
+      "tags": [],
+      "fingerprint": "04566a1470ffd498"
+    },
+    "circlet": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "9f5e36978168f217"
+    },
+    "classicspellactivations": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "62b1e772448880aa"
+    },
+    "claude-in-wow": {
+      "tags": [],
+      "fingerprint": "185e20916c16d557"
+    },
+    "cleanbinds": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "ccae1fe604b01bf2"
+    },
+    "cleanerlootmessages": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "5d37137c99731e44"
+    },
+    "cleared": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "e3d2dfc7cc2086de"
+    },
+    "click-to-cast-button": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "9f1617a52a63e3d8"
+    },
+    "click-to-cast-tooltip": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "b8b0977105dcb56f"
+    },
+    "clickables": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "92cc1098a5d08683"
+    },
+    "coinforge": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "918365c5689464ef"
+    },
+    "colorcraft": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "50d373d413fd79da"
+    },
+    "colortools": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "7db38baf6912f965"
+    },
+    "colortoolsclasscolors": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "e6d3f4ceec1fda69"
+    },
+    "combatcues": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "ea25b85c549e6bed"
+    },
+    "combatmode": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "073fe923393e01f4"
+    },
+    "combatweather": {
+      "tags": [],
+      "fingerprint": "a16dcb5bafe74ccf"
+    },
+    "comfyrain": {
+      "tags": [],
+      "fingerprint": "cb45c1e82c727df5"
+    },
+    "compactvendor": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "4625f9822de9a582"
+    },
+    "comradecraft": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "cbfd74b41d7bb977"
+    },
+    "conceal": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "efd6d9ccf218ebe9"
+    },
+    "consoleport": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "5bb6de4ffa086560"
+    },
+    "cooldowncollaborator": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "55d1cbceab41a3cd"
+    },
+    "cooldownmanagerextras": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "da45af62628af9ed"
+    },
+    "copyanything": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "01334768566ccdc1"
+    },
+    "copypasta2": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "6e14f20100612b37"
+    },
+    "corelink": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "94f3199127f4db78"
+    },
+    "corpsr": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "711d6688bcf23bed"
+    },
+    "corpui": {
+      "tags": [
+        "ui",
+        "bags",
+        "chat"
+      ],
+      "fingerprint": "62696c21c71d6b38"
+    },
+    "counselor": {
+      "tags": [
+        "dungeons",
+        "combat",
+        "loot"
+      ],
+      "fingerprint": "b6eea868fc006bb6"
+    },
+    "craftboard": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "c8038c82aa6ba735"
+    },
+    "craftcolors": {
+      "tags": [
+        "professions",
+        "ui"
+      ],
+      "fingerprint": "6760f942fae3f636"
+    },
+    "craftlib": {
+      "tags": [],
+      "fingerprint": "2cf3c254d812b5cf"
+    },
+    "craftpath": {
+      "tags": [
+        "professions",
+        "auction-house"
+      ],
+      "fingerprint": "b78b2978fc84d20d"
+    },
+    "crossgambling": {
+      "tags": [],
+      "fingerprint": "6e4bf97e8b7c2287"
+    },
+    "crossignore": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "cd80266bce8526e4"
+    },
+    "cubby": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "5907bbe0d863f272"
+    },
+    "cursormod": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "ba9d51822cbf4b2c"
+    },
+    "cursoroutline": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "93f07abddd3ac2fe"
+    },
+    "customnames": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "53bd08ae94ac517c"
+    },
+    "customnames-guild": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8b7fae4e928ee8c9"
+    },
+    "cvars": {
+      "tags": [],
+      "fingerprint": "4f275a027fd1e10d"
+    },
+    "cvarsbackup": {
+      "tags": [],
+      "fingerprint": "645be95c7bc40935"
+    },
+    "dadmode": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "96ed2634f119f0ee"
+    },
+    "damagetips": {
+      "tags": [
+        "class",
+        "ui"
+      ],
+      "fingerprint": "2fbe4d39f0df3499"
+    },
+    "darkmodespellbook": {
+      "tags": [
+        "class",
+        "ui"
+      ],
+      "fingerprint": "87d4e2e175edd9f2"
+    },
+    "datamine": {
+      "tags": [],
+      "fingerprint": "6c96d451b8835310"
+    },
+    "daylightui": {
+      "tags": [
+        "ui",
+        "chat",
+        "bags"
+      ],
+      "fingerprint": "d529ef8226f6a3fc"
+    },
+    "dbm-flighttimers": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "6c859a3ad294e9a9"
+    },
+    "deabingo": {
+      "tags": [],
+      "fingerprint": "5f2043c5e4f1ea13"
+    },
+    "deathrollenhancer": {
+      "tags": [],
+      "fingerprint": "a027200e43ed0e58"
+    },
+    "debind": {
+      "tags": [
+        "ui",
+        "class"
+      ],
+      "fingerprint": "fb257be35d45a87c"
+    },
+    "deckforever": {
+      "tags": [],
+      "fingerprint": "9a271dfb0585c8c7"
+    },
+    "decursive": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "8d9965f9a7d16713"
+    },
+    "dejunk": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "a2b436a94f278924"
+    },
+    "deletecheapestitem": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "20f889b24dd7f1ad"
+    },
+    "dem": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "b9f0b0b87ed899d6"
+    },
+    "demodal": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "3b50818785236ecf"
+    },
+    "devsuite": {
+      "tags": [],
+      "fingerprint": "03b031f778aeaa7a"
+    },
+    "dialogueui": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "acb252175abab346"
+    },
+    "dockeddamagemeter": {
+      "tags": [
+        "combat",
+        "chat"
+      ],
+      "fingerprint": "da75f766c3cfa013"
+    },
+    "doesitdie": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "fb9256cea323babd"
+    },
+    "doesitlive": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "d1141ff0ff245159"
+    },
+    "dotaraid": {
+      "tags": [
+        "dungeons",
+        "loot"
+      ],
+      "fingerprint": "7ff363d50aa28ed4"
+    },
+    "doudprofessions": {
+      "tags": [
+        "professions",
+        "auction-house"
+      ],
+      "fingerprint": "5090a85c803b38f0"
+    },
+    "dragonloot": {
+      "tags": [
+        "loot",
+        "ui"
+      ],
+      "fingerprint": "c55cf68665bb577e"
+    },
+    "dragontoast": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "d2481c0f6f0fecc6"
+    },
+    "dresser": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "1b0221c451824c42"
+    },
+    "dressingslots": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "1b8d16de41c9b29d"
+    },
+    "dropthecheapestthing": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "2e591ab61a58e6cf"
+    },
+    "dumpster": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "e9f9820290cf55ba"
+    },
+    "dungeonquesthelper": {
+      "tags": [
+        "quests",
+        "dungeons"
+      ],
+      "fingerprint": "1215df670ea43e2d"
+    },
+    "dynamicimmersiveui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "39d1d6e4c921ec19"
+    },
+    "dyressounds": {
+      "tags": [],
+      "fingerprint": "9322ccc0f4f53285"
+    },
+    "earcollector": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "38d4fcd994c46cd3"
+    },
+    "easychatchannelbuttons": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "acea5f367114ac12"
+    },
+    "easycrafting": {
+      "tags": [
+        "professions",
+        "auction-house"
+      ],
+      "fingerprint": "49758f1eae7389ea"
+    },
+    "easygroupbuilder": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "3eac933830c75159"
+    },
+    "easylibrarybooks": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "4539bc728574ebeb"
+    },
+    "easymaillists": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "bee05672c735a88c"
+    },
+    "eavesdropper": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "25b06a568f660d88"
+    },
+    "editmodeexpanded": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a3bb3d4c25b82de5"
+    },
+    "ellesmerepoisons": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "19e0772edb7d5b70"
+    },
+    "ellesmereui": {
+      "tags": [
+        "ui",
+        "bags",
+        "chat"
+      ],
+      "fingerprint": "0460d998275c1133"
+    },
+    "eloquence": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "4c074f9b9b82ddf3"
+    },
+    "elvui-maui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "9f5dadce9ce4e8b5"
+    },
+    "elvui-mmediatag": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "5988f63ff204fd71"
+    },
+    "elvui-thingsui": {
+      "tags": [
+        "ui",
+        "combat"
+      ],
+      "fingerprint": "62ef076de9c23626"
+    },
+    "elvui-toxiui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "43c70bf90cbef6ec"
+    },
+    "emberkeep": {
+      "tags": [],
+      "fingerprint": "3e5b61f4239dae39"
+    },
+    "emergencyannounce": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "0fb21b85b03725ba"
+    },
+    "enhancebattlefieldminimap": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "9258a854bccb270e"
+    },
+    "eqmanager": {
+      "tags": [],
+      "fingerprint": "59f0170784f28a41"
+    },
+    "erzbaroneui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8aaaf77503ca6e0e"
+    },
+    "essences": {
+      "tags": [
+        "class",
+        "ui"
+      ],
+      "fingerprint": "66793648b7ce682c"
+    },
+    "estidmg": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "3ba616101e172b0d"
+    },
+    "eui-aurafonts": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8478dcd9ab1c920e"
+    },
+    "eui-totemtimerstyle": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8a253423eef07516"
+    },
+    "eventhelpersync": {
+      "tags": [
+        "loot",
+        "dungeons"
+      ],
+      "fingerprint": "5cadb9eab50268f1"
+    },
+    "everbuffjournal": {
+      "tags": [
+        "combat",
+        "loot",
+        "quests"
+      ],
+      "fingerprint": "d2b5fafa5362bc63"
+    },
+    "everfishing": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "29f6200f70dc19e2"
+    },
+    "everfrost": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "affc87222fec2a91"
+    },
+    "everlookbar": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "6c34613a7037216d"
+    },
+    "everlookdb": {
+      "tags": [
+        "loot",
+        "quests",
+        "map"
+      ],
+      "fingerprint": "da1d56f8248fde29"
+    },
+    "everlookdbauctions-shared": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "f346918b24559458"
+    },
+    "everlookdbchat": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "727131244c1a7593"
+    },
+    "everlookdbcrafting": {
+      "tags": [
+        "professions",
+        "auction-house"
+      ],
+      "fingerprint": "79800f113d36c2a5"
+    },
+    "everlookdbmail": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "7e15757973bfcf2a"
+    },
+    "everlookpets": {
+      "tags": [
+        "class",
+        "map"
+      ],
+      "fingerprint": "bd184f3705e43e55"
+    },
+    "everysetting": {
+      "tags": [],
+      "fingerprint": "d5d24ce0b32f4193"
+    },
+    "everythingquests": {
+      "tags": [
+        "quests",
+        "map"
+      ],
+      "fingerprint": "c8b83d6cbdc83ffc"
+    },
+    "expansionutils": {
+      "tags": [
+        "dungeons",
+        "quests"
+      ],
+      "fingerprint": "b58a45182fcc53ee"
+    },
+    "extraquestbutton": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "c7e3c4aec82b1a47"
+    },
+    "eyecandy": {
+      "tags": [],
+      "fingerprint": "31549bff4ddfe085"
+    },
+    "fadeui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "68455161e8c907f5"
+    },
+    "fafnyirmedia": {
+      "tags": [],
+      "fingerprint": "f864a112c0dc80ab"
+    },
+    "farmbuddy": {
+      "tags": [
+        "loot",
+        "professions"
+      ],
+      "fingerprint": "a3cd83465d858cc8"
+    },
+    "farmernodes": {
+      "tags": [
+        "professions",
+        "map"
+      ],
+      "fingerprint": "abf358ee619b1d5b"
+    },
+    "farmerroutes": {
+      "tags": [
+        "professions",
+        "map"
+      ],
+      "fingerprint": "d1d8569a5796ee98"
+    },
+    "farmingbar": {
+      "tags": [
+        "bags",
+        "professions"
+      ],
+      "fingerprint": "1165b606250ca5e8"
+    },
+    "farmrouteplanner": {
+      "tags": [
+        "professions",
+        "map"
+      ],
+      "fingerprint": "373df1248e54ff44"
+    },
+    "favoritecontacts": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a3888ebfa1fb61bb"
+    },
+    "fellowshipledger": {
+      "tags": [
+        "quests",
+        "dungeons"
+      ],
+      "fingerprint": "27749f297c074525"
+    },
+    "fidelityforever": {
+      "tags": [],
+      "fingerprint": "3756b31e41fb31c1"
+    },
+    "fieldguide": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "9121dc30956bc8f3"
+    },
+    "finalfantasyrepup": {
+      "tags": [],
+      "fingerprint": "1f480207653894f3"
+    },
+    "firesidetales": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "3d3d1767d3b90095"
+    },
+    "fishinghelper": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "19f9f356236d1873"
+    },
+    "fishywashy": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "e02013058c17c109"
+    },
+    "flagup": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "148e2b8dc0f79a93"
+    },
+    "flareui-rp": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "af1276564b9d813c"
+    },
+    "flightdatarecorder": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "9bc9f4610187c808"
+    },
+    "flipper": {
+      "tags": [
+        "auction-house",
+        "professions"
+      ],
+      "fingerprint": "6466329e03caaefe"
+    },
+    "floor": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "2385d56994cac22d"
+    },
+    "fontbridge": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8a024dfdd28a09d2"
+    },
+    "foodguardian": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "3d17d3d430f65e94"
+    },
+    "foodoptimizer": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "81344a87384ec84b"
+    },
+    "forallthenerds": {
+      "tags": [],
+      "fingerprint": "5f55798bbecb0010"
+    },
+    "foresight": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "cb46ac2965d4e050"
+    },
+    "forever": {
+      "tags": [],
+      "fingerprint": "c717a92d03006661"
+    },
+    "forever21": {
+      "tags": [],
+      "fingerprint": "52baf9bc32705afa"
+    },
+    "foreverambientmusicextended": {
+      "tags": [],
+      "fingerprint": "1f113675da99d3f5"
+    },
+    "foreverauras": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "0233785d81948a1f"
+    },
+    "forevercrafter": {
+      "tags": [
+        "auction-house",
+        "professions"
+      ],
+      "fingerprint": "1f4a337c1d6bf34f"
+    },
+    "foreverdiceandale": {
+      "tags": [],
+      "fingerprint": "d8f769b85582ece7"
+    },
+    "foreverdiffcollector": {
+      "tags": [],
+      "fingerprint": "9b0763e400701740"
+    },
+    "foreverdrinking": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "ab54a4cf89a2b347"
+    },
+    "foreverelixirmanager": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "f2e8af0b68428ff7"
+    },
+    "forevergather": {
+      "tags": [
+        "professions",
+        "map"
+      ],
+      "fingerprint": "298df5d1762c453e"
+    },
+    "forevergmmanager": {
+      "tags": [],
+      "fingerprint": "13622903243d094a"
+    },
+    "foreverguild": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "de3fbc9fd089b096"
+    },
+    "foreverhidenames": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "0e9a900c18db9054"
+    },
+    "foreveritemfinder": {
+      "tags": [
+        "loot",
+        "dungeons"
+      ],
+      "fingerprint": "8f7db920f7b8cb69"
+    },
+    "foreverlootsparkles": {
+      "tags": [
+        "loot",
+        "quests"
+      ],
+      "fingerprint": "492956abcdd9cb1f"
+    },
+    "forevermacros": {
+      "tags": [
+        "class",
+        "bags"
+      ],
+      "fingerprint": "f3eeedccc62cdb93"
+    },
+    "forevermailfix": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "4bb70ef4fb0cca11"
+    },
+    "forevermoments": {
+      "tags": [],
+      "fingerprint": "b3f58cf0afa34331"
+    },
+    "forevermousetooltip": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "368b4b0d2b9fb7e1"
+    },
+    "forevernames": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "1522d42963bac8a6"
+    },
+    "foreverpetmodes": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "e45046066b1b55ed"
+    },
+    "foreverprofit": {
+      "tags": [
+        "professions",
+        "auction-house"
+      ],
+      "fingerprint": "15d0ba6895f7c5fc"
+    },
+    "foreverquestchain": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "d7df2041e47f5c19"
+    },
+    "foreverquesthider": {
+      "tags": [
+        "ui",
+        "quests"
+      ],
+      "fingerprint": "dcdc015ec952d986"
+    },
+    "foreverquesttint": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "dfdd1e26a9b771bb"
+    },
+    "foreverscout": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "33a6b3fa4a4903ac"
+    },
+    "foreversearch": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "e495bf2c9edbf67a"
+    },
+    "foreversensei": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "dc24e94ac5459ba6"
+    },
+    "foreverskillmanager": {
+      "tags": [
+        "class",
+        "ui"
+      ],
+      "fingerprint": "1587e91cb2ed96aa"
+    },
+    "forevertrack": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "42bbba457ecc5398"
+    },
+    "forevertrails": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "d69a8217e593669f"
+    },
+    "foreverunitframes": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "b15b79e23bb9fbf4"
+    },
+    "forevervo": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "2b28161dbec7ba70"
+    },
+    "foreverwindows": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "d5570bc0c33708ec"
+    },
+    "foundry-1-0": {
+      "tags": [],
+      "fingerprint": "5edbc98e22e8b13d"
+    },
+    "foxyy-bruh": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "db2310e7d024e19e"
+    },
+    "fperl": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "9be7b2b569c7a5e2"
+    },
+    "framegambit": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "c880ea48bab45f23"
+    },
+    "framesort": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "74472677b107ab8c"
+    },
+    "freedoomarcade": {
+      "tags": [],
+      "fingerprint": "19cbe79139890256"
+    },
+    "freresdepee": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "7055c0a300b6258e"
+    },
+    "friendfilter": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "febc39ac7b18c7ec"
+    },
+    "friendlistcolors": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "c3c98466e7dd73a5"
+    },
+    "friendssync": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "eb29b5bde1d14855"
+    },
+    "funfact": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "b365dd74ef9ae4ca"
+    },
+    "gaarprofessionsforever": {
+      "tags": [
+        "professions",
+        "bags"
+      ],
+      "fingerprint": "26718ec0b32a9a48"
+    },
+    "gamepadmacros": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "bbfc792149713578"
+    },
+    "gamepadtotembar": {
+      "tags": [
+        "class",
+        "ui"
+      ],
+      "fingerprint": "549b9503b9cf86d4"
+    },
+    "gamepadxiv": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "fd223ea072478992"
+    },
+    "gathererreforged": {
+      "tags": [
+        "map",
+        "professions"
+      ],
+      "fingerprint": "25a7834fca1fc917"
+    },
+    "gatherlog": {
+      "tags": [
+        "professions",
+        "map"
+      ],
+      "fingerprint": "72560792147c9b16"
+    },
+    "gathermate2-data": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "a77d4c25a89ef127"
+    },
+    "gearduck": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "59a3ff5f195892d6"
+    },
+    "gemcutter": {
+      "tags": [],
+      "fingerprint": "09e1c8aaa482237e"
+    },
+    "ghost": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "05386a70f6f8f96f"
+    },
+    "glass": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "58e9ad1e428a74a1"
+    },
+    "globalplayed": {
+      "tags": [],
+      "fingerprint": "28e1e647fbf4d359"
+    },
+    "globalsearch": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "d645ed56567f9858"
+    },
+    "glyphic": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "3d4831eef9e7afb4"
+    },
+    "goatquest": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "5a370c978786f915"
+    },
+    "goatway": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "cdc3726883e58b12"
+    },
+    "goblincompass": {
+      "tags": [
+        "professions",
+        "map"
+      ],
+      "fingerprint": "594340034fbc2086"
+    },
+    "goingonce": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "d000511740c5c991"
+    },
+    "goldperhour": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "076a1b7c6f12ee84"
+    },
+    "goldscout": {
+      "tags": [
+        "auction-house",
+        "professions"
+      ],
+      "fingerprint": "4b06c814b988ab98"
+    },
+    "gravityui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "6403b8ccace0ca90"
+    },
+    "grid2": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f345a8ef35984cf1"
+    },
+    "grindonly": {
+      "tags": [
+        "combat",
+        "loot"
+      ],
+      "fingerprint": "39cf71d2d19cb9f3"
+    },
+    "grouphighlight": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "41cbaa1264ab1389"
+    },
+    "groupselfhide": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "2e822313e8852420"
+    },
+    "groupworth": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "55c33d5058faf7c1"
+    },
+    "gse": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "2a490aa50aa5ead6"
+    },
+    "guidelime": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "7c3050f585afc88c"
+    },
+    "guidelime-dungeonquests": {
+      "tags": [
+        "quests",
+        "dungeons"
+      ],
+      "fingerprint": "4f32733d9d639ef0"
+    },
+    "guidemmosmageaoeguide-localefix": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "69d5a29052272d74"
+    },
+    "guild-roster-manager": {
+      "tags": [],
+      "fingerprint": "b6c0e103bc048657"
+    },
+    "guildachieves": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "d71e9bf27c501aaa"
+    },
+    "guildforge": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "dd0beae82d159bb1"
+    },
+    "guildgreet": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "f8cb14169f5939ae"
+    },
+    "guildkarma": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "6344604f3aa53bc2"
+    },
+    "guildlayers": {
+      "tags": [],
+      "fingerprint": "bc1ead4dd2c59163"
+    },
+    "guildos": {
+      "tags": [],
+      "fingerprint": "d88821aee5811ff8"
+    },
+    "guildsearch": {
+      "tags": [],
+      "fingerprint": "1af7198f5ab217ff"
+    },
+    "guildtabardvote": {
+      "tags": [],
+      "fingerprint": "916062cd1290325d"
+    },
+    "guildvendetta": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "3e86072daf3be3a4"
+    },
+    "gulli-toolkit": {
+      "tags": [],
+      "fingerprint": "998d25ec466bf64a"
+    },
+    "gw2-ui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "c3677fa4f746a632"
+    },
+    "gzlevelup": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "110a7a75baa449e7"
+    },
+    "halo": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8d100ace773dc431"
+    },
+    "handynotes-worldmapbutton": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "bde8b750f1398e8c"
+    },
+    "hastessupertweaks": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8a1409faef872be5"
+    },
+    "headwow": {
+      "tags": [
+        "loot",
+        "auction-house"
+      ],
+      "fingerprint": "d5eb70a2b03dda3b"
+    },
+    "healbot": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "5f79aa9c7d50a38a"
+    },
+    "healerstatweights": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "d8612ac6aab8ad44"
+    },
+    "hearthbag": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "154bf5121a2b780f"
+    },
+    "herebedragons": {
+      "tags": [],
+      "fingerprint": "f8da4bc245ac313e"
+    },
+    "herodeck": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "dacf9fc828598778"
+    },
+    "hide-increase-backpack-button": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "0560ff82c5573879"
+    },
+    "hidingbar": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "767410b5163caa24"
+    },
+    "hitchprobe": {
+      "tags": [],
+      "fingerprint": "db95c906cc983ef9"
+    },
+    "hizurossharedtools": {
+      "tags": [],
+      "fingerprint": "13793a47a57b2aab"
+    },
+    "holymath": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "48bd97ad611fdfbf"
+    },
+    "honorbound": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "0b00212697e61e83"
+    },
+    "hoofpursuit": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "f01db054a190c02d"
+    },
+    "horizonsuite": {
+      "tags": [
+        "ui",
+        "chat"
+      ],
+      "fingerprint": "4ab6bcf8502f7cee"
+    },
+    "hourstone": {
+      "tags": [],
+      "fingerprint": "37b872cab51b23c4"
+    },
+    "hovermark": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "5cbb5129c1ca28f9"
+    },
+    "hzfontpack1": {
+      "tags": [],
+      "fingerprint": "10291dd1046bb4f4"
+    },
+    "iconsearch": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "85ce338f6179b3ba"
+    },
+    "immersion": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "25172efbdc2ae5c2"
+    },
+    "immersivehud": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "ba9d4d355a03876f"
+    },
+    "improveany": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "7fbe0ce6551354c5"
+    },
+    "improvedforever": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "e0e78636fe58677c"
+    },
+    "improvedquesttracker": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "339027d607b3006a"
+    },
+    "inari": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8406f9618dbff2e0"
+    },
+    "inboxmailbag": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "b16ab86517fca47d"
+    },
+    "incharacter": {
+      "tags": [],
+      "fingerprint": "228fb1b5bf4f2e04"
+    },
+    "inlineprofessionguides": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "ea8600054ecfca01"
+    },
+    "interaction": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "abac526ed54c9b8c"
+    },
+    "interactivewormholes": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "c0b607cb787a9945"
+    },
+    "interfaceautofade": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "5b2dec6ca180872e"
+    },
+    "interrupts": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "8a7fd9373deaa61c"
+    },
+    "intersportraitcombattext": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "1a81966e550cd033"
+    },
+    "inthebinkos": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "24c6a31dcfe6df40"
+    },
+    "issuereporthide": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "42ea78b6aa1a600c"
+    },
+    "itemautocomplete": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "d3da9af20020104d"
+    },
+    "itemversion": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "6ab0c0d2553ae2f5"
+    },
+    "iwillremember": {
+      "tags": [],
+      "fingerprint": "db31c68f40fbec79"
+    },
+    "jiberishicons": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "b318795a7f247094"
+    },
+    "jiberishspec01ui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "44a0199ad7f60173"
+    },
+    "jonasaddon": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "62184ae4c43ec2a4"
+    },
+    "jumpcounter": {
+      "tags": [],
+      "fingerprint": "b49d9ad783f33eea"
+    },
+    "jumpmaster6000": {
+      "tags": [],
+      "fingerprint": "ce31d17b913b2a72"
+    },
+    "jumpmaster9000": {
+      "tags": [],
+      "fingerprint": "63bcbb8f7943f4c7"
+    },
+    "jumpstatistics": {
+      "tags": [],
+      "fingerprint": "50bc40f81c9e7559"
+    },
+    "junkmate": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "598beed52aeadb3f"
+    },
+    "junkvalue": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "0d4606bcfe4cf99c"
+    },
+    "just20minutes": {
+      "tags": [],
+      "fingerprint": "ec3301248ffd9c0f"
+    },
+    "justac": {
+      "tags": [
+        "class",
+        "combat"
+      ],
+      "fingerprint": "3473ffed3b82813c"
+    },
+    "justjunk": {
+      "tags": [
+        "bags",
+        "auction-house"
+      ],
+      "fingerprint": "f03363bf3a94b039"
+    },
+    "justquest": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "6d2c61bab4df1d54"
+    },
+    "jvars": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "0faebe2f8f269f3f"
+    },
+    "kachingonevent": {
+      "tags": [
+        "auction-house",
+        "professions"
+      ],
+      "fingerprint": "3e53f3be1f0cc0bc"
+    },
+    "keel": {
+      "tags": [],
+      "fingerprint": "affc36968db571fc"
+    },
+    "keepaudiocue": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "9e9a4da3440abe46"
+    },
+    "keeporsell": {
+      "tags": [
+        "bags",
+        "auction-house"
+      ],
+      "fingerprint": "7d43696cb579d12a"
+    },
+    "kehets-fellowship": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "8b53af47b294d2e6"
+    },
+    "kehets-soundclues": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "3b3f31ddbaa2c02c"
+    },
+    "kek": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "57090e3fdc0ebeae"
+    },
+    "kerimankaui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "0247b67cba7f02d8"
+    },
+    "keybindprofiles": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "ab18913871e1aa89"
+    },
+    "keylayers-by-rav-yoli": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "0fc22bcc260256a7"
+    },
+    "kickalert": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "11793a16bf70208c"
+    },
+    "killtimer": {
+      "tags": [
+        "quests",
+        "loot"
+      ],
+      "fingerprint": "418ee6b91f04070d"
+    },
+    "kindergarten": {
+      "tags": [
+        "class",
+        "professions"
+      ],
+      "fingerprint": "16df8ae4f1696ce2"
+    },
+    "kindredforever": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "6dd6eb90de39753e"
+    },
+    "kinshiprp": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "03ff1decc0f05aac"
+    },
+    "kiwifarm": {
+      "tags": [],
+      "fingerprint": "a015b93b8092e1e2"
+    },
+    "kiwimbc": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "8ba05c520f0152e3"
+    },
+    "kkthnxui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a04ba65024935cc0"
+    },
+    "knownplayers": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f5e404ddfbbcd591"
+    },
+    "krowi-extendedvendorui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "fcb2b85564c76a3a"
+    },
+    "krowi-menu": {
+      "tags": [],
+      "fingerprint": "467c7ff95011f877"
+    },
+    "krowi-util": {
+      "tags": [],
+      "fingerprint": "12a1dec1082d9e7a"
+    },
+    "krowi-worldmapbuttons": {
+      "tags": [],
+      "fingerprint": "43d5b7a487ebb73d"
+    },
+    "kstyleui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "4427ee5db7790070"
+    },
+    "ksui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "44205591dba492d6"
+    },
+    "kurequtils": {
+      "tags": [
+        "bags",
+        "combat"
+      ],
+      "fingerprint": "edf0637f1b1c73c5"
+    },
+    "lagbar": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f0de814ab289da29"
+    },
+    "languages": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "f29bb98d17d2e42e"
+    },
+    "lastseen": {
+      "tags": [],
+      "fingerprint": "5b363e0a6872dc9a"
+    },
+    "latticepartyraidframes": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "68256ae59fd02e2c"
+    },
+    "layerswapstealth": {
+      "tags": [],
+      "fingerprint": "b798ce2e83bbc97f"
+    },
+    "lazyprof": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "1f9e30ef733ce6c6"
+    },
+    "learnalert": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "cab1c8b60f7338cb"
+    },
+    "ledger": {
+      "tags": [
+        "auction-house",
+        "professions"
+      ],
+      "fingerprint": "8ac6cb228d64690a"
+    },
+    "levelingconsumables": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "4bbe709f632d8a59"
+    },
+    "levelmates": {
+      "tags": [
+        "chat",
+        "dungeons"
+      ],
+      "fingerprint": "be52cafac57ae64f"
+    },
+    "levelupinfo": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "d3560f10ac04309c"
+    },
+    "libaboutpanel-2-0": {
+      "tags": [],
+      "fingerprint": "8a494b17e05ca903"
+    },
+    "libanimate": {
+      "tags": [],
+      "fingerprint": "7410c5977cc05d3e"
+    },
+    "libchromacro": {
+      "tags": [],
+      "fingerprint": "b97296c640d62dcc"
+    },
+    "libclassicswingtimerapi": {
+      "tags": [],
+      "fingerprint": "a18876020ffa86b9"
+    },
+    "libcurrencyinfo": {
+      "tags": [],
+      "fingerprint": "e7bcd636508e5b82"
+    },
+    "libdogtag-3-0": {
+      "tags": [],
+      "fingerprint": "12d53c6aa552226a"
+    },
+    "libdogtag-unit-3-0": {
+      "tags": [],
+      "fingerprint": "ef002b864cd21cb6"
+    },
+    "libdropdown-1-0": {
+      "tags": [],
+      "fingerprint": "97c83172acd3d4c2"
+    },
+    "libdropdownmenu": {
+      "tags": [],
+      "fingerprint": "7459c4e8bfc9b32e"
+    },
+    "libeditmode": {
+      "tags": [],
+      "fingerprint": "e7c97f15f7aeb203"
+    },
+    "libiconpicker": {
+      "tags": [],
+      "fingerprint": "77123ef66029ab16"
+    },
+    "liblocaleoverride": {
+      "tags": [],
+      "fingerprint": "5069fffddf2769dc"
+    },
+    "liblog": {
+      "tags": [],
+      "fingerprint": "0501f88b905aa83e"
+    },
+    "librecipes-3-0": {
+      "tags": [],
+      "fingerprint": "971d39222e8cf3ce"
+    },
+    "libs-timeplayed": {
+      "tags": [],
+      "fingerprint": "e628252c1c9c6f10"
+    },
+    "libsaddontools": {
+      "tags": [],
+      "fingerprint": "699c5ece57b6aa3a"
+    },
+    "libsimplehtmlmarkdown": {
+      "tags": [],
+      "fingerprint": "fcdfb381e7df5970"
+    },
+    "libspecialization": {
+      "tags": [],
+      "fingerprint": "557de861bfa6e61e"
+    },
+    "libstancedance": {
+      "tags": [],
+      "fingerprint": "138822ef17ec8c55"
+    },
+    "libutil": {
+      "tags": [],
+      "fingerprint": "9d6652e560dbf92a"
+    },
+    "liteassist": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "82a472fc2b3f49d1"
+    },
+    "litemount": {
+      "tags": [],
+      "fingerprint": "bb1a03f60c814cab"
+    },
+    "livery": {
+      "tags": [],
+      "fingerprint": "d2d9f8a3af689e24"
+    },
+    "livetowin": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "f8fcca3fcc8c08fe"
+    },
+    "livingportraits": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "677371c1222d3df1"
+    },
+    "loca": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "18b2990dfe621912"
+    },
+    "lootanchor": {
+      "tags": [
+        "loot",
+        "ui"
+      ],
+      "fingerprint": "f10a5e375efe2f86"
+    },
+    "lootappraiserreloaded": {
+      "tags": [
+        "loot",
+        "auction-house"
+      ],
+      "fingerprint": "e9093e0faf48eafe"
+    },
+    "looti": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "4b2613df99b93a00"
+    },
+    "lootifications": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "5457a4b0dfa76974"
+    },
+    "lootpro": {
+      "tags": [
+        "loot",
+        "combat"
+      ],
+      "fingerprint": "ac4ab7744d4457b2"
+    },
+    "loottoastmover": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "1d886ce1e5ec91b6"
+    },
+    "loreforever": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "42152ae7ba540097"
+    },
+    "loreitemtooltips": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "5278bd1777f4713a"
+    },
+    "lorekeeper": {
+      "tags": [],
+      "fingerprint": "07a672af862950c3"
+    },
+    "lorepath": {
+      "tags": [
+        "quests",
+        "map"
+      ],
+      "fingerprint": "909dd565100f67eb"
+    },
+    "ls-monobrow": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "428e202ef8bd7cc3"
+    },
+    "ls-toasts": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "325330809ee1d9d4"
+    },
+    "lsmshell": {
+      "tags": [],
+      "fingerprint": "f843a005b38f3e29"
+    },
+    "luapad": {
+      "tags": [],
+      "fingerprint": "1ff5da79b8225297"
+    },
+    "luaworkbench": {
+      "tags": [],
+      "fingerprint": "14e3bff589318da6"
+    },
+    "luzennaforever": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "4b2334489c612432"
+    },
+    "macroforge": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "bdf920c3a8cdb180"
+    },
+    "macrohelper": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "21a113b32d24fe75"
+    },
+    "macrokit": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "e02425a38ba26d55"
+    },
+    "macromanager": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "aec2f934c4a95313"
+    },
+    "macrosearch": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "7586f73f791e29ec"
+    },
+    "macrosense": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "556ffeb5143a3a6d"
+    },
+    "mactotem": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "e5c884db46338d60"
+    },
+    "maelstrombar": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "3cfa927b449781dc"
+    },
+    "maerica-sync": {
+      "tags": [],
+      "fingerprint": "7942afb26436f4ca"
+    },
+    "magely": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "9bc83ef9a6a3342f"
+    },
+    "mama": {
+      "tags": [
+        "combat",
+        "quests"
+      ],
+      "fingerprint": "56bb96cdf90cd5c9"
+    },
+    "manaregentimer": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "5cbe2fddf390d4df"
+    },
+    "mapcast": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "7cf81b9812520929"
+    },
+    "mappintimers": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "c0daf27e899a1629"
+    },
+    "markdownnotepad": {
+      "tags": [],
+      "fingerprint": "6bc7b1d5e72c8736"
+    },
+    "marketplace": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "bee5c64c7aa04f69"
+    },
+    "marketsyncdata": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "c4578bc7644f4d63"
+    },
+    "max-camera-distance": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "55a3785d2f860970"
+    },
+    "maxdps": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "540671adad6612f7"
+    },
+    "maxdps-druid": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "61dfa767ac5a50ac"
+    },
+    "maxdps-hunter": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "d72c9c5e01e6f54c"
+    },
+    "maxdps-paladin": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "33ee3c8df78e8c3b"
+    },
+    "maxdps-priest": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "bd901c65eade0c2b"
+    },
+    "maxdps-rogue": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "cdc5333e0beccf3b"
+    },
+    "maxdps-shaman": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "7961736b2112e5e0"
+    },
+    "maxdps-warlock": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "2c43ce4c77cae049"
+    },
+    "maxdps-warrior": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "08d76033e1d44438"
+    },
+    "meeyraslockouttracker": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "515282504ae28955"
+    },
+    "megamacro": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a666d00a7f111fd0"
+    },
+    "memento": {
+      "tags": [],
+      "fingerprint": "a2000f28b6a923bf"
+    },
+    "merchantplus": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "0b427bf7e1cc9caf"
+    },
+    "messageclassifier": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "2b3a525f164d1b0f"
+    },
+    "messagequeue": {
+      "tags": [],
+      "fingerprint": "114481016319d2bf"
+    },
+    "mgssounds": {
+      "tags": [],
+      "fingerprint": "4360593ce5fcfdfb"
+    },
+    "midnightriders-dragons": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "4dcfa31a48090df1"
+    },
+    "miniauras": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "393bf4eaa11f8613"
+    },
+    "miniloot": {
+      "tags": [
+        "loot",
+        "chat"
+      ],
+      "fingerprint": "747194bcba59f91e"
+    },
+    "miniovershields": {
+      "tags": [
+        "ui",
+        "combat"
+      ],
+      "fingerprint": "9ba4b941e08be8fe"
+    },
+    "minipressrelease": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "65c61a83c68d0813"
+    },
+    "minireload": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "4cb3b3c381960932"
+    },
+    "mlgpowerinfusion": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "faab790e8e25bddd"
+    },
+    "molinari": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "3c5df7af5307bb2f"
+    },
+    "moneyforever": {
+      "tags": [],
+      "fingerprint": "94931f9f33c58f5e"
+    },
+    "moosemode": {
+      "tags": [
+        "loot",
+        "quests",
+        "bags"
+      ],
+      "fingerprint": "ceabca06ee5b1dd1"
+    },
+    "mountsrarity": {
+      "tags": [],
+      "fingerprint": "cb6c1ff6a2e7e604"
+    },
+    "mouseovermacros": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "543d2c20a3cdca4d"
+    },
+    "mousetip": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "b8403363b26219b4"
+    },
+    "movablemenuframes": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "807be2981edfe338"
+    },
+    "movableobjectiveframe": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "306d7b67ef66d442"
+    },
+    "mp5": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "cb3cc1e9b9e966d0"
+    },
+    "mqol": {
+      "tags": [],
+      "fingerprint": "643d80c466e28edd"
+    },
+    "mui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "293c9f5205435c5d"
+    },
+    "musicianextended": {
+      "tags": [],
+      "fingerprint": "ae68cae736d15e1f"
+    },
+    "musicianezk": {
+      "tags": [],
+      "fingerprint": "aacbba4e284b9629"
+    },
+    "musicianlist": {
+      "tags": [],
+      "fingerprint": "291c98d376939262"
+    },
+    "musicianmidi": {
+      "tags": [],
+      "fingerprint": "ededa21f07181579"
+    },
+    "mutesoundfile": {
+      "tags": [],
+      "fingerprint": "415ee522a183a0fa"
+    },
+    "myaccountant": {
+      "tags": [],
+      "fingerprint": "34e4bc1d16a7ea00"
+    },
+    "mycradar": {
+      "tags": [
+        "quests",
+        "professions",
+        "combat"
+      ],
+      "fingerprint": "f32f114671ffed2d"
+    },
+    "myepoch": {
+      "tags": [],
+      "fingerprint": "69910bf63d3a4e05"
+    },
+    "myluneschampions": {
+      "tags": [],
+      "fingerprint": "31a10d7c18748cf7"
+    },
+    "myprayertimes": {
+      "tags": [],
+      "fingerprint": "88de78de082024ee"
+    },
+    "myxpbarplayedtime": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "b9a0391b29e48b09"
+    },
+    "nagdeathradar": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "33d947e8971a66a5"
+    },
+    "name2chat": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "87f738a6295bf964"
+    },
+    "narcissus": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a09e9c4644747878"
+    },
+    "needconfirm": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "aa8202e72416eaf7"
+    },
+    "nevmakro": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "54cb4abaa288957c"
+    },
+    "niccopytooltip": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "12f051dcb889f43e"
+    },
+    "nightclawears": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "5f361c6b6702b43c"
+    },
+    "ninitools": {
+      "tags": [],
+      "fingerprint": "d128def7092f222c"
+    },
+    "nobiographer": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "0392419b7400b51c"
+    },
+    "nock": {
+      "tags": [
+        "combat",
+        "class"
+      ],
+      "fingerprint": "1dcee98bb7c856cc"
+    },
+    "noiseonevent": {
+      "tags": [
+        "combat",
+        "loot"
+      ],
+      "fingerprint": "33be5cb8dde61686"
+    },
+    "nootropicguildmanager": {
+      "tags": [],
+      "fingerprint": "6011b8263c2fb388"
+    },
+    "nopoizen": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "194d35fceda21736"
+    },
+    "norgannondb": {
+      "tags": [],
+      "fingerprint": "25d6b0b4d466f7ac"
+    },
+    "nugcast": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8a7ab7dddbdacbbc"
+    },
+    "nugcombobar": {
+      "tags": [
+        "ui",
+        "class"
+      ],
+      "fingerprint": "6a5f68b1b0986341"
+    },
+    "nugenergy": {
+      "tags": [
+        "ui",
+        "class"
+      ],
+      "fingerprint": "5ad1e2e5abf2565b"
+    },
+    "nugkeyfeedback": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "38d7eb2def037fbf"
+    },
+    "nugrunning": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "12eaeed8a5b3b284"
+    },
+    "nylansbagoftricks": {
+      "tags": [],
+      "fingerprint": "155301f2246a0121"
+    },
+    "nys-todolist": {
+      "tags": [],
+      "fingerprint": "2e01b878250663c9"
+    },
+    "oakui-installer": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "d3f4b34ee3f65fcb"
+    },
+    "obviguide": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "8ec8cdb7ad7a390a"
+    },
+    "oldfriends": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f5f454569de36857"
+    },
+    "oldfriendslist": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "1d39b00978df5dda"
+    },
+    "oldkraken": {
+      "tags": [],
+      "fingerprint": "adb1ef879f365590"
+    },
+    "oldraidframes": {
+      "tags": [
+        "ui",
+        "dungeons"
+      ],
+      "fingerprint": "0b1c659e2230d392"
+    },
+    "olympus": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "1ea80a94b8ad8541"
+    },
+    "oneclickmount": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "53248ba228dd1507"
+    },
+    "oneforall": {
+      "tags": [
+        "map",
+        "ui"
+      ],
+      "fingerprint": "d6f36f45671ffc76"
+    },
+    "onflight": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "5da78848331afc3c"
+    },
+    "opcowsbuffreminder": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "4d978389b4e52a3d"
+    },
+    "openmapdungeonroutes": {
+      "tags": [
+        "dungeons",
+        "map"
+      ],
+      "fingerprint": "0a835ccc451bebec"
+    },
+    "opie-elvui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "cd6c7c2858f6760e"
+    },
+    "orbit-media": {
+      "tags": [],
+      "fingerprint": "18c7a85a3ad6b828"
+    },
+    "orbsui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "c3affeecfb284aee"
+    },
+    "orderquestsbyexp": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "af52c8934cdf261c"
+    },
+    "ouf": {
+      "tags": [],
+      "fingerprint": "d91c5b3e093f4994"
+    },
+    "outfitter": {
+      "tags": [],
+      "fingerprint": "f224593acfc5d794"
+    },
+    "overbound": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "68d1919fc53d34da"
+    },
+    "oxedhub": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "ba70494756587d93"
+    },
+    "packrat": {
+      "tags": [
+        "bags",
+        "quests"
+      ],
+      "fingerprint": "06d83b74c12950d1"
+    },
+    "pallypower": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "45da2096a4b27d57"
+    },
+    "panorama": {
+      "tags": [],
+      "fingerprint": "f10a695791202b8d"
+    },
+    "panzaui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "b2a1c4b7573b83a9"
+    },
+    "parcel": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a65ca2f3fc949993"
+    },
+    "parchmentreader": {
+      "tags": [],
+      "fingerprint": "a5c18c15c8c9fa3d"
+    },
+    "partylens": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "bc6b32c497951b2e"
+    },
+    "passthetime": {
+      "tags": [],
+      "fingerprint": "ef0e79204e28e4e8"
+    },
+    "patchtoolsbags": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "dcd4180f92ba5d7d"
+    },
+    "patchtoolsmaps": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "a082dfb7383d0193"
+    },
+    "pathwise": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "7b8407104092e448"
+    },
+    "pawn-forever": {
+      "tags": [],
+      "fingerprint": "02a164f7ad95fe68"
+    },
+    "peaceandquiet": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "af721069be22413c"
+    },
+    "peaverscommons": {
+      "tags": [],
+      "fingerprint": "459915c01ea271d6"
+    },
+    "peaversdynamicstats": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "7bd6550181780a30"
+    },
+    "peaversui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "768bbb91bb492650"
+    },
+    "peggleredux": {
+      "tags": [],
+      "fingerprint": "496fc2c5ceaccea5"
+    },
+    "per-hour": {
+      "tags": [],
+      "fingerprint": "63518fc6adb1b6be"
+    },
+    "perhour": {
+      "tags": [],
+      "fingerprint": "4a9fca47f51401da"
+    },
+    "perl-player-buff": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "6fe0e24f0e435ce0"
+    },
+    "petstatusalert": {
+      "tags": [
+        "class",
+        "combat"
+      ],
+      "fingerprint": "564b61914e3c91f7"
+    },
+    "petwalker": {
+      "tags": [],
+      "fingerprint": "bd6220bda8b36f44"
+    },
+    "phyzpersonalguides": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "203c427e6652db90"
+    },
+    "phyzquestbar": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "c49da8480bc1a2b1"
+    },
+    "pickpockettracker": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "aaf8ff9067341e42"
+    },
+    "pingleader": {
+      "tags": [
+        "dungeons",
+        "chat"
+      ],
+      "fingerprint": "cab00eb5e4188b15"
+    },
+    "planto60": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "69622a474a8b8c32"
+    },
+    "plater": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "2ae7d3f4eda27afb"
+    },
+    "playernotes": {
+      "tags": [
+        "ui",
+        "chat"
+      ],
+      "fingerprint": "9c82b8725dcf0bc0"
+    },
+    "pleebperformancepanels": {
+      "tags": [],
+      "fingerprint": "4e41b6bbd346f728"
+    },
+    "pleebpotreminder": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "e5ad9f218b4238fc"
+    },
+    "pleebui": {
+      "tags": [
+        "ui",
+        "combat"
+      ],
+      "fingerprint": "184198a16d60dedd"
+    },
+    "plexus": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "071b8eccf25cdc7d"
+    },
+    "plumber": {
+      "tags": [],
+      "fingerprint": "69aa06c36d98c7d2"
+    },
+    "polesimgear": {
+      "tags": [
+        "loot",
+        "quests"
+      ],
+      "fingerprint": "2c43c0def20ca07c"
+    },
+    "polypode-data": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "d1f9587d39f3eeca"
+    },
+    "polypode-histoire": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "d44172bc45b69a8d"
+    },
+    "polypode-profil": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "91350f88205c6650"
+    },
+    "polypode-suivi": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "65e9f52b3e2897a4"
+    },
+    "portalroulette": {
+      "tags": [
+        "class",
+        "map"
+      ],
+      "fingerprint": "a9d2df09e6ca7e4e"
+    },
+    "postbox": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "be497bfe49f95b4f"
+    },
+    "prepped": {
+      "tags": [],
+      "fingerprint": "96353a97b5284e60"
+    },
+    "prettyreputation": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "62cb5072fcffd56a"
+    },
+    "priestly": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "7db046a3870b3b00"
+    },
+    "procglows": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "519f53807496aef9"
+    },
+    "professionhintsforever": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "c262bed94a6d4338"
+    },
+    "professionshoppinglist": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "e53d717c6304dea8"
+    },
+    "professiontrackinghighlight": {
+      "tags": [
+        "professions",
+        "ui"
+      ],
+      "fingerprint": "dd214960eed884b8"
+    },
+    "profguide": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "197fa65b06fa9cca"
+    },
+    "profit": {
+      "tags": [
+        "auction-house",
+        "professions"
+      ],
+      "fingerprint": "2781d7a6940a7e0a"
+    },
+    "prokin-minimap": {
+      "tags": [
+        "map",
+        "dungeons"
+      ],
+      "fingerprint": "e7a7a727d68f2a84"
+    },
+    "provisions": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "3f774b22abf46479"
+    },
+    "pvptogether": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "610b5a2eb611ca44"
+    },
+    "qfxminimaptools": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "f58232eecd9c4c2f"
+    },
+    "qfxskillalerts": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "62e5448284ee904c"
+    },
+    "qol": {
+      "tags": [],
+      "fingerprint": "481b2fee01dd5e5b"
+    },
+    "quartz": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "0098785c865d6775"
+    },
+    "questcompanion": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "3a6d2d531b07fe4e"
+    },
+    "questcompletesound": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "35703ad6de8c26e3"
+    },
+    "questdeclutter": {
+      "tags": [
+        "quests",
+        "map"
+      ],
+      "fingerprint": "37e708602e2db3f6"
+    },
+    "questdroprates": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "1de613a5252886a6"
+    },
+    "quester": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "38b8ad966302a50a"
+    },
+    "questiedropsources": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "7363fe05d2b1cf6f"
+    },
+    "questkompass": {
+      "tags": [
+        "quests",
+        "map"
+      ],
+      "fingerprint": "89da0e708e7b5dc9"
+    },
+    "questprogressalert": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "7d49e534be468334"
+    },
+    "questtts": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "98e42235427050a8"
+    },
+    "questwalker": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "eb2fc9f0f6494128"
+    },
+    "questwithfriends": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "ca0286ead7ae2bc3"
+    },
+    "quickkeybindmode": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "bf6fdc36d79a408f"
+    },
+    "quickquest": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "11b4ed2d4a00c511"
+    },
+    "quickroutes": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "d4900420c9776ff3"
+    },
+    "quietui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "d3ec43c1e8b1ae61"
+    },
+    "quill": {
+      "tags": [],
+      "fingerprint": "8f703432e05c4a46"
+    },
+    "quotemediawq2": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "2375c6b85c6ab8c4"
+    },
+    "radialhub": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "448e500e388886c3"
+    },
+    "raidframesettings": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "afec0a26af7a08fe"
+    },
+    "rallypoint": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "265b3a22ce5e49c0"
+    },
+    "rambleon": {
+      "tags": [],
+      "fingerprint": "af905b3858ca11e2"
+    },
+    "randomdialogrp": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "6c9f07dc17e06adf"
+    },
+    "rangeshade": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f4a628f3d44e85d6"
+    },
+    "rapitwist": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "4854161d439ddb3e"
+    },
+    "rarity": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "19551f729b0b58c3"
+    },
+    "rateme": {
+      "tags": [],
+      "fingerprint": "eb6c860c77c8d815"
+    },
+    "rateplayer": {
+      "tags": [],
+      "fingerprint": "c6e128807913bfea"
+    },
+    "rcrotations": {
+      "tags": [
+        "class",
+        "combat"
+      ],
+      "fingerprint": "70e946f738484bda"
+    },
+    "reactwheel": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "64e6c9054c9ad042"
+    },
+    "readycheck": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "0fbb064290724c7a"
+    },
+    "realui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "90fbfa2312247063"
+    },
+    "rebuff": {
+      "tags": [
+        "class",
+        "combat"
+      ],
+      "fingerprint": "723140ae94df44a9"
+    },
+    "reciperegistry-forever": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "621dc0b090097c96"
+    },
+    "refactor": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "c62065a54c292f4f"
+    },
+    "reforgedui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "32d97cedcb47656d"
+    },
+    "reload": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "342f545590a4eb89"
+    },
+    "remindmewhen": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "ddd615c30f4bd837"
+    },
+    "repairbroker": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "8261fe50855f27b5"
+    },
+    "reputationlevelup": {
+      "tags": [],
+      "fingerprint": "734467173e9dae77"
+    },
+    "requiemledger": {
+      "tags": [
+        "professions",
+        "loot"
+      ],
+      "fingerprint": "c276f2969324d6bd"
+    },
+    "revengetracker": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "2dc5579a6bcbc262"
+    },
+    "rgbunitbars": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "7119cbfcac89bec7"
+    },
+    "rgx-framework": {
+      "tags": [],
+      "fingerprint": "6a266f6a2959b761"
+    },
+    "rightclickselfcast": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "4a70fa9126bd3813"
+    },
+    "rollhistory": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "306c2aec78468e71"
+    },
+    "rolltracker": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "27455aa7b07cee34"
+    },
+    "rollwindowmoverforever": {
+      "tags": [
+        "loot",
+        "ui"
+      ],
+      "fingerprint": "49d3d5379162a935"
+    },
+    "rpglootfeed": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "f87357ceebb897fc"
+    },
+    "rpsheet": {
+      "tags": [],
+      "fingerprint": "a632d7409742afcc"
+    },
+    "rummage": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "f14b16d0210e9f38"
+    },
+    "run": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "0e070afbe159dd8b"
+    },
+    "rxp-wowforeverguide": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "bd7a7fdd17313880"
+    },
+    "rxptargetping": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "9e05098efda236fb"
+    },
+    "sagalore": {
+      "tags": [],
+      "fingerprint": "ac54fbfc0320f84e"
+    },
+    "sanctummini": {
+      "tags": [
+        "ui",
+        "class"
+      ],
+      "fingerprint": "12337b8dd5a4a7dc"
+    },
+    "scrap-bagbridge": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "5ec2473700b74cf2"
+    },
+    "screenshothelper": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "d3c9d0e9fc728f56"
+    },
+    "scrollingquesttext": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "dc4372952b4149a3"
+    },
+    "secretchecklist": {
+      "tags": [],
+      "fingerprint": "24f8816c84395f7e"
+    },
+    "seer": {
+      "tags": [],
+      "fingerprint": "a9e0b3e8f8b814a2"
+    },
+    "selllock": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "03c73d1965b90225"
+    },
+    "sessionrecap": {
+      "tags": [],
+      "fingerprint": "b5650246a20e62fc"
+    },
+    "sessiontime": {
+      "tags": [],
+      "fingerprint": "206e15bd661e13be"
+    },
+    "sexymap": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "087d79edb07b82f4"
+    },
+    "sexyreputation": {
+      "tags": [],
+      "fingerprint": "f529a0837e67e706"
+    },
+    "shaaenfct": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "8c59c8e98901925e"
+    },
+    "shadowworddeathindicator": {
+      "tags": [
+        "class",
+        "combat"
+      ],
+      "fingerprint": "25390a2e7718112f"
+    },
+    "shamanforever": {
+      "tags": [
+        "class",
+        "combat"
+      ],
+      "fingerprint": "80fce92a33b485a7"
+    },
+    "sharedmedia-classicalfonts": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "3c4eed77ca6f2ca2"
+    },
+    "sharedmedia-frenchspells": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "5c2f7fbf75a106a6"
+    },
+    "sharedmedia-noto": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a5a70f7f9d599631"
+    },
+    "sharedmediabasic": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "6c868156b71d0710"
+    },
+    "sharpiesgearjudge": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "8bd0379a1c179fcf"
+    },
+    "sharpiesgearjudge-laboratory": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "389a3d4a2c7b6752"
+    },
+    "sharpiesgearjudge-roadmap": {
+      "tags": [
+        "dungeons",
+        "loot"
+      ],
+      "fingerprint": "67019986e275be47"
+    },
+    "sharpiesgearjudge-xp": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "63675c9cb2939b72"
+    },
+    "shatter": {
+      "tags": [
+        "professions",
+        "bags"
+      ],
+      "fingerprint": "5570d1ce46ac3546"
+    },
+    "shestakui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "49589e6f56ab6c2f"
+    },
+    "shiftingpowercount": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "a65be3e26f69a046"
+    },
+    "shortwave": {
+      "tags": [],
+      "fingerprint": "f3c21809c0536810"
+    },
+    "shouldercam": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f7ae3a760a5914bc"
+    },
+    "shredder": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "97d7532984ffe776"
+    },
+    "shuffledetector": {
+      "tags": [
+        "professions",
+        "auction-house"
+      ],
+      "fingerprint": "8f8261573018163b"
+    },
+    "shyauction": {
+      "tags": [
+        "quests",
+        "ui",
+        "map"
+      ],
+      "fingerprint": "8f68d16995ea3d72"
+    },
+    "shyway-ground-0": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "530bd824544c3daf"
+    },
+    "sidequest": {
+      "tags": [
+        "loot",
+        "dungeons"
+      ],
+      "fingerprint": "b53edb54ce8a47e7"
+    },
+    "sightline": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "ac0d557602b14d3e"
+    },
+    "simpleaddonmanager": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "85b7c427e17f3c49"
+    },
+    "simpleitemlevel": {
+      "tags": [
+        "ui",
+        "bags"
+      ],
+      "fingerprint": "e2e2115ffd48da96"
+    },
+    "simplequestplates": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "c8de6a91bf55331d"
+    },
+    "simplerareelite": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "b4559a20668c3491"
+    },
+    "simpleswing": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "b32665999b31e025"
+    },
+    "simpletrinketswap": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "02c51e938828fef3"
+    },
+    "simsforeverexporter": {
+      "tags": [],
+      "fingerprint": "ca915270eae78519"
+    },
+    "simulationcraft": {
+      "tags": [],
+      "fingerprint": "8785748fda95f7c2"
+    },
+    "sippycup": {
+      "tags": [],
+      "fingerprint": "e2c8cdd5dd11c438"
+    },
+    "skilletcraftcost": {
+      "tags": [
+        "professions",
+        "auction-house"
+      ],
+      "fingerprint": "b123d587fb06a27d"
+    },
+    "skironcooldownmanager": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "70f56470a6fee9d8"
+    },
+    "skyhex": {
+      "tags": [],
+      "fingerprint": "82f0a13acd630155"
+    },
+    "slackhacks": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "603ddd362beae224"
+    },
+    "slowfaller": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "8ae77eb8bb56b30b"
+    },
+    "smartfriendlynameplates": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "4e9c0d6443595a69"
+    },
+    "smorgsqol": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "e1b10e731bc9d3ea"
+    },
+    "snack-bar": {
+      "tags": [
+        "bags",
+        "combat"
+      ],
+      "fingerprint": "68a606352dfead9d"
+    },
+    "soapstone": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "65abc78e80be7809"
+    },
+    "social-diary": {
+      "tags": [],
+      "fingerprint": "f0086ccdd7c676b1"
+    },
+    "socialite": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f23a84217444914b"
+    },
+    "soundboard": {
+      "tags": [],
+      "fingerprint": "84c512db00eb38df"
+    },
+    "soundstone": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "9b27dfe4e33e1cc3"
+    },
+    "speakstone-forever-audio-pack1": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "aefda752d6ec9be6"
+    },
+    "speakstone-forever-audio-pack2": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "62ffa3420e35ec1c"
+    },
+    "speakstone-forever-audio-pack3": {
+      "tags": [],
+      "fingerprint": "fbb45b6e46a3294b"
+    },
+    "speakstone-forever-chatter": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "ce7af92344826923"
+    },
+    "speakstone-forever-main": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "2e2e626b02fff4f0"
+    },
+    "specbistooltip": {
+      "tags": [
+        "loot",
+        "class"
+      ],
+      "fingerprint": "ab41de530a811e0f"
+    },
+    "spellcheck": {
+      "tags": [
+        "ui",
+        "class"
+      ],
+      "fingerprint": "4f787426a790ce4c"
+    },
+    "spellclarity": {
+      "tags": [
+        "ui",
+        "class"
+      ],
+      "fingerprint": "8a99ef391d202d9b"
+    },
+    "spelldamageinfo": {
+      "tags": [
+        "combat",
+        "class"
+      ],
+      "fingerprint": "499bde9992d0c99d"
+    },
+    "spelldpstooltips": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "57daedde2be736d5"
+    },
+    "spelldrawer": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "60bbecc225f6e774"
+    },
+    "spellstats": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "45cd676da67eb2cc"
+    },
+    "spelltips": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "e094edac79e53d19"
+    },
+    "spicykillstreaks": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "0777c0952b079a73"
+    },
+    "squashbuffgaps": {
+      "tags": [
+        "ui",
+        "combat"
+      ],
+      "fingerprint": "de4cd0eced0cf558"
+    },
+    "stackedraidgroups": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "cd846b0a603cd55d"
+    },
+    "stakeout": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "62873d94b1962473"
+    },
+    "stathighlight": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "b695a06b9334dcd9"
+    },
+    "statlens": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "9dc30125b7a4aeb3"
+    },
+    "staysheathed": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "b45d44afdb83f800"
+    },
+    "stevio-ui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "b191d1db83d043d6"
+    },
+    "storyline": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "909efebc9769fdd1"
+    },
+    "storyquest": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "ef2df25dd52867ba"
+    },
+    "storyteller": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "89acf0e55f542391"
+    },
+    "surroundfix": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "6937322d8ca8585c"
+    },
+    "svartboken": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "a0f431162c13e2f6"
+    },
+    "swiftquest": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "eb70aab9f2b8ae72"
+    },
+    "swingtimerfader": {
+      "tags": [
+        "ui",
+        "combat"
+      ],
+      "fingerprint": "ce19be78518b1bfd"
+    },
+    "tabard": {
+      "tags": [],
+      "fingerprint": "ddcf6578bb4a0fd1"
+    },
+    "tagger": {
+      "tags": [
+        "quests",
+        "combat"
+      ],
+      "fingerprint": "adcebf631c6e2398"
+    },
+    "tags": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "d6deaaa3a73cbc69"
+    },
+    "talentart": {
+      "tags": [
+        "ui",
+        "class"
+      ],
+      "fingerprint": "e15804aa5201e332"
+    },
+    "talentshare": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "60eb054e6868421f"
+    },
+    "talentwarden": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "21e9e7cfb003933f"
+    },
+    "tally": {
+      "tags": [
+        "bags",
+        "ui"
+      ],
+      "fingerprint": "3c9689aba30b192c"
+    },
+    "tamed": {
+      "tags": [
+        "class",
+        "map"
+      ],
+      "fingerprint": "f5398bd3afb018f2"
+    },
+    "tanksign": {
+      "tags": [
+        "dungeons",
+        "combat"
+      ],
+      "fingerprint": "484e0173c740caff"
+    },
+    "tar": {
+      "tags": [],
+      "fingerprint": "13690a020cb3761c"
+    },
+    "targetedspells": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "c8243ff448132684"
+    },
+    "targetincombat": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "af7452738b210273"
+    },
+    "targetpercent": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "6551b4c66c7d9e9b"
+    },
+    "targetswapsound": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f6cddc117eba0f95"
+    },
+    "taverngames": {
+      "tags": [],
+      "fingerprint": "9813654871c6b2c5"
+    },
+    "taxitimer": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "d5f92fa1b1c2557f"
+    },
+    "tbcbistracker": {
+      "tags": [
+        "loot",
+        "class"
+      ],
+      "fingerprint": "39019b7beadbfe23"
+    },
+    "tellmewhen": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "efed240b26907060"
+    },
+    "terminal": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "22c022bba59f5a14"
+    },
+    "textureatlasviewer": {
+      "tags": [],
+      "fingerprint": "58e7805d299ac0c8"
+    },
+    "theartfuldodgersledger": {
+      "tags": [
+        "class",
+        "loot"
+      ],
+      "fingerprint": "ecba1f2ee34b44f5"
+    },
+    "theguild": {
+      "tags": [
+        "map",
+        "loot"
+      ],
+      "fingerprint": "154245834f13a3dc"
+    },
+    "theguildregistrar": {
+      "tags": [],
+      "fingerprint": "153ac7eff122ae2b"
+    },
+    "theinn": {
+      "tags": [],
+      "fingerprint": "ae001bd589ab1d49"
+    },
+    "thievery": {
+      "tags": [
+        "class",
+        "loot"
+      ],
+      "fingerprint": "1b184910482c472a"
+    },
+    "threecrownsguild": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "96e80e4df58b9437"
+    },
+    "ticketchecker": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "16b22422a2023f19"
+    },
+    "timbersraidsummoner": {
+      "tags": [
+        "dungeons",
+        "chat"
+      ],
+      "fingerprint": "d4a0340cfafd4ce7"
+    },
+    "tinkersbelt": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "a1c6cb415cec2326"
+    },
+    "tinkerwise": {
+      "tags": [],
+      "fingerprint": "ab4639ab731e42c9"
+    },
+    "tinytooltip-remaster": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "c6002216f79d6d3a"
+    },
+    "tiptac": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "85b46427865a3074"
+    },
+    "titanaddonmenu": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "7612594a0df6f381"
+    },
+    "titanapproxdps": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "72b8e1d1501cf96d"
+    },
+    "titanarranger": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "e410ffd474da19db"
+    },
+    "titanattributesmulti": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "4b2d66a8bf7d6f22"
+    },
+    "titancurrenciesmulti": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "eefbd2a5772c118b"
+    },
+    "titanprofessionsmulti": {
+      "tags": [
+        "professions",
+        "ui"
+      ],
+      "fingerprint": "7c826b06a7dd8701"
+    },
+    "titanreputation": {
+      "tags": [],
+      "fingerprint": "3d35589ed72df104"
+    },
+    "titanspacer": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "c112c4c359123908"
+    },
+    "toadslc": {
+      "tags": [
+        "loot",
+        "dungeons"
+      ],
+      "fingerprint": "014623b04823bee7"
+    },
+    "todochecklister": {
+      "tags": [],
+      "fingerprint": "d44029f030728818"
+    },
+    "togbankclassic": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "cc4fc8b70387f7cd"
+    },
+    "tomeofvengeance": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "ff1b5accf00874c9"
+    },
+    "toolkit": {
+      "tags": [],
+      "fingerprint": "8bdeaee5f03e410d"
+    },
+    "tooltipitemicon": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "314ea8825014b502"
+    },
+    "totalrp3": {
+      "tags": [],
+      "fingerprint": "23aafac1ffe8db4a"
+    },
+    "totalrp3-extended": {
+      "tags": [],
+      "fingerprint": "fac754b4b267c435"
+    },
+    "totalrp3-unitframes": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "bab2a16c3bc79732"
+    },
+    "totembarforgamepad": {
+      "tags": [
+        "class",
+        "ui"
+      ],
+      "fingerprint": "8b6fbf18c4d8fbe5"
+    },
+    "touchplay": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "fefb4a8d308aeeaa"
+    },
+    "trackerplus": {
+      "tags": [
+        "quests",
+        "ui"
+      ],
+      "fingerprint": "65f9bfffd05a37c3"
+    },
+    "tradebook": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "b4b5e1c1f171c75c"
+    },
+    "tradewinds": {
+      "tags": [],
+      "fingerprint": "0786436f0b7b3248"
+    },
+    "tradewright": {
+      "tags": [
+        "auction-house",
+        "professions",
+        "bags"
+      ],
+      "fingerprint": "3b4c7103fe795f12"
+    },
+    "trailblazer": {
+      "tags": [],
+      "fingerprint": "47a15925a9f937a5"
+    },
+    "trailwarden": {
+      "tags": [
+        "quests",
+        "map"
+      ],
+      "fingerprint": "b9d548216120a791"
+    },
+    "trainercompare": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "bfef742b1c536998"
+    },
+    "transcriptor": {
+      "tags": [
+        "dungeons"
+      ],
+      "fingerprint": "863e6244a07d0623"
+    },
+    "translate": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "5a7d10bbc031d4fc"
+    },
+    "transmogloothelper": {
+      "tags": [
+        "ui",
+        "loot"
+      ],
+      "fingerprint": "c9db1038e312e6f9"
+    },
+    "transmogsituations": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "afff52f2f34ae8e5"
+    },
+    "trp3-rpnameinquests": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "d14f0c93592356bc"
+    },
+    "trp3-rpspellbook": {
+      "tags": [],
+      "fingerprint": "16358951ff7bcf3c"
+    },
+    "twintopqol": {
+      "tags": [],
+      "fingerprint": "b664ad21e6255832"
+    },
+    "twitchemotes-hardcore": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "512c5e6d47c07b5d"
+    },
+    "ua-forever": {
+      "tags": [],
+      "fingerprint": "1f44a74d91b29143"
+    },
+    "ultracursorfx": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "192d8f8fcf564992"
+    },
+    "umbraunitframes": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "560a2df2507973e5"
+    },
+    "unhaltedunitframes": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "2cdd9c58c0496fa1"
+    },
+    "untethered": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "613af2942f63751e"
+    },
+    "valet": {
+      "tags": [
+        "bags",
+        "quests"
+      ],
+      "fingerprint": "8a31e4c9ca28504a"
+    },
+    "valhalla": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "074d9a7aa2eaecb5"
+    },
+    "vanity": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "b4735dca7d2f2c0c"
+    },
+    "vendorguard": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "11f5216d15007f48"
+    },
+    "vendorprofit": {
+      "tags": [
+        "auction-house",
+        "professions"
+      ],
+      "fingerprint": "777afa4f143b363c"
+    },
+    "vendorreagentfilter": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "c7807d38c62ff295"
+    },
+    "videoprofiles": {
+      "tags": [],
+      "fingerprint": "17ed4591cdf33375"
+    },
+    "vitalframe": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "15d1bc35fee9be71"
+    },
+    "voidbox": {
+      "tags": [
+        "ui",
+        "dungeons"
+      ],
+      "fingerprint": "5460a5e8079a3270"
+    },
+    "vxv": {
+      "tags": [
+        "dungeons",
+        "loot"
+      ],
+      "fingerprint": "1864b0b0e3c7fe1d"
+    },
+    "wagoui": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "a34b911980e87097"
+    },
+    "wanderer": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "7333db4db045a105"
+    },
+    "wanderercampfiregame": {
+      "tags": [],
+      "fingerprint": "5b82dd8dedceb151"
+    },
+    "wanderermail": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "b62f864562faee2f"
+    },
+    "warlegendraidtool": {
+      "tags": [
+        "dungeons",
+        "loot"
+      ],
+      "fingerprint": "739b683528357d55"
+    },
+    "warmth": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "6613d7614d0fc7a9"
+    },
+    "warpee": {
+      "tags": [
+        "bags"
+      ],
+      "fingerprint": "c292f4221442e12d"
+    },
+    "watermooch": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "ada93a469b766a22"
+    },
+    "waylaidcratesmadeeasy": {
+      "tags": [
+        "auction-house"
+      ],
+      "fingerprint": "7755b3fe75580266"
+    },
+    "waypointui": {
+      "tags": [
+        "map"
+      ],
+      "fingerprint": "a510830573be28e7"
+    },
+    "wcccaddon": {
+      "tags": [],
+      "fingerprint": "3cbbf20b1f678053"
+    },
+    "weakauras": {
+      "tags": [
+        "combat",
+        "ui"
+      ],
+      "fingerprint": "c18bd93acd73a65a"
+    },
+    "weakauras-sharedmedia": {
+      "tags": [],
+      "fingerprint": "4187c80b28cec83a"
+    },
+    "weaponwise": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "3327fccf483ac514"
+    },
+    "webbyframes": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "f323b1d0eae0907e"
+    },
+    "whack": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "c86b33adbdae105e"
+    },
+    "whatmats": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "31bada2b1599d19f"
+    },
+    "whatnot": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "a612c3116109a7ab"
+    },
+    "whatstraining": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "868565d282ad78dd"
+    },
+    "whattobrew": {
+      "tags": [
+        "auction-house",
+        "professions"
+      ],
+      "fingerprint": "dbe161f271659893"
+    },
+    "whisperpop": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "90939c4ec6d39c0c"
+    },
+    "wiiiuiforever": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "2f62055748bfcf37"
+    },
+    "wildly": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "21fd3f7f90fed2b5"
+    },
+    "wim-elvui-skin": {
+      "tags": [
+        "chat",
+        "ui"
+      ],
+      "fingerprint": "4584d9cdade3d594"
+    },
+    "windrunner": {
+      "tags": [],
+      "fingerprint": "04eee40f7941501f"
+    },
+    "wipebarsconfirm": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "c254cf927dcc7a22"
+    },
+    "wiseeconomicdecisions": {
+      "tags": [
+        "loot",
+        "bags"
+      ],
+      "fingerprint": "179ee2c2ef516968"
+    },
+    "witchcraft": {
+      "tags": [],
+      "fingerprint": "4a8b0c629c2e6c99"
+    },
+    "wordhunterwow": {
+      "tags": [
+        "quests"
+      ],
+      "fingerprint": "ed1c9cef83064a80"
+    },
+    "wowagy": {
+      "tags": [],
+      "fingerprint": "33d64f3341fe6598"
+    },
+    "wowefficiency": {
+      "tags": [
+        "professions"
+      ],
+      "fingerprint": "892135f67107bf64"
+    },
+    "wowforeverguilde": {
+      "tags": [],
+      "fingerprint": "40c4f63516ab8562"
+    },
+    "wowfpartyframes": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "02d51c0adb6c8528"
+    },
+    "wowheadquicklink": {
+      "tags": [],
+      "fingerprint": "54544c4bf36d9e76"
+    },
+    "wowpong": {
+      "tags": [],
+      "fingerprint": "3747c63708182fa7"
+    },
+    "wowreminders": {
+      "tags": [],
+      "fingerprint": "24b3071827e745e8"
+    },
+    "wowsimsexporter": {
+      "tags": [
+        "class"
+      ],
+      "fingerprint": "bf9986da352073f4"
+    },
+    "wowtoolsforever": {
+      "tags": [
+        "auction-house",
+        "bags"
+      ],
+      "fingerprint": "92137e63c564cdc7"
+    },
+    "wowup": {
+      "tags": [],
+      "fingerprint": "aa49d37e920ad1da"
+    },
+    "wowwrapped": {
+      "tags": [],
+      "fingerprint": "2847cbfbcc5e0d72"
+    },
+    "wsgforever": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "9e6ac8b67b865d90"
+    },
+    "xanachievementmover": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "1e69d046e96c350b"
+    },
+    "xanbufftimers": {
+      "tags": [
+        "combat"
+      ],
+      "fingerprint": "f3b1aced54d3fb33"
+    },
+    "xanchat": {
+      "tags": [
+        "chat"
+      ],
+      "fingerprint": "48424f30ff0eef87"
+    },
+    "xandurability": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "fa68a00331a332de"
+    },
+    "xanerrordevourer": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "cfebdb6dcafd7b2f"
+    },
+    "xanexp": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "086365d603ecdb09"
+    },
+    "xangoldmine": {
+      "tags": [],
+      "fingerprint": "c8540e0aa76e7e3a"
+    },
+    "xantooltiphoudini": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "c72d6b3e7a49a951"
+    },
+    "xiv-databar-continued": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "49c50962bb7e0a4d"
+    },
+    "xpisland": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "962863fa116367bf"
+    },
+    "zacui": {
+      "tags": [
+        "ui",
+        "combat",
+        "bags"
+      ],
+      "fingerprint": "efb8d8e839456bef"
+    },
+    "zeldaloot-classic": {
+      "tags": [
+        "loot"
+      ],
+      "fingerprint": "a1b81e07e9217b79"
+    },
+    "zhurastats": {
+      "tags": [
+        "ui",
+        "class"
+      ],
+      "fingerprint": "aef70792c7df596f"
+    },
+    "zoompad": {
+      "tags": [
+        "ui"
+      ],
+      "fingerprint": "9f0dcd21df4655a5"
+    }
+  }
+}

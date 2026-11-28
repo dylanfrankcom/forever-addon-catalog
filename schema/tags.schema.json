@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dylanfrankcom/forever-addon-catalog/schema/tags.schema.json",
+  "title": "Forever Add-on Catalog: inferred tags",
+  "description": "tags.json: tags chosen for entries whose author set none (no .toc Category, topics or override tags), from the add-on's name, summary, folders and README, by catalog ID. The generator uses them only for such entries and marks them from.tags \"inferred\". An empty list means none fit.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["addons"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$comment": { "type": "string" },
+    "addons": {
+      "type": "object",
+      "propertyNames": { "$ref": "catalog.schema.json#/$defs/id" },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["tags", "fingerprint"],
+        "properties": {
+          "tags": { "type": "array", "items": { "$ref": "catalog.schema.json#/$defs/tag" }, "maxItems": 3, "uniqueItems": true },
+          "fingerprint": { "description": "The first 16 hex digits of the SHA-256 of the entry's name, summary and folders, one per line, when the tags were chosen.", "type": "string", "pattern": "^[0-9a-f]{16}$" }
+        }
+      }
+    }
+  }
+}

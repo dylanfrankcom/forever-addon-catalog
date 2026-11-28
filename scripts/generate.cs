@@ -12,7 +12,8 @@
 // Options: --catalog <file> (default ./catalog.json: read for its editions and the IDs and dates it already gave, then
 // written), --candidates <file> (default ./candidates.json), --checks <file> (default ./checks.json), --overrides <dir>
 // (default ./overrides), --optout <file> (default ./optout.json), --icons <dir> (default ./icons), --no-icons (keep the
-// icons as they are), --versions <file> (default ./versions.json), // --confirmed <file> (default ./confirmed.json: CurseForge and Wago versions the maintainer confirmed), --summary <file>.
+// icons as they are), --versions <file> (default ./versions.json), // --confirmed <file> (default ./confirmed.json: CurseForge and Wago versions the maintainer confirmed),
+// --tags <file> (default ./tags.json: tags chosen for entries whose author set none), --summary <file>.
 //
 // The listing scope is one setting, Scope below: only add-ons whose release passed for that edition are listed, each
 // with every edition its release was checked for. Widening it is a one-line change.
@@ -33,7 +34,7 @@ if (args is ["--self-test"])
 }
 
 string catalogArg = "catalog.json", candidatesArg = "candidates.json", checksArg = "checks.json", overridesArg = "overrides",
-    optoutArg = "optout.json", iconsArg = "icons", versionsArg = "versions.json", confirmedArg = "confirmed.json";
+    optoutArg = "optout.json", iconsArg = "icons", versionsArg = "versions.json", confirmedArg = "confirmed.json", tagsArg = "tags.json";
 string? summaryArg = null;
 var icons = true;
 for (var i = 0; i < args.Length; i++)
@@ -50,9 +51,10 @@ for (var i = 0; i < args.Length; i++)
         case "--summary" when value is not null: summaryArg = value; i++; break;
         case "--versions" when value is not null: versionsArg = value; i++; break;
         case "--confirmed" when value is not null: confirmedArg = value; i++; break;
+        case "--tags" when value is not null: tagsArg = value; i++; break;
         case "--no-icons": icons = false; break;
         default:
-            Console.Error.WriteLine("Usage: dotnet run scripts/generate.cs [--catalog <file>] [--candidates <file>] [--checks <file>] [--overrides <dir>] [--optout <file>] [--icons <dir>] [--no-icons] [--versions <file>] [--confirmed <file>] [--summary <file>] | --self-test");
+            Console.Error.WriteLine("Usage: dotnet run scripts/generate.cs [--catalog <file>] [--candidates <file>] [--checks <file>] [--overrides <dir>] [--optout <file>] [--icons <dir>] [--no-icons] [--versions <file>] [--confirmed <file>] [--tags <file>] [--summary <file>] | --self-test");
             return 2;
     }
 }
@@ -64,6 +66,10 @@ try
     if (File.Exists(confirmedArg))
     {
         inputs = inputs with { Confirmed = JsonNode.Parse(File.ReadAllText(confirmedArg))!.AsObject() };
+    }
+    if (File.Exists(tagsArg))
+    {
+        inputs = inputs with { InferredTags = JsonNode.Parse(File.ReadAllText(tagsArg))!.AsObject() };
     }
 }
 catch (Exception e) when (e is IOException or UnauthorizedAccessException or JsonException or InvalidOperationException or NullReferenceException or FormatException or KeyNotFoundException)
@@ -322,7 +328,7 @@ static class Settings
 }
 
 sealed record Inputs(JsonObject Catalog, Dictionary<string, JsonObject> Candidates, List<JsonObject> Checks,
-    Dictionary<string, JsonObject> Overrides, JsonObject CuratedAuthors, List<string> OptOut, JsonObject? Confirmed = null)
+    Dictionary<string, JsonObject> Overrides, JsonObject CuratedAuthors, List<string> OptOut, JsonObject? Confirmed = null, JsonObject? InferredTags = null)
 {
     public static Inputs Read(string catalog, string candidates, string checks, string overrides, string optout)
     {
@@ -1051,6 +1057,7 @@ static class Generator
         result.Notices.AddRange(Support.Changes(inputs.Catalog["authors"] as JsonObject, result.Authors));
         result.Notices.AddRange(SiteLinks.Settle(result.Addons, inputs.Overrides));
         result.Notices.AddRange(Confirmed.Apply(result.Addons, inputs.Confirmed));
+        result.Notices.AddRange(InferredTags.Apply(result.Addons, inputs.InferredTags));
         result.Notices.AddRange(Trust.Settle(result.Addons));
         result.Addons.Sort((a, b) => string.CompareOrdinal(a["id"]!.GetValue<string>(), b["id"]!.GetValue<string>()));
         return result;
@@ -1541,6 +1548,60 @@ static class Generator
 /// catalog.json as "confirmed", by edition, for the editions the entry lists. Nothing else sets it: an override's is
 /// dropped.
 /// </summary>
+/// <summary>
+/// tags.json (schema/tags.schema.json): tags chosen for entries whose author set none, from the add-on's name, summary,
+/// folders and README. Used only for an entry with no tags from its .toc, its topics or an override, marked
+/// from.tags "inferred". Each row keeps a fingerprint of what its tags were chosen from, so they can be chosen again when
+/// it changes.
+/// </summary>
+static class InferredTags
+{
+    /// <summary>The first 16 hex digits of the SHA-256 of the name, summary and folders, one per line.</summary>
+    public static string Fingerprint(JsonObject entry)
+    {
+        var text = string.Join("\n", new[] { Generator.Str(entry["name"]) ?? "", Generator.Str(entry["summary"]) ?? "" }
+            .Concat((entry["folders"]?.AsArray() ?? []).Select(f => Generator.Str(f) ?? "")));
+        return Convert.ToHexStringLower(System.Security.Cryptography.SHA256.HashData(Encoding.UTF8.GetBytes(text)))[..16];
+    }
+
+    public static List<string> Apply(List<JsonObject> addons, JsonObject? file)
+    {
+        var notices = new List<string>();
+        var rows = file?["addons"]?.AsObject() ?? new JsonObject();
+        var ids = new HashSet<string>(StringComparer.Ordinal);
+        var changed = 0;
+        foreach (var entry in addons)
+        {
+            var id = entry["id"]!.GetValue<string>();
+            ids.Add(id);
+            if (entry["tags"] is not null || rows[id] is not JsonObject row)
+            {
+                continue;
+            }
+            var tags = (row["tags"]?.AsArray() ?? []).Select(t => Generator.Str(t)).OfType<string>().ToList();
+            if (Generator.Str(row["fingerprint"]) != Fingerprint(entry))
+            {
+                changed++;
+            }
+            if (tags.Count == 0)
+            {
+                continue;
+            }
+            entry["tags"] = new JsonArray(tags.Select(t => (JsonNode)JsonValue.Create(t)!).ToArray());
+            if (entry["from"] is JsonObject from)
+            {
+                from["tags"] = "inferred";
+            }
+        }
+        if (changed > 0)
+        {
+            notices.Add($"tags.json: {changed} entries changed since their tags were chosen");
+        }
+        notices.AddRange(rows.Where(r => !ids.Contains(r.Key)).Select(r => $"tags.json: {r.Key} isn't listed in the catalog; left out"));
+        return notices;
+    }
+}
+
 static class Confirmed
 {
     public static List<string> Apply(List<JsonObject> addons, JsonObject? confirmed)
@@ -2195,6 +2256,26 @@ static class SelfTest
         Check("confirmed: one for an entry or edition that isn't listed is a notice", confirmedNotices.Count == 2
             && confirmedNotices.Any(n => n.Contains("gone wago forever", StringComparison.Ordinal)) && confirmedNotices.Any(n => n.Contains("q curseforge retail", StringComparison.Ordinal)));
         Confirmed.Apply([withSources], null);
+
+        // Tags chosen for entries whose author set none, from tags.json.
+        var untagged = Obj("""{"id":"u","name":"U","summary":"S","folders":["U"],"from":{"name":"folder"}}""");
+        var authorTagged = Obj("""{"id":"a","name":"A","tags":["quests"],"from":{"tags":"topics"}}""");
+        var noneFit = Obj("""{"id":"n","name":"N","folders":["N"],"from":{}}""");
+        var tagsFile = new JsonObject { ["addons"] = new JsonObject
+        {
+            ["u"] = new JsonObject { ["tags"] = new JsonArray("map", "quests"), ["fingerprint"] = InferredTags.Fingerprint(untagged) },
+            ["a"] = new JsonObject { ["tags"] = new JsonArray("bags"), ["fingerprint"] = "0000000000000000" },
+            ["n"] = new JsonObject { ["tags"] = new JsonArray(), ["fingerprint"] = "0000000000000000" },
+            ["gone"] = new JsonObject { ["tags"] = new JsonArray("map"), ["fingerprint"] = "0000000000000000" },
+        } };
+        var tagNotices = InferredTags.Apply([untagged, authorTagged, noneFit], tagsFile);
+        Check("inferred tags: used for an untagged entry, marked inferred", List(untagged["tags"]).SequenceEqual(["map", "quests"]) && Str(untagged["from"]!["tags"]) == "inferred");
+        Check("inferred tags: never over the author's", List(authorTagged["tags"]).SequenceEqual(["quests"]) && Str(authorTagged["from"]!["tags"]) == "topics");
+        Check("inferred tags: none fit leaves none", noneFit["tags"] is null && noneFit["from"]!["tags"] is null);
+        Check("inferred tags: a changed entry and an unlisted row are reported", tagNotices.Contains("tags.json: 1 entries changed since their tags were chosen")
+            && tagNotices.Contains("tags.json: gone isn't listed in the catalog; left out"));
+        Check("inferred tags: the fingerprint follows the name, summary and folders", InferredTags.Fingerprint(untagged).Length == 16
+            && InferredTags.Fingerprint(untagged) != InferredTags.Fingerprint(Obj("""{"name":"U","summary":"Other","folders":["U"]}""")));
         Check("confirmed: only confirmed.json sets it", withSources["sources"]![1]!["confirmed"] is null);
 
         // Cleaning the author's text.

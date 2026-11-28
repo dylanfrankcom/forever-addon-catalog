@@ -283,7 +283,7 @@
         "summary": { "enum": ["toc-notes", "repo-description", "readme", "override"] },
         "summaries": { "const": "override" },
         "author": { "enum": ["repo-owner", "override"] },
-        "tags": { "enum": ["toc-category", "topics", "override"] },
+        "tags": { "description": "inferred: chosen from the add-on's name, summary, folders and README (tags.json), only when its author set none.", "enum": ["toc-category", "topics", "override", "inferred"] },
         "icon": { "enum": ["toc-icon", "override"] },
         "curseforge": { "description": "toc: the ID in the add-on's .toc, as its author states it, never checked with the site; source: a CurseForge or Wago source its override lists; override: set by a person.", "enum": ["toc", "source", "override"] },
         "wago": { "description": "As curseforge.", "enum": ["toc", "source", "override"] },
