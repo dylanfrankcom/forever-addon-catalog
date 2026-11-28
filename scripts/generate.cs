@@ -95,7 +95,7 @@ else
 {
     Icons.Keep(result, inputs, iconsArg);
 }
-File.WriteAllText(catalogArg, Generator.Write(result, inputs.Catalog));
+File.WriteAllText(catalogArg, Generator.Write(result, inputs.Catalog, today));
 var previousVersions = File.Exists(versionsArg) ? File.ReadAllText(versionsArg) : null;
 if (Versions.Write(result, inputs.Catalog, previousVersions, DateTime.UtcNow) is { } versions)
 {
@@ -1518,27 +1518,43 @@ static class Generator
     }
 
     /// <summary>
-    /// The new catalog.json. Its version goes up a minor version when entries or authors changed, and a major version
-    /// when the format did.
+    /// The new catalog.json. When entries, authors or the format changed, its version becomes the day's date and that
+    /// day's build number (2026.11.28.3); otherwise it stays.
     /// </summary>
-    public static string Write(Result result, JsonObject previous)
+    public static string Write(Result result, JsonObject previous, DateOnly today)
     {
         var authors = new JsonObject(result.Authors.OrderBy(a => a.Key, StringComparer.Ordinal).Select(a => KeyValuePair.Create(a.Key, a.Value?.DeepClone())));
         var addons = new JsonArray(result.Addons.Select(a => (JsonNode)Ordered(a)).ToArray());
-        var version = Version.Parse(Str(previous["version"]) ?? "0.0.0");
+        var version = Str(previous["version"]);
         var formatChanged = previous["schemaVersion"]?.GetValue<int>() != Settings.SchemaVersion;
         var changed = !JsonNode.DeepEquals(previous["addons"], addons) || !JsonNode.DeepEquals(previous["authors"], authors);
-        var next = formatChanged ? new Version(version.Major + 1, 0, 0) : changed ? new Version(version.Major, version.Minor + 1, 0) : version;
+        var next = formatChanged || changed || version is null ? NextVersion(version, today) : version;
         var root = new JsonObject
         {
             ["$schema"] = "./schema/catalog.schema.json",
             ["schemaVersion"] = Settings.SchemaVersion,
-            ["version"] = next.ToString(3),
+            ["version"] = next,
             ["editions"] = previous["editions"]!.DeepClone(),
             ["authors"] = authors,
             ["addons"] = addons,
         };
         return root.ToJsonString(Options) + "\n";
+    }
+
+    /// <summary>
+    /// The version after <paramref name="previous"/> built on <paramref name="today"/>: the date and 1, or one more than
+    /// the previous build number on the same day. A semantic version (before the date form) counts as an earlier day.
+    /// </summary>
+    public static string NextVersion(string? previous, DateOnly today)
+    {
+        var date = today.ToString("yyyy.MM.dd", System.Globalization.CultureInfo.InvariantCulture);
+        var number = 1;
+        if (previous is not null && previous.StartsWith(date + ".", StringComparison.Ordinal)
+            && int.TryParse(previous.AsSpan(date.Length + 1), System.Globalization.NumberStyles.None, System.Globalization.CultureInfo.InvariantCulture, out var n))
+        {
+            number = n + 1;
+        }
+        return $"{date}.{number.ToString(System.Globalization.CultureInfo.InvariantCulture)}";
     }
 }
 
@@ -2605,13 +2621,18 @@ static class SelfTest
         Check("complete override", Str(byId["cfonly"]["name"]) == "CF Only" && Str(byId["cfonly"]["from"]!["entry"]) == "override");
         Check("icon job", result.IconJobs.Count == 1 && result.IconJobs[0].Path == "Thing/icon");
 
-        // Versions: the format's change is a major version, a change of entries a minor one, none none.
-        var written = Generator.Write(result, previous);
+        // Versions: the build's date and that day's build number, when anything changed.
+        var day = new DateOnly(2026, 11, 27);
+        var written = Generator.Write(result, previous, day);
         var first = Obj(written);
-        Check("version: new format", Str(first["version"]) == "4.0.0" && first["schemaVersion"]!.GetValue<int>() == 4 && !written.Contains('\r'));
-        Check("version: no change", Str(Obj(Generator.Write(Generator.Build(inputs with { Catalog = first }, new DateOnly(2026, 11, 27)), first))["version"]) == "4.0.0");
+        Check("version: from a semantic version, the day's first build", Str(first["version"]) == "2026.11.27.1"
+            && first["schemaVersion"]!.GetValue<int>() == 4 && !written.Contains('\r'));
+        Check("version: no change", Str(Obj(Generator.Write(Generator.Build(inputs with { Catalog = first }, day), first, day.AddDays(1)))["version"]) == "2026.11.27.1");
         var fewer = inputs with { Catalog = first, Overrides = new(overrides.Where(o => o.Key != "cfonly")) };
-        Check("version: entries changed", Str(Obj(Generator.Write(Generator.Build(fewer, new DateOnly(2026, 11, 27)), first))["version"]) == "4.1.0");
+        Check("version: entries changed, the day's second build", Str(Obj(Generator.Write(Generator.Build(fewer, day), first, day))["version"]) == "2026.11.27.2");
+        Check("version: entries changed the next day", Str(Obj(Generator.Write(Generator.Build(fewer, day), first, day.AddDays(1)))["version"]) == "2026.11.28.1");
+        Check("version: build numbers past 9 and a new month", Generator.NextVersion("2026.11.27.9", day) == "2026.11.27.10"
+            && Generator.NextVersion("2026.11.27.12", new DateOnly(2026, 12, 1)) == "2026.12.01.1" && Generator.NextVersion(null, day) == "2026.11.27.1");
         Check("stable IDs", Generator.Build(inputs with { Catalog = first }, new DateOnly(2026, 11, 27)).Addons.Select(a => Str(a["id"])).SequenceEqual(byId.Keys.Order(StringComparer.Ordinal)));
 
         // Images.

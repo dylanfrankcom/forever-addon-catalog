@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 4,
+  "version": "2026.11.28.3",
+  "editions": {
+    "forever": {
+      "name": "WoW: Forever",
+      "shortName": "Forever",
+      "product": "wowf",
+      "folder": "_forever_",
+      "gameVersion": "1.60.1",
+      "interface": "16001",
+      "interfaceSince": "2026-10-13",
+      "tocSuffixes": [
+        "_Forever",
+        "-Forever",
+        "_Camelot",
+        "-Camelot"
+      ],
+      "gameTypes": [
+        "camelot"
+      ],
+      "packagerFlavors": [
+        "camelot",
+        "forever"
+      ],
+      "fileWords": [
+        "forever"
+      ]
+    }
+  },
+  "authors": {
+    "test": {
+      "name": "Test"
+    }
+  },
+  "addons": [
+    {
+      "id": "x",
+      "name": "X",
+      "author": "test",
+      "summary": "Test.",
+      "sources": [
+        {
+          "type": "curseforge",
+          "projectId": 1
+        }
+      ],
+      "folders": [
+        "X"
+      ]
+    }
+  ]
+}
